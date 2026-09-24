@@ -1,0 +1,237 @@
+schema_version: "0.1"
+city:
+  name: "Digital-City"
+  repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
+  phase: "DIGITAL_CITY_INITIAL_REGISTRY"
+  model: "city -> building type -> repository/building -> room/capability -> road/integration"
+  core_repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
+  monorepo: false
+
+roles:
+  city_substrate: "Shared runtime, trust, identity, policy, routing and lifecycle infrastructure"
+  building: "Independent repository with a coherent city role"
+  room: "Capability owned by one building"
+  resident: "Persistent digital identity or agent"
+  road: "Supported cross-project interface, event, schema or data flow"
+  engineering: "Construction, testing, repair, deployment and recovery"
+
+buildings:
+  - id: "government"
+    path: "01-Government"
+    title: "Government / 市政厅与治理"
+    projects:
+      - name: "Codex-Boss"
+        repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
+        city_role: "city-substrate"
+        registration_state: "connected"
+        rooms:
+          - "runtime-orchestration"
+          - "identity-and-root-trust"
+          - "capability-fabric"
+          - "architecture-observation-and-enforcement"
+          - "policy-and-permission-boundaries"
+          - "evidence-and-admission"
+          - "municipal-learning-and-evolution"
+      - name: "Boss-Qualification-Control"
+        repository: "https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control"
+        city_role: "qualification-control"
+        registration_state: "connected"
+        rooms: ["qualification", "acceptance-control", "evidence-gates"]
+      - name: "General-Logic-Engine"
+        repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
+        city_role: "shared-logic-service"
+        registration_state: "connected"
+        rooms: ["general-logic", "rule-evaluation", "reasoning-support"]
+
+  - id: "engineering"
+    path: "02-Engineering"
+    title: "Engineering / 工务与运维"
+    projects:
+      - name: "DS-Hns"
+        repository: "https://github.com/zhiheng-zhang-Mera/DS-Hns"
+        city_role: "engineering-system"
+        registration_state: "connected"
+        rooms: ["construction", "testing", "repair", "deployment", "recovery", "computer-use"]
+      - name: "Harness-Mega"
+        repository: "https://github.com/zhiheng-zhang-Mera/Harness-Mega"
+        city_role: "host-harness"
+        registration_state: "connected"
+        rooms: ["host-isolation", "integration-harness"]
+      - name: "Harness-Alien"
+        repository: "https://github.com/zhiheng-zhang-Mera/Harness-Alien"
+        city_role: "host-harness"
+        registration_state: "connected"
+        rooms: ["asynchronous-host-work", "integration-harness"]
+      - name: "dsh-health-scheduler"
+        repository: "https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler"
+        city_role: "runtime-health-service"
+        registration_state: "connected"
+        rooms: ["health-observation", "throttle-policy", "pause-policy", "restart-request"]
+      - name: "dsh-restart"
+        repository: "https://github.com/zhiheng-zhang-Mera/dsh-restart"
+        city_role: "restart-service"
+        registration_state: "connected"
+        rooms: ["restart-execution", "continuation-support"]
+
+  - id: "residential"
+    path: "03-Residential"
+    title: "Residential / 数字居民"
+    projects:
+      - name: "Digital-Me"
+        repository: "https://github.com/zhiheng-zhang-Mera/Digital-Me"
+        city_role: "digital-resident"
+        registration_state: "connected"
+        rooms: ["identity", "skills", "capability-assessment", "cognitive-profile", "persona", "voice", "multilingual-expression", "embodiment"]
+
+  - id: "legal-privacy"
+    path: "04-Legal-Privacy"
+    title: "Legal & Privacy / 法律与隐私"
+    projects:
+      - name: "privacy-lens-research-artifact"
+        repository: "https://github.com/zhiheng-zhang-Mera/privacy-lens-research-artifact"
+        city_role: "published-research-artifact"
+        registration_state: "connected"
+        rooms: ["privacy-research-artifact", "reproducible-evidence", "audit-surface"]
+      - name: "GDPR-app"
+        repository: "https://github.com/zhiheng-zhang-Mera/GDPR-app"
+        city_role: "privacy-application"
+        registration_state: "connected"
+        rooms: ["gdpr-application", "privacy-workflow"]
+      - name: "GDPR-project"
+        repository: "https://github.com/zhiheng-zhang-Mera/GDPR-project"
+        city_role: "research-and-development-history"
+        registration_state: "connected"
+        rooms: ["historical-development", "research-evidence", "thesis-source"]
+
+  - id: "medical"
+    path: "05-Medical"
+    title: "Medical / 医疗健康"
+    projects:
+      - name: "Parama-Health"
+        repository: "https://github.com/zhiheng-zhang-Mera/Parama-Health"
+        city_role: "health-system"
+        registration_state: "connected"
+        rooms: ["longitudinal-health", "nutrition", "activity", "body-state"]
+      - name: "Machine-Learning-for-Health-Group-Project"
+        repository: "https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project"
+        city_role: "health-ml-research"
+        registration_state: "connected"
+        rooms: ["health-ml", "research-models"]
+      - name: "Distributed-ESP32-Health-Project"
+        repository: "https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project"
+        city_role: "distributed-health-sensing"
+        registration_state: "connected"
+        rooms: ["distributed-sensing", "esp32", "edge-health-data"]
+      - name: "drug-simulator"
+        repository: "https://github.com/zhiheng-zhang-Mera/drug-simulator"
+        city_role: "health-simulation"
+        registration_state: "connected"
+        rooms: ["simulation", "drug-modeling"]
+
+  - id: "research-finance"
+    path: "06-Research-Finance"
+    title: "Research & Finance / 研究与金融"
+    projects:
+      - name: "Quant-ultra"
+        repository: "https://github.com/zhiheng-zhang-Mera/Quant-ultra"
+        city_role: "quant-research"
+        registration_state: "connected"
+        rooms: ["quant-research", "strategy-learning", "market-experimentation"]
+      - name: "ML-Quant-A-stock"
+        repository: "https://github.com/zhiheng-zhang-Mera/ML-Quant-A-stock"
+        city_role: "ml-quant-research"
+        registration_state: "connected"
+        rooms: ["market-ml", "a-share-research"]
+      - name: "Personal-trading-project-for-fun"
+        repository: "https://github.com/zhiheng-zhang-Mera/Personal-trading-project-for-fun"
+        city_role: "trading-experiment"
+        registration_state: "connected"
+        rooms: ["trading-experiments", "strategy-prototypes"]
+
+  - id: "device-infrastructure"
+    path: "07-Device-Infrastructure"
+    title: "Device Infrastructure / 设备与具身接口"
+    projects:
+      - name: "My_VR_Glove"
+        repository: "https://github.com/zhiheng-zhang-Mera/My_VR_Glove"
+        city_role: "embodied-interface"
+        registration_state: "connected"
+        rooms: ["vr-input", "physical-interaction"]
+      - name: "Firmware_Anomoly_Noise_Detect"
+        repository: "https://github.com/zhiheng-zhang-Mera/Firmware_Anomoly_Noise_Detect"
+        city_role: "edge-firmware"
+        registration_state: "connected"
+        rooms: ["firmware-sensing", "anomaly-detection", "edge-signal-processing"]
+
+  - id: "planning-knowledge"
+    path: "08-Planning-Knowledge"
+    title: "Planning & Knowledge / 规划与知识"
+    projects:
+      - name: "Idea-Book"
+        repository: "https://github.com/zhiheng-zhang-Mera/Idea-Book"
+        city_role: "city-planning-reserve"
+        registration_state: "connected"
+        rooms: ["idea-registry", "future-buildings", "concept-roadmaps"]
+      - name: "Task-Board"
+        repository: "https://github.com/zhiheng-zhang-Mera/Task-Board"
+        city_role: "task-registry"
+        registration_state: "connected"
+        rooms: ["task-planning", "mainline-and-sideline-tracking"]
+      - name: "Application-Plan"
+        repository: "https://github.com/zhiheng-zhang-Mera/Application-Plan"
+        city_role: "application-planning"
+        registration_state: "connected"
+        rooms: ["contact-pool", "application-workflow", "materials"]
+      - name: "research-overview"
+        repository: "https://github.com/zhiheng-zhang-Mera/research-overview"
+        city_role: "research-index"
+        registration_state: "connected"
+        rooms: ["research-overview", "portfolio-index"]
+      - name: "Essay-Book"
+        repository: "https://github.com/zhiheng-zhang-Mera/Essay-Book"
+        city_role: "writing-and-paper-planning"
+        registration_state: "connected"
+        rooms: ["paper-planning", "essay-registry", "research-writing"]
+
+  - id: "automation"
+    path: "09-Automation"
+    title: "Automation / 自动化"
+    projects:
+      - name: "Auto-Game-Bot"
+        repository: "https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot"
+        city_role: "environment-automation"
+        registration_state: "connected"
+        rooms: ["perception-action-loop", "task-automation", "completion-validation"]
+
+roads:
+  - id: "identity-road"
+    purpose: "owner, machine, agent, resident and service identity"
+  - id: "capability-road"
+    purpose: "capability discovery and invocation"
+  - id: "event-road"
+    purpose: "loosely coupled state/event exchange"
+  - id: "evidence-road"
+    purpose: "provenance, qualification and admission evidence"
+  - id: "data-road"
+    purpose: "typed data exchange with ownership/privacy boundaries"
+  - id: "policy-road"
+    purpose: "permission and constitutional boundary evaluation"
+  - id: "learning-road"
+    purpose: "experience, familiarity/fusion state and bounded learning proposals"
+  - id: "recovery-road"
+    purpose: "health, persistence, restart and continuation semantics"
+
+planned_city_capabilities:
+  - id: "municipal-learning-and-evolution"
+    owner: "Codex-Boss"
+    building: "01-Government"
+    state: "concept-and-architecture-direction"
+    stages:
+      - "observation"
+      - "short-term-trace"
+      - "repeated-evidence"
+      - "familiarity-fusion"
+      - "consolidation"
+      - "learning-proposal"
+      - "bounded-validation"
+      - "accepted-change"
