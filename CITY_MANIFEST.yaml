@@ -1,15 +1,17 @@
-schema_version: "0.1"
+schema_version: "0.2"
 city:
   name: "Digital-City"
   repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
   phase: "DIGITAL_CITY_INITIAL_REGISTRY"
-  model: "city -> building type -> repository/building -> room/capability -> road/integration"
+  model: "city -> building type -> repository/building or explicit placeholder -> room/capability -> road/integration"
   core_repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
   monorepo: false
+  policy_rule: "domain-scoped-by-default; city-wide only by explicit promotion"
 
 roles:
-  city_substrate: "Shared runtime, trust, identity, policy, routing and lifecycle infrastructure"
+  city_substrate: "Shared runtime, trust, identity, scoped policy, routing and lifecycle infrastructure"
   building: "Independent repository with a coherent city role"
+  planned_building: "Explicit city placeholder with PROJECT_NOT_CREATED and no implementation authority"
   room: "Capability owned by one building"
   resident: "Persistent digital identity or agent"
   road: "Supported cross-project interface, event, schema or data flow"
@@ -28,10 +30,10 @@ buildings:
           - "runtime-orchestration"
           - "identity-and-root-trust"
           - "capability-fabric"
-          - "architecture-observation-and-enforcement"
-          - "policy-and-permission-boundaries"
-          - "evidence-and-admission"
-          - "municipal-learning-and-evolution"
+          - "city-wide-hard-boundary-enforcement"
+          - "policy-and-permission-scope"
+          - "minimal-evidence-and-audit"
+          - "extension-lifecycle-boundary"
       - name: "Boss-Qualification-Control"
         repository: "https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control"
         city_role: "qualification-control"
@@ -203,6 +205,50 @@ buildings:
         registration_state: "connected"
         rooms: ["perception-action-loop", "task-automation", "completion-validation"]
 
+  - id: "entertainment"
+    path: "10-Entertainment"
+    title: "Entertainment / 娱乐与沉浸式交互"
+    projects: []
+
+planned_buildings:
+  - id: "customs-security"
+    path: "01-Government/Customs-Security"
+    title: "Customs Security / 海关安检"
+    registration_state: "project-not-created"
+    domain: "government"
+    action: "ADMIT"
+    intended_rooms: ["manifest-check", "dependency-check", "permission-scope-check", "isolation-check", "lifecycle-check"]
+
+  - id: "runtime-compliance-public-security"
+    path: "01-Government/Public-Security"
+    title: "Runtime Compliance / Public Security / 公安与运行时合规"
+    registration_state: "project-not-created"
+    domain: "government"
+    action: "ENFORCE"
+    intended_rooms: ["cross-domain-enforcement", "privilege-boundary", "protected-data-boundary", "authority-escalation-boundary"]
+
+  - id: "research-institute"
+    path: "06-Research-Finance/Research-Institute"
+    title: "Research Institute / 研究院"
+    registration_state: "project-not-created"
+    domain: "research"
+    intended_rooms: ["mechanism-research", "ai-formalization", "multi-ai-critique", "simulation", "experiment", "evidence"]
+    planned_programs: ["machine-intelligence"]
+
+  - id: "integrated-health-hospital"
+    path: "05-Medical/Integrated-Health-Hospital"
+    title: "Integrated Health Hospital / 综合医院"
+    registration_state: "project-not-created"
+    domain: "medical"
+    intended_rooms: ["wearable-fusion", "nutrition-estimation", "energy-balance", "longitudinal-correction", "body-state"]
+
+  - id: "entertainment-centre"
+    path: "10-Entertainment/Entertainment-Centre"
+    title: "Entertainment Centre / 娱乐中心"
+    registration_state: "project-not-created"
+    domain: "entertainment"
+    intended_rooms: ["translation", "vr-ar", "asmr-spatial-audio", "smart-glasses-experience"]
+
 roads:
   - id: "identity-road"
     purpose: "owner, machine, agent, resident and service identity"
@@ -215,23 +261,36 @@ roads:
   - id: "data-road"
     purpose: "typed data exchange with ownership/privacy boundaries"
   - id: "policy-road"
-    purpose: "permission and constitutional boundary evaluation"
+    purpose: "permission and explicitly scoped policy evaluation"
   - id: "learning-road"
-    purpose: "experience, familiarity/fusion state and bounded learning proposals"
+    purpose: "domain-owned observations or learning state exposed through explicit contracts"
   - id: "recovery-road"
     purpose: "health, persistence, restart and continuation semantics"
 
 planned_city_capabilities:
-  - id: "municipal-learning-and-evolution"
-    owner: "Codex-Boss"
-    building: "01-Government"
-    state: "concept-and-architecture-direction"
+  - id: "extension-admission"
+    owner: "unassigned"
+    conceptual_building: "customs-security"
+    state: "project-not-created"
+    principle: "admission-only; do not become permanent business-logic governance"
+
+  - id: "runtime-hard-boundary-enforcement"
+    owner: "unassigned"
+    conceptual_building: "runtime-compliance-public-security"
+    state: "project-not-created"
+    principle: "city-wide hard boundaries only; domain correctness stays local"
+
+  - id: "machine-intelligence-research"
+    owner: "unassigned"
+    conceptual_building: "research-institute"
+    state: "research-domain-program-not-created"
+    scope: "research"
     stages:
-      - "observation"
-      - "short-term-trace"
-      - "repeated-evidence"
-      - "familiarity-fusion"
-      - "consolidation"
-      - "learning-proposal"
-      - "bounded-validation"
-      - "accepted-change"
+      - "reality-mechanism"
+      - "ontology"
+      - "ai-formalization"
+      - "multi-ai-critique"
+      - "simulation"
+      - "experiment"
+      - "human-mechanism-review"
+      - "revision"

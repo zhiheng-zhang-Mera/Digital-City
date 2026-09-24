@@ -8,8 +8,9 @@ Every new capability must be classified before implementation:
 
 | Type | Meaning | Typical owner |
 |---|---|---|
-| City substrate | Runtime, trust, identity, routing, policy, shared lifecycle | Codex-Boss |
+| City substrate | Runtime, trust, identity, routing, scoped policy, shared lifecycle | Codex-Boss |
 | Building | Independently maintained project with a coherent domain purpose | A connected GitHub repository |
+| Planned building | Reserved city placement with no implementation yet | Digital-City documentation only |
 | Room | Capability owned by one building | Module/service inside that repository |
 | Resident | Persistent digital identity/agent that uses city services | Digital-Me or future agents |
 | Road | Stable interface, event, schema, or data flow between buildings | Shared contract |
@@ -17,6 +18,8 @@ Every new capability must be classified before implementation:
 | Engineering works | Construction, repair, qualification, host and recovery tooling | DS-Hns and operational repositories |
 
 A feature must not be moved into Boss merely because multiple projects use it. It belongs in Boss only when it is genuinely city-level infrastructure.
+
+A planned building must use the explicit state `PROJECT_NOT_CREATED`. A placeholder reserves topology only and has no implementation authority.
 
 ## 2. Repository independence
 
@@ -28,7 +31,8 @@ Connected repositories should remain:
 - independently testable;
 - independently versioned;
 - independently releasable where applicable;
-- capable of describing their public city-facing rooms and roads.
+- capable of describing their public city-facing rooms and roads;
+- removable or replaceable without forcing unrelated domains to be rewritten where practical.
 
 Digital-City must not become a copy of their source trees.
 
@@ -38,7 +42,8 @@ Digital-City must not become a copy of their source trees.
 - City placement and cross-project role live in Digital-City.
 - A building README describes the building for humans.
 - `CITY_MANIFEST.yaml` describes the same topology for machines.
-- Project-specific evidence stays with the project unless a city-wide ledger is explicitly created.
+- Project-specific evidence stays with the project unless a city-wide ledger is explicitly required.
+- A planned placeholder is never implementation truth.
 
 ## 4. Roads
 
@@ -68,90 +73,144 @@ Current conceptual road classes:
 
 Direct ad-hoc coupling is tolerated during exploration but should not silently become permanent infrastructure.
 
-## 5. Governance layers
+## 5. Governance and policy scope
 
-Digital-City uses three conceptual authority layers.
+Digital-City separates rule scope from execution authority.
 
-### Constitutional authority
+### L0 — City Constitution
 
-Reserved for Owner-level boundaries such as:
+Reserved for a very small set of city-wide invariants such as:
 
-- root identity;
-- irreversible authority transfer;
-- external permission expansion;
-- publication of protected/private material;
-- destructive operations beyond delegated scope;
-- changes to the constitutional trust model itself.
+- root identity and Owner sovereignty;
+- explicit authority transfer boundaries;
+- cross-domain permission/scope isolation;
+- protected data boundaries;
+- audit/provenance integrity;
+- extension lifecycle and removal safety where city-wide.
 
-### Municipal authority
+The city constitution must stay small. Domain-specific research, health, construction, or entertainment rules do not belong here.
 
-The city may operate autonomously inside explicit constitutional boundaries, including:
+### L1 — Domain Charter
 
-- capability registration;
-- routing changes;
-- bounded module upgrades;
-- resource allocation;
-- evidence-based architecture adjustments;
-- learning consolidation;
-- low-risk policy tuning;
-- approved plugin/service composition.
+Each domain may define its own rules, for example:
 
-### Operational authority
+- Research: model semantics, falsifiability, evidence and research-review rules;
+- Medical: health-data handling and health-model evidence requirements;
+- Engineering: construction, repair, continuity and operational constraints;
+- Entertainment: media/experience-specific behavior.
 
-Engineering and agents may execute authorized work such as:
+> **Policy is scoped by domain unless explicitly promoted.**
 
-- coding;
-- testing;
-- deployment;
-- repair;
-- restart/recovery;
-- monitoring;
-- migration;
-- benchmarking.
+A Research Charter does not automatically govern Medical or Hns. A Medical rule does not automatically govern Research. Promotion to city-wide scope must be explicit.
 
-The goal is not to remove Owner authority. It is to move routine work out of per-action Owner gating and into bounded delegated authority.
+### L2 — Project Policy
 
-## 6. Municipal Learning & Evolution
+A concrete repository/building may define local policy inside its domain boundary.
 
-Learning is treated as a city process rather than an immediate mutation of the runtime.
+### L3 — Runtime / Experiment Rules
 
-A target lifecycle is:
+Temporary gates, experiment settings, version-specific checks and execution rules stay local unless deliberately promoted.
+
+## 6. Admission, enforcement and audit
+
+The city uses three conceptual actions rather than a new bureaucracy:
 
 ```text
-observation
-  -> short-term experience trace
-  -> repeated evidence
-  -> familiarity / fusion state
-  -> consolidation window
-  -> learning proposal
-  -> bounded validation
-  -> accepted city change
-  -> longitudinal re-evaluation
+ADMIT   = can this building/extension safely enter?
+ENFORCE = is it violating a city-wide hard boundary while running?
+RECORD  = what happened, with what identity/authority/evidence?
 ```
 
-Important properties:
+### Customs Security / 海关安检 — ADMIT
 
-- new observations do not instantly become permanent rules;
-- learning state carries provenance;
-- familiarity/fusion is evidence-backed state, not an arbitrary personality score;
-- consolidation may occur after the original interaction;
-- accepted changes remain testable and reversible where practical;
-- constitutional boundaries remain outside autonomous learning authority;
-- city-wide learning should prefer changing reusable policies/contracts over duplicating local hacks.
+A future Customs Security capability may validate:
 
-## 7. Building admission
+- manifest/schema;
+- identity/source;
+- dependencies;
+- requested permissions/capabilities;
+- domain scope;
+- isolation;
+- enable/disable/uninstall/rollback semantics.
 
-A repository may be registered when at least one of these is true:
+It is an admission-time boundary. It should not continuously govern the internal business logic of an admitted building.
+
+### Runtime Compliance / Public Security / 公安与运行时合规 — ENFORCE
+
+A future runtime-compliance capability may enforce city-wide hard boundaries at meaningful enforcement points such as:
+
+- privilege requests;
+- cross-domain calls;
+- protected-data access;
+- durable state mutation;
+- service registration;
+- authority escalation.
+
+It must not judge domain quality. It may block Research from reading protected Medical data, but it does not decide whether a research model is scientifically correct, whether a health estimate is clinically good, or whether Hns scheduling is optimal.
+
+### Audit — RECORD
+
+Audit records identity, authority, decision and evidence without becoming another approval layer.
+
+## 7. Research and Machine Intelligence scope
+
+The PhD-oriented Machine Intelligence direction is currently a **Research-domain program**, not a city constitutional primitive.
+
+Candidate mechanisms include:
+
+- delayed/post-learning consolidation;
+- familiarity/fusion state;
+- dynamic association structures;
+- long-term adaptation;
+- AI-assisted mathematical formalization;
+- multi-AI critique;
+- simulation and falsifiable prediction.
+
+These mechanisms may later be promoted if they prove stable and genuinely reusable across domains. Until then:
+
+```text
+Research mechanism != city-core requirement
+Research charter   != city constitution
+Research result    != automatic runtime truth
+```
+
+Boss may expose generic primitives needed by multiple domains, but research-specific semantics stay in Research.
+
+## 8. Building admission
+
+A repository may be registered as connected when at least one of these is true:
 
 - it owns an active city capability;
 - another city project depends on it;
 - it is the canonical evidence or research artifact for a city capability;
-- it is a planned building with an explicit roadmap;
 - it provides reusable engineering, device, privacy, or domain infrastructure.
+
+A **planned building placeholder** may be registered before a repository exists only when:
+
+- the intended city role is clear;
+- it is explicitly marked `PROJECT_NOT_CREATED`;
+- no active dependency points to it as though it already exists;
+- creating a dedicated repository is deferred until real implementation work justifies it.
 
 Old coursework and unrelated experiments are not automatically admitted.
 
-## 8. Update discipline
+## 9. Extension principle
+
+Future ecosystem insertion should prefer a thin extension contract over city-core modification.
+
+A future extension interface should answer only questions such as:
+
+- identity/version;
+- requested capabilities and permissions;
+- required services/dependencies;
+- domain scope;
+- storage namespace;
+- lifecycle: install/enable/disable/uninstall/rollback;
+- crash/isolation boundary.
+
+New ecosystems should not normally require Root Trust redesign, new epoch ceremonies, or unrelated domain migrations.
+
+## 10. Update discipline
 
 When city topology changes:
 
@@ -159,4 +218,6 @@ When city topology changes:
 2. update `CITY_MANIFEST.yaml`;
 3. update the root city map when the change affects navigation or city-level semantics;
 4. update road documentation when a new cross-project dependency becomes durable;
-5. avoid renaming buildings casually once other tooling consumes their paths.
+5. avoid renaming buildings casually once other tooling consumes their paths;
+6. keep placeholders explicitly non-operational until a project exists;
+7. do not promote a domain rule to city-wide scope merely for convenience.
