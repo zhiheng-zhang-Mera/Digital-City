@@ -1,71 +1,59 @@
-# Control Dashboard — 城市操作台
+# 城市控制中心 City Control Centre — 人机控制界面 Human Control Surface
 
 ```text
-STATUS = PROJECT_NOT_CREATED
-REPOSITORY = NOT_CREATED
+STATUS = PARTIAL_FOUNDATION_EXISTS
+CONTROL_UI = PROJECT_NOT_CREATED
+LOGIC_ENGINE_COMPONENT = General-Logic-Engine
 IMPLEMENTATION_AUTHORITY = NONE
-ROLE = HUMAN_FACING_CONTROL_SURFACE
+ROLE = HUMAN_FACING_CONTROL_SURFACE + CONTROL_LOGIC_BACKEND
 ```
 
-## Role
+## Existing component
 
-Control Dashboard is the planned human-facing operation surface for Digital-City.
+- **[General-Logic-Engine](https://github.com/zhiheng-zhang-Mera/General-Logic-Engine)** — registered here as the Control Centre's rule/state/explanation backend component.
 
-Its purpose is to provide one place to inspect and operate the wider ecosystem without turning the dashboard itself into a new source of city authority.
+Its current repository state is a **design baseline, not yet a runnable production engine**. Its typed entities, relations, events, state propagation, constraints, evidence and explanation traces fit the Control Centre's need to reason about and present city state, rules, consequences and explainable transitions.
+
+General-Logic-Engine is **not**:
+
+- the city authority source;
+- Root Trust;
+- the whole Control Centre UI;
+- a mandatory broker for all city traffic;
+- a replacement for domain-owned business logic.
+
+## Missing Control Centre components
+
+The human-facing application/shell is still not created. It may later provide:
+
+- interactive city/building map;
+- navigation and status views;
+- node/device/task summaries;
+- capability/permission/road visualization;
+- lifecycle request surfaces;
+- Owner-attention queue;
+- city activity/event views;
+- command submission;
+- Chat / Work entry points backed by owning runtimes.
 
 Conceptually:
 
 ```text
 Human / Owner
     ↓
-Control Dashboard
-    ↓
-digital-city-core-os / DS-Hns / domain buildings
+Control Centre UI
+    ├── General-Logic-Engine (rule/state/explanation support)
+    └── stable city/runtime interfaces
+            ↓
+      Core OS / Hns / domain buildings
 ```
-
-## Planned capabilities
-
-- interactive city/building map;
-- building and extension status;
-- lifecycle actions such as register / enable / disable / restart / upgrade / rollback / uninstall;
-- Hns worker / construction status;
-- CI, health, dependency and recovery summaries;
-- capability / permission / road visualization;
-- Owner-attention queue for the small number of actions that genuinely require Owner approval;
-- Chat / Work entry points backed by the appropriate runtime rather than implemented inside the dashboard.
 
 ## Boundary
 
-The dashboard is a **thin control client**.
+The Control Centre is a thin observation/navigation/control surface plus optional reasoning/explanation support.
 
-It must not become:
-
-- a second Boss / city core;
-- an independent source of authorization truth;
-- a duplicate city-state database;
-- a new policy engine;
-- a replacement for domain-specific governance.
-
-The dashboard may display state and submit requests or commands, but authorization and durable city truth stay with the owning runtime/project.
-
-## Dependency direction
-
-Preferred future dependency:
-
-```text
-Control Dashboard
-    -> consumes stable city/runtime interfaces
-
-digital-city-core-os
-DS-Hns
-domain buildings
-    -X-> must not depend on the dashboard to operate
-```
-
-The city should remain operable without the dashboard.
+Authorization and durable city truth remain with the owning runtime/project. City services must continue when the Control Centre is unavailable.
 
 ## Creation condition
 
-Do not create a standalone implementation repository until the post-cityization interfaces are stable enough for a UI to consume without repeated architectural rewrites.
-
-Until then this directory is documentation-only and must not be treated as an active dependency.
+Create the standalone UI/control-shell project only after the post-cityization interfaces are stable enough to consume without repeated architectural rewrites.
