@@ -1,47 +1,43 @@
-# Runtime Compliance / Public Security — 公安与运行时合规
+# 公安监管 Public Security — 运行时合规执行 Runtime Compliance Enforcement
 
 ```text
 STATUS = PROJECT_NOT_CREATED
-REPOSITORY = NOT_CREATED
-IMPLEMENTATION_AUTHORITY = NONE
-DOMAIN = GOVERNMENT
+CURRENT_IMPLEMENTATION_SOURCE = Codex-Boss
+FUTURE_EXTRACTION = PRESET_NOT_NOW
+ACTION = ENFORCE
 ```
 
-## Role
+## Future extraction target
 
-Runtime Compliance represents the conceptual **ENFORCE** stage after admission.
+Extract the reusable runtime enforcement layer for city-wide hard boundaries:
 
-It checks city-wide hard boundaries at meaningful runtime enforcement points.
+- privilege-request enforcement;
+- cross-domain access enforcement;
+- protected-resource access checks;
+- service/capability registration enforcement hooks;
+- authority-escalation rejection;
+- city-wide runtime-policy decision application;
+- audit-friendly enforcement verdicts.
 
-## Planned enforcement points
+Candidate Boss seed surfaces include:
 
-- privilege requests;
-- cross-domain calls;
-- protected-data access;
-- authority escalation;
-- durable protected-state mutation;
-- service/capability registration.
+- generic enforcement portions of `electron/capability/authorization.ts`;
+- `electron/commander/execution-gate.ts`;
+- `electron/commander/runtime-policy.ts`;
+- cross-domain/runtime boundary enforcement hooks;
+- generic permission-decision application.
 
-## Scope
+## Must remain in Core or owning domains
 
-Public Security may enforce **City Constitution / global hard-boundary rules**.
+- Owner sovereignty;
+- Root Trust / Root Authority as the source of truth;
+- constitutional protected-surface definitions;
+- domain-local policy;
+- domain business state;
+- qualification/promotion control.
 
-It must not automatically enforce:
+Public Security must **consume authority facts from Core** rather than becoming a second authority source.
 
-- Research Charter;
-- Medical/Health Charter;
-- Engineering/Hns local rules;
-- Entertainment rules;
-- project-specific experiment gates.
+## Extraction gate
 
-Domain-local compliance remains with the owning domain/project unless a rule is explicitly promoted to city-wide scope.
-
-## Boundary
-
-The objective is not continuous inspection of every internal function call.
-
-Enforcement should sit at boundaries where identity, permission, cross-domain access, protected state, or authority actually changes.
-
-## Creation condition
-
-A standalone project is justified only if runtime enforcement becomes independently reusable and materially clearer than keeping the enforcement points in the city substrate.
+A standalone package/repository/service becomes justified only when the enforcement contract is stable, independently testable, used at multiple city-domain boundaries, and separation provides a real independent lifecycle/failure-domain benefit.
