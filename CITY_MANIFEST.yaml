@@ -1,4 +1,4 @@
-schema_version: "0.6"
+schema_version: "0.7"
 
 city:
   name: "Digital-City"
@@ -167,6 +167,64 @@ government_safety_registry:
           - "independently testable"
           - "multiple city-domain enforcement points"
           - "clear independent lifecycle/failure-domain benefit"
+
+engineering_registry:
+  district_path: "02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)"
+  primary_orchestrator:
+    repository: "https://github.com/zhiheng-zhang-Mera/DS-Hns"
+    state: "EXISTING_INDEPENDENT_REPOSITORY"
+    role: "engineering construction orchestrator and execution system"
+  existing_services:
+    - repository: "https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler"
+      state: "EXISTING_INDEPENDENT_REPOSITORY"
+      role: "host/runtime health observation and maintenance/restart recommendation"
+    - repository: "https://github.com/zhiheng-zhang-Mera/dsh-restart"
+      state: "EXISTING_INDEPENDENT_REPOSITORY"
+      role: "safe restart execution and external relaunch supervision"
+  legacy_or_reference_assets:
+    - repository: "https://github.com/zhiheng-zhang-Mera/Harness-Alien"
+      role: "canonical historical host/shell baseline and adapter lineage"
+    - repository: "https://github.com/zhiheng-zhang-Mera/Harness-Mega"
+      role: "feature donor / legacy engineering asset; not a long-term top-level city building"
+  planned_extractions_from_boss:
+    - id: "engineering-execution-and-verification"
+      current_implementation_source: "Codex-Boss"
+      target_owner: "DS-Hns / Engineering domain"
+      state: "PRESET"
+      timing: "NOT_NOW"
+      purpose: "Move ordinary engineering completion, verification, recovery and construction-session responsibilities out of City Core."
+      include:
+        - "engineering goal acceptance"
+        - "engineering verification-policy and targeted-test selection"
+        - "ordinary construction/acceptance session bookkeeping"
+        - "construction-result verification"
+        - "engineering recovery and retry-loop semantics"
+        - "CI repair-loop mechanics where they are engineering execution rather than city trust"
+        - "engineering evidence production required to prove a task was completed"
+      exclude:
+        - "Owner/Root Trust and constitutional authority"
+        - "city-wide protected-surface definitions"
+        - "generic durable core state/event primitives"
+        - "production qualification / trusted-runner attestation owned by Boss-Qualification-Control"
+        - "city-wide audit/provenance primitives"
+        - "domain-specific business acceptance outside Engineering"
+      candidate_boss_surfaces:
+        - "electron/engineering/goal-acceptance.ts"
+        - "electron/engineering/verification-policy.ts"
+        - "ordinary engineering portions of electron/engineering/acceptance-session.ts"
+        - "ordinary engineering portions of electron/engineering/final-acceptance-gate.ts"
+        - "engineering/CI repair and recovery loops that do not define constitutional trust"
+      target_hns_surfaces:
+        - "app/engineering/verifier.cjs"
+        - "app/engineering/checkpoint.cjs"
+        - "app/engineering/supervisor.cjs"
+        - "app/engineering/scheduler.cjs"
+        - "app/engineering/failure.cjs"
+      extraction_gate:
+        - "one canonical engineering acceptance model"
+        - "no duplicated Boss/Hns engineering verdict logic"
+        - "Hns can verify an engineering task through stable Core contracts"
+        - "production qualification remains separately attestable by Boss-Qualification-Control"
 
 project_placement_overrides:
   - repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
