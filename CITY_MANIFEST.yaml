@@ -1,4 +1,4 @@
-schema_version: "0.5"
+schema_version: "0.6"
 
 city:
   name: "Digital-City"
@@ -32,6 +32,17 @@ infrastructure:
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/04-城市道路(City-Roads)-&-跨域语义契约(Cross-Domain-Semantic-Contracts)"
     - id: "control-centre"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/05-城市控制中心(City-Control-Centre)-&-人机控制界面(Human-Control-Surface)"
+      building_state: "PARTIAL_FOUNDATION_EXISTS"
+      existing_components:
+        - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
+          role: "control-centre rule/state/explanation engine component"
+          implementation_state: "DESIGN_BASELINE_NOT_YET_RUNTIME"
+      missing_components:
+        - "human-facing dashboard / city shell"
+        - "navigation and visualization layer"
+        - "command submission client"
+        - "owner-attention and city activity surfaces"
+      boundary: "General-Logic-Engine is a Control Centre backend component, not the city authority source, not the whole UI, and not a replacement for Core OS."
 
 districts:
   - id: "government-safety"
@@ -79,6 +90,92 @@ preserved_placeholders:
     status: "PROJECT_NOT_CREATED"
   - path: "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)"
     status: "PROJECT_NOT_CREATED"
+
+government_safety_registry:
+  district_path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)"
+  existing_buildings:
+    - id: "qualification-control"
+      repository: "https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control"
+      state: "EXISTING_INDEPENDENT_REPOSITORY"
+      role: "qualification, real-soak isolation, attestation and promotion control plane"
+      extraction_from_boss: false
+  planned_extractions:
+    - id: "customs-security"
+      path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)"
+      current_implementation_source: "Codex-Boss"
+      future_extraction:
+        state: "PRESET"
+        timing: "NOT_NOW"
+        purpose: "ADMIT new buildings/extensions before activation"
+        include:
+          - "extension/plugin manifest and schema validation"
+          - "extension identity/source verification hooks"
+          - "declared dependency checks"
+          - "requested capability/permission declaration checks"
+          - "domain/storage namespace declaration checks"
+          - "isolation/crash-boundary declaration checks"
+          - "enable/disable/uninstall/rollback readiness checks"
+          - "admission-time lifecycle preflight"
+        exclude:
+          - "Owner/Root Trust source of authority"
+          - "runtime enforcement after admission"
+          - "domain quality evaluation"
+          - "Capability Fabric registry itself"
+          - "domain business state"
+        candidate_boss_surfaces:
+          - "electron/security/permission-manifest.ts"
+          - "electron/capability/plugin-contract.ts"
+          - "generic admission portions of electron/capability/permission-contract.ts"
+          - "config/city-replacement-lifecycle.json"
+          - "generic extension lifecycle/preflight checks"
+        extraction_gate:
+          - "stable admission contract"
+          - "independently testable"
+          - "multiple independent extension/building consumers"
+          - "no Boss-private-state dependency"
+    - id: "runtime-compliance"
+      path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)"
+      current_implementation_source: "Codex-Boss"
+      future_extraction:
+        state: "PRESET"
+        timing: "NOT_NOW"
+        purpose: "ENFORCE city-wide hard boundaries at runtime"
+        include:
+          - "privilege-request enforcement"
+          - "cross-domain access enforcement"
+          - "protected-resource access checks"
+          - "service/capability registration enforcement hooks"
+          - "authority-escalation rejection"
+          - "city-wide runtime-policy decision application"
+          - "audit-friendly enforcement verdicts"
+        exclude:
+          - "Owner sovereignty"
+          - "Root Trust / Root Authority source of truth"
+          - "protected-surface constitutional definitions"
+          - "domain-local policy"
+          - "domain business state"
+          - "qualification/promotion control"
+        candidate_boss_surfaces:
+          - "generic enforcement portions of electron/capability/authorization.ts"
+          - "electron/commander/execution-gate.ts"
+          - "electron/commander/runtime-policy.ts"
+          - "cross-domain/runtime boundary enforcement hooks"
+          - "city-wide permission decision application"
+        extraction_gate:
+          - "stable enforcement contract"
+          - "authority facts supplied by Core rather than duplicated"
+          - "independently testable"
+          - "multiple city-domain enforcement points"
+          - "clear independent lifecycle/failure-domain benefit"
+
+project_placement_overrides:
+  - repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
+    placement: "00/01 City Core"
+    rule: "Not a Government-Safety building; government services consume Core authority/runtime facts."
+  - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
+    placement: "00/05 Control Centre"
+    role: "logic/rule/state-propagation/explanation backend component"
+    rule: "Not a Government-Safety building; not the whole Control Centre UI."
 
 project_registry:
   state: "PENDING_REVIEW"
