@@ -8,8 +8,9 @@ Every new capability must be classified before implementation:
 
 | Type | Meaning | Typical owner |
 |---|---|---|
-| City substrate | Runtime, trust, identity, routing, scoped policy, shared lifecycle | Codex-Boss |
-| Building | Independently maintained project with a coherent domain purpose | A connected GitHub repository |
+| City infrastructure | Runtime, trust, identity, routing, scoped policy, node fabric, shared lifecycle, city control surfaces | City-level infrastructure |
+| District | First-level domain/civic area grouping related buildings without merging their implementation | Digital-City topology |
+| Building | Coherent institution/product/service boundary inside a district; may be backed by one repository, several repositories, or an explicit placeholder | Owning project(s) / product boundary |
 | Planned building | Reserved city placement with no implementation yet | Digital-City documentation only |
 | Room | Capability owned by one building | Module/service inside that repository |
 | Resident | Persistent digital identity/agent that uses city services | Digital-Me or future agents |
@@ -40,7 +41,8 @@ Digital-City must not become a copy of their source trees.
 
 - Project implementation truth lives in the project repository.
 - City placement and cross-project role live in Digital-City.
-- A building README describes the building for humans.
+- A district README describes the district boundary for humans.
+- A building README describes the building boundary and its public city-facing capabilities.
 - `CITY_MANIFEST.yaml` describes the same topology for machines.
 - Project-specific evidence stays with the project unless a city-wide ledger is explicitly required.
 - A planned placeholder is never implementation truth.
@@ -214,10 +216,10 @@ New ecosystems should not normally require Root Trust redesign, new epoch ceremo
 
 When city topology changes:
 
-1. update the affected building README;
+1. update the affected district and/or building README;
 2. update `CITY_MANIFEST.yaml`;
 3. update the root city map when the change affects navigation or city-level semantics;
 4. update road documentation when a new cross-project dependency becomes durable;
-5. avoid renaming buildings casually once other tooling consumes their paths;
+5. avoid renaming districts or buildings casually once other tooling consumes their paths;
 6. keep placeholders explicitly non-operational until a project exists;
 7. do not promote a domain rule to city-wide scope merely for convenience.

@@ -1,296 +1,83 @@
-schema_version: "0.2"
+schema_version: "0.3"
+
 city:
   name: "Digital-City"
   repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
-  phase: "DIGITAL_CITY_INITIAL_REGISTRY"
-  model: "city -> building type -> repository/building or explicit placeholder -> room/capability -> road/integration"
-  core_repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
+  phase: "DIGITAL_CITY_DIRECTORY_RESTRUCTURED"
+  project_mapping_review: "PENDING"
+  previous_registry_snapshot_commit: "818cc831a66d578c822e1f07b0a3b49b331fda11"
   monorepo: false
-  policy_rule: "domain-scoped-by-default; city-wide only by explicit promotion"
+  model: "city -> city-infrastructure + districts -> buildings -> rooms; roads connect boundaries"
+  policy_rule: "district/domain-scoped-by-default; city-wide only by explicit promotion"
 
 roles:
-  city_substrate: "Shared runtime, trust, identity, scoped policy, routing and lifecycle infrastructure"
-  building: "Independent repository with a coherent city role"
-  planned_building: "Explicit city placeholder with PROJECT_NOT_CREATED and no implementation authority"
+  city_infrastructure: "Cross-city substrate and shared infrastructure that does not belong to one business domain"
+  district: "First-level domain/civic area"
+  building: "Coherent institution/product/service boundary inside a district"
+  planned_building: "Explicit topology placeholder with PROJECT_NOT_CREATED and no implementation authority"
   room: "Capability owned by one building"
-  resident: "Persistent digital identity or agent"
-  road: "Supported cross-project interface, event, schema or data flow"
-  engineering: "Construction, testing, repair, deployment and recovery"
+  road: "Stable cross-boundary interface, event, schema, dependency, or data flow"
 
-buildings:
-  - id: "government"
-    path: "01-Government"
-    title: "Government / 市政厅与治理"
-    projects:
-      - name: "Codex-Boss"
-        repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
-        city_role: "city-substrate"
-        registration_state: "connected"
-        rooms:
-          - "runtime-orchestration"
-          - "identity-and-root-trust"
-          - "capability-fabric"
-          - "city-wide-hard-boundary-enforcement"
-          - "policy-and-permission-scope"
-          - "minimal-evidence-and-audit"
-          - "extension-lifecycle-boundary"
-      - name: "Boss-Qualification-Control"
-        repository: "https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control"
-        city_role: "qualification-control"
-        registration_state: "connected"
-        rooms: ["qualification", "acceptance-control", "evidence-gates"]
-      - name: "General-Logic-Engine"
-        repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
-        city_role: "shared-logic-service"
-        registration_state: "connected"
-        rooms: ["general-logic", "rule-evaluation", "reasoning-support"]
+infrastructure:
+  path: "00-City-Infrastructure"
+  mapping_state: "CONTENT_REVIEW_PENDING"
+  slots:
+    - id: "core-os"
+      path: "00-City-Infrastructure/Core-OS"
+    - id: "node-fabric"
+      path: "00-City-Infrastructure/Node-Fabric"
+    - id: "roads"
+      path: "00-City-Infrastructure/Roads"
+    - id: "control-centre"
+      path: "00-City-Infrastructure/Control-Centre"
 
+districts:
+  - id: "government-safety"
+    path: "01-Government-Safety"
+    mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "engineering"
     path: "02-Engineering"
-    title: "Engineering / 工务与运维"
-    projects:
-      - name: "DS-Hns"
-        repository: "https://github.com/zhiheng-zhang-Mera/DS-Hns"
-        city_role: "engineering-system"
-        registration_state: "connected"
-        rooms: ["construction", "testing", "repair", "deployment", "recovery", "computer-use"]
-      - name: "Harness-Mega"
-        repository: "https://github.com/zhiheng-zhang-Mera/Harness-Mega"
-        city_role: "host-harness"
-        registration_state: "connected"
-        rooms: ["host-isolation", "integration-harness"]
-      - name: "Harness-Alien"
-        repository: "https://github.com/zhiheng-zhang-Mera/Harness-Alien"
-        city_role: "host-harness"
-        registration_state: "connected"
-        rooms: ["asynchronous-host-work", "integration-harness"]
-      - name: "dsh-health-scheduler"
-        repository: "https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler"
-        city_role: "runtime-health-service"
-        registration_state: "connected"
-        rooms: ["health-observation", "throttle-policy", "pause-policy", "restart-request"]
-      - name: "dsh-restart"
-        repository: "https://github.com/zhiheng-zhang-Mera/dsh-restart"
-        city_role: "restart-service"
-        registration_state: "connected"
-        rooms: ["restart-execution", "continuation-support"]
-
+    mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "residential"
     path: "03-Residential"
-    title: "Residential / 数字居民"
-    projects:
-      - name: "Digital-Me"
-        repository: "https://github.com/zhiheng-zhang-Mera/Digital-Me"
-        city_role: "digital-resident"
-        registration_state: "connected"
-        rooms: ["identity", "skills", "capability-assessment", "cognitive-profile", "persona", "voice", "multilingual-expression", "embodiment"]
-
+    mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "legal-privacy"
     path: "04-Legal-Privacy"
-    title: "Legal & Privacy / 法律与隐私"
-    projects:
-      - name: "privacy-lens-research-artifact"
-        repository: "https://github.com/zhiheng-zhang-Mera/privacy-lens-research-artifact"
-        city_role: "published-research-artifact"
-        registration_state: "connected"
-        rooms: ["privacy-research-artifact", "reproducible-evidence", "audit-surface"]
-      - name: "GDPR-app"
-        repository: "https://github.com/zhiheng-zhang-Mera/GDPR-app"
-        city_role: "privacy-application"
-        registration_state: "connected"
-        rooms: ["gdpr-application", "privacy-workflow"]
-      - name: "GDPR-project"
-        repository: "https://github.com/zhiheng-zhang-Mera/GDPR-project"
-        city_role: "research-and-development-history"
-        registration_state: "connected"
-        rooms: ["historical-development", "research-evidence", "thesis-source"]
-
-  - id: "medical"
-    path: "05-Medical"
-    title: "Medical / 医疗健康"
-    projects:
-      - name: "Parama-Health"
-        repository: "https://github.com/zhiheng-zhang-Mera/Parama-Health"
-        city_role: "health-system"
-        registration_state: "connected"
-        rooms: ["longitudinal-health", "nutrition", "activity", "body-state"]
-      - name: "Machine-Learning-for-Health-Group-Project"
-        repository: "https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project"
-        city_role: "health-ml-research"
-        registration_state: "connected"
-        rooms: ["health-ml", "research-models"]
-      - name: "Distributed-ESP32-Health-Project"
-        repository: "https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project"
-        city_role: "distributed-health-sensing"
-        registration_state: "connected"
-        rooms: ["distributed-sensing", "esp32", "edge-health-data"]
-      - name: "drug-simulator"
-        repository: "https://github.com/zhiheng-zhang-Mera/drug-simulator"
-        city_role: "health-simulation"
-        registration_state: "connected"
-        rooms: ["simulation", "drug-modeling"]
-
-  - id: "research-finance"
-    path: "06-Research-Finance"
-    title: "Research & Finance / 研究与金融"
-    projects:
-      - name: "Quant-ultra"
-        repository: "https://github.com/zhiheng-zhang-Mera/Quant-ultra"
-        city_role: "quant-research"
-        registration_state: "connected"
-        rooms: ["quant-research", "strategy-learning", "market-experimentation"]
-      - name: "ML-Quant-A-stock"
-        repository: "https://github.com/zhiheng-zhang-Mera/ML-Quant-A-stock"
-        city_role: "ml-quant-research"
-        registration_state: "connected"
-        rooms: ["market-ml", "a-share-research"]
-      - name: "Personal-trading-project-for-fun"
-        repository: "https://github.com/zhiheng-zhang-Mera/Personal-trading-project-for-fun"
-        city_role: "trading-experiment"
-        registration_state: "connected"
-        rooms: ["trading-experiments", "strategy-prototypes"]
-
-  - id: "device-infrastructure"
-    path: "07-Device-Infrastructure"
-    title: "Device Infrastructure / 设备与具身接口"
-    projects:
-      - name: "My_VR_Glove"
-        repository: "https://github.com/zhiheng-zhang-Mera/My_VR_Glove"
-        city_role: "embodied-interface"
-        registration_state: "connected"
-        rooms: ["vr-input", "physical-interaction"]
-      - name: "Firmware_Anomoly_Noise_Detect"
-        repository: "https://github.com/zhiheng-zhang-Mera/Firmware_Anomoly_Noise_Detect"
-        city_role: "edge-firmware"
-        registration_state: "connected"
-        rooms: ["firmware-sensing", "anomaly-detection", "edge-signal-processing"]
-
+    mapping_state: "CONTENT_REVIEW_PENDING"
+  - id: "health"
+    path: "05-Health"
+    mapping_state: "CONTENT_REVIEW_PENDING"
+  - id: "research"
+    path: "06-Research"
+    mapping_state: "CONTENT_REVIEW_PENDING"
+  - id: "finance"
+    path: "07-Finance"
+    mapping_state: "CONTENT_REVIEW_PENDING"
+  - id: "device-edge"
+    path: "08-Device-Edge"
+    mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "planning-knowledge"
-    path: "08-Planning-Knowledge"
-    title: "Planning & Knowledge / 规划与知识"
-    projects:
-      - name: "Idea-Book"
-        repository: "https://github.com/zhiheng-zhang-Mera/Idea-Book"
-        city_role: "city-planning-reserve"
-        registration_state: "connected"
-        rooms: ["idea-registry", "future-buildings", "concept-roadmaps"]
-      - name: "Task-Board"
-        repository: "https://github.com/zhiheng-zhang-Mera/Task-Board"
-        city_role: "task-registry"
-        registration_state: "connected"
-        rooms: ["task-planning", "mainline-and-sideline-tracking"]
-      - name: "Application-Plan"
-        repository: "https://github.com/zhiheng-zhang-Mera/Application-Plan"
-        city_role: "application-planning"
-        registration_state: "connected"
-        rooms: ["contact-pool", "application-workflow", "materials"]
-      - name: "research-overview"
-        repository: "https://github.com/zhiheng-zhang-Mera/research-overview"
-        city_role: "research-index"
-        registration_state: "connected"
-        rooms: ["research-overview", "portfolio-index"]
-      - name: "Essay-Book"
-        repository: "https://github.com/zhiheng-zhang-Mera/Essay-Book"
-        city_role: "writing-and-paper-planning"
-        registration_state: "connected"
-        rooms: ["paper-planning", "essay-registry", "research-writing"]
-
+    path: "09-Planning-Knowledge"
+    mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "automation"
-    path: "09-Automation"
-    title: "Automation / 自动化"
-    projects:
-      - name: "Auto-Game-Bot"
-        repository: "https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot"
-        city_role: "environment-automation"
-        registration_state: "connected"
-        rooms: ["perception-action-loop", "task-automation", "completion-validation"]
-
+    path: "10-Automation"
+    mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "entertainment"
-    path: "10-Entertainment"
-    title: "Entertainment / 娱乐与沉浸式交互"
-    projects: []
+    path: "11-Entertainment"
+    mapping_state: "CONTENT_REVIEW_PENDING"
 
-planned_buildings:
-  - id: "customs-security"
-    path: "01-Government/Customs-Security"
-    title: "Customs Security / 海关安检"
-    registration_state: "project-not-created"
-    domain: "government"
-    action: "ADMIT"
-    intended_rooms: ["manifest-check", "dependency-check", "permission-scope-check", "isolation-check", "lifecycle-check"]
+preserved_placeholders:
+  - path: "01-Government-Safety/Customs-Security"
+    status: "PROJECT_NOT_CREATED"
+  - path: "01-Government-Safety/Public-Security"
+    status: "PROJECT_NOT_CREATED"
+  - path: "05-Health/Integrated-Health-Hospital"
+    status: "PROJECT_NOT_CREATED"
+  - path: "06-Research/Research-Institute"
+    status: "PROJECT_NOT_CREATED"
+  - path: "11-Entertainment/Entertainment-Centre"
+    status: "PROJECT_NOT_CREATED"
 
-  - id: "runtime-compliance-public-security"
-    path: "01-Government/Public-Security"
-    title: "Runtime Compliance / Public Security / 公安与运行时合规"
-    registration_state: "project-not-created"
-    domain: "government"
-    action: "ENFORCE"
-    intended_rooms: ["cross-domain-enforcement", "privilege-boundary", "protected-data-boundary", "authority-escalation-boundary"]
-
-  - id: "research-institute"
-    path: "06-Research-Finance/Research-Institute"
-    title: "Research Institute / 研究院"
-    registration_state: "project-not-created"
-    domain: "research"
-    intended_rooms: ["mechanism-research", "ai-formalization", "multi-ai-critique", "simulation", "experiment", "evidence"]
-    planned_programs: ["machine-intelligence"]
-
-  - id: "integrated-health-hospital"
-    path: "05-Medical/Integrated-Health-Hospital"
-    title: "Integrated Health Hospital / 综合医院"
-    registration_state: "project-not-created"
-    domain: "medical"
-    intended_rooms: ["wearable-fusion", "nutrition-estimation", "energy-balance", "longitudinal-correction", "body-state"]
-
-  - id: "entertainment-centre"
-    path: "10-Entertainment/Entertainment-Centre"
-    title: "Entertainment Centre / 娱乐中心"
-    registration_state: "project-not-created"
-    domain: "entertainment"
-    intended_rooms: ["translation", "vr-ar", "asmr-spatial-audio", "smart-glasses-experience"]
-
-roads:
-  - id: "identity-road"
-    purpose: "owner, machine, agent, resident and service identity"
-  - id: "capability-road"
-    purpose: "capability discovery and invocation"
-  - id: "event-road"
-    purpose: "loosely coupled state/event exchange"
-  - id: "evidence-road"
-    purpose: "provenance, qualification and admission evidence"
-  - id: "data-road"
-    purpose: "typed data exchange with ownership/privacy boundaries"
-  - id: "policy-road"
-    purpose: "permission and explicitly scoped policy evaluation"
-  - id: "learning-road"
-    purpose: "domain-owned observations or learning state exposed through explicit contracts"
-  - id: "recovery-road"
-    purpose: "health, persistence, restart and continuation semantics"
-
-planned_city_capabilities:
-  - id: "extension-admission"
-    owner: "unassigned"
-    conceptual_building: "customs-security"
-    state: "project-not-created"
-    principle: "admission-only; do not become permanent business-logic governance"
-
-  - id: "runtime-hard-boundary-enforcement"
-    owner: "unassigned"
-    conceptual_building: "runtime-compliance-public-security"
-    state: "project-not-created"
-    principle: "city-wide hard boundaries only; domain correctness stays local"
-
-  - id: "machine-intelligence-research"
-    owner: "unassigned"
-    conceptual_building: "research-institute"
-    state: "research-domain-program-not-created"
-    scope: "research"
-    stages:
-      - "reality-mechanism"
-      - "ontology"
-      - "ai-formalization"
-      - "multi-ai-critique"
-      - "simulation"
-      - "experiment"
-      - "human-mechanism-review"
-      - "revision"
+project_registry:
+  state: "PENDING_REVIEW"
+  rule: "Do not infer final ownership from the pre-restructure registry; review district by district."

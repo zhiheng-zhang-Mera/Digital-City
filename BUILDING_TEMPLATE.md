@@ -1,14 +1,15 @@
 # Building README Template
 
-Use this template when a new project/building is connected to Digital-City or when a future building concept needs a lightweight placeholder.
+Use this template for a second-level building inside a Digital-City district, whether it is backed by one repository, multiple coordinated repositories, or an explicit future placeholder.
 
 ## Status
 
-For an existing project:
+For an existing building:
 
 ```text
 STATUS = CONNECTED
-REPOSITORY = https://github.com/OWNER/REPOSITORY
+DISTRICT = <district-id>
+REPOSITORIES = <one or more canonical repositories>
 ```
 
 For a future placeholder:
@@ -23,7 +24,7 @@ A placeholder is a map reservation only. It must not be interpreted as an implem
 
 ## Direct repository links
 
-For an existing project, expose the direct repository link as the first meaningful project content:
+For an existing building, expose its canonical repository link(s) as the first meaningful implementation content:
 
 - **[Project Name](https://github.com/OWNER/REPOSITORY)** — one-line city role
 
@@ -65,7 +66,8 @@ For a placeholder, state what evidence would justify creating a dedicated reposi
 ## Registration checklist
 
 - [ ] status explicitly states CONNECTED or PROJECT_NOT_CREATED
-- [ ] repository link present when a repository exists
+- [ ] district stated
+- [ ] repository link(s) present when implementation repositories exist
 - [ ] building role described
 - [ ] rooms/capabilities listed
 - [ ] roads listed
