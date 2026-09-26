@@ -1,45 +1,120 @@
-# Engineering — 工务局、施工与运维建筑
+# 工务区 Engineering Works District — 工程运维域 Engineering Operations Domain
 
-## Direct repository links
+STATUS = STRUCTURE_READY
+PROJECT_MAPPING = PARTIALLY_REVIEWED
 
-- **[DS-Hns](https://github.com/zhiheng-zhang-Mera/DS-Hns)** — 主施工、测试、修复与持续托管体系
-- **[Harness-Mega](https://github.com/zhiheng-zhang-Mera/Harness-Mega)** — 宿主/集成 Harness
-- **[Harness-Alien](https://github.com/zhiheng-zhang-Mera/Harness-Alien)** — 异步宿主/实验 Harness
-- **[dsh-health-scheduler](https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler)** — 运行健康观察与动作建议
-- **[dsh-restart](https://github.com/zhiheng-zhang-Mera/dsh-restart)** — 重启执行与连续运行支持
+Engineering owns **construction execution, engineering verification, repair, deployment, host adaptation and operational recovery**. It may use broad operational authority, but it does not own City constitutional authority.
 
-## Building role
+## Primary engineering system
 
-Engineering 是城市的**工务局 + 建筑公司 + 运维中心**。它可以建设和维护城市，但不因此自动拥有城市宪法或其他楼栋的业务所有权。
+### DS-Hns
 
-## Buildings and rooms
+- **Repository:** https://github.com/zhiheng-zhang-Mera/DS-Hns
+- **State:** EXISTING_INDEPENDENT_REPOSITORY
+- **Long-term role:** engineering construction orchestrator.
 
-### [DS-Hns](https://github.com/zhiheng-zhang-Mera/DS-Hns)
+Its stable core should own:
 
-- Construction — 工程实施。
-- Test & Qualification Support — 自动测试与验证。
-- Repair — 故障定位、修复与回归。
-- Deployment / Migration — 安装、迁移和版本推进。
-- Computer Use — 面向图形界面/宿主的自动操作。
-- Long-running Stewardship — 长期托管和任务连续性。
+- engineering task planning and decomposition;
+- worker/provider selection inside the Engineering domain;
+- repository/workspace mutation;
+- checkpoint/resume;
+- construction verification;
+- failure diagnosis and repair loops;
+- engineering scheduling;
+- result/evidence production.
 
-### Harness hosts
+## Existing independent engineering services
 
-[Harness-Mega](https://github.com/zhiheng-zhang-Mera/Harness-Mega) 与 [Harness-Alien](https://github.com/zhiheng-zhang-Mera/Harness-Alien) 提供宿主隔离、并行施工和不同运行角色的承载空间。
+### Health Scheduler
 
-### Runtime health services
+- **Repository:** https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler
+- observes runtime/host pressure;
+- recommends throttle/pause/restart actions;
+- does not perform the restart itself.
 
-[dsh-health-scheduler](https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler) 提供 CPU/内存/进程年龄/event-loop drift 等观察以及 NO_ACTION / THROTTLE / PAUSE_NEW_WORK / REQUEST_RESTART 类型决策。
+### Restart Service
 
-[dsh-restart](https://github.com/zhiheng-zhang-Mera/dsh-restart) 负责实际 restart execution，并与任务状态持久化/恢复语义衔接。
+- **Repository:** https://github.com/zhiheng-zhang-Mera/dsh-restart
+- validates restart requests;
+- gates on checkpoint/safe-point;
+- executes restart protocol and external relaunch supervision;
+- does not decide whether a restart is warranted.
+
+These are examples of successful extraction from the Hns product surface into independently bounded engineering services.
+
+## Legacy / reference host assets
+
+### Harness-Alien
+
+- **Repository:** https://github.com/zhiheng-zhang-Mera/Harness-Alien
+- role: host/shell baseline and adapter lineage;
+- long-term city status: reference/baseline asset rather than a required top-level building once the host-adapter contract is canonical.
+
+### Harness-Mega
+
+- **Repository:** https://github.com/zhiheng-zhang-Mera/Harness-Mega
+- role: feature donor / legacy engineering asset;
+- long-term city status: historical/reference source after retained capabilities are migrated into DS-Hns or bounded services.
+
+## Planned extraction from Codex-Boss
+
+```text
+CURRENT_SOURCE = Codex-Boss
+TARGET_OWNER = DS-Hns / Engineering
+FUTURE_EXTRACTION = PRESET_NOT_NOW
+```
+
+The following ordinary engineering responsibilities should move out of City Core and converge on Hns:
+
+- engineering goal acceptance;
+- engineering verification policy;
+- targeted test/check selection;
+- ordinary construction/acceptance-session bookkeeping;
+- construction-result verification;
+- engineering recovery/retry loops;
+- CI repair mechanics when they are engineering execution;
+- engineering evidence production proving a task was completed.
+
+Current seed surfaces include:
+
+- `electron/engineering/goal-acceptance.ts`;
+- `electron/engineering/verification-policy.ts`;
+- ordinary Engineering portions of `electron/engineering/acceptance-session.ts`;
+- ordinary Engineering portions of `electron/engineering/final-acceptance-gate.ts`.
+
+### Must not move from Boss Core into Engineering
+
+- Owner sovereignty / Root Trust;
+- constitutional authority;
+- city-wide protected-surface definitions;
+- generic durable city state/event primitives;
+- city-wide audit/provenance primitives.
+
+### Must remain in Qualification Control
+
+Production-level qualification, trusted-runner isolation, immutable-candidate attestation and promotion certification remain the responsibility of **Boss-Qualification-Control**, not Hns.
+
+The target is one engineering verdict path:
+
+```text
+Hns
+  -> executes work
+  -> verifies engineering completion
+  -> emits evidence
+
+Qualification Control
+  -> independently certifies candidates when high-grade qualification is required
+```
 
 ## Roads
 
-- **Recovery Road** → Codex-Boss / hosted agents.
-- **Evidence Road** → qualification gates.
-- **Construction Road** → every building under active development.
-- **State Continuation Road** → persistent tasks and residents.
+- **Node Road** → consumes eligible nodes/resources from City Node Fabric.
+- **Capability Road** → consumes available engineering providers/tools from Capability Fabric.
+- **Evidence Road** → emits engineering evidence to Qualification or other authorized consumers.
+- **Recovery Road** → health/restart and continuation semantics.
+- **Construction Road** → projects/buildings under active development.
 
 ## Boundary
 
-Hns may be granted broad operational authority for construction, but operational authority is not equivalent to constitutional authority. It should not silently redefine Owner/root-trust boundaries or claim ownership of domain capabilities.
+Hns may be the Engineering domain's primary orchestrator, but it must not become a second City Core. City-wide task authority, identity, Root Trust and global cross-domain policy remain outside Engineering.
