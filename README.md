@@ -4,6 +4,16 @@
 
 Digital-City is not a monorepo. It describes how independently maintained projects fit into one shared city.
 
+## Directory naming convention
+
+Every directory uses the same bilingual dual-name format:
+
+```text
+编号-隐喻中文(English-Metaphor)-&-实际中文(English-Technical-Type)
+```
+
+The left side is the human-facing city metaphor. The right side states the real architectural type.
+
 ## Canonical hierarchy
 
 ```text
@@ -15,73 +25,71 @@ City
 └── Roads / Cross-domain contracts
 ```
 
-- **City Infrastructure / 城市基础设施** — substrate that exists for the whole city rather than one business domain.
+- **City Infrastructure / 城市基础设施** — substrate shared by the whole city.
 - **District / 功能区** — first-level domain or civic area.
-- **Building / 楼栋** — a coherent institution, product, service boundary, or explicit future placeholder inside a district.
+- **Building / 楼栋** — a coherent institution/product/service boundary or an explicit future placeholder.
 - **Room / 房间** — a capability owned by a building.
-- **Road / 道路** — a stable interface, event, schema, dependency, or data flow crossing building/district boundaries.
-
-The directory hierarchy is a city topology, not a requirement to merge source repositories.
+- **Road / 道路** — a stable cross-boundary semantic contract.
 
 ## Directory map
 
-| Path | Role | Mapping state |
+| Path | Architectural meaning | Mapping state |
 |---|---|---|
-| [00-City-Infrastructure](./00-City-Infrastructure/) | core OS, node fabric, roads, city control surface | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [01-Government-Safety](./01-Government-Safety/) | governance, qualification, admission, runtime hard-boundary enforcement | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [02-Engineering](./02-Engineering/) | construction, testing, repair, host and recovery | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [03-Residential](./03-Residential/) | digital identity / resident-facing systems | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [04-Legal-Privacy](./04-Legal-Privacy/) | privacy, legal boundaries, evidence/audit assets | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [05-Health](./05-Health/) | health, physiology, nutrition and longitudinal systems | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [06-Research](./06-Research/) | research institutes, mechanism research and academic experimentation | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [07-Finance](./07-Finance/) | quantitative, market and finance systems | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [08-Device-Edge](./08-Device-Edge/) | wearables, sensing, firmware, embodied and edge interfaces | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [09-Planning-Knowledge](./09-Planning-Knowledge/) | ideas, task planning, applications, research planning and knowledge assets | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [10-Automation](./10-Automation/) | application/task automation | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [11-Entertainment](./11-Entertainment/) | translation, immersive media, AR/VR and media-facing experiences | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)](./00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/) | citywide shared infrastructure | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 
-## Infrastructure layout
+## 00 infrastructure layout
 
 ```text
-00-City-Infrastructure/
-├── Core-OS/
-├── Node-Fabric/
-├── Roads/
-└── Control-Centre/
+00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/
+├── 01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/
+├── 02-城市节点网(City-Node-Network)-&-设备节点互联层(Device-Node-Fabric)/
+├── 03-城市服务网(City-Service-Network)-&-能力注册发现层(Capability-Registry-Discovery-Layer)/
+├── 04-城市道路(City-Roads)-&-跨域语义契约(Cross-Domain-Semantic-Contracts)/
+└── 05-城市控制中心(City-Control-Centre)-&-人机控制界面(Human-Control-Surface)/
 ```
 
-These are city-level infrastructure slots rather than normal business districts.
+The five infrastructure slots answer different questions:
 
-## Existing planned-building placeholders preserved by this migration
+- **Core** — who owns runtime authority, trust, identity and orchestration?
+- **Node Fabric** — which authorized device/node exists and what runtime resources can it expose?
+- **Capability Fabric** — what can the city do, who provides the capability, and how is it discovered/registered?
+- **City Roads** — what stable semantic contracts cross boundaries?
+- **Control Centre** — how does the human observe, navigate and submit control requests?
 
-- [Customs Security](./01-Government-Safety/Customs-Security/)
-- [Runtime Compliance / Public Security](./01-Government-Safety/Public-Security/)
-- [Integrated Health Hospital](./05-Health/Integrated-Health-Hospital/)
-- [Research Institute](./06-Research/Research-Institute/)
-- [Entertainment Centre](./11-Entertainment/Entertainment-Centre/)
+Capability Fabric is deliberately broader than “plugins”: plugins are one packaging/admission form for capabilities, not the city capability model itself.
 
-Their previous `PROJECT_NOT_CREATED` semantics remain unchanged.
+## Preserved planned-building placeholders
+
+- [Customs Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/)
+- [Runtime Compliance / Public Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/)
+- [Integrated Health Hospital](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)/)
+- [Research Institute](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/)
+- [Entertainment Centre](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)/)
+
+Their `PROJECT_NOT_CREATED` semantics remain unchanged.
 
 ## Project-mapping review
 
-This commit intentionally separates **directory topology** from **project assignment**.
+Directory topology and project assignment remain separate.
 
-The previous registry snapshot is anchored at commit:
+The pre-restructure registry is preserved historically. The next phase reviews each module/project and decides:
 
-```text
-818cc831a66d578c822e1f07b0a3b49b331fda11
-```
-
-The next phase will inspect each district/building and decide, project by project:
-
-1. whether the project belongs in the city;
-2. which district owns it;
-3. whether it is a building, a component of a larger building, infrastructure, evidence, or only historical material;
+1. whether it belongs in the city;
+2. which district/building owns it;
+3. whether it is infrastructure, a building, building component, evidence, or historical asset;
 4. which rooms/capabilities it exposes;
-5. which roads it needs;
-6. whether duplicate/legacy repositories should remain visible.
-
-Until that review is complete, directory placement alone must not be interpreted as a final ownership decision.
+5. which roads it requires.
 
 ## Policy scope
 
@@ -91,8 +99,6 @@ L1  District / Domain Charter
 L2  Building / Project Policy
 L3  Runtime / Experiment Rules
 ```
-
-Lower-scope rules do not silently become city-wide rules.
 
 ## Repository files
 
@@ -104,8 +110,6 @@ Lower-scope rules do not silently become city-wide rules.
 ## Current phase
 
 ```text
-DIGITAL_CITY_DIRECTORY_RESTRUCTURED
+DIGITAL_CITY_BILINGUAL_DIRECTORY_SCHEMA
 PROJECT_MAPPING_REVIEW_PENDING
 ```
-
-The city skeleton is now stable enough to review project contents district by district without repeatedly changing the top-level taxonomy.

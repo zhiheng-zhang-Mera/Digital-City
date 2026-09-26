@@ -9,7 +9,7 @@
 
 ## Planned building — project not created
 
-- **[Integrated Health Hospital / 综合医院](./Integrated-Health-Hospital/)** — `PROJECT_NOT_CREATED`; future integration building for wearable sensing, nutrition, body-state and longitudinal correction.
+- **[Integrated Health Hospital / 综合医院](./01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)/)** — `PROJECT_NOT_CREATED`; future integration building for wearable sensing, nutrition, body-state and longitudinal correction.
 
 ## Building role
 

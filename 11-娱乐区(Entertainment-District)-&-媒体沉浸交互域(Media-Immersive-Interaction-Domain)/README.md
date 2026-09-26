@@ -7,7 +7,7 @@ CONNECTED_PROJECTS = NONE
 
 ## Planned building
 
-- **[Entertainment Centre / 娱乐中心](./Entertainment-Centre/)** — `PROJECT_NOT_CREATED`
+- **[Entertainment Centre / 娱乐中心](./01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)/)** — `PROJECT_NOT_CREATED`
 
 ## Role
 

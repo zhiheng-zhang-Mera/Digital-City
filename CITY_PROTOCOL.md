@@ -8,7 +8,7 @@ Every new capability must be classified before implementation:
 
 | Type | Meaning | Typical owner |
 |---|---|---|
-| City infrastructure | Runtime, trust, identity, routing, scoped policy, node fabric, shared lifecycle, city control surfaces | City-level infrastructure |
+| City infrastructure | Runtime, trust, identity, orchestration, node fabric, capability fabric, semantic roads, shared lifecycle and human control surfaces | City-level infrastructure |
 | District | First-level domain/civic area grouping related buildings without merging their implementation | Digital-City topology |
 | Building | Coherent institution/product/service boundary inside a district; may be backed by one repository, several repositories, or an explicit placeholder | Owning project(s) / product boundary |
 | Planned building | Reserved city placement with no implementation yet | Digital-City documentation only |
@@ -17,6 +17,8 @@ Every new capability must be classified before implementation:
 | Road | Stable interface, event, schema, or data flow between buildings | Shared contract |
 | Bridge | Higher-level integration that spans multiple roads/buildings | Explicit cross-project composition |
 | Engineering works | Construction, repair, qualification, host and recovery tooling | DS-Hns and operational repositories |
+
+Capability Fabric is distinct from Node Fabric: Node Fabric answers which authorized runtime nodes exist; Capability Fabric answers which capabilities exist, who provides them, and how they are discovered/registered. Plugins are one capability packaging/admission form, not the capability model itself.
 
 A feature must not be moved into Boss merely because multiple projects use it. It belongs in Boss only when it is genuinely city-level infrastructure.
 

@@ -8,8 +8,8 @@
 
 ## Planned buildings — project not created
 
-- **[Customs Security / 海关安检](./Customs-Security/)** — `PROJECT_NOT_CREATED`; future admission-only extension check.
-- **[Runtime Compliance / Public Security / 公安与运行时合规](./Public-Security/)** — `PROJECT_NOT_CREATED`; future city-wide hard-boundary enforcement.
+- **[Customs Security / 海关安检](./01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/)** — `PROJECT_NOT_CREATED`; future admission-only extension check.
+- **[Runtime Compliance / Public Security / 公安与运行时合规](./02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/)** — `PROJECT_NOT_CREATED`; future city-wide hard-boundary enforcement.
 
 ## Building role
 
@@ -57,13 +57,13 @@ Research-specific delayed learning、familiarity/fusion、dynamic association �
 
 ### Customs Security / 海关安检
 
-See [Customs-Security/README.md](./Customs-Security/README.md).
+See [Customs-Security/README.md](./01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/README.md).
 
 Conceptual action: **ADMIT**. It checks whether a new building/extension may safely enter. It is not intended to become a permanent business-logic supervisor.
 
 ### Runtime Compliance / Public Security / 公安与运行时合规
 
-See [Public-Security/README.md](./Public-Security/README.md).
+See [Public-Security/README.md](./02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/README.md).
 
 Conceptual action: **ENFORCE**. It checks city-wide hard boundaries at runtime, but it does not enforce Research/Medical/Engineering business rules unless those rules are explicitly promoted into city-wide scope.
 
