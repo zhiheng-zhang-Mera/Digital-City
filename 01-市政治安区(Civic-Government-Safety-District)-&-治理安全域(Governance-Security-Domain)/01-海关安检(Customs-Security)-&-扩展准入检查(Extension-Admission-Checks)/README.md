@@ -1,44 +1,41 @@
-# Customs Security — 海关安检
+# 海关安检 Customs Security — 扩展准入检查 Extension Admission Checks
 
 ```text
 STATUS = PROJECT_NOT_CREATED
-REPOSITORY = NOT_CREATED
-IMPLEMENTATION_AUTHORITY = NONE
-DOMAIN = GOVERNMENT
+CURRENT_IMPLEMENTATION_SOURCE = Codex-Boss
+FUTURE_EXTRACTION = PRESET_NOT_NOW
+ACTION = ADMIT
 ```
 
-## Role
+## Future extraction target
 
-Customs Security is the conceptual **ADMIT** stage for future ecosystem plug-in / plug-out.
+Extract only the reusable admission-time boundary needed before a new building/extension is activated:
 
-Its purpose is narrow: determine whether a new building or extension can safely enter the city.
+- manifest/schema validation;
+- identity/source verification hooks;
+- dependency declarations;
+- requested capability/permission declarations;
+- domain and storage-namespace declarations;
+- isolation/crash-boundary declarations;
+- enable/disable/uninstall/rollback readiness;
+- admission-time lifecycle preflight.
 
-## Planned checks
+Candidate Boss seed surfaces include:
 
-- manifest/schema validity;
-- source / identity;
-- dependencies;
-- requested capabilities and permissions;
-- domain scope;
-- storage namespace;
-- crash/isolation boundary;
-- enable / disable / uninstall / rollback support.
+- `electron/security/permission-manifest.ts`;
+- `electron/capability/plugin-contract.ts`;
+- generic admission portions of `electron/capability/permission-contract.ts`;
+- `config/city-replacement-lifecycle.json`;
+- generic extension lifecycle/preflight logic.
 
-## Boundary
+## Must not be extracted here
 
-Customs Security is **not** a permanent supervisor of an admitted building.
+- Owner sovereignty / Root Trust / Root Authority source;
+- runtime enforcement after admission;
+- Capability Fabric registry itself;
+- domain business state;
+- scientific/health/engineering/media quality evaluation.
 
-It does not judge:
+## Extraction gate
 
-- scientific quality of Research;
-- health-model quality of Medical;
-- worker scheduling quality of Hns;
-- entertainment/media quality.
-
-Post-admission city-wide hard-boundary enforcement belongs conceptually to Runtime Compliance / Public Security.
-
-## Creation condition
-
-Do not create a standalone repository merely to preserve the metaphor.
-
-A dedicated project is justified only when multiple independent buildings actually require a reusable admission/extension kernel that cannot remain a small capability inside the city substrate.
+Do not create a standalone repository merely for the metaphor. Extraction becomes justified when the admission contract is stable, independently testable, used by multiple independent buildings/extensions, and no longer depends on Boss-private state.
