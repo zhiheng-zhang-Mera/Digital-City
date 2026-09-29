@@ -2,27 +2,32 @@
 
 ```text
 STATUS = PARTIAL_REFERENCE_IMPLEMENTATION
-OWNER_EXCLUDED_PLANNING_REPOSITORIES = Idea-Book / Task-Board / Application-Plan / research-overview / Essay-Book
+ACTIVE_SCOPE = KNOWLEDGE_AND_DOCUMENT_SERVICES
+PLANNING_SCOPE = LEGACY_NAME_ONLY / NO_ACTIVE_PLANNING_REPOSITORIES
 ```
 
-The previously listed personal planning repositories are **not part of Digital-City** by Owner decision.
-
-09 therefore currently represents reusable runtime knowledge/document capabilities rather than those external planning workspaces.
+The former personal planning repositories are outside Digital-City. The active 09 responsibility is now reusable knowledge/document handling.
 
 ## Existing runtime sources
 
-### Codex-Boss donor capabilities
-- bounded knowledge objects/spaces and retrieval;
-- claim/provenance/governance/staleness semantics;
-- WorkBook reference/knowledge classification;
-- source/evidence-aware retrieval guards;
+### Codex-Boss donors
+- knowledge objects/spaces and retrieval;
+- provenance/governance/staleness;
+- source/evidence-aware retrieval;
 - document ingestion/readers.
 
-### Utopia promoted reference implementation
-- **Knowledge Service / Knowledge Core** — `PROMOTED`;
-- **Document Intake / Ingestion Core** — `PROMOTED`;
-- **Document Intake / Document Readers** — `PROMOTED`.
+### Utopia promoted reference modules
+- Knowledge Core;
+- Ingestion Core;
+- Document Readers.
 
-## Boundary
+## Important product distinction
 
-External personal planning/application/writing repositories do not become City runtime truth. 09 owns reusable knowledge/document services that are deliberately admitted and qualified.
+```text
+Room Pack Knowledge Room = personal local notes/content store
+09 Knowledge Core         = reusable retrieval/trust/provenance semantics
+```
+
+They may integrate later, but should not be merged merely because both say “knowledge.”
+
+The “Planning” part of the district name is retained for path stability, not as an instruction to rebuild excluded planning repositories.

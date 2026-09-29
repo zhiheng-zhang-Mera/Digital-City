@@ -38,5 +38,14 @@ They integrate by contract rather than union:
 
 Neither implementation should absorb the other merely because both mention physiology/exposure.
 
+## Product-surface deliberate non-unions
+
+- **Utopia product shell ≠ City Core.** The current Web/Android/Gateway authority is a reference implementation and may evolve without becoming permanent constitutional authority.
+- **City Node Fabric ≠ 08 Device & Edge.** Node Fabric tracks authorized runtime/computing presence; 08 owns physical sensor/actuator device semantics.
+- **Capability Fabric ≠ 02 Worker Gateway.** Capability Fabric is global discovery/invocation metadata; Worker Gateway adapts engineering-agent providers for Hns.
+- **Room Checklist ≠ City Task.** A checklist is user planning data; a City Task is runtime execution state.
+- **Room Knowledge ≠ 09 Knowledge Core.** The Room is a personal local content store; Knowledge Core owns reusable retrieval/trust/provenance semantics.
+- **Control Centre theme ≠ Entertainment media.** Generic shell/UI theming belongs to 00/05; VR/AR/voice/avatar/spatial-media capabilities remain 11.
+
 ## Deliberate non-unions
 Boss global scheduler ≠ Hns Engineering scheduler; Boss City Core ≠ Hns `app/core`; Boss global recovery ≠ Hns Engineering recovery ≠ dsh-restart; City Node identity ≠ Hns resource profiler. Similar vocabulary is not enough to collapse scope.

@@ -1,4 +1,4 @@
-schema_version: "0.8"
+schema_version: "0.9"
 
 city:
   name: "Digital-City"
@@ -20,30 +20,43 @@ roles:
 
 infrastructure:
   path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)"
-  mapping_state: "PROJECT_FIRST_PARTIAL"
+  mapping_state: "REFERENCE_SPINE_PARTIAL_IMPLEMENTED"
   slots:
     - id: "core-os"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)"
     - id: "node-fabric"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/02-城市节点网(City-Node-Network)-&-设备节点互联层(Device-Node-Fabric)"
+      current_reference: "Utopia dev-gateway + reference-node"
+      reference_state: "PARTIAL_IMPLEMENTATION_ACCEPTED"
     - id: "capability-fabric"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/03-城市服务网(City-Service-Network)-&-能力注册发现层(Capability-Registry-Discovery-Layer)"
+      current_reference: "Utopia capability-bridge v1"
+      reference_state: "V0_3_ACCEPTED_HARDENED"
     - id: "city-roads"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/04-城市道路(City-Roads)-&-跨域语义契约(Cross-Domain-Semantic-Contracts)"
+      current_reference: "Utopia versioned contracts"
+      reference_state: "PARTIAL_IMPLEMENTATION"
     - id: "control-centre"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/05-城市控制中心(City-Control-Centre)-&-人机控制界面(Human-Control-Surface)"
-      building_state: "PARTIAL_FOUNDATION_EXISTS"
+      building_state: "REFERENCE_PRODUCT_SURFACES_EXIST"
+      current_reference: "Utopia Web + Android control surfaces"
       existing_components:
+        - repository: "https://github.com/zhiheng-zhang-Mera/utopia"
+          role: "current product shell / control-centre reference implementation"
+          implementation_state: "V0_3_ACCEPTED_HARDENED"
+        - capability: "theme-engine-union"
+          role: "shared presentation/theming capability; current Utopia code path remains temporarily under city/11"
+          implementation_state: "PROMOTED_PHYSICAL_LOCATION_PENDING_RECLASSIFICATION"
         - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
           role: "control-centre rule/state/explanation engine component"
           implementation_state: "DESIGN_BASELINE_NOT_YET_RUNTIME"
           source_snapshot: "66e93b3351672f109dbfc5760f90316ee9163b4b"
           review_state: "PROJECT_FIRST_REVIEWED"
       missing_components:
-        - "human-facing dashboard / city shell"
-        - "navigation and visualization layer"
-        - "command submission client"
-        - "owner-attention and city activity surfaces"
+        - "unified command/action facade across Tasks, Capability invocations and Rooms"
+        - "single user-facing command palette / Ask-Do entry"
+        - "cross-device continuation and personal workspace handoff"
+        - "optional owner-attention/notification surface"
       boundary: "General-Logic-Engine is a Control Centre backend component, not the city authority source, not the whole UI, and not a replacement for Core OS."
 
 districts:
@@ -58,7 +71,7 @@ districts:
     mapping_state: "PROJECT_FIRST_REVIEWED"
   - id: "legal-privacy"
     path: "04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "STRUCTURAL_EMPTY_BY_DESIGN"
   - id: "health"
     path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)"
     mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
@@ -79,13 +92,13 @@ districts:
     mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "entertainment"
     path: "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)"
-    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
+    mapping_state: "PARTIAL_PROJECT_CONTRIBUTIONS_NO_PROMOTED_DOMAIN_MODULE"
 
 preserved_placeholders:
   - path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)"
-    status: "PROJECT_NOT_CREATED"
+    status: "LOGICAL_GATE_NO_STANDALONE_SERVICE_REQUIRED_BY_DEFAULT"
   - path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)"
-    status: "PROJECT_NOT_CREATED"
+    status: "LOGICAL_GATE_EXTRACTION_CONDITIONAL"
 
 government_safety_registry:
   district_path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)"
@@ -381,7 +394,7 @@ project_decompositions:
       - district: "10-automation"
         ownership: "CONTRIBUTION_TO_UNION"
         capability_clusters: ["semantic Computer Use", "DOM/UIA/structured/vision backends", "workspace permission gate"]
-      - district: "11-entertainment"
+      - district: "00-control-centre"
         ownership: "CONTRIBUTION_TO_UNION"
         capability_clusters: ["theme intent", "deterministic theme generation", "visual verification"]
     local_only_unless_reused: ["product packaging", "provider-window shell details", "project-local settings/history/archive"]
@@ -403,7 +416,7 @@ project_decompositions:
       - district: "10-automation"
         ownership: "CONTRIBUTION_TO_UNION"
         capability_clusters: ["Computer Use execution contract", "browser/desktop/file/shell/vision controllers", "safety/recovery/verification"]
-      - district: "11-entertainment"
+      - district: "00-control-centre"
         ownership: "MAJOR_CONTRIBUTION"
         capability_clusters: ["Theme Engine package/runtime", "designer/builder", "assets/validation/lifecycle"]
     integrations_not_owned: ["dsh-health-scheduler", "dsh-restart"]
@@ -597,7 +610,7 @@ composite_capability_unions:
       sources: ["Codex-Boss", "DS-Hns"]
       combined_capabilities: ["semantic routing", "DOM/UIA/structured/VSCode/vision/browser/desktop/file/shell execution", "execution contracts", "permission/safety/limits", "focus/destructive guards", "world-state/screenshots", "stabilization/recovery", "postcondition verification"]
     - id: "theme-engine-union"
-      target: "11 Entertainment / Theme Engine"
+      target: "00/05 Control Centre / Presentation & Theme Engine"
       sources: ["DS-Hns", "Codex-Boss"]
       combined_capabilities: ["theme package/surface/token contracts", "designer/builder/orchestrator", "validation/assets/lifecycle/recovery", "natural-language intent", "deterministic generation", "decision trace", "UI-engineering escalation", "measured visual checks"]
 
@@ -703,12 +716,33 @@ research_registry:
 
 entertainment_registry:
   district_path: "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)"
-  buildings:
-    - id: "entertainment-centre"
-      state: "IMPLEMENTED_MULTI_SOURCE_BUILDING"
-      dedicated_repository: false
-      current_reference: "Utopia"
-      theme_union: "theme-engine-union"
+  state: "NO_PROMOTED_DOMAIN_MODULE_AFTER_THEME_RECLASSIFICATION"
+  project_contributions:
+    - "Digital-Me voice/avatar/presentation adapters remain future/partial contributions"
+    - "VR/AR/spatial-audio/translation remain domain capabilities when real implementations exist"
+  note: "Generic Utopia/control-surface theming is owned by 00/05 Control Centre, not Entertainment."
+
+
+utopia_reference_spine:
+  repository: "https://github.com/zhiheng-zhang-Mera/utopia"
+  snapshot: "393f3b89a9c4fae61be1e431c4bcd47fee945e88"
+  purpose: "current product/reference implementation; not permanent City Core ownership"
+  node_fabric:
+    state: "REFERENCE_IMPLEMENTATION"
+    surfaces: ["node registration", "heartbeat/liveness", "telemetry", "capability advertisement", "offline detection"]
+  capability_fabric:
+    state: "V0_3_ACCEPTED_HARDENED"
+    surfaces: ["qualified module identity", "lifecycle-aware registry", "bounded invocation bridge", "durable summary/detail history", "typed errors", "cross-client results"]
+  roads:
+    state: "PARTIAL_VERSIONED_CONTRACTS"
+    surfaces: ["pairing-v1", "city-control-v0", "capability-bridge-v1"]
+  control_centre:
+    state: "REFERENCE_PRODUCT_SURFACES"
+    surfaces: ["Web", "Android", "Devices", "Services", "Tasks", "Activity", "Pairing"]
+  local_product_rooms:
+    state: "ROOM_PACK_V1_READY_TO_ATTACH"
+    surfaces: ["Knowledge", "Bookmarks", "Checklist", "Prompts", "Text Workshop", "Hash", "Data Lab", "Focus", "Calendar", "Decisions"]
+  product_gap: "Three usable planes (Tasks, Services, Rooms) are not yet unified behind one user command/action experience."
 
 implementation_registry:
   canonical_planning_repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
@@ -718,9 +752,9 @@ implementation_registry:
     ownership_rule: "Implementation location does not define permanent City ownership."
     snapshot:
       date: "2026-09-29"
-      main_sha: "374fad597387278f981c21f8897e772adc5922e8"
+      main_sha: "393f3b89a9c4fae61be1e431c4bcd47fee945e88"
       implementation_manifest: "city/CITY_IMPLEMENTATION_MANIFEST.json"
-      product_acceptance: "V0.2_NOT_ACCEPTED_PENDING_REAL_CAMERA_QR"
+      product_acceptance: "V0.2_ACCEPTED; V0.3_CAPABILITY_BRIDGE_ACCEPTED; V0.3_HARDENING_PASS"
     promoted_modules:
       - district: "02-engineering"
         building: "02-worker-gateway"
@@ -752,14 +786,17 @@ implementation_registry:
         module: "theme-engine"
         donor: "zhiheng-zhang-Mera/DS-Hns"
         state: "PROMOTED"
+        architectural_owner: "00/05-control-centre"
+        physical_reclassification: "DEFERRED_NON_BLOCKING"
   next_review_project: "NONE_PROJECT_INVENTORY_COMPLETE"
+  next_phase: "UTOPIA_UNIVERSAL_PERSONAL_TERMINAL_FAST_PATH"
   sync_rule: "Digital-City records qualified implementation facts; Utopia remains free to iterate without redefining City ownership."
 
 project_placement_overrides:
   - repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
     placement: "PROJECT_FIRST_MULTI_DISTRICT"
     primary_identity: "00/01 City Core"
-    contributions: ["00/03 Capability Fabric", "00/05 Control Centre", "01 Governance-Safety", "02 Engineering", "06 Research", "09 Planning-Knowledge", "10 Automation", "11 Entertainment"]
+    contributions: ["00/03 Capability Fabric", "00/05 Control Centre", "01 Governance-Safety", "02 Engineering", "06 Research", "09 Planning-Knowledge", "10 Automation"]
     rule: "Repository location does not collapse all Boss capabilities into City Core."
   - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
     placement: "00/05 Control Centre"
@@ -767,5 +804,5 @@ project_placement_overrides:
     rule: "Not a Government-Safety building; not the whole Control Centre UI."
 
 project_registry:
-  state: "REVIEW_IN_PROGRESS"
+  state: "INVENTORY_COMPLETE_GAP_REVIEW_COMPLETE"
   rule: "Directory naming does not imply final project ownership."

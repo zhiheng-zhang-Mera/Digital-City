@@ -6,25 +6,23 @@ PRIMARY_SOURCE = Codex-Boss
 SOURCE_SNAPSHOT = 8df428eaa437a409368401e95194e40266b83080
 ```
 
-Codex-Boss is the strongest current source for City Core, but only its **city-wide authority/runtime cluster** maps here.
+Codex-Boss is the strongest long-term source for City authority/runtime semantics:
 
-## Mapped capability cluster
 - Owner sovereignty / Root Authority / Root Trust;
-- protected-surface and authority-plane contracts;
+- protected-surface contracts;
 - global task identity/lifecycle/durable state;
-- global scheduler/orchestration and domain routing;
-- city-scope runtime/provider coordination;
-- global continuation/interruption/recovery policy;
-- durable decisions/events/progress/audit primitives;
-- authority-aware dispatch/execution gates.
+- cross-domain orchestration/routing;
+- city-scope runtime coordination;
+- continuation/recovery and durable audit primitives.
+
+## Reference-product rule
+
+Utopia's current Gateway may act as the bounded authority of the reference product without becoming permanent City Core ownership.
+
+**Boss extraction/migration is not a prerequisite for Utopia product usability.**
 
 ## Boss subsystems mapped elsewhere
-Engineering → 02; Research → 06; knowledge/ingestion → 09; Computer Use → 10; theme → 11; admission/compliance → 01; human-facing UI → 00/05.
 
-## DS-Hns boundary
-Hns `app/core` is product-local Engineering infrastructure, not City Core.
+Engineering → 02; Research → 06; knowledge/ingestion → 09; Computer Use → 10; generic presentation/theme → 00/05; admission/compliance → 01; human-facing product surfaces → 00/05.
 
-```text
-City Core decides WHICH DOMAIN owns work.
-Domain orchestrators decide HOW that domain executes it.
-```
+Hns `app/core` remains Engineering-product infrastructure, not a second City Core.

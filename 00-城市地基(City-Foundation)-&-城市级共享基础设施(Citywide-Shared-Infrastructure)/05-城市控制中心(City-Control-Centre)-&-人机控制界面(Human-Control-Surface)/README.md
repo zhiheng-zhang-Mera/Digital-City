@@ -1,41 +1,49 @@
 # 城市控制中心 City Control Centre — Human Control Surface
 
 ```text
-STATUS = PARTIAL_EXISTING_SURFACES
-IMPLEMENTATION_AUTHORITY = DISTRIBUTED_PARTIAL
-LOGIC_ENGINE_COMPONENT = General-Logic-Engine
-LOGIC_ENGINE_STATE = DESIGN_BASELINE_NOT_YET_RUNTIME
-LOGIC_ENGINE_SNAPSHOT = 66e93b3351672f109dbfc5760f90316ee9163b4b
+STATUS = REFERENCE_PRODUCT_SURFACES_EXIST
+CURRENT_REFERENCE = Utopia Web + Android
+UTOPIA_SNAPSHOT = 393f3b89a9c4fae61be1e431c4bcd47fee945e88
+OPTIONAL_LOGIC_COMPONENT = General-Logic-Engine (design-only)
+PRESENTATION_OWNER = Theme Engine union
 ```
 
-## Existing Boss control surfaces
+## Current reference product surface
 
-Codex-Boss contributes Chat/Work, WorkBook, Provider Manager, Owner Dashboard, Research/Engineering status/control and evidence/result/history surfaces.
+Utopia already provides the current Control Centre reference UI:
 
-## Engineering-domain surfaces
+- Home / device state;
+- Services;
+- Tasks;
+- Activity/history;
+- Pairing;
+- Settings;
+- physical Android counterpart.
 
-Hns exposes queue/worker/plugin/skill/Computer-Use/health/restart/settings surfaces. These remain Engineering-owned interfaces; the Control Centre may compose them without taking their authority.
+Boss and Hns remain source runtimes/control providers; their own panels are not competing City Control Centres.
 
-## General Logic Engine component
+## Theme ownership cleanup
 
-[General-Logic-Engine](https://github.com/zhiheng-zhang-Mera/General-Logic-Engine) is retained here as the **rule/state/explanation backend design component**.
+Generic Utopia/control-surface theme generation, package validation and visual/readability checks belong here as **Presentation/Theming**, not in 11 Entertainment.
 
-Its designed capability cluster is:
+The current promoted code physically remains under `utopia/city/11-entertainment/.../theme-engine` until relocation is worth doing. Physical relocation is explicitly **non-blocking**.
+
+11 keeps actual media/immersive responsibilities such as voice/avatar/VR/AR/spatial presentation.
+
+## General Logic Engine
+
+General-Logic-Engine remains an optional future rule/state/explanation backend. It is design-only and **must not block the terminal MVP**.
+
+## Product gap
+
+The missing Control Centre feature is no longer “build a dashboard.” It is:
 
 ```text
-typed Entity / Relation / State / Event / Rule / Constraint / Evidence
-→ timeline + event activation
-→ rule evaluation
-→ constraint resolution
-→ state propagation
-→ uncertainty/evidence state
-→ explanation trace / what-if branch
+Tasks + Services + Rooms
+        ↓
+one command/action experience
+        ↓
+one recent activity/result surface
 ```
 
-It is currently **design-only**: no runnable engine, performance evidence or cross-domain validation exists yet.
-
-Domain adapters may later expose Quant/Health/etc. semantics to the engine, but those domains keep ownership of their data and rules.
-
-## Boundary
-
-General Logic Engine is not Root Trust, not City Core, not the whole Control Centre UI and not a mandatory broker for all City traffic.
+Authorization and durable domain truth remain with the owning runtimes.

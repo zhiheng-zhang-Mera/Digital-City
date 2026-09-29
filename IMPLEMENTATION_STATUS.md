@@ -1,58 +1,69 @@
 # Digital-City ↔ Utopia Implementation Status
 
 > Snapshot date: **2026-09-29**  
-> Utopia main snapshot: `374fad597387278f981c21f8897e772adc5922e8`
+> Utopia main snapshot: `393f3b89a9c4fae61be1e431c4bcd47fee945e88`
 
 ## Repository roles
 
 | Repository | Role | Source of truth for |
 |---|---|---|
-| [Digital-City](https://github.com/zhiheng-zhang-Mera/Digital-City) | city map / planning / ownership / boundary registry | where a capability belongs, what owns it, and what may cross district/building boundaries |
-| [Utopia](https://github.com/zhiheng-zhang-Mera/Utopia) | product/reference implementation and active construction site | code that currently runs, promoted reusable modules, product surfaces, and acceptance evidence |
+| Digital-City | city ownership / boundary / capability map | where a capability belongs and which overlaps are real |
+| Utopia | current product/reference implementation | running control surfaces, reference Node/Capability Fabric, promoted modules and product evidence |
 
-**Rule:** code location is not architectural ownership. A module may be implemented in Utopia today and later move to a dedicated repository without changing its Digital-City district/building identity.
+Utopia is **not** required to physically mirror the Digital-City directory tree.
 
-## Current promoted city modules in Utopia
+## Current Utopia product truth
 
-| Digital-City district | Building | Module | Donor lineage | Utopia lifecycle |
-|---|---|---|---|---|
-| 02 Engineering | 02 Worker Gateway | Skill Intake | DS-Hns | PROMOTED |
-| 06 Research | 01 Research Institute | Evidence Engine | Codex-Boss | PROMOTED |
-| 09 Planning & Knowledge | 01 Knowledge Service | Knowledge Core | Codex-Boss | PROMOTED |
-| 09 Planning & Knowledge | 02 Document Intake | Ingestion Core | Codex-Boss | PROMOTED |
-| 09 Planning & Knowledge | 02 Document Intake | Document Readers | Codex-Boss | PROMOTED |
-| 11 Entertainment | 01 Entertainment Centre | Theme Engine | DS-Hns | PROMOTED |
+- **V0.2 final acceptance:** `ACCEPTED` on one Windows host + one physical Android device.
+- **Capability Bridge V0.3:** `ACCEPTED`; five services usable from Web and physical Android through one City authority.
+- **V0.3 hardening:** `PASS`; bounded invocation summaries/details, qualified identities, lifecycle-aware availability and typed client errors.
+- **Room Pack V1:** `READY_TO_ATTACH` and attached to main; ten accepted local product rooms currently remain outside Utopia's main navigation.
 
-These entries come from Utopia's `city/CITY_IMPLEMENTATION_MANIFEST.json`. `PROMOTED` means the bounded module has left incubation and exists as reusable city code with donor provenance; it does **not** mean the whole building or district is complete.
+## Promoted city modules
 
-## Product layer that is ahead of the map
+| Current Utopia path | Architectural ownership | Module |
+|---|---|---|
+| `city/02-engineering/02-worker-gateway` | 02 Engineering | Skill Intake |
+| `city/06-research/01-research-institute` | 06 Research | Evidence Engine |
+| `city/09-planning-knowledge/01-knowledge-service` | 09 Knowledge | Knowledge Core |
+| `city/09-planning-knowledge/02-document-intake` | 09 Knowledge | Ingestion Core + Document Readers |
+| `city/11-entertainment/01-entertainment-centre/theme-engine` | **00/05 Control Centre** | Theme Engine (physical relocation deferred) |
 
-Utopia also already has Android + Web control surfaces, platform-neutral contracts, services, and host/device integration scaffolding. Those product-layer directories are **not automatically new Digital-City districts**. They must still be mapped by responsibility:
+Theme's current code location is historical implementation placement, not permanent City ownership.
 
-- shared city substrate → 00 City Foundation;
-- engineering-specific capability → 02 Engineering;
-- device/edge ownership → 08 Device & Edge;
-- domain runtime capability → the owning domain district;
-- user-facing product shell → reference/control surface, not permanent ownership by itself.
+## Reference City spine already implemented by Utopia
 
-Utopia's README currently still marks V0.2 overall acceptance as `NOT_ACCEPTED` because real-camera QR acceptance remains incomplete. Physical-device evidence can therefore coexist with an overall product acceptance gap.
+Utopia already proves a useful subset of the 00 infrastructure:
 
-## Difference in progress
+- **Node Fabric:** registration, heartbeat/liveness, telemetry, capability advertisement, offline truth;
+- **Capability Fabric:** qualified registry, lifecycle-aware availability, bounded invocation bridge/history;
+- **Roads:** versioned pairing, control and capability contracts;
+- **Control Centre:** Web + Android surfaces, device view, service invocation, task/activity views and pairing.
 
-Digital-City is **broader but shallower**: all 00–11 districts and intended ownership boundaries exist, but many remain mapping/planning-only.
+This means Utopia product work does **not** need to wait for physical extraction from Boss.
 
-Utopia is **narrower but deeper**: only several districts have qualified city modules, but those modules are real implementation with tests, provenance, promotion history, Android/Web product surfaces, and device-validation evidence.
+## Current product fragmentation
 
-The two repositories should therefore not be synchronized by copying directory trees. Digital-City should periodically record **qualified implementation facts** from Utopia, while Utopia is allowed to iterate faster.
+Three separately accepted/usable planes exist:
 
-## Next review
+1. **Tasks** — City Control v0 runtime execution tasks;
+2. **Services** — Capability Bridge invocations;
+3. **Rooms** — ten single-host personal utility rooms.
 
-The next planned architecture review is:
+The main usability gap is no longer “missing modules.” It is that these three planes do not yet feel like one personal terminal.
+
+## Next implementation priority
+
+See [CITY_CAPABILITY_GAP_REVIEW.md](./CITY_CAPABILITY_GAP_REVIEW.md).
+
+The next product milestone should optimize for:
 
 ```text
-03 Residential District
-Digital Identity / Agent Domain
-Primary existing project: Digital-Me
+one Utopia
+→ one command/action entry
+→ one recent activity model
+→ automatic capability/node/runtime routing
+→ PC + Android continuation
 ```
 
-The 03 review should decide which Digital-Me capabilities are true resident-owned rooms, which belong to shared infrastructure or other districts, and which interfaces should become stable City Roads.
+Health, Quant, Digital-Me, immersive media and other domain buildings should attach after that spine works; they must not block the terminal experience.

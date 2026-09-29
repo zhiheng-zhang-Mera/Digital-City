@@ -1,37 +1,36 @@
-# 城市节点网 City Node Network — 设备节点互联层 Device Node Fabric
+# 城市节点网 City Node Network — Device Node Fabric
 
-STATUS = STRUCTURAL_SLOT
-PROJECT_MAPPING = PENDING_REVIEW
-CURRENT_IMPLEMENTATION_SOURCE = Codex-Boss
-FUTURE_EXTRACTION = PRESET_NOT_NOW
+```text
+STATUS = REFERENCE_IMPLEMENTATION_EXISTS
+LONG_TERM_PRIMARY_SOURCE = Codex-Boss
+CURRENT_REFERENCE_IMPLEMENTATION = Utopia dev-gateway + reference-node
+UTOPIA_SNAPSHOT = 393f3b89a9c4fae61be1e431c4bcd47fee945e88
+```
 
-Shared city infrastructure for authorized device/node identity, registration, membership, liveness, hardware/resource advertisement, capability-host advertisement and cross-device presence/coordination contracts.
+## Ownership
 
-## Future extraction preset
+Node Fabric owns authorized **runtime/computing node presence**:
 
-The long-term design allows Node Fabric to be extracted from Codex-Boss, but **not before its internal boundary is stable**.
+- node/device principal identity below Owner/Root authority;
+- registration and membership;
+- heartbeat/liveness/offline truth;
+- runtime endpoint metadata;
+- hardware/resource telemetry and advertisement;
+- capability-host advertisement.
 
-Candidate material to extract from Boss includes:
+Utopia already implements a bounded reference version: node registration, heartbeat, telemetry, capability lists and offline detection.
 
-- node/device identity contracts below Owner/Root authority;
-- node registry and membership;
-- heartbeat, liveness and node-state derivation;
-- hardware/resource probing and advertisement;
-- node capability-host advertisement;
-- node discovery and runtime endpoint metadata;
-- generic cross-device presence/coordination contracts.
+## Boundary with 08 Device & Edge
 
-Current Boss seed surfaces include `src/shared/tenx/node.ts`, the membership/liveness portions of `src/shared/tenx/fleet.ts`, `src/shared/node-capabilities.ts`, and generic node profile/telemetry contracts.
+```text
+Node Fabric = “which authorized runtime/compute node is present?”
+08 Device & Edge = “which physical sensor/actuator capability exists?”
+```
 
-## Must stay outside the extraction
+A Windows PC can be a Node. A VR glove is a Device capability. A phone may be only a control client today and become a Node later only if it explicitly advertises executable capabilities.
 
-- Owner / Root Trust and constitutional authority;
-- city-wide authority policy;
-- Hns worker scheduling, engineering queues and resource budgeting;
-- domain-specific task execution policy.
+## Boundary with Hns
 
-Task scheduling **using** a node is not the same thing as Node Fabric itself.
+Hns may schedule Engineering work **onto** nodes, but worker queues/resource policy are not Node Fabric ownership.
 
-## Extraction gate
-
-A separate package/repository/service becomes justified only when Node Fabric is independently testable, exposes a stable public contract, no longer depends on Boss-private state, and gains a real lifecycle/failure-domain benefit from separation.
+Physical extraction from Boss is optional and must not block Utopia reference-product progress.

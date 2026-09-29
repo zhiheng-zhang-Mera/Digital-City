@@ -1,21 +1,28 @@
 # Entertainment District — 娱乐与沉浸式交互域
 
 ```text
-STATUS = PARTIAL_REFERENCE_IMPLEMENTATION
-CONNECTED_PROJECTS = Utopia + DS-Hns + Codex-Boss
+STATUS = PARTIAL_PROJECT_CONTRIBUTIONS
+PROMOTED_DOMAIN_MODULES = NONE_AFTER_THEME_RECLASSIFICATION
 ```
 
-## Building
-[Entertainment Centre](./01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)/) is now an implemented multi-source building.
+11 owns **media/immersive presentation semantics**, not generic application theming.
 
-## Theme Engine union
-**Hns:** package/surface/token contracts, validator, designer/builder/orchestrator, procedural assets, registry/lifecycle/recovery, protected-surface rules, raster/colour helpers.
+## Theme reclassification
 
-**Boss:** bilingual natural-language Theme Intent, deterministic intent→package generation with decision traces, UI-engineering escalation for out-of-theme requests, current-surface prerequisites, measured readability/contrast/layout/control/overflow checks.
+The generic Theme Engine used to style Utopia/control surfaces is now architecturally owned by **00/05 Control Centre / Presentation & Theming**.
 
-Utopia's currently promoted Theme Engine is Hns-derived. Boss behaviors are recorded as additional donor capabilities, not falsely claimed as already promoted.
+Its current Utopia path under `city/11-entertainment` is a historical physical location only; relocation is deferred and does not block product work.
 
-Other translation/VR/AR/ASMR/smart-glasses rooms remain future until backed by reviewed projects.
+## Real/future 11 responsibilities
+
+- voice/TTS presentation;
+- avatar/lip-sync/virtual camera/audio;
+- translation/media transformation where implemented;
+- VR/AR experience logic;
+- spatial audio / immersive presentation.
+
+Digital-Me may contribute voice/avatar adapters; 08 supplies physical device interfaces.
 
 ## Boundary
-Hardware → 08; Health interpretation → 05; theme/presentation gains no city authority.
+
+Hardware → 08. Resident truth/persona → 03. Health → 05. Generic shell/UI theming → 00/05.

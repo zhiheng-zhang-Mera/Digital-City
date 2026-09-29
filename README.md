@@ -39,14 +39,14 @@ City
 | [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | PROJECT_FIRST_REVIEWED_PARTIAL / QUALIFICATION_CONTROL |
 | [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | PROJECT_FIRST_REVIEWED / HNS+HEALTH+RESTART |
 | [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | PROJECT_FIRST_REVIEWED / DIGITAL_ME |
-| [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | CONTENT_REVIEW_PENDING / PRIVACY_LENS_EXCLUDED |
+| [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURAL_EMPTY_BY_DESIGN |
 | [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | PROJECT_FIRST_PARTIAL / PARAMA+DRUG_SIMULATOR |
 | [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | PROJECT_FIRST_REVIEWED / QUANT_ULTRA |
 | [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | PROJECT_FIRST_PARTIAL / VR_GLOVE |
 | [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | IMPLEMENTATION_PARTIAL / RUNTIME_KNOWLEDGE_ONLY |
 | [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | PROJECT_FIRST_PARTIAL / COMPUTER_USE+AUTO_GAME_BOT |
-| [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
+| [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | PARTIAL_PROJECT_CONTRIBUTIONS / NO_PROMOTED_DOMAIN_MODULE |
 
 ## 00 infrastructure layout
 
@@ -71,9 +71,10 @@ Capability Fabric is deliberately broader than “plugins”: plugins are one pa
 
 ## Preserved planned-building placeholders
 
-- [Customs Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/)
-- [Runtime Compliance / Public Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/)
-Integrated Health Hospital, Research Institute and Entertainment Centre are no longer pure placeholders: each has real project or implementation sources. The remaining `PROJECT_NOT_CREATED` entries are still non-operational.
+- [Customs Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/) — logical admission gate; a standalone service is not required by default.
+- [Runtime Compliance / Public Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/) — logical enforcement gate; extraction remains conditional.
+
+No empty district/building is a blocker for Utopia product usability.
 
 ## Project-first review strategy
 
@@ -92,7 +93,7 @@ Existing repository
 
 A repository is therefore an **implementation/source asset**, not automatically one Building. One repository may contribute modules to several districts; one Building may also be backed by several repositories. Physical code movement is a separate later decision.
 
-See [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) for the repository-driven review queue and the completed Digital-Me, Codex-Boss and DS-Hns decompositions. See [COMPOSITE_UNIONS.md](./COMPOSITE_UNIONS.md) for overlap-union rules.
+See [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) for the completed repository inventory, [COMPOSITE_UNIONS.md](./COMPOSITE_UNIONS.md) for overlap-union rules, and [CITY_CAPABILITY_GAP_REVIEW.md](./CITY_CAPABILITY_GAP_REVIEW.md) for the post-inventory conflict cleanup and product-priority result.
 
 ## Project-mapping review
 
@@ -152,5 +153,8 @@ SUPERSEDED_AND_COURSEWORK_PROJECTS = RESOLVED
 DEPRECATED_PROJECT_EXCLUSIONS = RECORDED
 BOSS_HNS_OVERLAP_UNIONS = RECORDED
 PROJECT_INVENTORY_REVIEW = COMPLETE
-NEXT_PHASE = CITY_CAPABILITY_GAP_REVIEW
+CITY_CAPABILITY_GAP_REVIEW = COMPLETE
+THEME_OWNERSHIP = 00/05_CONTROL_CENTRE
+UTOPIA_REFERENCE_SPINE = NODE+CAPABILITY+CONTROL
+NEXT_PHASE = UTOPIA_UNIVERSAL_PERSONAL_TERMINAL_FAST_PATH
 ```
