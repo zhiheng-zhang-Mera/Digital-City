@@ -1,51 +1,191 @@
-# Mission Book — Pure Migration Queue
+# Mission Book — Integration-First Migration & Verification Queue
 
-> 本目录是 Digital-City 对 **已确认 City 归属的纯迁移工作** 的施工控制面。它描述“迁什么、迁到哪里、什么算迁完”，不保存运行代码。
+> 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
+> **Active rules = 本文件 + `response.md` + 各 Mission 当前 front matter / mission-specific gates。**  
+> `past-rules/` 与历史报告仅用于 provenance，不得作为新任务的运行时规则来源。
 
-## 本轮原则
+## 0. 模式与边界
 
 ```text
 MODE = MIGRATION_ONLY
 NEW_FEATURE_DEVELOPMENT = FORBIDDEN
 IMPLEMENTATION_LANDING = Utopia
 CITY_REPO = mission / claim / ownership / acceptance metadata
+SCHEDULER = INTEGRATION_FIRST
+UNMERGED_WIP_LIMIT = 2
 ```
 
-本轮只迁移 donor 中已经真实存在的能力。允许：抽取、拆分、接口适配、路径迁移、消费接线、等价重构、测试、真实 UI/使用验证、telemetry/error/evidence 补全。禁止：新增产品能力、补完设计文档中的未来模块、为了验收造新 UI、扩大权限或把 TODO 当迁移实现。
+迁移只能搬运 donor 中已经存在的行为：允许抽取、拆分、接口适配、等价重构、已有消费面接线、测试与证据化；禁止把未来设计、缺失 runtime、全新 UI、全新策略或新产品能力伪装成“迁移”。
 
-## 为什么是双阶段
+## 1. 权威来源顺序
 
-每个 Mission 有两个独立完成状态：
+发生冲突时按以下顺序解释：
 
-- **MIGRATION_COMPLETE**：第一台主机完成迁移分支、测试、真实消费与 Migration Report；**不得合入目标 main**。
-- **VERIFICATION_COMPLETE**：第二台不同主机先独立审查，再参考 Migration Report 二次维修/验证；CI 全绿后由验证主机合入目标 main，并提交 Verification Report。
+1. Owner 的最新显式裁决：[`response.md`](./response.md)；
+2. 本文件的当前规则；
+3. Mission 当前 front matter + mission-specific gates；
+4. 当前 Utopia `main` 的事实状态；
+5. Migration / Verification Report（历史证据）；
+6. [`past-rules/`](./past-rules/)（纯历史归档）。
 
-只有两者都为 `true` 才算 Mission 完整收口。
+报告中的旧 rule 编号、旧判断、旧阻塞原因不会自动覆盖后来的 Owner 裁决。
 
-## 领取算法
+## 2. 双阶段仍然保留
 
-每次开始工作，先读取 Digital-City `main` 下本目录的最新任务状态：
+每个 Mission 仍有两个独立状态：
 
-1. 过滤 `execution_enabled=true`。
-2. 优先找 `migration_complete=false`、Migration 未领取、依赖满足的任务，按 `sequence` 升序领取。
-3. 若不存在可领取 Migration，再找 `migration_complete=true` 且 `verification_complete=false`、Verification 未领取，并且当前主机不是 Migration Host 的任务；按 `sequence` 升序。
-4. 任一阶段已经被领取但尚未完成时，其他主机跳过该任务。
-5. 领取前必须先更新对应 Mission 文件 Claim 并提交到 **Digital-City main**；写冲突意味着 Claim 失败，必须重新读状态再选。
-6. 同一 Mission 只允许两个执行主机：Migration Host 与 Verification Host，各参与一次；同一主机不得领取两种角色。Hosted CI runner 不算执行主机。
+- **MIGRATION_COMPLETE**：Migration Host 完成迁移、测试、报告与可要求的真实运行；不得自行合入实现仓库 `main`。
+- **VERIFICATION_COMPLETE**：另一台不同实际主机完成独立审查、同步最新 `main`、维修/真实运行、双 CI、episode finalize，并由 Verification Host 合入 `main`。
 
-### Claim 异常
+同一 Mission 的 Migration Host 与 Verification Host 必须是**两个不同实际主机标识**；Hosted CI runner 不计入执行主机。
 
-自动 worker 不得清空别人的 Claim。Claim 后如果尚无任何目标仓库实现提交/报告，Owner 可以显式 reset；一旦存在实质工作而 claimant 无法结束，任务进入 `BLOCKED_OWNER_DECISION`。不要为了“继续跑”偷偷加入第三台主机。
+“要求两台主机都跑过”的默认解释是：**Migration Host 与 Verification Host 各自留下真实运行证据**，不再要求第三台机器或第二个 verifier。若某 Mission 明确要求额外物理设备，必须单独写在 mission-specific gate 中。
 
-## 分支与合并
+## 3. 新领取算法：Integration First
 
-- Migration Host：目标实现仓库 `main` → 新建 `mission/<MISSION_ID>-<slug>` → 迁移 → push → **不 merge**。
-- Verification Host：领取同一任务 → **先独立看 donor/diff/code/tests/运行状态，不先看迁移报告** → 记录初步发现 → 再读 Migration Report → 在同一分支二次维修和验证 → required CI 全绿 → merge `main`。
-- Digital-City 的 Claim/状态更新是任务元数据，可直接更新 City `main`，不等同于实现代码进 main。
+每次开始工作必须先读取 Digital-City 最新 `main`，并按以下顺序选择：
 
-## 报告
+### P0 — Verification / Integration
 
-所有 Mission 的快速施工报告统一保存在 Digital-City：
+优先选择：
+
+```text
+execution_enabled = true
+migration_complete = true
+verification_complete = false
+verification stage unclaimed or already claimed by this host
+current host != migration_claim_host
+not BLOCKED_OWNER_DECISION (unless response.md has explicitly resolved it)
+```
+
+P0 内按以下优先级排序：
+
+1. 已存在 substantive mission branch 且相对实现仓库 `main` 落后较多；
+2. 修改共享控制面的分支；
+3. sequence 升序。
+
+以下文件/区域视为**共享控制面**，触及后自动提高 Integration 优先级：
+
+- `city/CITY_IMPLEMENTATION_MANIFEST.json`
+- `city/manifest.mjs`
+- `city/tests/manifest.test.mjs`
+- `services/capability-bridge/**`
+- 全局 census / registry / shared contracts / promotion-history verifier
+
+**任何 mission branch 落后实现仓库 main > 10 commits，或触及共享控制面且 main 已前进，都视为 P0 integration pressure。**
+
+### P1 — 新 Migration
+
+只有在**没有本机可领取的 P0**时，才允许选择新的 Migration：
+
+```text
+execution_enabled = true
+migration_complete = false
+migration stage unclaimed
+dependencies satisfied
+not BLOCKED_OWNER_DECISION
+global unmerged substantive mission WIP < 2
+```
+
+然后按 sequence 升序。
+
+### WIP Limit
+
+`UNMERGED_WIP_LIMIT = 2`。
+
+“WIP”指已经产生实质实现提交、但尚未进入实现仓库 `main` 的 Mission branch，包括等待 Verification 或等待 Owner 裁决的分支。历史遗留可暂时超过 2，但**只要超过上限就冻结新的 Migration**，直到 integration backlog 降回 2 以下。
+
+不要为了让某台机器“有活干”而继续制造新分支。
+
+## 4. Claim 与主机资格
+
+- Claim 前先更新对应 Mission 文件并提交到 Digital-City `main`。
+- 写冲突 = Claim 失败，重新读取最新状态并重选。
+- 已有阶段 Claim 且尚未结束时，其他主机不得抢占。
+- 自动 worker 不得自行清空别人的 Claim。
+- Claim 后尚无实质实现/报告时，Owner 可 reset；已有实质工作而无法继续时，进入 `BLOCKED_OWNER_DECISION` 或由 Owner 建立 superseding Mission。
+- Mission Index 应尽量显示 Migration Host / Verification eligible host；但**Mission 文件 front matter 才是 Claim 真值**。
+
+## 5. Dependency 的统一语义
+
+除非 Mission 明确写出更弱的依赖，`dependencies satisfied` 默认表示：
+
+> **依赖 Mission 的所需实现已经被 Verification 接受并进入目标实现仓库 `main`。**
+
+仅有 `migration_complete=true`、但代码仍停留在未合并 branch，不默认算依赖满足。
+
+## 6. Branch freshness 与合并策略
+
+### Migration
+
+从目标实现仓库**最新 `main`**创建：
+
+```text
+mission/<MISSION_ID>-<slug>
+```
+
+Migration 阶段不合入 `main`。
+
+### Verification / Integration
+
+Verification Host 在开始维修和最终验证前必须重新读取最新 `main`：
+
+- 若 mission branch 落后，**优先把最新 main merge 进 mission branch**，保留跨主机历史；默认不 force-push、不改写 Migration Host 历史。
+- 先解决共享 manifest/registry/census 的并集与语义冲突，再运行 Mission-specific gate。
+- 一个旧分支完成 merge 后，下一个待验分支必须**重新**基于新的 main 做同步；不得批量把多个旧分支同时按同一个旧 main 验完。
+
+## 7. 真实消费门槛：v2
+
+### 7.1 有等价消费面时
+
+如果 Utopia 当前产品面已经存在与 donor 行为**语义等价**的消费 seam，Migration/Verification 必须真实走通该 seam；不得用纯 unit test 替代。
+
+### 7.2 基础设施 / 管线模块没有等价消费面时
+
+对于明确标记为非产品能力来源（例如 `capabilityProvider:false`）的 infrastructure / pipeline module：
+
+- 若没有语义等价的现有 Utopia 产品消费面；
+- 且接入现有 UI/服务会新增 capability、改变既有判定或跨 Building 偷接别的能力；
+
+则**不得为了验收造新 UI / 新 capability**。此时允许：
+
+> Verification Host 用真实、bounded、可复现的 integration chain 直接执行迁移后的模块，并记录输入、输出、failure/recovery、parity 与 evidence，作为“真实消费”门槛的满足方式。
+
+### 7.3 关键执行能力不得借此豁免
+
+如果 Mission 的核心产品价值本身就是**真实外部执行 seam**——例如 provider gateway、runner、device/backend execution——那么缺少真实 provider/runtime 不能用 7.2 的 bounded-chain 规则绕过。
+
+这类 Mission 必须：
+
+- 使用 donor 已支持的真实 provider/runtime 完成真实路径；或
+- 由 Owner 授权 superseding Mission 把 donor 中 deferred 的 execution seam 一并迁入。
+
+Mock pass 仍然禁止。
+
+## 8. 非产品模块与 capability registry
+
+City 级默认机制：
+
+- 非产品能力模块可声明 `capabilityProvider:false`；
+- capability enumeration 不应把这类 module 暴露成不可调用的产品 capability；
+- building 可在必要时使用自己的 `kind` 覆盖 district 的默认 `kind`，由统一的 effective-kind 逻辑判断。
+
+具体 Owner 裁决见 [`response.md`](./response.md)。
+
+## 9. 独立 Verification
+
+Verification Host 必须：
+
+1. 先只看 donor、目标代码、diff、测试和运行状态，记录独立发现；
+2. 再读 Migration Report 做 reconciliation；
+3. 必要维修只发生在原 mission branch；
+4. 不得通过删测试、跳过门禁、放宽目标语义换绿。
+
+如果 donor 不在本机，不能把“donor 缺失导致 parity test skip”当作 parity 已通过；应明确记录缺失，并尽量重新取得冻结 donor 或把该门禁标为未验证。
+
+## 10. 报告与 Utopia 狗粮
+
+City 报告：
 
 ```text
 mission-book/reports/MB-xxx/
@@ -53,62 +193,44 @@ mission-book/reports/MB-xxx/
 └─ VERIFICATION_REPORT.md
 ```
 
-报告采用一个 Markdown 文件内的结构化中英双语/字段化写法，避免 Hns 为快速读取同一事实重复打开两份文件。原始运行证据不复制进 City，只放证据指针、摘要和最终 SHA。
+Utopia 过程数据继续遵守 [`PROCESS_DATA_POLICY.md`](./PROCESS_DATA_POLICY.md)：
 
-Migration Report 必须明确记录 **落地边界**，以便验证主机在独立审查后对照：donor/source SHA、source→target 路径、保留/不迁行为、接口、实际 UI/消费路径、测试、日志/错误、故障与恢复、证据位置、已知限制、branch/CI 状态。
+- raw evidence → `.runtime/evidence/mission-book/...`
+- bounded events → `data-records/evolution/inbox/mission-book/...`
+- accepted episode → `data-records/evolution/episodes/mission-book/...`
 
-## 当前 Mission 范围
+Owner 裁决发生后，下一位实际触碰对应 mission branch 的施工者应追加一个 `OWNER_INTERVENTION` 事件，引用 `Digital-City/mission-book/response.md`。
 
-- **可施工 MB-001..009**：Boss/Hns 核心拆分、Engineering、Host Health/Restart、Research、Computer Use、Theme ownership relocation。
-- **禁领 MB-010..012**：Node Fabric optional extraction、Customs、Runtime Compliance；只有 Owner 显式修改 `execution_enabled` 后才进入队列。
+## 11. Finalize / 双 CI / Merge
 
-### 不建立迁移 Mission 的内容
-
-- 已迁完成：Utopia 的 Skill Intake、Evidence Engine、Knowledge Core、Ingestion Core、Document Readers 等已 ACTIVE/PROMOTED 成果。
-- 独立项目继续留在自己的正常仓库：Digital-Me、Quant-ultra、Parama-Health、My_VR_Glove、Auto-Game-Bot 等；City placement 不等于必须物理搬家。
-- Qualification Control Plane 已经是独立且正确的 City building/source，不需要伪造一次搬迁。
-- design-only / 未实现未来能力不进入本轮：General-Logic-Engine 实现、Drug Simulator runtime、Auto-Game-Bot 尚未实现的 perception/autonomy、Parama 尚未实现模块等。
-
-
-## 绑定执行条件（所有 Mission 强制）
-
-1. **纯迁移**：`MODE=MIGRATION_ONLY`。只能搬运、拆分、接口适配、接线、等价重构、测试与证据化 donor 中已经存在的行为；不得新增 donor 中不存在的产品能力、策略或语义。
-2. **两个独立完成状态**：`MIGRATION_COMPLETE` 与 `VERIFICATION_COMPLETE` 分开维护；前者不代表可进入 `main`。
-3. **领取前先向 Digital-City main 报到**：领取主机必须先在本文件 Claim 区填写主机标识、角色、时间，并提交到 City 仓库。发生写冲突时必须重新读取最新状态并重新选任务。
-4. **任务已被领取且对应阶段未完成时，其他主机必须跳过该任务**，不得抢占。
-5. **同一 Mission 严格两台主机**：一台只承担 Migration，一台只承担 Verification；同一主机一旦出现在本 Mission 的任一 Claim 中，不得再次领取该 Mission 的任何角色。Hosted CI runner 不计入“参与主机”。
-6. **选择顺序**：先选择 `EXECUTION_ENABLED=true` 且尚未迁移、无人领取、依赖满足的 Mission；按 `SEQUENCE` 升序。只有当前没有可领取迁移任务时，才选择已迁移但未验证、无人领取的 Mission；同样按 `SEQUENCE` 升序。
-7. **Migration 分支**：迁移主机默认从目标实现仓库最新 `main` 新建 `mission/<MISSION_ID>-<slug>` 分支；迁移阶段不得合入目标仓库 `main`。City 仓库中的 Claim/状态元数据更新不受此限制。
-8. **Migration 报告**：迁移主机必须把快速施工报告提交到 `Digital-City/mission-book/reports/<MISSION_ID>/MIGRATION_REPORT.md`，并明确记录“落地边界”：donor SHA、source→target 路径、保留行为、明确未迁内容、接口/契约、现有 UI/实际消费路径、测试、数据/错误记录摘要、已知限制、Utopia 证据指针、分支 HEAD/CI 状态。City 不保存大体量原始运行日志。
-9. **Verification 必须先独立审查，后看迁移报告**：验证主机先只依据 donor、目标代码、diff、测试和运行状态完成独立 code review，并在验证报告中记录独立发现；之后才读取 Migration 报告作为二次参考。
-10. **Verification 可直接维修同一迁移分支**：验证主机在对应 Migration 分支实施必要的二次维修、补测、真实 UI/使用落地验证、故障/恢复验证和证据补全，但不得扩大 Mission 功能边界。
-11. **合并门禁**：验证完成后，目标实现仓库所有 required CI + 本 Mission 指定检查必须全绿，方可合入 `main`。不得用跳过/删除测试、放宽验收、修改目标语义来换绿。
-12. **最终报告**：验证主机把最终报告提交到 `Digital-City/mission-book/reports/<MISSION_ID>/VERIFICATION_REPORT.md`，记录独立审查、参考 Migration 报告后的差异、维修、真机/第二机结果、失败与恢复、CI run、最终 branch SHA、merge SHA 和 Utopia 证据指针。
-13. **异常领取恢复**：自动施工者不得自行清空 Claim。若 Claim 后尚未产生任何实现提交/报告，Owner 可显式 reset；若已经产生实质工作但主机无法完成，则本 Mission 标记 `BLOCKED_OWNER_DECISION`，不得引入第三台主机偷偷接力，需由 Owner 决定是否建立 superseding Mission。
-14. **不允许“为了验收而造新 UI”**：真实 UI/使用落地必须复用 Utopia 已存在的 Web/Android/Services/Tasks/Activity 等消费面或 donor 已存在的 UI 行为；若现有产品面无法消费该能力，则记录为边界/阻塞，不得把新产品功能伪装成迁移。
-15. **Utopia 过程狗粮为强制施工数据**：领取后、实质施工前以及每个有意义的 change/test/runtime failure/recovery/Owner intervention/verifier finding/repair/CI/completion 节点，必须在 Mission implementation branch 使用 Utopia `pnpm mission:event -- ...` 追加结构化事件。大体量现场证据写入 `.runtime/evidence/mission-book/<MISSION_ID>/<run-id>/`；只有跨主机确有需要的有界非敏感证据才选择性发布到 `evidence/raw/mission-book/<MISSION_ID>/`。
-16. **Episode 收口与双 CI**：Verification 主机先让实现代码 required CI 全绿并记录 `CI_RESULT=PASS`、`VERIFICATION_COMPLETE=PASS`，再运行 Utopia `pnpm mission:finalize -- ...` 生成 verified episode 并移除当前树 inbox；提交该纯数据收口后，**最终 branch HEAD 必须再次跑 required CI 并全绿**才允许 merge。City Verification Report 同时记录 implementation CI、final branch CI、episode path/digest 与最终 merge SHA。
-
-
-
-## Utopia evolution bootstrap
-Accepted Utopia bootstrap: `c7ef3cd1c6be0155332d03afc3607dfdbf49c205` (PR #9, CI `36562928621` green).
-
-
-Mission 施工使用 Utopia 内置的最小经验流工具：
+Verification 收口顺序：
 
 ```text
-contracts/evolution/mission-event-v1.schema.json
-contracts/evolution/mission-episode-v1.schema.json
-scripts/record-mission-event.mjs
-scripts/finalize-mission-episode.mjs
+independent review
+→ merge latest main into mission branch when needed
+→ repair / real-use verification
+→ implementation required CI GREEN
+→ CI_RESULT PASS
+→ VERIFICATION_COMPLETE PASS
+→ pnpm mission:finalize
+→ commit episode + inbox removal
+→ FINAL BRANCH HEAD required CI GREEN
+→ Verification Host merge main
+→ City VERIFICATION_REPORT / Mission metadata
 ```
 
-命令入口：
+不得在 finalize 后跳过最终 branch HEAD CI。
 
-```text
-pnpm mission:event -- ...
-pnpm mission:finalize -- ...
-```
+## 12. 当前冻结项
 
-详细过程数据边界见 [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)。
+- MB-010 Node Fabric：disabled，optional extraction。
+- MB-011 Customs：disabled，等待 extraction gate。
+- MB-012 Runtime Compliance：disabled，等待 extraction gate。
+
+Owner 未显式启用前，不得因为前面 backlog 清空就自动启动这些 Mission。
+
+## 13. 历史规则
+
+旧版 migration-first rule 及旧模板已归档到 [`past-rules/`](./past-rules/)。
+
+**现役 Mission 文件不再复制完整全局规则。** Mission-specific gates 仍然有效；全局流程统一引用本文件，避免未来规则更新后十二份文件互相漂移。
