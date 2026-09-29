@@ -27,20 +27,20 @@ Utopia 是产品与 experience learner，所以迁移过程数据归 Utopia；�
 
 ```text
 Utopia/
-├─ evidence/raw/mission-book/<MISSION_ID>/<run-id>/
-│  └─ bounded raw receipts / screenshots / error artifacts
+├─ .runtime/evidence/mission-book/<MISSION_ID>/<run-id>/
+│  └─ raw receipts / screenshots / error artifacts   [git-ignored]
 │
 └─ data-records/evolution/
    ├─ inbox/mission-book/<MISSION_ID>/
-   │  └─ structured event stream / episode candidates
+   │  └─ bounded structured event stream             [mission branch]
    │
-   └─ episodes/mission-book/
-      └─ verified normalized episode after Mission closeout
+   └─ episodes/mission-book/<MISSION_ID>/
+      └─ verified normalized episode                 [accepted/main]
 ```
 
-### Layer 1 — Raw evidence
+### Layer 1 — Raw runtime evidence
 
-施工时记录：
+施工时先写入 `.runtime/evidence/mission-book/<MISSION_ID>/<run-id>/`，遵循 Utopia 现有 `.runtime/` Git-ignore 规则。记录：
 
 - command/action receipts；
 - test / CI results；
@@ -50,11 +50,11 @@ Utopia/
 - refs/SHA/digests；
 - timing/resource data（有价值时）。
 
-禁止提交 secrets、credentials、hidden model reasoning 或无界 terminal dump。大型临时日志可保留在本机/hosted artifact，只向 Git 提交有界证据及 digest/reference。
+禁止提交 secrets、credentials、hidden model reasoning 或无界 terminal dump。大型临时日志保持在本机/hosted artifact。Migration/Verification 需要跨主机共享的少量非敏感证据，可以在对应 mission branch 上选择性发布到 `evidence/raw/mission-book/<MISSION_ID>/`；它们在 Verification 前只是 candidate evidence，只有随验证完成后的 branch 合入 main 才成为已接受仓库证据。
 
 ### Layer 2 — Evolution inbox
 
-Migration 与 Verification 过程中，把结构化事实追加到非权威 inbox。
+Migration 与 Verification 过程中，把**有界、结构化、非敏感**的事实追加到 mission implementation branch 的 `data-records/evolution/inbox/mission-book/<MISSION_ID>/events.jsonl`。它是跨主机 handoff 数据，不是 raw terminal dump，也不是权威规则。
 
 建议事件：
 
@@ -79,7 +79,7 @@ MISSION_ACCEPTED
 
 ### Layer 3 — Verified episode
 
-只有 Verification 完成且 required CI 全绿后，才把整段 Mission 历史归一化为一个 verified episode。
+只有 Verification 完成且 required CI 全绿后，才把整段 Mission 历史归一化为 `data-records/evolution/episodes/mission-book/<MISSION_ID>/episode.json`。在同一最终分支提交中删除当前树上的 inbox 文件（Git 历史仍保留施工轨迹），使 main 默认只暴露 verified episode。
 
 Episode 同时保留：
 
@@ -91,7 +91,7 @@ Episode 同时保留：
 ## City report relationship
 
 ```text
-Utopia raw / inbox / verified episode
+Utopia .runtime raw / branch inbox / verified episode
                ↓
       pointer + digest + summary
                ↓
