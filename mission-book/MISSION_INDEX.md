@@ -1,6 +1,6 @@
 # Mission Index — Active Queue
 
-> **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response.md](./response.md).  
+> **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response-9-29.md](./response-9-29.md).  
 > Historical rules/index snapshots are under [past-rules/](./past-rules/).
 
 ## Current state
@@ -59,7 +59,7 @@ Unless a Mission explicitly says otherwise, a dependency is satisfied only when 
 
 ## Owner decisions now resolved
 
-Canonical rulings: [response.md](./response.md).
+Canonical rulings: [response-9-29.md](./response-9-29.md).
 
 - **MB-003 real provider:** not waived; superseding donor-backed execution-seam Mission authorised.
 - **MB-004 routing clause:** existing real Engineering job + zero donor coupling accepted; no reopen.
@@ -92,4 +92,4 @@ Old reports contain statements such as:
 - “MB-004 may still be blocked by MB-003”;
 - old rule numbers 1..16.
 
-Those statements remain valid descriptions of the state **when the reports were written**, but they are not current scheduler instructions. Use [past-rules/](./past-rules/) to interpret them historically and [response.md](./response.md) for the Owner's resolution.
+Those statements remain valid descriptions of the state **when the reports were written**, but they are not current scheduler instructions. Use [past-rules/](./past-rules/) to interpret them historically and [response-9-29.md](./response-9-29.md) for the Owner's resolution.
