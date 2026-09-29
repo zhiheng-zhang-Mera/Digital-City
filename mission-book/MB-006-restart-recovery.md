@@ -12,19 +12,19 @@ migration_branch: mission/MB-006-restart-recovery
 migration_head_sha: dab820b37ff39d1581b19dd43e75771507fb7139
 migration_ci: "final-branch 36575418378 PASS (gateway-web + android); implementation 9584b98 36574888667 PASS"
 migration_report: mission-book/reports/MB-006/MIGRATION_REPORT.md
-verification_status: CLAIMED
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-30T01:30:00Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
-merged_main_sha: null
+verification_head_sha: 75edd7e7184ad9518e44f8cfd62636aa7276fc13
+verification_ci: "final-branch 36589287739 PASS (gateway-web + android); reconciled-tree 36588756363 PASS; merged-main 36590045745 PASS"
+verification_report: mission-book/reports/MB-006/VERIFICATION_REPORT.md
+merged_main_sha: ce33792ed50787e991b22465da28feabc8e50c50
 ---
 
 # MB-006 — Restart Recovery Station vendor-neutral 纯迁移
 
-> **当前可领取：Verification 已由主机 `Mech` 领取**（Migration 由 `Alien` 完成；两台主机不同，符合 rule 5）。验证门槛要求**两台主机各完成一次真实受控 process restart/relaunch**，环境不安全时必须标记 BLOCKED，不得强造能力或 mock pass；donor 的两项已知 limitation 必须原样保留（见报告的 D7 与 `restart-protocol/DONOR.json` 的 `donorLimitations`）。
+> **当前状态：Verification 已由主机 `Mech` 完成，已合入 main**（Migration 由 `Alien` 完成；两台主机不同，符合 rule 5）。验证门槛要求**两台主机各完成一次真实受控 process restart/relaunch**，环境不安全时必须标记 BLOCKED，不得强造能力或 mock pass；donor 的两项已知 limitation 必须原样保留（见报告的 D7 与 `restart-protocol/DONOR.json` 的 `donorLimitations`）。
 
 ## 目标
 
@@ -123,11 +123,19 @@ merged_main_sha: null
 
 - Host: **Mech**
 - Claimed at: 2026-09-30T01:30:00Z
-- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-006/VERIFICATION_REPORT.md`)
+- City claim commit: `34e9f33`
 - Reviewed migration branch: `mission/MB-006-restart-recovery` @ `dab820b37ff39d1581b19dd43e75771507fb7139`
 - Selection note: selected under mission rule 6's second clause. No migration is claimable (`MB-007`/`MB-008` are `BLOCKED_OWNER_DECISION`; `MB-010`–`MB-012` have `execution_enabled: false`), so the verification queue is the claimable set, ascending by sequence. That queue is `MB-002` (claimed by `Alien`), `MB-003` (**blocked** by this host — no donor-supported provider), `MB-004` (claimed by `Alien`), `MB-005` (**not eligible for this host**: rule 5 — `Mech` was MB-005's *migration* host), `MB-009` (**not eligible for this host**: rule 5 — `Mech` was MB-009's migration host), and `MB-006`. `MB-006` is therefore the lowest-sequence verification this host is permitted to take, and its migration host is `Alien`, so rule 5 permits it.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
-- **Threshold note to resolve during this verification.** The gate says *两台主机都必须完成一次真实受控 process restart/relaunch*, but rule 5 permits exactly **one** verification host per Mission, so a second host cannot be added. The reading this host will apply: the two *receipts* must both exist — one per participating host role (the migration host's, from its own report/CI, and this host's, produced here) — and if a second host's live restart is structurally impossible under rule 5, that is recorded as a mission-design ambiguity rather than silently treated as satisfied. The restart itself will be a real controlled **process** restart/relaunch of the donor's own supervised subject, not a machine reboot: the donor's path is a graceful shutdown request plus an external supervisor that observes the exit and relaunches, and rebooting the host would be neither safe nor necessary.
+
+#### Verification closeout
+
+- Verification head: `75edd7e` (the verified episode commit); the reconciled tree that CI covered is `d83ad16`.
+- Hosted CI: reconciled tree `36588756363` PASS; final branch `36589287739` PASS; merged main `36590045745` PASS.
+- Episode: `data-records/evolution/episodes/mission-book/MB-006/episode.json` — `MB-006:0a48549fc6f5f8c6`, status `VERIFIED`, sha256 `8247ecd76a7fbf713027d4f379b055dbe1017939e6dacd882e2c8682c9f8d3e8`. `mission:finalize` ran and removed the current-tree inbox.
+- Merge to `main`: `ce33792ed50787e991b22465da28feabc8e50c50`. `main` had advanced to `83ea44e` (MB-002, verified by host `Alien`) while this episode was being finalized, so the two verified trees were **reconciled** rather than force-updated; the reconciliation keeps MB-001's district-level `kind: "infrastructure"`, MB-002's registry rewrite, and MB-003's/MB-006's module-level `capabilityProvider: false`, and takes the union of every mission's modules in the census test.
+- **Recorded tension (not silently satisfied):** the gate asks for two hosts to complete a real controlled restart, while rule 5 permits exactly one verification host. This host performed one real restart/relaunch; the migration host has its own. Both readings are recorded in the report's §5.2 rather than one being presented as the rule.
+- Report: [`reports/MB-006/VERIFICATION_REPORT.md`](./reports/MB-006/VERIFICATION_REPORT.md). Boundaries this verification did **not** establish — including that the crash-loop breaker/safe mode is not migrated, so no crash-loop/safe-mode behaviour test is possible at this boundary — are in §6.6.
 
 
 ## 绑定执行条件（所有 Mission 强制）
