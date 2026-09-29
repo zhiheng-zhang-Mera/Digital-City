@@ -105,6 +105,11 @@ City 存索引和结论；Utopia 存经验。
 
 ## Implemented bootstrap contract
 
+UTOPIA_EVOLUTION_BOOTSTRAP_MAIN = `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`  
+UTOPIA_EVOLUTION_BOOTSTRAP_PR = `utopia#9`  
+BOOTSTRAP_CI = `36562928621` / success (gateway-web + android)
+
+
 Utopia 提供固定工具与 contract：
 
 ```text
