@@ -12,10 +12,10 @@ migration_branch: mission/MB-009-theme-relocation
 migration_head_sha: d338152b0c7ef2ef7e94d78901454ea91f200156
 migration_ci: PASS — run 36580730966 (V0.2 checks) on 277f576e9eb35670d77edd0aa98c192d56a7a961: gateway-web success, android success; the event-stream closeout HEAD d338152b0c7ef2ef7e94d78901454ea91f200156 carries its own branch run
 migration_report: mission-book/reports/MB-009/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Alien
+verification_claimed_at: 2026-09-29T16:02:49Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-009 — Theme Engine 11→00/05 物理归属迁移
 
-> **当前可领取：Verification 可领取**（Migration 阶段由主机 `Mech` 已完成且 CI 全绿，分支**未合入 main**；等待一台与 `Mech` 不同的主机领取 Verification）
+> **当前可领取：NO**（Verification 阶段已由主机 `Alien` 于 2026-09-29T16:02:49Z 领取。`Alien` 与 Migration 主机 `Mech` 不同，符合规则 5；未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -100,10 +100,20 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED** (must be a host other than `Mech`)
-- Claimed at: —
-- City claim commit: —
-- Reviewed migration branch: —
+- Host: **Alien** (migration host was `Mech`; rule 5 satisfied — a different host)
+- Claimed at: 2026-09-29T16:02:49Z
+- City claim commit: this commit (SHA recorded verbatim in `reports/MB-009/VERIFICATION_REPORT.md`, since a commit cannot name itself)
+- Reviewed migration branch: `mission/MB-009-theme-relocation` @ `d338152b0c7ef2ef7e94d78901454ea91f200156`
+- Selection note: re-read against the latest Digital-City `main` (`0764924`) immediately
+  before claiming, as rule 3 requires. Every enabled Mission now has `migration_complete: true`, so
+  the migrated-but-unverified set decides by `SEQUENCE` ascending: `MB-003` is
+  `BLOCKED_OWNER_DECISION`, `MB-006`/`MB-007`/`MB-008` are closed to `Alien` by rule 5 and rule 13,
+  and `MB-004`/`MB-005` were completed by this host. `MB-009` is therefore the lowest-sequence
+  eligible mission and the last one open to this host.
+
+> **Order of work (rule 9).** The independent review comes FIRST and is written down before the
+> Migration Report is opened: donor, target code, diff, tests and running state only. The
+> Migration Report is then read as secondary reference, and the differences are recorded.
 
 ### Verifier should know
 
