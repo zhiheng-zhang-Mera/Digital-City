@@ -4,14 +4,14 @@ sequence: 6
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
-migration_complete: false
+migration_status: COMPLETE
+migration_complete: true
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T13:02:19Z
 migration_branch: mission/MB-006-restart-recovery
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: dab820b37ff39d1581b19dd43e75771507fb7139
+migration_ci: "final-branch 36575418378 PASS (gateway-web + android); implementation 9584b98 36574888667 PASS"
+migration_report: mission-book/reports/MB-006/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-006 — Restart Recovery Station vendor-neutral 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T13:02:19Z 领取，未完成前其他主机必须跳过）
+> **当前可领取：Migration 阶段已完成（主机 `Alien`）。Verification 阶段对 `Alien` 以外的任何主机开放**；`Alien` 已参与本 Mission，不得再领取其任何角色。验证门槛要求**两台主机各完成一次真实受控 process restart/relaunch**，环境不安全时必须标记 BLOCKED，不得强造能力或 mock pass；donor 的两项已知 limitation 必须原样保留（见报告的 D7 与 `restart-protocol/DONOR.json` 的 `donorLimitations`）。
 
 ## 目标
 
@@ -102,6 +102,22 @@ merged_main_sha: null
 > artifacts are in `main`, i.e. after the dependency's Verification host merged it), so
 > MB-004 is skipped and MB-006 — which declares no dependency — is claimed instead.
 > This is a recorded judgment, not a silent skip.
+
+#### Migration closeout
+
+- City claim commit: `3bb6a1c3ea80781a4912b604d388b8bf7fa4b139`
+- Implementation head: `9584b98bd9f2bacad93274c74716281c7e0b2b1e`
+- Migration head: `dab820b37ff39d1581b19dd43e75771507fb7139`
+- Hosted CI: implementation `36574888667` PASS; final branch `36575418378` PASS (gateway-web + android)
+- Report: [`reports/MB-006/MIGRATION_REPORT.md`](./reports/MB-006/MIGRATION_REPORT.md)
+- Not merged to `main`; `mission:finalize` deliberately not run (that belongs to the Verification host)
+
+> **Fidelity note for the Verification host.** Every defect this migration had to repair was
+> found *after* the module's own tests were green: an added seventh rung in `verifyTicket`, an
+> added draft guard in `buildTicket`, a duplicated checksum-defining `canonicalJson`, vocabularies
+> re-declared instead of imported from the shared layer, and one test asserting an invented
+> leniency. Compare the ported code against `D:\dsh-restart-donor` at `e20fb6cc` rather than
+> against the report. See section 5 of the report.
 
 ### Verification Claim
 
