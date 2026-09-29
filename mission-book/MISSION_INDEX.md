@@ -1,6 +1,6 @@
 # Mission Index — Active Queue
 
-> **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response-9-29.md](./response-9-29.md).  
+> **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response-9-30.md](./response-9-30.md) + [response-9-29.md](./response-9-29.md) where not superseded.  
 > Historical rules/index snapshots are under [past-rules/](./past-rules/).
 
 ## Current state

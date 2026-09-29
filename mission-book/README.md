@@ -79,7 +79,7 @@ migration_complete = true
 verification_complete = false
 verification stage unclaimed or already claimed by this host
 current host != migration_claim_host
-not BLOCKED_OWNER_DECISION (unless response-9-29.md has explicitly resolved it)
+not BLOCKED_OWNER_DECISION (unless the latest applicable Owner ruling has explicitly resolved it)
 ```
 
 P0 内按以下优先级排序：
@@ -98,17 +98,41 @@ P0 内按以下优先级排序：
 
 **任何 mission branch 落后实现仓库 main > 10 commits，或触及共享控制面且 main 已前进，都视为 P0 integration pressure。**
 
-### P1 — 新 Migration
+### P1A — Assessment-first Mission
 
-只有在**没有本机可领取的 P0**时，才允许选择新的 Migration：
+只有在**没有本机可领取的 P0**时，才允许领取 assessment-first Mission：
+
+```text
+execution_enabled = true
+assessment_required = true
+assessment_complete = false
+assessment stage unclaimed
+dependencies satisfied
+not BLOCKED_OWNER_DECISION
+```
+
+按 sequence 升序。领取后先创建只含过程记录/证据的 assessment branch，**不得先写实现代码**。Assessment-only branch 在没有产品/运行代码改动前不计入 substantive WIP。
+
+Assessment verdict：
+
+- `FULL_MIGRATION` / `PARTIAL_MIGRATION` → 同一 assessment host 原子转为 Migration Host，继续 P1B；
+- `NO_VALUE` → `migration_status=NOT_REQUIRED_NO_VALUE`，任务保留、未迁移、以后自动 skip，除非 Owner reopen。
+
+### P1B — 新 Migration
+
+只有在**没有本机可领取的 P0**时，才允许开始新的实质 Migration：
 
 ```text
 execution_enabled = true
 migration_complete = false
-migration stage unclaimed
+migration status is not NOT_REQUIRED_NO_VALUE
+migration stage unclaimed OR reserved by this Mission's assessment host
 dependencies satisfied
 not BLOCKED_OWNER_DECISION
 global unmerged substantive mission WIP < 2
+for assessment_required missions:
+  assessment_complete = true
+  assessment_result in {FULL_MIGRATION, PARTIAL_MIGRATION}
 ```
 
 然后按 sequence 升序。
