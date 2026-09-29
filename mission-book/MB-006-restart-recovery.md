@@ -4,11 +4,11 @@ sequence: 6
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Alien
+migration_claimed_at: 2026-09-29T13:02:19Z
+migration_branch: mission/MB-006-restart-recovery
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-006 — Restart Recovery Station vendor-neutral 纯迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T13:02:19Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -87,10 +87,21 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Alien**
+- Claimed at: 2026-09-29T13:02:19Z
+- City claim commit: this commit (SHA recorded verbatim in `reports/MB-006/MIGRATION_REPORT.md`, since a commit cannot name itself)
+- Implementation branch: `mission/MB-006-restart-recovery` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+
+> **Why MB-006 and not MB-004.** MB-004 (`01-project-foreman`) is the lowest-sequence
+> unclaimed migration, but it declares `依赖 Mission: MB-003`, and MB-003 is only
+> `migration_complete` — its Verification stage is open and its branch is **not merged** to
+> the target repo's `main`. Rule 7 requires a migration branch to be cut from the target
+> repo's latest `main`, so an MB-004 branch would not contain the Worker Gateway adapter
+> layer it depends on. The mission-book does not define when a dependency counts as
+> satisfied; the conservative reading is used here (a dependency is satisfied when its
+> artifacts are in `main`, i.e. after the dependency's Verification host merged it), so
+> MB-004 is skipped and MB-006 — which declares no dependency — is claimed instead.
+> This is a recorded judgment, not a silent skip.
 
 ### Verification Claim
 
