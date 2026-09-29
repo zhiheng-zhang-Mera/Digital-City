@@ -7,7 +7,7 @@
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 + DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 00/03 City Service Network — Capability Registry & Discovery |
 | 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_OWNER_DECISION** | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/02 Worker Gateway — Engineering Provider Adapter Layer |
-| 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 + Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 02/01 Project Foreman — Engineering Task Orchestrator |
+| 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 + Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 02/01 Project Foreman — Engineering Task Orchestrator |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/dsh-health-scheduler @ 985e2b7389330db4b32ea2946e3657746c64b47b | 02/03 Host Health Station — Runtime Health Scheduling Service |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/dsh-restart @ e20fb6cc43e27cedf6303471e5b8ee18e1383ecd | 02/04 Restart Recovery Station — Safe Restart External Supervision |
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 06/01 Research Institute — Research Mechanism Experimentation Platform |
@@ -29,6 +29,38 @@
 > question is now moot for claiming, but it will matter again at MB-004's Verification, where
 > the verifier must decide whether a Foreman built on a `main` that lacks MB-003 can be
 > accepted, and at merge time, where MB-003 and MB-004 both touch `city/02-engineering/`.
+
+> **MB-004 Verification: how that question was answered (host `Alien`, 2026-09-29).** (a) *At
+> merge time* it was a non-issue: MB-004's branch never touched MB-003's paths, the merged
+> `main` gained MB-003's absent modules from neither side, and the only shared files were the
+> manifest, the census and the two capability fixtures, which were unions. (b) *At verification
+> time* the MB-004 gate clause *"通过 MB-003 Worker Gateway 跑一次真实 Engineering job"* could
+> **not** be exercised, because MB-003's gateway modules exist only on its unmerged branch and
+> MB-004's port has **zero** coupling to them (its only imports are `node:` built-ins and
+> relative `.mjs` files). The verifier's judgement: treat the clause's **substance** — a real
+> Engineering job from inspect/plan to result/evidence, no unit-test substitution — as met by a
+> real run (four-phase pilot, killed-process resume continuing in 4 steps instead of 6), and
+> record the **routing** clause as NOT EXERCISED rather than fabricate glue neither donor has,
+> which `MODE=MIGRATION_ONLY` forbids. Full problem/choice/logic in
+> [`reports/MB-004/VERIFICATION_REPORT.md`](./reports/MB-004/VERIFICATION_REPORT.md) §6.1.
+> MB-003's own Verification is now `BLOCKED_OWNER_DECISION`, so the option "wait for MB-003 to
+> land, then re-check" is gated behind that ruling.
+
+> **⚠ CROSS-MISSION OBSERVATION — a domain-district module changes the accepted capability
+> surface.** Merging MB-004 grew the capability list that Web and Android read from **5 to 6**:
+> `city.02-engineering/01-project-foreman/project-foreman` now appears as a `BRIDGE_PENDING`
+> entry that can never be invoked. Both clients behave honestly (Run disabled on each), so this
+> is not a rule-14 violation, but it contradicts the rationale MB-001 wrote into
+> `services/capability-bridge/registry.mjs` for `DISTRICT_KINDS`: a module that by design has no
+> product operation should not be advertised as a capability. MB-002 was spared only because its
+> module sits in the `infrastructure` district `00-foundation`; MB-004's sits in the `domain`
+> district `02-engineering`, which that filter does not cover. The verifier did **not** patch it,
+> because doing so means changing the registry's target semantics or adding a manifest field,
+> both outside MB-004's boundary (rules 10/11). **Owner decision requested:** whether to adopt one
+> City-level mechanism (e.g. a module-level `capabilityProvider: false`, already used by the
+> unmerged MB-003/006/007/008 branches) so that non-product modules stop appearing in the
+> capability list, rather than each Mission patching this individually. Detail in
+> [`reports/MB-004/VERIFICATION_REPORT.md`](./reports/MB-004/VERIFICATION_REPORT.md) §6.2.
 
 > **⚠ OWNER RULING REQUESTED — the product-consumption gate now blocks two missions, and
 > MB-009 will be the third.** The Migration gate *"至少完成一次真实产品消费；UI/客户端要求仅复用
