@@ -12,19 +12,20 @@ migration_branch: mission/MB-003-worker-gateway
 migration_head_sha: c5734a5e646f1e379aa15282b59a08e8828d5d6a
 migration_ci: "final-branch 36571564418 PASS (gateway-web + android); implementation 36570163616 PASS"
 migration_report: mission-book/reports/MB-003/MIGRATION_REPORT.md
-verification_status: CLAIMED
+verification_status: BLOCKED_OWNER_DECISION
 verification_complete: false
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-29T15:05:00Z
 verification_head_sha: null
 verification_ci: null
-verification_report: null
+verification_report: mission-book/reports/MB-003/VERIFICATION_REPORT.md
 merged_main_sha: null
+blocked_reason: "The first Verification gate requires each participating host to run one real detect→submit→progress→result/unsupported path with an installed, donor-supported provider, and forbids a mock pass. This host has no codex/claude/gemini provider, no pulled Ollama model and no donor-supported local runtime; the migrated provider-adapter wraps caller-supplied hooks and defers real provider HTTP calls, worker-task-contract defers the real runner spawn seam, and the dev gateway builds the bridge with no execute hook. Writing a provider client would add capability the branch does not have (rule 10 forbids it). Owner decision needed: provide a donor-backed provider environment, authorise a superseding Mission for the deferred provider execution seam, or mark this Mission BLOCKED. See reports/MB-003/VERIFICATION_REPORT.md §6."
 ---
 
 # MB-003 — Worker Gateway Boss/Hns Union 纯迁移
 
-> **当前可领取：Verification 已由主机 `Mech` 领取**（Migration 由 `Alien` 完成；两台主机不同，符合 rule 5）。验证门槛要求用本机**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported；环境缺失时必须标记 BLOCKED，不得 mock pass。
+> **当前状态：Verification 由主机 `Mech` 领取后标记为 `BLOCKED_OWNER_DECISION`**——第一道验证门槛需要本机具备 donor 已支持的真实 provider，本机没有，且不得 mock pass。详见 `reports/MB-003/VERIFICATION_REPORT.md` §6。Migration 由 `Alien` 完成；两台主机不同，符合 rule 5。
 
 ## 目标
 
@@ -115,11 +116,20 @@ merged_main_sha: null
 
 - Host: **Mech**
 - Claimed at: 2026-09-29T15:05:00Z
-- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-003/VERIFICATION_REPORT.md`)
+- City claim commit: `39d1c7f`
 - Reviewed migration branch: `mission/MB-003-worker-gateway` @ `c5734a5e646f1e379aa15282b59a08e8828d5d6a`
-- Selection note: selected under mission rule 6's second clause. No migration was claimable (`MB-007`/`MB-008` are `BLOCKED_OWNER_DECISION`; `MB-010`–`MB-012` have `execution_enabled: false`), so the verification queue is the claimable set. `MB-001` was verified and merged by this host (`d81a567`); `MB-002` was claimed by `Alien` at City `8c4d214`; the remaining unclaimed verifications are `MB-003`/`MB-004`/`MB-005`/`MB-006`/`MB-009`, and `MB-003` is the lowest sequence. `Mech` is a different host from this Mission's migration host (`Alien`), so rule 5 permits it.
-- **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened. The independent findings are recorded in the Verification Report under a section that precedes any reference to the migration host's own account.
-- **Known cross-mission conflict to resolve on this branch before merge** (recorded by the migration host): MB-001 and MB-003 both edit `city/CITY_IMPLEMENTATION_MANIFEST.json`, `city/tests/manifest.test.mjs` and `city/docs/{en,zh-CN}/ARCHITECTURE.md`. MB-001 keeps kernel modules out of the capability surface with a **district-level** `kind: "infrastructure"` (merged to `main` at `d81a567`); MB-003 does it with a **module-level** `capabilityProvider: false`. The verifier must reconcile the two on the MB-003 branch, preserving both missions' intent and inventing no new semantics.
+- **Outcome: `BLOCKED_OWNER_DECISION`.** The rule 9 independent review is complete and
+  committed (`reports/MB-003/VERIFICATION_REPORT.md` §1–§5); the branch's own gates pass
+  (root 59/59, city 224/224, rooms 67/67) and its real consumption is confirmed. The
+  Mission's **first** Verification gate — one real detect→submit→progress→result/unsupported
+  path with an installed, donor-supported provider, with an explicit ban on mock passes —
+  cannot be satisfied here and cannot be repaired without adding capability the branch does
+  not carry, which rule 10 forbids. The report's §6 lists the three Owner options.
+- A **merge rehearsal** against `main` (aborted, nothing merged) found two mechanical
+  conflicts and their reconciliation shape: `registry.mjs` must keep **both** exclusion
+  mechanisms (MB-001's district `kind` and MB-003's module `capabilityProvider`), and
+  `city/tests/manifest.test.mjs` must take the **union** of the five districts and the seven
+  mission modules.
 
 
 ## 绑定执行条件（所有 Mission 强制）
