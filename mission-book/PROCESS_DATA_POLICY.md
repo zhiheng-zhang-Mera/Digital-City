@@ -101,3 +101,65 @@ Digital-City/mission-book/reports/MB-xxx/
 City 存索引和结论；Utopia 存经验。
 
 **不需要 raw data 先经过 City 再回流 Utopia。**
+
+
+## Implemented bootstrap contract
+
+Utopia 提供固定工具与 contract：
+
+```text
+contracts/evolution/mission-event-v1.schema.json
+contracts/evolution/mission-episode-v1.schema.json
+
+pnpm mission:event -- ...
+pnpm mission:finalize -- ...
+```
+
+`mission:event` 只追加有界结构化事实，不修改运行策略。`mission:finalize` 只允许在两台不同主机参与、Migration 已 PASS、存在独立 Verifier Finding、最后一次 implementation CI 为 PASS、且其后存在 PASS Verification Complete 时生成 verified episode。
+
+### Verification closeout order
+
+```text
+independent review
+  ↓
+repair / real-use verification
+  ↓
+implementation required CI = GREEN
+  ↓
+record CI_RESULT PASS
+  ↓
+record VERIFICATION_COMPLETE PASS
+  ↓
+pnpm mission:finalize
+  ↓
+commit episode + inbox removal
+  ↓
+FINAL BRANCH HEAD required CI = GREEN
+  ↓
+merge main
+  ↓
+City VERIFICATION_REPORT
+```
+
+第二次 CI 用于覆盖 finalize 产生的最终精确 branch HEAD；它不再写回已删除的 inbox，而由 City Verification Report 保存 run/结论。只有 final branch CI 也全绿时，episode 才会真正随 merge 进入 Utopia `main`。
+
+### Mandatory event coverage
+
+至少记录：
+
+```text
+MISSION_CLAIMED
+ATTEMPT_STARTED
+CHANGE_APPLIED
+TEST_PASS / TEST_FAIL
+RUNTIME_PASS / RUNTIME_FAIL
+RECOVERY
+OWNER_INTERVENTION        (发生时)
+MIGRATION_COMPLETE
+VERIFIER_FINDING
+REPAIR_APPLIED            (发生时)
+CI_RESULT
+VERIFICATION_COMPLETE
+```
+
+事件名不得由施工模型自行扩展；以 Utopia event contract 为准。
