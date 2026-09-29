@@ -76,22 +76,221 @@ Capability Fabric is deliberately broader than “plugins”: plugins are one pa
 
 No empty district/building is a blocker for Utopia product usability.
 
-## Project-first review strategy
+## Future work routing and lifecycle boundary
 
-City review now starts from **existing GitHub repositories**, not from empty city modules.
+Digital-City no longer treats every new idea as a future City module.
 
-The binding flow is:
+Every new software, paper, hardware or mixed project MUST first be classified by **where the work naturally belongs**, not by which City district could eventually consume it.
+
+### Route A — Utopia-native capability
+
+Use this route only when the new work is primarily a capability of the Utopia product itself.
+
+Default birth place:
 
 ```text
-Existing repository
-  → recover original/current functional intent
-  → decompose into capability clusters
-  → place each cluster in the appropriate City district/building/room
-  → define only the Roads actually required by those clusters
-  → create a new placeholder only if a real required capability remains ownerless
+Utopia
+└── apps/rooms
+    └── incubating room / local product room
 ```
 
-A repository is therefore an **implementation/source asset**, not automatically one Building. One repository may contribute modules to several districts; one Building may also be backed by several repositories. Physical code movement is a separate later decision.
+Lifecycle:
+
+```text
+LOCAL_PRODUCT or INCUBATING
+        ↓
+working local product
+        ↓
+tests + real/local acceptance
+        ↓
+ACCEPTED_LOCAL
+        ↓
+is this a reusable City capability?
+        ├─ no  → remain LOCAL_PRODUCT
+        └─ yes → PROMOTION_CANDIDATE
+                    ↓
+              City placement review
+                    ↓
+                 PROMOTED
+```
+
+Rules:
+
+- Do not create a City Building/Module first and then search for implementation.
+- A useful personal tool may remain a Utopia `LOCAL_PRODUCT` forever.
+- Promotion means the capability has a stable City owner and acceptance boundary.
+- After promotion, do not maintain two live implementations merely because the incubator once existed.
+- Keep donor provenance, promotion records and Git history even when the live incubator retires.
+
+### Route B — independent software / paper / hardware project
+
+Independent work starts and remains in its **own normal repository**.
+
+Examples:
+
+- a standalone software product;
+- a research/paper project;
+- firmware / electronics / CAD / device work;
+- a mixed software + hardware project.
+
+The project follows ordinary development practice:
+
+```text
+project repo
+├── normal source / paper / firmware / tests / docs
+└── .utopia-history/
+    └── learning evidence for Utopia
+```
+
+`.utopia-history/` is an observation/learning side channel. It is **not** the project's active instruction surface and must not redefine normal project architecture.
+
+Recommended shape:
+
+```text
+.utopia-history/
+├── README.md
+├── episodes/
+├── decisions/
+├── failures/
+├── acceptances/
+└── project-summary.json
+```
+
+Prefer structured, inspectable records such as:
+
+- project/episode goal;
+- attempted approach;
+- relevant change/ref;
+- failure category;
+- repair;
+- test / CI outcome;
+- interruption / resume;
+- Owner intervention;
+- final acceptance;
+- cost/time/resource metadata when useful;
+- source commit / artifact / evidence references.
+
+Do **not** treat the folder as a permanent dump of raw terminal logs, hidden model reasoning, credentials or secrets.
+
+### Learning boundary
+
+Utopia may learn from an independent project from **day one**, without owning that project.
+
+```text
+Independent project
+   ├─ commits / PRs / Issues
+   ├─ execution receipts
+   ├─ tests / CI
+   ├─ failures / repairs
+   ├─ Owner interventions
+   └─ acceptance
+            ↓
+      .utopia-history
+            ↓
+      Utopia Experience / Evolution feed
+```
+
+Critical rule:
+
+> **Learning evidence is not instruction inheritance.**
+
+A historical workaround, failed attempt or old decision in `.utopia-history/` must not automatically become a current project rule.
+
+Current project truth still comes from the repository's active code, current docs/instructions, accepted issues/PRs and current task context.
+
+### Project closeout — Capability Harvest Review
+
+Independent projects are **not** progressively dismantled into City modules during normal development by default.
+
+At project closeout, or earlier only when a clearly reusable capability has multiple real consumers, run a **Capability Harvest Review**.
+
+Ask:
+
+1. Is this capability useful outside the source project?
+2. Does it already have at least one additional real consumer or a concrete Utopia/City consumer?
+3. Is its contract stable enough to separate?
+4. Does independent testing improve clarity?
+5. Does it have a meaningfully different lifecycle/failure/security boundary?
+6. Would extraction reduce duplication rather than create maintenance debt?
+
+Possible result:
+
+```text
+NO_EXTRACTION
+```
+
+is a normal and preferred outcome when reuse is not justified.
+
+If extraction is justified:
+
+```text
+project-local capability
+        ↓
+extraction candidate
+        ↓
+Utopia Room / sandbox incubation
+        ↓
+independent acceptance / replay
+        ↓
+City ownership review
+        ↓
+promotion
+```
+
+Do **not** jump directly from “worked once in Project A” to “City shared capability.”
+
+### Paper-specific rule
+
+A paper or research project remains a paper/project artifact.
+
+Its experiments, failed hypotheses, source selection, evidence handling, claim revisions and reviewer-response history may feed Utopia learning.
+
+Only **reusable research mechanisms** may later graduate into 06 Research.
+
+The paper itself is not a City Building merely because it produced useful methodology.
+
+### Hardware-specific rule
+
+Hardware/firmware/CAD remains in its own project repository.
+
+Utopia may learn from flashing failures, protocol revisions, latency/power measurements, sensor drift, recovery and physical acceptance.
+
+Only stable reusable device contracts/adapters should later graduate into 08 Device & Edge.
+
+### Discussion routing rule
+
+When opening a new design/discussion, classify it before proposing City placement:
+
+```text
+Is this primarily a Utopia-native capability?
+  YES → apps/rooms incubation first
+
+Is this an independent software / paper / hardware project?
+  YES → independent repo + .utopia-history side channel
+
+Is a reusable capability already proven?
+  NO  → do not create a City module
+
+Has a stable reusable capability emerged?
+  YES → harvest → Utopia incubation/sandbox → qualification → City promotion
+```
+
+This rule prevents three recurring errors:
+
+1. **premature City admission** — creating Buildings for ideas that are still ordinary projects;
+2. **development contamination** — allowing Utopia learning history to become project instructions;
+3. **unqualified promotion** — extracting project code directly into City without a reuse/acceptance gate.
+
+### Stable responsibility model
+
+```text
+Project repository = birthplace and normal development truth
+Digital-City       = capability ownership / registry / boundaries
+Utopia             = product terminal + incubator + experience learner
+.utopia-history    = learning evidence side channel, not authority
+```
+
+The previous project-first inventory work remains valid historical classification. Future work should use the routing model above by default.
 
 See [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) for the completed repository inventory, [COMPOSITE_UNIONS.md](./COMPOSITE_UNIONS.md) for overlap-union rules, and [CITY_CAPABILITY_GAP_REVIEW.md](./CITY_CAPABILITY_GAP_REVIEW.md) for the post-inventory conflict cleanup and product-priority result.
 
@@ -113,7 +312,7 @@ Digital-City remains the canonical **planning, ownership and boundary map**. Run
 
 **[Utopia](https://github.com/zhiheng-zhang-Mera/Utopia)** is the current product/reference implementation and active landing zone for qualified city modules. Code temporarily living in Utopia does **not** transfer permanent architectural ownership to Utopia.
 
-At the 2026-09-29 snapshot, Utopia has promoted modules in districts **02 Engineering, 06 Research, 09 Planning & Knowledge and 11 Entertainment**. Product-level Android/Web control surfaces also exist, while Utopia's own README still marks V0.2 overall acceptance as incomplete pending real-camera QR acceptance.
+At the 2026-09-29 snapshot, Utopia already has accepted Web/Android product surfaces, a V0.3 capability bridge/hardening baseline, promoted City modules, and an accepted Room Pack. The generic Theme Engine is architecturally owned by **00/05 Control Centre** even though its current Utopia code path still carries historical `city/11` placement.
 
 See [IMPLEMENTATION_STATUS.md](./IMPLEMENTATION_STATUS.md) for the bound implementation snapshot and the Digital-City ↔ Utopia distinction.
 
