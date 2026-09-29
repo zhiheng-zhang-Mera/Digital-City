@@ -240,6 +240,61 @@ engineering_registry:
         - "ordinary Engineering portions of electron/engineering/final-acceptance-gate.ts"
 
 
+project_review_strategy:
+  mode: "PROJECT_FIRST_DECOMPOSITION"
+  review_unit: "existing GitHub repository"
+  flow:
+    - "recover original purpose and current implementation"
+    - "decompose repository into capability clusters"
+    - "place clusters into City districts/buildings/rooms"
+    - "define only required cross-boundary Roads"
+    - "defer physical extraction until engineering benefit exists"
+    - "create placeholder only for a real required capability left ownerless"
+  anti_chasing_rule: "Do not invent City modules and then search repositories for justification."
+  repository_not_equal_building: true
+
+project_decompositions:
+  - repository: "https://github.com/zhiheng-zhang-Mera/Digital-Me"
+    review_state: "REVIEWED_2026_09_29"
+    original_goal: "evidence-bounded second-self for online interview/meeting representation with Owner-like language, voice, timing and behaviour"
+    evolution:
+      - "digital-me-foundation-v0"
+      - "personal-capability-learning-v1"
+      - "capability-enforcement-hardening-v1"
+      - "owner-calibration-readiness-v1"
+      - "owner-calibration-fixes-v1"
+      - "real-capability-assessment-v1"
+    placements:
+      - district: "03-residential"
+        ownership: "PRIMARY"
+        capability_clusters:
+          - "Owner identity/profile"
+          - "personal evidence boundary"
+          - "capability self-model"
+          - "claim guard / reasoning boundary"
+          - "persona and multilingual identity"
+          - "timing and behaviour"
+          - "calibration / Personal Academy"
+          - "resident interaction runtime / Owner takeover"
+      - district: "09-planning-knowledge"
+        ownership: "CONTRIBUTION"
+        capability_clusters:
+          - "GitHub evidence source/provider"
+          - "generic repository/project evidence retrieval"
+      - district: "11-entertainment"
+        ownership: "CONTRIBUTION"
+        capability_clusters:
+          - "voice/TTS provider adapters"
+          - "avatar/lip-sync presentation"
+          - "virtual audiovisual output"
+      - district: "08-device-edge"
+        ownership: "CONTRIBUTION_OR_FUTURE_ADAPTER"
+        capability_clusters:
+          - "microphone/camera acquisition"
+          - "sensor/perception adapters"
+          - "wearable/embodied context inputs"
+    extraction_rule: "Architectural placement does not require immediate code movement out of Digital-Me."
+
 implementation_registry:
   canonical_planning_repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
   current_reference_implementation:
@@ -282,7 +337,7 @@ implementation_registry:
         module: "theme-engine"
         donor: "zhiheng-zhang-Mera/DS-Hns"
         state: "PROMOTED"
-  next_review_district: "03-residential"
+  next_review_project: "SELECT_EXISTING_REPOSITORY"
   sync_rule: "Digital-City records qualified implementation facts; Utopia remains free to iterate without redefining City ownership."
 
 project_placement_overrides:

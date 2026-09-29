@@ -79,6 +79,25 @@ Capability Fabric is deliberately broader than “plugins”: plugins are one pa
 
 Their `PROJECT_NOT_CREATED` semantics remain unchanged.
 
+## Project-first review strategy
+
+City review now starts from **existing GitHub repositories**, not from empty city modules.
+
+The binding flow is:
+
+```text
+Existing repository
+  → recover original/current functional intent
+  → decompose into capability clusters
+  → place each cluster in the appropriate City district/building/room
+  → define only the Roads actually required by those clusters
+  → create a new placeholder only if a real required capability remains ownerless
+```
+
+A repository is therefore an **implementation/source asset**, not automatically one Building. One repository may contribute modules to several districts; one Building may also be backed by several repositories. Physical code movement is a separate later decision.
+
+See [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) for the repository-driven review queue and the completed Digital-Me decomposition.
+
 ## Project-mapping review
 
 Directory topology and project assignment remain separate.
@@ -122,6 +141,8 @@ L3  Runtime / Experiment Rules
 ```text
 DIGITAL_CITY_BILINGUAL_DIRECTORY_SCHEMA
 PROJECT_MAPPING_REVIEW_IN_PROGRESS
+PROJECT_REVIEW_MODE = PROJECT_FIRST_DECOMPOSITION
 UTOPIA_IMPLEMENTATION_TRACKING_ACTIVE
-NEXT_DISTRICT_REVIEW = 03_RESIDENTIAL
+DIGITAL_ME_PROJECT_DECOMPOSITION = RECORDED
+NEXT_PROJECT_REVIEW = SELECT_EXISTING_REPOSITORY
 ```

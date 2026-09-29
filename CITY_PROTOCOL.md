@@ -2,9 +2,23 @@
 
 This document defines the architectural vocabulary and minimum integration rules for Digital-City.
 
-## 1. Classification before coupling
+## 1. Project-first decomposition before coupling
 
-Every new capability must be classified before implementation:
+The default review unit is an **existing repository**, not an imagined city module.
+
+For every repository under review:
+
+1. recover its original purpose and current implementation scope;
+2. decompose it into coherent capability clusters;
+3. classify each cluster using the city vocabulary below;
+4. place clusters into the appropriate district/building/room;
+5. define Roads only for real cross-boundary interactions;
+6. defer physical code extraction until it has an implementation/testing/lifecycle benefit;
+7. create a new placeholder only when a required capability remains ownerless after existing projects have been reviewed.
+
+A repository is **not equivalent to a Building**. It may back one Building, several Buildings, or contribute bounded modules to several districts. Conversely, a Building may be backed by multiple repositories. City placement records architectural ownership; repository location records implementation provenance.
+
+Every decomposed capability cluster must then be classified:
 
 | Type | Meaning | Typical owner |
 |---|---|---|
@@ -23,6 +37,8 @@ Capability Fabric is distinct from Node Fabric: Node Fabric answers which author
 A feature must not be moved into Boss merely because multiple projects use it. It belongs in Boss only when it is genuinely city-level infrastructure.
 
 A planned building must use the explicit state `PROJECT_NOT_CREATED`. A placeholder reserves topology only and has no implementation authority.
+
+**Anti-chasing rule:** Digital-City must not invent a module and then search GitHub for something to justify it. Existing-project decomposition is the normal path. Placeholder-first design is reserved for a clearly required capability that no reviewed repository owns.
 
 ## 2. Repository independence
 
@@ -180,7 +196,17 @@ Research result    != automatic runtime truth
 
 Boss may expose generic primitives needed by multiple domains, but research-specific semantics stay in Research.
 
-## 8. Building admission
+## 8. Repository review and building admission
+
+Repository review happens before new topology is invented.
+
+For an existing repository, the review result may be:
+
+- `CITY_OWNED_MODULES` — one or more capability clusters have explicit city placement;
+- `REFERENCE_OR_DONOR` — useful implementation/evidence lineage but not a permanent owner;
+- `ENGINEERING_OR_TOOLING` — operational support rather than a domain building;
+- `HISTORICAL_OR_COURSEWORK` — preserved but not admitted into active city topology;
+- `REVIEW_PENDING` — no placement decision yet.
 
 A repository may be registered as connected when at least one of these is true:
 
