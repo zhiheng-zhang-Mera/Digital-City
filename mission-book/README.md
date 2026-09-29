@@ -1,7 +1,26 @@
 # Mission Book — Integration-First Migration & Verification Queue
 
+## 当前施工进度
+
+> 状态图例：🟢 = 已完成；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。
+
+| 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
+|---|---|:---:|---|:---:|
+| [MB-001 — Core OS](./MB-001-core-os.md) | Alien | 🟢 | Mech | 🟢 |
+| [MB-002 — Capability Fabric](./MB-002-capability-fabric.md) | Mech | 🟢 | Alien | 🟢 |
+| [MB-003 — Worker Gateway](./MB-003-worker-gateway.md) | Alien | 🟢 | Mech | 🔴 |
+| [MB-004 — Project Foreman](./MB-004-project-foreman.md) | Mech | 🟢 | Alien | 🟢 |
+| [MB-005 — Host Health](./MB-005-host-health.md) | Mech | 🟢 | Alien | 🟢 |
+| [MB-006 — Restart Recovery](./MB-006-restart-recovery.md) | Alien | 🟢 | Mech | 🟢 |
+| [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien | 🟢 | 未领取 | 🔴 |
+| [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien | 🟢 | 未领取 | 🔴 |
+| [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
+| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取 | 🔴 | 未领取 | 🔴 |
+| [MB-011 — Customs](./MB-011-customs.md) | 未领取 | 🔴 | 未领取 | 🔴 |
+| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | 未领取 | 🔴 | 未领取 | 🔴 |
+
 > 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
-> **Active rules = 本文件 + `response.md` + 各 Mission 当前 front matter / mission-specific gates。**  
+> **Active rules = 本文件 + `response-9-29.md` + 各 Mission 当前 front matter / mission-specific gates。**  
 > `past-rules/` 与历史报告仅用于 provenance，不得作为新任务的运行时规则来源。
 
 ## 0. 模式与边界
@@ -21,7 +40,7 @@ UNMERGED_WIP_LIMIT = 2
 
 发生冲突时按以下顺序解释：
 
-1. Owner 的最新显式裁决：[`response.md`](./response.md)；
+1. Owner 的最新显式裁决：[`response-9-29.md`](./response-9-29.md)；
 2. 本文件的当前规则；
 3. Mission 当前 front matter + mission-specific gates；
 4. 当前 Utopia `main` 的事实状态；
@@ -55,7 +74,7 @@ migration_complete = true
 verification_complete = false
 verification stage unclaimed or already claimed by this host
 current host != migration_claim_host
-not BLOCKED_OWNER_DECISION (unless response.md has explicitly resolved it)
+not BLOCKED_OWNER_DECISION (unless response-9-29.md has explicitly resolved it)
 ```
 
 P0 内按以下优先级排序：
@@ -170,7 +189,7 @@ City 级默认机制：
 - capability enumeration 不应把这类 module 暴露成不可调用的产品 capability；
 - building 可在必要时使用自己的 `kind` 覆盖 district 的默认 `kind`，由统一的 effective-kind 逻辑判断。
 
-具体 Owner 裁决见 [`response.md`](./response.md)。
+具体 Owner 裁决见 [`response-9-29.md`](./response-9-29.md)。
 
 ## 9. 独立 Verification
 
@@ -199,7 +218,7 @@ Utopia 过程数据继续遵守 [`PROCESS_DATA_POLICY.md`](./PROCESS_DATA_POLICY
 - bounded events → `data-records/evolution/inbox/mission-book/...`
 - accepted episode → `data-records/evolution/episodes/mission-book/...`
 
-Owner 裁决发生后，下一位实际触碰对应 mission branch 的施工者应追加一个 `OWNER_INTERVENTION` 事件，引用 `Digital-City/mission-book/response.md`。
+Owner 裁决发生后，下一位实际触碰对应 mission branch 的施工者应追加一个 `OWNER_INTERVENTION` 事件，引用 `Digital-City/mission-book/response-9-29.md`。
 
 ## 11. Finalize / 双 CI / Merge
 
