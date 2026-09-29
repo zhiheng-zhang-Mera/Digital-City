@@ -12,19 +12,19 @@ migration_branch: mission/MB-001-core-os
 migration_head_sha: a71bf9080294390a3e2c1482bb53930519d1b3b3
 migration_ci: "final-branch 36566973111 PASS (gateway-web + android); implementation 36566575068 PASS"
 migration_report: mission-book/reports/MB-001/MIGRATION_REPORT.md
-verification_status: CLAIMED
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-29T15:30:00Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
-merged_main_sha: null
+verification_head_sha: b2fb73b4cb1ae7bd92733f6873a2e681fae45aa1
+verification_ci: "final-branch 36585164507 PASS (gateway-web + android); verification events 36584692434 PASS; repair 36583350117 PASS; merged-main 36585590593"
+verification_report: mission-book/reports/MB-001/VERIFICATION_REPORT.md
+merged_main_sha: d81a567268d7cab26b84eaf798fc7a25c8033b25
 ---
 
 # MB-001 — Codex-Boss Core OS 纯迁移
 
-> **当前可领取：Verification 已由主机 `Mech` 领取**（Migration 由 `Alien` 完成；`Alien` 不得再领取本 Mission 任何角色）。
+> **当前状态：Verification 已由主机 `Mech` 完成，已合入 main**（Migration 由 `Alien` 完成；两台主机不同，符合 rule 5）。
 
 ## 目标
 
@@ -108,6 +108,14 @@ merged_main_sha: null
 - Reviewed migration branch: `mission/MB-001-core-os` @ `a71bf9080294390a3e2c1482bb53930519d1b3b3`
 - Selection note: selected under mission rule 6's second clause. No migration was claimable (`MB-007`/`MB-008` are claimed by `Alien`; `MB-010`–`MB-012` have `execution_enabled: false`), so the verification queue is the claimable set, and `MB-001` is its lowest sequence. `Mech` is a different host from this Mission's migration host (`Alien`), so rule 5 permits it.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened. The independent findings are recorded in the Verification Report under a section that precedes any reference to the migration host's own account.
+
+#### Verification closeout
+
+- Verification head: `b2fb73b` (the verified episode commit); implementation repairs at `932196e`.
+- Final branch CI: `36585164507` PASS (gateway-web + android). Verification-events CI: `36584692434` PASS. Repair CI: `36583350117` PASS.
+- Episode: `data-records/evolution/episodes/mission-book/MB-001/episode.json` — `MB-001:16558c84c4d1547e`, status `VERIFIED`, sha256 `4f40ae9c0b09fc624de7927e1a66b886efaa1dfc2fa760dab0e2e9c66bd223f7`. `mission:finalize` ran and removed the current-tree inbox.
+- Merge to `main`: `d81a567268d7cab26b84eaf798fc7a25c8033b25` (merge over `c7ef3cd`); its CI run `36585590593`.
+- Report: [`reports/MB-001/VERIFICATION_REPORT.md`](./reports/MB-001/VERIFICATION_REPORT.md). Boundaries this verification did **not** establish are listed in that report's §7.7.
 
 
 ## 绑定执行条件（所有 Mission 强制）

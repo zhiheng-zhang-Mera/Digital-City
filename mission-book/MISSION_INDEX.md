@@ -4,7 +4,7 @@
 
 | Seq | Mission | Enabled | Migration | Verification | 主要来源 | City target |
 |---:|---|:---:|:---:|:---:|---|---|
-| 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
+| 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | CLAIMED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 + DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 00/03 City Service Network — Capability Registry & Discovery |
 | 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/02 Worker Gateway — Engineering Provider Adapter Layer |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 + Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 02/01 Project Foreman — Engineering Task Orchestrator |

@@ -181,22 +181,32 @@ reconciliation is mostly convergence rather than correction.
 
 ### 6.2 What the independent review found that the report does not say
 
-1. **The report never connects its own §6.3 limitation to the Mission's own Verification
-   threshold.** MB-001's Verification gate list contains the line "重启/恢复后 durable
-   task/audit 身份不被伪造为成功", and the Mission's `Mission-specific evidence` list
-   requires "task lifecycle + restart/recovery receipts". The report states in §1 and D1
-   that the donor's durable-state layer (`electron/state-core/**`, `node:sqlite`) is **not**
-   migrated, and lists it under "已知限制" as a limitation. It does not state that the
-   Mission names a *threshold* that the deferral leaves unmeetable by the migrated code.
-   My review reached the same fact independently (§3.5) and also treated it as a limitation
-   rather than a threshold. The gap between the two is real and belongs to this Mission, not
-   to the report's diligence: a deferral that is correct under `MODE=MIGRATION_ONLY` can
-   still leave an acceptance criterion unsatisfied, and the report's framing ("已知限制")
-   understates that. This is a defect of the mission *design* (its Verification gate asks for
-   something its Migration boundary forbids supplying) as much as of the report. It is
-   carried forward to the criteria assessment, not resolved here, and it is not something a
-   verifier may repair on the branch without enlarging the boundary that rule 10 forbids
-   enlarging.
+1. **The report never connects its own §6.3 "known limitation" to the Mission's
+   `Mission-specific evidence` requirement of "task lifecycle + restart/recovery
+   receipts".** The report declares in §1 and D1 that the donor's durable-state layer
+   (`electron/state-core/**`, `node:sqlite`) is **not** migrated, and lists that under
+   "已知限制". What it does not do is say where the restart/recovery evidence the Mission
+   asks for actually lives. It exists — in `services/dev-gateway/server.mjs`, which is a
+   production consumer that predates this Mission and is untouched by the migration's own
+   diff except for the one claim predicate (§3.3). On `createGateway`, two recovery lines
+   run before the server accepts work:
+   ```js
+   for(const t of store.list('tasks'))if(!terminal.includes(t.state)&&t.state!=='QUEUED')
+     change(t,'FAILED',{error:'Gateway restarted during execution; create a new task to retry safely.'});
+   for(const n of store.list('nodes'))store.put('nodes',{...n,online:false});
+   ```
+   and node re-registration fails in-flight work rather than replaying it
+   (`'Node re-registered; interrupted work is not replayed.'`). Those are exactly the
+   "durable identity is not falsified as success after restart/recovery" semantics the
+   Verification gate names, and `tests/gateway.test.mjs` exercises them over a real restart
+   (close and re-create the gateway on the same `dir`). So the honest reconciliation is the
+   opposite of what I first suspected: the threshold is **not** left unmeetable by the
+   deferral — it is met at the *existing product boundary*, while the donor's own
+   persistence primitive stays deferred. The report under-sells this by filing it only as a
+   limitation, and neither the report nor my Part A named the surviving receipts. This
+   correction is carried into the criteria assessment; it does not revise §3.5 (the
+   donor-level persistence *is* unexercised), it supplies the Mission-level receipt §3.5
+   was looking for.
 2. **The evidence pointers in §2 and §3 point at host-local material that cannot be read
    from the branch or from this host.** §2 cites `.runtime/mb001-android-build.log` and §3
    cites `.runtime/evidence/mission-book/MB-001/run-001/donor-survey/DONOR-SURVEY-REPORT.md`
@@ -210,14 +220,15 @@ reconciliation is mostly convergence rather than correction.
    consequence the report does not draw: for MB-001 the only cross-host verifiable artefact
    is the branch plus the reports. That is a defensible process choice under rule 15's second
    sentence, but it means the boundary reasoning rests on an unarchived 73 KB document.
-3. **The donor-parity strength claim is stated by the report in a way a verifier cannot
-   confirm from the branch.** §1 says a differential fuzz harness "transcribed the donor
-   classifier verbatim and compared it with the port over ~93 000 generated cases … with
+3. **The donor-parity strength claim is stated by the report in a way the report alone does
+   not substantiate.** §1 says a differential fuzz harness "transcribed the donor classifier
+   verbatim and compared it with the port over ~93 000 generated cases … with
    **0 divergences**". No harness, and no file containing the string `fuzz`, exists anywhere
-   on the branch or in the repository (I searched tracked content and the working tree). The
-   report does not say where the harness lives, so as written the claim is unverifiable
-   rather than false. This is the same gap as §3.5's first bullet, now with a concrete
-   artefact name attached; I record it as unconfirmed, not as contradicted.
+   on the branch or in the repository, and the report does not say where the harness lives,
+   so as written the claim was unverifiable. **This verification host rebuilt the evidence**
+   rather than leaving the claim standing: see §6.9. The rebuilt differential reproduces the
+   report's conclusion (0 divergences) from the frozen donor source and, unlike the missing
+   harness, is itself in the evidence directory.
 4. **§3 says 7 events; the branch carries 9.** The report was written before its two closing
    process events. The version of `data-records/evolution/inbox/mission-book/MB-001/events.jsonl`
    at `MIGRATION_HEAD` contains `… TEST_PASS`, `RUNTIME_PASS`, `CI_RESULT` (PASS, run
@@ -250,12 +261,13 @@ reconciliation is mostly convergence rather than correction.
 | Gates: `pnpm test` 60/60, `apps/rooms` 67/67, `city/test-all.mjs` 229/229 | **Confirmed** by this host (§3.1, measured before §6) |
 | `verify-promotion-history.mjs` 10 records, `check:docs` `SYNCHRONIZED` | **Confirmed** by this host, but only after §6 was reached — see §6.8 |
 | 99 module tests across the four modules; 18/11/28/42 per module | **Not re-derived**; consistent with the event stream's `TEST_PASS` breakdown |
-| Android lane green on the migration host, `app-debug.apk` 10 488 900 bytes | **Not confirmable here.** The claimed log is absent, and this host cannot build the Android lane at all. The *hosted* `android` job is green (see §6.5), which is the CI-attributable half of the claim |
-| Differential fuzz, ~93 000 cases, 0 divergences | **Not confirmable** — no harness on the branch (§6.2.3) |
+| Android lane green on the migration host, `app-debug.apk` 10 488 900 bytes | **Superseded:** this host rebuilt the lane from scratch (§6.9) — `:app:testDebugUnitTest :app:assembleDebug` BUILD SUCCESSFUL, 41/41 tasks executed, 21/21 unit tests, `app-debug.apk` 10 320 163 bytes |
+| Differential fuzz, ~93 000 cases, 0 divergences | **Reproduced independently** at a different scale and against the frozen donor source: 50 000 patterns / 350 000 path verdicts, 0 divergences (§6.9) |
 | "30 files, 288 509 bytes" donor closure; "30 files" target | Plausible but **not re-derived**. The four `DONOR.json` files declare 11 donor `sourcePaths` and 11 `portedFiles`; "30" is a closure measurement, not a source-path count. The report does not give the rule that produces it |
 | Gateway rewiring is "byte-identical"/equivalent | **Confirmed independently from the code**, not from the test (§3.3) |
 | Consumption criterion "proves the running gateway agrees with the Core" | **Half-confirmed.** The gateway does call `acceptsWork`; the agreement assertion is circular (§3.3) |
 | `MIGRATION_COMPLETE = true`, branch not merged, `mission:finalize` not run | **Confirmed** against the mission file and the branch |
+| Cluster B is "the lifecycle half only"; durable state not migrated | **Confirmed as a donor-level statement**, and it does *not* leave the Mission's restart/recovery gate without a receipt — see §6.2.1 |
 
 ### 6.4 Where the report and the independent review agree without prompting
 
@@ -311,13 +323,23 @@ Provenance checks I ran against the report's claims and which matched exactly:
 
 ### 6.6 Net effect on Part A
 
-Nothing in Part A is withdrawn. The report adds the *reasoning* behind choices that Part A
-had only inferred from the code — most importantly D3 (why amending the gateway freeze was
-the right call rather than a boundary violation), D5 (why `00-foundation` is
-`kind: "infrastructure"`), D2 (the mission-derived incubation identity) and D7 (splitting
-`candidate-gate.ts` across clusters B and D). Those four decisions are consistent with what
-the code does and with what the Mission permits under `MODE=MIGRATION_ONLY`; on D3 I had
-already reached the same reading independently in §3.3.
+Nothing in Part A is withdrawn — with one correction, recorded honestly because it went the
+other way: §6.2.1. Part A's §3.5 listed "durable identity across restart was not exercised"
+as something it could not confirm, and Part B initially appeared to confirm that as a
+Mission-level gap. Re-reading `services/dev-gateway/server.mjs` against the Mission's
+Verification gate showed the opposite: the restart/recovery semantics the gate names are
+implemented and already tested at the existing product boundary, so the receipt §3.5 was
+missing does exist — it was simply not in the migrated modules. §3.5 stands as written about
+the *donor-level* persistence primitive (which really is unexercised); what changes is the
+consequence drawn from it, and that change is made in the criteria assessment, not in Part A.
+
+The report adds the *reasoning* behind choices that Part A had only inferred from the code —
+most importantly D3 (why amending the gateway freeze was the right call rather than a
+boundary violation), D5 (why `00-foundation` is `kind: "infrastructure"`), D2 (the
+mission-derived incubation identity) and D7 (splitting `candidate-gate.ts` across clusters B
+and D). Those four decisions are consistent with what the code does and with what the Mission
+permits under `MODE=MIGRATION_ONLY`; on D3 I had already reached the same reading
+independently in §3.3.
 
 ### 6.7 Independent gates re-run after reading the report (for the record)
 
@@ -335,10 +357,199 @@ but the sequencing is disclosed here rather than presented as if Part A had run 
 The reason it matters is rule 11: the merge gate requires *all* required CI and
 Mission-specified checks green, and it must be this host's own measurement that says so.
 
+### 6.9 Verification work done after the reconciliation
+
+Three things this host did that the report neither did nor could check, all recorded here so
+the repair pass and the criteria assessment rest on measured evidence rather than on the
+migration host's account.
+
+- **Donor parity, rebuilt from the frozen donor source.** The donor repository is reachable
+  to this host (`gh`-authenticated), so `Codex-Boss @ 8df428e…` was cloned and its ten
+  MB-001 donor files were exported to
+  `.runtime/evidence/mission-book/MB-001/run-1/donor/baseline/`. Two harnesses were written
+  against them:
+
+  | Harness | Result |
+  |---|---|
+  | `donor-parity-check.mjs` — donor closed sets, bounds and thresholds vs the port | **11/11 checks pass**: fleet `5000/10000/30000 ms` windows; the five node states and the exactly-`FAILED/DISABLED/OFFLINE` refusing set; six assignment states; the §35 six-state order; `candidateIdFor`'s NUL-joined sorted-requirements sha256-truncated-16 form; the eight ledger bounds (2000/10/200/2000/50/2000/2000/200); outcome, source, §36-check, failure-class and severity vocabularies; **91 donor protected paths in the same order in the frozen inert manifest**; and the 5-escape/10-hit reason budget with every donor reason code |
+  | `donor-grammar-differential.mjs` — donor CODEOWNERS grammar vs the port, behaviourally | **50 000/50 000 patterns and 350 000/350 000 path verdicts agree with a regex assembled from the donor's own literals; 8/8 CODEOWNERS parse cases agree**; and all three functions (`parseCodeownersLine`, `parseCodeownersPatterns`, `codeownersPatternToRegExp`) reduce to the *same canonical token stream* on both sides, ignoring only the port's two declared `String(...)` / `?? ''` widenings |
+
+  This closes §3.5's first bullet for the one cluster where a differential is possible at all:
+  the report's "transcribed verbatim … 0 divergences" claim is now reproduced from the donor
+  itself, at 50 000 cases rather than 93 000, and the harness is retained as evidence instead
+  of being an unarchived local script. It remains a check of the *grammar* — §3.5's point
+  that the other three clusters' parity is stated in prose still stands, though
+  `donor-parity-check.mjs` now verifies their closed sets and bounds rather than their
+  behaviour.
+- **The restart/recovery receipt.** `tests/gateway.test.mjs` gained a test that kills a
+  gateway with a task genuinely `RUNNING` at 20 % progress and asserts, after a real restart
+  on the same store: same task id, `FAILED` (never `COMPLETED`), progress kept at 20, the
+  restart explanation recorded, every node marked offline, a stale node refused fresh work,
+  and `TASK_FAILED` appended after the original history rather than replacing it. See §7.2.
+- **The consumption test is no longer circular.** `REQUIRED_TASK_CAPABILITIES` is now
+  exported from `services/dev-gateway/server.mjs` and the test asserts fixed expectations
+  over the gateway's own HTTP responses, including a case that only passes if *both*
+  capabilities are required. A mutation check (policy weakened to one capability) makes the
+  repaired test fail, which the previous form could not detect. See §7.2.
+
+A fourth result is not a repair but a host-capability finding worth recording: this host
+**can** build and unit-test the Android lane, but only with a JDK 17 toolchain. The two JDKs
+available by default (26 and the Android Studio JBR at 25.0.3) make Gradle 8.14.3's embedded
+Kotlin compiler throw `IllegalArgumentException: 25.0.3` inside `JavaVersion.parse` while
+compiling the build script, so the lane fails before configuration. With
+`D:\GDPR-Refine\.tools\jdk-17.0.20.1+1` it succeeded from scratch (41/41 tasks executed, not
+UP-TO-DATE): 21/21 unit tests, `app-debug.apk` 10 320 163 bytes. Logs are in
+`.runtime/evidence/mission-book/MB-001/run-1/android/`.
+
+## 6.10 Gate results on this host at the repaired revision `932196e`
+
+| Gate | Result |
+|---|---|
+| `pnpm test` | **61 / 61** (60 before the new restart test) |
+| `node city/test-all.mjs` | **229 / 229** |
+| `node --test apps/rooms/tests/*.test.mjs` | **67 / 67** |
+| `node scripts/verify-promotion-history.mjs` | 10 records verified at `932196e` |
+| `pnpm check:docs` | `PAIR_STATUS = SYNCHRONIZED` (docs, evidence, data-records) |
+| Android `:app:testDebugUnitTest :app:assembleDebug` | **BUILD SUCCESSFUL**, 41/41 tasks executed, 21/21 unit tests |
+| Hosted CI run `36583350117` (`gateway-web` + `android`) | **success, both jobs** |
+
 ## 7. Verification criteria assessment, repairs and closeout
 
-**NOT YET WRITTEN.** §6 completes the rule 9 reconciliation only. Still to come, in order:
-the criterion-by-criterion verdict against MB-001's Verification gates; any repairs on
-`mission/MB-001-core-os` (rule 10); the required-CI result and the dogfooded
-`CI_RESULT=PASS` / `VERIFICATION_COMPLETE=PASS` events; `pnpm mission:finalize`; the final
-branch HEAD re-run; the merge to `main` and its SHA; and the evidence pointers.
+### 7.1 The Mission's Verification completion gates, one by one
+
+MB-001 lists nine Verification gates. This is the verdict against each, with the evidence
+that produced it.
+
+| # | Gate | Verdict | Evidence |
+|---|---|---|---|
+| 1 | 至少一条现有 Utopia task/control 流程真实消费迁移后的 Core 边界，并保持 Web/Android 状态真值一致 | **MET at the gateway boundary; the client half is argued, not executed** | `services/dev-gateway/server.mjs` calls `acceptsWork` from the migrated `fleet-routing` for every `node/claim`; §6.10's gateway tests show the running gateway placing work on a fully capable node and refusing a partial and an offline one while leaving its work `QUEUED`. Web and Android are both driven by that same endpoint and share the City Control v0 envelope (`contracts/city-control-v0/protocol.mjs`), and the Android unit-test suite is green from a from-scratch build. What was **not** executed is a client (Web or Android) driving a live gateway on this host — that needs an emulator/device, and per rule 14 no client surface was invented to manufacture it. Recorded as a boundary, not papered over |
+| 2 | Root/Trust/authority 相关 donor parity 与 protected-surface 回归全绿 | **MET** | §6.10 gate results are green, and §6.9's two donor harnesses verify the root-authority closed sets, the 91-path inert manifest in donor order, the 5/10 reason budgets and the whole CODEOWNERS grammar against the frozen donor |
+| 3 | 重启/恢复后 durable task/audit 身份不被伪造为成功 | **MET, and now with an explicit receipt** | `services/dev-gateway/server.mjs` already fails in-flight work on restart (`'Gateway restarted during execution; create a new task to retry safely.'`), marks every node offline, and refuses to replay interrupted work on node re-registration; the new test in `tests/gateway.test.mjs` asserts all of that over a real restart, including id preservation and progress, and that the failure is journaled after the original history |
+| 4 | Verification 主机必须与 Migration 主机不同 | **MET** | Migration host `Alien`, verification host `Mech`; rule 5 satisfied |
+| 5 | 先完成独立代码/运行审查并写下发现，再阅读 Migration Report | **MET** | Part A (§1–§5) was committed to City main at `03c9f75` before `MIGRATION_REPORT.md` was opened; §6 is the first reference to it |
+| 6 | 必要维修只能发生在同一 Mission 分支，且不得扩大功能边界 | **MET** | Both repairs are on `mission/MB-001-core-os`; one adds a receipt for an existing behaviour, the other de-circularises an existing test and exports a constant the gateway already held. No new capability, no new policy, no new surface — see §7.2 |
+| 7 | 所有 required CI 与本 Mission 门禁全绿 | **MET so far** | §6.10: five local gates, the Android lane from scratch, and hosted CI `36583350117` success on both jobs at `932196e`. Rule 16 requires a **second** green run on the final branch head after `mission:finalize`; recorded in §7.4 |
+| 8 | 由 Verification 主机完成合并到目标实现仓库 `main` | **PENDING** | To be performed after the finalize commit and its CI; merge SHA recorded below |
+| 9 | City Verification Report 已提交 | **IN PROGRESS** | This document; the mission file's fields are updated in the same City commit as the closeout |
+
+### 7.2 The repairs, and what they are allowed to be
+
+Rule 10 permits necessary second-pass repair, extra tests and evidence completion on the same
+branch, but not an expanded feature boundary. Both repairs sit inside that line.
+
+1. **De-circularising the consumption test** (`tests/gateway.test.mjs`,
+   `services/dev-gateway/server.mjs`). §3.3 recorded that the test derived its expectation by
+   calling the `acceptsWork` under test with a locally re-typed capability list, so it could
+   not catch a wrong `REQUIRED_TASK_CAPABILITIES`. Now the gateway exports that constant, the
+   test asserts **fixed expectations** over the gateway's own HTTP responses (a
+   partial-capability node claims nothing and leaves the work `QUEUED`; the fully capable node
+   is then placed on exactly that work; a busy node is not given a second task; a node that
+   goes silent is refused while the work stays `QUEUED` and unassigned), and the
+   Core-agreement half uses the exported policy so the two cannot drift silently. Every
+   assertion was **added or strengthened**; none was deleted, skipped or relaxed. The
+   mutation check is the proof that the repair works: weakening the policy to a single
+   capability now fails the test, and the previous form passed that mutant.
+2. **The restart/recovery receipt** (new test `an interrupted task is never falsified as
+   success across a gateway restart`). It exercises a behaviour that already existed on the
+   branch; it adds no code to `services/`. The Mission's `Mission-specific evidence` list
+   asks for "task lifecycle + restart/recovery receipts", and this is that receipt.
+
+No production behaviour changed apart from exporting an existing constant. Both the old and
+new tests pass, and the suite grew 60 → 61.
+
+### 7.3 Failures encountered by this host, and how they were handled
+
+Recorded because rule 8 and rule 15 ask for real failures, not a clean narrative.
+
+| Failure | Handling |
+|---|---|
+| The two JDKs on this host (26; JBR 25.0.3) make Gradle 8.14.3's embedded Kotlin compiler throw `IllegalArgumentException: 25.0.3` while compiling the build script, so the Android lane failed before configuration | Found a third toolchain, JDK 17 (`D:\GDPR-Refine\.tools\jdk-17.0.20.1+1`); the lane then built from scratch. The failure is a host toolchain limitation, not a branch defect |
+| The migration host's `.runtime/mb001-android-build.log` and 73 KB donor survey do not exist on this host | Treated as host-local evidence under rule 15 and re-derived independently instead: the donor tree was cloned, the parity harnesses written, and the Android lane rebuilt |
+| Three self-inflicted failures while writing the donor-parity harness (donor `.ts` extraction ate the return annotation; the CODEOWNERS corpus had one wrong expectation) | Fixed in the harness, not by weakening it: the donor regex is now built from the donor's own literals, and the wrong expectation was **corrected against the donor's own rule** (a pattern line with no owner grants nothing) |
+| `tests/capability-adapters.test.mjs:31` still asserts a whole-manifest `catalog.length === 6` although D8 describes that count as scoped | Recorded in §6.2.5 as a description/implementation divergence. Not repaired: it is a pre-existing test outside this Mission's boundary, it is anchored by a module-id lookup on the line before it, and repairing an unrelated suite's assertion during verification would exceed §7.2's allowance. Reported for a separate change |
+
+No gate was skipped, no test was weakened, and nothing was marked green that was not green.
+
+### 7.4 Rule 16 closeout
+
+In order: the implementation code was made green on this branch (`932196e`, hosted run
+`36583350117`); `CI_RESULT=PASS` and `VERIFICATION_COMPLETE=PASS` were appended as
+dogfooded mission events; `pnpm mission:finalize` generated the verified episode and removed
+the current-tree inbox; that data-only closeout was committed; the final branch head was run
+through the required CI again and must be green before the merge; then the merge to `main`,
+whose SHA is recorded below with the episode path and digest.
+
+### 7.5 Final record
+
+```text
+MISSION = MB-001
+ROLE = VERIFICATION
+HOST = Mech
+CLAIM_COMMIT = 835c7db
+INDEPENDENT_REVIEW_COMMIT = 03c9f75
+RECONCILIATION_COMMIT = 17b6497
+REPAIR_SHA = 932196e4bcd0
+REPAIR_CI = 36583350117 PASS (gateway-web + android)
+VERIFICATION_EVENTS_SHA = 8349b61  (TEST_PASS + CI_RESULT)
+VERIFICATION_EVENTS_CI = 36584692434 PASS (gateway-web + android)
+VERIFICATION_COMPLETE_EVENT_SHA = a8e996373cff0e0256fab72262e0ad9fcc315123
+EPISODE_SHA = b2fb73b4cb1ae7bd92733f6873a2e681fae45aa1
+EPISODE_FILE = data-records/evolution/episodes/mission-book/MB-001/episode.json
+EPISODE_ID = MB-001:16558c84c4d1547e
+EPISODE_SHA256 = 4f40ae9c0b09fc624de7927e1a66b886efaa1dfc2fa760dab0e2e9c66bd223f7
+EPISODE_STATUS = VERIFIED
+FINAL_BRANCH_CI = 36585164507 PASS (gateway-web + android) at b2fb73b
+MERGED_MAIN_SHA = d81a567268d7cab26b84eaf798fc7a25c8033b25
+MERGE_CI = 36585590593
+CITY_REPORT = mission-book/reports/MB-001/VERIFICATION_REPORT.md
+```
+
+The episode was generated from the nine verification events (the last of them
+`VERIFICATION_COMPLETE=PASS`, appended after the final verification `CI_RESULT=PASS` as
+`finalize-mission-episode.mjs` requires), the current-tree inbox was removed, and the
+data-only closeout was committed as `b2fb73b`. The final branch head `b2fb73b` was then run
+through the required CI again (`36585164507`, both jobs green) before the merge, as rule 16
+demands. The merge into `main` is `d81a567`, a merge commit over `c7ef3cd` (the branch's own
+base — `main` had not moved, so the merge is conflict-free); all five gates were re-run on
+the merged tree and pass, and the merge commit's own CI run is `36585590593`.
+
+### 7.6 Evidence pointers
+
+Host-local (git-ignored, this host):
+
+- `.runtime/evidence/mission-book/MB-001/run-1/donor/baseline/` — the ten donor files exported
+  at `Codex-Boss @ 8df428e`, plus `.runtime/evidence/mission-book/MB-001/run-1/donor/Codex-Boss/`
+  the clone they came from.
+- `.runtime/evidence/mission-book/MB-001/run-1/donor-parity-check.mjs` + `.log` — 11/11.
+- `.runtime/evidence/mission-book/MB-001/run-1/donor-grammar-differential.mjs` + `.log` —
+  50 000 patterns / 350 000 verdicts / 8 parse cases, 0 divergences.
+- `.runtime/evidence/mission-book/MB-001/run-1/android/` — the failed JDK 25/26 configuration
+  attempts, the successful JDK 17 build log, the APK and the JUnit XML results.
+
+Branch/CI, cross-host:
+
+- `mission/MB-001-core-os` at `b2fb73b` (merged) — the diff, the two repairs and the episode.
+- Hosted runs `36583350117`, `36584692434`, `36585164507` (branch) and `36585590593` (main).
+- `data-records/evolution/episodes/mission-book/MB-001/episode.json` — the verified episode.
+- This report, committed to `Digital-City` `main`.
+
+### 7.7 What this verification did **not** establish
+
+Stated plainly so the acceptance decision rests on the real boundary:
+
+1. **No client drove a live gateway.** The consumption gate is satisfied at the gateway
+   boundary and the client contract is shared, but neither the Web UI nor the Android app was
+   run against a live gateway on this host (no emulator/device pairing was performed, and
+   rule 14 forbids inventing a surface to fake it).
+2. **Donor parity is verified for closed sets, bounds and the CODEOWNERS grammar**, all
+   against the frozen donor tree — but not for the *behaviour* of `task-lifecycle`,
+   `audit-ledger` and the rest of `fleet-routing`. Those clusters' parity remains stated as
+   vectors in their `DONOR.json` files, as §3.5 said.
+3. **Three modules still have no product consumer** (report D4). The Mission's wording allows
+   this under `MODE=MIGRATION_ONLY`, and the report declares it, but a reader who expects
+   MB-001 to put all four clusters into production use would not agree that it is complete.
+4. **`tests/capability-adapters.test.mjs:31`'s whole-manifest count assertion remains**
+   (§6.2.5), and the census-relative repair that MB-001 needed is still absent from `main`'s
+   other suites as a general fix — it exists only where this Mission's diff touched it.
+
+
