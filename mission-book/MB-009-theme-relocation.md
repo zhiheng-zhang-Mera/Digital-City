@@ -4,11 +4,11 @@ sequence: 9
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Mech
+migration_claimed_at: 2026-09-29T14:45:00Z
+migration_branch: mission/MB-009-theme-relocation
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-009 — Theme Engine 11→00/05 物理归属迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T14:45:00Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -86,14 +86,15 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-29T14:45:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-009/MIGRATION_REPORT.md` once the branch lands)
+- Implementation branch: `mission/MB-009-theme-relocation` (to be created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+- Selection note: selection was made against the latest Digital-City `main`. MB-007 and MB-008 are claimed by host `Alien`; every other enabled Mission has `migration_complete: true`. No verification task is available to this host (MB-001/003/006 belong to `Alien`; `Mech` migrated MB-002, MB-004 and MB-005, so rule 5 forbids it from verifying any of those). Sequence order therefore selects MB-009, the last unclaimed enabled Mission.
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
+- Host: **UNCLAIMED** (must be a host other than `Mech`)
 - Claimed at: —
 - City claim commit: —
 - Reviewed migration branch: —
