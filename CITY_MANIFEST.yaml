@@ -4,7 +4,7 @@ city:
   name: "Digital-City"
   repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
   phase: "DIGITAL_CITY_BILINGUAL_DIRECTORY_SCHEMA"
-  project_mapping_review: "IN_PROGRESS"
+  project_mapping_review: "INVENTORY_COMPLETE"
   monorepo: false
   directory_naming: "number-metaphor_zh(en)-&-technical_zh(en)"
   model: "city -> city-infrastructure + districts -> buildings -> rooms; roads connect boundaries"
@@ -261,6 +261,26 @@ project_exclusions:
       state: "DEPRECATED_NOT_ADMITTED"
 
 
+
+coursework_reviewed_not_admitted:
+  policy: "Coursework repositories were inspected for unique reusable capability. No City extraction is created when the implementation is domain-specific, generic coursework infrastructure, or already covered by stronger City projects."
+  repositories:
+    - repository: "https://github.com/zhiheng-zhang-Mera/301DataBaseProject"
+      state: "COURSEWORK_REVIEWED_NO_EXTRACTION_NOT_ADMITTED"
+      rationale:
+        - "Apex Legends/esports dataset cleaning and analysis"
+        - "Jupyter-based coursework analytics"
+        - "Tableau dashboard artifacts"
+        - "no unique reusable runtime capability missing from current City"
+    - repository: "https://github.com/zhiheng-zhang-Mera/CapstoneProject499-Department_Manage_System"
+      state: "COURSEWORK_REVIEWED_NO_EXTRACTION_NOT_ADMITTED"
+      rationale:
+        - "department-management application with React/Express/PostgreSQL"
+        - "JWT authentication, CRUD, course/role assignment and dashboards are ordinary application mechanisms"
+        - "business semantics are department-specific"
+        - "generic mechanisms are already covered by stronger City identity/governance/data/control surfaces"
+        - "extracting donor code would create maintenance debt without a unique capability gain"
+
 owner_excluded_projects:
   policy: "Owner explicitly chose these repositories to remain outside active Digital-City topology."
   repositories:
@@ -274,6 +294,15 @@ owner_excluded_projects:
     - "Harness-Mega"
 
 superseded_projects:
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/GDPR-app"
+    state: "SUPERSEDED_BY_PRIVACY_LENS_NOT_ADMITTED"
+    successor: "privacy-lens-research-artifact"
+    note: "Empty/early predecessor; no City capability retained."
+  - repository: "https://github.com/zhiheng-zhang-Mera/GDPR-project"
+    state: "SUPERSEDED_BY_PRIVACY_LENS_NOT_ADMITTED"
+    successor: "privacy-lens-research-artifact"
+    note: "Substantial historical Privacy Lens implementation/thesis lineage, but superseded by the cleaned successor artifact. Since the successor itself is Owner-excluded from City, the predecessor also receives no City ownership."
   - repository: "https://github.com/zhiheng-zhang-Mera/Personal-trading-project-for-fun"
     state: "SUPERSEDED_BY_QUANT_ULTRA_NOT_ADMITTED"
     reason: "Concept-only early A-share signal/recommendation workflow is subsumed by Quant-ultra's implemented Finance pipeline."
@@ -723,7 +752,7 @@ implementation_registry:
         module: "theme-engine"
         donor: "zhiheng-zhang-Mera/DS-Hns"
         state: "PROMOTED"
-  next_review_project: "SELECT_EXISTING_REPOSITORY"
+  next_review_project: "NONE_PROJECT_INVENTORY_COMPLETE"
   sync_rule: "Digital-City records qualified implementation facts; Utopia remains free to iterate without redefining City ownership."
 
 project_placement_overrides:

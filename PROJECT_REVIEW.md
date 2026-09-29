@@ -29,13 +29,13 @@ This replaces the previous tendency to start from an empty City module and then 
 
 The following repositories were visible in the project-owner GitHub inventory when this strategy was adopted. Presence in this list **does not imply City admission**.
 
-- `301DataBaseProject` — project-first review pending or requires revalidation
+- `301DataBaseProject` — **COURSEWORK REVIEWED — NO EXTRACTION / NOT ADMITTED**
 - `Application-Plan` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `Auto-Game-Bot` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Boss-Qualification-Control` — **PROJECT-FIRST REVIEW COMPLETED**
 - `C_Model_glb_coloring` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `C-Model-Visuliazer` — **DEPRECATED / NOT ADMITTED TO CITY**
-- `CapstoneProject499-Department_Manage_System` — project-first review pending or requires revalidation
+- `CapstoneProject499-Department_Manage_System` — **COURSEWORK REVIEWED — NO EXTRACTION / NOT ADMITTED**
 - `Codex-Boss` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Digital-City` — registry / special role
 - `Digital-Me` — **PROJECT-FIRST REVIEW COMPLETED**
@@ -46,8 +46,8 @@ The following repositories were visible in the project-owner GitHub inventory wh
 - `dsh-restart` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Essay-Book` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `Firmware_Anomoly_Noise_Detect` — **DEPRECATED / NOT ADMITTED TO CITY**
-- `GDPR-app` — project-first review pending or requires revalidation
-- `GDPR-project` — project-first review pending or requires revalidation
+- `GDPR-app` — **SUPERSEDED BY PRIVACY LENS / NOT ADMITTED**
+- `GDPR-project` — **SUPERSEDED BY PRIVACY LENS / NOT ADMITTED**
 - `General-Logic-Engine` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Harness-Alien` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `Harness-Mega` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
@@ -103,11 +103,23 @@ Digital-Me was reviewed from its original product intent rather than from the ex
 
 The detailed decomposition is recorded in the 03 Residential README and `CITY_MANIFEST.yaml`.
 
-## Next review rule
+## Project inventory status
 
-The next discussion should begin with the **next existing repository**, inspect what that repository was actually built to do, and only then decide how its capability clusters fit into the City.
+```text
+PROJECT_INVENTORY_REVIEW = COMPLETE
+NEXT_PHASE = CITY_CAPABILITY_GAP_REVIEW
+```
 
-Do not start from “what should district 04 contain?” or “what module is missing?” unless every relevant existing project has already been checked.
+All repositories in the adopted inventory have now been classified as one of:
+
+- admitted/project-first reviewed;
+- special City/Utopia role;
+- owner-excluded;
+- deprecated;
+- superseded;
+- coursework reviewed with no worthwhile extraction.
+
+The default review direction may now change from **repository → City** to **City capability gaps → decide whether a new project/module is actually necessary**.
 
 
 ## Completed project review: Codex-Boss
@@ -363,3 +375,46 @@ These do not create a second Finance building and remain inactive/unqualified un
 ## Superseded review: Personal-trading-project-for-fun
 
 The repository is an early concept-only A-share workflow (fetch/filter/signal/ML suggested price). Quant-ultra already subsumes this scope with a substantially deeper implemented pipeline. Status: **SUPERSEDED_BY_QUANT_ULTRA_NOT_ADMITTED**.
+
+
+## Reviewed coursework with no City extraction
+
+### 301DataBaseProject
+
+This is an undergraduate esports-data coursework repository centered on Apex Legends datasets, Jupyter analysis, processed CSVs and Tableau dashboards.
+
+Useful skills/artifacts exist as coursework history, but the review found **no unique reusable City capability** worth extracting. Data cleaning, analytical notebooks and dashboard construction are generic and already covered by stronger runtime/research/data surfaces elsewhere.
+
+**Decision:** `COURSEWORK_REVIEWED_NO_EXTRACTION_NOT_ADMITTED`.
+
+### CapstoneProject499-Department_Manage_System
+
+This is a substantial undergraduate department-management web application using React, Express, PostgreSQL, JWT authentication, CRUD services, course/service-role assignment, performance dashboards and a broad Jest/Supertest suite.
+
+The project is complete enough to be useful as coursework evidence, but its reusable mechanisms are either:
+
+- ordinary web-application infrastructure;
+- tightly bound to department-management semantics; or
+- already superseded by stronger City identity, governance, data and control-plane systems.
+
+No capability is sufficiently unique to justify donor extraction or a City building.
+
+**Decision:** `COURSEWORK_REVIEWED_NO_EXTRACTION_NOT_ADMITTED`.
+
+## Superseded privacy predecessors
+
+### GDPR-app
+
+Essentially an empty/initial predecessor repository.
+
+**Decision:** `SUPERSEDED_BY_PRIVACY_LENS_NOT_ADMITTED`.
+
+### GDPR-project
+
+A substantial historical Privacy Lens implementation/thesis repository and direct predecessor of the cleaned `privacy-lens-research-artifact`.
+
+Because the successor artifact is explicitly Owner-excluded from Digital-City, retaining an older predecessor as a City asset would invert the lineage and create duplicate ownership.
+
+**Decision:** `SUPERSEDED_BY_PRIVACY_LENS_NOT_ADMITTED`.
+
+Historical GitHub evidence remains available outside the City registry; no runtime/module migration is performed.
