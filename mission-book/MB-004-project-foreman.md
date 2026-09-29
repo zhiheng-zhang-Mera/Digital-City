@@ -12,10 +12,10 @@ migration_branch: mission/MB-004-project-foreman
 migration_head_sha: 70806ad1277904c214f29f5da52cb5c7db1d90da
 migration_ci: PASS — run 36577933078 (V0.2 checks) on faf6f7a011ff37ea427c592773bf837411964d7c: gateway-web success, android success; the event-stream closeout HEAD 70806ad1277904c214f29f5da52cb5c7db1d90da carries its own branch run
 migration_report: mission-book/reports/MB-004/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Alien
+verification_claimed_at: 2026-09-29T15:02:33Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-004 — Project Foreman Engineering Union 纯迁移
 
-> **当前可领取：Verification 可领取**（Migration 阶段由主机 `Mech` 已完成且 CI 全绿，分支**未合入 main**；等待一台与 `Mech` 不同的主机领取 Verification）
+> **当前可领取：NO**（Verification 阶段已由主机 `Alien` 于 2026-09-29T15:02:33Z 领取。`Alien` 与 Migration 主机 `Mech` 不同，符合规则 5；未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -101,10 +101,21 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED** (must be a host other than `Mech`)
-- Claimed at: —
-- City claim commit: —
-- Reviewed migration branch: —
+- Host: **Alien** (migration host was `Mech`; rule 5 satisfied — a different host)
+- Claimed at: 2026-09-29T15:02:33Z
+- City claim commit: this commit (SHA recorded verbatim in `reports/MB-004/VERIFICATION_REPORT.md`, since a commit cannot name itself)
+- Reviewed migration branch: `mission/MB-004-project-foreman` @ `70806ad1277904c214f29f5da52cb5c7db1d90da`
+- Selection note: re-read against the latest Digital-City `main` (`de44f0b`) immediately
+  before claiming, as rule 3 requires. No migration task remained claimable
+  (`MB-010`/`MB-011`/`MB-012` are `execution_enabled: false` and `MB-001`/`MB-002` are fully
+  complete), so selection fell to the migrated-but-unverified set by `SEQUENCE` ascending.
+  `MB-003` verification was already claimed by `Mech` (rule 4 → skip); `MB-006`, `MB-007`
+  and `MB-008` are excluded for `Alien` by rule 5 (migration host) and rule 13
+  (`BLOCKED_OWNER_DECISION`). The lowest-sequence eligible mission was therefore `MB-004`.
+
+> **Order of work (rule 9).** The independent review comes FIRST and is written down before the
+> Migration Report is opened: donor, target code, diff, tests and running state only. The
+> Migration Report is then read as secondary reference, and the differences are recorded.
 
 ### Verifier should know
 
