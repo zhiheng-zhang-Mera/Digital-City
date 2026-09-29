@@ -12,19 +12,28 @@ migration_branch: mission/MB-005-host-health
 migration_head_sha: 545d38fa6cc7023826c5a3a4a09cb2e37265eb06
 migration_ci: PASS — run 36571598704 (V0.2 checks) on 5fbbec666f61b2ff82f06a85630c2fb538ca7631: gateway-web success, android success; the event-stream closeout HEAD 545d38fa6cc7023826c5a3a4a09cb2e37265eb06 carries its own branch run
 migration_report: mission-book/reports/MB-005/MIGRATION_REPORT.md
-verification_status: CLAIMED
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Alien
 verification_claimed_at: 2026-09-29T15:34:43Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
-merged_main_sha: null
+verification_head_sha: 75f9acd1e6e4738b46f663412935624359ea586c
+verification_ci: PASS — run 36593553358 (V0.2 checks) on 75f9acd1e6e4738b46f663412935624359ea586c: gateway-web success, android success; implementation CI was run 36593090881 on 977cd0c3487c4f1fd11e71b1f123007829f95ef1
+verification_report: mission-book/reports/MB-005/VERIFICATION_REPORT.md
+merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
 ---
 
 # MB-005 — Host Health Station vendor-neutral 纯迁移
 
-> **当前可领取：NO**（Verification 阶段已由主机 `Alien` 于 2026-09-29T15:34:43Z 领取。`Alien` 与 Migration 主机 `Mech` 不同，符合规则 5；未完成前其他主机必须跳过）
+> **当前可领取：NO**（Migration 与 Verification 两个阶段均已完成，并已由验证主机 `Alien` 合入
+> `zhiheng-zhang-Mera/utopia` `main` @ `cfe34df1109dbe6a90348f1a671bae6ff1dc3074`）
+>
+> **⚠ 已上报 Owner 的一项门禁条款：** Verification 门槛中"**两台主机**分别用真实 telemetry 跑过…"
+> 这一句按两种读法记录为 **mission-design tension**：Reading 1（按参与主机角色）已满足；
+> Reading 2（两台物理机器）在本会话不可满足 —— 规则 5 只允许一台验证主机且禁止第三台，本机只有一台机器。
+> 与 MB-006 验证报告 §5.2 的先例一致，**两种读法都记录，不择一断言，也不伪造第二台机器**。
+> 完整问题/选择/判断逻辑见 [`reports/MB-005/VERIFICATION_REPORT.md`](./reports/MB-005/VERIFICATION_REPORT.md) §6.1。
+> 同报告另有两点需 Owner 注意：`bandKeyOf` 的 donor bug 建议专项裁决（§7.2），
+> 以及本次验证发现并修复了迁移夹带的一处**测试弱化**（§3.3）。
 
 ## 目标
 
@@ -103,8 +112,23 @@ merged_main_sha: null
 
 - Host: **Alien** (migration host was `Mech`; rule 5 satisfied — a different host)
 - Claimed at: 2026-09-29T15:34:43Z
-- City claim commit: this commit (SHA recorded verbatim in `reports/MB-005/VERIFICATION_REPORT.md`, since a commit cannot name itself)
+- City claim commit: `03f395dc623a86e99c64076c0542d7fa0be95b6f`
 - Reviewed migration branch: `mission/MB-005-host-health` @ `545d38fa6cc7023826c5a3a4a09cb2e37265eb06`
+- Repairs (same branch only):
+  - `R1` — cloned and built the frozen donor at the git-ignored path the differential harness
+    expects, which turned a silently-skipped parity run into an executed one
+    (110/110 scenarios, 83/83 tests, 0 skipped). No branch content changed.
+  - `R2` — added `scripts/mb005-health-pilot.mjs`, a real-telemetry pilot that also audits the
+    bounded-action-request property and demonstrates the existing node consumption surface.
+  - `R3` — `977cd0c3487c4f1fd11e71b1f123007829f95ef1`: repaired a **pre-existing test the
+    migration weakened** (the duplicate-module-name uniqueness fixture had collapsed to a
+    one-building district and could no longer fail) and corrected two factual errors in
+    `DONOR.json`.
+- Episode closeout: `75f9acd1e6e4738b46f663412935624359ea586c` (`MB-005:bc50edf4e6a626d8`)
+- Merged to `main`: `cfe34df1109dbe6a90348f1a671bae6ff1dc3074`
+- Verification Report: [`reports/MB-005/VERIFICATION_REPORT.md`](./reports/MB-005/VERIFICATION_REPORT.md)
+- **Gate clause recorded as a tension, reported to the Owner:** the "two hosts" wording of the
+  real-telemetry clause. See the report §6.1. Everything else in the gate is met.
 - Selection note: re-read against the latest Digital-City `main` (`d6969d9`) immediately
   before claiming, as rule 3 requires. No migration task remained claimable, so selection fell
   to the migrated-but-unverified set by `SEQUENCE` ascending: `MB-003` is
