@@ -12,19 +12,28 @@ migration_branch: mission/MB-009-theme-relocation
 migration_head_sha: d338152b0c7ef2ef7e94d78901454ea91f200156
 migration_ci: PASS — run 36580730966 (V0.2 checks) on 277f576e9eb35670d77edd0aa98c192d56a7a961: gateway-web success, android success; the event-stream closeout HEAD d338152b0c7ef2ef7e94d78901454ea91f200156 carries its own branch run
 migration_report: mission-book/reports/MB-009/MIGRATION_REPORT.md
-verification_status: CLAIMED
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Alien
 verification_claimed_at: 2026-09-29T16:02:49Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
-merged_main_sha: null
+verification_head_sha: 40660e7479931b2218d28a8400a69f20c4a97b81
+verification_ci: PASS — run 36596639671 (V0.2 checks) on 40660e7479931b2218d28a8400a69f20c4a97b81: gateway-web success, android success; implementation CI was run 36596238433 on 881f0bcbef203448058a87137ce80cf7bad49a5f
+verification_report: mission-book/reports/MB-009/VERIFICATION_REPORT.md
+merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
 ---
 
 # MB-009 — Theme Engine 11→00/05 物理归属迁移
 
-> **当前可领取：NO**（Verification 阶段已由主机 `Alien` 于 2026-09-29T16:02:49Z 领取。`Alien` 与 Migration 主机 `Mech` 不同，符合规则 5；未完成前其他主机必须跳过）
+> **当前可领取：NO**（Migration 与 Verification 两个阶段均已完成，并已由验证主机 `Alien` 合入
+> `zhiheng-zhang-Mera/utopia` `main` @ `b4bd602971abe83083cd72ab8247d9bd50371f57`）
+>
+> **⚠ 合并时发现一处跨 Mission 冲突，需要 Owner 知晓（详见验证报告 §5）：** MB-001 给 `00-foundation`
+> 标了 `kind: "infrastructure"`，而 `registry()` 据此把该 district 的模块排除在解析之外；MB-009 按 City map
+> 把 theme engine 搬进 `00-foundation/05-control-centre`，合并后 `presentation.theme.lab` 变成 `DEGRADED`
+> （已验收的五个 bridged services 变四个）。裁决：把 kind 细化到 **building 级**（`05-control-centre` 声明
+> `kind: "domain"`，`city/manifest.mjs` 新增校验与唯一判定点 `buildingKind`，registry 的**解析索引**覆盖全部
+> 声明模块而**枚举**保留两道排除）。该改动严格保守（对所有既有输入行为不变，内核断言一条未减反增），
+> 但它**改动了 MB-001 引入的共享文件与其测试**，因此按 Owner 要求显式上报；处置选项见报告 §5.4。
 
 ## 目标
 
@@ -102,8 +111,24 @@ merged_main_sha: null
 
 - Host: **Alien** (migration host was `Mech`; rule 5 satisfied — a different host)
 - Claimed at: 2026-09-29T16:02:49Z
-- City claim commit: this commit (SHA recorded verbatim in `reports/MB-009/VERIFICATION_REPORT.md`, since a commit cannot name itself)
+- City claim commit: `4ac89ca4b22cdbb03e5eb275464f6d1137e4c0ce`
 - Reviewed migration branch: `mission/MB-009-theme-relocation` @ `d338152b0c7ef2ef7e94d78901454ea91f200156`
+- Repairs (same branch only):
+  - `R1` — `881f0bcbef203448058a87137ce80cf7bad49a5f`: added
+    `apps/rooms/tests/promotion-relocation.test.mjs`, because the relocation guards the
+    migration added to `scripts/verify-promotion-history.mjs` had no test coverage at all
+    (rooms 67 → 69).
+  - `R2`/`R3` — verification probes, not branch content. `R2` executed every relocation guard
+    against a mutated record and restored it byte-exactly; `R3` ran the same theme generate
+    call in a pre-relocation worktree and on the branch and got an identical digest.
+  - `R4` — added `scripts/mb009-theme-relocation-pilot.mjs`, which drives the real gateway path
+    the Web and Android clients use.
+- Episode closeout: `40660e7479931b2218d28a8400a69f20c4a97b81` (`MB-009:e1f0526f2c07fb41`)
+- Merged to `main`: `b4bd602971abe83083cd72ab8247d9bd50371f57`
+- Verification Report: [`reports/MB-009/VERIFICATION_REPORT.md`](./reports/MB-009/VERIFICATION_REPORT.md)
+- **Cross-mission conflict recorded and reported to the Owner:** the merge exposed a conflict
+  between MB-001's district-level `kind` marker and MB-009's City-map-mandated target path.
+  See the report §5.
 - Selection note: re-read against the latest Digital-City `main` (`0764924`) immediately
   before claiming, as rule 3 requires. Every enabled Mission now has `migration_complete: true`, so
   the migrated-but-unverified set decides by `SEQUENCE` ascending: `MB-003` is

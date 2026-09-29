@@ -12,7 +12,7 @@
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/dsh-restart @ e20fb6cc43e27cedf6303471e5b8ee18e1383ecd | 02/04 Restart Recovery Station — Safe Restart External Supervision |
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 06/01 Research Institute — Research Mechanism Experimentation Platform |
 | 8 | [MB-008](./MB-008-computer-use.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 10/01 Computer Use Runtime — Generic Computer Interaction Execution Service |
-| 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | NOT_STARTED | Utopia main 当前 city/11-entertainment/01-entertainment-centre/theme-engine | 00/05 City Control Centre — Presentation & Theming |
+| 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Utopia main 当前 city/11-entertainment/01-entertainment-centre/theme-engine | 00/05 City Control Centre — Presentation & Theming |
 | 10 | [MB-010](./MB-010-node-fabric.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/02 City Node Network — Device Node Fabric |
 | 11 | [MB-011](./MB-011-customs.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/01 Customs Security — Extension Admission Checks |
 | 12 | [MB-012](./MB-012-runtime-compliance.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/02 Public Security — Runtime Compliance Enforcement |
@@ -78,6 +78,32 @@
 > [`reports/MB-005/VERIFICATION_REPORT.md`](./reports/MB-005/VERIFICATION_REPORT.md) §3.3 and §6.1.
 > The report also asks the Owner to rule on the donor `bandKeyOf` bug (its §7.2), which the
 > migration correctly ported rather than fixed.
+
+> **⚠ OWNER DECISION REQUESTED — MB-009's merge resolved a conflict between two verified
+> Missions by refining a shared marker.** `MB-001` marks the district `00-foundation`
+> `kind: "infrastructure"`, and `services/capability-bridge/registry.mjs` used that marker to
+> exclude the district's modules from capability *resolution*. `MB-009`'s City-map-mandated
+> target is `00-foundation/05-control-centre/theme-engine`, so on the merged tree
+> `presentation.theme.lab` resolved `DEGRADED` and the accepted five bridged services became
+> four. The verifier rejected three alternatives (changing the district's kind, moving the
+> module off its mandated owner, or weakening MB-001's test) and instead made the marker
+> refinable **per building**: `05-control-centre` declares `kind: "domain"`,
+> `city/manifest.mjs` validates it and exposes the single decision point `buildingKind()`, and
+> the registry now builds its resolution index from **every** declared module while keeping
+> both enumeration exclusions. Behaviour for every pre-existing input is unchanged, the kernel
+> assertions were strengthened rather than reduced, no ownership moved and no capability was
+> added — but the change touches a shared file and a test introduced by MB-001, so it is
+> reported here for the Owner. Options in
+> [`reports/MB-009/VERIFICATION_REPORT.md`](./reports/MB-009/VERIFICATION_REPORT.md) §5.4:
+> (a) accept building-level `kind` as a City mechanism, or (b) re-draw the district/building
+> ownership by Owner decision via a superseding Mission.
+>
+> **Correction to the MB-005 report:** its pilot's "restart the shared gateway" step never ran
+> — it called `spawnSync('pwsh', …)` and `pwsh` is not on this machine's PATH, so the call failed
+> with `ENOENT` and the round-trip used the already-running gateway. The MB-005 telemetry evidence
+> remains valid (that mission did not touch the gateway source), and the report has been corrected
+> in place. MB-009's pilot uses `powershell.exe` and additionally showed that a stale gateway
+> process keeps serving its in-memory registry until it is genuinely restarted.
 
 > **⚠ OWNER RULING REQUESTED — the product-consumption gate now blocks two missions, and
 > MB-009 will be the third.** The Migration gate *"至少完成一次真实产品消费；UI/客户端要求仅复用

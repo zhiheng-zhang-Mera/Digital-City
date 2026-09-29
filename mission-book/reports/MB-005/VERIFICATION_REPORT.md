@@ -155,8 +155,15 @@ differential actions: PAUSE_NEW_WORK=67 REQUEST_APP_RESTART=1 REQUEST_SYSTEM_REB
 | D 有界请求 | `DECISION_LADDER` 顶格 `REQUEST_SYSTEM_REBOOT`（请求）；shipped adapter 对 application/system restart 均返回 `accepted:false / state:rejected`；20 个源文件中**无**重启执行原语；`providers.mjs` 是唯一可 spawn 进程的文件 |
 | E 现有消费面 | 把**同一份真实 telemetry** 送进**既有**节点通道：`POST /api/v0/node/register` → 200；`GET /api/v0/nodes` 原样读回 `cpu 0.2 %`、`memory.totalBytes 34 101 420 032`、`uptimeSeconds 227 248`、`online true` —— 正是 Web/Android device panel 渲染的字段。**未新建任何 dashboard** |
 
-诚实说明：pilot 会重启本机共享的 dev gateway 以完成 E 阶段，并在结束后保持其运行（该 gateway 是
-`scripts/restart-gateway.ps1` 管理的常驻本地服务，`.runtime/processes.json` 状态一致）。
+诚实说明（本报告写入后由 MB-009 的验证更正）：pilot 里的"重启共享 gateway"步骤实际**没有成功**。
+它用 `spawnSync('pwsh', …)` 调用 `scripts/restart-gateway.ps1`，而本机 PATH 上**没有** `pwsh`（只有
+`powershell.exe`），所以该调用以 `ENOENT` 失败，证据里记录的 `gatewayStartExit: null` 就是这次失败，
+不是超时。E 阶段的往返因此是对**当时已经在运行**的 gateway 做的。
+
+这不影响该阶段证据的有效性：MB-005 没有改动 `services/dev-gateway/server.mjs`，而节点 telemetry 通道
+就在那个文件里，所以在运行的 gateway 与分支代码在这一点上是一致的；真实 telemetry 被接受并原样读回
+仍然是真实发生的。但它确实说明：**在子进程里调用 shell 必须用 `powershell.exe`，不能用 `pwsh`**
+（MB-009 的 pilot 已修正这一点，并在重启后确认 registry 真的加载了新路径）。
 
 ### 3.3 R3 —— 修复被弱化的既有测试（BLOCKING）
 
