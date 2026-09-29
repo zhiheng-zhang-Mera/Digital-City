@@ -160,10 +160,10 @@ merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response.md`](./response.md)  
+> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
 > [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
 >
-> 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response.md` 为准。
+> 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
 ## Mission-specific evidence
 
