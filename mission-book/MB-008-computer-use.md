@@ -4,11 +4,11 @@ sequence: 8
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Alien
+migration_claimed_at: 2026-09-29T13:55:23Z
+migration_branch: mission/MB-008-computer-use
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T13:55:23Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -88,10 +88,19 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Alien**
+- Claimed at: 2026-09-29T13:55:23Z
+- City claim commit: this commit (SHA recorded verbatim in `reports/MB-008/MIGRATION_REPORT.md`, since a commit cannot name itself)
+- Implementation branch: `mission/MB-008-computer-use` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+
+> **Claim order note.** MB-007 is `BLOCKED_OWNER_DECISION` (ported and green, but its
+> product-consumption gate is unmet and awaits an Owner ruling). MB-008 declares no dependency on
+> MB-007, so it is the lowest-sequence claimable migration. **The same consumption question will
+> arise here**, because rule 14 and the Migration gate require consumption by an EXISTING Utopia
+> surface: before marking anything complete, the host must either find a genuinely
+> equivalence-preserving rewiring into an existing surface or record the gate as unmet, as MB-007
+> did. Inventing a surface, or wiring a guard in a way that changes an existing verdict, is
+> forbidden.
 
 ### Verification Claim
 
