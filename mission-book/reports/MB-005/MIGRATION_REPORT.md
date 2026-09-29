@@ -7,7 +7,8 @@
 > Implementation branch: `mission/MB-005-host-health`
 > Branch base: `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`
 > Implementation commit: `5fbbec666f61b2ff82f06a85630c2fb538ca7631`
-> Migration CI: see §11
+> Final branch HEAD: `545d38fa6cc7023826c5a3a4a09cb2e37265eb06` (implementation + the event-stream closeout commit)
+> Migration CI: **PASS on both** — run `36571598704` on `5fbbec66…` and run `36571983546` on `545d38fa…`; `gateway-web` success and `android` success in both
 
 ---
 
@@ -382,9 +383,16 @@ No large raw logs were copied into Digital-City.
 
 ---
 
-## 11. CI result
+## 11. CI result (settled)
 
-See the City mission file `mission-book/MB-005-host-health.md` field
-`migration_ci`, which is the runtime truth. At the time of writing the run was
-in flight; the value was recorded as soon as it settled and the status field was
-updated in the same batch.
+```text
+run 36571598704   head 5fbbec666f61b2ff82f06a85630c2fb538ca7631   gateway-web success / android success
+run 36571983546   head 545d38fa6cc7023826c5a3a4a09cb2e37265eb06   gateway-web success / android success
+```
+
+The second run covers the final branch HEAD, which is the exact revision a
+Verification Host will review and merge. The Android job ran on CI's
+`temurin 21`, which is the environment §8.4 could not reproduce locally.
+
+The `migration_ci` field in `mission-book/MB-005-host-health.md` records the same
+facts; that field is the runtime truth.
