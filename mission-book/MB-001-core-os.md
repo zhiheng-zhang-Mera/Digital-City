@@ -4,14 +4,14 @@ sequence: 1
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
-migration_complete: false
+migration_status: COMPLETE
+migration_complete: true
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T11:52:10Z
 migration_branch: mission/MB-001-core-os
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: a71bf9080294390a3e2c1482bb53930519d1b3b3
+migration_ci: "final-branch 36566973111 PASS (gateway-web + android); implementation 36566575068 PASS"
+migration_report: mission-book/reports/MB-001/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-001 — Codex-Boss Core OS 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T11:52:10Z 领取，未完成前其他主机必须跳过）
+> **当前可领取：Migration 阶段已完成（主机 `Alien`）。Verification 阶段对 `Alien` 以外的任何主机开放**；`Alien` 已参与本 Mission，不得再领取其任何角色。
 
 ## 目标
 
@@ -91,6 +91,14 @@ merged_main_sha: null
 - Claimed at: 2026-09-29T11:52:10Z
 - City claim commit: this commit (SHA recorded verbatim in `reports/MB-001/MIGRATION_REPORT.md`, since a commit cannot name itself)
 - Implementation branch: `mission/MB-001-core-os` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+
+#### Migration closeout
+
+- City claim commit: `cc45ea203801d2c34c40924f55b4fa92b9b9768e`
+- Migration head: `a71bf9080294390a3e2c1482bb53930519d1b3b3`
+- Hosted CI: final branch `36566973111` PASS (gateway-web + android); implementation `36566575068` PASS
+- Report: [`reports/MB-001/MIGRATION_REPORT.md`](./reports/MB-001/MIGRATION_REPORT.md)
+- Not merged to `main`; `mission:finalize` deliberately not run (that belongs to the Verification host)
 
 ### Verification Claim
 

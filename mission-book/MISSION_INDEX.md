@@ -4,8 +4,8 @@
 
 | Seq | Mission | Enabled | Migration | Verification | 主要来源 | City target |
 |---:|---|:---:|:---:|:---:|---|---|
-| 1 | [MB-001](./MB-001-core-os.md) | YES | CLAIMED | NOT_STARTED | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
-| 2 | [MB-002](./MB-002-capability-fabric.md) | YES | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/03 City Service Network — Capability Registry & Discovery |
+| 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
+| 2 | [MB-002](./MB-002-capability-fabric.md) | YES | CLAIMED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/03 City Service Network — Capability Registry & Discovery |
 | 3 | [MB-003](./MB-003-worker-gateway.md) | YES | NOT_STARTED | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/02 Worker Gateway — Engineering Provider Adapter Layer |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | NOT_STARTED | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/01 Project Foreman — Engineering Task Orchestrator |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | NOT_STARTED | NOT_STARTED | zhiheng-zhang-Mera/dsh-health-scheduler @ 985e2b7389330db4b32ea2946e3657746c64b47b | 02/03 Host Health Station — Runtime Health Scheduling Service |
