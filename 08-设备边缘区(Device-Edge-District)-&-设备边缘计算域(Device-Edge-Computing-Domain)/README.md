@@ -1,44 +1,36 @@
 # Device Infrastructure — 城市感官、边缘设备与具身接口
 
-## Direct repository links
+```text
+STATUS = PROJECT_FIRST_REVIEW_PENDING
+CURRENT_CANDIDATE_PROJECTS = My_VR_Glove
+```
 
-- **[My_VR_Glove](https://github.com/zhiheng-zhang-Mera/My_VR_Glove)** — VR/物理交互接口
-- **[Firmware_Anomoly_Noise_Detect](https://github.com/zhiheng-zhang-Mera/Firmware_Anomoly_Noise_Detect)** — 固件、信号与异常检测
+## Existing project pending review
+
+- **[My_VR_Glove](https://github.com/zhiheng-zhang-Mera/My_VR_Glove)** — physical interaction / VR input / embodied-control experiment; final City placement remains pending project-first review.
+
+Deprecated coursework/legacy repositories are intentionally not represented as City buildings or donors.
 
 ## Building role
 
-该建筑类型负责把现实世界变成城市可使用的**感官与动作接口**。未来智能眼镜、手表/手环/戒指、环境传感器、摄像头和其他具身设备都应优先在这里登记设备能力，再通过道路提供给医疗、居民、翻译或娱乐建筑。
+08 owns device-facing acquisition, physical sensing/actuation adapters and edge-computing semantics that expose bounded capabilities to the rest of the City.
 
-## Buildings and rooms
+Future reviewed projects may provide:
 
-### [My_VR_Glove](https://github.com/zhiheng-zhang-Mera/My_VR_Glove)
-
-- Physical interaction.
-- VR input.
-- Embodied control experiments.
-
-### [Firmware_Anomoly_Noise_Detect](https://github.com/zhiheng-zhang-Mera/Firmware_Anomoly_Noise_Detect)
-
-- Firmware sensing.
-- Signal/noise processing.
-- Edge anomaly detection.
-
-## Planned rooms
-
-- Smart Glasses Adapter.
-- Watch / Band / Ring Adapter.
-- Body Scale Adapter.
-- Camera / Microphone Context Adapter.
-- Environmental Sensor Adapter.
-- Device Capability Registry.
+- Smart Glasses Adapter;
+- Watch / Band / Ring Adapter;
+- Body Scale Adapter;
+- Camera / Microphone Context Adapter;
+- Environmental Sensor Adapter;
+- device capability/provider interfaces.
 
 ## Roads
 
-- **Sensor/Data Road** → Medical.
-- **Embodiment Road** → Digital-Me.
-- **Context Road** → translation / AR / future entertainment services.
-- **Privacy Road** → Legal & Privacy.
+- **Sensor/Data Road** → 05 Health.
+- **Embodiment Road** → 03 Residential.
+- **Context Road** → translation / AR / Entertainment.
+- **Privacy Road** → 04 Legal & Privacy.
 
 ## Boundary
 
-Device Infrastructure owns acquisition and device-facing semantics, not downstream medical interpretation, user identity, or application-specific behavior.
+Device Infrastructure owns acquisition and device-facing semantics, not downstream health interpretation, resident identity or application-specific behavior.

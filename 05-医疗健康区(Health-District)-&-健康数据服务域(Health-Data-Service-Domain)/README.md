@@ -3,7 +3,7 @@
 ```text
 STATUS = PROJECT_FIRST_PARTIAL_IMPLEMENTED
 REVIEWED_PROJECTS = Parama-Health + drug-simulator
-PENDING_PROJECTS = Machine-Learning-for-Health-Group-Project + Distributed-ESP32-Health-Project
+PENDING_PROJECTS = NONE_FROM_PREVIOUS_HEALTH_COURSEWORK_SET
 ```
 
 05 owns health-domain interpretation, longitudinal physiological state, health estimation and domain-specific simulation.
@@ -82,16 +82,10 @@ Target project modules:
 
 **Current runtime reality:** design documents only.
 
-## Other existing Health projects — review pending
-
-- [Machine-Learning-for-Health-Group-Project](https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project)
-- [Distributed-ESP32-Health-Project](https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project)
-
-Their old descriptive placement is not treated as final until project-first review.
 
 ## Roads
 
-- **Device/Data Road:** 08 → Parama normalized Health observations.
+- **Device/Data Road:** 08 → Parama normalized Health observations from future/reviewed device providers.
 - **Privacy Road:** 04 ↔ 05.
 - **Resident Context Road:** 03 ↔ 05 only when explicitly authorized.
 - **Health Context Road:** Parama → Drug Simulator physiological baseline projection.

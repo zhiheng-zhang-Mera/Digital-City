@@ -65,7 +65,7 @@ districts:
     mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "finance"
     path: "07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_REVIEWED_IMPLEMENTED"
   - id: "device-edge"
     path: "08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)"
     mapping_state: "CONTENT_REVIEW_PENDING"
@@ -247,6 +247,20 @@ project_review_strategy:
   anti_chasing_rule: "Do not invent City modules and then search repositories for justification."
   repository_not_equal_building: true
 
+project_exclusions:
+  policy: "Owner-declared deprecated/not-admitted repositories remain outside active City topology and are not used as building, room, road or donor candidates."
+  repositories:
+    - repository: "https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project"
+      state: "DEPRECATED_NOT_ADMITTED"
+    - repository: "https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project"
+      state: "DEPRECATED_NOT_ADMITTED"
+    - repository: "https://github.com/zhiheng-zhang-Mera/Firmware_Anomoly_Noise_Detect"
+      state: "DEPRECATED_NOT_ADMITTED"
+    - repository: "https://github.com/zhiheng-zhang-Mera/C-Model-Visuliazer"
+      state: "DEPRECATED_NOT_ADMITTED"
+    - repository: "https://github.com/zhiheng-zhang-Mera/C_Model_glb_coloring"
+      state: "DEPRECATED_NOT_ADMITTED"
+
 project_decompositions:
   - repository: "https://github.com/zhiheng-zhang-Mera/Digital-Me"
     review_state: "REVIEWED_2026_09_29"
@@ -394,6 +408,39 @@ project_decompositions:
       - "domain-specific pharmacology evidence remains in 05 Health"
       - "research methodology reuse does not move the pharmacology kernel into 06 Research"
 
+  - repository: "https://github.com/zhiheng-zhang-Mera/Quant-ultra"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "1988d9a8530da91a8158de864d098ea869098923"
+    primary_identity: "quantitative finance research, backtest, portfolio-construction and shadow-MLOps pipeline"
+    implementation_state: "EXISTING_IMPLEMENTATION_ON_HOLD_NOT_PRODUCTION_QUALIFIED"
+    placements:
+      - district: "07-finance"
+        ownership: "PRIMARY"
+        building: "01-quant-lab"
+        capability_clusters:
+          - "market-data foundation and asset universe"
+          - "temporal slicing / embargo / leakage control"
+          - "point-in-time regime and feature construction"
+          - "labels and sample weighting"
+          - "model training / cross-validation / quantile calibration"
+          - "portfolio construction / Black-Litterman / convex sizing"
+          - "FSM backtest / execution-cost and risk simulation"
+          - "audit / DSR / coverage / stress / capacity"
+          - "shadow reconciliation / drift telemetry / tiered MLOps updates"
+    research_relationship:
+      district: "06-research"
+      role: "DOMAIN_KERNEL_OR_EXPERIMENT_TARGET"
+      ownership_transfer: false
+    explicit_non_placements:
+      - "market data and trading execution semantics remain 07, not 09/10 merely because they involve data/automation"
+      - "quant research methods do not move the finance kernel into 06"
+    current_limitations:
+      - "README marks project on hold"
+      - "data-source truth/stability still flagged for review"
+      - "cache/model-refresh behavior flagged for review"
+      - "Phase 9 contains shadow/MLOps/reconciliation logic but current review does not establish real broker production deployment"
+      - "future Phase 10 visualization and Phase 11 LLM explanation are plans, not current capabilities"
+
 composite_capability_unions:
   policy: "functional superset with per-source provenance; no winner selection during mapping"
   conflict_rule: "preserve scope; for safety/permission conflicts prefer stricter behavior until versioned contract resolution"
@@ -415,6 +462,32 @@ composite_capability_unions:
       sources: ["DS-Hns", "Codex-Boss"]
       combined_capabilities: ["theme package/surface/token contracts", "designer/builder/orchestrator", "validation/assets/lifecycle/recovery", "natural-language intent", "deterministic generation", "decision trace", "UI-engineering escalation", "measured visual checks"]
 
+
+
+finance_registry:
+  district_path: "07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)"
+  buildings:
+    - id: "quant-lab"
+      path: "07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/01-量化实验室(Quant-Lab)-&-量化研究回测平台(Quantitative-Research-Backtest-Platform)"
+      state: "EXISTING_IMPLEMENTATION_ON_HOLD_NOT_PRODUCTION_QUALIFIED"
+      primary_source: "Quant-ultra"
+      source_snapshot: "1988d9a8530da91a8158de864d098ea869098923"
+      rooms:
+        - "Phase 1 Market Data Foundation"
+        - "Phase 2 Temporal Slicing & Validation"
+        - "Phase 3 PIT / Regime / Features"
+        - "Phase 4 Labels & Sample Weighting"
+        - "Phase 5 Model Training & Calibration"
+        - "Phase 6 Portfolio Construction & Position Sizing"
+        - "Phase 7 FSM Backtest & Execution Simulation"
+        - "Phase 8 Audit / Stress / Capacity"
+        - "Phase 9 Shadow MLOps & Reconciliation"
+      future_not_current: ["Phase 10 visualized report", "Phase 11 local-LLM explanation"]
+  roads:
+    - id: "research-domain-kernel-road"
+      producer: "07 Quant Lab"
+      consumer: "06 Research workflow"
+      rule: "Research may execute/evaluate the finance-domain kernel; domain ownership and financial semantics remain in 07."
 
 health_registry:
   district_path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)"

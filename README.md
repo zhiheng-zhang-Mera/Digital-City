@@ -42,7 +42,7 @@ City
 | [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | PROJECT_FIRST_PARTIAL / PARAMA+DRUG_SIMULATOR |
 | [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
-| [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | PROJECT_FIRST_REVIEWED / QUANT_ULTRA |
 | [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | IMPLEMENTATION_PARTIAL / BOSS+HNS_COMPOSITE |
@@ -144,6 +144,8 @@ CODEX_BOSS_PROJECT_DECOMPOSITION = RECORDED
 DS_HNS_PROJECT_DECOMPOSITION = RECORDED
 PARAMA_HEALTH_PROJECT_DECOMPOSITION = RECORDED
 DRUG_SIMULATOR_PROJECT_DECOMPOSITION = RECORDED
+QUANT_ULTRA_PROJECT_DECOMPOSITION = RECORDED
+DEPRECATED_PROJECT_EXCLUSIONS = RECORDED
 BOSS_HNS_OVERLAP_UNIONS = RECORDED
 NEXT_PROJECT_REVIEW = SELECT_EXISTING_REPOSITORY
 ```

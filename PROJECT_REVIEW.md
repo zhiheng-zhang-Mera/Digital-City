@@ -33,35 +33,47 @@ The following repositories were visible in the project-owner GitHub inventory wh
 - `Application-Plan` — project-first review pending or requires revalidation
 - `Auto-Game-Bot` — project-first review pending or requires revalidation
 - `Boss-Qualification-Control` — project-first review pending or requires revalidation
-- `C_Model_glb_coloring` — project-first review pending or requires revalidation
-- `C-Model-Visuliazer` — project-first review pending or requires revalidation
+- `C_Model_glb_coloring` — **DEPRECATED / NOT ADMITTED TO CITY**
+- `C-Model-Visuliazer` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `CapstoneProject499-Department_Manage_System` — project-first review pending or requires revalidation
 - `Codex-Boss` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Digital-City` — registry / special role
 - `Digital-Me` — **PROJECT-FIRST REVIEW COMPLETED**
-- `Distributed-ESP32-Health-Project` — project-first review pending or requires revalidation
+- `Distributed-ESP32-Health-Project` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `drug-simulator` — **PROJECT-FIRST REVIEW COMPLETED**
 - `DS-Hns` — **PROJECT-FIRST REVIEW COMPLETED**
 - `dsh-health-scheduler` — project-first review pending or requires revalidation
 - `dsh-restart` — project-first review pending or requires revalidation
 - `Essay-Book` — project-first review pending or requires revalidation
-- `Firmware_Anomoly_Noise_Detect` — project-first review pending or requires revalidation
+- `Firmware_Anomoly_Noise_Detect` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `GDPR-app` — project-first review pending or requires revalidation
 - `GDPR-project` — project-first review pending or requires revalidation
 - `General-Logic-Engine` — project-first review pending or requires revalidation
 - `Harness-Alien` — project-first review pending or requires revalidation
 - `Harness-Mega` — project-first review pending or requires revalidation
 - `Idea-Book` — project-first review pending or requires revalidation
-- `Machine-Learning-for-Health-Group-Project` — project-first review pending or requires revalidation
+- `Machine-Learning-for-Health-Group-Project` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `ML-Quant-A-stock` — project-first review pending or requires revalidation
 - `My_VR_Glove` — project-first review pending or requires revalidation
 - `Parama-Health` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Personal-trading-project-for-fun` — project-first review pending or requires revalidation
 - `privacy-lens-research-artifact` — project-first review pending or requires revalidation
-- `Quant-ultra` — project-first review pending or requires revalidation
+- `Quant-ultra` — **PROJECT-FIRST REVIEW COMPLETED**
 - `research-overview` — project-first review pending or requires revalidation
 - `Task-Board` — project-first review pending or requires revalidation
 - `utopia` — reference implementation / special role
+
+## Explicit project exclusions
+
+The following repositories are Owner-declared deprecated and **not admitted into active Digital-City topology**:
+
+- `Machine-Learning-for-Health-Group-Project`
+- `Distributed-ESP32-Health-Project`
+- `Firmware_Anomoly_Noise_Detect`
+- `C-Model-Visuliazer`
+- `C_Model_glb_coloring`
+
+They receive no Building/Room/Road ownership and are not used as donor candidates unless the Owner explicitly reactivates them later.
 
 ## Completed project review: Digital-Me
 
@@ -231,3 +243,44 @@ Parama Exposure Context + State Estimator
 ```
 
 Parama owns longitudinal whole-body state/context. Drug Simulator owns drug-mechanism simulation. Similar words such as “physiology”, “exposure” and “uncertainty” occur at different abstraction layers.
+
+
+## Completed project review: Quant-ultra
+
+**Snapshot:** `1988d9a8530da91a8158de864d098ea869098923`  
+**Repository state:** `EXISTING_IMPLEMENTATION_ON_HOLD_NOT_PRODUCTION_QUALIFIED`
+
+### Project identity
+
+Quant-ultra is a Finance-domain quantitative research/backtest/portfolio/MLOps pipeline. The current `Quant-4` tree has an executable nine-phase orchestrated implementation with schema-checked dependencies and cached/resumable phase outputs.
+
+### Current capability decomposition
+
+1. **Phase 1 — Market Data Foundation:** universe/screening, return/trading-status foundation, survivor-bias/PIT support, ADV/AUM inputs.
+2. **Phase 2 — Temporal Slicing & Validation:** train/validation/test slicing, embargo and temporal validation.
+3. **Phase 3 — PIT / Regime / Features:** point-in-time setup, data guards, regime state and feature construction.
+4. **Phase 4 — Labels & Weighting:** classification/regression labels, borrow-related context and sample weighting.
+5. **Phase 5 — Model Training & Calibration:** CV, feature handling, fitting, quantile models and calibration.
+6. **Phase 6 — Portfolio Construction:** directional filtering, Black-Litterman fusion, uncertainty-aware convex position sizing.
+7. **Phase 7 — FSM Backtest / Execution Simulation:** holdings/cash state, execution costs, market constraints, risk guards and reconciliation.
+8. **Phase 8 — Audit & Stress:** DSR, coverage checks, stress tests and capacity audit with veto semantics.
+9. **Phase 9 — Shadow MLOps:** shadow reconciliation, distribution-drift/PSI monitoring, telemetry and tiered model-update state.
+
+### Honest implementation boundary
+
+The codebase is real, but this review does **not** promote it to production trading:
+
+- README explicitly says the project is on hold;
+- data-source truth/stability remains an open concern in the project's own work log;
+- cache/model-refresh behavior is also flagged for review;
+- Phase 9 contains production-oriented interfaces and shadow/reconciliation logic, but the City does not infer a verified real-broker deployment from those code paths;
+- planned Phase 10 visual reports and Phase 11 local-LLM explanation are not implemented current capabilities.
+
+### City placement
+
+- **07/01 Quant Lab — PRIMARY ownership.**
+- 06 Research may use Quant as a domain kernel/experiment target through a Road, but does not own its market/portfolio/backtest semantics.
+- Market data remains Finance-domain data rather than being moved to 09 merely because it is data ingestion.
+- Trading/backtest/MLOps execution remains 07 rather than 10 merely because it is automated.
+
+This project is unusually self-contained: unlike Boss/Hns, most of its useful capabilities remain inside one domain building.
