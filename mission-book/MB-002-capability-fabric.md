@@ -4,14 +4,14 @@ sequence: 2
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
-migration_complete: false
+migration_status: MIGRATION_COMPLETE
+migration_complete: true
 migration_claim_host: Mech
 migration_claimed_at: 2026-09-29T12:02:31Z
 migration_branch: mission/MB-002-capability-fabric
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: db3ac518de1d6125e00cee1d9ff6ff7868b58336
+migration_ci: PASS — run 36568159888 (V0.2 checks) on 00607f8b243e166b112319b1663eebb3d763fcfc: gateway-web success, android success; the event-stream follow-up HEAD db3ac518de1d6125e00cee1d9ff6ff7868b58336 carries its own branch run
+migration_report: mission-book/reports/MB-002/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-002 — Capability Fabric Boss/Hns Union 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T12:02:31Z 领取，未完成前其他主机必须跳过）
+> **当前可领取：Verification 可领取**（Migration 阶段由主机 `Mech` 已完成且 CI 全绿，分支**未合入 main**；等待一台与 `Mech` 不同的主机领取 Verification）
 
 ## 目标
 
@@ -89,12 +89,16 @@ merged_main_sha: null
 
 - Host: **Mech**
 - Claimed at: 2026-09-29T12:02:31Z
-- City claim commit: this commit (SHA recorded verbatim in `reports/MB-002/MIGRATION_REPORT.md`, since a commit cannot name itself)
+- City claim commit: `bc2bbbdbac9ff670f2c9b3cbc93f091a7e46694b` (pushed to Digital-City `main`; no write conflict)
 - Implementation branch: `mission/MB-002-capability-fabric` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+- Migration HEAD: `db3ac518de1d6125e00cee1d9ff6ff7868b58336` (implementation commit `00607f8b243e166b112319b1663eebb3d763fcfc` + the event-stream closeout commit)
+- Migration CI: **PASS** — run `36568159888` (`V0.2 checks`) on `00607f8b243e166b112319b1663eebb3d763fcfc`: `gateway-web` success, `android` success. The follow-up event commit carries its own run on the same branch.
+- Migration Report: [`reports/MB-002/MIGRATION_REPORT.md`](./reports/MB-002/MIGRATION_REPORT.md)
+- **NOT merged to `main`**, as the migration stage requires.
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
+- Host: **UNCLAIMED** (must be a host other than `Mech`)
 - Claimed at: —
 - City claim commit: —
 - Reviewed migration branch: —
