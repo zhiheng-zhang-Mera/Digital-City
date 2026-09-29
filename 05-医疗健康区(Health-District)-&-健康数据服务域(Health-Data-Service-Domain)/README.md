@@ -1,58 +1,107 @@
-# Medical — 医疗健康建筑
+# Medical / Health District — 医疗健康区
 
-## Direct repository links
+```text
+STATUS = PROJECT_FIRST_PARTIAL_IMPLEMENTED
+REVIEWED_PROJECTS = Parama-Health + drug-simulator
+PENDING_PROJECTS = Machine-Learning-for-Health-Group-Project + Distributed-ESP32-Health-Project
+```
 
-- **[Parama-Health](https://github.com/zhiheng-zhang-Mera/Parama-Health)** — 综合健康系统方向
-- **[Machine-Learning-for-Health-Group-Project](https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project)** — 健康机器学习研究
-- **[Distributed-ESP32-Health-Project](https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project)** — 分布式健康/边缘传感
-- **[drug-simulator](https://github.com/zhiheng-zhang-Mera/drug-simulator)** — 药物/健康模拟实验
+05 owns health-domain interpretation, longitudinal physiological state, health estimation and domain-specific simulation.
 
-## Planned building — project not created
+## Reviewed buildings
 
-- **[Integrated Health Hospital / 综合医院](./01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)/)** — `PROJECT_NOT_CREATED`; future integration building for wearable sensing, nutrition, body-state and longitudinal correction.
+### 01 Integrated Health Hospital / 综合医院
+[Open building](./01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)/)
 
-## Building role
+**Primary source:** [Parama-Health](https://github.com/zhiheng-zhang-Mera/Parama-Health)  
+**State:** `PRE_ALPHA_PARTIAL_IMPLEMENTATION`
 
-Medical 是数字生态城的**医院与健康研究区**。未来可整合眼镜、手表、手环、戒指、体脂秤等设备输入，并把每日估计与长期身体状态回归结合。
+This is the longitudinal whole-person health-state platform: observations, personal health context, body/activity/sleep state, energy flow, calibration and reconciliation.
 
-Medical 的领域规则属于 Medical/Health scope，不应自动扩散到 Research、Engineering 或 Entertainment。
+### 02 Pharmacology Simulation Centre / 药理模拟中心
+[Open building](./02-药理模拟中心(Pharmacology-Simulation-Centre)-&-机制药理模拟服务(Mechanistic-Pharmacology-Simulation-Service)/)
 
-## Buildings and rooms
+**Source:** [drug-simulator](https://github.com/zhiheng-zhang-Mera/drug-simulator)  
+**State:** `DESIGN_ONLY_EXISTING_PROJECT`
 
-### [Parama-Health](https://github.com/zhiheng-zhang-Mera/Parama-Health)
+Owns the planned mechanistic PK/PD/DDI simulation boundary.
 
-- Longitudinal Health Model.
-- Nutrition / intake estimation.
-- Energy balance and longer-term correction.
-- Activity / body-state integration.
-- Multi-device health context.
+## Relationship between the two
 
-### [Machine-Learning-for-Health-Group-Project](https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project)
+These are complementary services, not duplicate implementations:
 
-- Health ML research.
-- Model/data experimentation.
-- Reusable research ideas for later health services.
+```text
+Parama longitudinal state/context
+   │
+   └─ Health Context Road
+          ↓
+   Drug Simulator physiological baseline
+          ↓
+   PK / ADME / DDI / PD / endpoints
+          ↓
+   exposure + mechanism + AE + uncertainty
+          │
+          └─ Pharmacology Result Road
+                 ↓
+        Parama exposure/state context
+```
 
-### [Distributed-ESP32-Health-Project](https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project)
+The simulator must never silently turn Parama estimates into clinical truth, and Parama must not interpret simulator output as diagnosis, prescribing or automatic dosing.
 
-- Distributed sensing.
-- ESP32 edge acquisition.
-- Device-to-health data flow.
+## Parama capability decomposition
 
-### [drug-simulator](https://github.com/zhiheng-zhang-Mera/drug-simulator)
+Target project modules:
 
-- Drug/physiological simulation experiments.
-- Model sandboxing.
+- Personal Context / Subject State Gateway;
+- Observation Layer;
+- Body State & Trend;
+- Activity & Exercise;
+- Sleep & Recovery;
+- Exposure Modifiers;
+- Energy Flow & Ledger;
+- Baseline/Lab Calibration;
+- State Estimator & Reconciliation;
+- Context Resolver.
+
+**Current runtime reality:** only the Observation contract + descriptive weight-trend starter are implemented.
+
+## Drug Simulator capability decomposition
+
+- input/canonicalization;
+- physiological baseline projection;
+- administration/regimen timeline;
+- PK/ADME + exposure;
+- PK-DDI;
+- PD / target / pathway;
+- physiological endpoints;
+- adverse effects;
+- evidence governance;
+- uncertainty;
+- mono/combination comparison;
+- reporting/validation.
+
+**Current runtime reality:** design documents only.
+
+## Other existing Health projects — review pending
+
+- [Machine-Learning-for-Health-Group-Project](https://github.com/zhiheng-zhang-Mera/Machine-Learning-for-Health-Group-Project)
+- [Distributed-ESP32-Health-Project](https://github.com/zhiheng-zhang-Mera/Distributed-ESP32-Health-Project)
+
+Their old descriptive placement is not treated as final until project-first review.
 
 ## Roads
 
-- **Device/Data Road** ← Device Infrastructure and wearables.
-- **Privacy Road** ↔ Legal & Privacy.
-- **Resident Context Road** ↔ Digital-Me where explicitly authorized.
-- **Learning Road** → long-horizon calibration and model correction inside the Health domain unless explicitly promoted.
+- **Device/Data Road:** 08 → Parama normalized Health observations.
+- **Privacy Road:** 04 ↔ 05.
+- **Resident Context Road:** 03 ↔ 05 only when explicitly authorized.
+- **Health Context Road:** Parama → Drug Simulator physiological baseline projection.
+- **Pharmacology Result Road:** Drug Simulator → Parama exposure/effect context.
+- **Evidence Road:** domain evidence retains source/provenance/confidence.
 
 ## Boundary
 
-Medical owns health interpretation and health-domain models. Device drivers stay in Device Infrastructure; identity stays in Boss/Residential; privacy policy stays in Legal & Privacy.
-
-The future Integrated Health Hospital is a composition target, not proof that a dedicated project currently exists.
+- raw device drivers/acquisition stay in 08;
+- resident identity/persona stays in 03;
+- privacy policy stays in 04;
+- generic Research methodology does not automatically own Health-domain models;
+- Health estimates/simulations do not become diagnosis/treatment recommendations.

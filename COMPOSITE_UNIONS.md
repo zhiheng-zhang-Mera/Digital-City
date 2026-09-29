@@ -26,5 +26,17 @@ Boss contributes semantic DOM/UIA/structured/VSCode/vision breadth and workspace
 **Target:** 11 Entertainment  
 Hns contributes theme package/runtime/designer/builder/assets/validation/lifecycle. Boss contributes natural-language intent, deterministic generation/trace, UI-engineering escalation and measured visual checks.
 
+## Health deliberate non-union
+
+**Parama health-state model ≠ Drug Simulator pharmacology kernel.**
+
+They integrate by contract rather than union:
+
+- Parama → time-consistent physiological baseline/context;
+- Drug Simulator → PK/PD/DDI exposure/mechanism/endpoints/uncertainty;
+- results may return to Parama as exposure/effect context.
+
+Neither implementation should absorb the other merely because both mention physiology/exposure.
+
 ## Deliberate non-unions
 Boss global scheduler ≠ Hns Engineering scheduler; Boss City Core ≠ Hns `app/core`; Boss global recovery ≠ Hns Engineering recovery ≠ dsh-restart; City Node identity ≠ Hns resource profiler. Similar vocabulary is not enough to collapse scope.

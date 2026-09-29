@@ -40,7 +40,7 @@ City
 | [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | PROJECT_FIRST_REVIEWED / DIGITAL_ME |
 | [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | PROJECT_FIRST_PARTIAL / PARAMA+DRUG_SIMULATOR |
 | [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
@@ -73,8 +73,7 @@ Capability Fabric is deliberately broader than “plugins”: plugins are one pa
 
 - [Customs Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/)
 - [Runtime Compliance / Public Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/)
-- [Integrated Health Hospital](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)/)
-Research Institute and Entertainment Centre are no longer pure placeholders: both have real implementation sources. The remaining `PROJECT_NOT_CREATED` entries are still non-operational.
+Integrated Health Hospital, Research Institute and Entertainment Centre are no longer pure placeholders: each has real project or implementation sources. The remaining `PROJECT_NOT_CREATED` entries are still non-operational.
 
 ## Project-first review strategy
 
@@ -143,6 +142,8 @@ UTOPIA_IMPLEMENTATION_TRACKING_ACTIVE
 DIGITAL_ME_PROJECT_DECOMPOSITION = RECORDED
 CODEX_BOSS_PROJECT_DECOMPOSITION = RECORDED
 DS_HNS_PROJECT_DECOMPOSITION = RECORDED
+PARAMA_HEALTH_PROJECT_DECOMPOSITION = RECORDED
+DRUG_SIMULATOR_PROJECT_DECOMPOSITION = RECORDED
 BOSS_HNS_OVERLAP_UNIONS = RECORDED
 NEXT_PROJECT_REVIEW = SELECT_EXISTING_REPOSITORY
 ```

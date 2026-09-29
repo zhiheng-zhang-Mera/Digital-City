@@ -59,7 +59,7 @@ districts:
     mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "health"
     path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "research"
     path: "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)"
     mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
@@ -83,8 +83,6 @@ preserved_placeholders:
   - path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)"
     status: "PROJECT_NOT_CREATED"
   - path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)"
-    status: "PROJECT_NOT_CREATED"
-  - path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)"
     status: "PROJECT_NOT_CREATED"
 
 government_safety_registry:
@@ -343,6 +341,59 @@ project_decompositions:
     local_only_unless_reused: ["official DSH shell embedding", "DeepSeek-specific updater/auth", "local billing/notifications/settings", "Hns app/core glue"]
 
 
+  - repository: "https://github.com/zhiheng-zhang-Mera/Parama-Health"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "e4b545b12d094032a72dab9fb72ec29e85861a8f"
+    primary_identity: "personal physiological state + energy-flow estimation platform"
+    implementation_state: "PRE_ALPHA_PARTIAL_IMPLEMENTATION"
+    placements:
+      - district: "05-health"
+        ownership: "PRIMARY"
+        building: "01-integrated-health-hospital"
+        capability_clusters:
+          - "time-aware personal health context"
+          - "observation contract and source/confidence semantics"
+          - "body-state/trend estimation"
+          - "activity and sleep/recovery context"
+          - "exposure/context modifiers"
+          - "energy-flow ledger"
+          - "baseline/lab calibration"
+          - "state estimation/reconciliation"
+          - "context resolution"
+    current_runtime_boundary:
+      implemented: ["Observation contract", "timezone/source/confidence validation", "descriptive weight-trend estimate"]
+      planned_not_implemented: ["device adapters", "personalized baseline", "activity/energy engines", "sleep engine", "exposure engine", "lab calibration", "state reconciliation"]
+    external_boundaries:
+      - "raw device acquisition belongs to 08 Device & Edge"
+      - "privacy policy belongs to 04 Legal & Privacy"
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/drug-simulator"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "23cbe9b8a416bc1023bd3ddf9e3bfd1629e05c9a"
+    primary_identity: "evidence-governed mechanistic PK/PD/DDI simulator"
+    implementation_state: "DESIGN_ONLY_EXISTING_PROJECT"
+    placements:
+      - district: "05-health"
+        ownership: "PRIMARY"
+        building: "02-pharmacology-simulation-centre"
+        capability_clusters:
+          - "input/canonicalization and regimen timeline"
+          - "physiological baseline projection"
+          - "PK/ADME and effective exposure"
+          - "PK drug-drug interactions"
+          - "PD target/pathway mechanisms"
+          - "physiological endpoints and adverse effects"
+          - "mono-vs-combination comparison"
+          - "pharmacology evidence graph/governance"
+          - "uncertainty propagation"
+          - "reporting and validation forest"
+    current_runtime_boundary:
+      implemented: []
+      design_assets: ["README.md", "idea-structure.md"]
+    external_boundaries:
+      - "domain-specific pharmacology evidence remains in 05 Health"
+      - "research methodology reuse does not move the pharmacology kernel into 06 Research"
+
 composite_capability_unions:
   policy: "functional superset with per-source provenance; no winner selection during mapping"
   conflict_rule: "preserve scope; for safety/permission conflicts prefer stricter behavior until versioned contract resolution"
@@ -363,6 +414,36 @@ composite_capability_unions:
       target: "11 Entertainment / Theme Engine"
       sources: ["DS-Hns", "Codex-Boss"]
       combined_capabilities: ["theme package/surface/token contracts", "designer/builder/orchestrator", "validation/assets/lifecycle/recovery", "natural-language intent", "deterministic generation", "decision trace", "UI-engineering escalation", "measured visual checks"]
+
+
+health_registry:
+  district_path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)"
+  buildings:
+    - id: "integrated-health-hospital"
+      path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)"
+      state: "PRE_ALPHA_PARTIAL_IMPLEMENTATION"
+      primary_source: "Parama-Health"
+      source_snapshot: "e4b545b12d094032a72dab9fb72ec29e85861a8f"
+      current_implemented_surface: ["Observation", "confidence/source/time validation", "descriptive weight trend"]
+      target_rooms: ["Personal Context", "Observation Layer", "Body State", "Activity", "Sleep & Recovery", "Exposure Modifiers", "Energy Flow", "Baseline Calibration", "State Estimator", "Context Resolver"]
+    - id: "pharmacology-simulation-centre"
+      path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/02-药理模拟中心(Pharmacology-Simulation-Centre)-&-机制药理模拟服务(Mechanistic-Pharmacology-Simulation-Service)"
+      state: "DESIGN_ONLY_EXISTING_PROJECT"
+      source: "drug-simulator"
+      source_snapshot: "23cbe9b8a416bc1023bd3ddf9e3bfd1629e05c9a"
+      runtime_implemented: false
+      target_rooms: ["Canonicalization", "Physiological Baseline", "Regimen Timeline", "PK/ADME", "PK-DDI", "PD/Mechanism", "Physiological Endpoints", "Adverse Effects", "Evidence Governance", "Uncertainty", "Mono/Combination Comparison", "Reporting"]
+  internal_roads:
+    - id: "health-context-to-pharmacology"
+      producer: "Parama-Health / PersonalContextSnapshot"
+      consumer: "drug-simulator / PhysiologicalBaseline projection"
+      rule: "Only required time-consistent physiological modifiers with provenance/uncertainty cross the boundary."
+    - id: "pharmacology-result-to-health"
+      producer: "drug-simulator"
+      consumer: "Parama-Health exposure/state layers"
+      payload: ["EffectiveExposureState", "mechanism/endpoint effects", "adverse-effect signals", "uncertainty/evidence"]
+      rule: "Simulation output is contextual evidence/input, not diagnosis or automatic treatment/dosing."
+  non_union_rule: "Parama exposure/context modeling and Drug Simulator PK/PD modeling are complementary abstraction layers, not duplicate implementations."
 
 automation_registry:
   district_path: "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)"

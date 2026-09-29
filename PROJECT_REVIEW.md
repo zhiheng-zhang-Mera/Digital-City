@@ -40,7 +40,7 @@ The following repositories were visible in the project-owner GitHub inventory wh
 - `Digital-City` — registry / special role
 - `Digital-Me` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Distributed-ESP32-Health-Project` — project-first review pending or requires revalidation
-- `drug-simulator` — project-first review pending or requires revalidation
+- `drug-simulator` — **PROJECT-FIRST REVIEW COMPLETED**
 - `DS-Hns` — **PROJECT-FIRST REVIEW COMPLETED**
 - `dsh-health-scheduler` — project-first review pending or requires revalidation
 - `dsh-restart` — project-first review pending or requires revalidation
@@ -55,7 +55,7 @@ The following repositories were visible in the project-owner GitHub inventory wh
 - `Machine-Learning-for-Health-Group-Project` — project-first review pending or requires revalidation
 - `ML-Quant-A-stock` — project-first review pending or requires revalidation
 - `My_VR_Glove` — project-first review pending or requires revalidation
-- `Parama-Health` — project-first review pending or requires revalidation
+- `Parama-Health` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Personal-trading-project-for-fun` — project-first review pending or requires revalidation
 - `privacy-lens-research-artifact` — project-first review pending or requires revalidation
 - `Quant-ultra` — project-first review pending or requires revalidation
@@ -140,3 +140,94 @@ Same-semantics overlaps are mapped as a **functional union**, not a winner:
 4. Theme Engine.
 
 See `COMPOSITE_UNIONS.md`.
+
+
+## Completed project review: Parama-Health
+
+**Snapshot:** `e4b545b12d094032a72dab9fb72ec29e85861a8f`  
+**Implementation state:** `PRE_ALPHA_PARTIAL_IMPLEMENTATION`
+
+### Project identity
+
+Parama-Health is the personal physiological-state / longitudinal energy-flow platform for 05 Health.
+
+Its intended functional clusters are:
+
+1. Personal Context / time-consistent subject snapshot.
+2. Observation Layer with source/time/confidence.
+3. Body-state/trend estimation.
+4. Activity/exercise estimation.
+5. Sleep/recovery context.
+6. Exposure/context modifiers.
+7. Energy-flow ledger.
+8. Baseline/lab calibration.
+9. State estimation/reconciliation.
+10. Context resolver.
+
+### Honest current implementation
+
+Only a small starter is runtime code today:
+
+- typed/frozen observation record;
+- timezone/source/confidence validation;
+- body-weight observation type;
+- descriptive weight-trend estimate;
+- fail-closed sparse/time-range behavior;
+- `OBSERVATION_ONLY` status.
+
+The remaining module directories are **target architecture/documentation, not implemented health models**.
+
+### City placement
+
+- **05/01 Integrated Health Hospital — PRIMARY.**
+- Raw wearable/device acquisition remains an **08 Device & Edge boundary**, not a Parama ownership claim.
+- Health-data privacy/consent rules connect to **04 Legal & Privacy**.
+- PersonalContext in this project means **health subject state**, not 03 resident identity.
+
+## Completed project review: drug-simulator
+
+**Snapshot:** `23cbe9b8a416bc1023bd3ddf9e3bfd1629e05c9a`  
+**Implementation state:** `DESIGN_ONLY_EXISTING_PROJECT`
+
+### Project identity
+
+Drug Simulator is an evidence-governed mechanistic pharmacology simulator for fixed user-supplied compounds/regimens.
+
+The designed functional clusters are:
+
+1. input/canonicalization;
+2. physiological baseline;
+3. administration/regimen timeline;
+4. PK/ADME + effective exposure;
+5. PK drug-drug interactions;
+6. PD targets/pathways;
+7. physiological endpoints;
+8. adverse-effect attribution;
+9. monotherapy vs combination comparison;
+10. pharmacology evidence graph/governance;
+11. parameter/model/evidence uncertainty;
+12. reporting and overlapping validation forest.
+
+### Honest current implementation
+
+The repository currently contains design documents only (`README.md`, `idea-structure.md`). There is no runtime simulator code, so the City state is **design-only**, not partial implementation.
+
+### City placement
+
+- **05/02 Pharmacology Simulation Centre — PRIMARY.**
+- Pharmacology evidence/PK/PD knowledge remains Health-domain knowledge even if general evidence tooling may later be shared.
+- The project’s “Research OS” relationship is methodological; it does not move the pharmacology domain kernel into 06 Research.
+
+## Parama ↔ Drug Simulator relationship
+
+These are **not a composite union**.
+
+```text
+Parama PersonalContextSnapshot
+        ↓ physiological-baseline projection
+Drug Simulator PK/PD/DDI
+        ↓ exposure / mechanism / endpoint / uncertainty
+Parama Exposure Context + State Estimator
+```
+
+Parama owns longitudinal whole-body state/context. Drug Simulator owns drug-mechanism simulation. Similar words such as “physiology”, “exposure” and “uncertainty” occur at different abstraction layers.
