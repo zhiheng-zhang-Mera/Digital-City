@@ -12,10 +12,10 @@ migration_branch: mission/MB-001-core-os
 migration_head_sha: a71bf9080294390a3e2c1482bb53930519d1b3b3
 migration_ci: "final-branch 36566973111 PASS (gateway-web + android); implementation 36566575068 PASS"
 migration_report: mission-book/reports/MB-001/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Mech
+verification_claimed_at: 2026-09-29T15:30:00Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-001 — Codex-Boss Core OS 纯迁移
 
-> **当前可领取：Migration 阶段已完成（主机 `Alien`）。Verification 阶段对 `Alien` 以外的任何主机开放**；`Alien` 已参与本 Mission，不得再领取其任何角色。
+> **当前可领取：Verification 已由主机 `Mech` 领取**（Migration 由 `Alien` 完成；`Alien` 不得再领取本 Mission 任何角色）。
 
 ## 目标
 
@@ -102,10 +102,12 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Reviewed migration branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-29T15:30:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-001/VERIFICATION_REPORT.md`)
+- Reviewed migration branch: `mission/MB-001-core-os` @ `a71bf9080294390a3e2c1482bb53930519d1b3b3`
+- Selection note: selected under mission rule 6's second clause. No migration was claimable (`MB-007`/`MB-008` are claimed by `Alien`; `MB-010`–`MB-012` have `execution_enabled: false`), so the verification queue is the claimable set, and `MB-001` is its lowest sequence. `Mech` is a different host from this Mission's migration host (`Alien`), so rule 5 permits it.
+- **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened. The independent findings are recorded in the Verification Report under a section that precedes any reference to the migration host's own account.
 
 
 ## 绑定执行条件（所有 Mission 强制）
