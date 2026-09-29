@@ -4,11 +4,11 @@ sequence: 2
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Mech
+migration_claimed_at: 2026-09-29T12:02:31Z
+migration_branch: mission/MB-002-capability-fabric
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-002 — Capability Fabric Boss/Hns Union 纯迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T12:02:31Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -87,10 +87,10 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-29T12:02:31Z
+- City claim commit: this commit (SHA recorded verbatim in `reports/MB-002/MIGRATION_REPORT.md`, since a commit cannot name itself)
+- Implementation branch: `mission/MB-002-capability-fabric` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
 
 ### Verification Claim
 
