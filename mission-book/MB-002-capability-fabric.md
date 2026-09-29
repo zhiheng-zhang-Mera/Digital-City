@@ -12,19 +12,20 @@ migration_branch: mission/MB-002-capability-fabric
 migration_head_sha: db3ac518de1d6125e00cee1d9ff6ff7868b58336
 migration_ci: PASS — run 36568159888 (V0.2 checks) on 00607f8b243e166b112319b1663eebb3d763fcfc: gateway-web success, android success; the event-stream follow-up HEAD db3ac518de1d6125e00cee1d9ff6ff7868b58336 carries its own branch run
 migration_report: mission-book/reports/MB-002/MIGRATION_REPORT.md
-verification_status: CLAIMED
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Alien
 verification_claimed_at: 2026-09-29T14:44:07Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
-merged_main_sha: null
+verification_head_sha: 63acf7af029357ca8ad85939a23dc9ab46e06f85
+verification_ci: PASS — run 36586312554 (V0.2 checks) on 63acf7af029357ca8ad85939a23dc9ab46e06f85: gateway-web success, android success; implementation CI was run 36585852227 on d0052d029f769ecbe1b7e8279fafb7aa93510ef2
+verification_report: mission-book/reports/MB-002/VERIFICATION_REPORT.md
+merged_main_sha: 83ea44e02274f8d5bcbe866d339a5cd703839e9b
 ---
 
 # MB-002 — Capability Fabric Boss/Hns Union 纯迁移
 
-> **当前可领取：NO**（Verification 阶段已由主机 `Alien` 于 2026-09-29T14:44:07Z 领取。`Alien` 与 Migration 主机 `Mech` 不同，符合规则 5；未完成前其他主机必须跳过）
+> **当前可领取：NO**（Migration 与 Verification 两个阶段均已完成，且已由验证主机 `Alien`
+> 合入 `zhiheng-zhang-Mera/utopia` `main` @ `83ea44e02274f8d5bcbe866d339a5cd703839e9b`）
 
 ## 目标
 
@@ -100,8 +101,14 @@ merged_main_sha: null
 
 - Host: **Alien** (migration host was `Mech`; rule 5 satisfied — a different host)
 - Claimed at: 2026-09-29T14:44:07Z
-- City claim commit: this commit (SHA recorded verbatim in `reports/MB-002/VERIFICATION_REPORT.md`, since a commit cannot name itself)
+- City claim commit: `8c4d214a9287a346e9b4b8060f82e7c5e1c6d695`
 - Reviewed migration branch: `mission/MB-002-capability-fabric` @ `db3ac518de1d6125e00cee1d9ff6ff7868b58336`
+- Repair (same branch only): `d0052d029f769ecbe1b7e8279fafb7aa93510ef2` — added
+  `tests/v03-derivation-parity.test.mjs`, an independent oracle over 516 lifecycle
+  mixtures; no production file was changed by the verifier.
+- Episode closeout: `63acf7af029357ca8ad85939a23dc9ab46e06f85` (`MB-002:f859fd8391837e33`)
+- Merged to `main`: `83ea44e02274f8d5bcbe866d339a5cd703839e9b`
+- Verification Report: [`reports/MB-002/VERIFICATION_REPORT.md`](./reports/MB-002/VERIFICATION_REPORT.md)
 
 > **Order of work (rule 9).** The independent review comes FIRST and is written down before the
 > Migration Report is opened: donor, target code, diff, tests and running state only. The
