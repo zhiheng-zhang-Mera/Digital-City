@@ -7,8 +7,9 @@
 ```text
 reports/
 └─ MB-xxx/
-   ├─ MIGRATION_REPORT.md
-   └─ VERIFICATION_REPORT.md
+   ├─ ASSESSMENT_REPORT.md    # assessment-first Mission 必填
+   ├─ MIGRATION_REPORT.md     # 仅实际迁移时
+   └─ VERIFICATION_REPORT.md  # 仅实际迁移时
 ```
 
 不要把完整终端日志、截图集、CI artifact、raw event stream 或大体量错误 dump 复制进 Digital-City。
@@ -16,6 +17,9 @@ reports/
 报告只保存：
 
 - Mission / Host / role / timestamps；
+- Assessment 时的 donor/Utopia 双 baseline SHA；
+- capability-by-capability 对照、覆盖判定、迁移/放弃决策与 reason code；
+- NO_VALUE negative result 与“判断无价值，任务保留，未迁移”结论（适用时）；
 - donor SHA 与实现 branch/head；
 - source → target 落地边界；
 - 已迁行为与明确未迁行为；
@@ -27,6 +31,31 @@ reports/
 - Utopia 中 raw evidence / evolution episode 的路径或 digest；
 - 最终 merge SHA；
 - PASS / FAIL / BLOCKED 判定。
+
+## ASSESSMENT_REPORT.md 最小格式
+
+```text
+MISSION
+ASSESSMENT_HOST
+CLAIM_COMMIT
+DONOR_BASELINE
+UTOPIA_MAIN_BASELINE
+ASSESSMENT_BRANCH
+ASSESSMENT_HEAD
+
+PLANNED_CAPABILITIES
+UTOPIA_CURRENT_CAPABILITIES
+CAPABILITY_COMPARISON_MATRIX
+ABANDONED_CAPABILITIES_AND_REASONS
+SELECTED_GAP_CLOSURES
+
+PAPER_METRICS
+UTOPIA_EVIDENCE_POINTERS
+UTOPIA_EVOLUTION_INBOX_POINTERS
+
+ASSESSMENT_RESULT = FULL_MIGRATION|PARTIAL_MIGRATION|NO_VALUE
+NO_VALUE_CANONICAL_RESULT = 判断无价值，任务保留，未迁移
+```
 
 ## MIGRATION_REPORT.md 最小格式
 

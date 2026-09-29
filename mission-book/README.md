@@ -15,12 +15,12 @@
 | [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien | 🟢 | 未领取 | 🔴 |
 | [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien | 🟢 | 未领取 | 🔴 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
-| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取 | 🔴 | 未领取 | 🔴 |
-| [MB-011 — Customs](./MB-011-customs.md) | 未领取 | 🔴 | 未领取 | 🔴 |
-| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | 未领取 | 🔴 | 未领取 | 🔴 |
+| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
+| [MB-011 — Customs](./MB-011-customs.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
+| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
 
 > 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
-> **Active rules = 本文件 + `response-9-29.md` + 各 Mission 当前 front matter / mission-specific gates。**  
+> **Active rules = 本文件 + `response-9-30.md` + `response-9-29.md`（未被 9-30 覆盖部分）+ 各 Mission 当前 front matter / mission-specific gates。**  
 > `past-rules/` 与历史报告仅用于 provenance，不得作为新任务的运行时规则来源。
 
 ## 0. 模式与边界
@@ -40,18 +40,23 @@ UNMERGED_WIP_LIMIT = 2
 
 发生冲突时按以下顺序解释：
 
-1. Owner 的最新显式裁决：[`response-9-29.md`](./response-9-29.md)；
-2. 本文件的当前规则；
-3. Mission 当前 front matter + mission-specific gates；
-4. 当前 Utopia `main` 的事实状态；
-5. Migration / Verification Report（历史证据）；
-6. [`past-rules/`](./past-rules/)（纯历史归档）。
+1. Owner 的最新显式裁决：[`response-9-30.md`](./response-9-30.md)；
+2. [`response-9-29.md`](./response-9-29.md) 中未被 9-30 覆盖的既有裁决；
+3. 本文件的当前规则；
+4. Mission 当前 front matter + mission-specific gates；
+5. 当前 Utopia `main` 的事实状态；
+6. Assessment / Migration / Verification Report（历史证据）；
+7. [`past-rules/`](./past-rules/)（纯历史归档）。
 
 报告中的旧 rule 编号、旧判断、旧阻塞原因不会自动覆盖后来的 Owner 裁决。
 
-## 2. 双阶段仍然保留
+## 2. 双阶段仍然保留；部分 Mission 增加迁移前 Assessment
 
-每个 Mission 仍有两个独立状态：
+普通 Mission 仍有两个独立状态。对于明确标记 `assessment_required=true` 的 Mission（当前为 MB-010..012），在 Migration 前增加一个**不承诺施工的价值评估门**：先比较 donor 与领取时 Utopia 最新 `main`，结果只能为 `FULL_MIGRATION / PARTIAL_MIGRATION / NO_VALUE`。Assessment Host 属于 migration-side host；若继续迁移，同一主机直接转为 Migration Host。
+
+`NO_VALUE` 必须保留任务、报告和证据，但保持 `migration_complete=false`，并进入 `migration_status=NOT_REQUIRED_NO_VALUE` 终态；不得为了把状态变绿而复制无价值代码。
+
+每个实际进入 Migration 的 Mission 仍有两个独立状态：
 
 - **MIGRATION_COMPLETE**：Migration Host 完成迁移、测试、报告与可要求的真实运行；不得自行合入实现仓库 `main`。
 - **VERIFICATION_COMPLETE**：另一台不同实际主机完成独立审查、同步最新 `main`、维修/真实运行、双 CI、episode finalize，并由 Verification Host 合入 `main`。
@@ -112,13 +117,15 @@ global unmerged substantive mission WIP < 2
 
 `UNMERGED_WIP_LIMIT = 2`。
 
-“WIP”指已经产生实质实现提交、但尚未进入实现仓库 `main` 的 Mission branch，包括等待 Verification 或等待 Owner 裁决的分支。历史遗留可暂时超过 2，但**只要超过上限就冻结新的 Migration**，直到 integration backlog 降回 2 以下。
+“WIP”指已经产生实质实现提交、但尚未进入实现仓库 `main` 的 Mission branch，包括等待 Verification 或等待 Owner 裁决的分支。**只有 assessment events / comparison evidence、没有实现代码变化的 assessment-only branch 不计入 WIP。** 历史遗留可暂时超过 2，但只要超过上限就冻结新的实质 Migration，直到 integration backlog 降回 2 以下。
 
 不要为了让某台机器“有活干”而继续制造新分支。
 
 ## 4. Claim 与主机资格
 
 - Claim 前先更新对应 Mission 文件并提交到 Digital-City `main`。
+- `assessment_required=true` 的 Mission 先写 Assessment Claim；若 verdict 为 FULL/PARTIAL，同一 host 自动继承 Migration Claim，不允许另一台主机在两阶段之间竞抢。
+- Assessment Claim 必须同时钉住领取时 Utopia `main` SHA；比较结论不得基于旧报告或旧目录印象。
 - 写冲突 = Claim 失败，重新读取最新状态并重选。
 - 已有阶段 Claim 且尚未结束时，其他主机不得抢占。
 - 自动 worker 不得自行清空别人的 Claim。
@@ -134,6 +141,10 @@ global unmerged substantive mission WIP < 2
 仅有 `migration_complete=true`、但代码仍停留在未合并 branch，不默认算依赖满足。
 
 ## 6. Branch freshness 与合并策略
+
+### Assessment-first
+
+Assessment branch 同样从目标实现仓库**领取时最新 `main`**创建。完成 verdict 前只允许过程记录、结构化 events 和有界 research evidence；禁止先落实现代码。若 verdict 为 FULL/PARTIAL，该 branch 直接成为 Migration branch；若为 NO_VALUE，branch push 后保留为 provenance/research branch，不 merge、不删除。
 
 ### Migration
 
@@ -208,8 +219,9 @@ City 报告：
 
 ```text
 mission-book/reports/MB-xxx/
-├─ MIGRATION_REPORT.md
-└─ VERIFICATION_REPORT.md
+├─ ASSESSMENT_REPORT.md    # assessment_required Mission 必填；所有 verdict 都保留
+├─ MIGRATION_REPORT.md     # 仅实际迁移时
+└─ VERIFICATION_REPORT.md  # 仅实际迁移时
 ```
 
 Utopia 过程数据继续遵守 [`PROCESS_DATA_POLICY.md`](./PROCESS_DATA_POLICY.md)：
@@ -218,7 +230,7 @@ Utopia 过程数据继续遵守 [`PROCESS_DATA_POLICY.md`](./PROCESS_DATA_POLICY
 - bounded events → `data-records/evolution/inbox/mission-book/...`
 - accepted episode → `data-records/evolution/episodes/mission-book/...`
 
-Owner 裁决发生后，下一位实际触碰对应 mission branch 的施工者应追加一个 `OWNER_INTERVENTION` 事件，引用 `Digital-City/mission-book/response-9-29.md`。
+Owner 裁决发生后，下一位实际触碰对应 mission branch 的施工者应追加一个 `OWNER_INTERVENTION` 事件，引用最新适用裁决；MB-010..012 本轮引用 `Digital-City/mission-book/response-9-30.md`。
 
 ## 11. Finalize / 双 CI / Merge
 
@@ -240,13 +252,22 @@ independent review
 
 不得在 finalize 后跳过最终 branch HEAD CI。
 
-## 12. 当前冻结项
+## 12. Assessment-first 候选
 
-- MB-010 Node Fabric：disabled，optional extraction。
-- MB-011 Customs：disabled，等待 extraction gate。
-- MB-012 Runtime Compliance：disabled，等待 extraction gate。
+MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评估 Mission**，不再是 disabled placeholder：
 
-Owner 未显式启用前，不得因为前面 backlog 清空就自动启动这些 Mission。
+- **MB-010 Node Fabric**：先比较 Boss Node Fabric 与当前 Utopia node/host/capability truth。
+- **MB-011 Customs**：先比较 donor admission checks 与当前 manifest/promotion/capability/provenance checks。
+- **MB-012 Runtime Compliance**：先比较 donor enforcement 与当前 City Core/Capability Fabric/runtime gates。
+
+统一要求：
+
+1. 先 Assessment，后决定是否迁移；
+2. 必须在 Mission 文件直接填写 capability 对照表；
+3. `NO_VALUE` 时向 City 明确报告“判断无价值，任务保留，未迁移”，不得写实现；
+4. `PARTIAL_MIGRATION` 只允许迁移能补足真实缺口的有界子集；
+5. 所有正/负结果、parity、失败/放弃理由和可测量指标都保留为论文/工程素材；
+6. Utopia 素材继续使用 `.runtime/evidence`、evolution inbox、选择性 `evidence/raw`；只有实际迁移并完成 Verification 后才生成 verified episode。
 
 ## 13. 历史规则
 

@@ -16,9 +16,9 @@
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE** | **NOT_STARTED / OPEN** | Alien | **Mech eligible**; integration-first P0 |
 | 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE** | **NOT_STARTED / OPEN** | Alien | **Mech eligible**; integration-first P0 |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
-| 10 | [MB-010](./MB-010-node-fabric.md) | **NO** | NOT_STARTED | NOT_STARTED | — | disabled / optional |
-| 11 | [MB-011](./MB-011-customs.md) | **NO** | NOT_STARTED | NOT_STARTED | — | disabled / extraction gate not met |
-| 12 | [MB-012](./MB-012-runtime-compliance.md) | **NO** | NOT_STARTED | NOT_STARTED | — | disabled / extraction gate not met |
+| 10 | [MB-010](./MB-010-node-fabric.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; auto-claim when P0 clear |
+| 11 | [MB-011](./MB-011-customs.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; compare current Utopia before migration |
+| 12 | [MB-012](./MB-012-runtime-compliance.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; migrate only proven gaps |
 
 ## Immediate dispatch queue
 
@@ -28,7 +28,8 @@ Current scheduler is **integration-first**, not migration-first.
 P0. MB-007 Verification / Integration
 P0. MB-008 Verification / Integration
 BLOCKED. MB-003 until the authorised superseding execution-seam Mission exists
-STOP. No new MB-010/011/012 migration
+NEXT. MB-010 → MB-011 → MB-012 assessment-first claims after eligible P0 integration is clear
+NOTE. Assessment does not imply migration; NO_VALUE is a terminal retained/unmigrated result
 ```
 
 At the Owner review snapshot, the Utopia branches for MB-007 and MB-008 were both substantially behind current `main`; the verifier must recompute the exact ahead/behind count immediately before work and merge the latest `main` into each branch **one at a time**.
@@ -46,10 +47,12 @@ Condensed:
    → stale/shared-control-plane pressure first
    → sequence ASC
 2. only if no eligible P0:
-   eligible new migration
-   → only while unmerged substantive WIP < 2
+   eligible assessment-first claim
    → sequence ASC
-3. blocked / disabled / claimed by another host
+3. after FULL/PARTIAL assessment:
+   same host continues eligible migration
+   → only while unmerged substantive WIP < 2
+4. NO_VALUE / blocked / disabled / claimed by another host
    → skip
 ```
 
@@ -59,7 +62,10 @@ Unless a Mission explicitly says otherwise, a dependency is satisfied only when 
 
 ## Owner decisions now resolved
 
-Canonical rulings: [response-9-29.md](./response-9-29.md).
+Latest ruling: [response-9-30.md](./response-9-30.md). Prior rulings in [response-9-29.md](./response-9-29.md) remain effective where not superseded.
+
+- **MB-010/011/012:** now enabled as assessment-first Missions; automatic claim is allowed, but implementation is conditional on FULL/PARTIAL value verdict. NO_VALUE means retained + unmigrated, not a green migration.
+- **Assessment evidence:** capability matrix + current Utopia main SHA + positive/negative selection evidence are mandatory and preserved for research/paper use.
 
 - **MB-003 real provider:** not waived; superseding donor-backed execution-seam Mission authorised.
 - **MB-004 routing clause:** existing real Engineering job + zero donor coupling accepted; no reopen.

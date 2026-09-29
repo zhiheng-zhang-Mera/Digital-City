@@ -103,6 +103,43 @@ City 存索引和结论；Utopia 存经验。
 **不需要 raw data 先经过 City 再回流 Utopia。**
 
 
+
+## Assessment-first / NO_VALUE negative-result flow
+
+对于 `assessment_required=true` 的 Mission（当前 MB-010..012），Assessment 也属于需要保存的工程经验，即使最终**一行代码都不迁移**。
+
+### Branch 与数据位置
+
+Assessment Host 从领取时 Utopia 最新 `main` 建立标准 mission branch，但 verdict 出来前只允许写过程数据：
+
+```text
+.runtime/evidence/mission-book/<MISSION_ID>/<run-id>/assessment/
+data-records/evolution/inbox/mission-book/<MISSION_ID>/events.jsonl
+evidence/raw/mission-book/<MISSION_ID>/assessment/   # 只选择性提交有界、非敏感证据
+```
+
+Event schema 当前没有 ASSESSMENT 专属 eventType，因此：
+
+- 继续使用现有 `role=MIGRATION`；
+- 使用 `MISSION_CLAIMED` / `ATTEMPT_STARTED` / `TEST_PASS` / `TEST_FAIL` 等现有类型；
+- 在 summary/sourceRef/targetRef/evidence 中标明 `phase=assessment`、Utopia baseline SHA、donor refs 与 comparison evidence；
+- **禁止为了记录方便自造新的 eventType。**
+
+### NO_VALUE
+
+若 City verdict 为 `NO_VALUE`：
+
+- 不写产品/运行代码；
+- branch push 后保留，不 merge、不删除；
+- City `ASSESSMENT_REPORT.md` 记录 branch immutable HEAD + evidence pointers；
+- `migration_complete` 保持 false，`migration_status=NOT_REQUIRED_NO_VALUE`；
+- 当前 `mission-episode-v1` 要求真实 Migration + 独立 Verification，因此**不得伪造 verified episode**；
+- 这类 negative result 仍是可用于论文的 architecture-selection / duplication-avoidance / migration-triage evidence。
+
+### FULL / PARTIAL
+
+若 verdict 为 `FULL_MIGRATION` 或 `PARTIAL_MIGRATION`，同一 branch 继续进入真实 Migration。Assessment events 保持在同一 inbox 历史中，最终通过正常 Verification + `mission:finalize` 进入 verified episode，使“为什么选择迁哪些/放弃哪些”成为 episode 的前置证据。
+
 ## Implemented bootstrap contract
 
 UTOPIA_EVOLUTION_BOOTSTRAP_MAIN = `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`  
