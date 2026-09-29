@@ -4,14 +4,14 @@ sequence: 8
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
+migration_status: BLOCKED_OWNER_DECISION
 migration_complete: false
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T13:55:23Z
 migration_branch: mission/MB-008-computer-use
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: aa2a6a8faab779a020d75b93dba548ba3755ce30
+migration_ci: "final-branch 36584056291 PASS; implementation efdd403 36583979374 PASS"
+migration_report: mission-book/reports/MB-008/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,18 @@ merged_main_sha: null
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T13:55:23Z 领取，未完成前其他主机必须跳过）
+> ## ⚠ 当前状态：BLOCKED_OWNER_DECISION — **不要由第三台主机接手**
+>
+> 移植已完成：六个 module、664 个 parity 测试、required CI 全绿、已登记（全部 `capabilityProvider: false`，Web/Android 能力列表不变）。但 Migration 门槛「**至少完成一次真实产品消费；UI/客户端要求仅复用当前存在的 Utopia 消费面**」**未能满足**，因此 `migration_complete` 保持 `false`。
+>
+> 与 MB-007 不同的是，这次在动工**之前**就把结论定下来了：一份只读调查**实际执行**了两侧 donor 与 Utopia 现有表达式，回执为 `NO_VERDICT_IDENTICAL_SEAM`，每个候选都给出了量化反例（工单见报告的 D2）。任何可行的消费方式都要求：新增一项能力到 Web/Android 列表（新 product 面，规则 14 与本 Mission 的「不得新增 OS 后端／视觉模型／动作类型」都禁止）、或改变既有判定、或把能力指向别的 Building 的 module——三者皆被禁止。
+>
+> **这是第二个被同一门槛阻塞的 Mission（MB-007 是第一个），MB-009 也将如此。请 Owner 一次性裁决三者**（三选一，见报告第 5 节）：
+> 1. 接受该边界，并为本 Mission 修改门槛措辞或作出明确裁定；
+> 2. 明确授权一处消费面，并声明该授权专属本 Mission；
+> 3. 依规则 13 建立 superseding Mission。
+>
+> 在 Owner 裁决之前，Verification 阶段**不开放**；规则 13 禁止第三台主机悄悄接力。
 
 ## 目标
 
@@ -101,6 +112,29 @@ merged_main_sha: null
 > equivalence-preserving rewiring into an existing surface or record the gate as unmet, as MB-007
 > did. Inventing a surface, or wiring a guard in a way that changes an existing verdict, is
 > forbidden.
+
+#### Migration closeout — PARTIAL
+
+- City claim commit: `f827756053c456e0e6e682c3ab20d9c98e14c50c`
+- Implementation head: `efdd403f81ad0c1b9f9fca56a2e51829efc6e5ea` (CI `36583979374` PASS)
+- Migration head: `aa2a6a8faab779a020d75b93dba548ba3755ce30` (CI `36584056291` PASS)
+- Report: [`reports/MB-008/MIGRATION_REPORT.md`](./reports/MB-008/MIGRATION_REPORT.md)
+- **Done:** six modules, 664 tests, the new `10-automation` district and
+  `01-computer-use-runtime` building registered, census extended, the `capabilityProvider`
+  filter added, full CI green, donor defects preserved verbatim and pinned.
+- **Not done:** the product-consumption gate. The absence of a verdict-identical seam was
+  established by measurement **before** porting began (report §4 D2). No `MIGRATION_COMPLETE`
+  event was written; the branch event stream records `RUNTIME_FAIL / BLOCKED`
+  (`MB-008:5a72b750eb33a552`).
+- Not merged to `main`; `mission:finalize` deliberately not run.
+
+> **Engineering finding worth carrying forward (report §4 D4).** The ports were parallelised
+> with a "do not import sibling modules" instruction, which produced a copied routing table in
+> `bounded-run` that was **not** equivalent to the donor's — `DOM_TYPE` had an extra `gui`
+> channel the donor lacks — while all 159 of that module's tests still passed. It was caught by
+> the single-source standard and repaired by importing the sibling binding plus an **identity**
+> test (a `deepEqual` copy would have passed). This is the third time that standard has caught
+> a real divergence; it should be a standing migration rule, not a per-mission choice.
 
 ### Verification Claim
 

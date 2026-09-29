@@ -11,7 +11,7 @@
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/dsh-health-scheduler @ 985e2b7389330db4b32ea2946e3657746c64b47b | 02/03 Host Health Station — Runtime Health Scheduling Service |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/dsh-restart @ e20fb6cc43e27cedf6303471e5b8ee18e1383ecd | 02/04 Restart Recovery Station — Safe Restart External Supervision |
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 06/01 Research Institute — Research Mechanism Experimentation Platform |
-| 8 | [MB-008](./MB-008-computer-use.md) | YES | CLAIMED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 10/01 Computer Use Runtime — Generic Computer Interaction Execution Service |
+| 8 | [MB-008](./MB-008-computer-use.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 10/01 Computer Use Runtime — Generic Computer Interaction Execution Service |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | NOT_STARTED | Utopia main 当前 city/11-entertainment/01-entertainment-centre/theme-engine | 00/05 City Control Centre — Presentation & Theming |
 | 10 | [MB-010](./MB-010-node-fabric.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/02 City Node Network — Device Node Fabric |
 | 11 | [MB-011](./MB-011-customs.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/01 Customs Security — Extension Admission Checks |
@@ -29,6 +29,21 @@
 > question is now moot for claiming, but it will matter again at MB-004's Verification, where
 > the verifier must decide whether a Foreman built on a `main` that lacks MB-003 can be
 > accepted, and at merge time, where MB-003 and MB-004 both touch `city/02-engineering/`.
+
+> **⚠ OWNER RULING REQUESTED — the product-consumption gate now blocks two missions, and
+> MB-009 will be the third.** The Migration gate *"至少完成一次真实产品消费；UI/客户端要求仅复用
+> 当前存在的 Utopia 消费面"* was satisfiable for MB-001, MB-003 and MB-006 only because an exact
+> **mechanism** rewiring happened to exist inside an existing product path. MB-007 and MB-008 are
+> infrastructure/pipeline migrations whose honest consumer would be a **new** product surface,
+> and rule 14 forbids creating one for acceptance. MB-008's survey established this by
+> **executing** the donors against the live Utopia expressions, returning
+> `NO_VERDICT_IDENTICAL_SEAM` with a measured counterexample for every candidate seam — so this
+> is a measured structural finding, not a difficulty report. Both missions are fully ported,
+> parity-tested, registered behind `capabilityProvider: false` and green on required CI; **any
+> ruling can be applied to finished work.** Three options, stated in full in each report's final
+> section: (1) accept the boundary and amend the gate wording; (2) authorise one named
+> consumption per mission; (3) create explicit superseding Missions per rule 13. Rule 13 also
+> means **neither MB-007 nor MB-008 may be taken over by a third host** before that ruling.
 
 ## Selection rule
 
