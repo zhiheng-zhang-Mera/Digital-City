@@ -4,11 +4,11 @@ sequence: 4
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Mech
+migration_claimed_at: 2026-09-29T13:12:00Z
+migration_branch: mission/MB-004-project-foreman
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-004 — Project Foreman Engineering Union 纯迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T13:12:00Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -87,14 +87,16 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-29T13:12:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-004/MIGRATION_REPORT.md` once the branch lands)
+- Implementation branch: `mission/MB-004-project-foreman` (to be created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+- Dependency note: this Mission declares **依赖 Mission: MB-003**, and MB-003's migration is now **complete** (`complete(MB-003)` on Digital-City main, verified before claiming), so the dependency gate is satisfied. Only MB-003's verification stage remains open.
+- Selection note: selection was re-made against the latest Digital-City `main` **immediately before this write**, as rule 3 requires. MB-006 was claimed by host `Alien` between two of this host's own commits, and a local claim for it was **abandoned** rather than forced through, because rule 4 forbids taking a task another host has claimed. No verification task is available to this host (MB-001's migration host is `Alien`; `Mech` migrated MB-002 and MB-005, so rule 5 forbids it from verifying either). Sequence order therefore selects MB-004.
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
+- Host: **UNCLAIMED** (must be a host other than `Mech`)
 - Claimed at: —
 - City claim commit: —
 - Reviewed migration branch: —
