@@ -7,7 +7,7 @@
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 + DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 00/03 City Service Network — Capability Registry & Discovery |
 | 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/02 Worker Gateway — Engineering Provider Adapter Layer |
-| 4 | [MB-004](./MB-004-project-foreman.md) | YES | CLAIMED | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/01 Project Foreman — Engineering Task Orchestrator |
+| 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | NOT_STARTED | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 + Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 02/01 Project Foreman — Engineering Task Orchestrator |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/dsh-health-scheduler @ 985e2b7389330db4b32ea2946e3657746c64b47b | 02/03 Host Health Station — Runtime Health Scheduling Service |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | NOT_STARTED | zhiheng-zhang-Mera/dsh-restart @ e20fb6cc43e27cedf6303471e5b8ee18e1383ecd | 02/04 Restart Recovery Station — Safe Restart External Supervision |
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 06/01 Research Institute — Research Mechanism Experimentation Platform |

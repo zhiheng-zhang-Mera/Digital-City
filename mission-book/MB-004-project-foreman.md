@@ -4,14 +4,14 @@ sequence: 4
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
-migration_complete: false
+migration_status: MIGRATION_COMPLETE
+migration_complete: true
 migration_claim_host: Mech
 migration_claimed_at: 2026-09-29T13:12:00Z
 migration_branch: mission/MB-004-project-foreman
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: 70806ad1277904c214f29f5da52cb5c7db1d90da
+migration_ci: PASS — run 36577933078 (V0.2 checks) on faf6f7a011ff37ea427c592773bf837411964d7c: gateway-web success, android success; the event-stream closeout HEAD 70806ad1277904c214f29f5da52cb5c7db1d90da carries its own branch run
+migration_report: mission-book/reports/MB-004/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-004 — Project Foreman Engineering Union 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T13:12:00Z 领取，未完成前其他主机必须跳过）
+> **当前可领取：Verification 可领取**（Migration 阶段由主机 `Mech` 已完成且 CI 全绿，分支**未合入 main**；等待一台与 `Mech` 不同的主机领取 Verification）
 
 ## 目标
 
@@ -89,10 +89,15 @@ merged_main_sha: null
 
 - Host: **Mech**
 - Claimed at: 2026-09-29T13:12:00Z
-- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-004/MIGRATION_REPORT.md` once the branch lands)
-- Implementation branch: `mission/MB-004-project-foreman` (to be created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
-- Dependency note: this Mission declares **依赖 Mission: MB-003**, and MB-003's migration is now **complete** (`complete(MB-003)` on Digital-City main, verified before claiming), so the dependency gate is satisfied. Only MB-003's verification stage remains open.
-- Selection note: selection was re-made against the latest Digital-City `main` **immediately before this write**, as rule 3 requires. MB-006 was claimed by host `Alien` between two of this host's own commits, and a local claim for it was **abandoned** rather than forced through, because rule 4 forbids taking a task another host has claimed. No verification task is available to this host (MB-001's migration host is `Alien`; `Mech` migrated MB-002 and MB-005, so rule 5 forbids it from verifying either). Sequence order therefore selects MB-004.
+- City claim commit: `945092ff14bfb9b0a3323b023ec3ad5b4c5b139c` (pushed to Digital-City `main`; no write conflict)
+- Implementation branch: `mission/MB-004-project-foreman` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+- Implementation commit: `8a0d5d6af7fd8ac007474e8df39c802b069ab785`
+- Final branch HEAD: `70806ad1277904c214f29f5da52cb5c7db1d90da`
+- Migration CI: **PASS** — run `36577933078` (`V0.2 checks`) on `faf6f7a011ff37ea427c592773bf837411964d7c`: `gateway-web` success, `android` success.
+- Migration Report: [`reports/MB-004/MIGRATION_REPORT.md`](./reports/MB-004/MIGRATION_REPORT.md)
+- **NOT merged to `main`**, as the migration stage requires.
+- Dependency note: this Mission declares **依赖 Mission: MB-003**, and MB-003's migration was **complete** (`complete(MB-003)` on Digital-City main, verified before claiming), so the dependency gate was satisfied.
+- Selection note: selection was re-made against the latest Digital-City `main` **immediately before the claim**, as rule 3 requires. MB-006 was claimed by host `Alien` between two of this host's own commits, and a local claim for it was **abandoned** rather than forced through, because rule 4 forbids taking a task another host has claimed. No verification task was available to this host (MB-001's migration host is `Alien`; `Mech` migrated MB-002 and MB-005, so rule 5 forbids it from verifying either). Sequence order therefore selected MB-004.
 
 ### Verification Claim
 
@@ -100,6 +105,26 @@ merged_main_sha: null
 - Claimed at: —
 - City claim commit: —
 - Reviewed migration branch: —
+
+### Verifier should know
+
+- **One deliberate divergence from the donor, and only one:** Boss `planRecovery` now
+  throws a *named* error on an unknown failure class where the donor crashed with an
+  unguarded `TypeError`. See the Migration Report §8.1.
+- **The union is partial by design.** The requirements-driven Execution DAG and the Boss
+  acceptance-hub family are **deferred, not faked**, because they consume a
+  `RequirementsGraph` and host stores this tree does not have. `index.mjs` does not
+  re-export them. Treat the deferred list as a boundary claim to test (§8.4).
+- **The cross-volume donor suite skips on a single-volume host** with a named reason
+  rather than failing. Read the skip reason before concluding anything about coverage (§10.1).
+- **Two real donor defects are reproduced deliberately**, both pinned by tests that name
+  them: the supervisor's bounded-retry arm is unreachable (so the retry ladder never
+  fires), and a cancelled episode never releases the workspace lock. Neither was "fixed",
+  because both are behaviour decisions for the City owner. `DONOR.json` lists them with the
+  other six donor bugs found.
+- **`result.mjs` must not be changed to report `FAILED`.** The donor reports the result
+  validator's verdict (`supervisor.cjs:766` → `result.cjs:165`), so `REFUSED` is faithful;
+  this was arbitrated during the migration and the test expectations were corrected instead (§6.4).
 
 
 ## 绑定执行条件（所有 Mission 强制）
