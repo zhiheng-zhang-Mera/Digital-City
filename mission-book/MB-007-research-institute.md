@@ -26,13 +26,13 @@ merged_main_sha: null
 
 > ## ✅ Owner ruling applied — Migration COMPLETE / Verification OPEN
 >
-> Owner 已在 [`response.md`](./response.md) R6 接受本 Mission 的边界：当前没有语义等价的 Utopia 产品消费面时，
+> Owner 已在 [`response-9-29.md`](./response-9-29.md) R6 接受本 Mission 的边界：当前没有语义等价的 Utopia 产品消费面时，
 > 对 `capabilityProvider:false` 的 research pipeline，允许 Verification Host 使用真实、bounded、可复现的研究链路
 > 作为“真实消费”证据；不得为了验收新增 Web/Android capability。
 >
 > 因迁移实现、parity 与 required CI 已在原分支完成并全绿，本文件现将 `migration_complete` 标记为 `true`。
 > Verification 必须由不同于 Migration Host `Alien` 的实际主机领取，并在开始时同步最新 Utopia `main`。
-> 下一位触碰 implementation branch 的 worker 必须先记录引用 `response.md` 的 `OWNER_INTERVENTION`，并按当前
+> 下一位触碰 implementation branch 的 worker 必须先记录引用 `response-9-29.md` 的 `OWNER_INTERVENTION`，并按当前
 > Utopia evolution contract 补齐 Owner-ruling 后所需的完成事件，再进入 Verification。
 
 ## 目标
@@ -74,7 +74,7 @@ merged_main_sha: null
 - donor 已有行为在目标边界内完成等价迁移/适配，未实现项不得被补成“新能力”。
 - 目标分支已 push；Migration 阶段**不合入 main**。
 - 相关单元/契约/parity 测试完成，并保存真实失败与修复记录。
-- 真实消费遵循 `mission-book/README.md` §7；Owner 已在 `response.md` R6 接受 bounded real research chain 作为本 Mission 的满足方式。
+- 真实消费遵循 `mission-book/README.md` §7；Owner 已在 `response-9-29.md` R6 接受 bounded real research chain 作为本 Mission 的满足方式。
 - 数据、错误、恢复/中断（适用时）记录可追溯。
 - City Migration Report 已提交：
   - `Digital-City/mission-book/reports/MB-007/MIGRATION_REPORT.md`
@@ -132,10 +132,10 @@ merged_main_sha: null
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response.md`](./response.md)  
+> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
 > [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
 >
-> 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response.md` 为准。
+> 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
 ## Mission-specific evidence
 
