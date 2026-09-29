@@ -12,10 +12,10 @@ migration_branch: mission/MB-006-restart-recovery
 migration_head_sha: dab820b37ff39d1581b19dd43e75771507fb7139
 migration_ci: "final-branch 36575418378 PASS (gateway-web + android); implementation 9584b98 36574888667 PASS"
 migration_report: mission-book/reports/MB-006/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Mech
+verification_claimed_at: 2026-09-30T01:30:00Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-006 — Restart Recovery Station vendor-neutral 纯迁移
 
-> **当前可领取：Migration 阶段已完成（主机 `Alien`）。Verification 阶段对 `Alien` 以外的任何主机开放**；`Alien` 已参与本 Mission，不得再领取其任何角色。验证门槛要求**两台主机各完成一次真实受控 process restart/relaunch**，环境不安全时必须标记 BLOCKED，不得强造能力或 mock pass；donor 的两项已知 limitation 必须原样保留（见报告的 D7 与 `restart-protocol/DONOR.json` 的 `donorLimitations`）。
+> **当前可领取：Verification 已由主机 `Mech` 领取**（Migration 由 `Alien` 完成；两台主机不同，符合 rule 5）。验证门槛要求**两台主机各完成一次真实受控 process restart/relaunch**，环境不安全时必须标记 BLOCKED，不得强造能力或 mock pass；donor 的两项已知 limitation 必须原样保留（见报告的 D7 与 `restart-protocol/DONOR.json` 的 `donorLimitations`）。
 
 ## 目标
 
@@ -121,10 +121,13 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Reviewed migration branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-30T01:30:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-006/VERIFICATION_REPORT.md`)
+- Reviewed migration branch: `mission/MB-006-restart-recovery` @ `dab820b37ff39d1581b19dd43e75771507fb7139`
+- Selection note: selected under mission rule 6's second clause. No migration is claimable (`MB-007`/`MB-008` are `BLOCKED_OWNER_DECISION`; `MB-010`–`MB-012` have `execution_enabled: false`), so the verification queue is the claimable set, ascending by sequence. That queue is `MB-002` (claimed by `Alien`), `MB-003` (**blocked** by this host — no donor-supported provider), `MB-004` (claimed by `Alien`), `MB-005` (**not eligible for this host**: rule 5 — `Mech` was MB-005's *migration* host), `MB-009` (**not eligible for this host**: rule 5 — `Mech` was MB-009's migration host), and `MB-006`. `MB-006` is therefore the lowest-sequence verification this host is permitted to take, and its migration host is `Alien`, so rule 5 permits it.
+- **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
+- **Threshold note to resolve during this verification.** The gate says *两台主机都必须完成一次真实受控 process restart/relaunch*, but rule 5 permits exactly **one** verification host per Mission, so a second host cannot be added. The reading this host will apply: the two *receipts* must both exist — one per participating host role (the migration host's, from its own report/CI, and this host's, produced here) — and if a second host's live restart is structurally impossible under rule 5, that is recorded as a mission-design ambiguity rather than silently treated as satisfied. The restart itself will be a real controlled **process** restart/relaunch of the donor's own supervised subject, not a machine reboot: the donor's path is a graceful shutdown request plus an external supervisor that observes the exit and relaunches, and rebooting the host would be neither safe nor necessary.
 
 
 ## 绑定执行条件（所有 Mission 强制）
