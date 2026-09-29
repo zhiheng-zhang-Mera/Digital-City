@@ -4,11 +4,11 @@ sequence: 5
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Mech
+migration_claimed_at: 2026-09-29T12:33:27Z
+migration_branch: mission/MB-005-host-health
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-005 — Host Health Station vendor-neutral 纯迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T12:33:27Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -88,10 +88,11 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-29T12:33:27Z
+- City claim commit: `7dcf0c5` (this batch; the SHA is recorded verbatim in `reports/MB-005/MIGRATION_REPORT.md` once the branch lands, since a commit cannot name itself)
+- Implementation branch: `mission/MB-005-host-health` (to be created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+- Selection note: MB-003 (sequence 3) was claimed by host `Alien` and MB-004 (sequence 4) depends on MB-003, so sequence order selects MB-005 as the next claimable migration.
 
 ### Verification Claim
 
