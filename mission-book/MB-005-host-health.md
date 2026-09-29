@@ -4,14 +4,14 @@ sequence: 5
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
-migration_complete: false
+migration_status: MIGRATION_COMPLETE
+migration_complete: true
 migration_claim_host: Mech
 migration_claimed_at: 2026-09-29T12:33:27Z
 migration_branch: mission/MB-005-host-health
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: 545d38fa6cc7023826c5a3a4a09cb2e37265eb06
+migration_ci: PASS — run 36571598704 (V0.2 checks) on 5fbbec666f61b2ff82f06a85630c2fb538ca7631: gateway-web success, android success; the event-stream closeout HEAD 545d38fa6cc7023826c5a3a4a09cb2e37265eb06 carries its own branch run
+migration_report: mission-book/reports/MB-005/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-005 — Host Health Station vendor-neutral 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Mech` 于 2026-09-29T12:33:27Z 领取，未完成前其他主机必须跳过）
+> **当前可领取：Verification 可领取**（Migration 阶段由主机 `Mech` 已完成且 CI 全绿，分支**未合入 main**；等待一台与 `Mech` 不同的主机领取 Verification）
 
 ## 目标
 
@@ -90,16 +90,36 @@ merged_main_sha: null
 
 - Host: **Mech**
 - Claimed at: 2026-09-29T12:33:27Z
-- City claim commit: `7dcf0c5` (this batch; the SHA is recorded verbatim in `reports/MB-005/MIGRATION_REPORT.md` once the branch lands, since a commit cannot name itself)
-- Implementation branch: `mission/MB-005-host-health` (to be created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
-- Selection note: MB-003 (sequence 3) was claimed by host `Alien` and MB-004 (sequence 4) depends on MB-003, so sequence order selects MB-005 as the next claimable migration.
+- City claim commit: `89d506e7a791b9c90006d2a4f19dd4d73c4c897a` (pushed to Digital-City `main`; no write conflict)
+- Implementation branch: `mission/MB-005-host-health` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+- Implementation commit: `5fbbec666f61b2ff82f06a85630c2fb538ca7631`
+- Final branch HEAD: `545d38fa6cc7023826c5a3a4a09cb2e37265eb06` (implementation + the event-stream closeout commit)
+- Migration CI: **PASS** — run `36571598704` (`V0.2 checks`) on `5fbbec66…`: `gateway-web` success, `android` success. The closeout commit carries its own branch run.
+- Migration Report: [`reports/MB-005/MIGRATION_REPORT.md`](./reports/MB-005/MIGRATION_REPORT.md)
+- **NOT merged to `main`**, as the migration stage requires.
+- Selection note: MB-003 (sequence 3) was claimed by host `Alien` and MB-004 (sequence 4) depends on MB-003, so sequence order selected MB-005.
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
+- Host: **UNCLAIMED** (must be a host other than `Mech`)
 - Claimed at: —
 - City claim commit: —
 - Reviewed migration branch: —
+
+### Verifier should know
+
+- **A real donor bug is reproduced, deliberately, not fixed.** `bandKeyOf`
+  never returns `:warn` for a `lower-is-worse` metric. Reproduced against the
+  compiled donor and pinned by a naming test. Fixing it changes when a sustain
+  gate opens, so it is a semantics decision, not a migration step. See the
+  Migration Report §8.1.
+- `city/manifest.mjs`'s `checkManifestAgainstTree` does **not** flag a module
+  directory the manifest never declares, so the census cannot be relied on to
+  catch an undeclared module. See §8.3.
+- The differential harness in the module is the strongest parity evidence; it
+  needs the donor build, which lives in the git-ignored evidence area, and it
+  **skips with a reason** when that build is absent rather than passing quietly.
+  Re-running it is worth the Verifier's time.
 
 
 ## 绑定执行条件（所有 Mission 强制）
