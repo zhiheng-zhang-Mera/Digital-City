@@ -23,7 +23,7 @@ Boss contributes city/global broker/routing/authorization. Hns contributes capab
 Boss contributes semantic DOM/UIA/structured/VSCode/vision breadth and workspace permission gating. Hns contributes explicit execution contracts, browser/desktop/file/shell/vision controllers, safety/limits, drivers, world state, stabilization/recovery and postcondition verification.
 
 ## Theme Engine Union
-**Target:** 11 Entertainment  
+**Target:** 00/05 Control Centre / Presentation & Theme Engine  
 Hns contributes theme package/runtime/designer/builder/assets/validation/lifecycle. Boss contributes natural-language intent, deterministic generation/trace, UI-engineering escalation and measured visual checks.
 
 ## Health deliberate non-union
