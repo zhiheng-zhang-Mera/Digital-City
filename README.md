@@ -37,16 +37,16 @@ City
 |---|---|---|
 | [00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)](./00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/) | citywide shared infrastructure | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 
 ## 00 infrastructure layout
 
@@ -91,6 +91,16 @@ The pre-restructure registry is preserved historically. The next phase reviews e
 4. which rooms/capabilities it exposes;
 5. which roads it requires.
 
+## Implementation tracking
+
+Digital-City remains the canonical **planning, ownership and boundary map**. Runtime code does not live here.
+
+**[Utopia](https://github.com/zhiheng-zhang-Mera/Utopia)** is the current product/reference implementation and active landing zone for qualified city modules. Code temporarily living in Utopia does **not** transfer permanent architectural ownership to Utopia.
+
+At the 2026-09-29 snapshot, Utopia has promoted modules in districts **02 Engineering, 06 Research, 09 Planning & Knowledge and 11 Entertainment**. Product-level Android/Web control surfaces also exist, while Utopia's own README still marks V0.2 overall acceptance as incomplete pending real-camera QR acceptance.
+
+See [IMPLEMENTATION_STATUS.md](./IMPLEMENTATION_STATUS.md) for the bound implementation snapshot and the Digital-City ↔ Utopia distinction.
+
 ## Policy scope
 
 ```text
@@ -111,5 +121,7 @@ L3  Runtime / Experiment Rules
 
 ```text
 DIGITAL_CITY_BILINGUAL_DIRECTORY_SCHEMA
-PROJECT_MAPPING_REVIEW_PENDING
+PROJECT_MAPPING_REVIEW_IN_PROGRESS
+UTOPIA_IMPLEMENTATION_TRACKING_ACTIVE
+NEXT_DISTRICT_REVIEW = 03_RESIDENTIAL
 ```

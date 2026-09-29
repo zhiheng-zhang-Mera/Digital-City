@@ -2,6 +2,7 @@
 
 STATUS = STRUCTURE_READY
 PROJECT_MAPPING = REVIEWED_AT_BUILDING_LEVEL
+IMPLEMENTATION = PARTIAL_IN_UTOPIA
 
 02 owns engineering construction and operational support. It does not own city-wide authority.
 
@@ -11,6 +12,14 @@ PROJECT_MAPPING = REVIEWED_AT_BUILDING_LEVEL
 2. [施工队接入站 / Worker Gateway](./02-施工队接入站(Worker-Gateway)-&-工程执行平台适配层(Engineering-Provider-Adapter-Layer)/) — thin adapters for official coding-agent products and future engineering providers.
 3. [主机保健站 / Host Health Station](./03-主机保健站(Host-Health-Station)-&-运行健康调度服务(Runtime-Health-Scheduling-Service)/) — host/runtime health observation and action recommendation.
 4. [重启恢复站 / Restart Recovery Station](./04-重启恢复站(Restart-Recovery-Station)-&-安全重启外部监督服务(Safe-Restart-External-Supervision-Service)/) — safe restart execution and external relaunch supervision.
+
+## Current Utopia implementation
+
+Utopia currently contains a **PROMOTED** implementation of the Worker Gateway's **Skill Intake** module at `city/02-engineering/02-worker-gateway/skill-intake`, ported from the fixed DS-Hns donor lineage.
+
+This proves that one bounded Worker Gateway capability has crossed from planning/incubation into reusable city code. It does **not** mean that Project Foreman, Host Health, Restart Recovery, or every provider adapter is already implemented in Utopia.
+
+Digital-City keeps the ownership model; Utopia is the present implementation location.
 
 ## Three-level scheduling boundary
 

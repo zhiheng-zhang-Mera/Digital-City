@@ -45,6 +45,16 @@ Planning & Knowledge 像**城市规划院、档案馆和土地储备中心**：�
 - Draft/research planning.
 - Hns/Boss publication-track organization.
 
+## Current Utopia implementation
+
+Utopia now provides runtime/reference implementations for a subset of this district:
+
+- **Knowledge Service / Knowledge Core** — `PROMOTED`, ported from Codex-Boss shared knowledge logic.
+- **Document Intake / Ingestion Core** — `PROMOTED`, covering bounded text/XML/YAML intake semantics.
+- **Document Intake / Document Readers** — `PROMOTED`, covering DOCX/XLSX/PDF reader capability.
+
+These runtime modules complement rather than replace Idea-Book, Task-Board, Application-Plan, research-overview and Essay-Book. The existing repositories remain planning/research assets; Utopia hosts reusable operational modules.
+
 ## Roads
 
 - **Planning Road** → all active buildings.

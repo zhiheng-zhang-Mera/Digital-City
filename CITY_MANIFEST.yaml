@@ -239,6 +239,52 @@ engineering_registry:
         - "ordinary Engineering portions of electron/engineering/acceptance-session.ts"
         - "ordinary Engineering portions of electron/engineering/final-acceptance-gate.ts"
 
+
+implementation_registry:
+  canonical_planning_repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
+  current_reference_implementation:
+    repository: "https://github.com/zhiheng-zhang-Mera/Utopia"
+    role: "product/reference implementation and qualified city-module landing zone"
+    ownership_rule: "Implementation location does not define permanent City ownership."
+    snapshot:
+      date: "2026-09-29"
+      main_sha: "374fad597387278f981c21f8897e772adc5922e8"
+      implementation_manifest: "city/CITY_IMPLEMENTATION_MANIFEST.json"
+      product_acceptance: "V0.2_NOT_ACCEPTED_PENDING_REAL_CAMERA_QR"
+    promoted_modules:
+      - district: "02-engineering"
+        building: "02-worker-gateway"
+        module: "skill-intake"
+        donor: "zhiheng-zhang-Mera/DS-Hns"
+        state: "PROMOTED"
+      - district: "06-research"
+        building: "01-research-institute"
+        module: "evidence-engine"
+        donor: "zhiheng-zhang-Mera/Codex-Boss"
+        state: "PROMOTED"
+      - district: "09-planning-knowledge"
+        building: "01-knowledge-service"
+        module: "knowledge-core"
+        donor: "zhiheng-zhang-Mera/Codex-Boss"
+        state: "PROMOTED"
+      - district: "09-planning-knowledge"
+        building: "02-document-intake"
+        module: "ingestion-core"
+        donor: "zhiheng-zhang-Mera/Codex-Boss"
+        state: "PROMOTED"
+      - district: "09-planning-knowledge"
+        building: "02-document-intake"
+        module: "document-readers"
+        donor: "zhiheng-zhang-Mera/Codex-Boss"
+        state: "PROMOTED"
+      - district: "11-entertainment"
+        building: "01-entertainment-centre"
+        module: "theme-engine"
+        donor: "zhiheng-zhang-Mera/DS-Hns"
+        state: "PROMOTED"
+  next_review_district: "03-residential"
+  sync_rule: "Digital-City records qualified implementation facts; Utopia remains free to iterate without redefining City ownership."
+
 project_placement_overrides:
   - repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
     placement: "00/01 City Core"
@@ -249,5 +295,5 @@ project_placement_overrides:
     rule: "Not a Government-Safety building; not the whole Control Centre UI."
 
 project_registry:
-  state: "PENDING_REVIEW"
+  state: "REVIEW_IN_PROGRESS"
   rule: "Directory naming does not imply final project ownership."
