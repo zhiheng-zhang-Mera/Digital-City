@@ -1,0 +1,72 @@
+# Mission Reports / 施工报告
+
+本目录只保存 **快速施工结论**，供 Hns、验证主机和 Owner 在领取下一项工作时快速读取。
+
+## 目录
+
+```text
+reports/
+└─ MB-xxx/
+   ├─ MIGRATION_REPORT.md
+   └─ VERIFICATION_REPORT.md
+```
+
+不要把完整终端日志、截图集、CI artifact、raw event stream 或大体量错误 dump 复制进 Digital-City。
+
+报告只保存：
+
+- Mission / Host / role / timestamps；
+- donor SHA 与实现 branch/head；
+- source → target 落地边界；
+- 已迁行为与明确未迁行为；
+- 独立审查发现；
+- 二次维修摘要；
+- 测试与 CI 摘要；
+- 真机/第二机结果；
+- failure/recovery 摘要；
+- Utopia 中 raw evidence / evolution episode 的路径或 digest；
+- 最终 merge SHA；
+- PASS / FAIL / BLOCKED 判定。
+
+## MIGRATION_REPORT.md 最小格式
+
+```text
+MISSION
+MIGRATION_HOST
+DONOR_BASELINE
+IMPLEMENTATION_BRANCH
+HEAD_SHA
+
+LANDING_BOUNDARY
+PRESERVED_BEHAVIOR
+EXPLICITLY_NOT_MIGRATED
+
+REAL_CONSUMPTION
+TEST_SUMMARY
+FAILURE_REPAIR_SUMMARY
+UTOPIA_EVIDENCE_POINTERS
+UTOPIA_EVOLUTION_INBOX_POINTERS
+
+MIGRATION_COMPLETE = true|false
+```
+
+## VERIFICATION_REPORT.md 最小格式
+
+```text
+MISSION
+VERIFICATION_HOST
+INDEPENDENT_REVIEW_FINDINGS
+MIGRATION_REPORT_RECONCILIATION
+SECONDARY_REPAIRS
+
+REAL_USAGE_VERIFICATION
+FAULT_RECOVERY_VERIFICATION
+CI_FINAL
+UTOPIA_EVIDENCE_POINTERS
+UTOPIA_EVOLUTION_EPISODE_POINTER
+
+FINAL_BRANCH_SHA
+MERGED_MAIN_SHA
+
+VERIFICATION_COMPLETE = true|false
+```
