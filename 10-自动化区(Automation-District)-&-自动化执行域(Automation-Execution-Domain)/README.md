@@ -1,31 +1,18 @@
-# Automation — 自动化执行建筑
+# Automation District — 自动化执行域
 
-## Direct repository links
+```text
+STATUS = IMPLEMENTATION_PARTIAL
+PROJECT_REVIEW = BOSS_HNS_COMPOSITE_RECORDED
+```
 
-- **[Auto-Game-Bot](https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot)** — 感知—动作自动化与完成度验证实验
+## Existing building
+[Computer Use Runtime](./01-计算机使用运行时(Computer-Use-Runtime)-&-通用计算机交互执行服务(Generic-Computer-Interaction-Execution-Service)/) is a real composite implementation backed by Boss + Hns.
 
-## Building role
-
-Automation 容纳面向外部环境的任务执行系统。它适合作为 perception → decision → action → verification 类型能力的实验建筑，并可为未来 Computer Use / embodied automation 提供可复用经验。
-
-## Buildings and rooms
-
-### [Auto-Game-Bot](https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot)
-
-- Perception-action loop.
-- Map/config separation.
-- Task execution.
-- Completion verification.
-- Screenshot/cache lifecycle.
-- Repetitive-action automation.
-
-## Roads
-
-- **Capability Road** ↔ Boss orchestration.
-- **Engineering Road** ↔ Hns for deployment/repair.
-- **Learning Road** → reusable automation experience where appropriate.
-- **Device/Computer-Use Road** ↔ host interaction layers.
+## Existing project pending review
+[Auto-Game-Bot](https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot) remains project-first review pending. Its perception/action/verification behavior may later extend the Automation union.
 
 ## Boundary
+10 owns generic perception/action/verification execution, not City authority or Engineering planning. Application-specific automation remains with its owning project.
 
-Application-specific automation logic stays here or in its own dedicated building. Boss should expose generic orchestration/runtime primitives rather than accumulating per-application scripts.
+## Roads
+Task/Intent Road ← planners; Capability Road ↔ Capability Fabric; Computer/Device Road ↔ interaction layers; Evidence/Receipt Road → caller.

@@ -4,7 +4,7 @@ city:
   name: "Digital-City"
   repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
   phase: "DIGITAL_CITY_BILINGUAL_DIRECTORY_SCHEMA"
-  project_mapping_review: "PENDING"
+  project_mapping_review: "IN_PROGRESS"
   monorepo: false
   directory_naming: "number-metaphor_zh(en)-&-technical_zh(en)"
   model: "city -> city-infrastructure + districts -> buildings -> rooms; roads connect boundaries"
@@ -20,7 +20,7 @@ roles:
 
 infrastructure:
   path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)"
-  mapping_state: "CONTENT_REVIEW_PENDING"
+  mapping_state: "PROJECT_FIRST_PARTIAL"
   slots:
     - id: "core-os"
       path: "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)"
@@ -47,13 +47,13 @@ infrastructure:
 districts:
   - id: "government-safety"
     path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL"
   - id: "engineering"
     path: "02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)"
     mapping_state: "BUILDING_STRUCTURE_REVIEWED"
   - id: "residential"
     path: "03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_REVIEWED"
   - id: "legal-privacy"
     path: "04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)"
     mapping_state: "CONTENT_REVIEW_PENDING"
@@ -62,7 +62,7 @@ districts:
     mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "research"
     path: "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "finance"
     path: "07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)"
     mapping_state: "CONTENT_REVIEW_PENDING"
@@ -71,13 +71,13 @@ districts:
     mapping_state: "CONTENT_REVIEW_PENDING"
   - id: "planning-knowledge"
     path: "09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "automation"
     path: "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "entertainment"
     path: "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
 
 preserved_placeholders:
   - path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)"
@@ -85,10 +85,6 @@ preserved_placeholders:
   - path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)"
     status: "PROJECT_NOT_CREATED"
   - path: "05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)"
-    status: "PROJECT_NOT_CREATED"
-  - path: "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)"
-    status: "PROJECT_NOT_CREATED"
-  - path: "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)"
     status: "PROJECT_NOT_CREATED"
 
 government_safety_registry:
@@ -295,6 +291,108 @@ project_decompositions:
           - "wearable/embodied context inputs"
     extraction_rule: "Architectural placement does not require immediate code movement out of Digital-Me."
 
+  - repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "8df428eaa437a409368401e95194e40266b83080"
+    primary_identity: "city authority + global orchestration/control plane"
+    placements:
+      - district: "00-city-foundation"
+        ownership: "PRIMARY"
+        capability_clusters: ["Root Authority/Trust", "global task/runtime state", "global orchestration/routing", "Capability Fabric seed", "Control Centre surfaces"]
+      - district: "01-government-safety"
+        ownership: "CONTRIBUTION"
+        capability_clusters: ["extension admission/permission contracts", "runtime compliance/enforcement semantics"]
+      - district: "02-engineering"
+        ownership: "CONTRIBUTION_TO_UNION"
+        capability_clusters: ["engineering goal loop", "repo/world inspection", "review/verification", "CI repair", "acceptance", "checkpoint/recovery"]
+      - district: "06-research"
+        ownership: "MAJOR_CONTRIBUTION"
+        capability_clusters: ["protocol/literature", "experiment/runtime", "statistics", "evidence/citations", "manuscript/LaTeX/PDF"]
+      - district: "09-planning-knowledge"
+        ownership: "CONTRIBUTION"
+        capability_clusters: ["knowledge core/retrieval", "document ingestion/readers"]
+      - district: "10-automation"
+        ownership: "CONTRIBUTION_TO_UNION"
+        capability_clusters: ["semantic Computer Use", "DOM/UIA/structured/vision backends", "workspace permission gate"]
+      - district: "11-entertainment"
+        ownership: "CONTRIBUTION_TO_UNION"
+        capability_clusters: ["theme intent", "deterministic theme generation", "visual verification"]
+    local_only_unless_reused: ["product packaging", "provider-window shell details", "project-local settings/history/archive"]
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/DS-Hns"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973"
+    primary_identity: "Engineering orchestration + execution platform"
+    placements:
+      - district: "02-engineering"
+        ownership: "PRIMARY"
+        capability_clusters: ["Project Foreman", "Worker Gateway", "DAG/worker/resource scheduling", "worktree isolation", "engineering recovery/verification"]
+      - district: "00-city-foundation"
+        ownership: "DONOR_ONLY"
+        capability_clusters: ["capability/plugin lifecycle mechanics", "adapter/health/fallback/lockfile mechanics"]
+      - district: "01-government-safety"
+        ownership: "DONOR_ONLY"
+        capability_clusters: ["plugin manifest/install/compatibility/lifecycle validation"]
+      - district: "10-automation"
+        ownership: "CONTRIBUTION_TO_UNION"
+        capability_clusters: ["Computer Use execution contract", "browser/desktop/file/shell/vision controllers", "safety/recovery/verification"]
+      - district: "11-entertainment"
+        ownership: "MAJOR_CONTRIBUTION"
+        capability_clusters: ["Theme Engine package/runtime", "designer/builder", "assets/validation/lifecycle"]
+    integrations_not_owned: ["dsh-health-scheduler", "dsh-restart"]
+    local_only_unless_reused: ["official DSH shell embedding", "DeepSeek-specific updater/auth", "local billing/notifications/settings", "Hns app/core glue"]
+
+
+composite_capability_unions:
+  policy: "functional superset with per-source provenance; no winner selection during mapping"
+  conflict_rule: "preserve scope; for safety/permission conflicts prefer stricter behavior until versioned contract resolution"
+  unions:
+    - id: "engineering-runtime-union"
+      target: "02 Engineering / Project Foreman + Worker Gateway"
+      sources: ["Codex-Boss@8df428eaa437a409368401e95194e40266b83080", "DS-Hns@eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973"]
+      combined_capabilities: ["repo/world inspection", "goal acceptance", "plan/DAG decomposition", "provider/worker assignment", "adaptive scheduling", "scoped mutation", "worktree/file ownership isolation", "checkpoint/rollback/resume", "failure recovery/reassignment", "review", "targeted/full verification", "CI repair", "final acceptance", "engineering evidence"]
+    - id: "capability-extension-platform-union"
+      target: "00/03 Capability Fabric + 01 Customs admission seam"
+      sources: ["Codex-Boss", "DS-Hns"]
+      combined_capabilities: ["global capability/provider broker", "authorization/credential boundary", "capability dependencies", "installed/enabled/loaded/healthy lifecycle", "adapter compatibility", "fallback/fault behavior", "plugin lifecycle/health", "lockfile drift verification"]
+    - id: "computer-use-runtime-union"
+      target: "10 Automation / Computer Use Runtime"
+      sources: ["Codex-Boss", "DS-Hns"]
+      combined_capabilities: ["semantic routing", "DOM/UIA/structured/VSCode/vision/browser/desktop/file/shell execution", "execution contracts", "permission/safety/limits", "focus/destructive guards", "world-state/screenshots", "stabilization/recovery", "postcondition verification"]
+    - id: "theme-engine-union"
+      target: "11 Entertainment / Theme Engine"
+      sources: ["DS-Hns", "Codex-Boss"]
+      combined_capabilities: ["theme package/surface/token contracts", "designer/builder/orchestrator", "validation/assets/lifecycle/recovery", "natural-language intent", "deterministic generation", "decision trace", "UI-engineering escalation", "measured visual checks"]
+
+automation_registry:
+  district_path: "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)"
+  buildings:
+    - id: "computer-use-runtime"
+      path: "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/01-计算机使用运行时(Computer-Use-Runtime)-&-通用计算机交互执行服务(Generic-Computer-Interaction-Execution-Service)"
+      state: "COMPOSITE_EXISTING_IMPLEMENTATION"
+      sources: ["Codex-Boss", "DS-Hns"]
+      union: "computer-use-runtime-union"
+    - id: "auto-game-bot"
+      repository: "https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot"
+      state: "PROJECT_FIRST_REVIEW_PENDING"
+
+research_registry:
+  district_path: "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)"
+  buildings:
+    - id: "research-institute"
+      state: "IMPLEMENTED_MULTI_SOURCE_BUILDING"
+      dedicated_repository: false
+      sources: ["Codex-Boss full research pipeline", "Utopia promoted evidence-engine"]
+
+entertainment_registry:
+  district_path: "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)"
+  buildings:
+    - id: "entertainment-centre"
+      state: "IMPLEMENTED_MULTI_SOURCE_BUILDING"
+      dedicated_repository: false
+      current_reference: "Utopia"
+      theme_union: "theme-engine-union"
+
 implementation_registry:
   canonical_planning_repository: "https://github.com/zhiheng-zhang-Mera/Digital-City"
   current_reference_implementation:
@@ -342,8 +440,10 @@ implementation_registry:
 
 project_placement_overrides:
   - repository: "https://github.com/zhiheng-zhang-Mera/Codex-Boss"
-    placement: "00/01 City Core"
-    rule: "Not a Government-Safety building; government services consume Core authority/runtime facts."
+    placement: "PROJECT_FIRST_MULTI_DISTRICT"
+    primary_identity: "00/01 City Core"
+    contributions: ["00/03 Capability Fabric", "00/05 Control Centre", "01 Governance-Safety", "02 Engineering", "06 Research", "09 Planning-Knowledge", "10 Automation", "11 Entertainment"]
+    rule: "Repository location does not collapse all Boss capabilities into City Core."
   - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
     placement: "00/05 Control Centre"
     role: "logic/rule/state-propagation/explanation backend component"

@@ -1,59 +1,27 @@
-# 城市控制中心 City Control Centre — 人机控制界面 Human Control Surface
+# 城市控制中心 City Control Centre — Human Control Surface
 
 ```text
-STATUS = PARTIAL_FOUNDATION_EXISTS
-CONTROL_UI = PROJECT_NOT_CREATED
+STATUS = PARTIAL_EXISTING_SURFACES
+IMPLEMENTATION_AUTHORITY = DISTRIBUTED_PARTIAL
 LOGIC_ENGINE_COMPONENT = General-Logic-Engine
-IMPLEMENTATION_AUTHORITY = NONE
-ROLE = HUMAN_FACING_CONTROL_SURFACE + CONTROL_LOGIC_BACKEND
 ```
 
-## Existing component
+## Existing Boss contribution
+Codex-Boss already implements substantial control surfaces:
+- Chat / Work multi-provider workspace;
+- WorkBook intake and task-contract views;
+- Provider Manager and provider health/status;
+- Owner Dashboard (goal/status/progress/result/evidence/hard blocker);
+- Research and Engineering progress/control;
+- evidence/result/history/local-command surfaces.
 
-- **[General-Logic-Engine](https://github.com/zhiheng-zhang-Mera/General-Logic-Engine)** — registered here as the Control Centre's rule/state/explanation backend component.
+## Hns contribution
+Hns has Engineering-domain control surfaces for queue/workers/plugins/skills/Computer Use/health/restart/billing/settings. These stay domain-local and expose state/actions to the city Control Centre; they are not city authority.
 
-Its current repository state is a **design baseline, not yet a runnable production engine**. Its typed entities, relations, events, state propagation, constraints, evidence and explanation traces fit the Control Centre's need to reason about and present city state, rules, consequences and explainable transitions.
+## Existing logic component
+[General-Logic-Engine](https://github.com/zhiheng-zhang-Mera/General-Logic-Engine) remains the planned rule/state/explanation backend component.
 
-General-Logic-Engine is **not**:
-
-- the city authority source;
-- Root Trust;
-- the whole Control Centre UI;
-- a mandatory broker for all city traffic;
-- a replacement for domain-owned business logic.
-
-## Missing Control Centre components
-
-The human-facing application/shell is still not created. It may later provide:
-
-- interactive city/building map;
-- navigation and status views;
-- node/device/task summaries;
-- capability/permission/road visualization;
-- lifecycle request surfaces;
-- Owner-attention queue;
-- city activity/event views;
-- command submission;
-- Chat / Work entry points backed by owning runtimes.
-
-Conceptually:
-
-```text
-Human / Owner
-    ↓
-Control Centre UI
-    ├── General-Logic-Engine (rule/state/explanation support)
-    └── stable city/runtime interfaces
-            ↓
-      Core OS / Hns / domain buildings
-```
+A unified city shell is still not created; it may later compose the existing surfaces and add city map/navigation/node/capability/permission/event views.
 
 ## Boundary
-
-The Control Centre is a thin observation/navigation/control surface plus optional reasoning/explanation support.
-
-Authorization and durable city truth remain with the owning runtime/project. City services must continue when the Control Centre is unavailable.
-
-## Creation condition
-
-Create the standalone UI/control-shell project only after the post-cityization interfaces are stable enough to consume without repeated architectural rewrites.
+Authorization and durable truth remain with owning runtimes. City services must continue if the Control Centre is unavailable.

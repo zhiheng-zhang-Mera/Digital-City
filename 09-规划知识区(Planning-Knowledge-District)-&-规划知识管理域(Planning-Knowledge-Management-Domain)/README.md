@@ -45,6 +45,19 @@ Planning & Knowledge 像**城市规划院、档案馆和土地储备中心**：�
 - Draft/research planning.
 - Hns/Boss publication-track organization.
 
+## Codex-Boss project-first contribution
+
+Codex-Boss is an existing source project for runtime knowledge/document capabilities here:
+
+- bounded knowledge objects/spaces and retrieval;
+- knowledge claims, provenance/governance/staleness controls;
+- WorkBook reference/knowledge classification;
+- text/XML/YAML intake;
+- DOCX/XLSX/PDF readers;
+- source/evidence-aware retrieval guards.
+
+These capabilities are not City Core merely because Boss currently hosts them. Utopia has already promoted several into district-owned modules.
+
 ## Current Utopia implementation
 
 Utopia now provides runtime/reference implementations for a subset of this district:

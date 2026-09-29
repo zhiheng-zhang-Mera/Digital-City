@@ -1,15 +1,22 @@
 # Research District
 
-STATUS = STRUCTURE_READY
-PROJECT_MAPPING = PARTIALLY_IMPLEMENTED
-IMPLEMENTATION = PARTIAL_IN_UTOPIA
+STATUS = PROJECT_FIRST_PARTIAL
+IMPLEMENTATION = BOSS_FULL_PIPELINE + UTOPIA_PROMOTED_EVIDENCE_ENGINE
 
-This district is reserved for research institutions, mechanism research, academic experimentation, formalisation, simulation and evaluation.
+## Existing source: Codex-Boss
+Boss already implements:
+```text
+research question → ResearchIR/protocol freeze → literature/source store
+→ experiment generation/execution → deterministic statistics
+→ evidence graph/repro audit → claim/citation audit → reviewer gates
+→ figures/tables → manuscript → LaTeX → PDF
+```
 
-The Research Institute is no longer a purely empty placeholder. Utopia currently contains a **PROMOTED Evidence Engine** module under `city/06-research/01-research-institute/evidence-engine`, ported from Codex-Boss.
+## Utopia
+Utopia contains a promoted Boss-derived Evidence Engine.
 
-The broader Research Institute boundary is still under review: one promoted module does not imply that the whole district or future research platform is complete.
+## Building
+[Research Institute](./01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/) is therefore an implemented multi-source City building even without a dedicated standalone repository.
 
-## Planned building
-
-- **Research Institute / 研究院** → [01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)](./01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/)
+## Boundary
+Research semantics remain domain-scoped; Engineering evidence does not automatically become Research and Research rules do not become City Constitution.

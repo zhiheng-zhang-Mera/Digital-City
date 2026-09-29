@@ -1,71 +1,34 @@
-# 市政治安区 Civic Government & Safety District — 治理安全域 Governance & Security Domain
+# 市政治安区 Civic Government & Safety District — Governance & Security Domain
 
-STATUS = STRUCTURE_READY
-PROJECT_MAPPING = PARTIALLY_REVIEWED
+STATUS = PROJECT_FIRST_PARTIAL
 
-This district contains city-level qualification, admission and runtime hard-boundary enforcement. It **does not contain the City Core itself**.
+This district contains qualification, admission and runtime hard-boundary enforcement. City Core itself remains in 00.
 
 ## Existing independent project
+**Boss-Qualification-Control** remains an independent qualification/real-soak/attestation/promotion control plane.
 
-### Boss Qualification Control Plane
+## Customs / ADMIT — Boss ∪ Hns donor target
+The admission target takes a functional union:
 
-- **Repository:** https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control
-- **State:** EXISTING_INDEPENDENT_REPOSITORY
-- **Role:** qualification workflow, real-soak runner isolation, immutable-candidate attestation, evidence-backed promotion control.
-- **Extraction from Boss:** NO — this control plane is already separated.
+**Boss:** permission manifests, plugin contracts, requested permissions/capabilities, authority boundaries, city lifecycle/admission semantics.
 
-## Planned future extractions from Codex-Boss
+**Hns:** plugin manifest validation, adapter detection, compatibility checks, install/enable/load lifecycle, declared dependencies/fallbacks and lockfile drift verification.
 
-### 01 海关安检 / Customs Security — ADMIT
+Hns contributes admission mechanics; Boss supplies city authority semantics.
 
-See [Customs Security](./01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/).
-
-Current source material remains inside Codex-Boss. Future extraction is preset, but **not now**.
-
-Target extracted responsibility:
-
-- extension/plugin manifest and schema validation;
-- identity/source checks;
-- dependency declaration checks;
-- requested capability/permission declarations;
-- domain/storage namespace declarations;
-- crash/isolation declaration checks;
-- enable/disable/uninstall/rollback readiness;
-- admission-time lifecycle preflight.
-
-It must not take Root Trust, post-admission enforcement or domain-quality decisions.
-
-### 02 公安监管 / Runtime Compliance — ENFORCE
-
-See [Runtime Compliance](./02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/).
-
-Current source material also remains inside Codex-Boss. Future extraction is preset, but **not now**.
-
-Target extracted responsibility:
-
-- privilege-request enforcement;
-- cross-domain access enforcement;
-- protected-resource access checks;
-- service/capability registration enforcement hooks;
+## Runtime Compliance / ENFORCE
+Primarily a Boss-derived city function:
+- privilege/cross-domain/protected-resource enforcement;
+- service/capability registration enforcement;
 - authority-escalation rejection;
 - city-wide runtime-policy application;
-- audit-friendly enforcement verdicts.
+- audit-friendly verdicts.
 
-It must consume authority facts from Core, not duplicate Owner sovereignty, Root Trust or Root Authority.
-
-## Placement corrections
-
-- **Codex-Boss** belongs to **00/01 City Core**, not this district.
-- **General-Logic-Engine** belongs to **00/05 Control Centre** as a logic/rule/state/explanation backend component, not this district.
+Hns local execution guards and contract-validation/fault-isolation patterns may contribute implementation techniques, but do not become city-wide police authority.
 
 ## Boundary
-
 ```text
-00 Core
-  owns authority facts and constitutional primitives
-
-01 Qualification / Customs / Runtime Compliance
-  evaluates or enforces using those facts
+00 Core: authority facts
+01 Governance: admit/enforce using those facts
 ```
-
-Research, Health, Engineering and other domain-local rules remain in their own domains unless explicitly promoted to city-wide scope.
+Domain-quality rules stay in their domains.

@@ -1,34 +1,20 @@
 # Entertainment Centre — 娱乐中心
 
 ```text
-STATUS = PROJECT_NOT_CREATED
-REPOSITORY = NOT_CREATED
-IMPLEMENTATION_AUTHORITY = NONE
-DOMAIN = ENTERTAINMENT
+STATUS = IMPLEMENTED_MULTI_SOURCE_BUILDING
+DEDICATED_REPOSITORY = NOT_REQUIRED
+REFERENCE_IMPLEMENTATION = Utopia
+THEME_DONOR_PRIMARY = DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973
+THEME_DONOR_ADDITIONAL = Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080
 ```
 
-## Role
+## Theme Engine functional union
+Hns provides package/runtime/designer/builder/assets/validation/lifecycle/recovery. Boss provides natural-language intent, deterministic derivation, decision trace, theme-vs-UI-engineering escalation and measured visual/readability validation.
 
-A future user-facing building for smart-glasses and immersive-media functions.
+The current Utopia promoted module represents the Hns-derived subset; future strengthening may add missing Boss-derived behaviors.
 
-The original city analogy places it near, but separate from, the Hospital: the same wearable/device ecosystem may support both health sensing and entertainment, while their domain logic remains independent.
-
-## Planned rooms
-
-- multilingual translation;
-- voice / tone-preserving media transformation;
-- VR/AR front-view generation;
-- ASMR / spatial audio experiences;
-- smart-glasses interaction layer.
-
-## Roads
-
-- Device Road ↔ Device Infrastructure.
-- Optional authorized context ↔ Medical where a health use case explicitly requires it.
-- Capability Road ↔ city service discovery.
+## Other planned rooms
+Translation, voice/media transformation, VR/AR, ASMR/spatial audio and smart-glasses interaction remain future until a reviewed existing project supplies implementation.
 
 ## Boundary
-
-Entertainment must not inherit Medical rules merely because both use the same wearable device.
-
-No dedicated repository currently exists.
+Device drivers stay in 08; health semantics stay in 05; presentation does not own city authority.

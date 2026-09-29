@@ -35,17 +35,17 @@ City
 
 | Path | Architectural meaning | Mapping state |
 |---|---|---|
-| [00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)](./00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/) | citywide shared infrastructure | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)](./00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/) | citywide shared infrastructure | PROJECT_FIRST_PARTIAL / BOSS_PRIMARY |
+| [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | PROJECT_FIRST_PARTIAL / BOSS+HNS_DONORS |
 | [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
-| [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | PROJECT_FIRST_REVIEWED / DIGITAL_ME |
 | [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
 | [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
-| [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | IMPLEMENTATION_PARTIAL / BOSS+HNS_COMPOSITE |
 | [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 
 ## 00 infrastructure layout
@@ -74,10 +74,7 @@ Capability Fabric is deliberately broader than “plugins”: plugins are one pa
 - [Customs Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/)
 - [Runtime Compliance / Public Security](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/)
 - [Integrated Health Hospital](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/01-综合医院(Integrated-Health-Hospital)-&-综合健康服务平台(Integrated-Health-Service-Platform)/)
-- [Research Institute](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/)
-- [Entertainment Centre](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)/)
-
-Their `PROJECT_NOT_CREATED` semantics remain unchanged.
+Research Institute and Entertainment Centre are no longer pure placeholders: both have real implementation sources. The remaining `PROJECT_NOT_CREATED` entries are still non-operational.
 
 ## Project-first review strategy
 
@@ -96,7 +93,7 @@ Existing repository
 
 A repository is therefore an **implementation/source asset**, not automatically one Building. One repository may contribute modules to several districts; one Building may also be backed by several repositories. Physical code movement is a separate later decision.
 
-See [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) for the repository-driven review queue and the completed Digital-Me decomposition.
+See [PROJECT_REVIEW.md](./PROJECT_REVIEW.md) for the repository-driven review queue and the completed Digital-Me, Codex-Boss and DS-Hns decompositions. See [COMPOSITE_UNIONS.md](./COMPOSITE_UNIONS.md) for overlap-union rules.
 
 ## Project-mapping review
 
@@ -144,5 +141,8 @@ PROJECT_MAPPING_REVIEW_IN_PROGRESS
 PROJECT_REVIEW_MODE = PROJECT_FIRST_DECOMPOSITION
 UTOPIA_IMPLEMENTATION_TRACKING_ACTIVE
 DIGITAL_ME_PROJECT_DECOMPOSITION = RECORDED
+CODEX_BOSS_PROJECT_DECOMPOSITION = RECORDED
+DS_HNS_PROJECT_DECOMPOSITION = RECORDED
+BOSS_HNS_OVERLAP_UNIONS = RECORDED
 NEXT_PROJECT_REVIEW = SELECT_EXISTING_REPOSITORY
 ```

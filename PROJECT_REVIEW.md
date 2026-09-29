@@ -36,12 +36,12 @@ The following repositories were visible in the project-owner GitHub inventory wh
 - `C_Model_glb_coloring` — project-first review pending or requires revalidation
 - `C-Model-Visuliazer` — project-first review pending or requires revalidation
 - `CapstoneProject499-Department_Manage_System` — project-first review pending or requires revalidation
-- `Codex-Boss` — project-first review pending or requires revalidation
+- `Codex-Boss` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Digital-City` — registry / special role
 - `Digital-Me` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Distributed-ESP32-Health-Project` — project-first review pending or requires revalidation
 - `drug-simulator` — project-first review pending or requires revalidation
-- `DS-Hns` — project-first review pending or requires revalidation
+- `DS-Hns` — **PROJECT-FIRST REVIEW COMPLETED**
 - `dsh-health-scheduler` — project-first review pending or requires revalidation
 - `dsh-restart` — project-first review pending or requires revalidation
 - `Essay-Book` — project-first review pending or requires revalidation
@@ -96,3 +96,47 @@ The detailed decomposition is recorded in the 03 Residential README and `CITY_MA
 The next discussion should begin with the **next existing repository**, inspect what that repository was actually built to do, and only then decide how its capability clusters fit into the City.
 
 Do not start from “what should district 04 contain?” or “what module is missing?” unless every relevant existing project has already been checked.
+
+
+## Completed project review: Codex-Boss
+
+**Snapshot:** `8df428eaa437a409368401e95194e40266b83080`
+
+Codex-Boss is a multi-district source project whose **primary identity** is City authority + global orchestration.
+
+- **00/01 Core — PRIMARY:** Root Authority/Trust, global task/runtime state, orchestration/routing, durable control primitives.
+- **00/03 Capability Fabric — PRIMARY/DONOR:** capability/provider registry/broker, provider contracts, health/discovery.
+- **00/05 Control Centre — CONTRIBUTION:** Chat/Work, WorkBook, Provider Manager, Owner Dashboard, Research/Engineering control.
+- **01 Governance — CONTRIBUTION:** admission/permission contracts and runtime enforcement.
+- **02 Engineering — CONTRIBUTION TO UNION:** goal loop, repo/world inspection, review, verification, CI repair, acceptance, checkpoint/recovery.
+- **06 Research — MAJOR:** protocol→literature→experiment→statistics→evidence/citations→manuscript→LaTeX/PDF.
+- **09 Knowledge — CONTRIBUTION:** knowledge/retrieval governance and document ingestion/readers.
+- **10 Automation — CONTRIBUTION TO UNION:** semantic Computer Use, DOM/UIA/structured/vision, workspace permission gates.
+- **11 Entertainment — CONTRIBUTION TO UNION:** theme intent, deterministic generation and visual verification.
+
+## Completed project review: DS-Hns
+
+**Snapshot:** `eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973`
+
+DS-Hns's **primary identity** is Engineering orchestration + execution platform.
+
+- **02/01 Project Foreman — PRIMARY:** Engineering planning/DAG, supervision, scheduling, mutation coordination, verification/recovery/evidence.
+- **02/02 Worker Gateway — PRIMARY:** provider/runtime adapters, worker/task contracts, worker pools/worktrees, skills/provider integration.
+- **00/03 Capability Fabric — DONOR:** reusable plugin/capability lifecycle, dependency/fallback, health, compatibility and lockfile mechanics; not city-global truth itself.
+- **01 Customs — DONOR:** plugin manifest/install/compat/lifecycle validation.
+- **10 Automation — CONTRIBUTION TO UNION:** generic Computer Use contract/controllers/drivers/safety/recovery/verification.
+- **11 Entertainment — MAJOR DONOR:** Theme Engine package/runtime/designer/assets/validation/lifecycle.
+- **Host Health / Restart — INTEGRATOR, NOT OWNER:** `dsh-health-scheduler` and `dsh-restart` remain independent projects.
+
+Hns-local `app/core`, DSH shell integration, DeepSeek-specific updater/auth, billing/notifications/settings stay project-local unless later reuse proves a City owner.
+
+## Boss/Hns overlap policy
+
+Same-semantics overlaps are mapped as a **functional union**, not a winner:
+
+1. Engineering Runtime;
+2. Capability & Extension Platform;
+3. Computer Use Runtime;
+4. Theme Engine.
+
+See `COMPOSITE_UNIONS.md`.

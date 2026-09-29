@@ -1,64 +1,25 @@
-# 施工队接入站 Worker Gateway — 工程执行平台适配层 Engineering Provider Adapter Layer
+# Worker Gateway — 工程执行平台适配层
 
 ```text
-STATUS = STRUCTURAL_BUILDING_INSIDE_HNS
-STANDALONE_REPOSITORY = NOT_REQUIRED_BY_DEFAULT
-CURRENT_IMPLEMENTATION_SOURCE = DS-Hns
+STATUS = PROJECT_FIRST_COMPOSITE_IMPLEMENTATION
+PRIMARY_PROJECT = DS-Hns
+ADDITIONAL_DONOR = Codex-Boss
+UTOPIA_PROMOTED_MODULE = skill-intake
 ```
 
 ## Role
+Translate official engineering-agent/runtime products into a bounded Foreman-facing execution contract.
 
-This layer converts different official engineering-agent products into one Hns-facing provider contract.
+### Hns foundations
+Official DSH integration; process/plugin/provider adapters; worker/task contracts; worker pool; Skill Intake; provider capabilities; readiness/health.
 
-Hns Core must talk to the contract, not to vendor-specific UI/runtime internals.
+### Boss foundations
+Web/API/Codex/local runtime adapters; role-router/provider-session registry; provider capability/profile/state/outcome models; circuit-breaker/health semantics; bounded dispatch/interruption/recovery.
 
 ## Target provider contract
+Detect/version/capabilities/readiness; create/attach/start; submit bounded work; status/progress; cancel/interrupt; result/evidence; unsupported-capability refusal; optional checkpoint/resume.
 
-A provider adapter should expose only what Hns needs, such as:
-
-- `detect()` / installation and readiness;
-- `version()`;
-- `capabilities()`;
-- `startTask()` or attach/create session;
-- `status()`;
-- `cancel()` / interrupt when supported;
-- `collectResult()`;
-- `collectEvidence()`;
-- optional `checkpoint()` / `resume()` when genuinely supported.
-
-Capability support is declarative. Providers are not forced into a false lowest-common-denominator contract.
-
-## Candidate provider adapters
-
-- DeepSeek Harness;
-- Claude Code;
-- OpenAI Codex;
-- WorkBuddy / CodeBuddy;
-- generic local/remote process agents;
-- future official engineering-agent products.
-
-## Official-software rule
-
-Prefer installing and using the provider's official software.
-
-The adapter must not require Hns to maintain:
-
-- a forked vendor UI;
-- copied vendor runtime internals;
-- vendor authentication implementation;
-- a custom vendor updater;
-- DOM injection or brittle UI coupling when a supported programmatic/process boundary is available.
-
-## Existing Hns foundation
-
-DS-Hns already contains useful generic foundations such as plugin/provider adapter contracts, managed-process support and project adapters. These should be generalized rather than duplicated per vendor.
+Prefer official vendor software and stable process/API boundaries over forked vendor UI/runtime/auth/updaters.
 
 ## Boundary
-
-This layer selects/translates providers; it does **not** own:
-
-- the Engineering plan;
-- global City capability registry;
-- Node identity truth;
-- provider-internal reasoning;
-- City-wide authorization.
+Gateway does not own the Engineering plan, city-global registries, Node identity, provider reasoning or city-wide authorization.
