@@ -92,6 +92,8 @@ Migration Report 必须明确记录 **落地边界**，以便验证主机在独�
 
 
 ## Utopia evolution bootstrap
+Accepted Utopia bootstrap: `c7ef3cd1c6be0155332d03afc3607dfdbf49c205` (PR #9, CI `36562928621` green).
+
 
 Mission 施工使用 Utopia 内置的最小经验流工具：
 
