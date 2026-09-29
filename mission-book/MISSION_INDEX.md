@@ -133,3 +133,13 @@
 ```
 
 不要把本表的静态状态当作 Claim 真值；领取前必须打开对应 Mission 文件并读取最新 Digital-City main。
+
+## 待处理：本表之外的已知缺陷（不是任何 Mission 的门槛）
+
+> 记录于此，避免只存在于某一台主机的 git-ignored 证据里。下列各项都由 Mission 报告自己建议作为**独立改动**处理，均**未**在本表任何 Mission 内擅自修复。
+
+1. **`city/manifest.mjs` 看不见未声明的 module 目录。** `checkManifestAgainstTree` 只遍历 manifest 已声明的 module，从不反向遍历目录树，因此在 `city/` 下放一个带代码、没有 manifest/census/`DONOR.json` 条目的 module 目录，所有检查仍然全绿。MB-004 与 MB-005 的报告各自独立提出过这一点；`Mech` 在 `main@ce33792` 上用变异测试**确认**了它，并补充了更尖锐的一种情况：**空目录同样不可见**。修它要改 `city/manifest.mjs` 与 census 契约，超出所有已完成 Mission 的边界。
+2. **`tests/capability-adapters.test.mjs:31` 仍断言整份 manifest 的 `catalog.length === 6`**，而 MB-001 报告的 D8 描述把该断言说成"已收窄到被测 module"。描述与代码不一致；锚点在其上一行按 moduleId 查找，因此不是缺陷，但下一次有人加 adapter 时会误伤。
+3. **`DONOR.json` 台账形状不统一**：MB-001 用扁平结构（`repository`/`commit`/`sourcePaths` 在顶层），MB-002/004/005/006 用 `donors[]`；两类都自洽，但按一种形状写的读取器读不了另一种。
+4. **MB-005 与 MB-009 对 `Mech` 永久不可验证**：rule 5 禁止一台主机在同一 Mission 承担两个角色，而这两台的 Migration 都是 `Mech`。`main` 上其它主机可验证它们，但本表的 "NOT_STARTED" 读起来像"任何人都能领"——需要 Owner 明确由哪台主机接力。
+5. **MB-003 的验证门槛在本机不可满足**：第一道门槛要求用**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported，并明确禁止 mock pass；迁移的 `provider-adapter` 只包装调用方注入的 hook，其 `DONOR.json` 把真实 provider HTTP 调用与 web session 列为 DEFERRED。`Mech` 已在 `reports/MB-003/VERIFICATION_REPORT.md` §6 列出三个 Owner 选项；在其决定前 MB-003 与依赖它的 MB-004 都无法进入 `VERIFICATION_COMPLETE`。
