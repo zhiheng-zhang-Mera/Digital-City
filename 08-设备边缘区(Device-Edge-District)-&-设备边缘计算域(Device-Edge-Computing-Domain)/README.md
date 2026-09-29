@@ -1,36 +1,26 @@
 # Device Infrastructure — 城市感官、边缘设备与具身接口
 
 ```text
-STATUS = PROJECT_FIRST_REVIEW_PENDING
-CURRENT_CANDIDATE_PROJECTS = My_VR_Glove
+STATUS = PROJECT_FIRST_PARTIAL_IMPLEMENTED
+PRIMARY_REVIEWED_PROJECT = My_VR_Glove
 ```
 
-## Existing project pending review
+## Existing building
 
-- **[My_VR_Glove](https://github.com/zhiheng-zhang-Mera/My_VR_Glove)** — physical interaction / VR input / embodied-control experiment; final City placement remains pending project-first review.
+[01 Haptic Glove / 触觉手套](./01-触觉手套(Haptic-Glove)-&-低延迟具身交互设备(Low-Latency-Embodied-Interaction-Device)/) is backed by existing ESP32 firmware.
 
-Deprecated coursework/legacy repositories are intentionally not represented as City buildings or donors.
+## Future device classes
 
-## Building role
-
-08 owns device-facing acquisition, physical sensing/actuation adapters and edge-computing semantics that expose bounded capabilities to the rest of the City.
-
-Future reviewed projects may provide:
-
-- Smart Glasses Adapter;
-- Watch / Band / Ring Adapter;
-- Body Scale Adapter;
-- Camera / Microphone Context Adapter;
-- Environmental Sensor Adapter;
-- device capability/provider interfaces.
+Smart glasses, watch/band/ring, body scale, camera/microphone and environmental-sensor adapters remain future until backed by reviewed projects.
 
 ## Roads
 
-- **Sensor/Data Road** → 05 Health.
-- **Embodiment Road** → 03 Residential.
-- **Context Road** → translation / AR / Entertainment.
-- **Privacy Road** → 04 Legal & Privacy.
+- Embodiment/Interaction Road → 11 Entertainment / VR/AR.
+- Resident embodiment/context Road → 03 Residential when authorized.
+- Automation Control Road ↔ 10 Automation.
+- Sensor/Data Road → 05 Health for future health-capable device providers.
+- Privacy Road ↔ 04.
 
 ## Boundary
 
-Device Infrastructure owns acquisition and device-facing semantics, not downstream health interpretation, resident identity or application-specific behavior.
+08 owns device/firmware acquisition and actuation semantics, not downstream health interpretation, resident identity, game/VR application logic or City authority.

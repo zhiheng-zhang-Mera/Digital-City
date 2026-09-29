@@ -2,52 +2,33 @@
 
 ```text
 STATUS = PROJECT_FIRST_REVIEWED_IMPLEMENTED
-PRIMARY_REVIEWED_PROJECT = Quant-ultra
-SOURCE_SNAPSHOT = 1988d9a8530da91a8158de864d098ea869098923
+PRIMARY_PROJECT = Quant-ultra
+FEATURE_DONOR = ML-Quant-A-stock
+SUPERSEDED_NOT_ADMITTED = Personal-trading-project-for-fun
 ```
-
-07 owns market/portfolio/trading-domain data semantics, quantitative models, portfolio construction, financial backtesting/risk simulation and finance-specific MLOps.
 
 ## Existing building
 
-### [01 Quant Lab / 量化实验室](./01-量化实验室(Quant-Lab)-&-量化研究回测平台(Quantitative-Research-Backtest-Platform)/)
+[01 Quant Lab](./01-量化实验室(Quant-Lab)-&-量化研究回测平台(Quantitative-Research-Backtest-Platform)/) remains the sole Finance building.
 
-**Source:** [Quant-ultra](https://github.com/zhiheng-zhang-Mera/Quant-ultra)  
-**State:** `EXISTING_IMPLEMENTATION_ON_HOLD_NOT_PRODUCTION_QUALIFIED`
+Quant-ultra owns the current nine-phase market/model/portfolio/backtest/audit/shadow-MLOps pipeline.
 
-The current Quant-4 implementation contains a nine-phase pipeline from market-data foundation through model training, portfolio construction, deterministic backtesting, stress/audit and shadow MLOps.
+## Historical feature donor
 
-## Domain ownership rule
+`ML-Quant-A-stock` @ `0a31783cfdf5131e2f1c2c9f5dd116af3a9c9589` does **not** create another building. Its overlapping CQR/BL/MVO pipeline is superseded by Quant-ultra.
 
-The following remain Finance-domain capabilities even when they use general techniques:
+Only three distinct experimental capabilities are retained as donor provenance:
 
-- market data ingestion and point-in-time market state;
-- train/test temporal slicing for financial data;
-- finance feature/regime models;
-- return labels and financial sample weighting;
-- portfolio/risk models;
-- trading costs, market impact and execution-state simulation;
-- finance stress/capacity/audit;
-- finance shadow MLOps and drift/reconciliation.
+- external LLM news/text → numeric asset views;
+- DP-GMM cross-modal asset cohorting using statistical uncertainty + text view;
+- experimental non-diagonal Omega derived from cohort resonance/dissonance.
 
-They do **not** move to 06 Research, 09 Knowledge or 10 Automation merely because they involve experiments, data or automation.
+They remain inactive/unqualified until explicitly ported and validated.
 
-## Research relationship
+## Superseded project
 
-06 Research may call Quant Lab as a domain kernel / experimental subject:
-
-```text
-06 Research workflow
-   ↓ protocol / experiment / evidence evaluation
-07 Quant Lab
-   ↓ finance-domain computation
-results/evidence
-   ↑
-06 Research
-```
-
-The Road allows experimentation without transferring Finance ownership.
+`Personal-trading-project-for-fun` is concept-only and fully subsumed by Quant-ultra; it is not admitted to City.
 
 ## Boundary
 
-This City mapping does not claim verified production brokerage deployment, investment performance or trading readiness. Quant-ultra remains an on-hold research/engineering implementation until separately qualified.
+Finance keeps market/portfolio/risk/execution semantics. 06 may research the domain kernel but does not own it; 09/10 do not absorb finance-specific data/automation.

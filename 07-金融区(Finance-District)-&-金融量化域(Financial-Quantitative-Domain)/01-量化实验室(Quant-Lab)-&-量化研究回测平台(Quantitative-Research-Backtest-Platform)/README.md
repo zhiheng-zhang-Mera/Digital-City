@@ -2,87 +2,42 @@
 
 ```text
 STATUS = EXISTING_IMPLEMENTATION_ON_HOLD_NOT_PRODUCTION_QUALIFIED
-REPOSITORY = https://github.com/zhiheng-zhang-Mera/Quant-ultra
-SOURCE_SNAPSHOT = 1988d9a8530da91a8158de864d098ea869098923
-CURRENT_IMPLEMENTATION_ROOT = Quant-4
-DOMAIN = FINANCE
+PRIMARY_REPOSITORY = https://github.com/zhiheng-zhang-Mera/Quant-ultra
+PRIMARY_SNAPSHOT = 1988d9a8530da91a8158de864d098ea869098923
+FEATURE_DONOR = https://github.com/zhiheng-zhang-Mera/ML-Quant-A-stock
+DONOR_SNAPSHOT = 0a31783cfdf5131e2f1c2c9f5dd116af3a9c9589
 ```
 
-## Role
+## Core rooms from Quant-ultra
 
-Quant Lab owns the Finance-domain pipeline from point-in-time market data through modeling, portfolio construction, backtest/risk audit and shadow MLOps.
+1. Market Data Foundation.
+2. Temporal Slicing & Validation.
+3. PIT / Regime / Feature Engine.
+4. Labels & Sample Weighting.
+5. Model Training & Calibration.
+6. Portfolio Construction & Position Sizing.
+7. FSM Backtest & Execution Simulation.
+8. Audit / Stress / Capacity.
+9. Shadow MLOps & Reconciliation.
 
-## Current rooms / phases
+Quant-ultra remains explicitly on hold and is not claimed production-qualified.
 
-### Room 1 — Market Data Foundation
-- asset universe and screening;
-- return/trading-status foundation;
-- point-in-time/survivorship controls;
-- ADV/capacity inputs and market calendars.
+## Experimental donor room — Multimodal Signal / Risk
 
-### Room 2 — Temporal Slicing & Validation
-- train/validation/test windows;
-- embargo and leakage-control logic;
-- temporal split validation.
+ML-Quant contributes **existing but unqualified experiments**, not a second production path:
 
-### Room 3 — PIT / Regime / Feature Engine
-- point-in-time data setup;
-- regime state;
-- data/feature guards;
-- feature construction.
+- `LLMTextAnalyst`: external OpenAI-compatible text/news analysis into numeric per-asset views, with mock fallback;
+- DP-GMM cohort discovery over `[CQR width, text view]`;
+- experimental block/non-diagonal Omega construction with cohort correlation and cross-modal dissonance inflation.
 
-### Room 4 — Label & Sample-Weight Engine
-- directional/regression labels;
-- sample weighting;
-- borrow/short-related context where used.
+These capabilities are not automatically enabled in Quant-ultra. Porting requires fresh evidence, tests and Finance-domain validation.
 
-### Room 5 — Model Training & Calibration
-- cross-validation;
-- feature/model fitting;
-- directional classifier;
-- quantile/CQR-style models;
-- calibration and error-threshold outputs.
+## Superseded overlap
 
-### Room 6 — Portfolio Construction & Position Sizing
-- directional mask;
-- uncertainty-aware views;
-- Black-Litterman fusion;
-- convex portfolio optimization and position limits.
+ML-Quant's older data/CQR/Black-Litterman/MVO pipeline is not retained separately.
 
-### Room 7 — FSM Backtest & Execution Simulation
-- deterministic portfolio/account state;
-- execution/friction assumptions;
-- holdings/cash/NAV;
-- market/risk constraints;
-- daily reconciliation.
-
-### Room 8 — Audit / Stress / Capacity
-- DSR-style audit;
-- coverage tests;
-- stress scenarios;
-- capacity audit;
-- veto-style release gate.
-
-### Room 9 — Shadow MLOps & Reconciliation
-- target/execution shadow reconciliation;
-- drift/PSI monitoring;
-- risk telemetry;
-- tiered model-update state;
-- local run-status artifact export.
-
-## Honest status
-
-The repository is real executable code, but remains explicitly **on hold** in its README.
-
-Known limitations recorded by the project itself include data-source truth/stability review and uncertainty around cache/model-refresh behavior. Phase 9 contains production-oriented abstractions, but current City review does not establish a verified live broker deployment.
-
-The following are future plans, not current rooms:
-
-- Phase 10 visualized run report;
-- Phase 11 local-LLM report explanation;
-- C++ rewrite;
-- multi-laptop distributed execution.
+`Personal-trading-project-for-fun` is not admitted because its early fetch/filter/signal/ML-price concept is already subsumed.
 
 ## Cross-district relationship
 
-Quant Lab can be executed/evaluated by 06 Research through a domain-kernel Road. Generic Engineering/Automation may operate its software, but Finance retains ownership of market, portfolio, risk and execution semantics.
+06 Research may evaluate Quant Lab; generic Engineering/Automation may operate software; Finance retains model/market/portfolio semantics.

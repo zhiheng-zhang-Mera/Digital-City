@@ -1,30 +1,30 @@
-# 主机保健站 Host Health Station — 运行健康调度服务 Runtime Health Scheduling Service
+# Host Health Station — 主机保健站 / 运行健康调度服务
 
 ```text
-STATUS = EXISTING_INDEPENDENT_REPOSITORY
+STATUS = EXISTING_IMPLEMENTATION
 REPOSITORY = https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler
+SOURCE_SNAPSHOT = 985e2b7389330db4b32ea2946e3657746c64b47b
 CURRENT_INTEGRATION = DSH/Hns plugin
 TARGET_SCOPE = vendor-neutral host/runtime health service
 ```
 
 ## Role
 
-Observe host/runtime/worker pressure, normalize telemetry, derive health/pressure state and recommend bounded actions such as throttle, pause-new-work or restart request.
+Sense and judge host/runtime/worker health, then request bounded actions.
 
-## Long-term generalization
+## Capability cluster
 
-The service should progressively separate generic host/runtime health semantics from DeepSeek-specific integration.
-
-DeepSeek Harness, Claude Code, Codex or another provider may all run on the same machine; host health should not depend on which vendor owns the active worker.
-
-Thin provider-specific telemetry adapters are acceptable.
+- isolated telemetry providers and canonical normalization;
+- rolling windows/daily retention and bounded history;
+- trend analysis with metric polarity;
+- six-dimension pressure aggregation;
+- explicit telemetry coverage + unknown dimensions;
+- sustain/hysteresis/debounce/dwell/cooldown anti-flapping;
+- maintenance windows, defer budget and safe-point gating;
+- Level 1/2 throttle/pause requests;
+- Level 3/4 restart/reboot requests to Restart Recovery;
+- read-only status/history/policy tools and auditable decision records.
 
 ## Boundary
 
-This building:
-
-- senses and judges health;
-- may request an action;
-- does not directly execute restart;
-- does not own Engineering task planning;
-- does not own City Node Fabric membership truth.
+It **never executes restart**. It does not own Hns task/checkpoint state, City Node membership, or global scheduling authority.

@@ -37,6 +37,8 @@ infrastructure:
         - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
           role: "control-centre rule/state/explanation engine component"
           implementation_state: "DESIGN_BASELINE_NOT_YET_RUNTIME"
+          source_snapshot: "66e93b3351672f109dbfc5760f90316ee9163b4b"
+          review_state: "PROJECT_FIRST_REVIEWED"
       missing_components:
         - "human-facing dashboard / city shell"
         - "navigation and visualization layer"
@@ -47,10 +49,10 @@ infrastructure:
 districts:
   - id: "government-safety"
     path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)"
-    mapping_state: "PROJECT_FIRST_PARTIAL"
+    mapping_state: "PROJECT_FIRST_REVIEWED_PARTIAL"
   - id: "engineering"
     path: "02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)"
-    mapping_state: "BUILDING_STRUCTURE_REVIEWED"
+    mapping_state: "PROJECT_FIRST_REVIEWED_IMPLEMENTED"
   - id: "residential"
     path: "03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)"
     mapping_state: "PROJECT_FIRST_REVIEWED"
@@ -68,7 +70,7 @@ districts:
     mapping_state: "PROJECT_FIRST_REVIEWED_IMPLEMENTED"
   - id: "device-edge"
     path: "08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)"
-    mapping_state: "CONTENT_REVIEW_PENDING"
+    mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
   - id: "planning-knowledge"
     path: "09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)"
     mapping_state: "PROJECT_FIRST_PARTIAL_IMPLEMENTED"
@@ -89,9 +91,11 @@ government_safety_registry:
   district_path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)"
   existing_buildings:
     - id: "qualification-control"
+      path: "01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/03-资格控制平面(Qualification-Control-Plane)-&-可信候选认证服务(Trusted-Candidate-Attestation-Service)"
       repository: "https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control"
-      state: "EXISTING_INDEPENDENT_REPOSITORY"
-      role: "qualification, real-soak isolation, attestation and promotion control plane"
+      source_snapshot: "24bf31e7beee5adb0e94e6496a7114769b3b21f4"
+      state: "EXISTING_PRIVATE_QUALIFICATION_CONTROL_PLANE"
+      role: "immutable-candidate qualification, real-host runner isolation, redacted attestation and promotion evidence"
       extraction_from_boss: false
   planned_extractions:
     - id: "customs-security"
@@ -191,22 +195,17 @@ engineering_registry:
     - id: "host-health"
       path: "02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/03-主机保健站(Host-Health-Station)-&-运行健康调度服务(Runtime-Health-Scheduling-Service)"
       repository: "https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler"
+      source_snapshot: "985e2b7389330db4b32ea2946e3657746c64b47b"
       state: "EXISTING_INDEPENDENT_REPOSITORY"
       current_integration: "DSH/Hns plugin"
       target_scope: "vendor-neutral host/runtime health service"
     - id: "restart-recovery"
       path: "02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/04-重启恢复站(Restart-Recovery-Station)-&-安全重启外部监督服务(Safe-Restart-External-Supervision-Service)"
       repository: "https://github.com/zhiheng-zhang-Mera/dsh-restart"
+      source_snapshot: "e20fb6cc43e27cedf6303471e5b8ee18e1383ecd"
       state: "EXISTING_INDEPENDENT_REPOSITORY"
       current_integration: "DSH/Hns plugin + external supervisor"
       target_scope: "vendor-neutral safe restart/relaunch service"
-  legacy_or_reference_assets:
-    - repository: "https://github.com/zhiheng-zhang-Mera/Harness-Alien"
-      state: "REFERENCE_ASSET"
-      role: "host/shell baseline and adapter lineage"
-    - repository: "https://github.com/zhiheng-zhang-Mera/Harness-Mega"
-      state: "LEGACY_FEATURE_DONOR"
-      role: "historical feature donor after retained functions move into Hns/adapters/services"
   planned_extractions_from_boss:
     - id: "engineering-execution-and-verification"
       current_implementation_source: "Codex-Boss"
@@ -260,6 +259,33 @@ project_exclusions:
       state: "DEPRECATED_NOT_ADMITTED"
     - repository: "https://github.com/zhiheng-zhang-Mera/C_Model_glb_coloring"
       state: "DEPRECATED_NOT_ADMITTED"
+
+
+owner_excluded_projects:
+  policy: "Owner explicitly chose these repositories to remain outside active Digital-City topology."
+  repositories:
+    - "privacy-lens-research-artifact"
+    - "Idea-Book"
+    - "Task-Board"
+    - "Application-Plan"
+    - "research-overview"
+    - "Essay-Book"
+    - "Harness-Alien"
+    - "Harness-Mega"
+
+superseded_projects:
+  - repository: "https://github.com/zhiheng-zhang-Mera/Personal-trading-project-for-fun"
+    state: "SUPERSEDED_BY_QUANT_ULTRA_NOT_ADMITTED"
+    reason: "Concept-only early A-share signal/recommendation workflow is subsumed by Quant-ultra's implemented Finance pipeline."
+  - repository: "https://github.com/zhiheng-zhang-Mera/ML-Quant-A-stock"
+    state: "HISTORICAL_FEATURE_DONOR_TO_QUANT_LAB"
+    source_snapshot: "0a31783cfdf5131e2f1c2c9f5dd116af3a9c9589"
+    standalone_city_ownership: false
+    retained_unique_experiments:
+      - "LLMTextAnalyst: external text/news corpus to structured numeric asset views with mock fallback"
+      - "CrossModalStratifier: DP-GMM cohorting over CQR width + text view"
+      - "experimental non-diagonal Omega construction from cohort resonance and cross-modal dissonance"
+    rule: "The overlapping market/CQR/BL/MVO pipeline is superseded by Quant-ultra; only distinct experimental donor capabilities are retained."
 
 project_decompositions:
   - repository: "https://github.com/zhiheng-zhang-Mera/Digital-Me"
@@ -441,6 +467,90 @@ project_decompositions:
       - "Phase 9 contains shadow/MLOps/reconciliation logic but current review does not establish real broker production deployment"
       - "future Phase 10 visualization and Phase 11 LLM explanation are plans, not current capabilities"
 
+  - repository: "https://github.com/zhiheng-zhang-Mera/Boss-Qualification-Control"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "24bf31e7beee5adb0e94e6496a7114769b3b21f4"
+    primary_identity: "private immutable-candidate qualification control plane"
+    placements:
+      - district: "01-government-safety"
+        ownership: "PRIMARY"
+        building: "03-qualification-control-plane"
+        capability_clusters: ["exact-SHA qualification", "self-hosted real-soak runner isolation", "Owner-approved protected environment", "redacted provenance/attestation", "qualification evidence and promotion verdict"]
+    boundaries: ["not a Boss development surface", "does not own Root Authority", "never publishes raw corpus/credentials"]
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/dsh-health-scheduler"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "985e2b7389330db4b32ea2946e3657746c64b47b"
+    primary_identity: "host/runtime health observation, pressure judgment and maintenance scheduling"
+    placements:
+      - district: "02-engineering"
+        ownership: "PRIMARY"
+        building: "03-host-health-station"
+        capability_clusters: ["telemetry providers/normalization", "rolling windows/trends", "pressure scoring", "coverage/unknown semantics", "anti-flapping policy", "maintenance/safe-point scheduling", "throttle/pause/restart requests"]
+    boundary: "judges/request actions; never executes restart"
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/dsh-restart"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "e20fb6cc43e27cedf6303471e5b8ee18e1383ecd"
+    primary_identity: "safe restart execution and external relaunch supervision"
+    placements:
+      - district: "02-engineering"
+        ownership: "PRIMARY"
+        building: "04-restart-recovery-station"
+        capability_clusters: ["request validation", "exclusive restart lock", "cooldown/dedup", "checkpoint/safe-point gate", "checksummed restart ticket", "graceful shutdown request", "external supervisor heartbeat/relaunch", "crash-loop safe mode", "restart audit ledger"]
+    current_limitations: ["WAITING_FOR_EXIT currently has no bounded deadline", "allowForceTerminate is declared but not consulted by current release"]
+    boundary: "executes accepted restart protocol; does not decide whether restart is warranted"
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/General-Logic-Engine"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "66e93b3351672f109dbfc5760f90316ee9163b4b"
+    implementation_state: "DESIGN_BASELINE_NOT_YET_RUNTIME"
+    primary_identity: "domain-agnostic typed executable relation/state engine"
+    placements:
+      - district: "00-control-centre"
+        ownership: "COMPONENT"
+        capability_clusters: ["typed entities/relations/state/events/rules/constraints/evidence", "timeline/state propagation", "uncertainty and evidence state", "what-if branches", "explanation traces", "domain-adapter boundary"]
+    boundary: "Control Centre reasoning/explanation backend component; not City authority, not domain business logic, not a runnable engine yet"
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "9b9a0cd9a3be944d79992b9a7870d0f631390152"
+    implementation_state: "PRE_ALPHA_STARTER"
+    primary_identity: "autonomous visual-environment exploration/world-model/verification framework"
+    placements:
+      - district: "10-automation"
+        ownership: "PRIMARY"
+        building: "02-autonomous-environment-explorer"
+        capability_clusters: ["DISCOVER/LEARN/COMPILE/RUN lifecycle", "runtime-vs-static world state", "hybrid navigation/recovery", "semantic skill layer", "causal world model", "coverage/frontier/miss-risk", "verification scheduler", "completion gate", "evidence/cache compaction", "config compilation/relearning"]
+    current_runtime_boundary:
+      implemented: ["installable Python starter", "guarded phase/state transition contract", "CLI and tests"]
+      planned_not_implemented: ["game adapters", "screen perception", "physical input control", "autonomous learning", "performance claims"]
+    relation_to_computer_use: "higher-level exploration/planning; low-level action execution can consume 10/01 Computer Use rather than replace it"
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/My_VR_Glove"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "0775f593daa915d8d9f393f2665d3193c289e09c"
+    implementation_state: "EXISTING_DEVICE_FIRMWARE_EXPERIMENT_NOT_PRODUCTION_QUALIFIED"
+    primary_identity: "ESP32 low-latency VR glove / haptic I/O firmware"
+    placements:
+      - district: "08-device-edge"
+        ownership: "PRIMARY"
+        building: "01-haptic-glove"
+        capability_clusters: ["single-pass serial decoding", "non-blocking ring-buffer I/O", "high-rate servo haptics", "software power-budget scaling", "ESP32 device configuration"]
+    boundary: "device/firmware semantics only; VR/interaction application logic belongs to consuming domains"
+
+  - repository: "https://github.com/zhiheng-zhang-Mera/ML-Quant-A-stock"
+    review_state: "REVIEWED_2026_09_29"
+    source_snapshot: "0a31783cfdf5131e2f1c2c9f5dd116af3a9c9589"
+    primary_identity: "historical Quant predecessor with retained multimodal feature experiments"
+    placements:
+      - district: "07-finance"
+        ownership: "FEATURE_DONOR_ONLY"
+        building: "01-quant-lab"
+        capability_clusters: ["LLM news/text to numeric asset views", "DP-GMM cross-modal cohort stratification", "experimental non-diagonal Omega"]
+    superseded_overlap: ["market pipeline", "CQR", "Black-Litterman", "MVO"]
+    boundary: "no second Quant building; donor experiments remain inactive/unqualified until deliberately ported and validated"
+
 composite_capability_unions:
   policy: "functional superset with per-source provenance; no winner selection during mapping"
   conflict_rule: "preserve scope; for safety/permission conflicts prefer stricter behavior until versioned contract resolution"
@@ -464,6 +574,21 @@ composite_capability_unions:
 
 
 
+
+device_edge_registry:
+  district_path: "08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)"
+  buildings:
+    - id: "haptic-glove"
+      path: "08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/01-触觉手套(Haptic-Glove)-&-低延迟具身交互设备(Low-Latency-Embodied-Interaction-Device)"
+      repository: "https://github.com/zhiheng-zhang-Mera/My_VR_Glove"
+      source_snapshot: "0775f593daa915d8d9f393f2665d3193c289e09c"
+      state: "EXISTING_DEVICE_FIRMWARE_EXPERIMENT_NOT_PRODUCTION_QUALIFIED"
+      rooms: ["serial protocol/decoder", "non-blocking I/O", "haptic actuator control", "power-budget limiter"]
+  roads:
+    - "Embodiment/Interaction Road -> 11 Entertainment / VR-AR consumers"
+    - "Resident embodiment/context Road -> 03 Residential when authorized"
+    - "Automation control Road <-> 10 Automation where needed"
+
 finance_registry:
   district_path: "07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)"
   buildings:
@@ -483,6 +608,11 @@ finance_registry:
         - "Phase 8 Audit / Stress / Capacity"
         - "Phase 9 Shadow MLOps & Reconciliation"
       future_not_current: ["Phase 10 visualized report", "Phase 11 local-LLM explanation"]
+      feature_donors:
+        - repository: "https://github.com/zhiheng-zhang-Mera/ML-Quant-A-stock"
+          snapshot: "0a31783cfdf5131e2f1c2c9f5dd116af3a9c9589"
+          state: "HISTORICAL_FEATURE_DONOR"
+          retained: ["LLM news/text -> numeric views", "DP-GMM multimodal cohorting", "experimental non-diagonal Omega"]
   roads:
     - id: "research-domain-kernel-road"
       producer: "07 Quant Lab"
@@ -526,9 +656,13 @@ automation_registry:
       state: "COMPOSITE_EXISTING_IMPLEMENTATION"
       sources: ["Codex-Boss", "DS-Hns"]
       union: "computer-use-runtime-union"
-    - id: "auto-game-bot"
+    - id: "autonomous-environment-explorer"
+      path: "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/02-自主环境探索器(Autonomous-Environment-Explorer)-&-视觉世界模型自动化(Visual-World-Model-Automation)"
       repository: "https://github.com/zhiheng-zhang-Mera/Auto-Game-Bot"
-      state: "PROJECT_FIRST_REVIEW_PENDING"
+      source_snapshot: "9b9a0cd9a3be944d79992b9a7870d0f631390152"
+      state: "PRE_ALPHA_STARTER"
+      current_runtime: "phase-contract/CLI starter only; no real game perception/input/control"
+      target_role: "world-model exploration, verification scheduling, coverage/completion auditing and compiled deterministic execution"
 
 research_registry:
   district_path: "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)"

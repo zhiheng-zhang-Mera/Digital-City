@@ -30,9 +30,9 @@ This replaces the previous tendency to start from an empty City module and then 
 The following repositories were visible in the project-owner GitHub inventory when this strategy was adopted. Presence in this list **does not imply City admission**.
 
 - `301DataBaseProject` — project-first review pending or requires revalidation
-- `Application-Plan` — project-first review pending or requires revalidation
-- `Auto-Game-Bot` — project-first review pending or requires revalidation
-- `Boss-Qualification-Control` — project-first review pending or requires revalidation
+- `Application-Plan` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
+- `Auto-Game-Bot` — **PROJECT-FIRST REVIEW COMPLETED**
+- `Boss-Qualification-Control` — **PROJECT-FIRST REVIEW COMPLETED**
 - `C_Model_glb_coloring` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `C-Model-Visuliazer` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `CapstoneProject499-Department_Manage_System` — project-first review pending or requires revalidation
@@ -42,25 +42,25 @@ The following repositories were visible in the project-owner GitHub inventory wh
 - `Distributed-ESP32-Health-Project` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `drug-simulator` — **PROJECT-FIRST REVIEW COMPLETED**
 - `DS-Hns` — **PROJECT-FIRST REVIEW COMPLETED**
-- `dsh-health-scheduler` — project-first review pending or requires revalidation
-- `dsh-restart` — project-first review pending or requires revalidation
-- `Essay-Book` — project-first review pending or requires revalidation
+- `dsh-health-scheduler` — **PROJECT-FIRST REVIEW COMPLETED**
+- `dsh-restart` — **PROJECT-FIRST REVIEW COMPLETED**
+- `Essay-Book` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `Firmware_Anomoly_Noise_Detect` — **DEPRECATED / NOT ADMITTED TO CITY**
 - `GDPR-app` — project-first review pending or requires revalidation
 - `GDPR-project` — project-first review pending or requires revalidation
-- `General-Logic-Engine` — project-first review pending or requires revalidation
-- `Harness-Alien` — project-first review pending or requires revalidation
-- `Harness-Mega` — project-first review pending or requires revalidation
-- `Idea-Book` — project-first review pending or requires revalidation
+- `General-Logic-Engine` — **PROJECT-FIRST REVIEW COMPLETED**
+- `Harness-Alien` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
+- `Harness-Mega` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
+- `Idea-Book` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `Machine-Learning-for-Health-Group-Project` — **DEPRECATED / NOT ADMITTED TO CITY**
-- `ML-Quant-A-stock` — project-first review pending or requires revalidation
-- `My_VR_Glove` — project-first review pending or requires revalidation
+- `ML-Quant-A-stock` — **PROJECT-FIRST REVIEW COMPLETED — FEATURE DONOR TO QUANT LAB**
+- `My_VR_Glove` — **PROJECT-FIRST REVIEW COMPLETED**
 - `Parama-Health` — **PROJECT-FIRST REVIEW COMPLETED**
-- `Personal-trading-project-for-fun` — project-first review pending or requires revalidation
-- `privacy-lens-research-artifact` — project-first review pending or requires revalidation
+- `Personal-trading-project-for-fun` — **SUPERSEDED BY QUANT-ULTRA / NOT ADMITTED**
+- `privacy-lens-research-artifact` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `Quant-ultra` — **PROJECT-FIRST REVIEW COMPLETED**
-- `research-overview` — project-first review pending or requires revalidation
-- `Task-Board` — project-first review pending or requires revalidation
+- `research-overview` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
+- `Task-Board` — **OWNER EXCLUDED / NOT ADMITTED TO CITY**
 - `utopia` — reference implementation / special role
 
 ## Explicit project exclusions
@@ -284,3 +284,82 @@ The codebase is real, but this review does **not** promote it to production trad
 - Trading/backtest/MLOps execution remains 07 rather than 10 merely because it is automated.
 
 This project is unusually self-contained: unlike Boss/Hns, most of its useful capabilities remain inside one domain building.
+
+
+## Owner-excluded repositories (2026-09-29)
+
+The following repositories remain outside active City topology by explicit Owner decision:
+
+- `privacy-lens-research-artifact`
+- `Idea-Book`
+- `Task-Board`
+- `Application-Plan`
+- `research-overview`
+- `Essay-Book`
+- `Harness-Alien`
+- `Harness-Mega`
+
+They receive no active Building/Room/Road/donor ownership. Their GitHub history may still exist outside Digital-City.
+
+## Completed project review: Boss-Qualification-Control
+
+**Snapshot:** `24bf31e7beee5adb0e94e6496a7114769b3b21f4`  
+**Placement:** 01/03 Qualification Control Plane.
+
+A private qualification control plane that isolates the real self-hosted soak runner from public Codex-Boss workflows. It binds qualification to an immutable Boss `main` SHA, requires Owner approval through the protected environment, runs the real qualification chain, and exports redacted attestation/provenance only. It is not a Boss development surface and does not own Root Authority.
+
+## Completed project review: dsh-health-scheduler
+
+**Snapshot:** `985e2b7389330db4b32ea2946e3657746c64b47b`  
+**Placement:** 02/03 Host Health Station.
+
+Owns telemetry ingestion/normalization, rolling history/trends, restart-pressure scoring, unknown/coverage semantics, anti-flapping policy and maintenance/safe-point scheduling. It may throttle/pause or request restart, but **never executes a restart**.
+
+## Completed project review: dsh-restart
+
+**Snapshot:** `e20fb6cc43e27cedf6303471e5b8ee18e1383ecd`  
+**Placement:** 02/04 Restart Recovery Station.
+
+Owns restart-request validation, lock/cooldown/dedup, checkpoint gating, checksummed tickets, graceful shutdown request, external supervisor/relaunch, crash-loop safe mode and audit records. It does not decide *whether* restart is warranted. Current review preserves two implementation limitations documented by the repo: no bounded WAITING_FOR_EXIT deadline and declared-but-unused force-terminate support.
+
+## Completed project review: General-Logic-Engine
+
+**Snapshot:** `66e93b3351672f109dbfc5760f90316ee9163b4b`  
+**State:** design baseline only.  
+**Placement:** 00/05 Control Centre backend component.
+
+Designed capabilities: typed executable entity/relation/state/event/rule/constraint/evidence graph, timeline propagation, uncertainty/evidence state, what-if branches and explanation traces. It remains a reasoning/explanation backend concept, not City authority and not a runnable cross-domain engine today.
+
+## Completed project review: Auto-Game-Bot
+
+**Snapshot:** `9b9a0cd9a3be944d79992b9a7870d0f631390152`  
+**State:** pre-alpha starter.  
+**Placement:** 10/02 Autonomous Environment Explorer.
+
+Primary target capabilities: DISCOVER/LEARN/COMPILE/RUN lifecycle, structured world state, hybrid navigation/recovery, semantic skills, causal world model, frontier/coverage/miss-risk, verification scheduler, completion audit and evidence/cache compaction.
+
+Current implementation is intentionally smaller: installable Python starter + guarded phase/state contract + CLI/tests. Real perception, game adapters, input control and autonomous learning are not yet implemented. It sits **above** the generic Computer Use Runtime rather than replacing it.
+
+## Completed project review: My_VR_Glove
+
+**Snapshot:** `0775f593daa915d8d9f393f2665d3193c289e09c`  
+**Placement:** 08/01 Haptic Glove.
+
+Existing ESP32/LucidGloves-derived firmware experiment with single-pass serial decoding, non-blocking ring-buffer I/O, high-rate servo haptics and software power-budget limiting. It is a device/firmware building, not Entertainment logic and not production-qualified hardware.
+
+## Completed project review: ML-Quant-A-stock
+
+**Snapshot:** `0a31783cfdf5131e2f1c2c9f5dd116af3a9c9589`  
+**Placement:** 07/01 Quant Lab as **historical feature donor only**.
+
+The old CQR/Black-Litterman/MVO pipeline is superseded by Quant-ultra. Three distinct implemented experiments are retained as donor provenance:
+
+- `LLMTextAnalyst`: external news/text corpus → structured numeric asset views, with mock fallback;
+- DP-GMM asset cohort stratification over CQR uncertainty + text views;
+- experimental cohort/dissonance-derived non-diagonal Omega.
+
+These do not create a second Finance building and remain inactive/unqualified until deliberately ported and revalidated.
+
+## Superseded review: Personal-trading-project-for-fun
+
+The repository is an early concept-only A-share workflow (fetch/filter/signal/ML suggested price). Quant-ultra already subsumes this scope with a substantially deeper implemented pipeline. Status: **SUPERSEDED_BY_QUANT_ULTRA_NOT_ADMITTED**.

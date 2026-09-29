@@ -36,16 +36,16 @@ City
 | Path | Architectural meaning | Mapping state |
 |---|---|---|
 | [00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)](./00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/) | citywide shared infrastructure | PROJECT_FIRST_PARTIAL / BOSS_PRIMARY |
-| [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | PROJECT_FIRST_PARTIAL / BOSS+HNS_DONORS |
-| [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
+| [01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)](./01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/) | governance and security domain | PROJECT_FIRST_REVIEWED_PARTIAL / QUALIFICATION_CONTROL |
+| [02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)](./02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/) | engineering and operations domain | PROJECT_FIRST_REVIEWED / HNS+HEALTH+RESTART |
 | [03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)](./03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/) | digital identity and agent domain | PROJECT_FIRST_REVIEWED / DIGITAL_ME |
-| [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
+| [04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)](./04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/) | legal/privacy governance domain | CONTENT_REVIEW_PENDING / PRIVACY_LENS_EXCLUDED |
 | [05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)](./05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/) | health data/service domain | PROJECT_FIRST_PARTIAL / PARAMA+DRUG_SIMULATOR |
 | [06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)](./06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/) | research experimentation domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 | [07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)](./07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/) | financial/quantitative domain | PROJECT_FIRST_REVIEWED / QUANT_ULTRA |
-| [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | STRUCTURE_READY / CONTENT_REVIEW_PENDING |
-| [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
-| [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | IMPLEMENTATION_PARTIAL / BOSS+HNS_COMPOSITE |
+| [08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)](./08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/) | device and edge-computing domain | PROJECT_FIRST_PARTIAL / VR_GLOVE |
+| [09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)](./09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/) | planning and knowledge-management domain | IMPLEMENTATION_PARTIAL / RUNTIME_KNOWLEDGE_ONLY |
+| [10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)](./10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/) | automation execution domain | PROJECT_FIRST_PARTIAL / COMPUTER_USE+AUTO_GAME_BOT |
 | [11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)](./11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/) | media and immersive-interaction domain | STRUCTURE_READY / IMPLEMENTATION_PARTIAL |
 
 ## 00 infrastructure layout
@@ -145,6 +145,9 @@ DS_HNS_PROJECT_DECOMPOSITION = RECORDED
 PARAMA_HEALTH_PROJECT_DECOMPOSITION = RECORDED
 DRUG_SIMULATOR_PROJECT_DECOMPOSITION = RECORDED
 QUANT_ULTRA_PROJECT_DECOMPOSITION = RECORDED
+QUALIFICATION_HEALTH_RESTART_LOGIC_AUTOMATION_DEVICE = RECORDED
+ML_QUANT_DONOR_REVIEW = RECORDED
+OWNER_EXCLUDED_PROJECTS = RECORDED
 DEPRECATED_PROJECT_EXCLUSIONS = RECORDED
 BOSS_HNS_OVERLAP_UNIONS = RECORDED
 NEXT_PROJECT_REVIEW = SELECT_EXISTING_REPOSITORY
