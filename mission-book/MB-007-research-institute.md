@@ -4,11 +4,11 @@ sequence: 7
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: NOT_STARTED
+migration_status: CLAIMED
 migration_complete: false
-migration_claim_host: null
-migration_claimed_at: null
-migration_branch: null
+migration_claim_host: Alien
+migration_claimed_at: 2026-09-29T13:34:10Z
+migration_branch: mission/MB-007-research-institute
 migration_head_sha: null
 migration_ci: null
 migration_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-007 — Boss Research Institute 既有流水线纯迁移
 
-> **当前可领取：YES**
+> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T13:34:10Z 领取，未完成前其他主机必须跳过）
 
 ## 目标
 
@@ -89,10 +89,15 @@ merged_main_sha: null
 
 ### Migration Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Implementation branch: —
+- Host: **Alien**
+- Claimed at: 2026-09-29T13:34:10Z
+- City claim commit: this commit (SHA recorded verbatim in `reports/MB-007/MIGRATION_REPORT.md`, since a commit cannot name itself)
+- Implementation branch: `mission/MB-007-research-institute` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
+
+> **Claim order note.** MB-001 and MB-003 (host `Alien`) and MB-006 (host `Alien`) are
+> migration-complete; MB-002, MB-004 and MB-005 are held or completed by host `Mech`. With
+> MB-004 claimed by `Mech`, the lowest-sequence unclaimed migration is MB-007, which declares
+> no dependency. See the mission index for the MB-003/MB-004 dependency history.
 
 ### Verification Claim
 
