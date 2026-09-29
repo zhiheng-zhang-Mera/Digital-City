@@ -4,14 +4,14 @@ sequence: 7
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
+migration_status: BLOCKED_OWNER_DECISION
 migration_complete: false
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T13:34:10Z
 migration_branch: mission/MB-007-research-institute
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: 68015caa71b7788f700abb1c7918d1b5ee8f9e8c
+migration_ci: "final-branch 36578310170 PASS; implementation 71267e8 36577840443 PASS"
+migration_report: mission-book/reports/MB-007/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,25 @@ merged_main_sha: null
 
 # MB-007 — Boss Research Institute 既有流水线纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T13:34:10Z 领取，未完成前其他主机必须跳过）
+> ## ⚠ 当前状态：BLOCKED_OWNER_DECISION — **不要由第三台主机接手**
+>
+> 移植已完成、142 个 parity 测试全绿、required CI 全绿、五个 module 已登记。但本 Mission 的
+> Migration 门槛「**至少完成一次真实产品消费；UI/客户端要求仅复用当前存在的 Utopia 消费面**」
+> **未能满足**，因此 `migration_complete` 保持 `false`，主机 `Alien` 不宣称完成。
+>
+> 原因：这五个 module 构成一条研究流水线，而 Utopia 现存唯一消费研究行为的入口是
+> `research.evidence.review` 能力，它绑定在**另一个** module `evidence-engine` 上——而 MB-007
+> 明确禁止重写 Evidence Engine，Verification 门槛也要求它现有验收保持不变。任何把这些 module
+> 接进该路径的做法，要么改变 Evidence Engine 的判定，要么向 Web/Android 能力列表新增一项
+> （新product面，规则 14 与 MB-007 的「不得新增论文工作流」都禁止）。
+>
+> **需要 Owner 裁决**（三选一，详见报告第 4 节 D1）：
+> 1. 接受该边界，并据此修改本 Mission 的 Migration 门槛或作出明确裁定；
+> 2. 明确授权一处消费面（例如通过既有 services 页面暴露一条有界研究链路），并声明该授权专属于
+>    MB-007；
+> 3. 依规则 13 建立 superseding Mission。
+>
+> 在 Owner 裁决之前，Verification 阶段**不开放**；规则 13 禁止第三台主机悄悄接力。
 
 ## 目标
 
@@ -96,8 +114,21 @@ merged_main_sha: null
 
 > **Claim order note.** MB-001 and MB-003 (host `Alien`) and MB-006 (host `Alien`) are
 > migration-complete; MB-002, MB-004 and MB-005 are held or completed by host `Mech`. With
-> MB-004 claimed by `Mech`, the lowest-sequence unclaimed migration is MB-007, which declares
+> MB-004 claimed by `Mech`, the lowest-sequence unclaimed migration was MB-007, which declares
 > no dependency. See the mission index for the MB-003/MB-004 dependency history.
+
+#### Migration closeout — PARTIAL
+
+- City claim commit: `c6ff44f4bd6e2a711a2e838d1efd04e61fd0b5e4`
+- Implementation head: `71267e83570f5749bb2d1cf9537040ef0af869eb` (CI `36577840443` PASS)
+- Migration head: `68015caa71b7788f700abb1c7918d1b5ee8f9e8c` (CI `36578310170` PASS)
+- Report: [`reports/MB-007/MIGRATION_REPORT.md`](./reports/MB-007/MIGRATION_REPORT.md)
+- **Done:** ported, parity-tested (142 tests, plus a 1 590-comparison differential harness on
+  `research-manuscript`), registered behind `capabilityProvider: false`, full CI green, donor defects
+  preserved verbatim and pinned by tests.
+- **Not done:** the product-consumption gate. No `MIGRATION_COMPLETE` event was written; the branch
+  event stream records `RUNTIME_FAIL / BLOCKED` for it (`MB-007:7d6c861428278c83`).
+- Not merged to `main`; `mission:finalize` deliberately not run.
 
 ### Verification Claim
 
