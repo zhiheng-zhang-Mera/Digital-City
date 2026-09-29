@@ -21,7 +21,7 @@ reports/
 - 已迁行为与明确未迁行为；
 - 独立审查发现；
 - 二次维修摘要；
-- 测试与 CI 摘要；
+- 测试与 CI 摘要（区分 implementation CI 与 finalize 后 final branch CI）；
 - 真机/第二机结果；
 - failure/recovery 摘要；
 - Utopia 中 raw evidence / evolution episode 的路径或 digest；
@@ -64,6 +64,9 @@ FAULT_RECOVERY_VERIFICATION
 CI_FINAL
 UTOPIA_EVIDENCE_POINTERS
 UTOPIA_EVOLUTION_EPISODE_POINTER
+UTOPIA_EVOLUTION_EPISODE_DIGEST
+IMPLEMENTATION_CI
+FINAL_BRANCH_CI
 
 FINAL_BRANCH_SHA
 MERGED_MAIN_SHA
