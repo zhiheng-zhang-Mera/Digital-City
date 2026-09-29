@@ -12,10 +12,10 @@ migration_branch: mission/MB-003-worker-gateway
 migration_head_sha: c5734a5e646f1e379aa15282b59a08e8828d5d6a
 migration_ci: "final-branch 36571564418 PASS (gateway-web + android); implementation 36570163616 PASS"
 migration_report: mission-book/reports/MB-003/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Mech
+verification_claimed_at: 2026-09-29T15:05:00Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-003 — Worker Gateway Boss/Hns Union 纯迁移
 
-> **当前可领取：Migration 阶段已完成（主机 `Alien`）。Verification 阶段对 `Alien` 以外的任何主机开放**；`Alien` 已参与本 Mission，不得再领取其任何角色。注意验证门槛要求使用本机**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported；环境缺失时必须标记 BLOCKED，不得 mock pass。
+> **当前可领取：Verification 已由主机 `Mech` 领取**（Migration 由 `Alien` 完成；两台主机不同，符合 rule 5）。验证门槛要求用本机**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported；环境缺失时必须标记 BLOCKED，不得 mock pass。
 
 ## 目标
 
@@ -113,10 +113,13 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Reviewed migration branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-29T15:05:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-003/VERIFICATION_REPORT.md`)
+- Reviewed migration branch: `mission/MB-003-worker-gateway` @ `c5734a5e646f1e379aa15282b59a08e8828d5d6a`
+- Selection note: selected under mission rule 6's second clause. No migration was claimable (`MB-007`/`MB-008` are `BLOCKED_OWNER_DECISION`; `MB-010`–`MB-012` have `execution_enabled: false`), so the verification queue is the claimable set. `MB-001` was verified and merged by this host (`d81a567`); `MB-002` was claimed by `Alien` at City `8c4d214`; the remaining unclaimed verifications are `MB-003`/`MB-004`/`MB-005`/`MB-006`/`MB-009`, and `MB-003` is the lowest sequence. `Mech` is a different host from this Mission's migration host (`Alien`), so rule 5 permits it.
+- **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened. The independent findings are recorded in the Verification Report under a section that precedes any reference to the migration host's own account.
+- **Known cross-mission conflict to resolve on this branch before merge** (recorded by the migration host): MB-001 and MB-003 both edit `city/CITY_IMPLEMENTATION_MANIFEST.json`, `city/tests/manifest.test.mjs` and `city/docs/{en,zh-CN}/ARCHITECTURE.md`. MB-001 keeps kernel modules out of the capability surface with a **district-level** `kind: "infrastructure"` (merged to `main` at `d81a567`); MB-003 does it with a **module-level** `capabilityProvider: false`. The verifier must reconcile the two on the MB-003 branch, preserving both missions' intent and inventing no new semantics.
 
 
 ## 绑定执行条件（所有 Mission 强制）
