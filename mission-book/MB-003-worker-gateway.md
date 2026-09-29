@@ -4,14 +4,14 @@ sequence: 3
 execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
-migration_status: CLAIMED
-migration_complete: false
+migration_status: COMPLETE
+migration_complete: true
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T12:19:26Z
 migration_branch: mission/MB-003-worker-gateway
-migration_head_sha: null
-migration_ci: null
-migration_report: null
+migration_head_sha: c5734a5e646f1e379aa15282b59a08e8828d5d6a
+migration_ci: "final-branch 36571564418 PASS (gateway-web + android); implementation 36570163616 PASS"
+migration_report: mission-book/reports/MB-003/MIGRATION_REPORT.md
 verification_status: NOT_STARTED
 verification_complete: false
 verification_claim_host: null
@@ -24,7 +24,7 @@ merged_main_sha: null
 
 # MB-003 — Worker Gateway Boss/Hns Union 纯迁移
 
-> **当前可领取：NO**（Migration 阶段已由主机 `Alien` 于 2026-09-29T12:19:26Z 领取，未完成前其他主机必须跳过）
+> **当前可领取：Migration 阶段已完成（主机 `Alien`）。Verification 阶段对 `Alien` 以外的任何主机开放**；`Alien` 已参与本 Mission，不得再领取其任何角色。注意验证门槛要求使用本机**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported；环境缺失时必须标记 BLOCKED，不得 mock pass。
 
 ## 目标
 
@@ -92,6 +92,24 @@ merged_main_sha: null
 - Claimed at: 2026-09-29T12:19:26Z
 - City claim commit: this commit (SHA recorded verbatim in `reports/MB-003/MIGRATION_REPORT.md`, since a commit cannot name itself)
 - Implementation branch: `mission/MB-003-worker-gateway` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`, after confirming that `main` has not moved)
+
+#### Migration closeout
+
+- City claim commit: `5e69ebf0e366835547eb3c36e596937fe58565ec`
+- Implementation head: `aff3c283e34b596c6c0ba6c666aed96893b6c395`
+- Migration head: `c5734a5e646f1e379aa15282b59a08e8828d5d6a`
+- Hosted CI: implementation `36570163616` PASS; final branch `36571564418` PASS (gateway-web + android)
+- Report: [`reports/MB-003/MIGRATION_REPORT.md`](./reports/MB-003/MIGRATION_REPORT.md)
+- Not merged to `main`; `mission:finalize` deliberately not run (that belongs to the Verification host)
+
+> **Owner attention — cross-mission conflict.** MB-001 and MB-003 both branched from
+> `c7ef3cd` and both edit `city/CITY_IMPLEMENTATION_MANIFEST.json`,
+> `city/tests/manifest.test.mjs` and `city/docs/{en,zh-CN}/ARCHITECTURE.md`. MB-001 keeps
+> the capability registry from advertising kernel modules with a **district-level**
+> `kind: "infrastructure"`; MB-003 does it with a **module-level**
+> `capabilityProvider: false`. Whichever merges second must reconcile the two. This is
+> structural to the mission-book (missions branch from `main` and share city files), not a
+> mistake by either host. See D3 in the MB-003 report.
 
 ### Verification Claim
 
