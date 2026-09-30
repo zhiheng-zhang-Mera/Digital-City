@@ -5,14 +5,14 @@ execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 assessment_required: true
-assessment_status: NOT_STARTED
+assessment_status: IN_PROGRESS
 assessment_complete: false
 assessment_result: null
-assessment_claim_host: null
-assessment_claimed_at: null
-assessment_branch: null
+assessment_claim_host: Mech
+assessment_claimed_at: 2026-09-30T15:40:09Z
+assessment_branch: mission/MB-010-node-fabric
 assessment_head_sha: null
-assessment_utopia_base_sha: null
+assessment_utopia_base_sha: 756c7d760c605e33ba386e87605e078fe24b82ca
 assessment_report: null
 migration_status: NOT_STARTED
 migration_complete: false
@@ -233,11 +233,13 @@ data-records/evolution/episodes/mission-book/MB-010/           # 只有实际迁
 
 ### Assessment Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Utopia baseline SHA: —
-- Assessment branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-30T15:40:09Z
+- City claim commit: _pending (this commit)_
+- Utopia baseline SHA: `756c7d760c605e33ba386e87605e078fe24b82ca`
+- Assessment branch: `mission/MB-010-node-fabric`
+- Donor frozen baseline: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`
+- Selection basis: integration-first scheduler had **no eligible P0** left (MB-001..MB-009 all `verification_complete=true`, all mission branches `AheadOfMain=0`), so the lowest-sequence eligible assessment-first Mission (MB-010) was claimed under README §3 P1A. Read-only reconnaissance preceded this claim; no implementation code has been written.
 
 ### Migration Claim
 
