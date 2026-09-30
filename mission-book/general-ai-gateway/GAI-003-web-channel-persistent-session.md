@@ -1,4 +1,4 @@
----
+﻿---
 mission_id: GAI-003
 project: GENERAL_AI_GATEWAY_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
@@ -9,10 +9,10 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: GENERAL_AI_GATEWAY_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: NOT_STARTED
+development_status: IN_PROGRESS
 development_complete: false
-development_host: null
-development_claimed_at: null
+development_host: Mech
+development_claimed_at: 2026-09-30T14:27:58Z
 development_branch: general-ai/GAI-003-web-channel-persistent-session
 development_head_sha: null
 development_ci: null
