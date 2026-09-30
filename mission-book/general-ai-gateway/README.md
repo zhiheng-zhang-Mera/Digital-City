@@ -206,3 +206,13 @@ Real cross-device acceptance may wait for an accepted compatible Remote Fabric p
 Required terminal state:
 
 `GENERAL_AI_GATEWAY_MERGED_MAIN_CI_GREEN`
+
+
+## Cross-programme asynchronous execution
+
+This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS_PROGRAMME_EXECUTION_CONTRACT.md`. Alien and Mech are both available and GAI tasks may be claimed immediately.
+
+- Component branches never wait for Remote Fabric implementation; stable RemoteExecutionPort doubles are sufficient for component Development/Correction.
+- Real provider/login and real two-device transport proof are programme-integration gates. If temporarily unavailable, record the seam and keep draining the global component pool.
+- Waiting CI/external checks do not idle a host; use separate worktrees and claim another eligible stage.
+- After GAI-001..GAI-009 drain, create the GAI merge workbook immediately. Integrate everything possible on then-current main. If Remote Fabric or a required real provider proof is not ready, park only the final E2E gate as `INTEGRATED_WAITING_EXTERNAL_SEAM` and return the host to the global pool.

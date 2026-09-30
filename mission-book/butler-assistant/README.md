@@ -47,6 +47,17 @@ No voice model, avatar renderer or companion-specific LLM is required merely to 
 
 The Pre-Assistant project gate is OPEN. All BA-001..BA-009 branches use the same frozen Utopia baseline:
 
-`8104f8289a76d15ff0197c953730edcef42cab5e`
+`82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
 
 All subprojects follow the parent Mission Book Development → Correction workflow. Development and Correction must be performed by different physical hosts, and no BA branch may merge to Utopia main before the final project merge workbook is unlocked.
+
+
+## Cross-programme asynchronous execution
+
+This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS_PROGRAMME_EXECUTION_CONTRACT.md`. Alien and Mech are both available now. BA tasks may be claimed immediately.
+
+- Dynamic claim truth lives in each BA task workbook frontmatter; do not serialize ordinary claims through README/MISSION_INDEX edits.
+- Eligible Correction by the opposite host has priority over new Development; otherwise either host claims any unclaimed task across any programme.
+- Waiting CI/external checks do not idle a host; keep the claim and continue another eligible stage in a separate worktree.
+- BA component work never waits for RF/GAI/EM implementations. Use stable contracts/doubles and record integration seams.
+- After BA-001..BA-009 drain, create the BA merge workbook immediately. Butler has no hard dependency on another programme's terminal state.

@@ -9,7 +9,8 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 donor_repo: zhiheng-zhang-Mera/DS-Hns
 donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
 architecture_contract: ENGINEERING_MANAGER_V1
-programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -40,6 +41,7 @@ Create one auditable protocol family that supports both autonomous coding agents
 - Support AUTONOMOUS_AGENT, SCRIPTED_EXECUTOR and INTERACTIVE_AGENT as explicit modes.
 - Allow SCRIPTED_EXECUTOR to require operations[] while AUTONOMOUS_AGENT may plan operations internally from objective + bounded constraints.
 - Define EngineeringEventEnvelope with monotonic/correlated event identity, stage/state, source connector/device and causal job reference.
+- Keep EngineeringEvent/Result/Artifact as Engineering domain-semantic envelopes. Cross-device carriage may use RF RPC/EVENT/STREAM, but RF transport envelopes never replace canonical Engineering job/event/result state.
 - Define EngineeringResultEnvelope with terminal status/code, summary, changed files, tests, git state, acceptance, warnings and controller-decision flags.
 - Define ArtifactEnvelope for patch/diff, commit/branch/PR refs, files, screenshots, test reports and logs with digest/provenance where applicable.
 - Define late/duplicate/out-of-order event reconciliation and terminal immutability.
@@ -73,3 +75,15 @@ Create one auditable protocol family that supports both autonomous coding agents
 - Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
 - DS-Hns may be read only as the pinned donor described by this programme. Any reused implementation becomes Utopia-owned code with provenance; Utopia MUST NOT acquire a build/runtime dependency on the DS-Hns repository.
 - Codex-Boss is out of scope and MUST NOT be cloned, fetched, opened, read, queried, imported, linked, submoduled, symlinked or called by this programme.
+
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; this Development may be claimed immediately.
+- Correction becomes eligible as soon as Development is green and must use the opposite physical host.
+- Ordinary claim truth is written only to this task workbook frontmatter/reports; README/MISSION_INDEX are dashboards, not locks.
+- Hosted CI, long local tests, provider checks and Remote Fabric waits never idle the machine. Keep the claim, use a separate worktree and claim another eligible global stage.
+- Missing Remote Fabric or optional provider software is represented with stable ports/doubles and an explicit deferred integration seam; component work does not wait.
+- A host stops claiming only after a fresh scan of BA/RF/GAI/EM finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.

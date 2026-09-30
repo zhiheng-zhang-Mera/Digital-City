@@ -329,3 +329,13 @@ The integrated candidate must prove:
 Required terminal state:
 
 `ENGINEERING_MANAGER_MERGED_MAIN_CI_GREEN`
+
+
+## Cross-programme asynchronous execution
+
+This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS_PROGRAMME_EXECUTION_CONTRACT.md`. Alien and Mech are both available and EM tasks may be claimed immediately.
+
+- Component branches never wait for Remote Fabric or optional provider installations. Stable ports/doubles complete bounded Development/Correction; real external proof moves to programme integration when unavailable.
+- Eligible Correction by the opposite host is preferred over starting another EM Development, but either host may take work from any of the four programmes whenever that is the next eligible global stage.
+- Hosted CI, long tests and provider waits do not idle the machine; retain the claim and continue another stage in a separate worktree.
+- After EM-001..EM-013 drain, create the EM merge workbook immediately. If real remote E2E is not yet available, complete all independent integration and park only the final seam as `INTEGRATED_WAITING_EXTERNAL_SEAM`.

@@ -5,9 +5,10 @@ implementation_repo: zhiheng-zhang-Mera/Utopia
 control_repo: zhiheng-zhang-Mera/Digital-City
 project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
 project_start_gate_status: OPEN
-project_baseline_sha: 8104f8289a76d15ff0197c953730edcef42cab5e
+project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: REMOTE_FABRIC_V1
-programme_execution_status: HELD_PENDING_SECOND_REAL_HOST
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -84,9 +85,9 @@ These are acceptance constraints, not optional future improvements.
 
 The Pre-Assistant foundation is merged and green. All RF branches start from the same Utopia baseline:
 
-`8104f8289a76d15ff0197c953730edcef42cab5e`
+`82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
 
-This keeps RF-001..RF-010 independently integrable. The current control-repo ruling records only one real build host as available, so the programme is **prepared but held** until a second real physical host is confirmed. Once that hold is lifted, tasks may be claimed asynchronously without changing the frozen RF baseline.
+This keeps RF-001..RF-010 independently integrable. **Alien and Mech are both available now; the previous second-host hold is cancelled.** RF tasks may be claimed immediately and asynchronously from the frozen baseline.
 
 ## Development stage
 
@@ -117,6 +118,17 @@ Final-merge eligibility requires:
 - `development_complete = true`;
 - `correction_complete = true`;
 - corrected head is pushed and recorded.
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; RF Development may be claimed immediately.
+- Claim truth is written only to this task workbook frontmatter and reports; ordinary claims do not edit README/MISSION_INDEX.
+- Correction is eligible as soon as this task's Development is green and must be performed by the opposite physical host.
+- Hosted CI, long tests and external network/provider waits do not idle a host; retain the claim and continue another eligible global stage in a separate worktree.
+- Missing sibling RF implementations are represented by stable contracts/test doubles; missing BA/GAI/EM code never blocks bounded RF work.
+- A host stops claiming only after a fresh scan of all four programmes finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.
 
 ## Merge lock
 

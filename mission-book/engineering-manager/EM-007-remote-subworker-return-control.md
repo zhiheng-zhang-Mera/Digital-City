@@ -9,7 +9,8 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 donor_repo: zhiheng-zhang-Mera/DS-Hns
 donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
 architecture_contract: ENGINEERING_MANAGER_V1
-programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -36,7 +37,7 @@ After explicit approval of a local-failure fallback, execute the same logical Su
 
 ## Development scope
 
-- Consume EngineeringRemoteExecutionPort / Remote Fabric semantic interfaces; do not implement node trust/transport here.
+- Consume EngineeringRemoteExecutionPort as an Engineering domain adapter facade over Remote Fabric semantic/public interfaces; do not implement independent node trust, transport, presence or physical-device identity here.
 - Require an approved RemoteFallbackProposal before dispatch in V1.
 - Select only eligible trusted remote hosts that satisfy the job's required capabilities after fallback is approved.
 - Keep original job_id, logical owner/coordinator and canonical task truth; remote host becomes current executor/embodiment only.
@@ -83,3 +84,15 @@ REMOTE EXECUTION HOST is a compute/execution resource, not a required user termi
 - Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
 - DS-Hns may be read only as the pinned donor described by this programme. Any reused implementation becomes Utopia-owned code with provenance; Utopia MUST NOT acquire a build/runtime dependency on the DS-Hns repository.
 - Codex-Boss is out of scope and MUST NOT be cloned, fetched, opened, read, queried, imported, linked, submoduled, symlinked or called by this programme.
+
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; this Development may be claimed immediately.
+- Correction becomes eligible as soon as Development is green and must use the opposite physical host.
+- Ordinary claim truth is written only to this task workbook frontmatter/reports; README/MISSION_INDEX are dashboards, not locks.
+- Hosted CI, long local tests, provider checks and Remote Fabric waits never idle the machine. Keep the claim, use a separate worktree and claim another eligible global stage.
+- Missing Remote Fabric or optional provider software is represented with stable ports/doubles and an explicit deferred integration seam; component work does not wait.
+- A host stops claiming only after a fresh scan of BA/RF/GAI/EM finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.

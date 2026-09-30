@@ -9,7 +9,8 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 donor_repo: zhiheng-zhang-Mera/DS-Hns
 donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
 architecture_contract: ENGINEERING_MANAGER_V1
-programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -40,7 +41,7 @@ Expose Engineering Manager as one Utopia capability over canonical shared tasks/
 - Expose submit/status/progress/stage/attention/control/result/artifact views through existing Utopia Web/Android patterns.
 - Show current executor connector/device separately from logical owner/coordinator.
 - Render LocalEligibility and RemoteFallbackProposal with explicit approval; do not auto-select a faster remote machine.
-- Render ATTENTION_REQUIRED on the interaction surface and integrate recent-device notification/ring delivery semantics.
+- Render ATTENTION_REQUIRED from canonical shared Attention state and integrate recent-device notification/ring projection; do not create a second Engineering-global attention database.
 - Keep remote job control/results on the current/shared Utopia surface; do not navigate the user to the execution host.
 - Expose Advanced/debug provenance for connector/backend/device/branch/commit/test/error IDs without leaking secrets.
 - Ensure user-visible success comes only from terminal accepted EngineeringResult state.
@@ -75,3 +76,15 @@ Expose Engineering Manager as one Utopia capability over canonical shared tasks/
 - Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
 - DS-Hns may be read only as the pinned donor described by this programme. Any reused implementation becomes Utopia-owned code with provenance; Utopia MUST NOT acquire a build/runtime dependency on the DS-Hns repository.
 - Codex-Boss is out of scope and MUST NOT be cloned, fetched, opened, read, queried, imported, linked, submoduled, symlinked or called by this programme.
+
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; this Development may be claimed immediately.
+- Correction becomes eligible as soon as Development is green and must use the opposite physical host.
+- Ordinary claim truth is written only to this task workbook frontmatter/reports; README/MISSION_INDEX are dashboards, not locks.
+- Hosted CI, long local tests, provider checks and Remote Fabric waits never idle the machine. Keep the claim, use a separate worktree and claim another eligible global stage.
+- Missing Remote Fabric or optional provider software is represented with stable ports/doubles and an explicit deferred integration seam; component work does not wait.
+- A host stops claiming only after a fresh scan of BA/RF/GAI/EM finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.

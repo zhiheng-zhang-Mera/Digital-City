@@ -78,7 +78,7 @@ Concrete transport libraries remain below this surface.
 
 All RF-001..RF-010 branches use the same frozen Utopia baseline:
 
-`8104f8289a76d15ff0197c953730edcef42cab5e`
+`82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
 
 Each RF task follows **Development -> Correction** on one task branch:
 - Development and Correction are performed by different physical hosts;
@@ -89,22 +89,22 @@ Each RF task follows **Development -> Correction** on one task branch:
 - missing sibling implementations are represented by the workbook's stable contract plus deterministic test doubles;
 - integration seams are recorded for the future Remote merge workbook.
 
-The current Mission Index records a global two-host hold because only one real build host is presently confirmed. Creating these books does not lift that hold.
+Alien and Mech are both currently available. The prior second-real-host hold is cancelled; RF work may start immediately.
 
 ## Remote queue
 
 | ID | Subproject | Development | Correction | Merge |
 |---|---|:---:|:---:|:---:|
-| RF-001 | Node Identity + Installation Lifecycle | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-002 | Unified Pairing + Trust Lifecycle | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-003 | Same-Wi-Fi / LAN Discovery + Local Direct Path | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-004 | Bluetooth Bootstrap + IP Handoff | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-005 | Remote Invite / Meeting Code / Deep Link Rendezvous | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-006 | Secure Transport Path Manager + Relay Fallback | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-007 | Versioned Capability Registry + Addressing | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-008 | Typed RPC / Event / Stream + Reliable Commands | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-009 | Presence / Offline / Reconnect + Audit | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-010 | Fabric Policy Boundary + Public API | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-001 | Node Identity + Installation Lifecycle | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-002 | Unified Pairing + Trust Lifecycle | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-003 | Same-Wi-Fi / LAN Discovery + Local Direct Path | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-004 | Bluetooth Bootstrap + IP Handoff | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-005 | Remote Invite / Meeting Code / Deep Link Rendezvous | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-006 | Secure Transport Path Manager + Relay Fallback | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-007 | Versioned Capability Registry + Addressing | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-008 | Typed RPC / Event / Stream + Reliable Commands | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-009 | Presence / Offline / Reconnect + Audit | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-010 | Fabric Policy Boundary + Public API | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
 
 ## Hard merge lock
 
@@ -118,3 +118,14 @@ The current Mission Index records a global two-host hold because only one real b
 When unlocked, the merge workbook must integrate all corrected RF branches **on top of the then-current Utopia main**, preserving any Butler or other valid mainline work that may have landed after the frozen RF baseline. Compatible conflicts preserve an explicit union/superset; they must never resolve by silently replacing newer main behavior with the old baseline.
 
 Required Remote terminal state after that future merge: `REMOTE_FABRIC_MERGED_MAIN_CI_GREEN`.
+
+
+## Cross-programme asynchronous execution
+
+Remote Fabric participates in the global BA/RF/GAI/EM pool defined by `../CROSS_PROGRAMME_EXECUTION_CONTRACT.md`. There is no host-availability hold.
+
+- RF Development may be claimed now by Alien or Mech; Correction is claimed only by the opposite physical host after that task's Development is green.
+- Missing sibling RF code never blocks a task branch; use the stable RF contract and deterministic doubles.
+- Waiting CI/long tests do not idle the host. Keep the claim and claim another eligible stage across any programme using a separate worktree.
+- Remote Fabric is the transport/trust substrate only. It must not absorb Assistant, GAI or Engineering orchestration semantics.
+- After RF-001..RF-010 drain, create and run the Remote merge workbook immediately on then-current Utopia main. RF has no hard dependency on GAI/EM completion.

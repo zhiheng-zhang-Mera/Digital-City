@@ -5,8 +5,10 @@ implementation_repo: zhiheng-zhang-Mera/Utopia
 control_repo: zhiheng-zhang-Mera/Digital-City
 project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
 project_start_gate_status: OPEN
-project_baseline_sha: 8104f8289a76d15ff0197c953730edcef42cab5e
+project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -74,7 +76,7 @@ These are acceptance constraints, not optional future enhancements.
 
 The Pre-Assistant foundation gate is already **OPEN**. The common Butler project baseline is pinned to Utopia main:
 
-`8104f8289a76d15ff0197c953730edcef42cab5e`
+`82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
 
 This task may be claimed now. It MUST branch from that exact baseline so BA-001..BA-009 remain independently integrable.
 
@@ -106,6 +108,17 @@ Final-merge eligibility requires:
 - branch history/evidence proves both Alien and Mech participated;
 - development_complete = true;
 - correction_complete = true.
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; this task may be claimed immediately.
+- Ordinary claim truth is written only to this task workbook frontmatter and reports; do not serialize claims through README/MISSION_INDEX.
+- Development and Correction remain opposite-host stages on this task branch.
+- If this stage is waiting on hosted CI, a long test or an external condition, keep the claim but release the physical host to claim another eligible global stage in a separate worktree.
+- Missing RF/GAI/EM sibling implementations never block bounded Butler work; use stable interfaces/test doubles and record the integration seam.
+- A host stops claiming only after a fresh scan of all four programmes finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.
 
 ## Merge lock
 

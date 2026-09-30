@@ -7,7 +7,8 @@ project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
 project_start_gate_status: OPEN
 project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: GENERAL_AI_GATEWAY_V1
-programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -44,7 +45,7 @@ Changing execution host MUST NOT require the user to walk to or operate that hos
 
 ## Development scope
 
-- Consume RemoteExecutionPort; do not implement Remote Fabric trust/transport here.
+- Consume RemoteExecutionPort as a GAI domain adapter facade over the accepted Remote Fabric public API; do not implement independent trust/transport, presence or device identity here.
 - Prefer current-device Web when healthy.
 - Rank already-known alternate endpoints using presence/readiness, provider/account Web readiness, session/conversation availability, load, network/freshness and required input locality/capability.
 - Discovery/ranking must not launch duplicate AI requests as probes.
@@ -82,3 +83,15 @@ Branch development/correction uses the stable RemoteExecutionPort and determinis
 - External provider / Remote Fabric absence may block only the acceptance step that genuinely requires it; it must not be rewritten as success and must not stall unrelated GAI tasks.
 - Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
 - No Boss access: no clone/fetch/read/import/submodule/symlink/runtime call/build dependency against Codex-Boss. Historical names may appear only as provenance prose; executable behavior must be owned and tested in Utopia.
+
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; this Development may be claimed immediately.
+- Correction is eligible immediately after Development is green and must use the opposite physical host.
+- Ordinary claim truth is written only to this task workbook frontmatter/reports; README/MISSION_INDEX are not claim locks.
+- Hosted CI, real-provider login, long tests and Remote Fabric waits never idle the host. Retain the claim, record the exact seam, and claim another eligible global stage in a separate worktree.
+- Missing Remote Fabric uses stable RemoteExecutionPort doubles for component work. Real cross-device proof belongs to programme integration.
+- A host stops claiming only when a fresh global scan finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.

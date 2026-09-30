@@ -1,109 +1,82 @@
-# Mission Index — Active Parallel Engineering Programmes
+# Mission Index — Global Asynchronous Engineering Pool
 
-## Project gate
+> Canonical static state: [PROGRAMME_STATE.yaml](./PROGRAMME_STATE.yaml)  
+> Normative execution contract: [CROSS_PROGRAMME_EXECUTION_CONTRACT.md](./CROSS_PROGRAMME_EXECUTION_CONTRACT.md)  
+> Unified component baseline: `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`  
+> Physical hosts: **Alien = AVAILABLE; Mech = AVAILABLE**  
+> Global state at reset: **41 component tasks, all Development unclaimed; all Correction locked until corresponding Development completes.**
 
-```text
-FOUNDATION_BRANCH          = product/upt-pre-assistant-closeout
-FOUNDATION_HEAD            = 85ecde437ec930f1b4aa41d8913540e012da5ee7
-FOUNDATION_BRANCH_CI       = 36691043142 - android success, gateway-web success
-FOUNDATION_MERGED_MAIN     = 8104f8289a76d15ff0197c953730edcef42cab5e
-MERGED_MAIN_CI             = 36692675561 - android success, gateway-web success
-FOUNDATION_STATE           = MERGED / MERGED_MAIN_CI_GREEN
-BUTLER_DEVELOPMENT         = UNLOCKED (gate opened 2026-09-30)
-BUTLER_DEVELOPMENT_HOLD    = OWNER_RULING_2026-09-30 - HELD_PENDING_SECOND_REAL_HOST
-BUTLER_BASELINE            = 8104f8289a76d15ff0197c953730edcef42cab5e
-ARCHITECTURE_CONTRACT      = ASSISTANT_DISTRIBUTED_STATE_V2
-BUTLER_MERGE               = FORBIDDEN
-```
+## Authority
 
-Gate history remains auditable:
-- first candidate was independently rejected and repaired before acceptance;
-- the Pre-Assistant single-host waiver does not carry into Butler Assistant;
-- post-merge branch audit reported 35 origin refs and unmerged = 0;
-- legacy branch re-audit 2026-09-30 (host Mech): 34 remote refs, `unmerged = 0`; the only
-  unmerged ref was the local-only `mech/knowledge-room-k0`, recorded as **superseded and
-  deliberately NOT merged** (Owner option A). Preserved on origin at its original head
-  `db7cfc5ef4b631c00149fe3657cc85b90d6f4356`. Utopia archive commit `82ed369`, CI
-  `36700956282` success; branch CI `36700716264` success. Full record:
-  [reports/LEGACY-BRANCH-AUDIT-2026-09-30.md](./reports/LEGACY-BRANCH-AUDIT-2026-09-30.md).
-- reports remain under [reports/UPT-PRE-ASSISTANT/](./reports/UPT-PRE-ASSISTANT/).
+This file is a dashboard, not a claim lock. Ordinary task claims MUST update only the target task workbook frontmatter and reports. If this dashboard lags a task workbook, the task workbook wins.
 
-**The gate is open but BA Development is held, not started.** The BA programme requires Development
-and Correction to be performed by **different physical hosts**, and only one real host (`Alien`) is
-currently available. The Owner ruled on 2026-09-30 to hold rather than begin Development that could
-not be corrected. `BUTLER_DEVELOPMENT = UNLOCKED` therefore means *permitted*, not *in progress*: no
-BA claim is valid until a second real host is confirmed. Recorded explicitly so that a later session
-does not read an open gate as permission to begin BA-001.
+## Global dispatcher
 
-Four non-blocking Pre-Assistant items remain carried forward and are **not** claimed as fixed here: Android Action drill-down does not open on the device; `start-city.ps1 -NoRooms` reports a misleading degraded reason; idempotency-key reuse refusal is HTTP 400 rather than 409; and the Web client is still handed the loopback `hubUrl`.
+Every free host scans BA/RF/GAI/EM together. Priority is: actionable owned repair → eligible opposite-host Correction → unclaimed Development anywhere. Waiting CI/provider/external checks do not idle a host; use another worktree and keep claiming.
 
-## Architecture contract v2
 
-All BA work now uses these system-wide meanings:
-
-- **shared brain** = one logical assistant with authoritative durable state plus per-embodiment ContextProjection; not synchronized live scratch/reasoning state;
-- **foreground assistant** = the assistant handling the current device interaction surface; not automatically the owner or executor of tasks;
-- **task owner/coordinator** and **executor** are distinct roles;
-- **TaskHandoff** happens only when responsibility actually moves and never copies permission grants;
-- exclusive/external side effects use task/version checks + execution lease + idempotency/action key;
-- reconnect re-fetches authoritative state and revalidates leases before side effects resume;
-- context/memory is scope- and audience-aware; knowing data does not authorize disclosure.
-
-## Active assistant queue
+## Butler Assistant
 
 | ID | Subproject | Development | Correction | Merge |
-|---|---|:---:|:---:|:---:|
-| BA-001 | Butler Zone + personalization contracts | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-002 | Shared Brain runtime + context projection | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-003 | Device embodiment + foreground binding | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-004 | Multi-assistant switch + explicit handoff | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-005 | Digital-Me context + memory/audience gateway | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-006 | Authoritative task coordination | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-007 | Assistant settings + interaction surface | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-008 | Event bus + execution lease/reconnect safety | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| BA-009 | Duties / permission / proactivity policy | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+|---|---|---|---|---|
+| [BA-001](./butler-assistant/BA-001-butler-zone-personalization.md) | Butler Zone + personalization contracts | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-002](./butler-assistant/BA-002-shared-brain-runtime.md) | Shared Brain runtime + context projection | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-003](./butler-assistant/BA-003-device-embodiment-binding.md) | Device embodiment + foreground binding | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-004](./butler-assistant/BA-004-multi-assistant-handoff.md) | Multi-assistant switch + explicit handoff | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-005](./butler-assistant/BA-005-digital-me-context-gateway.md) | Digital-Me context + memory/audience gateway | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-006](./butler-assistant/BA-006-shared-task-coordination.md) | Authoritative task coordination | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-007](./butler-assistant/BA-007-settings-interaction-surface.md) | Assistant settings + interaction surface | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-008](./butler-assistant/BA-008-embodiment-event-bus.md) | Event bus + execution lease/reconnect safety | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [BA-009](./butler-assistant/BA-009-duty-permission-policy.md) | Duties / permission / proactivity policy | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
 
-Claim order:
-1. prefer unclaimed Development;
-2. otherwise eligible Correction;
-3. Development Host != Correction Host;
-4. no BA branch merges to main;
-5. final merge workbook remains forbidden until every BA task has both stages complete and both Alien+Mech participation is proven.
-
-The legacy mission set and exact Pre-Assistant workbook remain archived under [finished/replant/](./finished/replant/).
-
-
-## Remote Fabric programme
-
-```text
-REMOTE_DEVELOPMENT         = UNLOCKED_BY_FOUNDATION
-REMOTE_DEVELOPMENT_HOLD    = HELD_PENDING_SECOND_REAL_HOST
-REMOTE_BASELINE            = 8104f8289a76d15ff0197c953730edcef42cab5e
-REMOTE_ARCH_CONTRACT       = REMOTE_FABRIC_V1
-REMOTE_MERGE               = FORBIDDEN
-REMOTE_TERMINAL_TARGET     = REMOTE_FABRIC_MERGED_MAIN_CI_GREEN
-```
-
-Remote Fabric is prepared under [remote/](./remote/). The programme inherits the current two-real-host availability hold; creating the workbooks does not claim any task or lift that hold.
+## Remote Fabric
 
 | ID | Subproject | Development | Correction | Merge |
-|---|---|:---:|:---:|:---:|
-| RF-001 | Node identity + installation lifecycle | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-002 | Unified pairing + trust lifecycle | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-003 | Same-Wi-Fi/LAN discovery + local direct | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-004 | Bluetooth bootstrap + IP handoff | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-005 | Remote invite / meeting code / deep link | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-006 | Secure path manager + relay fallback | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-007 | Versioned capability registry | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-008 | Typed RPC/Event/Stream + reliable commands | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-009 | Presence/offline/reconnect + audit | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
-| RF-010 | Fabric policy boundary + public API | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+|---|---|---|---|---|
+| [RF-001](./remote/RF-001-node-identity-installation-lifecycle.md) | Node identity + installation lifecycle | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-002](./remote/RF-002-unified-pairing-trust-lifecycle.md) | Unified pairing + trust lifecycle | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-003](./remote/RF-003-local-discovery-lan-direct.md) | Same-Wi-Fi/LAN discovery + local direct | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-004](./remote/RF-004-bluetooth-bootstrap-ip-handoff.md) | Bluetooth bootstrap + IP handoff | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-005](./remote/RF-005-remote-invite-rendezvous.md) | Remote invite / meeting code / deep link | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-006](./remote/RF-006-secure-transport-path-manager.md) | Secure path manager + relay fallback | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-007](./remote/RF-007-versioned-capability-registry.md) | Versioned capability registry | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-008](./remote/RF-008-typed-rpc-event-stream-commands.md) | Typed RPC/Event/Stream + reliable commands | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-009](./remote/RF-009-presence-offline-reconnect-audit.md) | Presence/offline/reconnect + audit | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [RF-010](./remote/RF-010-fabric-policy-public-api.md) | Fabric policy boundary + public API | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
 
-Remote claim rules mirror Butler:
-1. after the global hold is lifted, prefer unclaimed Development;
-2. otherwise claim eligible Correction;
-3. Development Host != Correction Host;
-4. all RF branches start from the same frozen Remote baseline;
-5. no RF branch merges to main or consumes a sibling RF branch;
-6. final Remote merge workbook remains forbidden until every RF task passes both stages with both-host evidence;
-7. final Remote integration starts from the then-current Utopia main, not from the frozen baseline, and preserves newer mainline work.
+## General AI Gateway
+
+| ID | Subproject | Development | Correction | Merge |
+|---|---|---|---|---|
+| [GAI-001](./general-ai-gateway/GAI-001-core-contracts-action-vocabulary.md) | Core contracts + Action vocabulary | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-002](./general-ai-gateway/GAI-002-provider-model-account-registry.md) | Provider/model/account registry | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-003](./general-ai-gateway/GAI-003-web-channel-persistent-session.md) | Web-first channel + persistent sessions | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-004](./general-ai-gateway/GAI-004-api-channel-consent-budget.md) | API channel + consent + budget | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-005](./general-ai-gateway/GAI-005-triage-jev-routing.md) | Deterministic/JEV triage + routing | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-006](./general-ai-gateway/GAI-006-conversation-input-stream-cancel.md) | Conversation/InputBundle/stream/cancel | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-007](./general-ai-gateway/GAI-007-device-aware-remote-execution.md) | Device-aware remote execution/result return | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-008](./general-ai-gateway/GAI-008-health-resilience-degradation.md) | Health/resilience/honest degradation | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [GAI-009](./general-ai-gateway/GAI-009-utopia-surface-integration.md) | Ask/Do + Action + Web/Android integration | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+
+## Engineering Manager
+
+| ID | Subproject | Development | Correction | Merge |
+|---|---|---|---|---|
+| [EM-001](./engineering-manager/EM-001-core-contracts-boundaries.md) | Core contracts + ownership boundaries | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-002](./engineering-manager/EM-002-connector-adapter-process-runtime.md) | Connector adapter framework + generic process runtime | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-003](./engineering-manager/EM-003-job-result-artifact-protocol.md) | Job / event / result / artifact protocol | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-004](./engineering-manager/EM-004-capability-probe-auth-registry.md) | Capability/probe/auth/instance registry | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-005](./engineering-manager/EM-005-attention-recent-device-alerts.md) | Attention bridge + recent-device notification/ring | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-006](./engineering-manager/EM-006-local-first-subworker-placement.md) | Local-first Sub-worker placement | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-007](./engineering-manager/EM-007-remote-subworker-return-control.md) | Remote Sub-worker + automatic return/control | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-008](./engineering-manager/EM-008-credential-profile-session.md) | Credential/profile/session persistence | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-009](./engineering-manager/EM-009-runtime-health-restart-recovery.md) | Runtime health/restart/recovery | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-010](./engineering-manager/EM-010-foreman-scheduler-dag-worker-pool.md) | Foreman queue/DAG/resource/worker pool | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-011](./engineering-manager/EM-011-deepseek-codex-reference-connectors.md) | DeepSeek Harness + Codex reference connectors | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-012](./engineering-manager/EM-012-connector-sdk-claude-workbuddy.md) | Connector SDK + Claude Code/WorkBuddy extension paths | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+| [EM-013](./engineering-manager/EM-013-utopia-task-surface-integration.md) | Shared Task Core + Utopia control surface integration | AVAILABLE / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN_UNTIL_PROGRAMME_MERGE |
+
+
+## Programme merge stages
+
+A programme merge workbook becomes eligible immediately when that programme's component pool is drained. It does not wait for the other three programmes. GAI/EM final real cross-device E2E may wait for accepted Remote Fabric, but that wait parks only the final integration seam and never blocks other runnable work.

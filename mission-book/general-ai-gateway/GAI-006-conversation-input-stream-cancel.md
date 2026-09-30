@@ -7,7 +7,8 @@ project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
 project_start_gate_status: OPEN
 project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: GENERAL_AI_GATEWAY_V1
-programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
+cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
 development_status: NOT_STARTED
 development_complete: false
 development_host: null
@@ -39,6 +40,7 @@ Make conversation continuity and rich inputs canonical at the Utopia level while
 - Implement InputBundle text/files/images/references/contextRefs with bounded metadata, digest and provenance.
 - Define logical file references that carry origin device and transfer/staging policy rather than hard-coded remote filesystem paths.
 - Define PartialResult/event stream semantics; partial text is never a terminal success.
+- Keep conversation/PartialResult semantics as the GAI domain-semantic stream. Cross-device carriage may use RF EVENT/STREAM, but RF transport envelopes never become canonical conversation/result state.
 - Define ResultEnvelope and attachment/result references.
 - Define cancellation/reconciliation semantics that work even after execution-host/channel changes.
 - Preserve conversation continuation across allowed Web session reopen and channel/device transitions.
@@ -64,3 +66,15 @@ Make conversation continuity and rich inputs canonical at the Utopia level while
 - External provider / Remote Fabric absence may block only the acceptance step that genuinely requires it; it must not be rewritten as success and must not stall unrelated GAI tasks.
 - Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
 - No Boss access: no clone/fetch/read/import/submodule/symlink/runtime call/build dependency against Codex-Boss. Historical names may appear only as provenance prose; executable behavior must be owned and tested in Utopia.
+
+
+## Global cross-programme no-idle rule
+
+This task participates in the normative global BA/RF/GAI/EM pool defined by `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md`.
+
+- Alien and Mech are both available; this Development may be claimed immediately.
+- Correction is eligible immediately after Development is green and must use the opposite physical host.
+- Ordinary claim truth is written only to this task workbook frontmatter/reports; README/MISSION_INDEX are not claim locks.
+- Hosted CI, real-provider login, long tests and Remote Fabric waits never idle the host. Retain the claim, record the exact seam, and claim another eligible global stage in a separate worktree.
+- Missing Remote Fabric uses stable RemoteExecutionPort doubles for component work. Real cross-device proof belongs to programme integration.
+- A host stops claiming only when a fresh global scan finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.
