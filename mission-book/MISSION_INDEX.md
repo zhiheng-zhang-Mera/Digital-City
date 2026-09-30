@@ -16,7 +16,7 @@
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 1 ✅** | Alien | repair closed: finalizer `f25cdb4`, merge `d850d73`, episode `MB-007:553ab7ba1c4b0902` |
 | 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 2 ✅** | Alien | repair closed: episode `MB-008:6ae0bbd46e425c9f`, merge `168182c`, merged-main CI `36663813362` PASS |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
-| 10 | [MB-010](./MB-010-node-fabric.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; auto-claim when P0 clear |
+| 10 | [MB-010](./MB-010-node-fabric.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. 5/5 planned capabilities (NF-01..NF-05) already equivalent-or-superior at claim-time `756c7d7`; MB-001 had already migrated the donor's live node logic from the **same** frozen `8df428e`; the donor remainder is production-dead at the baseline. 0 gaps, 0 migrated, 0 implementation code. Evidence 47 PASS / 0 FAIL (bounded runtime 8/8). Branch `mission/MB-010-node-fabric` @ `8380c38` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
 | 11 | [MB-011](./MB-011-customs.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; compare current Utopia before migration |
 | 12 | [MB-012](./MB-012-runtime-compliance.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; migrate only proven gaps |
 
@@ -33,8 +33,14 @@ COMPLETE. MB-003 — step 3 closed 2026-09-30. Value = `ROUTE_B_CONTINUE`; the d
           `MB-003:5c0ab438d20476d1`, merge `756c7d7`, merged-main CI `36671850064`. Host separation is
           OWNER_WAIVED under response-9-30 R10 and is recorded in the episode, with Mech's historical
           VERIFICATION events and BLOCKED finding preserved under their own host.
-THEN.     Utopia main final integration sweep (MB-007 + MB-008 + MB-003 all merged)
-THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
+THEN.     Utopia main final integration sweep (MB-007 + MB-008 + MB-003 all merged) — VERIFIED:
+          every mission branch measured AheadOfMain = 0 against utopia@756c7d7
+COMPLETE. MB-010 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). 5/5 capabilities
+          already equivalent-or-superior; MB-001 had migrated the donor's live node logic
+          from the same frozen `8df428e`; the donor remainder is production-dead at the
+          baseline. 0 migrated, 0 implementation code, branch `mission/MB-010-node-fabric`
+          @ `8380c38` retained (not merged). Green completion basis `SKIPPED_NOT_REQUIRED`.
+THEN.     MB-011 → MB-012 assessment-first queue
 ```
 
 `SKIPPED_NOT_REQUIRED` is a **green completion basis**, not an eternal red/not-started state.

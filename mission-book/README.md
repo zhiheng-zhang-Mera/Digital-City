@@ -5,7 +5,8 @@
 > 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
 > \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。  
 > \* MB-008 repair step 2 **已于 2026-09-30 闭环**：价值复核 `ROUTE_B_CONTINUE`；先同步 `main`（`77b774c`）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 记录；owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc…`）生成且 inbox 已消费；final branch CI `36663533485` PASS；merge `168182c`；merged-main CI `36663813362` PASS。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留。  
-> \* MB-003 repair step 3 **已于 2026-09-30 闭环**：Utopia 工作此前已完成并合入 `756c7d7`，episode `MB-003:5c0ab438d20476d1`，merged-main CI `36671850064` PASS；本次仅矫正 City bookkeeping 的提交同步遗漏，不代表重新施工或此前未完成。
+> \* MB-003 repair step 3 **已于 2026-09-30 闭环**：Utopia 工作此前已完成并合入 `756c7d7`，episode `MB-003:5c0ab438d20476d1`，merged-main CI `36671850064` PASS；本次仅矫正 City bookkeeping 的提交同步遗漏，不代表重新施工或此前未完成。  
+> \* MB-010 assessment **已于 2026-09-30 闭环：`NO_VALUE`**（Host `Mech`，assessment branch `mission/MB-010-node-fabric` @ `8380c38`）。5/5 计划能力（NF-01..NF-05）在领取时 Utopia（`756c7d7`）已被等价或更优覆盖，0 缺口、0 迁移：MB-001 已从**同一**冻结 donor commit（`8df428e`）迁入 `fleet-routing`（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts`），而运行中的产品（`services/dev-gateway` + `agents/reference-node` + `apps/web`）已自持注册、心跳/存活、endpoint、遥测与 capability-host 广播；donor 未迁部分（`TenxNodeRegistry`/`TenxNetworkRegistry`/`TenxObservability`）在冻结基线上**生产未接线**（无 `main.ts`/`bootstrap` import，`config/capabilities/node.yaml` 声明 `modules: []`）。测量证据：真实 bounded runtime chain 8/8 PASS、city fleet-routing 28/28、root gateway+telemetry+web 11/11（47 PASS / 0 FAIL）。按 R1/R4 视为绿色完成，branch 保留不 merge 不删除，无 verified episode。报告 `reports/MB-010/ASSESSMENT_REPORT.md`。下一步为 MB-011。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
@@ -18,7 +19,7 @@
 | [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 1 ✅） | 🟢 |
 | [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2 ✅） | 🟢 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
-| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
+| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
 | [MB-011 — Customs](./MB-011-customs.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
 | [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
 
@@ -372,6 +373,12 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 - **Step 3 — MB-003:** ✅ **COMPLETE (2026-09-30).** 价值复核 = `ROUTE_B_CONTINUE`：`main` 的 `02-worker-gateway` 当时只有 `skill-intake`，`WG-01..08` 全缺，Route A 禁止，因此按 `response-9-29` R1 与 `response-9-30` R8 在**原 Mission 身份**下执行 §13 的 completion repair：把 deferred 的 donor 真实执行 seam 迁为 `city/02-engineering/02-worker-gateway/worker-runner`（`createRunner` → `startJob`/`killTree`/`childEnv`/`dshBin`/`nodeExecutable`，逐行等价，唯一适配是把 donor 硬编码的 `D:\` 主机路径改为注入 seam；`scheduler.js`/`gate.js`/`system.js` 仍 deferred 并记录在 `DONOR.json`）。**两台主机的真实 provider receipt 都已取得**：`Mech`（`MEGA-REP`，见 `reports/MB-003/VERIFICATION_REPORT.md` §8.3）与 `Alien`（`MERA-ALIANWARE`，`RUNTIME_PASS MB-003:b84512cd12f80735`，八项 verdict 全 true，含真实 `exit 0` 返回模型答案 `OK`），two-host gate 满足。engineering book §4.5 的真实链路随后**通过迁移后的模块本身**重跑：`PORTED_SEAM_RESOLVES_RUNTIME` / `PORTED_SUBMIT_PROGRESS_RESULT` / `PORTED_CANCEL_INTERRUPT` / `PORTED_UNSUPPORTED_REFUSAL` / `PORTED_BREAKER` 五项全 true，日志中无密钥。合并 `main` 时四处冲突全部按并集/超集解决（registry 取 main 的双方排除机制 + resolution split；census 由合并后的 manifest 重新生成并逐条一致，32 个 module；双语文档把 MB-003 作为第 8 节追加，保持配对）。**主机分离：`OWNER_WAIVED`（`response-9-30.md#R10`）** —— Verification Host 本轮无法执行收口，Owner 显式授权本 Mission 的 Migration Host 完成，条件是不得伪造历史、Mech 的事件与 `BLOCKED` finding 原样保留、episode 显式记录 `hostSeparation.mode=OWNER_WAIVED` 与各角色实际 host、且其余 verification 标准一项不降；finalizer 增加了该 waiver 路径并有 10 条新测试覆盖正例与全部拒绝情形。**结果：** episode `MB-003:5c0ab438d20476d1`（27 events，digest `694b5edb…`）；final branch CI `36671502121`、implementation CI `36671050015`、merged-main CI `36671850064` 全 PASS；merge `756c7d760c605e33ba386e87605e078fe24b82ca`。
 
 每一步必须同步 Mission front matter、README、MISSION_INDEX 和对应 Report。
+
+## 13.1 后续 assessment-first 队列（MB-010 → MB-011 → MB-012）
+
+- **MB-010 — Node Fabric:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 领取时无本机可领取 P0（MB-001..009 全部 `verification_complete=true`，全部 mission branch `AheadOfMain=0`），故按 README §3 P1A 领取序号最小的 assessment-first Mission。Utopia baseline `756c7d760c605e33ba386e87605e078fe24b82ca`；donor 冻结基线 `Codex-Boss@8df428eaa437a409368401e95194e40266b83080`（`D:/Codex-Boss` 工作树不在该基线，全程用 `git show`/`ls-tree`/`archive` 只读读取，未改动 donor）。**结论：`NO_VALUE`——判断无价值，任务保留，未迁移。** 5/5 计划能力 NF-01..NF-05 已在当前 Utopia 等价或更优覆盖，0 真实缺口，0 迁移，未写任何实现代码。决定性命中：MB-001 已从**同一**冻结 donor commit 迁入 donor 的**活代码**（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts` → `city/00-foundation/01-city-core/fleet-routing`，含 parity vectors 与保留缺陷）；运行中的产品已自持注册 / 心跳与存活 / endpoint / 遥测 / capability-host 广播。donor 未迁部分（`TenxNodeRegistry`、`TenxNetworkRegistry`、`TenxObservability`）在冻结基线上**生产未接线**：`git grep` 显示唯二引用是 `observability.ts` 里的类型字段与测试，`electron/main.ts`、`electron/bootstrap/`、`electron/host/` 无任何 `tenx/` import，`config/capabilities/node.yaml` 声明 `modules: []` / `bootModules: []` / `surface: []`。**测量证据（47 PASS / 0 FAIL）**：真实 bounded runtime chain 8/8 PASS（live `createGateway()` 临时端口 + live `startAgent()`，覆盖注册、心跳、遥测实测、首个采样诚实 `null`、停止心跳后 `offline`、真实 `NODE_OFFLINE` 事件）、`city fleet-routing` 28/28、root `gateway`+`telemetry`+`web-v02` 11/11。assessment branch `mission/MB-010-node-fabric` @ `8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526` **保留、不 merge、不删除**；无 verified episode（NO_VALUE 不得伪造）。报告 `reports/MB-010/ASSESSMENT_REPORT.md`；Utopia 素材 `evidence/raw/mission-book/MB-010/assessment/` + `data-records/evolution/inbox/mission-book/MB-010/events.jsonl`（5 events）。
+- **MB-011 — Customs:** 待领取（assessment-first，seq 11）。
+- **MB-012 — Runtime Compliance:** 待领取（assessment-first，seq 12）。
 
 ## 14. 历史规则
 

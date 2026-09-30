@@ -5,26 +5,26 @@ execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 assessment_required: true
-assessment_status: IN_PROGRESS
-assessment_complete: false
-assessment_result: null
+assessment_status: COMPLETE_NO_VALUE
+assessment_complete: true
+assessment_result: NO_VALUE
 assessment_claim_host: Mech
 assessment_claimed_at: 2026-09-30T15:40:09Z
 assessment_branch: mission/MB-010-node-fabric
-assessment_head_sha: null
+assessment_head_sha: 8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526
 assessment_utopia_base_sha: 756c7d760c605e33ba386e87605e078fe24b82ca
-assessment_report: null
-migration_status: NOT_STARTED
-migration_complete: false
-migration_completion_basis: null
+assessment_report: mission-book/reports/MB-010/ASSESSMENT_REPORT.md
+migration_status: SKIPPED_COMPLETE
+migration_complete: true
+migration_completion_basis: SKIPPED_NOT_REQUIRED
 migration_claim_host: null
 migration_claimed_at: null
 migration_branch: null
 migration_head_sha: null
 migration_ci: null
 migration_report: null
-verification_status: NOT_STARTED
-verification_complete: false
+verification_status: NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete: true
 verification_claim_host: null
 verification_claimed_at: null
 verification_head_sha: null
@@ -35,8 +35,7 @@ merged_main_sha: null
 
 # MB-010 — Node Fabric Boss 抽取价值评估 / 条件迁移
 
-> **当前可领取：YES — ASSESSMENT_FIRST。**  
-> 自动施工机可以领取，但**领取不等于必须迁移**。领取后先比较冻结 donor 与领取时 Utopia 最新 `main`；只有存在可证实、值得补足的缺口时才允许继续迁移。
+> **状态：COMPLETE_NO_VALUE（2026-09-30，Host `Mech`）。** Assessment verdict 为 `NO_VALUE`：**判断无价值，任务保留，未迁移**。按 README §2 / response-9-30 R1+R4 视为绿色完成（`migration_complete=true`、`migration_completion_basis=SKIPPED_NOT_REQUIRED`、`verification_complete=true`），未写任何实现代码，不生成 verified episode。调度器以后必须视为已完成并 skip，除非 Owner 显式 reset/reopen。
 
 ## 目标
 
@@ -88,11 +87,11 @@ merged_main_sha: null
 
 | ID | 计划能力（donor） | Utopia 当前等价/相关能力 | 覆盖判定 | 决策 | 不迁/部分迁理由 | 证据 |
 |---|---|---|---|---|---|---|
-| NF-01 | node principal / registration / membership identity truth | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| NF-02 | heartbeat / liveness / offline truth | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| NF-03 | runtime endpoint metadata / node endpoint truth | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| NF-04 | hardware / resource telemetry used as node truth | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| NF-05 | capability-host advertisement / capability-to-node hosting truth | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
+| NF-01 | node principal / registration / membership identity truth | durable node record in `services/dev-gateway` SQLite `nodes` (`id`, `devicePrincipalId`, `online`, `lastHeartbeatAt`) + `agents/reference-node` register + MB-001 `fleet-routing` `FleetMemberRecord` | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT`：Utopia 已有真实运行的注册与成员身份真值；donor 更宽的 identity tuple 在 Utopia 没有 consumer | `server.mjs:93-97`, `store.mjs:9`, `agent.mjs:10`, `fleet-routing/DONOR.json` |
+| NF-02 | heartbeat / liveness / offline truth | gateway heartbeat endpoint + 1s sweeper → `online:false` + `NODE_OFFLINE`；`claimNodeFor`→`acceptsWork`；MB-001 已迁 `fleetNodeStateFor`/`handleNodeDropout`；Web ONLINE/OFFLINE/UNKNOWN + 10s freshness | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT`：donor 的 DEGRADED 三态规则已由 MB-001 迁入；把 gateway 改接三态属于改运行时行为，不是补缺失的 donor 行为 | `server.mjs:31,99,129`, `fleet.mjs:46-51,114`, `app.js:16-18` |
+| NF-03 | runtime endpoint metadata / node endpoint truth | pairing `descriptor.endpoint{scheme,host,port}` + apiVersion/schemaVersion；`discovery.mjs` mDNS `utopia-city` + BLE；`store.cityId`；Web/Android 配对消费 | EQUIVALENT | ABANDON | `OBSOLETE_DONOR`：donor 残余部分是 desktop 端 proxy/AI-provider 多路由可达性矩阵；Utopia 单城 outbound-polling 架构没有这个决策面 | `pairing.mjs:8`, `discovery.mjs:11-18`, `ble.mjs`；全仓 grep `networkRoutes`/`providerMatrix` = 0 |
+| NF-04 | hardware / resource telemetry used as node truth | `agents/reference-node/telemetry.mjs`（CPU delta%、内存、磁盘、uptime）+ `contracts/pairing-v1` 校验 + Web LIVE/CACHED 渲染；MB-005 host-health-station；MB-001 `capabilityVerdicts` | SUPERIOR | ABANDON | `UTOPIA_SUPERIOR`：Utopia 遥测是真实测量且被产品消费；donor 自身 `node-inspector.ts` 恒返回 `gpu: []`，没有可迁的 GPU 行为 | `telemetry.mjs`, `descriptor.mjs:25-34`, `app.js:19`, `host-health-station/**` |
+| NF-05 | capability-host advertisement / capability-to-node hosting truth | node `capabilities[]` 持久广播；`REQUIRED_TASK_CAPABILITIES`+`acceptsWork` 放置闸门；MB-001 `eligibleCandidates`；capability-fabric registry（ownership/priority/重复 owner 拒绝/撤销）+ capability-bridge | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT` + `NO_REAL_CONSUMER` + `NO_INDEPENDENT_VALUE`：Utopia 已有更强的跨层 registry 机制；再迁 `NodeCapabilityRegistry` 只会重复注册表状态 | `server.mjs:28-31,102`, `capability-fabric/registry.mjs`, `capability-bridge/registry.mjs` |
 
 ### 推荐理由码
 
@@ -235,11 +234,39 @@ data-records/evolution/episodes/mission-book/MB-010/           # 只有实际迁
 
 - Host: **Mech**
 - Claimed at: 2026-09-30T15:40:09Z
-- City claim commit: _pending (this commit)_
+- City claim commit: `e424178c35dd7f47cd859dc5e784186c2e976a91`
 - Utopia baseline SHA: `756c7d760c605e33ba386e87605e078fe24b82ca`
-- Assessment branch: `mission/MB-010-node-fabric`
+- Assessment branch: `mission/MB-010-node-fabric` @ `8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526`（保留，不 merge、不删除）
 - Donor frozen baseline: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`
 - Selection basis: integration-first scheduler had **no eligible P0** left (MB-001..MB-009 all `verification_complete=true`, all mission branches `AheadOfMain=0`), so the lowest-sequence eligible assessment-first Mission (MB-010) was claimed under README §3 P1A. Read-only reconnaissance preceded this claim; no implementation code has been written.
+- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-010/ASSESSMENT_REPORT.md`](./reports/MB-010/ASSESSMENT_REPORT.md)
+
+### Assessment closeout (NO_VALUE)
+
+```text
+assessment_status          = COMPLETE_NO_VALUE
+assessment_complete        = true
+assessment_result          = NO_VALUE
+migration_status           = SKIPPED_COMPLETE
+migration_complete         = true
+migration_completion_basis = SKIPPED_NOT_REQUIRED
+verification_status        = NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete      = true
+merged_main_sha            = null
+```
+
+Decisive finding: MB-001 had already migrated the donor's **live** node logic
+(`src/shared/fleet.ts`, `capability-router.ts`, `node-capabilities.ts`,
+`adaptive-routing.ts`) from this **same** frozen commit into
+`city/00-foundation/01-city-core/fleet-routing`; the running product already owns
+registration, heartbeat/liveness, endpoint truth, telemetry and capability
+advertisement. The donor remainder (`TenxNodeRegistry`, `TenxNetworkRegistry`,
+`TenxObservability`) is **production-dead at the frozen baseline** — no
+`electron/main.ts`/`bootstrap` import, only a type-only field plus tests, and
+`config/capabilities/node.yaml` declares `modules: []` / `bootModules: []` /
+`surface: []`. Measured evidence: bounded real runtime chain 8/8 PASS, city
+fleet-routing 28/28 PASS, root gateway+telemetry+web 11/11 PASS (47 PASS / 0 FAIL).
+
 
 ### Migration Claim
 
