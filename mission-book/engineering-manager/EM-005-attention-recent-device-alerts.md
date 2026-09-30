@@ -19,17 +19,17 @@ development_branch: engineering-manager/EM-005-attention-recent-device-alerts
 development_head_sha: adf0cf5e6bd17b5f1e4dba29a5f04d51743146f5
 development_ci: 36725729360-success
 development_report: mission-book/reports/EM-005/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T15:36:59Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: cefc6c7ec5343a9d33ae2d6a927603be963389db
+correction_ci: 36739358075-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-005/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
 ---
 
-# EM-005 â€” Attention Bridge + Recent-Device Notification/Ring
+# EM-005 â€?Attention Bridge + Recent-Device Notification/Ring
 
 ## Goal
 
@@ -39,7 +39,7 @@ Make blocking Engineering questions follow the user instead of trapping work on 
 
 - Define Engineering AttentionEnvelope semantics and project them into canonical shared Attention state; do not create an Engineering-only global notification database.
 - Use the shared projection/fan-out path with RF presence/device eligibility and current Utopia interaction state for current + recent-device delivery.
-- Project the actionable event to the current interaction device and notification/ring copies to the 2â€“3 most recently user-operated eligible online devices.
+- Project the actionable event to the current interaction device and notification/ring copies to the 2â€? most recently user-operated eligible online devices.
 - Rank recent devices by real user interaction recency, not uptime/heartbeat age.
 - Implement first-valid-ack wins; globally close the event and withdraw/disable remaining projections.
 - Deduplicate across reconnect, heartbeat, page refresh, repeated connector delivery and retry.
@@ -59,7 +59,7 @@ Make blocking Engineering questions follow the user instead of trapping work on 
 
 - one attention_id creates one logical question despite multiple projections
 - current interaction device is always included when eligible/online
-- only the configured 2â€“3 recent eligible devices receive auxiliary alert projections
+- only the configured 2â€? recent eligible devices receive auxiliary alert projections
 - first acknowledgement closes all copies atomically/idempotently
 - duplicate/reconnect delivery does not ring twice for the same epoch
 - quiet/protected device can suppress sound without losing the event

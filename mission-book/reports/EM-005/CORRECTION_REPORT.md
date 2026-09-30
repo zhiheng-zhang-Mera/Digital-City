@@ -1,0 +1,190 @@
+# EM-005 Correction Report â€?Attention Bridge: Current + Recent-Device Delivery
+
+```text
+MISSION              = EM-005 (Engineering Manager programme, task 5 of 13)
+PROGRAMME            = ENGINEERING_MANAGER_ENGINEERING
+STAGE                = CORRECTION
+CORRECTION_HOST      = Alien
+DEVELOPMENT_HOST     = Mech
+CONTROL_BOOK         = Digital-City/mission-book/engineering-manager/EM-005-attention-recent-device-alerts.md
+CLAIM_COMMIT         = 806be50 (Digital-City main, claim of EM-005 Correction by Alien)
+CLAIMED_AT           = 2026-09-30T15:36:59Z
+COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DEVELOPMENT_HEAD     = adf0cf5e6bd17b5f1e4dba29a5f04d51743146f5
+DEVELOPMENT_CI       = 36725729360-success
+CORRECTION_BRANCH    = engineering-manager/EM-005-attention-recent-device-alerts
+CORRECTION_HEAD_SHA  = cefc6c7ec5343a9d33ae2d6a927603be963389db
+BRANCH_CI            = 36739358075 ¡ª gateway-web success, android success
+LOCAL_CHECK_SUMMARY  = EM-005 16 pass, root 116 pass, rooms 69 pass, city 1801 pass,
+                       promotion-history OK at adf0cf5e, bilingual SYNCHRONIZED
+MERGE                = NOT PERFORMED (forbidden for component branches)
+CORRECTION_COMPLETE  = true
+```
+
+## 1. Independent review method
+
+Two reviews against a byte-verified immutable export taken before the review began
+(`frozen-adf0cf5`, three files `match=True`). Eighth use of this isolation. Repair was verified by
+replaying the original reproductions against the repaired module (`alien-verify-repair.mjs`) and by
+the new paired regression tests.
+
+## 2. Confirmed defects and repairs
+
+Ten confirmed by the reviewer, seven by this host independently; nine distinct mechanisms, all
+repaired at the mechanism.
+
+| id | found by | severity | mechanism | repair |
+| --- | --- | --- | --- | --- |
+| A1 | both | high | `key in ATTENTION_ENVELOPE_SPEC` admitted every field named after an `Object.prototype` member | `Object.hasOwn` + `Reflect.ownKeys` |
+| A2 | both | high | "recent" had no recency bound: a device untouched for years ranked as an alert target, and a future-dated one ranked first forever | bounded window + clock-skew tolerance, anchored to the open instant |
+| A3 | both | high | `acknowledge` mutated status, then parsed the instant inside the return expression, so a malformed timestamp left the question ACKNOWLEDGED with `acknowledged_by: null` | instant validated before any mutation |
+| A4 | both | high | `withdraw` committed status and blanked every projection before the same throw | instant validated before any mutation |
+| A5 | reviewer | high | `respond` set `response_routed` before cloning the response, so an unstorable response threw with the routing already committed and no stored answer | response cloned before the routing is committed |
+| A6 | both | high | a replayed `respond` from the acknowledging device silently replaced the answer the connector had already received, and `RESPONSE_ALREADY_ROUTED` was declared but never raised | exactly one route per question |
+| A7 | both | medium | duplicate `device_ref` entries produced two projections for one device and inflated the count | deduplicated |
+| A8 | both | medium | identity was the caller-chosen `attention_id` alone: a different question under a live id was silently discarded | content-aware: identical is a re-delivery, different is a typed refusal |
+| A9 | both | medium | `isIsoInstant` was a digit-shape regex: an impossible instant entered the record, and `NaN` in the comparator made the ranking depend on input position | calendar round-trip |
+
+### A2 â€?the module's central word had no bound
+
+The workbook's invariant exists so an alert reaches the devices the user actually touches. Ranking
+alone was not a bound:
+
+```text
+ranked = ["dev-future", "dev-touched-a-minute-ago", "dev-abandoned-five-years-ago"]
+a device untouched for 5 years is still "recent": true
+a device dated 10 years ahead outranks every real one: true
+```
+
+Repaired with a 30-day recency window and a clock-skew tolerance, both exported, applied only when a
+clock is supplied. **My first attempt at this repair was incomplete and my own probe caught it**: the
+window was honoured by `rankRecentDevices` but `open()` never passed a clock, so the bridge â€?the only
+path that matters â€?still ranked a five-year-old device as recent. `open()` now anchors the window to
+the instant the question opens.
+
+### A3 / A4 / A5 â€?three half-applied transitions
+
+All three mutated canonical state and only then touched a value that could throw:
+
+```text
+acknowledge(at: "nonsense") -> INVALID_ATTENTION thrown, status afterwards ACKNOWLEDGED, acknowledged_by null
+withdraw(at: "nonsense")    -> INVALID_ATTENTION thrown, status afterwards WITHDRAWN
+respond(response: function) -> throws after response_routed was set, no answer stored
+```
+
+The first two are the worst shape a refusal can take: the caller is told the operation failed while
+the question is already closed globally, further deliveries are refused, and the honest retry returns
+`duplicate: true`. All three now validate or clone *before* committing, verified by asserting the
+status is still `PENDING` and an honest retry succeeds.
+
+### A6 â€?the routed answer was replaceable
+
+`respond`'s guard only fired for a *different* device, so the acknowledging device could re-route
+repeatedly and the connector's already-received answer was silently replaced:
+
+```text
+first respond : OK
+second respond: OK            <- used to succeed
+stored response now = {"answer":"NO, CHANGED MY MIND"}
+```
+
+Now exactly one response routes, and the declared-but-dead `RESPONSE_ALREADY_ROUTED` code is what a
+repeat from the acknowledger throws.
+
+### A1 / A8 / A9 â€?strictness, identity and instants
+
+* The ninth contract in this programme with the `key in spec` hole; the author's strictness test uses a
+  field name that is not an `Object.prototype` member, which is why it survived.
+* Identity keyed on a caller-chosen id meant a *different* question under a live id was reported as a
+  re-delivery and discarded. Identical content is still a re-delivery; different content is a typed
+  refusal. The reviewer also noted that a legitimate re-open from a new thread never projects the new
+  current device â€?that is the same mechanism (the stale record is returned instead of re-projected)
+  and is recorded below as a boundary rather than silently reshaped.
+* `isIsoInstant` must round-trip to the calendar instant it claims, which also removes the `NaN` that
+  made the ranking depend on input array position.
+
+## 3. Reviewer claims reconciled
+
+- **D1â€“D4, D6â€“D10** are A1â€“A4, A6â€“A9. **D5** is A5 and is a defect I had not found; its probe showed
+  the routing committed with no stored response for an unstorable payload.
+- **The reviewer's reading of guarantee 5** â€?that an acknowledgement suppresses delivery to a target
+  that was never delivered to â€?is recorded as a guarantee-wording conflict, not a defect: the frozen
+  suite and the published contract flags both state global closure as the design, so "one target's
+  acknowledgement does not suppress another's delivery" describes a per-target model this module
+  deliberately does not implement. Raised for the Owner rather than "fixed" by re-opening delivery
+  after an answer.
+- **Guarantee 4 (urgency) is vacuous, not violated.** The reviewer confirmed there is no urgency or
+  severity field at all â€?`urgency`, `severity` and `priority` are refused as unknown fields â€?so there
+  is no downgrade path to falsify. Recorded so the merge workbook is not told a guarantee failed when
+  it was never implemented.
+- **Reviewer negative results recorded**: prototype-named *devices* are handled correctly by `===` and
+  `Map`; delivery dedup and the (never-advancing) delivery epoch are sound; clone isolation holds; a
+  cyclic input is handled by `structuredClone`; the count band refuses 0/1/4/-1/2.5/"3"/null.
+
+## 4. Deliberate non-fixes and boundaries
+
+1. **A re-open with the same question still returns the stored record rather than re-projecting to a
+   new current device.** The reviewer is right that a legitimate re-open from a new thread therefore
+   does not reach the new device. Re-projecting on re-open is a behaviour change to a documented
+   "one logical question" model, so it is recorded for the Owner instead of assumed.
+2. **The alert's own `created_at` has no freshness bound.** Nothing in this module makes a decision
+   from `created_at`; impossible instants are now refused, so the residual is inert. Recorded.
+3. **An acknowledgement closes the question for every device**, including one that was never delivered
+   to (see Â§3). By design per the frozen suite; recorded as a wording conflict.
+4. **`RECENT_WINDOW_MS` (30 days) and `MAX_CLOCK_SKEW_MS` (5 minutes) are choices.** The workbook
+   states no values; both are exported so they can be ruled on.
+5. **No urgency/severity model exists**, so guarantee 4 is unimplemented rather than broken. Adding one
+   is Development scope.
+6. **No Android device observation and no Computer-Use session** â€?a pure module with no device surface.
+
+## 5. Tests and CI
+
+Author suite **10/10 pass unchanged**. Suite extended **10 â†?16 tests**, every negative assertion
+paired with a legitimate neighbour. Local: root 116 pass, rooms 69 pass, city 1801 pass,
+promotion-history OK, bilingual SYNCHRONIZED.
+
+## 6. Unstated decisions (problem / choice / rationale)
+
+1. **What "recent" means.** *Choice:* a bounded window anchored to the moment the question opens, with
+   a clock-skew tolerance. *Rationale:* the invariant exists so the alert reaches devices the user
+   operates; an unbounded ranking does not implement it, and a future-dated interaction is
+   unverifiable rather than "most recent".
+2. **When the window applies.** *Choice:* only when a clock is available. *Rationale:* the module is
+   pure and has no clock; `rankRecentDevices` remains usable as a pure ranking, and the bridge always
+   supplies a clock.
+3. **Where a refusal may land.** *Choice:* validate every value that can throw before any mutation.
+   *Rationale:* a half-applied refusal is worse than a slow one â€?the caller is told the operation
+   failed while the canonical state has already changed.
+4. **How many responses a question may route.** *Choice:* exactly one, with `RESPONSE_ALREADY_ROUTED`
+   for the acknowledger and `ALREADY_ANSWERED` for anyone else. *Rationale:* a connector receives one
+   answer; a silently replaced answer is worse than a refusal, and the code already existed.
+5. **Content-aware re-open.** *Choice:* identical is a re-delivery, different is a typed refusal.
+   *Rationale:* discarding a different question under the same id hides a caller error, which is the
+   same defect already repaired in BA-004 and EM-004.
+
+## 7. Honest self-errors
+
+- My first recency repair was incomplete: it bounded `rankRecentDevices` but not the `open()` path
+  that calls it, so the defect was still live where it mattered. My own verification probe caught it
+  before the push.
+- I corrupted `attention.mjs` with a shell-based edit: backticks inside a PowerShell double-quoted
+  replacement are escape characters, so a comment was mangled into invalid UTF-8. I restored the file
+  from the frozen export and re-applied every repair with a Node patch script instead of shell string
+  manipulation â€?the repair set is unchanged, and the recovery is recorded because a corrupted file is
+  a much worse outcome than a failed edit.
+- Three of my new tests were wrong before the code was (`assertAttentionEnvelope` was not imported, the
+  fixture's device refs and question text were not what I assumed, and I asserted a literal question
+  string instead of capturing it). Each was a test error, not a code error.
+- I did not find A5; the reviewer did.
+
+## 8. Result
+
+Nine distinct mechanisms repaired at the mechanism, with paired regression tests and a replay of the
+original reproductions. Three boundaries are recorded with reasoning rather than silently reshaped,
+and one reviewer claim is recorded as a guarantee-wording conflict with the evidence for that reading.
+Nothing about this task required device observation.
+
+```text
+CORRECTION_COMPLETE = true
+CONTROL_BOOK_UPDATED = mission-book/engineering-manager/EM-005-attention-recent-device-alerts.md
+```
