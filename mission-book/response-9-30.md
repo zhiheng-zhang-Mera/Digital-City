@@ -1,6 +1,6 @@
 # Owner Response — 2026-09-30
 
-> 本文件是 MB-010..012 的最新 Owner ruling。与 [response-9-29.md](./response-9-29.md) 冲突时，本文件优先；9-29 其余未冲突裁决继续有效。
+> 本文件是 2026-09-30 的最新 Owner ruling，覆盖 MB-010..012 assessment-first 与 MB-007→008→003 收口修补。与 [response-9-29.md](./response-9-29.md) 冲突时，本文件优先；9-29 其余未冲突裁决继续有效。
 
 ## R1 — MB-010..012 从 disabled placeholder 改为 assessment-first auto-claim
 
