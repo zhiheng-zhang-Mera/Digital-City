@@ -1,5 +1,7 @@
 # Mission Book — Integration-First Migration & Verification Queue
 
+> **CURRENT MODE OVERRIDE — R12 (2026-09-30):** MB-001..MB-012 migration/verification is closed. Current Owner-directed work is the [Pre-Assistant Utopia Closeout Workbook](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md). The old migration scheduler remains authoritative only for historical interpretation or an explicit Owner reopen; it is **not** the current product-work scheduler.
+
 ## 当前施工进度
 
 > 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
@@ -25,18 +27,22 @@
 | [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE）；Alien 独立复核 ✅ + R11 provenance 归档 | 🟢 |
 
 > 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
-> **Active rules = 本文件 + `response-9-30.md` + `response-9-29.md`（未被 9-30 覆盖部分）+ 各 Mission 当前 front matter / mission-specific gates。**  
+> **Active rules = `response-9-30.md#R12` + `ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md` + 本文件；既有 Mission front matter / migration rules 仅在历史解释或 Owner 显式 reopen 时重新生效。**  
 > `past-rules/` 与历史报告仅用于 provenance，不得作为新任务的运行时规则来源。
 
 ## 0. 模式与边界
 
 ```text
-MODE = MIGRATION_ONLY
-NEW_FEATURE_DEVELOPMENT = FORBIDDEN
+MODE = PRE_ASSISTANT_PRODUCT_CLOSEOUT
+MIGRATION_QUEUE = CLOSED
+NEW_DONOR_MIGRATION = FORBIDDEN
+MISSION_REOPEN = OWNER_ONLY
 IMPLEMENTATION_LANDING = Utopia
-CITY_REPO = mission / claim / ownership / acceptance metadata
-SCHEDULER = INTEGRATION_FIRST
-UNMERGED_WIP_LIMIT = 2
+CITY_REPO = control / decision / acceptance metadata
+CURRENT_WORKBOOK = ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md
+ALLOWED_PRODUCT_SCOPE = T0 + T1 + T2 + T3 + T4
+ASSISTANT_LAYER = FORBIDDEN
+BOSS_HNS_CONNECTORS = DEFERRED
 ```
 
 迁移只能搬运 donor 中已经存在的行为：允许抽取、拆分、接口适配、等价重构、已有消费面接线、测试与证据化；禁止把未来设计、缺失 runtime、全新 UI、全新策略或新产品能力伪装成“迁移”。
@@ -511,6 +517,40 @@ MB-010..012 的迁移实现。脚本 `.runtime/evidence/mission-book/MB-010-011-
 SHA"。三个 Mission 都没有实现，所以即使 provenance branch 已归档进 `main`，这个字段也必须保持
 `null`；归档事实另由 `provenance_merge_status` / `provenance_merge_sha` / `provenance_merged_at`
 记录。让 provenance 合并读起来像实现合并，正是本轮最需要避免的失真。
+
+
+## 13.4 当前产品收尾：Pre-Assistant Terminal Foundation
+
+MB-001..012 已全部闭环，当前 migration / assessment 队列为空。根据 Owner ruling
+[`response-9-30.md#R12`](./response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)，
+Mission Book 从 donor migration 调度器切换为**本轮产品收尾控制面**。
+
+绑定工程书：
+
+- [`ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
+
+唯一授权顺序：
+
+```text
+T0  migration closeout / freeze
+ ↓
+T1  attach existing Room Pack to normal Utopia shell
+ ↓
+T2  canonical Action facade
+ ↓
+T3  deterministic Ask / Do
+ ↓
+T4  independent product acceptance + merge + merged-main CI
+ ↓
+FINAL_STATUS = PRE_ASSISTANT_TERMINAL_FOUNDATION_COMPLETE
+ ↓
+STOP
+```
+
+本轮**不得**自动创建新 MB、reopen 已闭环 Mission、增加第 11 个 Room、接 Boss/Hns、引入
+LLM router、人格/个人助理层、长期助理记忆、主动代理或其他领域扩张。
+
+达到最终状态后必须等待新的 Owner 指示。
 
 ## 14. 历史规则
 
