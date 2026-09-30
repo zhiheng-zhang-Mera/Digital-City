@@ -285,3 +285,30 @@ owner 要求的"保留操作历史"因此得到更强的满足，而不是更弱
 **另一处需要记录的判断.** 本轮 City 提交使用 git author `Alien <alien@digital-city.local>`，
 与 `Mech <mech@digital-city.local>` 的历史约定一致（host 自署），而不是仓库默认的 Owner 身份。
 上一轮 4a2cd5f 误用了默认身份，已推送因此不重写历史，仅作记录。
+
+
+---
+
+## R12 — Migration-only 正式结束；进入 Pre-Assistant Product Closeout（Owner 指示，2026-09-30）
+
+**当前事实。** MB-001..MB-012 已全部闭环；MB-010..012 的 `NO_VALUE` 已由 Alien 独立复核并按 R11 完成 provenance 归档；R11 记录的 Utopia branch audit 为 `unmerged = 0`，merged-main CI 通过。当前没有可领取的 Migration / Verification / Assessment Mission。
+
+**Owner 裁决。**
+
+1. **结束当前 `MIGRATION_ONLY` 施工阶段。** 不得因为队列为空而自动创建 MB-013，也不得自行 reopen/reset MB-001..012。
+2. 当前下一项 Owner-directed 工作绑定到：
+   [`ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)。
+3. 本轮只允许该工程书定义的 **T0 → T1 → T2 → T3 → T4**：
+   - T0：migration phase 关账 / freeze；
+   - T1：把已验收 Room Pack 接入正常 Utopia Shell；
+   - T2：建立统一 Action facade；
+   - T3：建立 deterministic Ask / Do；
+   - T4：独立产品验收、merge、merged-main CI 后停线。
+4. 这一阶段属于**产品整合**，不是 donor migration。允许为了 T1–T3 新增必要的产品层接口/UI/adapter，但不得借此重新搬 donor、扩充领域能力或修改已闭环 Mission 的完成语义。
+5. **硬性排除：** 本轮不实现 personalized assistant/persona、assistant-specific memory、proactive personal agent、LLM router、Boss connector、Hns connector、新 Room、Health/Quant/Digital-Me、任意 shell、完整 deferred Computer-Use runtime plane、voice/avatar/wearable/AR/VR/cloud 等后续能力。
+6. 原 README 的 migration selection/finalize/host-separation 等规则仍作为**已闭环 Mission 的历史解释和 Owner 显式 reopen 时的条件规则**保留，但不再是当前产品施工的调度器。
+7. 本轮达成：
+   `FINAL_STATUS = PRE_ASSISTANT_TERMINAL_FOUNDATION_COMPLETE`
+   后必须停止。下一阶段必须等待新的 Owner 指示，不得自动继续后续 connector、workspace、resident-host 或 assistant 层。
+
+**目的。** 先把已有 Utopia 能力收束成一个统一终端骨架，再决定后续能力；防止在产品统一之前继续横向堆模块。
