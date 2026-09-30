@@ -17,10 +17,10 @@ development_branch: remote/RF-005-remote-invite-rendezvous
 development_head_sha: 52646ac30c23ec33d70c4a787ac519be19969a89
 development_ci: 36737404307-success
 development_report: mission-book/reports/RF-005/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T16:52:00Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/RF-005/CORRECTION_REPORT.md
