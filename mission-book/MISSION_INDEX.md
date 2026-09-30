@@ -158,13 +158,22 @@ Those statements remain valid descriptions of the state **when the reports were 
 >   fire. Utopia's own enforcement was re-proven on live paths: illegal operation → `OPERATION_BLOCKED`,
 >   oversize input → `INPUT_TOO_LARGE`.
 >
-> **Nothing was merged, and nothing should be.** Each of the three assessment branches is exactly
-> **1 ahead / 0 behind** `main`, and that single commit contains only assessment provenance
+> **Nothing was merged as implementation, and no verdict changes.** Each of the three assessment branches is
+> exactly **1 ahead / 0 behind** `main`, and that single commit contains only assessment provenance
 > (`data-records/evolution/inbox/mission-book/MB-0xx/events.jsonl` and
-> `evidence/raw/mission-book/MB-0xx/assessment/**`) — **no implementation code**. `response-9-30` R1 keeps a
-> `NO_VALUE` assessment branch as provenance and explicitly forbids merging it, and forbids fabricating a
-> verified implementation episode; `merged_main_sha: null` is therefore correct for all three. Every Mission
-> branch that does carry implementation (MB-001..MB-009) is **0 ahead / fully merged**.
+> `evidence/raw/mission-book/MB-0xx/assessment/**`) — **no implementation code**, which is why
+> `merged_main_sha: null` stays correct for all three. Every Mission branch that does carry implementation
+> (MB-001..MB-009) is **0 ahead / fully merged**.
+>
+> **Owner ruling [`response-9-30.md#R11`](./response-9-30.md) (2026-09-30): the three provenance branches are
+> merged anyway.** After the independent verification passed, the Owner directed that the Utopia branches be
+> merged into `main` with operation history and SHA tracking preserved, and that the `NO_VALUE` confirmation
+> be **force-recorded under host `Alien`**. [README.md](./README.md) line 223 otherwise keeps a `NO_VALUE`
+> assessment branch unmerged as provenance; R11 overrides that **for these three branches only**, and
+> `assessment_result = NO_VALUE`, `migration_completion_basis = SKIPPED_NOT_REQUIRED` and
+> `merged_main_sha: null` are all unchanged — a provenance merge must never read as an implementation merge.
+> Alien's record is Alien-authored `VERIFICATION` events; the assessment host's events are preserved verbatim.
+> The merge SHAs are in the block below.
 
 ```text
 utopia main at re-verification : 756c7d760c605e33ba386e87605e078fe24b82ca

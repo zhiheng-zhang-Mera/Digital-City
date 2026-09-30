@@ -173,3 +173,44 @@ Host 无法执行该收口。
 
 **范围.** 这是一次显式的、被记录的、只针对 MB-003 收口的主机分离豁免，**不是**对 two-host 规则的普遍放宽；
 后续 Mission 仍需两台不同真实主机，除非 Owner 再次显式裁决。
+
+---
+
+## R11 — MB-010/011/012 provenance merge 与 Alien 强制 NO_VALUE 记录（Owner 指示，2026-09-30）
+
+**背景.** MB-010、MB-011、MB-012 三个 assessment-first Mission 已由 Host `Mech` 以 `NO_VALUE` 绿色闭环
+（`migration_completion_basis=SKIPPED_NOT_REQUIRED`）。Owner 随后指示 Host `Alien` 在**不复用任何既有测试**的前提下
+重做独立验证，并在验证通过后把 Utopia 的分支合入 `main`，保留操作历史与 SHA 追踪；本次追加指示为：
+先落定本轮已决定的报告修订，再把 `NO_VALUE` 以 `Alien` 身份**强制记录**，然后继续合并。
+
+**与既有规则的冲突（必须显式记录，不得静默处理）.** [README.md](./README.md) line 223 规定：NO_VALUE 时
+assessment branch "push 后保留为 provenance/research branch，**不 merge、不删除**"。
+Owner 本次的合并指示与该条**字面冲突**。处理方式：把 Owner 指示本身记为裁决，逐条限定其效力范围，
+而不是默默照做、也不是默默拒绝。
+
+**Owner 裁决.**
+
+1. **允许合并，但只作为 provenance merge。** `mission/MB-010-node-fabric`、`mission/MB-011-customs`、
+   `mission/MB-012-runtime-compliance` 三个 branch 允许以 `--no-ff` 合入 `main`，**仅因为 Owner 显式指示**；
+   README line 223 对**将来**的 NO_VALUE branch 继续有效。
+2. **不得被读成实现合并。** 三个 branch 各自只有一个 commit，内容只有
+   `data-records/evolution/inbox/mission-book/MB-0xx/events.jsonl` 与
+   `evidence/raw/mission-book/MB-0xx/assessment/**`，**不含任何实现代码**。因此
+   `merged_main_sha` 保持 `null`（该字段语义是"本 Mission 的实现落在 main 的 SHA"），
+   provenance merge 另立字段 `provenance_merged_at` / `provenance_merge_sha` / `provenance_merge_branch` 记录。
+3. **评估结论不变。** `assessment_result=NO_VALUE`、`assessment_status=COMPLETE_NO_VALUE`、
+   `migration_completion_basis=SKIPPED_NOT_REQUIRED`、`verification_status=NOT_REQUIRED_SKIPPED_COMPLETE`
+   全部不变；仍不生成 verified implementation episode。
+4. **分支不删除。** 合并后 `mission/MB-0xx-*` 三个 branch 在远端保留，作为 provenance 的原始参照。
+5. **不得伪造历史。** `Mech` 的 assessment 事件（`MIGRATION/Mech`，各 5 条）保持原样 `hostId`；
+   `Alien` 的强制记录只能以自己的 `VERIFICATION` + `hostId=Alien` 事件形式追加，不得代写 Mech。
+6. **Alien 必须留下自己的真实记录。** 以 README line 309 的事件约定，在
+   `data-records/evolution/inbox/mission-book/MB-0xx/events.jsonl` 追加由 `Alien` 发出的事件：
+   `OWNER_INTERVENTION`（引用本裁决，作为触碰该 Mission 的施工者义务事件）、
+   `VERIFIER_FINDING`（独立复核结论）与 `VERIFICATION_COMPLETE`（结论 `PASS`，即 `NO_VALUE` 被独立确认）；
+   全部 `role=VERIFICATION`、`hostId=Alien`，`sourceRef` 指向 `Digital-City/mission-book/response-9-30.md#R11`。
+7. **SHA 追踪必须完整。** 记录每个 branch 的 head SHA、其父提交（必须等于合并前的 `main`）、
+   合并产生的 merge commit SHA，以及合并后的 `main` SHA。
+
+**范围.** 本次合并是**被显式裁决的 provenance 归档**，不改变任何一个 Mission 的 value verdict，
+也不构成"NO_VALUE 就可以合实现"的先例。

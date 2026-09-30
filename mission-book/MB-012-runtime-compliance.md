@@ -34,7 +34,13 @@ merged_main_sha: null
 independent_reverification_host: Alien
 independent_reverified_at: 2026-09-30
 independent_reverification_result: NO_VALUE_CONFIRMED
-independent_reverification_note: "Owner-directed re-verification without reusing any existing test; real Android device operation used for MB-010. The assessment branch is 1 ahead / 0 behind main and that single commit is assessment provenance only, so nothing is merged per response-9-30 R1."
+independent_reverification_note: "Owner-directed re-verification without reusing any existing test. The assessment host's per-capability claims were re-derived from the frozen donor with fresh probes and re-proven on Utopia's live surfaces (live gateway refusals, live capability-bridge refusals, ExecutionGate construction site). The NO_VALUE verdict is independently CONFIRMED without qualification."
+independent_reverification_record: "FORCED by host Alien under the Owner ruling response-9-30.md#R11; the record is Alien-authored VERIFICATION events in the implementation repo, never a rewriting of the assessment host's events."
+provenance_merge_ruling: "response-9-30.md#R11 - Owner-directed provenance merge, overriding README line 223 for these three branches only"
+provenance_merge_status: PENDING_EXECUTION_AT_RECORD_TIME
+provenance_merge_branch: mission/MB-012-runtime-compliance
+provenance_merge_sha: null
+provenance_merged_at: null
 assessment_utopia_main_at_reverification: 756c7d760c605e33ba386e87605e078fe24b82ca
 ---
 
