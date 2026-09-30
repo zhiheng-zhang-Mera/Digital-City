@@ -177,8 +177,20 @@ Those statements remain valid descriptions of the state **when the reports were 
 
 ```text
 utopia main at re-verification : 756c7d760c605e33ba386e87605e078fe24b82ca
-MB-010 assessment branch       : mission/MB-010-node-fabric       @ 8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526  (1 ahead / 0 behind)
+MB-010 assessment branch       : mission/MB-010-node-fabric        @ 8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526  (1 ahead / 0 behind)
 MB-011 assessment branch       : mission/MB-011-customs           @ 82b6ac486d024efcfcc64703b58cc136b546caf9  (1 ahead / 0 behind)
 MB-012 assessment branch       : mission/MB-012-runtime-compliance @ d071328d8f68ba1ddd5e8a1fde11718e75fd6672  (1 ahead / 0 behind)
-merged_main_sha                : null for all three (SKIPPED_NOT_REQUIRED)
+merged_main_sha                : null for all three (SKIPPED_NOT_REQUIRED - no implementation was merged)
+```
+
+Provenance merges executed under ruling R11 (`--no-ff`, second parent = branch tip, all three
+conflict-free, all three branches retained on the remote):
+
+```text
+MB-010 mission/MB-010-node-fabric        @ 8380c38  -> merge 6e9781cb5c42b88f2b9bcdb2e7fb096c4fc8b85a  (parents 756c7d7, 8380c38)
+MB-011 mission/MB-011-customs            @ 82b6ac4  -> merge f22273c37af1ebff6c95d49972b5d26a222f2ed2  (parents 6e9781c, 82b6ac4)
+MB-012 mission/MB-012-runtime-compliance @ d071328  -> merge e0d9470e2a5b5479c1614071d8f43af3d1d93248  (parents f22273c, d071328)
+Alien's forced NO_VALUE record  : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e (9 VERIFICATION events, 3 per Mission)
+utopia main after everything    : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
+files added per merge           : 5 (events.jsonl + 4 assessment evidence files) - NO IMPLEMENTATION CODE
 ```

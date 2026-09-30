@@ -37,10 +37,12 @@ independent_reverification_result: NO_VALUE_CONFIRMED
 independent_reverification_note: "Owner-directed re-verification without reusing any existing test. The assessment host's per-capability claims were re-derived from both frozen donors with fresh probes and re-proven on Utopia's live surfaces (tamper-refused manifest admission, promotion provenance against real Git history, capability-ownership refusal). The NO_VALUE verdict is independently CONFIRMED without qualification; the CU-04 deadness over-claim in section 2.4 of the report was corrected in place."
 independent_reverification_record: "FORCED by host Alien under the Owner ruling response-9-30.md#R11; the record is Alien-authored VERIFICATION events in the implementation repo, never a rewriting of the assessment host's events."
 provenance_merge_ruling: "response-9-30.md#R11 - Owner-directed provenance merge, overriding README line 223 for these three branches only"
-provenance_merge_status: PENDING_EXECUTION_AT_RECORD_TIME
+provenance_merge_status: COMPLETE
 provenance_merge_branch: mission/MB-011-customs
-provenance_merge_sha: null
-provenance_merged_at: null
+provenance_merge_sha: f22273c37af1ebff6c95d49972b5d26a222f2ed2
+provenance_merged_at: 2026-09-30T16:32:02+10:00
+provenance_merge_branch_retained: true
+utopia_main_after_provenance_merges: d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
 assessment_utopia_main_at_reverification: 756c7d760c605e33ba386e87605e078fe24b82ca
 ---
 

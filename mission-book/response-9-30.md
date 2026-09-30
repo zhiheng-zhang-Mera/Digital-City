@@ -202,7 +202,7 @@ Owner 本次的合并指示与该条**字面冲突**。处理方式：把 Owner 
    `migration_completion_basis=SKIPPED_NOT_REQUIRED`、`verification_status=NOT_REQUIRED_SKIPPED_COMPLETE`
    全部不变；仍不生成 verified implementation episode。
 4. **分支不删除。** 合并后 `mission/MB-0xx-*` 三个 branch 在远端保留，作为 provenance 的原始参照。
-5. **不得伪造历史。** `Mech` 的 assessment 事件（`MIGRATION/Mech`，各 5 条）保持原样 `hostId`；
+5. **不得伪造历史。** `Mech` 的 assessment 事件（`MIGRATION/Mech`，每个 Mission 4 条）保持原样 `hostId`；
    `Alien` 的强制记录只能以自己的 `VERIFICATION` + `hostId=Alien` 事件形式追加，不得代写 Mech。
 6. **Alien 必须留下自己的真实记录。** 以 README line 309 的事件约定，在
    `data-records/evolution/inbox/mission-book/MB-0xx/events.jsonl` 追加由 `Alien` 发出的事件：
@@ -214,3 +214,64 @@ Owner 本次的合并指示与该条**字面冲突**。处理方式：把 Owner 
 
 **范围.** 本次合并是**被显式裁决的 provenance 归档**，不改变任何一个 Mission 的 value verdict，
 也不构成"NO_VALUE 就可以合实现"的先例。
+
+### R11 执行记录（2026-09-30，Host `Alien`）
+
+裁决逐条落实，全部可核对：
+
+```text
+0. 报告修订（先做，早于合并）
+   MB-011 reports/MB-011/ASSESSMENT_REPORT.md §2.4 与 NO_VALUE 理由第 3 条就地改写：
+     原表述让 "in dead code" 读成整个 app/core/plugin-adapters/ 不可达；实际
+     plugin-adapters/contract.cjs 由活的 app/plugin-host.cjs（<- app/desktop-main.cjs /
+     app/runtime/host.cjs）加载，并确实拒绝非法权限词表 / 非法 adapter manifest /
+     adapter fault code。改写后结论落在"隔离元数据无消费者"这一准确理由上。
+     提交 86e83bee4a5647adfaa6e929c6814546704d5216
+   MB-010（tenx/ 零构造点）与 MB-012（runtime-policy 无解析者、无 options 的
+     ExecutionGate）对应表述用新探针复核后准确，未改。
+
+1. 强制记录（City 侧）
+   response-9-30.md R11 本身 + MB-010/011/012 front matter 的
+     independent_reverification_result = NO_VALUE_CONFIRMED（无保留）
+     independent_reverification_record   = 引用 R11，声明为 Alien 自署
+     provenance_merge_* 字段
+   提交 1ad5dbbe6997925ef1803073914e7e4519f61d84
+
+2. provenance 合并（Utopia 侧，--no-ff，合并前 main = 756c7d76）
+   mission/MB-010-node-fabric        @ 8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526
+     -> 6e9781cb5c42b88f2b9bcdb2e7fb096c4fc8b85a  (parents 756c7d7, 8380c38)
+   mission/MB-011-customs            @ 82b6ac486d024efcfcc64703b58cc136b546caf9
+     -> f22273c37af1ebff6c95d49972b5d26a222f2ed2  (parents 6e9781c, 82b6ac4)
+   mission/MB-012-runtime-compliance @ d071328d8f68ba1ddd5e8a1fde11718e75fd6672
+     -> e0d9470e2a5b5479c1614071d8f43af3d1d93248  (parents f22273c, d071328)
+   三个 merge 各新增 5 个文件（events.jsonl + 4 个 assessment evidence），零实现代码，零冲突。
+   三个 branch 远端保留，未删除。
+
+3. Alien 强制记录（Utopia 侧事件）
+   role=VERIFICATION / hostId=Alien / sourceRef=Digital-City/mission-book/response-9-30.md#R11
+   MB-010: 21cbfd606fd9f94b (OWNER_INTERVENTION), 99428c296e59d540 (VERIFIER_FINDING=PASS),
+           205eb70e7cae1c07 (VERIFICATION_COMPLETE=PASS)
+   MB-011: 6f7fa334c286f551, bfcf91eeae8d6093, 6b7a1f3474f14eb5
+   MB-012: 9e13427671e9efe5, d2b224485905d002, aae0a20a60956136
+   写入提交 d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
+   Mech 的 4 条 MIGRATION 事件经字节比对原样保留。
+
+不变量自检
+   assessment_result = NO_VALUE                     三个 Mission 均未变
+   migration_completion_basis = SKIPPED_NOT_REQUIRED 三个 Mission 均未变
+   verification_status = NOT_REQUIRED_SKIPPED_COMPLETE 三个 Mission 均未变
+   merged_main_sha = null                            三个 Mission 均保持 null
+   verified implementation episode                   未生成（NO_VALUE 不得伪造）
+   utopia main                                       d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
+```
+
+**一处必须说明的执行顺序偏差.** Owner 的措辞顺序是"先强制记录、再继续合并"。实际执行是：
+City 侧的强制记录（第 1 步）确实在合并之前完成；但 Utopia 侧的事件写入（第 3 步）放在三个 merge
+**之后**。理由是 provenance 保真：先合并可以让每个 branch 的内容在 `main` 中**逐字节保持原样**
+（否则 `events.jsonl` 会出现 add/add 冲突，需要在 merge commit 里改写 branch 自己的文件）。
+owner 要求的"保留操作历史"因此得到更强的满足，而不是更弱。记录在这里以便核对。顺序偏差之外，
+第 1、2、3 步的产物与裁决要求逐条一致。
+
+**另一处需要记录的判断.** 本轮 City 提交使用 git author `Alien <alien@digital-city.local>`，
+与 `Mech <mech@digital-city.local>` 的历史约定一致（host 自署），而不是仓库默认的 Owner 身份。
+上一轮 4a2cd5f 误用了默认身份，已推送因此不重写历史，仅作记录。

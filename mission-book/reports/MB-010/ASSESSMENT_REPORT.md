@@ -335,13 +335,27 @@ that one commit contains    : data-records/evolution/inbox/mission-book/MB-010/e
                               evidence/raw/mission-book/MB-010/assessment/** (README, capability-matrix,
                               environment, bounded-*)
                               NO IMPLEMENTATION CODE
-merge                       : NOT PERFORMED, by rule. response-9-30 R1 keeps a NO_VALUE assessment
-                              branch as provenance and explicitly forbids merging it; it also forbids
-                              fabricating a verified implementation episode.
-merged_main_sha             : null (correct for migration_completion_basis SKIPPED_NOT_REQUIRED)
+merge (at verification time) : NOT PERFORMED, by rule. README line 223 (echoed by response-9-30 R1)
+                              keeps a NO_VALUE assessment branch as provenance and explicitly forbids
+                              merging it, and forbids fabricating a verified implementation episode.
+merge (Owner ruling R11)    : PERFORMED afterwards as a PROVENANCE merge, by explicit Owner direction:
+                              response-9-30.md#R11 overrides README line 223 for these three branches only.
+                              git merge --no-ff mission/MB-010-node-fabric
+                                -> 6e9781cb5c42b88f2b9bcdb2e7fb096c4fc8b85a  (parents 756c7d7, 8380c38), conflict-free,
+                                   5 files added (events.jsonl + 4 assessment evidence files),
+                                   branch retained on the remote, no implementation code involved.
+merged_main_sha             : null - UNCHANGED. The field means "the SHA where this Mission's
+                              implementation landed in main"; nothing was implemented, so it stays null
+                              even though the provenance branch is now archived in main.
+utopia main afterwards      : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e (the three provenance merges plus Alien's forced
+                              NO_VALUE record on top of 756c7d76)
 ```
 
-There is no migration branch for this Mission, so there is nothing to merge into `main`.
+There is no migration branch for this Mission: no implementation exists to merge, which is why
+`merged_main_sha` stays `null`. What ruling R11 archived into `main` is the assessment provenance
+alone - the probes, tamper cases and dry-runs this section reports, never a migrated capability.
+`merged_main_sha` stays `null`. What ruling R11 archived into `main` is the assessment
+provenance alone - the tests, dry-runs and probes this section reports, not a migrated capability.
 
 ### 9.4 Evidence pointers
 

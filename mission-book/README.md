@@ -6,7 +6,8 @@
 > \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。  
 > \* MB-008 repair step 2 **已于 2026-09-30 闭环**：价值复核 `ROUTE_B_CONTINUE`；先同步 `main`（`77b774c`）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 记录；owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc…`）生成且 inbox 已消费；final branch CI `36663533485` PASS；merge `168182c`；merged-main CI `36663813362` PASS。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留。  
 > \* MB-003 repair step 3 **已于 2026-09-30 闭环**：Utopia 工作此前已完成并合入 `756c7d7`，episode `MB-003:5c0ab438d20476d1`，merged-main CI `36671850064` PASS；本次仅矫正 City bookkeeping 的提交同步遗漏，不代表重新施工或此前未完成。  
-> \* MB-010 assessment **已于 2026-09-30 闭环：`NO_VALUE`**（Host `Mech`，assessment branch `mission/MB-010-node-fabric` @ `8380c38`）。5/5 计划能力（NF-01..NF-05）在领取时 Utopia（`756c7d7`）已被等价或更优覆盖，0 缺口、0 迁移：MB-001 已从**同一**冻结 donor commit（`8df428e`）迁入 `fleet-routing`（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts`），而运行中的产品（`services/dev-gateway` + `agents/reference-node` + `apps/web`）已自持注册、心跳/存活、endpoint、遥测与 capability-host 广播；donor 未迁部分（`TenxNodeRegistry`/`TenxNetworkRegistry`/`TenxObservability`）在冻结基线上**生产未接线**（无 `main.ts`/`bootstrap` import，`config/capabilities/node.yaml` 声明 `modules: []`）。测量证据：真实 bounded runtime chain 8/8 PASS、city fleet-routing 28/28、root gateway+telemetry+web 11/11（47 PASS / 0 FAIL）。按 R1/R4 视为绿色完成，branch 保留不 merge 不删除，无 verified episode。报告 `reports/MB-010/ASSESSMENT_REPORT.md`。下一步为 MB-011。
+> \* MB-010 assessment **已于 2026-09-30 闭环：`NO_VALUE`**（Host `Mech`，assessment branch `mission/MB-010-node-fabric` @ `8380c38`）。5/5 计划能力（NF-01..NF-05）在领取时 Utopia（`756c7d7`）已被等价或更优覆盖，0 缺口、0 迁移：MB-001 已从**同一**冻结 donor commit（`8df428e`）迁入 `fleet-routing`（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts`），而运行中的产品（`services/dev-gateway` + `agents/reference-node` + `apps/web`）已自持注册、心跳/存活、endpoint、遥测与 capability-host 广播；donor 未迁部分（`TenxNodeRegistry`/`TenxNetworkRegistry`/`TenxObservability`）在冻结基线上**生产未接线**（无 `main.ts`/`bootstrap` import，`config/capabilities/node.yaml` 声明 `modules: []`）。测量证据：真实 bounded runtime chain 8/8 PASS、city fleet-routing 28/28、root gateway+telemetry+web 11/11（47 PASS / 0 FAIL）。按 R1/R4 视为绿色完成，branch 保留不删除、无 verified episode；其后按 `response-9-30.md#R11` 作为 provenance 归档合入 `main`（见下一条）。报告 `reports/MB-010/ASSESSMENT_REPORT.md`。下一步为 MB-011。  
+> \* MB-010/011/012 **独立复核 + provenance 归档 + Alien 强制 NO_VALUE 记录（2026-09-30，`response-9-30.md#R11`）**：Owner 指示 Host `Alien` 在**不复用任何既有测试**的前提下重做独立验证（MB-010 允许真实 Android 设备操作），验证通过后把 Utopia 的分支合入 `main` 并保留操作历史与 SHA 追踪。**三个 `NO_VALUE` verdict 全部独立确认**（无保留）：MB-010 冻结 donor 上 `new TenxNodeRegistry(`/`new TenxNetworkRegistry(` 零构造点、`tenx/` 不出现在 composition root，真实设备（`PERM00`，Android 12）配对后渲染 node list / `ONLINE` vs `OFFLINE · Cached` / 遥测（18.4 GB 与 gateway `usedBytes=19740823552` 完全一致）；MB-011 两个 donor 均无 `plugin-install` 消费者，篡改 5 个 manifest 各被具名拒绝而对照通过，promotion provenance 对真实 Git 历史验证通过，fabric 具名拒绝第二 owner；MB-012 `electron/capability/*` 无应用内 importer、`main.ts:1003` 以无 options 构造 `ExecutionGate`（authorizer 钩子不可能触发）、`runtime-policy.json` 仅被 hash 无人解析，活路径拒绝 `OPERATION_BLOCKED` / `INPUT_TOO_LARGE`。**唯一的报告修订**：MB-011 §2.4 原文让"in dead code"读起来像整个 `plugin-adapters/` 树不可达，实际 `contract.cjs` 被活的 `app/plugin-host.cjs` 加载并确会拒绝（权限词表 / 非法 manifest / adapter fault code），已就地改写为"隔离元数据无消费者"这一准确理由（MB-010、MB-012 的对应表述经复核准确，未改）。**provenance 合并（`--no-ff`，3 个 branch 各 1 commit、各 5 个文件、无实现代码、零冲突）**：MB-010 `mission/MB-010-node-fabric` @ `8380c38` → `6e9781c`；MB-011 `mission/MB-011-customs` @ `82b6ac4` → `f22273c`；MB-012 `mission/MB-012-runtime-compliance` @ `d071328` → `e0d9470`；随后 Alien 以 `role=VERIFICATION`/`hostId=Alien` 追加 9 条事件（每 Mission 3 条：`OWNER_INTERVENTION`、`VERIFIER_FINDING=PASS`、`VERIFICATION_COMPLETE=PASS`，`sourceRef` 均指向 R11），记录提交 `d0dea7b`。`merged_main_sha` 三项**保持 `null`**（未迁移任何实现），`assessment_result`/`migration_completion_basis`/`verification_status` 全部不变，三个 branch 远端**保留不删除**，`Mech` 的 assessment 事件原样保留未被代写。R11 显式覆盖 README line 223，**仅限这三个 branch**。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
@@ -19,9 +20,9 @@
 | [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 1 ✅） | 🟢 |
 | [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2 ✅） | 🟢 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
-| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
-| [MB-011 — Customs](./MB-011-customs.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
-| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
+| [MB-010 — Node Fabric](./MB-010-node-fabric.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE）；Alien 独立复核 ✅ + R11 provenance 归档 | 🟢 |
+| [MB-011 — Customs](./MB-011-customs.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE）；Alien 独立复核 ✅ + R11 provenance 归档 | 🟢 |
+| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE）；Alien 独立复核 ✅ + R11 provenance 归档 | 🟢 |
 
 > 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
 > **Active rules = 本文件 + `response-9-30.md` + `response-9-29.md`（未被 9-30 覆盖部分）+ 各 Mission 当前 front matter / mission-specific gates。**  
@@ -376,7 +377,7 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 
 ## 13.1 后续 assessment-first 队列（MB-010 → MB-011 → MB-012）
 
-- **MB-010 — Node Fabric:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 领取时无本机可领取 P0（MB-001..009 全部 `verification_complete=true`，全部 mission branch `AheadOfMain=0`），故按 README §3 P1A 领取序号最小的 assessment-first Mission。Utopia baseline `756c7d760c605e33ba386e87605e078fe24b82ca`；donor 冻结基线 `Codex-Boss@8df428eaa437a409368401e95194e40266b83080`（`D:/Codex-Boss` 工作树不在该基线，全程用 `git show`/`ls-tree`/`archive` 只读读取，未改动 donor）。**结论：`NO_VALUE`——判断无价值，任务保留，未迁移。** 5/5 计划能力 NF-01..NF-05 已在当前 Utopia 等价或更优覆盖，0 真实缺口，0 迁移，未写任何实现代码。决定性命中：MB-001 已从**同一**冻结 donor commit 迁入 donor 的**活代码**（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts` → `city/00-foundation/01-city-core/fleet-routing`，含 parity vectors 与保留缺陷）；运行中的产品已自持注册 / 心跳与存活 / endpoint / 遥测 / capability-host 广播。donor 未迁部分（`TenxNodeRegistry`、`TenxNetworkRegistry`、`TenxObservability`）在冻结基线上**生产未接线**：`git grep` 显示唯二引用是 `observability.ts` 里的类型字段与测试，`electron/main.ts`、`electron/bootstrap/`、`electron/host/` 无任何 `tenx/` import，`config/capabilities/node.yaml` 声明 `modules: []` / `bootModules: []` / `surface: []`。**测量证据（47 PASS / 0 FAIL）**：真实 bounded runtime chain 8/8 PASS（live `createGateway()` 临时端口 + live `startAgent()`，覆盖注册、心跳、遥测实测、首个采样诚实 `null`、停止心跳后 `offline`、真实 `NODE_OFFLINE` 事件）、`city fleet-routing` 28/28、root `gateway`+`telemetry`+`web-v02` 11/11。assessment branch `mission/MB-010-node-fabric` @ `8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526` **保留、不 merge、不删除**；无 verified episode（NO_VALUE 不得伪造）。报告 `reports/MB-010/ASSESSMENT_REPORT.md`；Utopia 素材 `evidence/raw/mission-book/MB-010/assessment/` + `data-records/evolution/inbox/mission-book/MB-010/events.jsonl`（5 events）。
+- **MB-010 — Node Fabric:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 领取时无本机可领取 P0（MB-001..009 全部 `verification_complete=true`，全部 mission branch `AheadOfMain=0`），故按 README §3 P1A 领取序号最小的 assessment-first Mission。Utopia baseline `756c7d760c605e33ba386e87605e078fe24b82ca`；donor 冻结基线 `Codex-Boss@8df428eaa437a409368401e95194e40266b83080`（`D:/Codex-Boss` 工作树不在该基线，全程用 `git show`/`ls-tree`/`archive` 只读读取，未改动 donor）。**结论：`NO_VALUE`——判断无价值，任务保留，未迁移。** 5/5 计划能力 NF-01..NF-05 已在当前 Utopia 等价或更优覆盖，0 真实缺口，0 迁移，未写任何实现代码。决定性命中：MB-001 已从**同一**冻结 donor commit 迁入 donor 的**活代码**（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts` → `city/00-foundation/01-city-core/fleet-routing`，含 parity vectors 与保留缺陷）；运行中的产品已自持注册 / 心跳与存活 / endpoint / 遥测 / capability-host 广播。donor 未迁部分（`TenxNodeRegistry`、`TenxNetworkRegistry`、`TenxObservability`）在冻结基线上**生产未接线**：`git grep` 显示唯二引用是 `observability.ts` 里的类型字段与测试，`electron/main.ts`、`electron/bootstrap/`、`electron/host/` 无任何 `tenx/` import，`config/capabilities/node.yaml` 声明 `modules: []` / `bootModules: []` / `surface: []`。**测量证据（47 PASS / 0 FAIL）**：真实 bounded runtime chain 8/8 PASS（live `createGateway()` 临时端口 + live `startAgent()`，覆盖注册、心跳、遥测实测、首个采样诚实 `null`、停止心跳后 `offline`、真实 `NODE_OFFLINE` 事件）、`city fleet-routing` 28/28、root `gateway`+`telemetry`+`web-v02` 11/11。assessment branch `mission/MB-010-node-fabric` @ `8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526` **保留、不 merge、不删除**；无 verified episode（NO_VALUE 不得伪造）。报告 `reports/MB-010/ASSESSMENT_REPORT.md`；Utopia 素材 `evidence/raw/mission-book/MB-010/assessment/` + `data-records/evolution/inbox/mission-book/MB-010/events.jsonl`（4 events，Alien 独立复核前）。
 - **MB-011 — Customs:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 本 Mission 是 MB-002
   `capability-fabric/DONOR.json` 明确指名的 deferral 承接方（Hns plugin/adapter/installer 平台 →
   `01/01 Customs (MB-011)`），因此按假设检验而非按“已覆盖”结案。Utopia baseline
@@ -451,6 +452,44 @@ integration 使用，而不是继续迁移 donor 代码的理由。
 
 **下一项工作需要 Owner 裁决**：reopen/reset 某个 Mission、建立新 Mission，或显式指示把上述
 已迁但未消费的模块接入现有消费面。
+
+### 13.3 三个 NO_VALUE 的 provenance 归档与 Alien 强制记录（2026-09-30）
+
+Owner 在本轮追加指示：先落实已决定的报告修订，再把 `NO_VALUE` 以 `Alien` 身份**强制记录**，
+然后继续把 Utopia 的分支合入 `main`。执行结果：
+
+```text
+独立复核（Alien，未复用任何既有测试）
+  MB-010  NO_VALUE CONFIRMED - donor 零构造点 + 真实 Android 设备渲染链路
+  MB-011  NO_VALUE CONFIRMED - donor 零消费者 + 篡改式拒绝 + 真实 Git provenance
+  MB-012  NO_VALUE CONFIRMED - 零应用内 importer + 无 options 的 ExecutionGate + 活路径拒绝
+报告修订  MB-011 §2.4 / §5 决定性理由改写（plugin-adapters 可达，非 dead code）
+          原因是"隔离元数据无消费者"，不是"代码是死的"
+          MB-010 / MB-012 对应表述复核后准确，未改
+
+provenance 合并（Owner ruling response-9-30.md#R11，覆盖 README line 223 仅此三支）
+  mission/MB-010-node-fabric        @ 8380c38  --no-ff-->  6e9781cb5c42b88f2b9bcdb2e7fb096c4fc8b85a
+  mission/MB-011-customs            @ 82b6ac4  --no-ff-->  f22273c37af1ebff6c95d49972b5d26a222f2ed2
+  mission/MB-012-runtime-compliance @ d071328  --no-ff-->  e0d9470e2a5b5479c1614071d8f43af3d1d93248
+  每个 merge 5 个文件（events.jsonl + 4 assessment evidence），零实现代码，零冲突
+  三个 branch 远端保留不删除
+
+Alien 强制记录（role=VERIFICATION, hostId=Alien, sourceRef=response-9-30.md#R11）
+  3 events x 3 Missions = 9：OWNER_INTERVENTION(INFO) / VERIFIER_FINDING(PASS)
+                              / VERIFICATION_COMPLETE(PASS)
+  记录提交 d0dea7b ; Mech 的 4 条 MIGRATION 事件原样保留
+
+不变量（未被本次操作改变）
+  assessment_result = NO_VALUE ; migration_completion_basis = SKIPPED_NOT_REQUIRED
+  verification_status = NOT_REQUIRED_SKIPPED_COMPLETE ; merged_main_sha = null（三项）
+  无 verified implementation episode（不得伪造）
+utopia main : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
+```
+
+**为什么 `merged_main_sha` 仍是 `null`**：该字段的语义是"本 Mission 的**实现**落在 `main` 的
+SHA"。三个 Mission 都没有实现，所以即使 provenance branch 已归档进 `main`，这个字段也必须保持
+`null`；归档事实另由 `provenance_merge_status` / `provenance_merge_sha` / `provenance_merged_at`
+记录。让 provenance 合并读起来像实现合并，正是本轮最需要避免的失真。
 
 ## 14. 历史规则
 
