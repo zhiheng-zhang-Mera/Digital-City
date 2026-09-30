@@ -25,9 +25,10 @@
 Current scheduler is **integration-first**, not migration-first.
 
 ```text
-REPAIR-1. MB-007 — close Owner-override/finalizer/episode mismatch; implementation stays accepted
-REPAIR-2. MB-008 — rebase on post-007 main, then SKIP or verify/finalize/merge
-REPAIR-3. MB-003 — reassess after 007/008; SKIP or complete donor-backed real execution seam
+COMPLETE. MB-007 — implementation + Owner-override episode closed
+ACTIVE.   MB-008 — continue from reconciled head 77b774c; bounded verification → finalize → merge
+WAITING.  MB-003 — start immediately after MB-008 City closeout; reassess → skip or real execution seam → merge
+THEN.     Utopia main final integration sweep
 THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
 ```
 

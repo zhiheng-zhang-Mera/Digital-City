@@ -98,9 +98,9 @@ City 报告仍必须写 **“判断无价值，任务保留，未迁移”**；a
 当前唯一授权顺序：
 
 ```text
-1. MB-007 process closeout / Owner-override finalizer repair
-2. MB-008 verification + closeout
-3. MB-003 current-value reassessment + real execution-seam repair if still valuable
+1. MB-007 process closeout / Owner-override finalizer repair — COMPLETE
+2. MB-008 verification + closeout — ACTIVE
+3. MB-003 current-value reassessment + real execution-seam repair if still valuable — WAITING
 ```
 
 前一步未写入 `repair_status: COMPLETE` 前，后一步不得完成 merge/finalize。允许后一步做只读侦察，但不得越序宣称完成。
@@ -364,7 +364,7 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 
 绑定工程书：[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)。
 
-- **Step 1 — MB-007:** 已验证/已 merge，不重做实现；修 Owner-override finalizer contract 并补 verified episode。
+- **Step 1 — MB-007:** COMPLETE。实现、Owner-override finalizer、verified episode、repair merge 均已闭环；禁止再修改 Research Institute 实现。
 - **Step 2 — MB-008:** Step 1 进入 main 后重新同步分支；整体无价值可 `SKIPPED_COMPLETE`，否则完成 bounded verification、owner-override finalize、双 CI、merge。
   *进展（2026-09-30）：* 价值复核 = `ROUTE_B_CONTINUE`（`main` 无 `10-automation`，且不覆盖 safety/contract 面）。分支已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）。bounded chain 全绿：happy path / 真实 refusal（`DESTRUCTIVE_FORBIDDEN`，零 mutation，artifact 逐字节一致）/ 真实 miss（真删文件，同一真实 `facts.fileExists` 报 absent，donor postcondition `failure` kind `file`）/ recovery（donor `retry`+`RETRYABLE`、`settle stable` → `landed`，复验 `success`），`NO_MOCK_FACTS = true`。`RUNTIME_PASS` `bbf126ea…`、final `CI_RESULT` PASS `06f57c06…`、`VERIFICATION_COMPLETE` PASS `fd0225d1…`。final CI `36662962981` PASS（gateway-web + android）；本机五门禁全绿（73/73、1698/1699、69/69、10 records、SYNCHRONIZED）。**剩余：** owner-override finalize、episode、episode commit CI、merge、merged-main CI。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留，未伪造 `MIGRATION_COMPLETE`（R5）。deferred runtime plane 仍未迁入。
 - **Step 3 — MB-003:** Step 2 后重新比较当前 Utopia；整体无价值可 `SKIPPED_COMPLETE`，否则完成 donor-backed real execution seam 与真实 provider 路径。

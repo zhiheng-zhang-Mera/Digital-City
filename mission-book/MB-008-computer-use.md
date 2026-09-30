@@ -26,8 +26,15 @@ repair_status: IN_PROGRESS
 repair_reason: "Value reassessment returned ROUTE_B_CONTINUE (main declares no city/10-automation and covers none of the safety/contract surface). Bounded runtime chain, refusal path, genuine miss/recovery and postcondition are green, RUNTIME_PASS + final CI_RESULT + VERIFICATION_COMPLETE recorded, final CI 36662962981 PASS. Owner-override finalize, episode and merge to main remain."
 repair_started_at: 2026-09-30T07:50:00Z
 repair_gate_checked: "MB-007 repair_status=COMPLETE verified on City main at 6bcbeaa before starting step 2"
+repair_value_verdict: ROUTE_B_CONTINUE
+repair_reconciled_head_sha: 77b774cf34df
+repair_reconciled_ci: "36655586918 PASS"
+repair_reconciled_main_sha: d850d73a9c23dbd07f9a0c7483dd2f44272f273f
+repair_verification_event_head_sha: 65418f2493cb
+repair_verification_event_ci: "36658350359 PASS"
 repair_runtime_pass_event: MB-008:bbf126eae72598ed
 repair_verification_complete_event: MB-008:fd0225d163afa3d2
+repair_resume_point: "COMPLETED 2026-09-30: both run-2 driver defects were fixed (async assertActionAllowed was being awaited nowhere; the miss was not genuine) and the bounded chain is green. Remaining: owner-override finalize, episode, episode-commit CI, merge to main, merged-main CI."
 ---
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
