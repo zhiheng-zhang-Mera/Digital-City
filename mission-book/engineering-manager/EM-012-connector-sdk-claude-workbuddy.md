@@ -16,9 +16,10 @@ development_complete: false
 development_host: Mech
 development_claimed_at: 2026-09-30T17:36:20Z
 development_branch: engineering-manager/EM-012-connector-sdk-claude-workbuddy
-development_head_sha: null
-development_ci: null
+development_head_sha: 364c5160952039d31074af3bfae843c1d0f4be24
+development_ci: 36751919772-BLOCKED_GITHUB_ACCOUNT_BILLING
 development_report: mission-book/reports/EM-012/DEVELOPMENT_REPORT.md
+development_blocker: EXTERNAL_GITHUB_ACTIONS_ACCOUNT_BILLING (implementation pushed and locally verified; CI run 36751919772 never started — see report §0; development_complete stays false until a CI run executes)
 correction_status: NOT_STARTED
 correction_complete: false
 correction_host: null
