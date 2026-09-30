@@ -9,7 +9,7 @@
 |---:|---|:---:|:---:|:---:|---|---|
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | COMPLETE | Alien | closed |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Mech | closed |
-| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED / REPAIR STEP 3 ← ACTIVE** | Alien | Mech holds verification; MB-007 and MB-008 are now closed, so step 3 may start: reassess current value, then SKIPPED_NOT_REQUIRED or donor-backed real execution seam |
+| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_ENVIRONMENT / REPAIR STEP 3** | Alien | Mech ran step 3: value = `ROUTE_B_CONTINUE` (WG-01..08 all missing on main); Mech's provider probe **corrected and PASSED** (real donor-backed receipt via the donor's own `dsh-runner.js` → `@deepseek-ai/dsh`). Blocker: two-host gate needs Alien's receipt too; Alien is a different physical host, unreachable here. Not a skip (R8). Events on branch `8262a41` |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | Mech | closed; historical MB-003 routing clause accepted as non-blocking — response R2 |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | Mech | closed |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | COMPLETE | Alien | closed |
@@ -27,8 +27,10 @@ Current scheduler is **integration-first**, not migration-first.
 ```text
 COMPLETE. MB-007 — implementation + Owner-override episode closed
 COMPLETE. MB-008 — bounded verification + owner-override episode + merge `168182c`; merged-main CI PASS
-ACTIVE.   MB-003 — reassess current value → SKIPPED_NOT_REQUIRED or donor-backed real execution seam → merge
-THEN.     Utopia main final integration sweep
+BLOCKED.  MB-003 — step 3 run to its honest terminal state: ROUTE_B_CONTINUE, Mech's real donor-backed
+          provider receipt obtained (earlier no-provider finding CORRECTED), but the required two-host
+          gate needs Alien's receipt and Alien's host is unavailable here. Held BLOCKED, NOT skipped (R8).
+THEN.     Utopia main final integration sweep (MB-007 + MB-008 merged; MB-003 has no delta to merge)
 THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
 ```
 
