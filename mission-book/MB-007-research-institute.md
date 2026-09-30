@@ -21,11 +21,18 @@ verification_head_sha: ff500866f1665723a62c7d16e94ca052654c46a4
 verification_ci: "final-branch 36650198208 PASS (gateway-web + android); reconciled-tree 36649748973 PASS; merged-main 36650723833 PASS"
 verification_report: mission-book/reports/MB-007/VERIFICATION_REPORT.md
 merged_main_sha: cb8e0bd77ccf0864cf0af50b4624f2f556b6b279
-episode: NONE — mission:finalize refuses this Mission (needs a PASS MIGRATION_COMPLETE the migration host never wrote); see reports/MB-007/VERIFICATION_REPORT.md §6.5
+episode: data-records/evolution/episodes/mission-book/MB-007/episode.json
+episode_id: MB-007:553ab7ba1c4b0902
+episode_sha256: 1c5742fb44293cc829a356d3c1da80169702536276a51bb6eb96157f12d260ed
 repair_sequence: 1
-repair_status: IN_PROGRESS
+repair_status: COMPLETE
 repair_reason: "Implementation and Verification are accepted and merged; only the Owner-override finalizer/verified-episode closeout is missing. Scope is exactly the finalizer contract plus the verified episode — the Research Institute is NOT re-migrated."
 repair_started_at: 2026-09-30T06:40:00Z
+repair_completed_at: 2026-09-30T07:35:00Z
+repair_branch: repair/MB-007-owner-override-finalize
+repair_finalizer_sha: f25cdb4c98f0e349d386b31ab504d00700d9faf6
+repair_merge_sha: d850d73a9c23dbd07f9a0c7483dd2f44272f273f
+repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 ---
 
 # MB-007 — Boss Research Institute 既有流水线纯迁移

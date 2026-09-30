@@ -3,7 +3,7 @@
 ## 当前施工进度
 
 > 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
-> \* MB-007 已验证并合入 Utopia main，但 verified episode 尚未闭环，因此进入 repair step 1；不回滚其已接受实现。
+> \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
@@ -13,7 +13,7 @@
 | [MB-004 — Project Foreman](./MB-004-project-foreman.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-005 — Host Health](./MB-005-host-health.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-006 — Restart Recovery](./MB-006-restart-recovery.md) | Alien | 🟢 | Mech | 🟢 |
-| [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 1） | 🟢* |
+| [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 1 ✅） | 🟢 |
 | [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2） | 🔴 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |

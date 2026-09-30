@@ -13,7 +13,7 @@
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | Mech | closed; historical MB-003 routing clause accepted as non-blocking — response R2 |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | Mech | closed |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | COMPLETE | Alien | closed |
-| 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + PROCESS REPAIR STEP 1** | Alien | implementation accepted and merged; repair missing verified episode only |
+| 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 1 ✅** | Alien | repair closed: finalizer `f25cdb4`, merge `d850d73`, episode `MB-007:553ab7ba1c4b0902` |
 | 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **CLAIMED / REPAIR STEP 2** | Alien | Mech claimed; do not finalize/merge before MB-007 repair closes |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
 | 10 | [MB-010](./MB-010-node-fabric.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; auto-claim when P0 clear |

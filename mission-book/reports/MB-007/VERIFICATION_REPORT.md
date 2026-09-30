@@ -271,3 +271,90 @@ Consequences, stated plainly:
    untouched by it.
 4. **This does not mean the research pipeline is a complete product runtime.** The verification
    covers the boundary this Mission declared, and the deferred items stay deferred.
+
+---
+
+# APPENDIX — Repair step 1: Owner-override closeout (2026-09-30)
+
+This appendix is appended by the closeout repair required by
+[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)
+§2. It closes the one gap §6.5 disclosed. **No part of the accepted implementation or
+verification was redone**, and the original blocker is preserved verbatim below.
+
+## What was repaired
+
+§6.5 recorded that `pnpm mission:finalize` refused this Mission with
+`Missing PASS MIGRATION_COMPLETE`, because the finalizer required an event the migration host
+deliberately never wrote, and that this verifier would not backfill it. That refusal was
+correct behaviour from a contract that could not express the v2 case. The repair extends the
+contract instead:
+
+- `scripts/finalize-mission-episode.mjs` gains
+  `--migration-acceptance host-pass|owner-override` and `--owner-ruling <ref>`, **defaulting to
+  `host-pass`** so no existing Mission's behaviour changes.
+- `owner-override` validates all seven conditions the engineering book requires: a real
+  migration-side `BLOCKED`/`FAIL` event; a verification-host `OWNER_INTERVENTION`; that
+  intervention being locatable to the named ruling (the document path in the evidence **and**
+  the ruling anchor, or the exact `path#anchor`); an independent `VERIFIER_FINDING` after the
+  blocker; a final `CI_RESULT=PASS`; a `VERIFICATION_COMPLETE=PASS` after it; and different
+  hosts. It refuses an inbox that already carries a host `PASS`, and refuses a bare document
+  reference with no anchor.
+- `contracts/evolution/mission-episode-v1.schema.json` documents the new optional
+  `migrationAcceptance` object. It is deliberately **not** in the schema's `required` list, so
+  the six episodes finalized before this field existed stay valid.
+- `tests/finalize-mission-episode.test.mjs` pins both happy paths and the failure cases the
+  book enumerates (no blocker, no ruling, ruling/intervention mismatch, no verifier finding,
+  finding before the blocker, final CI not PASS, same host, host-PASS inbox, ruling argument in
+  host-pass mode). **11 tests, all passing.**
+
+## What was NOT done
+
+- **No `MIGRATION_COMPLETE` event was written for host `Alien`.** The episode's timeline
+  contains no such event, and the original `RUNTIME_FAIL` / `BLOCKED` remains in both the
+  timeline and `failures[]`.
+- No change to any migrated module; no re-migration of the Research Institute.
+- No edit to the original `MIGRATION_REPORT.md` or to Parts A/B of this report.
+
+## The original blocker, preserved
+
+> The migration host recorded the product-consumption gate as **`RUNTIME_FAIL` / `BLOCKED`**
+> (`MB-007:7d6c861428278c83`) and wrote no `MIGRATION_COMPLETE` event. Owner ruling
+> `response-9-29.md` **R6** overrode that gate: *"ACCEPT THE BOUNDARY. MIGRATION IS COMPLETE;
+> OPEN VERIFICATION."*
+
+The episode now records *why* completion was accepted rather than pretending the blocker never
+happened:
+
+```json
+"migrationAcceptance": {
+  "mode": "OWNER_OVERRIDE",
+  "ownerRuling": "Digital-City/mission-book/response-9-29.md#R6",
+  "migrationBlockerEventId": "MB-007:7d6c861428278c83",
+  "ownerInterventionEventId": "MB-007:3a505bc6470364fb"
+}
+```
+
+## Repair record
+
+```text
+REPAIR_SEQUENCE = 1
+REPAIR_STATUS = COMPLETE
+REPAIR_BRANCH = repair/MB-007-owner-override-finalize
+FINALIZER_SHA = f25cdb4c98f0e349d386b31ab504d00700d9faf6
+REPAIR_BRANCH_CI = 36654292817 PASS (gateway-web + android)
+EPISODE_FILE = data-records/evolution/episodes/mission-book/MB-007/episode.json
+EPISODE_ID = MB-007:553ab7ba1c4b0902
+EPISODE_SHA256 = 1c5742fb44293cc829a356d3c1da80169702536276a51bb6eb96157f12d260ed
+INBOX_REMOVED = data-records/evolution/inbox/mission-book/MB-007/events.jsonl
+REPAIR_MERGE_SHA = d850d73a9c23dbd07f9a0c7483dd2f44272f273f
+MERGED_MAIN_CI = 36654669625 PASS (gateway-web + android)
+GATES = root 73/73 · city 1034/1035 (0 fail) · rooms 69/69 · promotion-history 10 records · check:docs SYNCHRONIZED
+```
+
+**Disclosure.** The book's stated closeout order is `implementation CI → CI_RESULT →
+VERIFICATION_COMPLETE → mission:finalize → commit episode → final branch HEAD CI → merge`.
+For this Mission the `mission:finalize` step runs *after* the merge of the accepted
+implementation (which was already on `main` at `cb8e0bd`), because the repair is what makes
+finalization possible at all. The equivalent guarantee was met: the repair branch head
+`f25cdb4` — which carries the finalizer changes **and** the generated episode — was run through
+the required CI and is green, and the merge commit on `main` is green too.
