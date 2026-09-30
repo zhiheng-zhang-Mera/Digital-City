@@ -12,14 +12,15 @@ migration_branch: mission/MB-007-research-institute
 migration_head_sha: 68015caa71b7788f700abb1c7918d1b5ee8f9e8c
 migration_ci: "final-branch 36578310170 PASS; implementation 71267e8 36577840443 PASS"
 migration_report: mission-book/reports/MB-007/MIGRATION_REPORT.md
-verification_status: CLAIMED
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-30T03:10:00Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
-merged_main_sha: null
+verification_head_sha: ff500866f1665723a62c7d16e94ca052654c46a4
+verification_ci: "final-branch 36650198208 PASS (gateway-web + android); reconciled-tree 36649748973 PASS; merged-main 36650723833 PASS"
+verification_report: mission-book/reports/MB-007/VERIFICATION_REPORT.md
+merged_main_sha: cb8e0bd77ccf0864cf0af50b4624f2f556b6b279
+episode: NONE — mission:finalize refuses this Mission (needs a PASS MIGRATION_COMPLETE the migration host never wrote); see reports/MB-007/VERIFICATION_REPORT.md §6.5
 ---
 
 # MB-007 — Boss Research Institute 既有流水线纯迁移
@@ -132,8 +133,14 @@ merged_main_sha: null
 - **Basis for verification being open.** Owner ruling [`response-9-29.md`](./response-9-29.md) **R6** explicitly declares: *"ACCEPT THE BOUNDARY. MIGRATION IS COMPLETE; OPEN VERIFICATION."* The migration host recorded its product-consumption gate as `RUNTIME_FAIL / BLOCKED` (`MB-007:7d6c861428278c83`) and wrote no `MIGRATION_COMPLETE` event, so this claim rests on the Owner ruling plus `README.md` §7.2's v2 rule for infrastructure/pipeline modules with no equivalent product seam: the Verification Host satisfies the real-consumption gate with a **real, bounded, reproducible research chain** that directly executes the migrated modules and records inputs, outputs, failure/recovery, parity and evidence.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
 
-- City claim commit: —
-- Reviewed migration branch: —
+#### Verification closeout
+
+- Reconciliation first, per `README.md` §6: latest `main` merged into the branch **before** any gate ran (branch was 23 commits behind and touches the shared control plane). Two conflicts resolved in favour of the union — `services/capability-bridge/registry.mjs` took `main`'s superset (both the building/district `kind` filter and the module-level `capabilityProvider` filter, plus the `declared`/enumerated split MB-009 needs), and the census list in `city/tests/manifest.test.mjs` was restored after the merge silently dropped seven modules. The gate caught that; it is recorded rather than hidden.
+- Reconciled head: `8bce1f79ba0940e35eb3b2e2ac352793af886802` (CI `36649748973` PASS).
+- Real consumption: the `README.md` §7.2 bounded research chain, 22 steps across all five migrated modules on a seeded, reproducible measurement (effect `0.4800`, permutation `p = 0.0330`, bootstrap CI `[106.500, 108.183]`), with negative controls that **refuse** a broken artifact chain, a vetoed review and a primary claim resting on an `UNSUPPORTED` citation, and six provenance digests pinned in `run/provenance-ledger.json`.
+- Final branch CI: `36650198208` PASS at `ff50086`. Merge to `main`: `cb8e0bd77ccf0864cf0af50b4624f2f556b6b279`, CI `36650723833` PASS. All five gates re-run green on the merged tree.
+- **Episode: none, and that is deliberate.** `pnpm mission:finalize` refuses this Mission with `Missing PASS MIGRATION_COMPLETE`, because the migration host recorded `RUNTIME_FAIL/BLOCKED` for the product-consumption gate and never wrote that event. This verifier did **not** backfill it — that would attribute to host `Alien` a claim it never made. The deviation and the request to the Owner are in `reports/MB-007/VERIFICATION_REPORT.md` §6.5; the same question applies to MB-008, whose ruling is worded identically.
+- Report: [`reports/MB-007/VERIFICATION_REPORT.md`](./reports/MB-007/VERIFICATION_REPORT.md). Not established: no compiled PDF (the donor's compile step is deferred), no re-derived donor differential for the five modules' PARITY vectors, and this does not make the research pipeline a complete product runtime.
 
 
 ## 绑定执行条件（所有 Mission 强制）
