@@ -17,17 +17,17 @@ development_branch: general-ai/GAI-005-triage-jev-routing
 development_head_sha: 48169de998a913f495fbca1dac5bd37d79e57e19
 development_ci: 36738383466-success
 development_report: mission-book/reports/GAI-005/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T16:39:51Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 8a37f44547557caf9f684b49aa7ec7d06361efc9
+correction_ci: 36746849199-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-005/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
 
-# GAI-005 â€” Deterministic + JEV Triage Routing
+# GAI-005 â€?Deterministic + JEV Triage Routing
 
 ## Goal
 
