@@ -1,6 +1,6 @@
 # MB-008 — Computer Use Runtime — VERIFICATION REPORT
 
-> Status: **IN PROGRESS — RECONCILED / READY_FOR_BOUNDED_CHAIN**
+> Status: **IN PROGRESS — PRE-CHAIN EVENTS COMPLETE / RUN-2 DRIVER FIX PENDING**
 > Verification Host: `Mech`
 > Migration Host: `Alien`
 > Completion basis: `OWNER_ACCEPTED_COMPLETE`
@@ -15,6 +15,8 @@ MIGRATION_HEAD = aa2a6a8faab779a020d75b93dba548ba3755ce30
 POST_MB007_MAIN = d850d73a9c23dbd07f9a0c7483dd2f44272f273f
 RECONCILED_HEAD = 77b774cf34df
 RECONCILED_CI = 36655586918 PASS
+PRE_CHAIN_EVENT_HEAD = 65418f2493cb
+PRE_CHAIN_EVENT_CI = 36658350359 PASS
 VERIFICATION_COMPLETE = false
 ```
 
@@ -34,28 +36,66 @@ Reconciled branch head: `77b774cf34df`.
 
 Hosted CI: `36655586918 PASS`.
 
-## 3. Next required evidence
+## 3. Pre-chain Verification events — COMPLETE
 
-Before bounded runtime execution, append Verification-role evolution events for:
+Committed at Utopia branch head `65418f2493cb`, hosted CI `36658350359 PASS`.
 
-1. `OWNER_INTERVENTION` — cite `response-9-29.md#R7` and `response-9-30.md#R7`;
-2. `ATTEMPT_STARTED` — target reconciled head `77b774c`;
-3. independent `VERIFIER_FINDING`;
-4. current `TEST_PASS`;
-5. current `CI_RESULT PASS` — run `36655586918`.
+Existing Verification events — **do not duplicate**:
 
-Then execute the bounded Computer-Use chain required by the Mission.
+| Event | ID | Outcome |
+|---|---|---|
+| OWNER_INTERVENTION | `MB-008:fe4650b1af0044de` | INFO |
+| ATTEMPT_STARTED | `MB-008:7208d35e54fae3cf` | INFO |
+| VERIFIER_FINDING | `MB-008:67f53cc8da24edda` | BLOCKED / independent finding |
+| TEST_PASS | `MB-008:1ce4bdb9cbe65fda` | PASS |
+| CI_RESULT | `MB-008:1cd9ff19bf0c3d6e` | PASS — run `36655586918` |
 
-## 4. Pending
+The independent finding is intentionally retained as a truthful historical finding. Do not rewrite it to green; later runtime evidence and final completion events establish the closeout.
 
-- real bounded desktop/file/shell/UI action + postcondition;
-- refusal/permission/error path;
-- recovery/stabilization path;
-- final CI;
-- `VERIFICATION_COMPLETE/PASS`;
+## 4. Run-2 bounded-chain partial result
+
+The happy path is already real and useful:
+
+```text
+normalizeAction
+→ validateAction
+→ classifyRisk(FILE_WRITE) = high
+→ evaluateDestructive
+→ real bounded file write in evidence workspace
+→ createWorldState before/after
+→ different digests
+→ meaningfulChange.changed = true
+→ file postcondition verdict = success
+```
+
+Observed API facts that must be reused rather than rediscovered:
+
+- `FILE_*` actions take `path` inline; file-shaped `target` throws `TARGET_INVALID`.
+- expected-effect vocabulary is closed snake_case; use donor vocabulary such as `file_created`.
+- `vworld` / `pinnedClock` are test fixtures, not runtime API.
+- world state is perception-shaped.
+- file postcondition verification requires `facts.fileExists` as a function.
+
+Two evidence-driver defects remain; **migrated product logic is not to be modified for these**:
+
+1. **Refusal bookkeeping:** migrated destructive guard correctly throws `ComputerUseError` / `DESTRUCTIVE_FORBIDDEN` for `DELETE`, but the run-2 driver records `not-thrown` while the process dies. Fix the driver so the exact exception is caught, recorded and asserted, with zero side effect.
+2. **Recovery ordering:** the attempted “miss” truthfully returns success because the file still exists. Create a genuine miss by deleting the evidence-workspace file first, verify the expected file-created postcondition now fails/misses, then perform the donor-shaped recovery/stabilization path, recreate/write the file, and verify success.
+
+Resume evidence source (host-local): `.runtime/evidence/mission-book/MB-008/run-2/CHAIN-STATE.md`. If it is unavailable on the active host, reconstruct only from the committed events and this report; do not guess missing evidence.
+
+## 5. Remaining closeout
+
+- fix only the run-2 evidence driver;
+- capture truthful refusal with zero side effect;
+- capture genuine miss → donor-shaped recovery → success;
+- record `RUNTIME_PASS/PASS` only after both paths are valid;
+- run complete required tests;
+- commit/push runtime evidence summary event(s), obtain a new green hosted CI;
+- append the **final** `CI_RESULT/PASS`;
+- append `VERIFICATION_COMPLETE/PASS` after that final CI event;
 - owner-override finalization;
-- episode;
-- final branch CI;
+- episode + inbox removal;
+- final branch-head CI;
 - merge to Utopia main;
 - merged-main CI;
 - City closeout.
