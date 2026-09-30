@@ -132,13 +132,25 @@ Event schema 当前没有 ASSESSMENT 专属 eventType，因此：
 - 不写产品/运行代码；
 - branch push 后保留，不 merge、不删除；
 - City `ASSESSMENT_REPORT.md` 记录 branch immutable HEAD + evidence pointers；
-- `migration_complete` 保持 false，`migration_status=NOT_REQUIRED_NO_VALUE`；
-- 当前 `mission-episode-v1` 要求真实 Migration + 独立 Verification，因此**不得伪造 verified episode**；
+- `migration_complete=true`，`migration_status=SKIPPED_COMPLETE`，`migration_completion_basis=SKIPPED_NOT_REQUIRED`；
+- `verification_complete=true`，`verification_status=NOT_REQUIRED_SKIPPED_COMPLETE`；
+- 因没有接受任何实现代码，**不需要 verified implementation episode，也不得伪造一个**；
 - 这类 negative result 仍是可用于论文的 architecture-selection / duplication-avoidance / migration-triage evidence。
 
 ### FULL / PARTIAL
 
 若 verdict 为 `FULL_MIGRATION` 或 `PARTIAL_MIGRATION`，同一 branch 继续进入真实 Migration。Assessment events 保持在同一 inbox 历史中，最终通过正常 Verification + `mission:finalize` 进入 verified episode，使“为什么选择迁哪些/放弃哪些”成为 episode 的前置证据。
+
+## Owner-accepted Migration / finalizer contract
+
+当 Migration Host 真实记录了 `BLOCKED`，而 Owner 后续明确接受该边界并声明 Migration complete：
+
+- 保留原 `BLOCKED` 事件；不得重写或伪造 Migration Host 的 `MIGRATION_COMPLETE/PASS`；
+- Verification Host 必须留下 `OWNER_INTERVENTION` 并引用 City owner ruling；
+- finalizer 的 owner-override 路径必须同时验证 migration blocker、Owner ruling、OWNER_INTERVENTION、independent VERIFIER_FINDING、final CI PASS、VERIFICATION_COMPLETE PASS；
+- episode 必须记录 migration acceptance basis / ruling reference。
+
+该机制当前首先用于 MB-007 / MB-008，不适用于 MB-003 的 real-provider core seam：若 MB-003 仍有迁移价值，真实 execution path 仍不可豁免。
 
 ## Implemented bootstrap contract
 
