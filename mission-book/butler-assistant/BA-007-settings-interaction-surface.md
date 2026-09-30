@@ -14,9 +14,10 @@ development_complete: false
 development_host: Mech
 development_claimed_at: 2026-09-30T17:50:10Z
 development_branch: assistant/BA-007-settings-interaction-surface
-development_head_sha: null
-development_ci: null
+development_head_sha: 8fa4686bb7acb2b57a34a00fe517f6ecaad9769f
+development_ci: 36752540378-BLOCKED_GITHUB_ACCOUNT_BILLING
 development_report: mission-book/reports/BA-007/DEVELOPMENT_REPORT.md
+development_blocker: EXTERNAL_GITHUB_ACTIONS_ACCOUNT_BILLING (implementation pushed and locally verified; CI run 36752540378 never started — see report §0; development_complete stays false until a CI run executes)
 correction_status: NOT_STARTED
 correction_complete: false
 correction_host: null
