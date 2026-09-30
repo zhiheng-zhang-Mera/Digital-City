@@ -48,6 +48,11 @@ global_dispatch:
   waiting_ci_releases_host_for_other_work: true
   waiting_external_releases_host_for_other_work: true
   separate_worktrees_required_for_parallel_local_claims: true
+  zero_claim_single_scan_is_terminal: false
+  temporary_unclaimable_rescan_enabled: true
+  temporary_unclaimable_default_rescan_minutes: 20
+  structural_ineligibility_allows_immediate_park: true
+  global_external_block_allows_immediate_park: true
   component_stop_condition: GLOBAL_COMPONENT_POOL_DRAINED
   final_stop_condition: ALL_PROGRAMMES_TERMINAL_OR_TYPED_EXTERNAL_OWNER_ACTION_ONLY
 
