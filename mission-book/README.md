@@ -1,110 +1,77 @@
 # Mission Book — Butler Assistant Engineering
 
-> Current mode: WAITING_FOUNDATION_CLOSEOUT → BUTLER_ASSISTANT_PARALLEL_DEVELOPMENT
+> Current mode: **BUTLER_ASSISTANT_PARALLEL_DEVELOPMENT**
 > Control repo: zhiheng-zhang-Mera/Digital-City
 > Implementation repo: zhiheng-zhang-Mera/Utopia
+> Foundation gate: **OPEN**
+> Frozen Butler baseline: `8104f8289a76d15ff0197c953730edcef42cab5e`
+> Architecture contract: **ASSISTANT_DISTRIBUTED_STATE_V2**
 >
-> Pre-Assistant foundation is already implemented on Utopia branch product/upt-pre-assistant-closeout at 85ecde437ec930f1b4aa41d8913540e012da5ee7.
-> That branch is 4 commits ahead of Utopia main d0dea7bcb66cf57edee73c67ddfb9526337dfb4e at the latest audit.
-> City main already records the T4 round-1 rejection and subsequent repairs under R13.
-> Butler Assistant development MUST NOT start until that existing foundation branch is merged to Utopia main and the resulting required GitHub CI is green.
->
-> The old migration/replant workbooks are archived under ./finished/replant/.
+> The old migration/replant workbooks and the exact historical Pre-Assistant workbook remain archived under `./finished/replant/`.
 
 ## Current construction dashboard
 
-Legend: 🟢 = complete; 🔴 = not complete; ⏸ = project start gate not yet open.
+Legend: 🟢 = complete; 🔴 = not complete.
 
 | Subproject | Development claim | Development | Correction claim | Correction |
 |---|---|:---:|---|:---:|
-| [BA-001 Butler Zone + Personalization Contracts](./butler-assistant/BA-001-butler-zone-personalization.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-002 Shared Brain Runtime](./butler-assistant/BA-002-shared-brain-runtime.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-003 Device Embodiment + Binding](./butler-assistant/BA-003-device-embodiment-binding.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-004 Multi-Assistant Switching + Handoff](./butler-assistant/BA-004-multi-assistant-handoff.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-005 Digital-Me Context Gateway](./butler-assistant/BA-005-digital-me-context-gateway.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-006 Shared Task Coordination](./butler-assistant/BA-006-shared-task-coordination.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-007 Assistant Settings + Interaction Surface](./butler-assistant/BA-007-settings-interaction-surface.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-008 Embodiment Event Bus + Concurrency](./butler-assistant/BA-008-embodiment-event-bus.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
-| [BA-009 Duties / Permission / Proactivity Policy](./butler-assistant/BA-009-duty-permission-policy.md) | blocked by foundation gate | ⏸ | unclaimed | 🔴 |
+| [BA-001 Butler Zone + Personalization Contracts](./butler-assistant/BA-001-butler-zone-personalization.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-002 Shared Brain Runtime](./butler-assistant/BA-002-shared-brain-runtime.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-003 Device Embodiment + Foreground Binding](./butler-assistant/BA-003-device-embodiment-binding.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-004 Multi-Assistant Switching + Explicit Handoff](./butler-assistant/BA-004-multi-assistant-handoff.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-005 Digital-Me Context + Memory/Audience Gateway](./butler-assistant/BA-005-digital-me-context-gateway.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-006 Authoritative Task Coordination](./butler-assistant/BA-006-shared-task-coordination.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-007 Assistant Settings + Interaction Surface](./butler-assistant/BA-007-settings-interaction-surface.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-008 Event Bus + Execution Lease/Reconnect Safety](./butler-assistant/BA-008-embodiment-event-bus.md) | unclaimed | 🔴 | locked until Development | 🔴 |
+| [BA-009 Duties / Permission / Proactivity Policy](./butler-assistant/BA-009-duty-permission-policy.md) | unclaimed | 🔴 | locked until Development | 🔴 |
 
-## 0. Foundation start gate
+## 0. Foundation start gate — OPEN
 
-The previous Pre-Assistant workbook has been archived, not discarded. Its exact historical copy is:
+The historical Pre-Assistant workbook is preserved at:
 [finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md](./finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
 
-The existing implementation branch must finish its already-started closeout. No BA Development claim is valid until all are true:
-- product/upt-pre-assistant-closeout is merged to Utopia main;
-- the merged Utopia main SHA is recorded;
-- all required GitHub CI checks on that merged main SHA are green.
-
-### Gate status: **OPEN** (2026-09-30, Host `Alien`)
-
-All three conditions are now met, and each is recorded rather than asserted:
+Recorded accepted state:
 
 ```text
 branch head (accepted)   = 85ecde437ec930f1b4aa41d8913540e012da5ee7
-branch CI  (both jobs)   = 36691043142  android success, gateway-web success
+branch CI                = 36691043142  android success, gateway-web success
 merged Utopia main SHA   = 8104f8289a76d15ff0197c953730edcef42cab5e
-                           (parents d0dea7b [main before], 85ecde4 [branch])
-merged-main CI (required)= 36692675561  android success, gateway-web success
+merged-main CI           = 36692675561  android success, gateway-web success
 post-merge branch audit  = 35 origin refs, unmerged = 0
 ```
 
-The closeout that opened this gate is recorded in full under
-[`reports/UPT-PRE-ASSISTANT/`](./reports/UPT-PRE-ASSISTANT/): the implementation report and the
-independent verification report. Two things about it matter to BA Development:
+The independent verifier rejected the first candidate and accepted the repaired candidate. The single-host Owner waiver used for that Pre-Assistant closeout does not apply to BA work. Butler Development is therefore unlocked, but each BA task still requires two different physical hosts for Development and Correction.
 
-1. **The independent verification host REJECTED the first candidate** (`adce593`) and accepted the
-   repaired one (`85ecde4`) only after rebuilding and reinstalling the Android app and re-running
-   every repair adversarially. The rejection was a real defect that the branch's own green test
-   suite could not see. BA Development should expect the same standard from BA Correction.
-2. **Host separation was an Owner waiver** ([`response-9-30.md#R13`](./response-9-30.md)) and is
-   recorded as a **single-host** acceptance. That waiver was scoped to the Pre-Assistant closeout
-   and does **not** carry into Butler Assistant, whose Correction stage still requires a different
-   real host from Development.
+All BA-001..BA-009 branches start from the same frozen baseline above; they are non-blocking relative to one another.
 
-Four non-blocking items were carried forward from that closeout and are not fixed: Android Action
-drill-down does not open on the device; `start-city.ps1 -NoRooms` reports a misleading degraded
-reason; the idempotency-key reuse refusal returns HTTP 400 rather than 409; and the Web client is
-still handed the loopback `hubUrl`. They are listed in the verification report §3.
+## 1. Core architecture invariants — v2
 
-This gate is a one-time project prerequisite. After it opens, BA-001..BA-009 are deliberately non-blocking relative to each other and may be developed in parallel from the same pinned Butler project baseline.
-
-## 1. Core architecture invariants
-
-1. Digital-Me is the canonical user self-model. It is not an assistant persona store.
+1. Digital-Me is the canonical user self-model/context source. It is not an assistant persona store.
 2. Butler Assistant Zone is a separate replaceable agent domain.
 3. Assistant personalization must be independently changeable without mutating Digital-Me user data.
-4. Personalization interfaces must reserve, at minimum and without limiting future expansion:
-   - user-facing naming / form of address;
-   - voice;
-   - character/avatar appearance;
-   - personality;
-   - duties / role scope;
-   - companion/relationship mode;
-   - extension fields for future attributes.
+4. Personalization interfaces reserve naming/form-of-address, voice, avatar/appearance, personality, duties/role, companion/relationship mode and extensible future attributes. Profile fields cannot grant authority.
 5. One logical assistant may inhabit multiple devices simultaneously.
-6. Multiple device embodiments of the same assistant share one brain: identity, memory/relationship state, planning state and task graph. They are not independent minds that later synchronize.
+6. **Shared brain = one authoritative durable assistant state plus multiple embodiment-specific ContextProjections.** Durable committed facts/memory references, assistant↔user relationship state, tasks, commitments, checkpoints and event history may be shared. Live token context, scratch reasoning, temporary plan drafts, uncommitted inference and device/UI transient state are not shared authority.
 7. Multiple assistant identities may be online simultaneously.
-8. One device may have at most one active foreground assistant at a time.
-9. Switching assistants on one device does not automatically transfer the outgoing assistant's global tasks.
-10. Handoff occurs only when responsibility actually needs to move. No transferable task means immediate switch.
-11. Full assistant replacement/offline requires transfer of transferable active responsibilities before shutdown, unless the Owner explicitly cancels them.
-12. Tasks live in shared Core/City task infrastructure, not only in a device session.
-13. Digital-Me access is scoped/authorized context access; assistant persona/relationship state must not be written into Digital-Me as user identity data.
+8. One device may have at most one active **foreground interaction assistant** at a time.
+9. Foreground binding is independent from task ownership and background execution. Switching foreground assistants does not automatically transfer, cancel, pause or recreate tasks.
+10. A task distinguishes logical owner/coordinator from current executor where applicable.
+11. Handoff occurs only when responsibility actually moves. It transfers task/checkpoint/evidence, never permission or action grants.
+12. Side-effect execution requires current authoritative task/version state plus any required execution lease and idempotency/action key.
+13. At most one valid exclusive execution lease may authorize a given exclusive action scope at a time.
+14. Local embodiment state is a cache. Reconnect/restart must fetch authority and revalidate leases before resuming external or state-changing side effects.
+15. Tasks live in shared Core/City task infrastructure, not only in a device session.
+16. Context/memory is namespace- and audience-aware: user-global, assistant-private, project/task, audience/channel and device-ephemeral scopes must not be silently collapsed.
+17. Knowledge is not disclosure authority. Information available to a logical assistant is emitted only when the current audience/privacy scope permits it.
+18. Digital-Me access is scoped/authorized context access; assistant persona/relationship state must not be written into Digital-Me as canonical user identity data.
+19. Effective action permission is equivalent to `User/OwnerPolicy ∩ AssistantPolicy ∩ DeviceCapability ∩ TaskActionGrant`. An execution lease is an additional safety prerequisite, not a permission source.
 
 ## 2. Work model: Development → Correction
 
-The old Migration / Verification terminology is retired for this project.
+- **DEVELOPMENT:** implement the bounded subproject on its own Utopia branch from the frozen baseline.
+- **CORRECTION:** a different physical host independently hunts design loopholes and directly repairs every in-scope defect on that same branch.
 
-- DEVELOPMENT: implement the bounded subproject on its own Utopia branch.
-- CORRECTION: a different physical host independently looks for design loopholes and directly repairs every in-scope defect on that same branch.
-
-Correction is not report-only. It must:
-1. inspect for architectural, state-consistency, concurrency, permission, lifecycle, recovery and product-design holes relevant to that subproject;
-2. directly fix discovered in-scope defects;
-3. add/update regression tests;
-4. leave the branch CI green before marking Correction complete.
+Correction is not report-only. It must inspect and test architecture, state consistency, concurrency, privacy/audience boundaries, permissions, lifecycle/recovery, stale state, lease/idempotency behavior where relevant and false-success paths.
 
 ## 3. Claim and host-separation rules
 
@@ -114,17 +81,17 @@ For every BA task:
 - Development Host and Correction Host MUST be different.
 - Every task branch must therefore be worked on by both Alien and Mech at least once before final merge.
 - A host may not perform both roles for the same task.
-- Prefer unclaimed Development tasks first; if none are available, claim an eligible Correction task.
+- Prefer unclaimed Development tasks first; otherwise claim an eligible Correction task.
 - If a stage is already claimed and incomplete, skip it and choose another eligible stage.
 - Development creates/pushes a new branch and does not merge it to Utopia main.
 - Correction continues on the same branch and does not merge it to Utopia main.
-- Reports go under mission-book/reports/BA-XXX/.
+- Reports go under `mission-book/reports/BA-XXX/`.
 
 ## 4. Parallel / non-blocking rule
 
-Once the foundation start gate opens, BA-001..BA-009 use the same frozen Butler baseline and may proceed independently.
+BA-001..BA-009 use the same frozen Butler baseline and may proceed independently.
 
-A worker must not wait for another BA branch merely to continue its own bounded work. When another subproject is not yet available:
+A worker must not wait for another BA branch merely to continue its bounded work. When another subproject is not yet available:
 - use the local workbook's stable port/contract;
 - use deterministic test doubles only where necessary;
 - do not copy another subproject's implementation;
@@ -134,15 +101,15 @@ Cross-branch wiring and conflict resolution are deferred to final integration. A
 
 ## 5. Completion gates
 
-Development complete requires bounded implementation, positive/negative tests, relevant local checks, branch CI green, DEVELOPMENT_REPORT and exact head SHA.
+Development complete requires bounded implementation, positive/negative tests, relevant concurrency/recovery tests, relevant local checks, branch CI green, DEVELOPMENT_REPORT and exact head SHA.
 
-Correction complete requires a different physical host, independent design review, direct repairs, regression tests, relevant local checks, branch CI green, CORRECTION_REPORT and exact corrected head SHA.
+Correction complete requires a different physical host, independent adversarial review, direct repairs, regression tests, relevant local checks, branch CI green, CORRECTION_REPORT and exact corrected head SHA.
 
 ## 6. Hard merge lock
 
-MERGE_WORKBOOK_CREATION = FORBIDDEN until ALL BA-001..BA-009 satisfy:
-- development_complete = true;
-- correction_complete = true;
+`MERGE_WORKBOOK_CREATION = FORBIDDEN` until ALL BA-001..BA-009 satisfy:
+- `development_complete = true`;
+- `correction_complete = true`;
 - Development Host != Correction Host;
 - branch history/evidence proves both Alien and Mech worked on the branch;
 - corrected branch head is recorded and remote.
@@ -155,11 +122,15 @@ The future merge workbook must:
 1. fetch current Utopia main and every corrected BA branch;
 2. re-check both-host participation on every branch;
 3. integrate all branches without dropping valid behavior; compatible conflicts should preserve an explicit union/superset;
-4. preserve one-brain/multi-embodiment and one-device/one-active-assistant invariants;
-5. run the full relevant local test suite;
-6. merge the integrated result to Utopia main;
-7. verify GitHub CI on the resulting Utopia main SHA.
+4. preserve all v2 invariants, especially authoritative durable state vs local ContextProjection, foreground/task separation, owner/executor separation, handoff authority boundaries and audience/privacy boundaries;
+5. run adversarial multi-device races proving no split-brain exclusive side effects;
+6. test execution lease expiry/reassignment and idempotent replay/retry;
+7. test offline/reconnect so stale local state cannot resume side effects without revalidation;
+8. test handoff to a less-privileged assistant/device so responsibility transfer cannot escalate authority;
+9. run the full relevant local test suite;
+10. merge the integrated result to Utopia main;
+11. verify GitHub CI on the resulting Utopia main SHA.
 
 Final completion is forbidden if any required merged-main GitHub CI check is red, cancelled, required-but-skipped, or still pending.
 
-Required terminal state: BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN
+Required terminal state: `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN`
