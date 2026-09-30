@@ -9,10 +9,10 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: NOT_STARTED
+development_status: IN_PROGRESS
 development_complete: false
-development_host: null
-development_claimed_at: null
+development_host: Mech
+development_claimed_at: 2026-09-30T12:19:49Z
 development_branch: assistant/BA-002-shared-brain-runtime
 development_head_sha: null
 development_ci: null
