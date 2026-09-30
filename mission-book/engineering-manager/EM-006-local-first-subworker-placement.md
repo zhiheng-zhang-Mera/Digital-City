@@ -19,17 +19,17 @@ development_branch: engineering-manager/EM-006-local-first-subworker-placement
 development_head_sha: 2894e8da9d95f54dbb568d8acc510b91bdeae4fb
 development_ci: 36727765139-success
 development_report: mission-book/reports/EM-006/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T16:26:22Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 3a3c4a5b1998eeb6b33ab3f7ee7c8d04bfbd8481
+correction_ci: 36745309710-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-006/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
 ---
 
-# EM-006 â€” LOCAL_FIRST Sub-worker Resource + Placement Gate
+# EM-006 â€?LOCAL_FIRST Sub-worker Resource + Placement Gate
 
 ## Goal
 
