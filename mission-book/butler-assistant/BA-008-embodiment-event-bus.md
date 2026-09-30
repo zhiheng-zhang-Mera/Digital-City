@@ -4,8 +4,10 @@ project: BUTLER_ASSISTANT_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
 control_repo: zhiheng-zhang-Mera/Digital-City
 project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
-project_baseline_sha: TO_BE_PINNED_FROM_UTOPIA_MAIN_WHEN_GATE_OPENS
-development_status: WAITING_PROJECT_GATE
+project_start_gate_status: OPEN
+project_baseline_sha: 8104f8289a76d15ff0197c953730edcef42cab5e
+architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
+development_status: NOT_STARTED
 development_complete: false
 development_host: null
 development_claimed_at: null
@@ -23,43 +25,68 @@ correction_report: mission-book/reports/BA-008/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
 ---
 
-# BA-008 — Embodiment Event Bus + Concurrency
+# BA-008 — Embodiment Event Bus, Execution Lease + Reconnect Safety
 
 ## Goal
 
-Route simultaneous inputs/outputs from an assistant's multiple bodies through one shared brain with deterministic conflict handling.
+Route simultaneous inputs/outputs from an assistant's multiple embodiments through one authoritative state machine while preventing split-brain execution and duplicate side effects.
 
 ## Development scope
 
-- Define embodiment input/output event envelopes with device/source identity and task correlation.
-- Serialize or version conflicting commands against shared task state.
-- Route output to a suitable embodiment without duplicating side effects.
-- Handle concurrent PC/phone/device input and stale/replayed events.
+- Define embodiment input/output event envelopes with assistant, device/source, audience, task, causal/version and action correlation.
+- Define execution leases for exclusive or externally visible side effects, including holder/executor identity, task/action scope, lease version and expiry/renewal semantics.
+- Require idempotency/action keys for retried side effects so duplicate events cannot produce duplicate external actions.
+- Serialize or version conflicting commands against authoritative task state rather than live local plans.
+- Reject stale/replayed events or make them idempotent.
+- Define reconnect reconciliation: fetch authoritative task/binding state, invalidate/revalidate old leases, reconcile local intents and only then resume.
+- Route output to suitable embodiments without broadcasting private responses or duplicating side effects.
 
 ## Explicitly out of scope
 
-- independent per-device planners
+- independent per-device planners acting as separate authorities
 - last-writer-wins without task/version checks for destructive state
 - broadcasting every private response to every device
+- resuming an external side effect after reconnect using only a stale local lease/cache
+- two devices holding simultaneously valid exclusive execution authority for the same action
 
 ## Required acceptance
 
-- Contradictory commands from two devices cannot execute two incompatible side effects.
-- Same-assistant events share one causal/task state.
-- Stale/replayed embodiment events are rejected or idempotent.
-- Output routing respects device availability and privacy scope.
+- Contradictory commands from two devices cannot execute two incompatible exclusive side effects.
+- At most one valid execution lease exists for a given exclusive action scope at a time.
+- Retries/replays with the same idempotency/action key do not duplicate the external side effect.
+- Lease expiry/revocation/reassignment is authoritative and observable through the event/task state.
+- After disconnect/restart, stale local work cannot resume a side effect until authority and lease are revalidated.
+- Output routing respects device availability, current foreground binding where relevant, audience/privacy scope and causal task state.
 
-## Start gate
+## Mandatory distributed-assistant architecture contract
 
-Do not claim this task until the Pre-Assistant foundation branch has been merged to Utopia main and required merged-main GitHub CI is green. At the moment the gate opens, pin that exact Utopia main SHA as the Butler project baseline; all BA branches use the same baseline.
+This task MUST preserve all of the following project-wide invariants:
+
+1. **One logical identity, many embodiments.** Multiple devices connected to the same assistant are projections of one logical assistant, not independent minds that later synchronize.
+2. **One authoritative durable state, many contextual projections.** Shared/authoritative state may contain committed identity/profile references, durable assistant↔user relationship state, committed memory references, the task graph, commitments, checkpoints and the causal/event log. Live token context, scratch reasoning, temporary plan drafts, uncommitted inference and device/UI transient state remain embodiment-local unless explicitly promoted through a typed commit/update.
+3. **Foreground binding is not task ownership.** Each device has at most one foreground assistant, but foreground switching does not by itself transfer, cancel, pause or recreate task ownership or background execution.
+4. **Ownership is not execution.** A task may distinguish logical owner/coordinator from its current executor. Any externally visible or state-changing side effect must be guarded by authoritative task/version state plus an execution lease and an idempotency/action key.
+5. **Handoff never transfers authority implicitly.** A handoff may transfer responsibility, checkpoint/evidence and references, but never permission or capability grants. The receiving assistant/device must recompute effective permission from current policy and capability.
+6. **Local state is a cache, not authority.** After disconnect/restart/reconnect, an embodiment must re-fetch authoritative task/binding state and revalidate any lease before resuming a side effect.
+7. **Knowledge is not disclosure authority.** Information known in one scope/audience is not automatically releasable in another. Context projection must enforce memory/audience/privacy scope before output.
+
+These are acceptance constraints, not optional future enhancements.
+
+## Project gate
+
+The Pre-Assistant foundation gate is already **OPEN**. The common Butler project baseline is pinned to Utopia main:
+
+`8104f8289a76d15ff0197c953730edcef42cab5e`
+
+This task may be claimed now. It MUST branch from that exact baseline so BA-001..BA-009 remain independently integrable.
 
 ## Development stage
 
 The Development Host must:
 1. claim this stage in City;
-2. create assistant/BA-008-embodiment-event-bus from the pinned Butler project baseline;
-3. implement only this bounded scope;
-4. add positive and negative tests;
+2. create `assistant/BA-008-embodiment-event-bus` from the pinned Butler baseline;
+3. implement only this bounded scope plus the mandatory architecture contract above;
+4. add positive and negative tests, including concurrency/recovery tests relevant to this task;
 5. push and run relevant GitHub CI;
 6. write DEVELOPMENT_REPORT.md with exact files, tests, failures/fixes, branch/head and CI;
 7. mark development_complete only when green.
@@ -68,7 +95,7 @@ Do not merge to Utopia main.
 
 ## Correction stage
 
-The Correction Host must be the other physical host and must independently inspect the pushed Development branch for relevant architecture, state-consistency, concurrency, permission/privacy, lifecycle, recovery and false-success defects.
+The Correction Host must be the other physical host and must independently inspect the pushed Development branch for relevant architecture, state-consistency, concurrency, permission/privacy, lifecycle, recovery, stale-state, duplicate-side-effect and false-success defects.
 
 Correction is a repair task, not passive verification. Every discovered in-scope defect must be directly fixed on this same branch and covered by regression tests. Cross-subproject issues must be fixed at this task's local contract/guard and recorded for final integration rather than copying another BA implementation.
 
@@ -84,4 +111,4 @@ Final-merge eligibility requires:
 
 ## Merge lock
 
-No worker may merge assistant/BA-008-embodiment-event-bus to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.
+No worker may merge `assistant/BA-008-embodiment-event-bus` to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.
