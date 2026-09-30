@@ -1,4 +1,4 @@
-# Mission Book — Integration-First Migration & Verification Queue
+# Mission Book — Migration Closed / Pre-Assistant Product Closeout Control Plane
 
 > **CURRENT MODE OVERRIDE — R12 (2026-09-30):** MB-001..MB-012 migration/verification is closed. Current Owner-directed work is the [Pre-Assistant Utopia Closeout Workbook](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md). The old migration scheduler remains authoritative only for historical interpretation or an explicit Owner reopen; it is **not** the current product-work scheduler.
 
@@ -45,7 +45,9 @@ ASSISTANT_LAYER = FORBIDDEN
 BOSS_HNS_CONNECTORS = DEFERRED
 ```
 
-迁移只能搬运 donor 中已经存在的行为：允许抽取、拆分、接口适配、等价重构、已有消费面接线、测试与证据化；禁止把未来设计、缺失 runtime、全新 UI、全新策略或新产品能力伪装成“迁移”。
+**当前 R12 产品工作不是迁移。** T1–T3 可以在绑定工程书的严格范围内新增必要的产品层 UI / adapter / Action / deterministic routing。不得把这些产品工作写成 donor migration，也不得借机扩展到工程书硬性排除的后续能力。
+
+下述原 migration/assessment/verification 规则继续保留，用于解释 MB-001..012 历史记录，或在 Owner 未来显式 reopen 某 Mission 时恢复为条件规则；**它们不是当前 T0–T4 的调度器。**
 
 ## 1. 权威来源顺序
 
