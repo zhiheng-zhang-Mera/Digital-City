@@ -1,0 +1,74 @@
+---
+mission_id: EM-001
+project: ENGINEERING_MANAGER_ENGINEERING
+implementation_repo: zhiheng-zhang-Mera/Utopia
+control_repo: zhiheng-zhang-Mera/Digital-City
+project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
+project_start_gate_status: OPEN
+project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+donor_repo: zhiheng-zhang-Mera/DS-Hns
+donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
+architecture_contract: ENGINEERING_MANAGER_V1
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+development_status: NOT_STARTED
+development_complete: false
+development_host: null
+development_claimed_at: null
+development_branch: engineering-manager/EM-001-core-contracts-boundaries
+development_head_sha: null
+development_ci: null
+development_report: mission-book/reports/EM-001/DEVELOPMENT_REPORT.md
+correction_status: NOT_STARTED
+correction_complete: false
+correction_host: null
+correction_claimed_at: null
+correction_head_sha: null
+correction_ci: null
+correction_report: mission-book/reports/EM-001/CORRECTION_REPORT.md
+merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+---
+
+# EM-001 — Core Contracts + Engineering Ownership Boundaries
+
+## Goal
+
+Define the replacement-safe Engineering Manager contract and make the Foreman / Worker Gateway / Shared Task Core boundaries explicit before provider-specific work lands.
+
+## Development scope
+
+- Add versioned EngineeringManagerPort, ConnectorPort, ConnectorRegistryPort and EngineeringRemoteExecutionPort contracts.
+- Define canonical engineering job, connector instance, execution host, owner/coordinator, executor and lease/reference identifiers.
+- Reserve ENGINEERING as the product/task semantic route without exposing HNS/CODEX/CLAUDE/WORKBUDDY as top-level task ownership routes.
+- Keep City/Shared Task Core canonical for task truth; Engineering Manager stores/owns only Engineering execution state, checkpoints, evidence and connector runtime state allowed by the contract.
+- Define idempotency/replay/version rules for submit/control/result so retry/reconnect cannot create duplicate jobs or side effects.
+- Document separation from General AI Gateway, Butler Assistant, Remote Fabric and City-wide authorization.
+
+## Out of scope
+
+- provider-specific process invocation
+- Remote Fabric implementation
+- UI redesign
+- credential storage implementation
+
+## Required acceptance
+
+- old ROOM/CAPABILITY/CITY_TASK/GENERAL_AI semantics are not redefined by Engineering Manager
+- unknown version/state/route is rejected rather than guessed
+- owner/coordinator and current executor are distinct fields
+- Engineering Manager cannot become a second canonical City task database
+- no provider product name is required by the core contract
+- no raw secret/cookie/token field exists in canonical contracts
+
+## Shared asynchronous execution rules
+
+- Branch from the exact frozen Engineering Manager baseline; do not branch from a sibling EM branch.
+- Development and Correction MUST be performed by different physical hosts (Alien / Mech).
+- Development pushes the task branch and does not merge it to Utopia main.
+- Correction independently reviews and directly repairs the same branch; it also does not merge to main.
+- A worker MUST NOT wait for a sibling EM task. Use the stable ports in the programme README plus deterministic test doubles when a sibling implementation is absent.
+- A worker MUST NOT merge/cherry-pick a sibling EM branch merely to make local tests pass.
+- While hosted CI, a long local test, an external login, or a provider check is waiting, continue independent in-scope tests/docs/evidence or another eligible task/worktree instead of idling.
+- Missing Remote Fabric or unavailable third-party engineering software may block only the genuinely external acceptance step. Record it as a typed pending seam; never rewrite it as success and never stall unrelated EM tasks.
+- Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
+- DS-Hns may be read only as the pinned donor described by this programme. Any reused implementation becomes Utopia-owned code with provenance; Utopia MUST NOT acquire a build/runtime dependency on the DS-Hns repository.
+- Codex-Boss is out of scope and MUST NOT be cloned, fetched, opened, read, queried, imported, linked, submoduled, symlinked or called by this programme.
