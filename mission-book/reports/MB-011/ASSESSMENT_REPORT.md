@@ -146,9 +146,24 @@ runtime channel authentication, not plugin provenance.
 (`in-process`→advisory/none, `isolated-process`→process-boundary/process,
 `managed-process`→protocol/process, `declarative`→declared-only/none,
 `remote`→protocol/network) and `standardizeRuntime` stamps it onto the manifest.
-**Nothing anywhere refuses admission because of it.** The only decision it feeds is
-`plugin-install/plan.cjs::assessRisk` (in-process = weight 8) — advisory, and in dead
-code. The real crash boundaries are **post-admission, at activation**:
+**Nothing anywhere refuses admission because of it** — no code path reads `enforcement` /
+`isolation` and returns a refusal. The only decision the metadata feeds is
+`plugin-install/plan.cjs::assessRisk` (in-process = weight 8): advisory, and itself
+unreachable (§2.1).
+
+*Correction (2026-09-30, host `Alien`, independent re-verification §9.1).* An earlier
+draft of this paragraph let "in dead code" read as if the whole
+`app/core/plugin-adapters/` tree were unreachable. It is not. `plugin-adapters/contract.cjs`
+— the module that declares `RUNTIME_KINDS` and defines `validateAdapter`,
+`standardizeManifest`, `validateAdapterOutput` and `PERMISSIONS` — is loaded by the **live**
+`app/plugin-host.cjs` (itself required from `app/desktop-main.cjs` and
+`app/runtime/host.cjs`), and it does refuse: unknown permission vocabulary, malformed
+adapter manifests and adapter fault codes all raise named errors. What it does **not** do is
+refuse *because of the isolation metadata*. The `NO_VALUE` verdict therefore rests where it
+belongs — on the fact that no consumer reads the isolation decision, and on the separate
+fact that Utopia has no plugin/adapter platform for that preflight to admit (point 6 below)
+— not on an over-claim of deadness. The real crash boundaries are **post-admission, at
+activation**:
 `plugin-compat/index.cjs` + `worker.cjs` (isolated child, 20 s bound) and
 `bridge/host.cjs` + `bridge/child.cjs`. `COMPAT_UNSUPPORTED_API` is decided *inside the
 child*, after the decision to admit.
@@ -216,9 +231,11 @@ Why *not* copying the donor is the correct engineering choice here:
 2. **The donor does not verify provenance, so CU-02 has nothing to migrate.** It records
    a provenance object from a regex over user input and stops. Utopia records *and*
    verifies, against real Git history, for every promotion record.
-3. **CU-04's preflight does not exist as a refusal in the donor** — the metadata is
-   declared but nothing refuses on it, and the real isolation is post-admission process
-   spawning for a plugin platform Utopia does not have.
+3. **CU-04's preflight does not exist as a refusal in the donor.** The metadata is
+   declared but no path reads it in order to refuse (§2.4), and the real isolation is
+   post-admission process spawning for a plugin platform Utopia does not have. The
+   declaring module is live and refuses other things — so the reason is *no consumer of the
+   isolation decision*, not *dead code*.
 4. **Permissions are out of scope and were never a gate.** MB-002's DONOR.json assigns
    permission/authorization resolution to MB-012; separately, the donor's own permission
    codes are produced nowhere and an ungranted permission is logged and admitted.
