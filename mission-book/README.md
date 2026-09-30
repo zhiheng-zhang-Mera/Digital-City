@@ -11,6 +11,7 @@
 > Engineering Manager donor: `DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
 >
 > The old migration/replant workbooks and the exact historical Pre-Assistant workbook remain archived under `./finished/replant/`.
+> Active recovery overlay: [ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md](./ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md). It adds eligibility-aware ~20 minute bounded re-scan for temporary zero-claim states and preserves structural-ineligibility / global-external-block exits.
 
 ## Current construction dashboard
 
