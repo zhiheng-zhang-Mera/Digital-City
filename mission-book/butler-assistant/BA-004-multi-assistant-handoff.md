@@ -1,4 +1,4 @@
-﻿---
+---
 mission_id: BA-004
 project: BUTLER_ASSISTANT_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
@@ -17,10 +17,10 @@ development_branch: assistant/BA-004-multi-assistant-handoff
 development_head_sha: a29062fba3e88abee1830c4f1ecbd6c55e6d1c79
 development_ci: 36726727943-success
 development_report: mission-book/reports/BA-004/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T14:47:06Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/BA-004/CORRECTION_REPORT.md
