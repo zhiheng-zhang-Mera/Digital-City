@@ -60,6 +60,46 @@ A host stops claiming component work only when a fresh global scan finds:
 
 That state is `GLOBAL_COMPONENT_POOL_DRAINED`.
 
+## 4.1 Eligibility-aware quiescence and bounded re-scan / 资格感知静默与有界重扫
+
+A single scan with zero claimable work answers only **"what can this host claim now?"**. It does **not** prove that the global pool is terminal when unfinished stages remain or eligibility can change over time.
+
+Every dispatcher and every future City engineering book that uses an asynchronous task pool MUST classify a zero-claim result before stopping:
+
+1. `TEMPORARILY_UNCLAIMABLE`
+   - unfinished work exists;
+   - the current host is not structurally forbidden from all future work;
+   - another host completion, CI/provider completion, claim race, stage transition, or integration gate can make work eligible later.
+   - Action: park without busy-polling and re-enter the global scan after approximately **20 minutes** by default. The interval may be tuned by the workbook when there is measured evidence for another cadence.
+
+2. `STRUCTURALLY_INELIGIBLE`
+   - all unfinished work is forbidden to this host by a stable mechanism such as Development/Correction host separation, permission, required device/hardware capability, identity, safety policy, or an explicit Owner restriction.
+   - Action: record the exact reason and release the host. Periodic re-scan is not required until the governing gate changes.
+
+3. `GLOBAL_EXTERNAL_BLOCK`
+   - every otherwise relevant stage depends on a typed external condition that internal work cannot honestly satisfy, such as account billing, unavailable mandatory hardware, or an Owner/provider action.
+   - Action: preserve the exact blocker and release the host. Do not manufacture code or accumulate unverifiable heads merely to avoid idling.
+
+4. `POOL_TERMINAL`
+   - all stages are terminal under the workbook's completion semantics.
+   - Only this class may be interpreted as normal global drain/completion.
+
+Required zero-claim telemetry for future workbooks:
+
+```text
+pool_incomplete
+claimable_now
+potentially_claimable_later
+structural_ineligibility_reason
+global_external_blocker
+rescan_after
+terminal_reason
+```
+
+The default bounded re-entry cadence is 20 minutes for `TEMPORARILY_UNCLAIMABLE`. A host may re-scan repeatedly while the pool remains unfinished and future eligibility remains plausible. This is a low-frequency liveness mechanism, not a busy-wait loop.
+
+Paper/dogfood evidence for the failure that motivated this rule is retained under the Research Institute paper-material library and Utopia paper evidence as `ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01`.
+
 ## 5. External dependencies / 外部依赖
 
 Component tasks MUST NOT block on unfinished sibling programmes.
