@@ -17,10 +17,10 @@ development_branch: general-ai/GAI-005-triage-jev-routing
 development_head_sha: 48169de998a913f495fbca1dac5bd37d79e57e19
 development_ci: 36738383466-success
 development_report: mission-book/reports/GAI-005/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T16:39:51Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/GAI-005/CORRECTION_REPORT.md
