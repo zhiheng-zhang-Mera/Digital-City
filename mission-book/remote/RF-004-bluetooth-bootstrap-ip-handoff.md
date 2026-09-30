@@ -17,17 +17,17 @@ development_branch: remote/RF-004-bluetooth-bootstrap-ip-handoff
 development_head_sha: 3bcd4957f340441d15d0f780e980c6c56a0c6aa0
 development_ci: 36731611702-success
 development_report: mission-book/reports/RF-004/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T16:12:44Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 1bd7b13fc06c61d007c8fc6a1af7f9b5d8ec3514
+correction_ci: 36743616282-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-004/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ---
 
-# RF-004 â€” Bluetooth Bootstrap + IP Handoff
+# RF-004 â€?Bluetooth Bootstrap + IP Handoff
 
 ## Goal
 
