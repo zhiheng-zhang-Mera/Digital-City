@@ -5,26 +5,26 @@ execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 assessment_required: true
-assessment_status: IN_PROGRESS
-assessment_complete: false
-assessment_result: null
+assessment_status: COMPLETE_NO_VALUE
+assessment_complete: true
+assessment_result: NO_VALUE
 assessment_claim_host: Mech
 assessment_claimed_at: 2026-09-30T15:57:40Z
 assessment_branch: mission/MB-012-runtime-compliance
-assessment_head_sha: null
+assessment_head_sha: d071328d8f68ba1ddd5e8a1fde11718e75fd6672
 assessment_utopia_base_sha: 756c7d760c605e33ba386e87605e078fe24b82ca
-assessment_report: null
-migration_status: NOT_STARTED
-migration_complete: false
-migration_completion_basis: null
+assessment_report: mission-book/reports/MB-012/ASSESSMENT_REPORT.md
+migration_status: SKIPPED_COMPLETE
+migration_complete: true
+migration_completion_basis: SKIPPED_NOT_REQUIRED
 migration_claim_host: null
 migration_claimed_at: null
 migration_branch: null
 migration_head_sha: null
 migration_ci: null
 migration_report: null
-verification_status: NOT_STARTED
-verification_complete: false
+verification_status: NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete: true
 verification_claim_host: null
 verification_claimed_at: null
 verification_head_sha: null
@@ -35,8 +35,7 @@ merged_main_sha: null
 
 # MB-012 — Runtime Compliance Enforcement 抽取价值评估 / 条件迁移
 
-> **当前可领取：YES — ASSESSMENT_FIRST。**  
-> 自动施工机可以领取，但**领取不等于必须迁移**。领取后先比较冻结 donor 与领取时 Utopia 最新 `main`；只有存在可证实、值得补足的缺口时才允许继续迁移。
+> **状态：COMPLETE_NO_VALUE（2026-09-30，Host `Mech`）。** Assessment verdict 为 `NO_VALUE`：**判断无价值，任务保留，未迁移**。按 README §2 / response-9-30 R1+R4 视为绿色完成（`migration_complete=true`、`migration_completion_basis=SKIPPED_NOT_REQUIRED`、`verification_complete=true`），未写任何实现代码，不生成 verified episode。调度器以后必须视为已完成并 skip，除非 Owner 显式 reset/reopen。
 
 ## 目标
 
@@ -88,11 +87,11 @@ merged_main_sha: null
 
 | ID | 计划能力（donor） | Utopia 当前等价/相关能力 | 覆盖判定 | 决策 | 不迁/部分迁理由 | 证据 |
 |---|---|---|---|---|---|---|
-| RC-01 | privilege / cross-domain / protected-resource access enforcement | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| RC-02 | service / capability registration enforcement hooks | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| RC-03 | authority escalation rejection | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| RC-04 | runtime-policy decision application | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| RC-05 | audit-friendly runtime verdict / enforcement evidence | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
+| RC-01 | privilege / cross-domain / protected-resource access enforcement | `root-authority/guard.mjs`（escape⇒`DENY`、protected⇒`REQUIRE_OWNER`、rename 两侧、大小写不敏感、注入式 containment seam、有界编码理由）；`guardian-gate.mjs` 的 `SCOPE_VALIDATION` + `DESTRUCTIVE_CHANGE_CHECK`；MB-008 已从**同一** donor `src/shared/permission.ts` 迁入 computer side-effect 权限闸门（`backend-surface/permission.mjs`、`computer-recovery.mjs`）；活 gateway 的 per-route 鉴权 + 绑定/token 分离；活 bridge 的 operation allowlist | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT` + `OBSOLETE_DONOR`：donor 的 live 权限闸门在 Utopia 都有已迁或活的对应物；donor 多出的部分（`execution-profile` 的 assert* 方法、具名 `refuse*` guards）是 test-only | `root-authority/guard.mjs`, `guardian-gate.mjs`, `backend-surface/permission.mjs`, `server.mjs`, `bridge.mjs` |
+| RC-02 | service / capability registration enforcement hooks | `capability-fabric/registry.mjs`（注册期拒绝 nameless/ownerless/undescribed/重复 owner 并点名双方/priority 冲突）；`capability-bridge/registry.mjs` ownership；**活** `bridge.mjs#invoke`（`CAPABILITY_NOT_FOUND` 404、`BRIDGE_PENDING` 409、`OPERATION_BLOCKED`、`BUSY` 429、`RESULT_TOO_LARGE`、worker `resourceLimits`）；Android `CapabilityPolicy` | SUPERIOR | ABANDON | `UTOPIA_SUPERIOR` + `OBSOLETE_DONOR`：donor 的注册期强制**生产不可达**（`createCapabilityBroker`/`invokeThroughBroker`/`evaluate`/`gateAuthorizer`/`authorizeExecution` 非测试调用者为 0，且 `main.ts:1003` 以**无 options** 构造 `ExecutionGate`，authorizer 钩子永不触发）；Utopia 的对应物是活的、被测试和真实 invoke 路径消费的 | `capability-fabric/registry.mjs`, `capability-bridge/registry.mjs`, `bridge.mjs`, `CapabilityPolicy.kt` |
+| RC-03 | authority escalation rejection | `guardian-gate.mjs`：未给**每个必需检查**一个具名 verdict 时 `ACCEPTED` 不可达；`NOT_RUN` 是 blocker 而非 pass；移除需 Owner 批准；override 合规按词法校验。另 `task-lifecycle` 的 `awaiting_release_permission`、`root-authority/contracts.mjs` 的三值最严判定序 + 不可变 floor 表 | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT` + `OBSOLETE_DONOR`：donor 的 `authority-planes.ts` 只有 **1 个调用者，且是 CI 脚本**（`scripts/runtime-intelligence-diff-guard.cjs:64`），具名 `refuse*` guards 与 `acceptOwnerClaim` 是 test-only；Utopia 已迁的 Guardian gate 强制的是更强的性质 | `authority-planes.ts`, `guardian-gate.mjs`, `task-lifecycle/contracts.mjs`, `root-authority/contracts.mjs` |
+| RC-04 | runtime-policy decision application | 活 gateway 的运行时策略执行：协议版本不符 **409**、token 分离、拒绝 `0.0.0.0`/`::` 绑定、请求大小上限、任务归属 **403**、状态迁移 **409**、progress 单调性 **400**、pairing 会话一次性/过期/尝试锁 **410/429/403**；`providers.mjs` 生命周期 + 健康阶梯；computer-use routing-safety 安全闸门；bridge 熔断 | SUPERIOR | ABANDON | `OBSOLETE_DONOR` + `DUPLICATE_EQUIVALENT` + `NO_REAL_CONSUMER`：计划能力在 donor 中**根本不存在为活行为**——`.codex-boss/config/runtime-policy.json` 无任何消费者，`runtime-policy.ts` 不导出任何东西且 `loadRuntimePolicy` 零调用者，仓库里没有 JSON-Schema 校验器，活的 bound 是另一个对象（`SchedulerPolicy.maxParallel`）。没有可迁的 donor 行为 | `runtime-policy.json`, `runtime-policy.ts`, `scheduler.ts:38`, `server.mjs`, `routing-safety/**` |
+| RC-05 | audit-friendly runtime verdict / enforcement evidence | `guardian-gate.mjs` 的每个 check 携带 `verdict` + `inspected[]` + `reasons[]`，结果携带 `blocking[]` 与有界理由数；`decision-ledger.mjs` + `recovery.mjs`；gateway 事件流被 Web UI 消费；verified evolution episode 带 `inboxDigestSha256` | SUPERIOR | ABANDON | `UTOPIA_SUPERIOR`：donor 的 Root audit ledger 在活路径上**写入但不被读取**（只有 `RootAuthority.history()` 读，其调用者是测试），且其完整性机制是**无密钥** SHA-256 链（不是 MAC 也不是签名；`electron/`+`src/` 中 `createVerify`/`verifySignature`/`publicKey`/`x509`/`createHmac` 全部 0 命中）；Utopia 的 verdict 天然审计友好且被真实消费 | `root-audit-ledger.ts`, `guardian-gate.mjs`, `decision-ledger.mjs`, `server.mjs`, `episodes/**` |
 
 ### 推荐理由码
 
@@ -236,11 +235,63 @@ data-records/evolution/episodes/mission-book/MB-012/           # 只有实际迁
 
 - Host: **Mech**
 - Claimed at: 2026-09-30T15:57:40Z
-- City claim commit: `_pending (this commit)_`
+- City claim commit: `2cc352197bf98dbfefcfd9058ee9d6769a516bc9`
 - Utopia baseline SHA: `756c7d760c605e33ba386e87605e078fe24b82ca`
-- Assessment branch: `mission/MB-012-runtime-compliance`
+- Assessment branch: `mission/MB-012-runtime-compliance` @ `d071328d8f68ba1ddd5e8a1fde11718e75fd6672`（保留，不 merge、不删除）
 - Donor frozen baseline: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`
 - Selection basis: MB-010 and MB-011 both closed as `NO_VALUE` (green `SKIPPED_NOT_REQUIRED`) and no eligible P0 exists, so the last lowest-sequence assessment-first Mission (MB-012) was claimed under README §3 P1A. Read-only reconnaissance only; no implementation code written.
+- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-012/ASSESSMENT_REPORT.md`](./reports/MB-012/ASSESSMENT_REPORT.md)
+
+### Assessment closeout (NO_VALUE)
+
+```text
+assessment_status          = COMPLETE_NO_VALUE
+assessment_complete        = true
+assessment_result          = NO_VALUE
+migration_status           = SKIPPED_COMPLETE
+migration_complete         = true
+migration_completion_basis = SKIPPED_NOT_REQUIRED
+verification_status        = NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete      = true
+merged_main_sha            = null
+```
+
+**本 Mission 被当作 MB-002 deferral 的具名承接方来评估。** MB-002 的
+`capability-fabric/DONOR.json` 明确写 `Codex-Boss electron/capability/capability-broker.ts,
+authorization.ts and permission-contract.ts ... owned by MB-011/MB-012`，DEFERRED 列表写
+`permission and authorization resolution (MB-012 Runtime Compliance)`。对该 deferral 的检验结论是
+它**不是**迁移机会：
+
+1. **被 defer 的那一层在 donor 里从不运行。** `electron/capability/*` 的
+   `createCapabilityBroker` / `invokeThroughBroker` / `evaluate` / `gateAuthorizer` /
+   `authorizeExecution` 非测试生产调用者**全为 0**，且 `electron/main.ts:1003` 以
+   **无 options** 构造 `ExecutionGate`，authorizer 钩子永不触发——连代码自称 `mapped` 的边界
+   在发布应用里也是aspirational。
+2. **RC-04 的能力在 donor 中不存在为活行为。** `.codex-boss/config/runtime-policy.json`
+   无任何消费者；`runtime-policy.ts` 不导出任何东西、`loadRuntimePolicy` 零调用者；仓库里没有
+   JSON-Schema 校验器；活的 bound 是另一个对象（`SchedulerPolicy.maxParallel`）。
+3. **RC-03 是 CI 脚本专用、RC-05 的 ledger 从不被读取。** `authority-planes.ts` 只有 1 个
+   调用者（`scripts/runtime-intelligence-diff-guard.cjs:64`），具名 `refuse*` guards 是 test-only；
+   Root audit ledger 只被测试读，完整性机制是**无密钥** SHA-256 链，`electron/`+`src/` 中
+   `createVerify`/`verifySignature`/`publicKey`/`x509`/`createHmac` 全部 0 命中。
+4. **活着且确实执行的部分已经迁过。** MB-008 从本 Mission 点名的**同一份**
+   `src/shared/permission.ts` 迁入了 computer side-effect 权限闸门；MB-001 从同一 donor commit
+   迁入了 protected-surface guard 与 Guardian gate。
+5. **Utopia 的执行是活的且被消费的。** 真实 bounded 运行实测 bridge 与 gateway 在活路径上拒绝
+   （`CAPABILITY_NOT_FOUND`/`OPERATION_BLOCKED`/409/401/403/400/409 + wildcard bind 拒绝）。
+6. **第二套执行引擎会制造第二份真值**，正是本 Mission Verification 门槛明令禁止的。
+
+**范围边界（已遵守）**：Owner/Root authority source 与 constitutional protected-surface definition
+只读作背景，从未提议迁移；`promotion-state.ts` / promotion-controller 属 qualification/promotion
+control，同样仅供参考。
+
+**测量证据（1904 PASS / 0 FAIL）**：bounded enforcement chain 19/19 PASS（含活 gateway 临时端口
+与活 capability-bridge invoke）；`city/test-all.mjs` 1807 pass / 0 fail / 1 skipped（共 1808）；
+root `tests/*.test.mjs` 84 pass / 0 fail；`verify-promotion-history.mjs` 10/10。
+
+**队列状态：MB-010 → MB-011 → MB-012 的 assessment-first 队列已全部闭环，队列为空。**
+`MISSION_INDEX.md` 中所有 enabled Mission 现在都 `verification_complete = true`。
+
 
 ### Migration Claim
 

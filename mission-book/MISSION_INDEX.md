@@ -18,7 +18,7 @@
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
 | 10 | [MB-010](./MB-010-node-fabric.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. 5/5 planned capabilities (NF-01..NF-05) already equivalent-or-superior at claim-time `756c7d7`; MB-001 had already migrated the donor's live node logic from the **same** frozen `8df428e`; the donor remainder is production-dead at the baseline. 0 gaps, 0 migrated, 0 implementation code. Evidence 47 PASS / 0 FAIL (bounded runtime 8/8). Branch `mission/MB-010-node-fabric` @ `8380c38` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
 | 11 | [MB-011](./MB-011-customs.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. Assessed as the named owner of MB-002's deferred Hns plugin/adapter platform. 5/5 planned capabilities (CU-01..CU-05) already equivalent-or-superior at claim-time `756c7d7`. Decisive: the donor's coherent admission machinery `app/core/plugin-install/*` (960 lines) has ZERO app consumers and is the only pin/quarantine/rollback implementation; the donor performs no provenance verification at all; isolation preflight is not a donor refusal; permissions are not a donor admission gate and belong to MB-012. 0 gaps, 0 migrated, 0 implementation code. Evidence 1904 PASS / 0 FAIL (bounded admission 13/13, city 1807/1808, root 84/84, promotion history 10/10). Branch `mission/MB-011-customs` @ `82b6ac4` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
-| 12 | [MB-012](./MB-012-runtime-compliance.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; migrate only proven gaps |
+| 12 | [MB-012](./MB-012-runtime-compliance.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. Assessed as the named owner of MB-002's deferred Codex-Boss permission/authorization resolution. 5/5 planned capabilities (RC-01..RC-05) already equivalent-or-superior at claim-time `756c7d7`. Decisive: the deferred layer has ZERO non-test production callers and the composition root builds `ExecutionGate` with no authorizer; the runtime-policy JSON is parsed by nothing; escalation rejection is CI-script-only; the audit ledger is read only by tests and uses an unkeyed hash chain. 0 gaps, 0 migrated, 0 implementation code. Evidence 1904 PASS / 0 FAIL (bounded enforcement 19/19, city 1807/1808, root 84/84, promotion history 10/10). Branch `mission/MB-012-runtime-compliance` @ `d071328` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
 
 ## Immediate dispatch queue
 
@@ -47,7 +47,20 @@ COMPLETE. MB-011 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). Asse
           gates on permissions. 0 migrated, 0 implementation code, branch
           `mission/MB-011-customs` @ `82b6ac4` retained (not merged).
           Green completion basis `SKIPPED_NOT_REQUIRED`.
-THEN.     MB-012 assessment-first (Runtime Compliance, seq 12)
+COMPLETE. MB-012 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). Assessed as the
+          named owner of MB-002's deferred Codex-Boss permission/authorization
+          resolution. The deferred layer has ZERO non-test production callers and the
+          composition root builds `ExecutionGate` with no authorizer; the runtime-policy
+          JSON is parsed by nothing; escalation rejection is CI-script-only; the audit
+          ledger is read only by tests. 0 migrated, 0 implementation code, branch
+          `mission/MB-012-runtime-compliance` @ `d071328` retained (not merged).
+          Green completion basis `SKIPPED_NOT_REQUIRED`.
+
+QUEUE EMPTY. Every enabled Mission (MB-001..MB-012) now has verification_complete = true.
+          The assessment-first queue MB-010 -> MB-011 -> MB-012 closed with three
+          NO_VALUE verdicts; no claimable Mission remains. Next work requires an Owner
+          ruling (reopen/reset, a new Mission, or a directed integration of the
+          migrated-but-unconsumed modules listed in the reports as a standing backlog).
 ```
 
 `SKIPPED_NOT_REQUIRED` is a **green completion basis**, not an eternal red/not-started state.

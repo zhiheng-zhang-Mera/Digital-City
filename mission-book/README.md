@@ -21,7 +21,7 @@
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-010 — Node Fabric](./MB-010-node-fabric.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
 | [MB-011 — Customs](./MB-011-customs.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
-| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
+| [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
 
 > 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
 > **Active rules = 本文件 + `response-9-30.md` + `response-9-29.md`（未被 9-30 覆盖部分）+ 各 Mission 当前 front matter / mission-specific gates。**  
@@ -398,7 +398,59 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
   `verify-promotion-history.mjs` 10/10。assessment branch `mission/MB-011-customs` @ `82b6ac4`
   **保留、不 merge、不删除**；无 verified episode。报告 `reports/MB-011/ASSESSMENT_REPORT.md`；
   素材 `evidence/raw/mission-book/MB-011/assessment/` + `data-records/evolution/inbox/mission-book/MB-011/events.jsonl`（4 events）。
-- **MB-012 — Runtime Compliance:** 待领取（assessment-first，seq 12）。
+- **MB-012 — Runtime Compliance:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 本 Mission 是
+  MB-002 `capability-fabric/DONOR.json` 指名的 deferral 承接方（Codex-Boss
+  `capability-broker.ts`/`authorization.ts`/`permission-contract.ts` → `01/02 Public Security`），
+  因此按假设检验而非按“已覆盖”结案。Utopia baseline `756c7d760c605e33ba386e87605e078fe24b82ca`；
+  donor 冻结基线 `Codex-Boss@8df428e`（只读读取 24 个路径，未改动/未构建/未测试 donor）。**结论：
+  `NO_VALUE`——判断无价值，任务保留，未迁移。** 5/5 计划能力 RC-01..RC-05 已等价或更优覆盖，
+  0 真实缺口，0 迁移，未写任何实现代码。**决定性命中：** 被 defer 的 `electron/capability/*`
+  层在生产中**从不运行**（`createCapabilityBroker`/`invokeThroughBroker`/`evaluate`/`gateAuthorizer`/
+  `authorizeExecution` 非测试生产调用者为 0，且 `main.ts:1003` 以**无 options** 构造 `ExecutionGate`，
+  authorizer 钩子永不触发）；`.codex-boss/config/runtime-policy.json` **无任何消费者**（`runtime-policy.ts`
+  不导出任何东西、`loadRuntimePolicy` 零调用者、仓库无 JSON-Schema 校验器）；`authority-planes.ts`
+  的越权拒绝只有 1 个调用者且是 CI 脚本，具名 `refuse*` guards 为 test-only；Root audit ledger 只被
+  测试读取，完整性机制是**无密钥** SHA-256 链（`electron/`+`src/` 中
+  `createVerify`/`verifySignature`/`publicKey`/`x509`/`createHmac` 全部 0 命中）。活着的执行已有对应物：
+  MB-008 从本 Mission 点名的**同一份** `src/shared/permission.ts` 迁入 computer side-effect 权限闸门，
+  MB-001 从同一 donor commit 迁入 protected-surface guard 与 Guardian gate。**范围边界已遵守**：
+  Owner/Root authority source 与 constitutional protected-surface definition 只读作背景、从未提议迁移。
+  **测量证据（1904 PASS / 0 FAIL）**：bounded enforcement chain 19/19 PASS（含活 gateway 临时端口与
+  活 capability-bridge invoke）、`city/test-all.mjs` 1807 pass / 0 fail / 1 skipped（共 1808）、
+  root `tests/*.test.mjs` 84 pass / 0 fail、`verify-promotion-history.mjs` 10/10。
+  assessment branch `mission/MB-012-runtime-compliance` @ `d071328` **保留、不 merge、不删除**；
+  无 verified episode。报告 `reports/MB-012/ASSESSMENT_REPORT.md`；素材
+  `evidence/raw/mission-book/MB-012/assessment/` +
+  `data-records/evolution/inbox/mission-book/MB-012/events.jsonl`（4 events）。
+
+### 13.2 Assessment-first 队列已清空（2026-09-30）
+
+MB-010、MB-011、MB-012 三个 assessment-first Mission 在同一会话内全部以 `NO_VALUE` 绿色闭环
+（`SKIPPED_NOT_REQUIRED`），**队列为空**：`MISSION_INDEX.md` 中所有 enabled Mission
+（MB-001..MB-012）现在都 `verification_complete = true`，不存在可领取的 P0 或 P1A/P1B。
+
+三个 NO_VALUE 由**同一机制**得出，这是可复用的结论：
+
+```text
+前一个 Mission 的 "DEFERRED ... belongs to MB-0NN" 是**指针**，不是已验证的结论。
+判定它的是 **donor 调用图**，不是 donor 文件清单：
+  MB-010  donor 的活节点逻辑已被 MB-001 迁走；剩余部分在冻结基线上生产未接线
+          （TenxNodeRegistry/TenxNetworkRegistry 无 main/bootstrap import）
+  MB-011  app/core/plugin-install/*（960 行）0 个 app consumer，而它是 pin/quarantine/
+          rollback 的唯一实现
+  MB-012  electron/capability/* 非测试生产调用者为 0，且 composition root 以无 options
+          构造 ExecutionGate；runtime-policy JSON 无人解析
+```
+
+两个次要机制反复出现，值得带入未来评估：(1) **声明了但从未产生的拒绝码**（MB-011 donor 中 17 个）
+会让 donor 看起来比实际更会强制；(2) **Utopia 中已迁但尚未被消费的模块**
+（`fleetNodeStateFor`、`createProtectedSurfaceGuard`、`evaluateGuardian` 目前只有测试作为消费者）
+对 assessment Mission 而言**不是缺口**——接线不是迁移，为其造消费者属于
+`NEW_FEATURE_DEVELOPMENT`。这些作为**standing、non-blocking backlog**记录，供未来 Owner 定向的
+integration 使用，而不是继续迁移 donor 代码的理由。
+
+**下一项工作需要 Owner 裁决**：reopen/reset 某个 Mission、建立新 Mission，或显式指示把上述
+已迁但未消费的模块接入现有消费面。
 
 ## 14. 历史规则
 
