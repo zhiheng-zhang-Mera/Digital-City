@@ -35,7 +35,7 @@ and the [binding workbook](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSE
 
 ## Immediate dispatch queue
 
-Current scheduler is **integration-first**, not migration-first.
+The migration scheduler is **closed**. The block below preserves the final migration closeout trail for provenance; only the R12 CURRENT/FORBIDDEN lines are actionable now.
 
 ```text
 COMPLETE. MB-007 — implementation + Owner-override episode closed
@@ -52,22 +52,23 @@ COMPLETE. MB-010 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). 5/5 
           already equivalent-or-superior; MB-001 had migrated the donor's live node logic
           from the same frozen `8df428e`; the donor remainder is production-dead at the
           baseline. 0 migrated, 0 implementation code, branch `mission/MB-010-node-fabric`
-          @ `8380c38` retained (not merged). Green completion basis `SKIPPED_NOT_REQUIRED`.
+          @ `8380c38` later provenance-merged under R11 as `6e9781c` and retained remotely.
+          Green completion basis `SKIPPED_NOT_REQUIRED`; no implementation merge.
 COMPLETE. MB-011 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). Assessed as the
           named owner of MB-002's deferred Hns plugin/adapter platform. The donor's
           coherent admission design (app/core/plugin-install/*, 960 lines) has ZERO app
           consumers; the donor neither verifies provenance nor refuses on isolation nor
           gates on permissions. 0 migrated, 0 implementation code, branch
-          `mission/MB-011-customs` @ `82b6ac4` retained (not merged).
-          Green completion basis `SKIPPED_NOT_REQUIRED`.
+          `mission/MB-011-customs` @ `82b6ac4` later provenance-merged under R11 as `f22273c`
+          and retained remotely. Green completion basis `SKIPPED_NOT_REQUIRED`; no implementation merge.
 COMPLETE. MB-012 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). Assessed as the
           named owner of MB-002's deferred Codex-Boss permission/authorization
           resolution. The deferred layer has ZERO non-test production callers and the
           composition root builds `ExecutionGate` with no authorizer; the runtime-policy
           JSON is parsed by nothing; escalation rejection is CI-script-only; the audit
           ledger is read only by tests. 0 migrated, 0 implementation code, branch
-          `mission/MB-012-runtime-compliance` @ `d071328` retained (not merged).
-          Green completion basis `SKIPPED_NOT_REQUIRED`.
+          `mission/MB-012-runtime-compliance` @ `d071328` later provenance-merged under R11 as `e0d9470`
+          and retained remotely. Green completion basis `SKIPPED_NOT_REQUIRED`; no implementation merge.
 
 MIGRATION QUEUE CLOSED. Every enabled Mission (MB-001..MB-012) has verification_complete = true.
           R11 provenance closeout is merged and the recorded Utopia branch audit has unmerged = 0.
@@ -80,15 +81,15 @@ FORBIDDEN. Do not auto-create MB-013, reopen a closed Mission, add Boss/Hns conn
 
 `SKIPPED_NOT_REQUIRED` is a **green completion basis**, not an eternal red/not-started state.
 
-At the Owner review snapshot, the Utopia branches for MB-007 and MB-008 were both substantially behind current `main`; the verifier must recompute the exact ahead/behind count immediately before work and merge the latest `main` into each branch **one at a time**.
+**Historical closeout note (inactive):** at the earlier Owner review snapshot, MB-007/008 required one-at-a-time resync against then-current Utopia `main`. Both are now closed and merged. This note must not be interpreted as current work.
 
-Do not prepare both integrations against the same stale `main`: finish/merge MB-007 first, then resync MB-008 against the new `main`.
+## Historical migration selection rule — inactive unless Owner reopens a Mission
 
-## Active selection rule
+The current product executor must follow
+[`ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md),
+not this historical selector.
 
-See [README.md §3](./README.md).
-
-Condensed:
+For provenance, the closed migration selector was:
 
 ```text
 1. eligible verification/integration work first
