@@ -9,13 +9,13 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: REMOTE_FABRIC_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T13:47:25Z
 development_branch: remote/RF-003-local-discovery-lan-direct
-development_head_sha: null
-development_ci: null
+development_head_sha: f0d8f59796a3d152a61f104682d3d86c2ca023c2
+development_ci: 36724660725-success
 development_report: mission-book/reports/RF-003/DEVELOPMENT_REPORT.md
 correction_status: NOT_STARTED
 correction_complete: false
