@@ -6,6 +6,7 @@ mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 migration_status: COMPLETE
 migration_complete: true
+migration_completion_basis: OWNER_ACCEPTED_COMPLETE
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T13:34:10Z
 migration_branch: mission/MB-007-research-institute
@@ -21,9 +22,14 @@ verification_ci: "final-branch 36650198208 PASS (gateway-web + android); reconci
 verification_report: mission-book/reports/MB-007/VERIFICATION_REPORT.md
 merged_main_sha: cb8e0bd77ccf0864cf0af50b4624f2f556b6b279
 episode: NONE — mission:finalize refuses this Mission (needs a PASS MIGRATION_COMPLETE the migration host never wrote); see reports/MB-007/VERIFICATION_REPORT.md §6.5
+repair_sequence: 1
+repair_status: QUEUED
+repair_reason: "Implementation and Verification are accepted and merged; only the Owner-override finalizer/verified-episode closeout is missing."
 ---
 
 # MB-007 — Boss Research Institute 既有流水线纯迁移
+
+> **Repair queue step 1.** 实现与 Verification 已接受并进入 Utopia main；本轮只修 Owner-override finalizer / verified episode 闭环。禁止回滚、重迁或把 Alien 的历史 BLOCKED 改写成 PASS。
 
 > ## ✅ Owner ruling applied — Migration COMPLETE / Verification OPEN
 >
