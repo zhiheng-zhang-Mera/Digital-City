@@ -12,10 +12,10 @@ migration_branch: mission/MB-007-research-institute
 migration_head_sha: 68015caa71b7788f700abb1c7918d1b5ee8f9e8c
 migration_ci: "final-branch 36578310170 PASS; implementation 71267e8 36577840443 PASS"
 migration_report: mission-book/reports/MB-007/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Mech
+verification_claimed_at: 2026-09-30T03:10:00Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -123,8 +123,15 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
+- Host: **Mech**
+- Claimed at: 2026-09-30T03:10:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-007/VERIFICATION_REPORT.md`)
+- Reviewed migration branch: `mission/MB-007-research-institute` @ `68015caa71b7788f700abb1c7918d1b5ee8f9e8c`
+- **Selection under the current scheduler (`README.md` §3).** This is a **P0 — Verification / Integration** claim, not an assessment. At the time of claiming, the queue read: MB-001/002/004/005/006/009 verified and merged; MB-003 `BLOCKED_OWNER_DECISION` (excluded by P0's own condition); MB-007 and MB-008 `migration_complete=true`, verification unclaimed, migration host `Alien` ≠ `Mech`. MB-007 is the lower sequence, so it is taken first; MB-008 remains available to another host. MB-010..012 are assessment-first (P1A) and are therefore **not** eligible while a P0 exists for this host.
+- **Integration pressure (P0 sort key 1 and 2).** The branch is **23 commits behind** the implementation repo's `main` and **touches the shared control plane** (`city/CITY_IMPLEMENTATION_MANIFEST.json`, `city/manifest.mjs`, `city/tests/manifest.test.mjs`, `services/capability-bridge/registry.mjs`). Per `README.md` §6, verification begins by merging the latest `main` into this branch and resolving the manifest/registry/census union and semantic conflicts **before** running the Mission gates — not by force-updating or rewriting the migration host's history.
+- **Basis for verification being open.** Owner ruling [`response-9-29.md`](./response-9-29.md) **R6** explicitly declares: *"ACCEPT THE BOUNDARY. MIGRATION IS COMPLETE; OPEN VERIFICATION."* The migration host recorded its product-consumption gate as `RUNTIME_FAIL / BLOCKED` (`MB-007:7d6c861428278c83`) and wrote no `MIGRATION_COMPLETE` event, so this claim rests on the Owner ruling plus `README.md` §7.2's v2 rule for infrastructure/pipeline modules with no equivalent product seam: the Verification Host satisfies the real-consumption gate with a **real, bounded, reproducible research chain** that directly executes the migrated modules and records inputs, outputs, failure/recovery, parity and evidence.
+- **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
+
 - City claim commit: —
 - Reviewed migration branch: —
 
