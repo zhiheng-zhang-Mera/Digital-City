@@ -312,3 +312,30 @@ owner 要求的"保留操作历史"因此得到更强的满足，而不是更弱
    后必须停止。下一阶段必须等待新的 Owner 指示，不得自动继续后续 connector、workspace、resident-host 或 assistant 层。
 
 **目的。** 先把已有 Utopia 能力收束成一个统一终端骨架，再决定后续能力；防止在产品统一之前继续横向堆模块。
+
+---
+
+## R13 — Pre-Assistant T4 单主机验收豁免（Owner 指示，2026-09-30）
+
+**背景.** [PRE-ASSISTANT 工程书](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md) §3 与 §8 要求
+T4 由 **Independent Verification Host** 执行，并"在两台都可用时使用两个不同真实主机标识"；若只有一台真实主机可用，
+则必须**保持分支未合并**并如实报告该限制，除非 Owner 显式豁免。本轮可用真实主机只有 `Alien`
+（`MERA-ALIANWARE`，本机）。`Mech`（`MEGA-REP`）在本会话中不可达。
+
+**Owner 裁决.** 对本轮 Pre-Assistant 收尾**豁免第二台真实主机的要求**，`Alien` 上的独立验收即可用于 T4 放行，
+但必须同时满足：
+
+1. **验收者必须真正独立于实现者。** 验收由**未参与编写的独立 agent 会话**执行，且在读取
+   `IMPLEMENTATION_REPORT.md`、实现提交信息或实现方证据脚本**之前**先写好自己的探针与发现文件；
+   实现方的脚本不得作为验收证据引用。
+2. **单主机限制必须如实记录。** 验收报告与本 Mission Book 必须明写"这是单主机验收"：验收进程与
+   Gateway 运行在同一物理主机、同一 `provenance.host` 上。允许指出 Android 设备是真实独立硬件（设备侧确为
+   多机），但**不得**把单主机验收说成双主机验收。
+3. **验收结论必须可以被否决。** 验收者给出 ACCEPT / REJECT 明确结论；REJECT 时实现方必须修复**全部**
+   blocking finding 并在新 SHA 上**重新验收**，不得以"大部分通过"为由放行。
+4. **CI 标准不降。** 分支 required CI 与 merged-main CI 都必须全绿，才允许合并与收线。
+5. **范围仅限本轮。** 这是针对 Pre-Assistant 收尾这一轮的显式、被记录的豁免，**不是**对 future Mission
+   two-host 规则的普遍放宽；后续需要独立主机的阶段仍按各自工程书执行。
+
+**范围.** 豁免只涉及"验收主机是否与实现主机不同"这一条；其余 T4 要求（真实执行、独立探针、范围审计、
+独立结论）一项不降。
