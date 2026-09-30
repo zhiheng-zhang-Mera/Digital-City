@@ -144,3 +144,32 @@ City pre-state commit
 - 对应 Assessment/Migration/Verification Report。
 
 不得等所有代码做完后一次性补 City 状态。
+
+---
+
+## R10 — MB-003 host-separation waiver（Owner 指示，2026-09-30）
+
+**背景.** MB-003 的 two-host gate 已由两台真实主机各自留下 donor-backed receipt 而满足：`Mech`（`MEGA-REP`，
+见 `reports/MB-003/VERIFICATION_REPORT.md` §8.3）与 `Alien`（`MERA-ALIANWARE`，`RUNTIME_PASS
+MB-003:b84512cd12f80735`）。环境阻塞已解除，剩下的唯一条件是主机权限：按 [README.md](./README.md) §6
+lines 233-236、§9、§11.1，完成维修与合入 `main` 属于 **Verification Host**，且
+`scripts/finalize-mission-episode.mjs` 机械强制 `migrationHost != verificationHost`。本会话中 Verification
+Host 无法执行该收口。
+
+**Owner 裁决.** 允许本 Mission 的 Migration Host（`Alien`）在同一次施工中完成 verification 收口与 merge，
+**仅限本 Mission 本次收口**，且必须同时满足：
+
+1. **不得伪造历史。** `Mech` 已经发出的 VERIFICATION 事件必须原样保留其 `hostId`；不得代写任何一条假装由
+   `Mech` 发出的 `MIGRATION_COMPLETE` / `CI_RESULT` / `VERIFICATION_COMPLETE`。
+2. **两个主机的证据都仍然算数。** `Mech` 的真实 provider receipt 与早期独立发现继续构成本 Mission
+   verification 证据的一部分，不被 `Alien` 的收口覆盖或删除。
+3. **必须显式记录豁免。** finalizer 增加显式的 host-separation waiver 路径，并在 episode 中写入
+   `hostSeparation.mode = OWNER_WAIVED`、本裁决引用、以及每个角色**实际**出现过的 host 列表与完成主机产出的
+   verification 事件数。
+4. **豁免必须被需要且被引用。** 仅当完成主机确实产出了 VERIFICATION 事件、且记录中至少有一个事件引用了本裁决
+   （`response-9-30.md#R10`）时才接受；完成主机已经是 Verification Host 时拒绝（无意义的豁免）。
+5. **其余 verification 标准一项都不得降低。** independent finding、真实 bounded chain、`CI_RESULT=PASS`、
+   在最终 CI 之后的 `VERIFICATION_COMPLETE=PASS`，以及 required CI 全绿，全部照旧。
+
+**范围.** 这是一次显式的、被记录的、只针对 MB-003 收口的主机分离豁免，**不是**对 two-host 规则的普遍放宽；
+后续 Mission 仍需两台不同真实主机，除非 Owner 再次显式裁决。
