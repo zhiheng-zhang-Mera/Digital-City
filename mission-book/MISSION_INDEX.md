@@ -17,7 +17,7 @@
 | 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 2 ✅** | Alien | repair closed: episode `MB-008:6ae0bbd46e425c9f`, merge `168182c`, merged-main CI `36663813362` PASS |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
 | 10 | [MB-010](./MB-010-node-fabric.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. 5/5 planned capabilities (NF-01..NF-05) already equivalent-or-superior at claim-time `756c7d7`; MB-001 had already migrated the donor's live node logic from the **same** frozen `8df428e`; the donor remainder is production-dead at the baseline. 0 gaps, 0 migrated, 0 implementation code. Evidence 47 PASS / 0 FAIL (bounded runtime 8/8). Branch `mission/MB-010-node-fabric` @ `8380c38` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
-| 11 | [MB-011](./MB-011-customs.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; compare current Utopia before migration |
+| 11 | [MB-011](./MB-011-customs.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. Assessed as the named owner of MB-002's deferred Hns plugin/adapter platform. 5/5 planned capabilities (CU-01..CU-05) already equivalent-or-superior at claim-time `756c7d7`. Decisive: the donor's coherent admission machinery `app/core/plugin-install/*` (960 lines) has ZERO app consumers and is the only pin/quarantine/rollback implementation; the donor performs no provenance verification at all; isolation preflight is not a donor refusal; permissions are not a donor admission gate and belong to MB-012. 0 gaps, 0 migrated, 0 implementation code. Evidence 1904 PASS / 0 FAIL (bounded admission 13/13, city 1807/1808, root 84/84, promotion history 10/10). Branch `mission/MB-011-customs` @ `82b6ac4` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
 | 12 | [MB-012](./MB-012-runtime-compliance.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; migrate only proven gaps |
 
 ## Immediate dispatch queue
@@ -40,7 +40,14 @@ COMPLETE. MB-010 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). 5/5 
           from the same frozen `8df428e`; the donor remainder is production-dead at the
           baseline. 0 migrated, 0 implementation code, branch `mission/MB-010-node-fabric`
           @ `8380c38` retained (not merged). Green completion basis `SKIPPED_NOT_REQUIRED`.
-THEN.     MB-011 → MB-012 assessment-first queue
+COMPLETE. MB-011 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). Assessed as the
+          named owner of MB-002's deferred Hns plugin/adapter platform. The donor's
+          coherent admission design (app/core/plugin-install/*, 960 lines) has ZERO app
+          consumers; the donor neither verifies provenance nor refuses on isolation nor
+          gates on permissions. 0 migrated, 0 implementation code, branch
+          `mission/MB-011-customs` @ `82b6ac4` retained (not merged).
+          Green completion basis `SKIPPED_NOT_REQUIRED`.
+THEN.     MB-012 assessment-first (Runtime Compliance, seq 12)
 ```
 
 `SKIPPED_NOT_REQUIRED` is a **green completion basis**, not an eternal red/not-started state.

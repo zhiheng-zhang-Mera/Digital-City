@@ -5,26 +5,26 @@ execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 assessment_required: true
-assessment_status: IN_PROGRESS
-assessment_complete: false
-assessment_result: null
+assessment_status: COMPLETE_NO_VALUE
+assessment_complete: true
+assessment_result: NO_VALUE
 assessment_claim_host: Mech
 assessment_claimed_at: 2026-09-30T15:48:08Z
 assessment_branch: mission/MB-011-customs
-assessment_head_sha: null
+assessment_head_sha: 82b6ac486d024efcfcc64703b58cc136b546caf9
 assessment_utopia_base_sha: 756c7d760c605e33ba386e87605e078fe24b82ca
-assessment_report: null
-migration_status: NOT_STARTED
-migration_complete: false
-migration_completion_basis: null
+assessment_report: mission-book/reports/MB-011/ASSESSMENT_REPORT.md
+migration_status: SKIPPED_COMPLETE
+migration_complete: true
+migration_completion_basis: SKIPPED_NOT_REQUIRED
 migration_claim_host: null
 migration_claimed_at: null
 migration_branch: null
 migration_head_sha: null
 migration_ci: null
 migration_report: null
-verification_status: NOT_STARTED
-verification_complete: false
+verification_status: NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete: true
 verification_claim_host: null
 verification_claimed_at: null
 verification_head_sha: null
@@ -35,8 +35,7 @@ merged_main_sha: null
 
 # MB-011 — Customs Admission Boundary 抽取价值评估 / 条件迁移
 
-> **当前可领取：YES — ASSESSMENT_FIRST。**  
-> 自动施工机可以领取，但**领取不等于必须迁移**。领取后先比较冻结 donor 与领取时 Utopia 最新 `main`；只有存在可证实、值得补足的缺口时才允许继续迁移。
+> **状态：COMPLETE_NO_VALUE（2026-09-30，Host `Mech`）。** Assessment verdict 为 `NO_VALUE`：**判断无价值，任务保留，未迁移**。按 README §2 / response-9-30 R1+R4 视为绿色完成（`migration_complete=true`、`migration_completion_basis=SKIPPED_NOT_REQUIRED`、`verification_complete=true`），未写任何实现代码，不生成 verified episode。调度器以后必须视为已完成并 skip，除非 Owner 显式 reset/reopen。
 
 ## 目标
 
@@ -89,11 +88,11 @@ merged_main_sha: null
 
 | ID | 计划能力（donor） | Utopia 当前等价/相关能力 | 覆盖判定 | 决策 | 不迁/部分迁理由 | 证据 |
 |---|---|---|---|---|---|---|
-| CU-01 | manifest / schema admission validation | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| CU-02 | identity / source / provenance verification hooks at admission time | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| CU-03 | dependency / capability / permission / domain / storage declaration checks | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| CU-04 | isolation / crash-boundary / compatibility preflight | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
-| CU-05 | enable / disable / uninstall / rollback readiness checks before admission | 领取时填写 | 领取时填写：NONE / PARTIAL / EQUIVALENT / SUPERIOR | 领取时填写：MIGRATE / PARTIAL / ABANDON | 领取时填写 | 领取时填写 |
+| CU-01 | manifest / schema admission validation | `city/manifest.mjs` `validateManifest`/`checkManifestAgainstTree`（结构、id 形状、双语、重复 id/path、lifecycle 词表、`capabilityProvider` 布尔、**canonical path 相等**、incubation room 唯一性与必需性、donor SHA；再与磁盘树互检）+ `promotions.mjs` + `capability-fabric/contracts.mjs#FABRIC_API_VERSION` + 5 份 contract schema | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT` + `OBSOLETE_DONOR`：donor 的插件清单字段（`api_version` 相等、semver、provides/requires/conflicts 数组）在 Utopia 没有对应被准入物（无插件格式）；在确实存在的字段上 Utopia 更严 | `city/manifest.mjs`, `city/tests/manifest.test.mjs`, `promotions.mjs`, `contracts/*/schema.json` |
+| CU-02 | identity / source / provenance verification hooks at admission time | `promotions.mjs` 记录并校验 `donor.repository`/`commit`/`sourcePaths`；`crossCheckPromotions` 拒绝与目录冲突或仍在上线的 room；`scripts/verify-promotion-history.mjs` 用本地 Git 历史验证每条记录的 commit 祖先与 target 存在性；每模块 `DONOR.json` | SUPERIOR | ABANDON | `UTOPIA_SUPERIOR`：donor **完全没有** provenance 校验，只用正则从用户输入拼一个 provenance 对象存下来；全基线 `createVerify`/`verifySignature`/`publicKey`/`x509`/`contentHash`/`pluginHash` 各 0 命中，17 个准入模块无 `node:crypto` | `promotions.mjs`, `verify-promotion-history.mjs`, `DONOR.json` |
+| CU-03 | dependency / capability / permission / domain / storage declaration checks | `capability-fabric/registry.mjs`（注册期拒绝第二 owner 并点名双方、miss 点名 requester、revocation）；`providers.mjs`（拒绝重复身份）；`capability-bridge/registry.mjs`（moduleRefs/owner/priority/kind）；`capability-routing.mjs#eligibleCandidates`；`city/manifest.mjs` 的 domain path | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT` + `WRONG_OWNERSHIP` + `NO_INDEPENDENT_VALUE`：capability/依赖判定已覆盖且在注册期而非 donor 的加载期；权限解析由 MB-002 DONOR.json 明确归 **MB-012**，且 donor 本身也不在准入期强制权限（`UNKNOWN_PERMISSION`/`PERMISSION_DENIED` 从未产生）；storage 声明两边都没有 | `capability-fabric/registry.mjs`, `providers.mjs`, `capability-bridge/registry.mjs`, `capability-routing.mjs` |
+| CU-04 | isolation / crash-boundary / compatibility preflight | `FABRIC_API_VERSION` + descriptor 校验；`FAULT_LEVELS`（soft/degraded/fatal）与健康反应阶梯 + 有界重启预算；MB-006 `04-restart-recovery-station` 拥有真实恢复边界 | EQUIVALENT | ABANDON | `DUPLICATE_EQUIVALENT` + `OBSOLETE_DONOR` + `NO_REAL_CONSUMER`：Mission 所指的隔离预检在 donor 中**根本不存在为拒绝**（`RUNTIME_KINDS` 只是声明元数据，唯一消费者是死代码 `plan.cjs` 里的建议性风险分；真实隔离发生在准入之后的子进程启动）；Codex-Boss root-recovery rollback 属 Owner sovereignty / Root Authority，本 Mission 明确禁止 | `plugin-adapters/contract.cjs`, `process/contract.cjs`, `capability-fabric/contracts.mjs`, `providers.mjs`, `04-restart-recovery-station/**` |
+| CU-05 | enable / disable / uninstall / rollback readiness checks before admission | `providers.mjs`（installed/enabled/loaded/healthy 四独立事实；禁用 provider 拒绝 load，除非显式 force）；`RETIRED_LIFECYCLES` 将 PROMOTED/REJECTED room 移出活跃目录；`crossCheckPromotions` + `verify-promotion-history` 证明不存在第二份活实现；MB-006 checkpoint gate fail-closed + restart lock/ticket | SUPERIOR | ABANDON | `UTOPIA_SUPERIOR` + `OBSOLETE_DONOR`：donor 的**活**路径（`setEnabled`/`removeOne`）只拒绝 `PLUGIN_NOT_FOUND`，无依赖检查无回滚；设计好的 readiness（pin/quarantine/rollback-before-replace/confirm）只存在于 **production-dead** 的 `plugin-install/*`（960 行，0 个 app consumer） | `plugin-manager/index.cjs`, `plugin-install/*`, `providers.mjs`, `promotions.mjs`, `04-restart-recovery-station/**` |
 
 ### 推荐理由码
 
@@ -236,11 +235,57 @@ data-records/evolution/episodes/mission-book/MB-011/           # 只有实际迁
 
 - Host: **Mech**
 - Claimed at: 2026-09-30T15:48:08Z
-- City claim commit: `_pending (this commit)_`
+- City claim commit: `10b2267105a87dd610503a93d62793b5f12f62c1`
 - Utopia baseline SHA: `756c7d760c605e33ba386e87605e078fe24b82ca`
-- Assessment branch: `mission/MB-011-customs`
+- Assessment branch: `mission/MB-011-customs` @ `82b6ac486d024efcfcc64703b58cc136b546caf9`（保留，不 merge、不删除）
 - Donor frozen baselines: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`, `zhiheng-zhang-Mera/DS-Hns@eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
 - Selection basis: MB-010 closed as `NO_VALUE` (green `SKIPPED_NOT_REQUIRED`) and no eligible P0 exists, so the next lowest-sequence assessment-first Mission (MB-011) was claimed under README §3 P1A. Read-only reconnaissance only; no implementation code written.
+- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-011/ASSESSMENT_REPORT.md`](./reports/MB-011/ASSESSMENT_REPORT.md)
+
+### Assessment closeout (NO_VALUE)
+
+```text
+assessment_status          = COMPLETE_NO_VALUE
+assessment_complete        = true
+assessment_result          = NO_VALUE
+migration_status           = SKIPPED_COMPLETE
+migration_complete         = true
+migration_completion_basis = SKIPPED_NOT_REQUIRED
+verification_status        = NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete      = true
+merged_main_sha            = null
+```
+
+**本 Mission 被当作 MB-002 deferral 的具名承接方来评估，而不是以“已覆盖”草率结案。**
+`city/00-foundation/03-capability-fabric/capability-fabric/DONOR.json` 明确写着 Hns
+plugin/adapter/installer 平台未迁移且归 `01/01 Customs (MB-011)`。评估该 deferral 后结论
+为它**不是**迁移机会：
+
+1. **donor 最完整的准入设计是 production-dead。** `app/core/plugin-install/`
+   （`plan.cjs` + `pipeline.cjs` + `records.cjs`，960 行）**0 个 app consumer**，唯一非测试
+   引用者是 `scripts/install-pipeline-acceptance.cjs`；`records.cjs` 是 pin / quarantine /
+   rollback 的唯一实现，因此这些 CU-05 能力随之死亡。donor **活**的 `setEnabled` /
+   `removeOne` 只拒绝 `PLUGIN_NOT_FOUND`。
+2. **donor 完全不做 provenance 校验**（CU-02），只用正则从用户输入拼 provenance 记录；
+   全基线 `createVerify`/`verifySignature`/`publicKey`/`x509`/`contentHash`/`pluginHash`
+   各 0 命中。Utopia 则用本地 Git 历史真实验证 10/10 条 promotion 记录。
+3. **CU-04 的隔离预检在 donor 中不存在为拒绝**：`RUNTIME_KINDS` 只是声明元数据，唯一消费者
+   是死代码里的建议性风险分；真实隔离发生在准入之后的子进程启动。
+4. **权限不是 donor 的准入闸门**（`ADAPTER_UNKNOWN_PERMISSION`/`ADAPTER_PERMISSION_DENIED`
+   从未产生，未授权仅记日志后放行），且权限解析按 MB-002 DONOR.json 属 **MB-012**。
+5. **活着的 donor 片段等价或弱于 Utopia 现有检查**；再建一层 Customs 重复执行
+   manifest/promotion/capability 检查，正是本 Mission Verification 门槛明令禁止的。
+6. **Utopia 没有插件/扩展生态**：没有 `dshns.plugin/v1` 之类的被准入物；为了让 Customs
+   有东西可查而新建插件平台属于 `NEW_FEATURE_DEVELOPMENT`，违反 `MIGRATION_ONLY`。
+
+**测量证据（1904 PASS / 0 FAIL）**：bounded admission chain 13/13 PASS；
+`city/test-all.mjs` 1807 pass / 0 fail / 1 skipped（共 1808）；root `tests/*.test.mjs`
+84 pass / 0 fail；`verify-promotion-history.mjs` 10/10 记录验证通过。
+
+**关于 MB-002 deferral 的说明**：`DEFERRED ... belongs to MB-011` 是未来工作的**指针**，
+不是已验证的结论。把它当作假设去检验，才会得到迁移或诚实的负结果；本次是负结果——
+把一个在 donor 内部都不可达的模块搬进只许迁移的 city，只会落地无人调用的代码。
+
 
 ### Migration Claim
 

@@ -20,7 +20,7 @@
 | [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2 ✅） | 🟢 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-010 — Node Fabric](./MB-010-node-fabric.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
-| [MB-011 — Customs](./MB-011-customs.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
+| [MB-011 — Customs](./MB-011-customs.md) | Mech（assessment） | 🟢 | 无需（NO_VALUE） | 🟢 |
 | [MB-012 — Runtime Compliance](./MB-012-runtime-compliance.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
 
 > 本目录是 Digital-City 对已确认 City 归属迁移工作的**当前施工控制面**。  
@@ -377,7 +377,27 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 ## 13.1 后续 assessment-first 队列（MB-010 → MB-011 → MB-012）
 
 - **MB-010 — Node Fabric:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 领取时无本机可领取 P0（MB-001..009 全部 `verification_complete=true`，全部 mission branch `AheadOfMain=0`），故按 README §3 P1A 领取序号最小的 assessment-first Mission。Utopia baseline `756c7d760c605e33ba386e87605e078fe24b82ca`；donor 冻结基线 `Codex-Boss@8df428eaa437a409368401e95194e40266b83080`（`D:/Codex-Boss` 工作树不在该基线，全程用 `git show`/`ls-tree`/`archive` 只读读取，未改动 donor）。**结论：`NO_VALUE`——判断无价值，任务保留，未迁移。** 5/5 计划能力 NF-01..NF-05 已在当前 Utopia 等价或更优覆盖，0 真实缺口，0 迁移，未写任何实现代码。决定性命中：MB-001 已从**同一**冻结 donor commit 迁入 donor 的**活代码**（`src/shared/fleet.ts`、`capability-router.ts`、`node-capabilities.ts`、`adaptive-routing.ts` → `city/00-foundation/01-city-core/fleet-routing`，含 parity vectors 与保留缺陷）；运行中的产品已自持注册 / 心跳与存活 / endpoint / 遥测 / capability-host 广播。donor 未迁部分（`TenxNodeRegistry`、`TenxNetworkRegistry`、`TenxObservability`）在冻结基线上**生产未接线**：`git grep` 显示唯二引用是 `observability.ts` 里的类型字段与测试，`electron/main.ts`、`electron/bootstrap/`、`electron/host/` 无任何 `tenx/` import，`config/capabilities/node.yaml` 声明 `modules: []` / `bootModules: []` / `surface: []`。**测量证据（47 PASS / 0 FAIL）**：真实 bounded runtime chain 8/8 PASS（live `createGateway()` 临时端口 + live `startAgent()`，覆盖注册、心跳、遥测实测、首个采样诚实 `null`、停止心跳后 `offline`、真实 `NODE_OFFLINE` 事件）、`city fleet-routing` 28/28、root `gateway`+`telemetry`+`web-v02` 11/11。assessment branch `mission/MB-010-node-fabric` @ `8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526` **保留、不 merge、不删除**；无 verified episode（NO_VALUE 不得伪造）。报告 `reports/MB-010/ASSESSMENT_REPORT.md`；Utopia 素材 `evidence/raw/mission-book/MB-010/assessment/` + `data-records/evolution/inbox/mission-book/MB-010/events.jsonl`（5 events）。
-- **MB-011 — Customs:** 待领取（assessment-first，seq 11）。
+- **MB-011 — Customs:** ✅ **COMPLETE_NO_VALUE (2026-09-30, Host `Mech`)。** 本 Mission 是 MB-002
+  `capability-fabric/DONOR.json` 明确指名的 deferral 承接方（Hns plugin/adapter/installer 平台 →
+  `01/01 Customs (MB-011)`），因此按假设检验而非按“已覆盖”结案。Utopia baseline
+  `756c7d760c605e33ba386e87605e078fe24b82ca`；donor 冻结基线
+  `Codex-Boss@8df428e` 与 `DS-Hns@eeb57ca`（两者均只读读取，未改动工作树）。**结论：`NO_VALUE`
+  ——判断无价值，任务保留，未迁移。** 5/5 计划能力 CU-01..CU-05 已等价或更优覆盖，0 真实缺口，
+  0 迁移，未写任何实现代码。**决定性命中：** donor 最完整的准入状态机
+  `app/core/plugin-install/*`（plan+pipeline+records，960 行）**0 个 app consumer**（唯一非测试引用者是
+  `scripts/install-pipeline-acceptance.cjs`），而它是 pin / quarantine / rollback 的唯一实现；donor
+  **完全不做 provenance 校验**（只用正则从用户输入拼 provenance 记录；全基线
+  `createVerify`/`verifySignature`/`publicKey`/`x509`/`contentHash`/`pluginHash` 各 0 命中，17 个准入模块
+  无 `node:crypto`）；CU-04 的隔离预检在 donor 中不存在为拒绝（`RUNTIME_KINDS` 仅声明元数据，唯一消费者是
+  死代码里的建议性风险分）；权限不是 donor 的准入闸门（`ADAPTER_UNKNOWN_PERMISSION`/`ADAPTER_PERMISSION_DENIED`
+  从未产生），且权限解析按 MB-002 DONOR.json 属 **MB-012**。活着的 donor 片段等价或弱于 Utopia 现有
+  `city/manifest.mjs` + `promotions.mjs` + `verify-promotion-history.mjs` + `capability-fabric/*` +
+  MB-006 restart-recovery 检查；Utopia 也没有插件生态，新建 Customs 只会重复执行既有检查并落地无人调用的代码。
+  **测量证据（1904 PASS / 0 FAIL）**：bounded admission chain 13/13 PASS、`city/test-all.mjs` 1807
+  pass / 0 fail / 1 skipped（共 1808）、root `tests/*.test.mjs` 84 pass / 0 fail、
+  `verify-promotion-history.mjs` 10/10。assessment branch `mission/MB-011-customs` @ `82b6ac4`
+  **保留、不 merge、不删除**；无 verified episode。报告 `reports/MB-011/ASSESSMENT_REPORT.md`；
+  素材 `evidence/raw/mission-book/MB-011/assessment/` + `data-records/evolution/inbox/mission-book/MB-011/events.jsonl`（4 events）。
 - **MB-012 — Runtime Compliance:** 待领取（assessment-first，seq 12）。
 
 ## 14. 历史规则
