@@ -42,6 +42,7 @@ provenance_merge_branch: mission/MB-012-runtime-compliance
 provenance_merge_sha: e0d9470e2a5b5479c1614071d8f43af3d1d93248
 provenance_merged_at: 2026-09-30T16:32:06+10:00
 provenance_merge_branch_retained: true
+provenance_merge_ci: "utopia merged-main run 36678805229 (V0.2 checks) PASS - gateway-web + android both success"
 utopia_main_after_provenance_merges: d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
 assessment_utopia_main_at_reverification: 756c7d760c605e33ba386e87605e078fe24b82ca
 ---

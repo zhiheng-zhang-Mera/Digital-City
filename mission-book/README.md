@@ -484,7 +484,28 @@ Alien 强制记录（role=VERIFICATION, hostId=Alien, sourceRef=response-9-30.md
   verification_status = NOT_REQUIRED_SKIPPED_COMPLETE ; merged_main_sha = null（三项）
   无 verified implementation episode（不得伪造）
 utopia main : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
+
+合并后分支审计（34 个 origin ref）
+  unmerged = 0
+  MB-010..012 现为 0 ahead / 6 behind（即已完全合入）
+  MB-001..MB-009 与全部 alien/* codex/* mech/* docs/* infra/* repair/* 分支均 0 ahead
+  => Owner 指示的"全部进入 main"已达成：仓库内不存在未合入 main 的分支
 ```
+
+**本地回归（合并后工作树，等价于 `.github/workflows/ci.yml` 的 gateway-web job + Android 单测）**：
+`tests/*.test.mjs` 84/84 PASS、`verify-promotion-history` 10 条记录 0 问题、`apps/rooms` 69/69 PASS、
+`city/test-all.mjs` 1807/1808 PASS（1 skipped）、`check:docs` 三处 `PAIR_STATUS = SYNCHRONIZED`、
+Android `:app:testDebugUnitTest` 21 个 test 0 failure。合计 **1981 PASS / 0 FAIL**。
+证据：Utopia `.runtime/evidence/mission-book/MB-010-011-012/ci/`（git-ignored）。
+
+**合并后 main CI**：`V0.2 checks` run `36678805229`（head `d0dea7b`）**PASS** —— `gateway-web` 与
+`android` 两个 job 均 `success`。三个 provenance branch 各自的 push 也分别有自己的绿色 run：
+`36674951238`（MB-010 `8380c38`）、`36675728505`（MB-011 `82b6ac4`）、`36676308185`（MB-012 `d071328`）。
+
+**书内一致性自检**（12 个 Mission 的 front matter 对 Git 事实）：`problems = 0` —— 每个
+`provenance_merge_sha` 都 `cat-file -e` 存在、是 2-parent merge commit、且
+`merge-base --is-ancestor` 对 `main` 成立；`merged_main_sha` 仅 MB-001..MB-009 非空且均不含
+MB-010..012 的迁移实现。脚本 `.runtime/evidence/mission-book/MB-010-011-012/check-book-invariants.mjs`。
 
 **为什么 `merged_main_sha` 仍是 `null`**：该字段的语义是"本 Mission 的**实现**落在 `main` 的
 SHA"。三个 Mission 都没有实现，所以即使 provenance branch 已归档进 `main`，这个字段也必须保持

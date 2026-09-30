@@ -263,6 +263,16 @@ Owner 本次的合并指示与该条**字面冲突**。处理方式：把 Owner 
    merged_main_sha = null                            三个 Mission 均保持 null
    verified implementation episode                   未生成（NO_VALUE 不得伪造）
    utopia main                                       d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
+
+合并后验证
+   分支审计      34 个 origin ref，unmerged = 0（MB-010..012 现为 0 ahead / 6 behind）
+                 -> Owner 指示的"全部进入 main"已达成
+   merged-main CI run 36678805229 (head d0dea7b)：gateway-web success, android success
+   分支 push CI   36674951238 (8380c38) / 36675728505 (82b6ac4) / 36676308185 (d071328) 均 success
+   本地回归       tests 84/84、rooms 69/69、city/test-all 1807/1808（1 skipped）、
+                 promotion-history 10/10、check:docs SYNCHRONIZED、android 21/21
+                 合计 1981 PASS / 0 FAIL
+   书内自检       12 个 Mission front matter 对 Git 事实 problems = 0
 ```
 
 **一处必须说明的执行顺序偏差.** Owner 的措辞顺序是"先强制记录、再继续合并"。实际执行是：

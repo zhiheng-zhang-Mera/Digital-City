@@ -193,4 +193,10 @@ MB-012 mission/MB-012-runtime-compliance @ d071328  -> merge e0d9470e2a5b5479c16
 Alien's forced NO_VALUE record  : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e (9 VERIFICATION events, 3 per Mission)
 utopia main after everything    : d0dea7bcb66cf57edee73c67ddfb9526337dfb4e
 files added per merge           : 5 (events.jsonl + 4 assessment evidence files) - NO IMPLEMENTATION CODE
+branch audit after the merges   : 34 origin refs checked, unmerged = 0
+                                  (MB-010..012 are now 0 ahead / 6 behind main, i.e. fully merged;
+                                   every other branch, including MB-001..MB-009 and all alien/*,
+                                   codex/*, mech/*, docs/*, infra/* and repair/* branches, is 0 ahead)
+merged-main CI                  : run 36678805229 on d0dea7b - gateway-web success, android success
+city main (this record)         : 247f20264cd1c0085f068f61ab0eaa18b2825ffd
 ```
