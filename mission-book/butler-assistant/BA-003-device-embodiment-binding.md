@@ -17,10 +17,10 @@ development_branch: assistant/BA-003-device-embodiment-binding
 development_head_sha: eb3b1a1233a05c056dcc366341c76e0a20faa2f5
 development_ci: 36717697673-gateway-web-success-android-success
 development_report: mission-book/reports/BA-003/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T13:20:00Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/BA-003/CORRECTION_REPORT.md
