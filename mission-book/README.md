@@ -1,12 +1,14 @@
 # Mission Book — Active Parallel Engineering Programmes
 
-> Current mode: **PARALLEL_PROGRAMMES — BUTLER_ASSISTANT + REMOTE_FABRIC + GENERAL_AI_GATEWAY**
+> Current mode: **PARALLEL_PROGRAMMES — BUTLER_ASSISTANT + REMOTE_FABRIC + GENERAL_AI_GATEWAY + ENGINEERING_MANAGER**
 > Control repo: zhiheng-zhang-Mera/Digital-City
 > Implementation repo: zhiheng-zhang-Mera/Utopia
 > Foundation gate: **OPEN**
 > Frozen Butler baseline: `8104f8289a76d15ff0197c953730edcef42cab5e`
 > Architecture contract: **ASSISTANT_DISTRIBUTED_STATE_V2**
 > General AI Gateway baseline: `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
+> Engineering Manager baseline: `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
+> Engineering Manager donor: `DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
 >
 > The old migration/replant workbooks and the exact historical Pre-Assistant workbook remain archived under `./finished/replant/`.
 
@@ -163,3 +165,20 @@ The programme is a separate City/Utopia merge unit with target ownership reserve
 All GAI branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts, but the hosts do not have to be online at the same time. Missing sibling code or Remote Fabric implementation must not stall bounded work: use the programme's stable ports and deterministic test doubles, record the unresolved integration seam, and continue. Real cross-device execution remains a mandatory final programme acceptance gate and may not be faked.
 
 `GENERAL_AI_GATEWAY_MERGE_WORKBOOK_CREATION = FORBIDDEN` until every GAI task has green Development and Correction evidence with different hosts. The future merge workbook integrates corrected GAI branches on top of the **then-current Utopia main**, preserving Butler, Remote Fabric and any other accepted mainline work.
+
+
+## Engineering Manager programme
+
+Engineering Manager planning is active under [engineering-manager/README.md](./engineering-manager/README.md).
+
+This is the permanent Mission Book namespace for Engineering Foreman / Worker Connector work. It maps onto the existing **02 Engineering Works / Project Foreman + Worker Gateway** ownership rather than creating a duplicate City building. DS-Hns is a pinned donor only; reused capabilities must become Utopia-owned code. Codex-Boss is out of scope and must not be accessed.
+
+| Engineering Manager task set | Development | Correction | Merge |
+|---|:---:|:---:|:---:|
+| [EM-001..EM-013 Engineering Manager](./engineering-manager/README.md) | asynchronous / unclaimed | per-task after Development | **FORBIDDEN until all EM tasks complete** |
+
+All EM branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts but do not have to be online simultaneously. Sibling absence, hosted CI, Remote Fabric incompleteness and optional third-party connector absence must not make a worker idle: use stable programme ports/test doubles for bounded component work, record only the genuinely external pending seam, and continue another eligible stage.
+
+Three programme invariants are hard requirements: **(1)** blocking Engineering attention follows the user and also alerts the 2–3 most recently operated eligible devices with one globally acknowledged attention event; **(2)** Sub-worker placement is `LOCAL_FIRST`, with remote fallback proposed only for measured `LOCAL_BLOCKED/LOCAL_UNAVAILABLE` and requiring explicit user approval; **(3)** when execution is remote, progress/control/attention/results/artifacts automatically return through canonical/shared state to the user's current authorized interaction surface, so normal work never requires walking to the remote host.
+
+`ENGINEERING_MANAGER_MERGE_WORKBOOK_CREATION = FORBIDDEN` until every EM task has green Development and Correction evidence with different hosts. The future merge workbook integrates corrected EM branches on top of the **then-current Utopia main**, preserving Butler, Remote Fabric, General AI Gateway and any other accepted mainline work.
