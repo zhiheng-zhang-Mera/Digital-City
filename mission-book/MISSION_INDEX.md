@@ -9,7 +9,7 @@
 |---:|---|:---:|:---:|:---:|---|---|
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | COMPLETE | Alien | closed |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Mech | closed |
-| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_ENVIRONMENT / REPAIR STEP 3** | Alien | Mech ran step 3: value = `ROUTE_B_CONTINUE` (WG-01..08 all missing on main); Mech's provider probe **corrected and PASSED** (real donor-backed receipt via the donor's own `dsh-runner.js` → `@deepseek-ai/dsh`). Blocker: two-host gate needs Alien's receipt too; Alien is a different physical host, unreachable here. Not a skip (R8). Events on branch `8262a41` |
+| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_AWAITING_VERIFICATION_HOST** | Alien | Step 3 reassessment = `ROUTE_B_CONTINUE` (WG-01..08 all missing). **The two-host gate is now SATISFIED**: Mech (`MEGA-REP`) and Alien (`MERA-ALIANWARE`) each left a real donor-supported provider receipt (Alien's: driver `run-3/provider-probe.mjs`, eight verdicts all true, real `exit 0` + model answer `OK`). What remains is the completion repair + merge, which the active rules assign to the **Verification Host**; the finalizer enforces `migrationHost != verificationHost`, so Alien must not self-verify. Branch `99e5606` (6 ahead / 59 behind) |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | Mech | closed; historical MB-003 routing clause accepted as non-blocking — response R2 |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | Mech | closed |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | COMPLETE | Alien | closed |
@@ -27,10 +27,12 @@ Current scheduler is **integration-first**, not migration-first.
 ```text
 COMPLETE. MB-007 — implementation + Owner-override episode closed
 COMPLETE. MB-008 — bounded verification + owner-override episode + merge `168182c`; merged-main CI PASS
-BLOCKED.  MB-003 — step 3 run to its honest terminal state: ROUTE_B_CONTINUE, Mech's real donor-backed
-          provider receipt obtained (earlier no-provider finding CORRECTED), but the required two-host
-          gate needs Alien's receipt and Alien's host is unavailable here. Held BLOCKED, NOT skipped (R8).
-THEN.     Utopia main final integration sweep (MB-007 + MB-008 merged; MB-003 has no delta to merge)
+BLOCKED.  MB-003 — the two-host gate is now SATISFIED (Mech + Alien receipts both recorded), so the
+          environment blocker is cleared. The remaining condition is host authority, not environment:
+          the completion repair (merge main → migrate the §8.5 execution seam → gate → host-pass
+          finalize → merge) must be done by the **Verification Host**, and the finalizer enforces
+          `migrationHost != verificationHost`. Alien is the Migration Host and must not self-verify.
+THEN.     Utopia main final integration sweep (MB-007 + MB-008 merged; MB-003 still has a real delta)
 THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
 ```
 
