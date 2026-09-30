@@ -4,13 +4,14 @@
 
 > 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
 > \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。  
-> \* MB-008 repair step 2 **已于 2026-09-30 闭环**：价值复核 `ROUTE_B_CONTINUE`；先同步 `main`（`77b774c`）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 记录；owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc…`）生成且 inbox 已消费；final branch CI `36663533485` PASS；merge `168182c`；merged-main CI `36663813362` PASS。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-003 repair step 3。
+> \* MB-008 repair step 2 **已于 2026-09-30 闭环**：价值复核 `ROUTE_B_CONTINUE`；先同步 `main`（`77b774c`）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 记录；owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc…`）生成且 inbox 已消费；final branch CI `36663533485` PASS；merge `168182c`；merged-main CI `36663813362` PASS。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留。  
+> \* MB-003 repair step 3 **已于 2026-09-30 闭环**：Utopia 工作此前已完成并合入 `756c7d7`，episode `MB-003:5c0ab438d20476d1`，merged-main CI `36671850064` PASS；本次仅矫正 City bookkeeping 的提交同步遗漏，不代表重新施工或此前未完成。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
 | [MB-001 — Core OS](./MB-001-core-os.md) | Alien | 🟢 | Mech | 🟢 |
 | [MB-002 — Capability Fabric](./MB-002-capability-fabric.md) | Mech | 🟢 | Alien | 🟢 |
-| [MB-003 — Worker Gateway](./MB-003-worker-gateway.md) | Alien | 🟢 | Mech（repair step 3，BLOCKED_ENVIRONMENT） | 🔴 |
+| [MB-003 — Worker Gateway](./MB-003-worker-gateway.md) | Alien | 🟢 | Mech + Alien（R10 closeout） | 🟢 |
 | [MB-004 — Project Foreman](./MB-004-project-foreman.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-005 — Host Health](./MB-005-host-health.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-006 — Restart Recovery](./MB-006-restart-recovery.md) | Alien | 🟢 | Mech | 🟢 |
