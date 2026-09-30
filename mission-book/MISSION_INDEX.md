@@ -216,3 +216,41 @@ branch audit after the merges   : 34 origin refs checked, unmerged = 0
 merged-main CI                  : run 36678805229 on d0dea7b - gateway-web success, android success
 city main (this record)         : 247f20264cd1c0085f068f61ab0eaa18b2825ffd
 ```
+
+---
+
+## Pre-Assistant 产品收尾（非 Mission）
+
+> **这不是一个 Mission，也不产生 Mission 完成语义。** 它是 Owner 依 `response-9-30.md#R12` 指示、
+> 按 [`ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
+> 执行的**产品整合**工作。MB-001..MB-012 的完成状态不因它而改变。
+
+报告目录：[`reports/UPT-PRE-ASSISTANT/`](./reports/UPT-PRE-ASSISTANT/)
+——[`IMPLEMENTATION_REPORT.md`](./reports/UPT-PRE-ASSISTANT/IMPLEMENTATION_REPORT.md)、
+[`VERIFICATION_REPORT.md`](./reports/UPT-PRE-ASSISTANT/VERIFICATION_REPORT.md)。
+
+```text
+阶段                : PRE_ASSISTANT_PRODUCT_CLOSEOUT (R12)
+实现主机            : Alien (MERA-ALIANWARE)
+分支                : product/upt-pre-assistant-closeout @ 85ecde437ec930f1b4aa41d8913540e012da5ee7
+分支 CI             : 36691043142 - android success, gateway-web success
+merge               : 8104f8289a76d15ff0197c953730edcef42cab5e (parents d0dea7b, 85ecde4)
+merged-main CI      : 36692675561 - android success, gateway-web success
+交付                : T0 迁移收尾冻结 / T1 Room Pack 接入正常 shell / T2 统一 Action facade /
+                      T3 deterministic Ask / Do / T4 独立验收
+验收                : 独立验收主机第一轮 REJECT（adce593，Android Action 列表在真机上不可读），
+                      修复后第二轮 ACCEPT（85ecde4）
+主机分离            : Owner 豁免（response-9-30.md#R13）—— 单主机验收，报告中如实记录
+分支审计            : 35 个 origin ref，unmerged = 0
+```
+
+非阻塞遗留（**未修复，也未声称已修复**，详见验证报告 §3）：Android Action 卡片点击不展开详情记录；
+`start-city.ps1 -NoRooms` 的 degraded 原因文案把 DISABLED 说成不可达；幂等键复用返回 HTTP 400 而非 409；
+Web 仍会拿到 loopback `hubUrl`（Android 确实拿不到）。
+
+```text
+FINAL_STATUS = PRE_ASSISTANT_TERMINAL_FOUNDATION_COMPLETE
+```
+
+**下一阶段必须等待新的 Owner 指示**：不得自动进入 Boss/Hns connector、Personal Workspace、更完整的
+跨设备交接、常驻/托盘产品化、assistant/人格层或后续领域接入。

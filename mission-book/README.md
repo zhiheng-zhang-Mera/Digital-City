@@ -552,6 +552,39 @@ STOP
 本轮**不得**自动创建新 MB、reopen 已闭环 Mission、增加第 11 个 Room、接 Boss/Hns、引入
 LLM router、人格/个人助理层、长期助理记忆、主动代理或其他领域扩张。
 
+### 13.4.1 执行结果（2026-09-30，Host `Alien`）— 已收线
+
+```text
+T0  migration closeout / freeze   ✅  docs/en+zh-CN/MIGRATION_PHASE_CLOSEOUT.md（成对，SYNCHRONIZED）
+T1  Room Pack 接入正常 shell      ✅  host launcher 一并拉起 Room Hub；Web Home / Tools-Rooms；
+                                      Android 经认证路径观察可用性；Hub 仍仅监听 127.0.0.1
+T2  canonical Action facade       ✅  唯一 Action 覆盖 ROOM / CAPABILITY / CITY_TASK，适配而非替换后端真相
+T3  deterministic Ask / Do        ✅  歧义给候选、副作用先确认、无匹配回落到手动目标列表；无模型参与
+T4  independent acceptance        ✅  第一轮 REJECT → 修复 → 第二轮 ACCEPT
+
+branch            : product/upt-pre-assistant-closeout @ 85ecde437ec930f1b4aa41d8913540e012da5ee7
+branch CI         : 36691043142 - android success, gateway-web success
+merge             : 8104f8289a76d15ff0197c953730edcef42cab5e (parents d0dea7b, 85ecde4)
+merged-main CI    : 36692675561 - android success, gateway-web success
+分支审计          : 35 个 origin ref，unmerged = 0
+主机分离          : Owner 豁免（response-9-30.md#R13）；单主机验收，报告如实记录，未包装成双主机
+
+FINAL_STATUS = PRE_ASSISTANT_TERMINAL_FOUNDATION_COMPLETE
+```
+
+**独立验收确实否决过第一版。** `adce593` 上 Android 的 Action 列表在真机上完全读不出来——客户端把
+扁平 envelope 当成对象去解，再去找一个不存在的嵌套 `actions` 成员；而本分支自己的 Android 单测**全绿**，
+因为它们绕过了 envelope 读取。这正是 T4 存在的理由：绿色单测不是产品可用的证据。修复后由同一独立验收者
+在真机上重建、重装、重跑，才给出 ACCEPT。
+
+**非阻塞遗留（未修复，也未声称已修复）**，详见
+[`reports/UPT-PRE-ASSISTANT/VERIFICATION_REPORT.md`](./reports/UPT-PRE-ASSISTANT/VERIFICATION_REPORT.md) §3：
+Android Action 卡片点击不展开详情；`start-city.ps1 -NoRooms` 的 degraded 原因把 DISABLED 说成不可达；
+幂等键复用返回 HTTP 400（而非实现说明里写的 409，已就地更正）；Web 仍会拿到 loopback `hubUrl`。
+
+**下一阶段必须等待新的 Owner 指示。** 不得自动进入 Boss/Hns connector、Personal Workspace、更完整的
+跨设备交接、常驻/托盘产品化、assistant/人格层或后续领域接入。
+
 达到最终状态后必须等待新的 Owner 指示。
 
 ## 14. 历史规则

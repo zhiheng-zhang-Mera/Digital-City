@@ -155,7 +155,7 @@ arbitrary shell                  absent - no shell execution was added
 new domain integration           absent
 ```
 
-## 4. Defects found by driving the product, not by the unit suite
+## 5. Defects found by driving the product, not by the unit suite
 
 The Web client's own author reported it as complete with passing tests. A real browser said
 otherwise, and this is worth recording because it is the exact failure mode the workbook's T4
@@ -180,7 +180,7 @@ document is duplicated. A real-browser acceptance run then reached 11/11.
 The root suite was green before and after, which is the point: the unit tests were not what
 found this, and passing them was not evidence that the product worked.
 
-## 5. Local evidence
+## 6. Local evidence
 
 - `tests/pre-assistant-closeout.test.mjs` — 8 cases driving the real gateway against a real Room
   Hub on loopback; all pass.
@@ -188,7 +188,7 @@ found this, and passing them was not evidence that the product worked.
   evidence, not independent acceptance).
 - `web-i18n-parity.mjs` — 186/186 keys, synchronized.
 
-## 6. Limitations recorded honestly
+## 7. Limitations recorded honestly
 
 - The Room Hub keeps its existing runtime directory (`apps/rooms/.runtime-rooms`). Repointing it
   under `.runtime` would have made existing local room data appear empty, so it was not done.
@@ -199,7 +199,7 @@ found this, and passing them was not evidence that the product worked.
 - Android does not construct Actions directly (`POST /api/v0/actions` is unused there); T2 was
   scoped to listing and reading, T3 to Ask. The on-device effect is the same.
 
-## 6. T4 round 1 — rejected, repaired, re-verified
+## 8. T4 round 1 — rejected, repaired, re-verified
 
 The independent verification host ran at `adce593` and returned **REJECT for merge**. It was
 right to. The blocking finding is worth stating in full because it is the clearest illustration of
@@ -220,7 +220,7 @@ Four further findings were material, not cosmetic:
 | F.1 | Android Action list and manual target list unreadable (T2 parity gate unmet) | `parseActionList` / `parseTargetList` read the array from the flat envelope; panels use them; unit tests now exercise the envelope read and assert the object reader is the wrong reader for array members |
 | F.2 | `/api/v0/health` was the constant `healthy`, so a supervisor could not see a dead Room Hub | health now reports `status: healthy\|degraded` with per-component state and reason; verified live with the hub killed |
 | F.3 | neither shipped client sent an idempotency key, so a retry executed twice | Web and Android mint one key per user action and reuse it on retry, minting a new key when the action changes |
-| F.4 | a reused key with a different request silently returned the original Action | the key is now bound to a request fingerprint; a mismatch is refused with `409 IDEMPOTENCY_KEY_REUSED` |
+| F.4 | a reused key with a different request silently returned the original Action | the key is now bound to a request fingerprint; a mismatch is refused with `IDEMPOTENCY_KEY_REUSED` and nothing executes |
 | F.5 | `provenance.cityTaskState` stayed `QUEUED` after the task completed | provenance follows the real task state |
 
 Not repaired, recorded instead:
@@ -236,6 +236,14 @@ Not repaired, recorded instead:
 
 Round-1 evidence is preserved: `T4-FINDINGS.md`, the verifier's own probes under
 `.runtime/evidence/mission-book/UPT-PRE-ASSISTANT/verifier/`, and its transcripts.
+
+**Round 2 returned ACCEPT for merge at `85ecde4`**, with four items recorded as non-blocking
+backlog rather than fixed. They are listed in full in
+[`VERIFICATION_REPORT.md`](./VERIFICATION_REPORT.md) §3 and are not claimed here as working:
+Android Action drill-down does not open on the device; `-NoRooms` reports a misleading degraded
+reason; the key-reuse refusal is HTTP 400 rather than the 409 this report originally stated (the
+claim has been corrected here rather than left standing); and the Web client is still handed the
+loopback `hubUrl`.
 
 **Host separation.** The workbook prefers two real hosts. Only this machine was available, so the
 Owner recorded an explicit waiver (`response-9-30.md#R13`): acceptance on this host is accepted
