@@ -20,6 +20,12 @@ Gate history remains auditable:
 - first candidate was independently rejected and repaired before acceptance;
 - the Pre-Assistant single-host waiver does not carry into Butler Assistant;
 - post-merge branch audit reported 35 origin refs and unmerged = 0;
+- legacy branch re-audit 2026-09-30 (host Mech): 34 remote refs, `unmerged = 0`; the only
+  unmerged ref was the local-only `mech/knowledge-room-k0`, recorded as **superseded and
+  deliberately NOT merged** (Owner option A). Preserved on origin at its original head
+  `db7cfc5ef4b631c00149fe3657cc85b90d6f4356`. Utopia archive commit `82ed369`, CI
+  `36700956282` success; branch CI `36700716264` success. Full record:
+  [reports/LEGACY-BRANCH-AUDIT-2026-09-30.md](./reports/LEGACY-BRANCH-AUDIT-2026-09-30.md).
 - reports remain under [reports/UPT-PRE-ASSISTANT/](./reports/UPT-PRE-ASSISTANT/).
 
 **The gate is open but BA Development is held, not started.** The BA programme requires Development
