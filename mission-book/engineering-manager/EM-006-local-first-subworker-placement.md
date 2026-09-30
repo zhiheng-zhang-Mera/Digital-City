@@ -1,4 +1,4 @@
-﻿---
+---
 mission_id: EM-006
 project: ENGINEERING_MANAGER_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
@@ -19,10 +19,10 @@ development_branch: engineering-manager/EM-006-local-first-subworker-placement
 development_head_sha: 2894e8da9d95f54dbb568d8acc510b91bdeae4fb
 development_ci: 36727765139-success
 development_report: mission-book/reports/EM-006/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T16:26:22Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/EM-006/CORRECTION_REPORT.md
