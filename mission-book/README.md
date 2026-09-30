@@ -1,11 +1,12 @@
 # Mission Book — Active Parallel Engineering Programmes
 
-> Current mode: **PARALLEL_PROGRAMMES — BUTLER_ASSISTANT + REMOTE_FABRIC**
+> Current mode: **PARALLEL_PROGRAMMES — BUTLER_ASSISTANT + REMOTE_FABRIC + GENERAL_AI_GATEWAY**
 > Control repo: zhiheng-zhang-Mera/Digital-City
 > Implementation repo: zhiheng-zhang-Mera/Utopia
 > Foundation gate: **OPEN**
 > Frozen Butler baseline: `8104f8289a76d15ff0197c953730edcef42cab5e`
 > Architecture contract: **ASSISTANT_DISTRIBUTED_STATE_V2**
+> General AI Gateway baseline: `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
 >
 > The old migration/replant workbooks and the exact historical Pre-Assistant workbook remain archived under `./finished/replant/`.
 
@@ -147,3 +148,18 @@ Remote Fabric planning is active under [remote/README.md](./remote/README.md). I
 Remote construction is asynchronous: each RF task has its own `remote/RF-...` branch from the frozen baseline and may proceed independently once the two-host hold is lifted. No RF task branch may merge into Utopia main, and no RF branch may merge/cherry-pick sibling RF branches merely to pass locally.
 
 `REMOTE_MERGE_WORKBOOK_CREATION = FORBIDDEN` until every RF-001..RF-010 Development and Correction stage is green, Development Host != Correction Host, and both-host evidence is recorded. The future Remote merge workbook must integrate corrected RF branches on top of the **then-current Utopia main**, so any Butler or other valid work already merged to main is preserved.
+
+
+## General AI Gateway programme
+
+General AI Gateway planning is active under [general-ai-gateway/README.md](./general-ai-gateway/README.md).
+
+The programme is a separate City/Utopia merge unit with target ownership reserved for **00 City Foundation / General AI Gateway**. It does not revive Codex-Boss: Boss is a historical tombstone only and is forbidden as a build/runtime dependency or live connector target. Legacy behavior may only re-enter as independently owned Utopia code from current accepted requirements or explicit Owner-supplied excerpts.
+
+| General AI Gateway task set | Development | Correction | Merge |
+|---|:---:|:---:|:---:|
+| [GAI-001..GAI-009 General AI Gateway](./general-ai-gateway/README.md) | asynchronous / unclaimed | per-task after Development | **FORBIDDEN until all GAI tasks complete** |
+
+All GAI branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts, but the hosts do not have to be online at the same time. Missing sibling code or Remote Fabric implementation must not stall bounded work: use the programme's stable ports and deterministic test doubles, record the unresolved integration seam, and continue. Real cross-device execution remains a mandatory final programme acceptance gate and may not be faked.
+
+`GENERAL_AI_GATEWAY_MERGE_WORKBOOK_CREATION = FORBIDDEN` until every GAI task has green Development and Correction evidence with different hosts. The future merge workbook integrates corrected GAI branches on top of the **then-current Utopia main**, preserving Butler, Remote Fabric and any other accepted mainline work.

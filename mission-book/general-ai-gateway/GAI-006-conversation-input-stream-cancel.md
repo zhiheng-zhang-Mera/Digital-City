@@ -1,0 +1,66 @@
+---
+mission_id: GAI-006
+project: GENERAL_AI_GATEWAY_ENGINEERING
+implementation_repo: zhiheng-zhang-Mera/Utopia
+control_repo: zhiheng-zhang-Mera/Digital-City
+project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
+project_start_gate_status: OPEN
+project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+architecture_contract: GENERAL_AI_GATEWAY_V1
+programme_execution_status: ACTIVE_ASYNC_TWO_HOST
+development_status: NOT_STARTED
+development_complete: false
+development_host: null
+development_claimed_at: null
+development_branch: general-ai/GAI-006-conversation-input-stream-cancel
+development_head_sha: null
+development_ci: null
+development_report: mission-book/reports/GAI-006/DEVELOPMENT_REPORT.md
+correction_status: NOT_STARTED
+correction_complete: false
+correction_host: null
+correction_claimed_at: null
+correction_head_sha: null
+correction_ci: null
+correction_report: mission-book/reports/GAI-006/CORRECTION_REPORT.md
+merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+---
+
+# GAI-006 — Conversation + InputBundle + Streaming + Cancellation
+
+## Goal
+
+Make conversation continuity and rich inputs canonical at the Utopia level while keeping provider/device/thread details as backend references.
+
+## Development scope
+
+- Define canonical Utopia Conversation IDs independent of provider/device/channel.
+- Map provider-specific thread/session references as backend refs that may change over time.
+- Implement InputBundle text/files/images/references/contextRefs with bounded metadata, digest and provenance.
+- Define logical file references that carry origin device and transfer/staging policy rather than hard-coded remote filesystem paths.
+- Define PartialResult/event stream semantics; partial text is never a terminal success.
+- Define ResultEnvelope and attachment/result references.
+- Define cancellation/reconciliation semantics that work even after execution-host/channel changes.
+- Preserve conversation continuation across allowed Web session reopen and channel/device transitions.
+
+## Required acceptance
+
+- one Utopia conversation can continue while backend thread/device metadata changes;
+- backend thread loss is reported and does not silently create a false continuation;
+- InputBundle validates size/type/digest/provenance metadata;
+- temporary staging metadata has explicit cleanup policy;
+- partial events are ordered/versioned and non-terminal;
+- cancel is idempotent and late results after cancellation are reconciled rather than silently accepted.
+
+## Shared execution rules
+
+- Branch from the exact frozen GAI baseline; do not branch from a sibling GAI branch.
+- Development and Correction MUST be performed by different physical hosts (Alien / Mech).
+- Development pushes the task branch and does not merge it to Utopia main.
+- Correction independently reviews and directly repairs the same branch; it also does not merge to main.
+- A worker MUST NOT wait for a sibling GAI task. Use the stable ports in the programme README plus deterministic test doubles where a sibling implementation is absent.
+- A worker MUST NOT merge/cherry-pick a sibling GAI branch merely to make local tests pass.
+- While hosted CI or an external check is running, continue independent in-scope tests/docs/evidence or another eligible task/worktree instead of idling.
+- External provider / Remote Fabric absence may block only the acceptance step that genuinely requires it; it must not be rewritten as success and must not stall unrelated GAI tasks.
+- Reports go under `mission-book/reports/${MISSION_ID}/` using the exact task ID.
+- No Boss access: no clone/fetch/read/import/submodule/symlink/runtime call/build dependency against Codex-Boss. Historical names may appear only as provenance prose; executable behavior must be owned and tested in Utopia.
