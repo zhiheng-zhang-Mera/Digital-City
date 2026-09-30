@@ -6,6 +6,7 @@ mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 migration_status: COMPLETE
 migration_complete: true
+migration_completion_basis: IMPLEMENTED_COMPLETE
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T12:19:26Z
 migration_branch: mission/MB-003-worker-gateway
@@ -20,10 +21,15 @@ verification_head_sha: null
 verification_ci: null
 verification_report: mission-book/reports/MB-003/VERIFICATION_REPORT.md
 merged_main_sha: null
-blocked_reason: "The first Verification gate requires each participating host to run one real detect→submit→progress→result/unsupported path with an installed, donor-supported provider, and forbids a mock pass. This host has no codex/claude/gemini provider, no pulled Ollama model and no donor-supported local runtime; the migrated provider-adapter wraps caller-supplied hooks and defers real provider HTTP calls, worker-task-contract defers the real runner spawn seam, and the dev gateway builds the bridge with no execute hook. Writing a provider client would add capability the branch does not have (rule 10 forbids it). Owner decision needed: provide a donor-backed provider environment, authorise a superseding Mission for the deferred provider execution seam, or mark this Mission BLOCKED. See reports/MB-003/VERIFICATION_REPORT.md §6."
+blocked_reason: "The first Verification gate requires a real donor-supported provider execution seam. The current branch only carries adapter/contracts/resilience and honest unsupported behavior. Step 3 must first reassess current value after MB-007/008; if still valuable, complete only donor-backed execution seam and real provider path. If no provider environment exists, remain BLOCKED."
+repair_sequence: 3
+repair_status: WAITING_FOR_MB008
+repair_reason: "Do not repair before MB-008 closes. Step 3 begins with current-value reassessment; SKIPPED_NOT_REQUIRED is allowed only if the whole MB-003 migration is now unnecessary."
 ---
 
 # MB-003 — Worker Gateway Boss/Hns Union 纯迁移
+
+> **Repair queue step 3.** 等 MB-007、MB-008 都写入 `repair_status=COMPLETE` 后再动手。先比较当前 Utopia main 与 MB-003 donor/branch；若整体无价值可 `SKIPPED_NOT_REQUIRED`。若仍有价值，real provider/runner execution seam 仍是硬门槛，不能 mock/waive。
 
 > **当前状态：Verification 由主机 `Mech` 领取后标记为 `BLOCKED_OWNER_DECISION`**——第一道验证门槛需要本机具备 donor 已支持的真实 provider，本机没有，且不得 mock pass。详见 `reports/MB-003/VERIFICATION_REPORT.md` §6。Migration 由 `Alien` 完成；两台主机不同，符合 rule 5。
 
