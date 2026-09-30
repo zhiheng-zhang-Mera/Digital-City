@@ -19,10 +19,10 @@ development_branch: engineering-manager/EM-001-core-contracts-boundaries
 development_head_sha: efa127b38e5285ec9beb25d85fc21160c13d5f7a
 development_ci: 36713450542-gateway-web-success-android-success
 development_report: mission-book/reports/EM-001/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T12:32:00Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/EM-001/CORRECTION_REPORT.md
