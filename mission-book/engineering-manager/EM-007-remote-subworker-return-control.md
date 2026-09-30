@@ -11,13 +11,13 @@ donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
 architecture_contract: ENGINEERING_MANAGER_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T14:35:11Z
 development_branch: engineering-manager/EM-007-remote-subworker-return-control
-development_head_sha: null
-development_ci: null
+development_head_sha: 3bd9f556616dbaccfd00cb4620144fdcc669baf1
+development_ci: 36730656520-success
 development_report: mission-book/reports/EM-007/DEVELOPMENT_REPORT.md
 correction_status: NOT_STARTED
 correction_complete: false
