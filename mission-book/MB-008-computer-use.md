@@ -13,19 +13,21 @@ migration_branch: mission/MB-008-computer-use
 migration_head_sha: aa2a6a8faab779a020d75b93dba548ba3755ce30
 migration_ci: "final-branch 36584056291 PASS; implementation efdd403 36583979374 PASS"
 migration_report: mission-book/reports/MB-008/MIGRATION_REPORT.md
-verification_status: CLAIMED
+verification_status: IN_PROGRESS
 verification_complete: false
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-30T05:20:00Z
-verification_head_sha: null
-verification_ci: null
-verification_report: null
+verification_head_sha: 437be8bcfd9da77ac4c45be6e35d2929a66379dc
+verification_ci: "36662962981 PASS on runtime-evidence head 0e1d97e (gateway-web + android); reconciled 36655586918 PASS on 77b774c"
+verification_report: mission-book/reports/MB-008/VERIFICATION_REPORT.md
 merged_main_sha: null
 repair_sequence: 2
 repair_status: IN_PROGRESS
-repair_reason: "Verification claimed by Mech; must sync post-MB-007 repair main, then either SKIPPED_COMPLETE or complete owner-override verification/finalize/merge."
+repair_reason: "Value reassessment returned ROUTE_B_CONTINUE (main declares no city/10-automation and covers none of the safety/contract surface). Bounded runtime chain, refusal path, genuine miss/recovery and postcondition are green, RUNTIME_PASS + final CI_RESULT + VERIFICATION_COMPLETE recorded, final CI 36662962981 PASS. Owner-override finalize, episode and merge to main remain."
 repair_started_at: 2026-09-30T07:50:00Z
 repair_gate_checked: "MB-007 repair_status=COMPLETE verified on City main at 6bcbeaa before starting step 2"
+repair_runtime_pass_event: MB-008:bbf126eae72598ed
+repair_verification_complete_event: MB-008:fd0225d163afa3d2
 ---
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
@@ -153,6 +155,39 @@ repair_gate_checked: "MB-007 repair_status=COMPLETE verified on City main at 6bc
 - **Basis for verification being open.** Owner ruling [`response-9-29.md`](./response-9-29.md) **R7** accepts this Mission's boundary (`NO_VERDICT_IDENTICAL_SEAM`: the candidate seam had a quantified semantic counterexample, so wiring it would have added product behaviour) and explicitly declares *"Owner hereby declares MB-008 Migration complete."* R7 authorises the `README.md` §7.2 bounded chain for this Mission: the Verification Host directly exercises the migrated modules' **contract / safety / recovery / postcondition** behaviour rather than inventing a consumer. R7 also warns that this exemption does **not** make Computer Use a complete product runtime — the deferred runtime plane stays deferred, and this verification may only verify the boundary the Mission declared.
 - **Integration note.** As with MB-007, verification begins by merging the latest `main` into this branch and resolving the shared control-plane union **before** any gate runs (`README.md` §6). The failure mode found on MB-007 was that this gate set cannot be run against an uncommitted merge: `verify-promotion-history` tests `HEAD`, so the merge must be committed first.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
+
+### Verification milestone — bounded runtime chain green (repair step 2, in progress)
+
+- **Value reassessment (before any merge work, per `response-9-30.md` R6 step 2).**
+  `main` declares **no** `city/10-automation` district, and nothing elsewhere covers
+  `createSafetyGuard` / `classifyRisk` / the target guard. Verdict = **`ROUTE_B_CONTINUE`**, so
+  `SKIPPED_NOT_COMPLETE` was not available; the Mission still has value.
+- **Reconciliation.** The branch was 48 commits behind `main`; `main` was merged **before** any gate
+  ran and committed as `77b774c` (integration-first, `README.md` §6). Three shared-control-plane
+  conflicts were resolved as union/superset; the census was regenerated in manifest **declaration
+  order**. Reconciled CI `36655586918` PASS.
+- **Bounded chain (the §7.2 real consumption).** Driver
+  `.runtime/evidence/mission-book/MB-008/run-2/bounded-computer-use-chain.mjs` → exit 0:
+  happy path (`FILE_WRITE`, risk `high`, postcondition `success` kind `file`) · refusal (migrated
+  guard throws `DESTRUCTIVE_FORBIDDEN`, **zero** mutations, artifact byte-identical) · genuine miss
+  (target **really** deleted; the same real `facts.fileExists` reports it absent; donor postcondition
+  `failure` kind `file`) · recovery (donor `retry`/`RETRYABLE` + `settle stable` → `landed`;
+  re-verified `success`). `NO_MOCK_FACTS = true`.
+- **Driver-only repairs.** Three bookkeeping defects in the host-local evidence driver were fixed
+  (`assertActionAllowed` is `async` and was being called in a sync `try/catch`; side-effect absence
+  was asserted rather than measured; `validateAction` is throw-based and has no `.valid` field).
+  **No migrated module was touched** — the guard and verifier were already correct, and editing them
+  to flatter the evidence is forbidden.
+- **Gates.** `pnpm test` 73/73 · `city/test-all.mjs` 1698/1699 (0 failures, 1 skipped) ·
+  `apps/rooms` 69/69 · `verify-promotion-history` 10 records · `check:docs` SYNCHRONIZED.
+- **Evolution events.** `RUNTIME_PASS` `MB-008:bbf126eae72598ed`, final `CI_RESULT` PASS
+  `MB-008:06f57c0602aa5553`, `VERIFICATION_COMPLETE` PASS `MB-008:fd0225d163afa3d2`. Ordering
+  asserted: `VERIFIER_FINDING` < latest `CI_RESULT PASS` < `VERIFICATION_COMPLETE PASS`.
+  Alien's `RUNTIME_FAIL / BLOCKED` `MB-008:5a72b750eb33a552` is **retained**; no
+  `MIGRATION_COMPLETE` was fabricated (`response-9-30.md` R5).
+- **Still open.** Owner-override `mission:finalize`, episode, final branch CI on the episode commit,
+  merge to `main`, merged-main CI. The **deferred runtime plane remains deferred** — no real
+  desktop/browser/UI automation was driven, and this does not make Computer Use a product runtime.
 
 
 ## 绑定执行条件（所有 Mission 强制）

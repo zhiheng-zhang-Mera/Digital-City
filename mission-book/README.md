@@ -3,7 +3,8 @@
 ## 当前施工进度
 
 > 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
-> \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。
+> \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。  
+> \* MB-008 repair step 2 进行中（2026-09-30）：价值复核 `ROUTE_B_CONTINUE`；已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 已记录，final CI `36662962981` PASS（gateway-web + android）；五道本机门禁全绿。owner-override finalize、episode 与 merge 未完成。deferred runtime plane 仍然 deferred。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
@@ -365,6 +366,7 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 
 - **Step 1 — MB-007:** 已验证/已 merge，不重做实现；修 Owner-override finalizer contract 并补 verified episode。
 - **Step 2 — MB-008:** Step 1 进入 main 后重新同步分支；整体无价值可 `SKIPPED_COMPLETE`，否则完成 bounded verification、owner-override finalize、双 CI、merge。
+  *进展（2026-09-30）：* 价值复核 = `ROUTE_B_CONTINUE`（`main` 无 `10-automation`，且不覆盖 safety/contract 面）。分支已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）。bounded chain 全绿：happy path / 真实 refusal（`DESTRUCTIVE_FORBIDDEN`，零 mutation，artifact 逐字节一致）/ 真实 miss（真删文件，同一真实 `facts.fileExists` 报 absent，donor postcondition `failure` kind `file`）/ recovery（donor `retry`+`RETRYABLE`、`settle stable` → `landed`，复验 `success`），`NO_MOCK_FACTS = true`。`RUNTIME_PASS` `bbf126ea…`、final `CI_RESULT` PASS `06f57c06…`、`VERIFICATION_COMPLETE` PASS `fd0225d1…`。final CI `36662962981` PASS（gateway-web + android）；本机五门禁全绿（73/73、1698/1699、69/69、10 records、SYNCHRONIZED）。**剩余：** owner-override finalize、episode、episode commit CI、merge、merged-main CI。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留，未伪造 `MIGRATION_COMPLETE`（R5）。deferred runtime plane 仍未迁入。
 - **Step 3 — MB-003:** Step 2 后重新比较当前 Utopia；整体无价值可 `SKIPPED_COMPLETE`，否则完成 donor-backed real execution seam 与真实 provider 路径。
 
 每一步必须同步 Mission front matter、README、MISSION_INDEX 和对应 Report。
