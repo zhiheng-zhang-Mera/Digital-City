@@ -23,8 +23,9 @@ verification_report: mission-book/reports/MB-007/VERIFICATION_REPORT.md
 merged_main_sha: cb8e0bd77ccf0864cf0af50b4624f2f556b6b279
 episode: NONE — mission:finalize refuses this Mission (needs a PASS MIGRATION_COMPLETE the migration host never wrote); see reports/MB-007/VERIFICATION_REPORT.md §6.5
 repair_sequence: 1
-repair_status: QUEUED
-repair_reason: "Implementation and Verification are accepted and merged; only the Owner-override finalizer/verified-episode closeout is missing."
+repair_status: IN_PROGRESS
+repair_reason: "Implementation and Verification are accepted and merged; only the Owner-override finalizer/verified-episode closeout is missing. Scope is exactly the finalizer contract plus the verified episode — the Research Institute is NOT re-migrated."
+repair_started_at: 2026-09-30T06:40:00Z
 ---
 
 # MB-007 — Boss Research Institute 既有流水线纯迁移
