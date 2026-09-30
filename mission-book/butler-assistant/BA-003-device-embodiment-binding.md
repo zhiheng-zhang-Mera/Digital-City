@@ -4,8 +4,10 @@ project: BUTLER_ASSISTANT_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
 control_repo: zhiheng-zhang-Mera/Digital-City
 project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
-project_baseline_sha: TO_BE_PINNED_FROM_UTOPIA_MAIN_WHEN_GATE_OPENS
-development_status: WAITING_PROJECT_GATE
+project_start_gate_status: OPEN
+project_baseline_sha: 8104f8289a76d15ff0197c953730edcef42cab5e
+architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
+development_status: NOT_STARTED
 development_complete: false
 development_host: null
 development_claimed_at: null
@@ -23,43 +25,68 @@ correction_report: mission-book/reports/BA-003/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
 ---
 
-# BA-003 — Device Embodiment + Binding
+# BA-003 — Device Embodiment + Foreground Binding
 
 ## Goal
 
-Model devices as bodies/embodiments and enforce exactly one active foreground assistant per device.
+Model devices as embodiments and enforce exactly one foreground interaction assistant per device while allowing unrelated background assistant work to continue safely.
 
 ## Development scope
 
-- Define DeviceEmbodiment capability/sensor/UI descriptor.
-- Define Assistant↔Device binding with one assistant to many devices.
-- Enforce one active foreground assistant per device.
-- Keep device-local context separate from Assistant Core shared state.
+- Define DeviceEmbodiment capability/sensor/UI/action descriptors.
+- Define Assistant↔Device embodiment attachment with one logical assistant able to inhabit many devices.
+- Define a distinct ForegroundBinding record and enforce at most one foreground assistant per device.
+- Keep foreground binding independent from task ownership, task executor and background worker state.
+- Allow background tasks owned by the outgoing or other assistants to continue on a device when their executor/lease/capability remains valid.
+- Keep device-local sensory/UI/context state separate from Assistant Core authoritative durable state.
+- Define clean bind/unbind/rebind/recovery semantics without inventing task ownership.
 
 ## Explicitly out of scope
 
 - making a device its own assistant
-- allowing two foreground assistants to answer on one device
+- allowing two foreground assistants to answer in one foreground interaction session
 - forcing one assistant to a single device
+- stopping/transferring every background task merely because foreground assistant changes
+- using foreground binding as an execution lease
 
 ## Required acceptance
 
 - One assistant can bind to PC and Android concurrently.
 - A device refuses a second simultaneous foreground assistant binding.
+- Foreground A→B can occur while an unrelated A-owned background task remains A-owned and continues safely.
+- Switching foreground does not silently create task handoff, cancel work or replace executor ownership.
 - Device-local state is released/rebound cleanly on switch.
-- Binding survives/reconstructs after supported restart without inventing task ownership.
+- Binding reconstructs after supported restart from authoritative state and never from stale local ownership assumptions.
 
-## Start gate
+## Mandatory distributed-assistant architecture contract
 
-Do not claim this task until the Pre-Assistant foundation branch has been merged to Utopia main and required merged-main GitHub CI is green. At the moment the gate opens, pin that exact Utopia main SHA as the Butler project baseline; all BA branches use the same baseline.
+This task MUST preserve all of the following project-wide invariants:
+
+1. **One logical identity, many embodiments.** Multiple devices connected to the same assistant are projections of one logical assistant, not independent minds that later synchronize.
+2. **One authoritative durable state, many contextual projections.** Shared/authoritative state may contain committed identity/profile references, durable assistant↔user relationship state, committed memory references, the task graph, commitments, checkpoints and the causal/event log. Live token context, scratch reasoning, temporary plan drafts, uncommitted inference and device/UI transient state remain embodiment-local unless explicitly promoted through a typed commit/update.
+3. **Foreground binding is not task ownership.** Each device has at most one foreground assistant, but foreground switching does not by itself transfer, cancel, pause or recreate task ownership or background execution.
+4. **Ownership is not execution.** A task may distinguish logical owner/coordinator from its current executor. Any externally visible or state-changing side effect must be guarded by authoritative task/version state plus an execution lease and an idempotency/action key.
+5. **Handoff never transfers authority implicitly.** A handoff may transfer responsibility, checkpoint/evidence and references, but never permission or capability grants. The receiving assistant/device must recompute effective permission from current policy and capability.
+6. **Local state is a cache, not authority.** After disconnect/restart/reconnect, an embodiment must re-fetch authoritative task/binding state and revalidate any lease before resuming a side effect.
+7. **Knowledge is not disclosure authority.** Information known in one scope/audience is not automatically releasable in another. Context projection must enforce memory/audience/privacy scope before output.
+
+These are acceptance constraints, not optional future enhancements.
+
+## Project gate
+
+The Pre-Assistant foundation gate is already **OPEN**. The common Butler project baseline is pinned to Utopia main:
+
+`8104f8289a76d15ff0197c953730edcef42cab5e`
+
+This task may be claimed now. It MUST branch from that exact baseline so BA-001..BA-009 remain independently integrable.
 
 ## Development stage
 
 The Development Host must:
 1. claim this stage in City;
-2. create assistant/BA-003-device-embodiment-binding from the pinned Butler project baseline;
-3. implement only this bounded scope;
-4. add positive and negative tests;
+2. create `assistant/BA-003-device-embodiment-binding` from the pinned Butler baseline;
+3. implement only this bounded scope plus the mandatory architecture contract above;
+4. add positive and negative tests, including concurrency/recovery tests relevant to this task;
 5. push and run relevant GitHub CI;
 6. write DEVELOPMENT_REPORT.md with exact files, tests, failures/fixes, branch/head and CI;
 7. mark development_complete only when green.
@@ -68,7 +95,7 @@ Do not merge to Utopia main.
 
 ## Correction stage
 
-The Correction Host must be the other physical host and must independently inspect the pushed Development branch for relevant architecture, state-consistency, concurrency, permission/privacy, lifecycle, recovery and false-success defects.
+The Correction Host must be the other physical host and must independently inspect the pushed Development branch for relevant architecture, state-consistency, concurrency, permission/privacy, lifecycle, recovery, stale-state, duplicate-side-effect and false-success defects.
 
 Correction is a repair task, not passive verification. Every discovered in-scope defect must be directly fixed on this same branch and covered by regression tests. Cross-subproject issues must be fixed at this task's local contract/guard and recorded for final integration rather than copying another BA implementation.
 
@@ -84,4 +111,4 @@ Final-merge eligibility requires:
 
 ## Merge lock
 
-No worker may merge assistant/BA-003-device-embodiment-binding to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.
+No worker may merge `assistant/BA-003-device-embodiment-binding` to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.

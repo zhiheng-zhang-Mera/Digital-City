@@ -4,8 +4,10 @@ project: BUTLER_ASSISTANT_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
 control_repo: zhiheng-zhang-Mera/Digital-City
 project_start_gate: PRE_ASSISTANT_MERGED_MAIN_CI_GREEN
-project_baseline_sha: TO_BE_PINNED_FROM_UTOPIA_MAIN_WHEN_GATE_OPENS
-development_status: WAITING_PROJECT_GATE
+project_start_gate_status: OPEN
+project_baseline_sha: 8104f8289a76d15ff0197c953730edcef42cab5e
+architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
+development_status: NOT_STARTED
 development_complete: false
 development_host: null
 development_claimed_at: null
@@ -27,40 +29,63 @@ merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
 
 ## Goal
 
-Provide the user-facing surface for selecting assistants and safely changing assistant-owned personalization/mode settings.
+Provide the user-facing surface for selecting assistants and safely changing assistant-owned personalization while making foreground presence, task ownership and background execution visibly distinct.
 
 ## Development scope
 
-- List/select available assistants.
-- Edit supported AssistantProfile fields through the versioned profile contract.
+- List/select available assistants and edit supported AssistantProfile fields through the versioned profile contract.
 - Switch butler/secretary/companion or future modes as assistant/relationship policy, not Digital-Me mutation.
-- Show which assistant is active on the current device and where the same assistant is embodied.
+- Show which assistant is foreground on the current device and where the same logical assistant has other embodiments.
+- Show relevant background tasks separately from foreground binding, including logical owner/coordinator and current executor when useful.
+- Make foreground switching a UI operation distinct from TaskHandoff; request/offer handoff only when responsibility truly needs to move.
 - Reserve adapters for future voice/avatar editors without requiring those engines now.
+- Surface stale/offline/reconnecting embodiment state without pretending a cached state is authoritative.
 
 ## Explicitly out of scope
 
 - editing Digital-Me canonical user records from assistant settings
 - binding UI state directly to one vendor/model
 - requiring future voice/avatar capability for current acceptance
+- presenting foreground switch as automatic task transfer
+- hiding an active background task merely because its owner is not foreground
 
 ## Required acceptance
 
-- Profile changes propagate to all embodiments of that assistant through shared state.
-- Changing mode/personality/voice/avatar reference does not restart or duplicate tasks.
-- Device assistant switching obeys BA-003/004 contracts.
-- UI clearly distinguishes assistant identity from user/Digital-Me identity.
+- Profile changes propagate to other embodiments through committed shared state, not direct synchronization of local UI/scratch context.
+- Changing mode/personality/voice/avatar reference does not restart, duplicate or transfer tasks.
+- Foreground assistant switching obeys BA-003 and produces no TaskHandoff unless the user/system explicitly requests responsibility transfer.
+- UI clearly distinguishes assistant identity, user/Digital-Me identity, foreground binding, logical task owner and executor.
+- Reconnect/stale indicators prevent the user from mistaking cached task/binding state for current authority.
 
-## Start gate
+## Mandatory distributed-assistant architecture contract
 
-Do not claim this task until the Pre-Assistant foundation branch has been merged to Utopia main and required merged-main GitHub CI is green. At the moment the gate opens, pin that exact Utopia main SHA as the Butler project baseline; all BA branches use the same baseline.
+This task MUST preserve all of the following project-wide invariants:
+
+1. **One logical identity, many embodiments.** Multiple devices connected to the same assistant are projections of one logical assistant, not independent minds that later synchronize.
+2. **One authoritative durable state, many contextual projections.** Shared/authoritative state may contain committed identity/profile references, durable assistant↔user relationship state, committed memory references, the task graph, commitments, checkpoints and the causal/event log. Live token context, scratch reasoning, temporary plan drafts, uncommitted inference and device/UI transient state remain embodiment-local unless explicitly promoted through a typed commit/update.
+3. **Foreground binding is not task ownership.** Each device has at most one foreground assistant, but foreground switching does not by itself transfer, cancel, pause or recreate task ownership or background execution.
+4. **Ownership is not execution.** A task may distinguish logical owner/coordinator from its current executor. Any externally visible or state-changing side effect must be guarded by authoritative task/version state plus an execution lease and an idempotency/action key.
+5. **Handoff never transfers authority implicitly.** A handoff may transfer responsibility, checkpoint/evidence and references, but never permission or capability grants. The receiving assistant/device must recompute effective permission from current policy and capability.
+6. **Local state is a cache, not authority.** After disconnect/restart/reconnect, an embodiment must re-fetch authoritative task/binding state and revalidate any lease before resuming a side effect.
+7. **Knowledge is not disclosure authority.** Information known in one scope/audience is not automatically releasable in another. Context projection must enforce memory/audience/privacy scope before output.
+
+These are acceptance constraints, not optional future enhancements.
+
+## Project gate
+
+The Pre-Assistant foundation gate is already **OPEN**. The common Butler project baseline is pinned to Utopia main:
+
+`8104f8289a76d15ff0197c953730edcef42cab5e`
+
+This task may be claimed now. It MUST branch from that exact baseline so BA-001..BA-009 remain independently integrable.
 
 ## Development stage
 
 The Development Host must:
 1. claim this stage in City;
-2. create assistant/BA-007-settings-interaction-surface from the pinned Butler project baseline;
-3. implement only this bounded scope;
-4. add positive and negative tests;
+2. create `assistant/BA-007-settings-interaction-surface` from the pinned Butler baseline;
+3. implement only this bounded scope plus the mandatory architecture contract above;
+4. add positive and negative tests, including concurrency/recovery tests relevant to this task;
 5. push and run relevant GitHub CI;
 6. write DEVELOPMENT_REPORT.md with exact files, tests, failures/fixes, branch/head and CI;
 7. mark development_complete only when green.
@@ -69,7 +94,7 @@ Do not merge to Utopia main.
 
 ## Correction stage
 
-The Correction Host must be the other physical host and must independently inspect the pushed Development branch for relevant architecture, state-consistency, concurrency, permission/privacy, lifecycle, recovery and false-success defects.
+The Correction Host must be the other physical host and must independently inspect the pushed Development branch for relevant architecture, state-consistency, concurrency, permission/privacy, lifecycle, recovery, stale-state, duplicate-side-effect and false-success defects.
 
 Correction is a repair task, not passive verification. Every discovered in-scope defect must be directly fixed on this same branch and covered by regression tests. Cross-subproject issues must be fixed at this task's local contract/guard and recorded for final integration rather than copying another BA implementation.
 
@@ -85,4 +110,4 @@ Final-merge eligibility requires:
 
 ## Merge lock
 
-No worker may merge assistant/BA-007-settings-interaction-surface to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.
+No worker may merge `assistant/BA-007-settings-interaction-surface` to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.
