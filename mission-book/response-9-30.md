@@ -16,9 +16,12 @@ Owner 决定：
 5. NO_VALUE 时：
    - 不写实现代码；
    - City 必须报告 **“判断无价值，任务保留，未迁移”**；
-   - `migration_complete=false`；
-   - `migration_status=NOT_REQUIRED_NO_VALUE`；
-   - 任务和证据保留，但自动调度以后 skip，除非 Owner reopen。
+   - `migration_complete=true`；
+   - `migration_status=SKIPPED_COMPLETE`；
+   - `migration_completion_basis=SKIPPED_NOT_REQUIRED`；
+   - `verification_complete=true` / `verification_status=NOT_REQUIRED_SKIPPED_COMPLETE`；
+   - 不生成假的 verified implementation episode；
+   - 任务和证据保留，但自动调度以后视为已完成，除非 Owner reopen。
 6. Assessment Host 若继续迁移，自动成为 Migration Host；Verification 仍必须由不同实际主机完成。
 7. Assessment-only branch 在没有实质实现提交前不计入 `UNMERGED_WIP_LIMIT`。
 
@@ -61,4 +64,83 @@ Utopia:
   verified episode only after real migration + independent verification
 ```
 
-NO_VALUE 不得伪造 verified episode；assessment branch 保留并由 City report 钉住 immutable HEAD。
+NO_VALUE 不得伪造 verified episode；assessment branch 保留并由 City report 钉住 immutable HEAD。**完全跳过仍视为 Mission 完成。**
+
+
+---
+
+## R4 — Completion basis：实现、Owner 接受、完全跳过均可完成
+
+从本裁决起，`migration_complete=true` 必须配套 `migration_completion_basis`：
+
+1. `IMPLEMENTED_COMPLETE` — Migration Host 自身完成并记录 PASS；
+2. `OWNER_ACCEPTED_COMPLETE` — Migration Host 诚实记录 blocker/negative result，Owner 后续明确接受边界并声明完成；
+3. `SKIPPED_NOT_REQUIRED` — 完整比较后确认当前 Utopia 已等价/更优覆盖或该迁移没有独立价值，因此完全不迁。
+
+第三类不是失败，也不是“永远未迁移”。它是一个**绿色完成结论**：保留任务、Assessment Report 与 branch/evidence，但 `migration_complete=true`、`verification_complete=true`，不要求实现 merge/episode。
+
+## R5 — 禁止为 Owner override 伪造 Migration Host PASS
+
+MB-007/008 的 Alien 历史 blocker 必须保留。任何 verifier 都不得写一条假装由 Alien 当时发出的 `MIGRATION_COMPLETE/PASS`。
+
+Utopia finalizer 必须增加显式 owner-override completion path，并在 episode 里保存：
+
+- migration-side blocker；
+- Owner ruling reference；
+- Verification Host 的 `OWNER_INTERVENTION`；
+- independent verifier finding；
+- CI / verification complete；
+- completion basis = `OWNER_ACCEPTED_COMPLETE`。
+
+## R6 — 当前修补顺序固定为 7 → 8 → 3
+
+本轮 Owner-directed repair queue：
+
+1. **MB-007**：只修 process closeout / finalizer / verified episode；已经进入 Utopia main 的实现不回滚、不重迁。
+2. **MB-008**：必须等 Step 1 完成并进入 Utopia main 后，再同步最新 main。开始实质合并前允许重新判断当前价值：
+   - 全部无价值 → `SKIPPED_NOT_REQUIRED` 直接闭环；
+   - 仍有价值 → 完成 bounded verification、owner-override finalize、final CI、merge。
+3. **MB-003**：必须等 Step 2 完成后重新评估当前 Utopia：
+   - 若整体已无迁移价值 → `SKIPPED_NOT_REQUIRED`；
+   - 若仍有价值 → real provider / runner execution seam 仍是硬门槛，不得 mock/waive。
+
+前一步 `repair_status=COMPLETE` 前，后一步不得 finalize/merge。
+
+## R7 — MB-008 两主机 bounded-action 历史条款的解释
+
+MB-008 Migration Host 已经诚实记录旧 product-consumption gate 的 blocker，R7（9-29）随后接受该边界并开放 Verification。
+
+因此本轮不要求 Alien **追溯性重演**一次它当时没有合法消费面的 bounded action。Mech 作为 Verification Host 必须完成真实 bounded Computer-Use chain、postcondition、至少一个 refusal/error path 和 recovery/stabilization path；Alien 的 blocker + Owner ruling + Mech 的真实验证共同构成完整证据。
+
+这不扩大 MB-008 的 runtime plane，也不把 deferred controllers/drivers 写成已完成。
+
+## R8 — MB-003 completion repair 可留在原 Mission 身份
+
+9-29 R1 中“superseding/completion Mission”的目的，是防止在 MB-003 Verification 里偷偷新增非 donor 能力。本轮现明确：
+
+- 若 Step 3 评估后 MB-003 仍有价值，允许在 **MB-003 原 Mission 身份与原 verification claim** 下做显式 completion repair；
+- 不强制再创建新的 MB 编号；
+- 只能迁入 frozen donor 已存在的 provider/runner execution seam、registry/supervisor wiring；
+- planner、vendor UI、新 provider 语义仍禁止；
+- 若没有 donor-supported real provider 环境且 MB-003 仍有价值，则保持 `BLOCKED`，不能用“跳过完成”掩盖环境阻塞。
+
+## R9 — City 状态是施工事务的一部分
+
+7 → 8 → 3 每一步都必须：
+
+```text
+City pre-state commit
+→ Utopia work/evidence
+→ City milestone update
+→ CI/finalize/merge or SKIPPED_COMPLETE
+→ City final closeout commit
+```
+
+至少同步：
+- Mission front matter；
+- Mission 正文 closeout/repair section；
+- `README.md` 进度表；
+- `MISSION_INDEX.md`；
+- 对应 Assessment/Migration/Verification Report。
+
+不得等所有代码做完后一次性补 City 状态。
