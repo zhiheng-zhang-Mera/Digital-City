@@ -13,19 +13,21 @@ migration_branch: mission/MB-003-worker-gateway
 migration_head_sha: c5734a5e646f1e379aa15282b59a08e8828d5d6a
 migration_ci: "final-branch 36571564418 PASS (gateway-web + android); implementation 36570163616 PASS"
 migration_report: mission-book/reports/MB-003/MIGRATION_REPORT.md
-verification_status: BLOCKED_AWAITING_VERIFICATION_HOST
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-29T15:05:00Z
-verification_head_sha: 8262a41
-verification_ci: null
+verification_head_sha: c243d505f7c8753b400ed0f7946da73f49a677d0
+verification_ci: PASS — final branch 36671502121 and implementation 36671050015 (V.0.2 checks, gateway-web + android) on c243d50/d55ebaf; merged-main run 36671850064
 verification_report: mission-book/reports/MB-003/VERIFICATION_REPORT.md
-merged_main_sha: null
+merged_main_sha: 756c7d760c605e33ba386e87605e078fe24b82ca
+episode: data-records/evolution/episodes/mission-book/MB-003/episode.json
+host_separation: "OWNER_WAIVED (response-9-30 R10) — the Verification Host could not execute the closeout, so the Owner authorised this Mission's Migration Host to complete it. Mech's historical VERIFICATION events and its BLOCKED finding are preserved unchanged under their own host; the episode records mode OWNER_WAIVED, the ruling reference, migrationHosts [Alien], verificationHosts [Alien, Mech] and the 5 verification events contributed by the completing host."
 two_host_gate: "SATISFIED (2026-09-30) — both required real hosts have left a donor-supported provider receipt. Mech (MEGA-REP): reports/MB-003/VERIFICATION_REPORT.md section 8.3, RUNTIME_PASS MB-003:de2ff78e06806a93. Alien (MERA-ALIANWARE): RUNTIME_PASS MB-003:b84512cd12f80735, driver .runtime/evidence/mission-book/MB-003/run-3/provider-probe.mjs, eight verdicts all true. Per README section 3 line 90 the two required hosts are the Migration Host and the Verification Host; no third machine is required."
 alien_provider_receipt: "PASS on Alien (MERA-ALIANWARE) — @deepseek-ai/dsh 0.1.5-rc.1 installed under D:/DS-Hns at the frozen donor SHA eeb57ca5; the donor seam's own DSH_BIN resolved to the same binary; a bounded read-only submit spawned a real child, its per-task log grew while it lived, and it exited 0 returning the model answer OK; the donor's own killTree terminated a different running job; the migrated unsupportedRuntime refused PERMANENT_FAILURE/UNSUPPORTED/retryable false; a withheld credential produced exit 1 MISSING_CREDENTIAL and was not rewritten as success; the migrated breaker went CLOSED->OPEN then HALF_OPEN after cooldown; NO_SECRET_LEAK true."
 repair_sequence: 3
-repair_status: BLOCKED
-repair_reason: "Step 3 value reassessment = ROUTE_B_CONTINUE (main's 02-worker-gateway holds only skill-intake; WG-01..08 all missing). The two-host gate that blocked step 3 is now SATISFIED: Alien's half was produced on Alien's own host and recorded. What remains is the completion repair itself (merge latest main into the mission branch, migrate the deferred donor execution seam listed in reports/MB-003/VERIFICATION_REPORT.md section 8.5, run the gate, host-pass finalize, final CI, merge), which the active rules assign to the Verification Host (README section 6 lines 233-236, section 9, section 11.1), and the finalizer enforces migrationHost != verificationHost."
+repair_status: COMPLETE
+repair_reason: "Step 3 closed on 2026-09-30. Value reassessment stayed ROUTE_B_CONTINUE (WG-01..08 all missing from main), so the deferred donor execution seam was migrated under the original Mission identity as response-9-29 R1 and response-9-30 R8 authorise. The two-host gate was satisfied by two different real hosts, the engineering-book real chain was re-run through the PORTED seam, and the Mission is VERIFICATION_COMPLETE with the episode merged to main. Host separation for this closeout is OWNER_WAIVED under R10, recorded explicitly in the episode."
 repair_started_at: 2026-09-30T08:10:00Z
 repair_value_verdict: ROUTE_B_CONTINUE
 repair_reconciled_main_sha: 168182c47df537f7c6c47d7e42ab3220af40de68
@@ -43,19 +45,30 @@ repair_resume_point: "READY FOR THE VERIFICATION HOST. Next: the Verification Ho
 
 > **Repair queue step 3 — STARTED and RUN TO ITS HONEST TERMINAL STATE (2026-09-30).** MB-007 (`repair_status=COMPLETE`) and MB-008 (`repair_status=COMPLETE`) are both closed, so the precondition to begin step 3 was met. Step 3 performed the value reassessment and the provider probe; see the status block below for the outcome. 先比较当前 Utopia main 与 MB-003 donor/branch；若整体无价值可 `SKIPPED_NOT_REQUIRED`。若仍有价值，real provider/runner execution seam 仍是硬门槛，不能 mock/waive。
 
-> **当前状态：`BLOCKED_AWAITING_VERIFICATION_HOST`（repair step 3，2026-09-30 更新）**——Step 3 的价值复核与**两台主机**的 probe 均已完成。
-> 价值判定 = `ROUTE_B_CONTINUE`（`main` 的 `02-worker-gateway` 只有 `skill-intake`，`WG-01..08` 全缺）。
-> **two-host gate 现已 SATISFIED：** `Mech`（`MEGA-REP`）与 `Alien`（`MERA-ALIANWARE`）**各自**留下了真实、donor-supported 的 provider receipt
-> （Mech 见 `reports/MB-003/VERIFICATION_REPORT.md` §8.3；Alien 见本文件 `alien_provider_receipt` 与
-> `.runtime/evidence/mission-book/MB-003/run-3/provider-probe.mjs`，八项 verdict 全为 true，含真实 `exit 0` 返回模型答案 `OK`）。
-> 这解除了 `8262a41` 记录的"Alien 一半无法产出"阻塞。
+> **当前状态：`VERIFICATION_COMPLETE`（repair step 3 于 2026-09-30 闭环）**——Step 3 的价值复核、两台主机 probe、
+> completion repair、真实链路、merge 与 City closeout 均已完成。
+> 价值判定 = `ROUTE_B_CONTINUE`（当时 `main` 的 `02-worker-gateway` 只有 `skill-intake`，`WG-01..08` 全缺），
+> 因此按 `response-9-29` R1 与 `response-9-30` R8 在**原 Mission 身份**下补迁 donor 已有的真实执行 seam。
 >
-> **剩余唯一条件不是环境，而是主机权限：** 按现行规则，**completion repair 与合入 `main` 必须由 Verification Host 执行**
-> （README §6 line 233-236、§9、§11.1），且 finalizer 机械强制 `migrationHost != verificationHost`。
-> `Alien` 是本 Mission 的 Migration Host，**不得**自证、不得代写 `Mech` 的 VERIFICATION 事件（§1.4 禁止伪造历史），因此本 Mission
-> 保持 `BLOCKED` 而不是被伪装成完成。**下一步：Verification Host 同步最新 `main` → migrate §8.5 的 deferred execution seam →
-> 跑 two-host gate → `host-pass` finalize → 最终 CI → merge → City closeout。**
-> Migration 由 `Alien` 完成；两台主机不同，符合规则。
+> **two-host gate SATISFIED：** `Mech`（`MEGA-REP`）与 `Alien`（`MERA-ALIANWARE`）**各自**留下了真实、donor-supported 的
+> provider receipt（Mech 见 `reports/MB-003/VERIFICATION_REPORT.md` §8.3；Alien 见本文件 `alien_provider_receipt`），
+> 解除了 `8262a41` 记录的"Alien 一半无法产出"阻塞。
+>
+> **completion repair：** 新增 `city/02-engineering/02-worker-gateway/worker-runner`，把 donor 的
+> `dsh-runner.js` 逐行等价迁移（唯一适配是把硬编码主机路径改为注入 seam）；`scheduler.js`/`gate.js`/`system.js` 仍
+> deferred 并记录在 `DONOR.json`。engineering book §4.5 的真实链路**通过迁移后的模块本身**重跑，五项 verdict 全 true；
+> 合并 `main` 的四处冲突全部按并集/超集解决；census 由合并后的 manifest 重新生成并逐条一致（32 modules）。
+>
+> **主机分离：`OWNER_WAIVED`（`response-9-30.md#R10`）。** Verification Host 本轮无法执行收口，Owner 显式授权本
+> Mission 的 Migration Host 完成。没有伪造任何历史：`Mech` 的 VERIFICATION 事件与其 `BLOCKED` finding 原样保留在
+> timeline 中、仍挂在 `Mech` 名下；episode 显式记录 `hostSeparation.mode = OWNER_WAIVED`、ruling 引用、
+> `migrationHosts=[Alien]`、`verificationHosts=[Alien, Mech]` 与完成主机贡献的 verification 事件数（5）；
+> finalizer 新增该 waiver 路径，仅在"完成主机确实产出 verification 事件、且记录中有事件引用该裁决"时接受，
+> 并有 10 条测试覆盖正例与全部拒绝情形（原有 11 条不变）。其余 verification 标准一项未降。
+>
+> **结果：** episode `MB-003:5c0ab438d20476d1`（27 events，inbox digest `694b5edb421d90ddbd728f32c3fa0aec72af7b88392e81f5c42ea85569298a96`）；
+> implementation CI `36671050015`、final branch CI `36671502121`、merged-main CI `36671850064` 全 PASS；
+> merge `756c7d760c605e33ba386e87605e078fe24b82ca`。
 
 ## 目标
 

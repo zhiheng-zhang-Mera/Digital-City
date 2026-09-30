@@ -9,7 +9,7 @@
 |---:|---|:---:|:---:|:---:|---|---|
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | COMPLETE | Alien | closed |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Mech | closed |
-| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_AWAITING_VERIFICATION_HOST** | Alien | Step 3 reassessment = `ROUTE_B_CONTINUE` (WG-01..08 all missing). **The two-host gate is now SATISFIED**: Mech (`MEGA-REP`) and Alien (`MERA-ALIANWARE`) each left a real donor-supported provider receipt (Alien's: driver `run-3/provider-probe.mjs`, eight verdicts all true, real `exit 0` + model answer `OK`). What remains is the completion repair + merge, which the active rules assign to the **Verification Host**; the finalizer enforces `migrationHost != verificationHost`, so Alien must not self-verify. Branch `99e5606` (6 ahead / 59 behind) |
+| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **COMPLETE** | Alien | closed. Value = `ROUTE_B_CONTINUE`; the deferred donor execution seam was migrated as `worker-runner`; the two-host real-provider gate is satisfied by Mech (`MEGA-REP`) and Alien (`MERA-ALIANWARE`) each leaving a receipt, and the real chain was re-run through the ported seam. Episode `MB-003:5c0ab438d20476d1`; merge `756c7d7`; merged-main CI `36671850064`. Host separation OWNER_WAIVED under response R10, recorded in the episode |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | Mech | closed; historical MB-003 routing clause accepted as non-blocking — response R2 |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | Mech | closed |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | COMPLETE | Alien | closed |
@@ -27,12 +27,13 @@ Current scheduler is **integration-first**, not migration-first.
 ```text
 COMPLETE. MB-007 — implementation + Owner-override episode closed
 COMPLETE. MB-008 — bounded verification + owner-override episode + merge `168182c`; merged-main CI PASS
-BLOCKED.  MB-003 — the two-host gate is now SATISFIED (Mech + Alien receipts both recorded), so the
-          environment blocker is cleared. The remaining condition is host authority, not environment:
-          the completion repair (merge main → migrate the §8.5 execution seam → gate → host-pass
-          finalize → merge) must be done by the **Verification Host**, and the finalizer enforces
-          `migrationHost != verificationHost`. Alien is the Migration Host and must not self-verify.
-THEN.     Utopia main final integration sweep (MB-007 + MB-008 merged; MB-003 still has a real delta)
+COMPLETE. MB-003 — step 3 closed 2026-09-30. Value = `ROUTE_B_CONTINUE`; the deferred donor execution
+          seam was migrated as `worker-runner`; the two-host gate is satisfied by Mech's and Alien's
+          own receipts, and the real chain was re-run through the ported seam (5/5 verdicts). Episode
+          `MB-003:5c0ab438d20476d1`, merge `756c7d7`, merged-main CI `36671850064`. Host separation is
+          OWNER_WAIVED under response-9-30 R10 and is recorded in the episode, with Mech's historical
+          VERIFICATION events and BLOCKED finding preserved under their own host.
+THEN.     Utopia main final integration sweep (MB-007 + MB-008 + MB-003 all merged)
 THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
 ```
 

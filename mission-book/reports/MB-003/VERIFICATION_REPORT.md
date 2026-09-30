@@ -405,3 +405,126 @@ discipline as MB-008's V2.
 2. Then §13's repair — merge `main`, migrate the §8.5 seams, resolve the shared control plane as
    union/superset — §14's two-host gate, `host-pass` finalize (MB-003 already has a real
    `MIGRATION_COMPLETE/PASS`), final CI and merge.
+
+---
+
+## 9. Completion repair (2026-09-30, host `Alien`)
+
+Step 3 stopped at `BLOCKED` because the two-host gate needed a receipt from **Alien's** host and
+Alien's half could not be produced from Mech's machine (§8.4). This section records how that was
+resolved and how the Mission was closed. Nothing above is rewritten: Mech's §8.3 receipt, its
+independent findings and its `BLOCKED` finding all stand.
+
+### 9.1 The gate is now satisfied by two real hosts
+
+`README.md` §3 line 90 defines "two hosts" as the **Migration Host and the Verification Host**,
+each leaving real runtime evidence. Both halves now exist:
+
+| Host | Runtime | Evidence |
+| --- | --- | --- |
+| `Mech` (`MEGA-REP`) | `@deepseek-ai/dsh 0.1.5-rc.1` via the donor's own `dsh-runner.js` | §8.3, `RUNTIME_PASS MB-003:de2ff78e06806a93` |
+| `Alien` (`MERA-ALIANWARE`) | the same runtime, same frozen donor SHA | `RUNTIME_PASS MB-003:b84512cd12f80735`, driver `.runtime/evidence/mission-book/MB-003/run-3/provider-probe.mjs` |
+
+Alien's receipt reproduces Mech's shape on a different physical machine: the donor seam's own
+`DSH_BIN` resolved to the installed runtime; a bounded read-only job spawned a real child, its
+per-task log grew while it lived, and it exited 0 returning the real model answer `OK`; the donor's
+own `killTree` terminated a different running job; the migrated `unsupportedRuntime` refused with
+`PERMANENT_FAILURE`/`UNSUPPORTED`/`retryable false`; a withheld credential produced `exit 1`
+`MISSING_CREDENTIAL` and was **not** rewritten as success; the migrated breaker went
+`CLOSED → OPEN`; and no key material appeared in any log or record. Machine verdicts
+`PROVIDER_RUNTIME_PRESENT`, `REAL_SUBMIT_RESULT`, `PROGRESS_OBSERVED`, `CANCEL_INTERRUPT`,
+`UNSUPPORTED_REFUSAL`, `PROVIDER_BREAKER`, `PROVIDER_ERROR_NOT_REWRITTEN`, `NO_SECRET_LEAK` — all
+true.
+
+### 9.2 The deferred execution seam was migrated (WG-08)
+
+Value reassessment stayed `ROUTE_B_CONTINUE` (§8.1), so §13's repair was executed under the original
+Mission identity, as `response-9-29` R1 and `response-9-30` R8 authorise. New module
+`city/02-engineering/02-worker-gateway/worker-runner` ports the frozen donor
+`app/extensions/mega/scheduler/dsh-runner.js`:
+
+| Donor export | Ported name | Adaptation |
+| --- | --- | --- |
+| `DSH_BIN` | `runner.dshBin` | same `path.join(appRoot, 'node_modules', '@deepseek-ai', 'dsh', 'lib', 'bin.js')` shape over an injected app root |
+| `nodeExecutable()` | `runner.nodeExecutable()` | `env.DSH_NODE \|\| 'node'`, unchanged when no explicit node is supplied |
+| `childEnv(overrides)` | `runner.childEnv(overrides)` | identical keys, order, defaults and overrides-last |
+| `startJob({…})` | `runner.startJob({…})` | identical argv, cwd, stdio triple, `windowsHide`, append-log tee, `logStream` and return shape |
+| `killTree(pid)` | `runner.killTree(pid)` | identical `taskkill.exe /PID <pid> /T /F` and the donor's empty catch |
+| `require('../utils/paths')`, `require('../utils/workspace')` | the injected seam object | six host locations; the donor's hard-coded `D:\` layout is gone |
+
+`scheduler.js` (the queue), `gate.js` (`decideTask` price/schedule policy) and `system.js` (hardware
+sampling for queue limits) remain **deferred**, with reasons, in the module's `DONOR.json`. No
+planner, no vendor UI and no new provider semantics were added.
+
+Capability coverage on the finished branch: WG-01 + WG-06 `provider-adapter`, WG-07
+`provider-resilience`, WG-08 + WG-02/03/04/05 `worker-task-contract` + `worker-runner`, with
+`skill-intake` unchanged.
+
+### 9.3 The real gate, re-run through the PORTED seam
+
+`.runtime/evidence/mission-book/MB-003/run-4/ported-seam-gate.mjs` drives the engineering-book §4.5
+chain through the migrated module rather than the donor file, on the merged revision:
+
+```text
+PORTED_SEAM_RESOLVES_RUNTIME   true   ported dshBin -> @deepseek-ai/dsh 0.1.5-rc.1
+PORTED_SUBMIT_PROGRESS_RESULT  true   real child, log grew while it lived, exit 0, answer "OK", no key material
+PORTED_CANCEL_INTERRUPT        true   killTree: alive before true -> alive after false
+PORTED_UNSUPPORTED_REFUSAL     true   PERMANENT_FAILURE / UNSUPPORTED / retryable false
+PORTED_BREAKER                 true   CLOSED -> OPEN, admission refused
+```
+
+### 9.4 Merge reconciliation
+
+`main` was merged into the mission branch first (README §6). Four conflicts, all mechanical and all
+resolved as union/superset:
+
+- `services/capability-bridge/registry.mjs` — `main` already carries **both** independent exclusion
+  mechanisms (MB-001's district/building `kind`, MB-003's module-level `capabilityProvider`) plus
+  MB-009's resolution split, so `main`'s revision is taken verbatim. Verified: exactly seven
+  descriptors, five `AVAILABLE`, and the four Worker Gateway adapter modules absent from the surface.
+- `city/tests/manifest.test.mjs` — `main`'s `EXPECTED_MODULES` kept, with this branch's Worker Gateway
+  rows inserted in declaration order; the census was then regenerated and checked against the merged
+  manifest (32 modules, identical).
+- `city/docs/{en,zh-CN}/ARCHITECTURE.md` — both sides appended a section 7 for a different mission, so
+  `main`'s document is kept and the MB-003 section re-appended as section 8 in both languages;
+  bilingual pairing stays `SYNCHRONIZED`.
+
+### 9.5 Host separation — OWNER_WAIVED (response-9-30 R10)
+
+The completion repair and the merge belong to the Verification Host (README §6 lines 233-236, §9,
+§11.1), and the finalizer enforces `migrationHost != verificationHost`. The Verification Host could
+not execute the closeout in this round, so the Owner ruled (`response-9-30.md#R10`) that MB-003's
+Migration Host may complete it, under five conditions that were all honoured:
+
+1. **No forged history.** Mech's VERIFICATION events keep their own `hostId`; no event was written
+   pretending to come from Mech.
+2. **Mech's evidence still counts.** Its receipt, early findings and `BLOCKED` finding remain in the
+   timeline and in this report.
+3. **The waiver is explicit in the episode.** `hostSeparation.mode = OWNER_WAIVED` with the ruling
+   reference, the completing host, the hosts that actually appear per role
+   (`migrationHosts: [Alien]`, `verificationHosts: [Alien, Mech]`) and the count of verification
+   events the completing host contributed (5).
+4. **The waiver is needed and cited.** It is refused when the completing host is already the
+   Verification Host, when it produced no verification events, or when no event cites the ruling;
+   ten tests cover the waived path and every refusal, with the eleven pre-existing tests unchanged.
+5. **No other standard was lowered.** Independent finding, a real bounded chain, `CI_RESULT=PASS`,
+   `VERIFICATION_COMPLETE=PASS` after the final CI, and required CI green all still hold.
+
+Scope: MB-003's closeout only. This is not a general relaxation of two-host separation.
+
+### 9.6 Acceptance
+
+| Gate | Result |
+| --- | --- |
+| Each participating host completed a real detect→submit→progress→result/unsupported path | **PASS** — Mech §8.3, Alien §9.1 |
+| Provider failure / interruption / circuit breaker observable; error not rewritten as success | **PASS** — §9.1, §9.3 |
+| Existing Skill Intake regression green | **PASS** — 22/22 (116/116 across the four modules) |
+| Verification host differs from migration host | **WAIVED under R10**, recorded in the episode |
+| Independent review before the Migration Report | **PASS** — §1–§5, then §6 (rule 9) |
+| Repairs only on the same mission branch | **PASS** — the seam, its registration and the finalizer waiver |
+| Required CI green | **PASS** — branch `36671050015`, final HEAD `36671502121`, merged `main` `36671850064` |
+| Verifier merges to the implementation `main` | **PASS** — `756c7d760c605e33ba386e87605e078fe24b82ca` |
+| Episode + double CI | **PASS** — `MB-003:5c0ab438d20476d1`, inbox digest `694b5edb421d90ddbd728f32c3fa0aec72af7b88392e81f5c42ea85569298a96` |
+
+**Final state: `VERIFICATION_COMPLETE`.** Mech's original environment blocker is preserved in this
+report as history, and the correction it prompted (§8.2) is preserved with it.
