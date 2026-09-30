@@ -9,13 +9,13 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T12:49:29Z
 development_branch: assistant/BA-003-device-embodiment-binding
-development_head_sha: null
-development_ci: null
+development_head_sha: eb3b1a1233a05c056dcc366341c76e0a20faa2f5
+development_ci: 36717697673-gateway-web-success-android-success
 development_report: mission-book/reports/BA-003/DEVELOPMENT_REPORT.md
 correction_status: NOT_STARTED
 correction_complete: false
