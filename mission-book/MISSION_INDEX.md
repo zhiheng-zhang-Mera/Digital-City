@@ -9,12 +9,12 @@
 |---:|---|:---:|:---:|:---:|---|---|
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | COMPLETE | Alien | closed |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Mech | closed |
-| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_OWNER_DECISION** | Alien | claimed by Mech; **do not merge**; Owner authorised a superseding real execution-seam Mission — see response R1 |
+| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED / REPAIR STEP 3** | Alien | Mech holds verification; wait for MB-007 then MB-008 closeout; reassess current value before execution-seam repair |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | Mech | closed; historical MB-003 routing clause accepted as non-blocking — response R2 |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | Mech | closed |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | COMPLETE | Alien | closed |
-| 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE** | **NOT_STARTED / OPEN** | Alien | **Mech eligible**; integration-first P0 |
-| 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE** | **NOT_STARTED / OPEN** | Alien | **Mech eligible**; integration-first P0 |
+| 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + PROCESS REPAIR STEP 1** | Alien | implementation accepted and merged; repair missing verified episode only |
+| 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **CLAIMED / REPAIR STEP 2** | Alien | Mech claimed; do not finalize/merge before MB-007 repair closes |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
 | 10 | [MB-010](./MB-010-node-fabric.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; auto-claim when P0 clear |
 | 11 | [MB-011](./MB-011-customs.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; compare current Utopia before migration |
@@ -25,12 +25,13 @@
 Current scheduler is **integration-first**, not migration-first.
 
 ```text
-P0. MB-007 Verification / Integration
-P0. MB-008 Verification / Integration
-BLOCKED. MB-003 until the authorised superseding execution-seam Mission exists
-NEXT. MB-010 → MB-011 → MB-012 assessment-first claims after eligible P0 integration is clear
-NOTE. Assessment does not imply migration; NO_VALUE is a terminal retained/unmigrated result
+REPAIR-1. MB-007 — close Owner-override/finalizer/episode mismatch; implementation stays accepted
+REPAIR-2. MB-008 — rebase on post-007 main, then SKIP or verify/finalize/merge
+REPAIR-3. MB-003 — reassess after 007/008; SKIP or complete donor-backed real execution seam
+THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
 ```
+
+`SKIPPED_NOT_REQUIRED` is a **green completion basis**, not an eternal red/not-started state.
 
 At the Owner review snapshot, the Utopia branches for MB-007 and MB-008 were both substantially behind current `main`; the verifier must recompute the exact ahead/behind count immediately before work and merge the latest `main` into each branch **one at a time**.
 
@@ -52,7 +53,8 @@ Condensed:
 3. after FULL/PARTIAL assessment:
    same host continues eligible migration
    → only while unmerged substantive WIP < 2
-4. NO_VALUE / blocked / disabled / claimed by another host
+4. NO_VALUE → SKIPPED_NOT_REQUIRED → Mission COMPLETE
+5. blocked / disabled / claimed by another host
    → skip
 ```
 
@@ -64,10 +66,11 @@ Unless a Mission explicitly says otherwise, a dependency is satisfied only when 
 
 Latest ruling: [response-9-30.md](./response-9-30.md). Prior rulings in [response-9-29.md](./response-9-29.md) remain effective where not superseded.
 
-- **MB-010/011/012:** now enabled as assessment-first Missions; automatic claim is allowed, but implementation is conditional on FULL/PARTIAL value verdict. NO_VALUE means retained + unmigrated, not a green migration.
+- **Completion basis:** `IMPLEMENTED_COMPLETE`, `OWNER_ACCEPTED_COMPLETE`, and `SKIPPED_NOT_REQUIRED` are all valid Migration completion bases.
+- **MB-010/011/012:** assessment-first remains required; NO_VALUE now means retained + unmigrated + **green SKIPPED completion**, with Verification not required.
 - **Assessment evidence:** capability matrix + current Utopia main SHA + positive/negative selection evidence are mandatory and preserved for research/paper use.
 
-- **MB-003 real provider:** not waived; superseding donor-backed execution-seam Mission authorised.
+- **MB-003 real provider:** not waived if MB-003 is still valuable after Step 2; the donor-backed completion repair may stay under the MB-003 Mission identity instead of requiring a new Mission number.
 - **MB-004 routing clause:** existing real Engineering job + zero donor coupling accepted; no reopen.
 - **Capability enumeration:** `capabilityProvider:false` accepted as City-level mechanism.
 - **Two-host wording:** Migration Host + Verification Host are the two required real hosts by default.
