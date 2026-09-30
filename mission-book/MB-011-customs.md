@@ -16,6 +16,7 @@ assessment_utopia_base_sha: null
 assessment_report: null
 migration_status: NOT_STARTED
 migration_complete: false
+migration_completion_basis: null
 migration_claim_host: null
 migration_claimed_at: null
 migration_branch: null
@@ -47,7 +48,7 @@ merged_main_sha: null
 - `PARTIAL_MIGRATION`：仅迁移能补足 Utopia 真实缺口的子集；其余能力显式放弃并保留理由。
 - `NO_VALUE`：当前 Utopia 已等价/更优覆盖，或 donor 行为已过时、错误归属、需要新增能力才能成立、没有独立 lifecycle/failure-domain 价值等；**不迁移**，向 City 报告：**“判断无价值，任务保留，未迁移”**。
 
-`NO_VALUE` 是终态评估结果，不代表 Migration 完成；任务继续保留用于 provenance / 论文素材 / 未来 Owner 重开。
+`NO_VALUE` 是终态评估结果，**按当前规则视为 Migration 与 Mission 完成，但没有发生实现迁移**；任务继续保留用于 provenance / 论文素材 / 未来 Owner 重开。
 
 ## Donor / 冻结基线
 
@@ -130,13 +131,14 @@ merged_main_sha: null
 - 更新：
   - `assessment_status: COMPLETE_NO_VALUE`
   - `assessment_complete: true`
-  - `migration_status: NOT_REQUIRED_NO_VALUE`
-  - `migration_complete: false`
-  - `verification_status: NOT_REQUIRED_NO_MIGRATION`
-  - `verification_complete: false`
-- City 报告必须显式写：**判断无价值，任务保留，未迁移**。
+  - `migration_status: SKIPPED_COMPLETE`
+  - `migration_complete: true`
+  - `migration_completion_basis: SKIPPED_NOT_REQUIRED`
+  - `verification_status: NOT_REQUIRED_SKIPPED_COMPLETE`
+  - `verification_complete: true`
+- City 报告必须显式写：**判断无价值，任务保留，未迁移**，并注明该 NO_VALUE 按规则视为绿色完成。
 - assessment branch 保留为研究/provenance 分支，**不 merge、不删除**；City 报告记录 immutable HEAD。
-- 调度器以后必须把该状态视为终态并 skip，除非 Owner 显式 reset/reopen。
+- 调度器以后必须把该状态视为已完成并 skip，除非 Owner 显式 reset/reopen。
 
 ### FULL / PARTIAL 继续施工
 
