@@ -281,3 +281,71 @@ merged_main_sha            = null
 **判断无价值，任务保留，未迁移** — this is a green completion under README §2 and City
 R1/R4, not a failure state. The scheduler must treat MB-010 as complete and skip it
 unless the Owner explicitly resets or reopens it.
+
+---
+
+## 9. Independent re-verification (2026-09-30, host `Alien`)
+
+Owner-directed: redo this Mission's verification **without reusing any existing test**, with real
+Android device operation permitted. Method, fresh evidence and SHA tracking follow. The
+`NO_VALUE` verdict is **independently confirmed**.
+
+### 9.1 Donor lifecycle re-derived (own probes, frozen donor `8df428ea`)
+
+| Question | Result |
+| --- | --- |
+| `new TenxNodeRegistry(` / `new TenxNetworkRegistry(` anywhere | **zero construction sites** |
+| `tenx/` in `electron/main.ts`, `electron/bootstrap/`, `electron/host/` | **no matches** |
+| files importing the tenx family | **none** |
+| the live paths the report names | `node-capability-registry` constructed in `electron/main.ts`; `inspectDevice` used by `bootstrap/host-status-ipc.ts` and `host/doctor.ts` |
+
+The un-migrated remainder is unreachable from the donor's own composition root, while the reachable
+node logic is the part MB-001 already ported. Confirmed.
+
+### 9.2 Real Android device verification
+
+Real device `PERM00` (Android 12, `172.31.3.18`) paired over the LAN with the live City gateway
+(`172.31.3.110:4310`) through the app's own `utopia://pair` descriptor, then exercised on-device.
+No mock, and no repository pilot or test was used.
+
+| Verdict | Fresh evidence |
+| --- | --- |
+| NF-01 registration / identity | device renders the node list: `Alien-PC`, platform `win32`, Agent `0.2.0`, capabilities `task.execute.safe` + `filesystem.temp` |
+| NF-02 heartbeat / liveness | live node rendered `ONLINE`; stale node rendered `OFFLINE · Cached` with `Last seen` |
+| NF-04 telemetry | device renders `CPU: 25.9%`, `Memory: 18.4 GB / 31.8 GB` |
+| NF-04 numeric agreement | gateway `telemetry.memory.usedBytes = 19740823552` → 18.4 GB, **exactly** what the device renders (and the stale node's `17790050304` → 16.6 GB) |
+| NF-05 capability advertisement | the Services view renders `Document Intake` as `AVAILABLE · ACTIVE` with its operation surface |
+| durable history consumed on device | four `presentation.theme.lab` `COMPLETED` invocations rendered on the phone — the ids are from earlier real invocations, so this is real cross-session history, not fixture data |
+
+Screenshots: `.runtime/evidence/mission-book/MB-010-011-012/device-devices-view.png` and
+`device-services-view.png`.
+
+**Verdict: `NO_VALUE` confirmed.** No live, uncovered donor node-fabric behaviour exists to
+migrate: the product already owns and consumes the node truth end to end, and the remainder is
+production-dead inside the donor itself.
+
+
+### 9.3 Branch / SHA tracking
+
+```text
+utopia main at verification : 756c7d760c605e33ba386e87605e078fe24b82ca
+assessment branch           : mission/MB-010-node-fabric @ 8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526
+ahead / behind main         : 1 / 0
+that one commit contains    : data-records/evolution/inbox/mission-book/MB-010/events.jsonl
+                              evidence/raw/mission-book/MB-010/assessment/** (README, capability-matrix,
+                              environment, bounded-*)
+                              NO IMPLEMENTATION CODE
+merge                       : NOT PERFORMED, by rule. response-9-30 R1 keeps a NO_VALUE assessment
+                              branch as provenance and explicitly forbids merging it; it also forbids
+                              fabricating a verified implementation episode.
+merged_main_sha             : null (correct for migration_completion_basis SKIPPED_NOT_REQUIRED)
+```
+
+There is no migration branch for this Mission, so there is nothing to merge into `main`.
+
+### 9.4 Evidence pointers
+
+- `.runtime/evidence/mission-book/MB-010-011-012/donor-lifecycle-probe.json` (donor reachability, all three)
+- `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
+- `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
+- `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots

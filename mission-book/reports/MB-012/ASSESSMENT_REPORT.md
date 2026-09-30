@@ -363,3 +363,62 @@ Two secondary mechanisms recurred and are worth carrying into future assessments
   inventing a consumer is `NEW_FEATURE_DEVELOPMENT`. They are recorded here as a
   standing, non-blocking backlog observation for a future Owner-directed integration
   rather than as a reason to migrate more donor code.
+
+---
+
+## 9. Independent re-verification (2026-09-30, host `Alien`)
+
+Owner-directed: redo this Mission's verification **without reusing any existing test**, with real
+Android device operation permitted. Method, fresh evidence and SHA tracking follow. The
+`NO_VALUE` verdict is **independently confirmed**.
+
+### 9.1 Donor lifecycle re-derived (own probes, frozen donor `8df428ea`)
+
+| Question | Result |
+| --- | --- |
+| importers of `electron/capability/{capability-broker,authorization,permission-contract,integration/execution-authorization}` outside that family | only two CI scripts (`scripts/generate-test-catalogue.cjs`, `scripts/platform-certificate.cjs`) — **no application importer** |
+| how `ExecutionGate` is built at the composition root | `electron/main.ts:1003`: `new ExecutionGate()` — **constructed with no authorizer** |
+| `runtime-policy` references | its own validator, a repro-snapshot hash, and a lifecycle report list — nothing applies a decision from it |
+
+So the family the Mission points at cannot fire: it is never imported by the app, and the gate that
+is live is built without an authorizer. Confirmed.
+
+### 9.2 Utopia's existing enforcement, re-proven on live paths
+
+```text
+capability surface              : 7 descriptors, 5 AVAILABLE
+illegal operation refusal       : invokeAdapter('presentation.theme.lab','validate') -> OPERATION_BLOCKED
+oversize input refusal          : 1 MiB + 1 byte document -> INPUT_TOO_LARGE
+capability ownership            : second owner of one capability refused by name
+lifecycle gate                  : 32 declared modules, 32 implemented, none unimplemented
+```
+
+**Verdict: `NO_VALUE` confirmed.** The enforcement that actually runs in Utopia is live and refuses
+correctly, and the donor layer named by this Mission is production-unreachable inside its own
+repository. Porting it would create a second source of truth for enforcement.
+
+
+### 9.3 Branch / SHA tracking
+
+```text
+utopia main at verification : 756c7d760c605e33ba386e87605e078fe24b82ca
+assessment branch           : mission/MB-012-runtime-compliance @ d071328d8f68ba1ddd5e8a1fde11718e75fd6672
+ahead / behind main         : 1 / 0
+that one commit contains    : data-records/evolution/inbox/mission-book/MB-012/events.jsonl
+                              evidence/raw/mission-book/MB-012/assessment/** (README, capability-matrix,
+                              environment, bounded-*)
+                              NO IMPLEMENTATION CODE
+merge                       : NOT PERFORMED, by rule. response-9-30 R1 keeps a NO_VALUE assessment
+                              branch as provenance and explicitly forbids merging it; it also forbids
+                              fabricating a verified implementation episode.
+merged_main_sha             : null (correct for migration_completion_basis SKIPPED_NOT_REQUIRED)
+```
+
+There is no migration branch for this Mission, so there is nothing to merge into `main`.
+
+### 9.4 Evidence pointers
+
+- `.runtime/evidence/mission-book/MB-010-011-012/donor-lifecycle-probe.json` (donor reachability, all three)
+- `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
+- `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
+- `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots

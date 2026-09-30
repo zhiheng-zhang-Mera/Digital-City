@@ -134,3 +134,42 @@ Old reports contain statements such as:
 - old rule numbers 1..16.
 
 Those statements remain valid descriptions of the state **when the reports were written**, but they are not current scheduler instructions. Use [past-rules/](./past-rules/) to interpret them historically and [response-9-29.md](./response-9-29.md) for the Owner's resolution.
+
+> **MB-010 / MB-011 / MB-012 — independent re-verification (host `Alien`, 2026-09-30).** Owner-directed:
+> redo the verification for the three assessment-first Missions **without reusing any existing test**, with
+> real Android device operation permitted. All three `NO_VALUE` verdicts are **independently confirmed**;
+> evidence in each report's new §9.
+>
+> - **MB-010 Node Fabric.** My own probes on the frozen donor: `new TenxNodeRegistry(` / `new TenxNetworkRegistry(`
+>   have **zero construction sites** and `tenx/` appears nowhere in `electron/main.ts`, `electron/bootstrap/`
+>   or `electron/host/`, while the live halves (`node-capability-registry` in `main.ts`, `inspectDevice` in
+>   `host-status-ipc`/`doctor`) are the logic MB-001 already ported. The product side was verified on a
+>   **real Android device** (`PERM00`, Android 12) paired over the LAN to the live gateway: the phone renders
+>   the node list, `ONLINE` vs `OFFLINE · Cached`, CPU/memory telemetry, and the capability surface — and the
+>   rendered memory figure matches the gateway byte count exactly (18.4 GB = 19740823552 bytes).
+> - **MB-011 Customs.** Nothing imports or calls the donor's `app/core/plugin-install/` admission state
+>   machine. Utopia's existing checks were re-proven by tampering: five malformed manifests are each refused
+>   with a named reason while the untampered one is accepted, promotion provenance verifies against real Git
+>   history, and the fabric refuses a second owner of one capability by name. One refinement is recorded:
+>   CU-04's `plugin-adapters` home *is* reachable from the live `app/plugin-host.cjs`, so the decisive reason
+>   for CU-04 is the report's separate one — Utopia has no plugin platform for a Customs layer to admit.
+> - **MB-012 Runtime Compliance.** No application importer of the `electron/capability/*` family (only two CI
+>   scripts), and the live gate is built as `new ExecutionGate()` with **no authorizer**, so the hook cannot
+>   fire. Utopia's own enforcement was re-proven on live paths: illegal operation → `OPERATION_BLOCKED`,
+>   oversize input → `INPUT_TOO_LARGE`.
+>
+> **Nothing was merged, and nothing should be.** Each of the three assessment branches is exactly
+> **1 ahead / 0 behind** `main`, and that single commit contains only assessment provenance
+> (`data-records/evolution/inbox/mission-book/MB-0xx/events.jsonl` and
+> `evidence/raw/mission-book/MB-0xx/assessment/**`) — **no implementation code**. `response-9-30` R1 keeps a
+> `NO_VALUE` assessment branch as provenance and explicitly forbids merging it, and forbids fabricating a
+> verified implementation episode; `merged_main_sha: null` is therefore correct for all three. Every Mission
+> branch that does carry implementation (MB-001..MB-009) is **0 ahead / fully merged**.
+
+```text
+utopia main at re-verification : 756c7d760c605e33ba386e87605e078fe24b82ca
+MB-010 assessment branch       : mission/MB-010-node-fabric       @ 8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526  (1 ahead / 0 behind)
+MB-011 assessment branch       : mission/MB-011-customs           @ 82b6ac486d024efcfcc64703b58cc136b546caf9  (1 ahead / 0 behind)
+MB-012 assessment branch       : mission/MB-012-runtime-compliance @ d071328d8f68ba1ddd5e8a1fde11718e75fd6672  (1 ahead / 0 behind)
+merged_main_sha                : null for all three (SKIPPED_NOT_REQUIRED)
+```

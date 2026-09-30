@@ -358,3 +358,73 @@ merged_main_sha            = null
 **判断无价值，任务保留，未迁移** — this is a green completion under README §2 and City
 R1/R4, not a failure state. The scheduler must treat MB-011 as complete and skip it
 unless the Owner explicitly resets or reopens it.
+
+---
+
+## 9. Independent re-verification (2026-09-30, host `Alien`)
+
+Owner-directed: redo this Mission's verification **without reusing any existing test**, with real
+Android device operation permitted. Method, fresh evidence and SHA tracking follow. The
+`NO_VALUE` verdict is **independently confirmed**.
+
+### 9.1 Donor lifecycle re-derived (own probes, frozen donors `8df428ea` / `eeb57ca`)
+
+| Question | Result |
+| --- | --- |
+| anything importing `app/core/plugin-install/` | **nothing** |
+| anything calling `createInstallPipeline` / `normalizeSource` | **nothing** (the module is exported but never invoked) |
+| `app/core/plugin-adapters` consumers | `app/plugin-host.cjs` (live, required by `app/desktop-main.cjs`) and the dead `plugin-install` files |
+
+So the report's decisive claim holds for the admission state machine (CU-02 / CU-05): it has **zero
+consumers**. Refinement worth recording: CU-04's home (`plugin-adapters`) *is* reachable from the
+live `app/plugin-host.cjs`, so its refusal logic is not dead code — the decisive reason CU-04 is
+still `NO_VALUE` is the one the report gives separately: **Utopia has no plugin/adapter platform
+for a Customs layer to admit**, so porting that preflight would land uncallable code.
+
+### 9.2 Utopia's existing admission checks, re-proven by tampering
+
+Written fresh for this verification — each case mutates the real manifest and requires a real
+refusal, while the untampered document must still pass (so the check is not a blanket refusal):
+
+```text
+duplicate district                       -> refused: "duplicate district 00-foundation"
+module path not equal to its identity    -> refused: "module project-foreman path must be city/…"
+unknown lifecycle                        -> refused: "lifecycle PRODUCTION is not a city lifecycle"
+unknown district kind                    -> refused: "district 00-foundation kind sandbox is not a city district kind"
+non-boolean capabilityProvider           -> refused: "capabilityProvider must be a boolean"
+control (untampered manifest)            -> accepted
+```
+
+Plus, on live paths: promotion provenance verified against real Git history (10 records), and the
+capability fabric **refusing a second owner** of one capability with a named reason
+(`verify.duplicate.owner is already owned by provider.a`).
+
+**Verdict: `NO_VALUE` confirmed.** Utopia already performs manifest admission, provenance
+verification and capability-ownership enforcement, live and refusing; the donor's admission design
+has no consumer in either repository.
+
+
+### 9.3 Branch / SHA tracking
+
+```text
+utopia main at verification : 756c7d760c605e33ba386e87605e078fe24b82ca
+assessment branch           : mission/MB-011-customs @ 82b6ac486d024efcfcc64703b58cc136b546caf9
+ahead / behind main         : 1 / 0
+that one commit contains    : data-records/evolution/inbox/mission-book/MB-011/events.jsonl
+                              evidence/raw/mission-book/MB-011/assessment/** (README, capability-matrix,
+                              environment, bounded-*)
+                              NO IMPLEMENTATION CODE
+merge                       : NOT PERFORMED, by rule. response-9-30 R1 keeps a NO_VALUE assessment
+                              branch as provenance and explicitly forbids merging it; it also forbids
+                              fabricating a verified implementation episode.
+merged_main_sha             : null (correct for migration_completion_basis SKIPPED_NOT_REQUIRED)
+```
+
+There is no migration branch for this Mission, so there is nothing to merge into `main`.
+
+### 9.4 Evidence pointers
+
+- `.runtime/evidence/mission-book/MB-010-011-012/donor-lifecycle-probe.json` (donor reachability, all three)
+- `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
+- `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
+- `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots
