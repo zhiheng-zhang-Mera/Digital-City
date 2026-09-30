@@ -19,12 +19,12 @@ development_branch: engineering-manager/EM-004-capability-probe-auth-registry
 development_head_sha: 6e72536f40a310a3d1c36688ef0e4fe1352f1b72
 development_ci: 36723706236-success
 development_report: mission-book/reports/EM-004/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T15:02:58Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 1e2c0e1e8afd540d9140e878e0c6fd039d06f8ed
+correction_ci: 36735453774-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-004/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
 ---
