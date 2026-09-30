@@ -22,8 +22,10 @@ verification_ci: null
 verification_report: null
 merged_main_sha: null
 repair_sequence: 2
-repair_status: WAITING_FOR_MB007
+repair_status: IN_PROGRESS
 repair_reason: "Verification claimed by Mech; must sync post-MB-007 repair main, then either SKIPPED_COMPLETE or complete owner-override verification/finalize/merge."
+repair_started_at: 2026-09-30T07:50:00Z
+repair_gate_checked: "MB-007 repair_status=COMPLETE verified on City main at 6bcbeaa before starting step 2"
 ---
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
