@@ -9,13 +9,13 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: REMOTE_FABRIC_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T16:47:30Z
 development_branch: remote/RF-009-presence-offline-reconnect-audit
-development_head_sha: null
-development_ci: null
+development_head_sha: e6b83b4d0b22131391bffc4dda243fcd650b3143
+development_ci: 36746849199-success
 development_report: mission-book/reports/RF-009/DEVELOPMENT_REPORT.md
 correction_status: NOT_STARTED
 correction_complete: false
