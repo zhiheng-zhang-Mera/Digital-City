@@ -11,10 +11,10 @@ donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
 architecture_contract: ENGINEERING_MANAGER_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: NOT_STARTED
+development_status: IN_PROGRESS
 development_complete: false
-development_host: null
-development_claimed_at: null
+development_host: Mech
+development_claimed_at: 2026-09-30T15:19:05Z
 development_branch: engineering-manager/EM-009-runtime-health-restart-recovery
 development_head_sha: null
 development_ci: null
