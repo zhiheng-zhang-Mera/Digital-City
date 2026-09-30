@@ -17,10 +17,10 @@ development_branch: general-ai/GAI-004-api-channel-consent-budget
 development_head_sha: fbb749272ad65c9a8de6cc303371b52fda22f7ef
 development_ci: 36735078546-success
 development_report: mission-book/reports/GAI-004/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T17:05:00Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/GAI-004/CORRECTION_REPORT.md
