@@ -15,3 +15,7 @@ The planned delayed-learning/familiarity/dynamic-association/stability-plasticit
 
 ## Boundary
 Boss Core authority does not move here. No dedicated repo is required merely for architectural neatness.
+
+
+## Paper-material library
+Failure and repair observations from real City/Utopia construction are retained under `paper-materials/` rather than being smoothed into success-only reports. The first scheduler case is `ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01`, documenting the distinction between temporary zero eligibility, structural ineligibility, external global blocking, and true pool drain.
