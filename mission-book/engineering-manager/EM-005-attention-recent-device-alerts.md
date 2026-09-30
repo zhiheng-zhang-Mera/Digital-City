@@ -1,4 +1,4 @@
-﻿---
+---
 mission_id: EM-005
 project: ENGINEERING_MANAGER_ENGINEERING
 implementation_repo: zhiheng-zhang-Mera/Utopia
@@ -19,10 +19,10 @@ development_branch: engineering-manager/EM-005-attention-recent-device-alerts
 development_head_sha: adf0cf5e6bd17b5f1e4dba29a5f04d51743146f5
 development_ci: 36725729360-success
 development_report: mission-book/reports/EM-005/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-09-30T15:36:59Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/EM-005/CORRECTION_REPORT.md
