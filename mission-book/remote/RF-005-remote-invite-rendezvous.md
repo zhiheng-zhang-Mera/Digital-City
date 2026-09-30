@@ -17,17 +17,17 @@ development_branch: remote/RF-005-remote-invite-rendezvous
 development_head_sha: 52646ac30c23ec33d70c4a787ac519be19969a89
 development_ci: 36737404307-success
 development_report: mission-book/reports/RF-005/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T16:52:00Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: d4fb94447a33fb005aab2af359a9ba385298b6fa
+correction_ci: 36748913540-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-005/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ---
 
-# RF-005 â€” Remote Invite / Meeting Code / Deep Link Rendezvous
+# RF-005 â€?Remote Invite / Meeting Code / Deep Link Rendezvous
 
 ## Goal
 
