@@ -30,6 +30,9 @@ repair_value_verdict: ROUTE_B_CONTINUE
 repair_reconciled_head_sha: 77b774cf34df
 repair_reconciled_ci: "36655586918 PASS"
 repair_reconciled_main_sha: d850d73a9c23dbd07f9a0c7483dd2f44272f273f
+repair_verification_event_head_sha: 65418f2493cb
+repair_verification_event_ci: "36658350359 PASS"
+repair_resume_point: "run-2 bounded chain: happy path works; fix refusal-driver catch bookkeeping and create a genuine miss-before-recovery sequence, then close Verification"
 ---
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
