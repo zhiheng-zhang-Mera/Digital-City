@@ -21,13 +21,13 @@ correction_status: IN_PROGRESS
 correction_complete: false
 correction_host: Alien
 correction_claimed_at: 2026-09-30T17:05:00Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 11d5eced3e913cdd0cd9249d55825dedbcc3d5ac
+correction_ci: BLOCKED_EXTERNAL_GITHUB_ACTIONS_BILLING__local-all-green__run-36750532665
 correction_report: mission-book/reports/GAI-004/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
 
-# GAI-004 â€” API Channel + Explicit Consent + Budget Policy
+# GAI-004 â€?API Channel + Explicit Consent + Budget Policy
 
 ## Goal
 
