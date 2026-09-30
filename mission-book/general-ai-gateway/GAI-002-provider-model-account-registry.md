@@ -9,13 +9,13 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: GENERAL_AI_GATEWAY_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T13:28:55Z
 development_branch: general-ai/GAI-002-provider-model-account-registry
-development_head_sha: null
-development_ci: null
+development_head_sha: a6988c1725691a02f84e8ee1b9ca1bc6d1db6a17
+development_ci: 36722553299-success
 development_report: mission-book/reports/GAI-002/DEVELOPMENT_REPORT.md
 correction_status: NOT_STARTED
 correction_complete: false
