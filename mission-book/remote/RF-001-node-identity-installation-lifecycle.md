@@ -9,13 +9,13 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: REMOTE_FABRIC_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Alien
 development_claimed_at: 2026-09-30T11:59:00Z
 development_branch: remote/RF-001-node-identity-installation-lifecycle
-development_head_sha: null
-development_ci: null
+development_head_sha: b1ee127bb7ba292bda7b817dd4910b4498f446c1
+development_ci: 36713816317-gateway-web-success-android-success
 development_report: mission-book/reports/RF-001/DEVELOPMENT_REPORT.md
 correction_status: NOT_STARTED
 correction_complete: false
