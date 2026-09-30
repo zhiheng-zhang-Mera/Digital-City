@@ -2,18 +2,19 @@
 
 ## 当前施工进度
 
-> 状态图例：🟢 = 已完成；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。
+> 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
+> \* MB-007 已验证并合入 Utopia main，但 verified episode 尚未闭环，因此进入 repair step 1；不回滚其已接受实现。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
 | [MB-001 — Core OS](./MB-001-core-os.md) | Alien | 🟢 | Mech | 🟢 |
 | [MB-002 — Capability Fabric](./MB-002-capability-fabric.md) | Mech | 🟢 | Alien | 🟢 |
-| [MB-003 — Worker Gateway](./MB-003-worker-gateway.md) | Alien | 🟢 | Mech | 🔴 |
+| [MB-003 — Worker Gateway](./MB-003-worker-gateway.md) | Alien | 🟢 | Mech（repair step 3） | 🔴 |
 | [MB-004 — Project Foreman](./MB-004-project-foreman.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-005 — Host Health](./MB-005-host-health.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-006 — Restart Recovery](./MB-006-restart-recovery.md) | Alien | 🟢 | Mech | 🟢 |
-| [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien | 🟢 | 未领取 | 🔴 |
-| [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien | 🟢 | 未领取 | 🔴 |
+| [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 1） | 🟢* |
+| [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2） | 🔴 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
 | [MB-011 — Customs](./MB-011-customs.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
@@ -52,11 +53,33 @@ UNMERGED_WIP_LIMIT = 2
 
 ## 2. 双阶段仍然保留；部分 Mission 增加迁移前 Assessment
 
-普通 Mission 仍有两个独立状态。对于明确标记 `assessment_required=true` 的 Mission（当前为 MB-010..012），在 Migration 前增加一个**不承诺施工的价值评估门**：先比较 donor 与领取时 Utopia 最新 `main`，结果只能为 `FULL_MIGRATION / PARTIAL_MIGRATION / NO_VALUE`。Assessment Host 属于 migration-side host；若继续迁移，同一主机直接转为 Migration Host。
+普通 Mission 仍有 Migration / Verification 两阶段；对于明确标记 `assessment_required=true` 的 Mission（当前为 MB-010..012），在 Migration 前增加一个**不承诺施工的价值评估门**：先比较 donor 与领取时 Utopia 最新 `main`，结果只能为 `FULL_MIGRATION / PARTIAL_MIGRATION / NO_VALUE`。Assessment Host 属于 migration-side host；若继续迁移，同一主机直接转为 Migration Host。
 
-`NO_VALUE` 必须保留任务、报告和证据，但保持 `migration_complete=false`，并进入 `migration_status=NOT_REQUIRED_NO_VALUE` 终态；不得为了把状态变绿而复制无价值代码。
+### Migration 完成语义
 
-每个实际进入 Migration 的 Mission 仍有两个独立状态：
+`migration_complete=true` 不再等价于“必须复制了代码”。完成必须同时记录 `migration_completion_basis`，允许三类：
+
+- `IMPLEMENTED_COMPLETE`：Migration Host 实际迁移并留下 `MIGRATION_COMPLETE/PASS`；
+- `OWNER_ACCEPTED_COMPLETE`：Migration Host 诚实记录 blocker/negative result，随后 Owner 明确裁决接受边界并声明 Migration complete；不得伪造原 Migration Host 的 PASS 事件；
+- `SKIPPED_NOT_REQUIRED`：完整 Assessment 证明迁移整体无价值/已被当前 Utopia 等价或更优覆盖，因此**完全跳过实现仍视为完成**。
+
+当 Assessment verdict 为 `NO_VALUE` 时：
+
+```text
+assessment_status = COMPLETE_NO_VALUE
+assessment_complete = true
+assessment_result = NO_VALUE
+migration_status = SKIPPED_COMPLETE
+migration_complete = true
+migration_completion_basis = SKIPPED_NOT_REQUIRED
+verification_status = NOT_REQUIRED_SKIPPED_COMPLETE
+verification_complete = true
+merged_main_sha = null
+```
+
+City 报告仍必须写 **“判断无价值，任务保留，未迁移”**；assessment branch/报告/evidence 保留用于 provenance 和论文素材，但无需伪造 migration code、Verification 或 verified episode。
+
+对于实际进入 Migration、或由 Owner 接受已有迁移边界的 Mission，仍保留两个独立完成状态：
 
 - **MIGRATION_COMPLETE**：Migration Host 完成迁移、测试、报告与可要求的真实运行；不得自行合入实现仓库 `main`。
 - **VERIFICATION_COMPLETE**：另一台不同实际主机完成独立审查、同步最新 `main`、维修/真实运行、双 CI、episode finalize，并由 Verification Host 合入 `main`。
@@ -67,7 +90,31 @@ UNMERGED_WIP_LIMIT = 2
 
 ## 3. 新领取算法：Integration First
 
-每次开始工作必须先读取 Digital-City 最新 `main`，并按以下顺序选择：
+每次开始工作必须先读取 Digital-City 最新 `main`，并按以下顺序选择。
+
+### P-1 — Owner-directed repair queue（临时最高优先级）
+
+当前唯一授权顺序：
+
+```text
+1. MB-007 process closeout / Owner-override finalizer repair
+2. MB-008 verification + closeout
+3. MB-003 current-value reassessment + real execution-seam repair if still valuable
+```
+
+前一步未写入 `repair_status: COMPLETE` 前，后一步不得完成 merge/finalize。允许后一步做只读侦察，但不得越序宣称完成。
+
+每个 repair step 必须采用状态事务：
+
+```text
+City pre-state commit
+→ Utopia work/evidence
+→ City milestone update
+→ CI/finalize/merge (or SKIPPED_COMPLETE)
+→ City final closeout commit
+```
+
+如果中途失败，City 必须停在与事实一致的 `repair_status`，禁止等最后才补账。
 
 ### P0 — Verification / Integration
 
@@ -116,7 +163,7 @@ not BLOCKED_OWNER_DECISION
 Assessment verdict：
 
 - `FULL_MIGRATION` / `PARTIAL_MIGRATION` → 同一 assessment host 原子转为 Migration Host，继续 P1B；
-- `NO_VALUE` → `migration_status=NOT_REQUIRED_NO_VALUE`，任务保留、未迁移、以后自动 skip，除非 Owner reopen。
+- `NO_VALUE` → 按 `SKIPPED_NOT_REQUIRED` 闭环：`migration_complete=true`、`verification_complete=true`，任务保留、未迁移、无需 episode，以后自动 skip，除非 Owner reopen。
 
 ### P1B — 新 Migration
 
@@ -125,7 +172,7 @@ Assessment verdict：
 ```text
 execution_enabled = true
 migration_complete = false
-migration status is not NOT_REQUIRED_NO_VALUE
+migration_completion_basis is not SKIPPED_NOT_REQUIRED
 migration stage unclaimed OR reserved by this Mission's assessment host
 dependencies satisfied
 not BLOCKED_OWNER_DECISION
@@ -258,7 +305,7 @@ Owner 裁决发生后，下一位实际触碰对应 mission branch 的施工者�
 
 ## 11. Finalize / 双 CI / Merge
 
-Verification 收口顺序：
+### 11.1 正常实现型 Migration
 
 ```text
 independent review
@@ -267,14 +314,33 @@ independent review
 → implementation required CI GREEN
 → CI_RESULT PASS
 → VERIFICATION_COMPLETE PASS
-→ pnpm mission:finalize
+→ pnpm mission:finalize (host-pass)
 → commit episode + inbox removal
 → FINAL BRANCH HEAD required CI GREEN
 → Verification Host merge main
 → City VERIFICATION_REPORT / Mission metadata
 ```
 
-不得在 finalize 后跳过最终 branch HEAD CI。
+### 11.2 Owner-accepted Migration
+
+若 Migration Host 曾诚实记录 `BLOCKED`，而 Owner 后续明确裁决该边界可接受并声明 Migration complete：
+
+- 不得伪造 Migration Host 的 `MIGRATION_COMPLETE/PASS`；
+- finalizer 必须支持显式 `owner-override` basis，并要求 Owner ruling + `OWNER_INTERVENTION` + 原 migration blocker；
+- episode 必须保存 `migrationAcceptance.mode=OWNER_OVERRIDE` 与 ruling reference；
+- Verification 仍需 independent finding、真实 bounded chain（适用时）、PASS CI 与 `VERIFICATION_COMPLETE/PASS`。
+
+### 11.3 完全跳过
+
+`SKIPPED_NOT_REQUIRED` 不接受任何实现代码，因此：
+
+- 不运行 `mission:finalize`；
+- 不生成假的 verified implementation episode；
+- 不要求 Utopia merge；
+- City Assessment Report + immutable assessment branch/evidence 即为闭环证据；
+- Mission 直接 `migration_complete=true`、`verification_complete=true`。
+
+任何实际进入 finalize 的路径都不得在 finalize 后跳过最终 branch HEAD CI。
 
 ## 12. Assessment-first 候选
 
@@ -288,12 +354,22 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 
 1. 先 Assessment，后决定是否迁移；
 2. 必须在 Mission 文件直接填写 capability 对照表；
-3. `NO_VALUE` 时向 City 明确报告“判断无价值，任务保留，未迁移”，不得写实现；
+3. `NO_VALUE` 时向 City 明确报告“判断无价值，任务保留，未迁移”，不得写实现；同时按 `SKIPPED_NOT_REQUIRED` 将 Migration 与 Verification 标记完成；
 4. `PARTIAL_MIGRATION` 只允许迁移能补足真实缺口的有界子集；
 5. 所有正/负结果、parity、失败/放弃理由和可测量指标都保留为论文/工程素材；
-6. Utopia 素材继续使用 `.runtime/evidence`、evolution inbox、选择性 `evidence/raw`；只有实际迁移并完成 Verification 后才生成 verified episode。
+6. Utopia 素材继续使用 `.runtime/evidence`、evolution inbox、选择性 `evidence/raw`；只有实际迁移并完成 Verification 后才生成 verified episode；完全跳过不生成 episode。
 
-## 13. 历史规则
+## 13. 当前 7 → 8 → 3 收口工程
+
+绑定工程书：[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)。
+
+- **Step 1 — MB-007:** 已验证/已 merge，不重做实现；修 Owner-override finalizer contract 并补 verified episode。
+- **Step 2 — MB-008:** Step 1 进入 main 后重新同步分支；整体无价值可 `SKIPPED_COMPLETE`，否则完成 bounded verification、owner-override finalize、双 CI、merge。
+- **Step 3 — MB-003:** Step 2 后重新比较当前 Utopia；整体无价值可 `SKIPPED_COMPLETE`，否则完成 donor-backed real execution seam 与真实 provider 路径。
+
+每一步必须同步 Mission front matter、README、MISSION_INDEX 和对应 Report。
+
+## 14. 历史规则
 
 旧版 migration-first rule 及旧模板已归档到 [`past-rules/`](./past-rules/)。
 
