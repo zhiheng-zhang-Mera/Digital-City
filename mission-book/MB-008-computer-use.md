@@ -6,6 +6,7 @@ mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 migration_status: COMPLETE
 migration_complete: true
+migration_completion_basis: OWNER_ACCEPTED_COMPLETE
 migration_claim_host: Alien
 migration_claimed_at: 2026-09-29T13:55:23Z
 migration_branch: mission/MB-008-computer-use
@@ -20,9 +21,14 @@ verification_head_sha: null
 verification_ci: null
 verification_report: null
 merged_main_sha: null
+repair_sequence: 2
+repair_status: WAITING_FOR_MB007
+repair_reason: "Verification claimed by Mech; must sync post-MB-007 repair main, then either SKIPPED_COMPLETE or complete owner-override verification/finalize/merge."
 ---
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
+
+> **Repair queue step 2.** Mech 的 Verification claim 保留，但在 MB-007 repair `repair_status=COMPLETE` 前不得 finalize/merge。同步 post-007 Utopia main 后先复核当前价值：整体无价值可 `SKIPPED_NOT_REQUIRED`；否则继续 bounded verification。
 
 > ## ✅ Owner ruling applied — Migration COMPLETE / Verification OPEN
 >
@@ -82,7 +88,7 @@ merged_main_sha: null
 
 ## Verification 完成门槛
 
-- 两台主机分别完成 donor 已支持的真实桌面/文件/壳或 UI bounded action，并验证 postcondition。
+- 本轮按 response-9-30 R7：不要求 Alien 追溯重演旧 blocker；Verification Host Mech 必须完成 donor 已支持的真实桌面/文件/壳或 UI bounded action，并验证 postcondition。
 - 至少一个拒绝/权限/错误路径和一个 recovery/stabilization 路径被真实记录。
 - 安全冲突使用更严格的 donor 行为，不得为方便验证放宽权限。
 - Verification 主机必须与 Migration 主机不同。
