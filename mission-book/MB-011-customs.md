@@ -5,14 +5,14 @@ execution_enabled: true
 mode: MIGRATION_ONLY
 implementation_repo: zhiheng-zhang-Mera/utopia
 assessment_required: true
-assessment_status: NOT_STARTED
+assessment_status: IN_PROGRESS
 assessment_complete: false
 assessment_result: null
-assessment_claim_host: null
-assessment_claimed_at: null
-assessment_branch: null
+assessment_claim_host: Mech
+assessment_claimed_at: 2026-09-30T15:48:08Z
+assessment_branch: mission/MB-011-customs
 assessment_head_sha: null
-assessment_utopia_base_sha: null
+assessment_utopia_base_sha: 756c7d760c605e33ba386e87605e078fe24b82ca
 assessment_report: null
 migration_status: NOT_STARTED
 migration_complete: false
@@ -234,11 +234,13 @@ data-records/evolution/episodes/mission-book/MB-011/           # 只有实际迁
 
 ### Assessment Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Utopia baseline SHA: —
-- Assessment branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-30T15:48:08Z
+- City claim commit: `_pending (this commit)_`
+- Utopia baseline SHA: `756c7d760c605e33ba386e87605e078fe24b82ca`
+- Assessment branch: `mission/MB-011-customs`
+- Donor frozen baselines: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`, `zhiheng-zhang-Mera/DS-Hns@eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
+- Selection basis: MB-010 closed as `NO_VALUE` (green `SKIPPED_NOT_REQUIRED`) and no eligible P0 exists, so the next lowest-sequence assessment-first Mission (MB-011) was claimed under README §3 P1A. Read-only reconnaissance only; no implementation code written.
 
 ### Migration Claim
 
