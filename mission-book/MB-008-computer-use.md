@@ -12,10 +12,10 @@ migration_branch: mission/MB-008-computer-use
 migration_head_sha: aa2a6a8faab779a020d75b93dba548ba3755ce30
 migration_ci: "final-branch 36584056291 PASS; implementation efdd403 36583979374 PASS"
 migration_report: mission-book/reports/MB-008/MIGRATION_REPORT.md
-verification_status: NOT_STARTED
+verification_status: CLAIMED
 verification_complete: false
-verification_claim_host: null
-verification_claimed_at: null
+verification_claim_host: Mech
+verification_claimed_at: 2026-09-30T05:20:00Z
 verification_head_sha: null
 verification_ci: null
 verification_report: null
@@ -137,10 +137,14 @@ merged_main_sha: null
 
 ### Verification Claim
 
-- Host: **UNCLAIMED**
-- Claimed at: —
-- City claim commit: —
-- Reviewed migration branch: —
+- Host: **Mech**
+- Claimed at: 2026-09-30T05:20:00Z
+- City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-008/VERIFICATION_REPORT.md`)
+- Reviewed migration branch: `mission/MB-008-computer-use` @ `aa2a6a8faab779a020d75b93dba548ba3755ce30`
+- **Selection under `README.md` §3 (integration first).** **P0 — Verification / Integration**, and after MB-007 the only P0 left for this host: MB-008 has `migration_complete=true`, its verification stage is unclaimed, its migration host is `Alien` (≠ `Mech`), and it is not `BLOCKED_OWNER_DECISION`. The assessment-first Missions MB-010..012 are P1A and remain ineligible while a P0 exists.
+- **Basis for verification being open.** Owner ruling [`response-9-29.md`](./response-9-29.md) **R7** accepts this Mission's boundary (`NO_VERDICT_IDENTICAL_SEAM`: the candidate seam had a quantified semantic counterexample, so wiring it would have added product behaviour) and explicitly declares *"Owner hereby declares MB-008 Migration complete."* R7 authorises the `README.md` §7.2 bounded chain for this Mission: the Verification Host directly exercises the migrated modules' **contract / safety / recovery / postcondition** behaviour rather than inventing a consumer. R7 also warns that this exemption does **not** make Computer Use a complete product runtime — the deferred runtime plane stays deferred, and this verification may only verify the boundary the Mission declared.
+- **Integration note.** As with MB-007, verification begins by merging the latest `main` into this branch and resolving the shared control-plane union **before** any gate runs (`README.md` §6). The failure mode found on MB-007 was that this gate set cannot be run against an uncommitted merge: `verify-promotion-history` tests `HEAD`, so the merge must be committed first.
+- **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
 
 
 ## 绑定执行条件（所有 Mission 强制）
