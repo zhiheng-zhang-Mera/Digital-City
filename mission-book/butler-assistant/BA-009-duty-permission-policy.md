@@ -14,9 +14,10 @@ development_complete: false
 development_host: Mech
 development_claimed_at: 2026-09-30T17:26:15Z
 development_branch: assistant/BA-009-duty-permission-policy
-development_head_sha: null
-development_ci: null
+development_head_sha: 9e1de31ba53766758406e991dbacdb8f707b1bfc
+development_ci: 36750981300-BLOCKED_GITHUB_ACCOUNT_BILLING
 development_report: mission-book/reports/BA-009/DEVELOPMENT_REPORT.md
+development_blocker: EXTERNAL_GITHUB_ACTIONS_ACCOUNT_BILLING (implementation pushed and locally verified; CI run 36750981300 never started — see report §0; development_complete stays false until a CI run executes)
 correction_status: NOT_STARTED
 correction_complete: false
 correction_host: null
