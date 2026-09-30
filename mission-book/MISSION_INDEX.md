@@ -9,12 +9,12 @@
 |---:|---|:---:|:---:|:---:|---|---|
 | 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | COMPLETE | Alien | closed |
 | 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Mech | closed |
-| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED / REPAIR STEP 3** | Alien | Mech holds verification; wait for MB-007 then MB-008 closeout; reassess current value before execution-seam repair |
+| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED / REPAIR STEP 3 ← ACTIVE** | Alien | Mech holds verification; MB-007 and MB-008 are now closed, so step 3 may start: reassess current value, then SKIPPED_NOT_REQUIRED or donor-backed real execution seam |
 | 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | Mech | closed; historical MB-003 routing clause accepted as non-blocking — response R2 |
 | 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | Mech | closed |
 | 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | COMPLETE | Alien | closed |
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 1 ✅** | Alien | repair closed: finalizer `f25cdb4`, merge `d850d73`, episode `MB-007:553ab7ba1c4b0902` |
-| 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **IN PROGRESS / REPAIR STEP 2** | Alien | Mech: value = `ROUTE_B_CONTINUE`; reconciled `77b774c`; bounded chain green (`RUNTIME_PASS` `bbf126ea…`, `VERIFICATION_COMPLETE` `fd0225d1…`); final CI `36662962981` PASS. Remaining: owner-override finalize, episode, merge. |
+| 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 2 ✅** | Alien | repair closed: episode `MB-008:6ae0bbd46e425c9f`, merge `168182c`, merged-main CI `36663813362` PASS |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
 | 10 | [MB-010](./MB-010-node-fabric.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; auto-claim when P0 clear |
 | 11 | [MB-011](./MB-011-customs.md) | **YES** | **ASSESSMENT_PENDING** | NOT_STARTED | — | assessment-first; compare current Utopia before migration |
@@ -26,8 +26,8 @@ Current scheduler is **integration-first**, not migration-first.
 
 ```text
 COMPLETE. MB-007 — implementation + Owner-override episode closed
-ACTIVE.   MB-008 — continue from reconciled head 77b774c; bounded verification → finalize → merge
-WAITING.  MB-003 — start immediately after MB-008 City closeout; reassess → skip or real execution seam → merge
+COMPLETE. MB-008 — bounded verification + owner-override episode + merge `168182c`; merged-main CI PASS
+ACTIVE.   MB-003 — reassess current value → SKIPPED_NOT_REQUIRED or donor-backed real execution seam → merge
 THEN.     Utopia main final integration sweep
 THEN.     MB-010 → MB-011 → MB-012 assessment-first queue
 ```

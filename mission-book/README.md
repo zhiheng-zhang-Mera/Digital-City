@@ -4,7 +4,7 @@
 
 > 状态图例：🟢 = 功能/阶段已接受；🔴 = 未完成、阻塞或尚未启动。领取信息以各 Mission 当前 front matter 为准。  
 > \* MB-007 repair step 1 已于 2026-09-30 闭环：Owner-override finalizer contract 修复并合入（repair merge `d850d73`），verified episode `MB-007:553ab7ba1c4b0902` 已生成（sha256 `1c5742fb…`），inbox 已消费，原 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-008 repair step 2。  
-> \* MB-008 repair step 2 进行中（2026-09-30）：价值复核 `ROUTE_B_CONTINUE`；已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 已记录，final CI `36662962981` PASS（gateway-web + android）；五道本机门禁全绿。owner-override finalize、episode 与 merge 未完成。deferred runtime plane 仍然 deferred。
+> \* MB-008 repair step 2 **已于 2026-09-30 闭环**：价值复核 `ROUTE_B_CONTINUE`；先同步 `main`（`77b774c`）；bounded Computer-Use chain 全绿（happy path + 真实 refusal 无副作用 + 真实 miss/recovery + postcondition success，`NO_MOCK_FACTS = true`）；`RUNTIME_PASS`/`CI_RESULT`/`VERIFICATION_COMPLETE` 记录；owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc…`）生成且 inbox 已消费；final branch CI `36663533485` PASS；merge `168182c`；merged-main CI `36663813362` PASS。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留。下一步为 MB-003 repair step 3。
 
 | 工程项目 | 迁移任务 | 迁移状态 | 验证任务 | 验证状态 |
 |---|---|:---:|---|:---:|
@@ -15,7 +15,7 @@
 | [MB-005 — Host Health](./MB-005-host-health.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-006 — Restart Recovery](./MB-006-restart-recovery.md) | Alien | 🟢 | Mech | 🟢 |
 | [MB-007 — Research Institute](./MB-007-research-institute.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 1 ✅） | 🟢 |
-| [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2） | 🔴 |
+| [MB-008 — Computer Use](./MB-008-computer-use.md) | Alien（Owner accepted） | 🟢 | Mech（repair step 2 ✅） | 🟢 |
 | [MB-009 — Theme Relocation](./MB-009-theme-relocation.md) | Mech | 🟢 | Alien | 🟢 |
 | [MB-010 — Node Fabric](./MB-010-node-fabric.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
 | [MB-011 — Customs](./MB-011-customs.md) | 未领取（先评估） | 🔴 | 未领取 | 🔴 |
@@ -365,9 +365,8 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 绑定工程书：[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)。
 
 - **Step 1 — MB-007:** COMPLETE。实现、Owner-override finalizer、verified episode、repair merge 均已闭环；禁止再修改 Research Institute 实现。
-- **Step 2 — MB-008:** Step 1 进入 main 后重新同步分支；整体无价值可 `SKIPPED_COMPLETE`，否则完成 bounded verification、owner-override finalize、双 CI、merge。
-  *进展（2026-09-30）：* 价值复核 = `ROUTE_B_CONTINUE`（`main` 无 `10-automation`，且不覆盖 safety/contract 面）。分支已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）。bounded chain 全绿：happy path / 真实 refusal（`DESTRUCTIVE_FORBIDDEN`，零 mutation，artifact 逐字节一致）/ 真实 miss（真删文件，同一真实 `facts.fileExists` 报 absent，donor postcondition `failure` kind `file`）/ recovery（donor `retry`+`RETRYABLE`、`settle stable` → `landed`，复验 `success`），`NO_MOCK_FACTS = true`。`RUNTIME_PASS` `bbf126ea…`、final `CI_RESULT` PASS `06f57c06…`、`VERIFICATION_COMPLETE` PASS `fd0225d1…`。final CI `36662962981` PASS（gateway-web + android）；本机五门禁全绿（73/73、1698/1699、69/69、10 records、SYNCHRONIZED）。**剩余：** owner-override finalize、episode、episode commit CI、merge、merged-main CI。Alien 的 `RUNTIME_FAIL/BLOCKED` 保留，未伪造 `MIGRATION_COMPLETE`（R5）。deferred runtime plane 仍未迁入。
-- **Step 3 — MB-003:** Step 2 后重新比较当前 Utopia；整体无价值可 `SKIPPED_COMPLETE`，否则完成 donor-backed real execution seam 与真实 provider 路径。
+- **Step 2 — MB-008:** ✅ **COMPLETE (2026-09-30)。** 价值复核 = `ROUTE_B_CONTINUE`（`main` 无 `10-automation`，且不覆盖 safety/contract 面）。分支已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）。bounded chain 全绿：happy path / 真实 refusal（`DESTRUCTIVE_FORBIDDEN`，零 mutation，artifact 逐字节一致）/ 真实 miss（真删文件，同一真实 `facts.fileExists` 报 absent，donor postcondition `failure` kind `file`）/ recovery（donor `retry`+`RETRYABLE`、`settle stable` → `landed`，复验 `success`），`NO_MOCK_FACTS = true`。`RUNTIME_PASS` `bbf126ea…`、final `CI_RESULT` PASS `06f57c06…`、`VERIFICATION_COMPLETE` PASS `fd0225d1…`。owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc6c87d07a3ac03a767e9a12f92bdf32931f37e624e48650a5a5b87e0e`），inbox 已消费，Alien 的 `RUNTIME_FAIL/BLOCKED` 保留（未伪造 `MIGRATION_COMPLETE`，R5）。final branch CI `36663533485` PASS（`f8f82cd`）；merge `168182c`（`--no-ff`）；merged-main CI `36663813362` PASS；merged-main 五门禁全绿 + 结构检查全 OK。**deferred runtime plane 仍未迁入**（无真实 desktop/browser/UI 自动化）。
+- **Step 3 — MB-003:** Step 2 后重新比较当前 Utopia；整体无价值可 `SKIPPED_COMPLETE`，否则完成 donor-backed real execution seam 与真实 provider 路径。**← ACTIVE（repair step 3）**
 
 每一步必须同步 Mission front matter、README、MISSION_INDEX 和对应 Report。
 

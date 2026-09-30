@@ -13,19 +13,23 @@ migration_branch: mission/MB-008-computer-use
 migration_head_sha: aa2a6a8faab779a020d75b93dba548ba3755ce30
 migration_ci: "final-branch 36584056291 PASS; implementation efdd403 36583979374 PASS"
 migration_report: mission-book/reports/MB-008/MIGRATION_REPORT.md
-verification_status: IN_PROGRESS
-verification_complete: false
+verification_status: COMPLETE
+verification_complete: true
 verification_claim_host: Mech
 verification_claimed_at: 2026-09-30T05:20:00Z
-verification_head_sha: 437be8bcfd9da77ac4c45be6e35d2929a66379dc
-verification_ci: "36662962981 PASS on runtime-evidence head 0e1d97e (gateway-web + android); reconciled 36655586918 PASS on 77b774c"
+verification_head_sha: f8f82cd54d2192ae63317b42182f96a9aaab466f
+verification_ci: "reconciled 36655586918 PASS (77b774c); pre-chain events 36658350359 PASS (65418f2); runtime evidence 36662962981 PASS (0e1d97e); final branch 36663533485 PASS (f8f82cd); merged main 36663813362 PASS (168182c)"
 verification_report: mission-book/reports/MB-008/VERIFICATION_REPORT.md
-merged_main_sha: null
+merged_main_sha: 168182c47df537f7c6c47d7e42ab3220af40de68
+episode: data-records/evolution/episodes/mission-book/MB-008/episode.json
+episode_id: MB-008:6ae0bbd46e425c9f
+episode_sha256: a4b6e8fc6c87d07a3ac03a767e9a12f92bdf32931f37e624e48650a5a5b87e0e
 repair_sequence: 2
-repair_status: IN_PROGRESS
-repair_reason: "Value reassessment returned ROUTE_B_CONTINUE (main declares no city/10-automation and covers none of the safety/contract surface). Bounded runtime chain, refusal path, genuine miss/recovery and postcondition are green, RUNTIME_PASS + final CI_RESULT + VERIFICATION_COMPLETE recorded, final CI 36662962981 PASS. Owner-override finalize, episode and merge to main remain."
+repair_status: COMPLETE
+repair_reason: "Value reassessment returned ROUTE_B_CONTINUE. Reconciled with main, bounded runtime chain green (happy path + caught destructive refusal with measured zero side effect + genuine miss/recovery + final postcondition), RUNTIME_PASS / final CI_RESULT / VERIFICATION_COMPLETE recorded, owner-override episode generated and inbox consumed, final branch CI and merged-main CI both PASS. Deferred runtime plane remains deferred."
 repair_started_at: 2026-09-30T07:50:00Z
 repair_gate_checked: "MB-007 repair_status=COMPLETE verified on City main at 6bcbeaa before starting step 2"
+repair_closed_at: 2026-09-30T03:40:00Z
 repair_value_verdict: ROUTE_B_CONTINUE
 repair_reconciled_head_sha: 77b774cf34df
 repair_reconciled_ci: "36655586918 PASS"
@@ -34,7 +38,10 @@ repair_verification_event_head_sha: 65418f2493cb
 repair_verification_event_ci: "36658350359 PASS"
 repair_runtime_pass_event: MB-008:bbf126eae72598ed
 repair_verification_complete_event: MB-008:fd0225d163afa3d2
-repair_resume_point: "COMPLETED 2026-09-30: both run-2 driver defects were fixed (async assertActionAllowed was being awaited nowhere; the miss was not genuine) and the bounded chain is green. Remaining: owner-override finalize, episode, episode-commit CI, merge to main, merged-main CI."
+repair_final_branch_ci: "36663533485 PASS (f8f82cd)"
+repair_merged_main_ci: "36663813362 PASS (168182c)"
+repair_merge_sha: 168182c47df537f7c6c47d7e42ab3220af40de68
+repair_resume_point: "CLOSED 2026-09-30: both run-2 driver defects fixed, bounded chain green, owner-override episode MB-008:6ae0bbd46e425c9f generated, merged to Utopia main at 168182c with green CI. 7->8->3 repair queue advances to MB-003 step 3."
 ---
 
 # MB-008 — Computer Use Runtime Boss/Hns Union 纯迁移
@@ -112,7 +119,6 @@ repair_resume_point: "COMPLETED 2026-09-30: both run-2 driver defects were fixed
 - 更新本文件 `verification_complete: true`、最终 CI、merge SHA 与报告字段。
 
 ## Claim / 主机领取记录
-
 ### Migration Claim
 
 - Host: **Alien**
@@ -163,7 +169,7 @@ repair_resume_point: "COMPLETED 2026-09-30: both run-2 driver defects were fixed
 - **Integration note.** As with MB-007, verification begins by merging the latest `main` into this branch and resolving the shared control-plane union **before** any gate runs (`README.md` §6). The failure mode found on MB-007 was that this gate set cannot be run against an uncommitted merge: `verify-promotion-history` tests `HEAD`, so the merge must be committed first.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
 
-### Verification milestone — bounded runtime chain green (repair step 2, in progress)
+### Verification milestone — bounded runtime chain green (repair step 2)
 
 - **Value reassessment (before any merge work, per `response-9-30.md` R6 step 2).**
   `main` declares **no** `city/10-automation` district, and nothing elsewhere covers
@@ -195,6 +201,41 @@ repair_resume_point: "COMPLETED 2026-09-30: both run-2 driver defects were fixed
 - **Still open.** Owner-override `mission:finalize`, episode, final branch CI on the episode commit,
   merge to `main`, merged-main CI. The **deferred runtime plane remains deferred** — no real
   desktop/browser/UI automation was driven, and this does not make Computer Use a product runtime.
+
+### Verification closeout — REPAIR STEP 2 COMPLETE (2026-09-30)
+
+All items left open at the milestone above are now closed.
+
+| Item | Result |
+| --- | --- |
+| Owner-override `mission:finalize` | done — `--migration-acceptance owner-override --owner-ruling Digital-City/mission-book/response-9-29.md#R7` |
+| Episode | `data-records/evolution/episodes/mission-book/MB-008/episode.json` |
+| Episode id | **`MB-008:6ae0bbd46e425c9f`** |
+| Episode sha256 | `a4b6e8fc6c87d07a3ac03a767e9a12f92bdf32931f37e624e48650a5a5b87e0e` |
+| Episode status | `VERIFIED`; `participants` Alien / Mech; `migrationAcceptance.mode = OWNER_OVERRIDE` |
+| Inbox | consumed (removed) by the finalizer |
+| Final branch HEAD | `f8f82cd54d2192ae63317b42182f96a9aaab466f` |
+| Final branch CI | `36663533485` **PASS** (gateway-web + android) |
+| Merge commit | `168182c47df537f7c6c47d7e42ab3220af40de68` (`--no-ff`, matching project precedent) |
+| Merged-main CI | `36663813362` **PASS** (gateway-web + android) |
+| Merged-main gates | `pnpm test` 73/73 · city 1698/1699 (0 fail, 1 skip) · rooms 69/69 · promotion-history 10 records at `168182c47df5` · `check:docs` SYNCHRONIZED |
+| Structural checks | `10-automation` once · `01-computer-use-runtime` unique · `capabilityProvider:false` on all six · district/building/module ids unique · theme engine owned only by `00-foundation/05-control-centre` · `11-entertainment` absent |
+
+Episode assertions verified: `status = VERIFIED`, `participants.migrationHost = Alien`,
+`participants.verificationHost = Mech`, `migrationAcceptance.mode = OWNER_OVERRIDE`,
+`ownerRuling = ...response-9-29.md#R7`, `migrationBlockerEventId = MB-008:5a72b750eb33a552`,
+`ownerInterventionEventId = MB-008:fe4650b1af0044de`; Alien's original `RUNTIME_FAIL / BLOCKED` is
+retained in both `timeline` and `failures`; **no** `MIGRATION_COMPLETE` was fabricated; `RUNTIME_PASS`
+and `VERIFICATION_COMPLETE` are both present.
+
+**Verification Report status: `COMPLETE — OWNER_OVERRIDE_CLOSEOUT_COMPLETE`.**
+
+**Deferred runtime limitations (unchanged, and not to be read as complete).** No executor,
+controllers, drivers or OS backends were migrated or exercised: no real desktop, browser or UI
+automation was driven. The bounded action is a **file** action inside the evidence workspace. Donor
+parity was not independently re-derived here. Two-host coverage was not achieved — `response-9-30.md`
+R7 authorises single-host coverage for MB-008 specifically. This exemption does **not** make Computer
+Use a complete product runtime.
 
 
 ## 绑定执行条件（所有 Mission 强制）

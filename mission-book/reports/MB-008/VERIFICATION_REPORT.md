@@ -1,10 +1,10 @@
 # MB-008 — Computer Use Runtime — VERIFICATION REPORT
 
-> Status: **IN PROGRESS — RUNTIME CHAIN GREEN; OWNER-OVERRIDE FINALIZE / MERGE PENDING**
+> Status: **COMPLETE — OWNER_OVERRIDE_CLOSEOUT_COMPLETE**
 > Verification Host: `Mech`
 > Migration Host: `Alien`
 > Completion basis: `OWNER_ACCEPTED_COMPLETE`
-> Repair step: `2`
+> Repair step: `2` — `repair_status: COMPLETE`
 
 ```text
 MISSION = MB-008
@@ -13,9 +13,13 @@ HOST = Mech
 MIGRATION_HOST = Alien
 IMPLEMENTATION_BRANCH = mission/MB-008-computer-use
 IMPLEMENTATION_CI = 36584056291 PASS (migration head aa2a6a8) ; 36655586918 PASS (reconciled head 77b774c)
-FINAL_BRANCH_CI = 36662962981 PASS (runtime-evidence head 0e1d97e) ; episode-commit CI recorded at closeout
-FINAL_BRANCH_SHA = PENDING — set at closeout
-MERGED_MAIN_SHA = PENDING — set at closeout
+FINAL_BRANCH_CI = 36663533485 PASS (final branch head f8f82cd, gateway-web + android)
+MERGED_MAIN_CI = 36663813362 PASS (merged main 168182c, gateway-web + android)
+FINAL_BRANCH_SHA = f8f82cd54d2192ae63317b42182f96a9aaab466f
+MERGED_MAIN_SHA = 168182c47df537f7c6c47d7e42ab3220af40de68
+EPISODE = data-records/evolution/episodes/mission-book/MB-008/episode.json
+EPISODE_ID = MB-008:6ae0bbd46e425c9f
+EPISODE_SHA256 = a4b6e8fc6c87d07a3ac03a767e9a12f92bdf32931f37e624e48650a5a5b87e0e
 VERIFICATION_COMPLETE = true
 ```
 
@@ -242,8 +246,17 @@ silently applied.
 
 - Implementation CI used by `mission:finalize`: **36662962981** (runtime-evidence head `0e1d97e`).
 - Episode path: `data-records/evolution/episodes/mission-book/MB-008/episode.json`
-- Episode ID: **PENDING** — set at closeout
-- Inbox SHA-256 digest: **PENDING** — set at closeout
+- Episode ID: **`MB-008:6ae0bbd46e425c9f`**
+- Episode SHA-256: `a4b6e8fc6c87d07a3ac03a767e9a12f92bdf32931f37e624e48650a5a5b87e0e`
+- Episode status: `VERIFIED`; `participants` `Alien` / `Mech`;
+  `migrationAcceptance.mode = OWNER_OVERRIDE`, `ownerRuling = Digital-City/mission-book/response-9-29.md#R7`,
+  `migrationBlockerEventId = MB-008:5a72b750eb33a552`,
+  `ownerInterventionEventId = MB-008:fe4650b1af0044de`.
+- Assertions checked on the generated episode: Alien's original `RUNTIME_FAIL / BLOCKED` is retained in
+  **both** `timeline` and `failures`; **no** `MIGRATION_COMPLETE` event exists (nothing fabricated, R5);
+  `RUNTIME_PASS` and `VERIFICATION_COMPLETE` are both present; `VERIFIER_FINDING` retained.
+- The inbox was consumed (removed) by `finalize-mission-episode.mjs`.
+- Inbox SHA-256 digest: `dc65f523d04fc70519ef709367586fe5c42525e674076908bf59f9ec38757e8c` (13 events).
 - Candidate / accepted evidence pointers:
 
 ```text
@@ -285,12 +298,101 @@ Full evolution event stream (inbox
 
 ## 5. 最终门禁 / Final gate
 
-- **Final branch HEAD required CI:** `36662962981` PASS (gateway-web **and** android) on `0e1d97e`.
-  The episode commit's own hosted run is recorded here at closeout.
-- **Merge result:** PENDING — set at closeout.
-- **Verdict: PASS.**
+- **Final branch HEAD required CI:** `36663533485` **PASS** (gateway-web **and** android) on the
+  final branch head `f8f82cd54d2192ae63317b42182f96a9aaab466f` (the episode commit).
+- **Merge result:** merged `mission/MB-008-computer-use` → `main` as
+  `168182c47df537f7c6c47d7e42ab3220af40de68` using `--no-ff`, matching the project's existing
+  merge-commit strategy (`cb8e0bd`, `b4bd602`, `cfe34df`, `0eed05b`). No squash and no rebase, so the
+  cross-host evidence history is preserved intact.
+- **Merged-main CI:** `36663813362` **PASS** (gateway-web **and** android).
+- **Merged-main gates:** `pnpm test` 73/73 · `city/test-all.mjs` 1698/1699 (0 failures, 1 skipped) ·
+  `apps/rooms` 69/69 · `verify-promotion-history` 10 records verified at `168182c47df5` ·
+  `check:docs` docs/evidence/data-records all `SYNCHRONIZED`.
+- **Structural checks on merged main:** `10-automation` appears exactly once ·
+  `01-computer-use-runtime` ownership unique · `capabilityProvider: false` on all six modules ·
+  district ids unique, building ids unique within district, module ids and paths globally unique ·
+  registry keeps **both** the building-aware kind filter and the module-level `capabilityProvider`
+  filter over the full `declared` surface · theme engine owned only by `00-foundation/05-control-centre`
+  (`relocatedFrom` the 11-entertainment path, by MB-009) · `11-entertainment` absent.
+- **Verdict: PASS — MB-008 verification closed.**
 
-### Deferred / not established (must not be read as complete)
+## 6. 施工中的问题、选择与判断逻辑 / Problems, choices and the reasoning
+
+Every point below is a place the closeout order did **not** fully specify the option. The chosen
+option and the reasoning are recorded rather than left implicit.
+
+**V1 — `pnpm` is not on `PATH`.**
+*Problem:* the order names `pnpm test` and `pnpm check:docs` as gates, and both failed to resolve.
+*Judged:* do **not** silently substitute the underlying node commands. pnpm 11.19.0 exists via the
+corepack shim at `D:\Tools\corepack-shims\pnpm.CMD`, so the **declared** commands were run through
+it. *Recorded:* the shim path and version are in `gates.txt` and §3.2, so the substitution cost is
+zero but the fact is not hidden.
+
+**V2 — the first driver revision had three bookkeeping defects, and the temptation was to "fix" the
+runtime.**
+*Problem:* the refusal assertion reported `not-thrown` while the process died, and the "miss"
+returned `success`. The order says only the driver may be fixed and the runtime must not be touched
+"为了让测试好看" (to make the tests look good). *Judged:* the root cause was located in the migrated
+API's real shape — `assertActionAllowed` is `async`, so a sync `try/catch` can never catch it — and
+the **driver** was fixed. The guard, `evaluateDestructive` and the verifier were verified correct and
+left byte-identical. *Why this is the right call:* editing the runtime would have destroyed the
+evidence value of the whole chain; the honest reading is that the runtime was right and the harness
+was wrong.
+
+**V3 — `detectMiss` reports `missed: false`.**
+*Problem:* the order asks for a "genuine miss" and `detectMiss` is the donor's miss function, so the
+expectation is naturally `missed: true`. It returns `false` here.
+*Judged:* record it **as it answered** and explain the mechanism, rather than adjust inputs until it
+agreed. `detectMiss` is the donor's **UI**-miss ladder; for a **file** effect the donor establishes
+the miss through the verifier verdict, which is the `failure` (kind `file`) actually obtained.
+`MISS_OBSERVED` is therefore taken from the verifier, and the divergence is documented in §3.3 and
+in the deferred list. *Why:* coercing `detectMiss` would have been manufacturing evidence — exactly
+what the order forbids.
+
+**V4 — the City repository was behind its remote when this pass started.**
+*Problem:* the working copy showed `7a8d9ac`, but `origin/main` had advanced by 7 commits from the
+earlier session — including its own `VERIFICATION_REPORT.md` and extra front-matter fields. The
+first push was rejected as non-fast-forward.
+*Judged:* **fetch, merge and reconcile as a union** — never force-push and never discard the earlier
+session's truthful partial-state record. The conflicting report was rewritten as a single document
+that keeps the earlier checkpoint history (§0) while adding the completion (§1–§5); the front matter
+took the union of both field sets, and the now-obsolete `repair_resume_point` was updated rather than
+left stale. *Lesson recorded:* the order's own "注意每次领取任务前确认仓库的最新状态" (confirm the
+latest repository state before claiming) means **`git fetch` first**, not just `git log` — the local
+clone's HEAD is not the remote's state.
+
+**V5 — merge strategy into `main`.**
+*Problem:* `main` had not diverged (branch was 0 behind, 8 ahead), so a plain `git merge` would have
+fast-forwarded and produced no merge commit. The order requires the project's existing merge strategy
+and forbids squashing or rebasing away the cross-host evidence history.
+*Judged:* use `--no-ff` to create an explicit merge commit `168182c`, matching the precedent of
+`cb8e0bd` / `b4bd602` / `cfe34df` / `0eed05b`. All 8 branch commits, including Alien's blocker and
+every evolution event commit, are preserved individually.
+
+**V6 — the finalizer takes `--branch-sha` and `--ci-run` from two different commits.**
+*Problem:* the order specifies `--branch-sha <COMMIT_CONTAINING_VERIFICATION_COMPLETE>` but
+`--ci-run <FINAL_VERIFICATION_CI_RUN_ID>`, and those are the verification-complete commit `437be8b`
+and the runtime-evidence run `36662962981` on `0e1d97e` respectively.
+*Judged:* follow the order **literally** rather than "correcting" it, and record the pair explicitly
+in the report header and §4 so the reader can see exactly which tree each CI number belongs to. The
+finalizer accepted the pair, and the episode records `ci.run = 36662962981` with
+`target.branchFinalSha = 437be8b` — both truthful.
+
+**V7 — a `--summary` over 1000 characters is refused (exit 2).**
+*Problem:* the `VERIFICATION_COMPLETE` summary exceeded the tool's cap several times.
+*Judged:* trim the prose, and drop the redundant "on host Mech" phrase — the event's `hostId` field
+already carries it unambiguously. No factual content was dropped.
+
+**V8 — City status legend.**
+*Problem:* at the milestone the verification was green but not yet merged, which is neither the
+legend's 🟢 ("accepted") nor cleanly 🔴.
+*Judged:* keep 🔴 for the intermediate milestone rather than invent a new 🟡 symbol the README's
+legend does not define, and carry the nuance in the prose note. At closeout the row correctly
+becomes 🟢.
+
+
+
+## 7. Deferred / not established (must not be read as complete)
 
 1. **The runtime plane stays deferred.** No executor, controllers, drivers or OS backends were
    migrated or exercised: **no real desktop, browser or UI automation was driven.** This verification
