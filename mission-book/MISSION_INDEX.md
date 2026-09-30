@@ -1,4 +1,4 @@
-# Mission Index — Butler Assistant Engineering
+# Mission Index — Active Parallel Engineering Programmes
 
 ## Project gate
 
@@ -65,3 +65,39 @@ Claim order:
 5. final merge workbook remains forbidden until every BA task has both stages complete and both Alien+Mech participation is proven.
 
 The legacy mission set and exact Pre-Assistant workbook remain archived under [finished/replant/](./finished/replant/).
+
+
+## Remote Fabric programme
+
+```text
+REMOTE_DEVELOPMENT         = UNLOCKED_BY_FOUNDATION
+REMOTE_DEVELOPMENT_HOLD    = HELD_PENDING_SECOND_REAL_HOST
+REMOTE_BASELINE            = 8104f8289a76d15ff0197c953730edcef42cab5e
+REMOTE_ARCH_CONTRACT       = REMOTE_FABRIC_V1
+REMOTE_MERGE               = FORBIDDEN
+REMOTE_TERMINAL_TARGET     = REMOTE_FABRIC_MERGED_MAIN_CI_GREEN
+```
+
+Remote Fabric is prepared under [remote/](./remote/). The programme inherits the current two-real-host availability hold; creating the workbooks does not claim any task or lift that hold.
+
+| ID | Subproject | Development | Correction | Merge |
+|---|---|:---:|:---:|:---:|
+| RF-001 | Node identity + installation lifecycle | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-002 | Unified pairing + trust lifecycle | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-003 | Same-Wi-Fi/LAN discovery + local direct | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-004 | Bluetooth bootstrap + IP handoff | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-005 | Remote invite / meeting code / deep link | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-006 | Secure path manager + relay fallback | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-007 | Versioned capability registry | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-008 | Typed RPC/Event/Stream + reliable commands | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-009 | Presence/offline/reconnect + audit | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+| RF-010 | Fabric policy boundary + public API | HELD / UNCLAIMED | LOCKED_UNTIL_DEV | FORBIDDEN |
+
+Remote claim rules mirror Butler:
+1. after the global hold is lifted, prefer unclaimed Development;
+2. otherwise claim eligible Correction;
+3. Development Host != Correction Host;
+4. all RF branches start from the same frozen Remote baseline;
+5. no RF branch merges to main or consumes a sibling RF branch;
+6. final Remote merge workbook remains forbidden until every RF task passes both stages with both-host evidence;
+7. final Remote integration starts from the then-current Utopia main, not from the frozen baseline, and preserves newer mainline work.

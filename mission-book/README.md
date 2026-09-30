@@ -1,6 +1,6 @@
-# Mission Book — Butler Assistant Engineering
+# Mission Book — Active Parallel Engineering Programmes
 
-> Current mode: **BUTLER_ASSISTANT_PARALLEL_DEVELOPMENT**
+> Current mode: **PARALLEL_PROGRAMMES — BUTLER_ASSISTANT + REMOTE_FABRIC**
 > Control repo: zhiheng-zhang-Mera/Digital-City
 > Implementation repo: zhiheng-zhang-Mera/Utopia
 > Foundation gate: **OPEN**
@@ -134,3 +134,16 @@ The future merge workbook must:
 Final completion is forbidden if any required merged-main GitHub CI check is red, cancelled, required-but-skipped, or still pending.
 
 Required terminal state: `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN`
+
+
+## Remote Fabric programme
+
+Remote Fabric planning is active under [remote/README.md](./remote/README.md). It uses the same frozen Utopia baseline `8104f8289a76d15ff0197c953730edcef42cab5e` and the same two-stage/two-physical-host discipline as Butler Assistant, but it is a separate merge unit.
+
+| Remote task set | Development | Correction | Merge |
+|---|:---:|:---:|:---:|
+| [RF-001..RF-010 Remote Fabric](./remote/README.md) | HELD pending second real host | per-task after Development | **FORBIDDEN until all RF tasks complete** |
+
+Remote construction is asynchronous: each RF task has its own `remote/RF-...` branch from the frozen baseline and may proceed independently once the two-host hold is lifted. No RF task branch may merge into Utopia main, and no RF branch may merge/cherry-pick sibling RF branches merely to pass locally.
+
+`REMOTE_MERGE_WORKBOOK_CREATION = FORBIDDEN` until every RF-001..RF-010 Development and Correction stage is green, Development Host != Correction Host, and both-host evidence is recorded. The future Remote merge workbook must integrate corrected RF branches on top of the **then-current Utopia main**, so any Butler or other valid work already merged to main is preserved.
