@@ -1,7 +1,20 @@
-# Mission Index — Active Queue
+# Mission Index — Migration Queue Closed / Pre-Assistant Product Closeout
 
 > **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response-9-30.md](./response-9-30.md) + [response-9-29.md](./response-9-29.md) where not superseded.  
 > Historical rules/index snapshots are under [past-rules/](./past-rules/).
+
+## Current phase — Owner ruling R12
+
+```text
+MIGRATION_QUEUE = CLOSED
+CLAIMABLE_MB = NONE
+CURRENT_WORK = ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md
+AUTHORIZED_ORDER = T0 -> T1 -> T2 -> T3 -> T4 -> STOP
+```
+
+Current work is product integration, not a new MB migration. See
+[`response-9-30.md#R12`](./response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)
+and the [binding workbook](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md).
 
 ## Current state
 
@@ -16,9 +29,9 @@
 | 7 | [MB-007](./MB-007-research-institute.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 1 ✅** | Alien | repair closed: finalizer `f25cdb4`, merge `d850d73`, episode `MB-007:553ab7ba1c4b0902` |
 | 8 | [MB-008](./MB-008-computer-use.md) | YES | **COMPLETE / OWNER_ACCEPTED** | **COMPLETE + REPAIR STEP 2 ✅** | Alien | repair closed: episode `MB-008:6ae0bbd46e425c9f`, merge `168182c`, merged-main CI `36663813362` PASS |
 | 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Mech | closed; building-level kind accepted — response R8 |
-| 10 | [MB-010](./MB-010-node-fabric.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. 5/5 planned capabilities (NF-01..NF-05) already equivalent-or-superior at claim-time `756c7d7`; MB-001 had already migrated the donor's live node logic from the **same** frozen `8df428e`; the donor remainder is production-dead at the baseline. 0 gaps, 0 migrated, 0 implementation code. Evidence 47 PASS / 0 FAIL (bounded runtime 8/8). Branch `mission/MB-010-node-fabric` @ `8380c38` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
-| 11 | [MB-011](./MB-011-customs.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. Assessed as the named owner of MB-002's deferred Hns plugin/adapter platform. 5/5 planned capabilities (CU-01..CU-05) already equivalent-or-superior at claim-time `756c7d7`. Decisive: the donor's coherent admission machinery `app/core/plugin-install/*` (960 lines) has ZERO app consumers and is the only pin/quarantine/rollback implementation; the donor performs no provenance verification at all; isolation preflight is not a donor refusal; permissions are not a donor admission gate and belong to MB-012. 0 gaps, 0 migrated, 0 implementation code. Evidence 1904 PASS / 0 FAIL (bounded admission 13/13, city 1807/1808, root 84/84, promotion history 10/10). Branch `mission/MB-011-customs` @ `82b6ac4` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
-| 12 | [MB-012](./MB-012-runtime-compliance.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed 2026-09-30. Assessment verdict `NO_VALUE`: **判断无价值，任务保留，未迁移**. Assessed as the named owner of MB-002's deferred Codex-Boss permission/authorization resolution. 5/5 planned capabilities (RC-01..RC-05) already equivalent-or-superior at claim-time `756c7d7`. Decisive: the deferred layer has ZERO non-test production callers and the composition root builds `ExecutionGate` with no authorizer; the runtime-policy JSON is parsed by nothing; escalation rejection is CI-script-only; the audit ledger is read only by tests and uses an unkeyed hash chain. 0 gaps, 0 migrated, 0 implementation code. Evidence 1904 PASS / 0 FAIL (bounded enforcement 19/19, city 1807/1808, root 84/84, promotion history 10/10). Branch `mission/MB-012-runtime-compliance` @ `d071328` retained, not merged; basis `SKIPPED_NOT_REQUIRED` |
+| 10 | [MB-010](./MB-010-node-fabric.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed. Alien independently confirmed NO_VALUE under R11; provenance branch `mission/MB-010-node-fabric` @ `8380c38` was merged as provenance only (`6e9781c`) and retained remotely. No implementation merge; `merged_main_sha=null` remains correct |
+| 11 | [MB-011](./MB-011-customs.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed. Alien independently confirmed NO_VALUE under R11; provenance branch `mission/MB-011-customs` @ `82b6ac4` was merged as provenance only (`f22273c`) and retained remotely. No implementation merge; `merged_main_sha=null` remains correct |
+| 12 | [MB-012](./MB-012-runtime-compliance.md) | YES | **SKIPPED_COMPLETE / NO_VALUE** | **NOT_REQUIRED_SKIPPED_COMPLETE** | Mech | closed. Alien independently confirmed NO_VALUE under R11; provenance branch `mission/MB-012-runtime-compliance` @ `d071328` was merged as provenance only (`e0d9470`) and retained remotely. No implementation merge; `merged_main_sha=null` remains correct |
 
 ## Immediate dispatch queue
 
@@ -56,11 +69,13 @@ COMPLETE. MB-012 — assessment verdict `NO_VALUE` (Host Mech, 2026-09-30). Asse
           `mission/MB-012-runtime-compliance` @ `d071328` retained (not merged).
           Green completion basis `SKIPPED_NOT_REQUIRED`.
 
-QUEUE EMPTY. Every enabled Mission (MB-001..MB-012) now has verification_complete = true.
-          The assessment-first queue MB-010 -> MB-011 -> MB-012 closed with three
-          NO_VALUE verdicts; no claimable Mission remains. Next work requires an Owner
-          ruling (reopen/reset, a new Mission, or a directed integration of the
-          migrated-but-unconsumed modules listed in the reports as a standing backlog).
+MIGRATION QUEUE CLOSED. Every enabled Mission (MB-001..MB-012) has verification_complete = true.
+          R11 provenance closeout is merged and the recorded Utopia branch audit has unmerged = 0.
+CURRENT.  Execute ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md only:
+          T0 migration closeout/freeze -> T1 Rooms shell integration -> T2 Action facade ->
+          T3 deterministic Ask/Do -> T4 independent acceptance/merge -> STOP.
+FORBIDDEN. Do not auto-create MB-013, reopen a closed Mission, add Boss/Hns connectors,
+          add an assistant/persona layer, add an LLM router, or create a new Room.
 ```
 
 `SKIPPED_NOT_REQUIRED` is a **green completion basis**, not an eternal red/not-started state.
