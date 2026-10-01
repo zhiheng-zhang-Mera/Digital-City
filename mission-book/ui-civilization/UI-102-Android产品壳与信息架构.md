@@ -12,9 +12,10 @@ dependencies: ["UI-000"]
 development_host: Mech
 development_claimed_at: 2026-10-01T13:52:00Z
 development_branch: ui/UI-102-android-product-shell
-development_head_sha: 84b0910507c60fd705fb5a689764d903de6a3398
-development_ci: 36872755993-success-android-and-gateway-web
+development_head_sha: 3a48fd84c71ed1327e73fbfce8e67f1b68a537d3
+development_ci: 36874092936-success-android-and-gateway-web
 development_complete: false
+development_progress_note_4: "INCREMENT 4 on 3a48fd8 (CI 36874092936 green). Fixed a defect my OWN increment 1 introduced: Panel() was still .background(Color.White, RoundedCornerShape(16.dp)).padding(20.dp), so changing the theme to a dark HUD left it painting white, 16dp-rounded, off-scale cards on every screen that used it - increment 1 changed the theme and did not propagate. It now uses the theme surface, the direction's cut corners and the spacing scale, fixing every call site at once. Found by auditing the remaining generic-Panel usages, not by any test. Also folded the last inline identifiers: EventRow printed #seq and taskId, ServicesPanel's result row printed errorCode, httpStatus, invocationId and resultDigest; all now sit in the collapsible technical-details block and the rows lead with what happened. The module now has no generic-Panel call site rendering an internal identifier outside a folded block. Verified offline: 55 unit tests and assembleDebug BUILD SUCCESSFUL. STILL OUTSTANDING and unchanged: real-device acceptance across narrow widths and font scaling (two rounds have now carried this gap), and Web truth-parity. NOT a completion claim."
 development_report: mission-book/reports/UI-102/DEVELOPMENT_REPORT.md
 development_evidence: evidence/raw/mission-book/UI-102/
 development_evidence_notes: mission-book/reports/UI-102/E2E_VERIFICATION_NOTES.md
