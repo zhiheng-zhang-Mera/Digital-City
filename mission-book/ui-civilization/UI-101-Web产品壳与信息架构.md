@@ -3,12 +3,15 @@ workbook_id: UI-101
 phase: UI_CIVILIZATION
 sequence: 101
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UI-000"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_claimed_at: 2026-10-01T13:04:09Z
+development_branch: ui/UI-101-web-product-shell
+development_baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
+development_direction_source: UI-000 adopted direction C2 (head 2978e31), single visual-direction source per the UI-000 completion gate
 development_head_sha: null
 development_ci: null
 development_complete: false
