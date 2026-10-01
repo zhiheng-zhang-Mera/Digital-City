@@ -99,3 +99,24 @@
 ## 7. 下一步
 
 Review 阶段到此结束。**未完成且不由本报告主张的**：向 Owner 交付上表并取得 `FINAL_VISUAL_PREVIEW` 意见 → 合并 main 并记录精确 SHA/CI → 声明 `UI_BASELINE_FROZEN` → 解锁 RS-201/202。
+
+## 8. 冻结就绪性核验（Review 侧，只读）
+
+在等 Owner gate 期间做了一次**只读**的就绪性核验，因为"我通过的产物能否真的冻结"是 Review 可以验证、而一旦拖到第 8 步才发现代价很高的事：
+
+```text
+origin/main                          = e7c498f
+origin/ui/UI-190-ui-baseline-freeze  = 11bb3f6
+main..branch                         = 28 commits   （整个 UI 计划：UI-000 → UI-190）
+branch..main                         = 0 commits    ← main 是分支的严格祖先
+git merge-tree --write-tree main branch = exit 0，产出树对象 → 无冲突
+main 最近 CI                          = success（36830053908 等）
+```
+
+两条执行者可直接使用的结论：
+
+1. **第 8 步的合并在当前 SHA 上是 fast-forward。** `branch..main = 0` 意味着 main 是分支的严格祖先，合并无需制造 merge commit，也就没有"合并过程再引入什么"的空间 —— 这正是本计划已经出现过一次的**静默排除**风险的相反面。
+2. **无冲突，且以不触碰工作树的方式验证。** `git merge-tree --write-tree` 只计算树、不落盘，因此这次核验不会污染待冻结产物。`main..branch = 28` 也说明冻结一次将带入整个 UI 阶段，与 UI-190 的定位一致。
+
+**明确不在本核验范围内**，以免被读成超出实际：这只证明**可合并性**，不证明合并后的 main CI 会绿 —— 那要在真合并后按 step 8 记录精确 SHA/CI；也不主张 Owner gate 已过。本核验不改任何分支、不推进冻结、不构成冻结声明。
+
