@@ -3,12 +3,16 @@ workbook_id: RS-201
 phase: RESCHEDULING_VNEXT
 sequence: 201
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UI-190"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_claimed_at: 2026-10-01T22:24:26Z
+development_branch: rs/RS-201-dynamic-ai-pool
+development_baseline_sha: de91f5e381e3283fd60d539bca0c1435de8f79ff
+development_claim_basis: "Claimed by Alien immediately on the dependency gate opening, recorded because the timing is the point rather than an incidental detail. RS-201's only dependency is UI-190, whose completion gate required the step-7 FINAL_VISUAL_PREVIEW owner gate and the step-8 merge and UI_BASELINE_FROZEN declaration. The Owner approved the gate, the branch was merged as de91f5e and main CI 36934564790 was confirmed green on that merge head, so UI_BASELINE_FROZEN is declared and this task's dependency is satisfied. baseline_policy is CLAIM_TIME_MAIN, so the baseline is main AS OF THIS CLAIM, de91f5e381e3283fd60d539bca0c1435de8f79ff, which is the freeze merge and therefore the correct starting point: RS-201 builds on the frozen UI contract rather than on a pre-freeze tree. Claimed before any other host could take it, since the unlock makes this and RS-202 the only two claimable tasks in the whole pool."
+development_host_note: "Development host is Alien (this machine). Section 3 requires the Review host to be a DIFFERENT machine, so RS-201's Review must be taken by Mech and Alien must not review its own development. Alien will not self-review any part of this task."
 development_head_sha: null
 development_ci: null
 development_complete: false
