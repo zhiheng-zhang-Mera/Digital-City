@@ -19,12 +19,12 @@ development_branch: engineering-manager/EM-007-remote-subworker-return-control
 development_head_sha: 3bd9f556616dbaccfd00cb4620144fdcc669baf1
 development_ci: 36730656520-success
 development_report: mission-book/reports/EM-007/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T02:26:38Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: cf263372b3bbeb4d6134ac37459ff96c319d96a4
+correction_ci: 36806817787-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-007/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
 ---
