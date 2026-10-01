@@ -17,12 +17,12 @@ development_branch: assistant/BA-008-embodiment-event-bus
 development_head_sha: f06cf316c87e710bf65092dbc96d76497eae3a79
 development_ci: 36741617086-success
 development_report: mission-book/reports/BA-008/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T02:04:49Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 1070190c3bd39342780d2cb941123d9ab3666225
+correction_ci: 36805605456-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-008/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
 ---
