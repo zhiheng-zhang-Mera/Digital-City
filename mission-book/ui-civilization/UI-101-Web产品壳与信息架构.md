@@ -3,7 +3,7 @@ workbook_id: UI-101
 phase: UI_CIVILIZATION
 sequence: 101
 execution_enabled: true
-status: REVIEW_IN_PROGRESS
+status: REVIEW_COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UI-000"]
@@ -27,9 +27,15 @@ review_host: Mech
 review_claimed_at: 2026-10-01T14:20:00Z
 review_basis: "independent review per CONSTRUCTION_RULES section 3; Alien is the Development host and therefore ineligible. Claim-time reconciliation passed: recorded branch == CI head_branch (ui/UI-101-web-product-shell), recorded head 56c819000548d9496ecb9fd2459f19d1ad9fcec1 == CI head_sha, run 36870347917 concluded success (android + gateway-web). Review must specifically retest, not assume, the area the Development host declared unverified: Ask/Do four-state coverage (two states could not be triggered in their environment) and the Action-detail capture (taken against FAILED demo rows)."
 review_scope_handed_over: "development_unverified field on this workbook explicitly hands Ask/Do state coverage to the review host; per section 10 of CONSTRUCTION_RULES, untriggered is not verified and must not be scored as a pass."
-review_head_sha: null
-review_ci: null
-review_complete: false
+review_head_sha: 2c6e787c3a08166378c0f645a1ee200ce6885414
+review_ci: 36871760594-success-android-and-gateway-web
+review_reviewed_development_head_sha: 56c819000548d9496ecb9fd2459f19d1ad9fcec1
+review_complete: true
+review_result: PASS_WITH_REPAIRS
+review_report: mission-book/reports/UI-101/REVIEW_REPORT.md
+review_repairs: "R-1 invisible interactive text: rawLink() renders <a class=\"primary link-button\">; at equal specificity the later .link-button colour overrode .primary's colour while .primary's lime background still applied, giving lime-on-lime. Measured in a browser as color rgb(198,242,78) on background rgb(198,242,78), contrast 1:1 - invisible, not merely low contrast - on all ten 'open in a new tab' links on the Rooms page, which are the only route into a Room other than the embed. Repaired with a higher-specificity .link-button.primary; 0 elements below AA after. Neither host had measured contrast on the production shell, which is why it survived. R-2 the author's acceptance instrument could not fail: ask-and-detail-shots.mjs used inputs with NO matching rule in intents.mjs ('clean up my downloads folder', 'open my notes'), so needs-choice and ambiguous both fell through to UNMATCHED and the probe reported CLEAN while never reaching two of the four states it names; its guard distinct.size < 2 was satisfied by one distinct state plus three identical ones. Reproduced in a FULL host (gateway + reference node + Room hub), which disproves the development_unverified note's attribution to a missing hub and node - the cause was the inputs. Replaced with the router's own literal triggers and strengthened the guard to require a presentation per named case; the repaired probe now reports four distinct states."
+review_verified: "The area handed over as unverified IS now triggered and verified, in BOTH locales through the real shell UI: all five gateway states reached (route-confirmed, failed, needs-confirmation, ambiguous, unmatched) 10/10; 0 raw internal tokens on any default path; 0 engineering chrome in either locale; no horizontal overflow at 390px; 0 page errors. Not a regression: repo suite 854/854; the author's own shell acceptance pass still CLEAN."
+review_not_verified: "Recorded rather than implied. (a) Keyboard focus order and focus visibility were NOT walked - the workbook's review checklist includes keyboard/focus and this review did not cover it, so it must not be scored as passed. (b) The iframe embed path is still not wired: UI-103 provides and tests ?embedded=1 on the Rooms side, but apps/web does not pass it, so the seam remains open (also recorded in the UI-103 report). (c) Contrast is an approximation - the effective background is derived from opaque background-color ancestors with alpha compositing, not from background-image pixels; this does not affect R-1, where the gap was 1:1 versus 4.5."
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/UI-101/
