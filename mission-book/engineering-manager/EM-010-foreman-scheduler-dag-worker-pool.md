@@ -19,10 +19,10 @@ development_branch: engineering-manager/EM-010-foreman-scheduler-dag-worker-pool
 development_head_sha: 5209b94fc846337c19194c72ab38a6c22cc3295c
 development_ci: 36748073216-success
 development_report: mission-book/reports/EM-010/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T03:14:24Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/EM-010/CORRECTION_REPORT.md
