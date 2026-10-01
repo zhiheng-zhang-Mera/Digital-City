@@ -3,12 +3,15 @@ workbook_id: UI-103
 phase: UI_CIVILIZATION
 sequence: 103
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
+baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
+visual_direction_source: "mission-book/reports/UI-000/OWNER_STYLE_RULING.md — adopted direction C2, head aea8361c07c003f6f519829b6c1a208c20bccab1, MEASURED head after Mech's review repairs 2978e311959cffee40a172d0ea36e370e8ac59e7"
 dependencies: ["UI-000"]
-development_host: null
-development_branch: null
+development_host: Mech
+development_claimed_at: 2026-10-01T13:20:00Z
+development_branch: ui/UI-103-rooms-visual-unification
 development_head_sha: null
 development_ci: null
 development_complete: false
