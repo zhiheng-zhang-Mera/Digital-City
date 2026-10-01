@@ -3,12 +3,15 @@ workbook_id: UI-102
 phase: UI_CIVILIZATION
 sequence: 102
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
+baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
+visual_direction_source: "mission-book/reports/UI-000/OWNER_STYLE_RULING.md — adopted direction C2; Web/Compose register reference is the reviewed head 2978e311959cffee40a172d0ea36e370e8ac59e7 and the Rooms port 399a1c118fa0016e7f30ce8f0e3ba01917b39db1"
 dependencies: ["UI-000"]
-development_host: null
-development_branch: null
+development_host: Mech
+development_claimed_at: 2026-10-01T13:52:00Z
+development_branch: ui/UI-102-android-product-shell
 development_head_sha: null
 development_ci: null
 development_complete: false
