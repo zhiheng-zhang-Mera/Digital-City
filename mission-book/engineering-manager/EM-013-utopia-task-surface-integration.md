@@ -19,12 +19,12 @@ development_branch: engineering-manager/EM-013-utopia-task-surface-integration
 development_head_sha: 5920e8076d317e15142b7d16c8531e529ce587f0
 development_ci: 36753243377-success-attempt-3
 development_report: mission-book/reports/EM-013/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T05:50:03Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 0ef455eabbdf54a7edfd975fa0fe82eb89690ca6
+correction_ci: 36822830353-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-013/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
 ---
