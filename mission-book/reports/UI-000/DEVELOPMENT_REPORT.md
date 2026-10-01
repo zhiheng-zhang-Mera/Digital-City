@@ -11,22 +11,25 @@ CONSTRUCTION_RULES         = mission-book/CONSTRUCTION_RULES.md (current head)
 BASELINE_POLICY            = CLAIM_TIME_MAIN
 BASELINE_SHA               = e7c498f5acd86da324a45c3278219c8daa612561
 BRANCH                     = ui/UI-000-visual-direction-candidates
-HEAD_SHA                   = 6059252e318503fc3161235eb6099cf59ca34c61
-DEVELOPMENT_CI             = 36855082899-success-android-and-gateway-web
+HEAD_SHA                   = c03adf13bbdd64d74514534b1de1e61ce3a68c6a
+DEVELOPMENT_CI             = 36856637359-success-android-and-gateway-web
 FIRST_HEAD_SHA             = 905e9ff97d21cd282601a819af1e69acc455af99
 FIRST_HEAD_CI              = 36854042480-success-android-and-gateway-web
+REVIEW_HOST_HEAD_SHA       = 727a254acd3b6c1c8925dbf78b0630e1a1410f8a
+REVIEW_HOST_HEAD_NOTE      = Alien's independent review commit; preserved as an ancestor of HEAD
 CLAIMED_AT                 = 2026-10-01T20:30:19Z
 DEVELOPMENT_COMPLETE       = true
-REVIEW_HOST                = Alien (NOT claimed — see §9)
+REVIEW_HOST                = Alien (claimed; see §10)
 OWNER_GATE                 = STYLE_SELECTION (waiting, see §9)
 ```
 
-> `HEAD_SHA` is the current Development head. It is the **second** head on this branch: the first
-> (`905e9ff`, CI green) was superseded by a defect fix found during Mech's own post-completion
-> re-verification — see §4 D9 and §8. Both heads and both hosted-CI runs are recorded so the review
-> host sees that the branch moved and why, rather than finding an unexplained SHA change.
+> `HEAD_SHA` is the current Development head. The branch has moved three times and every move is
+> recorded rather than rewritten: `905e9ff` (first head, CI green) → `6059252` (17 dead controls
+> removed, §4 D9) → `727a254` (**Alien's independent review**: two repairs plus their own probe) →
+> `c03adf1` (contract contradiction + WCAG tap targets, §10). The chain is linear, every earlier
+> remote head is an ancestor of the current one, and no force-push was used anywhere.
 >
-> `DEVELOPMENT_CI` is re-verified with the control-plane reconciliation in §9 before this mission is
+> `DEVELOPMENT_CI` is re-verified with the control-plane reconciliation in §7a before this mission is
 > treated as reviewable.
 
 ---
@@ -281,12 +284,14 @@ How it was produced      evidence/raw/mission-book/UI-000/README.md
 
 ```text
 recorded branch == evidence head_branch     ui/UI-000-visual-direction-candidates                          OK
-recorded head   == evidence head_sha        6059252e318503fc3161235eb6099cf59ca34c61                     OK
-required terminal state == evidence conclusion  run 36855082899 == success (android + gateway-web)       OK
+recorded head   == evidence head_sha        c03adf13bbdd64d74514534b1de1e61ce3a68c6a                     OK
+required terminal state == evidence conclusion  run 36856637359 == success (android + gateway-web)       OK
 ```
 
-`EVIDENCE_POINTER_MISMATCH` is absent. A stale pointer to `905e9ff` existed for part of this round and
-was corrected rather than left, which is precisely what §7 exists to catch.
+`EVIDENCE_POINTER_MISMATCH` is absent. Stale pointers were hit twice during this mission — once for
+`905e9ff` (§8 item 6) and once where `parity.mjs` wrote its report to a path that was no longer
+published, leaving the published report at 285/285 while the real run was 390/390 (§10). Both were
+caught and corrected rather than left, which is what §7 exists for.
 
 ## 8. Disclosure — this host's own errors, found and repaired
 
@@ -346,3 +351,73 @@ terminal_reason              = null
 UI-101 / UI-102 / UI-103 depend on UI-000 and remain locked until the Owner selects a direction, so
 they are not claimable on any host yet. Per §4 this Development host continues to scan the global
 pool rather than idling on this mission.
+
+---
+
+## 10. Review integration (§3 two-host discipline, actually exercised)
+
+Alien claimed the Review and pushed `727a254` — an independent review containing **two repairs and
+their own probe** (`scripts/ui-000/review-probes.mjs`, authored before this branch existed on origin).
+It is deliberately stricter than the Development runner: product facts asserted against *visible* text,
+demoted values against *reachable* text, plus horizontal-overflow and tap-target measurement and
+probe-coverage reporting.
+
+### 10.1 Both of Alien's repairs were real defects in this host's work
+
+1. **`parity.mjs` hard-coded `channel: 'chrome'`.** On a host with Edge but no Google Chrome the runner
+   died before its first assertion, so the "285/285" evidence recorded in the first completion was
+   **not reproducible off this machine**. Mech had treated "it runs here" as "the evidence is
+   reproducible". Alien's fallback is kept.
+2. **Candidate B's data table could not shrink past an unbreakable token**, pushing the page 37 px wide
+   at a 390 px viewport (`scrollWidth` 427 vs 390). Mech had captured a 414 px screenshot but **never
+   measured `scrollWidth`**, so it was invisible from Mech's evidence.
+
+Neither was caught by the Development host's own verification. This is the two-host rule earning its
+keep, and it is the strongest evidence in this report that the discipline is load-bearing rather than
+ceremonial.
+
+### 10.2 Mech's integration head acted on Alien's probe
+
+Both hosts' work is preserved; `727a254` is an ancestor of `c03adf1` and Alien's probe file is unchanged.
+
+```text
+Alien's review-probes.mjs       727a254 (Alien)   c03adf1 (integrated)
+strictVisibleFailures                    8              0
+tapTargets                              10              0
+overflow / glyphs / consoleVocab     0/0/0          0/0/0
+capability coverage                  29/29          29/29
+TOTAL FAILURES                          35             17
+```
+
+- **8 strictVisibleFailures → 0.** Root cause was a contradiction in *Mech's own contract*:
+  `SURFACE_PROBES` demanded the raw event type and raw invocation id be **visible** on Home/Services,
+  while UI-000 requires internal vocabulary to be **folded away**. The contract was ordering the
+  candidates to break the rule. Fixed by asserting product-legible facts instead (timestamps for
+  activity, status for invocation history) and moving the raw tokens into `TECHNICAL_PROBES`, so
+  reachability is still checked. This also exposed that candidate B was rendering `task.completed`
+  raw on its primary path; B now renders readable event text and keeps the raw type in its inspector.
+- **10 tapTargets → 0.** Real WCAG 2.5.8 violations: text-link and tiny-link controls measured under a
+  24 px target at 390 px. Fixed by a minimum target height on that class in all three directions —
+  a hit-area fix that changes no visual direction.
+
+### 10.3 The 17 remaining findings are NOT silently resolved by Mech
+
+None of the 17 is an unqualified product defect. They are **6 probe false positives**, **8 advanced-surface
+interpretation disagreements**, **2 contract-definition questions** and **1 reachability-binding question**.
+Each is documented with its evidence in
+[`HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md`](./HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md), which asks the
+review host or the Owner to rule. Mech deliberately did **not** weaken the probe or redefine the contract
+to make them disappear, because all three possible resolutions (change the probe, change the contract,
+change the scope) sit in the review host's or the Owner's authority, not the Development host's.
+
+Worked example of why that restraint matters: `a/room-id: "knowledge"` is reported as leaked, but the
+match is the word *knowledge* inside the room's own prose summary ("Plain-text knowledge entries…"),
+and `a/room-number: "10"` matches the phrase "10 个" (the room **count**). Substring matching against a
+whole page cannot distinguish an identifier from a word. Mech's `LEAK_PROBES` avoid this by choosing
+slugs that cannot occur in prose (`text-workshop`, `data-lab`).
+
+### 10.4 Mech's commitment
+
+Mech makes no further Development-side changes to UI-000 unless hosted CI goes red or the review host /
+Owner rules that one is required. The branch history is linear and force-push-free:
+`905e9ff → 6059252 → 727a254 (Alien) → 9c22dc0 → c03adf1`.
