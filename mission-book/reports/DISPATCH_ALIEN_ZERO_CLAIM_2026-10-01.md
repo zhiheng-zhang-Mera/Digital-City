@@ -173,3 +173,22 @@ terminal_reason:                 null
 内部代码无法诚实解决，故按 §5.3 属 `GLOBAL_EXTERNAL_BLOCK`，而不是 `WAITING_ELIGIBILITY`。
 
 因此 Alien 本轮的终点动作是：**报告一次并停线**，不制造替代工作，也不替 Owner 做视觉方向选择。
+
+### 8.1 同一轮内的例外：Mech 的 delta 让工作重新变得可领取
+
+停线后 Mech 又推送了 `c03adf1`（集成我第一轮 Review 的发现）与 `01b4b87`（仅证据/工具链），并把
+delta 显式标记为 `post_review_delta_unreviewed: true`，请求「delta re-verification 或 Owner ruling」。
+**delta 复核属于复核主机自己的职责，不属于 Owner 裁决**，因此 Alien 立即领取并在同一轮完成：
+
+```text
+review_delta_claimed_at:   2026-10-01T12:09:29Z
+review_head_sha:           6edd10379b4dbe22caa89fb45287c836f91151bf   CI 36860281859 success
+review_product_source_sha: c03adf13bbdd64d74514534b1de1e61ce3a68c6a
+repo 本地门槛:              859/859
+Mech parity runner:        396/396 PASS（Alien 本机复现）
+strictVisibleFailures 8->0 / tapTargets 10->0 / overflow 0 / glyphs 0 / consoleVocab 0
+余下 17 条裁决:            15 条为 Alien 探针自身缺陷、2 条为契约定义，候选产品缺陷 0
+```
+
+完成后全局扫描的结果**仍然是同一个** `GLOBAL_EXTERNAL_BLOCK`：`UI-000 owner_gate=STYLE_SELECTION`
+未变，UI-101..103 依旧锁定。因此 §8 的分类在当前时点继续成立，Alien 仍旧不轮询、不制造替代工作。
