@@ -21,8 +21,8 @@ correction_status: IN_PROGRESS
 correction_complete: false
 correction_host: Alien
 correction_claimed_at: 2026-10-01T01:04:32Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: dd799e2789a2971783a230e2543efdc4d5b45bb2
+correction_ci: 36800022352-gateway-web-success-android-success__PARTIAL_CORRECTION_10_of_19_mechanisms_repaired__7_confirmed_defects_open__see_report_5
 correction_report: mission-book/reports/GAI-006/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
