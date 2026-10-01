@@ -17,10 +17,10 @@ development_branch: assistant/BA-007-settings-interaction-surface
 development_head_sha: 8fa4686bb7acb2b57a34a00fe517f6ecaad9769f
 development_ci: 36752540378-success-attempt-3
 development_report: mission-book/reports/BA-007/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T04:45:32Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/BA-007/CORRECTION_REPORT.md
