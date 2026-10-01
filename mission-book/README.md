@@ -15,7 +15,7 @@
 
 | 工程项目 | 任务池 | 当前状态 | 施工 | 独立复核 | 下一门禁 |
 |---|---|---|---:|---:|---|
-| UI 文明化 | UI-000, UI-101..103, UI-190 | **ACTIVE** | **0/5** | **0/5** | UI-000 Owner 视觉方向选择 → UI-190 `UI_BASELINE_FROZEN` |
+| UI 文明化 | UI-000, UI-101..103, UI-190 | **ACTIVE** | **1/5** | **1/5** | **Owner `STYLE_SELECTION`（A/B/C）→ UI-101..103** → UI-190 `UI_BASELINE_FROZEN` |
 | 再调度 vNext | RS-201..203, RS-290 | **LOCKED** | **0/4** | **0/4** | UI-190 完成后解锁 |
 | UI × 调度接线 | UXI-301, UXI-390 | **LOCKED** | **0/2** | **0/2** | RS-290 `RESCHEDULING_BASELINE_FROZEN` 后解锁 |
 
@@ -23,8 +23,8 @@
 
 | 主机 | 当前任务 | 角色 | 状态 | 等待分类 / 唤醒条件 |
 |---|---|---|---|---|
-| Alien | — | — | WAITING_ELIGIBILITY | `UI-000 development_complete=true`（Mech 完成 Development 后 Alien 领 UI-000 Review）；约 20 分钟兜底重扫。见 [零领取记录](./reports/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md) |
-| Mech | UI-000 | Development | IN_PROGRESS | — |
+| Alien | — | — | GLOBAL_EXTERNAL_BLOCK | `UI-000 owner_gate=STYLE_SELECTION`：A/B/C 由 Owner 选择后 UI-101..103 才解锁；不对已知不变的外部 blocker 做 20 分钟轮询。见 [零领取记录](./reports/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md) 与 [UI-000 复核报告](./reports/UI-000/REVIEW_REPORT.md) |
+| Mech | — | — | AVAILABLE | — |
 
 > `WAITING_ELIGIBILITY`、`STRUCTURALLY_INELIGIBLE`、`GLOBAL_EXTERNAL_BLOCK`、`POOL_TERMINAL` 的定义与重扫规则见 [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)。
 

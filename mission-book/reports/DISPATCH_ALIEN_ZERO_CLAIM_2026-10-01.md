@@ -144,3 +144,32 @@ Mech 长期无产物，唯一合规解法是 Owner 二选一（Alien 不自行�
 
 在 Owner 给出上述任一裁决之前，Alien 的正确行为是继续等待并重扫，**不**制造替代工作（§9），**不**冒充
 Mech 的角色（§3/§12）。
+
+> **§7.2 已作废（保留供追溯）。** Mech 并未失联：`2026-10-01T11:14:42Z` 推送了
+> `ui/UI-000-visual-direction-candidates @ 905e9ff`，`11:18:57Z` 在 City 侧声明 Development complete。
+> 因此「Mech 长期无产物」这一前提没有发生，不需要 Owner 释放其 claim。该节的判断逻辑保留，作为
+> 「等待期间就预先写下 Owner-only 决策」这一做法的样本。
+
+## 8. 第二次零领取：复核完成后的 `GLOBAL_EXTERNAL_BLOCK`（§5.3）
+
+Alien 完成 UI-000 Review（结论头 `727a254`，hosted CI `36855721920` 全绿，见
+`reports/UI-000/REVIEW_REPORT.md`）后重新扫描全局任务池，结果为：
+
+```text
+pool_incomplete:                 true
+claimable_now:                   0
+potentially_claimable_later:     true（一旦 Owner 选定方向）
+classification:                  GLOBAL_EXTERNAL_BLOCK
+structural_ineligibility_reason: null
+global_external_blocker:         UI-000 owner_gate=STYLE_SELECTION（A/B/C 未选）
+wake_condition:                  Owner 记录 A/B/C 选择（或「都不好看」+原因）到 UI-000 report
+rescan_after:                    not required（§5.3：不对已知不变的外部 blocker 做 20 分钟轮询）
+terminal_reason:                 null
+```
+
+判定依据：UI-101/102/103 的 `dependencies: ["UI-000"]` 已满足「Development + Review 完成」，但 UI-000
+的**完成门槛**还包含「Owner 只需选择 A/B/C，选择结果写入 UI-000 report，作为 UI-101..103 唯一视觉方向
+来源」。这是一个**只有 Owner 能做的动作**（工作书 §UI 硬约束：「Owner 只在 UI-000 选择视觉方向」），
+内部代码无法诚实解决，故按 §5.3 属 `GLOBAL_EXTERNAL_BLOCK`，而不是 `WAITING_ELIGIBILITY`。
+
+因此 Alien 本轮的终点动作是：**报告一次并停线**，不制造替代工作，也不替 Owner 做视觉方向选择。
