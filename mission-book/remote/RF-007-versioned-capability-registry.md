@@ -17,10 +17,10 @@ development_branch: remote/RF-007-versioned-capability-registry
 development_head_sha: 496d0520af64396508ba5144888aa2a33f176de3
 development_ci: 36742525949-success
 development_report: mission-book/reports/RF-007/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T00:10:56Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/RF-007/CORRECTION_REPORT.md
