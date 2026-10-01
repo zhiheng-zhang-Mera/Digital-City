@@ -9,15 +9,14 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: ASSISTANT_DISTRIBUTED_STATE_V2
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T17:26:15Z
 development_branch: assistant/BA-009-duty-permission-policy
 development_head_sha: 9e1de31ba53766758406e991dbacdb8f707b1bfc
-development_ci: 36750981300-BLOCKED_GITHUB_ACCOUNT_BILLING
+development_ci: 36750981300-success-attempt-5
 development_report: mission-book/reports/BA-009/DEVELOPMENT_REPORT.md
-development_blocker: EXTERNAL_GITHUB_ACTIONS_ACCOUNT_BILLING (implementation pushed and locally verified; CI run 36750981300 never started — see report §0; development_complete stays false until a CI run executes)
 correction_status: NOT_STARTED
 correction_complete: false
 correction_host: null

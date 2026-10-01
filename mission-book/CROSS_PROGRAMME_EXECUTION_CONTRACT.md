@@ -100,6 +100,49 @@ The default bounded re-entry cadence is 20 minutes for `TEMPORARILY_UNCLAIMABLE`
 
 Paper/dogfood evidence for the failure that motivated this rule is retained under the Research Institute paper-material library and Utopia paper evidence as `ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01`.
 
+## 4.2 External-state reconciliation and evidence-pointer validation / 外部状态回填与证据指针校验
+
+External systems can change state without a Digital-City commit: a blocked CI run may be re-run, a provider may recover, an approval may arrive, or a previously unavailable device may return. Therefore **task frontmatter is canonical scheduling state, but it is not allowed to remain stale when its referenced external evidence has changed**.
+
+A reconciliation pass is mandatory:
+- immediately after a typed global external blocker is reported recovered;
+- before interpreting a zero-claim scan after such recovery;
+- before declaring a programme component pool drained;
+- before creating a programme merge/integration workbook;
+- before any final/terminal project declaration.
+
+For every stage whose completion depends on an external run/evidence reference, reconciliation MUST verify the live authoritative source and bind all three:
+
+```text
+recorded task branch == evidence head_branch
+recorded task head   == evidence head_sha
+required terminal state == evidence conclusion/status
+```
+
+Rules:
+1. A successful live run on the exact recorded head may close a stale external-block field without changing implementation history.
+2. A run belonging to another branch/task is `EVIDENCE_POINTER_MISMATCH`, even if that run is green. It cannot satisfy the stage.
+3. Historical blocked/failing runs remain in reports/evidence; current frontmatter reflects current scheduling truth.
+4. Dashboards are recomputed only after task-level reconciliation and are never treated as claim locks.
+5. Reconciliation is metadata/control-plane repair only. It must not manufacture product code changes merely to make the control plane look current.
+6. When the external source cannot be queried, preserve the last verified state and report `RECONCILIATION_SOURCE_UNAVAILABLE`; do not guess.
+
+Required reconciliation telemetry:
+
+```text
+reconciliation_started_at
+external_recovery_source
+stale_task_count
+stale_blocker_count
+evidence_pointer_mismatch_count
+repaired_task_ids
+recovery_to_reconciliation_lag
+authoritative_source_refs
+reconciliation_completed_at
+```
+
+Paper/dogfood evidence for the incident that motivated this rule is retained as `CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01` in the Digital-City Research Institute and Utopia evidence stores.
+
 ## 5. External dependencies / 外部依赖
 
 Component tasks MUST NOT block on unfinished sibling programmes.

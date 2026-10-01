@@ -286,3 +286,49 @@ Typed external stop:
     RECOVERY_BLOCKED_ONLY_ON_GITHUB_ACTIONS_ACCOUNT_STATE
 
 No workaround may relabel the typed external stop as success.
+
+## 10. Recovery closure and control-plane reconciliation incident
+
+STATUS: `RECOVERY_CLOSED_WITH_RECONCILIATION_REPAIR`
+
+The GitHub Actions account-level block was removed and the exact blocked heads were re-run without rewriting their implementation history. The seven recovery heads are now green:
+
+| Task | Stage | Run | Attempt | Exact head | Result |
+| --- | --- | ---: | ---: | --- | --- |
+| GAI-004 | Correction | 36750532665 | 4 | `11d5eced3e913cdd0cd9249d55825dedbcc3d5ac` | success |
+| RF-006 | Correction | 36752017760 | 4 | `8fbd71df10535456cddd8146e28b08fd7684d714` | success |
+| BA-007 | Development | 36752540378 | 3 | `8fa4686bb7acb2b57a34a00fe517f6ecaad9769f` | success |
+| BA-009 | Development | 36750981300 | 5 | `9e1de31ba53766758406e991dbacdb8f707b1bfc` | success |
+| EM-012 | Development | 36751919772 | 3 | `364c5160952039d31074af3bfae843c1d0f4be24` | success |
+| EM-013 | Development | 36753243377 | 3 | `5920e8076d317e15142b7d16c8531e529ce587f0` | success |
+| GAI-009 | Development | 36753891511 | 3 | `8dfdf9edcf6f525797de964650b383a916271371` | success |
+
+After the external condition recovered, a second failure mode became visible: **execution truth changed out-of-band, but the Digital-City control plane did not automatically reconcile the recovered state.** Five task frontmatters still labelled successful Development runs as `BLOCKED_GITHUB_ACCOUNT_BILLING`, the Mission Book dashboard still advertised the original all-unclaimed state, and GAI-005 carried a Correction CI pointer to RF-009's run (`36746849199`) rather than its own successful run (`36746845955`).
+
+This is classified as:
+
+`CONTROL_PLANE_STATE_RECONCILIATION_LAG`
+
+It is distinct from the Billing outage itself. The external system had recovered; the remaining error was stale/misattributed control metadata.
+
+Repair applied on 2026-10-01:
+
+- BA-007, BA-009, GAI-009, EM-012 and EM-013 Development frontmatter reconciled to COMPLETE on their exact green heads;
+- the stale Billing blocker fields were removed from current task truth while the historical outage remains preserved in reports and paper evidence;
+- GAI-005 Correction CI provenance corrected to run `36746845955`;
+- the Mission Book dashboard recomputed from task truth;
+- Remote Fabric recorded as `REMOTE_COMPONENT_POOL_DRAINED` and programme integration unlocked;
+- the normative cross-programme contract gained an external-state reconciliation/provenance-validation gate.
+
+Post-reconciliation component truth:
+
+```text
+DEVELOPMENT_GREEN = 41/41
+CORRECTION_COMPLETE = 36/41
+REMOTE_FABRIC = 10/10 DEVELOPMENT + 10/10 CORRECTION
+WAITING_ALIEN_CORRECTION = BA-007, BA-009, GAI-009, EM-012, EM-013
+GITHUB_ACTIONS_ACCOUNT_BLOCK = RECOVERED
+```
+
+The historical §§0–9 above remain an immutable incident snapshot and must not be rewritten to make the outage appear absent.
+

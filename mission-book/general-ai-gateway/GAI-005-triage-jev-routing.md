@@ -22,12 +22,12 @@ correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T16:39:51Z
 correction_head_sha: 8a37f44547557caf9f684b49aa7ec7d06361efc9
-correction_ci: 36746849199-gateway-web-success-android-success
+correction_ci: 36746845955-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-005/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
 
-# GAI-005 �?Deterministic + JEV Triage Routing
+# GAI-005 â€?Deterministic + JEV Triage Routing
 
 ## Goal
 

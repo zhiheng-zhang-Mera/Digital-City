@@ -9,15 +9,14 @@ project_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 architecture_contract: GENERAL_AI_GATEWAY_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T18:14:05Z
 development_branch: general-ai/GAI-009-utopia-surface-integration
 development_head_sha: 8dfdf9edcf6f525797de964650b383a916271371
-development_ci: 36753891511-BLOCKED_GITHUB_ACCOUNT_BILLING
+development_ci: 36753891511-success-attempt-3
 development_report: mission-book/reports/GAI-009/DEVELOPMENT_REPORT.md
-development_blocker: EXTERNAL_GITHUB_ACTIONS_ACCOUNT_BILLING (implementation pushed and locally verified; CI run 36753891511 never started — see report §0; development_complete stays false until a CI run executes)
 correction_status: NOT_STARTED
 correction_complete: false
 correction_host: null

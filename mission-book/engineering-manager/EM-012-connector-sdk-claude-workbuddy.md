@@ -11,15 +11,14 @@ donor_baseline_sha: eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b
 architecture_contract: ENGINEERING_MANAGER_V1
 programme_execution_status: ACTIVE_ASYNC_TWO_HOST_CROSS_PROGRAMME
 cross_programme_contract: mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md
-development_status: IN_PROGRESS
-development_complete: false
+development_status: COMPLETE
+development_complete: true
 development_host: Mech
 development_claimed_at: 2026-09-30T17:36:20Z
 development_branch: engineering-manager/EM-012-connector-sdk-claude-workbuddy
 development_head_sha: 364c5160952039d31074af3bfae843c1d0f4be24
-development_ci: 36751919772-BLOCKED_GITHUB_ACCOUNT_BILLING
+development_ci: 36751919772-success-attempt-3
 development_report: mission-book/reports/EM-012/DEVELOPMENT_REPORT.md
-development_blocker: EXTERNAL_GITHUB_ACTIONS_ACCOUNT_BILLING (implementation pushed and locally verified; CI run 36751919772 never started — see report §0; development_complete stays false until a CI run executes)
 correction_status: NOT_STARTED
 correction_complete: false
 correction_host: null

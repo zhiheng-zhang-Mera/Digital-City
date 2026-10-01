@@ -11,18 +11,22 @@
 > Engineering Manager donor: `DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
 >
 > The old migration/replant workbooks and the exact historical Pre-Assistant workbook remain archived under `./finished/replant/`.
-> Active recovery overlay: [ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md](./ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md). It adds eligibility-aware ~20 minute bounded re-scan for temporary zero-claim states and preserves structural-ineligibility / global-external-block exits.
+> Recovery overlay: [ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md](./ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md). **External GitHub Actions billing block recovered; recovery state reconciled on 2026-10-01.** Eligibility-aware ~20 minute bounded re-scan remains normative for temporary zero-claim states.
 
 ## Current construction dashboard
 
 **Canonical rule:** static host/programme configuration lives in [PROGRAMME_STATE.yaml](./PROGRAMME_STATE.yaml). Dynamic claim/completion truth lives in each task workbook frontmatter and its reports. README/MISSION_INDEX are dashboards and MUST NOT be edited as part of an ordinary task claim.
 
-| Programme | Task pool | Start state | Baseline | Merge |
-|---|---|---|---|---|
-| Butler Assistant | BA-001..BA-009 | READY / all unclaimed | `82ed36933fb4c5b00e44768d9e1aedec1d525d9c` | locked until BA pool drains |
-| Remote Fabric | RF-001..RF-010 | READY / all unclaimed | `82ed36933fb4c5b00e44768d9e1aedec1d525d9c` | locked until RF pool drains |
-| General AI Gateway | GAI-001..GAI-009 | READY / all unclaimed | `82ed36933fb4c5b00e44768d9e1aedec1d525d9c` | locked until GAI pool drains |
-| Engineering Manager | EM-001..EM-013 | READY / all unclaimed | `82ed36933fb4c5b00e44768d9e1aedec1d525d9c` | locked until EM pool drains |
+Reconciled control-plane snapshot (2026-10-01):
+
+`DEVELOPMENT_GREEN=41/41` · `CORRECTION_COMPLETE=36/41` · `REMOTE_COMPONENT_POOL_DRAINED=true` · `GITHUB_ACTIONS_EXTERNAL_BLOCK=RECOVERED`
+
+| Programme | Task pool | Development | Correction | Merge / next stage |
+|---|---|---:|---:|---|
+| Butler Assistant | BA-001..BA-009 | **9/9 green** | **7/9 complete** — BA-007/009 await Alien | locked until BA corrections drain |
+| Remote Fabric | RF-001..RF-010 | **10/10 green** | **10/10 complete** | **component pool drained; programme integration unlocked** |
+| General AI Gateway | GAI-001..GAI-009 | **9/9 green** | **8/9 complete** — GAI-009 awaits Alien | locked until GAI-009 Correction |
+| Engineering Manager | EM-001..EM-013 | **13/13 green** | **11/13 complete** — EM-012/013 await Alien | locked until EM-012/013 Corrections |
 
 Available physical build hosts are **Alien and Mech**. Both are authorized to start immediately under the cross-programme asynchronous dispatcher.
 
