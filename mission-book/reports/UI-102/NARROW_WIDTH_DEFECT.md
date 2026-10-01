@@ -79,6 +79,37 @@ At 320 dp @ 1.5 — the hardest in-scope case — the bar reads `Home · Ask · 
 Activity` in full and the lime `ONLINE` pill sits on one line beside the wordmark. The
 defect that motivated the change is resolved across the specified range.
 
+### 4.1 Cross-check: the tree and the pixels now agree, and where they still cannot
+
+Because this task got the tree-versus-pixels question wrong twice, the two instruments were
+compared directly on the same five captures rather than trusting either alone:
+
+```text
+capture              labels in tree   longest label bound                max right edge
+v2-360dp-font1.0     5/5              Activity[611..685] = 74 px         720 = viewport
+v2-360dp-font1.5     5/5              Activity[592..704] = 112 px        720 = viewport
+v2-320dp-font1.3     5/5              Activity[529..623] = 94 px         640 = viewport
+v2-320dp-font1.5     5/5              Activity[520..632] = 112 px        640 = viewport
+v2-160dp-font1.5     5/5              Activity[264..312] = 48 px         320 = viewport
+```
+
+Two things this establishes:
+
+1. **At the in-scope sizes the tree and the pixels agree**, and the longest label fits its
+   slot with room to spare — 112 px in a 128 px slot at 320 dp, and 112 px in a 144 px slot at
+   360 dp. The tree reports text bounds at the size actually rendered, so it corroborates the
+   screenshot instead of merely restating the string.
+2. **The 160 dp row is structurally indistinguishable from the rows that render correctly.**
+   It also reports 5/5 full labels with every bound inside the viewport, exactly like the
+   320 dp row — while the screenshot of that same file shows `Ho`/`As`/`Ro`/`De`/`Ac`. That is
+   the cleanest available proof of the method point in §8: a dump cannot separate a correct
+   render from a clipped one, because the clipping happens inside the bounds it reports.
+
+The label bounds do not reveal which rung of the 11/10/9 sp ladder was chosen, so this
+cross-check does not confirm the step-down engaged — only that the rendered result fits. The
+ladder's arithmetic is unit-tested; that it engages in a real composition rests on the
+screenshots.
+
 ## 5. Residual limit, recorded rather than hidden
 
 **At 160 dp @ 1.5 the labels still clip, and the icon-only fallback does not engage.** The
