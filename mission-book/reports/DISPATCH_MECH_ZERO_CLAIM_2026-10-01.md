@@ -3,6 +3,12 @@
 > 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
 > 本记录是 §5 要求的零领取 telemetry 记录，**不是** task claim，也不是看板更新。
 > Host: `Mech`。扫描时点：`2026-10-01T11:20Z`。
+>
+> **后续更正（同日，由 Mech 追加，不改写上面的历史观测）：** 本记录写下后，Mech 在同一次扫描窗口内
+> 对自己的交付物做了一次复检，发现 17 个"渲染出来但什么都不做"的控件，并完成修正。因此 UI-000 的
+> Development head 从 `905e9ff`（CI 36854042480）移动到 `6059252`（CI 36855082899），两处 CI 均为
+> success。本记录第 1 节与 §5 reconciliation 中的 head 是**当时**的已验证真相，保留不动；当前真相以
+> workbook frontmatter 与 `DEVELOPMENT_REPORT.md` 为准。Mech 的零领取分类本身未改变。
 
 ## 1. 扫描时读取的权威事实
 
@@ -83,8 +89,9 @@ Review 可直接使用、且 Mech 已验证过的机器可读证据：
 
 ```text
 apps/web/candidates/shared/facts.js          29 capabilities + 20 demoted technical fields
-apps/web/candidates/shared/parity-probes.js  探针契约（SURFACE_PROBES / TECHNICAL_PROBES / ASK_PROBES）
-scripts/ui-000/parity.mjs                    node scripts/ui-000/parity.mjs  -> 285/285 PASS
+apps/web/candidates/shared/parity-probes.js  探针契约（SURFACE_PROBES / TECHNICAL_PROBES / ASK_PROBES / ACTION_PROBES）
+apps/web/candidates/shared/runtime.js        三套候选共用的本地运行时（每个控件都作用在它上面）
+scripts/ui-000/parity.mjs                    node scripts/ui-000/parity.mjs  -> 324/324 PASS（含 7 个动作的真实点击）
 tests/ui-000-candidates.test.mjs             node --test tests/ui-000-candidates.test.mjs -> 5/5
 evidence/raw/mission-book/UI-000/            有界截图证据 + parity-report.md
 ```

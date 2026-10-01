@@ -11,15 +11,23 @@ CONSTRUCTION_RULES         = mission-book/CONSTRUCTION_RULES.md (current head)
 BASELINE_POLICY            = CLAIM_TIME_MAIN
 BASELINE_SHA               = e7c498f5acd86da324a45c3278219c8daa612561
 BRANCH                     = ui/UI-000-visual-direction-candidates
-HEAD_SHA                   = 905e9ff97d21cd282601a819af1e69acc455af99
+HEAD_SHA                   = 6059252e318503fc3161235eb6099cf59ca34c61
+DEVELOPMENT_CI             = 36855082899-success-android-and-gateway-web
+FIRST_HEAD_SHA             = 905e9ff97d21cd282601a819af1e69acc455af99
+FIRST_HEAD_CI              = 36854042480-success-android-and-gateway-web
 CLAIMED_AT                 = 2026-10-01T20:30:19Z
 DEVELOPMENT_COMPLETE       = true
 REVIEW_HOST                = Alien (NOT claimed — see §9)
 OWNER_GATE                 = STYLE_SELECTION (waiting, see §9)
 ```
 
-> `HEAD_SHA` is the Development head. `DEVELOPMENT_CI` is recorded in the workbook frontmatter and
-> re-verified with the control-plane reconciliation in §9 before this mission is treated as reviewable.
+> `HEAD_SHA` is the current Development head. It is the **second** head on this branch: the first
+> (`905e9ff`, CI green) was superseded by a defect fix found during Mech's own post-completion
+> re-verification — see §4 D9 and §8. Both heads and both hosted-CI runs are recorded so the review
+> host sees that the branch moved and why, rather than finding an unexplained SHA change.
+>
+> `DEVELOPMENT_CI` is re-verified with the control-plane reconciliation in §9 before this mission is
+> treated as reviewable.
 
 ---
 
@@ -42,7 +50,8 @@ Delivered:
 | Candidate B · Atlas / 工作台 | `apps/web/candidates/b/` |
 | Candidate C · Prism / 剧场 | `apps/web/candidates/c/` |
 | Real SVG icon system (replaces `◈ ▦ ◇ ≋ ◉ ▤ ≣ ⊞ ⚙ ▣`) | `apps/web/candidates/shared/icons.js` |
-| Parity contract (29 capabilities + 20 demoted technical fields) | `apps/web/candidates/shared/parity-probes.js` |
+| Parity contract (29 capabilities + 20 demoted technical fields + 7 actions) | `apps/web/candidates/shared/parity-probes.js` |
+| Shared local runtime — every control acts on one model | `apps/web/candidates/shared/runtime.js` |
 | Parity runner (real browser) | `scripts/ui-000/parity.mjs` |
 | Screenshot harness | `scripts/ui-000/screenshot.mjs` |
 | Android Compose representative screens | `apps/android/app/src/main/java/city/utopia/control/ui000/CandidateGallery.kt` |
@@ -106,7 +115,7 @@ problem, the choice and the reasoning. These are all of them.
 - **Reasoning.** (b) can lie: a hand-written list is not evidence about the DOM. (c) fails if a value
   was dropped, and the contract test additionally asserts that **every** capability has a probe, so
   coverage cannot quietly shrink.
-- **Result.** 285/285 probes pass.
+- **Result.** 324/324 probes pass (108 per candidate).
 
 ### D2 — Probes that would have punished correct demotion
 
@@ -187,6 +196,34 @@ Two probe tokens accept a family rather than one literal, and the review host sh
 `event-seq` accepts `41` without a `#` prefix (candidate A prefixes nothing). Both are paired with a
 `TECHNICAL_PROBES` entry that checks the concrete value, so a real loss still fails.
 
+### D9 — A control that does nothing is a defect, not a prototype shortcut
+
+- **Problem.** After the first head was published (CI green), Mech re-scanned its own deliverable and
+  found **17 controls across the three directions that rendered but did nothing** (`onclick: () => {}`):
+  room launch, hub launch, capability invoke, demo task, task cancel, pairing generation, token
+  replacement. Every one of them was in the parity contract's blind spot: the probes proved that the
+  same facts were *displayed*, never that the same facts could be *produced*.
+- **Options.** (a) leave them — "they are only prototypes"; (b) delete the controls that do not work;
+  (c) give every control real behaviour and make parity prove it.
+- **Choice.** (c).
+- **Reasoning.** (a) is the worst option: a dead button is a false affordance, and the workbook's rule
+  is that the three directions "share the same functional facts" — a control that does nothing is a
+  removed function presented as present, which is exactly the failure mode the rule exists to stop.
+  (b) would delete product function to make the artefact tidy, which §9 forbids. (c) is also the only
+  option that turns the *similarity* claim into something a machine can check.
+- **Why it was not left to the review host.** Review may repair in-scope defects, but knowingly
+  publishing a defect and relying on the reviewer to catch it is not a completion gate being met.
+- **Cost of doing it properly.** A shared `shared/runtime.js` had to exist first: if each direction
+  implemented the actions itself, the three would drift and behaviour parity would become a third
+  unverifiable claim. All three now import one deterministic local model.
+- **What the fix exposed.** Two genuine, previously invisible **parity gaps**, not just dead code:
+  candidate B had **no per-room launch control at all**, and candidate A had **no hub-launch control**.
+  Both were added. This is the strongest available argument that the fix was not cosmetic.
+- **New machine checks.** `ACTION_PROBES` clicks each control by label and asserts the produced fact;
+  `openRoom`/`openHub` additionally assert that a real navigation happened (`window.open` target URL,
+  not just rendered text). The contract test bans `=> {}` from returning and requires every
+  `runtime.ACTIONS` entry to have a probe.
+
 ## 5. Verification actually performed (Development host)
 
 ```text
@@ -196,12 +233,16 @@ node city/test-all.mjs                    -> fail 0 (7 skipped by design)
 node scripts/check-bilingual.mjs          -> docs / evidence / data-records = SYNCHRONIZED
 node scripts/verify-promotion-history.mjs -> 10 record(s) verified at e7c498f5acd8
 node --test tests/ui-000-candidates.test.mjs -> tests 5 | pass 5 | fail 0
-node scripts/ui-000/parity.mjs            -> 285/285 probes, PASS (a 95, b 95, c 95)
+node scripts/ui-000/parity.mjs            -> 324/324 probes, PASS (a 108, b 108, c 108)
 apps/android: gradlew.bat --offline :app:testDebugUnitTest :app:assembleDebug -> BUILD SUCCESSFUL
 ```
 
+The parity run covers four passes per candidate: surface facts, demoted technical values after
+`revealAll()`, Ask/Do states, and — since D9 — the seven actions actually clicked.
+
 `CANDIDATE_SHOTS`: every candidate was rendered at 1440×960 **and** 414×896 across all ten surfaces,
-with no page errors, plus candidate C's spotlight overlay.
+with no page errors, plus candidate C's spotlight overlay. `0` empty handlers remain in the three
+candidates.
 
 ## 6. Boundaries — what was deliberately NOT done
 
@@ -215,18 +256,37 @@ with no page errors, plus candidate C's spotlight overlay.
 - **No review was performed by Mech.** `CONSTRUCTION_RULES.md` §3 forbids one host doing both roles,
   and no second-host stand-in was invented (§9).
 - **Not claimed:** real cross-device behaviour, provider/login acceptance, or accessibility conformance
-  beyond what the designs implement. The parity runner proves *presence of facts*, not usability.
+  beyond what the designs implement. The parity runner proves *presence and production of facts*, not
+  usability.
+- **Not claimed: the candidate actions are not the real Gateway.** `shared/runtime.js` is a local,
+  deterministic model. `openRoom`/`openHub` perform a real navigation to the real Room Hub deep link,
+  but invoke / demo-task / cancel / pairing / disconnect simulate the same state transitions locally
+  rather than calling `/api/v0/*`. Wiring them to the live Gateway belongs to UI-101..103, inside the
+  boundaries those workbooks set; the prototypes must not be mistaken for an integrated client.
 
 ## 7. Evidence pointers
 
 ```text
 Utopia branch            ui/UI-000-visual-direction-candidates
-Utopia head              905e9ff97d21cd282601a819af1e69acc455af99
-Published evidence       evidence/raw/mission-book/UI-000/            (23 files, 2.79 MB)
+Utopia head              6059252e318503fc3161235eb6099cf59ca34c61
+Utopia head CI           36855082899 (android + gateway-web, success)
+Superseded head          905e9ff97d21cd282601a819af1e69acc455af99 (CI 36854042480) — see D9
+Published evidence       evidence/raw/mission-book/UI-000/            (24 files, 2.80 MB)
 Full raw run             .runtime/evidence/mission-book/UI-000/       (80 files, 6.06 MB, git-ignored)
 Parity report            evidence/raw/mission-book/UI-000/parity-report.md
 How it was produced      evidence/raw/mission-book/UI-000/README.md
 ```
+
+## 7a. Reconciliation before handoff (§7)
+
+```text
+recorded branch == evidence head_branch     ui/UI-000-visual-direction-candidates                          OK
+recorded head   == evidence head_sha        6059252e318503fc3161235eb6099cf59ca34c61                     OK
+required terminal state == evidence conclusion  run 36855082899 == success (android + gateway-web)       OK
+```
+
+`EVIDENCE_POINTER_MISMATCH` is absent. A stale pointer to `905e9ff` existed for part of this round and
+was corrected rather than left, which is precisely what §7 exists to catch.
 
 ## 8. Disclosure — this host's own errors, found and repaired
 
@@ -237,9 +297,12 @@ Recorded because the workbook asks for it and because two of them were substanti
    the runner searched `innerText + innerHTML`, so tokens matched the *attribute values*. Switching the
    runner to `textContent` collapsed it to 9/95 and exposed the defect. Without that change the
    candidates would have shipped with missing labels and a green check. Repaired in all three candidates.
-2. **Candidate C opened a dead control.** Each room poster called a function that just re-opened the
-   same page, and the posters carried no technical disclosure at all. Replaced with a real
-   `运行详情` block; the dead function was deleted.
+2. **17 controls did nothing.** First found as one instance in candidate C (a room poster whose handler
+   re-opened the same page); the real scope was 17 across all three directions, and it survived the
+   first green CI run because the parity contract only proved facts were *displayed*, never that they
+   could be *produced*. Fixed in full — see §4 D9 — and the fix exposed two genuine parity gaps
+   (candidate B had no per-room launch control; candidate A had no hub-launch control). The first
+   published head `905e9ff` was therefore superseded by `6059252`.
 3. **Candidate B's Atlas rows read value-then-label on Android**, which rendered as trailing
    annotations. Corrected to label-then-value.
 4. **Two "failures" were mine, not the product's.** `capability-adapters` and `city-roads` failed in
@@ -251,6 +314,9 @@ Recorded because the workbook asks for it and because two of them were substanti
 5. **Two Android capture attempts produced wrong images** — three splash screens, then the same
    direction three times — before the real causes (`exported="false"`, instance reuse, ~23 s first
    frame, and a system ANR dialog) were found. The harness now encodes all four.
+6. **The `HEAD_SHA` in this report was briefly stale.** After the D9 fix the branch head moved from
+   `905e9ff` to `6059252`; §7a reconciliation caught the stale pointer and it was corrected rather
+   than left for the review host to discover.
 
 ## 9. State after Development, and what unblocks Review
 
