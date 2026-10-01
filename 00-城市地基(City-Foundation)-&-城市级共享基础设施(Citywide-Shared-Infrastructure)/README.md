@@ -32,5 +32,13 @@ Boss already provides Chat/Work, WorkBook, Provider Manager, Owner Dashboard and
 4. [City Roads](./04-城市道路(City-Roads)-&-跨域语义契约(Cross-Domain-Semantic-Contracts)/)
 5. [Control Centre](./05-城市控制中心(City-Control-Centre)-&-人机控制界面(Human-Control-Surface)/)
 
+## Reference-only architecture notes
+
+The following directory is deliberately **not** a sixth infrastructure slot and is **not** part of the City runtime contract:
+
+- [Hardware & Network Reference](./90-硬件网络参考(Hardware-Network-Reference)-&-非约束部署参考(Non-Binding-Deployment-Reference)/) — future dual-Linux / multi-Windows / macOS / mobile topology reference and hardware-independence notes.
+
+Its content is advisory. Current device availability and runtime evidence override the reference topology. Planned Mac/Linux/iPhone/HarmonyOS devices must not become current task prerequisites merely because they appear in that directory.
+
 ## Boundary
 Union does not erase scope. Hns local registries/resource managers may donate mechanics or signals without becoming city-global truth/authority.
