@@ -17,12 +17,12 @@ development_branch: remote/RF-008-typed-rpc-event-stream-commands
 development_head_sha: 761685b28fabdc0cb2d2dfe9f47e170d4fe82752
 development_ci: 36744638449-success
 development_report: mission-book/reports/RF-008/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T00:26:05Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 4d974da6f18ec16b570bbc33709136188a5b05e2
+correction_ci: 36796873900-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-008/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ---
