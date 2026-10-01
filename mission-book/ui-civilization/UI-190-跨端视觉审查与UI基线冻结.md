@@ -3,12 +3,15 @@ workbook_id: UI-190
 phase: UI_CIVILIZATION
 sequence: 190
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UI-101", "UI-102", "UI-103"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_claimed_at: 2026-10-01T16:02:00Z
+development_branch: ui/UI-190-ui-baseline-freeze
+development_baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
+development_direction_source: UI-000 adopted direction C2; the three component branches ui/UI-101-web-product-shell (aafff56), ui/UI-102-android-product-shell (ed4a663) and ui/UI-103-rooms-visual-unification (dcde3af) are the inputs this task integrates and freezes
 development_head_sha: null
 development_ci: null
 development_complete: false
