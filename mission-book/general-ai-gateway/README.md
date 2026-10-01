@@ -1,4 +1,8 @@
 # General AI Gateway Engineering / 通用 AI 网关工程
+<!-- COMPONENT-STAGE-STATUS -->
+> General AI Gateway: **9/9 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
+> Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
+<!-- /COMPONENT-STAGE-STATUS -->
 
 This folder defines the asynchronous two-host engineering programme for **General AI Gateway**.
 
@@ -153,15 +157,15 @@ The purpose is to keep both lines productive without weakening independent corre
 
 | ID | Subproject | Development | Correction | Merge |
 |---|---|:---:|:---:|:---:|
-| [GAI-001](./GAI-001-core-contracts-action-vocabulary.md) | Core contracts + Action vocabulary | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-002](./GAI-002-provider-model-account-registry.md) | Provider/model/account registry | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-003](./GAI-003-web-channel-persistent-session.md) | Web-first channel + persistent sessions | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-004](./GAI-004-api-channel-consent-budget.md) | API channel + consent + budget | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-005](./GAI-005-triage-jev-routing.md) | Deterministic/JEV triage + routing policy | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-006](./GAI-006-conversation-input-stream-cancel.md) | Conversation/InputBundle/stream/cancel | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-007](./GAI-007-device-aware-remote-execution.md) | Device-aware remote execution/result return | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-008](./GAI-008-health-resilience-degradation.md) | Health/resilience/honest degradation | 🔴 | 🔴 | FORBIDDEN |
-| [GAI-009](./GAI-009-utopia-surface-integration.md) | Ask/Do + Action + Web/Android integration | 🔴 | 🔴 | FORBIDDEN |
+| [GAI-001](./GAI-001-core-contracts-action-vocabulary.md) | Core contracts + Action vocabulary | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-002](./GAI-002-provider-model-account-registry.md) | Provider/model/account registry | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-003](./GAI-003-web-channel-persistent-session.md) | Web-first channel + persistent sessions | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-004](./GAI-004-api-channel-consent-budget.md) | API channel + consent + budget | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-005](./GAI-005-triage-jev-routing.md) | Deterministic/JEV triage + routing policy | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-006](./GAI-006-conversation-input-stream-cancel.md) | Conversation/InputBundle/stream/cancel | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-007](./GAI-007-device-aware-remote-execution.md) | Device-aware remote execution/result return | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-008](./GAI-008-health-resilience-degradation.md) | Health/resilience/honest degradation | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
+| [GAI-009](./GAI-009-utopia-surface-integration.md) | Ask/Do + Action + Web/Android integration | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE |
 
 ## Hard merge lock
 
@@ -216,3 +220,16 @@ This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS
 - Real provider/login and real two-device transport proof are programme-integration gates. If temporarily unavailable, record the seam and keep draining the global component pool.
 - Waiting CI/external checks do not idle a host; use separate worktrees and claim another eligible stage.
 - After GAI-001..GAI-009 drain, create the GAI merge workbook immediately. Integrate everything possible on then-current main. If Remote Fabric or a required real provider proof is not ready, park only the final E2E gate as `INTEGRATED_WAITING_EXTERNAL_SEAM` and return the host to the global pool.
+
+## Component stage status — 2026-10-01
+
+GAI-001..GAI-009 are **9/9 two-stage complete**: every task was developed by Mech and corrected by Alien on
+opposite physical hosts, with a pushed corrected head, hosted CI green and a correction report under
+`../reports/<ID>/CORRECTION_REPORT.md`. The round the Owner requested closed GAI-009 (head `4e65e26`, run
+36820218698), whose correction report records six repaired mechanisms, eleven Alien regressions and the
+author-encoded canonical-reference boundary.
+
+The GAI merge workbook is **eligible and not yet created**; no GAI branch is merged to Utopia main. Real
+provider/login proof and real two-device transport proof remain **programme-integration gates** and are still
+open: no hosted run in the component stage claimed a real provider acceptance, and the correction reports record
+`REAL_PROVIDER_ACCEPTANCE_PENDING`-style seams rather than fabricating one.

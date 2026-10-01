@@ -1,4 +1,8 @@
 # Engineering Manager / 工程经理 — Asynchronous Engineering Programme
+<!-- COMPONENT-STAGE-STATUS -->
+> Engineering Manager: **13/13 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
+> Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
+<!-- /COMPONENT-STAGE-STATUS -->
 
 This folder is the permanent Mission Book name for the **Engineering Manager** programme. Future work in this capability family continues under `mission-book/engineering-manager/`; do not create a new Hns/Codex-specific mission folder for each provider.
 
@@ -264,19 +268,19 @@ Missing sibling implementations are represented by the stable ports above plus d
 
 | ID | Subproject | Development | Correction | Merge |
 |---|---|:---:|:---:|:---:|
-| [EM-001](./EM-001-core-contracts-boundaries.md) | Core contracts + ownership boundaries | 🔴 | 🔴 | FORBIDDEN |
-| [EM-002](./EM-002-connector-adapter-process-runtime.md) | Connector adapter framework + generic process runtime | 🔴 | 🔴 | FORBIDDEN |
-| [EM-003](./EM-003-job-result-artifact-protocol.md) | Job / event / result / artifact protocol | 🔴 | 🔴 | FORBIDDEN |
-| [EM-004](./EM-004-capability-probe-auth-registry.md) | Capability/probe/auth/instance registry | 🔴 | 🔴 | FORBIDDEN |
-| [EM-005](./EM-005-attention-recent-device-alerts.md) | Attention bridge + recent-device notification/ring | 🔴 | 🔴 | FORBIDDEN |
-| [EM-006](./EM-006-local-first-subworker-placement.md) | Local-first Sub-worker resource/placement gate | 🔴 | 🔴 | FORBIDDEN |
-| [EM-007](./EM-007-remote-subworker-return-control.md) | Remote Sub-worker + automatic return/control | 🔴 | 🔴 | FORBIDDEN |
-| [EM-008](./EM-008-credential-profile-session.md) | Credential/profile/session persistence | 🔴 | 🔴 | FORBIDDEN |
-| [EM-009](./EM-009-runtime-health-restart-recovery.md) | Runtime ownership + health/restart/recovery | 🔴 | 🔴 | FORBIDDEN |
-| [EM-010](./EM-010-foreman-scheduler-dag-worker-pool.md) | Foreman queue/DAG/resource/worker pool | 🔴 | 🔴 | FORBIDDEN |
-| [EM-011](./EM-011-deepseek-codex-reference-connectors.md) | DeepSeek Harness + Codex reference connectors | 🔴 | 🔴 | FORBIDDEN |
-| [EM-012](./EM-012-connector-sdk-claude-workbuddy.md) | Connector SDK + Claude Code/WorkBuddy extension paths | 🔴 | 🔴 | FORBIDDEN |
-| [EM-013](./EM-013-utopia-task-surface-integration.md) | Shared Task Core + Utopia control surface integration | 🔴 | 🔴 | FORBIDDEN |
+| [EM-001](./EM-001-core-contracts-boundaries.md) | Core contracts + ownership boundaries | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-002](./EM-002-connector-adapter-process-runtime.md) | Connector adapter framework + generic process runtime | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-003](./EM-003-job-result-artifact-protocol.md) | Job / event / result / artifact protocol | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-004](./EM-004-capability-probe-auth-registry.md) | Capability/probe/auth/instance registry | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-005](./EM-005-attention-recent-device-alerts.md) | Attention bridge + recent-device notification/ring | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-006](./EM-006-local-first-subworker-placement.md) | Local-first Sub-worker resource/placement gate | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-007](./EM-007-remote-subworker-return-control.md) | Remote Sub-worker + automatic return/control | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-008](./EM-008-credential-profile-session.md) | Credential/profile/session persistence | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-009](./EM-009-runtime-health-restart-recovery.md) | Runtime ownership + health/restart/recovery | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-010](./EM-010-foreman-scheduler-dag-worker-pool.md) | Foreman queue/DAG/resource/worker pool | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-011](./EM-011-deepseek-codex-reference-connectors.md) | DeepSeek Harness + Codex reference connectors | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-012](./EM-012-connector-sdk-claude-workbuddy.md) | Connector SDK + Claude Code/WorkBuddy extension paths | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
+| [EM-013](./EM-013-utopia-task-surface-integration.md) | Shared Task Core + Utopia control surface integration | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE |
 
 ## Hard merge lock
 
@@ -339,3 +343,16 @@ This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS
 - Eligible Correction by the opposite host is preferred over starting another EM Development, but either host may take work from any of the four programmes whenever that is the next eligible global stage.
 - Hosted CI, long tests and provider waits do not idle the machine; retain the claim and continue another stage in a separate worktree.
 - After EM-001..EM-013 drain, create the EM merge workbook immediately. If real remote E2E is not yet available, complete all independent integration and park only the final seam as `INTEGRATED_WAITING_EXTERNAL_SEAM`.
+
+## Component stage status — 2026-10-01
+
+EM-001..EM-013 are **13/13 two-stage complete**: every task was developed by Mech and corrected by Alien on
+opposite physical hosts, with a pushed corrected head, hosted CI green and a correction report under
+`../reports/<ID>/CORRECTION_REPORT.md`. The round the Owner requested closed EM-012 (head `e4afd5e`, run
+36821442088; connector SDK / Claude Code / WorkBuddy extension paths) and EM-013 (head `0ef455e`, run
+36822830353; Shared Task Core + Utopia control surface).
+
+The EM merge workbook is **eligible and not yet created**; no EM branch is merged to Utopia main. Real
+third-party connector acceptance (Claude Code, WorkBuddy) and real remote E2E remain
+**programme-integration gates**: the component stage kept those products' absence a typed
+`REAL_PROVIDER_ACCEPTANCE_PENDING` seam and never fabricated an installation or a run.

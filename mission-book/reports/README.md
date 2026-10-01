@@ -2,6 +2,24 @@
 
 本目录只保存 **快速施工结论**，供 Hns、验证主机和 Owner 在领取下一项工作时快速读取。
 
+## 当前布局 — BA/RF/GAI/EM 组件阶段（2026-10-01，41/41 两阶段完成）
+
+```text
+reports/
+└─ <TASK-ID>/                     # BA-001..BA-009 · RF-001..RF-010 · GAI-001..GAI-009 · EM-001..EM-013
+   ├─ DEVELOPMENT_REPORT.md       # Development 阶段，由 development_host 撰写
+   └─ CORRECTION_REPORT.md        # Correction 阶段，由另一台物理主机撰写（全部 41 项均已存在）
+```
+
+`CORRECTION_REPORT.md` 的必备内容：任务/角色/claim 提交与时间、组件基线、Development head 与 CI、
+correction 分支/head 与托管 CI、独立对抗式审查方法与探针、逐条修复机制表（含缺陷类别）、本机测试摘要
+（修正后 vs Development head 的对照基线）、**边界**（作者编码、故意不修的原因）、审查完整性说明、以及
+公开披露（含本机自身错误）。工作簿 frontmatter 是动态事实源；本目录只保存结论，完整日志、截图与 CI
+artifact 留在实现仓库的 evidence 目录。
+
+以下 `MB-xxx` 格式属于较早的 assessment/migration/verification 阶段（`finished/replant/` 时期），作为历史
+格式保留，不再用于 BA/RF/GAI/EM 组件任务。
+
 ## 目录
 
 ```text

@@ -1,4 +1,8 @@
 # Butler Assistant Engineering / 管家助理工程
+<!-- COMPONENT-STAGE-STATUS -->
+> Butler Assistant: **9/9 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
+> Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
+<!-- /COMPONENT-STAGE-STATUS -->
 
 This folder defines the active subprojects for the standalone Butler & Companion Zone.
 
@@ -61,3 +65,13 @@ This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS
 - Waiting CI/external checks do not idle a host; keep the claim and continue another eligible stage in a separate worktree.
 - BA component work never waits for RF/GAI/EM implementations. Use stable contracts/doubles and record integration seams.
 - After BA-001..BA-009 drain, create the BA merge workbook immediately. Butler has no hard dependency on another programme's terminal state.
+
+## Component stage status — 2026-10-01
+
+BA-001..BA-009 are **9/9 two-stage complete**: every task records `development_complete = true` (Mech) and
+`correction_complete = true` (Alien) with a pushed corrected head and hosted CI green, and each task's
+correction report is under `../reports/<ID>/CORRECTION_REPORT.md`. The correction round the Owner requested on
+2026-10-01 closed BA-007 (head `f8f15af`, run 36817491957) and BA-009 (head `2abf8d4`, run 36818585688).
+
+The BA merge workbook is **eligible and not yet created**; no BA branch is merged to Utopia main. Creating and
+running that merge workbook is the next, Owner-authorized stage.

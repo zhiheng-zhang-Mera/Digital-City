@@ -332,3 +332,39 @@ GITHUB_ACTIONS_ACCOUNT_BLOCK = RECOVERED
 
 The historical §§0–9 above remain an immutable incident snapshot and must not be rewritten to make the outage appear absent.
 
+---
+
+## Appendix — component-stage closeout (2026-10-01, after the Owner-requested Correction round)
+
+The incident snapshot above stops at `CORRECTION_COMPLETE = 36/41`. The five Corrections it lists as
+`WAITING_ALIEN_CORRECTION` were subsequently executed by host Alien (Development by Mech) and are closed; each
+records its own corrected head, hosted-CI run, repaired mechanisms, Alien regressions that fail on the
+Development head, author-encoded boundaries and a disclosure section:
+
+```text
+BA-007   head f8f15af835e6ea04921142403c1c33584364d451   run 36817491957   reports/BA-007/CORRECTION_REPORT.md
+BA-009   head 2abf8d47ad0663c175779ab9a3057594d2db86ab   run 36818585688   reports/BA-009/CORRECTION_REPORT.md
+GAI-009  head 4e65e265eba4bb346924d1c078955a587e9e199f   run 36820218698   reports/GAI-009/CORRECTION_REPORT.md
+EM-012   head e4afd5ea5a822b481a93771b4b33041d64e29cb8   run 36821442088   reports/EM-012/CORRECTION_REPORT.md
+EM-013   head 0ef455eabbdf54a7edfd975fa0fe82eb89690ca6   run 36822830353   reports/EM-013/CORRECTION_REPORT.md
+```
+
+```text
+FINAL COMPONENT TRUTH (2026-10-01, generated from task workbook frontmatter)
+DEVELOPMENT_GREEN                                = 41/41
+CORRECTION_COMPLETE                              = 41/41
+OPPOSITE_PHYSICAL_HOSTS_ON_EVERY_TASK            = true
+COMPONENT_BRANCHES_MERGED_TO_UTOPIA_MAIN          = 0
+MERGE_WORKBOOKS_CREATED                          = 0/4
+ACTIONABLE_OWNED_REPAIR                          = 0
+ELIGIBLE_CORRECTION_OTHER_HOST                   = 0
+UNCLAIMED_DEVELOPMENT                            = 0
+DEVELOPMENT_IN_PROGRESS_BY                       = 0
+```
+
+The four component pools are drained, so every programme merge workbook is eligible, but no merge workbook has
+been created and no component branch is merged to Utopia main. The merge stage is separate, Owner-authorized work
+that has not started. Real provider/login acceptance, real two-device transport E2E and real third-party connector
+acceptance (Claude Code, WorkBuddy) remain open programme-integration gates and were never fabricated during the
+component stage. The incident snapshot above is unchanged.
+

@@ -1,5 +1,5 @@
 schema_version: 1
-updated_date: 2026-09-30
+updated_date: 2026-10-01
 control_repo: zhiheng-zhang-Mera/Digital-City
 implementation_repo: zhiheng-zhang-Mera/Utopia
 unified_component_baseline_sha: 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
@@ -10,34 +10,66 @@ authority:
   evidence: mission-book/reports/<TASK-ID>/
   dashboards_are_authoritative: false
 
+component_stage:
+  status: COMPLETE
+  tasks_total: 41
+  development_complete: 41
+  correction_complete: 41
+  opposite_physical_hosts_on_every_task: true
+  component_branches_merged_to_utopia_main: 0
+  merge_workbooks_created: 0
+  # Recorded 2026-10-01 after the Owner-requested Correction round closed BA-007, BA-009, GAI-009, EM-012, EM-013.
+  final_scan:
+    actionable_owned_repair: 0
+    eligible_correction_other_host: 0
+    unclaimed_development: 0
+    development_in_progress_by: 0
+
 hosts:
-  Alien: AVAILABLE
-  Mech: AVAILABLE
+  Alien: AVAILABLE_IDLE_NO_ELIGIBLE_COMPONENT_WORK
+  Mech: AVAILABLE_IDLE_NO_ELIGIBLE_COMPONENT_WORK
 
 programmes:
   butler_assistant:
     tasks: BA-001..BA-009
-    status: READY
-    component_pool_started: false
+    status: COMPONENT_POOL_DRAINED
+    component_pool_started: true
+    development_complete: 9
+    correction_complete: 9
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
+    merge_gate_satisfied: true
+    merge_workbook: NOT_CREATED
   remote_fabric:
     tasks: RF-001..RF-010
-    status: READY
-    component_pool_started: false
+    status: COMPONENT_POOL_DRAINED
+    component_pool_started: true
+    development_complete: 10
+    correction_complete: 10
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
+    merge_gate_satisfied: true
+    merge_workbook: NOT_CREATED
   general_ai_gateway:
     tasks: GAI-001..GAI-009
-    status: READY
-    component_pool_started: false
+    status: COMPONENT_POOL_DRAINED
+    component_pool_started: true
+    development_complete: 9
+    correction_complete: 9
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
+    merge_gate_satisfied: true
+    merge_workbook: NOT_CREATED
   engineering_manager:
     tasks: EM-001..EM-013
-    status: READY
-    component_pool_started: false
+    status: COMPONENT_POOL_DRAINED
+    component_pool_started: true
+    development_complete: 13
+    correction_complete: 13
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
+    merge_gate_satisfied: true
+    merge_workbook: NOT_CREATED
 
 global_dispatch:
   enabled: true
+  state: IDLE_NO_ELIGIBLE_COMPONENT_WORK
   cross_programme_claims: true
   correction_requires_other_physical_host: true
   ordinary_claim_updates_dashboard_files: false
@@ -54,8 +86,14 @@ global_dispatch:
   structural_ineligibility_allows_immediate_park: true
   global_external_block_allows_immediate_park: true
   component_stop_condition: GLOBAL_COMPONENT_POOL_DRAINED
+  component_stop_condition_reached: true
   final_stop_condition: ALL_PROGRAMMES_TERMINAL_OR_TYPED_EXTERNAL_OWNER_ACTION_ONLY
+  next_stage: PROGRAMME_MERGE_WORKBOOKS (Owner-authorized; not started)
 
 external_acceptance:
   component_tasks_may_defer_real_external_proof_to_programme_integration: true
   false_success_forbidden: true
+  still_open_for_programme_integration:
+    - real provider/login acceptance (General AI Gateway)
+    - real two-device transport E2E (General AI Gateway / Engineering Manager, needs accepted Remote Fabric)
+    - real third-party connector acceptance for Claude Code and WorkBuddy (Engineering Manager)
