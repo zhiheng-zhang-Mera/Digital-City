@@ -27,7 +27,7 @@ correction_report: mission-book/reports/GAI-005/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
 
-# GAI-005 â€?Deterministic + JEV Triage Routing
+# GAI-005 — Deterministic + JEV Triage Routing
 
 ## Goal
 
