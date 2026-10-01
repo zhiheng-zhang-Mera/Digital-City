@@ -12,8 +12,9 @@ development_claimed_at: 2026-10-01T13:04:09Z
 development_branch: ui/UI-101-web-product-shell
 development_baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
 development_direction_source: UI-000 adopted direction C2 (head 2978e31), single visual-direction source per the UI-000 completion gate
-development_head_sha: null
-development_ci: null
+development_head_sha: b7da69ae371886e581a3f32c917d2917980ae873
+development_ci: 36866478015-success-android-and-gateway-web
+development_progress_note: "IN PROGRESS, not complete. Done on b7da69a (repo suite 854/854, hosted CI green): apps/web/style.css rewritten as the shell design system carrying the SAME tokens as the reviewed UI-000 direction C2, including the AA-safe --ink-3 from Mech's review repair R-1 so the contrast fix is not lost downstream; the ASCII/Unicode glyph nav icon system removed from index.html (a UI-101 hard-rule violation) with the active item now marked by a lime rule; the Run control no longer uses a glyph as an icon; bilingual packs updated together for app.workspace/app.subtitle/app.reference/app.eyebrow so no engineering chrome survives in either locale. All ids, data-page values, classes and data-i18n attributes the app and tests depend on are preserved, including ask-form/ask-text/ask-submit as a real submitting form. STILL TO DO before development_complete may be set: (step 3) Home is still app.js card/stat blocks and needs the what-can-I-do-now rework plus the assistant slot from the adopted direction; (step 5) Action detail raw payloads are not folded by default yet; (step 8) the browser acceptance pass and its Home/Ask/Tools/Action-detail screenshots are not captured, and the completion gate requires them. The dev gateway refuses to start without separate control and node tokens, which is the next thing to wire for that pass."
 development_complete: false
 review_host: null
 review_head_sha: null
