@@ -17,10 +17,10 @@ development_branch: general-ai/GAI-006-conversation-input-stream-cancel
 development_head_sha: ac2df607e5aa01744678aa1e26aab481187ff356
 development_ci: 36740524898-success
 development_report: mission-book/reports/GAI-006/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T01:04:32Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/GAI-006/CORRECTION_REPORT.md
