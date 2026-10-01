@@ -17,17 +17,17 @@ development_branch: general-ai/GAI-004-api-channel-consent-budget
 development_head_sha: fbb749272ad65c9a8de6cc303371b52fda22f7ef
 development_ci: 36735078546-success
 development_report: mission-book/reports/GAI-004/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T17:05:00Z
 correction_head_sha: 11d5eced3e913cdd0cd9249d55825dedbcc3d5ac
-correction_ci: BLOCKED_EXTERNAL_GITHUB_ACTIONS_BILLING__local-all-green__run-36750532665
+correction_ci: 36750532665-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-004/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
 
-# GAI-004 â€?API Channel + Explicit Consent + Budget Policy
+# GAI-004 ï¿½?API Channel + Explicit Consent + Budget Policy
 
 ## Goal
 

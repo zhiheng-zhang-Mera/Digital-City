@@ -14,14 +14,39 @@ DEVELOPMENT_HEAD     = fbb749272ad65c9a8de6cc303371b52fda22f7ef
 DEVELOPMENT_CI       = 36735078546-success
 CORRECTION_BRANCH    = general-ai/GAI-004-api-channel-consent-budget
 CORRECTION_HEAD_SHA  = 11d5eced3e913cdd0cd9249d55825dedbcc3d5ac
-BRANCH_CI            = BLOCKED — see §1
+BRANCH_CI            = 36750532665-gateway-web-success-android-success
 LOCAL_CHECK_SUMMARY  = GAI-004 11 pass, root 112 pass, rooms 69 pass, city 1801 pass,
                        promotion-history OK at fbb7492, bilingual SYNCHRONIZED
 MERGE                = NOT PERFORMED (forbidden for component branches)
-CORRECTION_COMPLETE  = false — pending the external CI blocker in §1
+CORRECTION_COMPLETE  = true (hosted CI green on the exact pushed head)
 ```
 
-## 1. TYPED EXTERNAL BLOCKER — hosted CI cannot run (Owner action required)
+## 1. Hosted CI — blocked interval (resolved)
+
+**RESOLVED — GitHub Actions billing/spending was restored by the Owner, and the already-pushed head was
+re-run with no code change.** The re-attempt executed both jobs on the exact corrected head and passed,
+so this Correction now satisfies its completion criterion:
+
+```text
+corrected head   = 11d5ece
+green run        = 36750532665-gateway-web-success-android-success
+local checks     = all green (see LOCAL_CHECK_SUMMARY above)
+```
+
+The blocked interval is retained below verbatim as history. Nothing was rewritten, and the old blocked
+attempts were never relabelled as success; local PASS was never substituted for hosted CI.
+
+```text
+blocked interval (retained history)
+  run 36750532665  push 17:19:16    gateway-web X 5s   android X 3s   job ids 110132295154/110132295312
+  run 36750532665  re-run 17:24     identical, both jobs refused to start, 0 steps
+resolution
+  run 36750532665  re-attempt 23:54:58Z   gateway-web OK 2m1s (110151058759)  android OK 1m8s (110151058917)
+```
+
+### Retained original record
+
+The typed external blocker below was reported while the account state refused to start any job:
 
 The corrected head is pushed (`11d5ece`) and **every local check the CI gate runs is green**, but
 GitHub Actions refuses to start the jobs on this account:
