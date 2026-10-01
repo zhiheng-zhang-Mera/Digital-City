@@ -1,6 +1,7 @@
 # Remote Fabric Engineering / 远程连接织网工程
+
 <!-- COMPONENT-STAGE-STATUS -->
-> Remote Fabric: **10/10 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
+> **Component stage (2026-10-01) — Remote Fabric: 10/10 two-stage complete.** Corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
 > Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
 <!-- /COMPONENT-STAGE-STATUS -->
 

@@ -1,6 +1,7 @@
 # Engineering Manager / 工程经理 — Asynchronous Engineering Programme
+
 <!-- COMPONENT-STAGE-STATUS -->
-> Engineering Manager: **13/13 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
+> **Component stage (2026-10-01) — Engineering Manager: 13/13 two-stage complete.** Corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
 > Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
 <!-- /COMPONENT-STAGE-STATUS -->
 

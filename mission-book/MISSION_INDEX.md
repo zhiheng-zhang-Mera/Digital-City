@@ -1,5 +1,8 @@
 # Mission Index — Global Asynchronous Engineering Pool
+
 <!-- COMPONENT-STAGE-STATUS -->
+> **Component stage (2026-10-01): all four component pools are drained.**
+>
 > Butler Assistant: **9/9 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
 > Remote Fabric: **10/10 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
 > General AI Gateway: **9/9 two-stage complete** — corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
