@@ -318,3 +318,37 @@ Mech 并未停止：它在这段静默里做的是一次**自我更正**——�
 
 
 
+
+## Round: full pool re-scan after UI-190 exhaustion (zero claim)
+
+Repo state confirmed before any claim, as the standing instruction requires.
+Control plane at `5470166` (pushed); implementation `origin/main` at `e7c498f`.
+
+New signal investigated and dismissed: `e7c498f merge(PROGRAMME): Engineering
+Manager EM-001..EM-013 corrected union` looked like a new task family, but all
+thirteen EM files already sit under
+`mission-book/finished/completed-2026-10-01/engineering-manager/`. It is a
+historical corrected union being merged, not live work. Not claimable.
+
+Live pool at this moment:
+
+| Family | Task | Status | Dev host |
+|---|---|---|---|
+| ui-civilization | UI-000 | REVISION_REVIEW_COMPLETE_PASS_WITH_REPAIRS | Mech |
+| ui-civilization | UI-101 | REVIEW_COMPLETE | Alien |
+| ui-civilization | UI-102 | REVIEW_COMPLETE | Mech |
+| ui-civilization | UI-103 | REVIEW_COMPLETE | Mech |
+| ui-civilization | UI-190 | IN_PROGRESS | Alien (held) |
+| ui-integration | UXI-301 | NOT_STARTED | - |
+| ui-integration | UXI-390 | NOT_STARTED | - |
+| rescheduling-vnext | RS-201/202/203/290 | NOT_STARTED | - |
+
+Classification: STRUCTURALLY_INELIGIBLE, not a wait condition. Every
+NOT_STARTED task is gated behind the UI-190 baseline freeze, and UI-190's own
+remainder is the step 3/4 independent critic rounds, which section 3 of the
+construction rules reserves to the non-development host. Alien is UI-190's
+development host, so Alien cannot perform them. Claiming a downstream task
+first would violate the declared phase order rather than unblock anything.
+
+Per section 5 this is the zero-claim outcome for the round; per section 9 no
+make-work was invented to fill it. No claim was taken and none was released.
