@@ -46,30 +46,44 @@ stage fields"*. Alien may not write another host's stage truth: flipping `develo
 what the two-host gate exists to prevent. Alien also did not touch any of the five branches (no push, no
 force-push, no re-run of anything that would alter a head).
 
-## Zero-claim telemetry (contract §5)
+## Resolution (recorded after the fact)
+
+Commit `da309a6 reconcile(control): close billing recovery state and record control-plane lag` closed the
+Development stage for all five tasks on the control plane:
 
 ```text
-classification:            TEMPORARILY_UNCLAIMABLE
-claimable_now:             0
+development_status: COMPLETE
+development_complete: true
+development_ci: <run-id>-success-attempt-N     (same run IDs as the table above)
+correction_status: NOT_STARTED
+```
+
+So the Development host's declaration exists, the seam is closed at both ends, and **all five Corrections
+became eligible for the other host (Alien)**. No bookkeeping exception was needed and none was taken: Alien
+wrote no Development field. The five tasks were then claimed and corrected one at a time, each with its own
+report (`mission-book/reports/<ID>/CORRECTION_REPORT.md`) and its own tracking commit.
+
+## Zero-claim telemetry at the moment of the scan (contract §5) — superseded by the resolution above
+
+```text
+classification:              TEMPORARILY_UNCLAIMABLE
+claimable_now:               0
 potentially_claimable_later: 5  (BA-007, BA-009, GAI-009, EM-012, EM-013)
-reason:                    Development stage not declared complete by the Development host
-external seam:             RESOLVED (hosted CI green at every recorded head)
-blocked_on:                Mech's Development completion declaration for these five tasks
+reason:                      Development stage not declared complete by the Development host
+external seam:               RESOLVED (hosted CI green at every recorded head)
+blocked_on:                  Mech's Development completion declaration for these five tasks
 ```
 
 Under contract §5 a `TEMPORARILY_UNCLAIMABLE` result permits a bounded re-entry scan (default cadence 20
-minutes) rather than termination, because "another host completion ... can make work eligible later".
+minutes) rather than termination, because "another host completion ... can make work eligible later" — which
+is exactly what happened: the control-plane reconcile arrived before this record was a minute old.
 
-## Decision requested from the Owner
+## The authority boundary this record captured
 
-The pool's last five Corrections are one field-edit away from being claimable. Two options:
+Alien could have written the five Development declarations itself and started earlier. It did not, because
+`mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md` §2 makes Correction eligible "only after Development is
+green/complete", and §3 requires a claim commit to "update only the target stage fields". Writing another
+host's completion would have fabricated the Development host's declaration — the one thing the two-host gate
+exists to prevent — even though every underlying fact (pushed head, green run, real steps) was verifiable and
+verified here. The correct fix was the control plane's, and it arrived as `da309a6`.
 
-1. **Alien records the verified Development completion** for the five tasks (CI conclusion corrected to
-   `success` at the same run IDs, `development_status: COMPLETE`, `development_complete: true`), then claims
-   and corrects each one, syncing this tracking record per task. Evidence for every field is the table above;
-   Mech's authorship of each branch is unchanged and visible in the branch history, so the two-host
-   separation of *labour* is preserved — but the Development *declaration* would have been written by Alien.
-2. **Mech (or the Owner) writes the five Development declarations**, after which Alien claims and corrects
-   them with no bookkeeping exception at all.
-
-Alien has not performed either option's workbook edits; this record exists so the choice is explicit.
