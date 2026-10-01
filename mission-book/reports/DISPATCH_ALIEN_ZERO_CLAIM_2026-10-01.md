@@ -192,3 +192,49 @@ strictVisibleFailures 8->0 / tapTargets 10->0 / overflow 0 / glyphs 0 / consoleV
 
 完成后全局扫描的结果**仍然是同一个** `GLOBAL_EXTERNAL_BLOCK`：`UI-000 owner_gate=STYLE_SELECTION`
 未变，UI-101..103 依旧锁定。因此 §8 的分类在当前时点继续成立，Alien 仍旧不轮询、不制造替代工作。
+
+## 9. Owner 采用 C″ 后的等待循环（§5.1 bounded re-scan）
+
+Owner 第三轮裁决（逐字）：「采用，更新云端，然后等待。每20分钟重新确认是否可以继续新任务。」
+`owner_gate: STYLE_SELECTION` **就此关闭**，采用方向 = **C″**（`head aea8361`，CI `36863682166`）。
+云端已核验同步（`Digital-City origin/main = 4d2e3f0`、`Utopia ui/UI-000...= aea8361`，两工作树干净、0 未推送）。
+
+### 9.1 基线重扫（`2026-10-01T12:52:17Z`）
+
+```text
+pool_incomplete:                  true
+claimable_now:                    0
+classification:                   WAITING_ELIGIBILITY
+structural_ineligibility_reason:  null
+global_external_blocker:          null
+wake_condition:                   Mech 完成 UI-000 C″ 的独立复核（revision_review_host_required=Mech）
+                                  / Owner 新裁决 / 其他依赖门解除
+rescan_after:                     ~20 分钟（§5.1 兜底；Owner 本轮明确要求该节奏）
+terminal_reason:                  null
+```
+
+### 9.2 一处必须写下来的判断：UI-101 的依赖**未**满足
+
+单看 frontmatter 会得出相反结论——UI-000 的 `development_complete: true` 且 `review_complete: true`，
+按字段机械匹配 UI-101 的 `dependencies: ["UI-000"]` 似乎已解锁。Alien **判定依赖未满足**，理由：
+
+1. `review_complete: true` 绑定的是**修订前**的头 `6edd103`；
+2. 被 Owner 采用的方向 C″（`aea8361`）由 Alien 在 Owner 直接指派下完成 Development，
+   `review_covers_revision_head: false`、`revision_review_required: true`；
+3. UI-000 完成门槛的第三条是「**第二主机完成独立 review**」。该条对**被采用的产物**不成立；
+4. `CONSTRUCTION_RULES` §2 要求领取前「重新判断依赖」，而不是只做字段匹配；§3 禁止同主机自审，
+   而 Alien 正是 C″ 的 Development 主机。
+
+因此 Alien 不领取 UI-101，也不因为「Owner 说了采用」就把未复核的产物当成已复核（§8/§9 禁止降低门槛换绿）。
+
+### 9.3 这个判断带来的风险（记录，供 Owner 决策）
+
+如果 Mech 长期不做 C″ 复核，整条 UI→RS→UXI 链会**锁死在此处**。合规解法只有两个，且都属 Owner：
+
+1. **让 Mech 执行复核**（首选，成本最低，无需任何规则变更）；
+2. **Owner 显式豁免本次修订的双机独立复核**（参照 `response-9-30.md` R10/R13 的豁免写法，
+   必须写明是「仅限本次 UI-000 修订」的单次豁免，并保留 Alien 不得自审的其余标准）。
+
+在 Owner 给出上述任一处理前，Alien 的行为是：保持低成本等待，约 20 分钟重扫一次，不 busy-poll，
+不制造替代工作。
+
