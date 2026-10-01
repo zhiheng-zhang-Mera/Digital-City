@@ -17,12 +17,12 @@ development_branch: assistant/BA-009-duty-permission-policy
 development_head_sha: 9e1de31ba53766758406e991dbacdb8f707b1bfc
 development_ci: 36750981300-success-attempt-5
 development_report: mission-book/reports/BA-009/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T05:00:18Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: 2abf8d47ad0663c175779ab9a3057594d2db86ab
+correction_ci: 36818585688-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-009/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
 ---
