@@ -19,10 +19,10 @@ development_branch: engineering-manager/EM-008-credential-profile-session
 development_head_sha: 963b4f2e47fbb8715d1cf98cf90baee0f79a9c5d
 development_ci: 36734070041-success
 development_report: mission-book/reports/EM-008/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T02:42:14Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/EM-008/CORRECTION_REPORT.md
