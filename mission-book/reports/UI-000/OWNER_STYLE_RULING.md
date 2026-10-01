@@ -76,3 +76,46 @@ repo 本地门槛         859/859
 
 复核义务不变：C″ 仍需 **Mech** 作为独立复核主机；Alien 不得自审。
 
+---
+
+## 7. 第三轮 Owner 裁决：采用（2026-10-01）
+
+### 7.1 Owner 原话（逐字）
+
+> 「采用，更新云端，然后等待。每20分钟重新确认是否可以继续新任务。」
+
+### 7.2 效力
+
+1. **`owner_gate: STYLE_SELECTION` 就此关闭。** 被采用的方向是 **C″** = 修订后的候选 C，
+   `head = aea8361c07c003f6f519829b6c1a208c20bccab1` / CI `36863682166` success。
+   按 UI-000 完成门槛，它从此是 UI-101..103 的**唯一视觉方向来源**：C 主题 + 已认可的 HUD 紧凑密度
+   + 日系科幻二次元语域 + 主页助理位。
+2. **"更新云端"。** 已核验：`Digital-City origin/main = a99a496`、`Utopia
+   origin/ui/UI-000-visual-direction-candidates = aea8361`，两个工作树 `git status` 干净、
+   `origin..HEAD` 计数为 0。无未推送内容。
+3. **"然后等待 / 每20分钟重新确认"。** 即 `CONSTRUCTION_RULES` §5.1 / §6 的 bounded re-scan：
+   Alien 保持低成本等待，约 20 分钟重扫一次全局任务池，检查是否出现可领取任务。
+
+### 7.3 必须显式记录的一点：Owner 采用 ≠ 双机独立复核已完成
+
+本次采用的是**风格方向**。当前产物 C″ 由 Alien 在 Owner 直接指派下完成 Development，**尚未经过
+独立复核**。因此：
+
+```text
+revision_review_host_required = Mech      （未变）
+review_covers_revision_head   = false     （未变）
+```
+
+`CONSTRUCTION_RULES` §3 要求同任务的 Development 与 Review 由不同实体主机完成；Owner 采用风格
+方向本身**不能**满足这条门禁，Alien 也**不得**因为 Owner 说"采用"就自审。此处如实记录，不做静默吸收。
+
+### 7.4 等待期间的唤醒条件
+
+```text
+wake_1  Mech 完成 C″ 独立复核  -> Alien 可领取后续（UI-101 的前置随之满足）
+wake_2  Owner 新裁决 / 新工作书
+wake_3  其他主机完成任务使 UI-101..103 解除依赖门
+rescan  约 20 分钟一次（§5.1 兜底，不 busy-poll）
+```
+
+
