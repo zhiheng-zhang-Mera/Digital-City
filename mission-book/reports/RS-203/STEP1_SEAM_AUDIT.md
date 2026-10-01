@@ -109,3 +109,54 @@ ONE NEW SEAM           the handoff correlation record itself, plus the ordering 
 
 Nothing is implemented yet. This audit records the baseline, the reusable surface and the measured
 gap, and nothing here is offered as progress against the six steps or as a completion claim.
+
+## 6. CORRECTION — section 3 finding A is WRONG, and how I got it wrong is the more useful result
+
+Reading the module before implementing it overturned my own central claim, so the correction is
+recorded rather than quietly edited out.
+
+**What section 3 A claimed:** *"nothing in the seams represents 'the interacting device is not the
+executing device' as a first-class correlatable fact."*
+
+**What is actually true**, from `remote-execution.mjs`:
+
+```text
+line  6  header: "interaction_device_ref may differ from execution_device_ref, and switching the
+                 execution host must not require the user to walk to or operate that host - so the
+                 interaction device is never changed here"
+line 211  proposeDeviceSwitch({ action_ref, interaction_device_ref, requirements, at })
+line 240  interaction_device_ref,
+line 241  execution_device_ref: interaction_device_ref,
+line 246  interaction_device_unchanged: true,
+line 275  interaction_device_ref,
+line 276  execution_device_ref: best.device_ref,
+```
+
+So the split **already exists as first-class fields**, the invariant that the interaction device is
+never changed by a switch is **already asserted**, and the module header states it in almost the same
+words the workbook uses. My finding A was false.
+
+**How I got it wrong, because the mechanism matters more than the retraction.** I measured the
+CONCEPT by searching for the WORD: `handoff` returns 0 hits across the four seam files, and I read
+that zero as "the concept is absent". But this codebase expresses the concept as **device switch**
+and **interaction_device_ref versus execution_device_ref**. A word-search is not a
+concept-measurement, and the zero I found was evidence about the vocabulary, not about the
+capability. Note the internal contradiction this should have caught me: section 3 also reports 39
+hits for ordering and 49 for idempotency, and then section 4 lists an "ordering guard for
+out-of-order and duplicate progress events" as needing a NEW seam - contradicting my own measurement
+in the adjacent paragraph. `REMOTE_EXECUTION_CODES` already contains **`EVENT_OUT_OF_ORDER`** and
+**`LATE_EVENT_AFTER_TERMINAL`**, so the ordering machinery was never missing either.
+
+**What survives from section 3:** only finding B, and it is narrower than stated. `provenance`
+returns 0 hits in the four seam files against 409 repo-wide, so step 5's binding has no home in
+these modules yet - though the same lesson applies, and I will search for the CAPABILITY (what binds
+a result to its evidence) rather than for that one word before concluding anything.
+
+**Consequence for the plan, and this is the point of recording it.** Section 4's "ONE NEW SEAM for
+the handoff correlation record plus the ordering guard" is **withdrawn**. Building it would have
+duplicated machinery that already exists and is already tested - the exact failure the workbook
+forbids by banning a second task truth, and the exact waste both preceding tasks in this phase were
+careful to avoid. Step 1's real work is therefore to be re-derived by reading
+`remote-execution.mjs`'s proposal/dispatch/event path in full and locating what is genuinely absent,
+rather than by adding a module on the strength of a zero-hit word search.
+
