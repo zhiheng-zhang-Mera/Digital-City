@@ -3,7 +3,7 @@
 ```text
 MISSION              = BA-006 (Butler Assistant programme, task 6 of 9)
 PROGRAMME            = BUTLER_ASSISTANT_ENGINEERING
-STAGE                = CORRECTION (PARTIAL — see §5)
+STAGE                = CORRECTION
 CORRECTION_HOST      = Alien
 DEVELOPMENT_HOST     = Mech
 CONTROL_BOOK         = Digital-City/mission-book/butler-assistant/BA-006-shared-task-coordination.md
@@ -13,11 +13,11 @@ COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 DEVELOPMENT_HEAD     = 062795534d97c818d3cce37430d0cab6d185309c
 DEVELOPMENT_CI       = 36732856266-success
 CORRECTION_BRANCH    = assistant/BA-006-shared-task-coordination
-CORRECTION_HEAD_SHA  = a82b152726d885556c76480fe3ea125b2bf1f4ed
-BRANCH_CI            = 36803134421-gateway-web-success-android-success
-LOCAL_CHECK_SUMMARY  = BA-006 12 pass (8 author + 4 Alien regressions), root/rooms/city/promotion/bilingual all pass
+CORRECTION_HEAD_SHA  = bf6c6485ff76d18cf2b0f2f0e4ba59cdea5a3730
+BRANCH_CI            = 36803893254-gateway-web-success-android-success
+LOCAL_CHECK_SUMMARY  = BA-006 16 pass (8 author + 8 Alien regressions), root/rooms/city/promotion/bilingual all pass
 MERGE                = NOT PERFORMED (forbidden for component branches)
-CORRECTION_COMPLETE  = false — material findings from the independent review remain (see §5)
+CORRECTION_COMPLETE  = true (hosted CI green on the exact pushed head)
 ```
 
 ## 1. Hosted CI
@@ -63,34 +63,38 @@ export), `pre-fix-check/` (the corrected suite against the unfixed module — 4 
 `patch-task-graph.mjs` (the anchor-guarded repair pass), `author-after-patch.log`, `prefix-test.log`,
 `postfix-test.log`, `gate-*.log`, `ci-*.log`.
 
-## 5. MATERIAL FINDINGS FROM THE INDEPENDENT REVIEW — STILL OPEN (the reason this task is not complete)
+## 5. Second pass — the independent review's findings, and the remaining boundaries
 
-The independent adversarial review of the frozen Development head returned after the first repair pass and
-pushed head `a82b152`. It confirmed the six mechanisms repaired in §3 and reported six further material
-mechanisms, each reproduced with a runnable probe under `probes/` (`p1`–`p7`) and **not** caught by the
-author's 8-test suite. They are recorded here rather than repaired, because the session's context budget ran
-out; they must be repaired and re-verified before this Correction is marked complete.
+The independent adversarial review of the frozen Development head returned after the first pass and reported
+twelve mechanisms against the author's 8-test suite (which catches none of them). Six were already repaired in
+§3; the other six were repaired in a second pass, each with a regression that fails on the Development head:
 
-| id | Mechanism (reviewer probe) | Why it matters |
-| --- | --- | --- |
-| **D2** | A **suspended** lease is still treated as live, so a released executor can re-issue its own lease through `changeExecutor` and then submit a result — `LEASE_SUSPENDED` gates only `submitExecutorResult`. The lease revalidation path (`revalidateLease`) is bypassable and `LEASE_REVALIDATED` is never logged | invariant 6 (revalidate a lease before resuming after reconnect) |
-| **D7** | An **EXCLUSIVE** side effect can be created directly in a terminal state, and the guarded-path refusal is gated on `executor_ref` being truthy rather than on `side_effect` — so a task with no lease and no action key can be reported SUCCEEDED | invariant 4 (every side effect needs a lease + idempotency key); false success |
-| **D4** | `bindForeground` and `releaseDevice` mutate foreground state **before** validating `at`, so a refused call still rebinds or releases the device | typed/audited operations; foreground binding is the module's whole effect |
-| **D10** | `releaseDevice` audits a `LEASE_SUSPENDED_BY_DEVICE_RELEASE` entry into **completed** tasks, changing a terminal task's version and causal log | terminal truth must be immutable |
-| **D3b** | `handoff.checkpoint_ref` is ingested with no type rule, so a cyclic value permanently poisons every projection with an untyped `RangeError` after the owner and version were already written | §3 fixed the freezer and the authority scan; this ingest path is still open |
-| **D11** | `bindForeground` accepts an unvalidated `workspace_refs`, so a non-array value makes every projection read throw `TypeError` (and a string silently becomes substring membership) | projections must be exposable to every embodiment |
+| id | Mechanism | Root cause | Repair |
+| --- | --- | --- | --- |
+| 7 | **A released executor could resume a side effect on its own authority.** A *suspended* lease was still treated as "live", and the take-over branch only ran for a *different* device, so the released executor could re-issue its own lease through `changeExecutor` and then submit a result — the `revalidateLease` path was bypassable and `LEASE_REVALIDATED` was never required | `live = lease && !lease.superseded` ignored `suspended`; `LEASE_SUSPENDED` gated only `submitExecutorResult` | a suspended lease is not live: `changeExecutor` refuses it (`LEASE_SUSPENDED`) until `revalidateLease` succeeds |
+| 8 | **An EXCLUSIVE side effect could be reported complete with no lease and no action key.** A task could be created directly in a terminal state, and the guarded-path refusal in `updateTask` was gated on `executor_ref` being truthy, so an exclusive task that never had an executor was completed by a plain owner patch | the guard read the executor instead of the side effect | an exclusive task cannot be created terminal, and every terminal transition for an exclusive side effect must come through `submitExecutorResult` |
+| 9 | **`bindForeground` and `releaseDevice` changed state before validating `at`**, so a refused call still rebound or released the device | mutation before validation | the instant is validated first in both ports |
+| 10 | **A device release rewrote settled tasks**: `releaseDevice` audited a `LEASE_SUSPENDED_BY_DEVICE_RELEASE` entry into completed tasks, changing a terminal task's version and causal log | no terminal guard in the release sweep | terminal tasks are skipped |
+| 11 | **`handoff.checkpoint_ref` was ingested with no type rule**, so a cyclic value permanently poisoned every projection with an untyped `RangeError` — after the owner and version had already been written | an unvalidated reference copied into the record | the checkpoint is validated as text **before** ownership moves |
+| 12 | **`workspace_refs` was stored unvalidated**, so a non-array value made every projection read throw `TypeError`, and a string silently became substring membership | no type rule | the workspace set must be an array of nonempty text |
 
-Also recorded from the review, lower materiality: `LEASE_REQUIRED` is declared and never thrown; a handoff
-with `from` omitted is accepted and the causal log then names the previous owner as the actor; replaying a
-handoff with the same `handoff_id` duplicates `OWNERSHIP_TRANSFERRED`; `authority_transferred: false` is a
-constant (structurally true once the scan refuses authority fields).
+### Recorded boundaries and contract questions (not repaired, with reasons)
 
-Contract questions the review raised and the workbook does not settle: who authenticates `actor_ref`/role
-(the module has no principal concept — a stranger's `actor_ref` can mutate as OWNER or supersede the
-executor); `side_effect` defaults to `NONE`, so the action-key requirement is opt-out and depends on the
-caller classifying its own task; a projection's `stale` flag is computed from the caller's own
-`cached_version`, so a device can always report itself fresh; ASSISTANT/WORKSPACE visibility is entirely
-self-declared at `bindForeground`, with no owner binding.
-
-Certificate of the repaired part: head `a82b152`, hosted CI run 36803134421, and the 12-test suite
-(8 author + 4 Alien) with 4 of the Alien regressions failing on the Development head.
+1. **`LEASE_REQUIRED` is declared in `TASK_GRAPH_CODES` and never thrown** (every other code has a throw site);
+   execution without a lease is reported through `STALE_LEASE`/`NOT_THE_EXECUTOR` instead of being renamed.
+2. **`revalidateLease` passes the record's own version to `assertMutable`**, so its concurrency check is
+   vacuous. Every other mutation requires the caller to name `expected_version`; the author's signature for
+   this port does not take one, so requiring it is a contract change.
+3. **Mutation authority is caller-asserted.** `updateTask` accepts role `OWNER` with any non-empty
+   `actor_ref` and never compares it to `record.owner_ref`; `changeExecutor` likewise. The module is a pure
+   library with no principal concept, and the workbook does not say who authenticates the actor, so this is a
+   contract question rather than a repair.
+4. **`side_effect` is a caller declaration defaulting to `NONE`**, so the action-key/idempotency requirement
+   is opt-out: the caller classifies its own task. The workbook does not settle who classifies it.
+5. **A projection's `stale` flag is computed from the caller's own `cached_version`**, so a device can always
+   report itself fresh; nothing in the graph can verify a device's cache.
+6. **ASSISTANT/WORKSPACE visibility is self-declared at `bindForeground`**, with no owner binding, and a
+   handoff may omit `from`, in which case the causal log names the previous owner as the actor (an audit
+   attribution the workbook does not settle). A replayed `handoff_id` also duplicates
+   `OWNERSHIP_TRANSFERRED`; `authority_transferred: false` is a constant that is structurally true once the
+   authority scan refuses any authority-bearing package.
