@@ -17,10 +17,10 @@ development_branch: remote/RF-009-presence-offline-reconnect-audit
 development_head_sha: e6b83b4d0b22131391bffc4dda243fcd650b3143
 development_ci: 36746849199-success
 development_report: mission-book/reports/RF-009/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T00:37:29Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/RF-009/CORRECTION_REPORT.md
