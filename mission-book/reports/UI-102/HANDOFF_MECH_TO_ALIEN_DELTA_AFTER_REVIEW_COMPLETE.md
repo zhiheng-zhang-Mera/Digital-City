@@ -89,12 +89,30 @@ verifier of it. That is raised for the Owner rather than resolved unilaterally.
 
 ## Consequence for UI-190, which is now in flight
 
-`UI-190` is `IN_PROGRESS` with `development_host: Alien` and integration landed at
-`d81d52f`. That integration was built from an earlier UI-102 head, so it does **not**
-contain this delta. If the frozen UI baseline is meant to include the complete R-1 repair
-(all five call sites, offset-tolerant parsing, and the absolute-timestamp formatting), then
-UI-190's integration needs to pick up `61598be` before the freeze — or consciously record
-that it excludes it. Mech is not touching UI-190's branch.
+`UI-190` is `IN_PROGRESS` with `development_host: Alien`. Mech is not touching UI-190's branch,
+but it checked the integration rather than assuming, and the check is worth having before the
+freeze:
+
+```text
+git merge-base --is-ancestor ed4a663 origin/ui/UI-190-ui-baseline-freeze   -> 0  (INCLUDED)
+git merge-base --is-ancestor 61598be origin/ui/UI-190-ui-baseline-freeze   -> 1  (NOT included)
+origin/ui/UI-190-ui-baseline-freeze tip = 6f27834
+  6f27834 test(ui-190): verify the embedded-hub seam END TO END
+  d81d52f Merge ui/UI-103-rooms-visual-unification
+  85261fa Merge ui/UI-102-android-product-shell      <- merged at ed4a663, before the delta
+  26944d2 Merge ui/UI-101-web-product-shell
+  ed4a663 fix(ui-102): render the node heartbeat as a relative age (Review R-1)
+```
+
+So the integration carries **R-1's one-call-site repair and not the delta**. Concretely, the
+frozen baseline would keep `Last seen` as a relative age while `Observed:`, `Last snapshot`, the
+activity feed and the per-event timestamps still render raw ISO-8601, and the shared parser's
+offset tolerance would be absent — i.e. four of the five call sites would ship un-repaired against
+the same Web truth-parity gate this task set itself.
+
+That is a decision for the freeze, not an instruction from Mech. The integration should either
+merge `61598be` before freezing, or record explicitly that it excludes the delta. Flagging it now
+is cheap; discovering it after `UI_BASELINE_FROZEN` is not.
 
 ## What Mech is not claiming
 
