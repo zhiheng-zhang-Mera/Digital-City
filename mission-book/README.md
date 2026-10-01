@@ -1,216 +1,192 @@
-# Mission Book — Active Parallel Engineering Programmes
+# Mission Book — 当前双机并发施工计划
 
-> Current mode: **COMPONENT_STAGE_COMPLETE (41/41 two-stage) — ALL FOUR PROGRAMME MERGES COMPLETE (`ALL_PROGRAMMES_MERGED_MAIN_CI_GREEN`)**
-> Active programmes: BUTLER_ASSISTANT + REMOTE_FABRIC + GENERAL_AI_GATEWAY + ENGINEERING_MANAGER
-> Control repo: zhiheng-zhang-Mera/Digital-City
-> Implementation repo: zhiheng-zhang-Mera/Utopia
-> Foundation gate: **OPEN**
-> Unified unstarted-programme baseline: `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
-> Canonical static state: [PROGRAMME_STATE.yaml](./PROGRAMME_STATE.yaml)
-> Normative cross-programme contract: [CROSS_PROGRAMME_EXECUTION_CONTRACT.md](./CROSS_PROGRAMME_EXECUTION_CONTRACT.md)
-> Architecture contracts: **ASSISTANT_DISTRIBUTED_STATE_V2 / REMOTE_FABRIC_V1 / GENERAL_AI_GATEWAY_V1 / ENGINEERING_MANAGER_V1**
-> Engineering Manager donor: `DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
+> 当前模式：**UI 文明化 → 再调度 vNext → UI/调度最终接线**
+> 当前活跃工程：**UI_CIVILIZATION**
+> 后续工程：**RESCHEDULING_VNEXT（锁定）**、**UI_SCHEDULER_INTEGRATION（锁定）**
+> 控制仓库：zhiheng-zhang-Mera/Digital-City
+> 实现仓库：zhiheng-zhang-Mera/Utopia
+> 可用实体施工主机：**Alien + Mech**
+> UI 第一阶段基线：Utopia \`main @ e7c498f5acd86da324a45c3278219c8daa612561\`
+> 历史完成任务与旧看板：[finished/completed-2026-10-01/](./finished/completed-2026-10-01/)
+> 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)
 >
-> Component evidence: the corrected head SHA and hosted-CI run for every task are recorded in that task workbook's frontmatter and in `./reports/<ID>/CORRECTION_REPORT.md`. The four programme queues and [MISSION_INDEX.md](./MISSION_INDEX.md) were aligned with those workbooks on 2026-10-01.
->
-> The old migration/replant workbooks and the exact historical Pre-Assistant workbook remain archived under `./finished/replant/`.
-> Recovery overlay: [ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md](./ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md). **External GitHub Actions billing block recovered; recovery state reconciled on 2026-10-01.** Eligibility-aware ~20 minute bounded re-scan remains normative for temporary zero-claim states.
+> 上一轮 Butler Assistant / Remote Fabric / General AI Gateway / Engineering Manager 共 41 个组件任务及其合并工程已经全部完成。旧任务、旧 reports、旧 PROGRAMME_STATE / MISSION_INDEX / cross-programme contract / recovery workbooks / Owner response 已从当前施工面移入 \`finished\`，不得再作为新施工的活跃任务源。
 
-## Current construction dashboard
+## 当前施工看板
 
-**Canonical rule:** static host/programme configuration lives in [PROGRAMME_STATE.yaml](./PROGRAMME_STATE.yaml). Dynamic claim/completion truth lives in each task workbook frontmatter and its reports. README/MISSION_INDEX are dashboards and MUST NOT be edited as part of an ordinary task claim.
+**规范规则：** README 保持为人工可读施工看板；每份工作书 frontmatter 是该任务领取/完成事实源。普通任务领取不得为了“刷新看板”反复修改 README。阶段性冻结、合并和 Owner 审美门禁通过后再统一更新本表。
 
-Reconciled control-plane snapshot (2026-10-01, after the five-task Correction round the Owner requested):
-
-`DEVELOPMENT_GREEN=41/41` · `CORRECTION_COMPLETE=41/41` · `ALL_FOUR_COMPONENT_POOLS_DRAINED=true` · `MERGE_WORKBOOKS_CREATED=4/4` · `ALL_PROGRAMMES_MERGED_MAIN_CI_GREEN=true` · `GITHUB_ACTIONS_EXTERNAL_BLOCK=RECOVERED`
-
-Utopia `main` is now `e7c498f5acd86da324a45c3278219c8daa612561` with hosted CI run `36830053908` green. It holds
-the union of all 41 corrected component branches. Every corrected head is preserved as an annotated
-`archive/<ID>` tag on origin, and every source branch has been deleted, so **`main` is the only branch left on
-GitHub**. Merging did not delete history: each task's commits remain reachable through the merge graph and
-through its archive tag.
-
-| Programme | Task pool | Development | Correction | Merge / next stage |
+| 工程项目 | 任务池 | 施工 | 独立复核 | 合并 / 下一阶段 |
 |---|---|---:|---:|---|
-| Butler Assistant | BA-001..BA-009 | **9/9 green** | **9/9 complete** | **MERGED_MAIN** — `41e241c`, CI 36827422797; 9 archive tags |
-| Remote Fabric | RF-001..RF-010 | **10/10 green** | **10/10 complete** | **MERGED_MAIN** — `49914d9`, CI 36828413515; 10 archive tags |
-| General AI Gateway | GAI-001..GAI-009 | **9/9 green** | **9/9 complete** | **MERGED_MAIN** — `74b37cf`, CI 36829232339; 9 archive tags |
-| Engineering Manager | EM-001..EM-013 | **13/13 green** | **13/13 complete** | **MERGED_MAIN** — `e7c498f`, CI 36830053908; 13 archive tags |
+| UI 文明化 | UI-000, UI-101..103, UI-190 | **0/5** | **0/5** | **ACTIVE** — 先做 UI-000，Owner 只选视觉方向 |
+| 再调度 vNext | RS-201..203, RS-290 | **锁定** | **锁定** | UI-190 冻结 \`UI_BASELINE_FROZEN\` 后自动解锁 |
+| UI × 调度接线 | UXI-301, UXI-390 | **锁定** | **锁定** | RS-290 冻结 \`RESCHEDULING_BASELINE_FROZEN\` 后自动解锁 |
 
-Every component task is Development- and Correction-complete on its own pushed branch head with hosted CI
-green, and Development/Correction were performed by different physical hosts on every task. **All four
-programme merges are executed and verified on `main` CI.** The five Corrections the Owner requested on
-2026-10-01 (BA-007, BA-009, GAI-009, EM-012, EM-013) are closed in `./reports/<ID>/CORRECTION_REPORT.md`, each
-recording its corrected head SHA, its hosted-CI run, its author-encoded boundaries and its disclosure section.
+默认双机起步：
+- UI-000：一台主机生成 3 套真实候选，另一台主机做独立视觉/功能批判；只在候选 ready 后叫 Owner 选择 A / B / C。
+- Owner 选定后：Alien 优先领取 UI-101（Web），Mech 优先领取 UI-102（Android）；先空闲的合格主机继续领取 UI-103（Rooms）。
+- UI-190 必须由没有独占前三项实现工作的另一台主机主导独立审查，完成自动返修循环后再提交 Owner 最终“好看 / 不好看”门禁。
+- hosted CI、长测试、截图批处理或插件下载等待都不独占主机；无冲突时继续领取下一项。
 
-Available physical build hosts are **Alien and Mech**. Both are now **idle**: a fresh global scan finds no
-actionable owned repair, no eligible opposite-host Correction and no unclaimed Development. Mech remains
-`PARKED / NO_WORK / DO_NOT_WAKE`; hosts re-enter only on a new pool, a new Development or an explicit Owner
-instruction.
+## 0. 当前基础门禁 — UI 优先
 
-## 0. Foundation start gate — OPEN
+本轮不是继续堆功能。第一目标是把 Utopia 从“验收控制台 / 工程面板”转成真正可日常使用的**个人万能终端产品界面**。
 
-The historical Pre-Assistant workbook is preserved at:
-[finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md](./finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
+当前已确认事实：
+1. Web 是原生 HTML + CSS + JavaScript，不迁 React/Vite/shadcn。
+2. Android 是 Kotlin + Jetpack Compose Material 3，保留原生 Compose。
+3. Rooms 是原生 HTML/CSS/JS，继续复用 Room Hub 与房间共享组件。
+4. Gateway / Action / Ask / Task / Room API / Remote / Provider / Scheduler 的现有业务语义在 UI 第一阶段全部视为只读契约。
+5. UI 第一阶段做到约 70–80%：冻结视觉语言、信息架构、导航和核心组件；等待再调度契约稳定后补最后的调度交互。
 
-Recorded accepted state:
+## 1. UI 核心不变量 — 必须完全脱离“工程化”
 
-```text
-branch head (accepted)   = 85ecde437ec930f1b4aa41d8913540e012da5ee7
-branch CI                = 36691043142  android success, gateway-web success
-merged Utopia main SHA   = 8104f8289a76d15ff0197c953730edcef42cab5e
-merged-main CI           = 36692675561  android success, gateway-web success
-post-merge branch audit  = 35 origin refs, unmerged = 0
-```
+本节是硬约束，不是建议。
 
-The independent verifier rejected the first candidate and accepted the repaired candidate. The single-host Owner waiver used for that Pre-Assistant closeout does not apply to BA work. Butler Development is therefore unlocked, but each BA task still requires two different physical hosts for Development and Correction.
+### 1.1 禁止的默认产品形态
+正常用户界面不得再以以下视觉或信息形态作为主语言：
+- 运维 dashboard、监控大盘、developer console、terminal、admin panel；
+- 大量同质白色圆角卡片堆叠成页面；
+- 9 个或更多一级导航项；
+- 以 \`Services / Tasks / Actions / Pairing / Provider / Scheduler / Registry\` 等内部模块树直接充当用户导航；
+- 以 \`actionId / backendRef / route / provenance / schemaVersion / runtime path / 127.0.0.1\` 等工程字段作为默认正文；
+- \`WORKSPACE / ALIEN\`、\`CONTROL SURFACE\`、\`LOCAL · 127.0.0.1\` 等验收语汇作为产品主标题；
+- 把 monospace、全大写高字距、黑底青色“开发者工具感”当作默认视觉；
+- 用 ASCII/Unicode 几何符号临时代替完整 icon language；
+- 为了“有设计感”擅自引入新的产品框架或重写业务层。
 
-Because none of the four programmes had started when this reset was authorized, BA/RF/GAI/EM now share the same frozen baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Component branches remain independently integrable and cross-programme work is explicitly non-blocking.
+### 1.2 目标产品语言
+默认界面必须从“系统有什么模块”改成“用户想做什么”：
+- **Home**：个人终端入口、近期重要状态、自然语言入口；
+- **Ask / Do**：主交互入口；
+- **Tools**：用户可理解的个人工具集合；
+- **Devices**：设备关系与必要状态；
+- **Activity**：用户真正需要回看的执行结果/历史；
+- Settings / Advanced / Diagnostics 不占一级主导航。
 
-## 1. Core architecture invariants — v2
+技术细节继续保留，但默认折叠在 **高级信息 / 运行详情 / Diagnostics** 中。隐藏技术细节绝不等于修改 backend truth。
 
-1. Digital-Me is the canonical user self-model/context source. It is not an assistant persona store.
-2. Butler Assistant Zone is a separate replaceable agent domain.
-3. Assistant personalization must be independently changeable without mutating Digital-Me user data.
-4. Personalization interfaces reserve naming/form-of-address, voice, avatar/appearance, personality, duties/role, companion/relationship mode and extensible future attributes. Profile fields cannot grant authority.
-5. One logical assistant may inhabit multiple devices simultaneously.
-6. **Shared brain = one authoritative durable assistant state plus multiple embodiment-specific ContextProjections.** Durable committed facts/memory references, assistant↔user relationship state, tasks, commitments, checkpoints and event history may be shared. Live token context, scratch reasoning, temporary plan drafts, uncommitted inference and device/UI transient state are not shared authority.
-7. Multiple assistant identities may be online simultaneously.
-8. One device may have at most one active **foreground interaction assistant** at a time.
-9. Foreground binding is independent from task ownership and background execution. Switching foreground assistants does not automatically transfer, cancel, pause or recreate tasks.
-10. A task distinguishes logical owner/coordinator from current executor where applicable.
-11. Handoff occurs only when responsibility actually moves. It transfers task/checkpoint/evidence, never permission or action grants.
-12. Side-effect execution requires current authoritative task/version state plus any required execution lease and idempotency/action key.
-13. At most one valid exclusive execution lease may authorize a given exclusive action scope at a time.
-14. Local embodiment state is a cache. Reconnect/restart must fetch authority and revalidate leases before resuming external or state-changing side effects.
-15. Tasks live in shared Core/City task infrastructure, not only in a device session.
-16. Context/memory is namespace- and audience-aware: user-global, assistant-private, project/task, audience/channel and device-ephemeral scopes must not be silently collapsed.
-17. Knowledge is not disclosure authority. Information available to a logical assistant is emitted only when the current audience/privacy scope permits it.
-18. Digital-Me access is scoped/authorized context access; assistant persona/relationship state must not be written into Digital-Me as canonical user identity data.
-19. Effective action permission is equivalent to `User/OwnerPolicy ∩ AssistantPolicy ∩ DeviceCapability ∩ TaskActionGrant`. An execution lease is an additional safety prerequisite, not a permission source.
+### 1.3 设计目标
+设计方向应接近“消费级个人 OS / ambient AI assistant / personal terminal”，强调：
+- 清晰、克制、亲和、可长期日用；
+- 主操作强、信息密度有层次；
+- 跨 Web / Android / Rooms 是同一个产品；
+- 允许有 Utopia 自己的辨识度，但不得照抄特定商业产品；
+- 不得因为“系统能力复杂”就回退为工程控制台。
 
-## 2. Work model: Development → Correction
+## 2. 工作模型：施工 → 独立复核 → 阶段冻结
 
-- **DEVELOPMENT:** implement the bounded subproject on its own Utopia branch from the frozen baseline.
-- **CORRECTION:** a different physical host independently hunts design loopholes and directly repairs every in-scope defect on that same branch.
+每个代码工作书都有两个角色：
+- **施工（Development）**：完成有界实现、真实运行和基础测试；
+- **独立复核（Review/Correction）**：由另一台实体主机检查视觉、交互、功能回归和越界，并直接修复本任务范围内的问题。
 
-Correction is not report-only. It must inspect and test architecture, state consistency, concurrency, privacy/audience boundaries, permissions, lifecycle/recovery, stale state, lease/idempotency behavior where relevant and false-success paths.
+同一任务施工主机与复核主机必须不同。复核不是只写报告。
 
-## 3. Claim and host-separation rules
+只有阶段冻结任务允许把该阶段的组件分支集合合并进 Utopia main：
+- UI 阶段：UI-190；
+- 再调度阶段：RS-290；
+- 最终接线阶段：UXI-390。
 
-Available physical build hosts: Alien and Mech.
+## 3. Owner 最小人工干预规则
 
-For every BA/RF/GAI/EM task:
-- Development Host and Correction Host MUST be different.
-- Alien and Mech are both available; there is no second-host hold.
-- A host may not perform both roles for the same task.
-- Dynamic claim truth is updated atomically only in the target task workbook; ordinary claims do not edit README/MISSION_INDEX.
-- Development creates/pushes a task branch and does not merge it to Utopia main.
-- Correction continues on that same task branch and does not merge it to Utopia main.
-- Reports go under `mission-book/reports/<TASK-ID>/`.
+Owner 本轮只保留两个正常人工门禁：
+1. **视觉方向门禁**：UI-000 给出 3 套差异足够大的真实候选，Owner 只需选 A / B / C（或一句“都不好看”）。
+2. **最终视觉门禁**：UXI-390 提交最终 Web / Android / Rooms 截图与实机证据，Owner 只需回复“好看 / 不好看 + 一句原因”。
 
-## 4. Global cross-programme asynchronous / no-idle rule
+除非涉及以下硬边界，不得把字体、颜色、间距、图标、阴影、导航细节、组件形态、动效、响应式等普通设计决策升级成 Owner Decision：
+- 删除现有用户功能；
+- 改变 API / protocol / DTO / 状态语义；
+- 引入生产运行时高风险依赖；
+- 需要 secrets / 新付费账户 / 不可逆外部动作；
+- 存在真正的产品能力取舍而非单纯审美选择。
 
-All 41 component tasks form one global claim pool. A free host scans **all four programmes**, not only the programme it worked on previously.
+## 4. Hns 插件 / Skill 自主权
 
-Claim priority:
-1. repair an actionable red stage already owned by this host;
-2. claim an eligible Correction whose Development was completed by the other host;
-3. otherwise claim any unclaimed Development across BA/RF/GAI/EM;
-4. when choices are equivalent, prefer a different programme from the host's previous claim to expose integration seams early, but never wait merely for balance.
+**UI 相关工作允许 Hns 自主额外下载、安装、切换和卸载插件或 Agent Skill，无需逐个请求 Owner。**
 
-A stage in hosted CI, a long local test, provider wait, external login wait, or other non-CPU-active wait **does not reserve the host**. Keep that claim, use a separate worktree, and claim another eligible stage. Missing sibling implementations use stable ports plus deterministic doubles. Real external acceptance that cannot be performed yet is recorded and deferred to programme integration rather than blocking unrelated component work.
+允许用途：
+- UI/UX 设计与审查；
+- Web 原生前端设计；
+- Jetpack Compose / Material 3；
+- screenshot / visual regression / browser automation；
+- accessibility；
+- design token / icon / typography 辅助；
+- 将通用 \`SKILL.md\` 导入 Hns 的 skill importer。
 
-A host stops claiming only when the global scan finds no actionable owned repair, no eligible Correction and no unclaimed Development. See the normative cross-programme contract for atomic claim/retry and merge-stage rules.
+约束：
+1. 优先公共、可审计来源；在报告中记录插件名称、来源、版本/ref。
+2. 插件属于**施工工具链**，默认不得因此把新框架或插件 runtime 塞进 Utopia 产品依赖。
+3. 不得为插件上传 secrets、token、私有代码到未知第三方 SaaS。
+4. 插件失效、质量差或与仓库冲突时直接替换，不等待 Owner。
+5. UI Agent 可以使用多插件交叉审查，但最终提交必须能由仓库正常工具链构建、测试和运行。
 
-## 5. Completion gates
+## 5. 双机异步 / 不空等规则
 
-Development complete requires bounded implementation, positive/negative tests, relevant concurrency/recovery tests, relevant local checks, branch CI green, DEVELOPMENT_REPORT and exact head SHA.
+全局领取优先级：
+1. 修复自己当前任务的明确红项；
+2. 领取由另一台主机完成、且依赖满足的独立复核；
+3. 领取同阶段任何未领取的可并发施工任务；
+4. 若所有可做项都在 hosted CI / 长测试 / 外部等待，则保留原 claim，同时用独立 worktree 继续另一个不冲突任务；
+5. 只有扫描当前阶段后确实没有可执行项才允许 PARKED。
 
-Correction complete requires a different physical host, independent adversarial review, direct repairs, regression tests, relevant local checks, branch CI green, CORRECTION_REPORT and exact corrected head SHA.
+不得因为另一个 programme 尚未完成就无条件等待。依赖只锁真正依赖的工作书。
 
-## 6. Hard merge lock
+## 6. UI 阶段工作书
 
-`MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`.
+目录：[ui-civilization/](./ui-civilization/)
 
-The lock was `FORBIDDEN` until ALL BA-001..BA-009 satisfy:
-- `development_complete = true`;
-- `correction_complete = true`;
-- Development Host != Correction Host;
-- branch history/evidence proves both Alien and Mech worked on the branch;
-- corrected branch head is recorded and remote.
+| ID | 工作书 | 依赖 | 结果 |
+|---|---|---|---|
+| UI-000 | [视觉方向候选与审美门禁](./ui-civilization/UI-000-视觉方向候选与审美门禁.md) | 无 | 3 套真实候选 + Owner 选择 |
+| UI-101 | [Web 产品壳与信息架构](./ui-civilization/UI-101-Web产品壳与信息架构.md) | UI-000 | 非工程化 Web 壳 |
+| UI-102 | [Android 产品壳与信息架构](./ui-civilization/UI-102-Android产品壳与信息架构.md) | UI-000 | 非工程化 Compose 壳 |
+| UI-103 | [Rooms 统一视觉与嵌入体验](./ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md) | UI-000 | Rooms 与主产品统一 |
+| UI-190 | [跨端视觉审查与 UI 基线冻结](./ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md) | UI-101..103 | \`UI_BASELINE_FROZEN\` |
 
-Only after a full branch audit proves the above may a new Butler Assistant merge engineering book be created.
+UI-190 通过后，UI 第一阶段停止继续“精修到 100%”，转入再调度工程。
 
-**Status 2026-10-01:** all nine BA tasks record `development_complete = true`, `correction_complete = true`, opposite hosts, and a pushed corrected head with hosted CI green, so the conditions above were met. The BA merge workbook [BUTLER_ASSISTANT_MERGE_WORKBOOK.md](./butler-assistant/BUTLER_ASSISTANT_MERGE_WORKBOOK.md) was then created and run to completion (integration head `4ff27ba`, CI `36827219769`; `main` merge `41e241c`, CI `36827422797`).
+## 7. 再调度 vNext 工作书
 
-## 7. Merge workbook mandatory gates
+目录：[rescheduling-vnext/](./rescheduling-vnext/)
 
-The BA merge workbook did:
-1. fetch current Utopia main and every corrected BA branch;
-2. re-check both-host participation on every branch;
-3. integrate all branches without dropping valid behavior; compatible conflicts should preserve an explicit union/superset;
-4. preserve all v2 invariants, especially authoritative durable state vs local ContextProjection, foreground/task separation, owner/executor separation, handoff authority boundaries and audience/privacy boundaries;
-5. run adversarial multi-device races proving no split-brain exclusive side effects;
-6. test execution lease expiry/reassignment and idempotent replay/retry;
-7. test offline/reconnect so stale local state cannot resume side effects without revalidation;
-8. test handoff to a less-privileged assistant/device so responsibility transfer cannot escalate authority;
-9. run the full relevant local test suite;
-10. merge the integrated result to Utopia main;
-11. verify GitHub CI on the resulting Utopia main SHA.
+只有 \`UI_BASELINE_FROZEN\` 后才解锁。
 
-Final completion is forbidden if any required merged-main GitHub CI check is red, cancelled, required-but-skipped, or still pending.
+| ID | 工作书 | 依赖 | 结果 |
+|---|---|---|---|
+| RS-201 | [动态 AI 池与可用性选择](./rescheduling-vnext/RS-201-动态AI池与可用性选择.md) | UI-190 | provider/model/account 动态池与 availability |
+| RS-202 | [多设备并发感知与再调度](./rescheduling-vnext/RS-202-多设备并发感知与再调度.md) | UI-190 | 设备/会话压力感知与调度 |
+| RS-203 | [跨设备执行回传与降级恢复](./rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md) | RS-201, RS-202 | handoff/result-return/fallback |
+| RS-290 | [调度契约回归与基线冻结](./rescheduling-vnext/RS-290-调度契约回归与基线冻结.md) | RS-201..203 | \`RESCHEDULING_BASELINE_FROZEN\` |
 
-Required terminal state: `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN` — **REACHED**.
+这一阶段禁止自行设计最终用户 UI，只定义并验证真实状态、选择动作、回传和降级语义。
 
+## 8. UI × 调度最终接线
 
-## Remote Fabric programme
+目录：[ui-integration/](./ui-integration/)
 
-Remote Fabric planning is active under [remote/README.md](./remote/README.md). It uses the unified baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c` and the same two-stage/two-physical-host discipline as the other programmes, but it is a separate merge unit.
+| ID | 工作书 | 依赖 | 结果 |
+|---|---|---|---|
+| UXI-301 | [调度状态接入非工程化 UI](./ui-integration/UXI-301-调度状态接入非工程化UI.md) | UI-190, RS-290 | ViewModel/adapter + 用户语言 |
+| UXI-390 | [双机最终产品验收与收口](./ui-integration/UXI-390-双机最终产品验收与收口.md) | UXI-301 | 功能/视觉全通过 + Owner 最终审美门禁 |
 
-| Remote task set | Development | Correction | Merge |
-|---|:---:|:---:|:---:|
-| [RF-001..RF-010 Remote Fabric](./remote/README.md) | **10/10 green (Alien/Mech)** | **10/10 complete (opposite host)** | **MERGED_MAIN** — `49914d9`, CI 36828413515 |
+## 9. 完成门槛
 
-Remote construction is asynchronous: each RF task has its own `remote/RF-...` branch from the frozen baseline and may proceed independently immediately. No RF task branch may merge into Utopia main, and no RF branch may merge/cherry-pick sibling RF branches merely to pass locally.
+所有任务至少要求：
+- 业务语义不被表现层重写；
+- 相关自动测试通过；
+- Web 使用真实浏览器验收；
+- Android 使用 Compose 构建和至少一台 Android 实机验收（涉及 Android 时）；
+- UI 任务有截图/视觉证据；
+- 施工与独立复核由不同实体主机完成；
+- hosted CI 必须绿；
+- reports 写入当前 [reports/](./reports/)；
+- 有价值的施工过程按 [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md) 回流 Utopia evolution evidence，不把无界 raw log 堆进 City。
 
-`REMOTE_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`. The lock was `FORBIDDEN` until every RF-001..RF-010 Development and Correction stage is green, Development Host != Correction Host, and both-host evidence is recorded; all ten RF tasks recorded exactly that. The Remote merge workbook [REMOTE_FABRIC_MERGE_WORKBOOK.md](./remote/REMOTE_FABRIC_MERGE_WORKBOOK.md) then integrated the corrected RF branches on top of the **then-current Utopia main** (source `41e241c`; integration head `160fcc3`, CI `36828179156`; `main` merge `49914d9`, CI `36828413515`), preserving the Butler work already on main. RF-001 × RF-002 conflicts across the City manifest, its test, the capability-registry test and both architecture docs were resolved as explicit unions.
+## 10. 合并与阶段切换规则
 
-
-## General AI Gateway programme
-
-General AI Gateway planning is active under [general-ai-gateway/README.md](./general-ai-gateway/README.md).
-
-The programme is a separate City/Utopia merge unit with target ownership reserved for **00 City Foundation / General AI Gateway**. It does not revive Codex-Boss: Boss is a historical tombstone only and is forbidden as a build/runtime dependency or live connector target. Legacy behavior may only re-enter as independently owned Utopia code from current accepted requirements or explicit Owner-supplied excerpts.
-
-| General AI Gateway task set | Development | Correction | Merge |
-|---|:---:|:---:|:---:|
-| [GAI-001..GAI-009 General AI Gateway](./general-ai-gateway/README.md) | **9/9 green (Mech)** | **9/9 complete (Alien)** | **MERGED_MAIN** — `74b37cf`, CI 36829232339 |
-
-All GAI branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts, but the hosts do not have to be online at the same time. Missing sibling code or Remote Fabric implementation must not stall bounded work: use the programme's stable ports and deterministic test doubles, record the unresolved integration seam, and continue. Real cross-device execution remains a mandatory final programme acceptance gate and may not be faked.
-
-`GENERAL_AI_GATEWAY_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`. The lock was `FORBIDDEN` until every GAI task has green Development and Correction evidence with different hosts; all nine GAI tasks recorded exactly that. The GAI merge workbook [GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md](./general-ai-gateway/GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md) then integrated the corrected GAI branches on top of the **then-current Utopia main** (source `49914d9`; integration head `a47e4eb`, CI `36828980482`; `main` merge `74b37cf`, CI `36829232339`), preserving Butler, Remote Fabric and other accepted mainline work. Real provider/login and real two-device acceptance remain open programme-integration gates and are not claimed by the merge.
-
-
-## Engineering Manager programme
-
-Engineering Manager planning is active under [engineering-manager/README.md](./engineering-manager/README.md).
-
-This is the permanent Mission Book namespace for Engineering Foreman / Worker Connector work. It maps onto the existing **02 Engineering Works / Project Foreman + Worker Gateway** ownership rather than creating a duplicate City building. DS-Hns is a pinned donor only; reused capabilities must become Utopia-owned code. Codex-Boss is out of scope and must not be accessed.
-
-| Engineering Manager task set | Development | Correction | Merge |
-|---|:---:|:---:|:---:|
-| [EM-001..EM-013 Engineering Manager](./engineering-manager/README.md) | **13/13 green (Mech)** | **13/13 complete (Alien)** | **MERGED_MAIN** — `e7c498f`, CI 36830053908 |
-
-All EM branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts but do not have to be online simultaneously. Sibling absence, hosted CI, Remote Fabric incompleteness and optional third-party connector absence must not make a worker idle: use stable programme ports/test doubles for bounded component work, record only the genuinely external pending seam, and continue another eligible stage.
-
-Three programme invariants are hard requirements: **(1)** blocking Engineering attention follows the user and also alerts the 2–3 most recently operated eligible devices with one globally acknowledged attention event; **(2)** Sub-worker placement is `LOCAL_FIRST`, with remote fallback proposed only for measured `LOCAL_BLOCKED/LOCAL_UNAVAILABLE` and requiring explicit user approval; **(3)** when execution is remote, progress/control/attention/results/artifacts automatically return through canonical/shared state to the user's current authorized interaction surface, so normal work never requires walking to the remote host.
-
-`ENGINEERING_MANAGER_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`. The lock was `FORBIDDEN` until every EM task has green Development and Correction evidence with different hosts; all thirteen EM tasks recorded exactly that. The EM merge workbook [ENGINEERING_MANAGER_MERGE_WORKBOOK.md](./engineering-manager/ENGINEERING_MANAGER_MERGE_WORKBOOK.md) then integrated the corrected EM branches on top of the **then-current Utopia main** (source `74b37cf`; integration head `aef657f`, CI `36829755814`; `main` merge `e7c498f`, CI `36830053908`), preserving Butler, Remote Fabric, General AI Gateway and other accepted mainline work. Real third-party connector and real remote E2E acceptance remain open programme-integration gates and are not claimed by the merge.
-
-
-## 10. Cross-programme authority and merge behavior
-
-[CROSS_PROGRAMME_EXECUTION_CONTRACT.md](./CROSS_PROGRAMME_EXECUTION_CONTRACT.md) is normative for all four programmes. In particular, Remote Fabric owns node identity/trust/presence/transport; Shared Task/Action Core owns canonical task/action/attention truth; Butler owns assistant semantics; General AI Gateway owns general-AI semantics; Engineering Manager owns engineering-job semantics. Domain event models are never replaced by Remote transport envelopes.
-
-When a programme component pool drains, its merge workbook may be created immediately without waiting for another programme's component pool. If a final real external seam is not yet available (for example GAI/EM remote E2E before Remote Fabric is accepted), the integration branch performs every independent step, records `INTEGRATED_WAITING_EXTERNAL_SEAM`, and releases the host back to the global pool. Immediately before any final Utopia-main merge, the integration branch refreshes from then-current main and reruns required CI/acceptance.
+- UI-101/102/103、RS-201/202/203、UXI-301 都不得直接抢先合并 Utopia main。
+- UI-190 / RS-290 / UXI-390 分别负责本阶段 union、冲突修复、最终相关测试、hosted CI 和 main 合并。
+- 每次阶段合并必须从当时最新 Utopia main 刷新，不能回退或覆盖其他已接受工作。
+- \`UI_BASELINE_FROZEN\` 只代表产品壳、信息架构与设计系统冻结，不代表调度 UI 已完工。
+- \`RESCHEDULING_BASELINE_FROZEN\` 只代表调度语义稳定，不允许把内部状态直接裸露进产品 UI。
+- 最终目标状态：\`UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED\`。
