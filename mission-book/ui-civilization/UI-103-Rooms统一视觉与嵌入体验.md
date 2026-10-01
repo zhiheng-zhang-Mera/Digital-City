@@ -3,7 +3,7 @@ workbook_id: UI-103
 phase: UI_CIVILIZATION
 sequence: 103
 execution_enabled: true
-status: REVIEW_IN_PROGRESS
+status: REVIEW_COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
@@ -20,9 +20,12 @@ development_evidence: evidence/raw/mission-book/UI-103/
 pending_seam: "apps/web terminal.js's room iframe must append ?embedded=1 to the hub URL; the Rooms side provides and verifies the mechanism, the consumer side belongs to UI-101 (apps/web is outside UI-103's boundary). deferred != passed."
 review_host: Alien
 review_claimed_at: 2026-10-01T13:43:48Z
-review_head_sha: null
-review_ci: null
-review_complete: false
+review_head_sha: dcde3afe958577a470ee6a0e6f08e819c9d0d19f
+review_ci: 36871415675-success-android-and-gateway-web
+review_reviewed_head_sha: 399a1c118fa0016e7f30ce8f0e3ba01917b39db1
+review_complete: true
+review_report: mission-book/reports/UI-103/REVIEW_REPORT.md
+review_result: "PASS, no repairs needed. Alien's own probe (scripts/ui-103/review-alien-probe.mjs, deliberately not a rewrite of the author's verify-hub.mjs) found: all ten rooms mount real content and controls (23-58 nodes, 4-21 controls), ZERO WCAG AA contrast failures computed over every rendered text node, no dev-tool copy on the default path, no banned glyph-as-icon, no horizontal overflow at 1440 or at 390 on three sampled rooms, no page errors. Repo suite 854/854 and rooms suite 69/69 on the frontmatter head, CI 36871415675 green. Recorded methodology finding: the probe's first run reported leaks on every room, which was WRONG - a stale apps/rooms/hub/server.mjs from an earlier session still held port 4320 so the probe read a different build; the process was identified and killed, the hub restarted from the review worktree, and the served stylesheet content-checked for the C2 tokens before any result was accepted. The pending_seam above remains OUTSIDE this review: its consumer side is apps/web, i.e. UI-101, and is not endorsed here."
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/UI-103/
