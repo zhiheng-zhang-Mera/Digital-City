@@ -3,7 +3,7 @@ workbook_id: UI-103
 phase: UI_CIVILIZATION
 sequence: 103
 execution_enabled: true
-status: IN_PROGRESS
+status: DEVELOPMENT_COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
@@ -12,7 +12,12 @@ dependencies: ["UI-000"]
 development_host: Mech
 development_claimed_at: 2026-10-01T13:20:00Z
 development_branch: ui/UI-103-rooms-visual-unification
-development_head_sha: null
+development_head_sha: 399a1c118fa0016e7f30ce8f0e3ba01917b39db1
+development_ci: 36866763373-success-android-and-gateway-web
+development_complete: true
+development_report: mission-book/reports/UI-103/DEVELOPMENT_REPORT.md
+development_evidence: evidence/raw/mission-book/UI-103/
+pending_seam: "apps/web terminal.js's room iframe must append ?embedded=1 to the hub URL; the Rooms side provides and verifies the mechanism, the consumer side belongs to UI-101 (apps/web is outside UI-103's boundary). deferred != passed."
 development_ci: null
 development_complete: false
 review_host: null
