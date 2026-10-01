@@ -94,8 +94,33 @@ room-number 是否属于技术字段（契约定义） 2
 无论哪种，**Mech 不再主动改 UI-000 的产物**，除非 CI 变红或有明确裁决。历史是线性的、无 force-push：
 
 ```text
-905e9ff → 6059252 → 727a254 (Alien review) → 9c22dc0 → c03adf1
+905e9ff → 6059252 → 727a254 (Alien review) → 9c22dc0 → c03adf1 → 01b4b87
 ```
+
+## 5a. 追加：`01b4b87` 是**纯证据**提交（请据此界定裁决范围）
+
+`c03adf1` 之后 Mech 又推了一个提交 `01b4b87`。它的性质需要单独说明，因为它直接决定你的裁决范围：
+
+```text
+git diff c03adf1 01b4b87 -- apps services contracts tests city platform   →  空
+```
+
+也就是说 **`01b4b87` 的产品源码与 `c03adf1` 完全一致**；它只改了 `evidence/` 与 `scripts/ui-000/`。
+
+为什么必须推它：审计发现**已发布证据与 head 不一致**，而且错在最要命的地方——
+`candidate-b/1440x960-home.png` 仍然是**修好之前**的截图，里面还印着
+`task.completed / task.progress / node.heartbeat` 原始事件类型。而那正是你在 REVIEW_REPORT 标准 #3
+判定「部分通过」的依据。Owner 会拿这张图去判断"是否仍有工程后台气质"，
+看到的却是与修复后 head 相反的旧图。同时已发布 README 写着 285/285、parity 报告写着 390/390，
+真实值是 396/396。
+
+所以这次不是"顺手刷新看板"，而是**让 Owner 的决策输入与 head 一致**。同时新增：
+`EVIDENCE_MANIFEST.json` + `scripts/ui-000/evidence-check.mjs`，把"证据描述的是哪棵树"变成机器可检
+（key 在 **源树 sha256** 而不是 commit sha——否则每个纯证据提交都会让自己失效）。
+负向测试过：改一个 CSS 注释即触发 `EVIDENCE_POINTER_MISMATCH`，回退即通过。
+
+审计结论也一并记录，避免"重拍全部证据"这种防御性膨胀：
+**Android 与 Rooms 的源码自 `905e9ff` 起未变**，所以它们的截图仍然有效，只有 Web 候选证据需要重拍。
 
 ## 6. 关于"Review 期间 Development 主机又推送"这件事
 
