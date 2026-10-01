@@ -12,9 +12,10 @@ development_claimed_at: 2026-10-01T16:02:00Z
 development_branch: ui/UI-190-ui-baseline-freeze
 development_baseline_sha: e7c498f5acd86da324a45c3278219c8daa612561
 development_direction_source: UI-000 adopted direction C2; the three component branches ui/UI-101-web-product-shell (aafff56), ui/UI-102-android-product-shell (ed4a663) and ui/UI-103-rooms-visual-unification (dcde3af) are the inputs this task integrates and freezes
-development_head_sha: null
-development_ci: null
+development_head_sha: d81d52f9f83b6fa9dd9e20d7326502c2a97879f3
+development_ci: 36888577699-success-android-and-gateway-web
 development_complete: false
+development_progress_note_1: "Integration landed on d81d52f, development_complete still FALSE. Branch ui/UI-190-ui-baseline-freeze was cut from the CLAIM-TIME baseline e7c498f as baseline_policy requires, then integrated the three corrected branches as explicit no-ff unions pinned to the heads recorded at claim time: ui/UI-101-web-product-shell aafff56 -> 26944d2, ui/UI-102-android-product-shell ed4a663 -> 85261fa, ui/UI-103-rooms-visual-unification dcde3af -> d81d52f. ALL THREE MERGED WITH ZERO CONFLICTS, which is worth recording because the standing rules warn that several programmes edit shared manifests and tests. Integrated gates, run on THIS tree rather than inherited: repo suite 854/854, rooms suite 69/69, android module unit tests 68/68 (read from the JUnit XML rather than from an exit code). Hosted CI 36888577699 success, both jobs. STILL TO DO before development_complete: the cross-platform visual review the task is named for (Web/Android/Rooms consistency under C2), the functional regression across the three surfaces, and specifically the END-TO-END EMBEDDED-HUB BEHAVIOUR that UI-101's delta re-verification explicitly handed to this task - its reviewer recorded that the shell passes ?embedded=1 while UI-101's own worktree serves a main-based hub with no embedded support, so the behaviour could only be proven once both halves sit on one branch. They now do, so that check is both possible and owed here. The UI_BASELINE_FROZEN declaration and the FINAL_VISUAL_PREVIEW owner gate come after it."
 review_host: null
 review_head_sha: null
 review_ci: null
