@@ -238,3 +238,62 @@ terminal_reason:                  null
 在 Owner 给出上述任一处理前，Alien 的行为是：保持低成本等待，约 20 分钟重扫一次，不 busy-poll，
 不制造替代工作。
 
+## 10. 等待期间观察到的 Mech 停滞信号（§5 零领取 telemetry，`2026-10-01T15:27:42Z`）
+
+Owner 要求「每20分钟重新确认是否可以继续新任务」，Alien 据此执行有界窗口。连续两次**完整**窗口均为空：
+
+```text
+window_1:  2026-10-01T14:46:13Z -> 15:06:42Z   NO_CHANGE
+window_2:  2026-10-01T15:07:03Z -> 15:27:33Z   NO_CHANGE
+rescan_after:                  ~20 分钟（§5.1 兜底，Owner 本轮指定节奏）
+next_scan_outcome:             no change in either window
+work_became_eligible:          false
+owner_intervention_required:   informational only — see below
+```
+
+对照 Mech 的活动：
+
+```text
+Mech 最后一次推送        da29e40，提交时间 2026-10-01T14:35:21Z
+观察时点                 2026-10-01T15:27:42Z
+静默时长                 约 52 分钟（此前其推送间隔为 2–5 分钟）
+UI-102 分支头            3bdba53e9b460b49225d1616276526b7f67fb9e7
+UI-102 CI                36876181158-success-android-and-gateway-web
+UI-102 development_complete: false   development_claimed_at: 2026-10-01T13:52:00Z
+classification:           WAITING_ELIGIBILITY（未升级）
+```
+
+### 10.1 为什么判为等待而不是阻塞或结构性无资格
+
+1. Mech 的头 **CI 是绿的**，缺的只是它自己的完成声明——不是失败或回滚状态；
+2. Mech 自己的记录描述了**长时间的真机/模拟器验收尝试**，并已记录两条死胡同（headless `screencap`
+   返回全黑帧但 `uiautomator dump` 正常；合成点击不驱动 Compose NavigationBar 选中项）。52 分钟静默
+   与该类尝试完全吻合；
+3. §5.1 的判据是「当前主机未来是否可能获得资格」，不是「最近有没有动静」。UI-102 随时可被宣告完成，
+   届时 Review 归属 Alien。
+
+### 10.2 为什么 Alien 不自行处置（§12）
+
+§12 规定：`claim 后尚无实质实现/报告` 的 claim 只能由 **Owner 或明确的规则化 recovery reset** 处理；
+而现行 `CONSTRUCTION_RULES.md` **未定义任何 claim 超时的规则化 reset**。因此自动施工者擅自释放 Mech 的
+UI-102 claim 是明令禁止的。Alien 只记录与上报，不代选。
+
+### 10.3 若后续窗口持续全静默，Owner 可用的处置（均属 Owner，Alien 不代选）
+
+1. **继续等待**（证据支持「正在长验收」，成本最低）；
+2. **Owner 直接确认 Mech 活性**（零规则代价）；
+3. **Owner 宣告 Mech 失联并释放 UI-102 claim** —— 连带代价必须一并裁：若由 Alien 接手 Development，
+   按 §3 需**第三台实体主机**复核，而本阶段只有 Alien/Mech 两台，故须同时给出 §3 的显式单次豁免
+   （参照 `response-9-30.md` R10/R13 写法），否则任务会从「等待」变成「无法收口」；
+4. **Owner 裁定允许以 CI 已绿的 `3bdba53` 宣布 Development 完成** —— 这属代写他机声明，Alien 仅在
+   Owner 明确裁决后才可执行。
+
+### 10.4 一处方法学记录：有界等待必须匹配执行器上限
+
+本轮之前 Alien 把「20 分钟窗口」写成**单次内联调用**，被 `[timed out after 600000ms]` 杀掉——本执行器
+对单次调用有 **10 分钟**上限，因此那些「20 分钟窗口」从未真正跑满，却给出了「已遵守节奏」的印象
+（Windows 上被强杀以裸 `exit 1` 结算、无信号标记，属中断而非命令失败）。改用**后台作业**承载后，
+本 §10 的两条 `NO_CHANGE` 才是首次真正跑满的窗口。这与本项目反复出现的同一类问题同源：
+**声称覆盖 ≠ 实际覆盖**。
+
+
