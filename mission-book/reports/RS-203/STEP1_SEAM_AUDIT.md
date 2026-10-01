@@ -160,3 +160,34 @@ careful to avoid. Step 1's real work is therefore to be re-derived by reading
 `remote-execution.mjs`'s proposal/dispatch/event path in full and locating what is genuinely absent,
 rather than by adding a module on the strength of a zero-hit word search.
 
+## 7. Step 1's real gap, re-derived by reading rather than by searching
+
+Following section 6, the gap was re-established by inspecting what the modules actually connect to:
+
+```text
+remote-execution.mjs   imports: (none at all - a pure module with an injected port, by design)
+                       mentions 'canonical' 8x and 'authorized' 10x IN ITS OWN vocabulary
+                       mentions return_control 0x and task_lifecycle 0x
+return-control.mjs     imports: (none at all)
+task-lifecycle         referenced only 2x across every contract in the repository
+```
+
+So the picture is the opposite of the one section 3 painted. The **vocabulary is present in each
+module** — remote-execution already distinguishes the interaction device from the execution device
+and already emits status/progress/partial/final/error correlated to one action id, and return-control
+already knows the authorized interaction surface and the return channels. What is missing is the
+**connection between them**: nothing takes an execution event and returns it into the canonical state
+and then projects it to the current authorized surface. That is precisely what step 1's own wording
+asks for — *"canonical execution/handoff correlation 与 progress/result return"* — and it is an
+INTEGRATION gap, not a vocabulary gap.
+
+**Corrected step-1 statement of work:** build the return-and-projection bridge across
+`remote-execution` → canonical state (`task-lifecycle`) → the current authorized surface
+(`resolveInteractionSurface` in `return-control`), reusing every existing vocabulary above. No new
+correlation vocabulary is to be minted, because the fields already exist and are already covered by
+the green baseline.
+
+This is a narrower and better-founded task than section 4's, and it is recorded as the deliberate
+consequence of the correction rather than as a fresh plan that happens to differ.
+
+
