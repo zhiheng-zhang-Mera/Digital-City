@@ -1,114 +1,135 @@
-# UI-102 — narrow-width defect found by screenshot that the hierarchy dump had passed
+# UI-102 — narrow-width / font-scale: a mis-specified acceptance, the defect it hid, and the fix
 
-> Host `Mech`. Branch `ui/UI-102-android-product-shell`, head `3bdba53`.
-> Status: **DEVELOPMENT_COMPLETE = false**. This report records a defect and corrects an
-> earlier acceptance claim made by this same host.
+> Host `Mech`. Branch `ui/UI-102-android-product-shell`.
+> Defect observed on `3bdba53`; fixed and verified on `652c41c`.
+> This report also corrects the *configuration* the acceptance had been run at for two rounds.
 
-## 1. The correction
+## 1. The configuration was wrong, and that is the root of the confusion
 
-Increment 5 of the development report claimed narrow-width / font-scale acceptance had
-passed, and the current round repeated that claim from a `uiautomator dump`:
-
-```text
-320x640 @ font_scale 1.5
-  bar: Home x=[0..46] | Ask x=[68..113] | Rooms x=[135..180] | Devices x=[202..247] | Activity x=[269..320]
-  max right edge = 320 = viewport  -> reported as "NO OVERFLOW"
-  leaks = 0
-```
-
-That check was measuring the **semantics tree**, not the rendered pixels. A `uiautomator`
-node carries the widget's *full* text and its *layout* bounds; it does not report whether
-the text was visually clipped inside those bounds. So "no node exceeds the viewport" is
-not the same claim as "no text was truncated", and the earlier acceptance rested on the
-weaker one.
-
-The screenshot of the same build, same device, same configuration
-(`android-shell-connected-320x640-font1.5.png`) shows what the user actually sees:
+The acceptance had been run for two increments as "narrow width": `wm size 320x640` with
+`wm density 320`. Those are **pixels**, and at density 320 the density scale is 2 px/dp, so:
 
 ```text
-bottom bar labels      "Ho"  "As"  "Ro"  "De"  "Ac"        <- all five truncated
-status chip            O N L I N E  stacked, one character per line
+320 x 640 px @ 320 dpi   =  160 dp wide      <- narrower than any real phone
+640 x 1280 px @ 320 dpi  =  320 dp wide      <- a realistic narrow phone
+720 x 1600 px @ 320 dpi  =  360 dp wide      <- the AVD's natural size
 ```
 
-That is a direct hit on two of the review checklist's own items — *底栏溢出* (bottom-bar
-overflow) and *文本拥挤* (text crowding) — and on the hard rule that the primary path must
-stay readable. **The narrow-width acceptance is a FAIL, not a pass.**
+160 dp is half the width of the narrowest device the workbook's *常见窄屏* ("common narrow
+screen") can mean. So for two rounds the task had been measuring a viewport no phone has,
+and had never once measured a real narrow width.
 
-## 2. Why the earlier pass happened
+That single mistake produced both of this task's wrong turns:
 
-Three separate causes, all of them this host's mistakes rather than environment limits:
+*   it made a **real** rendering failure at 160 dp look like the thing being tested, and
+*   it meant the widths that actually matter (320 dp, 360 dp) were **never tested at all** —
+    so neither the earlier pass nor the earlier withdrawal said anything about them.
 
-1. **Wrong instrument for the claim.** The dump is the right instrument for "which
-   surfaces exist and where", and the wrong instrument for "is the text legible". It was
-   allowed to answer a question it cannot answer.
-2. **Screenshots were believed to be impossible here.** The earlier note recorded
-   `screencap` returning an all-black 7.9 KB PNG and concluded screenshots could not be
-   used. That conclusion was drawn from one launch configuration and was wrong — see §3.
-3. **A false positive was briefly mistaken for success.** One 50.9 KB non-black capture
-   was the *launcher wallpaper*, not the app; the app had not come to the foreground.
-   It was discarded rather than reported, but it shows how easily "a real PNG" gets
-   accepted as "a real screenshot of the app".
+## 2. What was actually true
 
-## 3. Environment facts corrected
-
-The black-framebuffer limitation recorded in `E2E_VERIFICATION_NOTES.md` is **not** a
-property of `screencap` on this machine. It is a property of the launch configuration:
+**At 160 dp @ font_scale 1.5** the rendering genuinely failed, and the hierarchy dump could
+not show it. The dump reported five bar nodes with full text and bounds inside the
+viewport, which was read as "no overflow". A dump node carries a widget's full text and
+its layout bounds; it cannot report that the text was **clipped inside** those bounds. The
+screenshot of the same build, same device, same configuration showed:
 
 ```text
--no-window  -gpu host                  -> screencap = black (7904 B), launcher also black-ish
--no-window  -gpu swiftshader_indirect  -> launcher captures (226 KB); Compose app still black
- window     -gpu swiftshader_indirect  -> launcher (786 KB) and Compose app BOTH capture
+bottom bar labels      "Ho"  "As"  "Ro"  "De"  "Ac"      <- all five clipped
+status chip            O N L I N E   stacked, one character per line
 ```
 
-The working invocation, and the one the acceptance evidence was produced with:
+**At 320 dp and 360 dp nothing had been tested**, at any font scale. So the earlier claim
+that the narrow-width acceptance had passed was unsupported, and the later claim that it
+had *failed* was aimed at an out-of-scope width. Both are withdrawn; §4 replaces them.
+
+## 3. The fix
+
+`NavigationBarItem` measures its label slot in a duplicated pass and then clips whatever is
+in it, which is exactly how `Ho`/`As`/`Ro` happened — a width-aware workaround inside that
+slot cannot see the real bounded width. `UtopiaNavigationBar` owns the measure loop instead
+so the label gets its true slot.
+
+*   The label steps down **11 → 10 → 9 sp** to the largest size that fits the measured slot.
+*   Below that it falls back to **icon-only**, keeping the surface name as the semantics
+    label, so the entry never renders a word fragment.
+*   The header status became a measured chip on a scrollable row, so `ONLINE` stays on one
+    line and can no longer squeeze the wordmark or the overflow button to zero.
+*   The sizing decision is a pure function (`UiSizing.kt`) with 8 unit tests, module total
+    **56 → 64**, all green.
+
+Compose here is Foundation **1.8.0** / Material 3 **1.3.2** via `compose-bom:2025.04.01`
+(confirmed from the Gradle cache). `BasicText(autoSize=)` / `TextAutoSize` need Compose 1.9
+/ M3 1.4, and the BOM cannot be bumped offline, so the measured ladder is a deliberate
+substitute rather than an oversight.
+
+## 4. Verification — from screenshots, at the correct dp sizes
+
+Every row is a real emulator capture of the fixed build, windowed with
+`-gpu swiftshader_indirect`, connected to a live Gateway (`ONLINE` true in every dump).
+
+| viewport | font_scale | five full labels | `ONLINE` single line | screenshot |
+| --- | --- | --- | --- | --- |
+| 360 dp (720x1600 @320) | 1.0 | yes | yes | `v2-360dp-font1.0.png` |
+| 360 dp (720x1600 @320) | 1.5 | yes | yes | `v2-360dp-font1.5.png` |
+| 320 dp (640x1280 @320) | 1.3 | yes | yes | `v2-320dp-font1.3.png` |
+| 320 dp (640x1280 @320) | 1.5 | yes | yes | `v2-320dp-font1.5.png` |
+| 160 dp (320x640 @320) | 1.5 | **no — still clips** | chip collapsed to a sliver | `v2-160dp-font1.5.png` |
+
+At 320 dp @ 1.5 — the hardest in-scope case — the bar reads `Home · Ask · Rooms · Devices ·
+Activity` in full and the lime `ONLINE` pill sits on one line beside the wordmark. The
+defect that motivated the change is resolved across the specified range.
+
+## 5. Residual limit, recorded rather than hidden
+
+**At 160 dp @ 1.5 the labels still clip, and the icon-only fallback does not engage.** The
+ladder bottoms out and the text is clipped exactly as before, so the degradation is not yet
+graceful at that width. 160 dp is below any real device and outside the specified
+acceptance, which is why it does not block completion — but the fallback is documented in
+§3 as if it worked, and at 160 dp it demonstrably does not. Either the fallback threshold
+is not reached in practice or the measurement is not seeing the real slot; that is not
+diagnosed here. Flagged for Review.
+
+## 6. Cross-surface observation, deliberately NOT patched here
+
+The default path renders device freshness as a raw machine timestamp:
 
 ```text
-emulator -avd utopia36 -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot -memory 4096
+Last seen: 2026-10-01T15:42:25.473Z
+Last snapshot: 2026-10-01T15:42:25.690Z
 ```
 
-Also worth keeping, because it removes a whole class of flakiness:
+At 320 dp @ 1.5 the value also runs into the card edge. This was **not** changed on this
+branch on purpose: this task's own boundary forbids re-deriving presentation away from the
+shared truth, Web renders the same value, and a one-sided change would break the
+truth-parity this task just established. Raised as a **cross-surface** question for Review
+(Android + Web together).
 
-*   `adb reverse tcp:4310 tcp:4310` + `host = http://127.0.0.1:4310` connects the debug
-    build to the host Gateway reliably. The `10.0.2.2` slirp alias used in the earlier note
-    failed intermittently after an emulator restart and produced a spurious OFFLINE.
-*   The real emulator process is `qemu-system-x86_64-headless.exe`. Matching only
-    `emulator`/`qemu-system-x86_64` leaves it alive, which then makes the *next* boot fail
-    with "Running multiple emulators with the same AVD" and `adb emu kill` appear to work
-    when it does not.
+## 7. Environment corrections (the earlier note was wrong)
 
-## 4. Connected evidence that is now durable
-
-| file | what it establishes |
-| --- | --- |
-| `acceptance-connected-native.xml` | 720x1600 @ font 1.0, `ONLINE`, five bar entries, `Alien-PC` telemetry, 0 identifier leaks |
-| `android-shell-connected-native.png` | the same state as rendered — dark HUD, lime `ONLINE`, five-entry bar, Devices selected, no console character |
-| `acceptance-connected-320x640-font1.5.xml` | 320x640 @ font 1.5, `ONLINE`, five entries, 0 leaks — the tree is correct |
-| `android-shell-connected-320x640-font1.5.png` | the same state as rendered — **and this is where the truncation is visible** |
-
-The two narrow files disagree, and that disagreement is the finding: the tree is right and
-the pixels are wrong.
-
-## 5. Cross-surface observation, deliberately NOT fixed here
-
-The native screenshot shows device freshness as a raw machine timestamp on the default
-path:
+The recorded claim that `screencap` is impossible on this host was wrong — it depends on
+the launch flags:
 
 ```text
-Last seen: 2026-10-01T15:26:39.519Z
+-no-window  -gpu host                  -> black 7.9 KB PNG
+-no-window  -gpu swiftshader_indirect  -> launcher captures, Compose still black
+ WINDOWED   -gpu swiftshader_indirect  -> launcher and Compose both capture correctly
 ```
 
-This is arguably the kind of engineering-flavoured value the hard rule wants folded into
-technical details. It was **not** changed on this branch, on purpose: this task's own
-boundary forbids re-deriving presentation away from the shared truth, and Web renders the
-same value. Changing Android alone would break the truth-parity this task just fixed, so
-this is raised for the Review host as a **cross-surface** question (Android + Web together),
-not patched unilaterally.
+Two more, each of which cost a wasted cycle:
 
-## 6. What must happen before this task can be called complete
+*   **`adb reverse tcp:4310 tcp:4310`** with `host = http://127.0.0.1:4310` is reliable. The
+    `10.0.2.2` slirp alias worked once and then failed intermittently after an emulator
+    restart, presenting as a spurious `OFFLINE` that looks like a product bug and is not.
+*   **The emulator process name depends on the launch mode.** Windowed mode runs
+    `qemu-system-x86_64.exe`; `-no-window` runs `qemu-system-x86_64-headless.exe`. Matching
+    only `emulator` leaves the real process alive, and the next boot then dies with
+    *"Running multiple emulators with the same AVD"* while `adb emu kill` appears to have
+    worked.
 
-1. Fix the bottom-bar label truncation at 320dp @ 1.5x so all five labels are legible.
-2. Fix the status chip so `ONLINE` does not wrap one character per line.
-3. Re-run the acceptance **with a screenshot**, not only a dump, at 320dp and 360dp, at
-   font 1.0 and 1.5.
-4. Re-state the acceptance result from the pixels, and keep any dump-based claim explicitly
-   labelled as a structural (not legibility) claim.
+## 8. Method lesson worth carrying to other UI tasks
+
+`uiautomator dump` answers *"which surfaces exist and where"*. It does **not** answer *"is
+the text legible"*, because clipped text is still reported with its full string. Any
+acceptance claim about legibility, truncation, overflow or crowding must be made from
+pixels. This task made that claim from a dump twice, in opposite directions, and was wrong
+both times.

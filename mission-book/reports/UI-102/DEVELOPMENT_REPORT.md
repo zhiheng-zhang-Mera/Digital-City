@@ -1,4 +1,9 @@
-# UI-102 — DEVELOPMENT REPORT (WIP, first increment)
+# UI-102 — DEVELOPMENT REPORT
+
+> **Superseded header.** §1–§5 below were written at the *first* increment (`9b97fa1`) and are kept
+> as the historical record of that increment. The authoritative state is §7, and the evidence for it
+> is in [NARROW_WIDTH_DEFECT.md](./NARROW_WIDTH_DEFECT.md) and
+> [E2E_VERIFICATION_NOTES.md](./E2E_VERIFICATION_NOTES.md).
 
 ```text
 MISSION                    = UI-102 (Android 产品壳与信息架构)
@@ -7,10 +12,11 @@ REPORT_ROLE                = DEVELOPMENT
 HOST                       = Mech
 BASELINE_SHA               = e7c498f5acd86da324a45c3278219c8daa612561
 BRANCH                     = ui/UI-102-android-product-shell
-HEAD_SHA                   = 9b97fa187cd28acfd4ae3463719812d9b76dc098
-CI                         = 36868228769-success-android-and-gateway-web
-DEVELOPMENT_COMPLETE       = false
-STATUS                     = IN_PROGRESS (first increment landed; see §4 for what remains)
+HEAD_SHA                   = 652c41c6ca72d591e3adab5cb78b9a2bc6b7a410
+CI                         = 36886549081-success-android-and-gateway-web
+UNIT_TESTS                 = 64 (0 failures)
+DEVELOPMENT_COMPLETE       = true
+STATUS                     = IN_PROGRESS (development complete; awaiting review by a different host)
 ```
 
 > **This is explicitly not a completion claim.** Per `CONSTRUCTION_RULES.md` §8/§9 a green CI run on a
@@ -88,7 +94,7 @@ Recorded rather than left implicit, because a reviewer must be able to see the g
   pages plus `Find`.
 - Verification is real (emulator + hosted CI), not claimed.
 
-## 6. State
+## 6. State at the first increment (historical)
 
 ```text
 DEVELOPMENT_COMPLETE = false
@@ -97,3 +103,64 @@ REVIEW_HOST          = null (nothing to review as complete yet)
 
 Mech intends to continue this task in the next round. Nothing here is offered as complete, and a
 reviewer should not be asked to sign off a partial shell.
+
+## 7. Final state — completion claim on `652c41c`
+
+All six items that §4 listed as remaining are now closed:
+
+| §4 item | resolution |
+|---|---|
+| 1. Component hierarchy | `ui/UtopiaComponents.kt`: UtLabel, UtPanel, HeroBlock, StatusChip, ToolRow, ActivityRow, DeviceSurface, UtEmptyState, UtFeedback, TechnicalDetails |
+| 2. Technical-detail folding | every internal identifier in Actions/Ask/Services/Events folded into a collapsed `运行详情`; extracted into pure row-builders so tests assert what the screen renders |
+| 3. State coverage | loading / offline / unavailable / confirmation / ambiguity / success / failure expressed through the shared components |
+| 4. Hard-coded colours | zero `Color(0x..)` literals outside the theme file (19 → 0) |
+| 5. Acceptance | run on a real emulator **from screenshots** at 360 dp and 320 dp, font 1.0/1.3/1.5 — see below |
+| 6. Truth-parity with Web | the Gateway's `statusLabel` now wins over the client fallback, which is what Web renders; a test pins precedence *and* fallback |
+
+```text
+gradlew --offline :app:testDebugUnitTest :app:assembleDebug   BUILD SUCCESSFUL
+unit tests                                                     64 passed, 0 failures
+hosted CI 36886549081                                          success (android + gateway-web)
+connected acceptance                                           ONLINE at every size tested
+```
+
+### Acceptance matrix (real emulator, windowed `-gpu swiftshader_indirect`, live Gateway)
+
+| viewport | font_scale | five full bar labels | `ONLINE` on one line |
+|---|---|---|---|
+| 360 dp | 1.0 | yes | yes |
+| 360 dp | 1.5 | yes | yes |
+| 320 dp | 1.3 | yes | yes |
+| 320 dp | 1.5 | yes | yes |
+| 160 dp | 1.5 | **no — clips** | chip collapses |
+
+Evidence: `evidence/raw/mission-book/UI-102/v2-*.{png,xml}` plus
+`android-shell-connected-native.png` (the connected Devices surface with reference-node telemetry).
+
+### Three corrections a reviewer must know about
+
+1. **A false pass, then an over-correction, both from the same mistake.** The narrow-width
+   acceptance was run for two increments at "`320x640`" — *pixels*. At density 320 that is a
+   **160 dp** viewport, half the width of the narrowest real phone, so the widths that matter
+   (320 dp, 360 dp) had never been tested. A hierarchy dump then "passed" it (dumps report a
+   widget's full text and cannot show clipping) and a screenshot "failed" it. Both claims are
+   withdrawn and replaced by the matrix above. **A legibility claim must be made from pixels.**
+2. **`screencap` is not impossible on this host.** The recorded limitation was a property of the
+   launch flags, not the machine: `-no-window -gpu host` gives a black frame, and a *windowed*
+   emulator with `-gpu swiftshader_indirect` captures the Compose surface correctly.
+3. **A residual limit, recorded not hidden.** At 160 dp @ 1.5 the labels still clip and the
+   documented icon-only fallback does not engage, so degradation is not yet graceful at that width.
+   It is below any real device and outside the specified acceptance, which is why it does not block
+   completion — but the fallback does not behave as documented.
+
+### Not claimed
+
+* **Keyboard/focus traversal has no instrument on this host.** `ui-test-junit4` and `androidx.test`
+  are absent from the offline Gradle cache, so no `androidTest` could be built; the measured-fit
+  path itself is asserted only through the pure arithmetic in `UiSizing.kt`, not through a
+  composition.
+* **The raw machine timestamp on the default path** (`Last seen: 2026-10-01T15:42:25.473Z`) is left
+  as-is deliberately. Web renders the same value, so changing Android alone would break the
+  truth-parity this task just established. Raised as a **cross-surface** question.
+* **Review is not performed by Mech.** Per `CONSTRUCTION_RULES.md` §3 the review host must be a
+  different physical host, so this report is offered for review, not as a verdict.

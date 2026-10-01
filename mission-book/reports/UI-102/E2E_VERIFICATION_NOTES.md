@@ -87,3 +87,41 @@ JAVA_HOME must be D:\GDPR-Refine\.tools\jdk-17.0.20.1+1
 AVD utopia36 = android-36 google_apis_playstore x86_64, 720x1600 @320dpi, boot ~75-90s
 adb shell settings put global hide_error_dialogs 1   # suppresses system ANR overlays
 ```
+
+## 6. Correction (later round): §3 and §4 above are wrong on two counts
+
+**Screenshots are not impossible here.** §3 item 1 concluded from one launch
+configuration that `screencap` cannot be used, and §4 then recommended a Compose UI
+test *because* pixels were believed unavailable. Screenshots work; they depend on the
+launch flags, and the third combination below captures the Compose surface correctly:
+
+```text
+-no-window  -gpu host                  -> black 7.9 KB PNG
+-no-window  -gpu swiftshader_indirect  -> launcher captures (226 KB), Compose still black
+ WINDOWED   -gpu swiftshader_indirect  -> launcher (786 KB) and Compose (81 KB) both capture
+```
+
+The working invocation the acceptance evidence was produced with:
+
+```text
+emulator -avd utopia36 -no-audio -no-boot-anim -gpu swiftshader_indirect -no-snapshot -memory 4096
+```
+
+**This matters because the dump cannot answer a legibility question.** §3's other claims
+stand, and the dump remains the right instrument for *which surfaces exist and where* —
+but it reports a widget's full text and its layout bounds, never whether the text was
+clipped inside them. Relying on it for "the labels fit" produced a false pass that a
+screenshot immediately falsified; see
+[NARROW_WIDTH_DEFECT.md](./NARROW_WIDTH_DEFECT.md).
+
+Two further corrections to keep, both of which caused wasted cycles:
+
+*   **Connect the device with `adb reverse`.** `adb reverse tcp:4310 tcp:4310` plus
+    `host = http://127.0.0.1:4310` in `city-connection.xml` is reliable. The `10.0.2.2`
+    slirp alias in §2 worked once and then failed intermittently after an emulator
+    restart, showing up as a spurious OFFLINE that looks like a product bug and is not.
+*   **The emulator process name depends on how it was launched.** Windowed mode runs
+    `qemu-system-x86_64.exe`; `-no-window` runs `qemu-system-x86_64-headless.exe`.
+    Matching only `emulator` / `qemu-system-x86_64` leaves the real process alive; the
+    next boot then dies with *"Running multiple emulators with the same AVD"* while
+    `adb emu kill` appears to have succeeded. Kill by `qemu-system-x86_64*`.
