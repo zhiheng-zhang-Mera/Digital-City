@@ -23,8 +23,8 @@
 
 | 主机 | 当前任务 | 角色 | 状态 | 等待分类 / 唤醒条件 |
 |---|---|---|---|---|
-| Alien | — | — | AVAILABLE | — |
-| Mech | — | — | AVAILABLE | — |
+| Alien | — | — | WAITING_ELIGIBILITY | `UI-000 development_complete=true`（Mech 完成 Development 后 Alien 领 UI-000 Review）；约 20 分钟兜底重扫。见 [零领取记录](./reports/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md) |
+| Mech | UI-000 | Development | IN_PROGRESS | — |
 
 > `WAITING_ELIGIBILITY`、`STRUCTURALLY_INELIGIBLE`、`GLOBAL_EXTERNAL_BLOCK`、`POOL_TERMINAL` 的定义与重扫规则见 [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)。
 
