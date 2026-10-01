@@ -18,8 +18,6 @@ development_complete: true
 development_report: mission-book/reports/UI-103/DEVELOPMENT_REPORT.md
 development_evidence: evidence/raw/mission-book/UI-103/
 pending_seam: "apps/web terminal.js's room iframe must append ?embedded=1 to the hub URL; the Rooms side provides and verifies the mechanism, the consumer side belongs to UI-101 (apps/web is outside UI-103's boundary). deferred != passed."
-development_ci: null
-development_complete: false
 review_host: null
 review_head_sha: null
 review_ci: null
