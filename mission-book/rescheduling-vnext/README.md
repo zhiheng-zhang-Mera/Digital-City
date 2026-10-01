@@ -1,5 +1,8 @@
 # 再调度 vNext 阶段
 
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> 本目录 README 只说明阶段目标与顺序；通用 claim、等待/唤醒、CI、双机独立、reconciliation 与 merge 规则统一读取常驻规则书。
+
 解锁条件：\`UI_BASELINE_FROZEN\`。
 
 顺序：

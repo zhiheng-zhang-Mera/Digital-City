@@ -23,6 +23,10 @@ report_path: mission-book/reports/RS-201/
 
 # RS-201 — 动态 AI 池与可用性选择
 
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> 本工作书只定义任务特有 scope / dependency / acceptance；通用 claim、等待/唤醒、CI、双机独立与 merge 规则以常驻规则书为准。
+
 ## 目标
 把 General AI Gateway 的 provider/model/account 从固定二选一思维扩展为动态池，并支持用户可配置、区域可用性、账号/session 可用性和显式切换选择。
 
@@ -66,11 +70,8 @@ General AI registry/provider/session/availability contract、对应 runtime/adap
 - 不包含最终 UI 设计。
 
 
-## 双机领取与并发规则
-- Development 与独立 Review 必须由不同实体主机完成。
-- claim 后使用独立 branch/worktree；hosted CI、长测试或外部 provider 等待不独占主机。
-- 未满足 dependencies 时不得先写未定义的集成逻辑；空闲主机领取同阶段其他可执行任务。
-- 普通组件任务不得直接合并 Utopia main；阶段冻结工作书负责 union、回归、CI 与 main merge。
+## 绑定常驻规则
+本任务继承 [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)。特别是：同任务 Development/Review 不得同主机；等待不独占主机；零领取必须分类；`WAITING_ELIGIBILITY` 事件唤醒优先、约 20 分钟兜底重扫；外部恢复后必须 reconciliation；CI/evidence 必须绑定 exact head；不得制造假工作或擅自扩大范围。
 
 ## Reports / evolution
 - City 只保存有界结论、SHA、CI 和异常摘要。

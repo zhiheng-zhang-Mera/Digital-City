@@ -23,6 +23,10 @@ report_path: mission-book/reports/UI-190/
 
 # UI-190 — 跨端视觉审查与 UI 基线冻结
 
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> 本工作书只定义任务特有 scope / dependency / acceptance；通用 claim、等待/唤醒、CI、双机独立与 merge 规则以常驻规则书为准。
+
 ## 目标
 集成 UI-101/102/103，做跨端独立 UI Critic 循环、功能回归和阶段冻结。这里冻结的是“产品壳 + 信息架构 + design system”，不是最终调度交互。
 
@@ -57,11 +61,8 @@ report_path: mission-book/reports/UI-190/
 - 阶段标记 \`UI_BASELINE_FROZEN\`。
 
 
-## 双机领取与并发规则
-- Development 与独立 Review 必须由不同实体主机完成。
-- claim 后使用独立 branch/worktree；hosted CI、长测试、插件下载或截图批处理等待不独占主机。
-- 未满足 dependencies 时不得“先做一半”等待；空闲主机改领同阶段其他合格任务。
-- 普通组件任务不得直接合并 Utopia main；只有阶段冻结工作书拥有 merge authority。
+## 绑定常驻规则
+本任务继承 [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)。特别是：同任务 Development/Review 不得同主机；等待不独占主机；零领取必须分类；`WAITING_ELIGIBILITY` 事件唤醒优先、约 20 分钟兜底重扫；外部恢复后必须 reconciliation；CI/evidence 必须绑定 exact head；不得制造假工作或擅自扩大范围。
 
 ## Reports / evolution
 - City 只写有界 DEVELOPMENT_REPORT / REVIEW_REPORT。
