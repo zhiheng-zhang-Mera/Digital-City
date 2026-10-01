@@ -296,4 +296,25 @@ UI-102 claim 是明令禁止的。Alien 只记录与上报，不代选。
 本 §10 的两条 `NO_CHANGE` 才是首次真正跑满的窗口。这与本项目反复出现的同一类问题同源：
 **声称覆盖 ≠ 实际覆盖**。
 
+### 10.5 停滞信号解除（`2026-10-01T15:29:43Z`，观察后约 2 分钟）
+
+下一个有界窗口在 **62 秒**内唤醒：`Digital-City main -> c69144a`，
+`wip(UI-102): withdraw the narrow-width pass and record the truncation defect`。
+
+```text
+stall_signal_resolved:        true
+Mech_last_push_before:        2026-10-01T14:35:21Z
+Mech_next_push:               2026-10-01T15:2xZ（本次 c69144a）
+silence_duration_actual:      约 54 分钟
+UI-102 development_complete:  false（仍未宣告）
+owner_intervention_required:  false —— 无需 Owner 处置，§10.3 的四个选项全部作废
+```
+
+Mech 并未停止：它在这段静默里做的是一次**自我更正**——撤回先前记录为完成的窄屏验收，因为发现了
+截断缺陷。这与本阶段反复出现的模式一致（作者在后续增量里抓到自己早先增量引入的缺陷）。
+
+**结论：§10 的停滞信号按当时证据记录正确，现已解除；§10.3 的 Owner 处置选项不再需要。**
+保留本节而非删除 §10，是因为「当时为何判为等待」的判断链本身是可复核的施工记录。
+
+
 
