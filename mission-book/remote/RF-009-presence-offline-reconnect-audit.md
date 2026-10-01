@@ -17,12 +17,12 @@ development_branch: remote/RF-009-presence-offline-reconnect-audit
 development_head_sha: e6b83b4d0b22131391bffc4dda243fcd650b3143
 development_ci: 36746849199-success
 development_report: mission-book/reports/RF-009/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T00:37:29Z
-correction_head_sha: null
-correction_ci: null
+correction_head_sha: aaca94a39d3d06f6653f9a75bfb0b78bdd973c4c
+correction_ci: 36797962837-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-009/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ---
