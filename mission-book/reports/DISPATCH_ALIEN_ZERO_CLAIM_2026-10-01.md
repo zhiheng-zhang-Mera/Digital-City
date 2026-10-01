@@ -105,3 +105,42 @@ Alien 在本轮**没有**领取 UI-000，也没有动 Mech 的任何字段或分
 
 唤醒后 Alien 的下一步是 **UI-000 Review**（独立视觉批判，可直接修正明显问题），在其后再按依赖顺序
 推进 UI-101..103 / UI-190。
+
+## 7. 第一次 bounded re-scan 的结果（§5/§6 要求的 instrumentation）
+
+扫描后 Alien 执行了一次完整的 20 分钟 bounded re-scan（只读 `git ls-remote`，不写任何仓库、不碰他机
+claim），结果：
+
+```text
+next_scan_timestamp:         2026-10-01T10:48:24Z  ->  2026-10-01T11:09:05Z
+next_scan_outcome:           NO_CHANGE
+work_became_eligible:        false
+owner_intervention_required: false（当前尚不构成结构性阻塞，见下）
+digital_city_main:           b1a0f1a3e86bab7f163810afb08eebff33875634   (未变，仍为 Alien 本次记录提交)
+utopia_main:                 e7c498f5acd86da324a45c3278219c8daa612561   (未变)
+utopia_remote_branch_heads:  1  (只有 main；`ui/UI-000-visual-direction-candidates` 仍不存在)
+```
+
+即：从 Mech 在 `2026-10-01T10:30:27Z` 推送 claim 到本次重扫结束（`11:09:05Z`），约 **39 分钟**内
+origin 上没有任何 Mech 的实现产物或完成声明。
+
+### 7.1 仍然判为 `WAITING_ELIGIBILITY` 而不是阻塞的理由
+
+UI-000 是「三套真实候选 × Web/Android/Rooms 三个 surface」的高保真设计任务，其 Development 规模远大于
+39 分钟。当前证据不足以区分「Mech 正在正常施工」与「Mech 已停止」；按 §5.1，判据是**未来资格是否合理
+存在**，而不是等待时长。因此 Alien 继续按 §5.1/§6 做 bounded re-scan，不升级为阻塞上报，也不触碰 §12
+保护的 Mech claim。
+
+### 7.2 若后续重扫持续无产物，Owner 需要的决策（预先记录，避免将来临时判断）
+
+§12 规定 `claim 后尚无实质实现/报告` 的 claim 只能由 **Owner 或明确的规则化 recovery reset** 处理，
+自动施工者不得擅自清空。当前 `CONSTRUCTION_RULES.md` 未定义任何 claim 超时的规则化 reset，因此若
+Mech 长期无产物，唯一合规解法是 Owner 二选一（Alien 不自行选择）：
+
+1. **Owner 判定 Mech 失联并释放其 claim** —— 然后 Alien 领取 UI-000 Development；代价是 UI-000 变成
+   单主机任务，§3 的 Development/Review 双机独立性必须由 Owner 以显式 ruling 豁免（参照 `response-9-30.md`
+   R10/R13 的既有豁免写法），否则 Alien 做完 Development 后将无人可做 Review；
+2. **Owner 提供新裁决或 superseding workbook** —— 保留 Mech 的 claim 历史，另立可领取任务。
+
+在 Owner 给出上述任一裁决之前，Alien 的正确行为是继续等待并重扫，**不**制造替代工作（§9），**不**冒充
+Mech 的角色（§3/§12）。
