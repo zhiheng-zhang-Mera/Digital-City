@@ -14,14 +14,40 @@ DEVELOPMENT_HEAD     = 251e20bc3af4a2db57253a1a1e5332c976d17d51
 DEVELOPMENT_CI       = 36739459945-success
 CORRECTION_BRANCH    = remote/RF-006-secure-transport-path-manager
 CORRECTION_HEAD_SHA  = 8fbd71df10535456cddd8146e28b08fd7684d714
-BRANCH_CI            = BLOCKED — see §1
+BRANCH_CI            = 36752017760-gateway-web-success-android-success
 LOCAL_CHECK_SUMMARY  = RF-006 12 pass, root 113 pass, rooms 69 pass, city 1801 pass,
                        promotion-history OK at 251e20b
 MERGE                = NOT PERFORMED (forbidden for component branches)
-CORRECTION_COMPLETE  = false — pending the external CI blocker in §1
+CORRECTION_COMPLETE  = true (hosted CI green on the exact pushed head)
 ```
 
-## 1. TYPED EXTERNAL BLOCKER (second task affected) — hosted CI cannot run
+## 1. Hosted CI — blocked interval (resolved)
+
+**RESOLVED — GitHub Actions billing/spending was restored by the Owner, and the already-pushed head was
+re-run with no code change.** The re-attempt executed both jobs on the exact corrected head and passed,
+so this Correction now satisfies its completion criterion:
+
+```text
+corrected head   = 8fbd71d
+green run        = 36752017760-gateway-web-success-android-success
+local checks     = all green (see LOCAL_CHECK_SUMMARY above)
+```
+
+The blocked interval is retained below verbatim as history. Nothing was rewritten, and the old blocked
+attempts were never relabelled as success; local PASS was never substituted for hosted CI.
+
+```text
+blocked interval (retained history)
+  run 36751505413  first pass      android X 2s   gateway-web X 2s   0 steps
+  run 36752017760  second pass     android X 2s   gateway-web X 2s   0 steps
+  run 36752017760  round-20 retry  android X 3s   gateway-web X 2s   job ids 110142514472/110142514368
+resolution
+  run 36752017760  re-attempt 23:55:46Z   android OK 1m8s (110151153729)  gateway-web OK 2m28s (110151154092)
+```
+
+### Retained original record
+
+The typed external blocker below was reported while the account state refused to start any job:
 
 Both corrected heads are pushed and every local check the gate runs is green, but GitHub Actions still
 refuses to start jobs on this account. For this task:

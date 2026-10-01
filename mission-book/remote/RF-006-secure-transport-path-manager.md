@@ -17,17 +17,17 @@ development_branch: remote/RF-006-secure-transport-path-manager
 development_head_sha: 251e20bc3af4a2db57253a1a1e5332c976d17d51
 development_ci: 36739459945-success
 development_report: mission-book/reports/RF-006/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-09-30T17:32:00Z
 correction_head_sha: 8fbd71df10535456cddd8146e28b08fd7684d714
-correction_ci: BLOCKED_EXTERNAL_GITHUB_ACTIONS_BILLING__local-all-green__runs-36751505413-36752017760
+correction_ci: 36752017760-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-006/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ---
 
-# RF-006 â€?Secure Transport Path Manager + Relay Fallback
+# RF-006 ï¿½?Secure Transport Path Manager + Relay Fallback
 
 ## Goal
 
