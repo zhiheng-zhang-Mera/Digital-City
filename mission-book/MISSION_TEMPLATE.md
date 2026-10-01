@@ -23,17 +23,21 @@ report_path: null
 
 # XX-000 — 工作书标题
 
+> **常驻施工规则：** [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)  
+> **过程数据规则：** [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
+> README 仅为监控看板，不是施工规范或 claim lock。
+
 ## 目标
 ## 已确认背景 / 当前真实代码
 ## 依赖与解锁条件
 ## 允许修改边界
 ## 禁止修改边界
-## 双机领取与并发规则
-## 施工步骤
-## 独立复核步骤
+## 任务特有施工步骤
+## 任务特有独立复核
 ## 测试 / 实机 / 视觉证据
 ## 完成门槛
 ## Reports / Utopia evolution 记录
 
-> 当前活跃总规则以 [README.md](./README.md) 为准。  
-> 旧 programme / 旧 Owner response / 旧 dashboard 已归档到 [finished/completed-2026-10-01/](./finished/completed-2026-10-01/)，不得当作当前施工指令。
+## 绑定常驻规则
+
+本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
