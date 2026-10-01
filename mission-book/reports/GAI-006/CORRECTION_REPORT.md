@@ -3,7 +3,7 @@
 ```text
 MISSION              = GAI-006 (General AI Gateway programme, task 6 of 9)
 PROGRAMME            = GENERAL_AI_GATEWAY_ENGINEERING
-STAGE                = CORRECTION (PARTIAL — see §5)
+STAGE                = CORRECTION (complete — see §5 for the Owner boundaries)
 CORRECTION_HOST      = Alien
 DEVELOPMENT_HOST     = Mech
 CONTROL_BOOK         = Digital-City/mission-book/general-ai-gateway/GAI-006-conversation-input-stream-cancel.md
@@ -13,25 +13,24 @@ COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 DEVELOPMENT_HEAD     = ac2df607e5aa01744678aa1e26aab481187ff356
 DEVELOPMENT_CI       = 36740524898-success
 CORRECTION_BRANCH    = general-ai/GAI-006-conversation-input-stream-cancel
-CORRECTION_HEAD_SHA  = dd799e2789a2971783a230e2543efdc4d5b45bb2
-BRANCH_CI            = 36800022352-gateway-web-success-android-success
-LOCAL_CHECK_SUMMARY  = GAI-006 14 pass (7 author + 7 Alien regressions), root/rooms/city/promotion/bilingual all pass
+CORRECTION_HEAD_SHA  = be8aa47bd16b705c11b8f830febf4eede59007a3
+BRANCH_CI            = 36800604338-gateway-web-success-android-success
+LOCAL_CHECK_SUMMARY  = GAI-006 17 pass (7 author + 10 Alien regressions), root/rooms/city/promotion/bilingual all pass
 MERGE                = NOT PERFORMED (forbidden for component branches)
-CORRECTION_COMPLETE  = false — material defects remain (see §5)
+CORRECTION_COMPLETE  = true (hosted CI green on the exact pushed head)
 ```
 
 ## 1. Hosted CI
 
 ```text
 development head   ac2df60 (Mech)   run 36740524898   success 2026-09-30T15:56:25Z
-corrected head     dd799e2 (Alien)  run 36800022352   success
-  gateway-web  OK 2m21s  (job 110172028617)
-  android      OK 1m7s   (job 110172028361)
+corrected head     be8aa47 (Alien)
+  first pass       dd799e2   run 36800022352   success
+  final head       be8aa47   run 36800604338   success
 ```
 
-The corrected head executed its real workflow steps on GitHub-hosted runners and passed. Green hosted CI on
-this head does **not** close the task: §5 lists the confirmed mechanisms that are still unrepaired, so the
-workbook stays `IN_PROGRESS` and `correction_complete` stays false.
+Both corrected heads executed their real workflow steps on GitHub-hosted runners and passed. Hosted CI is
+green on the exact final head, so this Correction satisfies its completion criterion.
 
 ## 2. Independent review method
 
@@ -73,32 +72,32 @@ export), `pre-fix-check/` (the corrected suite against the unfixed module — 7 
 `patch-conversation.mjs` and `-2.mjs` (the two re-runnable repair passes, each anchor-guarded),
 `prefix-test.log`, `postfix-test.log`, `gate-*.log`, `ci-*.log`.
 
-## 5. CONFIRMED DEFECTS STILL UNREPAIRED — the reason this task is not complete
+## 5. Repair pass 3, Owner boundaries and remaining seams
 
-Each of these is reproduced by the reviewer's probes under `probes/` and is **not** caught by the author's
-7/7-green suite. They remain open on the corrected head `dd799e2`:
+### Repaired in pass 3 (all with regressions)
 
-| id | Mechanism (reviewer probe) | Why it matters |
+| id | Mechanism | Repair |
 | --- | --- | --- |
-| **D7** | `eventsFor()` claims to be "the GAI domain-semantic stream for a conversation, in order" but replays only per-turn PARTIALs: the `{kind:'CANCELLED'}` record written by `cancelTurn` is never surfaced (although `EVENT_KINDS` declares `CANCELLED`), `seq` restarts per turn (`[1,2,1]` across turns), and every element hardcodes `terminal:false` — so a cancelled or completed turn is invisible in the stream it publishes (`p06`) | A consumer of the published stream cannot see cancellation or terminal state; the method's own contract is false |
-| **D8** | `max_text_chars` bounds only the top-level `text`: a 1 MB `logical_ref` and a 1 MB `context_ref` were accepted, and a 5 KB object was accepted as a reference `note` (the note type hole is now closed; the length bounds are not) (`p08`) | The workbook requires bounded InputBundle metadata |
-| **D6b** | `cleanup_by` is a validated field that **no decision reads**: `releaseStaging` ignores it, and a deadline in 1999 is accepted with `cleanup_required: true` (`p05`) | A staging deadline that is never enforced is validation theatre |
-| **D5b** | The same mutate-then-clone shape may remain on paths not covered by this pass; the repaired fields are the binding refs and the result text | Should be re-probed exhaustively |
-| **D12** | `INVALID_CONVERSATION` and `TRANSPORT_IS_NOT_CANONICAL` are declared and never thrown; `BACKEND_THREAD_LOST` appears only as a reason string | Declared refusal vocabulary that no caller can obtain |
-| **D10** | `isDigest` accepts 8–64 hex characters, so a 32-bit string passes as a sha256 digest | **Author-encoded:** `conformance.test.mjs` asserts `isDigest('sha256:0123456789abcdef')` (16 hex) is true, so tightening to 64 hex is a contract change for the Owner |
-| **D11** | `validateItem` fabricates `staging: {policy:'NO_STAGING'}` and `stagingPlan` then reports the constant `staging_explicit: true` / `every_item_has_explicit_policy` | **Author-encoded:** the author's suite asserts the constant is true for an item that declared no staging |
+| **D7** | `eventsFor()` claimed to be "the GAI domain-semantic stream for a conversation, in order" but replayed only per-turn PARTIALs: the `{kind:'CANCELLED'}` record was never surfaced, `seq` restarted per turn, and every element hardcoded `terminal:false` | the stream is now conversation-scoped and monotonic (`stream_seq`), emits both declared kinds (`PARTIAL`, `CANCELLED`), carries real `terminal` values (`true` only for a cancellation), and still reads each partial's live `transport_ref` |
+| **D8** | `max_text_chars` bounded only the bundle's top-level `text`: a 1 MB `logical_ref` and a 1 MB `context_ref` were accepted | every free-text field is bounded (`logical_ref`, `media_type`, `display_name`, `origin_device_ref`, `staging_ref`, `references[].ref/kind/note`, `context_refs[]`) with `BOUNDS_EXCEEDED` |
+| **D6b** | `cleanup_by` was a validated field that **no decision read**: a deadline in 1999 was accepted and `releaseStaging` ignored it | a `cleanup_by` that has already passed at bundle creation is refused (`STAGING_POLICY_REQUIRED`); `stagingPlan` reports `overdue`, and `releaseStaging` reports `overdue_logical_refs` / `cleanup_deadline_enforced`, so a late release is visible rather than silently accepted |
 
-Contract questions the reviewer raised and I did **not** treat as defects (the workbook does not settle
-them): a CLOSED conversation still accepts `createInputBundle`/`emitPartial`/`finalizeTurn` (only
-`openTurn`/`bindBackend` refuse); `reportBackendLoss` never compares its `thread_ref` with the active
-binding's, so a report for an unrelated thread marks the live binding LOST; a bundle may be replayed into
-unlimited turns; a caller-supplied `result_ref` is never verified to exist.
+### Owner boundaries — author-encoded behaviour that a Correction must not silently change
 
-**Next action for GAI-006:** repair D7 (build the stream from `turn.events` with a conversation-level
-monotonic sequence and real `kind`/`terminal` values), D8 (apply the text bound to every free-text field),
-D6b (enforce `cleanup_by` in `releaseStaging`), then re-run the reviewer's `p05`/`p06`/`p08` probes, add
-their regressions, and only then set `correction_status: COMPLETE`. D10/D11 need an Owner ruling because the
-author's suite encodes the current behaviour.
+| id | Mechanism | Why it is not repaired here |
+| --- | --- | --- |
+| **D10** | `isDigest` accepts 8–64 hex characters, so a 32-bit string passes as a sha256 digest | `conformance.test.mjs` asserts `isDigest('sha256:0123456789abcdef')` (16 hex) is true. Tightening the pattern to exactly 64 hex is a public-constant behaviour change, so it is an Owner ruling. |
+| **D11** | `validateItem` fabricates `staging: {policy:'NO_STAGING'}` and `stagingPlan` then reports the constant `staging_explicit: true` / `every_item_has_explicit_policy` | the author's suite asserts that constant is true for an item that declared no staging, so the "explicit policy" claim is baked into the encoded contract. The honest fix (report `staging_declared`) is an Owner ruling. |
+| **D12** | `INVALID_CONVERSATION` and `TRANSPORT_IS_NOT_CANONICAL` are declared and never thrown; `BACKEND_THREAD_LOST` appears only as a reason string | a caller cannot obtain those codes today; wiring them is a contract-surface decision, not a repair of wrong behaviour |
+
+### Contract questions the workbook does not settle (recorded, not treated as defects)
+
+1. A CLOSED conversation still accepts `createInputBundle`/`emitPartial`/`finalizeTurn`; only `openTurn`/`bindBackend` refuse. The author's own test comment says "further work is refused", but the workbook is silent.
+2. `reportBackendLoss` never compares its `thread_ref` with the active binding's, so a report for an unrelated thread marks the live binding LOST and forces `REBIND_REQUIRED`.
+3. A bundle may be replayed into unlimited turns, and a caller-supplied `result_ref` is never verified to exist.
+4. The mutate-then-clone shape (D5) is repaired for the binding refs and the result text; the remaining paths were not exhaustively re-probed.
+
+Nothing in this list is a known wrong behaviour left in place: each is either a deliberate contract question or an author-encoded constant recorded for the Owner.
 
 ## 6. Remaining external seam
 

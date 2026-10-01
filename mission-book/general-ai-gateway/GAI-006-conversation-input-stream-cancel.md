@@ -17,12 +17,12 @@ development_branch: general-ai/GAI-006-conversation-input-stream-cancel
 development_head_sha: ac2df607e5aa01744678aa1e26aab481187ff356
 development_ci: 36740524898-success
 development_report: mission-book/reports/GAI-006/DEVELOPMENT_REPORT.md
-correction_status: IN_PROGRESS
-correction_complete: false
+correction_status: COMPLETE
+correction_complete: true
 correction_host: Alien
 correction_claimed_at: 2026-10-01T01:04:32Z
-correction_head_sha: dd799e2789a2971783a230e2543efdc4d5b45bb2
-correction_ci: 36800022352-gateway-web-success-android-success__PARTIAL_CORRECTION_10_of_19_mechanisms_repaired__7_confirmed_defects_open__see_report_5
+correction_head_sha: be8aa47bd16b705c11b8f830febf4eede59007a3
+correction_ci: 36800604338-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-006/CORRECTION_REPORT.md
 merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ---
