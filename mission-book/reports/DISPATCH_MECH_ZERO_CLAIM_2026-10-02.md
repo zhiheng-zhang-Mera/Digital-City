@@ -72,6 +72,48 @@ dispatched to Alien. Recorded now so the next scan does not repeat my first, laz
 Still 5.1 rather than 5.2 for exactly that reason: the blocker is a pending event, not a permanent
 bar on this host.
 
+## Addendum — the eligibility question resolved itself, and the answer flipped
+
+The re-scan that followed answered the question this dispatch left open:
+
+```text
+UI-102  status REVIEW_COMPLETE, review_host Alien, review_complete true
+        review conclusion head ed4a663 (PASS_WITH_REPAIRS)
+UI-190  status IN_PROGRESS, development_host ALIEN, development_complete false
+        integration landed at d81d52f; token-consistency pass at 856f9a1
+        branch ui/UI-190-ui-baseline-freeze exists on origin
+```
+
+So **Alien took UI-190 as its development host, not Mech.** My correction above was right that
+Mech was not barred from the role, and wrong about who would take it. The consequence is the
+opposite of what I assumed: UI-190's review host must be a host other than Alien, which makes
+**Mech the natural review host for UI-190** once Alien's development completes.
+
+Revised claim position for this host:
+
+| task | who | Mech's position |
+|---|---|---|
+| UI-102 | reviewed at `ed4a663` | **Mech pushed a post-review delta** (`61598be`). It needs a delta review, and Mech cannot give it. Disclosed in `reports/UI-102/HANDOFF_MECH_TO_ALIEN_DELTA_AFTER_REVIEW_COMPLETE.md`. |
+| UI-190 | development = Alien, in progress | **Mech is the likely review host**, claimable only once Alien records `development_complete: true`. |
+| RS-201/202, RS-203, RS-290, UXI-301/390 | locked behind UI-190 | Not claimable. |
+
+Classification stays **5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY**, now with a named event:
+Alien completing UI-190's development unlocks the UI-190 review for Mech. Low-cost wait, bounded
+re-scan about every 20 minutes, immediate re-scan on that event.
+
+## A process problem Mech is handing to the Owner rather than settling itself
+
+`ed4a663` — UI-102's R-1 repair — is implementation code on the product branch written by **the
+host that was reviewing it**, which is what `CONSTRUCTION_RULES.md` §3 exists to separate. Mech did
+not revert it: the repair is correct, tested, and reverting another host's work to make a rule read
+cleanly would be the worse outcome. But the branch tip now carries code from both hosts, so no
+single host can be both its sole author and its sole verifier. That is a governance question, not a
+technical one, and it is raised here for the Owner.
+
+Mech's own contribution to that tangle is disclosed too: the delta was pushed after the review
+verdict landed, though authored before it was known. It is flagged as needing a delta review rather
+than quietly inheriting UI-102's PASS.
+
 ## What Mech did on the way to zero
 
 UI-102 development was completed and pushed this round rather than left open to keep a claim
