@@ -17,10 +17,10 @@ development_branch: remote/RF-008-typed-rpc-event-stream-commands
 development_head_sha: 761685b28fabdc0cb2d2dfe9f47e170d4fe82752
 development_ci: 36744638449-success
 development_report: mission-book/reports/RF-008/DEVELOPMENT_REPORT.md
-correction_status: NOT_STARTED
+correction_status: IN_PROGRESS
 correction_complete: false
-correction_host: null
-correction_claimed_at: null
+correction_host: Alien
+correction_claimed_at: 2026-10-01T00:26:05Z
 correction_head_sha: null
 correction_ci: null
 correction_report: mission-book/reports/RF-008/CORRECTION_REPORT.md
