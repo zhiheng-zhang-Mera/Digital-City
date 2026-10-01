@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T05:00:18Z
 correction_head_sha: 2abf8d47ad0663c175779ab9a3057594d2db86ab
 correction_ci: 36818585688-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-009/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/BA-009
+merge_integration_branch: merge/butler-assistant-integration
+merge_integration_head: 4ff27babf52410b36a53ea32785d27e19303b7d8
+merge_integration_ci: 36827219769-success
+merge_main_sha: 41e241c3c817124c9c3d6e7756087d1022a836aa
+merge_main_ci: 36827422797-success
 ---
 
 # BA-009 — Duties, Permission + Proactivity Policy

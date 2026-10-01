@@ -24,7 +24,13 @@ correction_claimed_at: 2026-09-30T12:30:00Z
 correction_head_sha: 8c7e1dc2d14b4c2d9d51e1c772017a529150795b
 correction_ci: 36714796731-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-001/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/BA-001
+merge_integration_branch: merge/butler-assistant-integration
+merge_integration_head: 4ff27babf52410b36a53ea32785d27e19303b7d8
+merge_integration_ci: 36827219769-success
+merge_main_sha: 41e241c3c817124c9c3d6e7756087d1022a836aa
+merge_main_ci: 36827422797-success
 ---
 
 # BA-001 — Butler Zone + Personalization Contracts

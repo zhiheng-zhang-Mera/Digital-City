@@ -24,7 +24,13 @@ correction_claimed_at: 2026-09-30T17:05:00Z
 correction_head_sha: 11d5eced3e913cdd0cd9249d55825dedbcc3d5ac
 correction_ci: 36750532665-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-004/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/GAI-004
+merge_integration_branch: merge/general-ai-gateway-integration
+merge_integration_head: a47e4eb33ca35901e954aa74577f473aea98b1ea
+merge_integration_ci: 36828980482-success
+merge_main_sha: 74b37cf01fc314e2afb01205916de6decc90bb03
+merge_main_ci: 36829232339-success
 ---
 
 # GAI-004 �?API Channel + Explicit Consent + Budget Policy

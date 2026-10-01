@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T01:47:40Z
 correction_head_sha: bf6c6485ff76d18cf2b0f2f0e4ba59cdea5a3730
 correction_ci: 36803893254-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-006/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/BA-006
+merge_integration_branch: merge/butler-assistant-integration
+merge_integration_head: 4ff27babf52410b36a53ea32785d27e19303b7d8
+merge_integration_ci: 36827219769-success
+merge_main_sha: 41e241c3c817124c9c3d6e7756087d1022a836aa
+merge_main_ci: 36827422797-success
 ---
 
 # BA-006 — Authoritative Task Graph + Ownership/Executor Separation

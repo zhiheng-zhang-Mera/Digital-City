@@ -16,14 +16,31 @@ component_stage:
   development_complete: 41
   correction_complete: 41
   opposite_physical_hosts_on_every_task: true
-  component_branches_merged_to_utopia_main: 0
-  merge_workbooks_created: 0
+  component_branches_merged_to_utopia_main: 41
+  merge_workbooks_created: 4
   # Recorded 2026-10-01 after the Owner-requested Correction round closed BA-007, BA-009, GAI-009, EM-012, EM-013.
   final_scan:
     actionable_owned_repair: 0
     eligible_correction_other_host: 0
     unclaimed_development: 0
     development_in_progress_by: 0
+
+merge_stage:
+  status: COMPLETE
+  terminal_marker: ALL_PROGRAMMES_MERGED_MAIN_CI_GREEN
+  utopia_main_sha: e7c498f5acd86da324a45c3278219c8daa612561
+  utopia_main_ci: 36830053908
+  merge_order: [butler_assistant, remote_fabric, general_ai_gateway, engineering_manager]
+  archive_tags_total: 79
+  remote_branches_remaining: [main]
+  history_preserved_by: annotated_archive_tags_on_corrected_heads
+  # Recorded 2026-10-01: each merge workbook started from then-current main and re-refreshed from main
+  # immediately before its final merge; hosted CI was green on the integration head and on the resulting main.
+  programmes:
+    butler_assistant: {integration_head: 4ff27babf52410b36a53ea32785d27e19303b7d8, integration_ci: 36827219769, main_merge: 41e241c3c817124c9c3d6e7756087d1022a836aa, main_ci: 36827422797, archive_tags: 9}
+    remote_fabric: {integration_head: 160fcc345775f9f3fbb5b640195cbe299cfb9d61, integration_ci: 36828179156, main_merge: 49914d906ce6731272d301ed4bee4cca05ff2b86, main_ci: 36828413515, archive_tags: 10}
+    general_ai_gateway: {integration_head: a47e4eb33ca35901e954aa74577f473aea98b1ea, integration_ci: 36828980482, main_merge: 74b37cf01fc314e2afb01205916de6decc90bb03, main_ci: 36829232339, archive_tags: 9}
+    engineering_manager: {integration_head: aef657fe65ec3e7ce6c34fadd0e6dedbf186213c, integration_ci: 36829755814, main_merge: e7c498f5acd86da324a45c3278219c8daa612561, main_ci: 36830053908, archive_tags: 13}
 
 hosts:
   Alien: AVAILABLE_IDLE_NO_ELIGIBLE_COMPONENT_WORK
@@ -38,7 +55,10 @@ programmes:
     correction_complete: 9
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
     merge_gate_satisfied: true
-    merge_workbook: NOT_CREATED
+    merge_workbook: COMPLETE
+    merge_workbook_path: mission-book/butler-assistant/BUTLER_ASSISTANT_MERGE_WORKBOOK.md
+    merge_status: MERGED_MAIN
+    merge_main_sha: 41e241c3c817124c9c3d6e7756087d1022a836aa
   remote_fabric:
     tasks: RF-001..RF-010
     status: COMPONENT_POOL_DRAINED
@@ -47,7 +67,10 @@ programmes:
     correction_complete: 10
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
     merge_gate_satisfied: true
-    merge_workbook: NOT_CREATED
+    merge_workbook: COMPLETE
+    merge_workbook_path: mission-book/remote/REMOTE_FABRIC_MERGE_WORKBOOK.md
+    merge_status: MERGED_MAIN
+    merge_main_sha: 49914d906ce6731272d301ed4bee4cca05ff2b86
   general_ai_gateway:
     tasks: GAI-001..GAI-009
     status: COMPONENT_POOL_DRAINED
@@ -56,7 +79,10 @@ programmes:
     correction_complete: 9
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
     merge_gate_satisfied: true
-    merge_workbook: NOT_CREATED
+    merge_workbook: COMPLETE
+    merge_workbook_path: mission-book/general-ai-gateway/GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md
+    merge_status: MERGED_MAIN
+    merge_main_sha: 74b37cf01fc314e2afb01205916de6decc90bb03
   engineering_manager:
     tasks: EM-001..EM-013
     status: COMPONENT_POOL_DRAINED
@@ -65,7 +91,10 @@ programmes:
     correction_complete: 13
     merge_gate: AFTER_PROGRAMME_POOL_DRAIN
     merge_gate_satisfied: true
-    merge_workbook: NOT_CREATED
+    merge_workbook: COMPLETE
+    merge_workbook_path: mission-book/engineering-manager/ENGINEERING_MANAGER_MERGE_WORKBOOK.md
+    merge_status: MERGED_MAIN
+    merge_main_sha: e7c498f5acd86da324a45c3278219c8daa612561
 
 global_dispatch:
   enabled: true
@@ -88,11 +117,12 @@ global_dispatch:
   component_stop_condition: GLOBAL_COMPONENT_POOL_DRAINED
   component_stop_condition_reached: true
   final_stop_condition: ALL_PROGRAMMES_TERMINAL_OR_TYPED_EXTERNAL_OWNER_ACTION_ONLY
-  next_stage: PROGRAMME_MERGE_WORKBOOKS (Owner-authorized; not started)
+  next_stage: NONE — merge stage complete; only typed external real-acceptance seams and Owner action remain
 
 external_acceptance:
   component_tasks_may_defer_real_external_proof_to_programme_integration: true
   false_success_forbidden: true
+  merging_is_not_real_external_proof: true
   still_open_for_programme_integration:
     - real provider/login acceptance (General AI Gateway)
     - real two-device transport E2E (General AI Gateway / Engineering Manager, needs accepted Remote Fabric)

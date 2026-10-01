@@ -24,10 +24,16 @@ correction_claimed_at: 2026-09-30T15:20:56Z
 correction_head_sha: 6c6d2d43bb89f11c82fabfea021e1d565b773ec5
 correction_ci: 36737488218-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-005/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/BA-005
+merge_integration_branch: merge/butler-assistant-integration
+merge_integration_head: 4ff27babf52410b36a53ea32785d27e19303b7d8
+merge_integration_ci: 36827219769-success
+merge_main_sha: 41e241c3c817124c9c3d6e7756087d1022a836aa
+merge_main_ci: 36827422797-success
 ---
 
-# BA-005 â€?Digital-Me Scoped Context + Memory/Audience Gateway
+# BA-005 ï¿½?Digital-Me Scoped Context + Memory/Audience Gateway
 
 ## Goal
 

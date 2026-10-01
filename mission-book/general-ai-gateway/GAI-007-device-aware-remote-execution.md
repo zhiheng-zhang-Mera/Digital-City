@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T01:23:05Z
 correction_head_sha: a4791b0f3f0cc4e2379ecea205a68ef229eb844a
 correction_ci: 36801575502-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-007/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/GAI-007
+merge_integration_branch: merge/general-ai-gateway-integration
+merge_integration_head: a47e4eb33ca35901e954aa74577f473aea98b1ea
+merge_integration_ci: 36828980482-success
+merge_main_sha: 74b37cf01fc314e2afb01205916de6decc90bb03
+merge_main_ci: 36829232339-success
 ---
 
 # GAI-007 — Device-Aware Remote Execution + Result Return

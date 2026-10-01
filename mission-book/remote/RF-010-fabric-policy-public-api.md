@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T00:50:24Z
 correction_head_sha: 4d7b9310b2c2e249f3330196d7324d23bdfb3761
 correction_ci: 36799110745-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-010/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/RF-010
+merge_integration_branch: merge/remote-fabric-integration
+merge_integration_head: 160fcc345775f9f3fbb5b640195cbe299cfb9d61
+merge_integration_ci: 36828179156-success
+merge_main_sha: 49914d906ce6731272d301ed4bee4cca05ff2b86
+merge_main_ci: 36828413515-success
 ---
 
 # RF-010 — Fabric Policy Boundary + Public API

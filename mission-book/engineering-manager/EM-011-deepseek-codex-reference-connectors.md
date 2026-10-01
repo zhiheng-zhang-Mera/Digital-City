@@ -26,7 +26,13 @@ correction_claimed_at: 2026-10-01T03:31:17Z
 correction_head_sha: dbf70fb3a9669dfd8b13598d981bb67ae92615cb
 correction_ci: 36811902420-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-011/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/EM-011
+merge_integration_branch: merge/engineering-manager-integration
+merge_integration_head: aef657fe65ec3e7ce6c34fadd0e6dedbf186213c
+merge_integration_ci: 36829755814-success
+merge_main_sha: e7c498f5acd86da324a45c3278219c8daa612561
+merge_main_ci: 36830053908-success
 ---
 
 # EM-011 — DeepSeek Harness + Codex Reference Connectors

@@ -24,7 +24,13 @@ correction_claimed_at: 2026-09-30T13:20:00Z
 correction_head_sha: 4bfd2562fdf31b9a86f980fd8ad9b4a2a0a14b7e
 correction_ci: 36721785776-gateway-web-success-android-success
 correction_report: mission-book/reports/BA-003/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/BA-003
+merge_integration_branch: merge/butler-assistant-integration
+merge_integration_head: 4ff27babf52410b36a53ea32785d27e19303b7d8
+merge_integration_ci: 36827219769-success
+merge_main_sha: 41e241c3c817124c9c3d6e7756087d1022a836aa
+merge_main_ci: 36827422797-success
 ---
 
 # BA-003 — Device Embodiment + Foreground Binding

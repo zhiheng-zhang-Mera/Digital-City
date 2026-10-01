@@ -366,5 +366,50 @@ The four component pools are drained, so every programme merge workbook is eligi
 been created and no component branch is merged to Utopia main. The merge stage is separate, Owner-authorized work
 that has not started. Real provider/login acceptance, real two-device transport E2E and real third-party connector
 acceptance (Claude Code, WorkBuddy) remain open programme-integration gates and were never fabricated during the
-component stage. The incident snapshot above is unchanged.
+component stage. The incident snapshot above is unchanged. *This component-stage appendix is itself superseded by
+Appendix B below (merge-stage closeout).*
+
+---
+
+## Appendix B — merge-stage closeout (2026-10-01)
+
+The Owner authorized the merge stage. All four programme merge workbooks were created and executed in pool order
+**BA → RF → GAI → EM**, each starting from the then-current `main` and re-refreshing from `main` immediately
+before its final merge (contract §7.6), with the required local suite, docs check and hosted CI re-run on the
+refreshed integration head before the final merge, and hosted CI verified again on the resulting `main` (§7.7):
+
+```text
+programme              integration head / CI      main merge / CI            archive tags
+Butler Assistant       4ff27ba  · 36827219769     41e241c · 36827422797      9   (archive/BA-001..009)
+Remote Fabric          160fcc3  · 36828179156     49914d9 · 36828413515      10  (archive/RF-001..010)
+General AI Gateway     a47e4eb  · 36828980482     74b37cf · 36829232339      9   (archive/GAI-001..009)
+Engineering Manager    aef657f  · 36829755814     e7c498f · 36830053908      13  (archive/EM-001..013)
+```
+
+```text
+FINAL MERGE TRUTH (2026-10-01)
+MERGE_WORKBOOKS_CREATED                    = 4/4
+COMPONENT_BRANCHES_MERGED_TO_UTOPIA_MAIN    = 41
+UTOPIA_MAIN_SHA                             = e7c498f5acd86da324a45c3278219c8daa612561
+UTOPIA_MAIN_CI                              = 36830053908 success
+ARCHIVE_TAGS_ON_ORIGIN                      = 79
+REMOTE_BRANCHES_REMAINING                   = main (only)
+CORRECTED_HEADS_ANCESTORS_OF_MAIN           = 41/41
+HISTORY_DELETED                             = 0
+TERMINAL_MARKER                             = ALL_PROGRAMMES_MERGED_MAIN_CI_GREEN
+```
+
+Archiving replaced each merged branch ref with an annotated tag on the same corrected commit and then deleted the
+remote branch, so deleting the branch removed no commit: every Development and Correction head stays reachable on
+origin through `archive/<ID>` (and through the merge commits on `main`). Compatible conflicts
+were resolved as explicit unions — BA had none; RF resolved RF-001 × RF-002 across the City manifest, its test, the
+capability-registry test and both architecture docs; GAI and EM were clean unions. A main-drift incident during the
+BA merge (evidence-only commits had landed on `origin/main` after the integration branch was cut) was caught by the
+ancestry check and repaired by refreshing from `main` and re-running every check and CI run — recorded as decision
+D-series entries in the Butler workbook.
+
+Merging code is **not** evidence of a real external run. Real provider/login acceptance, real two-device transport
+E2E and real third-party connector acceptance (Claude Code, WorkBuddy) remain open, typed
+`REAL_PROVIDER_ACCEPTANCE_PENDING`-style programme-integration gates exactly as the individual reports record.
+Appendices above are unchanged.
 

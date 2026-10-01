@@ -1,6 +1,6 @@
 # Mission Book — Active Parallel Engineering Programmes
 
-> Current mode: **COMPONENT_STAGE_COMPLETE (41/41 two-stage) — MERGE STAGE NOT STARTED**
+> Current mode: **COMPONENT_STAGE_COMPLETE (41/41 two-stage) — ALL FOUR PROGRAMME MERGES COMPLETE (`ALL_PROGRAMMES_MERGED_MAIN_CI_GREEN`)**
 > Active programmes: BUTLER_ASSISTANT + REMOTE_FABRIC + GENERAL_AI_GATEWAY + ENGINEERING_MANAGER
 > Control repo: zhiheng-zhang-Mera/Digital-City
 > Implementation repo: zhiheng-zhang-Mera/Utopia
@@ -22,21 +22,26 @@
 
 Reconciled control-plane snapshot (2026-10-01, after the five-task Correction round the Owner requested):
 
-`DEVELOPMENT_GREEN=41/41` · `CORRECTION_COMPLETE=41/41` · `ALL_FOUR_COMPONENT_POOLS_DRAINED=true` · `MERGE_WORKBOOKS_CREATED=0/4` · `GITHUB_ACTIONS_EXTERNAL_BLOCK=RECOVERED`
+`DEVELOPMENT_GREEN=41/41` · `CORRECTION_COMPLETE=41/41` · `ALL_FOUR_COMPONENT_POOLS_DRAINED=true` · `MERGE_WORKBOOKS_CREATED=4/4` · `ALL_PROGRAMMES_MERGED_MAIN_CI_GREEN=true` · `GITHUB_ACTIONS_EXTERNAL_BLOCK=RECOVERED`
+
+Utopia `main` is now `e7c498f5acd86da324a45c3278219c8daa612561` with hosted CI run `36830053908` green. It holds
+the union of all 41 corrected component branches. Every corrected head is preserved as an annotated
+`archive/<ID>` tag on origin, and every source branch has been deleted, so **`main` is the only branch left on
+GitHub**. Merging did not delete history: each task's commits remain reachable through the merge graph and
+through its archive tag.
 
 | Programme | Task pool | Development | Correction | Merge / next stage |
 |---|---|---:|---:|---|
-| Butler Assistant | BA-001..BA-009 | **9/9 green** | **9/9 complete** | merge workbook eligible (component conditions met); **not yet created** |
-| Remote Fabric | RF-001..RF-010 | **10/10 green** | **10/10 complete** | **component pool drained; programme integration unlocked** |
-| General AI Gateway | GAI-001..GAI-009 | **9/9 green** | **9/9 complete** | merge workbook eligible (component conditions met); **not yet created** |
-| Engineering Manager | EM-001..EM-013 | **13/13 green** | **13/13 complete** | merge workbook eligible (component conditions met); **not yet created** |
+| Butler Assistant | BA-001..BA-009 | **9/9 green** | **9/9 complete** | **MERGED_MAIN** — `41e241c`, CI 36827422797; 9 archive tags |
+| Remote Fabric | RF-001..RF-010 | **10/10 green** | **10/10 complete** | **MERGED_MAIN** — `49914d9`, CI 36828413515; 10 archive tags |
+| General AI Gateway | GAI-001..GAI-009 | **9/9 green** | **9/9 complete** | **MERGED_MAIN** — `74b37cf`, CI 36829232339; 9 archive tags |
+| Engineering Manager | EM-001..EM-013 | **13/13 green** | **13/13 complete** | **MERGED_MAIN** — `e7c498f`, CI 36830053908; 13 archive tags |
 
 Every component task is Development- and Correction-complete on its own pushed branch head with hosted CI
-green, and Development/Correction were performed by different physical hosts on every task. **No component
-branch is merged to Utopia main and no merge workbook exists yet** — the merge stage is separate, Owner-authorized
-work that has not started. The five Corrections the Owner requested on 2026-10-01 (BA-007, BA-009, GAI-009,
-EM-012, EM-013) are closed in `./reports/<ID>/CORRECTION_REPORT.md`, each recording its corrected head SHA, its
-hosted-CI run, its author-encoded boundaries and its disclosure section.
+green, and Development/Correction were performed by different physical hosts on every task. **All four
+programme merges are executed and verified on `main` CI.** The five Corrections the Owner requested on
+2026-10-01 (BA-007, BA-009, GAI-009, EM-012, EM-013) are closed in `./reports/<ID>/CORRECTION_REPORT.md`, each
+recording its corrected head SHA, its hosted-CI run, its author-encoded boundaries and its disclosure section.
 
 Available physical build hosts are **Alien and Mech**. Both are now **idle**: a fresh global scan finds no
 actionable owned repair, no eligible opposite-host Correction and no unclaimed Development. Mech remains
@@ -126,7 +131,7 @@ Correction complete requires a different physical host, independent adversarial 
 
 ## 6. Hard merge lock
 
-`MERGE_WORKBOOK_CREATION = ELIGIBLE (component conditions met on 2026-10-01) — NOT YET CREATED`.
+`MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`.
 
 The lock was `FORBIDDEN` until ALL BA-001..BA-009 satisfy:
 - `development_complete = true`;
@@ -137,11 +142,11 @@ The lock was `FORBIDDEN` until ALL BA-001..BA-009 satisfy:
 
 Only after a full branch audit proves the above may a new Butler Assistant merge engineering book be created.
 
-**Status 2026-10-01:** all nine BA tasks record `development_complete = true`, `correction_complete = true`, opposite hosts, and a pushed corrected head with hosted CI green, so the conditions above are met. No BA merge workbook has been created, and no BA branch is merged to main.
+**Status 2026-10-01:** all nine BA tasks record `development_complete = true`, `correction_complete = true`, opposite hosts, and a pushed corrected head with hosted CI green, so the conditions above were met. The BA merge workbook [BUTLER_ASSISTANT_MERGE_WORKBOOK.md](./butler-assistant/BUTLER_ASSISTANT_MERGE_WORKBOOK.md) was then created and run to completion (integration head `4ff27ba`, CI `36827219769`; `main` merge `41e241c`, CI `36827422797`).
 
-## 7. Future merge workbook mandatory gates
+## 7. Merge workbook mandatory gates
 
-The future merge workbook must:
+The BA merge workbook did:
 1. fetch current Utopia main and every corrected BA branch;
 2. re-check both-host participation on every branch;
 3. integrate all branches without dropping valid behavior; compatible conflicts should preserve an explicit union/superset;
@@ -156,7 +161,7 @@ The future merge workbook must:
 
 Final completion is forbidden if any required merged-main GitHub CI check is red, cancelled, required-but-skipped, or still pending.
 
-Required terminal state: `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN`
+Required terminal state: `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN` — **REACHED**.
 
 
 ## Remote Fabric programme
@@ -165,11 +170,11 @@ Remote Fabric planning is active under [remote/README.md](./remote/README.md). I
 
 | Remote task set | Development | Correction | Merge |
 |---|:---:|:---:|:---:|
-| [RF-001..RF-010 Remote Fabric](./remote/README.md) | **10/10 green (Alien/Mech)** | **10/10 complete (opposite host)** | workbook eligible; **not yet created** |
+| [RF-001..RF-010 Remote Fabric](./remote/README.md) | **10/10 green (Alien/Mech)** | **10/10 complete (opposite host)** | **MERGED_MAIN** — `49914d9`, CI 36828413515 |
 
 Remote construction is asynchronous: each RF task has its own `remote/RF-...` branch from the frozen baseline and may proceed independently immediately. No RF task branch may merge into Utopia main, and no RF branch may merge/cherry-pick sibling RF branches merely to pass locally.
 
-`REMOTE_MERGE_WORKBOOK_CREATION = ELIGIBLE (component conditions met 2026-10-01) — NOT YET CREATED`. The lock was `FORBIDDEN` until every RF-001..RF-010 Development and Correction stage is green, Development Host != Correction Host, and both-host evidence is recorded; all ten RF tasks now record exactly that, and no RF branch is merged to main. The future Remote merge workbook must integrate corrected RF branches on top of the **then-current Utopia main**, so any Butler or other valid work already merged to main is preserved.
+`REMOTE_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`. The lock was `FORBIDDEN` until every RF-001..RF-010 Development and Correction stage is green, Development Host != Correction Host, and both-host evidence is recorded; all ten RF tasks recorded exactly that. The Remote merge workbook [REMOTE_FABRIC_MERGE_WORKBOOK.md](./remote/REMOTE_FABRIC_MERGE_WORKBOOK.md) then integrated the corrected RF branches on top of the **then-current Utopia main** (source `41e241c`; integration head `160fcc3`, CI `36828179156`; `main` merge `49914d9`, CI `36828413515`), preserving the Butler work already on main. RF-001 × RF-002 conflicts across the City manifest, its test, the capability-registry test and both architecture docs were resolved as explicit unions.
 
 
 ## General AI Gateway programme
@@ -180,11 +185,11 @@ The programme is a separate City/Utopia merge unit with target ownership reserve
 
 | General AI Gateway task set | Development | Correction | Merge |
 |---|:---:|:---:|:---:|
-| [GAI-001..GAI-009 General AI Gateway](./general-ai-gateway/README.md) | **9/9 green (Mech)** | **9/9 complete (Alien)** | workbook eligible; **not yet created** |
+| [GAI-001..GAI-009 General AI Gateway](./general-ai-gateway/README.md) | **9/9 green (Mech)** | **9/9 complete (Alien)** | **MERGED_MAIN** — `74b37cf`, CI 36829232339 |
 
 All GAI branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts, but the hosts do not have to be online at the same time. Missing sibling code or Remote Fabric implementation must not stall bounded work: use the programme's stable ports and deterministic test doubles, record the unresolved integration seam, and continue. Real cross-device execution remains a mandatory final programme acceptance gate and may not be faked.
 
-`GENERAL_AI_GATEWAY_MERGE_WORKBOOK_CREATION = ELIGIBLE (component conditions met 2026-10-01) — NOT YET CREATED`. The lock was `FORBIDDEN` until every GAI task has green Development and Correction evidence with different hosts; all nine GAI tasks now record exactly that, and no GAI branch is merged to main. The future merge workbook integrates corrected GAI branches on top of the **then-current Utopia main**, preserving Butler, Remote Fabric and any other accepted mainline work.
+`GENERAL_AI_GATEWAY_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`. The lock was `FORBIDDEN` until every GAI task has green Development and Correction evidence with different hosts; all nine GAI tasks recorded exactly that. The GAI merge workbook [GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md](./general-ai-gateway/GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md) then integrated the corrected GAI branches on top of the **then-current Utopia main** (source `49914d9`; integration head `a47e4eb`, CI `36828980482`; `main` merge `74b37cf`, CI `36829232339`), preserving Butler, Remote Fabric and other accepted mainline work. Real provider/login and real two-device acceptance remain open programme-integration gates and are not claimed by the merge.
 
 
 ## Engineering Manager programme
@@ -195,13 +200,13 @@ This is the permanent Mission Book namespace for Engineering Foreman / Worker Co
 
 | Engineering Manager task set | Development | Correction | Merge |
 |---|:---:|:---:|:---:|
-| [EM-001..EM-013 Engineering Manager](./engineering-manager/README.md) | **13/13 green (Mech)** | **13/13 complete (Alien)** | workbook eligible; **not yet created** |
+| [EM-001..EM-013 Engineering Manager](./engineering-manager/README.md) | **13/13 green (Mech)** | **13/13 complete (Alien)** | **MERGED_MAIN** — `e7c498f`, CI 36830053908 |
 
 All EM branches start from frozen Utopia baseline `82ed36933fb4c5b00e44768d9e1aedec1d525d9c`. Development and Correction use different physical hosts but do not have to be online simultaneously. Sibling absence, hosted CI, Remote Fabric incompleteness and optional third-party connector absence must not make a worker idle: use stable programme ports/test doubles for bounded component work, record only the genuinely external pending seam, and continue another eligible stage.
 
 Three programme invariants are hard requirements: **(1)** blocking Engineering attention follows the user and also alerts the 2–3 most recently operated eligible devices with one globally acknowledged attention event; **(2)** Sub-worker placement is `LOCAL_FIRST`, with remote fallback proposed only for measured `LOCAL_BLOCKED/LOCAL_UNAVAILABLE` and requiring explicit user approval; **(3)** when execution is remote, progress/control/attention/results/artifacts automatically return through canonical/shared state to the user's current authorized interaction surface, so normal work never requires walking to the remote host.
 
-`ENGINEERING_MANAGER_MERGE_WORKBOOK_CREATION = ELIGIBLE (component conditions met 2026-10-01) — NOT YET CREATED`. The lock was `FORBIDDEN` until every EM task has green Development and Correction evidence with different hosts; all thirteen EM tasks now record exactly that, and no EM branch is merged to main. The future merge workbook integrates corrected EM branches on top of the **then-current Utopia main**, preserving Butler, Remote Fabric, General AI Gateway and any other accepted mainline work.
+`ENGINEERING_MANAGER_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — WORKBOOK CREATED AND EXECUTED`. The lock was `FORBIDDEN` until every EM task has green Development and Correction evidence with different hosts; all thirteen EM tasks recorded exactly that. The EM merge workbook [ENGINEERING_MANAGER_MERGE_WORKBOOK.md](./engineering-manager/ENGINEERING_MANAGER_MERGE_WORKBOOK.md) then integrated the corrected EM branches on top of the **then-current Utopia main** (source `74b37cf`; integration head `aef657f`, CI `36829755814`; `main` merge `e7c498f`, CI `36830053908`), preserving Butler, Remote Fabric, General AI Gateway and other accepted mainline work. Real third-party connector and real remote E2E acceptance remain open programme-integration gates and are not claimed by the merge.
 
 
 ## 10. Cross-programme authority and merge behavior

@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T00:10:56Z
 correction_head_sha: 8cfd96fe340167c5be17cf66ec3bdbc070515d5c
 correction_ci: 36795919665-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-007/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/RF-007
+merge_integration_branch: merge/remote-fabric-integration
+merge_integration_head: 160fcc345775f9f3fbb5b640195cbe299cfb9d61
+merge_integration_ci: 36828179156-success
+merge_main_sha: 49914d906ce6731272d301ed4bee4cca05ff2b86
+merge_main_ci: 36828413515-success
 ---
 
 # RF-007 — Versioned Capability Registry + Addressing

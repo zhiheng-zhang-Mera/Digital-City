@@ -26,7 +26,13 @@ correction_claimed_at: 2026-09-30T14:30:15Z
 correction_head_sha: ffbdbce981d7dd5d8a556231e658f9cc522a31b9
 correction_ci: 36731144219-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-003/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/EM-003
+merge_integration_branch: merge/engineering-manager-integration
+merge_integration_head: aef657fe65ec3e7ce6c34fadd0e6dedbf186213c
+merge_integration_ci: 36829755814-success
+merge_main_sha: e7c498f5acd86da324a45c3278219c8daa612561
+merge_main_ci: 36830053908-success
 ---
 
 # EM-003 — Engineering Job / Event / Result / Artifact Protocol

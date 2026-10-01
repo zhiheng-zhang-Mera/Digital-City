@@ -2,7 +2,7 @@
 
 <!-- COMPONENT-STAGE-STATUS -->
 > **Component stage (2026-10-01) — Remote Fabric: 10/10 two-stage complete.** Corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
-> Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
+> **Merge stage (2026-10-01) — Remote Fabric: MERGED to Utopia main and CI green.** Merge workbook: [REMOTE_FABRIC_MERGE_WORKBOOK.md](./REMOTE_FABRIC_MERGE_WORKBOOK.md). Terminal state `REMOTE_FABRIC_MERGED_MAIN_CI_GREEN` is satisfied; all ten `archive/RF-0XX` tags preserve the corrected branch heads and the ten `remote/*` remote branches are deleted.
 <!-- /COMPONENT-STAGE-STATUS -->
 
 This folder defines the asynchronous two-host workbooks for Digital City's Remote Fabric.
@@ -100,29 +100,35 @@ Alien and Mech are both currently available. The prior second-real-host hold is 
 
 | ID | Subproject | Development | Correction | Merge |
 |---|---|:---:|:---:|:---:|
-| RF-001 | Node Identity + Installation Lifecycle | COMPLETE / Alien | COMPLETE / Mech | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-002 | Unified Pairing + Trust Lifecycle | COMPLETE / Alien | COMPLETE / Mech | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-003 | Same-Wi-Fi / LAN Discovery + Local Direct Path | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-004 | Bluetooth Bootstrap + IP Handoff | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-005 | Remote Invite / Meeting Code / Deep Link Rendezvous | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-006 | Secure Transport Path Manager + Relay Fallback | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-007 | Versioned Capability Registry + Addressing | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-008 | Typed RPC / Event / Stream + Reliable Commands | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-009 | Presence / Offline / Reconnect + Audit | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
-| RF-010 | Fabric Policy Boundary + Public API | COMPLETE / Mech | COMPLETE / Alien | FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE |
+| RF-001 | Node Identity + Installation Lifecycle | COMPLETE / Alien | COMPLETE / Mech | MERGED_MAIN |
+| RF-002 | Unified Pairing + Trust Lifecycle | COMPLETE / Alien | COMPLETE / Mech | MERGED_MAIN |
+| RF-003 | Same-Wi-Fi / LAN Discovery + Local Direct Path | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-004 | Bluetooth Bootstrap + IP Handoff | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-005 | Remote Invite / Meeting Code / Deep Link Rendezvous | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-006 | Secure Transport Path Manager + Relay Fallback | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-007 | Versioned Capability Registry + Addressing | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-008 | Typed RPC / Event / Stream + Reliable Commands | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-009 | Presence / Offline / Reconnect + Audit | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
+| RF-010 | Fabric Policy Boundary + Public API | COMPLETE / Mech | COMPLETE / Alien | MERGED_MAIN |
 
 ## Hard merge lock
 
-`REMOTE_MERGE_WORKBOOK_CREATION = FORBIDDEN` until ALL RF-001..RF-010 have:
+`REMOTE_MERGE_WORKBOOK_CREATION = SATISFIED (2026-10-01) — workbook created and executed`. All RF-001..RF-010
+satisfied:
+
 - Development complete and green;
 - Correction complete and green;
 - different Development/Correction physical hosts;
 - both-host branch evidence;
 - exact corrected remote head recorded.
 
-When unlocked, the merge workbook must integrate all corrected RF branches **on top of the then-current Utopia main**, preserving any Butler or other valid mainline work that may have landed after the frozen RF baseline. Compatible conflicts preserve an explicit union/superset; they must never resolve by silently replacing newer main behavior with the old baseline.
+The merge workbook integrated all corrected RF branches **on top of the then-current Utopia main**, preserving
+Butler work that landed after the frozen RF baseline. Compatible conflicts were resolved as an explicit
+union/superset (RF-001 × RF-002 across `city/CITY_IMPLEMENTATION_MANIFEST.json`, `city/tests/manifest.test.mjs`,
+`tests/capability-registry.test.mjs` and both `city/docs/{en,zh-CN}/ARCHITECTURE.md`); no newer main behavior was
+replaced by old baseline behavior.
 
-Required Remote terminal state after that future merge: `REMOTE_FABRIC_MERGED_MAIN_CI_GREEN`.
+Required Remote terminal state after that merge: `REMOTE_FABRIC_MERGED_MAIN_CI_GREEN` — **satisfied**.
 
 
 ## Cross-programme asynchronous execution
@@ -133,7 +139,7 @@ Remote Fabric participates in the global BA/RF/GAI/EM pool defined by `../CROSS_
 - Missing sibling RF code never blocks a task branch; use the stable RF contract and deterministic doubles.
 - Waiting CI/long tests do not idle the host. Keep the claim and claim another eligible stage across any programme using a separate worktree.
 - Remote Fabric is the transport/trust substrate only. It must not absorb Assistant, GAI or Engineering orchestration semantics.
-- After RF-001..RF-010 drain, create and run the Remote merge workbook immediately on then-current Utopia main. RF has no hard dependency on GAI/EM completion.
+- RF-001..RF-010 drained, and the Remote merge workbook has been created and run on then-current Utopia main. RF has no hard dependency on GAI/EM completion.
 
 ## Component stage status — 2026-10-01
 
@@ -142,6 +148,19 @@ RF-001..RF-010 are **10/10 two-stage complete**: every task records `development
 Mech; the rest were developed by Mech and corrected by Alien), each with a pushed corrected head, hosted CI
 green and a correction report under `../reports/<ID>/CORRECTION_REPORT.md`.
 
-The Remote merge workbook is **eligible and not yet created**; no RF branch is merged to Utopia main. Creating
-and running that merge workbook is the next, Owner-authorized stage, and its required terminal state remains
-`REMOTE_FABRIC_MERGED_MAIN_CI_GREEN`.
+## Merge stage status — 2026-10-01
+
+The Remote merge workbook [REMOTE_FABRIC_MERGE_WORKBOOK.md](./REMOTE_FABRIC_MERGE_WORKBOOK.md) was created and
+executed against then-current `main`:
+
+```text
+source main         = 41e241c (BA union already on main)
+integration branch  = merge/remote-fabric-integration
+integration head    = 160fcc3   CI 36828179156 success
+main merge commit   = 49914d9   CI 36828413515 success
+archive tags        = archive/RF-001 .. archive/RF-010 (10 annotated tags, each on its corrected head)
+remote branches     = remote/* : 0 remaining (deleted after tagging)
+```
+
+Terminal state `REMOTE_FABRIC_MERGED_MAIN_CI_GREEN` is satisfied. The corrected RF heads remain permanently
+reachable through their archive tags even though the branches themselves are gone.

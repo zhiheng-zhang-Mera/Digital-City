@@ -24,7 +24,13 @@ correction_claimed_at: 2026-09-30T14:05:00Z
 correction_head_sha: e27763a2fc4f246faa6166a5e85c0d899d9c7a7b
 correction_ci: 36726387305-gateway-web-success-android-success
 correction_report: mission-book/reports/GAI-002/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/GAI-002
+merge_integration_branch: merge/general-ai-gateway-integration
+merge_integration_head: a47e4eb33ca35901e954aa74577f473aea98b1ea
+merge_integration_ci: 36828980482-success
+merge_main_sha: 74b37cf01fc314e2afb01205916de6decc90bb03
+merge_main_ci: 36829232339-success
 ---
 
 # GAI-002 — Provider / Model / Account Registry

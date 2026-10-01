@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T00:26:05Z
 correction_head_sha: 4d974da6f18ec16b570bbc33709136188a5b05e2
 correction_ci: 36796873900-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-008/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/RF-008
+merge_integration_branch: merge/remote-fabric-integration
+merge_integration_head: 160fcc345775f9f3fbb5b640195cbe299cfb9d61
+merge_integration_ci: 36828179156-success
+merge_main_sha: 49914d906ce6731272d301ed4bee4cca05ff2b86
+merge_main_ci: 36828413515-success
 ---
 
 # RF-008 — Typed RPC / Event / Stream + Reliable Commands

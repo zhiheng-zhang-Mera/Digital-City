@@ -2,7 +2,7 @@
 
 <!-- COMPONENT-STAGE-STATUS -->
 > **Component stage (2026-10-01) — Butler Assistant: 9/9 two-stage complete.** Corrected heads and hosted-CI evidence are recorded in each task workbook frontmatter and `../reports/<ID>/CORRECTION_REPORT.md`.
-> Merge workbook: **not yet created.** The component-pool precondition for creating it is satisfied; the merge stage itself has not been performed and no component branch is merged to Utopia main.
+> **Merge stage (2026-10-01) — Butler Assistant: MERGED to Utopia main and CI green.** Merge workbook: [BUTLER_ASSISTANT_MERGE_WORKBOOK.md](./BUTLER_ASSISTANT_MERGE_WORKBOOK.md). Terminal state `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN` is satisfied; all nine `archive/BA-0XX` tags preserve the corrected branch heads and the nine `butler-assistant/*` remote branches are deleted.
 <!-- /COMPONENT-STAGE-STATUS -->
 
 This folder defines the active subprojects for the standalone Butler & Companion Zone.
@@ -65,7 +65,7 @@ This programme participates in the global BA/RF/GAI/EM pool defined by `../CROSS
 - Eligible Correction by the opposite host has priority over new Development; otherwise either host claims any unclaimed task across any programme.
 - Waiting CI/external checks do not idle a host; keep the claim and continue another eligible stage in a separate worktree.
 - BA component work never waits for RF/GAI/EM implementations. Use stable contracts/doubles and record integration seams.
-- After BA-001..BA-009 drain, create the BA merge workbook immediately. Butler has no hard dependency on another programme's terminal state.
+- BA-001..BA-009 drained, and the BA merge workbook has been created and run (see below). Butler has no hard dependency on another programme's terminal state.
 
 ## Component stage status — 2026-10-01
 
@@ -74,5 +74,20 @@ BA-001..BA-009 are **9/9 two-stage complete**: every task records `development_c
 correction report is under `../reports/<ID>/CORRECTION_REPORT.md`. The correction round the Owner requested on
 2026-10-01 closed BA-007 (head `f8f15af`, run 36817491957) and BA-009 (head `2abf8d4`, run 36818585688).
 
-The BA merge workbook is **eligible and not yet created**; no BA branch is merged to Utopia main. Creating and
-running that merge workbook is the next, Owner-authorized stage.
+## Merge stage status — 2026-10-01
+
+The BA merge workbook [BUTLER_ASSISTANT_MERGE_WORKBOOK.md](./BUTLER_ASSISTANT_MERGE_WORKBOOK.md) was created and
+executed against then-current `main`:
+
+```text
+source main         = d914c06 (BA integration refreshed from then-current main before the final merge)
+integration branch  = merge/butler-assistant-integration
+integration head    = 4ff27ba   CI 36827219769 success
+main merge commit   = 41e241c   CI 36827422797 success
+archive tags        = archive/BA-001 .. archive/BA-009 (9 annotated tags, each on its corrected head)
+remote branches     = butler-assistant/* : 0 remaining (deleted after tagging)
+```
+
+Terminal state `BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN` is satisfied. Archiving replaced each branch ref with an
+annotated tag on the same commit, so the full correction history stays reachable on origin and only `main`
+remains as a branch.

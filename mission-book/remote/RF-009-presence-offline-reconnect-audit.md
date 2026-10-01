@@ -24,7 +24,13 @@ correction_claimed_at: 2026-10-01T00:37:29Z
 correction_head_sha: aaca94a39d3d06f6653f9a75bfb0b78bdd973c4c
 correction_ci: 36797962837-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-009/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/RF-009
+merge_integration_branch: merge/remote-fabric-integration
+merge_integration_head: 160fcc345775f9f3fbb5b640195cbe299cfb9d61
+merge_integration_ci: 36828179156-success
+merge_main_sha: 49914d906ce6731272d301ed4bee4cca05ff2b86
+merge_main_ci: 36828413515-success
 ---
 
 # RF-009 — Presence / Offline / Reconnect + Audit

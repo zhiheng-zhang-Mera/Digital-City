@@ -26,7 +26,13 @@ correction_claimed_at: 2026-10-01T05:50:03Z
 correction_head_sha: 0ef455eabbdf54a7edfd975fa0fe82eb89690ca6
 correction_ci: 36822830353-gateway-web-success-android-success
 correction_report: mission-book/reports/EM-013/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/EM-013
+merge_integration_branch: merge/engineering-manager-integration
+merge_integration_head: aef657fe65ec3e7ce6c34fadd0e6dedbf186213c
+merge_integration_ci: 36829755814-success
+merge_main_sha: e7c498f5acd86da324a45c3278219c8daa612561
+merge_main_ci: 36830053908-success
 ---
 
 # EM-013 — Shared Task Core + Utopia Engineering Control Surface Integration

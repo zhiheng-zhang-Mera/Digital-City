@@ -24,10 +24,16 @@ correction_claimed_at: 2026-09-30T16:12:44Z
 correction_head_sha: 1bd7b13fc06c61d007c8fc6a1af7f9b5d8ec3514
 correction_ci: 36743616282-gateway-web-success-android-success
 correction_report: mission-book/reports/RF-004/CORRECTION_REPORT.md
-merge_status: FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+merge_status: MERGED_MAIN
+merge_archive_tag: archive/RF-004
+merge_integration_branch: merge/remote-fabric-integration
+merge_integration_head: 160fcc345775f9f3fbb5b640195cbe299cfb9d61
+merge_integration_ci: 36828179156-success
+merge_main_sha: 49914d906ce6731272d301ed4bee4cca05ff2b86
+merge_main_ci: 36828413515-success
 ---
 
-# RF-004 â€?Bluetooth Bootstrap + IP Handoff
+# RF-004 ï¿½?Bluetooth Bootstrap + IP Handoff
 
 ## Goal
 
