@@ -12,14 +12,12 @@ dependencies: ["UI-000"]
 development_host: Mech
 development_claimed_at: 2026-10-01T13:52:00Z
 development_branch: ui/UI-102-android-product-shell
-development_head_sha: 9b97fa187cd28acfd4ae3463719812d9b76dc098
-development_ci: 36868228769-success-android-and-gateway-web
+development_head_sha: 9965af55e352c78e6a18b0c97741d453afe0cd6a
+development_ci: 36869095667-success-android-and-gateway-web
 development_complete: false
 development_report: mission-book/reports/UI-102/DEVELOPMENT_REPORT.md
 development_evidence: evidence/raw/mission-book/UI-102/
-development_progress: "INCREMENT 1 of N landed: theme/UtopiaTheme.kt + theme/UtopiaIcons.kt created (the module previously had NO theme file at all), nine-item NavigationBar cut to five primary entries with real vector icons replacing Unicode geometry glyphs, advanced surfaces moved to a header overflow with no capability lost. Verified on this head: offline compile + unit tests + assembleDebug all successful, hosted CI green, real emulator screenshot captured. REMAINING (recorded, not implicit): semantic component hierarchy, technical-detail folding in Actions/Ask, loading/offline/unavailable/confirmation/ambiguity/success/failure coverage, migrating the remaining hardcoded Color(0xFF...) literals onto theme roles, portrait real-device acceptance across narrow screens and font scaling, and Web truth-parity. NOT a completion claim."
-development_ci: null
-development_complete: false
+development_progress: "INCREMENT 2 of N landed (heads: 9b97fa1 design system + five-entry bar; 9965af5 component layer + technical folding). Increment 2 added ui/UtopiaComponents.kt (the workbook's step 3: UtLabel, UtPanel, HeroBlock, StatusChip, ToolRow, ActivityRow, DeviceSurface, UtEmptyState, UtFeedback, TechnicalDetails), folded every internal identifier in Actions and Ask into a collapsed 运行详情 (actionId, route, target, progress, errorCode, backendRef/resultRef, digests, provenance, timestamps, router label, candidate coordinates), and migrated their colours to theme roles: hardcoded Color(0x..) literals across the module 19 -> 3. StatusChip states the state-to-role mapping once instead of two private status-to-Color helpers. Ask still branches on every gateway state (working/needs-confirmation/ambiguous/unmatched/unavailable/success/failure). Verified: compileDebugKotlin + testDebugUnitTest + assembleDebug BUILD SUCCESSFUL on both heads, hosted CI green on both. REMAINING (recorded, not implicit): migrate MainActivity's and RoomsPanel's last 3 colour literals; the remaining screens still use the generic Panel rather than the semantic components; the folded panels have NOT been screenshotted on a device (needs a live gateway to populate them); narrow-width and font-scale acceptance; Web truth-parity. NOT a completion claim."
 review_host: null
 review_head_sha: null
 review_ci: null
