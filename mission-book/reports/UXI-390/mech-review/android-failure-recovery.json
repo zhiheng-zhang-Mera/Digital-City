@@ -1,0 +1,110 @@
+{
+  "head": "149a4c14b596b92f04fab6269eca1dcb7727303f",
+  "port": 4531,
+  "failedPhaseTexts": [
+    "UTOPIA",
+    "ONLINE",
+    "Devices",
+    "Your devices. One shared view.",
+    "WHY THINGS ARE WAITING",
+    "Running in a reduced state",
+    "Q-79cd0597-ad8b-4f55-a942-6477fd9553bc",
+    "The current service is responding slowly. Use another available one?",
+    "Some of what this depends on is not fully known right now.",
+    "Not available · This device isn't taking new work",
+    "Cancel",
+    "Choose another service",
+    "SCHEDULING DETAIL",
+    "展开",
+    "Running in a reduced state",
+    "Q-6221edee-cb03-445b-b63a-02a283579a79",
+    "The current service is responding slowly. Use another available one?",
+    "Some of what this depends on is not fully known right now.",
+    "Not available · This device isn't taking new work",
+    "Cancel",
+    "Choose another service",
+    "Home",
+    "Ask",
+    "Rooms",
+    "Devices",
+    "Activity"
+  ],
+  "recoveredPhaseTexts": [
+    "UTOPIA",
+    "ONLINE",
+    "Devices",
+    "Your devices. One shared view.",
+    "WHY THINGS ARE WAITING",
+    "Nothing is waiting to run.",
+    "Alien-PC",
+    "ONLINE",
+    "Platform: win32 · Agent 0.2.0",
+    "CPU: 21.0%",
+    "Memory: 24.2 GB / 31.7 GB",
+    "Last seen: 1s ago",
+    "Last snapshot: 2:22:43 PM",
+    "Home",
+    "Ask",
+    "Rooms",
+    "Devices",
+    "Activity"
+  ],
+  "tokensSearched": [
+    "PRESSURE_PAUSED",
+    "USER_DISABLED",
+    "DEVICE_UNREACHABLE",
+    "DEVICE_REFUSING",
+    "DEVICE_DISABLED",
+    "FRESHNESS_UNKNOWN",
+    "FRESHNESS_STALE",
+    "AT_CAPACITY",
+    "SESSION_CONGESTED",
+    "LOAD_UNMEASURED",
+    "POLICY_EXCLUDED",
+    "CHANNEL_READINESS_UNKNOWN",
+    "AVAILABILITY_UNKNOWN",
+    "REMOTE_STATE_UNKNOWN",
+    "REMOTE_ONLINE",
+    "SESSION_ENDED",
+    "CREDENTIALS_MISSING",
+    "REGION_UNSUPPORTED",
+    "SELECTABLE",
+    "DEVICE_ONLINE",
+    "STRUCTURAL",
+    "RESOURCE"
+  ],
+  "tokensLeaked": [],
+  "results": [
+    {
+      "name": "executor comes online first",
+      "ok": true,
+      "detail": "node registered"
+    },
+    {
+      "name": "executor loss is seen by the City",
+      "ok": true,
+      "detail": "no online node remains"
+    },
+    {
+      "name": "the executor is restored and seen online again",
+      "ok": true,
+      "detail": "node re-registered"
+    },
+    {
+      "name": "no raw scheduler token leaks in EITHER phase",
+      "ok": true,
+      "detail": "22 tokens, none found in either phase"
+    },
+    {
+      "name": "the panel is present in both phases",
+      "ok": true,
+      "detail": "header present twice"
+    },
+    {
+      "name": "the surface FOLLOWED the executor loss, rather than being frozen",
+      "ok": true,
+      "detail": "failed and recovered renders differ"
+    }
+  ],
+  "finishedAt": "2026-10-02T14:22:47.679Z"
+}
