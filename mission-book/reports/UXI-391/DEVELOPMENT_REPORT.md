@@ -162,3 +162,23 @@ App 指向本次运行的 Gateway（未重启、未指向 B），面板在该运
 3. **面板与结果在不同 surface**：Devices 面板在任务完成瞬间就把它移出列表，把结果断言在面板上即使移交成功也会失败。
 
 **仍欠**：两**实体主机**验收（需 Mech）。
+---
+
+## 追加：一个会阻断 Step 7 的复发风险，已记录并清除
+
+合并前检查发现主检出 `D:\A-Utopia` 里有一个**未跟踪的 0 字节** `scripts/uxi391-handoff-e2e.mjs`（创建于 08:28，SHA-256 为空文件值）。
+它**会阻断合并**：本分支正是新增该路径，git 会以 `untracked working tree files would be overwritten by merge` 拒绝。
+
+```text
+同类现象已第三次出现，全部 0 字节、全部同名于我当时正在撰写的文件：
+  1) apps/android/app/src/main/java/city/utopia/control/SchedulerPanel.kt   （早前两次）
+  2) scripts/uxi391-handoff-e2e.mjs                                        （本次）
+三个都出现在主检出（会话工作目录）而非我实际施工的 worktree，成因未查明，不猜。
+```
+
+**处置**：先证明它是**空文件**（不是任何人的工作）再删除；删除后主检出 **0 项脏**。
+**Step 7 的前置检查因此固定为**：合并前必须断言 `D:\A-Utopia` 工作区干净（`git status --porcelain` 为空），
+否则合并会以未跟踪文件冲突失败——这是一条**操作前置**，不是风格要求。
+
+**合并预览（当时实测）**：分支相对 `origin/main` 为 `17 files changed, +1700/-20`，`main` 是分支祖先（可 fast-forward），
+新增 7 个脚本、1 个测试、5 份证据、`services/dev-gateway/handoff.mjs`，并修改 `presentation.mjs` / `server.mjs` / `gateway-presentation.test.mjs`。
