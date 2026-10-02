@@ -30,7 +30,7 @@
 | UI × 调度接线 | UXI-301, UXI-390 | **COMPLETE（阶段已接受）** | **2/2** | **2/2** | 无 —— **Mech 复核 PASS**（`6a82e35`，含必做修复 C-1/C-2 的确认）→ **步骤 7 已合并** `d0507b0`（`--no-ff`，合并树与 reviewed head 逐字节一致）→ main CI `37020640107` 双绿 → **终态标记已宣告** |
 | Post-acceptance 收尾修复 | UXI-391 | **READY / ACTIVE POOL** | **0/1** | **0/1** | 单机开发 + 单机双 Node E2E → 第二实体主机独立 Review/双机验收 → Utopia main CI → 自动回接未完成 merge workbook |
 
-计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。**全部 11 本工作书现均为 true/true**，池中无未完成任务。
+计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。原 11 本 UI/调度工作书仍全部 true/true；新增 **UXI-391 = false/false**，因此当前池存在 1 本可执行的收尾修复工作书。
 
 ## 主机监控
 
