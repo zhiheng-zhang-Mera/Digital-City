@@ -48,6 +48,26 @@ check('the workbook parses as frontmatter at all (no BOM before the opening ---)
 const text = raw.toString('utf8').replace(/^\uFEFF/, '');
 const field = (name) => (new RegExp(`^${name}:\\s*(.+)$`, 'm').exec(text)?.[1] ?? '').trim();
 
+// The repository under test, taken from the WORKBOOK rather than inferred from the working directory.
+// Alien found this the hard way: without --repo, gh resolves the repository from the process cwd, so the
+// instrument asked Digital-City about a utopia run when invoked from anywhere but the utopia checkout.
+const repo = field('implementation_repo').split('/').slice(-2).join('/');
+check('the workbook declares implementation_repo, so CI is asked about the right repository',
+  /^[\w.-]+\/[\w.-]+$/.test(repo), repo || '(missing)');
+
+// Wrong-tree guard FIRST, because Alien observed that a wrong-tree run reports a CLEAN PASS set, which is the
+// failure mode least likely to be noticed. A mismatched tree must fail loudly rather than quietly agree.
+const remoteOf = (dir) => {
+  try { return git(dir, 'remote', 'get-url', 'origin'); } catch { return ''; }
+};
+const utopiaRemote = remoteOf(UTOPIA).replace(/^.*github\.com[:/]/, '').replace(/\.git$/, '');
+const bookRemote = remoteOf(MB).replace(/^.*github\.com[:/]/, '').replace(/\.git$/, '');
+check('the --utopia path is a checkout of the repository the workbook names',
+  utopiaRemote.toLowerCase() === repo.toLowerCase(),
+  `utopia=${utopiaRemote || '(none)'} declared=${repo || '(none)'}`);
+check('the --mission-book path is a checkout of the control plane',
+  bookRemote.toLowerCase().includes('digital-city'), bookRemote || '(no origin remote)');
+
 // 1. recorded head vs the ACTUAL branch head, from the remote rather than the workbook.
 execFileSync('git', ['fetch', '-q', 'origin', '--prune'], {cwd: UTOPIA});
 const actualHead = git(UTOPIA, 'ls-remote', 'origin', BRANCH).split(/\s+/)[0] ?? '';
@@ -64,7 +84,7 @@ if (runId === null) {
 } else {
   let run = null;
   try {
-    run = JSON.parse(execFileSync('gh', ['run', 'view', runId, '--json', 'headSha,headBranch,conclusion,status'], {encoding: 'utf8'}));
+    run = JSON.parse(execFileSync('gh', ['run', 'view', runId, '--repo', repo, '--json', 'headSha,headBranch,conclusion,status'], {encoding: 'utf8'}));
   } catch (error) {
     check(`CI run ${runId} is readable from GitHub`, false, String(error.message).slice(0, 120));
   }
