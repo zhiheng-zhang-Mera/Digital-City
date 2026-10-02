@@ -74,7 +74,7 @@ append-only 纠错见 `reports/UXI-391/ERRATUM_WRONG_PREMISE_CORRECTED.md`；历
 
 ```powershell
 $env:DUALHOST_BIND='172.31.3.110'; $env:DUALHOST_PORT='4391'
-$env:CITY_TOKEN='<我们约定的控制令牌>'; $env:CITY_NODE_TOKEN='<节点令牌>'
+$env:CITY_TOKEN='uxi391-dualhost-control'; $env:CITY_NODE_TOKEN='uxi391-dualhost-node'
 node scripts/uxi391-dualhost-a.mjs      # 起 Gateway + Node A + 原交互 surface，等 target RUNNING 后只停 A 的 worker
 ```
 
@@ -82,7 +82,7 @@ node scripts/uxi391-dualhost-a.mjs      # 起 Gateway + Node A + 原交互 surfa
 
 ```powershell
 $env:DUALHOST_URL='http://172.31.3.110:4391'
-$env:CITY_TOKEN='<同上>'; $env:CITY_NODE_TOKEN='<同上>'
+$env:CITY_TOKEN='uxi391-dualhost-control'; $env:CITY_NODE_TOKEN='uxi391-dualhost-node'
 node scripts/uxi391-dualhost-b.mjs      # 起你自己的 Node B、驱动真实 decline、从你自己的角度测量并做两个负向控制
 ```
 
@@ -97,3 +97,17 @@ node scripts/uxi391-dualhost-b.mjs      # 起你自己的 Node B、驱动真实 
 演练证明的是「两半都能跑、所需网络通路是开的」。
 
 **你可以不做我建议的事**：§3 要求你独立复核，我的脚本只是**给你一个起点**——你若用自建仪器测量，我更欢迎。
+### 6.1 令牌与端口不再是占位符（消除一次握手）
+
+上面两条命令里的令牌已写成**与脚本默认值一致的具体值**，你可以直接执行，无需再与我协商：
+
+```text
+CITY_TOKEN      = uxi391-dualhost-control
+CITY_NODE_TOKEN = uxi391-dualhost-node
+默认端口        = 4391（A 侧绑定 172.31.3.110；若该端口被占，我改用其它端口时会在控制面说明）
+```
+
+这些是**本机 LAN 试验用的开发令牌**，不是生产凭据；两侧脚本也都接受环境变量覆盖。
+A 侧启动时会把 `URL / CITY_TOKEN / CITY_NODE_TOKEN` 打印出来，并写入
+`evidence/raw/mission-book/UXI-391/dualhost-host-a.json`（该文件含 url、port、nodeA、targetTaskId），
+因此即使我们不同时在线，你的 B 侧也能凭这份记录对齐。
