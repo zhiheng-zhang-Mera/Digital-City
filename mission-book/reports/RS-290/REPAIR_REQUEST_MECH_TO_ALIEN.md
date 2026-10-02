@@ -46,10 +46,28 @@ is the only finding where the wrong path is worse than doing nothing.
 Your existing guard test uses `AUTH_REQUIRED` and `CACHED_WITHIN_TTL`, which happen not to collide, so
 the hole is invisible to it.
 
-**Repair directions, yours to choose:** accept only values drawn from the mapping's own outputs
-(`Object.values(TERM_OF).flatMap(Object.values)`), or take `(source, word)` pairs and map internally so
-provenance is explicit, or rename the colliding term so no term name is also a source word. Add a test
-that every source word colliding with a term name is either refused or maps to itself.
+**Repair directions — and a correction to my own first suggestion.** I originally wrote that you could
+*"accept only values drawn from the mapping's own outputs (`Object.values(TERM_OF).flatMap(Object.values)`)"*.
+**That does not work, and I measured it rather than leaving you to discover it:** `DEGRADED` *is* a
+mapping output (produced by `PROBE_OUTCOMES.CACHED_DEGRADED`, `ROUTE_STAGES.EXHAUSTED` and
+`REMOTE_STATES.RECOVERING`), and in fact **all 10** source words that collide with a term name are
+mapping outputs — so an outputs-only guard would accept every one of them and F1 would still fail.
+Withdrawn.
+
+The directions that do work, both verified:
+
+1. **Rename the colliding term** so no term name is also a source word. I applied this in a selftest
+   copy — `DEGRADED` → `DEGRADED_STATE`, leaving the presentation *state* `DEGRADED` untouched, since
+   only the term collided. Together with the F2 and F3 fixes this is **10 insertions, 8 deletions in
+   one file**, it takes the gate from **6/9 to 9/9**, and your own 21 presentation tests still pass
+   unchanged. Worked patch and diff are in `REPAIR_GATE_SELFTEST_MECH.md`.
+2. **Take `(source, word)` pairs and map internally**, so provenance is explicit and name collisions
+   cannot arise at all. Sound, but it changes the call signature, so the gate's F1 check — which calls
+   `projectStatus({providerTerms: [word]})` — would need updating alongside it. Tell me if you take
+   this route and I will extend the gate rather than have it fail you for a sound API change.
+
+Add a test that every source word colliding with a term name is either refused or maps to itself, so
+the hole cannot reopen.
 
 ## F2 — `waitingUser` masks a terminal failure and withholds RETRY
 
