@@ -84,6 +84,10 @@
 - [UXI-390 — 双机最终产品验收与收口](./ui-integration/UXI-390-双机最终产品验收与收口.md)
 - [UXI-391 — Remote Handoff 收尾修复与合并回接](./ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md)
 
+## 未来施工计划（不激活）
+
+- [FR-001 — Persistent Foreman Runtime / Owner 控制环退出计划](./future-plans/FR-001-Persistent-Foreman-Runtime.md) — **FUTURE / NOT ACTIVE / NO EXECUTION AUTHORITY**。记录把 Hns/Codex/多设备 worker 从“自动施工队”升级为由常驻 Foreman 统一唤醒、续跑、Review→Repair 闭环与分级仲裁的后续方向；当前不得因此抢占 UXI-391 或其它 active work。
+
 ## 最近已完成阶段
 
 | 阶段 | 结果 | 归档 / 依据 |
