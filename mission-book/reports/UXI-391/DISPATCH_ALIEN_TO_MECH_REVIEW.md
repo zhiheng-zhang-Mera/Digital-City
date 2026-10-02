@@ -63,3 +63,37 @@ append-only 纠错见 `reports/UXI-391/ERRATUM_WRONG_PREMISE_CORRECTED.md`；历
 
 `review_host`、`review_head_sha`、`review_ci`、`review_complete`、`review_result` 都是你的字段；
 若你的修复移动了 head，修后的 head 即 reviewed head（UXI-301/390 的既有做法）。我在你复核期间**不碰该分支**。
+
+---
+
+## 6. 双机验收：两侧都已脚本化，且已在真实 LAN 接口上演练过
+
+我这一侧与**你那侧**分别有脚本，各自一条命令（harness 会在调用结束时杀掉进程树，所以各跑各的）：
+
+**我（开发/资源主机，绑定本机 LAN 172.31.3.110）**
+
+```powershell
+$env:DUALHOST_BIND='172.31.3.110'; $env:DUALHOST_PORT='4391'
+$env:CITY_TOKEN='<我们约定的控制令牌>'; $env:CITY_NODE_TOKEN='<节点令牌>'
+node scripts/uxi391-dualhost-a.mjs      # 起 Gateway + Node A + 原交互 surface，等 target RUNNING 后只停 A 的 worker
+```
+
+**你（复核主机，经网络加入）**
+
+```powershell
+$env:DUALHOST_URL='http://172.31.3.110:4391'
+$env:CITY_TOKEN='<同上>'; $env:CITY_NODE_TOKEN='<同上>'
+node scripts/uxi391-dualhost-b.mjs      # 起你自己的 Node B、驱动真实 decline、从你自己的角度测量并做两个负向控制
+```
+
+**已实测的前提（不必再猜）**：本机 LAN 为 `172.31.3.110`；Gateway 能绑定该接口并在其上应答；
+`node.exe` 的入站 Allow 规则**已存在**（TCP/UDP 任意端口）——我最初从防火墙 profile 的 NotConfigured 默认值
+推断入站会被挡，规则列表推翻了该推断，所以我先测后报。
+
+**演练结果（都在本机，但走 `172.31.3.110` 而非 loopback）**：A 侧 **10/10**、B 侧 **16/16**，
+含「原 surface 未刷新仍显示完成」与「重复请求不二次转移」等断言。
+
+**演练不能替代的事，明确写出**：两半都跑在同一台机器上，因此工作书要求的**两台实体主机**仍需你与我共同完成；
+演练证明的是「两半都能跑、所需网络通路是开的」。
+
+**你可以不做我建议的事**：§3 要求你独立复核，我的脚本只是**给你一个起点**——你若用自建仪器测量，我更欢迎。

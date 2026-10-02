@@ -129,3 +129,18 @@ E2E 现在驱动**真实 Web surface**：在 Node A 死亡**之前**就已配对
 scheduler token**，无页面错误。
 
 仍未做且不宣称：**双机验收**（本 E2E 仍在一台实体主机上）、**Android surface 跨 handoff** 未驱动（Web 已驱动）。
+---
+
+## 追加：Step 6 双机验收已可执行（脚本 + 真实 LAN 演练）
+
+```text
+HEAD = e2a19ac63cea8fcd1713ddef31c0c25e6d1e40fb    CI = 37074158506 success（android + gateway-web）
+A 侧 = scripts/uxi391-dualhost-a.mjs   演练 10/10 PASS
+B 侧 = scripts/uxi391-dualhost-b.mjs   演练 16/16 PASS（含重复请求不二次转移、保留位不可被旧持有者夺回）
+```
+
+**先测后报的一条**：我最初从防火墙 profile 的 `DefaultInboundAction=NotConfigured` 推断「Mech 连不进来」，
+但规则列表实测显示 **`node.exe` 的入站 Allow 规则已存在（TCP/UDP 任意端口）**，推断被推翻。
+若我止于推断，就会报一个不存在的前置障碍。
+
+**仍未做**：两半都在本机跑的演练**不等于**两台实体主机的验收；Android surface 跨 handoff 仍未驱动。
