@@ -1,0 +1,75 @@
+{
+  "head": "149a4c14b596b92f04fab6269eca1dcb7727303f",
+  "port": 4521,
+  "nodesSeen": [
+    {
+      "id": "mech-node-a",
+      "online": true
+    },
+    {
+      "id": "mech-node-b",
+      "online": true
+    }
+  ],
+  "tasksCreated": 6,
+  "completed": 6,
+  "executorsObserved": [
+    "mech-node-a",
+    "mech-node-b"
+  ],
+  "taskStates": [
+    {
+      "id": "Q-e598fc49-cae6-435f-8eed-fcf20c392747",
+      "state": "COMPLETED",
+      "assignedNodeId": "mech-node-a"
+    },
+    {
+      "id": "Q-7f3ffbba-1f6c-4664-a0c2-11135cf8af5a",
+      "state": "COMPLETED",
+      "assignedNodeId": "mech-node-b"
+    },
+    {
+      "id": "Q-293d09bf-f312-4197-8048-3fbdba71d6ef",
+      "state": "COMPLETED",
+      "assignedNodeId": "mech-node-b"
+    },
+    {
+      "id": "Q-eae68ea4-c0ce-4fdf-8102-9277e96268a8",
+      "state": "COMPLETED",
+      "assignedNodeId": "mech-node-a"
+    },
+    {
+      "id": "Q-68c84eeb-1789-495d-83fd-c8f7c67ff9c9",
+      "state": "COMPLETED",
+      "assignedNodeId": "mech-node-a"
+    },
+    {
+      "id": "Q-d82c5d0f-62cb-4dd3-9481-6a0f2843b441",
+      "state": "COMPLETED",
+      "assignedNodeId": "mech-node-b"
+    }
+  ],
+  "results": [
+    {
+      "name": "TWO distinct devices are registered and online",
+      "ok": true,
+      "detail": "2 online: mech-node-a, mech-node-b (all seen: mech-node-a, mech-node-b)"
+    },
+    {
+      "name": "the two devices have DIFFERENT identities",
+      "ok": true,
+      "detail": "mech-node-a, mech-node-b"
+    },
+    {
+      "name": "real work really executed with two devices present",
+      "ok": true,
+      "detail": "6/6 COMPLETED"
+    },
+    {
+      "name": "work was actually scheduled onto the registered devices",
+      "ok": true,
+      "detail": "executors observed: mech-node-a, mech-node-b"
+    }
+  ],
+  "finishedAt": "2026-10-02T14:19:46.885Z"
+}
