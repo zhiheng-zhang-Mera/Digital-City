@@ -19,7 +19,10 @@
  * It deliberately does NOT judge the work - that is the review. It answers "is the control plane telling the
  * truth about what was built", which is the question §7 exists for.
  *
- *   node scripts/uxi390-reconcile.mjs [--mission-book <path>] [--utopia <path>]
+ *   node mission-book/reports/UXI-390/uxi390-reconcile.mjs [--mission-book <path>] [--utopia <path>]
+ *
+ * The path in this line is the one that works. It previously said scripts/, which is where the instrument was
+ * first prototyped and is NOT where it lives, so a reader following the header would have got ENOENT.
  */
 import {execFileSync} from 'node:child_process';
 import {existsSync, readFileSync} from 'node:fs';
