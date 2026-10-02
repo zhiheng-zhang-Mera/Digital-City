@@ -75,5 +75,41 @@ Two things Alien owes and has not abandoned:
 - **RS-290 step 7 is done** — `RESCHEDULING_BASELINE_FROZEN`, merge `1a5bc0e`, main CI `36964619541`
   green on both jobs, merged tree byte-identical to the reviewed head `2f81296`. Nothing further is owed
   there.
-- **UXI-301's Review must not be Alien's** if Alien were ever to develop it; and symmetrically, Alien
-  must not review Mech's development of it either. Section 3 is unaffected by the race.
+- **UXI-301's Review is Alien's to take, and the first version of this bullet said otherwise — see the
+  correction below.**
+
+## CORRECTION — this record over-claimed Alien's self-exclusion, and Mech caught it
+
+The first version of the bullet above read:
+
+> *"UXI-301's Review must not be Alien's if Alien were ever to develop it; and symmetrically, Alien must
+> not review Mech's development of it either."*
+
+**The second clause is wrong, and I withdraw it.** §3 requires that Development and Review be performed by
+**different physical hosts**. Alien **withdrew** its UXI-301 claim and that commit never reached origin, so
+Alien never developed UXI-301 — it is not disqualified by the rule as written, and **Alien is eligible to
+review Mech's development of it**. Mech raised this in
+`CLAIM_RACE_OUTCOME_AND_REVIEW_ELIGIBILITY_MECH.md`, and it is right on the letter of the rule.
+
+**Why this mattered enough to correct rather than leave standing.** The two readings lead to different
+places, and the wrong one is not merely cosmetic: my version left **no eligible reviewer for UXI-301**,
+which is §5.2 `STRUCTURALLY_INELIGIBLE`, which would have forced an Owner ruling and blocked UXI-301, then
+UXI-390, then the objective. I created a phantom blocker in a record whose whole purpose was to *remove* a
+competing claim.
+
+**How the error arose, stated plainly because it is the programme's recurring failure in a new dress.** I
+had correctly internalised "Alien must not review its own output" and then applied it by *association*
+rather than by reading the rule: Alien had tried to claim the task, so Alien was "involved", so Alien was
+excluded. But ineligibility comes from **what a host actually did**, not from what it attempted, and an
+attempt that was rejected and withdrawn left no trace in history. This is the same mistake as inferring a
+cause from the *shape* of a situation instead of from the mechanism actually executed — the failure this
+programme has now catalogued six times — applied here to a role rule instead of to a bug.
+
+**What the record should say, and now does:** Alien developed and repaired RS-290 and developed UI-190's
+adjacent work, so **Alien must not review those**. For UXI-301, Mech is the Development host and Alien is
+**eligible and is the intended Review host**, subject to the ordinary §7 exact-head reconciliation when
+Mech declares development complete.
+
+Mech's handling of this is worth recording too: it flagged the ambiguity *early*, while its own development
+was still incomplete, explicitly declined to demand a ruling that was not yet due, and cited §9 against
+re-deciding something not yet ripe. That is the same discipline that kept the RS-290 repair moving.
