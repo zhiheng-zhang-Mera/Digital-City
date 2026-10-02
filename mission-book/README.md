@@ -14,6 +14,8 @@
 > **本轮更新（2026-10-02T10:47Z，Alien，随 Owner 裁决一并提交）：** 上一版看板停留在「UI 文明化 ACTIVE 1/5、再调度 vNext LOCKED」的旧状态，与实测不符。下表全部按工作书 frontmatter 与 `git ls-remote` 实测重写，不沿用记忆中的状态。
 >
 > **步骤 5 更新（2026-10-02T11:05Z，Alien）：** UXI-390 的 Owner 极简视觉包**已交付**——Web Home / Ask / Tools / 一个真正打开的 Room / 一个 provider 决策态，Android Home / Ask / Rooms，全部真机或真浏览器实拍共 8 张，另有 2 份 capture receipt（含逐图 SHA-256 与拍摄时可见文本）。图片在实现仓库，City 只存索引：见 [FINAL_VISUAL_PREVIEW_PACKAGE.md](./reports/UXI-390/FINAL_VISUAL_PREVIEW_PACKAGE.md)。实现头 `149a4c14b596b92f04fab6269eca1dcb7727303f`，其 hosted CI run `36998342105` 已 **completed success（android + gateway-web 双绿）**，因此 `development_complete = true`，任务**已释放给 Review**（§3：复核必须由 Mech 担任，Alien 不得自审）。
+>
+> **目视门更新（2026-10-02T11:20Z，Alien）：** Owner 对这 8 张实拍作出 **`FINAL_VISUAL_ACCEPTANCE` 通过**裁决，**未要求修改**——门项 6 由 NOT MET 转为 **MET**。**但这不等于验收完成**：独立复核（Mech）、步骤 7 合并 + main CI、终态标记仍未完成。同时清理了本地废弃文件（51 个已关闭任务的 worktree，实测约 4.6 GB；明细见裁决记录）。
 
 ## 当前施工看板
 
@@ -21,7 +23,7 @@
 |---|---|---:|---:|---:|---|
 | UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
 | 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
-| UI × 调度接线 | UXI-301, UXI-390 | **ACTIVE（待复核）** | **2/2** | **1/2** | **Mech 可领取 UXI-390 复核**：reviewed head `149a4c14b596b92f04fab6269eca1dcb7727303f`，CI `36998342105` 双绿 → Owner `FINAL_VISUAL_ACCEPTANCE` → 步骤 7 合并 + 终态标记 |
+| UI × 调度接线 | UXI-301, UXI-390 | **ACTIVE（待复核）** | **2/2** | **1/2** | Owner 目视门 **已通过** → **待 Mech 独立复核**（reviewed head `149a4c14b596b92f04fab6269eca1dcb7727303f`，CI `36998342105` 双绿）→ 步骤 7 合并 + main CI + 终态标记 |
 
 计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。全部 11 本工作书中，只有 UXI-390 的两个键为 `false`。
 
@@ -29,7 +31,7 @@
 
 | 主机 | 当前任务 | 角色 | 状态 | 等待分类 / 唤醒条件 |
 |---|---|---|---|---|
-| Alien | — （UXI-390 开发已交付） | Development | **RELEASED_TO_REVIEW** | 无待办：步骤 5 已交付、`development_complete = true`、CI `36998342105` 双绿。下一步是**等 Mech 复核**，Alien 不得自审。零领取分类见 [§5.1 记录](./reports/ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md) |
+| Alien | — （UXI-390 开发已交付） | Development | **WAITING_FOR_REVIEW** | 无待办：步骤 5 已交付、`development_complete = true`、CI `36998342105` 双绿、**Owner 目视门已通过**。下一步**只能等 Mech 完成独立复核**，Alien 不得自审；合并属步骤 7，须等复核与目视两门皆开。零领取分类见 [§5.1 记录](./reports/ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md) |
 | Mech | UXI-390 双机最终产品验收与收口 | Review | **可领取** | 按 §3 复核必须由 Mech 担任（Alien 施工）。reviewed head `149a4c14b596b92f04fab6269eca1dcb7727303f`；视觉 critic 循环（步骤 4）亦属 Review 侧 |
 
 ## Owner 裁决记录（本阶段）
@@ -37,6 +39,7 @@
 | 裁决 | 结论 | 记录 |
 |---|---|---|
 | UXI-390 远程 handoff（`ALTERNATE_DEVICE`）延期 | **选项 1：维持延期，理由更正为「City 不发布五维负载向量，未测量负载按设计不可作为备选」；门项保持明确 NOT MET；冻结的 RS-290 契约不变。** 选项 2（City 开始发布真实负载向量 + 界面接通拒绝切换路径）属**新产品能力 = 新任务**，本轮不启动 | [RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md](./reports/UXI-390/RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md) |
+| UXI-390 最终目视门（`FINAL_VISUAL_ACCEPTANCE`） | **通过**：Owner 对步骤 5 的 8 张实拍（Web Home/Ask/Tools/打开的 Room/provider 决策态、Android Home/Ask/Rooms）裁决通过，**未要求修改**。**门项 6 由 NOT MET 转为 MET**；但独立复核、步骤 7 合并与终态标记仍未完成 | [RECORD_ALIEN_UXI390_OWNER_VISUAL_RULING_PASSED.md](./reports/UXI-390/RECORD_ALIEN_UXI390_OWNER_VISUAL_RULING_PASSED.md) |
 
 ## Alien 零领取分类（§5）
 
