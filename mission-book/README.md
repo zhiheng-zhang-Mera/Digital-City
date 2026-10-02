@@ -12,6 +12,8 @@
 > **本 README 只做监控看板。** 任务领取、等待/唤醒、CI、双机分工、合并等规范统一读取 `CONSTRUCTION_RULES.md`；README 不作为 claim lock 或施工规则来源。
 >
 > **本轮更新（2026-10-02T10:47Z，Alien，随 Owner 裁决一并提交）：** 上一版看板停留在「UI 文明化 ACTIVE 1/5、再调度 vNext LOCKED」的旧状态，与实测不符。下表全部按工作书 frontmatter 与 `git ls-remote` 实测重写，不沿用记忆中的状态。
+>
+> **步骤 5 更新（2026-10-02T11:00Z，Alien）：** UXI-390 的 Owner 极简视觉包**已交付**——Web Home / Ask / Tools / 一个真正打开的 Room / 一个 provider 决策态，Android Home / Ask / Rooms，全部真机或真浏览器实拍共 8 张，另有 2 份 capture receipt（含逐图 SHA-256 与拍摄时可见文本）。图片在实现仓库，City 只存索引：见 [FINAL_VISUAL_PREVIEW_PACKAGE.md](./reports/UXI-390/FINAL_VISUAL_PREVIEW_PACKAGE.md)。实现头 `149a4c14b596b92f04fab6269eca1dcb7727303f`，其 hosted CI run `36998342105` 在写入时**仍在进行**，故 `development_complete` 保持 `false`。
 
 ## 当前施工看板
 
@@ -19,7 +21,7 @@
 |---|---|---:|---:|---:|---|
 | UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
 | 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
-| UI × 调度接线 | UXI-301, UXI-390 | **ACTIVE（收口）** | **1/2** | **1/2** | UXI-390 步骤 5（Owner 极简视觉材料）→ Mech 独立复核 → Owner `FINAL_VISUAL_ACCEPTANCE` → 步骤 7 合并 + 终态标记 |
+| UI × 调度接线 | UXI-301, UXI-390 | **ACTIVE（收口）** | **1/2** | **1/2** | 步骤 5 已交付 → 等 `149a4c1` CI 绿 → `development_complete` + 释放 Review → **Mech** 独立复核 → Owner `FINAL_VISUAL_ACCEPTANCE` → 步骤 7 合并 + 终态标记 |
 
 计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。全部 11 本工作书中，只有 UXI-390 的两个键为 `false`。
 
@@ -27,7 +29,7 @@
 
 | 主机 | 当前任务 | 角色 | 状态 | 等待分类 / 唤醒条件 |
 |---|---|---|---|---|
-| Alien | UXI-390 双机最终产品验收与收口 | Development | **IN_PROGRESS** | 远程 handoff 延期已由 Owner 裁决为**选项 1**（维持延期、理由更正、门项明确 NOT MET，契约不变）。`development_complete` 仍为 `false`，欠**步骤 5**：Owner 极简视觉材料。下一步由 Alien 交付 |
+| Alien | UXI-390 双机最终产品验收与收口 | Development | **IN_PROGRESS（步骤 5 已交付）** | 远程 handoff 延期已由 Owner 裁决为**选项 1**（维持延期、理由更正、门项明确 NOT MET，契约不变）；**步骤 5 的 Owner 极简视觉包已交付**（8 张实拍）。当前卡点只在**实现头 `149a4c1` 的 hosted CI 需为绿**（run `36998342105`，写入时进行中）——绿即置 `development_complete: true` 并释放给 Review |
 | Mech | — | Review | **可领取（待门解除）** | UXI-390 的复核按 §3 必须是 Mech 的（Alien 施工，不得自审）。依赖门：Alien 宣告 `development_complete: true` 并发布 reviewed head |
 
 ## Owner 裁决记录（本阶段）
