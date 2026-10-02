@@ -1,33 +1,57 @@
 # Mission Book — 当前施工监控看板
 
-> 当前模式：**UI 文明化 → 再调度 vNext → UI/调度最终接线**  
+> 当前模式：**UI 文明化 → 再调度 vNext → UI/调度最终接线（收口中）**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
 > 实现仓库：zhiheng-zhang-Mera/Utopia  
 > 实体施工主机：**Alien + Mech**  
-> 当前 Utopia 基线：`main @ e7c498f5acd86da324a45c3278219c8daa612561`  
+> 当前 Utopia 基线：`main @ 1a5bc0ee825c681636b9611efa2163f458c0a76f`（RS-290 冻结合并）  
 > **常驻施工规则：** [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)  
 > 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
 > 历史完成任务：[finished/completed-2026-10-01/](./finished/completed-2026-10-01/)
 
 > **本 README 只做监控看板。** 任务领取、等待/唤醒、CI、双机分工、合并等规范统一读取 `CONSTRUCTION_RULES.md`；README 不作为 claim lock 或施工规则来源。
+>
+> **本轮更新（2026-10-02T10:47Z，Alien，随 Owner 裁决一并提交）：** 上一版看板停留在「UI 文明化 ACTIVE 1/5、再调度 vNext LOCKED」的旧状态，与实测不符。下表全部按工作书 frontmatter 与 `git ls-remote` 实测重写，不沿用记忆中的状态。
 
 ## 当前施工看板
 
 | 工程项目 | 任务池 | 当前状态 | 施工 | 独立复核 | 下一门禁 |
-|---|---|---|---:|---:|---|
-| UI 文明化 | UI-000, UI-101..103, UI-190 | **ACTIVE** | **1/5** | **1/5** | Owner 已**采用 C″**（方向已定）→ 待 Mech 独立复核 C″ → UI-101..103 → UI-190 `UI_BASELINE_FROZEN` |
-| 再调度 vNext | RS-201..203, RS-290 | **LOCKED** | **0/4** | **0/4** | UI-190 完成后解锁 |
-| UI × 调度接线 | UXI-301, UXI-390 | **LOCKED** | **0/2** | **0/2** | RS-290 `RESCHEDULING_BASELINE_FROZEN` 后解锁 |
+|---|---|---:|---:|---:|---|
+| UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
+| 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
+| UI × 调度接线 | UXI-301, UXI-390 | **ACTIVE（收口）** | **1/2** | **1/2** | UXI-390 步骤 5（Owner 极简视觉材料）→ Mech 独立复核 → Owner `FINAL_VISUAL_ACCEPTANCE` → 步骤 7 合并 + 终态标记 |
+
+计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。全部 11 本工作书中，只有 UXI-390 的两个键为 `false`。
 
 ## 主机监控
 
 | 主机 | 当前任务 | 角色 | 状态 | 等待分类 / 唤醒条件 |
 |---|---|---|---|---|
-| Alien | UI-000 修订 | Development | REVISION_DEV_COMPLETE | 产物 `aea8361` 已推、CI `36863682166` 绿；按 §3 需 **Mech** 独立复核 C″，Alien 不得自审 |
-| Mech | — | Review | **可领取** | 独立复核 `UI-000` 修订头 `aea8361c07c003f6f519829b6c1a208c20bccab1`（`revision_review_host_required: Mech`）。见 [Owner 裁决记录](./reports/UI-000/OWNER_STYLE_RULING.md) |
+| Alien | UXI-390 双机最终产品验收与收口 | Development | **IN_PROGRESS** | 远程 handoff 延期已由 Owner 裁决为**选项 1**（维持延期、理由更正、门项明确 NOT MET，契约不变）。`development_complete` 仍为 `false`，欠**步骤 5**：Owner 极简视觉材料。下一步由 Alien 交付 |
+| Mech | — | Review | **可领取（待门解除）** | UXI-390 的复核按 §3 必须是 Mech 的（Alien 施工，不得自审）。依赖门：Alien 宣告 `development_complete: true` 并发布 reviewed head |
+
+## Owner 裁决记录（本阶段）
+
+| 裁决 | 结论 | 记录 |
+|---|---|---|
+| UXI-390 远程 handoff（`ALTERNATE_DEVICE`）延期 | **选项 1：维持延期，理由更正为「City 不发布五维负载向量，未测量负载按设计不可作为备选」；门项保持明确 NOT MET；冻结的 RS-290 契约不变。** 选项 2（City 开始发布真实负载向量 + 界面接通拒绝切换路径）属**新产品能力 = 新任务**，本轮不启动 | [RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md](./reports/UXI-390/RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md) |
+
+## Alien 零领取分类（§5）
+
+| 轮次 | 分类 | 结构原因 | 记录 |
+|---|---|---|---|
+| 197 | `5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY` | 池中唯一未完成任务 UXI-390 由 Alien 持有，其剩余步骤一为 Owner 裁决（已解除）、一为 Mech 复核（§3 禁止自审）；其余 10 个工作书与 `finished/` 归档全部终态 | [ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md](./reports/ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md) |
 
 > `WAITING_ELIGIBILITY`、`STRUCTURALLY_INELIGIBLE`、`GLOBAL_EXTERNAL_BLOCK`、`POOL_TERMINAL` 的定义与重扫规则见 [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)。
-> Alien 的零领取分类历史见 [零领取记录](./reports/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md)（§8 的 `GLOBAL_EXTERNAL_BLOCK` 已由 Owner 裁决解除）。
+> Owner gate 归 `5.1` 而非 `5.3`：§5.1 第 110 行把「Owner gate 解除」明确列为可解锁施工的事件（沿用 Mech 对 UI-190 Owner gate 的同一推理）。
+
+## 控制面已知缺陷
+
+| 缺陷 | 范围 | 本轮状态 |
+|---|---|---|
+| 工作书正文 GBK 双重编码（仓库内不可读） | **UI-102、RS-290、UXI-301** | **未修复，故意不修**：三者均已关闭，其中 RS-290 已冻结、UXI-301 已按具体字节复核；单方面改写已关闭、已按字节复核的记录等同篡改他机记录。发现与不修理由见 [Mech 报告](./reports/CONTROL_PLANE_ENCODING_MECH_FOUR_WORKBOOKS_DOUBLE_ENCODED.md) |
+| 同上 | **UXI-390** | **已修复**：该文件作者即 Alien，损坏进入 Alien 自己的领取 commit `1199229`，故在复核之前修复。正文按 Owner 原始修订 `2a319ce` **逐字恢复**，并以探针证明「53/53 行只是丢字节、无正当编辑」，frontmatter 除本轮 3 个新键外逐字节不变。见 [修复脚本](./reports/UXI-390/REPAIR_uxi390_workbook_body_encoding.mjs)、[探针](./reports/UXI-390/PROBE_uxi390_workbook_encoding.mjs) |
+| 校验器只校验结构、不校验文本完整性 | `reports/validate_frontmatter.py` | 建议增补「双重编码」检测（Mech 报告 §7）；本轮**未改**，属控制面工具变更，留待 Owner |
 
 ## 当前工作书
 
@@ -50,9 +74,11 @@
 
 ## 最近已完成阶段
 
-| 阶段 | 结果 | 归档 |
+| 阶段 | 结果 | 归档 / 依据 |
 |---|---|---|
 | Butler Assistant + Remote Fabric + General AI Gateway + Engineering Manager | 41/41 两阶段完成，4/4 programme 合并完成 | [completed-2026-10-01](./finished/completed-2026-10-01/) |
+| UI 文明化（UI-000 / 101 / 102 / 103 / 190） | 5/5 施工与复核完成，`UI_BASELINE_FROZEN` | 工作书见上 |
+| 再调度 vNext（RS-201 / 202 / 203 / 290） | 4/4 施工与复核完成，`RESCHEDULING_BASELINE_FROZEN`，`main @ 1a5bc0e` | 工作书见上 |
 
 ## 最终目标
 
