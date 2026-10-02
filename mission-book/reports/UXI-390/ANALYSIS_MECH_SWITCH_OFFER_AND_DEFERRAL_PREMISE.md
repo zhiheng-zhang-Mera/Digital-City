@@ -91,9 +91,18 @@ the other is a capability that was never built.
 
 ## 5. My own errors, restated because this document depends on them
 
+> **CORRECTION ADDED LATER — section 3(c) IS WITHDRAWN.** I went on to test it rather than leave it as an
+> argument, and **I could not reproduce the condition**: ten of ten `WAIT` tasks stayed `QUEUED`/unassigned for
+> twelve seconds with the node online, so my claim that the blocker "has been removed, on this branch, by
+> measurement" does not hold. Section 3(a) and 3(b) stand — the deferral's named destination is this task, and
+> the premise the Owner ruled on is refuted — but **the seam must not be treated as unblocked on my say-so.**
+> Full negative and diagnostic: `CORRECTION_MECH_HANDOFF_SEAM_NOT_REPRODUCED.md`.
+
 - I recorded a **false product premise** — one task type, node cannot be held — and it was load-bearing enough
   that the Owner ruled on it. It is the most consequential factual error I have made in this programme, and it
   propagated into a governance decision.
+- **And I repeated the shape of it in round 76**, asserting the seam was unblocked on a record I had not
+  reproduced. Caught by testing rather than by review, and corrected before the Owner decided.
 - I then **deferred on the strength of my own bad measurement**, which is the failure mode the review caught.
 - The Advanced-fold assertion I wrote passes vacuously, which is how that item stayed green while unmet.
 - I have now made the "assume a ref name / mangle a quote" class of tooling error four separate times this
