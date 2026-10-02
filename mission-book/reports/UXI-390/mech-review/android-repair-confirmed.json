@@ -1,0 +1,56 @@
+{
+  "head": "6a82e35a2c5c40db426f815056bac6fda4c6806d",
+  "port": 4551,
+  "installedApkSha256": "f0e1cddda1613660e8def7967d3e5f79ebb3a8b52ee71f27185d5086a5360d67",
+  "texts": [
+    "UTOPIA",
+    "ONLINE",
+    "Devices",
+    "Your devices. One shared view.",
+    "WHY THINGS ARE WAITING",
+    "Running in a reduced state",
+    "Q-65e2a86a-94db-4143-bda8-92b8f98d5ff5",
+    "The current service is responding slowly. Use another available one?",
+    "Some of what this depends on is not fully known right now.",
+    "Not available · This device isn't taking new work",
+    "Cancel",
+    "Choose another service · nothing available to switch to",
+    "TECHNICAL DETAIL",
+    "展开",
+    "Running in a reduced state",
+    "Q-19632d84-ba4f-46c9-bb2c-7d45b00e0160",
+    "The current service is responding slowly. Use another available one?",
+    "Some of what this depends on is not fully known right now.",
+    "Not available · This device isn't taking new work",
+    "Cancel",
+    "Choose another service · nothing available to switch to",
+    "Home",
+    "Ask",
+    "Rooms",
+    "Devices",
+    "Activity"
+  ],
+  "results": [
+    {
+      "name": "C-1 ON THE GLASS: the disclosure is named \"Technical detail\", the Web pack wording",
+      "ok": true,
+      "detail": "TECHNICAL DETAIL"
+    },
+    {
+      "name": "C-1: the OLD divergent wording is gone from the surface",
+      "ok": true,
+      "detail": "no \"SCHEDULING DETAIL\" rendered"
+    },
+    {
+      "name": "C-2 ON THE GLASS: the disabled choice carries its reason, Web-pack wording",
+      "ok": true,
+      "detail": "Choose another service · nothing available to switch to"
+    },
+    {
+      "name": "no raw RS-290 scheduler token leaks (unchanged by the repair)",
+      "ok": true,
+      "detail": "22 tokens searched, none found"
+    }
+  ],
+  "finishedAt": "2026-10-02T14:29:58.685Z"
+}
