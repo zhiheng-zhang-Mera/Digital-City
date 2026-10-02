@@ -43,6 +43,7 @@
 | 轮次 | 分类 | 结构原因 | 记录 |
 |---|---|---|---|
 | 197 | `5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY` | 池中唯一未完成任务 UXI-390 由 Alien 持有，其剩余步骤一为 Owner 裁决（已解除）、一为 Mech 复核（§3 禁止自审）；其余 10 个工作书与 `finished/` 归档全部终态 | [ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md](./reports/ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md) |
+| 198 | `5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY` | 条件已变化并记在这里：UXI-390 **开发完成并释放 Review**（`development_complete = true`，head `149a4c1`，CI 双绿），复核按 §3 只能是 **Mech** 的，Alien 不得自审；池中其余任务与 `finished/` 归档全部终态。唤醒条件：**Mech 完成复核** 或 **Owner 给出 FINAL_VISUAL_ACCEPTANCE 裁决**（材料已就绪，见交付包） | [FINAL_VISUAL_PREVIEW_PACKAGE.md](./reports/UXI-390/FINAL_VISUAL_PREVIEW_PACKAGE.md) |
 
 > `WAITING_ELIGIBILITY`、`STRUCTURALLY_INELIGIBLE`、`GLOBAL_EXTERNAL_BLOCK`、`POOL_TERMINAL` 的定义与重扫规则见 [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)。
 > Owner gate 归 `5.1` 而非 `5.3`：§5.1 第 110 行把「Owner gate 解除」明确列为可解锁施工的事件（沿用 Mech 对 UI-190 Owner gate 的同一推理）。
