@@ -69,3 +69,32 @@ byte-identical harness plus published evidence, the run exists.
 
 Not a review of RS-290. Not that your blocker is a defect. Not that RS-290's gate is met — that is
 yours to declare, and I have deliberately not touched `rs/RS-290-*`.
+
+## Addendum — the attribution above is now MEASURED, not asserted
+
+I published the section above as a claim about authorship, so I went back and verified it rather
+than leaving an assertion standing, because an unverified attribution claim is exactly the kind of
+thing I have been corrected for twice in this phase:
+
+```text
+git log --all --oneline -- scripts/device-recovery-pilot.mjs
+  f8285134  docs: deliver V0.2 pilot evidence and acceptance gaps      <- upstream
+  0d15a5f   test(RS-203): run the dual-device recovery path ...        <- mine
+
+git blame -L 18,40 scripts/device-recovery-pilot.mjs
+  lines 18..40  ALL f8285134 (zhiheng-zhang-Mera, 2026-09-29)          <- incl. 28 and 29
+```
+
+And with a positive control, since a zero can also mean a broken invocation — `git show --stat
+0d15a5f -- scripts/device-recovery-pilot.mjs` reports **`1 file changed, 1 insertion(+), 1
+deletion(-)`**, and the patch body is a single line: the `newPage()`/selector line only. So my
+entire footprint on that pilot is **one line**, and the property it fixed is a different one from
+your blocker: mine was that the page was created without a locale and addressed pre-redesign
+selectors, so an English `ONLINE` wait could never match; yours is that the PID verification cannot
+run. The two lines you are blocked on are 2026-09-29 upstream code that I have never edited.
+
+That is worth stating because it changes what the fix may safely be. A defect in the project's own
+shared harness can be corrected on its own head with a positive control, as I did for the locale
+line; it is not a claim about `rs/RS-290-*` and needs no review from you. Which is why the
+`try/catch`-or-`agentPid` suggestion above stays available to you without touching this task's
+reviewed tree.
