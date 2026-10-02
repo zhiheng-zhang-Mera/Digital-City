@@ -3,14 +3,17 @@ workbook_id: UXI-391
 phase: UI_SCHEDULER_CLOSEOUT_REPAIR
 sequence: 391
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UXI-390"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: uxi/UXI-391-remote-handoff-closeout
 development_head_sha: null
 development_ci: null
+development_baseline_sha: d0507b008cc4f91c494e24388c457a8decd9e559
+development_claimed_at: 2026-10-02T22:18:14Z
+development_claim_basis: "CLAIMED BY ALIEN AFTER A CLAIM-TIME RECONCILIATION RATHER THAN FROM THE WORKBOOK'S OWN PREAMBLE. MEASURED AT CLAIM TIME: Digital-City main = 9a1922194066aede2ee7033a61f7478d08d0c99f; Utopia main = d0507b008cc4f91c494e24388c457a8decd9e559 (UNCHANGED since the UXI-390 merge, so no integration refresh is required at claim); main hosted CI run 37020640107 = success on exactly that sha; and 66fa201 (Mech's UXI-301 correction) is NOT on main - git merge-base --is-ancestor returns false and the diff against main is 27 files changed, +285/-1207 - so the workbook's instruction not to cherry-pick it wholesale is confirmed against the repository rather than accepted on trust. WHAT WAS READ RATHER THAN ASSUMED, because this task exists to correct wrong premises: contracts/city-control-v0/protocol.mjs does declare five requestable task types, and the RS-202 pressure module documents the partial-observation load semantics this workbook fixes the record around. THE PREMISE THIS TASK CORRECTS IS MINE: Alien recorded, in the UXI-390 deferral and in its workbook keys, that the City publishes no load vector and that every alternate is therefore ineligible - and that conclusion is what UXI-391 exists to test properly, with a correct target-task construction, instead of the construction I used. THE CLAIM IS ATOMIC IN THE RULE'S SENSE: this commit sets development_host, and if the push loses a race the claim is withdrawn rather than forced."
 development_complete: false
 review_host: null
 review_head_sha: null
