@@ -1,0 +1,180 @@
+{
+  "head": "149a4c14b596b92f04fab6269eca1dcb7727303f",
+  "port": 4511,
+  "device": "sdk_gphone64_x86_64",
+  "size": "Physical size: 720x1600",
+  "density": "Physical density: 320",
+  "tokensSearched": [
+    "PRESSURE_PAUSED",
+    "USER_DISABLED",
+    "DEVICE_UNREACHABLE",
+    "DEVICE_REFUSING",
+    "DEVICE_DISABLED",
+    "FRESHNESS_UNKNOWN",
+    "FRESHNESS_STALE",
+    "AT_CAPACITY",
+    "SESSION_CONGESTED",
+    "LOAD_UNMEASURED",
+    "POLICY_EXCLUDED",
+    "CHANNEL_READINESS_UNKNOWN",
+    "AVAILABILITY_UNKNOWN",
+    "REMOTE_STATE_UNKNOWN",
+    "REMOTE_ONLINE",
+    "SESSION_ENDED",
+    "CREDENTIALS_MISSING",
+    "REGION_UNSUPPORTED",
+    "SELECTABLE",
+    "DEVICE_ONLINE",
+    "STRUCTURAL",
+    "RESOURCE"
+  ],
+  "tokensLeaked": [],
+  "pages": [
+    {
+      "page": "Home",
+      "texts": [
+        "UTOPIA",
+        "ONLINE",
+        "Digital City",
+        "Your devices. One shared view.",
+        "RUNTIME NODES",
+        "Alien-PC",
+        "OFFLINE",
+        "RUNNING",
+        "3",
+        "COMPLETED",
+        "0",
+        "Run Test Task",
+        "RECENT TASKS",
+        "CHECKPOINT_DEMO",
+        "QUEUED",
+        "Q-e155e856-d2b0-453f-9d95-f5226dc99528",
+        "Q-dde9e478-213e-46a0-83df-7a765ffcb737",
+        "Home",
+        "Ask",
+        "Rooms",
+        "Devices",
+        "Activity"
+      ]
+    },
+    {
+      "page": "Rooms",
+      "texts": [
+        "UTOPIA",
+        "ONLINE",
+        "Rooms · local tools",
+        "Your devices. One shared view.",
+        "Local Rooms",
+        "Ten local personal tools on your Utopia host. Android observes them through the authenticated gateway; it never talks to the Room Hub directly and never opens its loopback port.",
+        "Check Room availability",
+        "Room availability has not been read yet.",
+        "Last snapshot: 2:13:18 PM",
+        "Home",
+        "Ask",
+        "Rooms",
+        "Devices",
+        "Activity"
+      ]
+    },
+    {
+      "page": "Devices",
+      "texts": [
+        "UTOPIA",
+        "ONLINE",
+        "Devices",
+        "Your devices. One shared view.",
+        "WHY THINGS ARE WAITING",
+        "Running in a reduced state",
+        "Q-32f1ec2e-b9b2-4345-9947-f5d24dc1e446",
+        "The current service is responding slowly. Use another available one?",
+        "Some of what this depends on is not fully known right now.",
+        "Not available · This device isn't taking new work",
+        "Cancel",
+        "Choose another service",
+        "SCHEDULING DETAIL",
+        "展开",
+        "Q-dde9e478-213e-46a0-83df-7a765ffcb737",
+        "Home",
+        "Ask",
+        "Rooms",
+        "Activity"
+      ]
+    },
+    {
+      "page": "Activity",
+      "texts": [
+        "UTOPIA",
+        "ONLINE",
+        "City activity",
+        "Your devices. One shared view.",
+        "CLIENT_CONNECTED",
+        "2:13:04 PM",
+        "运行详情",
+        "展开",
+        "NODE_OFFLINE",
+        "TASK_CREATED",
+        "2:12:57 PM",
+        "COMMAND_ACCEPTED",
+        "Home",
+        "Ask",
+        "Rooms",
+        "Devices",
+        "Activity"
+      ]
+    },
+    {
+      "page": "Tasks",
+      "texts": [
+        "COMMAND_ACCEPTED",
+        "2:12:57 PM",
+        "运行详情",
+        "展开",
+        "TASK_CREATED",
+        "NODE_ONLINE",
+        "2:12:55 PM",
+        "Home",
+        "Ask",
+        "Rooms",
+        "Devices",
+        "Activity"
+      ]
+    },
+    {
+      "page": "Settings",
+      "texts": [
+        "COMMAND_ACCEPTED",
+        "2:12:57 PM",
+        "运行详情",
+        "展开",
+        "TASK_CREATED",
+        "NODE_ONLINE",
+        "2:12:55 PM",
+        "CITY_STARTED",
+        "Last snapshot: 2:13:53 PM",
+        "Home",
+        "Ask",
+        "Rooms",
+        "Devices",
+        "Activity"
+      ]
+    }
+  ],
+  "results": [
+    {
+      "name": "no raw RS-290 scheduler token leaks into the rendered UI by default",
+      "ok": true,
+      "detail": "22 tokens searched, none found"
+    },
+    {
+      "name": "the scheduler panel renders and speaks user language",
+      "ok": true,
+      "detail": "UTOPIA | ONLINE | Digital City | Your devices. One shared view. | RUNTIME NODES | Alien-PC | OFFLINE | RUNNING | 3 | COMPLETED | 0 | Run Test Task | RECENT TASKS | CHECKPOINT_DEMO | QUEUED | Q-e155e85"
+    },
+    {
+      "name": "the panel explains a waiting state rather than falling through to a healthy surface",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "finishedAt": "2026-10-02T14:13:56.403Z"
+}
