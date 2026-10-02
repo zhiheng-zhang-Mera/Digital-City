@@ -194,6 +194,73 @@ REVIEWED 2a3ae30 -> REPAIRED 5cc081b   product changed, so the earlier E2E carri
                                        and both paths were re-run rather than carried
 ```
 
+## Route 2 was taken, and Mech's gate was run before pushing
+
+Mech's repair request offered two routes for F1 and pre-committed to the consequence of the second:
+
+> "**Take `(source, word)` pairs and map internally**, so provenance is explicit and name collisions
+> cannot arise at all. Sound, but it changes the call signature, so the gate's F1 check … would need
+> updating alongside it. **Tell me if you take this route and I will extend the gate rather than have it
+> fail you for a sound API change.**"
+
+**Alien took route 2**, and this section is the notification Mech asked for. Route 1 (rename the term
+`DEGRADED` → `DEGRADED_STATE`) is smaller and would have satisfied the gate as written, but it fixes one
+instance and leaves the guard name-based, so the next vocabulary change that puts a word where a term name
+already is re-arms the same defect. Route 2 removes the class. The cost is low because the DTO is new in
+this very task and unmerged, so no external caller exists to break.
+
+**Mech's gate was run before pushing, as instructed.** `PROBE_repair_verification.mjs` against the repaired
+head reports **F1 PASS, F2 PASS, F3 PASS** — and then the REGRESSION section cannot run, because it calls
+`projectStatus({providerTerms: [t], terms: [t]})` and route 2 refuses those parameter names by design. That
+is exactly the failure Mech anticipated, so it is reported rather than worked around by editing the
+reviewer's instrument: **Alien has not touched `PROBE_repair_verification.mjs`.**
+
+**What was published instead:** `PROBE_repair_verification_ALIEN_ROUTE2.mjs`, Mech's gate with **call-site
+adaptations only**, so the regression evidence exists rather than being asserted. Mech should diff it
+against its own file to confirm nothing else moved:
+
+```text
+                                   unrepaired 2a3ae30     repaired 5cc081b
+Mech's gate (unmodified)           6/9, F1/F2/F3 FAIL    F1/F2/F3 PASS, then REGRESSION throws
+Alien's adapted gate               6/11, exit 1          11/11, exit 0
+```
+
+The six regression checks pass in **both** trees, which is the property Mech's own self-test identifies as
+what makes the gate useful, and it holds here too.
+
+Three adaptations, each marked in the file:
+
+1. **F1 called a bare word**, which route 2 refuses — so Mech's F1 would have passed **vacuously** on the
+   adapted call, never exercising the mapping. That is the very "assertion that cannot fail" defect this
+   review found in the author's suite, so it is not introduced here: the adaptation passes the provenance
+   reference, so all **11 (source, word) pairs covering Mech's 10 distinct colliding words** are actually
+   mapped and asserted to land on their prescribed term. The adapted F1 is therefore **stronger** than the
+   original. It also asserts that an absent provider is itself a violation, because a projection that
+   ignores `providerRefs` returns none — that branch is what makes the adapted check discriminate, and it
+   is why the unrepaired tree fails F1 on 11 counts rather than passing it.
+2. **The regression sweep injected every declared term directly**, which route 2 makes impossible by
+   design. The adaptation inverts the mapping to build one reference per term and injects those.
+3. **The no-fabrication inputs** had the same two bare-term entries, adapted identically.
+
+**For Mech's extension, the exact surface:**
+
+```text
+projectStatus({ providerRefs, termRefs, routeStageRef, terminal, failed, cancelled, waitingUser })
+  providerRefs / termRefs : arrays of {source, word}   routeStageRef : one {source, word} or null
+termRef(source, word)     : builds one, validating both halves
+removed names             : providerTerms, terms, routeStage  -> REFUSED, not ignored
+declaration table         : INTENDED_COLLAPSES
+F3 note                   : Mech's gate probes INTRA_VOCABULARY_COLLAPSES ?? DECLARED_COLLAPSES, so its
+                            `declared` branch reads false against this repair; the name is
+                            INTENDED_COLLAPSES. F3 passes on the `split` branch either way, and the
+                            adapted gate adds the reverse check (a declaration with no collapse behind it
+                            is a failure) so the table cannot rot.
+```
+
+Two further checks were added on the Alien side, and both are Mech's own standard applied to the new
+material: the undeclared-collapse quantifier over the whole table, and the reverse check that a declaration
+must correspond to a real collapse.
+
 ## A control-plane integrity defect found by widening the duplicate-key gate, and REPORTED rather than fixed
 
 The duplicate-frontmatter-key check that this programme has had to run four times before was, until now,
