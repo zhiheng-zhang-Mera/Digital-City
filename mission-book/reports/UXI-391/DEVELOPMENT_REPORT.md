@@ -111,3 +111,21 @@ term 与 route 对同一候选给出相同判定（本任务的核心缺陷类�
 
 **Step 6–7 待办**：Mech 独立复核 + 真实双机验收（含 UI 层 result-return）→ 合并 main、main CI、
 `REMOTE_HANDOFF_CLOSEOUT_REPAIRED`、`POST_COMPLETION_REENTRY.md`。
+---
+
+## 追加：UI 层 result-return 已补齐（本条更正上文"尚欠"的说法）
+
+上文 Step 6 清单里写的「UI 层 result-return 尚欠」**现已不欠**（双机验收本身仍欠）：
+
+```text
+HEAD = 8b61622f048de3032863794295e459e0e495f6d2
+CI   = 37073714180 success（android + gateway-web，绑定该 head）
+E2E  = 30/30 PASS
+```
+
+E2E 现在驱动**真实 Web surface**：在 Node A 死亡**之前**就已配对并显示该运行（面板中可见 target id）→
+整个 handoff 期间**不指向 B、不刷新**（页面自设标记事后校验，静默刷新无法蒙过）→ 保持 ONLINE →
+移交完成后**同一页面**的任务页显示 `TASK REGISTRY WAIT <原 task id> COMPLETED`，渲染文本中**无任何 raw
+scheduler token**，无页面错误。
+
+仍未做且不宣称：**双机验收**（本 E2E 仍在一台实体主机上）、**Android surface 跨 handoff** 未驱动（Web 已驱动）。
