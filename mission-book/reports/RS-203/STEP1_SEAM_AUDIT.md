@@ -13,10 +13,29 @@ Run on `de91f5e`, per suite, read from the runner's own totals:
 general-ai-remote-execution-v1/conformance.test.mjs    19 pass  0 fail
 engineering-return-control-v1/conformance.test.mjs     23 pass  0 fail
 remote-presence-reconnect-v1/conformance.test.mjs      25 pass  0 fail
-task-lifecycle/task-lifecycle.test.mjs                 25 pass  0 fail
+task-lifecycle/tests/task-lifecycle.test.mjs           11 pass  0 fail
                                                        --
-                                                       92 pass  0 fail
+                                                       78 pass  0 fail
 ```
+
+**CORRECTION (raised by the RS-203 Review host, and it was right).** This section originally
+reported `task-lifecycle 25/25` and a four-suite floor of **92**. Both were wrong; the correct
+figure is **11** and the floor is **78**. Two independent mistakes produced it, and the second is
+the instructive one:
+
+1. **A wrong path.** I ran `task-lifecycle/task-lifecycle.test.mjs`; the file is actually at
+   `task-lifecycle/tests/task-lifecycle.test.mjs`. Node reported `Could not find`, which I did not
+   read.
+2. **A stale variable.** The loop that collected the four counts reused `$p` and `$f` across
+   iterations, and I had already seen it emit `Cannot index into a null array` on a failed
+   extraction — which is exactly what happened here. The `25` printed for task-lifecycle was the
+   *previous* suite's value still sitting in the variable. **I noticed that error at the time and
+   moved past it**, which is the real defect: an error I observed and explained away became a
+   published baseline number.
+
+A baseline figure is evidence, so the correction is recorded rather than silently swapped. The
+suite is green and the section's conclusion — that RS-203 extends a working foundation rather than
+repairing a broken one — is unaffected by the count.
 
 So RS-203 extends a working foundation. It is not repairing a broken one, and a red suite later
 would mean this task broke it.
