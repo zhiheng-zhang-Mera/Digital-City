@@ -144,3 +144,21 @@ B 侧 = scripts/uxi391-dualhost-b.mjs   演练 16/16 PASS（含重复请求不�
 若我止于推断，就会报一个不存在的前置障碍。
 
 **仍未做**：两半都在本机跑的演练**不等于**两台实体主机的验收；Android surface 跨 handoff 仍未驱动。
+---
+
+## 追加：Android surface 跨 handoff 已驱动（本条更正上文"Android surface 未驱动"）
+
+```text
+HEAD = 269aa969a285b78283ed6f7bd3b0cf432cfdcbd9    CI = 37075869218 success
+脚本 = scripts/uxi391-android-handoff.ps1          结果：9/9 PASS
+```
+
+App 指向本次运行的 Gateway（未重启、未指向 B），面板在该运行**在飞**时显示它（用户语言），移交 A→B 后
+**同一 App 实例**在 Home 看到完成，16 词元扫描**零泄漏**。
+
+**脚本三次返工的原因（都记在脚本头部，值得保留）**：
+1. **导航要按比例点，不能按节点**：五个标签节点 bounds 全为 `[0,0][0,0]` 且不可点，真正可点的是底栏五个 ~216px 槽；
+2. **「在飞」证据不能抢在停 worker 之前**：一次 `uiautomator dump` 要数秒，而 WAIT 只持有 6 秒——这个窗口抢不赢，也**不需要**抢，因为 A 死后指派仍在、任务仍 RUNNING；
+3. **面板与结果在不同 surface**：Devices 面板在任务完成瞬间就把它移出列表，把结果断言在面板上即使移交成功也会失败。
+
+**仍欠**：两**实体主机**验收（需 Mech）。
