@@ -46,7 +46,8 @@ negligible. Record it as a parity observation, not as a defect on either side.
 | item | state |
 |---|---|
 | `MainActivity.kt:103` omitted `onAction`, so every routed action was enabled and inert | **CLOSED** — fixed at `8ab8225` by making `onAction` nullable, then wired at `MainActivity.kt:108`–`116` |
-| `supportedActions` and the per-provider `Choose` path have no test binding; the dead `CHOOSE_PROVIDER` branch is a trap | **FILED** — `FINDING_MECH_SUPPORTED_ACTIONS_UNGUARDED.md` |
+| `supportedActions` and the per-provider `Choose` path have no test binding; the dead `CHOOSE_PROVIDER` branch is a trap | **CLOSED** — fixed at `cd298c3`: dead branch deleted, and `tests/uxi390-action-wiring.test.mjs` added. Mutation-verified by me in a detached worktree rather than accepted on assertion |
+| **My proposed remedy for that finding was inadequate** | Confirmed by my own reproduction: re-creating the trap makes **both** of my existence-check guards pass, and only Alien's semantic assertion fails. Diagnosis right, prescription wrong. `VERIFICATION_MECH_MUTATION_OF_THE_WIRING_GUARD.md` |
 | `CHOOSE_PROVIDER` unimplemented on Android | **CLOSED** — `CityClient.kt:113 providerChoice` now exists and the per-provider control sends that row's own ref |
 | The guard would `FAIL` the honest Android state if `CHOOSE_PROVIDER` were declared unsupported | **MOOT AS WRITTEN** — Android now genuinely supports it, so `{CONFIRM}` remains the correct unrouted set. The containment point is still the right shape for any future divergence; do not cite it as an open defect |
 
@@ -56,9 +57,12 @@ Run these against the **exact** `development_head_sha` recorded in the workbook 
 
 1. `node mission-book/reports/UXI-390/uxi390-reconcile.mjs` — expect 12/12 with the recorded head equal to the
    branch tip. Ran at 10/12 during development on the two expected lag checks; that is not a finding.
-2. The **Android choice round-trip**, which Alien records as **still open** at `54445d3`. This is the one
-   acceptance item with a live claim against it: the workbook requires the user's choice to *really reach the
-   backend*. Alien's own record says `round-trip still open`. Do not accept a rendered control as closure.
+2. The **Android choice round-trip**. Alien recorded it **ACHIEVED** at `3005c85`, proven by a global scan
+   where every user-actor event is `TASK_PROVIDER_CHOSEN` with one new event per `Choose` tap. My earlier note
+   said this was open, on the strength of `54445d3`; that note was stale and is corrected here. **Verify it at
+   the recorded head regardless** — not because the claim is doubted, but because this is the one acceptance
+   item that has been genuinely in doubt across several rounds and it deserves its own measurement. Do not
+   accept a rendered control as closure, and do not accept a commit message as the verification.
 3. Hosted CI bound to the exact recorded head, both jobs, on the **implementation** repo
    (`zhiheng-zhang-Mera/utopia`) — read `implementation_repo` from the workbook, never inferred.
 4. Evidence openable from a **review host**: `evidence/raw/mission-book/UXI-390/` committed, not only under
