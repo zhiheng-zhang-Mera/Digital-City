@@ -15,6 +15,8 @@
 >
 > **步骤 5 更新（2026-10-02T11:05Z，Alien）：** UXI-390 的 Owner 极简视觉包**已交付**——Web Home / Ask / Tools / 一个真正打开的 Room / 一个 provider 决策态，Android Home / Ask / Rooms，全部真机或真浏览器实拍共 8 张，另有 2 份 capture receipt（含逐图 SHA-256 与拍摄时可见文本）。图片在实现仓库，City 只存索引：见 [FINAL_VISUAL_PREVIEW_PACKAGE.md](./reports/UXI-390/FINAL_VISUAL_PREVIEW_PACKAGE.md)。实现头 `149a4c14b596b92f04fab6269eca1dcb7727303f`，其 hosted CI run `36998342105` 已 **completed success（android + gateway-web 双绿）**，因此 `development_complete = true`，任务**已释放给 Review**（§3：复核必须由 Mech 担任，Alien 不得自审）。
 >
+> **最终接受（2026-10-02T14:35Z，Alien）：** UXI-390 已按工作书第 7 步并入 Utopia `main`（合并提交 `d0507b0`，`--no-ff`，父提交 `1a5bc0e` + reviewed head `6a82e35`），合并树与 reviewed head **逐字节一致**；**main hosted CI `37020640107` 双 job 全绿**。门项 6（你的目视裁决）、7（main CI）、8（终态标记 `UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED`）全部达成。**仍未达成且不被接受所修复的**：门项 3 的 remote handoff 子项保持 NOT MET（你选项 1 裁决所接受的延期）。
+>
 > **目视门更新（2026-10-02T11:20Z，Alien）：** Owner 对这 8 张实拍作出 **`FINAL_VISUAL_ACCEPTANCE` 通过**裁决，**未要求修改**——门项 6 由 NOT MET 转为 **MET**。**但这不等于验收完成**：独立复核（Mech）、步骤 7 合并 + main CI、终态标记仍未完成。同时清理了本地废弃文件（51 个已关闭任务的 worktree，实测约 4.6 GB；明细见裁决记录）。
 
 ## 当前施工看板
@@ -23,16 +25,16 @@
 |---|---|---:|---:|---:|---|
 | UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
 | 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
-| UI × 调度接线 | UXI-301, UXI-390 | **ACTIVE（复核进行中）** | **2/2** | **1/2** | **Mech 已于 `13:05:47Z` 认领复核**（认领前完成 13/13 exact-head 对账，干净）→ 复核完成 → 步骤 7 合并 + main CI + 终态标记 |
+| UI × 调度接线 | UXI-301, UXI-390 | **COMPLETE（阶段已接受）** | **2/2** | **2/2** | 无 —— **Mech 复核 PASS**（`6a82e35`，含必做修复 C-1/C-2 的确认）→ **步骤 7 已合并** `d0507b0`（`--no-ff`，合并树与 reviewed head 逐字节一致）→ main CI `37020640107` 双绿 → **终态标记已宣告** |
 
-计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。全部 11 本工作书中，只有 UXI-390 的两个键为 `false`。
+计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。**全部 11 本工作书现均为 true/true**，池中无未完成任务。
 
 ## 主机监控
 
 | 主机 | 当前任务 | 角色 | 状态 | 等待分类 / 唤醒条件 |
 |---|---|---|---|---|
-| Alien | — （UXI-390 开发已交付） | Development | **WAITING_FOR_REVIEW** | 无待办：步骤 5 已交付、`development_complete = true`、CI `36998342105` 双绿、**Owner 目视门已通过**。下一步**只能等 Mech 完成独立复核**，Alien 不得自审；合并属步骤 7，须等复核与目视两门皆开。零领取分类见 [§5.1 记录](./reports/ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md) |
-| Mech | UXI-390 双机最终产品验收与收口 | Review | **复核中（已认领）** | 认领 `2026-10-02T13:05:47Z`，`review_host: Mech`、`review_head_sha: 149a4c14b596b92f04fab6269eca1dcb7727303f`（`review_complete` 仍 false，属正常进行中）。Mech 认领前的 13/13 对账里修掉了我 `uxi390-reconcile.mjs` 的两个探针缺陷（把 `development_ci` 当单值取首个 run id、读陈旧检出）——已记入其 `review_claim_basis`。Alien 此时不碰该实现分支 |
+| Alien | — （阶段已收口） | Development | **DONE** | 阶段完成：UXI-390 开发交付 → 必做修复 C-1/C-2 应用（`6a82e35`）→ 步骤 7 合并（`d0507b0`）→ main CI 双绿 → 终态标记宣告。Alien 全程未复核自身产出。 |
+| Mech | — （阶段已收口） | Review | **DONE（PASS）** | 认领 `13:05:47Z`（前置 13/13 对账）→ 独立核验 8 个门项 → verdict `REVIEW_COMPLETE — PASS WITH REQUIRED REPAIRS` → 作者修复后**在设备上确认并升级为 PASS**（`6a82e35`，`review_ci: 37019678027`）。它还主动关闭了自己声明的边界（独立测量 Android 失败+恢复 6/6、设备卡降级 7/7）。 |
 
 ## Owner 裁决记录（本阶段）
 
@@ -89,3 +91,5 @@
 ## 最终目标
 
 `UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED`
+
+**状态：已宣告**（2026-10-02T14:35Z）。依据：reviewed head `6a82e35` 经 Mech `REVIEW_COMPLETE — PASS`、Owner `FINAL_VISUAL_ACCEPTANCE` 通过；步骤 7 合并提交 `d0507b0` 的 main CI `37020640107` 双 job 绿。
