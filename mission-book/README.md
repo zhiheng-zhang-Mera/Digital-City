@@ -1,10 +1,10 @@
 # Mission Book — 当前施工监控看板
 
-> 当前模式：**UI 文明化 → 再调度 vNext → UI/调度最终接线（收口中）**  
+> 当前模式：**UI/调度阶段已接受 → UXI-391 Remote Handoff 收尾修复（ACTIVE）**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
 > 实现仓库：zhiheng-zhang-Mera/Utopia  
 > 实体施工主机：**Alien + Mech**  
-> 当前 Utopia 基线：`main @ 1a5bc0ee825c681636b9611efa2163f458c0a76f`（RS-290 冻结合并）  
+> 当前 Utopia 基线：`main @ d0507b008cc4f91c494e24388c457a8decd9e559`（UXI-390 最终接受合并；main CI `37020640107` 绿）  
 > **常驻施工规则：** [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)  
 > 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
 > 历史完成任务：[finished/completed-2026-10-01/](./finished/completed-2026-10-01/)
@@ -16,6 +16,8 @@
 > **步骤 5 更新（2026-10-02T11:05Z，Alien）：** UXI-390 的 Owner 极简视觉包**已交付**——Web Home / Ask / Tools / 一个真正打开的 Room / 一个 provider 决策态，Android Home / Ask / Rooms，全部真机或真浏览器实拍共 8 张，另有 2 份 capture receipt（含逐图 SHA-256 与拍摄时可见文本）。图片在实现仓库，City 只存索引：见 [FINAL_VISUAL_PREVIEW_PACKAGE.md](./reports/UXI-390/FINAL_VISUAL_PREVIEW_PACKAGE.md)。实现头 `149a4c14b596b92f04fab6269eca1dcb7727303f`，其 hosted CI run `36998342105` 已 **completed success（android + gateway-web 双绿）**，因此 `development_complete = true`，任务**已释放给 Review**（§3：复核必须由 Mech 担任，Alien 不得自审）。
 >
 > **最终接受（2026-10-02T14:35Z，Alien）：** UXI-390 已按工作书第 7 步并入 Utopia `main`（合并提交 `d0507b0`，`--no-ff`，父提交 `1a5bc0e` + reviewed head `6a82e35`），合并树与 reviewed head **逐字节一致**；**main hosted CI `37020640107` 双 job 全绿**。门项 6（你的目视裁决）、7（main CI）、8（终态标记 `UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED`）全部达成。**仍未达成且不被接受所修复的**：门项 3 的 remote handoff 子项保持 NOT MET（你选项 1 裁决所接受的延期）。
+
+> **收尾修复重开（2026-10-03）：** 后续源码与实测推翻了 UXI-390 延期理由中的两个前提：City 协议实际声明五种 requestable task，且 `WAIT` 可稳定持有节点；RS-202 的五维 load contract 也允许 partial observation，当前 CPU/Memory 的真实 telemetry 已足以形成合法 pressure verdict，不要求五维全部测齐。阶段接受本身不撤销，但 remote-handoff seam 由新的 [UXI-391](./ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md) 作为**窄范围 post-acceptance closeout repair**继续处理。UXI-391 完成后必须自动重新扫描并回接其它未完成 merge workbook。
 >
 > **目视门更新（2026-10-02T11:20Z，Alien）：** Owner 对这 8 张实拍作出 **`FINAL_VISUAL_ACCEPTANCE` 通过**裁决，**未要求修改**——门项 6 由 NOT MET 转为 **MET**。**但这不等于验收完成**：独立复核（Mech）、步骤 7 合并 + main CI、终态标记仍未完成。同时清理了本地废弃文件（51 个已关闭任务的 worktree，实测约 4.6 GB；明细见裁决记录）。
 
@@ -26,6 +28,7 @@
 | UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
 | 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
 | UI × 调度接线 | UXI-301, UXI-390 | **COMPLETE（阶段已接受）** | **2/2** | **2/2** | 无 —— **Mech 复核 PASS**（`6a82e35`，含必做修复 C-1/C-2 的确认）→ **步骤 7 已合并** `d0507b0`（`--no-ff`，合并树与 reviewed head 逐字节一致）→ main CI `37020640107` 双绿 → **终态标记已宣告** |
+| Post-acceptance 收尾修复 | UXI-391 | **READY / ACTIVE POOL** | **0/1** | **0/1** | 单机开发 + 单机双 Node E2E → 第二实体主机独立 Review/双机验收 → Utopia main CI → 自动回接未完成 merge workbook |
 
 计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。**全部 11 本工作书现均为 true/true**，池中无未完成任务。
 
@@ -40,7 +43,7 @@
 
 | 裁决 | 结论 | 记录 |
 |---|---|---|
-| UXI-390 远程 handoff（`ALTERNATE_DEVICE`）延期 | **选项 1：维持延期，理由更正为「City 不发布五维负载向量，未测量负载按设计不可作为备选」；门项保持明确 NOT MET；冻结的 RS-290 契约不变。** 选项 2（City 开始发布真实负载向量 + 界面接通拒绝切换路径）属**新产品能力 = 新任务**，本轮不启动 | [RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md](./reports/UXI-390/RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md) |
+| UXI-390 远程 handoff（`ALTERNATE_DEVICE`）延期 | **历史裁决保留为当时记录，但其技术理由已被后续实测推翻。** City 实际有五种 task，`WAIT` 可持有节点；五维 load 允许 partial observation。阶段接受不撤销；该 deferred seam 转由 UXI-391 收尾修复，不回写篡改原裁决记录。 | [UXI-391](./ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md) / [原裁决记录](./reports/UXI-390/RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md) |
 | UXI-390 最终目视门（`FINAL_VISUAL_ACCEPTANCE`） | **通过**：Owner 对步骤 5 的 8 张实拍（Web Home/Ask/Tools/打开的 Room/provider 决策态、Android Home/Ask/Rooms）裁决通过，**未要求修改**。**门项 6 由 NOT MET 转为 MET**；但独立复核、步骤 7 合并与终态标记仍未完成 | [RECORD_ALIEN_UXI390_OWNER_VISUAL_RULING_PASSED.md](./reports/UXI-390/RECORD_ALIEN_UXI390_OWNER_VISUAL_RULING_PASSED.md) |
 
 ## Alien 零领取分类（§5）
@@ -79,6 +82,7 @@
 ### UI × 调度最终接线
 - [UXI-301 — 调度状态接入非工程化 UI](./ui-integration/UXI-301-调度状态接入非工程化UI.md)
 - [UXI-390 — 双机最终产品验收与收口](./ui-integration/UXI-390-双机最终产品验收与收口.md)
+- [UXI-391 — Remote Handoff 收尾修复与合并回接](./ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md)
 
 ## 最近已完成阶段
 
