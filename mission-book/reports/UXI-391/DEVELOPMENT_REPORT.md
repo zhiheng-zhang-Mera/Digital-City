@@ -76,3 +76,38 @@ Step 7 merge main + main CI + 记录 REMOTE_HANDOFF_CLOSEOUT_REPAIRED，并写 P
    `REMOTE_HANDOFF` 时误报 FAIL；
 3. 诊断脚本自行重建 alternates 时漏传 enablement，与产品代码犯**同一个错**，导致 planRoute 行仍显示
    USER_DISABLED —— 这条恰好再次印证了本任务的根因类别：**字段没被传到位**。
+
+---
+
+## 追加：Step 5 已完成（本回合）
+
+```text
+HEAD = b92e64cb4c6ba6a60713109aa496c8c2bf26b99a
+CI   = 37073248020 success（android + gateway-web，绑定该 head）
+```
+
+**新增回归测试**（`tests/uxi391-remote-handoff-closeout.test.mjs`，10/10）+ 既有测试更新：
+
+```text
+五种可请求任务类型（协议事实 + 未知类型被拒的负向控制）
+缺失 load 维度 ≠ 0，且 1 维已观测即够用；全未观测 → LOAD_UNKNOWN
+饱和维 binding：5 维中只有 1 维 0.95 时压力=0.95（不得被平均或当作 idle 稀释）
+telemetry 诚实产出：只报已测量维度；无法测量 → null（容量不算 io 负载）
+执行桥：只在 ALTERNATE_DEVICE 移动；重复请求/同设备/陈旧持有者/缺端点一律 REFUSED 且状态不变
+领取限制：只有被保留的设备可领；恢复后的旧持有者不能抢回
+投影：待移交 → REMOTE_HANDOFF；终态后不残留
+term 与 route 对同一候选给出相同判定（本任务的核心缺陷类）
+```
+
+同时修正了 `eligibilityFor` 的 `enablement` 参数：它此前**只**从默认参数取 `'ENABLED'`、从不读候选自身字段——
+这是与 `candidateFromNode`/`routeStageFor` **同一缺陷类的第二、第三处**；现在两条路径读同一输入。
+
+**CI 过程记录（一条失败被如实保留）**：中间头 `2e6b71a` 的 CI（run 37072814473）**失败**，原因是 UXI-301 的
+形状断言仍期望没有 `enablement` 的旧 shape；下一提交更新该断言并加了更强的守卫（显式 disabled 必须被拒），
+`b92e64c` 双 job 全绿。没有隐藏这次失败。
+
+**本地根套件**：1030 项 / 1028 通过 / 2 失败——那 2 项是 Mech 已在未改动基线 `1a5bc0e` 上复现的文档读取器用例
+（CI 中不出现）。
+
+**Step 6–7 待办**：Mech 独立复核 + 真实双机验收（含 UI 层 result-return）→ 合并 main、main CI、
+`REMOTE_HANDOFF_CLOSEOUT_REPAIRED`、`POST_COMPLETION_REENTRY.md`。
