@@ -1,0 +1,63 @@
+{
+  "head": "149a4c14b596b92f04fab6269eca1dcb7727303f",
+  "hubBase": "http://127.0.0.1:49700",
+  "roomCount": 10,
+  "labels": [
+    "Knowledge Room",
+    "Bookmark Room",
+    "Checklist Room",
+    "Prompt Library",
+    "Text Workshop",
+    "Hash Room",
+    "Data Lab",
+    "Focus Room",
+    "Calendar Room",
+    "Decision Room"
+  ],
+  "opened": [
+    {
+      "room": "Bookmark Room",
+      "changed": true,
+      "sample": "U UTOPIA ROOMS 本地工具 01 Knowledge Room 本地知识室 02 Bookmark Room 收藏室 03 Checklist Room 清单室 04 Prompt Library 提示词库 05 Text Wo"
+    },
+    {
+      "room": "Checklist Room",
+      "changed": true,
+      "sample": "U UTOPIA ROOMS 本地工具 01 Knowledge Room 本地知识室 02 Bookmark Room 收藏室 03 Checklist Room 清单室 04 Prompt Library 提示词库 05 Text Wo"
+    },
+    {
+      "room": "Prompt Library",
+      "changed": true,
+      "sample": "U UTOPIA ROOMS 本地工具 01 Knowledge Room 本地知识室 02 Bookmark Room 收藏室 03 Checklist Room 清单室 04 Prompt Library 提示词库 05 Text Wo"
+    }
+  ],
+  "results": [
+    {
+      "name": "the hub paints all 10 rooms in its navigation",
+      "ok": true,
+      "detail": "all 10 room labels present"
+    },
+    {
+      "name": "opening \"Bookmark Room\" changed the rendered surface",
+      "ok": true,
+      "detail": "body text differs"
+    },
+    {
+      "name": "opening \"Checklist Room\" changed the rendered surface",
+      "ok": true,
+      "detail": "body text differs"
+    },
+    {
+      "name": "opening \"Prompt Library\" changed the rendered surface",
+      "ok": true,
+      "detail": "body text differs"
+    },
+    {
+      "name": "zero page errors during the journey",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "pageErrors": [],
+  "finishedAt": "2026-10-02T14:18:30.084Z"
+}
