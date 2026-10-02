@@ -1,4 +1,4 @@
----
+﻿---
 workbook_id: UXI-301
 phase: UI_SCHEDULER_INTEGRATION
 sequence: 301
@@ -31,67 +31,69 @@ development_ci: 36972345821-success-android-and-gateway-web
 development_open_question_review_host: "OPEN QUESTION THAT COULD BLOCK THIS TASK ENTIRELY, raised early and still unresolved. Section 3 requires the Review to be taken by a DIFFERENT physical host from the developer, and Mech developed UXI-301. Alien has stated that it must not review Mech's development either, which would leave NO eligible reviewer. Under section 3's LETTER that reading looks too strong - Alien attempted to claim UXI-301, lost the race by 24 seconds, and WITHDREW, so it never developed this task and is not disqualified by the rule as written. The two readings lead to different places: section 3's letter leaves Alien eligible, while Alien's reading is section 5.2 STRUCTURALLY_INELIGIBLE and needs an Owner ruling. Mech is putting both this and the deferred handoff seam to the Owner together, because the first determines whether the task can complete at all and the second determines what completing it means."
 owner_ruling_uxi301_review_and_seam: "TWO OWNER RULINGS, both asked for by Mech because neither was Mech's to decide. FIRST, THE REVIEW HOST: SECTION 3'S LETTER APPLIES AND ALIEN IS ELIGIBLE TO REVIEW. Mech developed UXI-301 so Mech cannot review it, and Alien had stated it must not review Mech's development either, which would have left NO eligible reviewer and made the task structurally un-reviewable under section 5.2. The rule as written requires only that Development and Review be done by DIFFERENT PHYSICAL HOSTS, and Alien ATTEMPTED to claim UXI-301, LOST the race by 24 seconds, and WITHDREW - so Alien never developed this task and is not disqualified by the rule as written. The Owner ruled that Alien reviews it. SECOND, THE DEFERRED HANDOFF SEAM: THE DEFERRAL TO INTEGRATION IS ACCEPTED. The gate item that a remote handoff's result return to the current surface could not be produced end to end because this City has one task type that completes near-instantly, so a node cannot be held occupied and the 'busy device plus free alternate' condition never persists - measured as ZERO of ten tasks surviving their device being torn down, with the planner demonstrably reaching ALTERNATE_DEVICE whenever it is given the condition. Section 10 sanctions deferring a real cross-device seam with the exact pending seam recorded and states that a deferred item is NOT a passed one, so the gate item remains explicitly NOT MET and is carried as an integration seam rather than being quietly counted as coverage. DEVELOPMENT IS THEREFORE COMPLETE AT THIS HEAD BY OWNER RULING, with one gate item deferred by name and reviewed by the host the Owner named."
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: Alien
+review_head_sha: 1c516b6e3af24b640e3875f0ca384d47e31af6bf
+review_ci: 36972345821-success-android-and-gateway-web
+review_claimed_at: 2026-10-02T08:08:47Z
+review_claimed_basis: "CLAIMED BY ALIEN AFTER THE OWNER RULED THAT ALIEN IS THE ELIGIBLE REVIEW HOST, and section 7 exact-head reconciliation was COMPLETED BEFORE CLAIMING as the workbook requires. THE RECONCILIATION: recorded development_head_sha is 1c516b6 and the actual head of origin/uxi/UXI-301-scheduler-status-into-product-ui is 1c516b6 - MATCH; CI run 36972345821 binds to exactly 1c516b6 on that branch with both jobs success, so the head under review is the head that was actually tested. MECH'S DEVELOPMENT IS COMPLETE BY OWNER RULING with one gate item EXPLICITLY DEFERRED AND NOT MET - the remote-handoff result returning to the current surface - carried as an integration seam under section 10 rather than counted as coverage. ALIEN IS INDEPENDENT OF THIS ARTEFACT: Mech developed it, Alien attempted to claim it, lost the race by 24 seconds and withdrew, so Alien never developed it and section 3's different-physical-hosts rule is satisfied. This review will not merely countersign or restate the author's tests, per section 3."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/UXI-301/
 ---
 
-# UXI-301 — 调度状态接入非工程化 UI
+# UXI-301 鈥?璋冨害鐘舵€佹帴鍏ラ潪宸ョ▼鍖?UI
 
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
-> 本工作书只定义任务特有 scope / dependency / acceptance；通用 claim、等待/唤醒、CI、双机独立与 merge 规则以常驻规则书为准。
+> **甯搁┗鏂藉伐瑙勫垯锛?* [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> **杩囩▼鏁版嵁瑙勫垯锛?* [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> 鏈伐浣滀功鍙畾涔変换鍔＄壒鏈?scope / dependency / acceptance锛涢€氱敤 claim銆佺瓑寰?鍞ら啋銆丆I銆佸弻鏈虹嫭绔嬩笌 merge 瑙勫垯浠ュ父椹昏鍒欎功涓哄噯銆?
 
-## 目标
-把 RS-290 冻结的调度状态通过 adapter/ViewModel 接到 UI-190 的产品壳中，让用户自然理解“为什么慢、能不能切、是否转交、结果在哪里”，但不把 scheduler 内部结构重新暴露出来。
+## 鐩爣
+鎶?RS-290 鍐荤粨鐨勮皟搴︾姸鎬侀€氳繃 adapter/ViewModel 鎺ュ埌 UI-190 鐨勪骇鍝佸３涓紝璁╃敤鎴疯嚜鐒剁悊瑙ｂ€滀负浠€涔堟參銆佽兘涓嶈兘鍒囥€佹槸鍚﹁浆浜ゃ€佺粨鏋滃湪鍝噷鈥濓紝浣嗕笉鎶?scheduler 鍐呴儴缁撴瀯閲嶆柊鏆撮湶鍑烘潵銆?
 
-## 核心呈现原则
-用户优先看到：
-- “当前服务响应较慢，要改用其他可用模型吗？”
-- “这个服务在当前地区不可用。”
-- “已转交另一台设备执行，你可以继续留在这里。”
-- “正在等待可用资源。”
-- “远端连接中断，正在恢复；尚未确认任务失败。”
+## 鏍稿績鍛堢幇鍘熷垯
+鐢ㄦ埛浼樺厛鐪嬪埌锛?
+- 鈥滃綋鍓嶆湇鍔″搷搴旇緝鎱紝瑕佹敼鐢ㄥ叾浠栧彲鐢ㄦā鍨嬪悧锛熲€?
+- 鈥滆繖涓湇鍔″湪褰撳墠鍦板尯涓嶅彲鐢ㄣ€傗€?
+- 鈥滃凡杞氦鍙︿竴鍙拌澶囨墽琛岋紝浣犲彲浠ョ户缁暀鍦ㄨ繖閲屻€傗€?
+- 鈥滄鍦ㄧ瓑寰呭彲鐢ㄨ祫婧愩€傗€?
+- 鈥滆繙绔繛鎺ヤ腑鏂紝姝ｅ湪鎭㈠锛涘皻鏈‘璁や换鍔″け璐ャ€傗€?
 
-Advanced/Diagnostics 才可显示 provider id、device id、routing reason、lease/correlation/provenance 等详细字段。
+Advanced/Diagnostics 鎵嶅彲鏄剧ず provider id銆乨evice id銆乺outing reason銆乴ease/correlation/provenance 绛夎缁嗗瓧娈点€?
 
-## 允许修改边界
-Web/Android presentation adapter、ViewModel、用户文案、已有 design-system components、必要的 UI tests。
+## 鍏佽淇敼杈圭晫
+Web/Android presentation adapter銆乂iewModel銆佺敤鎴锋枃妗堛€佸凡鏈?design-system components銆佸繀瑕佺殑 UI tests銆?
 
-## 禁止修改边界
-- 不改 RS-290 contract；
-- 不在 UI 自己重算 provider/device 选择；
-- 不把 unavailable 灰掉的 provider 变成可点击；
-- 不为了展示方便恢复旧 dashboard/control-panel 结构。
+## 绂佹淇敼杈圭晫
+- 涓嶆敼 RS-290 contract锛?
+- 涓嶅湪 UI 鑷繁閲嶇畻 provider/device 閫夋嫨锛?
+- 涓嶆妸 unavailable 鐏版帀鐨?provider 鍙樻垚鍙偣鍑伙紱
+- 涓嶄负浜嗗睍绀烘柟渚挎仮澶嶆棫 dashboard/control-panel 缁撴瀯銆?
 
-## 施工步骤
-1. 建立统一 adapter，把 scheduler vocabulary 映射为用户语言与允许动作。
-2. Web 与 Android 使用相同语义，不要求像素完全一致。
-3. provider choice 列表允许显示不可用项及原因，但强制不可选。
-4. 远端 handoff 在当前设备显示 progress/result/attention。
-5. queue/degraded/offline 使用用户可理解的非恐慌文案。
-6. 技术详情进入可展开 Advanced。
-7. 用真实并发、provider unavailable、device busy、remote handoff E2E 驱动 UI，而不是仅用静态 mock。
+## 鏂藉伐姝ラ
+1. 寤虹珛缁熶竴 adapter锛屾妸 scheduler vocabulary 鏄犲皠涓虹敤鎴疯瑷€涓庡厑璁稿姩浣溿€?
+2. Web 涓?Android 浣跨敤鐩稿悓璇箟锛屼笉瑕佹眰鍍忕礌瀹屽叏涓€鑷淬€?
+3. provider choice 鍒楄〃鍏佽鏄剧ず涓嶅彲鐢ㄩ」鍙婂師鍥狅紝浣嗗己鍒朵笉鍙€夈€?
+4. 杩滅 handoff 鍦ㄥ綋鍓嶈澶囨樉绀?progress/result/attention銆?
+5. queue/degraded/offline 浣跨敤鐢ㄦ埛鍙悊瑙ｇ殑闈炴亹鎱屾枃妗堛€?
+6. 鎶€鏈鎯呰繘鍏ュ彲灞曞紑 Advanced銆?
+7. 鐢ㄧ湡瀹炲苟鍙戙€乸rovider unavailable銆乨evice busy銆乺emote handoff E2E 椹卞姩 UI锛岃€屼笉鏄粎鐢ㄩ潤鎬?mock銆?
 
-## 独立复核
-另一主机检查 UI 是否重新“工程化”、是否存在前端自作主张、disabled/available 状态是否一致、用户选择是否真的传回 backend、当前设备是否持续收到结果。
+## 鐙珛澶嶆牳
+鍙︿竴涓绘満妫€鏌?UI 鏄惁閲嶆柊鈥滃伐绋嬪寲鈥濄€佹槸鍚﹀瓨鍦ㄥ墠绔嚜浣滀富寮犮€乨isabled/available 鐘舵€佹槸鍚︿竴鑷淬€佺敤鎴烽€夋嫨鏄惁鐪熺殑浼犲洖 backend銆佸綋鍓嶈澶囨槸鍚︽寔缁敹鍒扮粨鏋溿€?
 
-## 完成门槛
-- 主要 scheduler 状态都有用户语言；
-- unavailable provider 可见但不可选；
-- switch/no-switch 两条路径可真实执行；
-- remote handoff 结果回当前 surface；
-- Web/Android 真实验收与 hosted CI 全绿；
-- 无默认 raw scheduler 字段泄漏。
+## 瀹屾垚闂ㄦ
+- 涓昏 scheduler 鐘舵€侀兘鏈夌敤鎴疯瑷€锛?
+- unavailable provider 鍙浣嗕笉鍙€夛紱
+- switch/no-switch 涓ゆ潯璺緞鍙湡瀹炴墽琛岋紱
+- remote handoff 缁撴灉鍥炲綋鍓?surface锛?
+- Web/Android 鐪熷疄楠屾敹涓?hosted CI 鍏ㄧ豢锛?
+- 鏃犻粯璁?raw scheduler 瀛楁娉勬紡銆?
 
 
-## 绑定常驻规则
-本任务继承 [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)。特别是：同任务 Development/Review 不得同主机；等待不独占主机；零领取必须分类；`WAITING_ELIGIBILITY` 事件唤醒优先、约 20 分钟兜底重扫；外部恢复后必须 reconciliation；CI/evidence 必须绑定 exact head；不得制造假工作或擅自扩大范围。
+## 缁戝畾甯搁┗瑙勫垯
+鏈换鍔＄户鎵?[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)銆傜壒鍒槸锛氬悓浠诲姟 Development/Review 涓嶅緱鍚屼富鏈猴紱绛夊緟涓嶇嫭鍗犱富鏈猴紱闆堕鍙栧繀椤诲垎绫伙紱`WAITING_ELIGIBILITY` 浜嬩欢鍞ら啋浼樺厛銆佺害 20 鍒嗛挓鍏滃簳閲嶆壂锛涘閮ㄦ仮澶嶅悗蹇呴』 reconciliation锛汣I/evidence 蹇呴』缁戝畾 exact head锛涗笉寰楀埗閫犲亣宸ヤ綔鎴栨搮鑷墿澶ц寖鍥淬€?
 
 ## Reports / evolution
-- City 只保存有界结论、SHA、CI 和异常摘要。
-- 调度冲突、handoff、fallback、busy/unavailable 样本按 PROCESS_DATA_POLICY 写入 Utopia evolution evidence。
+- City 鍙繚瀛樻湁鐣岀粨璁恒€丼HA銆丆I 鍜屽紓甯告憳瑕併€?
+- 璋冨害鍐茬獊銆乭andoff銆乫allback銆乥usy/unavailable 鏍锋湰鎸?PROCESS_DATA_POLICY 鍐欏叆 Utopia evolution evidence銆?
