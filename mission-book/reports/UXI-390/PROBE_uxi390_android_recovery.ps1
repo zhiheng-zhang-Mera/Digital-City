@@ -9,6 +9,16 @@ $adb = 'C:\Users\15601\AppData\Local\Android\Sdk\platform-tools\adb.exe'
 $env:CITY_TOKEN = 'alien-uxi390-android-control'; $env:CITY_NODE_TOKEN = 'alien-uxi390-android-node'
 $env:CITY_PORT = '4310'; $env:CITY_HOST = '127.0.0.1'; $env:CITY_URL = 'http://127.0.0.1:4310'
 $env:CITY_ROOMS_URL = 'http://127.0.0.1:4320'; $env:ADB = $adb
+# FRESH REGISTRY PER RUN: the gateway persists its node registry under CITY_DATA, and reusing the
+# repository .runtime let a node registered by an EARLIER probe be reloaded on this gateway start, so the
+# population was 2 before anything of ours ran and killing one node could not degrade the surface. A
+# per-run directory makes the population one node BY CONSTRUCTION rather than by hoping.
+$fresh = Join-Path $env:TEMP ('uxi390-fresh-' + [guid]::NewGuid().ToString('N'))
+New-Item -ItemType Directory -Force -Path $fresh | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path $fresh 'workspace') | Out-Null
+$env:CITY_DATA = $fresh
+$env:CITY_WORKSPACE = Join-Path $fresh 'workspace'
+"S15 fresh CITY_DATA: $fresh"
 Remove-Item Env:CITY_TELEMETRY_DISABLED -ErrorAction SilentlyContinue
 Set-Location $root
 foreach ($p in 4310,4320) { Get-NetTCPConnection -LocalPort $p -State Listen -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue } }
