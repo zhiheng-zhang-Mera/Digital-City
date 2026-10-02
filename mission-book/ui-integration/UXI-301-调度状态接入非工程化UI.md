@@ -3,12 +3,15 @@ workbook_id: UXI-301
 phase: UI_SCHEDULER_INTEGRATION
 sequence: 301
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UI-190", "RS-290"]
-development_host: null
-development_branch: null
+development_host: Mech
+development_claimed_at: 2026-10-02T04:30:22Z
+development_branch: uxi/UXI-301-scheduler-status-into-product-ui
+development_baseline_sha: 1a5bc0ee825c681636b9611efa2163f458c0a76f
+development_claim_basis: "Claimed by Mech with baseline_policy CLAIM_TIME_MAIN, so the baseline is main as of this claim: 1a5bc0ee825c681636b9611efa2163f458c0a76f. DEPENDENCIES RE-VERIFIED FROM FRONTMATTER RATHER THAN FROM THE DEPENDENCY LIST, because 'dependencies are green' is exactly the control-plane claim that can be true and still wrong and I checked this one twice. UI-190 is UI_BASELINE_FROZEN with review_complete true. RS-290 is REVIEW_COMPLETE with review_complete true, and CRUCIALLY its work is now ON MAIN: main moved de91f5e -> 1a5bc0ee via the commit 'merge(RS-290): rescheduling baseline freeze - reviewed head 2f81296', and main now contains 2f81296. That last check is what gates this task and it is not the same as RS-290 being review-complete: UXI-301's goal is to wire RS-290's FROZEN scheduling state into UI-190's shell, and with baseline_policy CLAIM_TIME_MAIN this branch is cut from main, so one round ago - when RS-290 was REVIEW_COMPLETE but 60 commits ahead of main - claiming would have cut a branch containing none of the presentation contract, the unified vocabulary or the DTO. I checked exactly that on 2026-10-02 and declined to claim, recording the reasoning; this claim is the same check passing. Two-host note for section 3: Mech is the Development host here, so the Review must be taken by a DIFFERENT host and Mech must not review its own development."
 development_head_sha: null
 development_ci: null
 development_complete: false
