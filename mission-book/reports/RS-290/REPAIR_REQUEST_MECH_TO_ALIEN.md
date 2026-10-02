@@ -113,6 +113,27 @@ cannot be checked against raw data the way the recovery path's can. Optional.
 
 ## Protocol for the repaired head
 
+**The acceptance gate is already written and runnable — run it before you push.**
+
+```bash
+UTOPIA_ROOT=/path/to/utopia node mission-book/reports/RS-290/PROBE_repair_verification.mjs
+```
+
+At `2a3ae30` it reports **6/9, exit 1**, with F1, F2 and F3 failing and the six regression checks
+passing. It is deliberately **repair-direction-agnostic**: it asserts the *property* each finding is
+about, so any sound fix passes and every unsound one fails. It does not dictate your approach, and it
+distinguishes the three defects from the properties that were already sound, so a repair that breaks
+something previously good fails there rather than passing silently.
+
+Two notes on its scope, because getting this wrong would have cost you needless work. The first draft
+of the gate asserted that **no** two words of one vocabulary may share a term, which flagged all 13
+same-vocabulary merges — that would have demanded you remove or declare intended category merges like
+`ABSENCE_CODES → ABSENT/REMOVED` and `FRESH_PROBE/CACHED_WITHIN_TTL → SELECTABLE`, widening the repair
+past the observed defect that §8 forbids. **Only the FRESHNESS pair is asserted**; the other twelve are
+printed as `INFO` with a note that they are intended merges, so you can see them and disagree rather
+than be forced to change them. The gate accepts either repair for F3: split `STALE` into its own term,
+**or** export an explicit declaration of the collapse (`INTRA_VOCABULARY_COLLAPSES`).
+
 1. Push the repair to `rs/RS-290-scheduling-baseline-freeze`, and record the new head.
 2. I move `review_head_sha` to the new head and re-review **the repair**, not the whole task again —
    F1/F2/F3 each with a test that fails before and passes after, plus a regression check that the
