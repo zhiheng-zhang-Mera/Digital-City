@@ -38,8 +38,9 @@ $n2 = @(); for ($i = 0; $i -lt 24 -and $n2.Count -lt 2; $i++) { Start-Sleep -Mil
 if ($n2.Count -lt 2) { "H7 FAIL: two candidates required, got $($n2.Count)"; exit 1 }
 "H7 two candidates: $($n2 -join ', ')"
 Stop-Process -Id $a.Id -Force -ErrorAction SilentlyContinue
-$aDead = (Get-Process -Id $a.Id -ErrorAction SilentlyContinue) -eq $null
-"H7 A stopped: $aDead"
+$aDead = $false
+for ($j = 0; $j -lt 20 -and -not $aDead; $j++) { Start-Sleep -Milliseconds 500; $aDead = (Get-Process -Id $a.Id -ErrorAction SilentlyContinue) -eq $null }
+"H7 A stopped after bounded wait: $aDead"
 if (-not $aDead) { "H7 FAIL: A still alive"; exit 1 }
 
 # TERMS-DRIVEN WAIT: the code requires the CURRENT DEVICE to be ineligible before a declined switch means
