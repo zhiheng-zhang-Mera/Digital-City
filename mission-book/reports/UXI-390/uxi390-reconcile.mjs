@@ -71,6 +71,17 @@ check('the --utopia path is a checkout of the repository the workbook names',
 check('the --mission-book path is a checkout of the control plane',
   bookRemote.toLowerCase().includes('digital-city'), bookRemote || '(no origin remote)');
 
+// 0. FRESHNESS. The workbook is read from THIS checkout, so a stale checkout silently reconciles a stale
+// record - which is how this instrument reported 10/12 against a workbook that origin/main had already
+// superseded, and reported it confidently. A check that can only be right when run from a current clone is
+// not a check; fail loudly instead.
+execFileSync('git', ['fetch', '-q', 'origin'], {cwd: MB});
+const mbLocal = git(MB, 'rev-parse', 'HEAD');
+const mbRemote = git(MB, 'rev-parse', 'origin/main');
+check('the --mission-book checkout is current with origin/main, so the workbook read is the live record',
+  mbLocal === mbRemote,
+  mbLocal === mbRemote ? mbLocal.slice(0, 12) : `local=${mbLocal.slice(0, 12)} origin/main=${mbRemote.slice(0, 12)} - run git pull --rebase first`);
+
 // 1. recorded head vs the ACTUAL branch head, from the remote rather than the workbook.
 execFileSync('git', ['fetch', '-q', 'origin', '--prune'], {cwd: UTOPIA});
 const actualHead = git(UTOPIA, 'ls-remote', 'origin', BRANCH).split(/\s+/)[0] ?? '';
@@ -80,11 +91,30 @@ check('recorded development head == actual branch head', headMatches,
   `recorded=${recordedHead || '(none)'} actual=${actualHead.slice(0, 12) || '(none)'}`);
 
 // 2. the recorded CI run, resolved from GitHub rather than trusted from the field.
+//    development_ci may legitimately be a PER-HEAD mapping ("<sha> -> <runId> success; ..."), which is
+//    strictly better than a bare run id, because a run id alone does not name the head it tested. So pick
+//    the run bound to the RECORDED head. Taking the FIRST bare number instead checks whatever run happens to
+//    be mentioned first - which is what this instrument did until the field moved to the per-head form, and
+//    it reported a failure against a workbook that was correct.
 const ciField = field('development_ci');
-const runId = /(\d{6,})/.exec(ciField)?.[1] ?? null;
+const pairs = [...String(ciField).matchAll(/([0-9a-f]{7,40})\s*->\s*(\d{6,})/g)].map((m) => ({head: m[1], runId: m[2]}));
+const selected = pairs.find((p) => recordedHead.startsWith(p.head) || p.head.startsWith(recordedHead))
+  ?? (pairs.length === 0 ? {head: null, runId: /(\d{6,})/.exec(ciField)?.[1] ?? null} : null);
+const runId = selected?.runId ?? null;
 if (runId === null) {
-  check('a CI run is recorded', false, `development_ci=${JSON.stringify(ciField)}`);
+  check('a CI run is recorded for the RECORDED head', false,
+    pairs.length
+      ? `no run bound to ${recordedHead.slice(0, 12)}; the field names ${pairs.map((p) => p.head).join(', ')}`
+      : `development_ci=${JSON.stringify(ciField)}`);
 } else {
+  if (pairs.length > 0 && selected.head === null) {
+    check('a CI run is recorded for the RECORDED head', false,
+      `no run bound to ${recordedHead.slice(0, 12)}; the field names ${pairs.map((p) => p.head).join(', ')}`);
+  }
+  if (pairs.length === 0) {
+    check('development_ci names the head its run belongs to', false,
+      'bare run id with no head binding - a run id alone does not say which head was tested');
+  }
   let run = null;
   try {
     run = JSON.parse(execFileSync('gh', ['run', 'view', runId, '--repo', repo, '--json', 'headSha,headBranch,conclusion,status'], {encoding: 'utf8'}));
