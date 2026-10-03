@@ -1,0 +1,40 @@
+{
+  "error": "timed out waiting for the task to be transferred",
+  "results": [
+    {
+      "name": "TWO distinct devices are online",
+      "ok": true,
+      "detail": "mech-a:true, mech-b:true"
+    },
+    {
+      "name": "a WAIT task is created",
+      "ok": true,
+      "detail": "id=Q-55ddddee-3bd0-4666-8756-c8bb4aa6fffd"
+    },
+    {
+      "name": "the task is RUNNING and assigned before anything is disturbed",
+      "ok": true,
+      "detail": "state=RUNNING assigned=mech-a"
+    },
+    {
+      "name": "NEG-1 no transfer occurs without a recorded decline (handoffTargetRef stays empty)",
+      "ok": true,
+      "detail": "handoffTargetRef before=undefined after=undefined"
+    },
+    {
+      "name": "NEG-2/positive: with its device dead the task stays NON-TERMINAL rather than being failed or faked",
+      "ok": true,
+      "detail": "state=RUNNING assigned=mech-a"
+    },
+    {
+      "name": "the run is never COMPLETED while no device executed it",
+      "ok": true,
+      "detail": "state=RUNNING"
+    },
+    {
+      "name": "the decline is accepted and recorded as user intent",
+      "ok": true,
+      "detail": "status=200"
+    }
+  ]
+}
