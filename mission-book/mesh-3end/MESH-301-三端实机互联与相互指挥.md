@@ -3,14 +3,17 @@ workbook_id: MESH-301
 phase: THREE_END_MESH_RUNTIME
 sequence: 301
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 activation_basis: "ACTIVATED ON THE OWNER'S DIRECT INSTRUCTION, GIVEN TO THE MECH HOST ON 2026-10-03: join the multi-end interconnection task described by MESH-301, with this host joining the network under the default name Mech-Win, and do not stop before the task is complete. The workbook itself sanctions this route - it states the Owner may approve by changing these two fields or by instructing the drafter to change them - and the Owner's instruction entails activation because the field had to become claimable for the work to start at all. THE TWO FIELDS WERE CHANGED BY THE MECH HOST ON THAT INSTRUCTION, not by the drafter, and the drafter had separately offered to make the same change on a direct instruction; recorded here verbatim so the basis is auditable rather than assumed. WHAT IS STILL NOT DECIDED AND IS THE OWNER'S: how the pairing/bearer token reaches the Mech host, which MESH-301 step 2 requires to stay out of reports, screenshots and Git, so the drafter cannot put it in the control plane. Until that is chosen the three endpoints cannot share one canonical City, and no three-end result will be claimed."
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UXI-391"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: mesh/MESH-301-three-end
 development_head_sha: null
+development_baseline_sha: ec12fd0831f31fd81aef9cd9dfb0c959d010f63b
+development_claimed_at: 2026-10-03T02:41:49Z
+development_claim_basis: "CLAIMED BY ALIEN AFTER A CLAIM-TIME RECONCILIATION, ON THE OWNER'S ACTIVATION. MEASURED AT CLAIM TIME: Digital-City main = 65bc5004ce97da50e360b08b82cab0a56821e62c; Utopia main = ec12fd0831f31fd81aef9cd9dfb0c959d010f63b with hosted CI run 37088960085 COMPLETED SUCCESS on exactly that sha; MESH-301 now reads execution_enabled: true with status READY, activated on the Owner instruction and recorded verbatim by Mech in its activation_basis; and the Mech host has JOINED as Mech-Win, so the precondition this task waited on is satisfied. WHY ALIEN AND NOT MECH: the topology makes endpoint C an Android device Alien controls, the Android-side identity work needs that device, and Mech itself declined the development role - it recorded that it will not move a section-12 role field - leaving Mech as endpoint A plus the formal review on a different physical host, which the design audit unblocked by deleting the false endpoint-versus-reviewer conflict. A CORRECTION FROM MECH IS ACKNOWLEDGED IN THIS CLAIM RATHER THAN ARGUED WITH: Mech measured that the persisted-identity mechanism Alien kickoff record described (Alien-Win, .city-node-identity.json, a file fallback for the display-name variable) exists ONLY in that record and in Alien local worktree, NOT on any utopia branch - every remote ref still carried the older Alien-test line. Mech is right. The behaviour had been reproduced on this host, but the MECHANISM was uncommitted, which is exactly the gap that bites when a second host leans on it; the naming implementation is therefore committed on this task branch as part of step 2 rather than merely documented. THE CLAIM IS ATOMIC IN THE RULE SENSE: this commit sets development_host, and if the push loses a race the claim is withdrawn rather than forced."
 development_ci: null
 development_complete: false
 review_host: null
