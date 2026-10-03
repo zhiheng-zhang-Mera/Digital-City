@@ -28,6 +28,7 @@ draft_basis: "OWNER_INSTRUCTION_THREE_END_TEST.md (Owner's direct instruction, 2
 # MESH-301 — 三端实机互联与相互指挥（Mech 主机 + Alien 主机 + Android 实机）
 
 > **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
 > **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
 > README 仅为监控看板，不是施工规范或 claim lock。
 >
@@ -168,7 +169,7 @@ Android 实机分别发起 target=Alien 与 target=Mech 的 safe task。每个 c
 3. 三端各自留下自己的 receipt（互不背书）。
 
 ### Step 7 — Merge 与终态
-exact review-head CI 绿 → 合并 Utopia main → 验 main CI → 记录终态标记 `THREE_END_MESH_RUNNING` →
+exact review-head CI 绿 → 合并 Utopia main → 验 main CI → 记录终态标记 `THREE_END_MESH_E2E_ACCEPTED` →
 按常驻规则做**完成后自动回接扫描**（`reports/MESH-301/POST_COMPLETION_REENTRY.md` 或符合 §5 的 typed zero-claim 分类）。
 
 ## 任务特有独立复核
@@ -236,4 +237,4 @@ exact review-head CI 绿 → 合并 Utopia main → 验 main CI → 记录终态
 
 ## 绑定常驻规则
 
-本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
+本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh 等规则，并继承 `mission-book/ASYNC_RELIEF_CONSTRUCTION.md` 的 Hns supervisor / Codex worker、Review→Repair 自动接力与 L0→L3 escalation 规则。异步减压只减少 Owner 人工中转，不得降低实体主机独立复核、CI、证据或安全门槛。
