@@ -3,17 +3,20 @@ workbook_id: SHOW-401
 phase: SHOWCASE_MATERIAL_EXTRACTION
 sequence: 401
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/Digital-City
 runtime_source_repo: zhiheng-zhang-Mera/utopia
 runtime_source_mode: READ_ONLY_NO_PRODUCT_CODE_WRITES
 baseline_policy: CURRENT_GREEN_MAIN_OR_ACCEPTED_FUNCTIONAL_BASELINE
 dependencies: ["MESH-301", "UXI-391"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: showcase/SHOW-401-alien-capture
 development_head_sha: null
 development_ci: NOT_APPLICABLE_NON_PRODUCT_MEDIA_TASK
 development_complete: false
+development_claimed_at: 2026-10-03T08:18:10.8514234Z
+local_media_root: D:/AA-Digital-City/.showcase-media/SHOW-401
+owner_documents_export_root: C:/Users/15601/Documents/Utopia-Showcase/SHOW-401
 review_host: null
 review_head_sha: null
 review_ci: NOT_APPLICABLE_NON_PRODUCT_MEDIA_TASK
