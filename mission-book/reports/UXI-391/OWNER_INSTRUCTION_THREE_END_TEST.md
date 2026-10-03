@@ -66,5 +66,5 @@ A. 你在 mission-book 下新建一本工作书（建议 id：MESH-3END / UXI-39
 B. 你授权我在 mission-book 下起草该工作书（按 MISSION_TEMPLATE + CONSTRUCTION_RULES），再由你 review 后生效；
 ```
 
-无论 A 或 B，我都会**先完成 UXI-391 的收口**（Mech 复核结论 → 修复确认 → Step 7 合并 + `REMOTE_HANDOFF_CLOSEOUT_REPAIRED` + `POST_COMPLETION_REENTRY.md`），
+**Owner 已选择方案 B** → 草案已写入 [MESH-301](../mesh-3end/MESH-301-三端实机互联与相互指挥.md)（`execution_enabled: false`、`status: DRAFT_PENDING_OWNER_APPROVAL`），待 Owner 批准生效。无论 A 或 B，我都会**先完成 UXI-391 的收口**（Mech 复核结论 → 修复确认 → Step 7 合并 + `REMOTE_HANDOFF_CLOSEOUT_REPAIRED` + `POST_COMPLETION_REENTRY.md`），
 因为 Owner 指令本身写的是"双机验证完成后"进行三机测试，而三机测试所需的"三端同 City 连通"也依赖 UXI-391 已把 handoff/结果回流这条链路做实。

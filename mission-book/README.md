@@ -21,6 +21,8 @@
 >
 > **目视门更新（2026-10-02T11:20Z，Alien）：** Owner 对这 8 张实拍作出 **`FINAL_VISUAL_ACCEPTANCE` 通过**裁决，**未要求修改**——门项 6 由 NOT MET 转为 **MET**。**但这不等于验收完成**：独立复核（Mech）、步骤 7 合并 + main CI、终态标记仍未完成。同时清理了本地废弃文件（51 个已关闭任务的 worktree，实测约 4.6 GB；明细见裁决记录）。
 
+> **新任务草案（2026-10-03，Alien）：** Owner 指示的**三端实机测试**（Mech 主机 + Alien 主机 + Android 实机；Android 可对两台主机下指令、任一主机可对他机下令/向中心汇报、三端实时同步）已起草为 [MESH-301](./mesh-3end/MESH-301-三端实机互联与相互指挥.md)，**当前不可领取**，待 Owner 批准；草案内已标出两个需 Owner 一并明确的岔路（是否扩展冻结契约动作集、Mech 在三端测试中的独立性角色）。
+
 ## 当前施工看板
 
 | 工程项目 | 任务池 | 当前状态 | 施工 | 独立复核 | 下一门禁 |
@@ -28,6 +30,7 @@
 | UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
 | 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
 | UI × 调度接线 | UXI-301, UXI-390 | **COMPLETE（阶段已接受）** | **2/2** | **2/2** | 无 —— **Mech 复核 PASS**（`6a82e35`，含必做修复 C-1/C-2 的确认）→ **步骤 7 已合并** `d0507b0`（`--no-ff`，合并树与 reviewed head 逐字节一致）→ main CI `37020640107` 双绿 → **终态标记已宣告** |
+| 三端实机互联 | MESH-301（Mech 主机 + Alien 主机 + Android 实机） | **DRAFT（待 Owner 批准，不可领取）** | — | — | Owner 已授权 Alien 起草（草案 execution_enabled: false）；批准后按 §2 原子领取 |
 | Post-acceptance 收尾修复 | UXI-391 | **READY / ACTIVE POOL** | **0/1** | **0/1** | 单机开发 + 单机双 Node E2E → 第二实体主机独立 Review/双机验收 → Utopia main CI → 自动回接未完成 merge workbook |
 
 计数口径：**施工** = `development_complete: true` 的任务数，**独立复核** = `review_complete: true` 的任务数，逐工作书读取 frontmatter 而非推断。原 11 本 UI/调度工作书仍全部 true/true；新增 **UXI-391 = false/false**，因此当前池存在 1 本可执行的收尾修复工作书。
