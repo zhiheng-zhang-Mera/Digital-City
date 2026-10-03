@@ -1,0 +1,64 @@
+{
+  "runId": "JOIN-LIVE-2026-10-03-01",
+  "date": "2026-10-03",
+  "originHost": "Alien",
+  "secondHost": "Mech",
+  "verdict": "NOT_RUN",
+  "verdictReason": "the second physical host did not join within the 5-minute window; no control surface connected, no node registered, no new City came online",
+  "city": {
+    "endpoint": "http://172.31.3.110:4391",
+    "cityId": "617f286c-dfdf-482f-8df3-9cec6aa9ba3c",
+    "dataDir": "D:\\A-Utopia-live\\.runtime",
+    "binding": "LAN interface 172.31.3.110:4391"
+  },
+  "code": {
+    "branch": "join/JOIN-503-edenrollment-repair",
+    "head": "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f",
+    "note": "JOIN-503 development plus the accepted repair of review findings D-1/D-2; hosted CI 37120646153 SUCCESS on exactly this sha. The dev branch join/JOIN-503-device-enrollment-and-tokenless-reconnect points at the same sha."
+  },
+  "window": {
+    "seconds": 300,
+    "pollSeconds": 15,
+    "observation": [
+      { "t": 15, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 48, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 81, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 114, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 147, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 181, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 214, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 247, "surfaces": [], "nodes": [], "events": 1 },
+      { "t": 280, "surfaces": [], "nodes": [], "events": 1 }
+    ],
+    "externalCities": [
+      {
+        "url": "http://172.31.12.151:4391",
+        "cityId": "be70d952-338c-424c-bb09-4ae1741e35c0",
+        "baseline": true,
+        "countedAsArrival": false,
+        "note": "already online before the window; its public pairing route answers but the Owner-supplied credential is refused, and its host does not answer ping from this host. It is neither Mech joining this run nor usable as a peer."
+      }
+    ]
+  },
+  "instrumentDefectFoundAndFixed": {
+    "what": "the first watcher counted ANY external City as 'Mech arrived' and reported a false positive on a City that had been up for hours",
+    "fix": "compare against the window-start baseline by cityId and count only a NEW City as an arrival",
+    "where": "local instrument .runtime/city-live-test/notes/watch-for-mech.mjs (not published; recorded here as a fact about the run)"
+  },
+  "singleHostSelfTest": {
+    "checks": 38,
+    "pass": 38,
+    "fail": 0,
+    "covers": ["JOIN-501 pairing session lifecycle", "JOIN-503 enrollment and tokenless reconnect", "JOIN-503 revoke negative path", "review D-1/D-2 session scope boundaries"],
+    "standing": "REFERENCE ONLY - a single host cannot decide a two-host acceptance; deferred != passed"
+  },
+  "credentials": {
+    "controlToken": "configured (owner-supplied); value deliberately not recorded",
+    "nodeToken": "configured (owner-supplied); value deliberately not recorded"
+  },
+  "open": [
+    "the two-physical-host sequence in JOIN-503 section 9 has still not been executed",
+    "JOIN-502 review still needs a host that is not its developer (Mech)",
+    "the City stays resident at http://172.31.3.110:4391 for the next window"
+  ]
+}
