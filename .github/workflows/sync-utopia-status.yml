@@ -1,0 +1,40 @@
+name: Sync Utopia implementation status
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-utopia-implementation-status
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Refresh generated Utopia status
+        run: python mission-book/tools/sync_utopia_status.py
+
+      - name: Commit only when implementation state changed
+        shell: bash
+        run: |
+          if git diff --quiet -- mission-book/UTOPIA_LIVE_STATUS.json mission-book/UTOPIA_LIVE_STATUS.md; then
+            echo "No Utopia state change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add mission-book/UTOPIA_LIVE_STATUS.json mission-book/UTOPIA_LIVE_STATUS.md
+          git commit -m "sync(linkage): refresh Utopia live status"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -1,0 +1,23 @@
+{
+  "ci": {
+    "conclusion": "success",
+    "head_sha": "9f3e20e8ec99d591812430bee71d27e68c4ad498",
+    "name": "V0.2 checks",
+    "run_id": 37100005428,
+    "status": "completed",
+    "updated_at": "2026-10-03T05:31:44Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37100005428"
+  },
+  "linkage": {
+    "local_contract": "PROJECT_LINKAGE.json",
+    "remote_contract_url": null,
+    "state": "MISSING_REMOTE_CONTRACT"
+  },
+  "main_commit_message": "merge(MESH-301): three-end mesh - two real Windows workers plus Android as a control surface on one canonical City, with strict target-device routing; reviewed head ed0bf64 (CI 37099671088 SUCCESS) PASSED by Mech on a different physical host, with one review-required defect (D-R1) repaired and verified three ways",
+  "main_commit_time": "2026-10-03T05:29:47Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/9f3e20e8ec99d591812430bee71d27e68c4ad498",
+  "main_sha": "9f3e20e8ec99d591812430bee71d27e68c4ad498",
+  "schema_version": 1,
+  "source_branch": "main",
+  "source_repo": "zhiheng-zhang-Mera/utopia"
+}

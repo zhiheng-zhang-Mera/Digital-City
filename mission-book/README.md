@@ -1,9 +1,9 @@
 # Mission Book — 当前施工监控看板
 
-> 当前模式：**历史阶段已归档 → Hns/Codex 异步减压施工协议 ACTIVE → MESH-301 等待 Owner 激活**  
+> 当前模式：**历史阶段已归档 → Hns/Codex 异步减压施工协议 ACTIVE → MESH-301 COMPLETE → 当前施工池 GLOBAL_EXTERNAL_BLOCK（仅剩 Owner gates / disabled placeholder）**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
 > 实现仓库：zhiheng-zhang-Mera/Utopia  
-> 当前 Utopia accepted baseline：`main @ ec12fd0831f31fd81aef9cd9dfb0c959d010f63b`；recorded main CI `37088960085` green。  
+> Utopia 实现状态不再手工硬编码；以自动生成的 [UTOPIA_LIVE_STATUS.md](./UTOPIA_LIVE_STATUS.md) / [UTOPIA_LIVE_STATUS.json](./UTOPIA_LIVE_STATUS.json) 为准。  
 > 常驻施工规则：[CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)  
 > 当前过渡施工协议：[ASYNC_RELIEF_CONSTRUCTION.md](./ASYNC_RELIEF_CONSTRUCTION.md)  
 > 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)
@@ -13,10 +13,10 @@
 | 项目 / 协议 | 状态 | 当前动作 |
 |---|---|---|
 | Hns/Codex 异步减压施工 | **ACTIVE / NORMATIVE / TRANSITIONAL** | 当前施工默认采用 Hns supervisor + Codex worker/critic/reviewer；普通技术问题不得直接升级 Owner |
-| MESH-301 三端实机互联 | **DRAFT_PENDING_OWNER_APPROVAL / execution_enabled=false** | 已完成设计审计修正；唯一剩余 Owner gate = 是否激活开工 |
+| MESH-301 三端实机互联 | **COMPLETE / THREE_END_MESH_E2E_ACCEPTED** | 已完成 Alien Development + Mech Formal Review + main merge + merged-main CI；当前无可继续领取的 MESH 工作 |
 | Persistent Foreman Runtime / FR-001 | **FUTURE / NOT ACTIVE** | 只做未来计划记录，不抢占当前施工 |
 
-当前没有可自动领取的产品工作书。MESH-301 未激活期间，施工池按 `TEMPORARILY_UNCLAIMABLE / WAITING_OWNER_ACTIVATION` 解释；不得把它误写成 POOL_TERMINAL，也不得为了保持主机忙而制造新任务。
+当前没有可自动领取的产品工作书。MESH-301 已完成并通过 merged-main CI；全池按最新 post-completion re-entry 分类为 `GLOBAL_EXTERNAL_BLOCK`：UI-190 / UXI-390 只剩 Owner 视觉接受门，XX-000 仍是 `execution_enabled: false` 的占位任务。不得把这些 Owner 决策误写成 `POOL_TERMINAL`，也不得为了保持主机忙而制造新任务。
 
 ## MESH-301 设计审计结果
 
@@ -31,7 +31,7 @@
 5. 删除“Mech 既是被测端点又是 Reviewer 是否冲突”的假 Owner 岔路；端点参与不等于 authorship，仍只要求 Development / Formal Review 不同实体主机。
 6. 终态标记从 `THREE_END_MESH_RUNNING` 改成 `THREE_END_MESH_E2E_ACCEPTED`。
 
-因此 MESH-301 现在只等待一项 Owner 决策：**激活 / 不激活**。
+上述设计审计问题均已在正式施工前/施工中处理。MESH-301 已完成三端实机互联、strict target-device routing、独立 Formal Review、review finding 修复、main merge 与 merged-main CI，并记录终态 `THREE_END_MESH_E2E_ACCEPTED`。
 
 ## 已完成阶段 — 2026-10-03 归档
 
@@ -53,17 +53,17 @@
 - [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md) — 常驻规范；
 - [ASYNC_RELIEF_CONSTRUCTION.md](./ASYNC_RELIEF_CONSTRUCTION.md) — 当前 Hns/Codex 异步减压施工协议；
 - [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md) — 过程数据边界；
-- [MESH-301](./mesh-3end/MESH-301-三端实机互联与相互指挥.md) — 草案，待激活；
+- [MESH-301](./mesh-3end/MESH-301-三端实机互联与相互指挥.md) — `COMPLETE / THREE_END_MESH_E2E_ACCEPTED`；
 - [FR-001 Persistent Foreman Runtime](./future-plans/FR-001-Persistent-Foreman-Runtime.md) — 未来计划，不激活。
 
 ## 当前主机角色
 
 | 主机 | 当前产品 claim | 施工模式 |
 |---|---|---|
-| Alien | 无 | 可作为 Hns supervisor + Codex worker host；MESH 未激活前不制造新工作 |
-| Mech | 无 | 可作为 Hns supervisor + Codex worker/reviewer host；MESH 未激活前不制造新工作 |
+| Alien | 无 | 可作为 Hns supervisor + Codex worker host；当前仅在新工作书/Owner gate 解除后重新领取工作 |
+| Mech | 无 | 可作为 Hns supervisor + Codex worker/reviewer host；当前保持事件唤醒/低成本等待，不制造新工作 |
 
-当 MESH-301 激活后，Development 与 Formal Review 继续使用不同实体主机；同一主机上的 fresh critic 只能做技术诊断，不能冒充跨机正式 Review。
+MESH-301 已按不同实体主机完成 Development / Formal Review。后续新工作书继续遵守同样的实体主机独立性；同一主机上的 fresh critic 只能做技术诊断，不能冒充跨机正式 Review。
 
 ## 控制面仍留在活跃面的已知问题
 
