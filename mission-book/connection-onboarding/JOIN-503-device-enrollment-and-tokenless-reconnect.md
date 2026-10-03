@@ -3,15 +3,17 @@ workbook_id: JOIN-503
 phase: CONNECTION_ONBOARDING
 sequence: 503
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["REMOTE_FABRIC_MERGED_MAIN_CI_GREEN"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: join/JOIN-503-device-enrollment-and-tokenless-reconnect
 development_head_sha: null
 development_ci: null
-development_complete: false
+development_baseline_sha: 13109b4c206feb3c1a9107b369715e84af65eaf1
+development_claimed_at: 2026-10-03T10:55:00Z
+development_claim_basis: "CLAIMED BY ALIEN AFTER A CLAIM-TIME RE-SCAN OF THE LATEST Digital-City main. MEASURED AT CLAIM TIME, NOT INHERITED: (1) the three-JOIN pool now reads - JOIN-501 development complete on Alien (review_host null), JOIN-502 development_host Mech with status IN_PROGRESS, JOIN-503 development_host null - so exactly one development lane is unclaimed and this claim cannot overwrite Mech's; every review_host is still null, and review is deliberately NOT taken here (see below); (2) the dependency REMOTE_FABRIC_MERGED_MAIN_CI_GREEN is satisfied - RF-001..RF-010 merged and archived, and this task's identity semantics are RF-001's (device_id / installation_id / fingerprint), which section 2 requires be REUSED rather than re-invented; (3) the implementation baseline is Utopia main 13109b4c206feb3c1a9107b369715e84af65eaf1, re-read by git ls-remote immediately before this commit (unchanged since the JOIN-501 claim - no merge has landed in between), with hosted 'V0.2 checks' run 37112596448 and 'City linkage check' run 37112596441 both SUCCESS on exactly that sha, which is what baseline_policy CLAIM_TIME_MAIN requires; (4) no refs/heads/join/JOIN-503* exists on the remote yet. WHY ALIEN TAKES THE WORKBOOK MECH DEFERRED: Mech's claim commit for JOIN-502 records that it chose 502 over 503 because 503 'needs a durable identity plus credential store and a tokenless-reconnect acceptance that is not honestly provable from one host' - the second half of that is CORRECT and is not disputed: the dual-physical-host reconnect/revoke acceptance in section 9 stays DEFERRED and this host will not fake it. The first half is not a reason to leave the workbook unclaimed: the identity and credential-store work is code plus tests, and it is exactly the part that must exist before any host can prove the acceptance. So the claim is: build and prove on one host everything the workbook's section 8 auto-test list can decide, prove the negative paths (expired session re-auth without a UI prompt, revoke denies reconnect, no permanent secret in DOM/log/url/repo), and hand the dual-host acceptance to whichever second host is next online. SCOPE OVERLAP WITH MECH'S JOIN-502 IS ACKNOWLEDGED: 502 owns first-run/disconnected discovery presentation, 503 owns enrollment/reconnect plumbing and Settings revoke; this claim touches engine/runtime identity, the launcher/bootstrap path, session issuance glue and the Settings device summary, and will NOT build a second discovery surface or a second pairing/trust store. THE CLAIM IS ATOMIC IN THE RULE SENSE: this commit sets development_host, and if the push loses a race the claim is withdrawn rather than forced."
 review_host: null
 review_head_sha: null
 review_ci: null
