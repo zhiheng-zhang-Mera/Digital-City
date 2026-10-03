@@ -1,8 +1,8 @@
 /**
- * UXI-390 — §7 exact-head reconciliation, the instrument for the Review Mech will take.
+ * UXI-390 - section 7 exact-head reconciliation, the instrument for the Review Mech will take.
  *
  * Built BEFORE the review is claimable, deliberately: UXI-390's development host is Alien and its
- * `review_host` is null, so the Review is Mech's once development completes, and §7 requires that the
+ * `review_host` is null, so the Review is Mech's once development completes, and section 7 requires that the
  * recorded control-plane state be reconciled against the authorities BEFORE a claim rather than read from
  * the author's summary. Alien did exactly this before claiming UXI-301's review, and this is the same
  * instrument pointed at the other task.
@@ -17,7 +17,7 @@
  *   - whether the evidence the workbook names actually exists in the repository.
  *
  * It deliberately does NOT judge the work - that is the review. It answers "is the control plane telling the
- * truth about what was built", which is the question §7 exists for.
+ * truth about what was built", which is the question section 7 exists for.
  *
  *   node mission-book/reports/UXI-390/uxi390-reconcile.mjs [--mission-book <path>] [--utopia <path>]
  *
@@ -58,7 +58,7 @@ const git = (cwd, ...a) => execFileSync('git', a, {cwd, encoding: 'utf8'}).trim(
 const results = [];
 const check = (id, ok, detail) => { results.push({id, ok, detail}); console.log(`  [${ok ? 'PASS' : 'FAIL'}] ${id}${detail ? ' - ' + detail : ''}`); };
 
-console.log(`=== ${WANT} §7 reconciliation ===\n`);
+console.log(`=== ${WANT} - section 7 reconciliation ===\n`);
 if (!existsSync(WORKBOOK)) throw new Error(`workbook not found at ${WORKBOOK}`);
 const raw = readFileSync(WORKBOOK);
 check('the workbook parses as frontmatter at all (no BOM before the opening ---)',
@@ -129,9 +129,18 @@ if (runId === null) {
     check('a CI run is recorded for the RECORDED head', false,
       `no run bound to ${recordedHead.slice(0, 12)}; the field names ${pairs.map((p) => p.head).join(', ')}`);
   }
-  if (pairs.length === 0) {
+  // The field must name the head its run belongs to, in ANY form: a per-head mapping ("<sha> -> <runId>"),
+  // or prose that binds them ("<runId> ... completed SUCCESS on exactly <sha>"). Requiring the arrow form
+  // produced a FALSE FAILURE against UXI-391, whose field binds them in prose - the mirror image of the
+  // earlier bug, which took the first run id and checked the wrong head. What needs testing is the BINDING,
+  // not its punctuation, and the substantive assertion that the run's headSha equals the branch head follows
+  // immediately below this block.
+  // Compare on the SEVEN-character abbreviation, which is git's own short form and what these fields
+  // actually write ("149a4c1"). Requiring twelve characters flagged a field that names its head perfectly
+  // well, which is the third variant of the same over-strict mistake in this one check.
+  if (!String(ciField).includes(recordedHead.slice(0, 7))) {
     check('development_ci names the head its run belongs to', false,
-      'bare run id with no head binding - a run id alone does not say which head was tested');
+      `the field never mentions ${recordedHead.slice(0, 7)}; a run id alone does not say which head was tested`);
   }
   let run = null;
   try {
@@ -185,5 +194,5 @@ const failed = results.filter((r) => !r.ok);
 console.log(`\n=== RECONCILIATION: ${results.length - failed.length}/${results.length} ===`);
 if (failed.length) console.log('FAILING: ' + failed.map((f) => f.id).join(', '));
 console.log('NOTE: this checks the CONTROL PLANE, not the work. A clean reconciliation is a precondition for a');
-console.log('claim, never a verdict - the review still has to find problems of its own, per §3.');
+console.log('claim, never a verdict - the review still has to find problems of its own, per section 3.');
 process.exitCode = failed.length ? 1 : 0;
