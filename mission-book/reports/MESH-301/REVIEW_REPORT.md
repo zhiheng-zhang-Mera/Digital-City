@@ -265,5 +265,62 @@ GENERATION BINDING  the resync is stamped only when `generationAtFetch == openGe
 
 One inconsistency with the code's own comment, recorded because it is the kind of thing that gets rounded off
 later: the comment says *"measured: 8 such seqs straddling the stale record"*, while the receipt's declared gap is
-**35 seqs**. Both can be true of different measurements, and the receipt is the one that matters here, so this is
-a note and not a defect.
+**35 seqs**. Both can be true of different measurements, and the receipt is the one that matters here, so this was
+raised as a note and not as a defect.
+
+**It was fixed anyway, and the development host's explanation is better than my note.** At `ed0bf64` the comment
+now separates the two numbers: the surface's own declaration for the hole was `436..470`, i.e. **35 events**, and
+**8** of the affected seqs fell *outside* the declared offline interval — the pre-`stale` part — and had therefore
+appeared as silent `MISSING` before the R1 fix. So the two figures were never in conflict; they were two different
+quantities that one sentence had merged, exactly as this section said, and the repair is a comment that now says
+which is which.
+
+## 9. Addendum — D-R1 repaired, and the repair verified three ways
+
+Repaired at `29f26910e411945134b16fd0a8f601b4dbdd7f45` and carried to the final head `ed0bf64`, exactly as
+specified and nothing more: the map stays keyed by socket, a per-ref count of live sockets decides presence,
+`CLIENT_CONNECTED` is emitted only when the count rises from zero, `CLIENT_DISCONNECTED` only when it falls to
+zero, and the snapshot is de-duplicated by `clientRef`.
+
+**Heads reconciled.** The head moved once after the repair, to `ed0bf64`, by a docs-only commit changing an
+Android comment — the 8-vs-35 conflation above. `services/dev-gateway/server.mjs` is **byte-identical** between
+`29f2691` and `ed0bf64` (compared by blob hash, not by a diff summary), so the verified product behaviour is the
+same code, and the repaired head differs from the reviewed head in exactly three paths:
+`services/dev-gateway/server.mjs`, `tests/mesh301-surface-identity.test.mjs`, and that Android comment.
+
+```text
+(1) AGAINST THE LIVE CITY.  The gateway was restarted (CITY_STARTED seq 1430 at 05:18:52.651Z, after the repair
+    commit), so the fix is live rather than merely committed - the point I flagged, because a repaired
+    server.mjs inside a long-lived process would otherwise have left my re-verification testing the old code.
+    The reviewer's own duplicate-socket probe, unchanged, now reads:
+        after socket A opens   entries for this ref = 1
+        after socket B opens   entries for this ref = 1        (was 2)
+        closing A, B still open: entries = 1, B still open, CLIENT_DISCONNECTED emitted: FALSE   (was TRUE)
+        after B closes         entries = 0
+    The same probe that announced a departure now does not, and the client is never lost from the list.
+
+(2) THE GUARD IS REAL, NOT DECORATION.  The development host made my reproduction permanent as
+    tests/mesh301-surface-identity.test.mjs and claimed it fails against the unrepaired server. I ran it against
+    BOTH revisions rather than take that on trust:
+        at 09a5b89 (unrepaired):  2 tests, 0 pass, 2 fail  - "a second socket for the same client must not add
+                                   a second row", "anonymous surfaces are one presence, honestly labelled null"
+        at 29f2691 (repaired):    2 tests, 2 pass, 0 fail
+        at ed0bf64 (final head):  2 tests, 2 pass, 0 fail
+    That is a regression guard with a demonstrated failure mode, which is the only kind worth having.
+
+(3) GATES 1-9 RE-RUN AT THE REPAIRED HEAD, with the same five instruments and no re-interpretation:
+        negative controls            11/11 PASS
+        away-target control          10/10 PASS  (TASK_TARGET_WAITING seq 1467 -> TASK_TARGET_READY seq 1469 ->
+                                                 ASSIGNED Mech-Win seq 1470, target OFFLINE at creation)
+        Mech Web -> Alien-Win        8/8 PASS, offset-free upper bound 9 ms, through the product's own control
+        canonical-truth analysis     29 strict-target tasks, every one assigned to its own target and COMPLETED;
+                                     158 untargeted tasks, 156 completed, 2 typed honest failures, nothing
+                                     assigned outside the two real worker nodes
+        surface-observed window      CONVERGED 27/27, worst case 9 ms against the 5000 ms bound
+    GATE 11  run 37099671088 COMPLETED SUCCESS on exactly ed0bf64
+```
+
+**Gate 10: PASS. Gates 1-11: MET. `review_complete: true`, on head `ed0bf64`.** The workbook's
+`development_head_sha` was updated to the same sha in the same commit, because a review that passes a head the
+workbook does not name is the §7 mismatch the rule exists to prevent; that is a factual field, changed because
+this review's finding moved the head, and it is recorded here rather than done silently.
