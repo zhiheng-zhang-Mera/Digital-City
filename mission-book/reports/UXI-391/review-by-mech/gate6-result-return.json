@@ -1,0 +1,61 @@
+{
+  "head": "269aa969a285b78283ed6f7bd3b0cf432cfdcbd9",
+  "port": 4611,
+  "taskId": "Q-40f00d9a-362d-4936-af45-9ca322781434",
+  "originalOwner": "mech-ui-a",
+  "transferredTo": "mech-ui-b",
+  "handoffEpoch": 2,
+  "finalState": "COMPLETED",
+  "finalResult": {
+    "waitedMs": 6000
+  },
+  "declineDrivenBy": "API (no surface control exists)",
+  "results": [
+    {
+      "name": "the ORIGINAL surface shows the run IN FLIGHT before anything is disturbed",
+      "ok": true,
+      "detail": "U UTOPIA PERSONAL TERMINAL Home Tools / Rooms Devices Activity ADVANCED Services Tasks Actions Pairing Settings YOUR DEVICES. ONE CITY. Personal terminal · V0.2 CITY LINK ONLINE ASK / DO Go Runs a local Room, a City capa"
+    },
+    {
+      "name": "the surface FOLLOWS the device loss rather than staying frozen",
+      "ok": true,
+      "detail": "U UTOPIA PERSONAL TERMINAL Home Tools / Rooms Devices Activity ADVANCED Services Tasks Actions Pairing Settings YOUR DEVICES. ONE CITY. Personal terminal · V0.2 CITY LINK ONLINE ASK / DO Go Runs a local Room, a City capa"
+    },
+    {
+      "name": "PRECONDITION 1 satisfied: the holder is judged unavailable before the decline",
+      "ok": true,
+      "detail": "holder mech-ui-a online=false"
+    },
+    {
+      "name": "the decline is accepted (driven by API, because NO surface control can send it)",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "ownership moved to the live alternate while the page stayed open",
+      "ok": true,
+      "detail": "from=mech-ui-a to=mech-ui-b epoch=2"
+    },
+    {
+      "name": "the transferred task COMPLETED on the alternate",
+      "ok": true,
+      "detail": "state=COMPLETED assigned=mech-ui-b result={\"waitedMs\":6000}"
+    },
+    {
+      "name": "GATE 6: the SAME page instance (never reloaded, never re-pointed) shows the completed result",
+      "ok": true,
+      "detail": "U UTOPIA PERSONAL TERMINAL Home Tools / Rooms Devices Activity ADVANCED Services Tasks Actions Pairing Settings YOUR DEVICES. ONE CITY. Personal terminal · V0.2 CITY LINK ONLINE ASK / DO Go Runs a local Room, a City capability or a City task. NOW From intent t"
+    },
+    {
+      "name": "no raw RS-290 scheduler token leaks into the final rendered page",
+      "ok": true,
+      "detail": "22 tokens searched, none found"
+    },
+    {
+      "name": "no page errors during the whole gate-6 journey",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "finishedAt": "2026-10-03T01:56:03.698Z"
+}
