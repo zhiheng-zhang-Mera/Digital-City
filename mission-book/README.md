@@ -23,13 +23,15 @@
 
 > **新任务草案（2026-10-03，Alien）：** Owner 指示的**三端实机测试**（Mech 主机 + Alien 主机 + Android 实机；Android 可对两台主机下指令、任一主机可对他机下令/向中心汇报、三端实时同步）已起草为 [MESH-301](./mesh-3end/MESH-301-三端实机互联与相互指挥.md)，**当前不可领取**，待 Owner 批准；草案内已标出两个需 Owner 一并明确的岔路（是否扩展冻结契约动作集、Mech 在三端测试中的独立性角色）。
 
+> **UXI-391 终态（2026-10-03T02:1xZ，Alien）：** 远程 handoff 收尾修复完成 —— Mech 在 `0a41efe` 签署 REVIEW_COMPLETE PASS（门项 1–8 按其自身测量 MET），我随后合并 `ec12fd0`（合并树与 reviewed head 逐字节一致），**main CI `37088960085` 双 job 全绿**，终态标记 **REMOTE_HANDOFF_CLOSEOUT_REPAIRED** 已宣告，强制回接扫描已写入 `reports/UXI-391/POST_COMPLETION_REENTRY.md`（无其他可领取 merge workbook；唯一在办的是待你批准的 MESH-301）。
+
 ## 当前施工看板
 
 | 工程项目 | 任务池 | 当前状态 | 施工 | 独立复核 | 下一门禁 |
 |---|---|---:|---:|---:|---|
 | UI 文明化 | UI-000, UI-101..103, UI-190 | **COMPLETE** | **5/5** | **5/5** | 无 —— `UI_BASELINE_FROZEN` 已宣告 |
 | 再调度 vNext | RS-201..203, RS-290 | **COMPLETE** | **4/4** | **4/4** | 无 —— `RESCHEDULING_BASELINE_FROZEN` 已宣告，merge `1a5bc0e`，main CI `36964619541` 双 job 绿 |
-| UI × 调度接线 | UXI-301, UXI-390 | **COMPLETE（阶段已接受）** | **2/2** | **2/2** | 无 —— **Mech 复核 PASS**（`6a82e35`，含必做修复 C-1/C-2 的确认）→ **步骤 7 已合并** `d0507b0`（`--no-ff`，合并树与 reviewed head 逐字节一致）→ main CI `37020640107` 双绿 → **终态标记已宣告** |
+| UI × 调度接线 | UXI-301, UXI-390, **UXI-391** | **COMPLETE** | **3/3** | **3/3** | 无 —— UXI-391 REMOTE_HANDOFF_CLOSEOUT_REPAIRED 已宣告（reviewed head `0a41efe` 由 Mech REVIEW_COMPLETE PASS，合并 `ec12fd0`，main CI `37088960085` 双绿） |
 | 三端实机互联 | MESH-301（Mech 主机 + Alien 主机 + Android 实机） | **DRAFT（待 Owner 批准，不可领取）** | — | — | Owner 已授权 Alien 起草（草案 execution_enabled: false）；批准后按 §2 原子领取 |
 | Post-acceptance 收尾修复 | UXI-391 | **READY / ACTIVE POOL** | **0/1** | **0/1** | 单机开发 + 单机双 Node E2E → 第二实体主机独立 Review/双机验收 → Utopia main CI → 自动回接未完成 merge workbook |
 
