@@ -69,3 +69,26 @@ displayName = CITY_NODE_DISPLAY_NAME  >  第一个参数  >  identity（默认�
 - 我会在 Mech 主机加入（其节点出现在同一个 City，或它在控制面留痕）之后才开始三端联动，
   不抢先登记一个"只有两端"的假三端结果。
 ```
+
+---
+
+## 6. Owner 的两项决定（已收到，逐条落实）
+
+```text
+第 1 件（激活）：Owner 选择 A —— 由 Owner 把 MESH-301 置为 READY（execution_enabled: true + status: READY）。
+                我在该状态出现后按 §2 原子领取；在此之前不领取、不动产品代码。
+第 2 件（令牌）：Owner 选择 A —— 由 Owner 私下把 canonical City 的 URL 与配对令牌转达给 Mech；
+                我只需在本机设置同一个令牌。令牌【不会】由我写入控制面/报告/截图/Git（工作书第 2 步要求）。
+                我这边需要 Owner 把「要在我本机设置的那个令牌值」也告知我（或由 Owner 指定后我照设）。
+```
+
+## 7. 当前等待状态（§5.1，且明确不是 POOL_TERMINAL）
+
+```text
+- MESH-301：execution_enabled=false / DRAFT_PENDING_OWNER_APPROVAL → 等 Owner 置 READY；
+- Mech 主机：尚未加入同一个 City（按 Owner 指令，Mech 加入后才开始三端工作）；
+- 本机：identity=Alien-Win 已就绪、可随时加入 City，且显示名可改而不动身份；
+- 池内其它工作书：历史阶段已归档（finished/completed-2026-10-03），没有可自动领取的产品工作书。
+  因此按 §5.1 TEMPORARILY_UNCLAIMABLE / WAITING_OWNER_ACTIVATION 解释，不写成"池已终态"，
+  也不为了保持主机忙而制造新任务（看板对此有明文要求，我遵循）。
+```
