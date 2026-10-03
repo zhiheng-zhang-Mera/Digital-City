@@ -1,0 +1,102 @@
+{
+  "head": "269aa969a285b78283ed6f7bd3b0cf432cfdcbd9",
+  "port": 4591,
+  "taskId": "Q-e2793ee3-4637-4920-aee6-7116d1673882",
+  "originalHolder": "mech-a",
+  "transferredTo": "mech-b",
+  "handoffFromRef": "mech-a",
+  "handoffEpoch": 2,
+  "finalState": "COMPLETED",
+  "finalAssigned": "mech-b",
+  "finalResult": {
+    "waitedMs": 6000
+  },
+  "results": [
+    {
+      "name": "TWO distinct devices are online",
+      "ok": true,
+      "detail": "mech-a:true, mech-b:true"
+    },
+    {
+      "name": "a WAIT task is created",
+      "ok": true,
+      "detail": "id=Q-e2793ee3-4637-4920-aee6-7116d1673882"
+    },
+    {
+      "name": "the task is RUNNING and assigned before anything is disturbed",
+      "ok": true,
+      "detail": "state=RUNNING assigned=mech-a"
+    },
+    {
+      "name": "NEG-1 no transfer occurs without a recorded decline (handoffTargetRef stays empty)",
+      "ok": true,
+      "detail": "handoffTargetRef before=undefined after=undefined"
+    },
+    {
+      "name": "NEG-2/positive: with its device dead the task stays NON-TERMINAL rather than being failed or faked",
+      "ok": true,
+      "detail": "state=RUNNING assigned=mech-a"
+    },
+    {
+      "name": "the run is never COMPLETED while no device executed it",
+      "ok": true,
+      "detail": "state=RUNNING"
+    },
+    {
+      "name": "PRECONDITION 1: the holder is judged UNAVAILABLE before the decline",
+      "ok": true,
+      "detail": "holder mech-a online=false"
+    },
+    {
+      "name": "the decline is accepted and recorded as user intent",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "the SAME task id is preserved across the transfer",
+      "ok": true,
+      "detail": "id=Q-e2793ee3-4637-4920-aee6-7116d1673882"
+    },
+    {
+      "name": "ownership is RECORDED: it moved FROM the dead holder TO the chosen alternate",
+      "ok": true,
+      "detail": "from=mech-a to=mech-b (original holder mech-a)"
+    },
+    {
+      "name": "the transferred task is re-queued for its new owner rather than left assigned to the dead one",
+      "ok": true,
+      "detail": "state=QUEUED assigned=null"
+    },
+    {
+      "name": "NEG-3 a DUPLICATE decline does not transfer again or move the epoch",
+      "ok": true,
+      "detail": "target still mech-b; epoch 2 -> 2; dup status 200"
+    },
+    {
+      "name": "NEG-4 the RECOVERED original holder does not re-take work that has moved away",
+      "ok": true,
+      "detail": "assigned=\"mech-b\" (recovered holder was mech-a), state=RUNNING"
+    },
+    {
+      "name": "the transferred task REACHES a terminal state",
+      "ok": true,
+      "detail": "state=COMPLETED"
+    },
+    {
+      "name": "it COMPLETED rather than failed, so the transfer really delivered the work",
+      "ok": true,
+      "detail": "state=COMPLETED result={\"waitedMs\":6000}"
+    },
+    {
+      "name": "the terminal result is REAL and carries a completion time",
+      "ok": true,
+      "detail": "result={\"waitedMs\":6000} completedAt=undefined"
+    },
+    {
+      "name": "the executor of record is the ALTERNATE, not the device that died",
+      "ok": true,
+      "detail": "assigned=mech-b expected=mech-b"
+    }
+  ],
+  "finishedAt": "2026-10-03T01:58:49.496Z"
+}
