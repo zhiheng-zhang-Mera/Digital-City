@@ -10,11 +10,11 @@ baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UXI-391"]
 development_host: Alien
 development_branch: mesh/MESH-301-three-end
-development_head_sha: null
+development_head_sha: e908f82c651fd0cb53074c2b925933185219a46e
 development_baseline_sha: ec12fd0831f31fd81aef9cd9dfb0c959d010f63b
 development_claimed_at: 2026-10-03T02:41:49Z
 development_claim_basis: "CLAIMED BY ALIEN AFTER A CLAIM-TIME RECONCILIATION, ON THE OWNER'S ACTIVATION. MEASURED AT CLAIM TIME: Digital-City main = 65bc5004ce97da50e360b08b82cab0a56821e62c; Utopia main = ec12fd0831f31fd81aef9cd9dfb0c959d010f63b with hosted CI run 37088960085 COMPLETED SUCCESS on exactly that sha; MESH-301 now reads execution_enabled: true with status READY, activated on the Owner instruction and recorded verbatim by Mech in its activation_basis; and the Mech host has JOINED as Mech-Win, so the precondition this task waited on is satisfied. WHY ALIEN AND NOT MECH: the topology makes endpoint C an Android device Alien controls, the Android-side identity work needs that device, and Mech itself declined the development role - it recorded that it will not move a section-12 role field - leaving Mech as endpoint A plus the formal review on a different physical host, which the design audit unblocked by deleting the false endpoint-versus-reviewer conflict. A CORRECTION FROM MECH IS ACKNOWLEDGED IN THIS CLAIM RATHER THAN ARGUED WITH: Mech measured that the persisted-identity mechanism Alien kickoff record described (Alien-Win, .city-node-identity.json, a file fallback for the display-name variable) exists ONLY in that record and in Alien local worktree, NOT on any utopia branch - every remote ref still carried the older Alien-test line. Mech is right. The behaviour had been reproduced on this host, but the MECHANISM was uncommitted, which is exactly the gap that bites when a second host leans on it; the naming implementation is therefore committed on this task branch as part of step 2 rather than merely documented. THE CLAIM IS ATOMIC IN THE RULE SENSE: this commit sets development_host, and if the push loses a race the claim is withdrawn rather than forced."
-development_ci: null
+development_ci: "run 37090777790 SUCCESS on e908f82c651fd0cb53074c2b925933185219a46e (android + gateway-web)"
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -36,9 +36,10 @@ draft_basis: "OWNER_INSTRUCTION_THREE_END_TEST.md (Owner's direct instruction, 2
 > **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
 > README 仅为监控看板，不是施工规范或 claim lock。
 >
-> **本文件是 Owner 授权 Alien 起草的草案（§12：任务创建属 Owner）。** `execution_enabled: false` 且
-> `status: DRAFT_PENDING_OWNER_APPROVAL`，因此**当前不可领取**。Owner 批准（可直接改这两个字段，或指示我改）
-> 之后才进入正常 claim 流程。
+> **本文件是 Owner 授权 Alien 起草的草案（§12：任务创建属 Owner）。** 已于 2026-10-03 由 Owner 指示激活：
+> `execution_enabled: true`、`status: IN_PROGRESS`，并由 Alien 按正常 claim 流程领取（见 `development_claim_basis`）。
+> 本节此前写的是"`execution_enabled: false` 且 `status: DRAFT_PENDING_OWNER_APPROVAL`，因此当前不可领取"，
+> 该描述已过期；保留此更正痕迹是因为看板必须与 front matter 一致。
 >
 > **2026-10-03 设计审计修正：** Android 在当前代码里是 control client，不是 worker node；用户创建/定向任务与 RS presentation 的 `ALLOWED_ACTIONS` 是两套语义；三端同步按服务器 event `seq` 做 bounded convergence，而不是要求本地时钟“同一时刻强一致”。以下正文已按这三个事实修正。
 
@@ -48,7 +49,7 @@ draft_basis: "OWNER_INSTRUCTION_THREE_END_TEST.md (Owner's direct instruction, 2
 
 ```text
 端点 A = Mech 主机（Windows）
-端点 B = Alien 主机（Windows，本机；其节点名为 Alien-test）
+端点 B = Alien 主机（Windows，本机；其节点名为 **`Alien-Win`**，按 Owner 2026-10-03 的命名裁决）
 端点 C = Android 实机（Alien 控制、Android Studio 连接，Android 版）
 ```
 
