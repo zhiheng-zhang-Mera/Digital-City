@@ -4,6 +4,8 @@ phase: SHOWCASE_MATERIAL_EXTRACTION
 sequence: 401
 execution_enabled: true
 status: IN_PROGRESS
+capture_status: WAITING_VISIBLE_PRODUCT_SURFACES
+capture_blocker: ALIEN_BROWSER_LAUNCH_POLICY_BLOCKED
 implementation_repo: zhiheng-zhang-Mera/Digital-City
 runtime_source_repo: zhiheng-zhang-Mera/utopia
 runtime_source_mode: READ_ONLY_NO_PRODUCT_CODE_WRITES
