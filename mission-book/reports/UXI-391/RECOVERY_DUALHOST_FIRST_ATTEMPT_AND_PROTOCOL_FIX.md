@@ -58,3 +58,50 @@ A 真的跑过并持续持有 → 原交互 surface 在 handoff 前显示它 →
 
 A 侧等待窗口为 60 分钟（自 11:2x 起）。若超时我会重起并在控制面说明；**我不会替你发 decline**，
 也不会把这次未发生转移的运行写成验收通过。
+
+---
+
+## 6. 第二次尝试：跨机移交**已证成**，但跑未完成（原因是我的指引缺了第二条前置）
+
+第二次尝试是真发生的，且**核心命题已被两台主机各自的记录证成**：
+
+```text
+事件（我方 Gateway 的 backend 真值）：
+  TASK_SWITCH_DECLINED
+  TASK_HANDOFF_TRANSFERRED {"handoffFromRef":"dualhost-node-a","handoffTargetRef":"mech-b-verify","handoffEpoch":2,
+                            "attempts":1,"history":["handoff:dualhost-node-a->mech-b-verify@epoch2"]}
+  TASK_ASSIGNED -> TASK_STARTED -> TASK_CHECKPOINTED(18) -> TASK_CHECKPOINTED(36)
+⇒ 真实跨机所有权转移成立：A 在另一台主机上，B 是 Mech 自己的节点（它用自建仪器，node id = mech-b-verify），
+  仍是【同一个 task id】，epoch 走到 2，后端事件与 history 都在。
+```
+
+**但跑没有完成**：`mech-b-verify` 在任务只有 `progress=36`（5×18 的第 2 步）时离开了 City（`NODE_OFFLINE`），
+于是任务停在 `RUNNING @mech-b-verify`，**没有到 terminal，也没有结果回流**。
+按本 City 的既有规则，**同一个 node id 重新注册会把它的中断任务标成 FAILED**（"interrupted work is not replayed"），
+所以那一次验收实例无法续跑——我已另起一个全新的 A 侧实例。
+
+## 7. 第二次重跑的两条前置（第一条我已在上文给出，第二条是本次新增）
+
+```text
+前置 1（我的缺口）：decline 之前，必须先确认当前持有设备已被判定不可用
+                     —— GET /api/v0/city 中 assignedNodeId 那台 online === false
+前置 2（我的指引缺口）：B 侧节点在任务抵达 terminal 之前**不得退出**
+                     —— 观察并断言到 COMPLETED（含 result）之后，再结束自己的节点进程
+```
+
+第二条同样是我的责任：我给的 B 侧脚本在「等待 terminal」上是对的，但我在 Dispatch 里只强调了「加入、驱动 decline、
+测量转移」，没有把「保持节点存活直到完成」写成硬性前置。**跨机移交被证明之后就跑掉，等于只验证了一半。**
+
+## 8. 当前 A 侧（新实例，正在等）
+
+```text
+URL   = http://172.31.3.110:4391      （绑定 LAN 172.31.3.110）
+令牌   = uxi391-dualhost-control / uxi391-dualhost-node
+节点   = dualhost-node-a (offline)    ← worker 已停，指派仍存活
+在飞   = Q-43f3813a-c3f6-4e95-9dbd-67a6031f572c  state=RUNNING @dualhost-node-a
+窗口   = 60 分钟
+```
+
+A 侧会独立断言：A 真的跑过并持续持有 → surface 在 handoff 前显示它 → 停 worker 后指派存活 → 第二台设备出现 →
+**观测到所有权 A→B** → **同一 task 完成** → 结果 `waitedMs:6000` → surface 从未刷新 → surface 显示
+`WAIT <id> COMPLETED` → 无 raw token 泄漏。
