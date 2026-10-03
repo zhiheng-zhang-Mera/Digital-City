@@ -21,158 +21,158 @@ review_host: Alien
 review_head_sha: null
 review_ci: null
 review_complete: false
-review_claim_basis: "CLAIMED BY ALIEN, ON A DIRECT OWNER AUTHORISATION, AFTER A SECTION-7 EXACT-HEAD RECONCILIATION. The Owner was asked whether this host could take JOIN-502's review and answered 允许, which matters because CONSTRUCTION_RULES section 3 requires only that the reviewer be a DIFFERENT ENTITY HOST FROM THE DEVELOPMENT HOST, not that it be any particular host: Mech developed this workbook and Alien did not, so Alien reviewing it satisfies the rule. DECLARED HONESTLY SO IT IS NOT MISTAKEN FOR A STRONGER INDEPENDENCE THAN IT IS: this reviewer is not a stranger to the subject matter - it developed the sibling JOIN-501 and JOIN-503, including the pairing-session lifecycle that JOIN-502 section 6 must not violate, and it shares the author's platform assumptions. That makes some defects MORE visible to it (a hidden short-code generation is precisely what JOIN-501 forbids, so this reviewer is primed to look for it) and it is recorded as a bias as well as an advantage. MEASURED AT CLAIM TIME, NOT INHERITED: (1) the workbook reads development_complete true, development_host Mech, review_host null, so no reviewer had claimed it and this claim overwrites nobody; (2) development_head_sha is 86deda9c2990c78d683a8c3515d251022df9d040 and git ls-remote of refs/heads/join/JOIN-502-nearby-discovery-approval returns the SAME sha, read from the remote rather than from a local ref; (3) hosted workflow 'V0.2 checks' run 37119234473 is COMPLETED SUCCESS on exactly that sha, jobs gateway-web and android both success, re-queried through the GitHub Actions API by head_sha rather than inherited from the development record; (4) the pool was re-scanned first - JOIN-501 and JOIN-503 are review-complete with their terminal markers recorded, JOIN-502 is the only lane left, and the phase integration (README section 5) stays locked until this review exists. THE CLAIM IS ATOMIC IN THE RULE SENSE: this commit sets review_host and review_head_sha, and if the push loses a race the claim is withdrawn rather than forced. review_complete stays false until the report exists, and NEARBY_PC_JOIN_ACCEPTED is NOT set by this commit."
+review_claim_basis: "CLAIMED BY ALIEN, ON A DIRECT OWNER AUTHORISATION, AFTER A SECTION-7 EXACT-HEAD RECONCILIATION. The Owner was asked whether this host could take JOIN-502's review and answered 鍏佽, which matters because CONSTRUCTION_RULES section 3 requires only that the reviewer be a DIFFERENT ENTITY HOST FROM THE DEVELOPMENT HOST, not that it be any particular host: Mech developed this workbook and Alien did not, so Alien reviewing it satisfies the rule. DECLARED HONESTLY SO IT IS NOT MISTAKEN FOR A STRONGER INDEPENDENCE THAN IT IS: this reviewer is not a stranger to the subject matter - it developed the sibling JOIN-501 and JOIN-503, including the pairing-session lifecycle that JOIN-502 section 6 must not violate, and it shares the author's platform assumptions. That makes some defects MORE visible to it (a hidden short-code generation is precisely what JOIN-501 forbids, so this reviewer is primed to look for it) and it is recorded as a bias as well as an advantage. MEASURED AT CLAIM TIME, NOT INHERITED: (1) the workbook reads development_complete true, development_host Mech, review_host null, so no reviewer had claimed it and this claim overwrites nobody; (2) development_head_sha is 86deda9c2990c78d683a8c3515d251022df9d040 and git ls-remote of refs/heads/join/JOIN-502-nearby-discovery-approval returns the SAME sha, read from the remote rather than from a local ref; (3) hosted workflow 'V0.2 checks' run 37119234473 is COMPLETED SUCCESS on exactly that sha, jobs gateway-web and android both success, re-queried through the GitHub Actions API by head_sha rather than inherited from the development record; (4) the pool was re-scanned first - JOIN-501 and JOIN-503 are review-complete with their terminal markers recorded, JOIN-502 is the only lane left, and the phase integration (README section 5) stays locked until this review exists. THE CLAIM IS ATOMIC IN THE RULE SENSE: this commit sets review_host and review_head_sha, and if the push loses a race the claim is withdrawn rather than forced. review_complete stays false until the report exists, and NEARBY_PC_JOIN_ACCEPTED is NOT set by this commit."
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/JOIN-502
 terminal_marker: NEARBY_PC_JOIN_ACCEPTED
 ---
 
-# JOIN-502 — Nearby PC Discovery + Owner Approval
+# JOIN-502 鈥?Nearby PC Discovery + Owner Approval
 
-> **Programme：** [README.md](./README.md)  
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)
+> **Programme锛?* [README.md](./README.md)  
+> **甯搁┗鏂藉伐瑙勫垯锛?* [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> **寮傛鍑忓帇鏂藉伐锛?* [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)
 
-## 1. 目标
+## 1. 鐩爣
 
-把已经存在于 Remote Fabric contract 中的 same-Wi-Fi / LAN discovery 真正接到新 PC 的首屏 onboarding。
+鎶婂凡缁忓瓨鍦ㄤ簬 Remote Fabric contract 涓殑 same-Wi-Fi / LAN discovery 鐪熸鎺ュ埌鏂?PC 鐨勯灞?onboarding銆?
 
-默认用户体验：
+榛樿鐢ㄦ埛浣撻獙锛?
 
 ```text
 new PC opens Utopia
-→ Nearby Cities
-→ choose discovered City
-→ Request Join
-→ existing trusted device receives approval request
-→ Approve / Reject
+鈫?Nearby Cities
+鈫?choose discovered City
+鈫?Request Join
+鈫?existing trusted device receives approval request
+鈫?Approve / Reject
 ```
 
-用户不应先去找 URL、IP 或 bare token。
+鐢ㄦ埛涓嶅簲鍏堝幓鎵?URL銆両P 鎴?bare token銆?
 
-## 2. 复用既有 RF，不重建
+## 2. 澶嶇敤鏃㈡湁 RF锛屼笉閲嶅缓
 
-必须优先复用已归档并合并的：
-- RF-003 local discovery / LAN direct；
-- RF-004 BLE bootstrap；
-- RF-002 pairing/trust lifecycle；
-- RF-010 public Fabric API。
+蹇呴』浼樺厛澶嶇敤宸插綊妗ｅ苟鍚堝苟鐨勶細
+- RF-003 local discovery / LAN direct锛?
+- RF-004 BLE bootstrap锛?
+- RF-002 pairing/trust lifecycle锛?
+- RF-010 public Fabric API銆?
 
-如果当前 product surface 只展示 mDNS/BLE diagnostics，而没有 onboarding action，就补 integration / adapter / presentation；不得另起第二套 discovery protocol。
+濡傛灉褰撳墠 product surface 鍙睍绀?mDNS/BLE diagnostics锛岃€屾病鏈?onboarding action锛屽氨琛?integration / adapter / presentation锛涗笉寰楀彟璧风浜屽 discovery protocol銆?
 
-## 3. 加入入口优先级
+## 3. 鍔犲叆鍏ュ彛浼樺厛绾?
 
-产品推荐顺序：
+浜у搧鎺ㄨ崘椤哄簭锛?
 
-1. same-Wi-Fi / LAN nearby discovery；
-2. BLE nearby bootstrap（可用时）；
-3. QR；
-4. short one-time code；
-5. deep/web link；
-6. manual host/token engineering fallback。
+1. same-Wi-Fi / LAN nearby discovery锛?
+2. BLE nearby bootstrap锛堝彲鐢ㄦ椂锛夛紱
+3. QR锛?
+4. short one-time code锛?
+5. deep/web link锛?
+6. manual host/token engineering fallback銆?
 
-不是所有平台必须同时支持 BLE，但 UI 必须诚实显示 unavailable / unsupported，不能伪造 discovered device。
+涓嶆槸鎵€鏈夊钩鍙板繀椤诲悓鏃舵敮鎸?BLE锛屼絾 UI 蹇呴』璇氬疄鏄剧ず unavailable / unsupported锛屼笉鑳戒吉閫?discovered device銆?
 
 ## 4. Nearby UX
 
-未连接状态不再只呈现 token 输入。
+鏈繛鎺ョ姸鎬佷笉鍐嶅彧鍛堢幇 token 杈撳叆銆?
 
-至少提供：
+鑷冲皯鎻愪緵锛?
 
-- `Nearby Cities` / `Nearby Utopia`；
-- city display name；
-- bounded device/city preview；
-- transport hint: LAN / nearby；
-- `Request Join`；
-- fallback `Use QR / code / link`；
-- advanced/manual entry 收进次级入口。
+- `Nearby Cities` / `Nearby Utopia`锛?
+- city display name锛?
+- bounded device/city preview锛?
+- transport hint: LAN / nearby锛?
+- `Request Join`锛?
+- fallback `Use QR / code / link`锛?
+- advanced/manual entry 鏀惰繘娆＄骇鍏ュ彛銆?
 
-发现结果本身**不授予 trust**。
+鍙戠幇缁撴灉鏈韩**涓嶆巿浜?trust**銆?
 
 ## 5. Owner approval
 
-Request Join 后：
+Request Join 鍚庯細
 
-- 已有 trusted endpoint 收到明确 approval request；
-- 显示新 installation 的 bounded preview：
-  - requested display name；
-  - OS/platform；
-  - installation fingerprint / short fingerprint；
-  - local/network context when available；
-- Approve / Reject；
-- 不以 MAC 作为身份锚；
-- MAC 可作为本地辅助证据，但 unavailable/randomized 不得阻塞。
+- 宸叉湁 trusted endpoint 鏀跺埌鏄庣‘ approval request锛?
+- 鏄剧ず鏂?installation 鐨?bounded preview锛?
+  - requested display name锛?
+  - OS/platform锛?
+  - installation fingerprint / short fingerprint锛?
+  - local/network context when available锛?
+- Approve / Reject锛?
+- 涓嶄互 MAC 浣滀负韬唤閿氾紱
+- MAC 鍙綔涓烘湰鍦拌緟鍔╄瘉鎹紝浣?unavailable/randomized 涓嶅緱闃诲銆?
 
-未经 approval：
-- 不得成为 TRUSTED_NODE；
-- 不得拿到 durable membership；
-- 不得自动进入 worker pool。
+鏈粡 approval锛?
+- 涓嶅緱鎴愪负 TRUSTED_NODE锛?
+- 涓嶅緱鎷垮埌 durable membership锛?
+- 涓嶅緱鑷姩杩涘叆 worker pool銆?
 
-## 6. Pairing code 与 Nearby discovery 的关系
+## 6. Pairing code 涓?Nearby discovery 鐨勫叧绯?
 
-Nearby discovery **不能偷偷生成 short code**。
+Nearby discovery **涓嶈兘鍋峰伔鐢熸垚 short code**銆?
 
-它可以建立 discovery/request context，但 JOIN-501 的 Owner 规则继续生效：
+瀹冨彲浠ュ缓绔?discovery/request context锛屼絾 JOIN-501 鐨?Owner 瑙勫垯缁х画鐢熸晥锛?
 
-- 没点 Generate → 页面上没有 temporary short code / QR / invite secret；
-- nearby join 可以走自己的 authenticated pairing handshake；
-- 若用户主动选择“改用配对码”，才进入 JOIN-501 的 explicit generation。
+- 娌＄偣 Generate 鈫?椤甸潰涓婃病鏈?temporary short code / QR / invite secret锛?
+- nearby join 鍙互璧拌嚜宸辩殑 authenticated pairing handshake锛?
+- 鑻ョ敤鎴蜂富鍔ㄩ€夋嫨鈥滄敼鐢ㄩ厤瀵圭爜鈥濓紝鎵嶈繘鍏?JOIN-501 鐨?explicit generation銆?
 
-## 7. 允许修改
+## 7. 鍏佽淇敼
 
-- first-run / disconnected web surface；
-- discovery adapter；
-- approval request presentation；
-- existing RF public API glue；
-- pairing/trust integration tests；
-- minimal server route needed to expose existing RF semantics。
+- first-run / disconnected web surface锛?
+- discovery adapter锛?
+- approval request presentation锛?
+- existing RF public API glue锛?
+- pairing/trust integration tests锛?
+- minimal server route needed to expose existing RF semantics銆?
 
-## 8. 禁止修改
+## 8. 绂佹淇敼
 
-- 不重写 mDNS protocol；
-- 不把 IP 地址当 stable identity；
-- 不自动 trust 同 LAN 设备；
-- 不把 discovery response 当认证；
-- 不要求用户输入 MAC；
-- 不把 Bluetooth 变成主要 bulk transport；
-- 不复活 archived RF branch。
+- 涓嶉噸鍐?mDNS protocol锛?
+- 涓嶆妸 IP 鍦板潃褰?stable identity锛?
+- 涓嶈嚜鍔?trust 鍚?LAN 璁惧锛?
+- 涓嶆妸 discovery response 褰撹璇侊紱
+- 涓嶈姹傜敤鎴疯緭鍏?MAC锛?
+- 涓嶆妸 Bluetooth 鍙樻垚涓昏 bulk transport锛?
+- 涓嶅娲?archived RF branch銆?
 
-## 9. 测试 / 实机
+## 9. 娴嬭瘯 / 瀹炴満
 
-自动：
-- no nearby result → fallback 可用；
-- discovery result does not imply trust；
-- Request Join creates pending approval；
-- reject leaves device untrusted；
-- approve follows canonical pairing/trust path；
-- no hidden pairing-code generation；
-- duplicate/replayed request bounded/idempotent。
+鑷姩锛?
+- no nearby result 鈫?fallback 鍙敤锛?
+- discovery result does not imply trust锛?
+- Request Join creates pending approval锛?
+- reject leaves device untrusted锛?
+- approve follows canonical pairing/trust path锛?
+- no hidden pairing-code generation锛?
+- duplicate/replayed request bounded/idempotent銆?
 
-实机：
-- Alien / Mech 同 LAN；
-- 一端模拟/执行 clean unregistered installation；
-- 另一 trusted endpoint approve；
-- 证明加入 canonical City。
+瀹炴満锛?
+- Alien / Mech 鍚?LAN锛?
+- 涓€绔ā鎷?鎵ц clean unregistered installation锛?
+- 鍙︿竴 trusted endpoint approve锛?
+- 璇佹槑鍔犲叆 canonical City銆?
 
-Formal Review 由另一实体主机独立完成。
+Formal Review 鐢卞彟涓€瀹炰綋涓绘満鐙珛瀹屾垚銆?
 
-## 10. 完成门槛
+## 10. 瀹屾垚闂ㄦ
 
-终态 `NEARBY_PC_JOIN_ACCEPTED` 要求：
-- same-LAN real discovery/join 成功；
-- approval gate 真实存在；
-- no auto-trust；
-- no hidden short-code generation；
-- fallback entries 仍可用；
-- Development + opposite-host Review + exact-head CI 全部完成。
+缁堟€?`NEARBY_PC_JOIN_ACCEPTED` 瑕佹眰锛?
+- same-LAN real discovery/join 鎴愬姛锛?
+- approval gate 鐪熷疄瀛樺湪锛?
+- no auto-trust锛?
+- no hidden short-code generation锛?
+- fallback entries 浠嶅彲鐢紱
+- Development + opposite-host Review + exact-head CI 鍏ㄩ儴瀹屾垚銆?
 
 ## 11. Reports
 
-- [DEVELOPMENT_REPORT.md](../reports/JOIN-502/DEVELOPMENT_REPORT.md) — what was built, the eight load-bearing choices with their alternatives and costs, the six defects found by running it rather than reading it, the §9 test mapping, the real-host LAN acceptance, and the limits stated as limits.
-- [EVIDENCE_LIVE_LAN_ACCEPTANCE.md](../reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md) — the verbatim acceptance receipt, what each line establishes and what would falsify it, the investigated libuv teardown assertion, and the limits.
+- [DEVELOPMENT_REPORT.md](../reports/JOIN-502/DEVELOPMENT_REPORT.md) 鈥?what was built, the eight load-bearing choices with their alternatives and costs, the six defects found by running it rather than reading it, the 搂9 test mapping, the real-host LAN acceptance, and the limits stated as limits.
+- [EVIDENCE_LIVE_LAN_ACCEPTANCE.md](../reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md) 鈥?the verbatim acceptance receipt, what each line establishes and what would falsify it, the investigated libuv teardown assertion, and the limits.
 
-Handoff for the formal review — the next eligible role, on a **different physical host**:
+Handoff for the formal review 鈥?the next eligible role, on a **different physical host**:
 
 ```text
 TASK_ID              JOIN-502
