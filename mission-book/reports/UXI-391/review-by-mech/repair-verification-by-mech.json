@@ -1,0 +1,66 @@
+{
+  "head": "0a41efe50e1e6c7a8dde77edaeb3158636717b91",
+  "port": 4621,
+  "taskId": "Q-fcc1fd81-815d-4f91-b8ee-aae50f93cd50",
+  "nodes": {
+    "A": "Mech-test-a",
+    "B": "Mech-test-b",
+    "C": "Mech-test-c"
+  },
+  "autoTransferEpoch": 2,
+  "autoTransferTarget": "Mech-test-b",
+  "releasedReservation": null,
+  "finalState": "COMPLETED",
+  "finalAssigned": "Mech-test-c",
+  "finalResult": {
+    "waitedMs": 6000
+  },
+  "results": [
+    {
+      "name": "REPAIR A setup: the decline is recorded while NO alternate exists",
+      "ok": true,
+      "detail": "status=200 switchDeclined=true target=undefined"
+    },
+    {
+      "name": "(negative) with no alternate present, the sweep does NOT invent a destination",
+      "ok": true,
+      "detail": "state=RUNNING target=undefined"
+    },
+    {
+      "name": "REPAIR A: the recorded decline is honoured AUTOMATICALLY once an alternate becomes eligible (no second decline sent)",
+      "ok": true,
+      "detail": "target=Mech-test-b epoch=2 from=Mech-test-a"
+    },
+    {
+      "name": "REPAIR A: the same task id, and ownership recorded from the original holder",
+      "ok": true,
+      "detail": "id=Q-fcc1fd81-815d-4f91-b8ee-aae50f93cd50 from=Mech-test-a"
+    },
+    {
+      "name": "REPAIR A idempotency: repeated sweep evaluations do NOT transfer again or bump the epoch",
+      "ok": true,
+      "detail": "epoch 2 -> 2, target Mech-test-b"
+    },
+    {
+      "name": "REPAIR B: a reservation whose device died is RELEASED rather than stranding the task",
+      "ok": true,
+      "detail": "target=null state=QUEUED"
+    },
+    {
+      "name": "REPAIR B: the release is a DISTINCT recorded event",
+      "ok": true,
+      "detail": "saw CITY_STARTED, NODE_ONLINE, COMMAND_ACCEPTED, TASK_CREATED, TASK_ASSIGNED, TASK_STARTED, NODE_OFFLINE, TASK_RUNNING"
+    },
+    {
+      "name": "REPAIR B: a THIRD device takes the released task and runs it to terminal",
+      "ok": true,
+      "detail": "state=COMPLETED assigned=Mech-test-c result={\"waitedMs\":6000}"
+    },
+    {
+      "name": "REPAIR B: still one task and one completion",
+      "ok": true,
+      "detail": "id=Q-fcc1fd81-815d-4f91-b8ee-aae50f93cd50"
+    }
+  ],
+  "finishedAt": "2026-10-03T02:06:40.284Z"
+}
