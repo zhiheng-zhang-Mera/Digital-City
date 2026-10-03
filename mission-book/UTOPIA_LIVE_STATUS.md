@@ -8,7 +8,7 @@
 - **Utopia main:** [`71c38c30b142`](https://github.com/zhiheng-zhang-Mera/utopia/commit/71c38c30b142aa540f424d0cef89db1a3cedc4a1)
 - **Commit:** integration(JOIN-502): the Pairing page is rendered ONCE, with both branches' content - the integration is functionally complete
 - **Commit time:** 2026-10-03T13:24:36Z
-- **CI:** [V0.2 checks #37129264996](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37129264996) — completed / success on `71c38c30b142`.
+- **CI:** [City linkage check #37129264988](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37129264988) — completed / success on `71c38c30b142`.
 - **Reciprocal linkage:** `RECIPROCAL_LINK_OK`
 
 This file is refreshed by `.github/workflows/sync-utopia-status.yml`. The workflow
