@@ -5,10 +5,10 @@
 > Source of implementation truth: [zhiheng-zhang-Mera/utopia](https://github.com/zhiheng-zhang-Mera/utopia) `main`.
 > Planning/workbook truth remains in Digital-City Mission Book frontmatter and reports.
 
-- **Utopia main:** [`959b0aac77ce`](https://github.com/zhiheng-zhang-Mera/utopia/commit/959b0aac77ce375a1a7bf43c15e5f15e38692c66)
-- **Commit:** fix(docs): add English pair for three-end demo runbook
-- **Commit time:** 2026-10-03T06:52:05Z
-- **CI:** [V0.2 checks #37104450534](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37104450534) — completed / success on `959b0aac77ce`.
+- **Utopia main:** [`13109b4c206f`](https://github.com/zhiheng-zhang-Mera/utopia/commit/13109b4c206feb3c1a9107b369715e84af65eaf1)
+- **Commit:** merge(feat/launcher): the root launcher, the shareable invite token on the Pairing page, and the invite that switches City and destroys the local token (branch 1fd24c9)
+- **Commit time:** 2026-10-03T09:18:20Z
+- **CI:** [City linkage check #37112596441](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37112596441) — completed / success on `13109b4c206f`.
 - **Reciprocal linkage:** `RECIPROCAL_LINK_OK`
 
 This file is refreshed by `.github/workflows/sync-utopia-status.yml`. The workflow

@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "959b0aac77ce375a1a7bf43c15e5f15e38692c66",
-    "name": "V0.2 checks",
-    "run_id": 37104450534,
+    "head_sha": "13109b4c206feb3c1a9107b369715e84af65eaf1",
+    "name": "City linkage check",
+    "run_id": 37112596441,
     "status": "completed",
-    "updated_at": "2026-10-03T06:54:26Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37104450534"
+    "updated_at": "2026-10-03T09:18:32Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37112596441"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "fix(docs): add English pair for three-end demo runbook",
-  "main_commit_time": "2026-10-03T06:52:05Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/959b0aac77ce375a1a7bf43c15e5f15e38692c66",
-  "main_sha": "959b0aac77ce375a1a7bf43c15e5f15e38692c66",
+  "main_commit_message": "merge(feat/launcher): the root launcher, the shareable invite token on the Pairing page, and the invite that switches City and destroys the local token (branch 1fd24c9)",
+  "main_commit_time": "2026-10-03T09:18:20Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/13109b4c206feb3c1a9107b369715e84af65eaf1",
+  "main_sha": "13109b4c206feb3c1a9107b369715e84af65eaf1",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
