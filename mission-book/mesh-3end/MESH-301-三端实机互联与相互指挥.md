@@ -17,7 +17,7 @@ review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
-owner_gate: OWNER_APPROVAL_TO_ACTIVATE
+owner_gate: NONE
 merge_authority: true
 report_path: mission-book/reports/MESH-301
 terminal_marker: THREE_END_MESH_E2E_ACCEPTED
