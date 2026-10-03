@@ -86,3 +86,38 @@ pending         Mech's three checks: the D-R1 reproduction, gates 1-9 re-run on 
 
 No claim is made here about the review outcome. The repair is offered, the guard is proven, and the judgement
 stays where it belongs.
+
+## 6. Mech's own probe, run against the repaired LIVE City, no longer reproduces it
+
+Mech supplied mech-mesh301-duplicate-socket-probe.mjs on its review branch as a tool the development host can
+run before pushing. It was run against the live canonical City (restarted onto the repair):
+
+```
+AFTER socket A opens   : controlSurfaces entries for this ref = 1
+AFTER socket B opens   : controlSurfaces entries for this ref = 1     (was 2 before the repair)
+closing A while B open : entries = 1, socket B still open, CLIENT_DISCONNECTED emitted = FALSE
+closing B              : entries = 0
+probe's own verdict    : "the readings agree here; the hypothesis is NOT confirmed by this run and must not
+                          be reported as if it were."
+```
+
+That is the D-R1 reproduction, by the reviewer's own instrument, on the running product, showing the defect is
+gone. The strongest form the evidence could take short of the reviewer re-running it itself - which is its
+call and not something this record should pre-empt.
+
+## 7. One note from the review is also fixed (Mech classified it as a note, not a defect)
+
+Mech observed that the R1 comment in `CityClient.kt` said "8 such seqs" while the receipt declares a gap of
+`436..470`. Both numbers are real and measure different things - the surface's own declaration for the hole
+was **35 events**, and **8** of the affected seqs fell outside the declared offline interval, i.e. the
+pre-`stale` part that had appeared as silent `MISSING` before the fix. The comment now says exactly that.
+Fixed even though it does not block: in a task whose recurring lesson is that a record must not mislead, a
+conflated number inside the shipped source is the same defect in a smaller place.
+
+## 8. Head
+
+```
+09a5b89  frozen review head
+29f2691  + the D-R1 repair and its regression guard (CI 37099421137 SUCCESS)
+ed0bf64  + the comment accuracy fix above  <- the head the review should now apply to
+```
