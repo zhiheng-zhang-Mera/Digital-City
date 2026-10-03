@@ -1,6 +1,6 @@
 # Mission Book — 当前施工监控看板
 
-> 当前模式：**历史阶段已归档 → Hns/Codex 异步减压施工协议 ACTIVE → MESH-301 COMPLETE → 当前施工池 GLOBAL_EXTERNAL_BLOCK（仅剩 Owner gates / disabled placeholder）**  
+> 当前模式：**历史阶段已归档 → MESH-301 COMPLETE → SHOW-401 项目展示素材提取 READY（非产品施工，Utopia 代码只读）**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
 > 实现仓库：zhiheng-zhang-Mera/Utopia  
 > Utopia 实现状态不再手工硬编码；以自动生成的 [UTOPIA_LIVE_STATUS.md](./UTOPIA_LIVE_STATUS.md) / [UTOPIA_LIVE_STATUS.json](./UTOPIA_LIVE_STATUS.json) 为准。  
@@ -14,9 +14,10 @@
 |---|---|---|
 | Hns/Codex 异步减压施工 | **ACTIVE / NORMATIVE / TRANSITIONAL** | 当前施工默认采用 Hns supervisor + Codex worker/critic/reviewer；普通技术问题不得直接升级 Owner |
 | MESH-301 三端实机互联 | **COMPLETE / THREE_END_MESH_E2E_ACCEPTED** | 已完成 Alien Development + Mech Formal Review + main merge + merged-main CI；当前无可继续领取的 MESH 工作 |
+| SHOW-401 项目展示素材提取 | **READY / execution_enabled=true** | 录制主 Demo + handoff 技术 Demo + 3 张截图 + 结果表 + 套磁/项目页核心文案；严禁修改 Utopia 产品代码 |
 | Persistent Foreman Runtime / FR-001 | **FUTURE / NOT ACTIVE** | 只做未来计划记录，不抢占当前施工 |
 
-当前没有可自动领取的产品工作书。MESH-301 已完成并通过 merged-main CI；全池按最新 post-completion re-entry 分类为 `GLOBAL_EXTERNAL_BLOCK`：UI-190 / UXI-390 只剩 Owner 视觉接受门，XX-000 仍是 `execution_enabled: false` 的占位任务。不得把这些 Owner 决策误写成 `POOL_TERMINAL`，也不得为了保持主机忙而制造新任务。
+MESH-301 的产品施工已经完成；Owner 现已新增并激活 **SHOW-401** 非产品素材提取工作。SHOW-401 可被合格主机领取，但它只允许运行/观察已经接受的 Utopia：不得修改 Utopia tracked source/test/docs。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态，不因 SHOW-401 被重开。
 
 ## MESH-301 设计审计结果
 
@@ -54,6 +55,7 @@
 - [ASYNC_RELIEF_CONSTRUCTION.md](./ASYNC_RELIEF_CONSTRUCTION.md) — 当前 Hns/Codex 异步减压施工协议；
 - [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md) — 过程数据边界；
 - [MESH-301](./mesh-3end/MESH-301-三端实机互联与相互指挥.md) — `COMPLETE / THREE_END_MESH_E2E_ACCEPTED`；
+- [SHOW-401 项目展示素材提取](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) — `READY`，非产品只读运行任务；
 - [FR-001 Persistent Foreman Runtime](./future-plans/FR-001-Persistent-Foreman-Runtime.md) — 未来计划，不激活。
 
 ## 当前主机角色
