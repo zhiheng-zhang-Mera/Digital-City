@@ -62,3 +62,16 @@ Do not patch Utopia or describe an API-assisted historical acceptance as a new U
 ## Remaining work
 
 Pass three-surface visibility QC; perform one full rehearsal; capture/select the two required demos and three screenshots; bind exact task IDs and media hashes; produce result table and five-level technical messages; complete privacy/playback QC; obtain opposite-physical-host review. All completion fields remain false.
+
+## Owner-requested retry, 2026-10-03 approximately 18:47 local
+
+The Owner reported Mech Web open and explicitly requested a retry, emphasizing that Alien must also have its own Web desktop so that three genuine endpoint surfaces are present.
+
+- Mech Web is now visibly present in the live Zoom share. Saved internal image: `qc/retry-mech-web.png` (not selected for publication; the Zoom participant label is personally identifying).
+- OPPO remains ONLINE and displays both Alien-Win and Mech-Win ONLINE. Saved internal image: `qc/retry-oppo-home.png`.
+- Alien City root returned HTTP 200 and the Utopia page title. A successful HTTP request is not an open product window and does not satisfy the visibility gate.
+- `sky.launch_app({app:'MSEdge'})` again returned `launched app did not expose a targetable window: MSEdge`.
+- On this explicit retry instruction, the normal Edge launch command was retried and again rejected with `blocked by policy`. No alternative launch route was used to evade the denial.
+- No local Edge process/window was observed by the subsequent checks.
+- Mech's visible page currently shows Mech-Win, while OPPO shows both workers. The displayed Mech URL also appears different. Same-canonical-City identity is therefore UNVERIFIED, not asserted false from a cropped viewport or an address alone.
+- The Owner was asked to open the already-running Alien City in a local browser and complete pairing if necessary. Three-surface QC and all formal takes remain NOT_RUN.
