@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "13109b4c206feb3c1a9107b369715e84af65eaf1",
-    "name": "City linkage check",
-    "run_id": 37112596441,
+    "head_sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
+    "name": "V0.2 checks",
+    "run_id": 37129264996,
     "status": "completed",
-    "updated_at": "2026-10-03T09:18:32Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37112596441"
+    "updated_at": "2026-10-03T14:23:09Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37129264996"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "merge(feat/launcher): the root launcher, the shareable invite token on the Pairing page, and the invite that switches City and destroys the local token (branch 1fd24c9)",
-  "main_commit_time": "2026-10-03T09:18:20Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/13109b4c206feb3c1a9107b369715e84af65eaf1",
-  "main_sha": "13109b4c206feb3c1a9107b369715e84af65eaf1",
+  "main_commit_message": "integration(JOIN-502): the Pairing page is rendered ONCE, with both branches' content - the integration is functionally complete",
+  "main_commit_time": "2026-10-03T13:24:36Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/71c38c30b142aa540f424d0cef89db1a3cedc4a1",
+  "main_sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
