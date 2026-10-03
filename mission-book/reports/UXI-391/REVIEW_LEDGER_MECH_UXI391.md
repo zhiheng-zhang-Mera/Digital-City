@@ -17,7 +17,7 @@ STATUS        = review IN PROGRESS. Every "MET" below is MY measurement, not a r
 | 4 | an actual ownership transfer occurs | **MET** | mine, same run: `from=mech-a to=mech-b`, epoch 2, same task id, re-queued; and cross-host `from=dualhost-node-a to=mech-review-b`, epoch 2 (the node name used in that run — recorded exactly rather than tidied, because an earlier draft of this ledger wrote a name I had invented) |
 | 5 | same task id continues on B and reaches terminal | **MET** | mine, same run: `COMPLETED` with `result={"waitedMs":6000}`, executor of record = the alternate |
 | 6 | the result returns to the original surface | **MET** | mine, **PASS 9/9** in a real browser: one page instance, never reloaded, never re-pointed, showing the finished result; screenshot shows `WAIT Q-40f00d9a…` **COMPLETED** on the original Task Registry |
-| 7 | Alien + Mech dual physical host final acceptance | **MET (both halves on record)** | my half ran over the real LAN and **PASSED 13/13** (`dualhost-b-by-mech.json`); the development host's half is its own record (`dualhost-host-a.json`). A re-run with my node named `Mech-test` is prepared and awaits the window |
+| 7 | Alien + Mech dual physical host final acceptance | **MET — both halves on record, on separate hosts** | my half ran over the real LAN and **PASSED 13/13** (`dualhost-b-by-mech.json`); the development host recorded its half as **10/10** with its own receipt (`dualhost-host-a.json`), naming `to: mech-review-b`, the same task reaching `COMPLETED`, `reloaded=false`, and no token leak. `56bb905` records the pass, and explicitly credits that my side used its own instrument and its own nodes |
 | 8 | exact review-head CI | **MET** | run `37075869218` bound to exactly `269aa96`, on the right branch, both jobs success — resolved from GitHub by my instrument, not read from the field |
 | 9 | Utopia main merge + main CI | **NOT MET — pending step 7** | step 7 has not been taken for UXI-391 |
 | 10 | `REMOTE_HANDOFF_CLOSEOUT_REPAIRED` recorded | **NOT MET — pending step 7** | the marker is declared in the workbook's `terminal_marker` field but is not yet issued |
@@ -35,6 +35,32 @@ work reserved for one device is NOT taken by a different live device
 the RECOVERED original holder cannot re-take work that has moved away
 no raw RS-290 scheduler token leaks (Android 6-tab sweep; Web final page; both clean)
 ```
+
+## OPEN RESIDUAL, reproduced by BOTH hosts, no gate in the workbook names it
+
+**A recorded switch-decline is durable but never re-evaluated.** The plan is consumed only inside the
+`switch-declined` route, so a decline that finds no eligible alternate at that instant — which is exactly the
+`DIRECT` case that refuted my first (wrong) description — is never re-read. When an eligible alternate later
+appears, the task stays on its original device indefinitely, nothing retries, and no surface tells the user
+their decision had no effect. `NOT_APPLICABLE` at the instant is correct; the defect is that it is **terminal
+for that intent**.
+
+- **Reproduced by the author's own instrument** (`scripts/uxi391-intent-durability.mjs`): with no alternate the
+  decline is recorded and nothing moves; when an eligible alternate appears the recorded decline is **still not
+  honoured within 30 s**; a **second** decline moves it immediately at `epoch=2` — which is what proves the
+  intent was durable and merely never re-read.
+- **Second residual, also confirmed by the author:** `handoffTargetRef` reserves the task for one device and
+  `claimAllowed` refuses all others, so if the designated device dies the task is **unclaimable by anyone**.
+- **Repair designed and deliberately NOT applied** while my review head is held: repair A makes plan
+  consumption an idempotent re-evaluation inside the existing 1-second sweep (non-terminal +
+  `switchDeclined === true` only), reusing the guard's epoch and the bridge's `ALREADY_TRANSFERRED`/`REFUSED`
+  branches; repair B gives the reservation a bounded expiry and reclaim path with debounce.
+- **Disposition is not mine to take.** My review records the defect as OPEN with a designed repair; whether to
+  apply it now (which moves the head and requires re-verification) or accept UXI-391 with this residual is the
+  author's and the Owner's call.
+
+No gate in the workbook's twelve asks whether a decline that cannot be honoured at that instant is ever
+revisited, which is why this is recorded here rather than scored.
 
 ## Corrections to my own record made during this review
 
