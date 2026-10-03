@@ -3,7 +3,7 @@ workbook_id: MESH-301
 phase: THREE_END_MESH_RUNTIME
 sequence: 301
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 activation_basis: "ACTIVATED ON THE OWNER'S DIRECT INSTRUCTION, GIVEN TO THE MECH HOST ON 2026-10-03: join the multi-end interconnection task described by MESH-301, with this host joining the network under the default name Mech-Win, and do not stop before the task is complete. The workbook itself sanctions this route - it states the Owner may approve by changing these two fields or by instructing the drafter to change them - and the Owner's instruction entails activation because the field had to become claimable for the work to start at all. THE TWO FIELDS WERE CHANGED BY THE MECH HOST ON THAT INSTRUCTION, not by the drafter, and the drafter had separately offered to make the same change on a direct instruction; recorded here verbatim so the basis is auditable rather than assumed. WHAT IS STILL NOT DECIDED AND IS THE OWNER'S: how the pairing/bearer token reaches the Mech host, which MESH-301 step 2 requires to stay out of reports, screenshots and Git, so the drafter cannot put it in the control plane. Until that is chosen the three endpoints cannot share one canonical City, and no three-end result will be claimed."
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
@@ -26,6 +26,10 @@ owner_gate: NONE
 merge_authority: true
 report_path: mission-book/reports/MESH-301
 terminal_marker: THREE_END_MESH_E2E_ACCEPTED
+merge_sha: 9f3e20e8ec99d591812430bee71d27e68c4ad498
+merge_ci: "37100005428 COMPLETED SUCCESS on exactly 9f3e20e8ec99d591812430bee71d27e68c4ad498 (jobs gateway-web + android) - the merged-main CI that gate 12 requires"
+terminal_marker_recorded: "THREE_END_MESH_E2E_ACCEPTED recorded by Mech on 2026-10-03T05:33Z, after the Formal Review PASS at head ed0bf64, the merge into main and the green merged-main CI"
+post_completion_reentry: "reports/MESH-301/POST_COMPLETION_REENTRY.md - a full mission-book scan classified GLOBAL_EXTERNAL_BLOCK per section 5.3, and deliberately NOT POOL_TERMINAL: claimable_now is 0 development and 0 review, and the remaining items (UI-190 final visual preview, UXI-390 final visual acceptance, XX-000 not started with execution_enabled false) are OWNER decisions rather than work any host could honestly claim."
 design_audit: REVISED_2026-10-03
 draft_author: Alien
 draft_basis: "OWNER_INSTRUCTION_THREE_END_TEST.md (Owner's direct instruction, 2026-10-03) and the measured state of UXI-301/390/391"
