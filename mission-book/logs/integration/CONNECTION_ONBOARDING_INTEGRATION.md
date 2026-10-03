@@ -1,69 +1,49 @@
-# 阶段集成日志 — connection-onboarding（分批合并）
+# 闃舵闆嗘垚鏃ュ織 鈥?connection-onboarding锛堝垎鎵瑰悎骞讹級
 
-> **Owner 裁决（记录在案）：本阶段集成由 Owner 直接指认，豁免创建 final integration / merge workbook。**
-> `mission-book/connection-onboarding/README.md` 第 5 节要求"三个 JOIN 全部 opposite-host review 完成后才能创建
-> 集成工作书"。Owner 于 2026-10-03 直接指示"集成，直接合并到 main"并明确"**不需要工作书**"，
-> 因此本次以 **Owner 指认豁免**（Owner-directed exemption）跳过集成工作书，改由本日志承担登记职责。
-> 这是**豁免**而非"规则已满足后省略"：规则原文要求的工件没有被创建，此处如实写明，避免日后被读成"按 §5 正常走完"。
+> **Owner 瑁佸喅锛堣褰曞湪妗堬級锛氭湰闃舵闆嗘垚鐢?Owner 鐩存帴鎸囪锛岃眮鍏嶅垱寤?final integration / merge workbook銆?*
+> `mission-book/connection-onboarding/README.md` 绗?5 鑺傝姹?涓変釜 JOIN 鍏ㄩ儴 opposite-host review 瀹屾垚鍚庢墠鑳藉垱寤?> 闆嗘垚宸ヤ綔涔?銆侽wner 浜?2026-10-03 鐩存帴鎸囩ず"闆嗘垚锛岀洿鎺ュ悎骞跺埌 main"骞舵槑纭?**涓嶉渶瑕佸伐浣滀功**"锛?> 鍥犳鏈浠?**Owner 鎸囪璞佸厤**锛圤wner-directed exemption锛夎烦杩囬泦鎴愬伐浣滀功锛屾敼鐢辨湰鏃ュ織鎵挎媴鐧昏鑱岃矗銆?> 杩欐槸**璞佸厤**鑰岄潪"瑙勫垯宸叉弧瓒冲悗鐪佺暐"锛氳鍒欏師鏂囪姹傜殑宸ヤ欢娌℃湁琚垱寤猴紝姝ゅ濡傚疄鍐欐槑锛岄伩鍏嶆棩鍚庤璇绘垚"鎸?搂5 姝ｅ父璧板畬"銆?
+## 1. 鍒嗘壒鍚堝苟鐨勪緷鎹笌缁撴灉
 
-## 1. 分批合并的依据与结果
-
-三个分支的 exact-head CI 全部 SUCCESS：
-
+涓変釜鍒嗘敮鐨?exact-head CI 鍏ㄩ儴 SUCCESS锛?
 ```text
 join/JOIN-501 @ e925ae1   CI 37116491572 SUCCESS
 join/JOIN-502 @ 86deda9   CI 37119234473 SUCCESS
 join/JOIN-503 @ 77f7f2a   CI 37120646153 SUCCESS
 ```
 
-顺序按**分支血缘**确定，不按偏好：JOIN-503 是从 JOIN-501 的 head 分出的，因此 `501 → 503` 可无冲突组合。
-
-### 第一批（已并入 main，已推送）
+椤哄簭鎸?*鍒嗘敮琛€缂?*纭畾锛屼笉鎸夊亸濂斤細JOIN-503 鏄粠 JOIN-501 鐨?head 鍒嗗嚭鐨勶紝鍥犳 `501 鈫?503` 鍙棤鍐茬獊缁勫悎銆?
+### 绗竴鎵癸紙宸插苟鍏?main锛屽凡鎺ㄩ€侊級
 
 ```text
 merge 5d67976  JOIN-501
 merge 967a959  JOIN-503
 main = 967a9597fb9d1c0f1fc78886e4bde6e4f3d24dbf
-冲突 0
-集成后全量测试 1085 tests / 1085 pass / 0 fail
-check-bilingual：docs / evidence / data-records 三个 PAIR_STATUS = SYNCHRONIZED
-hosted CI：City linkage check 37124791081 SUCCESS；V0.2 checks 37124791099 见 §3
+鍐茬獊 0
+闆嗘垚鍚庡叏閲忔祴璇?1085 tests / 1085 pass / 0 fail
+check-bilingual锛歞ocs / evidence / data-records 涓変釜 PAIR_STATUS = SYNCHRONIZED
+hosted CI锛欳ity linkage check 37124791081 SUCCESS锛沄0.2 checks 37124791099 瑙?搂3
 ```
 
-### 第二批（JOIN-502，**未并入 main**）
-
-`main` 的当前状态**不包含** JOIN-502。JOIN-502 保留在独立集成分支上继续收口：
-
+### 绗簩鎵癸紙JOIN-502锛?*鏈苟鍏?main**锛?
+`main` 鐨勫綋鍓嶇姸鎬?*涓嶅寘鍚?* JOIN-502銆侸OIN-502 淇濈暀鍦ㄧ嫭绔嬮泦鎴愬垎鏀笂缁х画鏀跺彛锛?
 ```text
 branch integration/join-502-nearby
-906df7e  union 解冲突 + 删除旧定义
-d419004  删除第二段鉴权前置
-```
+906df7e  union 瑙ｅ啿绐?+ 鍒犻櫎鏃у畾涔?d419004  鍒犻櫎绗簩娈甸壌鏉冨墠缃?```
 
-## 2. 冲突与"标记之外"的偏差（本次集成最关键的一条经验）
+## 2. 鍐茬獊涓?鏍囪涔嬪"鐨勫亸宸紙鏈闆嗘垚鏈€鍏抽敭鐨勪竴鏉＄粡楠岋級
 
-文本层面的 union 只解决**冲突标记内**的分歧；两个分支长期分叉后，真正的偏差在**标记之外**。本次连续三层都属此类：
+鏂囨湰灞傞潰鐨?union 鍙В鍐?*鍐茬獊鏍囪鍐?*鐨勫垎姝э紱涓や釜鍒嗘敮闀挎湡鍒嗗弶鍚庯紝鐪熸鐨勫亸宸湪**鏍囪涔嬪**銆傛湰娆¤繛缁笁灞傞兘灞炴绫伙細
 
-| 层 | 现象 | 状态 |
+| 灞?| 鐜拌薄 | 鐘舵€?|
 |---|---|---|
-| 1 | union 只保留了 `deviceClock`，丢了 `nearbyTimeoutMs` → 每个 JOIN-502 测试都死于**请求时** `ReferenceError`（加载期检查抓不到） | 已修 |
-| 2 | union 保留了**两段鉴权前置**，靠前的那段先执行 → 所有 join 路由返回 **401**，而路由后面的实现是正确的 | 已修 |
-| 3 | 集成后的 snapshot 调用 `join.snapshot()`，而合入的 `join.mjs` **不提供该方法** → join 列表为 `undefined`，JOIN-502 网关套件因此报 `Cannot read properties of undefined` | **未修** |
+| 1 | union 鍙繚鐣欎簡 `deviceClock`锛屼涪浜?`nearbyTimeoutMs` 鈫?姣忎釜 JOIN-502 娴嬭瘯閮芥浜?*璇锋眰鏃?* `ReferenceError`锛堝姞杞芥湡妫€鏌ユ姄涓嶅埌锛?| 宸蹭慨 |
+| 2 | union 淇濈暀浜?*涓ゆ閴存潈鍓嶇疆**锛岄潬鍓嶇殑閭ｆ鍏堟墽琛?鈫?鎵€鏈?join 璺敱杩斿洖 **401**锛岃€岃矾鐢卞悗闈㈢殑瀹炵幇鏄纭殑 | 宸蹭慨 |
+| 3 | 闆嗘垚鍚庣殑 snapshot 璋冪敤 `join.snapshot()`锛岃€屽悎鍏ョ殑 `join.mjs` **涓嶆彁渚涜鏂规硶** 鈫?join 鍒楄〃涓?`undefined`锛孞OIN-502 缃戝叧濂椾欢鍥犳鎶?`Cannot read properties of undefined` | **鏈慨** |
 
-第 3 层是**语义**差异（方法不存在），不是文本差异，需要把 JOIN-502 的 `join.mjs` 与 main 上 JOIN-501/503 之后的
-`render()`、启动路径、事件分发逐函数比对，判断是"补一个方法"还是"改用新契约"。这正是 §11 要求"冲突按显式
-union/superset 处理"的真实工作量所在。
+绗?3 灞傛槸**璇箟**宸紓锛堟柟娉曚笉瀛樺湪锛夛紝涓嶆槸鏂囨湰宸紓锛岄渶瑕佹妸 JOIN-502 鐨?`join.mjs` 涓?main 涓?JOIN-501/503 涔嬪悗鐨?`render()`銆佸惎鍔ㄨ矾寰勩€佷簨浠跺垎鍙戦€愬嚱鏁版瘮瀵癸紝鍒ゆ柇鏄?琛ヤ竴涓柟娉?杩樻槸"鏀圭敤鏂板绾?銆傝繖姝ｆ槸 搂11 瑕佹眰"鍐茬獊鎸夋樉寮?union/superset 澶勭悊"鐨勭湡瀹炲伐浣滈噺鎵€鍦ㄣ€?
+## 3. CI 涓庢畫浣欓棬妲?
+- 绗竴鎵?main 鐨?V0.2 checks 宸茶Е鍙戯紙run 瑙?搂1锛夛紱**闇€鍦ㄦ帹閫佸悗鎸夊叾 terminal 鐘舵€佸洖濉?*锛屾湭缁挎椂涓嶅緱瀹ｇО
+  "merge 鍚庨獙鏀堕€氳繃"銆?- 绗簩鎵规湭鍚堝苟锛屽洜姝?*涓嶄骇鐢?merged-main CI**锛汮OIN-502 浠嶅浜?宸插鏍镐絾鏈泦鎴?鐨勭姸鎬併€?- 涓変釜宸ヤ綔涔︾殑 `merge_authority` 鍧囦负 false锛屾湰娆″悎骞舵槸 Owner 鎺堟潈鐨勯泦鎴愬姩浣滐紝**涓嶆敼鍙樺伐浣滀功鑷韩鐨勫瓧娈佃涔?*銆?
+## 4. 涓嬩竴姝ワ紙鍙洿鎺ョ収鍋氾級
 
-## 3. CI 与残余门槛
-
-- 第一批 main 的 V0.2 checks 已触发（run 见 §1）；**需在推送后按其 terminal 状态回填**，未绿时不得宣称
-  "merge 后验收通过"。
-- 第二批未合并，因此**不产生 merged-main CI**；JOIN-502 仍处于"已复核但未集成"的状态。
-- 三个工作书的 `merge_authority` 均为 false，本次合并是 Owner 授权的集成动作，**不改变工作书自身的字段语义**。
-
-## 4. 下一步（可直接照做）
-
-1. 修第 3 层：比对 `services/dev-gateway/join.mjs` 与 `join502` 分支上的同名文件，确定 `snapshot()` 是缺失还是改名。
-2. 逐函数比对 `apps/web/app.js` 的 `render()` / 启动路径 / 事件分发（JOIN-502 的入城面假定"首屏即入城"，
-   在 JOIN-501 的 lifecycle 与 JOIN-503 的会话引导进入后已不成立）。
-3. 全量 1104 项 + `check:docs` 通过后，把 `integration/join-502-nearby` 合入 main，并在**精确 merge commit** 上验证 CI。
+1. 淇 3 灞傦細姣斿 `services/dev-gateway/join.mjs` 涓?`join502` 鍒嗘敮涓婄殑鍚屽悕鏂囦欢锛岀‘瀹?`snapshot()` 鏄己澶辫繕鏄敼鍚嶃€?2. 閫愬嚱鏁版瘮瀵?`apps/web/app.js` 鐨?`render()` / 鍚姩璺緞 / 浜嬩欢鍒嗗彂锛圝OIN-502 鐨勫叆鍩庨潰鍋囧畾"棣栧睆鍗冲叆鍩?锛?   鍦?JOIN-501 鐨?lifecycle 涓?JOIN-503 鐨勪細璇濆紩瀵艰繘鍏ュ悗宸蹭笉鎴愮珛锛夈€?3. 鍏ㄩ噺 1104 椤?+ `check:docs` 閫氳繃鍚庯紝鎶?`integration/join-502-nearby` 鍚堝叆 main锛屽苟鍦?*绮剧‘ merge commit** 涓婇獙璇?CI銆

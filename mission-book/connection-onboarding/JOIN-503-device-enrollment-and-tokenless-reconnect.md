@@ -1,4 +1,4 @@
-﻿---
+---
 workbook_id: JOIN-503
 phase: CONNECTION_ONBOARDING
 sequence: 503
