@@ -3,7 +3,7 @@ workbook_id: UXI-391
 phase: UI_SCHEDULER_CLOSEOUT_REPAIR
 sequence: 391
 execution_enabled: true
-status: REVIEW_COMPLETE
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["UXI-390"]
