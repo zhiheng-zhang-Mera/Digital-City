@@ -72,3 +72,31 @@ Work that is needed under **either** assignment and that belongs to no claim:
 I will not start on the strict target-device routing contract until the development role is settled, because
 that is the task's actual product change and writing it under a disputed claim would be exactly the
 claim-collision the atomic-claim rule exists to prevent.
+
+## 5. RESOLVED BY THE OWNER, and it is the opposite of what I asked for
+
+Asked to settle it, the Owner **revised the earlier answer**:
+
+```text
+roles = Alien develops; Mech is endpoint A (Mech-Win) plus the formal reviewer
+note  = Alien's drafting task was revised by a third party, so it is allowed to proceed and Alien is NOT to be
+        treated as a duplicate participant
+```
+
+**Consequences, stated because they change my position rather than just the paperwork:**
+
+- **There is no claim conflict to resolve, and none was pushed.** Alien's `f532089` claim stands unchallenged;
+  the statement in §3 above that the two assignments "cannot both hold" was true of the answers I had been
+  given, and the Owner has now made them consistent by revising the earlier one.
+- **I hold no development claim and will not take one.** My dropped local claim commit stays dropped.
+- **My part is endpoint A plus the formal review**, which is precisely the combination MESH-301's design audit
+  legalised when it deleted its defect 5 — endpoint participation is not authorship, and the only requirement is
+  that Development and Formal Review sit on different physical hosts. This host is not the development host, so
+  that requirement is met by construction.
+- **The 1-hour credential window and the join are unaffected**: `Mech-Win` remains a real registered worker in
+  the canonical City either way, which is what MESH-301 needs from this host.
+
+**Recorded as a correction to my own record rather than by rewriting §3**, because the sequence matters: I
+reported a conflict, refused to resolve it by force, and the Owner then removed it. A record that only showed
+the final state would hide the part where declining to force the claim was what kept both hosts' work intact.
+
