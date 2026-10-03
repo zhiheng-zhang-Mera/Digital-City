@@ -233,3 +233,37 @@ Gate 10 stays PAUSED until D-R1 is repaired and verified. On the repaired head I
 things and no more (§8 minimal repair, no re-review theatre): the D-R1 reproduction, that gates 1-9 still hold on
 the new sha by re-running the five instruments, and that the new sha has its own green hosted CI. If all three
 hold, gate 10 becomes PASS, `review_complete` becomes true, and gates 12-14 proceed.
+
+## 8. Addendum — the Android staleness repair, attacked rather than read
+
+The freeze record asks the reviewer to attack this specifically, because *"a surface that lies by omission is
+exactly what the workbook forbids"*. Attacked, and it holds:
+
+```text
+DECLARED GAP        gap 436..470
+CANONICAL TRUTH     exactly 35 events in 436..470
+THE SURFACE SAW     0 of those 35          (it observed 433,434,435 then 471,472,473)
+=> the gap's boundaries are EXACT on both sides: it neither over-claims (nothing outside was missed) nor
+   under-claims (nothing inside was hidden)
+
+PROMPTNESS          last event before the gap: seq 436 at 03:32:25.925Z; the surface went `stale` at
+                    03:32:26.588Z - 0.66 s later, so no long silence was relabelled as a gap
+RE-CONVERGENCE      `resync` maxSeq=471 at 03:32:34.235Z, i.e. it re-read the SERVER's own maximum, and 471 is
+                    the first seq it then observed. It did not resume from its own last-seen seq.
+SINGLE SURRENDER    `dropSocket()` is the one place the socket is surrendered, and it does the four things in
+                    the right order: socket=null, socketOnline=false, wasDown=true, `stale`, then cancel(). The
+                    code comment records the defect it replaced (the field was nulled FIRST, so the `onFailure`
+                    guard compared against null and discarded the callback - silently stale), and the receipt
+                    above is the proof that the callback now survives.
+GAP SELF-DECLARATION on any message with seq > lastObservedSeq + 1 it logs the gap with exact bounds; that is
+                    where 436..470 came from, and it is why window 1's `MISSING x8` became window 2's
+                    `GAP_DECLARED`.
+GENERATION BINDING  the resync is stamped only when `generationAtFetch == openGeneration`, so a refresh that
+                    began before the socket reopened cannot stamp a pre-reconnection snapshot as the
+                    re-convergence. Verified by reading the head's Kotlin, not by taking the comment's word.
+```
+
+One inconsistency with the code's own comment, recorded because it is the kind of thing that gets rounded off
+later: the comment says *"measured: 8 such seqs straddling the stale record"*, while the receipt's declared gap is
+**35 seqs**. Both can be true of different measurements, and the receipt is the one that matters here, so this is
+a note and not a defect.
