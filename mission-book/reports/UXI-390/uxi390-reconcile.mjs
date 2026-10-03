@@ -25,7 +25,7 @@
  * first prototyped and is NOT where it lives, so a reader following the header would have got ENOENT.
  */
 import {execFileSync} from 'node:child_process';
-import {existsSync, readFileSync} from 'node:fs';
+import {existsSync, readFileSync, readdirSync} from 'node:fs';
 import {join} from 'node:path';
 
 const args = process.argv.slice(2);
@@ -35,14 +35,30 @@ const argOf = (name, fallback) => {
 };
 const MB = argOf('--mission-book', 'D:/A-utopia/.mission-book');
 const UTOPIA = argOf('--utopia', 'D:/A-utopia');
-const WORKBOOK = join(MB, 'mission-book/ui-integration/UXI-390-双机最终产品验收与收口.md');
-const BRANCH = 'uxi/UXI-390-final-product-acceptance';
+const WANT = argOf('--workbook', 'UXI-390');
+// Locate the workbook by its workbook_id rather than by its (CJK) filename, so one instrument serves every
+// task instead of being copied per task. The regex is built by concatenation on purpose: nested template
+// literals are what broke the first attempt at deriving this file, and the escaping is not worth the risk.
+const findWorkbook = (dir) => {
+  for (const e of readdirSync(dir, {withFileTypes: true})) {
+    if (e.name === '.git' || e.name === 'node_modules') continue;
+    const p = join(dir, e.name);
+    if (e.isDirectory()) { const hit = findWorkbook(p); if (hit) return hit; }
+    else if (e.name.endsWith('.md')) {
+      const t = readFileSync(p, 'utf8');
+      if (new RegExp('^workbook_id:\\s*' + WANT + '\\s*$', 'm').test(t)) return p;
+    }
+  }
+  return null;
+};
+const WORKBOOK = findWorkbook(join(MB, 'mission-book'));
+if (!WORKBOOK) throw new Error('no workbook with workbook_id ' + WANT + ' under ' + MB + '/mission-book');
 
 const git = (cwd, ...a) => execFileSync('git', a, {cwd, encoding: 'utf8'}).trim();
 const results = [];
 const check = (id, ok, detail) => { results.push({id, ok, detail}); console.log(`  [${ok ? 'PASS' : 'FAIL'}] ${id}${detail ? ' - ' + detail : ''}`); };
 
-console.log('=== UXI-390 §7 reconciliation ===\n');
+console.log(`=== ${WANT} §7 reconciliation ===\n`);
 if (!existsSync(WORKBOOK)) throw new Error(`workbook not found at ${WORKBOOK}`);
 const raw = readFileSync(WORKBOOK);
 check('the workbook parses as frontmatter at all (no BOM before the opening ---)',
@@ -50,6 +66,8 @@ check('the workbook parses as frontmatter at all (no BOM before the opening ---)
   raw[0] === 0xef ? 'a BOM means a strict parser sees NO frontmatter block' : 'no BOM');
 const text = raw.toString('utf8').replace(/^\uFEFF/, '');
 const field = (name) => (new RegExp(`^${name}:\\s*(.+)$`, 'm').exec(text)?.[1] ?? '').trim();
+// Read from the workbook, so the instrument can never check a different branch than the record names.
+const BRANCH = field('development_branch');
 
 // The repository under test, taken from the WORKBOOK rather than inferred from the working directory.
 // Alien found this the hard way: without --repo, gh resolves the repository from the process cwd, so the
@@ -147,10 +165,13 @@ if (reportPath) {
 // which is the RS-203 lesson that a review host cannot open it.
 const tree = git(UTOPIA, 'ls-tree', '-r', '--name-only', actualHead);
 const tracked = tree.split('\n');
-const published = tracked.filter((f) => f.startsWith('evidence/raw/mission-book/UXI-390/'));
+// Scoped to THIS task's own path. It used to be hardcoded to UXI-390, which meant that run for another task
+// it counted UXI-390's evidence and reported PASS - a false pass scoped to the wrong artefact, which is the
+// wrong-tree failure one level down and the exact reason this instrument exists.
+const published = tracked.filter((f) => f.startsWith(`evidence/raw/mission-book/${WANT}/`));
 check('the task published evidence OUTSIDE .runtime, so a review host can open it',
   published.length > 0,
-  published.length ? `${published.length} file(s), e.g. ${published[0]}` : 'NOTHING under evidence/raw/mission-book/UXI-390 on the branch');
+  published.length ? `${published.length} file(s), e.g. ${published[0]}` : `NOTHING under evidence/raw/mission-book/${WANT} on the branch`);
 
 // Evidence that exists ONLY in the gitignored runtime directory is unopenable by a reviewer, so say so
 // explicitly rather than leaving it to be inferred from a missing directory.
