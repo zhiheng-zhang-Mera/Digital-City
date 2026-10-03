@@ -1,0 +1,133 @@
+{
+  "head": "269aa969a285b78283ed6f7bd3b0cf432cfdcbd9",
+  "liveVector": {
+    "memory": 0.5715031864334393
+  },
+  "livePressure": {
+    "pressure": 0.5715031864334393,
+    "mean": 0.5715031864334393,
+    "binding_dimension": "memory",
+    "known": true,
+    "observed": [
+      "memory"
+    ],
+    "missing": [
+      "cpu",
+      "gpu",
+      "io",
+      "network"
+    ],
+    "partial": true,
+    "detail": "pressure 0.5715 binding on memory; unobserved: cpu, gpu, io, network"
+  },
+  "loadDimensions": [
+    "cpu",
+    "memory",
+    "gpu",
+    "io",
+    "network"
+  ],
+  "results": [
+    {
+      "name": "a 0% cpu reading is ACCEPTED as an observed zero, not discarded as falsy",
+      "ok": true,
+      "detail": "{\"cpu\":0}"
+    },
+    {
+      "name": "a 100% cpu reading is ACCEPTED (upper boundary inclusive)",
+      "ok": true,
+      "detail": "{\"cpu\":1}"
+    },
+    {
+      "name": "101% is REFUSED rather than clamped or trusted",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "name": "a negative cpu reading is REFUSED",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "name": "a STRING cpu reading is REFUSED (not coerced)",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "name": "memory with totalBytes 0 is REFUSED rather than dividing by zero",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "name": "memory with used > total is REFUSED",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "name": "a telemetry that reports ONLY gpu yields NO vector - nothing is invented from a dimension the node never sends",
+      "ok": true,
+      "detail": "null"
+    },
+    {
+      "name": "real-shaped telemetry yields EXACTLY cpu+memory and NOT gpu/io/network (partial, never zero-filled)",
+      "ok": true,
+      "detail": "{\"cpu\":0.5,\"memory\":0.25}"
+    },
+    {
+      "name": "a single observed dimension is KNOWN, because the policy minimum is 1",
+      "ok": true,
+      "detail": "known=true pressure=0.9"
+    },
+    {
+      "name": "the unobserved dimensions are NAMED rather than silently zeroed",
+      "ok": true,
+      "detail": "observed=[\"cpu\"] missing=[\"memory\",\"gpu\",\"io\",\"network\"]"
+    },
+    {
+      "name": "the vector is explicitly marked PARTIAL so no caller can mistake it for a full reading",
+      "ok": true,
+      "detail": "partial=true detail=pressure 0.9000 binding on cpu; unobserved: memory, gpu, io, network"
+    },
+    {
+      "name": "a saturated dimension BINDS: idle dimensions do not dilute it away",
+      "ok": true,
+      "detail": "binding=cpu pressure=0.9 mean=0.220"
+    },
+    {
+      "name": "an EMPTY vector is UNKNOWN, not idle - \"we have no idea\" is distinguishable from \"free\"",
+      "ok": true,
+      "detail": "known=false pressure=null missing=5/5"
+    },
+    {
+      "name": "the fleet really has FIVE load dimensions",
+      "ok": true,
+      "detail": "[\"cpu\",\"memory\",\"gpu\",\"io\",\"network\"]"
+    },
+    {
+      "name": "a REAL node reporting real telemetry yields a load vector",
+      "ok": true,
+      "detail": "{\"memory\":0.5715031864334393}"
+    },
+    {
+      "name": "the LIVE vector carries at least one REAL dimension and NONE of the three the node never sends",
+      "ok": true,
+      "detail": "{\"memory\":0.5715031864334393}"
+    },
+    {
+      "name": "every dimension present in the LIVE vector came from telemetry the node actually reported",
+      "ok": true,
+      "detail": "{\"memory\":0.5715031864334393}"
+    },
+    {
+      "name": "the LIVE vector is judged by the fleet with the unobserved dimensions named",
+      "ok": true,
+      "detail": "known=true partial=true observed=[\"memory\"] missing=[\"cpu\",\"gpu\",\"io\",\"network\"]"
+    },
+    {
+      "name": "the LIVE judgement never claims a full five-dimension reading",
+      "ok": true,
+      "detail": "observed 1 of 5"
+    }
+  ],
+  "finishedAt": "2026-10-03T01:41:30.979Z"
+}
