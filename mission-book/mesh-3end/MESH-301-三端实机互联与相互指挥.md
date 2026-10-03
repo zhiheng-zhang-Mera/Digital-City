@@ -19,7 +19,8 @@ review_complete: false
 owner_gate: OWNER_APPROVAL_TO_ACTIVATE
 merge_authority: true
 report_path: mission-book/reports/MESH-301
-terminal_marker: THREE_END_MESH_RUNNING
+terminal_marker: THREE_END_MESH_E2E_ACCEPTED
+design_audit: REVISED_2026-10-03
 draft_author: Alien
 draft_basis: "OWNER_INSTRUCTION_THREE_END_TEST.md (Owner's direct instruction, 2026-10-03) and the measured state of UXI-301/390/391"
 ---
@@ -33,6 +34,8 @@ draft_basis: "OWNER_INSTRUCTION_THREE_END_TEST.md (Owner's direct instruction, 2
 > **本文件是 Owner 授权 Alien 起草的草案（§12：任务创建属 Owner）。** `execution_enabled: false` 且
 > `status: DRAFT_PENDING_OWNER_APPROVAL`，因此**当前不可领取**。Owner 批准（可直接改这两个字段，或指示我改）
 > 之后才进入正常 claim 流程。
+>
+> **2026-10-03 设计审计修正：** Android 在当前代码里是 control client，不是 worker node；用户创建/定向任务与 RS presentation 的 `ALLOWED_ACTIONS` 是两套语义；三端同步按服务器 event `seq` 做 bounded convergence，而不是要求本地时钟“同一时刻强一致”。以下正文已按这三个事实修正。
 
 ## 目标
 
@@ -50,26 +53,44 @@ Owner 的三条硬性要求：
 2. **任意一台主机可以对其他主机下达指令 / 向中心进行任务汇报**；
 3. **所有设备都能实时同步知道别的设备在做什么**。
 
-## 已确认背景 / 当前真实代码（已实测，非假设）
+## 已确认背景 / 当前真实代码（2026-10-03 设计审计后）
 
-```text
-中心：一个 Gateway 即 City（节点注册/心跳/领取/汇报、任务状态、事件、presentation feed）
-  - 无中心即无相互指挥；三端必须连同一个 City，这是本任务的第一个真问题。
-已有通道：GET /api/v0/events + WebSocket /api/v0/events/stream（事件流，含 TASK_*/NODE_*/TASK_HANDOFF_*）
-  - Web 的 Activity 页与 Android 的 Activity 页已在渲染事件时间线；
-  - "别的设备在做什么" 的数据源已经存在，缺的是【三端同时订阅同一个 City 并把彼此呈现出来】的证据。
-跨机能力（UXI-391 已做实并双机验收）：
-  - 节点可在 LAN 上注册；跨机所有权转移 A→B 实测成功（同一 task id、epoch 递增、结果回到原 surface）；
-  - 本机 LAN = 172.31.3.110；Mech 主机按其 finding 自述为 172.31.12.151；
-  - 本机存在 node.exe 的入站 Allow 规则（TCP/UDP 任意端口），因此 LAN 入站不需要额外放行。
-Android 面现状：
-  - 真机 BICIPVNB5HS85H9T，实测可通过 adb reverse + 会话预置连上本机 Gateway，并能显示调度面板与完成结果；
-  - 但【动作】目前只有 CANCEL 接到后端；且 adb reverse 是 loopback 通道，不是三端共用的 LAN 连接。
-冻结约束（本任务不得绕过）：
-  - 冻结契约 contracts/rs-presentation-contract-v1 的 ALLOWED_ACTIONS = CANCEL / RETRY / KEEP_WAITING /
-    CHOOSE_PROVIDER / CONFIRM —— **没有"命令另一台主机"这类动作**；
-  - RS-290 冻结的调度语义、UI-190 冻结点、已 COMPLETE 的历史工作书均不得重开。
-```
+### 端点身份必须分层
+
+- Alien Windows 与 Mech Windows 是当前真实 execution worker nodes：走 node/register → heartbeat → claim → report。
+- Alien Web、Mech Web、Android app 是三个 control/observation clients。
+- Android 当前已经有 CityClient、snapshot、WebSocket event stream 和 safe task 创建能力，但没有 Android worker agent 的 claim/execute/report 路径。
+- 因此 MESH-301 v1 的真实拓扑是 **2 workers + 3 control clients + 1 canonical City**。不得让 Android 伪注册一个不会执行任务的 node。
+
+### Android 已经可以发出 City command
+
+`CityClient.createTask()` 当前直接 POST `/api/v0/tasks` 创建 `CHECKPOINT_DEMO`。所以 Android“能发命令”不需要扩展 RS presentation 的 `ALLOWED_ACTIONS`。
+
+`CANCEL / RETRY / KEEP_WAITING / CHOOSE_PROVIDER / CONFIRM` 只描述 scheduler surface 对既有任务的后续动作，不是所有用户命令的总动作表。
+
+### 当前真正缺口是 strict target-device intent
+
+现有 `/api/v0/tasks` 创建普通 QUEUED task；`node/claim` 由合格节点领取，没有“这条用户指令必须由 Alien 或 Mech 某一节点执行”的显式持久化意图。
+
+MESH-301 应增加最小 explicit target-device routing intent，而不是新增 scheduler action token。要求：
+
+- target 必须引用当前 City 已知 node identity；
+- target intent 必须进入 canonical task/action truth；
+- strict-target task 只能由目标节点领取；
+- target offline / unknown / ineligible 时明确等待或 typed refusal，不得 silent fallback；
+- 不得滥用 `providerRef` 或 `handoffTargetRef` 伪装定向命令；
+- user-level path 优先保留现有 Action/idempotency 语义；若低层 `/tasks` 必须扩展，也必须补重复提交边界。
+
+### 事件顺序已有 canonical seq
+
+City store 的 events 使用服务器端 AUTOINCREMENT `seq` 并带 event id。三端实时同步应以同一 server `seq` 的观察收敛为依据，而不是比较三台设备本地时钟截图。
+
+### UXI-391 已完成
+
+- Utopia accepted main：`ec12fd0831f31fd81aef9cd9dfb0c959d010f63b`；
+- recorded main CI：`37088960085` green；
+- `REMOTE_HANDOFF_CLOSEOUT_REPAIRED` 已完成；
+- 历史工作书已归档到 `mission-book/finished/completed-2026-10-03/`。
 
 ## 依赖与解锁条件
 
@@ -81,21 +102,24 @@ Android 面现状：
 
 ## 允许修改边界
 
-1. 三端**共用同一 City** 所需的最小配置与连通（含 Android 走 LAN 而非仅 adb reverse 的连通方式）；
-2. Android 面**发起指令**所需的最小接线——**但只能使用冻结契约中已存在的动作**，除非 Owner 明确裁决扩展契约；
-3. 主机→主机的**定向派发**所需的最小机制（在既有 planner 语义之上，不改写它）；
-4. 三端**实时同步**所需的最小接线：让 Web 与 Android 都订阅/消费同一事件流，并呈现"别的设备在做什么"；
-5. 三端运行所需的 harness、探针与证据（`mission-book/reports/MESH-301/**`、Utopia `evidence/raw/mission-book/MESH-301/**`）；
-6. 针对本任务新增的单元/集成/E2E/回归测试。
+1. 三个 control endpoints 指向同一个 canonical City 所需的最小连接配置；
+2. Web / Android 发起 strict-target safe task 的最小交互；
+3. City task / Action facade 保存 explicit target-device intent 所需的最小契约扩展；
+4. node claim 对 strict target 的最小 guard，同时保留普通未定向 task 的原有调度；
+5. Web / Android 对同一个 City event truth 的同步与 bounded-convergence probe；
+6. 三端 E2E harness、receipts、negative controls、tests/reports/evidence。
 
 ## 禁止修改边界
 
-- 不新增 AI provider、设备发现协议、权限模型或泛化 checkpoint 框架；
-- 不重写 RS-201/202/203/290 的冻结语义；不重开 UI-190 冻结点与任何已 COMPLETE 的历史工作书；
-- **不得由单一主机同时完成 Development 与独立 Review**（§3）；
-- 不得把"三端都在线"当成"三端互相可见"：**可见性必须有证据**（同一事件在三端上的观测一致性）；
-- 不得为了让测试通过而放宽 planner/guard 的既有拒绝语义（宁可失败并如实报告）；
-- 不得把缺失观测（例如未测量负载）伪造成 0 或"空闲"。
+- 不把 Android 伪造成 runtime worker node；
+- 不重开或重写已冻结 UI / RS / UXI 历史工作；
+- 不扩展 RS presentation `ALLOWED_ACTIONS` 来表达“创建/定向任务”；
+- 不复用 provider routing / handoff routing 字段来偷渡 strict user target；
+- 不新增 AI provider、公开互联网 relay、TLS 系统或新权限模型；
+- 不把 City authoritative truth 改成 peer-to-peer truth；
+- strict target 不可用时不得静默改派；
+- 不得把缓存或缺失事件伪造成实时一致；
+- Development 与 Formal Review 仍必须由不同实体主机完成。
 
 ## 任务特有施工步骤
 
@@ -103,27 +127,40 @@ Android 面现状：
 重读 Digital-City main、Utopia main 与其 hosted CI、UXI-391 收口状态、本工作书依赖项；记录 `development_baseline_sha`；
 记录三端约定的 City 地址与令牌；确认 `execution_enabled: true` 才开工。
 
-### Step 2 — 三端同 City 连通（先证明"连得上"，再谈指挥）
-1. 在本机起一个 City，绑定 **LAN 接口**（不是 loopback），并确认 Mech 主机与 Android 实机都能连上它；
-2. Android 侧优先**直连 LAN**（真机与主机同一网段），`adb reverse` 只作为退化方案并在报告中说明；
-3. 三端各自注册为**不同身份**（Mech 主机、`Alien-test`、Android 端），并断言 City 里同时可见三者；
-4. 记录每端的连接方式、地址、身份与证据。
+### Step 2 — 三个 control endpoints 指向同一个 City
 
-### Step 3 — 实时"看见彼此"（要求 3）
-1. 三端各自订阅同一个事件流；断言同一事件在三端被观测到，并记录三端观测到的事件序号/时间戳；
-2. 至少在两种状态下验证：任务在 A 端执行时 B/C 端可见；任务被交接后 B/C 端可见归属变化；
-3. **一致性断言**：同一时刻三端对"谁在执行什么"的陈述一致（不一致即失败，并如实记录）。
+1. Claim-time 实测 Gateway 的可达路径，不使用历史 IP 作为长期事实；
+2. Alien Web、Mech Web、Android 可以使用不同 transport，只要最终读取到同一个 `cityId`；
+3. 允许 trusted private LAN / routed private network / 已有 Remote Fabric 路径；Android `adb reverse` 也允许作为受控开发路径，只要连接的仍是同一个 canonical Gateway；
+4. pairing/bearer token 必须脱敏，不进入报告、截图或 Git；不得为测试把 Gateway 暴露到公共互联网；
+5. City 中只要求 Alien + Mech 两个 distinct worker nodes；Android 留在 control-client 身份。
 
-### Step 4 — Android 作为指令源（要求 1）
-1. 用**冻结契约中已存在的动作**从 Android 实机发起指令，并证明该指令**真的到达后端并改变系统状态**
-   （不是界面上的假动作——UXI-390 的教训：看起来能用、实际什么都没发生，比诚实的缺口更糟）；
-2. 若 Owner 要求"Android 能下达任意指令"，那需要扩展契约动作集——**这是 Owner 的裁决，不在本步骤默认范围内**；
-   草案在此显式标注该岔路，避免实施者擅自扩契约。
+### Step 3 — strict target-device routing
 
-### Step 5 — 主机→主机定向指令与汇报（要求 2）
-1. 允许在既有 planner 语义之上增加**最小定向机制**：一条指令可以指定目标节点；
-2. 定向失败必须诚实：目标不在线/不合格时保持非终态或明确失败，**不得伪造完成**；
-3. 另一端执行并向中心汇报，中心状态与事件流如实反映（沿用 UXI-391 已验证的节点领取/汇报链路）。
+增加一个明确的 target-node user intent，并证明：
+
+```text
+target=Alien → only Alien may claim
+target=Mech  → only Mech may claim
+target offline/unknown → no silent fallback
+duplicate user action → no accidental duplicate execution
+untargeted task → existing scheduler behavior unchanged
+```
+
+具体字段名由实现根据当前 Action/City-task contract 选择，但不得复用已有不同语义字段。
+
+### Step 4 — Android → Alien / Mech
+
+Android 实机分别发起 target=Alien 与 target=Mech 的 safe task。每个 case 必须证明：control input → canonical action/task → 正确节点 claim → RUNNING → report/result → terminal truth → 三个在线 control surfaces 最终观察到同一结果。
+
+### Step 5 — PC → PC 与实时 bounded convergence
+
+1. Alien control surface → Mech worker；
+2. Mech control surface → Alien worker；
+3. 选择 TASK_CREATED / TASK_STARTED / TASK_COMPLETED，以及 node offline/online 或 ownership change 中至少一个事件；
+4. 对每个 canonical server `seq` 记录 Alien / Mech / Android 的 observed-at 与 convergence latency；
+5. 默认要求每个在线 surface 在 server emit 后 5 秒内收敛；若 claim-time 客户端配置改变，可记录更严格的窗口并由 Review 独立复测；
+6. 离线端不要求离线期间实时更新，但必须显示 stale/offline，恢复后重新收敛到 canonical truth。
 
 ### Step 6 — 三端实机验收（另一实体主机参与）
 1. Development 释放后由**另一实体主机**独立复核，并与开发主机完成三端验收；
@@ -148,37 +185,47 @@ exact review-head CI 绿 → 合并 Utopia main → 验 main CI → 记录终态
 ## 测试 / 实机 / 视觉证据
 
 ```text
-- 三端连接与身份证据（City 内三者同时在线；节点名分别为 Mech 主机名 / Alien-test / Android 端名）
-- 事件一致性证据（同一事件在三端被观测；序号/时间戳并列）
-- Android 指令的端到端证据（指令 → 后端状态改变 → 事件 → 三端可见）
-- 主机→主机定向指令与汇报证据（目标端执行、中心状态、结果回流）
-- 负向控制（离线/重复/陈旧/无目标）
-- exact-head hosted CI 结论
-大体积原始证据留在 Utopia：evidence/raw/mission-book/MESH-301/**
+- 一个 canonical cityId 的三端连接 receipts
+- Alien + Mech 两个真实 worker node 身份
+- Android control-client receipt（不得伪装 worker）
+- Android -> Alien strict-target task E2E
+- Android -> Mech strict-target task E2E
+- Alien -> Mech 与 Mech -> Alien E2E
+- canonical event seq 在三端的 bounded-convergence 记录
+- negative controls: unknown/offline/duplicate/stale target
+- 普通未定向 task scheduler regression
+- exact-head hosted CI
 ```
+
+大体积原始证据继续留在 Utopia：`evidence/raw/mission-book/MESH-301/**`。
 
 ## 完成门槛
 
-1. 三端同时连接同一个 City，且身份可区分、可断言；
-2. 三端都能实时看到其他端在做什么，且有一致性证据；
-3. Android 实机能发起指令并真实改变系统状态（用既有动作；若需要新动作，须先有 Owner 裁决）；
-4. 任一主机可对其他主机下达指令 / 向中心汇报，且有端到端证据；
-5. 负向控制全部如实（不伪造完成、不静默丢弃意图）；
-6. 另一实体主机独立复核 PASS；
-7. exact review-head CI PASS；
-8. Utopia main 合并 + main CI PASS；
-9. 终态标记 `THREE_END_MESH_RUNNING` 已记录；
-10. 完成后自动回接扫描已生成记录。
+1. 三个真实 control endpoints 同时连接同一个 canonical City；
+2. Alien + Mech 是两个真实且不同的 worker nodes；
+3. Android 不伪装 worker node；
+4. Android 能 strict-target Alien 与 Mech 各执行一次 safe task；
+5. Alien 与 Mech 能互相 strict-target 发起 safe task；
+6. target unavailable / unknown / duplicate 等 negative controls fail-honest；
+7. 普通未定向 task 行为无回归；
+8. 三个在线 surface 对 canonical event seq 在 bounded window 内收敛；
+9. Android offline/reconnect 后能重新收敛；
+10. 另一实体主机 Formal Review PASS；
+11. exact review-head CI PASS；
+12. Utopia main merge + merged-main CI PASS；
+13. `THREE_END_MESH_E2E_ACCEPTED` 已记录；
+14. post-completion re-entry 已执行。
 
-## 需要 Owner 在批准时一并明确的两个岔路
+## 设计审计结论：原草案六个缺陷已修正
 
-```text
-岔路 1：Android"对两台主机下指令"是否必须突破冻结契约的 ALLOWED_ACTIONS？
-        若必须，需要 Owner 裁决契约扩展（属新产品能力），本工作书才会包含它；
-        若不必，则用既有动作完成，本工作书按其实现。
-岔路 2：Mech 主机在三端测试中的角色是【独立复核主机】还是【被测端点】？
-        §3 要求 Development 与 Review 不同主机；若 Mech 同时作为被测端点与复核主机，需要 Owner 明确其独立性如何保证。
-```
+1. **Android client / worker node 混淆**：改成 2 workers + 3 control clients。
+2. **把 scheduler ALLOWED_ACTIONS 当成所有用户命令**：删除该假岔路；定向任务是 routing intent。
+3. **“同一时刻三端一致”的假强一致**：改为 canonical server event `seq` + bounded convergence。
+4. **写死历史 LAN/IP**：改为 claim-time 测量 route；只要求同一个 cityId，不要求同一种 transport。
+5. **Mech 被测端点与 Reviewer 的假冲突**：删除该 Owner 岔路；端点参与不等于 authorship，只要求 Development 与 Formal Review 不同实体主机。
+6. **终态 `THREE_END_MESH_RUNNING` 语义过弱**：改为 `THREE_END_MESH_E2E_ACCEPTED`。
+
+因此现在剩下的 Owner gate 只有一件事：**是否激活 MESH-301 开工**。不再要求 Owner 对上述技术岔路做选择。
 
 ## Reports / Utopia evolution 记录
 
