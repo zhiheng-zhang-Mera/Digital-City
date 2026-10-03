@@ -7,11 +7,13 @@ status: READY
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: CLAIM_TIME_MAIN
 dependencies: ["REMOTE_FABRIC_MERGED_MAIN_CI_GREEN"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: join/JOIN-501-pairing-session-lifecycle
 development_head_sha: null
 development_ci: null
-development_complete: false
+development_baseline_sha: 13109b4c206feb3c1a9107b369715e84af65eaf1
+development_claimed_at: 2026-10-03T10:12:00Z
+development_claim_basis: "CLAIMED BY ALIEN AFTER A CLAIM-TIME RECONCILIATION. MEASURED AT CLAIM TIME, NOT INHERITED: (1) Digital-City main = c913f3d + the connection-onboarding programme commits, fetched immediately before this commit, and the three JOIN workbooks read execution_enabled: true / status: READY with development_host, review_host, development_complete and review_complete all empty - so no host held a claim and this claim cannot overwrite one; (2) the dependency REMOTE_FABRIC_MERGED_MAIN_CI_GREEN is satisfied - Remote Fabric RF-001..RF-010 is merged and archived (finished/completed-2026-10-01/remote/README.md); (3) the implementation baseline is Utopia main 13109b4c206feb3c1a9107b369715e84af65eaf1, read by git ls-remote rather than from a local ref, with hosted workflow 'V0.2 checks' run 37112596448 COMPLETED SUCCESS on exactly that sha (and 'City linkage check' run 37112596441 SUCCESS on the same sha), which is what baseline_policy CLAIM_TIME_MAIN requires; (4) the workbooks are explicitly parallelisable under README section 4 with 'no sibling merge', so JOIN-501 is claimed alone rather than scooping 502/503. WHY JOIN-501 FIRST: it is the only one of the three whose Owner rule (README section 3) is stated as a CORRECTION to behaviour that already ships, and JOIN-502/503 both depend on its semantics for 'nearby discovery must not secretly mint a short code' (JOIN-502 section 6) - so fixing the lifecycle first keeps the other two from building on the behaviour the Owner rejected. THE CLAIM IS ATOMIC IN THE RULE SENSE: this commit sets development_host, and if the push loses a race the claim is withdrawn rather than forced."
 review_host: null
 review_head_sha: null
 review_ci: null
