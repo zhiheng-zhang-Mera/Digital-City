@@ -18,6 +18,8 @@ review_ci: null
 review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: RESEARCH_RUN_DETAILS
+user_exposure_nesting: L4_TECHNICAL
+backend_wiring: TO_BE_VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
