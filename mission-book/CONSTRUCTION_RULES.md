@@ -98,7 +98,7 @@ GitHub 强制动作：
 
 - PR：.github/workflows/sync-mission-progress.yml 重新生成并检查；若生成结果与提交中的 README/JSON 不一致，PR check 失败；
 - main 直接更新：workflow 自动重新生成并只在有差异时提交 README + MISSION_PROGRESS.json；
-- workflow 自己生成的 README/JSON commit 不再次触发同步，避免 commit loop。
+- workflow 自己生成的 README/JSON commit 可以触发一次 no-op verification；若生成结果无差异则不再提交，因此不会形成 commit loop。
 
 ### Drift classification
 
