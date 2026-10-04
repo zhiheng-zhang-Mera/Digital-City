@@ -2,8 +2,8 @@
 workbook_id: MON-901
 phase: CITY_WORK_MONITOR
 sequence: 1
-execution_enabled: false
-status: PLANNED
+execution_enabled: true
+status: READY
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -43,7 +43,7 @@ monitor_observability_evidence: UNASSESSED
 monitor_observability_refs: []
 decision_trace_evidence: NOT_APPLICABLE
 decision_trace_refs: []
-owner_gate: OWNER_ACTIVATION_REQUIRED
+owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-901
 ---

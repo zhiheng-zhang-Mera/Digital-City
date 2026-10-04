@@ -1,8 +1,8 @@
 # City Work Monitor Dashboard / 全城工作监视器仪表盘
 
-> **状态：PLANNED / OWNER_ACTIVATION_REQUIRED**
+> **状态：ACTIVE / OWNER_ACTIVATED_2026-10-05**
 >
-> `execution_enabled=false`。本目录先固定架构、UI 信息层级、JEV 观察边界、Decision 语义与论文素材要求；未得到 Owner 显式启用前，不得被自动施工器 claim。
+> Owner 已于 2026-10-05 明确指示“启用monitor工作书”。`execution_enabled=true`；MON-901 可领取，后续工作书仍须等待其依赖的 accepted exact SHA。详见 reports/MON-901/OWNER_ACTIVATION.md。
 >
 > 常驻施工规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
 > 过程数据规则：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
@@ -238,7 +238,7 @@ DASHBOARD_BECOMES_SECOND_TASK_TRUTH
 
 | ID | 工作 | 状态 |
 |---|---|---|
-| [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | PLANNED |
+| [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | READY |
 | [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | WAITING_MON_901 |
 | [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | WAITING_MON_901 |
 | [MON-990](./MON-990-cross-device-monitor-acceptance-and-freeze.md) | Cross-device acceptance + reality reconciliation + freeze | WAITING_MON_902_903 |

@@ -2,7 +2,7 @@
 workbook_id: MON-903
 phase: CITY_WORK_MONITOR
 sequence: 3
-execution_enabled: false
+execution_enabled: true
 status: WAITING_DEPENDENCIES
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -43,7 +43,7 @@ monitor_observability_evidence: UNASSESSED
 monitor_observability_refs: []
 decision_trace_evidence: UNASSESSED
 decision_trace_refs: []
-owner_gate: OWNER_ACTIVATION_REQUIRED
+owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-903
 ---
