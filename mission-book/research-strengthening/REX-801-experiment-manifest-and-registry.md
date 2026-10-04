@@ -21,8 +21,8 @@ research_evidence_applicability: "APPLICABLE"
 long_horizon_context_evidence: "CAPTURED"
 research_evidence_refs: ["mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"]
 research_watchlist_hits: ["RS-G3-PASSIVE-EVIDENCE-PIPELINE"]
-highest_research_grade_observed: G4_RARE_SYSTEMIC
-research_capture_level: MAXIMUM_BOUNDED
+highest_research_grade_observed: G3_SPARSE_ACTIVE
+research_capture_level: PRIORITY
 state_identity_evidence: "CAPTURED"
 state_identity_evidence_refs: ["mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"]
 development_head_sha: null
