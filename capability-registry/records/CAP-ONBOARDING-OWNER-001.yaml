@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-ONBOARDING-OWNER-001",
+  "name": {
+    "zh_CN": "Android 城市邀请与入网审批",
+    "en": "Native City invitation and admission approval"
+  },
+  "source_workbooks": [
+    "CEX-704"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "apps/android/app/src/main/java/city/utopia/control/OwnerOnboarding.kt",
+      "apps/android/app/src/main/java/city/utopia/control/OwnerOnboardingPanel.kt",
+      "apps/android/app/src/main/java/city/utopia/control/CityClient.kt",
+      "services/dev-gateway/server.mjs"
+    ],
+    "symbols": [
+      "OwnerPairingMaterial",
+      "OwnerPairingLifecycle",
+      "OwnerOnboardingPanel",
+      "ownerOnboarding",
+      "generateOwnerPairing",
+      "decideJoin"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/pairing/info",
+      "POST /api/v0/pairing/session",
+      "GET /api/v0/join/requests",
+      "POST /api/v0/join/requests/:id/approve",
+      "POST /api/v0/join/requests/:id/reject",
+      "Android ACTION_SEND one-time invite"
+    ],
+    "last_verified_full_sha": "d05f5a455ff535e3e065b30ec9ec74bca2dbb521"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "City display name",
+      "temporary short code and QR",
+      "canonical incoming names and states",
+      "unavailable/error reason"
+    ],
+    "user_controls": [
+      "explicit generation",
+      "share one-time invitation",
+      "approve/reject incoming request",
+      "refresh"
+    ],
+    "intentionally_hidden_information": [
+      "durable credentials",
+      "temporary session secrets outside invitation material"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "ANDROID",
+      "location": "More > 配对 > connected City invitation/admission panel",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE with canonical status/permission",
+      "evidence_ref": "mission-book/reports/CEX-704/PAPER_MATERIAL_INDEX.md"
+    }
+  ],
+  "evidence": {
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/20"
+    ],
+    "backend_wiring_refs": [
+      "utopia:tests/cex704-native-owner.test.mjs",
+      "utopia:apps/android/app/src/test/java/city/utopia/control/OwnerOnboardingTest.kt"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/CEX-704/development-receipt.json"
+    ],
+    "intent_validation_refs": []
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/CEX-704/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "System share physical test NOT_RUN_AUTO_APPROVAL_REJECTED",
+    "Optical QR scan and physical second-device consume NOT_RUN",
+    "Different physical-host Formal Review pending",
+    "Hosted exact-head CI pending",
+    "Earlier full physical campaign APK SHA NOT_OBSERVABLE; final hash-bound smoke only",
+    "No full native locale parity or cross-region relay claim"
+  ],
+  "last_reconciled_by_workbook": "CEX-704"
+}

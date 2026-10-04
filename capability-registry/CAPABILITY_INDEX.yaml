@@ -71,3 +71,6 @@ records:
 
   - capability_id: CAP-SCHEDULER-CHOICE-001
     record_ref: records/CAP-SCHEDULER-CHOICE-001.yaml
+
+  - capability_id: CAP-ONBOARDING-OWNER-001
+    record_ref: records/CAP-ONBOARDING-OWNER-001.yaml
