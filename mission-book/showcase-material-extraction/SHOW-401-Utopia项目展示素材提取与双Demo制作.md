@@ -7,7 +7,13 @@ status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/Digital-City
 runtime_source_repo: zhiheng-zhang-Mera/utopia
 runtime_source_mode: READ_ONLY_NO_PRODUCT_CODE_WRITES
-baseline_policy: CURRENT_GREEN_MAIN_OR_ACCEPTED_FUNCTIONAL_BASELINE
+baseline_policy: IMMUTABLE_EXACT_SHA
+baseline_anchor_mode: EXACT_SHA_PER_RUN
+baseline_candidate_refs: ["refs/heads/main"]
+required_ancestor_shas: ["9f3e20e8ec99d591812430bee71d27e68c4ad498", "ec12fd0831f31fd81aef9cd9dfb0c959d010f63b"]
+runtime_baseline_sha: null
+capture_run_shas: []
+baseline_resolution_evidence: null
 dependencies: ["MESH-301", "UXI-391"]
 development_host: Alien
 development_branch: showcase/SHOW-401-alien-capture
@@ -228,12 +234,12 @@ Android physical control surface
 
 开始任何正式 take 前：
 
-1. 读取 City 自动生成的 Utopia live status；
+1. 读取 remote `refs/heads/main`，解析并记录本次 take 的 **full 40-character Utopia commit SHA**；branch 名只用于 discovery，不是证据；同时读取 City 自动生成的 Utopia live status 做交叉核对；
 2. 记录：
-   - current Utopia main SHA；
+   - current Utopia main full SHA（必须与 remote ref 解析一致）；
    - latest full CI status；
    - MESH-301 accepted functional baseline；
-3. 当前 main CI 如果红：
+3. 每个正式 take / capture run 必须把 exact runtime SHA 追加到 `capture_run_shas`/对应 report；不同 SHA 的镜头不得在结果表中被描述成同一次运行。当前 exact SHA 的 CI 如果红：
    - 先判断是否是产品相关；
    - 若是产品相关，停止受影响录制；
    - **不得在本工作书内修代码**；
