@@ -25,7 +25,7 @@ review_head_sha: null
 review_ci: null
 review_complete: false
 research_evidence_applicability: APPLICABLE
-research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-STRUCTURED-HANDOFF","RS-G3-DYNAMIC-LIVENESS","RS-G4-UNIFIED-CONTROL-PLANE","RS-G3-USER-REACHABLE-TERMINAL"]
+research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-STRUCTURED-HANDOFF","RS-G3-DYNAMIC-LIVENESS","RS-G3-RULE-LIFECYCLE-DEBT","RS-G3-SUPERVISION-ATTENTION","RS-G3-SEMANTIC-INTEGRATION","RS-G3-USER-REACHABLE-TERMINAL","RS-G4-UNIFIED-CONTROL-PLANE"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC
 research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
@@ -66,9 +66,14 @@ terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED
 - dynamic wake/re-scan classification vs naive stop/poll；
 - independent review/evidence reconciliation on/off；
 - Capability Registry-assisted localization vs repository-only exploration；
-- implementation-only terminal vs user-reachable/intent-validated terminal。
+- implementation-only terminal vs user-reachable/intent-validated terminal；
+- current rule set vs bounded older/reduced/superseded rule view（仅在可安全 replay 时）；
+- naive Owner escalation vs rule/evidence-resolved or batched escalation policy；
+- textual-merge-only acceptance vs semantic integration/reconciliation guard。
 
 这些是 replay capability，不要求 v1 一次实现所有实验；但 schema 不得把它们封死。
+
+其中 rule lifecycle / governance policy 的 replay 只允许使用已版本化规则快照，不允许为了实验修改当前生产规则；semantic integration replay 必须绑定 source accepted SHAs 与 integration SHA。
 
 ## 硬规则
 
