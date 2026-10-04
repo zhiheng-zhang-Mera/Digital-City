@@ -34,3 +34,5 @@
 - 原来对应动作的 NOT_RUN 仅在补测观察范围内更新；详情及原始 UI 哈希见 ../CEX-705/PHYSICAL_FOLLOWUP.json。同主机逻辑成员/计算广告不能充当双物理主机或 Android 算力执行证据。恢复原应用与私人连接，运行中 City 未变更。
 
 2026-10-05: City-neutral pairing lockout wording PR23 merged at d3262ce after exact-head attempt2 and PR checks success; attempt1 timeout retained with unresolved full-suite timing attribution. Main CI pending. CEX703 native catalog physical defect logged before repair; full-width title/short status/full reason fixed and OPPO selection remains no-task. Primary default/self-only demotion semantics unchanged; future user-appointed primary migration remains NOT_IMPLEMENTED, rename does not appoint an agent.
+
+Role boundary revalidated at exact pointfix sourcea7d6f2a9b97e02d5fd10adf3a73eafb4a5f3ef6e: host-member-role + city-members + city-members-ui 11/11 PASS. Observed controlled native production local Gateway/worker retirement and target PRIMARY preservation; restart keeps MEMBER/original City pointer. This is controlled integration evidence, not double-physical-host acceptance.
