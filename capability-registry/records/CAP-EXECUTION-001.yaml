@@ -25,7 +25,7 @@
       "POST /api/v0/node/report",
       "ExecutionBackendPort dispatch/control"
     ],
-    "last_verified_full_sha": "11e59e71a2aaf00a03bb95d1f6d6a9a600191dd0"
+    "last_verified_full_sha": "f66db60998343bf99243621cfcfa2363a4566db8"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -52,23 +52,26 @@
       "utopia:evidence/raw/mission-book/WBC-601/review-receipt.json"
     ],
     "intent_validation_refs": [
-      "mission-book/reports/WBC-601/REVIEW_FINDINGS.md"
+      "mission-book/reports/WBC-601/REVIEW_FINDINGS.md",
+      "mission-book/reports/WBC-601/REVIEW_REPORT.md"
     ],
     "ui_or_e2e_refs": [
       "utopia:.runtime/evidence/mission-book/WBC-601/independent-baseline-comparison.json"
+    ],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/16"
     ]
   },
   "research_observations": {
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_CORRECTION_CI",
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
       "mission-book/reports/WBC-601/REVIEW_FINDINGS.md"
     ]
   },
   "known_gaps": [
-    "Corrected exact-head CI pending",
-    "Original developerd65dbd3 failed independent dispatch negatives; source superseded only for review, developer identity preserved",
-    "Not merged; no Workbench worker pool implementation"
+    "Not merged; installed runtime/main not updated",
+    "No Workbench worker pool implementation"
   ],
   "last_reconciled_by_workbook": "WBC-601"
 }
