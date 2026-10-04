@@ -191,7 +191,7 @@ runtime/UI observed state
 - 如何确定 authority hierarchy；
 - stale but internally consistent control-plane state 是否比缺失状态更危险。
 
-### G4-E — User-Reachable Completion as a First-Class Agent Termination Condition
+### 原 G4-E — User-Reachable Completion as a First-Class Agent Termination Condition（**现降为 G3**）
 
 不是把 E2E 测试当普通 test，而是研究：
 
@@ -211,7 +211,7 @@ intent-validated terminal
 
 特别关注 Agent 是否在内部测试全绿时过早停止。
 
-### G4-F — Passive Development-to-Research Evidence Pipeline
+### 原 G4-F — Passive Development-to-Research Evidence Pipeline（**现降为 G3**）
 
 City 当前施工不是为了 benchmark 人工制造任务，而是在正常工程中持续记录：
 
@@ -490,3 +490,43 @@ POST_MERGE_USER_INTENT_REGRESSION
 - The Working Set of a Coding Agent / Coherence Debt — arXiv:2608.16630
 
 2026-09~10 更新速度很快，尤其 self-evolving rules、learned guardrails、intervention sentinels、multi-agent concurrency，可能数周内从 G3 滑到 G2。
+
+
+## 8. 保守评级修正：G4-E / G4-F → G3
+
+进一步核对 2026 文献后：
+
+### User-Reachable Terminal：G4 → G3
+
+Building to the Test 已直接展示“测试通过但用户请求的 artifact 实际未交付”，并明确指出 Agent 不会自动像用户一样验证其产物；false-success 研究也已系统分析“Agent 宣布成功但环境状态并未完成”。
+
+因此 City 的特殊价值仍在：
+
+- reachability / intent 作为 capability registry 的长期状态；
+- 正常用户 verb 作为 Mission terminal gate；
+- longitudinal project evidence；
+
+但“completion signal ≠ 用户真正得到功能”本身已经不能视为 G4。
+
+### Passive Evidence Pipeline：G4 → G3
+
+SWE-chat 已持续从真实开发者公开工作流收集 coding-agent sessions；TraceLab 也从日常 Claude Code / Codex 使用中持续抽取、清洗真实 trace。
+
+City 仍有差异：
+
+- evidence 从一开始绑定 Mission/Registry/exact SHA/Review/Owner intervention；
+- 不是只采 session trace，而是 capture software-engineering control-plane transitions；
+- 可直接生成 replay/ablation candidate。
+
+但“正常使用过程中被动积累研究数据”本身不再足够稀缺，因此降为 G3。
+
+### 当前 G4 最终保留
+
+```text
+G4-A Unified repository control plane (full integrated system)
+G4-B Capability live state: implementation→wiring→reachability→intent
+G4-C Project-level autonomy survival until Owner intervention
+G4-D Multi-truth control-plane reality drift
+```
+
+这四条也仍然只是 **MAXIMUM_BOUNDED evidence priority**，不是首创声明。
