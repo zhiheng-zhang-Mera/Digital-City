@@ -11,12 +11,17 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["9f3e20e8ec99d591812430bee71d27e68c4ad498"]
 dependency_source_workbooks: []
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "0e9bea3ce739b979e582a428af8fb233045a5e75"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): baseline_anchor_mode=REMOTE_REF_EXACT_SHA_AT_CLAIM executed literally. `git fetch origin main` in zhiheng-zhang-Mera/utopia resolved refs/heads/main to the full SHA 0e9bea3ce739b979e582a428af8fb233045a5e75 (commit time 2026-10-05T00:23:19+11:00, 'Merge pull request #13 from zhiheng-zhang-Mera/fix/Alien-codex-host-inventory-retry'). required_ancestor_shas[0]=9f3e20e8ec99d591812430bee71d27e68c4ad498 verified with `git merge-base --is-ancestor` -> ANCESTOR_OK, so no BASELINE_ANCESTRY_MISMATCH. Required CI on exactly that sha, read from the Actions API and matched on headSha rather than from the generated UTOPIA_LIVE_STATUS.json: 'V0.2 checks' run 37205444427 COMPLETED SUCCESS and 'City linkage check' run 37205444385 COMPLETED SUCCESS. INDEPENDENCE FROM WBC-601 MEASURED, NOT ASSUMED: WBC-601's branch wbc/WBC-601-execution-backend-contract is NOT an ancestor of this baseline (its head d65dbd3af2d8903aca13726f74110e1f2f6b9b65 is unreviewed and unmerged), so WBC-602 is built on main WITHOUT that seam, exactly as the programme's 'WBC-601 and WBC-602 may be developed in parallel but must never sibling-merge' rule requires. Development worktree: D:/utopia-wbc602 on branch wbc/WBC-602-node-descriptor, created from the resolved baseline SHA. THE SHARED HOT FILE IS services/dev-gateway/server.mjs: WBC-601 relocated the node/claim and node/report route bodies into services/dev-gateway/execution-backend/standard-devices.mjs, and WBC-602 must NOT copy that relocation; it will therefore keep its own change additive and confined to the descriptor projection plus the registration path, leaving the claim decision where main has it."
 baseline_blocker: null
 dependencies: ["MESH-301:THREE_END_MESH_E2E_ACCEPTED"]
-development_host: null
-development_branch: null
+development_host: "Mech"
+development_branch: "wbc/WBC-602-node-descriptor"
+research_evidence_applicability: "APPLICABLE"
+long_horizon_context_evidence: "CAPTURED"
+research_evidence_refs: ["mission-book/reports/WBC-602/PAPER_MATERIAL_INDEX.md"]
+state_identity_evidence: "CAPTURED"
+state_identity_evidence_refs: ["mission-book/reports/WBC-602/PAPER_MATERIAL_INDEX.md"]
 development_head_sha: null
 development_ci: null
 development_complete: false
