@@ -27,6 +27,10 @@ user_exposure_surface: null
 user_exposure_nesting: null
 backend_wiring: UNASSESSED
 ui_exemption_reason: null
+capability_ids: []
+capability_registry_action: UNASSESSED
+capability_registry_refs: []
+capability_registry_sync_status: UNASSESSED
 research_evidence_applicability: UNASSESSED
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []
@@ -64,6 +68,30 @@ ui_exemption_reason = <required only for INTERNAL_ONLY>
 
 若为 DIRECT_CONTROL / OBSERVABLE_ADVANCED / BACKGROUND_DISCLOSED，必须按 `CONSTRUCTION_RULES.md §14A` 证明入口、收纳、知情与 backend wiring；只有 INTERNAL_ONLY 可完全豁免 UI。
 
+## Capability Registry Chained Update / 能力登记册连锁更新
+
+凡新增或实质修改 capability，必须按 `CONSTRUCTION_RULES.md §14C` 记录：
+
+```text
+capability_ids = [...]
+capability_registry_action = CREATE | UPDATE | BACKFILL | VERIFY_ONLY | NOT_APPLICABLE
+capability_registry_refs = [...]
+capability_registry_sync_status = PENDING | CANDIDATE_UPDATED | VERIFIED | NOT_APPLICABLE
+```
+
+同时分别判断：
+
+```text
+implementation_status
+backend_wiring_status
+user_reachability_status
+intent_validation_status
+```
+
+对需要用户直接操作/明显影响用户体验的能力，默认采用 §14A.7 **User-Reachable Vertical Slice First**：先打通真实用户入口 → canonical backend → observable result 的最薄闭环，再扩建内部和 UI，不允许最后才补入口，也不允许用假按钮代替真实 wiring。
+
+Development Report 必须指出 Registry candidate 如何变化；Formal Review 必须把 Registry 声明与 exact-head runtime/UI reality 独立对账。
+
 ## 测试 / 实机 / 视觉证据
 
 ## Research / Paper Material Capture / 论文素材采集判断
@@ -98,4 +126,4 @@ state_identity_evidence_refs = [...]
 
 ## 绑定常驻规则
 
-本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、§2A immutable full-SHA baseline anchor、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh，以及 §14A Capability Exposure & User Control Gate、§14B Long-Horizon Agent Research Evidence Gate 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
+本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、§2A immutable full-SHA baseline anchor、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh，以及 §14A Capability Exposure & User Control Gate、§14B Long-Horizon Agent Research Evidence Gate、§14C Capability Registry Chained Update Gate 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
