@@ -154,6 +154,34 @@ OBSERVATION
 → OPPOSITE-HOST VERIFICATION
 ```
 
+## 6A. Long-Horizon Agent Context Lifecycle / 长时 Agent 上下文生命周期
+
+REX programme 若自身使用长时间/异步 Agent 施工，或实验对象涉及 Agent autonomy，必须同时遵守 `mission-book/CONSTRUCTION_RULES.md §14B`。
+
+重点保留：
+
+- compaction / context reset / resume 的触发原因与时机；
+- token/context occupancy（若 harness 暴露）；
+- task phase / semantic boundary；
+- compaction 前后 authoritative task state；
+- summary/checkpoint artifact ref；
+- Mission Book / report / exact SHA / CI receipt 等 external-state refs；
+- post-compaction state reconstruction error；
+- Owner intervention；
+- duplicate/regression work；
+- false completion；
+- stale-state/stale-SHA error；
+- autonomous work span / successful task transitions（若可测）。
+
+专题研究问题与字段定义见 Research Institute：
+
+`paper-materials/{zh-CN,en}/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md`
+
+工具未暴露的数据必须写 `NOT_OBSERVABLE + reason`；不得猜测。
+
+研究证据仅限 observable execution state / behavior；**不得要求、推断或保存隐藏 chain-of-thought / private reasoning**。
+
+
 ## 7. Completion gate
 
 任一 REX task 缺以下任一项不得 complete：
