@@ -1,0 +1,68 @@
+name: Sync Mission Book progress
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - "mission-book/**/*.md"
+      - "mission-book/PROGRESS_MANIFEST.json"
+      - "mission-book/tools/sync_mission_progress.py"
+      - "!mission-book/README.md"
+      - "!mission-book/MISSION_PROGRESS.json"
+  push:
+    branches: [main]
+    paths:
+      - "mission-book/**/*.md"
+      - "mission-book/PROGRESS_MANIFEST.json"
+      - "mission-book/tools/sync_mission_progress.py"
+      - "!mission-book/README.md"
+      - "!mission-book/MISSION_PROGRESS.json"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-mission-book-progress-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  progress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Regenerate Mission Book progress
+        run: python mission-book/tools/sync_mission_progress.py
+
+      - name: PR must carry synchronized generated view
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          if ! git diff --quiet -- mission-book/README.md mission-book/MISSION_PROGRESS.json; then
+            echo "Mission Book homepage progress is stale."
+            echo "Run: python mission-book/tools/sync_mission_progress.py"
+            git diff -- mission-book/README.md mission-book/MISSION_PROGRESS.json
+            exit 1
+          fi
+
+      - name: Commit synchronized progress on main
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          if git diff --quiet -- mission-book/README.md mission-book/MISSION_PROGRESS.json; then
+            echo "Mission Book progress already synchronized."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add mission-book/README.md mission-book/MISSION_PROGRESS.json
+          git commit -m "sync(mission-book): refresh generated progress"
+          git pull --rebase origin main
+          git push origin HEAD:main
