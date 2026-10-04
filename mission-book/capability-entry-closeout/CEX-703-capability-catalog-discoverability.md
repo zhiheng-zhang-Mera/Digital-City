@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["ASK_TARGETS_CONTRACT_PRESENT"]
 development_host: Alien-codex
 development_branch: cex/CEX-703-Alien-codex-capability-catalog
-development_head_sha: "358fbb20a7b23826e92a04d7d893f22c65d56eec"
-development_ci: null
-development_complete: false
+development_head_sha: "a96da907a937eb043a59ddd00f48031ded749fa9"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37207716885"
+development_complete: true
 capability_ids: [CAP-ASK-001]
 capability_registry_action: BACKFILL
 capability_registry_refs: ["capability-registry/records/CAP-ASK-001.yaml"]

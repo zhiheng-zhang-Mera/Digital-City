@@ -1,0 +1,7 @@
+# CEX-703 Development handoff
+
+Exact sourcea96da907a937eb043a59ddd00f48031ded749fa9, baseline0e9bea3ce739b979e582a428af8fb233045a5e75. PR https://github.com/zhiheng-zhang-Mera/utopia/pull/15; CI https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37207716885 SUCCESS at exact source. Independent technical re-review3/3 no remaining blocker; developer Web+shell9/9, Android80/80 + APK build.
+
+Web Ask-bar View all capabilities → Ask/Do catalog (2 clicks) fetches live existing backend targets. Android Ask → catalog (2 designed clicks); offline entry and correct disabled state observed, online native path NOT_RUN. Selection only prepares existing example/selection. Explicit submission preserves canonical confirmation. Uncertain selected requests retain exactselection/idempotency key through retry; input edits/context changes clear it. Controlled backend target fixture appears without frontend change.
+
+Opposite physical host must independently check fresh discoverability/count/identity, unavailable reasons, manual/catalog route consistency, backend target propagation and native parity. Local technical agent is not Formal Review. CAP-ASK-001 candidate stores partial reachability and pending final intent validation. review_complete=false; merge_authority=false; terminal marker withheld. Raw failures remain indexed; no performance claims.

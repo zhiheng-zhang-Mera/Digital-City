@@ -24,7 +24,7 @@
       "GET /api/v0/ask/targets",
       "POST /api/v0/ask"
     ],
-    "last_verified_full_sha": "358fbb20a7b23826e92a04d7d893f22c65d56eec"
+    "last_verified_full_sha": "a96da907a937eb043a59ddd00f48031ded749fa9"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -72,7 +72,10 @@
     "reachability_refs": [
       "utopia:evidence/raw/mission-book/CEX-703/catalog-receipt.json"
     ],
-    "intent_validation_refs": []
+    "intent_validation_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/15"
+    ]
   },
   "research_observations": {
     "hidden_capability_detected": true,
@@ -83,7 +86,6 @@
     ]
   },
   "known_gaps": [
-    "Exact-head CI pending",
     "Opposite-host Formal Review pending",
     "Android online catalog NOT_RUN"
   ],

@@ -18,3 +18,6 @@ Exact development source358fbb20a7b23826e92a04d7d893f22c65d56eec, CI37207524312 
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: [mission-book/reports/CEX-703/CLAIM_RECORD.md, mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md]
+
+| Independent review P2 | uncertain request retry lost selection/key; route.fetch then response abort reproduces; fixed preserve draft through uncertainty | Utopia retry-red.log / retry-green.log | REPAIRED;9/9 |
+| Exact source CI | final a96da907a937eb043a59ddd00f48031ded749fa9 CI37207716885 success; earlier source success is not substituted | DEVELOPMENT_HANDOFF.md | PASS |
