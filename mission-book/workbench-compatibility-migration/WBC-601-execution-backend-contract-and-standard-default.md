@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["MESH-301:THREE_END_MESH_E2E_ACCEPTED"]
 development_host: "Mech"
 development_branch: "wbc/WBC-601-execution-backend-contract"
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "d65dbd3af2d8903aca13726f74110e1f2f6b9b65"
+development_ci: "V0.2 checks run 37205291447 COMPLETED SUCCESS on headSha d65dbd3af2d8903aca13726f74110e1f2f6b9b65 (jobs: gateway-web success, android success); earlier run 37204673910 on the superseded head 9f9db6384779e75f51ec317074238c139e1de609 FAILED gateway-web on a defect in this task's own new test, repaired in d65dbd3 and recorded in reports/WBC-601/DEVELOPMENT_REPORT.md section 10"
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
