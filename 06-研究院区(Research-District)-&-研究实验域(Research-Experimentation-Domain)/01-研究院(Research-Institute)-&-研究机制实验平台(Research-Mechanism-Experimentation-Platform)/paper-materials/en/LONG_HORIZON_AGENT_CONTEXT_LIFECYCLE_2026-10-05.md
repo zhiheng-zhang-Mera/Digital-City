@@ -84,6 +84,27 @@ Observe the effect of Mission Book / reports / exact SHA / CI receipts / task po
 - autonomous work span;
 - whether a weaker/faster model can sustain longer work when execution state is externalized.
 
+### RQ4 — What must remain immutable and be revalidated
+Which execution-state fields must preserve exact identity, provenance, and freshness rather than only their semantic meaning?
+
+This question follows a real Mission Book evolution: critical baseline, dependency, review, CI, and acceptance anchors were changed from mutable branch/head semantics to immutable full commit SHAs, with ancestor/provenance checks and critical-point revalidation.
+
+The research target is not the mature Git fact that branches move. Instead observe:
+
+- whether persistent external state still drifts when it stores mutable symbolic refs;
+- whether compaction degrades exact identity into symbolic state;
+- whether green CI can be attributed to the wrong head;
+- reliability differences among SHA-only, SHA+provenance, and SHA+revalidation;
+- whether freshness checks before resume / handoff / review / merge / completion reduce errors.
+
+Dedicated note:
+
+`LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md`
+
+Candidate principle:
+
+> **Identifiers with execution semantics should be serialized exactly, not semantically summarized.**
+
 ## 2. Naturalistic evidence to capture during future work
 
 When observable for a long-running / asynchronous agent run, retain:
@@ -123,6 +144,15 @@ regression_or_reopened_work_count
 recovery_time_if_measurable
 autonomous_work_span_if_measurable
 terminal_reason
+
+expected_identity_if_applicable
+observed_symbolic_ref_if_applicable
+resolved_identity_at_use_if_applicable
+evidence_identity_if_applicable
+provenance_or_required_ancestor_refs
+freshness_revalidation_event
+identity_or_evidence_mismatch_type
+reconciliation_action
 ```
 
 If the harness does not expose token counts, compaction contents, or trigger details, record:
@@ -230,4 +260,4 @@ The research target is execution state, observable behavior, and recovery—not 
 
 A compact framing is:
 
-> **When to compact → What to retain → What to externalize.**
+> **When to compact → What to retain → What to externalize → What must remain immutable and be revalidated.**
