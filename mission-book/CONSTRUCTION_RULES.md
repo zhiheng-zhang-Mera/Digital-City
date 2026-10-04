@@ -1042,6 +1042,98 @@ compaction、model switch、branch movement、CI wait、handoff、external block
 `06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`
 
 
+
+### 14B.13 Second-scan G3 capture / 第二轮稀缺信号补充
+
+第二轮文献扫描后，以下普通方向降为 G2，不再单独投入高优先级 instrumentation：
+
+- generic AGENTS.md / repository rule learning；
+- generic long-horizon maintenance / technical debt；
+- generic merge conflict / concurrent editing；
+- generic abstention / action bias；
+- generic logging/observability debt；
+- plain intervention count。
+
+新增三个 G3 重点：
+
+#### A. `RS-G3-RULE-LIFECYCLE-DEBT`
+
+当全局/工程书规则因为真实 failure 被新增、修改、收窄、supersede 或删除时，尽量记录：
+
+```text
+rule_id_or_section
+rule_version_sha
+source_failure_ref
+introduced_at
+supersedes_or_conflicts_with
+scope
+future_activation_count_if_known
+recurrence_prevented_if_observable
+false_block_or_unnecessary_restriction
+retired_or_superseded_at
+retirement_reason
+```
+
+不要只记录“加了一条规则”；重点是 rule provenance、有效期、冲突与治理债务。
+
+#### B. `RS-G3-SUPERVISION-ATTENTION`
+
+Owner intervention 除了计数，还应分类：
+
+```text
+HIGH_VALUE_DECISION
+AVOIDABLE_TECHNICAL_ESCALATION
+REPEAT_CLARIFICATION
+APPROVAL_ONLY
+RECOVERY_REQUIRED
+AMBIGUOUS_REQUIREMENT
+PERMISSION_OR_VALUE_JUDGMENT
+```
+
+能观察时记录：
+
+- 是否可由现有 rule/evidence 自动解决；
+- 是否可以 batch；
+- 一次 Owner 回复后是否恢复自治；
+- 是否重复同一 root cause；
+- escalation 前是否已有 bounded diagnosis；
+- 从 escalation 到 autonomy resumed 的时间。
+
+#### C. `RS-G3-SEMANTIC-INTEGRATION`
+
+普通 Git conflict 属 G2。若出现：
+
+```text
+clean textual merge
++ component CI green
++ integrated semantic failure
+```
+
+必须优先保存：
+
+```text
+accepted_source_shas
+integration_sha
+component_evidence_refs
+violated_semantic_invariant
+why_component_checks_missed_it
+capability/ownership/dependency drift
+registry/runtime mismatch
+user-intent regression
+repair_and_revalidation
+```
+
+推荐 failure labels：
+
+```text
+TEXTUALLY_CLEAN_SEMANTIC_CONFLICT
+ACCEPTED_CAPABILITY_OVERWRITTEN
+DEPENDENCY_UNION_SEMANTIC_MISMATCH
+POST_MERGE_REGISTRY_RUNTIME_MISMATCH
+POST_MERGE_USER_INTENT_REGRESSION
+```
+
+
 ## 14C. Capability Registry Chained Update Gate / 能力登记册连锁更新门
 
 `capability-registry/` 是 City 的长期能力户籍、实现定位与用户暴露地图。
