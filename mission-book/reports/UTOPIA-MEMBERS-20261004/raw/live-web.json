@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "gatewayPid": 24728,
+  "cityId": "e1d87b2a-0ec5-457e-822b-91d81e40dc67",
+  "selfFirst": true,
+  "admissionName": "Mera-Alianware",
+  "sharingOffOn": true,
+  "members": [
+    {
+      "deviceId": "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+      "role": "PRIMARY",
+      "computeOnline": true,
+      "sharingEnabled": true
+    },
+    {
+      "deviceId": "web-rua5jxhg",
+      "role": "CONTROL_ONLY",
+      "computeOnline": false,
+      "sharingEnabled": false
+    },
+    {
+      "deviceId": "web-s3epotao",
+      "role": "CONTROL_ONLY",
+      "computeOnline": false,
+      "sharingEnabled": false
+    }
+  ]
+}

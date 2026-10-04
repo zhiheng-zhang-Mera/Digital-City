@@ -1,0 +1,23 @@
+✔ each member sees itself first and all City devices by admission name, with real message receipt (3311.0649ms)
+✔ real joined devices retain names, appear beside the host and may register only their own worker (183.9338ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (178.0499ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (322.1523ms)
+✔ new admission cannot take the host or an existing member identity, even with a valid short code (106.2999ms)
+✔ an active browser session refresh actually extends expiry while preserving its installation scope (64.7936ms)
+✔ local primary control surface can switch only its own computing resources (104.0031ms)
+✔ joining only demotes the local host, saves its admission name and leaves remote City intact (172.2055ms)
+✔ failed pairing and busy local work do not demote or write a new membership (57.6916ms)
+✔ native production transition retires only local Gateway and its worker, while remote host stays primary (301.0655ms)
+✔ selected MEMBER role survives coordinator crash without replacing the original City pointer (6.0776ms)
+✔ D-1: an enrolled session may NOT revoke another installation, and the refusal really refuses (151.2511ms)
+✔ D-2: a session sees ONLY itself - not the roster, and not the City-wide clone scan (69.6945ms)
+✔ D-1/D-2: the owner keeps FULL authority, so the repair did not break the surface it protects (91.7916ms)
+✔ D-1/D-2: the two sibling guards the review compared against are still in place (67.192ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4660.2917
