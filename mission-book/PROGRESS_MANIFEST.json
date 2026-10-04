@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "note": "Programme membership for generated Mission Book progress statistics. FR-001 and other FUTURE-only plans are excluded until explicitly activated as task workbooks.",
+  "programmes": [
+    {
+      "key": "replant",
+      "name": "Replant / MB-001~012",
+      "task_globs": [
+        "finished/replant/MB-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/replant/"
+    },
+    {
+      "key": "butler",
+      "name": "Butler Assistant",
+      "task_globs": [
+        "finished/completed-2026-10-01/butler-assistant/BA-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md"
+    },
+    {
+      "key": "remote",
+      "name": "Remote Fabric",
+      "task_globs": [
+        "finished/completed-2026-10-01/remote/RF-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md"
+    },
+    {
+      "key": "gai",
+      "name": "General AI Gateway",
+      "task_globs": [
+        "finished/completed-2026-10-01/general-ai-gateway/GAI-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md"
+    },
+    {
+      "key": "em",
+      "name": "Engineering Manager",
+      "task_globs": [
+        "finished/completed-2026-10-01/engineering-manager/EM-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md"
+    },
+    {
+      "key": "rescheduling",
+      "name": "Rescheduling vNext",
+      "task_globs": [
+        "finished/completed-2026-10-03/rescheduling-vnext/RS-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-03/README.md"
+    },
+    {
+      "key": "ui",
+      "name": "UI Civilization",
+      "task_globs": [
+        "finished/completed-2026-10-03/ui-civilization/UI-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-03/README.md"
+    },
+    {
+      "key": "uxi",
+      "name": "UI × Scheduler Integration",
+      "task_globs": [
+        "finished/completed-2026-10-03/ui-integration/UXI-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-03/README.md"
+    },
+    {
+      "key": "mesh",
+      "name": "MESH 三端互联",
+      "task_globs": [
+        "finished/completed-2026-10-04/mesh-3end/MESH-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-04/README.md"
+    },
+    {
+      "key": "join",
+      "name": "Connection Onboarding",
+      "task_globs": [
+        "finished/completed-2026-10-04/connection-onboarding-components/JOIN-*.md",
+        "connection-onboarding/JOIN-*.md"
+      ],
+      "active_pool": true,
+      "partial_status_label": "CLOSEOUT",
+      "readme": "connection-onboarding/README.md"
+    },
+    {
+      "key": "wbc",
+      "name": "Workbench Compatibility",
+      "task_globs": [
+        "workbench-compatibility-migration/WBC-*.md"
+      ],
+      "active_pool": true,
+      "readme": "workbench-compatibility-migration/README.md"
+    },
+    {
+      "key": "cex",
+      "name": "Capability Entry Closeout",
+      "task_globs": [
+        "capability-entry-closeout/CEX-*.md"
+      ],
+      "active_pool": true,
+      "readme": "capability-entry-closeout/README.md"
+    },
+    {
+      "key": "rex",
+      "name": "Research Strengthening",
+      "task_globs": [
+        "research-strengthening/REX-*.md"
+      ],
+      "active_pool": true,
+      "readme": "research-strengthening/README.md"
+    },
+    {
+      "key": "mon",
+      "name": "City Work Monitor",
+      "task_globs": [
+        "city-work-monitor-dashboard/MON-*.md"
+      ],
+      "active_pool": true,
+      "readme": "city-work-monitor-dashboard/README.md"
+    },
+    {
+      "key": "show",
+      "name": "SHOW-401 展示素材",
+      "task_globs": [
+        "showcase-material-extraction/SHOW-*.md"
+      ],
+      "active_pool": true,
+      "readme": "showcase-material-extraction/README.md"
+    }
+  ]
+}
