@@ -182,6 +182,54 @@ REX programme 若自身使用长时间/异步 Agent 施工，或实验对象涉�
 研究证据仅限 observable execution state / behavior；**不得要求、推断或保存隐藏 chain-of-thought / private reasoning**。
 
 
+## 6B. State Identity, Provenance & Freshness / 状态身份、来源与时效性
+
+当 REX 任务涉及长时 Agent、并发施工、resume/compaction、handoff、CI/Review evidence 或 branch movement 时，除了 §6A，还必须观察 external execution state 的 **identity / provenance / freshness**。
+
+重点 failure modes：
+
+```text
+MUTABLE_REFERENCE_STATE_DRIFT
+EVIDENCE_POINTER_MISMATCH
+BASELINE_ANCESTRY_MISMATCH
+STALE_EXECUTION_IDENTITY
+PROVENANCE_RELATION_MISMATCH
+```
+
+优先保留：
+
+```text
+expected_identity
+observed_symbolic_ref
+resolved_identity_at_use
+evidence_identity
+required_ancestor_or_dependency_refs
+critical_transition
+freshness_revalidation_event
+mismatch_detected
+consequence_if_not_detected
+reconciliation_action
+owner_intervention_required
+```
+
+研究比较不应停留在“branch vs SHA”，而应区分：
+
+```text
+L0 conversational symbolic state
+L1 persistent mutable symbolic refs
+L2 immutable exact identity
+L3 immutable identity + provenance/dependency
+L4 immutable identity + provenance + critical-point revalidation
+```
+
+尤其检查 compaction / summary 是否把 exact SHA、run id、artifact digest、task id、claim owner、dependency SHA 等 execution-semantic identifier 降级成模糊 symbolic state。
+
+专题材料：
+
+`paper-materials/{zh-CN,en}/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md`
+
+“Git branch 是 mutable ref”本身不作为新颖性主张；真正的研究对象是 long-horizon Agent 的 temporal state drift、evidence binding 与恢复可靠性。
+
 ## 7. Completion gate
 
 任一 REX task 缺以下任一项不得 complete：
