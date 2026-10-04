@@ -230,6 +230,71 @@ L4 immutable identity + provenance + critical-point revalidation
 
 “Git branch 是 mutable ref”本身不作为新颖性主张；真正的研究对象是 long-horizon Agent 的 temporal state drift、evidence binding 与恢复可靠性。
 
+## 6C. Capability Exposure Gap & Registry / 能力暴露缺口与登记册
+
+当任何 REX task 自身新增/修改 capability，或实验对象涉及 Agent 软件开发流程，必须同时观察：
+
+```text
+implementation_status
+backend_wiring_status
+user_reachability_status
+intent_validation_status
+```
+
+重点 failure labels：
+
+```text
+IMPLEMENTED_BUT_UNREACHABLE
+VISIBLE_BUT_NOT_WIRED
+VISIBLE_WRONG_SEMANTICS
+DISCOVERABILITY_GAP
+SURFACE_PARITY_GAP
+CAPABILITY_REGISTRY_STALE
+CAPABILITY_REGISTRY_REALITY_MISMATCH
+DUPLICATE_IMPLEMENTATION_DUE_TO_DISCOVERY_FAILURE
+```
+
+能测量时保留：
+
+```text
+capability_id
+implementation_completed_at
+first_surface_available_at
+reachability_verified_at
+intent_validated_at
+user_steps_to_reach
+owner_intervention_count
+rework_required
+duplicate_implementation_detected
+registry_reconciliation_result
+exact_implementation_sha
+ui_or_e2e_evidence_ref
+```
+
+候选观察指标：
+
+```text
+Exposure Lag =
+  T(reachability_verified)
+  - T(implementation_complete)
+```
+
+如果后续做 controlled study，应区分：
+
+```text
+implementation-first
+UI-shell-first
+user-reachable thin vertical slice first
+```
+
+并同时比较有/无 durable Capability Registry。
+
+专题材料：
+
+`paper-materials/{zh-CN,en}/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md`
+
+经典 vertical-slice / discoverability 工程实践本身不作为 novelty；研究对象是 Agentic development 的 implementation-to-exposure gap、Registry 辅助效果、返工与 Owner intervention。
+
 ## 7. Completion gate
 
 任一 REX task 缺以下任一项不得 complete：
