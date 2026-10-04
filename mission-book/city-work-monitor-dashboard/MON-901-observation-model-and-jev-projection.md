@@ -34,11 +34,15 @@ capability_registry_sync_status: PENDING
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []
-research_watchlist_hits: ["RS-G3-OBSERVE-DECIDE-DECOUPLING", "RS-G4-UNIFIED-CONTROL-PLANE", "RS-G4-REALITY-DRIFT"]
-highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_watchlist_hits: []
+highest_research_grade_observed: NONE
 research_capture_level: MAXIMUM_BOUNDED
 state_identity_evidence: UNASSESSED
 state_identity_evidence_refs: []
+monitor_observability_evidence: UNASSESSED
+monitor_observability_refs: []
+decision_trace_evidence: NOT_APPLICABLE
+decision_trace_refs: []
 owner_gate: OWNER_ACTIVATION_REQUIRED
 merge_authority: false
 report_path: mission-book/reports/MON-901
