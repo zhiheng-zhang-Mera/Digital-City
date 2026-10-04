@@ -171,6 +171,31 @@ topics:
     topic: passive_development_to_research_evidence_pipeline
     capture_when: normal development evidence becomes reusable longitudinal/replay material; real-session trace collection already exists, so prioritize City-specific control-plane evidence
 
+  - id: RS-G2-GENERIC-AGENT-MONITOR
+    grade: G2_CROWDED
+    topic: generic_agent_monitoring_dashboard_topology_and_logs
+    capture_when: normal telemetry only; dashboard/graph/log visualization alone is not a novelty claim
+
+  - id: RS-G3-HIERARCHICAL-RISK-BUBBLING
+    grade: G3_SPARSE_ACTIVE
+    topic: hierarchical_operational_observability_with_risk_bubbling
+    capture_when: overview/progressive-disclosure summaries must preserve active risk while hiding low-value detail
+
+  - id: RS-G3-EDGE-CAUSAL-OBSERVABILITY
+    grade: G3_SPARSE_ACTIVE
+    topic: edge_centric_causal_observability_for_handoff_retry_review_and_routing
+    capture_when: understanding why work moved or changed requires path/edge provenance rather than node state alone
+
+  - id: RS-G3-OBSERVE-DECIDE-DECOUPLING
+    grade: G3_SPARSE_ACTIVE
+    topic: continuous_observation_with_event_triggered_nonblocking_decision
+    capture_when: JEV/observer, decision queues, timeout/fallback, or synchronization behavior affects task progress
+
+  - id: RS-G3-DECISION-ESCALATION-PROVENANCE
+    grade: G3_SPARSE_ACTIVE
+    topic: rule_fast_model_critic_owner_escalation_provenance
+    capture_when: a state transition is resolved automatically or escalated and the decision source/latency/owner interruption can be observed
+
 rules:
   - G1/G2 must not trigger research-only make-work.
   - G3/G4 episodes should preserve before/after and exact evidence when bounded and observable.
