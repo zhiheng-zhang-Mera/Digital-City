@@ -305,3 +305,129 @@ Track at minimum:
 - CentaurEval (ICML 2026)
 
 Re-run literature search before any submission. G3/G4 is a collection priority, not a permanent novelty claim.
+
+
+## 7. Second targeted scan addendum (2026-10-05)
+
+This pass searched specifically for additional G3/G4 candidates and downgraded several directions that already have direct 2026 work.
+
+### 7.1 Newly downgraded to G2
+
+- **generic repository instruction / AGENTS.md / rule learning**: AGENTS.md studies, Do Agent Rules Shape or Distort, RuleEvolve, AgentGuard, and accumulated behavioral-rule systems already exist.
+- **generic long-horizon maintenance / technical debt**: SWE-CI, SlopCodeBench, ChainSWE, SWE-Chain, and EvoClaw make this an active area.
+- **generic merge conflict / concurrent editing**: AgenticFlict, AgentRoom, and agent-authored PR concurrency directly study it.
+- **generic abstention / no-op / action bias**: FixedBench and OverEager directly cover it.
+- **generic logging / observability debt**: agent logging has already been studied empirically across thousands of agentic PRs.
+- **plain intervention count**: SWE-Together uses corrective feedback turns and The Work Behind Delegation provides a supervision-workflow framework.
+
+Keep ordinary telemetry, but do not spend scarce G3/G4 evidence budget on these topics by themselves.
+
+### 7.2 New G3 — Rule lifecycle / governance debt
+
+Learning rules is now G2. The sparser question is the **full lifecycle of rules**:
+
+```text
+real failure
+→ rule introduced
+→ scope / owner / evidence bound
+→ future activations
+→ prevented recurrence OR false blocking
+→ conflict / stale condition
+→ supersede / retire
+```
+
+Capture:
+
+- rule id / governing file / exact rule version;
+- source failure episode;
+- introduced/superseded/retired timestamps;
+- applicable scope;
+- conflicts with other rules;
+- recurrence prevented or not;
+- false blocking / unnecessary restriction;
+- token/context overhead when measurable;
+- tasks where the rule changed the outcome;
+- evidence justifying retention or removal.
+
+The research question is not whether rules help, but:
+
+> **Do long-lived agent projects accumulate governance debt, and how can we know when a historically correct rule should be retained, narrowed, superseded, or retired?**
+
+### 7.3 New G3 — Owner attention fragmentation / escalation quality
+
+Human supervision is already active research, so intervention count alone is insufficient.
+
+Classify callbacks such as:
+
+```text
+HIGH_VALUE_DECISION
+AVOIDABLE_TECHNICAL_ESCALATION
+REPEAT_CLARIFICATION
+APPROVAL_ONLY
+RECOVERY_REQUIRED
+AMBIGUOUS_REQUIREMENT
+PERMISSION_OR_VALUE_JUDGMENT
+```
+
+Capture whether an escalation:
+
+- could have been resolved by existing rules/evidence;
+- could have been batched with another decision;
+- restored autonomy after one response or caused repeated callbacks;
+- was preceded by sufficient bounded diagnosis;
+- repeated the same root cause;
+- occurred in interruption bursts;
+- delayed return to autonomous execution.
+
+This better reflects the real cost of “supervising instead of coding.”
+
+### 7.4 New G3 — Semantic integration beyond textual merge
+
+Generic merge conflict is G2. Focus on:
+
+> **Two branches independently pass CI and merge cleanly, yet the integrated product has inconsistent semantics.**
+
+Suggested labels:
+
+```text
+TEXTUALLY_CLEAN_SEMANTIC_CONFLICT
+ACCEPTED_CAPABILITY_OVERWRITTEN
+DEPENDENCY_UNION_SEMANTIC_MISMATCH
+POST_MERGE_REGISTRY_RUNTIME_MISMATCH
+POST_MERGE_USER_INTENT_REGRESSION
+```
+
+Capture branch A/B accepted SHAs, independent CI/review evidence, integration SHA, violated semantic invariant, why component tests missed it, registry/ownership/user-surface drift, and repair evidence.
+
+### 7.5 No artificial new G4
+
+This scan did not find a new complete problem more defensibly rare than current G4-A..F. Existing priorities remain:
+
+- unified repository control plane;
+- capability implementation→wiring→reachability→intent;
+- autonomy survival;
+- multi-truth reality drift;
+- user-reachable completion terminals;
+- passive development-to-research evidence pipeline.
+
+**Do not manufacture G4 just to lengthen the list.**
+
+### 7.6 Additional literature watch anchors
+
+- CodeTracer — arXiv:2604.11641
+- SlopCodeBench — arXiv:2603.24755
+- SWE-CI — arXiv:2603.03823
+- ChainSWE — arXiv:2607.02606
+- EvoClaw — arXiv:2603.13428
+- Do Agent Rules Shape or Distort? — arXiv:2604.11088
+- RuleEvolve — arXiv:2610.00650
+- AgentGuard — arXiv:2609.16287
+- Instruction Adherence in Coding Agent Configuration Files — arXiv:2605.10039
+- The Work Behind Delegation — arXiv:2609.24234
+- SWE-Together — arXiv:2606.29957
+- AgentRoom — arXiv:2608.23740
+- AgenticFlict — arXiv:2604.03551
+- Coding Agents Don't Know When to Act — arXiv:2605.07769
+- The Working Set of a Coding Agent / Coherence Debt — arXiv:2608.16630
+
+Sep–Oct 2026 is moving extremely quickly; self-evolving rules, learned guardrails, intervention sentinels, and multi-agent concurrency may slide from G3 to G2 within weeks.
