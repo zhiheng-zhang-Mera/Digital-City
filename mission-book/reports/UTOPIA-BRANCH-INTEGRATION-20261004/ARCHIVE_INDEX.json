@@ -1,6 +1,6 @@
 {
   "role": "Alien-codex",
-  "mainSha": "612c344f9f2b06a67b2645b4662d97750dd7c44e",
+  "mainSha": "40e18db4a6cf5bba1490181a473bc62e681edb8a",
   "branches": [
     {
       "sha": "be6227ec49d4dbcd83a595d7b265766af2083421",
@@ -48,19 +48,19 @@
       "sha": "1dfb3ed72b8646508bf63a04548bbe7a64d352e1",
       "branch": "fix/device-pilot-harness-integration",
       "tag": "archive/2026-10-04/fix/device-pilot-harness-integration",
-      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     },
     {
       "sha": "0c6498fa5a7044a94ffa4ff67ca6b3e25c771f3e",
       "branch": "fix/device-pilot-process-identity",
       "tag": "archive/2026-10-04/fix/device-pilot-process-identity",
-      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     },
     {
       "sha": "73d7ce7013c17b720c5804273e1bf4deaaae56d4",
       "branch": "fix/device-pilot-route-from-source",
       "tag": "archive/2026-10-04/fix/device-pilot-route-from-source",
-      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     },
     {
       "sha": "e925ae1ef4dda6f51d89a1faa025d1b8666d8c58",
@@ -96,13 +96,13 @@
       "sha": "4917a51001c6d7c69b86c8eda666814f351c0233",
       "branch": "review/JOIN-501-mech-formal-review",
       "tag": "archive/2026-10-04/review/JOIN-501-mech-formal-review",
-      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     },
     {
       "sha": "082735e0444fca126448c78370860469faf6a13b",
       "branch": "review/JOIN-502-alien-formal-review",
       "tag": "archive/2026-10-04/review/JOIN-502-alien-formal-review",
-      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     },
     {
       "sha": "a3b9ab3ef7093b53bd3ab82b8d4a046d3ade6d6b",
@@ -174,7 +174,7 @@
       "sha": "66fa20118f1a7dbb269cf05d8b0a6580219afce3",
       "branch": "uxi/UXI-301-scheduler-status-into-product-ui",
       "tag": "archive/2026-10-04/uxi/UXI-301-scheduler-status-into-product-ui",
-      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     },
     {
       "sha": "6a82e35a2c5c40db426f815056bac6fda4c6806d",
@@ -193,11 +193,21 @@
       "sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
       "tag": "archive/2026-10-04/integration/join-502-nearby",
       "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "branch": "integration/alien-codex-history-20261004",
+      "sha": "0a5e9ba53772a1b01897c2edf34de3840de7c629",
+      "tag": "archive/2026-10-04/integration/alien-codex-history-20261004",
+      "disposition": "ARCHIVED_INCLUDED_BY_PR12"
     }
   ],
   "verifiedMainCi": {
     "sha": "612c344f9f2b06a67b2645b4662d97750dd7c44e",
     "run": 37203397283,
     "conclusion": "success"
+  },
+  "mergedMainCi": {
+    "run": 37204279336,
+    "status": "QUEUED"
   }
 }

@@ -23,3 +23,9 @@ PR12整合旧pilot工具、JOIN501/502独立探针及UXI301错误前提修正规
 UXI301追加是历史FAIL/ERROR与方法修正，不宣称当前handoff成功；固定fixture状态和时间代理指标的局限保留。精确最终PR12流水线等待中，终态后再合并并重验main。
 
 PR12实现0a5e9ba53772a1b01897c2edf34de3840de7c629 push CI37203861869终态success：Gateway/Web1242/1242；Rooms69/69；City1970通过/14跳过/0失败；Android及文档PASS。PR CI仍等待。补扫发现integration/join-502-nearby也已包含，追加其archive标签并按原SHA移除；当前共32个历史标签、26个历史head移除。
+
+## 施工前阶段结果
+
+PR12 push/PR CI37203861869/37203864170均success，已合并为40e18db4a6cf5bba1490181a473bc62e681edb8a。32个原历史分支+本次integration分支都已保存云端tag/full SHA索引并条件式移除；云端head仅main。merged-main CI37204279336排队/运行中，仍需核验终态，不将candidate CI替代它。
+
+按常驻规则§4 no-idle，候选精确HEAD已绿且整合/归档已完成后，在保持merged-main CI观察的同时进入合法施工领取。选择CEX-701：承接已接受设备身份后端、修复恢复/冲突信息丢失，直接服务刚完成的多成员使用路径；不需要付费provider或新的canonical registry。WBC/REX等其他READY任务保持未占用。领取前再fetch两仓库并验证工作书祖先/依赖/claim。
