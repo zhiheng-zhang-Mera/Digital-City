@@ -1,4 +1,17 @@
 # 闂傚倸鍟抽崺鏍敊瀹€鍕挅闁糕剝锚閻忓洭鏌￠崘锕€鍔氱紒?闂?connection-onboarding闂佹寧绋戦悧鍡涘垂鎼淬劌绠ラ柣鐔哄閸娿倖顨ラ悙棰濆晣缂?
+
+> [!WARNING]
+> **THIS FILE'S BODY IS CORRUPTED (uncorrectable).** Lines 1-73 are the result of an earlier wrong-encoding
+> round-trip (UTF-8 read as GBK, then written back as UTF-8 at least twice). Invalid bytes were replaced with `?`,
+> so the Chinese prose in that range is GONE - no reverse transcoding can recover it. The damage arrived in commit
+> `0b50398` and was pushed to GitHub; `origin/main` carries the same text. All ASCII content (commit SHAs, CI run
+> ids, test counts) and every line after this warning are intact, and the pre-damage text is still readable in
+> git history at `1abe534`.
+>
+> **DO NOT treat the garbled lines as content.** The facts they held are independently recorded, in readable form,
+> in `mission-book/logs/integration/RELAY_TUNNEL_S1_S3.md` (section 5) and in the git history of this file.
+> Rebuilding this file from those sources is an Owner decision; it has not been done.
+
 > **Owner 闁荤喍妞掔粈渚€宕伴崨瀛樻櫖闁割偓缍嗛崬鍓佹喐閻楀牊绀€婵犫偓椤忓嫷娴栭柛顐墰缁€鍡涙煥濞戞瑧顣叉繝鈧导瀛樷挀闁煎憡顔栭崬浠嬫⒒閸℃顥為柛銊﹀哺閹?Owner 闂佺儵鏅涢悺銊ф暜閹绢喖绠伴柛銉憾閸氬洭鏌ㄥ☉妯肩劮闁活亶鍣ｅ畷妤€顓奸崨顓犱画閻?final integration / merge workbook闂?*
 > `mission-book/connection-onboarding/README.md` 缂?5 闂佺厧鎼崐浠嬨€呴敃鈧晥?婵炴垶鎸搁ˇ顕€鏌?JOIN 闂佺绻堥崝鎴﹀磿?opposite-host review 闁诲海鎳撻張顒勫垂濮樿泛瑙﹂幖娣灩椤ゅ懘鏌ょ€圭姵顥夐柛銊ュ船椤?> 闂傚倸妫楀Λ娆撳垂濮橆剦鍟呴柕澶堝€楃粙濠傗槈?闂侀潧妫旂粣姒硁er 婵?2026-10-03 闂佺儵鏅涢悺銊ф暜閹绢喖绠伴柛銉㈡杺娴?闂傚倸妫楀Λ娆撳垂濮樿埖鏅€光偓閳ь剙煤閸ф绠抽柕澶堝劜閸娿倖顨ラ悙鑸电【闁?main"濡ょ姷鍋犻崺鏍ｉ幋鐘冲厹?**婵炴垶鎸哥粔鐟般€掗崜浣瑰暫濞达綁鏅茬槐锝吤归敐鍡欑焼闁?*"闂?> 闂佹悶鍎虫慨鐢割敆濠靛瀚夋い鎺嶇贰閸嬔兠?**Owner 闂佸湱顭堝ú鈺咁敇閼姐倖瀵ù锝囶焾鐢?*闂佹寧绋戝﹢顩漬er-directed exemption闂佹寧绋戦ˇ鎶芥倻閿旇姤浜ら柛銉墯閼茬娀鏌熺€涙ê濮囧ù鍏煎姈閹峰懎顭ㄩ埀顒勫礉閻斿吋鏅悘鐐靛亾閺嗩參鏌ｉ姀锝夊摵婵犫偓娴兼潙绫嶉柕澶堝劤缁犲爼鏌熼崹顐㈩嚋濠殿垱鎸抽幆鍌炲及韫囷絽鏁归梺鐓庡船閻線鎯屽Δ鍛?> 闁哄鏅滈悷锕€危?*闁荤姷鍋樼粈渚€宕?*闂佸吋婢橀惌鍌氼焽?闁荤喐鐟ョ€氼剟宕归姘煎晠闁告瑥顦慨顒勬偤閹烘垵鏆遍柟顔筋殜閹洦鎷呴悜妯活吅"闂佹寧绋掓穱娲綖婢舵劕绀嗘繛鍡楃箰閺傃囨煛閸屾碍绌挎い鈺嬬畱鏁堥柛灞剧矋閻ｈ京鈧鎮堕崕鏉库枎閵忕姭鏌﹂柍鈺佸暞缁犳帡鎮跺鐓庝簻闁搞劌宕娆撴偖鐎靛摜顦┑顔界缚閸婃洟藝閳哄倷绻嗛柛灞炬皑閺変粙鏌涢幇顓犳噭婵″弶鍨块弫宥呯暆閸曨亞绱氶梺绋跨箰缁夐潧螞閳哄懎瑙﹂幖娣€ゅ鍫曟偣閸モ晝甯涢柛?闂?闁? 濠殿喗绻愮徊浠嬫偉閸撲焦灏庨柡澶庢硶閺?闂?
 ## 1. 闂佸憡甯掑Λ娆愮珶閹烘瑙﹂柛顐ｇ箚鐎氭瑩鏌ｉ妸銉ヮ仹缂佸墎鍏橀獮鎴︻敊閼姐倗鎲跨紓鍌欑劍閹稿鎮?
