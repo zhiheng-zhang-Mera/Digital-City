@@ -34,7 +34,7 @@ open Utopia
 
 QR / 短配对码 / deep link / web link 继续保留为 fallback / remote bootstrap；手工 URL / bare token 仅保留 engineering fallback，不再是正常用户路径。
 
-## 2. 已确认的当前代码事实
+## 2. Programme 创建时的代码事实（历史背景）
 
 创建本工程书时，Utopia `apps/web/app.js` 已经具备：
 
@@ -49,7 +49,7 @@ QR / 短配对码 / deep link / web link 继续保留为 fallback / remote boots
 
 因此本工程不得把已经完成的 RF-001..RF-010 当成“缺失功能”重新实现。
 
-当前 Pairing UI 仍有与 Owner 新规则不一致的行为：
+以下是 programme 创建时的缺陷清单；这些组件缺陷已由归档的 JOIN-501/502/503 修复并独立 Review，不再是当前可领取工作：
 
 1. `go(next)` 会 `clearPairing()`；
 2. `pagehide` 会 `clearPairing()`；
