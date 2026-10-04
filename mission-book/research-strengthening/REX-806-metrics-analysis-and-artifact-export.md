@@ -25,7 +25,7 @@ review_head_sha: null
 review_ci: null
 review_complete: false
 research_evidence_applicability: APPLICABLE
-research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT","RS-G3-PASSIVE-EVIDENCE-PIPELINE"]
+research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-SUPERVISION-ATTENTION","RS-G3-RULE-LIFECYCLE-DEBT","RS-G3-SEMANTIC-INTEGRATION","RS-G3-PASSIVE-EVIDENCE-PIPELINE","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC
 research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
@@ -84,7 +84,15 @@ artifact/
 - control-plane reality mismatch count / reconciliation time；
 - implementation→wiring→reachability→intent transition timestamps；
 - Exposure Lag / Intent Lag（可测时）；
-- registry-assisted localization/onboarding cost（实验提供时）。
+- registry-assisted localization/onboarding cost（实验提供时）；
+- high-value Owner decision count；
+- avoidable technical escalation count；
+- repeat clarification count；
+- escalation → autonomy-resumed time；
+- batchable escalation count / interruption burst（可测时）；
+- rule activation / conflict / false-block / retirement observations；
+- textually-clean semantic integration failure count；
+- independently-green components → integrated semantic failure count。
 
 不支持的指标标 NOT_MEASURED。
 
