@@ -1,0 +1,7 @@
+# Native catalog physical defect — candidate reopened
+
+Exact source a96da907a937eb043a59ddd00f48031ded749fa9 / APK aa3898f37b80b125398f3fe35b9d410177cac1f55d2db0e51e9cbab095ec1e78; full native unit/build revalidated before OPPO PERM00 install. Fixture City4444f4be-59f2-4778-893f-e69eaec623ef, Rooms disabled, no workers; canonical16 targets,10 unavailable,6 available. Candidate ONLINE and 查看全部能力 loads real Gateway catalog, askPosts0/tasks0 before selection.
+
+Reality mismatch: TargetChoice places weighted title next to an unbounded stateLabel containing the full unavailable reason. Status chip takes almost all row width; title wraps one character per line, producing unusable tall cards. UI XML lacks a useful visible title and screenshot native-catalog-clipped.png confirms it. Parser tests/CI cannot establish display usability. Ordinary available-side-effect labels are also longer than a short status.
+
+Reopen development_complete=false and capability PARTIAL / CAPABILITY_REGISTRY_REALITY_MISMATCH pending fix. Choose full-width title, short status, separate complete reason with ordinary wrapping; preserve server truth/selection/confirmation. Do not change the shared stateLabel protocol just to hide the reason. Screenshot/UI/fixture are development evidence, not different-host Formal Review. Original private app/config restored/cmp0; CEX701 APK restored; own fixture PID31428 and test reverse stopped. Live City untouched.
