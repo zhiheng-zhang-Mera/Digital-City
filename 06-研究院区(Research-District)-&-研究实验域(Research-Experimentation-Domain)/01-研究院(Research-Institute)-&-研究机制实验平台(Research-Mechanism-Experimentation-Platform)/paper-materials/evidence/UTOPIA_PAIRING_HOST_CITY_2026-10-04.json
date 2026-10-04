@@ -1,0 +1,469 @@
+{
+  "schemaVersion": 1,
+  "materialId": "UTOPIA-PAIRING-HOST-CITY-2026-10-04",
+  "observationDate": "2026-10-04",
+  "exportedAt": "2026-10-04T09:23:37.565Z",
+  "evidenceLevel": "LOCAL_ENGINEERING_REGRESSION",
+  "paperStatus": "CANDIDATE_MATERIAL_NOT_PAPER_VALIDATED",
+  "sourceRepository": "https://github.com/zhiheng-zhang-Mera/utopia",
+  "sourceCommits": {
+    "pairing": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+    "host": "bd8925082aefda059eb9932f8065904ed3250008"
+  },
+  "sourceBranch": "codex/single-host-city-remote-login",
+  "productMainMerged": false,
+  "rawEvidenceLocation": "Utopia repository only; Digital-City contains compact reports and this manifest",
+  "environment": {
+    "os": "Windows",
+    "nodeVersion": "v24.19.0",
+    "hosts": 1,
+    "physicalNetwork": "Ethernet non-loopback; not a two-device WiFi experiment",
+    "installationFixtures": 2
+  },
+  "runs": [
+    {
+      "id": "PAIR-ROOT",
+      "status": "RECORDED_PASS",
+      "command": "node --test --test-concurrency=2 tests/*.test.mjs",
+      "tests": 1184,
+      "pass": 1184,
+      "fail": 0,
+      "skipped": 0,
+      "logSha256": "e7cb75850cc5faf728990b5b3c34e7f7f4ce7e0a5d270b3b0ef0085be5ca8de2",
+      "rawLogAvailability": "DIGEST_ONLY_IN_COMMITTED_VALIDATION"
+    },
+    {
+      "id": "PAIR-FOCUSED",
+      "status": "RECORDED_PASS",
+      "command": "node --test tests/pairing*.test.mjs tests/join502*.test.mjs tests/web-i18n.test.mjs tests/web-invite.test.mjs tests/connect-surface.test.mjs",
+      "tests": 88,
+      "pass": 88,
+      "fail": 0,
+      "skipped": 0,
+      "logSha256": "f2b9291d5d5d76a9aa36b041536ce1c0a27622f0c04c5347123236d2b0580374",
+      "rawLogAvailability": "DIGEST_ONLY_IN_COMMITTED_VALIDATION"
+    },
+    {
+      "id": "HOST-ROOT",
+      "status": "PASS",
+      "tests": 1189,
+      "pass": 1189,
+      "fail": 0,
+      "command": "node --test --test-concurrency=4 --test-timeout=120000 tests/*.test.mjs",
+      "scope": "run started before the last identity-pin and forgotten-enrollment repairs; final repairs covered by focused run"
+    },
+    {
+      "id": "HOST-FINAL",
+      "status": "PASS",
+      "tests": 15,
+      "pass": 15,
+      "fail": 0,
+      "command": "node --test tests/host-city-launcher.test.mjs tests/host-city-registry.test.mjs tests/remote-login-address.test.mjs tests/join503-enrollment.test.mjs",
+      "scope": "Final frozen sources; overlaps HOST-ROOT, not an independent sample population"
+    }
+  ],
+  "hardware": {
+    "date": "2026-10-04",
+    "hostScope": "one physical Windows host, non-loopback interface",
+    "twoPhysicalDevices": "NOT_RUN",
+    "mdns": {
+      "unavailable": false,
+      "discovered": 3,
+      "reachableCities": 3,
+      "ownAdvertisedCityResolved": true
+    },
+    "ble": {
+      "unavailable": false,
+      "reason": null,
+      "discovered": 0,
+      "reachableCities": 0
+    },
+    "lanShortCodeExchange": {
+      "status": "PASS",
+      "singleUse": true
+    },
+    "invalidTransportStatus": 400
+  },
+  "negativeResults": [
+    {
+      "id": "PAIR-INITIAL",
+      "status": "FAIL_SUPERSEDED",
+      "tests": 1179,
+      "pass": 1177,
+      "fail": 2,
+      "reason": "City parser dependencies absent in isolated checkout; linked existing city/node_modules and reran the two files (11/11) and full suite."
+    },
+    {
+      "id": "HOST-INTERMEDIATE",
+      "status": "FAIL_SUPERSEDED",
+      "tests": 14,
+      "pass": 13,
+      "fail": 1,
+      "observation": "City readiness exceeded 20 seconds in intermediate run; retained, not pooled with final frozen run",
+      "rootCause": "NOT_ESTABLISHED_BY_FROZEN_REPRODUCTION"
+    },
+    {
+      "id": "BLE-HARDWARE",
+      "status": "ZERO_DISCOVERED",
+      "observation": "Scan completed but zero Utopia advertisements; does not establish discovery success"
+    },
+    {
+      "id": "HOST-CI",
+      "status": "FAIL_UNRESOLVED",
+      "runId": 37191764473,
+      "tests": 1190,
+      "pass": 1189,
+      "fail": 1,
+      "observation": "Clean hosted Windows run failed on 20-second host readiness timeout; local successes do not establish cross-environment correctness",
+      "rootCause": "NOT_ESTABLISHED"
+    }
+  ],
+  "notRun": [
+    "real cross-region internet/HTTPS routing",
+    "public rendezvous or global short-code lookup",
+    "real two-device same-WiFi acceptance",
+    "real two-device BLE pairing"
+  ],
+  "notMeasured": [
+    "connection latency distribution",
+    "user usability comparison",
+    "throughput",
+    "power or CPU savings",
+    "packet-loss or subnet coverage",
+    "global short-code lookup",
+    "statistical confidence intervals"
+  ],
+  "ci": {
+    "status": "COMPLETED_FAILURE",
+    "conclusion": "failure",
+    "runId": 37191764473,
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37191764473",
+    "headSha": "bd8925082aefda059eb9932f8065904ed3250008",
+    "createdAt": "2026-10-04T09:19:11Z",
+    "completedAt": "2026-10-04T09:23:16Z",
+    "observedAt": "2026-10-04T09:26:03.354Z",
+    "runner": "GitHub hosted Windows",
+    "nodeVersion": "24.21.0",
+    "jobs": [
+      {
+        "name": "android",
+        "conclusion": "success",
+        "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37191764473/job/111405274376"
+      },
+      {
+        "name": "gateway-web",
+        "conclusion": "failure",
+        "tests": 1190,
+        "pass": 1189,
+        "fail": 1,
+        "skipped": 0,
+        "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37191764473/job/111405274528",
+        "failedTest": "two installation launchers share one City across ports and recover the same identity after a crash",
+        "observedFailure": "City did not become ready within 20 seconds",
+        "failedStep": "Run pnpm test"
+      }
+    ],
+    "downloadedFailedLogSha256": "1b3351c175fa60659ea4b5a14c1cee39b2091ab0ffb6bd8c8d8b986b53c0759d",
+    "rawLogStorage": "Utopia .runtime/utopia-evidence-ci-failure.log; hosted job link; raw log not copied to Digital-City",
+    "rootCause": "NOT_ESTABLISHED",
+    "acceptedProductEvidence": false
+  },
+  "artifacts": [
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "evidence/raw/pairing-search/validation.json",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/5af0640a5b979c2830c487950f29f3da7360e1c4/evidence/raw/pairing-search/validation.json",
+      "gitBlobSha256": "001d71195a11bbbd7b9798865d5ad6ab5b7f2a6b7b2ea01db58e266a5c9daa29",
+      "bytes": 2988
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "evidence/raw/pairing-search/hardware-probe.json",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/5af0640a5b979c2830c487950f29f3da7360e1c4/evidence/raw/pairing-search/hardware-probe.json",
+      "gitBlobSha256": "b864d9d34e0aab3489928666055790bdd8f3e49ac02907a3990ddcbcdd765b6a",
+      "bytes": 476
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "evidence/raw/pairing-search/web-zh.png",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/5af0640a5b979c2830c487950f29f3da7360e1c4/evidence/raw/pairing-search/web-zh.png",
+      "gitBlobSha256": "bb048292a559941a378e49dcd03e30d999d1322d51774e20a5cf2dbd8b753d4f",
+      "bytes": 166027
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "docs/zh-CN/PAIRING_SEARCH_ACCEPTANCE.md",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/5af0640a5b979c2830c487950f29f3da7360e1c4/docs/zh-CN/PAIRING_SEARCH_ACCEPTANCE.md",
+      "gitBlobSha256": "f318602f62b7dcfe29e0697c125d9db91b3e844d9cafa45cb858d8d05a5febc6",
+      "bytes": 2398
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "tests/pairing-search-web.test.mjs",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/5af0640a5b979c2830c487950f29f3da7360e1c4/tests/pairing-search-web.test.mjs",
+      "gitBlobSha256": "0b19dd1f2ed374c77fd5835e36e21f61e8b792d9519e0847c55b3dcb7a07dd64",
+      "bytes": 6785
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "tests/pairing-short-code.test.mjs",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/5af0640a5b979c2830c487950f29f3da7360e1c4/tests/pairing-short-code.test.mjs",
+      "gitBlobSha256": "168776f488cd2c68bce9fa033192b865b26d132c61227c642431879e151717c4",
+      "bytes": 2467
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "evidence/raw/host-city-remote-login/validation.json",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/evidence/raw/host-city-remote-login/validation.json",
+      "gitBlobSha256": "e5ff65f79882d4bbd526f2fc29b00d086105083be402f43347e052139dba9fe9",
+      "bytes": 2987
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "evidence/raw/host-city-remote-login/full-suite.log",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/evidence/raw/host-city-remote-login/full-suite.log",
+      "gitBlobSha256": "77dc68a510621c9c6837130127d6abf6dba1b636e268b4999345f58d86256623",
+      "bytes": 105194
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "evidence/raw/host-city-remote-login/final-focused.log",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/evidence/raw/host-city-remote-login/final-focused.log",
+      "gitBlobSha256": "f56c9b496079051bbd50ef822d7b64df6cc9f4750a348ee10f002a1ad8c16efc",
+      "bytes": 1723
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "evidence/raw/host-city-remote-login/superseded-intermediate.log",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/evidence/raw/host-city-remote-login/superseded-intermediate.log",
+      "gitBlobSha256": "e8d82617e04d5c811986e068ad6073d3d36001742a84b70d5a8d48ea59b13d02",
+      "bytes": 2985
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/host-city-launcher.test.mjs",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/tests/host-city-launcher.test.mjs",
+      "gitBlobSha256": "5f688abeee09fb4904671640f2c42a1359619226f9e1b438965f22d2d3af9645",
+      "bytes": 7837
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/host-city-registry.test.mjs",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/tests/host-city-registry.test.mjs",
+      "gitBlobSha256": "70ac7f9bfbbf1904eb02b1b3fe08fd301ea2ca92114cec31508576082e3f780d",
+      "bytes": 1839
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/remote-login-address.test.mjs",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/tests/remote-login-address.test.mjs",
+      "gitBlobSha256": "d4a1df7f9d8f4e49d9270f1dc0c0a5ca0c5d6bafceb13e9a70023d29275c5881",
+      "bytes": 1681
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/join503-enrollment.test.mjs",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/tests/join503-enrollment.test.mjs",
+      "gitBlobSha256": "b2a199e7b32501e4366f2860ca3da9af95871f8d31e3ba74cad6cda322c72411",
+      "bytes": 21338
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "docs/zh-CN/HOST_CITY_REMOTE_LOGIN.md",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/blob/bd8925082aefda059eb9932f8065904ed3250008/docs/zh-CN/HOST_CITY_REMOTE_LOGIN.md",
+      "gitBlobSha256": "f3956b82865c3cf429f1ef9f316f636bfaa287ba9b5bbbf7928e430e20d8bd50",
+      "bytes": 2350
+    }
+  ],
+  "sourceChecks": [
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "apps/web/app.js",
+      "recordedWorktreeSha256": "c44d54ec0082489d0e67803c27bbe83847b5bf591b20aa743897ce2bb3e52883",
+      "gitBlobSha256": "c44d54ec0082489d0e67803c27bbe83847b5bf591b20aa743897ce2bb3e52883",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "apps/web/short-code.js",
+      "recordedWorktreeSha256": "b2c4114f73ebb762f7ebe793ba20783d44f89812c36647e99f22b9914fa307b7",
+      "gitBlobSha256": "b2c4114f73ebb762f7ebe793ba20783d44f89812c36647e99f22b9914fa307b7",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "apps/web/discovery.js",
+      "recordedWorktreeSha256": "8acc660a5e36f61be09e0fb201257e3fdfcd6ff7d18114cc6f94877cab342b82",
+      "gitBlobSha256": "8acc660a5e36f61be09e0fb201257e3fdfcd6ff7d18114cc6f94877cab342b82",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "apps/web/i18n/en.js",
+      "recordedWorktreeSha256": "568b321afc316f62a13f2c0f6f251fc2f7f05d63d5bd147ca5a1048a61598e37",
+      "gitBlobSha256": "568b321afc316f62a13f2c0f6f251fc2f7f05d63d5bd147ca5a1048a61598e37",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "apps/web/i18n/zh-CN.js",
+      "recordedWorktreeSha256": "efc4db5af445b867c8fa420d181d2aaa9b918551b04cb85c862848d2be79f8e3",
+      "gitBlobSha256": "efc4db5af445b867c8fa420d181d2aaa9b918551b04cb85c862848d2be79f8e3",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "apps/web/style.css",
+      "recordedWorktreeSha256": "cbfb91fb86656ed955401f4941df5fae4bb28cc7b2d30ae73c052c20d2cff556",
+      "gitBlobSha256": "cbfb91fb86656ed955401f4941df5fae4bb28cc7b2d30ae73c052c20d2cff556",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "platform/windows/ble.mjs",
+      "recordedWorktreeSha256": "eb3dde5ef3dbbce5d152073cf8a6325ed7fbf51425b31324fc9b84cc9882ed76",
+      "gitBlobSha256": "eb3dde5ef3dbbce5d152073cf8a6325ed7fbf51425b31324fc9b84cc9882ed76",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "platform/windows/ble-scanner.ps1",
+      "recordedWorktreeSha256": "618e4cc9b1543659ac4fe4ca5cf723e3d4ef91d35358c3c80b6314bd1cfd2175",
+      "gitBlobSha256": "618e4cc9b1543659ac4fe4ca5cf723e3d4ef91d35358c3c80b6314bd1cfd2175",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "services/dev-gateway/nearby.mjs",
+      "recordedWorktreeSha256": "aa81d58474e11ef237d6feb348995ba191c91aae14d62fcbce4377be3c61f9b4",
+      "gitBlobSha256": "aa81d58474e11ef237d6feb348995ba191c91aae14d62fcbce4377be3c61f9b4",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "services/dev-gateway/pairing.mjs",
+      "recordedWorktreeSha256": "1cfac51be9c89d0e3dac21a0abd0403ee4b7d10c852650b5f1ab6ec43cc3fed4",
+      "gitBlobSha256": "1cfac51be9c89d0e3dac21a0abd0403ee4b7d10c852650b5f1ab6ec43cc3fed4",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "services/dev-gateway/server.mjs",
+      "recordedWorktreeSha256": "9136f8f06d105e8210e17a153aadf9680612ff32cb2aa27bae8c1890d383758f",
+      "gitBlobSha256": "9136f8f06d105e8210e17a153aadf9680612ff32cb2aa27bae8c1890d383758f",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "tests/pairing-discovery-address.test.mjs",
+      "recordedWorktreeSha256": "6df6402bd102a3745e62e6bcc1b8f9fbb336a184cbab53b4ece49b47adf71252",
+      "gitBlobSha256": "6df6402bd102a3745e62e6bcc1b8f9fbb336a184cbab53b4ece49b47adf71252",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "tests/pairing-search-web.test.mjs",
+      "recordedWorktreeSha256": "0b19dd1f2ed374c77fd5835e36e21f61e8b792d9519e0847c55b3dcb7a07dd64",
+      "gitBlobSha256": "0b19dd1f2ed374c77fd5835e36e21f61e8b792d9519e0847c55b3dcb7a07dd64",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "path": "tests/pairing-short-code.test.mjs",
+      "recordedWorktreeSha256": "168776f488cd2c68bce9fa033192b865b26d132c61227c642431879e151717c4",
+      "gitBlobSha256": "168776f488cd2c68bce9fa033192b865b26d132c61227c642431879e151717c4",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "services/dev-gateway/main.mjs",
+      "recordedWorktreeSha256": "5b6b837af578a62bcfccec009753533d69528b0e3e7123f618e3f2cfc1ac3c1e",
+      "gitBlobSha256": "5b6b837af578a62bcfccec009753533d69528b0e3e7123f618e3f2cfc1ac3c1e",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "services/dev-gateway/host-city.mjs",
+      "recordedWorktreeSha256": "c2a77f0524aa8f8f14abacd0f8a9e638dfb80a994e7404cbc3428af7897cb45a",
+      "gitBlobSha256": "c2a77f0524aa8f8f14abacd0f8a9e638dfb80a994e7404cbc3428af7897cb45a",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "apps/client/device-enrollment.mjs",
+      "recordedWorktreeSha256": "a6d1a24a304f791d453dc54708765c48f502db430475e942e905b1b26aa9d164",
+      "gitBlobSha256": "a6d1a24a304f791d453dc54708765c48f502db430475e942e905b1b26aa9d164",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "scripts/utopia-client-launcher.mjs",
+      "recordedWorktreeSha256": "d4557b5fa39435f4013db81a048b3d3138d0eb058a24aa76f183dd61006a035d",
+      "gitBlobSha256": "d4557b5fa39435f4013db81a048b3d3138d0eb058a24aa76f183dd61006a035d",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "scripts/start-city.ps1",
+      "recordedWorktreeSha256": "ca91f1a94fec5de5af391e09e6fb23f253010364ce956b9a22a1215017e59114",
+      "gitBlobSha256": "ca91f1a94fec5de5af391e09e6fb23f253010364ce956b9a22a1215017e59114",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "scripts/stop-city.ps1",
+      "recordedWorktreeSha256": "ea4a47835a236fa42a7c5796f6858a4a2133f77cddca28000333ae5bb26e0c23",
+      "gitBlobSha256": "ea4a47835a236fa42a7c5796f6858a4a2133f77cddca28000333ae5bb26e0c23",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "scripts/restart-gateway.ps1",
+      "recordedWorktreeSha256": "5c3995f107643938998716ff01982fe22b267132599fd72c12cc2873fcd26ccc",
+      "gitBlobSha256": "5c3995f107643938998716ff01982fe22b267132599fd72c12cc2873fcd26ccc",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "scripts/host-processes.ps1",
+      "recordedWorktreeSha256": "fda79871efec50d8c6c3eb9782fd4b9eca5e96cf10e9fd02015077659c1be322",
+      "gitBlobSha256": "fda79871efec50d8c6c3eb9782fd4b9eca5e96cf10e9fd02015077659c1be322",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/host-city-launcher.test.mjs",
+      "recordedWorktreeSha256": "5f688abeee09fb4904671640f2c42a1359619226f9e1b438965f22d2d3af9645",
+      "gitBlobSha256": "5f688abeee09fb4904671640f2c42a1359619226f9e1b438965f22d2d3af9645",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/host-city-registry.test.mjs",
+      "recordedWorktreeSha256": "70ac7f9bfbbf1904eb02b1b3fe08fd301ea2ca92114cec31508576082e3f780d",
+      "gitBlobSha256": "70ac7f9bfbbf1904eb02b1b3fe08fd301ea2ca92114cec31508576082e3f780d",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "tests/remote-login-address.test.mjs",
+      "recordedWorktreeSha256": "d4a1df7f9d8f4e49d9270f1dc0c0a5ca0c5d6bafceb13e9a70023d29275c5881",
+      "gitBlobSha256": "d4a1df7f9d8f4e49d9270f1dc0c0a5ca0c5d6bafceb13e9a70023d29275c5881",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "docs/zh-CN/HOST_CITY_REMOTE_LOGIN.md",
+      "recordedWorktreeSha256": "f3956b82865c3cf429f1ef9f316f636bfaa287ba9b5bbbf7928e430e20d8bd50",
+      "gitBlobSha256": "f3956b82865c3cf429f1ef9f316f636bfaa287ba9b5bbbf7928e430e20d8bd50",
+      "comparison": "BYTE_IDENTICAL"
+    },
+    {
+      "commit": "bd8925082aefda059eb9932f8065904ed3250008",
+      "path": "docs/en/HOST_CITY_REMOTE_LOGIN.md",
+      "recordedWorktreeSha256": "11c74bf0e431a285e4a798f2ee105cbc82e74619be49aa4fcc60b023e52572ce",
+      "gitBlobSha256": "11c74bf0e431a285e4a798f2ee105cbc82e74619be49aa4fcc60b023e52572ce",
+      "comparison": "BYTE_IDENTICAL"
+    }
+  ]
+}
