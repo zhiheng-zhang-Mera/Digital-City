@@ -110,3 +110,5 @@ Watchlist ids carried in the workbook frontmatter by the research monitor:
 * No token/cost/compaction telemetry: the harness exposes none and no compaction occurred, so those fields are
   `NOT_OBSERVABLE + reason` rather than fabricated.
 * No experimental result: this task describes experiments and executes none, so there is no measurement to report.
+
+Opposite-host review produced concrete provenance/topology/exposure mismatches; see REVIEW_FINDINGS_Alien-codex.md. Red actual HTTP inputs main-only software and repeated-host arrays pass old validation despite stated gates. Preserve these findings alongside original14/14 tests; correction/acceptance pending.
