@@ -11,6 +11,7 @@
 > 过程数据规则：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
 > 本工程论文素材协议：[PAPER_EVIDENCE_PROTOCOL.md](./PAPER_EVIDENCE_PROTOCOL.md)  
 > 当前能力入口矩阵：[CAPABILITY_ENTRY_MATRIX.md](./CAPABILITY_ENTRY_MATRIX.md)  
+> 长期能力登记册：[../../capability-registry/README.md](../../capability-registry/README.md)  
 > 明确延后项：[FUTURE_EXPOSURE_BACKLOG.md](./FUTURE_EXPOSURE_BACKLOG.md)
 
 ## 1. Owner 目标
@@ -171,3 +172,28 @@ Mech Development   → Alien Formal Review
 `CAPABILITY_ENTRY_BASELINE_EXPOSED_AND_AUDITED`
 
 该 marker 只表示**当前已成熟能力的入口完整性**，不表示 FUTURE_EXPOSURE_BACKLOG 中的 runtime 尚未完成项目已经产品化。
+
+
+## 9. Capability Registry bootstrap / 长期登记册接管
+
+本 programme 的 `CAPABILITY_ENTRY_MATRIX.md` 是历史 exposure debt 的 programme-level 工作矩阵；它不再演化成永久第二套 registry。
+
+从现在起：
+
+- 新增/实质修改 capability 必须遵守 `CONSTRUCTION_RULES.md §14C`；
+- CEX-701..705 在各自触及能力时，尽量为对应 capability 创建/更新 `CAP-*` record；
+- CEX-790 必须从最终 independent inventory 生成/对齐长期 Registry；
+- 已验证状态必须绑定 exact full SHA + UI/E2E evidence；
+- 未重新验证的旧条目可保持 `LEGACY_BACKFILL_PENDING`，不得把旧矩阵直接复制成“已验证真相”。
+
+最终关系：
+
+```text
+CEX matrix
+= historical programme discovery / closeout evidence
+
+capability-registry/
+= durable citywide capability inventory
+```
+
+CEX final audit 完成时，Registry reconciliation 是 completion gate，不是可选文档整理。
