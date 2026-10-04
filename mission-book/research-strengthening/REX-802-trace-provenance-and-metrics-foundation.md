@@ -18,8 +18,8 @@ dependencies: []
 development_host: Alien-codex
 development_branch: rex/REX-802-Alien-codex-trace-foundation
 development_head_sha: "833279cae237080cca88b1b6dbc9f217027ba68f"
-development_ci: "V0.2 checks run 37211053490 IN_PROGRESS on exact 833279cae237080cca88b1b6dbc9f217027ba68f; not acceptance"
-development_complete: false
+development_ci: "V0.2 checks run 37211053490 COMPLETED SUCCESS on exact 833279cae237080cca88b1b6dbc9f217027ba68f; gateway-web and android success"
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
