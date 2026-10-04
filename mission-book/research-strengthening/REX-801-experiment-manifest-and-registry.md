@@ -20,6 +20,9 @@ development_branch: "rex/REX-801-experiment-manifest-registry"
 research_evidence_applicability: "APPLICABLE"
 long_horizon_context_evidence: "CAPTURED"
 research_evidence_refs: ["mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"]
+research_watchlist_hits: ["RS-G4-PASSIVE-EVIDENCE-PIPELINE"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
 state_identity_evidence: "CAPTURED"
 state_identity_evidence_refs: ["mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"]
 development_head_sha: null
@@ -76,6 +79,10 @@ seed_policy
 scenario_ref
 fault_profile_ref
 software_refs
+research_signal_ids
+research_grade_snapshot
+control_plane_rule_version
+authority_surfaces_if_applicable
 acceptance
 ```
 
@@ -91,6 +98,18 @@ acceptance
 - validate before run。
 
 初期 UI 可在 Research/Advanced，不要求挤进主导航。
+
+## Research-priority binding
+
+Experiment Manifest 必须能显式声明其研究信号来自 `RESEARCH_SIGNAL_WATCHLIST.yaml`，尤其支持 G3/G4，而不是只写自由文本 topic。
+
+最小要求：
+
+- `research_signal_ids` 可为一个或多个 `RS-*`；
+- `research_grade_snapshot` 记录 experiment 创建时的 G1–G4 快照；
+- G4 experiment 可以记录 `authority_surfaces`、`control_plane_rule_version` 与 expected intervention/reachability state；
+- grade 不是 novelty 保证，artifact export 必须保留 snapshot date；
+- 未分类新现象使用 `UNCLASSIFIED_CANDIDATE`，不能由运行时 Agent 自动升级为 G4。
 
 ## 禁止
 
