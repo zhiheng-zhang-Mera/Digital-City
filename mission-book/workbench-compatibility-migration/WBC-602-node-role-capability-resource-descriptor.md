@@ -3,7 +3,7 @@ workbook_id: WBC-602
 phase: WORKBENCH_COMPATIBILITY_MIGRATION
 sequence: 602
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -25,7 +25,7 @@ state_identity_evidence_refs: ["mission-book/reports/WBC-602/PAPER_MATERIAL_INDE
 development_head_sha: "c312a60b4d73f02597bde1f106372b253067fe33"
 development_ci: "V0.2 checks run 37206331839 COMPLETED SUCCESS on headSha c312a60b4d73f02597bde1f106372b253067fe33 (jobs: gateway-web success, android success), read from the Actions API and matched on headSha. No earlier failed run on this branch. Local pre-push evidence on the same head, after the repaired projection defect recorded in reports/WBC-602/DEVELOPMENT_REPORT.md section 5: 13/13 new tests pass; pnpm test 1250 tests / 1247 pass / 3 fail where all 3 are the pre-existing host-city-launcher environmental block (a resident City holds coordination port 4389 on this host, and those tests refuse to run by design); city/test-all.mjs 1984 tests / 1977 pass / 7 skipped / 0 fail; apps/rooms 69/69; check-bilingual SYNCHRONIZED; verify-promotion-history 10 records verified."
 development_complete: true
-review_host: null
+review_host: Alien-codex
 review_head_sha: null
 review_ci: null
 review_complete: false
