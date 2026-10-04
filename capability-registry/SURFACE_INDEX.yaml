@@ -1,0 +1,30 @@
+schema_version: 1
+status: BOOTSTRAP_ACTIVE
+
+platforms:
+  WEB:
+    status: ACTIVE
+    surfaces: []
+  WINDOWS:
+    status: PLANNED_OR_EMBEDDED
+    surfaces: []
+  ANDROID:
+    status: ACTIVE
+    surfaces: []
+  IOS:
+    status: FUTURE
+    surfaces: []
+  MACOS:
+    status: FUTURE
+    surfaces: []
+  LINUX:
+    status: FUTURE
+    surfaces: []
+  HARMONYOS:
+    status: FUTURE
+    surfaces: []
+
+rules:
+  - "Every non-INTERNAL_ONLY capability must map to at least one user-observable surface or carry an explicit gap."
+  - "Surface locations are navigation aids, not proof; verified records require exact-head UI/E2E evidence."
+  - "Do not fabricate parity for platforms that are not yet implemented."
