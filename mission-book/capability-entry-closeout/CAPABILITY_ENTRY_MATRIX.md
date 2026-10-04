@@ -1,8 +1,8 @@
 # Capability Entry Matrix / 当前能力入口矩阵
 
-> 审计基线：`zhiheng-zhang-Mera/utopia:codex/city-members-host-roles`（创建本文件时为当前功能超集）。
+> 历史发现来源曾包含可移动 branch `codex/city-members-host-roles`，仅用于发现 gap，不再作为执行/验收基线。
 >
-> 本表不是静态事实。CEX-790 必须按 claim-time 最新产品 head 重新生成/复核。
+> 真正 baseline 由各 CEX workbook 的 immutable full-SHA rules 决定；本表不是静态事实。CEX-790 必须从其 dependency accepted exact SHAs 重建 inventory。
 
 | Capability / lifecycle | Backend/API | Web | Android | Classification | Current action |
 |---|---|---|---|---|---|
