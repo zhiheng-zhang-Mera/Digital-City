@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["JOIN-501", "JOIN-502", "JOIN-503 semantics present"]
 development_host: Alien-codex
 development_branch: cex/CEX-704-Alien-codex-native-owner-onboarding
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "d05f5a455ff535e3e065b30ec9ec74bca2dbb521"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37216216410"
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null

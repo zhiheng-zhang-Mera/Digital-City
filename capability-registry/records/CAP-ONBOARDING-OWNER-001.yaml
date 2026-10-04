@@ -95,7 +95,6 @@
     "System share physical test NOT_RUN_AUTO_APPROVAL_REJECTED",
     "Optical QR scan and physical second-device consume NOT_RUN",
     "Different physical-host Formal Review pending",
-    "Hosted exact-head CI pending",
     "Earlier full physical campaign APK SHA NOT_OBSERVABLE; final hash-bound smoke only",
     "No full native locale parity or cross-region relay claim"
   ],
