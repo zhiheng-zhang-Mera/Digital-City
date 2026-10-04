@@ -530,3 +530,35 @@ G4-D Multi-truth control-plane reality drift
 ```
 
 这四条也仍然只是 **MAXIMUM_BOUNDED evidence priority**，不是首创声明。
+
+## 9. Monitor / Decision 观测补充
+
+本轮 City Work Monitor / JEV / Decision 设计采用保守评级：
+
+### G2
+
+- generic Agent dashboard / agent tree / topology graph；
+- 普通 session log / status card；
+- generic observability UI；
+- 单纯 progressive disclosure。
+
+这些继续正常采集，但不作为独立 novelty。
+
+### 新增 G3 关注
+
+1. **Hierarchical risk bubbling**：总图折叠细节时是否仍把 active warning/block/retry/degraded state 向上冒泡。
+2. **Edge-causal observability**：handoff/retry/review/device/model route 的路径是否携带可追溯 trigger/reason/evidence，而不只显示 node state。
+3. **Observe–decide decoupling**：continuous sidecar observation 与 event-triggered per-task Decision 能否避免全城同步瓶颈。
+4. **Decision escalation provenance**：RULE → FAST_MODEL → CRITIC → OWNER 的来源、延迟、错误、重复升级与自治恢复。
+
+### 不新增独立 G4
+
+全城监视器本身不自动升级为 G4。其价值优先作为已有：
+
+- G4-A unified repository control plane；
+- G4-C autonomy survival；
+- G4-D multi-truth reality drift；
+
+的 measurement / reconciliation surface。
+
+专题材料：`CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md`。
