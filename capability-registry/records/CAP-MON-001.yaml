@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-MON-001",
+  "name": {
+    "en": "Canonical City observation sidecar",
+    "zh_CN": "全城旁路观察基础"
+  },
+  "source_workbooks": [
+    "MON-901"
+  ],
+  "implementation": {
+    "paths": [
+      "services/dev-gateway/observation.mjs",
+      "services/dev-gateway/store.mjs",
+      "services/dev-gateway/server.mjs"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/monitor"
+    ],
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "last_verified_full_sha": "7eb38f1b930dfe6cc13dab0e17dedee467b1254b",
+    "symbols": [
+      "createObservation",
+      "observationWindow"
+    ]
+  },
+  "status": {
+    "backend_wiring_status": "VERIFIED",
+    "implementation_status": "COMPLETE",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "user_controls": [
+      "Read authenticated monitor projection"
+    ],
+    "class": "BACKGROUND_DISCLOSED",
+    "user_visible_information": [
+      "Canonical bounded task/host/event projections",
+      "Missing/unknown populations and stale state"
+    ],
+    "internal_only_exemption_reason": null,
+    "intentionally_hidden_information": [
+      "Raw event payloads/results/errors",
+      "Credentials",
+      "Hidden reasoning"
+    ]
+  },
+  "surfaces": [
+    {
+      "discoverable": false,
+      "platform": "API",
+      "evidence_ref": "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md",
+      "location": "GET /api/v0/monitor"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/mon901-observation.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/MON-901/canary-receipt.json"
+    ]
+  },
+  "research_observations": {
+    "paper_material_refs": [
+      "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md"
+    ],
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW"
+  },
+  "known_gaps": [
+    "Exact-head hosted CI pending",
+    "Opposite physical-host Formal Review NOT_RUN",
+    "Graph/inspector UI belongs to MON-902; decisions MON-903",
+    "Owner/review/CI/escalation absent-source NOT_OBSERVABLE"
+  ],
+  "last_reconciled_by_workbook": "MON-901"
+}
