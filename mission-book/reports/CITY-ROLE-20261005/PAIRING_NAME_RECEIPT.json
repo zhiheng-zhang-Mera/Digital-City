@@ -1,0 +1,37 @@
+{
+  "identity": "Alien-codex",
+  "baseline_sha": "0e9bea3ce739b979e582a428af8fb233045a5e75",
+  "implementation_sha": "a7d6f2a9b97e02d5fd10adf3a73eafb4a5f3ef6e",
+  "pr": "https://github.com/zhiheng-zhang-Mera/utopia/pull/23",
+  "ci": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37221410664",
+  "ci_status": "IN_PROGRESS",
+  "change": "Only429 recovery wording: Alien → City host; no trust, role or protocol change",
+  "red": "Real Gateway error contained refresh on Alien before correction",
+  "tests": {
+    "focused_pass": 24,
+    "final_canonical_rename_regression_pass": 1,
+    "independent_critic_pass": 1
+  },
+  "superseded_sha": "ba49ac55c0d7b488fc3279ec1d4f20c701d6a3e8",
+  "supersession": "Final test uses actual PATCH City rename rather than fixture store shortcut; product logic unchanged",
+  "raw_hashes": [
+    {
+      "path": "D:/Utopia-Pairing-City-Neutral/.runtime/evidence/city-neutral-pairing/red.log",
+      "sha256": "867a4d398c80708dad706eba0acf95173de5aaeb3ac02561cbb025664e35e268"
+    },
+    {
+      "path": "D:/Utopia-Pairing-City-Neutral/.runtime/evidence/city-neutral-pairing/green.log",
+      "sha256": "cba4c6d3764f8860f24e153c2af0510ff2c158e40ece889a9866970779cf0d3a"
+    },
+    {
+      "path": "D:/Utopia-Pairing-City-Neutral/.runtime/evidence/city-neutral-pairing/rename-api-green.log",
+      "sha256": "28621b4ffec23845457c8015efc58183d23daaabfbd8634de0d8d5e429699c19"
+    }
+  ],
+  "remote_login": "Short code alone has no global resolver; explicit endpoint required; real cross-region NOT_RUN; native HTTPS pairing NOT_IMPLEMENTED",
+  "primary_agent_user_appointment": "NOT_IMPLEMENTED",
+  "metrics": {
+    "latency_ms": null,
+    "model_tokens": null
+  }
+}
