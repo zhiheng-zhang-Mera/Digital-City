@@ -25,7 +25,7 @@ review_head_sha: null
 review_ci: null
 review_complete: false
 research_evidence_applicability: APPLICABLE
-research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT","RS-G4-PASSIVE-EVIDENCE-PIPELINE"]
+research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT","RS-G3-PASSIVE-EVIDENCE-PIPELINE"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC
 research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
