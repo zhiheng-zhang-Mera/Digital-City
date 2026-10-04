@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: []
 development_host: Alien-codex
 development_branch: rex/REX-802-Alien-codex-trace-foundation
-development_head_sha: null
-development_ci: null
+development_head_sha: "833279cae237080cca88b1b6dbc9f217027ba68f"
+development_ci: "V0.2 checks run 37211053490 IN_PROGRESS on exact 833279cae237080cca88b1b6dbc9f217027ba68f; not acceptance"
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -35,7 +35,7 @@ state_identity_evidence_refs: ["mission-book/reports/REX-802/PAPER_MATERIAL_INDE
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: RESEARCH_RUN_DETAILS
 user_exposure_nesting: L4_TECHNICAL
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false

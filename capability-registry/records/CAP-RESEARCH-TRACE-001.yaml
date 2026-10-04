@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-RESEARCH-TRACE-001",
+  "name": {
+    "zh_CN": "研究记录与来源观察",
+    "en": "Bounded research trace and provenance"
+  },
+  "source_workbooks": [
+    "REX-802"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/research-trace/",
+      "services/dev-gateway/server.mjs",
+      "apps/web/research-trace.js",
+      "apps/android/app/src/main/java/city/utopia/control/ResearchTracePanel.kt"
+    ],
+    "symbols": [
+      "createTraceCollector",
+      "normalizeTraceRecord",
+      "createResearchTraceView",
+      "ResearchTracePanel"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/research/trace"
+    ],
+    "last_verified_full_sha": "833279cae237080cca88b1b6dbc9f217027ba68f"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "OBSERVABLE_ADVANCED",
+    "user_visible_information": [
+      "recording run versus experiment run",
+      "event types/failures",
+      "measurement availability and missing reasons",
+      "provenance/completeness"
+    ],
+    "user_controls": [
+      "refresh read-only view",
+      "expand technical details"
+    ],
+    "intentionally_hidden_information": [
+      "credentials",
+      "fingerprints",
+      "arbitrary task input"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Research trace",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "evidence_ref": "mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > Research trace",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE + City owner",
+      "evidence_ref": "mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/rex802-gateway.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/REX-802/development-receipt.json"
+    ],
+    "intent_validation_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/833279cae237080cca88b1b6dbc9f217027ba68f"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_CI_AND_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Exact-source CI in progress",
+    "Opposite physical-host Formal Review pending",
+    "Android online rendering NOT_RUN",
+    "Experiment execution binding and autonomy measurements NOT_OBSERVABLE"
+  ],
+  "last_reconciled_by_workbook": "REX-802"
+}

@@ -62,3 +62,6 @@ records:
 
   - capability_id: CAP-EXECUTION-001
     record_ref: records/CAP-EXECUTION-001.yaml
+
+  - capability_id: CAP-RESEARCH-TRACE-001
+    record_ref: records/CAP-RESEARCH-TRACE-001.yaml
