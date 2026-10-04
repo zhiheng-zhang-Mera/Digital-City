@@ -29,3 +29,7 @@ PR12实现0a5e9ba53772a1b01897c2edf34de3840de7c629 push CI37203861869终态succe
 PR12 push/PR CI37203861869/37203864170均success，已合并为40e18db4a6cf5bba1490181a473bc62e681edb8a。32个原历史分支+本次integration分支都已保存云端tag/full SHA索引并条件式移除；云端head仅main。merged-main CI37204279336排队/运行中，仍需核验终态，不将candidate CI替代它。
 
 按常驻规则§4 no-idle，候选精确HEAD已绿且整合/归档已完成后，在保持merged-main CI观察的同时进入合法施工领取。选择CEX-701：承接已接受设备身份后端、修复恢复/冲突信息丢失，直接服务刚完成的多成员使用路径；不需要付费provider或新的canonical registry。WBC/REX等其他READY任务保持未占用。领取前再fetch两仓库并验证工作书祖先/依赖/claim。
+
+## 合并后失败与恢复
+
+40e18db4a6cf5bba1490181a473bc62e681edb8a的merged-main CI37204279336首次1241/1242，Windows CIM scan超过30s；同SHA attempt2终态success，负面日志保留Utopia/.runtime/evidence/mission-book/CEX-701/merged-main-ci-failure.log。另行PR13修复超时后重试一次完整进程/端口观察、持续/非超时错误仍拒绝启动，review发现混合错误掩盖后补修复与测试，7/7红绿检查。精确HEAD3bab6bdc78c18467645f3fb88272dab7a86f8a0d的push/PR CI均success；合并为0e9bea3ce739b979e582a428af8fb233045a5e75，后续merged-main仍待终态。CEX701已显式union此accepted修复，不修改原claim baseline。
