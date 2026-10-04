@@ -287,6 +287,198 @@ City 只保存：
 
 无界 terminal log、重复截图、raw trace 不进入 City 当前施工面。
 
+## 14A. Capability Exposure & User Control Gate / 能力暴露与用户掌控门
+
+任何**新增或实质修改的产品能力**，在 Development complete 前都必须回答：
+
+> 这个能力是否应该由用户直接操作？如果不是，用户需要知道/观察/配置到什么程度？它应该放在哪一层 UI，如何避免视觉与操作过载？
+
+核心原则：
+
+> **在不造成视觉和操作过载的前提下，给予用户最大的掌控权与知情权。**
+
+“避免过载”只能通过 **progressive disclosure / 分层收纳 / 上下文入口 / Advanced / Technical Details** 解决，不能把本应可操作或应知情的能力藏起来。
+
+### 14A.1 四类 Exposure Decision
+
+每个 capability 必须归入且只归入一类：
+
+#### A. `DIRECT_CONTROL`
+
+用户需要主动发起、停止、选择、确认、修改或恢复。
+
+必须：
+
+- 有正常用户可发现入口；
+- UI control 真实连接 canonical backend/action/API；
+- 用户操作后能看到 accepted / running / failed / refused / completed 等真实结果；
+- applicable 时提供 cancel / rollback / confirmation；
+- 不允许只靠 console、CLI、隐藏 URL 或文档说明完成正常用户流程。
+
+典型：创建任务、选择设备、rebind、approve/reject、experiment run/export。
+
+#### B. `OBSERVABLE_ADVANCED`
+
+用户通常不频繁操作，但对状态、结果、配置或异常拥有合理知情/干预需求。
+
+必须暴露到：
+
+- Settings；
+- Research / Advanced；
+- device/task detail；
+- status/diagnostics；
+- expandable Technical Details；
+
+中的至少一个稳定 surface。
+
+不得完全隐藏。
+
+典型：provenance、metrics、enrollment status、resource readiness、experiment trace completeness。
+
+#### C. `BACKGROUND_DISCLOSED`
+
+能力主要自动运行，不适合给用户频繁按钮，但其存在、当前状态、失败或政策会影响用户结果。
+
+必须至少让用户知道：
+
+- 它存在；
+- 当前是否 active / degraded / unavailable；
+- 发生重要失败或需要人类决策时如何得知；
+- 必要时在哪里调整 policy / opt-out / reset。
+
+可通过状态、通知、历史、Settings 或上下文说明实现，不要求主导航常驻控制。
+
+典型：自动 recovery、background routing、session refresh、health monitor。
+
+#### D. `INTERNAL_ONLY`
+
+仅当能力**没有合理的用户操作价值，也没有需要用户知情的产品语义**时，允许完全不出现在 UI。
+
+典型可能包括：
+
+- protocol heartbeat；
+- transport frame codec；
+- internal retry bookkeeping；
+- ephemeral collector buffer；
+- low-level worker claim packet。
+
+这是**唯一允许 UI 完全豁免**的类别。
+
+工作书必须记录：
+
+```text
+user_exposure_class: INTERNAL_ONLY
+ui_exemption_reason: <why no user action or awareness is useful>
+```
+
+“怕界面复杂”“以后再说”“只有高级用户会用”都不是豁免理由。
+
+### 14A.2 强制收纳 / Nesting Decision
+
+凡不是 INTERNAL_ONLY，都必须决定它放在哪一层：
+
+```text
+L1 PRIMARY
+   frequent / high-value / core user journey
+
+L2 CONTEXTUAL
+   appears where the relevant task/device/action exists
+
+L3 ADVANCED / SETTINGS / RESEARCH
+   powerful or infrequent controls
+
+L4 TECHNICAL DETAILS / DIAGNOSTICS
+   raw ids, exact refs, deep provenance, low-level measurements
+```
+
+优先原则：
+
+- 频繁核心操作才进入 L1；
+- 与具体对象绑定的操作放 L2；
+- 强大、危险、低频能力放 L3；
+- 原始技术信息折叠到 L4；
+- 同一事实不要在多个主入口重复堆叠；
+- 如果能力已有自然宿主页面，应优先嵌入而不是新造顶级导航。
+
+### 14A.3 Backend Wiring Gate
+
+“画了按钮”不算 exposure complete。
+
+对 DIRECT_CONTROL / ADVANCED control 必须证明：
+
+```text
+visible control
+→ canonical request/action
+→ backend accepted/refused truth
+→ progress/state
+→ result/error
+→ UI reconciliation
+```
+
+若其中任一环不存在，应标：
+
+`EXPOSURE_BACKEND_NOT_READY`
+
+并保持 control disabled/absent with honest explanation，而不是制造 false affordance。
+
+### 14A.4 Knowledge / Control Rights
+
+任何能力若影响：
+
+- task routing；
+- device choice；
+- provider/model；
+- cost/budget；
+- trust/identity；
+- privacy/security；
+- persistence/data deletion；
+- external side effect；
+- long-running background behavior；
+
+默认**不能**归 INTERNAL_ONLY。
+
+即使不适合直接按钮，也至少属于 OBSERVABLE_ADVANCED 或 BACKGROUND_DISCLOSED。
+
+### 14A.5 Workbook / Report 必填
+
+新建或实质修改 capability 的工作书必须记录：
+
+```text
+user_exposure_class
+user_exposure_surface
+user_exposure_nesting
+backend_wiring
+ui_exemption_reason
+```
+
+若工作书 frontmatter 没有专门字段，也必须在正文的 “Capability Exposure Decision” 中记录。
+
+Development Report 必须说明实际落地入口。
+
+Formal Review 必须独立检查：
+
+1. 普通用户能否发现需要发现的能力；
+2. control 是否真实接到 backend；
+3. unavailable/permission/refusal 是否诚实显示；
+4. 是否出现重复、视觉过载或不合理顶级导航；
+5. 是否把本应知情的后台能力错误归为 INTERNAL_ONLY；
+6. Android/Web 等一等 surface 是否需要 parity，若暂不需要必须有理由与 future seam。
+
+### 14A.6 Completion Gate
+
+如果一个能力的 exposure decision 未完成：
+
+`CAPABILITY_IMPLEMENTED != PRODUCT_COMPLETE`
+
+不得因为代码、unit test、CI 已绿就标记整个用户能力 complete。
+
+允许 component implementation complete，但 programme/final integration 必须保留 exposure seam，直到：
+
+- required UI / observable surface 已接线并复核；或
+- 明确证明为 `UI_EXEMPT_INTERNAL_ONLY`。
+
+这条规则对之后所有 Mission Book 新能力默认生效；Capability Entry Closeout programme 负责清理此前已经存在的历史入口债务。
+
 ## 15. 本文件的永久生命周期
 
 `CONSTRUCTION_RULES.md` 是 Mission Book 的常驻基础设施：
