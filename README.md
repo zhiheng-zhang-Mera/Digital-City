@@ -4,6 +4,8 @@
 
 Digital-City is not a monorepo. It describes how independently maintained projects fit into one shared city.
 
+The citywide durable capability inventory lives in [capability-registry](./capability-registry/): it maps semantic capabilities to implementation locations, exact verified SHAs, user-visible information, controls, UI surfaces, reachability, and intent validation.
+
 ## Directory naming convention
 
 Every directory uses the same bilingual dual-name format:
@@ -286,6 +288,7 @@ This rule prevents three recurring errors:
 ```text
 Project repository = birthplace and normal development truth
 Digital-City       = capability ownership / registry / boundaries
+Capability Registry= verified capability implementation + exposure map
 Utopia             = product terminal + incubator + experience learner
 .utopia-history    = learning evidence side channel, not authority
 ```
@@ -327,6 +330,7 @@ L3  Runtime / Experiment Rules
 
 ## Repository files
 
+- [capability-registry/](./capability-registry/) — durable semantic capability inventory, user-exposure map, exact implementation/evidence anchors
 - [CITY_MANIFEST.yaml](./CITY_MANIFEST.yaml) — machine-readable structural registry
 - [CITY_PROTOCOL.md](./CITY_PROTOCOL.md) — city vocabulary and integration rules
 - [DISTRICT_TEMPLATE.md](./DISTRICT_TEMPLATE.md) — district README template
