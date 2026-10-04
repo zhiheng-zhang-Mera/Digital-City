@@ -1,4 +1,6 @@
-# Mission Book — 当前施工监控看板
+# Mission Book
+
+> Capability inventory / user exposure truth: [../capability-registry/README.md](../capability-registry/README.md) — 当前施工监控看板
 
 > 当前模式：**历史阶段已归档 → MESH-301 COMPLETE → SHOW-401 + Connection Onboarding + Workbench Compatibility + Capability Entry Closeout + Research Strengthening ACTIVE**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
@@ -113,3 +115,21 @@ MESH-301 已按不同实体主机完成 Development / Formal Review。后续新�
 ## 长期方向
 
 当前异步减压协议是 prompt/process 层的过渡方案。未来 FR-001 的目标是把 Hns supervisor、session recovery、Review→Repair、CI/event wake-up 与 escalation ladder 真正固化成 Persistent Foreman Runtime，从而让 Owner 只保留 L3 权限/价值判断。
+
+## Capability Registry linkage
+
+Mission Book tracks **work execution**; `../capability-registry/` tracks **current verified capability reality**.
+
+For every new or materially changed capability:
+
+```text
+workbook declares CAP-* + registry action
+→ Development updates candidate Registry state
+→ exact-head UI/backend/E2E verification
+→ Formal Review reconciles Registry ↔ runtime reality
+→ workbook closeout
+```
+
+The governing rules are `CONSTRUCTION_RULES.md §14A–§14C`.
+
+A task with `CAPABILITY_REGISTRY_STALE` or `CAPABILITY_REGISTRY_REALITY_MISMATCH` is not formally closed even if implementation tests are green.
