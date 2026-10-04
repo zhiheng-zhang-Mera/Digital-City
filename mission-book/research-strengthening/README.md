@@ -37,10 +37,10 @@ G4 first:
   capability implementation→wiring→reachability→intent
   autonomy survival until Owner intervention
   control-plane reality drift
-  user-reachable completion terminal
-  passive development→research evidence pipeline
 
 G3 second:
+  user-reachable completion terminal
+  passive development→research evidence pipeline
   repo-resident executable work state
   exact identity/provenance/freshness
   structured handoff with exact state
