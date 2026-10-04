@@ -39,6 +39,10 @@ highest_research_grade_observed: NONE
 research_capture_level: STANDARD
 state_identity_evidence: UNASSESSED
 state_identity_evidence_refs: []
+monitor_observability_evidence: UNASSESSED
+monitor_observability_refs: []
+decision_trace_evidence: UNASSESSED
+decision_trace_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: null
@@ -140,6 +144,19 @@ research_capture_level = MINIMAL | STANDARD | PRIORITY | MAXIMUM_BOUNDED
 - G3/G4 发生时优先保存 before/after、exact evidence、timeline、Owner intervention 与 replay/ablation opportunity；
 - 不在 watchlist 的现象标 `UNCLASSIFIED_CANDIDATE`，不得自行宣称新颖；
 - 投稿前必须重新做 literature review，当前 grade 只决定数据采集预算。
+
+### Monitor / Decision observability
+
+若任务可被 City Work Monitor/JEV 观察，或会触发 retry/reroute/review/block/merge/Owner escalation 等状态跃迁，还必须判断：
+
+~~~text
+monitor_observability_evidence = CAPTURED | NOT_OBSERVABLE | NOT_APPLICABLE
+monitor_observability_refs = [...]
+decision_trace_evidence = CAPTURED | NOT_OBSERVABLE | NOT_APPLICABLE
+decision_trace_refs = [...]
+~~~
+
+优先保存 observation→projection、state-transition→decision、decision source、timeout/fallback、Owner escalation、risk bubbling 与 canonical truth reconciliation。监控器不得成为新的 task truth，也不得通过 global synchronization barrier 拖慢无关任务。
 
 ## 完成门槛
 ## Reports / Utopia evolution 记录
