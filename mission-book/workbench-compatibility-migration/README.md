@@ -16,7 +16,7 @@
 > 常驻施工规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
 > 异步减压施工：[../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
 > 过程数据规则：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
-> 已接受三端基线：[../mesh-3end/MESH-301-三端实机互联与相互指挥.md](../mesh-3end/MESH-301-三端实机互联与相互指挥.md)
+> 已接受三端基线（immutable merged SHA `9f3e20e8ec99d591812430bee71d27e68c4ad498`）：[../finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md](../finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md)
 
 ## 1. Programme 目标
 
