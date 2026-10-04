@@ -1,6 +1,6 @@
 # Post-candidate fresh scan / 后续资格扫描
 
-2026-10-05 fresh Digital-City main at `fd26d8503d5f9abb6b270a9fb2785bb5b476bfbc` and Utopia exact candidate CI terminal event revalidated. WBC603 exact `f3510862cc348a99004ca5bd5d151a7b56279724` CI37219829411SUCCESS; all PR22 checks independently verified. Candidate development complete, opposite physical-host Formal Review pending. Do not self-review or integrate when merge_authority=false.
+2026-10-05 fresh Digital-City main at `fd26d8503d5f9abb6b270a9fb2785bb5b476bfbc` and Utopia exact candidate CI terminal event revalidated. WBC603 exact `f3510862cc348a99004ca5bd5d151a7b56279724` CI37219829411SUCCESS; all PR22 checks independently verified; pull-run37219861813 was pending at initial scan and was later reread COMPLETED SUCCESS on the same full SHA, with all checks SUCCESS. Candidate development complete, opposite physical-host Formal Review pending. Do not self-review or integrate when merge_authority=false.
 
 pool_incomplete: true
 claimable_now_with_verified_execution_access: 0
