@@ -73,6 +73,45 @@ Mech becomes claimable again when any of the following happens:
 5. a review finding is raised against a Mech-authored head (`REX-801` now; WBC-601/602 are already closed), which
    returns work to this host as a repair rather than as a new claim.
 
+## 3A. Re-scan at the "continue claiming" request (measured, not assumed)
+
+The whole board was re-read after pulling `origin/main`, and the two candidate paths a "keep claiming" instruction
+could plausibly mean were each tested rather than dismissed:
+
+**(a) JOIN-590 — the only other `READY`, unclaimed workbook.** Its blocking resource was measured on this host:
+
+```text
+adb devices -l                                  -> "List of devices attached" and nothing else (no physical device)
+emulator -list-avds                             -> utopia36 exists (an emulator, NOT a physical Android surface)
+resident City on this host                      -> http://127.0.0.1:4389  state ONLINE, endpoint
+                                                   http://172.31.12.151:4391 (this host's own LAN address)
+```
+
+JOIN-590's first completion gate is a real `Alien + Mech + Android` run whose approval step happens on an
+**already trusted physical control surface**. An emulator is not that surface, and the workbook's own rule is that
+`deferred != passed`. Producing approval evidence from an emulator would be a fabricated acceptance, which is worse
+than a zero-claim, so this path stays closed until a physical Android device is attached and the two-host window is
+agreed. This is the same conclusion the other host reached independently in
+`reports/MON-901/ELIGIBILITY_SCAN_20261005T103433_Alien-codex.md` ("No callable Mech physical session/address was
+provided"), with one addition measured here: the Mech side **is** live and has no device attached, so the missing
+piece is the physical Android surface, not this host's availability.
+
+**(b) Merging the eleven reviewed-but-unmerged PRs (14–25).** They are all `MERGEABLE`, and a merge is not a
+review, so this was examined as a genuinely executable option rather than a claim. It was not taken, because no
+workbook currently authorises it: every relevant workbook carries `merge_authority: false` — including
+`WBC-601`, `WBC-602`, `REX-801` and `WBC-603` — and `workbench-compatibility-migration/README.md` §8 states that no
+final integration / merge workbook exists yet and must not be created until all four WBC tasks are complete with
+opposite-host review, green exact-head CI and no unresolved regression. Executing merges on this control plane
+without either an authored integration workbook or an explicit Owner ruling would be taking merge authority that
+was never granted. Recorded as an **open, unclaimed integration need** rather than a Mech task.
+
+```text
+claimable_now (after re-scan) = 0
+new exclusion reason (measured) = JOIN-590 additionally blocked on absent physical Android control surface
+control-plane gap observed      = 11 reviewed+mergeable PRs (14–25) with no merge authority granted anywhere
+```
+
+
 `rescan_after` = 20 minutes as the low-frequency liveness fallback only, per §6. The primary mechanism is the
 event, not the clock.
 
