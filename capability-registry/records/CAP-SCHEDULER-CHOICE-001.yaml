@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-SCHEDULER-CHOICE-001",
+  "name": {
+    "zh_CN": "保留服务并换设备执行",
+    "en": "Keep service and use another device"
+  },
+  "source_workbooks": [
+    "CEX-702"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/dev-gateway/presentation.mjs",
+      "services/dev-gateway/server.mjs",
+      "apps/web/scheduler.js",
+      "apps/android/app/src/main/java/city/utopia/control/SchedulerPanel.kt"
+    ],
+    "symbols": [
+      "schedulerChoicesFor",
+      "buildPresentationFeed",
+      "SchedulerStatusPanel",
+      "alternateDevice"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/presentation",
+      "POST /api/v0/tasks/:id/switch-declined"
+    ],
+    "last_verified_full_sha": "3d233ff39d1e96b8a590b12f520f98c283356f25"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "canonical decision availability/refusal",
+      "current handoff state",
+      "named service candidates"
+    ],
+    "user_controls": [
+      "choose another service",
+      "keep service and use another device",
+      "keep waiting",
+      "cancel"
+    ],
+    "intentionally_hidden_information": [
+      "credentials",
+      "full task ID outside folded technical detail"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Devices > scheduling task > Keep this service and use another device",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE and canonical alternate allowed",
+      "evidence_ref": "mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "Devices > scheduling task > Keep this service and use another device",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE and canonical alternate allowed",
+      "evidence_ref": "mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md"
+    }
+  ],
+  "evidence": {
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/19"
+    ],
+    "backend_wiring_refs": [
+      "utopia:tests/cex702-choice-ui.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/CEX-702/development-receipt.json"
+    ],
+    "intent_validation_refs": []
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "false_affordance_detected": true,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Android online interaction NOT_RUN",
+    "Opposite physical-host Formal Review pending",
+    "Hosted exact-head CI pending",
+    "No City primary-agent appointment or migration"
+  ],
+  "last_reconciled_by_workbook": "CEX-702"
+}

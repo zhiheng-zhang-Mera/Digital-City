@@ -68,3 +68,6 @@ records:
 
   - capability_id: CAP-NODE-DESCRIPTOR-001
     record_ref: records/CAP-NODE-DESCRIPTOR-001.yaml
+
+  - capability_id: CAP-SCHEDULER-CHOICE-001
+    record_ref: records/CAP-SCHEDULER-CHOICE-001.yaml
