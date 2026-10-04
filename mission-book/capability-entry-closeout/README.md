@@ -37,11 +37,14 @@ user cannot discover / invoke / complete it from normal UI
 
 ## 2. 审计基线
 
-本工程创建时的最新功能超集是：
+本工程创建时曾使用 `codex/city-members-host-roles` 作为**历史发现来源**来盘点尚未合入 main 的能力，但它是可移动 branch，**不得作为任何施工 baseline 或验收证据**。
 
-`zhiheng-zhang-Mera/utopia:codex/city-members-host-roles`
+从本轮 control-plane reconciliation 起：
 
-该分支在审计时相对 Utopia `main` 为 **ahead 9 / behind 0**，并包含当前最新的 pairing/discovery、remote login、City name / host preflight、City members / host roles 等功能。
+- 每个 CEX workbook 只认自己的 `required_ancestor_shas`；
+- claim 时从 remote candidate ref 解析 full 40-character SHA；
+- 只有 ancestry guard 全部满足才允许写入 `development_baseline_sha`；
+- CEX-705 因 City Members / Host Roles 尚未形成 accepted exact SHA，保持 WAITING，不允许直接锚定开发 branch。
 
 ### Claim-time 基线规则
 
@@ -78,7 +81,7 @@ user cannot discover / invoke / complete it from normal UI
 | [CEX-702](./CEX-702-scheduler-choice-and-alternate-device-entry.md) | Scheduler Choice / Alternate Device Entry | READY | 暴露“不要切服务，改用另一设备”路径；不滥用 generic CONFIRM |
 | [CEX-703](./CEX-703-capability-catalog-discoverability.md) | Capability Catalog / Discoverability | READY | 让用户无需先 Ask 失败即可查看 Utopia 能做什么 |
 | [CEX-704](./CEX-704-android-onboarding-owner-actions-parity.md) | Android Onboarding Owner Actions | READY | Android 补 join approval + pairing generation/share |
-| [CEX-705](./CEX-705-android-member-device-management-parity.md) | Android Member / Device Management | READY | Android 补 City/device/member/sharing/message 管理入口 |
+| [CEX-705](./CEX-705-android-member-device-management-parity.md) | Android Member / Device Management | WAITING_DEPENDENCIES | 等待 City Members / Host Roles accepted exact SHA 后再施工 |
 | [CEX-790](./CEX-790-final-exposure-audit-and-freeze.md) | Final Exposure Audit / Freeze | WAITING_DEPENDENCIES | 再做一次 backend→surface 全量对账并冻结入口基线 |
 
 CEX-701..705 可在文件 ownership 不冲突时双机并行；CEX-790 必须等待前五项全部 Development + opposite-host Formal Review 完成。
