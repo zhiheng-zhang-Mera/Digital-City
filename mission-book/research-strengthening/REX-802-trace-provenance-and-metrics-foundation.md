@@ -24,6 +24,14 @@ review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"]
+research_watchlist_hits: ["RS-G3-IDENTITY-PROVENANCE","RS-G3-DYNAMIC-LIVENESS","RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G4-AUTONOMY-SURVIVAL","RS-G4-REALITY-DRIFT","RS-G4-PASSIVE-EVIDENCE-PIPELINE"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"]
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: RESEARCH_RUN_DETAILS
 user_exposure_nesting: L4_TECHNICAL
@@ -57,7 +65,52 @@ terminal_marker: RESEARCH_TRACE_FOUNDATION_ACCEPTED
 - Owner intervention；
 - timing；
 - resource observation；
-- Git/config refs。
+- Git/config refs；
+- research signal id / grade snapshot；
+- authority surface / truth source；
+- task eligibility / zero-claim classification；
+- wake condition / wake event / rescan reason；
+- exact implementation/review/CI/evidence identity；
+- Capability Registry state（涉及 capability 时）；
+- user reachability / intent state（涉及 user capability 时）；
+- Owner intervention reason taxonomy；
+- task transition count；
+- autonomous span until intervention。
+
+## G3/G4 trace priorities
+
+Trace schema 必须优先支持以下 longitudinal questions，而不是只做 generic telemetry：
+
+1. **Autonomy survival**
+   - autonomous run start；
+   - successful task transitions；
+   - first required Owner intervention；
+   - intervention reason；
+   - pool drained / blocked / interrupted。
+
+2. **Dynamic liveness**
+   - eligibility state；
+   - TEMPORARILY_UNCLAIMABLE / STRUCTURALLY_INELIGIBLE / GLOBAL_EXTERNAL_BLOCK / POOL_TERMINAL；
+   - wake trigger；
+   - bounded re-scan；
+   - no-idle task switch。
+
+3. **Reality drift**
+   - Mission Book state；
+   - Capability Registry state；
+   - Git exact state；
+   - CI/review evidence state；
+   - runtime/UI observed state；
+   - mismatch / reconciliation。
+
+4. **Exact continuation**
+   - predecessor/successor agent/model/host；
+   - exact SHA / dependency truth；
+   - handoff artifact；
+   - resumed next action；
+   - rediscovery/repeated-work signal。
+
+缺字段时必须 `NOT_OBSERVABLE + reason`，不得把 missing 当 0。
 
 ## 硬规则
 
