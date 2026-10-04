@@ -5,7 +5,15 @@ sequence: 806
 execution_enabled: true
 status: WAITING_DEPENDENCIES
 implementation_repo: zhiheng-zhang-Mera/utopia
-baseline_policy: CLAIM_TIME_MAIN
+baseline_policy: IMMUTABLE_EXACT_SHA
+baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
+baseline_candidate_refs: ["refs/heads/main"]
+required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
+dependency_source_workbooks: ["REX-803","REX-804","REX-805"]
+dependency_source_shas: []
+development_baseline_sha: null
+baseline_resolution_evidence: null
+baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
 dependencies: ["REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED", "REX-804:FAULT_INJECTION_RECOVERY_ACCEPTED", "REX-805:TRACE_REPLAY_ABLATION_ACCEPTED"]
 development_host: null
 development_branch: null
