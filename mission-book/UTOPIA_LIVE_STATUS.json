@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "a7bab55f7893b2f1f05ec381e75f65a22d597d35",
-    "name": "City linkage check",
-    "run_id": 37165205854,
+    "head_sha": "69a097b5394a9fece39dd11cc13f04c9b4d28bfe",
+    "name": "V0.2 checks",
+    "run_id": 37181782580,
     "status": "completed",
-    "updated_at": "2026-10-04T00:31:29Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37165205854"
+    "updated_at": "2026-10-04T06:10:40Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37181782580"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "feat(relay): the transport behind relay-in-city - a City accepts an OUTBOUND dial from a peer that cannot be reached, and forwards join requests over it",
-  "main_commit_time": "2026-10-04T00:31:15Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/a7bab55f7893b2f1f05ec381e75f65a22d597d35",
-  "main_sha": "a7bab55f7893b2f1f05ec381e75f65a22d597d35",
+  "main_commit_message": "fix(launcher): make the bootstrap actually work without a console - the probe no longer depends on a pipe",
+  "main_commit_time": "2026-10-04T06:05:21Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/69a097b5394a9fece39dd11cc13f04c9b4d28bfe",
+  "main_sha": "69a097b5394a9fece39dd11cc13f04c9b4d28bfe",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
