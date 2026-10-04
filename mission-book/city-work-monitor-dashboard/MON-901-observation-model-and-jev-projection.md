@@ -17,7 +17,7 @@ development_host: Alien-codex
 development_branch: mon/MON-901-Alien-codex-observation
 development_head_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37242446183"
-development_complete: false
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -25,7 +25,7 @@ review_complete: false
 user_exposure_class: BACKGROUND_DISCLOSED
 user_exposure_surface: City Work Monitor
 user_exposure_nesting: L2_CONTEXTUAL
-backend_wiring: UNASSESSED
+backend_wiring: VERIFIED
 ui_exemption_reason: null
 capability_ids: ["CAP-MON-001"]
 capability_registry_action: CREATE

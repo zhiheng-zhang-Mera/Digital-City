@@ -8,3 +8,5 @@ Evidence candidate: observation/decision separation and bounded canonical-truth 
 - canonical_event_id/observed_at/projected_at/sample-projection latency/drop-gap available for observed canonical window. Task owner/review/CI/model-switch/escalation absent-source fields NOT_OBSERVABLE. unrelated-task-blocking=false in controlled outstanding-reader/cancel experiments; not a production performance claim.
 - monitor_reconciliation_result: CONTROLLED_CANONICAL_MATCH; graph/navigation/UI NOT_RUN (MON-902); decision latency/provenance NOT_APPLICABLE (MON-903); opposite physical-host review NOT_RUN.
 - Highest research grade: NONE_PENDING_FORMAL; classification watchlist observation/decision decoupling candidate only. Model tokens, hosted/cross-device timings and end-to-end ingestion latency unknown/null.
+
+Final binding: implementation7eb38f1b930dfe6cc13dab0e17dedee467b1254b, exact pushCI37242446183 and PR37242505126 SUCCESS; final local root1255/1255, raw SHA256 a0e2f6db35c61cf6d46f1f601fc803281caca9c7af13ce06ea9a813a39ab4505. All earlier failure/partial statements remain chronological; physical Formal Review NOT_RUN.

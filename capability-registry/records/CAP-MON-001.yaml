@@ -70,7 +70,6 @@
     "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW"
   },
   "known_gaps": [
-    "Exact-head hosted CI pending",
     "Opposite physical-host Formal Review NOT_RUN",
     "Graph/inspector UI belongs to MON-902; decisions MON-903",
     "Owner/review/CI/escalation absent-source NOT_OBSERVABLE"

@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 13,
+      "complete": 14,
       "total": 27
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 79,
+      "complete": 80,
       "total": 93
     },
     "review": {
@@ -992,7 +992,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 0,
+      "development_complete": 1,
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
@@ -1002,7 +1002,7 @@
       "tasks": [
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "MON-901",
           "path": "city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md",
