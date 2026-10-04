@@ -4,7 +4,7 @@
   "implementation_sha": "a7d6f2a9b97e02d5fd10adf3a73eafb4a5f3ef6e",
   "pr": "https://github.com/zhiheng-zhang-Mera/utopia/pull/23",
   "ci": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37221410664",
-  "ci_status": "IN_PROGRESS",
+  "ci_status": "ATTEMPT1_FAILED_ATTEMPT2_QUEUED_SAME_SHA",
   "change": "Only429 recovery wording: Alien → City host; no trust, role or protocol change",
   "red": "Real Gateway error contained refresh on Alien before correction",
   "tests": {
@@ -33,5 +33,18 @@
   "metrics": {
     "latency_ms": null,
     "model_tokens": null
+  },
+  "ci_failure": {
+    "attempt": 1,
+    "focused": "tests/join502-ui.test.mjs refused browse initial nearby-host visibility timeout30000ms",
+    "full_root_tests": 1247,
+    "pass": 1246,
+    "fail": 1,
+    "android": "SUCCESS",
+    "candidate_isolated_repro": "PASS1/1",
+    "accepted_main_isolated_repro": "PASS1/1 at0e9bea3ce739b979e582a428af8fb233045a5e75",
+    "attribution": "UNRESOLVED_FULL_SUITE_TIMING; not claimed fixed or definitely flaky",
+    "retry": "Only failed job, same SHA, attempt2",
+    "raw_sha256": "5c10d736bfa247d5de98f1d45800184658a57f5f2b7cbe12b6f8b6f1c75093c4"
   }
 }
