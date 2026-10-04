@@ -25,9 +25,9 @@ highest_research_grade_observed: G3_SPARSE_ACTIVE
 research_capture_level: PRIORITY
 state_identity_evidence: "CAPTURED"
 state_identity_evidence_refs: ["mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"]
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "8f8c521fc299d622093776615b653457d8833f96"
+development_ci: "V0.2 checks run 37241196692 COMPLETED SUCCESS on headSha 8f8c521fc299d622093776615b653457d8833f96 (jobs: gateway-web success, android success), read from the Actions API and matched on headSha. Local pre-push evidence on the same head: 14/14 new tests pass (9 contract conformance + 5 live-gateway); pnpm test 1251 tests / 1247 pass / 4 fail where 3 are the pre-existing host-city-launcher environmental block (a resident City holds coordination port 4389 on this host and those tests refuse to run by design) and 1 is a flaky pre-existing sandbox-build integration test (tests/theme-build-bridge.test.mjs 'D9 Bridge builds retained sandbox artifacts...', 32.7s under full-suite load, passes standalone at 29.5s and on re-run); city/test-all.mjs 1984 tests / 1977 pass / 7 skipped / 0 fail; apps/rooms 69/69; check-bilingual SYNCHRONIZED; verify-promotion-history 10 records verified."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -35,7 +35,7 @@ review_complete: false
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: "VERIFIED — each research operation reaches the real registry: list and inspect read the stored documents, create/import validates against the LIVE capability vocabulary and persists, validate never persists, seeds are computed from the stored manifest. UI presentation is deferred to REX-807 (research control surface / progressive disclosure): see reports/REX-801/DEVELOPMENT_REPORT.md section 8 for the honest statement that the one-or-two-step user discoverability gate is NOT YET MET."
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
