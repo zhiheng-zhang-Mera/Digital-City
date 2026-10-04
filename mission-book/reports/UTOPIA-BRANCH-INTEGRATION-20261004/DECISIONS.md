@@ -33,3 +33,5 @@ PR12 push/PR CI37203861869/37203864170均success，已合并为40e18db4a6cf5bba1
 ## 合并后失败与恢复
 
 40e18db4a6cf5bba1490181a473bc62e681edb8a的merged-main CI37204279336首次1241/1242，Windows CIM scan超过30s；同SHA attempt2终态success，负面日志保留Utopia/.runtime/evidence/mission-book/CEX-701/merged-main-ci-failure.log。另行PR13修复超时后重试一次完整进程/端口观察、持续/非超时错误仍拒绝启动，review发现混合错误掩盖后补修复与测试，7/7红绿检查。精确HEAD3bab6bdc78c18467645f3fb88272dab7a86f8a0d的push/PR CI均success；合并为0e9bea3ce739b979e582a428af8fb233045a5e75，后续merged-main仍待终态。CEX701已显式union此accepted修复，不修改原claim baseline。
+
+PR13 merged-main revalidation: CI37205444427 success, exact head0e9bea3ce739b979e582a428af8fb233045a5e75. First earlier main inventory timeout remains retained; retry repair never converts unknown inventory into empty success.

@@ -17,9 +17,12 @@ baseline_blocker: null
 dependencies: ["JOIN-503 device enrollment semantics present"]
 development_host: Alien-codex
 development_branch: cex/CEX-701-Alien-codex-device-recovery
-development_head_sha: null
+development_head_sha: "a472fd12dd4881c4203526662ce8543681307b6b"
 development_ci: null
 development_complete: false
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/CEX-701/CONTEXT_LIFECYCLE.md"]
 review_host: null
 review_head_sha: null
 review_ci: null
