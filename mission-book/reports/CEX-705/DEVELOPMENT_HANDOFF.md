@@ -12,3 +12,9 @@ Native rename, revoke, sharing toggle, outbound send and reconnect physical cove
 
 Closeout: hosted37218345150 COMPLETED SUCCESS on exact de9185a4ef8d761053c88316ec9efeca037239fb, independently reread. Development complete; status IN_PROGRESS, review_complete=false and merge_authority=false. Opposite-host Formal Review and physical gaps remain; no terminal marker.
 
+## Hash-bound physical follow-up
+
+Same exact product source/APK, fresh independent fixture City ff9a841b-41d9-4d3a-865a-d119314cd822. OPPO now observed native own sharing stop/start with canonical false/true; outbound one message PENDING then native 已确认接收 after controlled B receipt; process restart ONLINE with same enrolled self; scoped Settings own installation only and actual rename button parent disabled; explicit self revoke leads OFFLINE and old fixture credential401; Owner City rename canonical ChosenFollowupCity; Owner revokes B while staying ONLINE, canonical RETIRED. No source changes or new CI identity substituted. Receipt PHYSICAL_FOLLOWUP.json carries selected raw XML hashes and exact artifact SHA.
+
+Earlier NOT_RUN native action claims are superseded only for the actions observed in this follow-up; retained as chronology. This is saved temporary-session reuse, not physical Windows tokenless installation refresh. Same-host logical peer, simulated compute advertisement; not another physical Windows or Android computation. Private user connection restored and cmp exit0, original CEX701 APK restored, test reverse removed and own fixture stopped. Same-host development evidence remains insufficient for Formal Review; four dimensions remain COMPLETE/VERIFIED/PARTIAL/NOT_TESTED.
+

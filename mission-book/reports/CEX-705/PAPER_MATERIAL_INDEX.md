@@ -12,3 +12,5 @@ Question/choice: currentMemberRef on owner control cannot identify the physical 
 
 Closeout: hosted37218345150 COMPLETED SUCCESS on exact de9185a4ef8d761053c88316ec9efeca037239fb, independently reread. Development complete; status IN_PROGRESS, review_complete=false and merge_authority=false. Opposite-host Formal Review and physical gaps remain; no terminal marker.
 
+Follow-up PHYSICAL_FOLLOWUP.json preserves the exact same source/APK and adds observed native rename, own-sharing toggle, outbound message/receipt display, self/owner revoke and saved-session process restart. Native session rename is blocked (button parent's enabled=false; the child TextView alone has enabled=true and is not authority). Self revoke old fixture session401; Owner B revoke canonical RETIRED with Owner ONLINE. Selective NOT_RUN supersession only; two physical Windows, tokenless Windows installation refresh and opposite-host Formal Review remain unobserved. No speedup/timing claims. Both fixture and private-user restoration are bounded and indexed; no credentials/raw XML committed.
+

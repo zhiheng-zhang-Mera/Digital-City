@@ -75,7 +75,8 @@
       "utopia:apps/android/app/src/test/java/city/utopia/control/MemberManagementTest.kt"
     ],
     "reachability_refs": [
-      "utopia:evidence/raw/mission-book/CEX-705/development-receipt.json"
+      "utopia:evidence/raw/mission-book/CEX-705/development-receipt.json",
+      "mission-book/reports/CEX-705/PHYSICAL_FOLLOWUP.json"
     ],
     "intent_validation_refs": []
   },
@@ -84,14 +85,17 @@
     "rework_required": true,
     "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
     "paper_material_refs": [
-      "mission-book/reports/CEX-705/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/CEX-705/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/CEX-705/PHYSICAL_FOLLOWUP.json"
     ]
   },
   "known_gaps": [
-    "Native rename/revoke/sharing/outbound-send/reconnect physical tests NOT_RUN",
-    "Two physical hosts NOT_RUN",
-    "Opposite-host Formal Review pending",
-    "User primary-agent appointment/migration NOT_IMPLEMENTED"
+    "Opposite physical-host Formal Review",
+    "Two physical Windows campaign",
+    "Tokenless installation refresh on physical Windows",
+    "Native direct forbidden endpoint attack not performed; scoped UI blocks it and controlled backend negative tests cover403",
+    "Compute advertisements are simulated, not Android execution or hardware speedup",
+    "User-appointed primary-agent migration not implemented"
   ],
   "last_reconciled_by_workbook": "CEX-705"
 }

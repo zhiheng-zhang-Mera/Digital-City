@@ -1,0 +1,123 @@
+{
+  "workbook_id": "CEX-705",
+  "identity": "Alien-codex",
+  "date": "2026-10-05",
+  "implementation_sha": "de9185a4ef8d761053c88316ec9efeca037239fb",
+  "apk_sha256": "a13b0727b225c9aa20c16defc0b4ed89cfd90da739969974156ccb657bec07ae",
+  "physical_device": "OPPO PERM00 / BICIPVNB5HS85H9T",
+  "fixture_city_id": "ff9a841b-41d9-4d3a-865a-d119314cd822",
+  "scope": "One physical Android with controlled same-host Gateway/logical peers, not two physical Windows",
+  "observed": [
+    {
+      "action": "own sharing stop/start",
+      "native": "Paused then enabled",
+      "canonical": "A sharingEnabled false then true"
+    },
+    {
+      "action": "native outbound send",
+      "text": "NativeFollowupMessage",
+      "canonical": "One PENDING message; B controlled recipient receipt; native 已确认接收"
+    },
+    {
+      "action": "process restart",
+      "native": "ONLINE / Phone Fixture A · 本机",
+      "limit": "Reused saved temporary session, not a tokenless installation refresh or Windows restart"
+    },
+    {
+      "action": "session management",
+      "native": "Only own installation; City rename button parent enabled=false"
+    },
+    {
+      "action": "self revoke",
+      "native": "Confirmation then OFFLINE / Find City",
+      "canonical": "Old fixture session GET city401"
+    },
+    {
+      "action": "owner rename",
+      "native": "ChosenFollowupCity / success",
+      "canonical": "City and PRIMARY display name ChosenFollowupCity; role remains PRIMARY"
+    },
+    {
+      "action": "owner other-installation revoke",
+      "native": "B 已撤销; Owner stays ONLINE",
+      "canonical": "Both A and B RETIRED"
+    }
+  ],
+  "restoration": "Original private connection restored/cmp exit0; CEX701 APK restored install Success; only test reverse removed; own fixture PID32584 stopped after close; live City untouched",
+  "remaining_gaps": [
+    "Opposite physical-host Formal Review",
+    "Two physical Windows campaign",
+    "Tokenless installation refresh on physical Windows",
+    "Native direct forbidden endpoint attack not performed; scoped UI blocks it and controlled backend negative tests cover403",
+    "Compute advertisements are simulated, not Android execution or hardware speedup",
+    "User-appointed primary-agent migration not implemented"
+  ],
+  "raw_ui_hashes": [
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-members.xml",
+      "sha256": "2b3e978a144b739d87eba7d45d597d7dec79ba36025e7edb548d28d5620b509b"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-sharing-paused.xml",
+      "sha256": "77397f0e157a10080ea54bd8f6829a372252f6c36b990af712056da8abf27e4b"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-peer-send-entry.xml",
+      "sha256": "c5e585f82724cc6650b1f25c72d7d1843d5d9247aa8f9f4c4deefbb0aeb9d3e5"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-send-ready.xml",
+      "sha256": "1a4be62b699cf433adc4970c88374e738e5ae88486c4122282c2ccb2db4f504c"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-send-pending.xml",
+      "sha256": "4955eab5f905282197d0ecdc0ead1da6b7f48acb4f71e1e8ec7189d4d20b3d3a"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-outbound-receipt.xml",
+      "sha256": "810a46924efc07bb5e4b52fb95ac20908230ab0c14a0558728f6362e0e5500f1"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-session-restart.xml",
+      "sha256": "2b3e978a144b739d87eba7d45d597d7dec79ba36025e7edb548d28d5620b509b"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-session-settings.xml",
+      "sha256": "8bc8690b46bb93b06c891af128e82228f6d4b1c0c848fd66dc28abd0f2d38295"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-self-revoke-dialog.xml",
+      "sha256": "71333dce07f8ef53d2dcd394a3c151a1657c4b1f541ed83ca620de8d9c2c3a61"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-self-revoked.xml",
+      "sha256": "45d811bb0131352f30d107b53d33c4bc4a1ebd3734ca6843ba4cce74d1e424d5"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-owner-settings.xml",
+      "sha256": "1ce0ba63ab99812355d9d46f57d19ed7376d022b92277bca8862568b2da53753"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-owner-rename-ready.xml",
+      "sha256": "94dcb083b7df39dd1c3ec3c8342761c9a54e08eff55b3a73461f92a933fdebac"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-owner-renamed.xml",
+      "sha256": "28415a7a7fbbc8c9e6f98ee19da31b1e6c38335bc83ce3af2af2d2fcbbd4f2ac"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-owner-revoke-dialog.xml",
+      "sha256": "30114469fefee8a30949e086df1a4d26c6bb2fa50faef025fff05b08676a4d9d"
+    },
+    {
+      "path": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/followup-owner-revoked.xml",
+      "sha256": "809ca0914437374192a8757a7a2aea51d6c8352bfb8bfd98e41ea32b4e43d7a4"
+    }
+  ],
+  "metrics": {
+    "latency_ms": null,
+    "throughput": null,
+    "parity_gap_count": null,
+    "model_tokens": null
+  }
+}
