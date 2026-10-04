@@ -1,6 +1,6 @@
 # Connection Onboarding Optimization / 连接入城优化工程
 
-> **状态：READY / ACTIVE PROGRAMME**
+> **状态：CLOSEOUT_READY / ACTIVE PROGRAMME**
 >
 > 本工程不是重做 Remote Fabric。Remote Fabric 已于 2026-10-01 完成 RF-001..RF-010、合并 Utopia main 并归档。
 > 本工程只负责把已存在的 discovery / pairing / invite / trust / device identity 能力真正变成“新 PC 快速入城”的产品路径，并消除用户手工管理长期 token 的正常使用需求。
@@ -131,27 +131,33 @@ ACTIVE 配对材料必须在产品页面中持续可见，直到：
 
 ## 4. Programme 工作拆分
 
-| ID | 工作 | 状态 | 主要目标 |
+组件施工已经结束并归档：
+
+| ID | 状态 | Accepted implementation head |
+|---|---|---|
+| [JOIN-501](../finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md) | COMPLETE / ARCHIVED | `e925ae1ef4dda6f51d89a1faa025d1b8666d8c58` |
+| [JOIN-502](../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md) | COMPLETE / ARCHIVED | `86deda9c2990c78d683a8c3515d251022df9d040` |
+| [JOIN-503](../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md) | COMPLETE / ARCHIVED | `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f` |
+
+Git ancestry 已确认上述三个 accepted heads 都进入当前 Utopia main。
+
+当前唯一可领取工作：
+
+| ID | 工作 | 状态 | 目标 |
 |---|---|---|---|
-| [JOIN-501](./JOIN-501-pairing-session-lifecycle-and-display.md) | Pairing Session Lifecycle + Display | READY | 固化显式生成、有效期内固定、消费/过期后再生成 |
-| [JOIN-502](./JOIN-502-nearby-pc-discovery-and-owner-approval.md) | Nearby PC Discovery + Owner Approval | READY | 同 Wi-Fi/LAN 首选自动发现，一键申请、一端审批 |
-| [JOIN-503](./JOIN-503-device-enrollment-and-tokenless-reconnect.md) | Device Enrollment + Tokenless Reconnect | READY | 首次配对后登记设备身份，后续启动不再手输 token |
+| [JOIN-590](./JOIN-590-merged-main-physical-acceptance-and-closeout.md) | Merged-main Physical Acceptance + Closeout | READY | 补齐历史 Review 明确 deferred 的两物理 Windows 主机 onboarding / restart / revoke acceptance，然后关闭整个 programme |
 
-三项可以在稳定 contract / test double 条件下并行施工，但不得 sibling merge。
+## 5. Closeout lock
 
-## 5. Merge lock
+JOIN-501/502/503 的组件实现和 Formal Review 已完成，且 accepted heads 已进入 main；因此不再创建重复 sibling merge。
 
-本目录现在**不创建 final integration / merge workbook**。
+当前只剩 JOIN-590 的 merged-main physical acceptance。
 
-只有 JOIN-501/502/503 都满足：
+只有 JOIN-590 完成并记录：
 
-- Development complete；
-- opposite-host Review complete；
-- exact-head required CI green；
-- required real-device / dual-host evidence complete；
-- 没有未解决 Owner gate；
+`CONNECTION_ONBOARDING_MERGED_MAIN_PHYSICAL_ACCEPTED`
 
-之后，才能创建 Connection Onboarding final integration workbook，并且必须从当时最新 Utopia `main` 开始。
+之后，整个 `connection-onboarding/` programme 才可归档。
 
 ## 6. 完成后用户可见终态
 
