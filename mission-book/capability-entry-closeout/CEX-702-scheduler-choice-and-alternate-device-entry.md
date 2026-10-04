@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["REMOTE_HANDOFF_CLOSEOUT_REPAIRED"]
 development_host: Alien-codex
 development_branch: cex/CEX-702-Alien-codex-alternate-device
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "3d233ff39d1e96b8a590b12f520f98c283356f25"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37213802935"
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
