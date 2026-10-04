@@ -16,3 +16,7 @@ Raw evidence stays Utopia/.runtime/evidence/mission-book/CEX-701/; selected boun
 | Android test-first | 新恢复策略函数尚不存在时编译失败；实现后84项测试通过、APK构建通过 | Utopia android-01/red-complete.log / green.log | COMPONENT_PASS |
 | Physical UI instrument failure | 初次dump早于启动完成，误进入系统设置；以am start -W及package核验纠正 | Utopia android-01/initial-ui.xml / settings-ui.xml / recovery-settings.xml | CORRECTED |
 | Physical bounded result | OPPO PERM00展示离线恢复提示、owner Web入口、重新连接按钮；安装APK与构建SHA256一致。在线恢复未测 | Utopia evidence/raw/mission-book/CEX-701/android-recovery-receipt.json | COMPONENT_PASS; connected recovery NOT_RUN |
+
+| Independent review P2 | 恢复确认跨凭据保留；新增真实切换用例复现后清空draft/proof并围栏旧请求 | Utopia web-01/draft-context-red.log / draft-context-green.log；最终source a24c04401308b11548626239e8ca1f9b4276bbdf | REPAIRED;17/17 |
+| Exact source CI | CI37206760171 success，绑定最终source a24c04401308b11548626239e8ca1f9b4276bbdf；先前成功只证明旧head | DEVELOPMENT_HANDOFF.md | PASS |
+| Registry chained update | 继续任务期间新§14C生效；追加CAP-IDENTITY-001 candidate，Android在线及正式语义验收保持pending | capability-registry/records/CAP-IDENTITY-001.yaml | CANDIDATE_RECONCILED |

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-IDENTITY-001",
+  "name": {
+    "zh_CN": "设备身份恢复与冲突提示",
+    "en": "Device identity recovery and conflict disclosure"
+  },
+  "ownership": {
+    "programme": "CAPABILITY_ENTRY_CLOSEOUT",
+    "canonical_module": "existing enrollment identity lifecycle"
+  },
+  "source_workbooks": [
+    "CEX-701"
+  ],
+  "dependencies": [],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "discovery_refs": [
+      "refs/heads/cex/CEX-701-Alien-codex-device-recovery"
+    ],
+    "paths": [
+      "apps/web/device-recovery.js",
+      "apps/web/enrollment.js",
+      "apps/web/app.js",
+      "apps/android/app/src/main/java/city/utopia/control/DeviceRecoveryPanel.kt"
+    ],
+    "symbols": [
+      "renderDeviceRecovery",
+      "rebindEnrolled",
+      "DeviceRecoveryPanel",
+      "ownerSettingsUrl"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/device/installations",
+      "POST /api/v0/device/installations/:id/rebind",
+      "POST /api/v0/device/installations/:id/revoke"
+    ],
+    "last_verified_full_sha": "a24c04401308b11548626239e8ca1f9b4276bbdf"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "typed clone reason",
+      "installation state",
+      "folded nonsensitive identity"
+    ],
+    "user_controls": [
+      "explicit owner rebind/proof",
+      "revoke within server scope",
+      "Android owner Web guide and reconnect"
+    ],
+    "intentionally_hidden_information": [
+      "credential fingerprint",
+      "connection credentials in shared links"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Settings > Device identity",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "evidence_ref": "mission-book/reports/CEX-701/DEVELOPMENT_HANDOFF.md"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > Settings > Device recovery",
+      "nesting": "L3_ADVANCED",
+      "discoverable": true,
+      "enabled_when": "valid City URL for owner Web link; active connection for refresh",
+      "evidence_ref": "mission-book/reports/CEX-701/PAPER_MATERIAL_INDEX.md"
+    }
+  ],
+  "evidence": {
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/14"
+    ],
+    "backend_wiring_refs": [
+      "utopia:evidence/raw/mission-book/CEX-701/web-recovery-receipt.json"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/CEX-701/android-recovery-receipt.json"
+    ],
+    "intent_validation_refs": [],
+    "ui_or_e2e_refs": [
+      "utopia:tests/cex701-recovery-ui.test.mjs"
+    ]
+  },
+  "timeline": {
+    "implementation_completed_at": null,
+    "first_surface_available_at": null,
+    "reachability_verified_at": null,
+    "intent_validated_at": null
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/CEX-701/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Opposite physical-host Formal Review pending",
+    "Android connected recovery NOT_RUN",
+    "Installed host still runs previous baseline; PR not merged"
+  ],
+  "last_reconciled_by_workbook": "CEX-701"
+}

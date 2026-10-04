@@ -17,9 +17,13 @@ baseline_blocker: null
 dependencies: ["JOIN-503 device enrollment semantics present"]
 development_host: Alien-codex
 development_branch: cex/CEX-701-Alien-codex-device-recovery
-development_head_sha: "a472fd12dd4881c4203526662ce8543681307b6b"
-development_ci: null
-development_complete: false
+development_head_sha: "a24c04401308b11548626239e8ca1f9b4276bbdf"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37206760171"
+development_complete: true
+capability_ids: [CAP-IDENTITY-001]
+capability_registry_action: BACKFILL
+capability_registry_refs: ["capability-registry/records/CAP-IDENTITY-001.yaml"]
+capability_registry_sync_status: CANDIDATE_RECONCILED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/CEX-701/CONTEXT_LIFECYCLE.md"]

@@ -53,4 +53,6 @@ exposure_classes:
   - BACKGROUND_DISCLOSED
   - INTERNAL_ONLY
 
-records: []
+records:
+  - capability_id: CAP-IDENTITY-001
+    record_ref: records/CAP-IDENTITY-001.yaml
