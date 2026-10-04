@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-EXPERIMENT-MANIFEST-001",
+  "name": {
+    "en": "Experiment manifest registration and validation",
+    "zh_CN": "实验清单登记与验证"
+  },
+  "source_workbooks": [
+    "REX-801"
+  ],
+  "implementation": {
+    "symbols": [
+      "validateExperimentManifest",
+      "createExperimentRegistry",
+      "renderResearch"
+    ],
+    "last_verified_full_sha": "7e96a4d28f4cb701d7a0951bace69857c3228f32",
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "contracts/experiment-manifest-v1/manifest.mjs",
+      "services/dev-gateway/research/registry.mjs",
+      "apps/web/research.js"
+    ],
+    "api_or_actions": [
+      "GET/POST /api/v0/research/experiments",
+      "POST /api/v0/research/experiments/validate"
+    ]
+  },
+  "status": {
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "VERIFIED",
+    "intent_validation_status": "NOT_TESTED",
+    "implementation_status": "COMPLETE"
+  },
+  "exposure": {
+    "internal_only_exemption_reason": null,
+    "user_controls": [
+      "Import authored JSON",
+      "Validate without registering",
+      "Register without execution",
+      "Inspect existing experiment"
+    ],
+    "intentionally_hidden_information": [
+      "Owner/worker credentials",
+      "Hidden reasoning"
+    ],
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "Experiments and authored manifests",
+      "Validation refusal/registration state",
+      "Backend vocabulary in details"
+    ]
+  },
+  "surfaces": [
+    {
+      "nesting": "L3_ADVANCED",
+      "evidence_ref": "mission-book/reports/REX-801/REVIEW_FINDINGS_Alien-codex.md",
+      "platform": "WEB",
+      "location": "Advanced > Research",
+      "enabled_when": "ONLINE with owner control credential",
+      "discoverable": true
+    }
+  ],
+  "evidence": {
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/25"
+    ],
+    "backend_wiring_refs": [
+      "utopia:tests/rex801-alien-independent-review.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "reachability_refs": [
+      "utopia:tests/rex801-research-ui.test.mjs"
+    ]
+  },
+  "research_observations": {
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_PENDING_FINAL_EXACT_CI_AND_FORMAL_ACCEPTANCE",
+    "paper_material_refs": [
+      "mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Exact corrected-head full-suite/CI pending",
+    "Android Research surface NOT_RUN; REX807 further control surface",
+    "No physical topology experiment executed",
+    "Original source8f8c521 and corrected source7e96a4d are separate evidence identities"
+  ],
+  "last_reconciled_by_workbook": "REX-801"
+}
