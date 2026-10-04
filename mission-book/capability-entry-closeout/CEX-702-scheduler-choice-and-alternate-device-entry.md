@@ -5,7 +5,15 @@ sequence: 702
 execution_enabled: true
 status: READY
 implementation_repo: zhiheng-zhang-Mera/utopia
-baseline_policy: CLAIM_TIME_PRODUCT_HEAD
+baseline_policy: IMMUTABLE_EXACT_SHA
+baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
+baseline_candidate_refs: ["refs/heads/main"]
+required_ancestor_shas: ["ec12fd0831f31fd81aef9cd9dfb0c959d010f63b"]
+dependency_source_workbooks: []
+dependency_source_shas: []
+development_baseline_sha: null
+baseline_resolution_evidence: null
+baseline_blocker: null
 dependencies: ["REMOTE_HANDOFF_CLOSEOUT_REPAIRED"]
 development_host: null
 development_branch: null
