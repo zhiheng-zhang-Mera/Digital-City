@@ -1,0 +1,28 @@
+{
+  "source_sha": "478d486096512eea3266350efe070323a232a120",
+  "apk_sha256": "b0e6a6b5b977f7dbc8952135017b6097d971e1caf7e001216ac95deebdd9b1aa",
+  "device": "OPPO PERM00",
+  "fixture_city": "4444f4be-59f2-4778-893f-e69eaec623ef",
+  "canonical_targets": 16,
+  "unavailable": 10,
+  "available": 6,
+  "unit_tests": 80,
+  "unit_failures": 0,
+  "build": "PASS",
+  "title_and_reason_layout": "PASS",
+  "unavailable_button_disabled": "PASS",
+  "available_selection_prepares_example": "PASS",
+  "ask_posts_after_selection": 0,
+  "tasks_after_selection": 0,
+  "original_private_preferences_restore_cmp": 0,
+  "original_apk_restored": "CEX701",
+  "raw_sha256": {
+    "native-catalog-fixed-top.xml": "397c542d609678a1999a0ad3819c13d14ec0ccc6e7639dd558f9af56ce750219",
+    "native-catalog-fixed-selection.xml": "3f49d40c1af9068261c76ddadb261eac28b36141c591c11baef3cae7dc8082c6",
+    "native-catalog-fixed-scroll.xml": "3d519e9351d0d66436c31a1c089f66ffae9d0b1c920190cd3888ef19026c3a48",
+    "layout-fix-build.log": "aa151c886bdc984e87eb6028ee6c9c148ea3c1e19713a40eb2306a177eadf1c0"
+  },
+  "formal_review": "NOT_RUN",
+  "all_16_native_cards_observed": false,
+  "mutating_native_confirmation": "NOT_RUN"
+}

@@ -32,3 +32,5 @@
 - 精确 CEX705 源 de9185a4ef8d761053c88316ec9efeca037239fb / APK a13b0727b225c9aa20c16defc0b4ed89cfd90da739969974156ccb657bec07ae；不改源码、不替换已验证 CI 身份。
 - OPPO 原生操作已观察共享暂停/开启、发送消息及确认接收显示、Session 重启身份保持、只管理本机且重命名按钮禁用、自撤销后旧会话401、Owner 重命名与撤销另一安装。重命名未改变 PRIMARY 角色；没有指定/迁移代理。
 - 原来对应动作的 NOT_RUN 仅在补测观察范围内更新；详情及原始 UI 哈希见 ../CEX-705/PHYSICAL_FOLLOWUP.json。同主机逻辑成员/计算广告不能充当双物理主机或 Android 算力执行证据。恢复原应用与私人连接，运行中 City 未变更。
+
+2026-10-05: City-neutral pairing lockout wording PR23 merged at d3262ce after exact-head attempt2 and PR checks success; attempt1 timeout retained with unresolved full-suite timing attribution. Main CI pending. CEX703 native catalog physical defect logged before repair; full-width title/short status/full reason fixed and OPPO selection remains no-task. Primary default/self-only demotion semantics unchanged; future user-appointed primary migration remains NOT_IMPLEMENTED, rename does not appoint an agent.

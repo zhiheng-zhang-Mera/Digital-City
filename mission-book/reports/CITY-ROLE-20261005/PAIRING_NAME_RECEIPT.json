@@ -4,7 +4,7 @@
   "implementation_sha": "a7d6f2a9b97e02d5fd10adf3a73eafb4a5f3ef6e",
   "pr": "https://github.com/zhiheng-zhang-Mera/utopia/pull/23",
   "ci": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37221410664",
-  "ci_status": "ATTEMPT1_FAILED_ATTEMPT2_QUEUED_SAME_SHA",
+  "ci_status": "ATTEMPT2_SUCCESS_SAME_SHA",
   "change": "Only429 recovery wording: Alien → City host; no trust, role or protocol change",
   "red": "Real Gateway error contained refresh on Alien before correction",
   "tests": {
@@ -46,5 +46,7 @@
     "attribution": "UNRESOLVED_FULL_SUITE_TIMING; not claimed fixed or definitely flaky",
     "retry": "Only failed job, same SHA, attempt2",
     "raw_sha256": "5c10d736bfa247d5de98f1d45800184658a57f5f2b7cbe12b6f8b6f1c75093c4"
-  }
+  },
+  "merge_sha": "d3262ce2dd81e51a53e39e6f9add8dee650a7682",
+  "main_ci_status": "PENDING"
 }

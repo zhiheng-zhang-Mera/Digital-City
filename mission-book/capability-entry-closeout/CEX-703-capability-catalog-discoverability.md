@@ -17,13 +17,13 @@ baseline_blocker: null
 dependencies: ["ASK_TARGETS_CONTRACT_PRESENT"]
 development_host: Alien-codex
 development_branch: cex/CEX-703-Alien-codex-capability-catalog
-development_head_sha: "a96da907a937eb043a59ddd00f48031ded749fa9"
-development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37207716885"
+development_head_sha: "478d486096512eea3266350efe070323a232a120"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37222683667"
 development_complete: false
 capability_ids: [CAP-ASK-001]
 capability_registry_action: BACKFILL
 capability_registry_refs: ["capability-registry/records/CAP-ASK-001.yaml"]
-capability_registry_sync_status: CANDIDATE_RECONCILED
+capability_registry_sync_status: PENDING_EXACT_HEAD_CI
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"]
@@ -109,3 +109,4 @@ Web 与 Android 的 Ask/Do 页面都应有：
 - opposite-host Review / exact-head CI；
 - PAPER_MATERIAL_INDEX；
 - terminal marker `CAPABILITY_CATALOG_DISCOVERABLE`。
+
