@@ -24,7 +24,7 @@ MESH-301 已归档，不再是 active claim surface。Owner 当前同时保留 *
 
 ## MESH-301 设计审计结果
 
-[MESH-301 — 三端实机互联与相互指挥](./mesh-3end/MESH-301-三端实机互联与相互指挥.md)
+[MESH-301 — 三端实机互联与相互指挥](./finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md)
 
 原草案已修正六个问题：
 
@@ -61,7 +61,6 @@ MESH-301 已归档，不再是 active claim surface。Owner 当前同时保留 *
 - [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md) — 常驻规范；
 - [ASYNC_RELIEF_CONSTRUCTION.md](./ASYNC_RELIEF_CONSTRUCTION.md) — 当前 Hns/Codex 异步减压施工协议；
 - [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md) — 过程数据边界；
-- [MESH archive pointer](./mesh-3end/README.md) — MESH-301 已完成并归档，不可领取；
 - [SHOW-401 项目展示素材提取](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) — `IN_PROGRESS`，非产品只读运行任务；每次 capture run 绑定 exact Utopia full SHA；
 - [Connection Onboarding](./connection-onboarding/README.md) — `CLOSEOUT_READY`；JOIN-501/502/503 已归档，当前只剩 JOIN-590；
 - [JOIN-590](./connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) — merged-main 两物理 Windows onboarding / restart / revoke acceptance + programme closeout；
