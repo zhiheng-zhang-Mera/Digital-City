@@ -154,3 +154,80 @@ hosted CI                   ★ 未取得：本轮未等待 GitHub Actions 结�
    让"不同网络"那一行的按钮**真的拨号并转发入城申请**，失败时回落到二维码/短码通道并说明原因。
 3. 有机会取到 hosted CI 时，回填 `f3756ba` 的 run 号与结论。
 4. 具备第二台真实主机与另一条真实网络时，执行 S4 并单独记录（含未验证部分）。
+
+---
+
+# 追加：N2 界面接线与联机验证（2026-10-04 第二轮，Alien）
+
+> 承接本文件 §7 的 N2，并补齐 §6 的"界面最后一跳"。代码落点 `utopia/main` = **fa85dcd**（已推送）。
+
+## A. 本轮把"联机"从可决策变成了可执行
+
+| 环节 | 之前 | 现在 |
+|---|---|---|
+| 连接面那一行的按钮 | 导航到对端 origin（跨网时**根本到不了**） | `reach==='relay'` 时由本 City **拨号**，申请沿管道送出，用户留在本页 |
+| 界面文案 | 只有"等待批准" | `DIALING` / 经中继等待 / 中继不可达，各自一句（中英都有） |
+| 跨 City 取回的凭据 | 无处安放 | 经 `#handoff` 片段交给目标 City（**从不放进 query**），随后页面连上它 |
+| 失败 | 静默 | 拒绝→报拒绝；过期→报过期；中继不可达→回落到二维码/短码/邀请通道，**不丢掉原本能用的入口** |
+
+新增 `apps/web/relay-join.mjs`：把跨网入城做成"注入 `forward` 的纯流程"——先读目标能力（**没人能批准的申请比不申请更糟**）、
+再发既有 join 载荷、每个终态**照实上报**（拒绝不是"不可达"，过期不是拒绝）、只对 APPROVED 做 exchange。
+它自己不存凭据、不重试。
+
+## B. ★ 本轮的判断修正：中继载荷的执行位置（我上一轮写错了）
+
+上一轮把中继请求实现成"推给帧里指定的那个对端执行"。**这条流程看起来对，却永远加入不了任何人**：
+拨号方按定义就是**那台不能被拨入的机器**，让它去执行一个"对另一座 City 的入城申请"，
+等于让唯一没有路由到达那座 City 的机器去用那条路由。
+
+现在：**载荷在中继 City 自己身上执行**（用 City 自己的处理器），并加了 per-peer 速率上限（管道是一道门）。
+这条修正记录在此，防止它悄悄回来。
+
+## C. 观测值
+
+```text
+main（本轮）              fa85dcd              已推送
+全量测试                  1168 tests / 1168 pass / 0 fail    （上一轮 1164；本轮 +4）
+中继套件                  tests/relay-s1-tunnel.test.mjs    12 项
+本机双 City 联机          tests/link-local-two-city.test.mjs 1 项（8 个断言阶段全过）
+真实浏览器检查            npm run check:browser-relay       PASS，页面错误 0
+check-bilingual           docs / evidence / data-records    SYNCHRONIZED
+hosted CI                 ★ 仍未取得（本地 PASS 不替代）
+```
+
+**本机双 City 联机的实际证据链**（脚本 `tests/link-local-two-city.test.mjs`，两个**独立** City 进程、各自 store 与身份）：
+
+```text
+[1] City-B 向 City-A 拨出（NAT 允许的方向）：peerRef=city-b-installation
+[2] 申请沿管道抵达 City-A：status=200 state=PENDING
+[3] City-A 在**自己的**认证界面看到申请
+[4] owner 在 City-A 批准：200
+[5] 凭据沿同一管道释放（一次性 claim）
+[6] 该凭据在 City-A 上可用：/api/v0/city → 200
+[7] 重放已用 claim：410（City 自己的状态，不是"中继失败"）
+[8] City-B 自己没有记录这条申请（管道不是第二个 trust store）
+```
+
+**真实浏览器（Edge + CDP，未新增依赖）**：页面加载 0 错误、连接面渲染正常、页面**自己**打开管道
+（peerRef=page-install）、页面创建的申请抵达 City-A 且被批准、驱动完整流程后仍 0 页面错误。
+
+## D. 本轮缺陷（全部是我自己的，逐条在案）
+
+1. **页面级致命缺陷（只有真实浏览器能发现）**：`askToJoin` 用了 `dialRelay`，但只导入了 `relay-join.mjs`，
+   于是模块加载即抛 `dialRelay is not defined`，**整页无法初始化**——而所有单测全程是绿的。
+   已修复，并保留 `scripts/browser-relay-check.mjs` 作为常驻检查（`npm run check:browser-relay`）。
+2. **§B 的执行位置错误**：双 City 用例会在**错误的 City** 上记录申请，而每个状态码看起来都正常。
+3. `joinCityOverRelay` 把 `APPROVED` 上报了两次，于是"步骤序列"里有一步从未发生。
+4. 浏览器检查脚本自身第一版把错误监听器装在会被导航销毁的上下文里，于是它报的是 `undefined` 而不是页面的真实错误。
+5. **我的修复动作本身造成的损坏**：我用 `Set-Content -Encoding utf8` 改 `app.js`，PowerShell 用 ANSI 代码页解码，
+   把文件里的中文注释换成了乱码。已用 Node 重做并校验中文完好（6 处中文、mojibake 0、无 BOM）。
+   记录在案，因为它与本项目已存在的那一处台账损坏是**同一类**事故。
+
+## E. 仍然未验证 / DEFERRED（不许读成通过）
+
+- **真实跨网双物理主机验收：仍然 DEFERRED。** 本轮做到的是"两个独立 City 进程 + 真实 WebSocket + 完整入城链路"，
+  全部在**本机 loopback**。NAT、路由器、计费链路、两台真实 PC 都没有被检验。
+- **hosted CI：仍未取得。** `f3756ba` 与 `fa85dcd` 的 CI 结论都还没有回填。
+- **界面按钮到 `askToJoin` 的自动化点击**：本轮浏览器检查是**直接驱动** `window.utopiaRelay`（与按钮走同一批函数），
+  没有模拟"发现到一台 remote PC 并点击行内按钮"的完整 DOM 路径——该路径依赖 mDNS 发现，本机无法造出真实的 remote 行。
+- 令牌自检：本轮提交前已做，令牌值未进入任何 Git 对象。
