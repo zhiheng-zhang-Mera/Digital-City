@@ -18,6 +18,8 @@ review_ci: null
 review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: RESEARCH_ADVANCED
+user_exposure_nesting: L4_TECHNICAL
+backend_wiring: TO_BE_VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
@@ -26,6 +28,10 @@ terminal_marker: RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE
 ---
 
 # REX-890 — Independent Reproducibility Study + V1 Freeze
+
+> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> 异步协议：[../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
+> 研究素材：[RESEARCH_EVIDENCE_PROTOCOL.md](./RESEARCH_EVIDENCE_PROTOCOL.md)
 
 ## 目标
 
