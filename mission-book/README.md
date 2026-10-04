@@ -8,7 +8,8 @@
 > Utopia 实现状态不再手工硬编码；以自动生成的 [UTOPIA_LIVE_STATUS.md](./UTOPIA_LIVE_STATUS.md) / [UTOPIA_LIVE_STATUS.json](./UTOPIA_LIVE_STATUS.json) 为准。  
 > 常驻施工规则：[CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)  
 > 当前过渡施工协议：[ASYNC_RELIEF_CONSTRUCTION.md](./ASYNC_RELIEF_CONSTRUCTION.md)  
-> 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)
+> 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
+> 研究信号优先级：[RESEARCH_SIGNAL_WATCHLIST.yaml](./RESEARCH_SIGNAL_WATCHLIST.yaml)
 
 ## 当前真实状态
 
@@ -83,6 +84,7 @@ MESH-301 已归档，不再是 active claim surface。Owner 当前同时保留 *
 - [Future Exposure Backlog](./capability-entry-closeout/FUTURE_EXPOSURE_BACKLOG.md) — General AI / Assistant / Engineering Manager / Android interactive Rooms / Workbench UI 等明确延后项；
 - [Research Strengthening](./research-strengthening/README.md) — `ACTIVE`；把现有 Utopia 变成 reproducible research/evaluation testbed；
 - [Research Evidence Protocol](./research-strengthening/RESEARCH_EVIDENCE_PROTOCOL.md) — REX 工程过程 + 实验数据双重论文素材强制留存；
+- [Research Signal Watchlist](./RESEARCH_SIGNAL_WATCHLIST.yaml) — G1/G2/G3/G4 研究稀缺度与证据预算；G3/G4 优先；
 - [Research Control Surface](./research-strengthening/RESEARCH_CONTROL_SURFACE.md) — Research/Advanced 分层暴露，最大掌控与知情但避免主 UI 过载；
 - [REX-801](./research-strengthening/REX-801-experiment-manifest-and-registry.md) — `READY`；Experiment Manifest + Registry；
 - [REX-802](./research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md) — `READY`；Trace / Provenance / Metrics foundation；
