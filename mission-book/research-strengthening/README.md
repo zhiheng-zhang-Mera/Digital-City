@@ -48,6 +48,10 @@ G3 second:
   independent review as evidence boundary
   registry-assisted onboarding/localization
   Owner intervention taxonomy
+  hierarchical risk bubbling in progressive-disclosure monitors
+  edge-causal observability for handoff/retry/review/routing
+  continuous observation vs event-triggered nonblocking decision
+  decision escalation provenance
 
 G2 supporting:
   context compaction
@@ -56,6 +60,7 @@ G2 supporting:
   generic async multi-agent
   cross-model review
   evolving requirements
+  generic agent monitoring dashboard / topology graph / logs
 ```
 
 原则：
