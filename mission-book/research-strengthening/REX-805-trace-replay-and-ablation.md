@@ -1,0 +1,59 @@
+---
+workbook_id: REX-805
+phase: RESEARCH_STRENGTHENING
+sequence: 805
+execution_enabled: true
+status: WAITING_DEPENDENCIES
+implementation_repo: zhiheng-zhang-Mera/utopia
+baseline_policy: CLAIM_TIME_MAIN
+dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED"]
+development_host: null
+development_branch: null
+development_head_sha: null
+development_ci: null
+development_complete: false
+review_host: null
+review_head_sha: null
+review_ci: null
+review_complete: false
+user_exposure_class: DIRECT_CONTROL
+user_exposure_surface: RESEARCH_ADVANCED
+ui_exemption_reason: null
+owner_gate: NONE
+merge_authority: false
+report_path: mission-book/reports/REX-805
+terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED
+---
+
+# REX-805 — Trace Replay + Ablation Engine
+
+## 目标
+
+允许选择一个已记录 run，重放其输入/场景，并在不篡改原始 trace 的前提下配置消融：
+
+- handoff off；
+- retry off；
+- backoff off；
+- recovery off；
+- alternate-device off；
+- selected policy off。
+
+## 硬规则
+
+- replay ≠ original run；
+- replay 必须新 experiment/run id；
+- 不保证外部 provider 完全确定性时必须声明；
+- 不能把 unavailable real-world condition 伪装成 deterministic replay；
+- ablation 必须记录 exact disabled mechanism。
+
+## 用户入口
+
+Research 页面直接提供 Replay / Ablation，不放普通主导航。
+
+## Review
+
+同一 trace 独立重放；检查结果差异是否来自真实 policy 变化而不是 harness drift。
+
+## 完成门槛
+
+至少一个 multi-device scenario 能完成 original → replay → ablation 的可追溯比较。
