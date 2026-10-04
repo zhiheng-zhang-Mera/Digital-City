@@ -3,7 +3,7 @@ workbook_id: WBC-602
 phase: WORKBENCH_COMPATIBILITY_MIGRATION
 sequence: 602
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -27,12 +27,14 @@ development_ci: "V0.2 checks run 37206331839 COMPLETED SUCCESS on headSha c312a6
 development_complete: true
 review_host: Alien-codex
 review_head_sha: "d99101fdac5169aad74ae84fb7c0c25be43ad7d9"
-review_ci: "V0.2 checks run 37211820065 IN_PROGRESS on exact d99101fdac5169aad74ae84fb7c0c25be43ad7d9"
-review_complete: false
+review_ci: "V0.2 checks run 37211820065 COMPLETED SUCCESS on exact d99101fdac5169aad74ae84fb7c0c25be43ad7d9; gateway-web and android success"
+review_complete: true
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/WBC-602
 terminal_marker: NODE_CAPABILITY_RESOURCE_COMPAT_ACCEPTED
+user_exposure_class: INTERNAL_ONLY
+ui_exemption_reason: "Foundation descriptor metadata with no new ordinary user verb; explicit Capability Registry contract exemption"
 ---
 
 # WBC-602 — Node Role / Capability / Resource Descriptor 向后兼容化

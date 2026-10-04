@@ -54,20 +54,21 @@
       "utopia:evidence/raw/mission-book/WBC-602/review-receipt.json"
     ],
     "implementation_refs": [
-      "https://github.com/zhiheng-zhang-Mera/utopia/tree/d99101fdac5169aad74ae84fb7c0c25be43ad7d9"
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/d99101fdac5169aad74ae84fb7c0c25be43ad7d9",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/18",
+      "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37211820065"
     ]
   },
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": true,
-    "registry_reconciliation_result": "OPPOSITE_HOST_CONTRACT_RECONCILED_PENDING_EXACT_CI",
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
       "mission-book/reports/WBC-602/PAPER_MATERIAL_INDEX.md",
       "mission-book/reports/WBC-602/REVIEW_FINDINGS.md"
     ]
   },
   "known_gaps": [
-    "Exact-source review correction CI in progress",
     "No ordinary UI exposure claimed for foundation",
     "No GPU/distributed-hardware performance claim"
   ],
