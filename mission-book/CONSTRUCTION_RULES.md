@@ -24,6 +24,14 @@
 **README 只做监控，不是锁、不是调度器、不是施工规则。**  
 看板过期不能改变任务真实状态；普通 claim / CI / review 变化也不要求每次同步改 README。
 
+### Capability Registry 的 authority 边界
+
+- 当前任务的 claim / execution / Review / CI truth 仍以 Mission Book workbook/report + exact evidence 为准；
+- 当前 capability inventory / implementation navigation / exposure/reachability 的长期 verified view 以 `capability-registry/` 为准；
+- Registry 不能覆盖更强的 exact runtime/UI/E2E evidence；
+- 若 Registry 与 observed reality 冲突，应标记 `CAPABILITY_REGISTRY_STALE` 或 `CAPABILITY_REGISTRY_REALITY_MISMATCH`，先保留冲突证据，再按 §14C reconcile。
+
+
 旧规则、旧 dashboard、旧 response 位于 `finished/`，只用于追溯，不得覆盖本文件。
 
 ## 1. 为什么恢复这些规则
