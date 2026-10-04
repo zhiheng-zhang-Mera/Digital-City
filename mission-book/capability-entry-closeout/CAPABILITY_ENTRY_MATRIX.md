@@ -3,6 +3,8 @@
 > 历史发现来源曾包含可移动 branch `codex/city-members-host-roles`，仅用于发现 gap，不再作为执行/验收基线。
 >
 > 真正 baseline 由各 CEX workbook 的 immutable full-SHA rules 决定；本表不是静态事实。CEX-790 必须从其 dependency accepted exact SHAs 重建 inventory。
+>
+> **长期 City capability truth 已迁移到 [../../capability-registry/](../../capability-registry/)。本表从现在起只作为 CEX programme 的 bootstrap/discovery evidence，不得作为未来新任务的 canonical capability registry。**
 
 | Capability / lifecycle | Backend/API | Web | Android | Classification | Current action |
 |---|---|---|---|---|---|
