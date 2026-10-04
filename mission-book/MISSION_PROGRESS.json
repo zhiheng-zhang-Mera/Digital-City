@@ -1,0 +1,1067 @@
+{
+  "active_pool": {
+    "development": {
+      "complete": 13,
+      "total": 27
+    },
+    "review": {
+      "complete": 5,
+      "total": 27
+    },
+    "tasks": {
+      "complete": 5,
+      "total": 27
+    }
+  },
+  "format": "总任务完成 / 开发完成 / 复检完成",
+  "overall": {
+    "development": {
+      "complete": 79,
+      "total": 93
+    },
+    "review": {
+      "complete": 71,
+      "total": 93
+    },
+    "tasks": {
+      "complete": 71,
+      "total": 93
+    }
+  },
+  "programmes": [
+    {
+      "active_pool": false,
+      "development_complete": 12,
+      "key": "replant",
+      "name": "Replant / MB-001~012",
+      "readme": "finished/replant/",
+      "review_complete": 12,
+      "status": "COMPLETE",
+      "task_complete": 12,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-001",
+          "path": "finished/replant/MB-001-core-os.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-002",
+          "path": "finished/replant/MB-002-capability-fabric.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-003",
+          "path": "finished/replant/MB-003-worker-gateway.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-004",
+          "path": "finished/replant/MB-004-project-foreman.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-005",
+          "path": "finished/replant/MB-005-host-health.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-006",
+          "path": "finished/replant/MB-006-restart-recovery.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-007",
+          "path": "finished/replant/MB-007-research-institute.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-008",
+          "path": "finished/replant/MB-008-computer-use.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-009",
+          "path": "finished/replant/MB-009-theme-relocation.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-010",
+          "path": "finished/replant/MB-010-node-fabric.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-011",
+          "path": "finished/replant/MB-011-customs.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "MB-012",
+          "path": "finished/replant/MB-012-runtime-compliance.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        }
+      ],
+      "total": 12
+    },
+    {
+      "active_pool": false,
+      "development_complete": 9,
+      "key": "butler",
+      "name": "Butler Assistant",
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md",
+      "review_complete": 9,
+      "status": "COMPLETE",
+      "task_complete": 9,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-001",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-001-butler-zone-personalization.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-002",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-002-shared-brain-runtime.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-003",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-003-device-embodiment-binding.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-004",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-004-multi-assistant-handoff.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-005",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-005-digital-me-context-gateway.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-006",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-006-shared-task-coordination.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-007",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-007-settings-interaction-surface.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-008",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-008-embodiment-event-bus.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "BA-009",
+          "path": "finished/completed-2026-10-01/butler-assistant/BA-009-duty-permission-policy.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        }
+      ],
+      "total": 9
+    },
+    {
+      "active_pool": false,
+      "development_complete": 10,
+      "key": "remote",
+      "name": "Remote Fabric",
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md",
+      "review_complete": 10,
+      "status": "COMPLETE",
+      "task_complete": 10,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-001",
+          "path": "finished/completed-2026-10-01/remote/RF-001-node-identity-installation-lifecycle.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-002",
+          "path": "finished/completed-2026-10-01/remote/RF-002-unified-pairing-trust-lifecycle.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-003",
+          "path": "finished/completed-2026-10-01/remote/RF-003-local-discovery-lan-direct.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-004",
+          "path": "finished/completed-2026-10-01/remote/RF-004-bluetooth-bootstrap-ip-handoff.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-005",
+          "path": "finished/completed-2026-10-01/remote/RF-005-remote-invite-rendezvous.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-006",
+          "path": "finished/completed-2026-10-01/remote/RF-006-secure-transport-path-manager.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-007",
+          "path": "finished/completed-2026-10-01/remote/RF-007-versioned-capability-registry.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-008",
+          "path": "finished/completed-2026-10-01/remote/RF-008-typed-rpc-event-stream-commands.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-009",
+          "path": "finished/completed-2026-10-01/remote/RF-009-presence-offline-reconnect-audit.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "RF-010",
+          "path": "finished/completed-2026-10-01/remote/RF-010-fabric-policy-public-api.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        }
+      ],
+      "total": 10
+    },
+    {
+      "active_pool": false,
+      "development_complete": 9,
+      "key": "gai",
+      "name": "General AI Gateway",
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md",
+      "review_complete": 9,
+      "status": "COMPLETE",
+      "task_complete": 9,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-001",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-001-core-contracts-action-vocabulary.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-002",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-002-provider-model-account-registry.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-003",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-003-web-channel-persistent-session.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-004",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-004-api-channel-consent-budget.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-005",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-005-triage-jev-routing.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-006",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-006-conversation-input-stream-cancel.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-007",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-007-device-aware-remote-execution.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-008",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-008-health-resilience-degradation.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "GAI-009",
+          "path": "finished/completed-2026-10-01/general-ai-gateway/GAI-009-utopia-surface-integration.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        }
+      ],
+      "total": 9
+    },
+    {
+      "active_pool": false,
+      "development_complete": 13,
+      "key": "em",
+      "name": "Engineering Manager",
+      "readme": "finished/completed-2026-10-01/MISSION_INDEX.md",
+      "review_complete": 13,
+      "status": "COMPLETE",
+      "task_complete": 13,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-001",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-001-core-contracts-boundaries.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-002",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-002-connector-adapter-process-runtime.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-003",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-003-job-result-artifact-protocol.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-004",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-004-capability-probe-auth-registry.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-005",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-005-attention-recent-device-alerts.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-006",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-006-local-first-subworker-placement.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-007",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-007-remote-subworker-return-control.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-008",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-008-credential-profile-session.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-009",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-009-runtime-health-restart-recovery.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-010",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-010-foreman-scheduler-dag-worker-pool.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-011",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-011-deepseek-codex-reference-connectors.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-012",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-012-connector-sdk-claude-workbuddy.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "EM-013",
+          "path": "finished/completed-2026-10-01/engineering-manager/EM-013-utopia-task-surface-integration.md",
+          "review_complete": true,
+          "status": "UNSPECIFIED"
+        }
+      ],
+      "total": 13
+    },
+    {
+      "active_pool": false,
+      "development_complete": 4,
+      "key": "rescheduling",
+      "name": "Rescheduling vNext",
+      "readme": "finished/completed-2026-10-03/README.md",
+      "review_complete": 4,
+      "status": "COMPLETE",
+      "task_complete": 4,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "RS-201",
+          "path": "finished/completed-2026-10-03/rescheduling-vnext/RS-201-动态AI池与可用性选择.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "RS-202",
+          "path": "finished/completed-2026-10-03/rescheduling-vnext/RS-202-多设备并发感知与再调度.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "RS-203",
+          "path": "finished/completed-2026-10-03/rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "RS-290",
+          "path": "finished/completed-2026-10-03/rescheduling-vnext/RS-290-调度契约回归与基线冻结.md",
+          "review_complete": true,
+          "status": "RESCHEDULING_BASELINE_FROZEN"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "active_pool": false,
+      "development_complete": 5,
+      "key": "ui",
+      "name": "UI Civilization",
+      "readme": "finished/completed-2026-10-03/README.md",
+      "review_complete": 5,
+      "status": "COMPLETE",
+      "task_complete": 5,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UI-000",
+          "path": "finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md",
+          "review_complete": true,
+          "status": "REVISION_REVIEW_COMPLETE_PASS_WITH_REPAIRS"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UI-101",
+          "path": "finished/completed-2026-10-03/ui-civilization/UI-101-Web产品壳与信息架构.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UI-102",
+          "path": "finished/completed-2026-10-03/ui-civilization/UI-102-Android产品壳与信息架构.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UI-103",
+          "path": "finished/completed-2026-10-03/ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UI-190",
+          "path": "finished/completed-2026-10-03/ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md",
+          "review_complete": true,
+          "status": "UI_BASELINE_FROZEN"
+        }
+      ],
+      "total": 5
+    },
+    {
+      "active_pool": false,
+      "development_complete": 3,
+      "key": "uxi",
+      "name": "UI × Scheduler Integration",
+      "readme": "finished/completed-2026-10-03/README.md",
+      "review_complete": 3,
+      "status": "COMPLETE",
+      "task_complete": 3,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UXI-301",
+          "path": "finished/completed-2026-10-03/ui-integration/UXI-301-调度状态接入非工程化UI.md",
+          "review_complete": true,
+          "status": "REVIEW_COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UXI-390",
+          "path": "finished/completed-2026-10-03/ui-integration/UXI-390-双机最终产品验收与收口.md",
+          "review_complete": true,
+          "status": "FINAL_PRODUCT_ACCEPTED"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "UXI-391",
+          "path": "finished/completed-2026-10-03/ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        }
+      ],
+      "total": 3
+    },
+    {
+      "active_pool": false,
+      "development_complete": 1,
+      "key": "mesh",
+      "name": "MESH 三端互联",
+      "readme": "finished/completed-2026-10-04/README.md",
+      "review_complete": 1,
+      "status": "COMPLETE",
+      "task_complete": 1,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "MESH-301",
+          "path": "finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        }
+      ],
+      "total": 1
+    },
+    {
+      "active_pool": true,
+      "development_complete": 3,
+      "key": "join",
+      "name": "Connection Onboarding",
+      "readme": "connection-onboarding/README.md",
+      "review_complete": 3,
+      "status": "CLOSEOUT",
+      "task_complete": 3,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "JOIN-590",
+          "path": "connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md",
+          "review_complete": false,
+          "status": "READY"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "JOIN-501",
+          "path": "finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "JOIN-502",
+          "path": "finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": false,
+          "id": "JOIN-503",
+          "path": "finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "active_pool": true,
+      "development_complete": 3,
+      "key": "wbc",
+      "name": "Workbench Compatibility",
+      "readme": "workbench-compatibility-migration/README.md",
+      "review_complete": 2,
+      "status": "IN_PROGRESS",
+      "task_complete": 2,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "WBC-601",
+          "path": "workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "WBC-602",
+          "path": "workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "WBC-603",
+          "path": "workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "WBC-604",
+          "path": "workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "active_pool": true,
+      "development_complete": 5,
+      "key": "cex",
+      "name": "Capability Entry Closeout",
+      "readme": "capability-entry-closeout/README.md",
+      "review_complete": 0,
+      "status": "IN_PROGRESS",
+      "task_complete": 0,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CEX-701",
+          "path": "capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CEX-702",
+          "path": "capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CEX-703",
+          "path": "capability-entry-closeout/CEX-703-capability-catalog-discoverability.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CEX-704",
+          "path": "capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CEX-705",
+          "path": "capability-entry-closeout/CEX-705-android-member-device-management-parity.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "CEX-790",
+          "path": "capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        }
+      ],
+      "total": 6
+    },
+    {
+      "active_pool": true,
+      "development_complete": 2,
+      "key": "rex",
+      "name": "Research Strengthening",
+      "readme": "research-strengthening/README.md",
+      "review_complete": 0,
+      "status": "IN_PROGRESS",
+      "task_complete": 0,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "REX-801",
+          "path": "research-strengthening/REX-801-experiment-manifest-and-registry.md",
+          "review_complete": false,
+          "status": "READY"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "REX-802",
+          "path": "research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "REX-803",
+          "path": "research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "REX-804",
+          "path": "research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "REX-805",
+          "path": "research-strengthening/REX-805-trace-replay-and-ablation.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "REX-806",
+          "path": "research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "REX-807",
+          "path": "research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "REX-890",
+          "path": "research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        }
+      ],
+      "total": 8
+    },
+    {
+      "active_pool": true,
+      "development_complete": 0,
+      "key": "mon",
+      "name": "City Work Monitor",
+      "readme": "city-work-monitor-dashboard/README.md",
+      "review_complete": 0,
+      "status": "IN_PROGRESS",
+      "task_complete": 0,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "MON-901",
+          "path": "city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "MON-902",
+          "path": "city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "MON-903",
+          "path": "city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "MON-990",
+          "path": "city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",
+          "review_complete": false,
+          "status": "WAITING_DEPENDENCIES"
+        }
+      ],
+      "total": 4
+    },
+    {
+      "active_pool": true,
+      "development_complete": 0,
+      "key": "show",
+      "name": "SHOW-401 展示素材",
+      "readme": "showcase-material-extraction/README.md",
+      "review_complete": 0,
+      "status": "IN_PROGRESS",
+      "task_complete": 0,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "SHOW-401",
+          "path": "showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        }
+      ],
+      "total": 1
+    }
+  ],
+  "schema_version": 1,
+  "source_of_truth": "mission-book workbook frontmatter"
+}

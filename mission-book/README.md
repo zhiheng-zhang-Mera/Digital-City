@@ -18,8 +18,8 @@
 > 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 
-**全城合计：总任务 71/93 · 开发 78/93 · 复检 71/93**  
-**当前未收口项目池：总任务 5/27 · 开发 12/27 · 复检 5/27**
+**全城合计：总任务 71/93 · 开发 79/93 · 复检 71/93**  
+**当前未收口项目池：总任务 5/27 · 开发 13/27 · 复检 5/27**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
@@ -33,9 +33,9 @@
 | [UI × Scheduler Integration](./finished/completed-2026-10-03/README.md) | **3/3** | **3/3** | **3/3** | COMPLETE |
 | [MESH 三端互联](./finished/completed-2026-10-04/README.md) | **1/1** | **1/1** | **1/1** | COMPLETE |
 | [Connection Onboarding](./connection-onboarding/README.md) | **3/4** | **3/4** | **3/4** | CLOSEOUT |
-| [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **2/4** | **3/4** | **2/4** | ACTIVE |
+| [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **2/4** | **3/4** | **2/4** | IN_PROGRESS |
 | [Capability Entry Closeout](./capability-entry-closeout/README.md) | **0/6** | **5/6** | **0/6** | IN_PROGRESS |
-| [Research Strengthening](./research-strengthening/README.md) | **0/8** | **1/8** | **0/8** | IN_PROGRESS |
+| [Research Strengthening](./research-strengthening/README.md) | **0/8** | **2/8** | **0/8** | IN_PROGRESS |
 | [City Work Monitor](./city-work-monitor-dashboard/README.md) | **0/4** | **0/4** | **0/4** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
@@ -92,7 +92,7 @@
 | [CEX-704](./capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md) | Capability Entry Closeout | IN_PROGRESS | ✅ | — |
 | [CEX-705](./capability-entry-closeout/CEX-705-android-member-device-management-parity.md) | Capability Entry Closeout | IN_PROGRESS | ✅ | — |
 | [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | WAITING_DEPENDENCIES | — | — |
-| [REX-801](./research-strengthening/REX-801-experiment-manifest-and-registry.md) | Research Strengthening | READY | — | — |
+| [REX-801](./research-strengthening/REX-801-experiment-manifest-and-registry.md) | Research Strengthening | READY | ✅ | — |
 | [REX-802](./research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
