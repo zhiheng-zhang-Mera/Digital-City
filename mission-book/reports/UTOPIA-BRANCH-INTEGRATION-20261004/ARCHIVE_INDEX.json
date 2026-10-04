@@ -1,0 +1,203 @@
+{
+  "role": "Alien-codex",
+  "mainSha": "612c344f9f2b06a67b2645b4662d97750dd7c44e",
+  "branches": [
+    {
+      "sha": "be6227ec49d4dbcd83a595d7b265766af2083421",
+      "branch": "codex/city-members-host-roles",
+      "tag": "archive/2026-10-04/codex/city-members-host-roles",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "48cbc21376007c5461e8e456a898c3f788f0fa77",
+      "branch": "codex/city-names-host-preflight",
+      "tag": "archive/2026-10-04/codex/city-names-host-preflight",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "branch": "codex/pairing-discovery-ux",
+      "tag": "archive/2026-10-04/codex/pairing-discovery-ux",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "bd8925082aefda059eb9932f8065904ed3250008",
+      "branch": "codex/single-host-city-remote-login",
+      "tag": "archive/2026-10-04/codex/single-host-city-remote-login",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "1d2b159146ad180a6f77abae5900c14e5cba77e9",
+      "branch": "evidence/MESH-301-mech-receipts",
+      "tag": "archive/2026-10-04/evidence/MESH-301-mech-receipts",
+      "disposition": "ARCHIVED_HISTORICAL_MEASUREMENT_RECEIPTS"
+    },
+    {
+      "sha": "1fd24c98a95263c41cae191cdcfe4d18654d06a1",
+      "branch": "feat/launcher-and-shareable-invite",
+      "tag": "archive/2026-10-04/feat/launcher-and-shareable-invite",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "a9481ef8c496927d29655ffc931593ac4a40b798",
+      "branch": "feat/primary-city-and-connect-entry",
+      "tag": "archive/2026-10-04/feat/primary-city-and-connect-entry",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "1dfb3ed72b8646508bf63a04548bbe7a64d352e1",
+      "branch": "fix/device-pilot-harness-integration",
+      "tag": "archive/2026-10-04/fix/device-pilot-harness-integration",
+      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+    },
+    {
+      "sha": "0c6498fa5a7044a94ffa4ff67ca6b3e25c771f3e",
+      "branch": "fix/device-pilot-process-identity",
+      "tag": "archive/2026-10-04/fix/device-pilot-process-identity",
+      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+    },
+    {
+      "sha": "73d7ce7013c17b720c5804273e1bf4deaaae56d4",
+      "branch": "fix/device-pilot-route-from-source",
+      "tag": "archive/2026-10-04/fix/device-pilot-route-from-source",
+      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+    },
+    {
+      "sha": "e925ae1ef4dda6f51d89a1faa025d1b8666d8c58",
+      "branch": "join/JOIN-501-pairing-session-lifecycle",
+      "tag": "archive/2026-10-04/join/JOIN-501-pairing-session-lifecycle",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "86deda9c2990c78d683a8c3515d251022df9d040",
+      "branch": "join/JOIN-502-nearby-discovery-approval",
+      "tag": "archive/2026-10-04/join/JOIN-502-nearby-discovery-approval",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f",
+      "branch": "join/JOIN-503-device-enrollment-and-tokenless-reconnect",
+      "tag": "archive/2026-10-04/join/JOIN-503-device-enrollment-and-tokenless-reconnect",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f",
+      "branch": "join/JOIN-503-edenrollment-repair",
+      "tag": "archive/2026-10-04/join/JOIN-503-edenrollment-repair",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "ed0bf6467b02ae8e77e9da5650bde2bde428cdab",
+      "branch": "mesh/MESH-301-three-end",
+      "tag": "archive/2026-10-04/mesh/MESH-301-three-end",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "4917a51001c6d7c69b86c8eda666814f351c0233",
+      "branch": "review/JOIN-501-mech-formal-review",
+      "tag": "archive/2026-10-04/review/JOIN-501-mech-formal-review",
+      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+    },
+    {
+      "sha": "082735e0444fca126448c78370860469faf6a13b",
+      "branch": "review/JOIN-502-alien-formal-review",
+      "tag": "archive/2026-10-04/review/JOIN-502-alien-formal-review",
+      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+    },
+    {
+      "sha": "a3b9ab3ef7093b53bd3ab82b8d4a046d3ade6d6b",
+      "branch": "review/JOIN-503-mech-formal-review",
+      "tag": "archive/2026-10-04/review/JOIN-503-mech-formal-review",
+      "disposition": "ARCHIVED_REPAIR_ALREADY_PRESENT_IN_MAIN"
+    },
+    {
+      "sha": "84ce219801bbf4bdcf1bd1890108cc2ba3295dc0",
+      "branch": "review/MESH-301-mech-formal-review",
+      "tag": "archive/2026-10-04/review/MESH-301-mech-formal-review",
+      "disposition": "ARCHIVED_HISTORICAL_REVIEW_INSTRUMENTS_AND_RECEIPTS"
+    },
+    {
+      "sha": "44a0e4f3d63d4f53b439b710165b4068a239f332",
+      "branch": "rs/RS-201-dynamic-ai-pool",
+      "tag": "archive/2026-10-04/rs/RS-201-dynamic-ai-pool",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "b3a9ad081654f6bf22588c199f6e1b5c4b42a137",
+      "branch": "rs/RS-202-multi-device-concurrency",
+      "tag": "archive/2026-10-04/rs/RS-202-multi-device-concurrency",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "44b52e234e0cd90c69935a63f2b0a203081c7b5a",
+      "branch": "rs/RS-203-cross-device-return-recovery",
+      "tag": "archive/2026-10-04/rs/RS-203-cross-device-return-recovery",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "2f812965fdb590aeda594f870b393015bbf5a880",
+      "branch": "rs/RS-290-scheduling-baseline-freeze",
+      "tag": "archive/2026-10-04/rs/RS-290-scheduling-baseline-freeze",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "2978e311959cffee40a172d0ea36e370e8ac59e7",
+      "branch": "ui/UI-000-visual-direction-candidates",
+      "tag": "archive/2026-10-04/ui/UI-000-visual-direction-candidates",
+      "disposition": "ARCHIVED_SUPERSEDED_VISUAL_CANDIDATES"
+    },
+    {
+      "sha": "aafff56de896bbd839717c653e91324607998bb4",
+      "branch": "ui/UI-101-web-product-shell",
+      "tag": "archive/2026-10-04/ui/UI-101-web-product-shell",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "61598be960a7137225d029fe08ccd678cdb6d506",
+      "branch": "ui/UI-102-android-product-shell",
+      "tag": "archive/2026-10-04/ui/UI-102-android-product-shell",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "dcde3afe958577a470ee6a0e6f08e819c9d0d19f",
+      "branch": "ui/UI-103-rooms-visual-unification",
+      "tag": "archive/2026-10-04/ui/UI-103-rooms-visual-unification",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "11bb3f6fc76aecbb1ae41f2e258cccf7beaa429b",
+      "branch": "ui/UI-190-ui-baseline-freeze",
+      "tag": "archive/2026-10-04/ui/UI-190-ui-baseline-freeze",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "66fa20118f1a7dbb269cf05d8b0a6580219afce3",
+      "branch": "uxi/UXI-301-scheduler-status-into-product-ui",
+      "tag": "archive/2026-10-04/uxi/UXI-301-scheduler-status-into-product-ui",
+      "disposition": "NOT_INCLUDED_RETAIN_PENDING_AUDIT"
+    },
+    {
+      "sha": "6a82e35a2c5c40db426f815056bac6fda4c6806d",
+      "branch": "uxi/UXI-390-final-product-acceptance",
+      "tag": "archive/2026-10-04/uxi/UXI-390-final-product-acceptance",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "sha": "0a41efe50e1e6c7a8dde77edaeb3158636717b91",
+      "branch": "uxi/UXI-391-remote-handoff-closeout",
+      "tag": "archive/2026-10-04/uxi/UXI-391-remote-handoff-closeout",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "branch": "integration/join-502-nearby",
+      "sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
+      "tag": "archive/2026-10-04/integration/join-502-nearby",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    }
+  ],
+  "verifiedMainCi": {
+    "sha": "612c344f9f2b06a67b2645b4662d97750dd7c44e",
+    "run": 37203397283,
+    "conclusion": "success"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "status": "AUDIT_IN_PROGRESS",
+  "author": "Alien-codex",
+  "comparisonHead": "be6227ec49d4dbcd83a595d7b265766af2083421",
+  "branches": [
+    {
+      "branch": "origin/codex/city-members-host-roles",
+      "sha": "be6227ec49d4dbcd83a595d7b265766af2083421",
+      "included": true
+    },
+    {
+      "branch": "origin/codex/city-names-host-preflight",
+      "sha": "48cbc21376007c5461e8e456a898c3f788f0fa77",
+      "included": true
+    },
+    {
+      "branch": "origin/codex/pairing-discovery-ux",
+      "sha": "5af0640a5b979c2830c487950f29f3da7360e1c4",
+      "included": true
+    },
+    {
+      "branch": "origin/codex/single-host-city-remote-login",
+      "sha": "bd8925082aefda059eb9932f8065904ed3250008",
+      "included": true
+    },
+    {
+      "branch": "origin/evidence/MESH-301-mech-receipts",
+      "sha": "1d2b159146ad180a6f77abae5900c14e5cba77e9",
+      "included": false
+    },
+    {
+      "branch": "origin/feat/launcher-and-shareable-invite",
+      "sha": "1fd24c98a95263c41cae191cdcfe4d18654d06a1",
+      "included": true
+    },
+    {
+      "branch": "origin/feat/primary-city-and-connect-entry",
+      "sha": "a9481ef8c496927d29655ffc931593ac4a40b798",
+      "included": true
+    },
+    {
+      "branch": "origin/fix/device-pilot-harness-integration",
+      "sha": "1dfb3ed72b8646508bf63a04548bbe7a64d352e1",
+      "included": false
+    },
+    {
+      "branch": "origin/fix/device-pilot-process-identity",
+      "sha": "0c6498fa5a7044a94ffa4ff67ca6b3e25c771f3e",
+      "included": false
+    },
+    {
+      "branch": "origin/fix/device-pilot-route-from-source",
+      "sha": "73d7ce7013c17b720c5804273e1bf4deaaae56d4",
+      "included": false
+    },
+    {
+      "branch": "origin/integration/join-502-nearby",
+      "sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
+      "included": true
+    },
+    {
+      "branch": "origin/join/JOIN-501-pairing-session-lifecycle",
+      "sha": "e925ae1ef4dda6f51d89a1faa025d1b8666d8c58",
+      "included": true
+    },
+    {
+      "branch": "origin/join/JOIN-502-nearby-discovery-approval",
+      "sha": "86deda9c2990c78d683a8c3515d251022df9d040",
+      "included": true
+    },
+    {
+      "branch": "origin/join/JOIN-503-device-enrollment-and-tokenless-reconnect",
+      "sha": "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f",
+      "included": true
+    },
+    {
+      "branch": "origin/join/JOIN-503-edenrollment-repair",
+      "sha": "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f",
+      "included": true
+    },
+    {
+      "branch": "origin/main",
+      "sha": "699f7c178b630b6ef447e755ceeb6699f1223d6b",
+      "included": false
+    },
+    {
+      "branch": "origin/mesh/MESH-301-three-end",
+      "sha": "ed0bf6467b02ae8e77e9da5650bde2bde428cdab",
+      "included": true
+    },
+    {
+      "branch": "origin/review/JOIN-501-mech-formal-review",
+      "sha": "4917a51001c6d7c69b86c8eda666814f351c0233",
+      "included": false
+    },
+    {
+      "branch": "origin/review/JOIN-502-alien-formal-review",
+      "sha": "082735e0444fca126448c78370860469faf6a13b",
+      "included": false
+    },
+    {
+      "branch": "origin/review/JOIN-503-mech-formal-review",
+      "sha": "a3b9ab3ef7093b53bd3ab82b8d4a046d3ade6d6b",
+      "included": false
+    },
+    {
+      "branch": "origin/review/MESH-301-mech-formal-review",
+      "sha": "84ce219801bbf4bdcf1bd1890108cc2ba3295dc0",
+      "included": false
+    },
+    {
+      "branch": "origin/rs/RS-201-dynamic-ai-pool",
+      "sha": "44a0e4f3d63d4f53b439b710165b4068a239f332",
+      "included": true
+    },
+    {
+      "branch": "origin/rs/RS-202-multi-device-concurrency",
+      "sha": "b3a9ad081654f6bf22588c199f6e1b5c4b42a137",
+      "included": true
+    },
+    {
+      "branch": "origin/rs/RS-203-cross-device-return-recovery",
+      "sha": "44b52e234e0cd90c69935a63f2b0a203081c7b5a",
+      "included": true
+    },
+    {
+      "branch": "origin/rs/RS-290-scheduling-baseline-freeze",
+      "sha": "2f812965fdb590aeda594f870b393015bbf5a880",
+      "included": true
+    },
+    {
+      "branch": "origin/ui/UI-000-visual-direction-candidates",
+      "sha": "2978e311959cffee40a172d0ea36e370e8ac59e7",
+      "included": false
+    },
+    {
+      "branch": "origin/ui/UI-101-web-product-shell",
+      "sha": "aafff56de896bbd839717c653e91324607998bb4",
+      "included": true
+    },
+    {
+      "branch": "origin/ui/UI-102-android-product-shell",
+      "sha": "61598be960a7137225d029fe08ccd678cdb6d506",
+      "included": true
+    },
+    {
+      "branch": "origin/ui/UI-103-rooms-visual-unification",
+      "sha": "dcde3afe958577a470ee6a0e6f08e819c9d0d19f",
+      "included": true
+    },
+    {
+      "branch": "origin/ui/UI-190-ui-baseline-freeze",
+      "sha": "11bb3f6fc76aecbb1ae41f2e258cccf7beaa429b",
+      "included": true
+    },
+    {
+      "branch": "origin/uxi/UXI-301-scheduler-status-into-product-ui",
+      "sha": "66fa20118f1a7dbb269cf05d8b0a6580219afce3",
+      "included": false
+    },
+    {
+      "branch": "origin/uxi/UXI-390-final-product-acceptance",
+      "sha": "6a82e35a2c5c40db426f815056bac6fda4c6806d",
+      "included": true
+    },
+    {
+      "branch": "origin/uxi/UXI-391-remote-handoff-closeout",
+      "sha": "0a41efe50e1e6c7a8dde77edaeb3158636717b91",
+      "included": true
+    }
+  ]
+}
