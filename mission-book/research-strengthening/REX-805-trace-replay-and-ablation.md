@@ -25,7 +25,7 @@ review_head_sha: null
 review_ci: null
 review_complete: false
 research_evidence_applicability: APPLICABLE
-research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-STRUCTURED-HANDOFF","RS-G3-DYNAMIC-LIVENESS","RS-G4-UNIFIED-CONTROL-PLANE","RS-G4-USER-REACHABLE-TERMINAL"]
+research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-STRUCTURED-HANDOFF","RS-G3-DYNAMIC-LIVENESS","RS-G4-UNIFIED-CONTROL-PLANE","RS-G3-USER-REACHABLE-TERMINAL"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC
 research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
