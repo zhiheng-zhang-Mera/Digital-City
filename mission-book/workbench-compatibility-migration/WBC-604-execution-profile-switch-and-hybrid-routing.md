@@ -1,0 +1,131 @@
+---
+workbook_id: WBC-604
+phase: WORKBENCH_COMPATIBILITY_MIGRATION
+sequence: 604
+execution_enabled: true
+status: WAITING_DEPENDENCIES
+implementation_repo: zhiheng-zhang-Mera/utopia
+baseline_policy: CLAIM_TIME_MAIN
+dependencies: ["WBC-603:WORKER_POOL_AGENT_SEAM_ACCEPTED"]
+development_host: null
+development_branch: null
+development_head_sha: null
+development_ci: null
+development_complete: false
+review_host: null
+review_head_sha: null
+review_ci: null
+review_complete: false
+owner_gate: NONE
+merge_authority: false
+report_path: mission-book/reports/WBC-604
+terminal_marker: EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED
+---
+
+# WBC-604 — Execution Profile Switch + HYBRID Routing 兼容切换
+
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
+> **Programme：** [README.md](./README.md)
+
+## 目标
+
+把未来工作台启用动作压缩成一个稳定、可逆的 Execution Profile 切换，而不是重新部署/迁移 Utopia 业务层。
+
+永久 profile：
+
+```text
+STANDARD_DEVICES   ← current default
+WORKER_POOL        ← future explicit switch
+HYBRID             ← future capability-driven mixed mode
+```
+
+## Profile 语义
+
+### STANDARD_DEVICES
+
+- 必须与本 programme 开始前的 accepted Windows baseline 等价；
+- legacy tasks 默认仍走这里；
+- 这是当前默认，也必须长期保留为 rollback profile。
+
+### WORKER_POOL
+
+- 只有至少一个 compatible + trusted + HEALTHY/READY backend/node 才允许 activation；
+- activation 前做 readiness check；
+- 不可用时返回 typed rejection / attention；
+- 不得因为 Worker Pool 不可用而 crash Utopia；
+- strict target 到非-pool Windows node 时不得偷偷重解释。
+
+### HYBRID
+
+候选选择顺序必须由明确 contract 决定，至少遵守：
+
+1. explicit strict target > generic routing；
+2. hard platform/capability requirement > performance preference；
+3. trusted/readiness gate > load preference；
+4. legacy unspecified task 必须保持兼容默认，不因新资源模型突然改派；
+5. Workbench unavailable 时，只有 policy 明确允许的任务才能 fallback STANDARD_DEVICES；
+6. platform-validation workload 继续交给匹配的真实 validation node；
+7. 不允许以“更快”为理由跨过 user/permission/trust gate。
+
+## 直接切换要求
+
+未来 Workbench 搭建完成后，Owner 不应再提交代码才能启用。
+
+至少提供一个稳定 control surface（可为现有 settings/config/API 中最小合适位置）：
+
+```text
+get current execution profile
+list available profiles + readiness
+request profile change
+return activation receipt / rejection reason
+persist selected profile safely
+rollback to STANDARD_DEVICES
+```
+
+如果当前 UI 没有合适设置面，不要求为本任务重构 UI；稳定 API/config surface 已满足底层 cutover contract。后续 UI 只做 presentation。
+
+## Fail-safe / rollback
+
+必须证明：
+
+- WORKER_POOL activation readiness 失败 → 保持原 profile；
+- profile persistence 损坏/未知 value → conservative STANDARD_DEVICES 或 typed safe recovery；
+- pool 在运行中丢失 → 不篡改 canonical task truth；
+- in-flight ownership 按既有 lease/recovery 处理；
+- Owner 可切回 STANDARD_DEVICES；
+- 切回不需要 DB downgrade；
+- Workbench node 记录可保留但不再接新任务。
+
+## Formal Review
+
+另一实体主机至少独立攻击：
+
+- profile switch race；
+- unavailable pool；
+- stale readiness；
+- strict target vs hybrid preference；
+- legacy task no-requirements；
+- in-flight task during profile change；
+- restart 后 profile persistence；
+- rollback to STANDARD_DEVICES；
+- Android/Web control-surface non-regression。
+
+## 完成门槛
+
+1. 三种 profile contract 存在；
+2. STANDARD_DEVICES 仍默认；
+3. future WORKER_POOL 可在 readiness 后无需代码提交直接切换；
+4. HYBRID 路由 precedence 明确且测试化；
+5. switch/rollback 可逆；
+6. no-workbench 环境完整可用；
+7. opposite-host Review PASS；
+8. exact-head CI green；
+9. terminal marker `EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED`。
+
+## Reports
+
+- `mission-book/reports/WBC-604/DEVELOPMENT_REPORT.md`
+- `mission-book/reports/WBC-604/REVIEW_REPORT.md`
+
+完成后不得自行创建 merge authority。回到 programme README 的 Merge lock，待 WBC-601..604 全部双机完成后再生成 final integration workbook。
