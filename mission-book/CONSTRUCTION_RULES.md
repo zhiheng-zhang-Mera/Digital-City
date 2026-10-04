@@ -63,6 +63,116 @@
 - 抢占另一主机仍有效的 claim；
 - 为解决 claim race 使用 force push。
 
+## 2A. Immutable Baseline Anchor / 不可变基准锚定
+
+任何可执行工作书都不得把 branch/tag 名本身当作实现证据。
+
+### 2A.1 只认 full commit SHA
+
+以下事实必须使用 **40-character full Git commit SHA**：
+
+- development baseline；
+- dependency accepted head；
+- integration source；
+- review head；
+- CI head；
+- merge / acceptance head。
+
+短 SHA 只允许在说明文字中辅助阅读，不能作为机器或施工判断真相。
+
+### 2A.2 Branch 只是 discovery ref，不是 anchor
+
+允许记录：
+
+```text
+baseline_candidate_refs:
+  - refs/heads/main
+  - refs/heads/<integration-branch>
+```
+
+它们只回答“去哪里寻找当前候选代码”。
+
+真正 claim 时必须：
+
+```text
+fetch remote ref
+→ resolve to full 40-char commit SHA
+→ verify required ancestor SHA(s)
+→ record exact development_baseline_sha atomically with claim
+→ all later CI / Review bind to exact SHA
+```
+
+branch 在 claim 后继续前进不影响已领取任务的 baseline truth。
+
+### 2A.3 Baseline anchor modes
+
+工作书必须使用以下模式之一：
+
+#### `REMOTE_REF_EXACT_SHA_AT_CLAIM`
+
+用于独立任务。
+
+- 从 `baseline_candidate_refs` 取候选；
+- 解析 full SHA；
+- 验证 `required_ancestor_shas`；
+- 原子写入 `development_baseline_sha`。
+
+#### `DEPENDENCY_SHA_UNION_AT_CLAIM`
+
+用于依赖多个尚未统一进入同一 baseline 的 component task。
+
+施工者必须：
+
+1. 从每个 dependency workbook/report 读取其 accepted **exact head SHA**；
+2. 从最新 eligible base full SHA 建 worktree/branch；
+3. 显式 union/merge 这些 exact dependency SHAs；
+4. 解决冲突；
+5. 在任何本任务产品修改前跑 dependency smoke；
+6. 将 union 后的 full commit SHA 写入 `development_baseline_sha`。
+
+禁止因为 dependency marker 显示 COMPLETE 就从一个不包含其代码的 main 开工。
+
+#### `FIXED_EXACT_SHA`
+
+仅用于真正冻结的历史/只读复现任务。必须直接记录 full SHA。
+
+#### `EXACT_SHA_PER_RUN`
+
+用于 SHOWCASE / research capture 等只读运行任务。每次 run/take 都单独记录其 runtime full SHA；不同 run 不允许用“差不多同一版”混写。
+
+### 2A.4 Required ancestor guard
+
+`required_ancestor_shas` 表示候选 baseline **必须已经包含**的不可变能力下限。
+
+claim 时必须对每一个 SHA 验证 ancestry。
+
+任一不满足：
+
+`BASELINE_ANCESTRY_MISMATCH`
+
+任务不得开始，也不得自动改用“看起来相近”的 branch。
+
+### 2A.5 未固定的 upstream 不准猜
+
+若工作书依赖一个仍在开发、尚未产生 accepted exact SHA 的 upstream：
+
+- status 必须是 `WAITING_DEPENDENCIES` / typed equivalent；
+- 记录 upstream 名称与等待条件；
+- `required_ancestor_shas` 不得填 branch 名、伪 SHA 或猜测值；
+- upstream 一旦 accepted，先回填其 exact SHA，再解锁 claim。
+
+### 2A.6 Review / CI 同样不认 branch
+
+Formal Review 必须验证：
+
+```text
+reviewed head == recorded development_head_sha
+CI head       == reviewed head / required final head
+remote branch tip differences are informational only
+```
+
+若 branch 已前进，Reviewer 仍审 recorded exact head，除非工作书经过 reconciliation 明确 supersede 到新 SHA。
+
 ## 3. 双主机独立性
 
 当工作书要求 Development + Review/Correction：
