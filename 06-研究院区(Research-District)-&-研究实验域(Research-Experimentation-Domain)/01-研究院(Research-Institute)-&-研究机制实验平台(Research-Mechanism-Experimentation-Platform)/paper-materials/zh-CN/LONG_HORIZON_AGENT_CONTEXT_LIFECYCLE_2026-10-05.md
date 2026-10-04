@@ -84,6 +84,27 @@
 - 是否延长连续 autonomous work span；
 - 是否使弱/快模型更接近原生长时托管 harness 的连续施工能力。
 
+### RQ4 — What must remain immutable and be revalidated
+哪些 execution-state 字段不能只“记住意思”，而必须保持 exact identity、provenance 和 freshness？
+
+这一问题来自 Mission Book 最近的真实修订：关键 baseline / dependency / review / CI / acceptance 锚点从 mutable branch/head 语义改为 immutable full commit SHA，并增加 ancestor/provenance 与 critical-point revalidation。
+
+重点不是“Git branch 会动”这个成熟工程常识，而是观察：
+
+- persistent external state 是否仍会因为 mutable symbolic ref 发生 temporal drift；
+- compaction 是否会把 exact identity 压缩成 symbolic state；
+- green CI 是否可能绑定到错误的 head；
+- SHA-only、SHA+provenance、SHA+revalidation 的可靠性差异；
+- resume / handoff / review / merge / completion 前重新验证 freshness 是否减少错误。
+
+专题材料：
+
+`LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md`
+
+候选原则：
+
+> **Identifiers with execution semantics should be serialized exactly, not semantically summarized.**
+
 ## 2. 未来施工时优先采集的自然实验数据
 
 只要施工工具能够观察到，长时间/异步 Agent run 尽量记录：
@@ -123,6 +144,15 @@ regression_or_reopened_work_count
 recovery_time_if_measurable
 autonomous_work_span_if_measurable
 terminal_reason
+
+expected_identity_if_applicable
+observed_symbolic_ref_if_applicable
+resolved_identity_at_use_if_applicable
+evidence_identity_if_applicable
+provenance_or_required_ancestor_refs
+freshness_revalidation_event
+identity_or_evidence_mismatch_type
+reconciliation_action
 ```
 
 若 harness 不暴露 token 数、压缩内容或 trigger，必须记录：
@@ -230,5 +260,5 @@ SRA = correctly reconstructed required state fields
 
 可进一步抽象为：
 
-> **When to compact → What to retain → What to externalize.**
+> **When to compact → What to retain → What to externalize → What must remain immutable and be revalidated.**
 
