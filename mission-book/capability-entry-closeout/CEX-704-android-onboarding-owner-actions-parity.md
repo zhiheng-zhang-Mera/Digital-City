@@ -3,7 +3,7 @@ workbook_id: CEX-704
 phase: CAPABILITY_ENTRY_CLOSEOUT
 sequence: 704
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -11,12 +11,12 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["e925ae1ef4dda6f51d89a1faa025d1b8666d8c58","86deda9c2990c78d683a8c3515d251022df9d040","77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f"]
 dependency_source_workbooks: []
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "0e9bea3ce739b979e582a428af8fb233045a5e75"
+baseline_resolution_evidence: "mission-book/reports/CEX-704/CLAIM_RECORD.md"
 baseline_blocker: null
 dependencies: ["JOIN-501", "JOIN-502", "JOIN-503 semantics present"]
-development_host: null
-development_branch: null
+development_host: Alien-codex
+development_branch: cex/CEX-704-Alien-codex-native-owner-onboarding
 development_head_sha: null
 development_ci: null
 development_complete: false
