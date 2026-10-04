@@ -183,7 +183,7 @@ Questions:
 - how should authority be ordered?
 - is stale but internally consistent control-plane state more dangerous than missing state?
 
-### G4-E — User-Reachable Completion as a First-Class Agent Termination Condition
+### Former G4-E — User-Reachable Completion as a First-Class Agent Termination Condition (**now G3**)
 
 Compare terminal conditions:
 
@@ -199,7 +199,7 @@ intent-validated terminal
 
 Focus on whether agents stop too early when internal tests are green but the normal user verb cannot be completed.
 
-### G4-F — Passive Development-to-Research Evidence Pipeline
+### Former G4-F — Passive Development-to-Research Evidence Pipeline (**now G3**)
 
 City observes normal engineering rather than fabricating benchmark tasks:
 
@@ -431,3 +431,37 @@ This scan did not find a new complete problem more defensibly rare than current 
 - The Working Set of a Coding Agent / Coherence Debt — arXiv:2608.16630
 
 Sep–Oct 2026 is moving extremely quickly; self-evolving rules, learned guardrails, intervention sentinels, and multi-agent concurrency may slide from G3 to G2 within weeks.
+
+
+## 8. Conservative reclassification: G4-E / G4-F → G3
+
+Further 2026 literature checks changed two grades.
+
+### User-Reachable Terminal: G4 → G3
+
+Building to the Test directly demonstrates that agents may satisfy a test oracle while failing to deliver the requested artifact, and explicitly frames the missing behavior as failure to validate the shipped result as a user would. False-success work also studies agents declaring completion when environment state disagrees.
+
+City remains differentiated by:
+
+- reachability/intent as durable capability state;
+- normal-user verbs as Mission termination gates;
+- longitudinal project evidence.
+
+But “completion signal ≠ user actually received the capability” is no longer rare enough for G4.
+
+### Passive Evidence Pipeline: G4 → G3
+
+SWE-chat continuously collects real coding-agent sessions from public developer workflows, while TraceLab collects and sanitizes everyday Claude Code/Codex traces.
+
+City remains differentiated because evidence is bound from the start to Mission/Registry/exact SHA/Review/Owner-intervention state and is designed for replay/ablation. But passive collection from normal use is not rare enough by itself.
+
+### Final current G4 set
+
+```text
+G4-A Unified repository control plane (full integrated system)
+G4-B Capability live state: implementation→wiring→reachability→intent
+G4-C Project-level autonomy survival until Owner intervention
+G4-D Multi-truth control-plane reality drift
+```
+
+These are evidence-priority labels, never first-ever novelty claims.
