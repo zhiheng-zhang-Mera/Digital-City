@@ -48,5 +48,8 @@
     "raw_sha256": "5c10d736bfa247d5de98f1d45800184658a57f5f2b7cbe12b6f8b6f1c75093c4"
   },
   "merge_sha": "d3262ce2dd81e51a53e39e6f9add8dee650a7682",
-  "main_ci_status": "PENDING"
+  "main_ci_status": "SUCCESS",
+  "main_ci": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37222674520",
+  "archive_tag": "archive/2026-10-05/fix/Alien-codex-pairing-city-neutral-lockout",
+  "archive_status": "TAG_SHA_VERIFIED_BRANCH_LEASE_REMOVED"
 }

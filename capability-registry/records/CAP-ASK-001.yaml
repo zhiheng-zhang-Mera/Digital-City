@@ -27,7 +27,7 @@
     "last_verified_full_sha": "478d486096512eea3266350efe070323a232a120"
   },
   "status": {
-    "implementation_status": "PARTIAL",
+    "implementation_status": "COMPLETE",
     "backend_wiring_status": "VERIFIED",
     "user_reachability_status": "PARTIAL",
     "intent_validation_status": "NOT_TESTED"
@@ -81,14 +81,13 @@
   "research_observations": {
     "hidden_capability_detected": true,
     "rework_required": true,
-    "registry_reconciliation_result": "LAYOUT_FIXED_PENDING_EXACT_HEAD_CI_AND_FORMAL_REVIEW",
+    "registry_reconciliation_result": "LAYOUT_FIXED_CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
     "paper_material_refs": [
       "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
     "Opposite-host Formal Review pending",
-    "New layout exact-head CI pending",
     "All16 native cards and mutating confirmation NOT_RUN"
   ],
   "last_reconciled_by_workbook": "CEX-703"

@@ -19,11 +19,11 @@ development_host: Alien-codex
 development_branch: cex/CEX-703-Alien-codex-capability-catalog
 development_head_sha: "478d486096512eea3266350efe070323a232a120"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37222683667"
-development_complete: false
+development_complete: true
 capability_ids: [CAP-ASK-001]
 capability_registry_action: BACKFILL
 capability_registry_refs: ["capability-registry/records/CAP-ASK-001.yaml"]
-capability_registry_sync_status: PENDING_EXACT_HEAD_CI
+capability_registry_sync_status: CANDIDATE_RECONCILED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"]
