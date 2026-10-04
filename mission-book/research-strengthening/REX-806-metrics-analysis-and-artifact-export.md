@@ -24,6 +24,10 @@ review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
+research_evidence_applicability: APPLICABLE
+research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT","RS-G4-PASSIVE-EVIDENCE-PIPELINE"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
@@ -71,9 +75,25 @@ artifact/
 - intervention count；
 - retry count；
 - duplicate execution；
-- convergence / missing event（可测时）。
+- convergence / missing event（可测时）；
+- task transitions before Owner intervention；
+- time / steps to first Owner intervention；
+- intervention-free survival（可构造时）；
+- intervention cause taxonomy；
+- task-pool drain before intervention；
+- control-plane reality mismatch count / reconciliation time；
+- implementation→wiring→reachability→intent transition timestamps；
+- Exposure Lag / Intent Lag（可测时）；
+- registry-assisted localization/onboarding cost（实验提供时）。
 
 不支持的指标标 NOT_MEASURED。
+
+### Metric interpretation guard
+
+- `owner_intervention_count = 0` 只有明确观察到完整窗口且确实无人介入时才允许；未知必须 NOT_MEASURED；
+- “运行了更久”不等于更自治，idle loop / duplicate work / blocked polling 要单独分类；
+- survival curve 若样本不足，只导出原始 censored episode 数据，不强行画结论；
+- G1/G2 metric 默认 supporting；G3/G4 metric 优先进入 paper-ready tables。
 
 ## 导出
 
