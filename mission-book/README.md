@@ -13,15 +13,14 @@
 | 项目 / 协议 | 状态 | 当前动作 |
 |---|---|---|
 | Hns/Codex 异步减压施工 | **ACTIVE / NORMATIVE / TRANSITIONAL** | 当前施工默认采用 Hns supervisor + Codex worker/critic/reviewer；普通技术问题不得直接升级 Owner |
-| MESH-301 三端实机互联 | **COMPLETE / THREE_END_MESH_E2E_ACCEPTED** | 已完成 Alien Development + Mech Formal Review + main merge + merged-main CI；当前无可继续领取的 MESH 工作 |
 | SHOW-401 项目展示素材提取 | **IN_PROGRESS / execution_enabled=true** | 录制主 Demo + handoff 技术 Demo + 3 张截图 + 结果表 + 套磁/项目页核心文案；严禁修改 Utopia 产品代码 |
-| Connection Onboarding / JOIN-501..503 | **READY / execution_enabled=true** | 复用已完成 Remote Fabric，把新 PC 入城从 URL/token 手工连接优化为 nearby discovery + approval + enrollment + automatic reconnect；临时配对码只允许主动生成，ACTIVE 期间固定到消费/过期 |
+| Connection Onboarding / JOIN-590 | **CLOSEOUT_READY / execution_enabled=true** | JOIN-501/502/503 已完成并归档，accepted heads 已进入 Utopia main；当前只剩 merged-main 两物理 Windows onboarding / restart / revoke acceptance 与 programme closeout |
 | Workbench Compatibility / WBC-601..604 | **ACTIVE / execution_enabled=true** | additive compatibility migration：STANDARD_DEVICES 保持当前 Windows 默认；预埋 WORKER_POOL / HYBRID backend、node capability/resource 与 headless agent seam；无 Workbench 环境必须完整可用 |
 | Capability Entry Closeout / CEX-701..790 | **ACTIVE / execution_enabled=true** | 补齐“后端已实现但用户无入口/难发现”的前端最后一公里；当前重点 = rebind/clone、alternate-device choice、能力目录、Android onboarding/member 管理 parity；所有任务强制留论文素材索引 |
 | Research Strengthening / REX-801..890 | **ACTIVE / execution_enabled=true** | 把 Utopia 强化为可重复实验试验台：manifest、trace/provenance、scenario repetition、fault injection、replay/ablation、metrics/artifact export、Research control surface；REX-801/802 可先并行 |
 | Persistent Foreman Runtime / FR-001 | **FUTURE / NOT ACTIVE** | 只做未来计划记录，不抢占当前施工 |
 
-MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非产品素材提取工作、**Connection Onboarding** 产品优化 programme、**Workbench Compatibility Migration** 基础设施兼容 programme、**Capability Entry Closeout** 前端能力入口补全 programme，以及 **Research Strengthening** 研究强化 programme。JOIN-501/502/503 只允许在已完成的 Remote Fabric 上做 pairing/onboarding/integration 优化，不得复活 RF-001..010 或重写 transport/trust 基础设施。WBC-601..604 只允许做 additive execution compatibility：当前 STANDARD_DEVICES / Windows 双机路径必须保持默认可用，Workbench/Linux 不得成为启动依赖；WBC-601 与 WBC-602 可并行，WBC-603/604 必须遵守依赖解锁。CEX-701..705 只允许把已经成熟的 backend/API/action 变成可发现、可完成的用户路径，不得把 General AI / Butler Assistant / Engineering Manager 等尚未形成完整 runtime/product route 的 future seam 伪装成可用按钮；CEX-790 负责最终 backend→Web/Android 独立双线审计。REX programme 不创建第二套 task/action truth，而是在现有 canonical runtime 上增加 reproducible experiment / trace / scenario / fault / replay / metrics / artifact 层；Alien + Mech + Android 即应能完成 v1，Workbench 只作为未来扩展实验节点。所有 CEX 任务按 `capability-entry-closeout/PAPER_EVIDENCE_PROTOCOL.md` 强制保存 runtime error、test/CI failure、逻辑冲突、repair 前后数据与 opposite-host finding 的论文素材索引。SHOW-401 仍只能运行/观察已接受的 Utopia，不得修改 Utopia tracked source/test/docs；其只读边界不得被其它 programme 借用或突破。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态。
+MESH-301 已归档，不再是 active claim surface。Owner 当前同时保留 **SHOW-401** 非产品素材提取工作、**Connection Onboarding** 产品优化 programme、**Workbench Compatibility Migration** 基础设施兼容 programme、**Capability Entry Closeout** 前端能力入口补全 programme，以及 **Research Strengthening** 研究强化 programme。JOIN-501/502/503 的组件施工已完成并归档；当前 JOIN-590 只做 merged-main physical acceptance/closeout，不得复活 RF-001..010 或重写 transport/trust 基础设施。WBC-601..604 只允许做 additive execution compatibility：当前 STANDARD_DEVICES / Windows 双机路径必须保持默认可用，Workbench/Linux 不得成为启动依赖；WBC-601 与 WBC-602 可并行，WBC-603/604 必须遵守依赖解锁。CEX-701..705 只允许把已经成熟的 backend/API/action 变成可发现、可完成的用户路径，不得把 General AI / Butler Assistant / Engineering Manager 等尚未形成完整 runtime/product route 的 future seam 伪装成可用按钮；CEX-790 负责最终 backend→Web/Android 独立双线审计。REX programme 不创建第二套 task/action truth，而是在现有 canonical runtime 上增加 reproducible experiment / trace / scenario / fault / replay / metrics / artifact 层；Alien + Mech + Android 即应能完成 v1，Workbench 只作为未来扩展实验节点。所有 CEX 任务按 `capability-entry-closeout/PAPER_EVIDENCE_PROTOCOL.md` 强制保存 runtime error、test/CI failure、逻辑冲突、repair 前后数据与 opposite-host finding 的论文素材索引。SHOW-401 仍只能运行/观察已接受的 Utopia，不得修改 Utopia tracked source/test/docs；其只读边界不得被其它 programme 借用或突破。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态。
 
 ## MESH-301 设计审计结果
 
@@ -37,6 +36,10 @@ MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非
 6. 终态标记从 `THREE_END_MESH_RUNNING` 改成 `THREE_END_MESH_E2E_ACCEPTED`。
 
 上述设计审计问题均已在正式施工前/施工中处理。MESH-301 已完成三端实机互联、strict target-device routing、独立 Formal Review、review finding 修复、main merge 与 merged-main CI，并记录终态 `THREE_END_MESH_E2E_ACCEPTED`。
+
+## 已完成 / 已归档
+
+- [completed-2026-10-04](./finished/completed-2026-10-04/README.md) — MESH-301 + JOIN-501/502/503 component workbooks；组件 exact SHAs 已固定，历史文件不再可 claim。
 
 ## 已完成阶段 — 2026-10-03 归档
 
@@ -58,12 +61,10 @@ MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非
 - [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md) — 常驻规范；
 - [ASYNC_RELIEF_CONSTRUCTION.md](./ASYNC_RELIEF_CONSTRUCTION.md) — 当前 Hns/Codex 异步减压施工协议；
 - [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md) — 过程数据边界；
-- [MESH-301](./mesh-3end/MESH-301-三端实机互联与相互指挥.md) — `COMPLETE / THREE_END_MESH_E2E_ACCEPTED`；
-- [SHOW-401 项目展示素材提取](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) — `IN_PROGRESS`，非产品只读运行任务；
-- [Connection Onboarding](./connection-onboarding/README.md) — `READY`；JOIN-501/502/503 为产品连接体验优化，复用已验收 Remote Fabric；
-- [JOIN-501](./connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md) — 临时配对码显式生成 + ACTIVE 固定显示直到消费/过期；
-- [JOIN-502](./connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md) — nearby PC discovery + existing trusted endpoint approval；
-- [JOIN-503](./connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md) — 首次登记后 routine reconnect 不再要求手输 bare token；
+- [MESH archive pointer](./mesh-3end/README.md) — MESH-301 已完成并归档，不可领取；
+- [SHOW-401 项目展示素材提取](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) — `IN_PROGRESS`，非产品只读运行任务；每次 capture run 绑定 exact Utopia full SHA；
+- [Connection Onboarding](./connection-onboarding/README.md) — `CLOSEOUT_READY`；JOIN-501/502/503 已归档，当前只剩 JOIN-590；
+- [JOIN-590](./connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) — merged-main 两物理 Windows onboarding / restart / revoke acceptance + programme closeout；
 - [Workbench Compatibility Migration](./workbench-compatibility-migration/README.md) — `ACTIVE`；保持 STANDARD_DEVICES/Windows 为默认可用基线，预埋未来 Worker Pool / Hybrid 切换；
 - [WBC-601](./workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md) — `READY`；包装现有 execution path 为 STANDARD_DEVICES backend，第一阶段不得改变调度结果；
 - [WBC-602](./workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md) — `READY`；建立 additive Node Role / Capability / Resource descriptor 与 legacy defaults；
@@ -76,7 +77,7 @@ MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非
 - [CEX-702](./capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md) — `READY`；拒绝切 provider → 改用另一设备的可执行用户选择；
 - [CEX-703](./capability-entry-closeout/CEX-703-capability-catalog-discoverability.md) — `READY`；直接查看 Utopia 全部当前可执行能力；
 - [CEX-704](./capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md) — `READY`；Android join approval + pairing generation/share；
-- [CEX-705](./capability-entry-closeout/CEX-705-android-member-device-management-parity.md) — `READY`；Android City/device/member/sharing/message 管理 parity；
+- [CEX-705](./capability-entry-closeout/CEX-705-android-member-device-management-parity.md) — `WAITING_DEPENDENCIES`；等待 City Members / Host Roles 产生 accepted exact SHA 后才能 claim，禁止锚定仍移动的开发 branch；
 - [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) — `WAITING_DEPENDENCIES`；前五项完成后独立重建 backend→surface inventory 并冻结入口基线；
 - [Future Exposure Backlog](./capability-entry-closeout/FUTURE_EXPOSURE_BACKLOG.md) — General AI / Assistant / Engineering Manager / Android interactive Rooms / Workbench UI 等明确延后项；
 - [Research Strengthening](./research-strengthening/README.md) — `ACTIVE`；把现有 Utopia 变成 reproducible research/evaluation testbed；
