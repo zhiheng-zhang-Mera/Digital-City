@@ -9,3 +9,6 @@ Android adds canonical member list, admission names, enrolled self pinned first,
 OPPO PERM00 / BICIPVNB5HS85H9T installed APK SHA256 `a13b0727b225c9aa20c16defc0b4ed89cfd90da739969974156ccb657bec07ae`: ONLINE SESSION; Phone Fixture A · 本机 first; Peer Fixture B admission name visible; controlled peer message PENDING, native 确认收到, canonical server RECEIVED. Private fixture connection was seeded, not product onboarding. Peer is a controlled program on the same Windows host, not another physical host or Android compute worker. Original private connection restored with cmp exit0, CEX701 original APK restored, test ADB reverse removed and fixture closed. Live installed City untouched.
 
 Native rename, revoke, sharing toggle, outbound send and reconnect physical coverage NOT_RUN; opposite-host real-device review must validate them. No latency, resource speedup or remote-region claim. User approval/primary role semantics remain as recorded in CITY-ROLE-20261005. No secrets/fingerprints/raw fixture sessions are submitted.
+
+Closeout: hosted37218345150 COMPLETED SUCCESS on exact de9185a4ef8d761053c88316ec9efeca037239fb, independently reread. Development complete; status IN_PROGRESS, review_complete=false and merge_authority=false. Opposite-host Formal Review and physical gaps remain; no terminal marker.
+
