@@ -217,3 +217,52 @@ VERIFICATION_COMPLETE
 ```
 
 事件名不得由施工模型自行扩展；以 Utopia event contract 为准。
+
+
+## Capability Registry relationship
+
+`capability-registry/` is not a raw-process store.
+
+Its role is:
+
+```text
+current verified capability state
++ implementation navigation
++ user exposure/reachability state
++ exact provenance/evidence pointers
+```
+
+It MUST NOT contain:
+
+- unbounded terminal logs;
+- full CI dumps;
+- screenshots copied only for convenience;
+- hidden model reasoning;
+- speculative implementation guesses;
+- stale branch-only verification.
+
+Process/history remains in Utopia evidence/evolution and Mission Book reports. The Registry stores only the current reconciled state plus pointers.
+
+Recommended flow:
+
+```text
+runtime / UI / E2E evidence
+          ↓
+Mission Book report + exact SHA
+          ↓
+Formal Review reconciliation
+          ↓
+capability-registry/records/CAP-*.yaml
+          ↓
+human exposure matrix / agent navigation
+```
+
+If Registry and runtime disagree, preserve the mismatch as evidence before repair and classify:
+
+```text
+CAPABILITY_REGISTRY_STALE
+CAPABILITY_REGISTRY_REALITY_MISMATCH
+```
+
+These mismatches are research-evidence candidates under `CONSTRUCTION_RULES.md §14B`; fixing the Registry must not erase the before-state.
+
