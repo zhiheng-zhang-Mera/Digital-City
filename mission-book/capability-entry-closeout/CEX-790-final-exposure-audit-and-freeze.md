@@ -24,6 +24,10 @@ review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
+capability_ids: []
+capability_registry_action: BACKFILL
+capability_registry_refs: ["../../capability-registry/CAPABILITY_INDEX.yaml"]
+capability_registry_sync_status: PENDING
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/CEX-790
@@ -33,7 +37,8 @@ terminal_marker: CAPABILITY_ENTRY_BASELINE_AUDITED
 # CEX-790 — Backend → Web/Android 最终入口审计与冻结
 
 > 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> 论文素材：[PAPER_EVIDENCE_PROTOCOL.md](./PAPER_EVIDENCE_PROTOCOL.md)
+> 论文素材：[PAPER_EVIDENCE_PROTOCOL.md](./PAPER_EVIDENCE_PROTOCOL.md)  
+> 长期 Capability Registry：[../../capability-registry/README.md](../../capability-registry/README.md)
 
 ## 目标
 
@@ -51,7 +56,8 @@ terminal_marker: CAPABILITY_ENTRY_BASELINE_AUDITED
 6. Web clickable entry；
 7. Android clickable entry；
 8. Settings / recovery lifecycle；
-9. scheduler user actions。
+9. scheduler user actions；
+10. City `capability-registry/` existing records / pending legacy backfill。
 
 每项必须分类：
 
@@ -93,6 +99,29 @@ Reviewer 必须独立从代码重建 inventory，不能只复核 Development mat
 - future seam；
 - genuine defect。
 
+## Capability Registry bootstrap / reconciliation
+
+Development 必须把最终 inventory 中已经 exact-head 验证的 semantic capability：
+
+1. 分配/确认稳定 `CAP-<DOMAIN>-<NNN>`；
+2. 写入 `capability-registry/records/*.yaml`；
+3. 更新 `CAPABILITY_INDEX.yaml`；
+4. 更新 `SURFACE_INDEX.yaml`（如有用户 surface）；
+5. 生成/刷新双语 exposure matrix；
+6. 每条 verified record 绑定 exact implementation SHA 与 UI/E2E evidence。
+
+Reviewer 必须从真实代码和真实 surface 独立抽样/重建，并检查：
+
+```text
+Registry claim
+↔ exact implementation
+↔ user surface
+↔ backend wiring
+↔ intent semantics
+```
+
+不允许直接把旧 `CAPABILITY_ENTRY_MATRIX.md` 全表机械复制成 verified records。
+
 ## Programme-level paper synthesis
 
 本任务必须生成：
@@ -118,6 +147,9 @@ Reviewer 必须独立从代码重建 inventory，不能只复核 Development mat
 - Development/Review independent inventories reconciled；
 - no unclassified user-facing backend capability；
 - future backlog updated；
+- Capability Registry backfill/reconciliation complete for all final-audit verified capabilities；
+- no `CAPABILITY_REGISTRY_STALE` / `CAPABILITY_REGISTRY_REALITY_MISMATCH`；
+- bilingual exposure matrix refreshed；
 - PAPER_MATERIAL_SYNTHESIS complete；
 - exact-head CI；
 - terminal marker `CAPABILITY_ENTRY_BASELINE_AUDITED`。
