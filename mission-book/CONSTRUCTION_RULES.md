@@ -35,6 +35,93 @@
 
 旧规则、旧 dashboard、旧 response 位于 `finished/`，只用于追溯，不得覆盖本文件。
 
+## 0A. Homepage progress forced sync / 主页进度强制同步
+
+Mission Book 主页统计从现在起统一采用：
+
+~~~text
+总任务完成 ?/?
+开发完成   ?/?
+复检完成   ?/?
+~~~
+
+项目级与全城级都使用同一口径。历史名称统一映射：
+
+~~~text
+Development / Migration  → 开发
+Review / Correction / Verification → 复检
+复检完成                  → 总任务完成
+~~~
+
+### Authority
+
+~~~text
+workbook frontmatter
+    ↓ authoritative
+sync_mission_progress.py
+    ↓ derived
+README generated blocks + MISSION_PROGRESS.json
+~~~
+
+- 各工作书 frontmatter 始终是动态状态唯一权威来源；
+- mission-book/README.md 的 MISSION_PROGRESS 与 ACTIVE_WORKBOOKS 区块是生成视图，禁止手工维护；
+- mission-book/MISSION_PROGRESS.json 是同一统计的机器可读镜像，不获得更高 authority；
+- programme membership 由 mission-book/PROGRESS_MANIFEST.json 明确定义；
+- FUTURE-only 计划在正式激活为工作书前不计入分母。
+
+### Mandatory synchronization
+
+任何改变下列字段或等价任务状态的提交：
+
+~~~text
+status
+execution_enabled
+development_complete
+migration_complete
+review_complete
+correction_complete
+verification_complete
+owner_gate
+archive / active programme membership
+~~~
+
+都必须使生成统计同步。
+
+本地/Agent 标准动作：
+
+~~~text
+python mission-book/tools/sync_mission_progress.py
+python mission-book/tools/sync_mission_progress.py --check
+~~~
+
+GitHub 强制动作：
+
+- PR：.github/workflows/sync-mission-progress.yml 重新生成并检查；若生成结果与提交中的 README/JSON 不一致，PR check 失败；
+- main 直接更新：workflow 自动重新生成并只在有差异时提交 README + MISSION_PROGRESS.json；
+- workflow 自己生成的 README/JSON commit 不再次触发同步，避免 commit loop。
+
+### Drift classification
+
+若工作书已经变化，而主页仍显示旧统计，统一标记：
+
+MISSION_HOMEPAGE_PROGRESS_DRIFT
+
+这是 control-plane reality drift，不允许通过“手工把 README 数字改对”关闭；必须修正生成器、manifest 或工作书 source state，然后重新生成。
+
+### Format stability
+
+以后主页项目统计固定列为：
+
+| 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
+|---|---:|---:|---:|---|
+
+全城顶部固定同时显示：
+
+1. **全城合计**；
+2. **当前未收口项目池**。
+
+新增 programme 时必须先加入 PROGRESS_MANIFEST.json；不得在 README 单独写一套无法自动重算的进度数字。
+
 ## 1. 为什么恢复这些规则
 
 本文件吸收上一轮施工中已经真实踩过的坑，尤其包括：
