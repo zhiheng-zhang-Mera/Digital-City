@@ -9,7 +9,8 @@
 > 当前监控看板：[README.md](./README.md)  
 > 工作书模板：[MISSION_TEMPLATE.md](./MISSION_TEMPLATE.md)  
 > 过程数据边界：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
-> Capability Registry：[../capability-registry/README.md](../capability-registry/README.md)
+> Capability Registry：[../capability-registry/README.md](../capability-registry/README.md)  
+> Research signal watchlist：[RESEARCH_SIGNAL_WATCHLIST.yaml](./RESEARCH_SIGNAL_WATCHLIST.yaml)
 
 ## 0. 权威层级
 
@@ -901,6 +902,145 @@ Exposure Lag =
 专题研究材料：
 
 - `06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/{zh-CN,en}/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md`
+
+
+### 14B.10 Research rarity tiers / 研究稀缺度与证据预算
+
+论文素材不再默认“所有现象同等重要”。施工者必须使用 [RESEARCH_SIGNAL_WATCHLIST.yaml](./RESEARCH_SIGNAL_WATCHLIST.yaml) 的预分类，而不是自行把普通工程经验包装成 novelty。
+
+```text
+G1_MATURE        → MINIMAL
+G2_CROWDED       → STANDARD
+G3_SPARSE_ACTIVE → PRIORITY
+G4_RARE_SYSTEMIC → MAXIMUM_BOUNDED
+```
+
+#### G1 — 成熟工程常识
+
+例如：
+
+- branch/tag mutable → exact SHA；
+- classic vertical slice / walking skeleton；
+- generic requirements→code traceability；
+- ordinary Git/CI/branch-and-merge。
+
+规则：
+
+- 只有真实 defect / rework 时留 failure chain；
+- 不增加 research-only instrumentation；
+- 只能作为 background/control/failure cause，不得作为主要 novelty。
+
+#### G2 — 热门但拥挤
+
+例如：
+
+- generic context compaction；
+- generic execution-state memory；
+- generic false completion / transparency；
+- generic evolving requirements；
+- generic async multi-agent；
+- generic cross-model review。
+
+规则：
+
+- 正常 telemetry 即可；
+- 只有与 G3/G4 交叉时升级采集；
+- 禁止为了追热门方向主动制造 make-work。
+
+#### G3 — 已有邻近工作但直接研究稀疏
+
+优先信号：
+
+- repository-resident executable work state；
+- execution identity / provenance / freshness；
+- structured handoff with exact state；
+- dynamic async liveness / eligibility / wake semantics；
+- independent review as a state/evidence boundary；
+- Registry-assisted Agent onboarding/localization；
+- naturalistic Owner intervention taxonomy。
+
+若命中 G3，尽量保存：
+
+```text
+before_state
+after_state
+exact SHA / run ids
+event timeline
+agent/model/harness
+Owner intervention
+handoff/resume
+task transitions
+independent review
+quantitative delta
+research refs
+```
+
+#### G4 — 完整案例/系统研究极少
+
+最高优先信号：
+
+- unified repository control plane；
+- capability state: implementation → wiring → reachability → intent；
+- autonomy survival until Owner intervention；
+- MissionBook/Registry/Git/CI/UI control-plane reality drift；
+- user-reachable completion as first-class terminal condition；
+- passive development-to-research evidence pipeline。
+
+若命中 G4，除 G3 字段外优先保存：
+
+```text
+authority surfaces
+state transitions
+conflicting truths
+event ordering
+wake / role-eligibility changes
+user-reachability path
+exact evidence binding
+control-plane rule version
+counterfactual / replay / ablation opportunity
+```
+
+仍必须遵守 bounded evidence：禁止 hidden chain-of-thought、无界 raw log、敏感凭据。
+
+### 14B.11 Watchlist hit / 未分类信号
+
+工作书/report 若观察到研究信号，记录：
+
+```text
+research_watchlist_hits = [RS-...]
+highest_research_grade_observed = G1_MATURE | G2_CROWDED | G3_SPARSE_ACTIVE | G4_RARE_SYSTEMIC
+research_capture_level = MINIMAL | STANDARD | PRIORITY | MAXIMUM_BOUNDED
+```
+
+若现象不在 watchlist：
+
+`UNCLASSIFIED_CANDIDATE`
+
+只记录 observation + evidence，不由施工 Agent 自行发明 G3/G4 评级。正式升级必须在后续 literature review 后进行。
+
+### 14B.12 Primary paper-story policy
+
+当前 City 的默认主论文故事不再是“更大的 context / 更好的 compaction”。
+
+默认主线：
+
+> **Reliable long-horizon coding requires a persistent software-engineering control plane, not merely a capable model or larger context.**
+
+优先观察变量：
+
+- durable work state；
+- exact execution identity；
+- evidence provenance；
+- dynamic liveness；
+- user-reachable capability state；
+- human intervention。
+
+compaction、model switch、branch movement、CI wait、handoff、external blocker、evolving requirements 默认视为 **stressors / conditions**，除非后续文献审计重新升级。
+
+研究院策略快照：
+
+`06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`
+
 
 ## 14C. Capability Registry Chained Update Gate / 能力登记册连锁更新门
 
