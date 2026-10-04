@@ -340,3 +340,58 @@ dependence 内容: npm-cache, .env-probe, launcher.log
 - **无网络/代理环境**：自举依赖取包；启动器会在失败时指向 `dependence\launcher.log` 并提示 `HTTPS_PROXY`，
   但"完全离线仍能打开"**不成立**——那需要把依赖预先带进仓库，是另一个决定。
 - **依赖安装只在本机网络下验证过**（三个包，约十秒级）。
+
+---
+
+# 追加：启动器在"无控制台"启动路径上的真实缺陷（2026-10-04 第五轮，Alien）
+
+> 上一轮把启动器做到"新主机 clone 后双击即可打开"（`987a1ce`），但**判断是否需要安装依赖**的那一步，
+> 在最要紧的一条启动路径上是坏的：**没有控制台的启动**（快捷方式、计划任务、`Start-Process` 重定向输出）。
+> 修复落点 `utopia/main` = **69a097b**（已推送）。
+
+## A. 两个不同的原因，都是我自己写的
+
+**症状（控制台逐字）**：
+```text
+系统找不到指定的路径。        （the system cannot find the path specified）
+句柄无效。                    （invalid handle）
+```
+
+1. **`for /f ... in (`command`)` 会建管道，而管道需要控制台句柄**——无控制台的进程没有。
+   于是 probe 从未运行、`%MISSING%` 为空、启动器判定 `packages: OK`，然后**在什么都没装的情况下启动 City**。
+   现在改成**把 node 的答案重定向进文件再读文件**（`>` 不需要控制台句柄）。读回前先 `del` 且只在文件存在时读，
+   所以上一次运行的旧答案不可能被当成本次结果。
+2. **即使 probe 修好，"没有答案"也绝不能等于"无事可做"**。现在 `node_modules` **缺失或为空**本身就是证据，
+   安装器会运行——而且**从不被告知要装什么**：npm 自己从 `package.json` 解析整份声明集，这里只决定"是否运行"。
+   `node_modules` 已填充而 probe 不可用时，就如实说明并启动；应用报出的缺模块信息比这个批处理精确得多。
+
+## B. 我自己制造的噪声（也已记录）
+
+排查过程中我把多次运行**重定向到同一个日志文件**，于是**旧运行的文本被当成新运行的输出读回**，
+我因此两次去"修"本来已经正常的东西。改用每次新文件名之后，有控制台与无控制台两条路径都报
+`packages: OK - starting now.`——那时启动器已经是对的，**错的是我的测量方式**。
+
+## C. 验证（靠删东西，而不是读脚本）
+
+```text
+全新 clone（临时目录，既无 node_modules 也无 dependence）:
+  Missing package(s): bonjour-service qrcode ws
+  packages: installed.
+  City endpoint : http://<lan-ip>:4391
+依赖齐全:
+  有控制台      packages: OK - starting now.
+  无控制台      packages: OK - starting now.
+行尾:
+  真实 clone 拿到的 Utopia.cmd 是 CRLF（acf7763 修的 .gitattributes），否则它根本跑不起来
+```
+
+**桌面启动器**同时改为**交接给项目启动器**（而不是自己直接启动应用），否则它会跳过运行时获取与依赖安装，
+在全新机器上因缺模块失败；`Utopia.cmd` 不存在时才回退到直接启动。
+
+## D. 未验证 / DEFERRED
+
+- **"完全找不到 node"那条分支仍未实测**（本机有 node）：下载并解压运行时的路径只有设计与失败处理，没有真机跑通一次。
+- **无网络/代理环境**：自举需要取包；失败时会指向 `dependence\launcher.log` 并提示 `HTTPS_PROXY`，
+  但"完全离线也能打开"**不成立**。
+- **真实第三方新主机**（另一台干净 Windows、从 GitHub clone）：本轮的 clone 是**本机 local clone**，
+  网络路径（GitHub → 新机器）与包下载（npm registry）没有在另一台机器上验证过。
