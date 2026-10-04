@@ -109,4 +109,3 @@ Web 与 Android 的 Ask/Do 页面都应有：
 - opposite-host Review / exact-head CI；
 - PAPER_MATERIAL_INDEX；
 - terminal marker `CAPABILITY_CATALOG_DISCOVERABLE`。
-
