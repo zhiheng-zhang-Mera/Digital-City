@@ -64,6 +64,32 @@ topics:
     topic: evolving_user_requirements
     capture_when: normal telemetry
 
+
+  - id: RS-G2-REPO-RULES
+    grade: G2_CROWDED
+    topic: generic_repository_instruction_files_and_rule_learning
+    capture_when: normal telemetry; do not treat AGENTS.md/rule learning itself as novelty
+
+  - id: RS-G2-LONGITUDINAL-MAINTENANCE
+    grade: G2_CROWDED
+    topic: generic_long_horizon_maintenance_and_technical_debt
+    capture_when: normal telemetry; SWE-CI/SlopCodeBench/ChainSWE/EvoClaw already cover the broad phenomenon
+
+  - id: RS-G2-MERGE-CONFLICT
+    grade: G2_CROWDED
+    topic: generic_agent_merge_conflict_and_concurrent_editing
+    capture_when: normal telemetry; prioritize only semantic integration beyond textual conflict
+
+  - id: RS-G2-ACTION-BIAS
+    grade: G2_CROWDED
+    topic: generic_agent_abstention_action_bias_and_scope_expansion
+    capture_when: normal telemetry; FixedBench/OverEager-style phenomena are already directly studied
+
+  - id: RS-G2-OBSERVABILITY-DEBT
+    grade: G2_CROWDED
+    topic: generic_agent_generated_logging_observability_debt
+    capture_when: normal telemetry; prioritize only if it affects control-plane observability or longitudinal evidence quality
+
   - id: RS-G3-EXEC-WORK-ARTIFACT
     grade: G3_SPARSE_ACTIVE
     topic: repository_resident_executable_work_state
@@ -98,6 +124,22 @@ topics:
     grade: G3_SPARSE_ACTIVE
     topic: naturalistic_owner_intervention_causes
     capture_when: Owner must resume/correct/unblock/reframe work
+
+
+  - id: RS-G3-RULE-LIFECYCLE-DEBT
+    grade: G3_SPARSE_ACTIVE
+    topic: repository_rule_lifecycle_provenance_supersession_and_retirement
+    capture_when: a rule is added from failure evidence, conflicts with another rule, becomes stale, is superseded, or causes measurable overhead/false blocking
+
+  - id: RS-G3-SUPERVISION-ATTENTION
+    grade: G3_SPARSE_ACTIVE
+    topic: owner_attention_fragmentation_escalation_quality_and_batching
+    capture_when: Owner interventions can be grouped by cause, decision value, avoidability, batching, or interruption cost
+
+  - id: RS-G3-SEMANTIC-INTEGRATION
+    grade: G3_SPARSE_ACTIVE
+    topic: semantic_integration_conflict_beyond_textual_merge
+    capture_when: independently green/accepted branches or capabilities integrate cleanly textually but conflict in product semantics, dependencies, ownership, or runtime behavior
 
   - id: RS-G4-UNIFIED-CONTROL-PLANE
     grade: G4_RARE_SYSTEMIC
