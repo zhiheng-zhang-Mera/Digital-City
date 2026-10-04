@@ -17,9 +17,16 @@ baseline_blocker: null
 dependencies: ["ASK_TARGETS_CONTRACT_PRESENT"]
 development_host: Alien-codex
 development_branch: cex/CEX-703-Alien-codex-capability-catalog
-development_head_sha: null
+development_head_sha: "358fbb20a7b23826e92a04d7d893f22c65d56eec"
 development_ci: null
 development_complete: false
+capability_ids: [CAP-ASK-001]
+capability_registry_action: BACKFILL
+capability_registry_refs: ["capability-registry/records/CAP-ASK-001.yaml"]
+capability_registry_sync_status: CANDIDATE_RECONCILED
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"]
 review_host: null
 review_head_sha: null
 review_ci: null

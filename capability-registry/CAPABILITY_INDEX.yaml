@@ -56,3 +56,6 @@ exposure_classes:
 records:
   - capability_id: CAP-IDENTITY-001
     record_ref: records/CAP-IDENTITY-001.yaml
+
+  - capability_id: CAP-ASK-001
+    record_ref: records/CAP-ASK-001.yaml

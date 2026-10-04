@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-ASK-001",
+  "name": {
+    "zh_CN": "主动发现能力目录",
+    "en": "Proactive backend target catalog"
+  },
+  "source_workbooks": [
+    "CEX-703"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "apps/web/index.html",
+      "apps/web/terminal.js",
+      "apps/android/app/src/main/java/city/utopia/control/AskPanel.kt"
+    ],
+    "symbols": [
+      "renderAsk",
+      "controller.onClick",
+      "AskPanel"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/ask/targets",
+      "POST /api/v0/ask"
+    ],
+    "last_verified_full_sha": "358fbb20a7b23826e92a04d7d893f22c65d56eec"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "backend labels/availability/reason",
+      "mutating/side-effect metadata"
+    ],
+    "user_controls": [
+      "open catalog",
+      "prepare selected action",
+      "submit through existing confirmation"
+    ],
+    "intentionally_hidden_information": [
+      "credentials"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Ask bar > View all capabilities > Ask/Do catalog",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "evidence_ref": "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "Ask > 查看全部能力",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE",
+      "evidence_ref": "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/cex703-catalog-ui.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/CEX-703/catalog-receipt.json"
+    ],
+    "intent_validation_refs": []
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Exact-head CI pending",
+    "Opposite-host Formal Review pending",
+    "Android online catalog NOT_RUN"
+  ],
+  "last_reconciled_by_workbook": "CEX-703"
+}
