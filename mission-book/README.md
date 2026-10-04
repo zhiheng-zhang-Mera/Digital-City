@@ -1,6 +1,6 @@
 # Mission Book — 当前施工监控看板
 
-> 当前模式：**历史阶段已归档 → MESH-301 COMPLETE → SHOW-401 素材提取进行中 + Connection Onboarding JOIN-501/502/503 + Workbench Compatibility WBC-601..604 ACTIVE**  
+> 当前模式：**历史阶段已归档 → MESH-301 COMPLETE → SHOW-401 素材提取进行中 + Connection Onboarding + Workbench Compatibility + Capability Entry Closeout ACTIVE**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
 > 实现仓库：zhiheng-zhang-Mera/Utopia  
 > Utopia 实现状态不再手工硬编码；以自动生成的 [UTOPIA_LIVE_STATUS.md](./UTOPIA_LIVE_STATUS.md) / [UTOPIA_LIVE_STATUS.json](./UTOPIA_LIVE_STATUS.json) 为准。  
@@ -17,9 +17,10 @@
 | SHOW-401 项目展示素材提取 | **IN_PROGRESS / execution_enabled=true** | 录制主 Demo + handoff 技术 Demo + 3 张截图 + 结果表 + 套磁/项目页核心文案；严禁修改 Utopia 产品代码 |
 | Connection Onboarding / JOIN-501..503 | **READY / execution_enabled=true** | 复用已完成 Remote Fabric，把新 PC 入城从 URL/token 手工连接优化为 nearby discovery + approval + enrollment + automatic reconnect；临时配对码只允许主动生成，ACTIVE 期间固定到消费/过期 |
 | Workbench Compatibility / WBC-601..604 | **ACTIVE / execution_enabled=true** | additive compatibility migration：STANDARD_DEVICES 保持当前 Windows 默认；预埋 WORKER_POOL / HYBRID backend、node capability/resource 与 headless agent seam；无 Workbench 环境必须完整可用 |
+| Capability Entry Closeout / CEX-701..790 | **ACTIVE / execution_enabled=true** | 补齐“后端已实现但用户无入口/难发现”的前端最后一公里；当前重点 = rebind/clone、alternate-device choice、能力目录、Android onboarding/member 管理 parity；所有任务强制留论文素材索引 |
 | Persistent Foreman Runtime / FR-001 | **FUTURE / NOT ACTIVE** | 只做未来计划记录，不抢占当前施工 |
 
-MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非产品素材提取工作、**Connection Onboarding** 产品优化 programme，以及 **Workbench Compatibility Migration** 基础设施兼容 programme。JOIN-501/502/503 只允许在已完成的 Remote Fabric 上做 pairing/onboarding/integration 优化，不得复活 RF-001..010 或重写 transport/trust 基础设施。WBC-601..604 只允许做 additive execution compatibility：当前 STANDARD_DEVICES / Windows 双机路径必须保持默认可用，Workbench/Linux 不得成为启动依赖；WBC-601 与 WBC-602 可并行，WBC-603/604 必须遵守依赖解锁。SHOW-401 仍只能运行/观察已接受的 Utopia，不得修改 Utopia tracked source/test/docs；其只读边界不得被其它 programme 借用或突破。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态。
+MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非产品素材提取工作、**Connection Onboarding** 产品优化 programme、**Workbench Compatibility Migration** 基础设施兼容 programme，以及 **Capability Entry Closeout** 前端能力入口补全 programme。JOIN-501/502/503 只允许在已完成的 Remote Fabric 上做 pairing/onboarding/integration 优化，不得复活 RF-001..010 或重写 transport/trust 基础设施。WBC-601..604 只允许做 additive execution compatibility：当前 STANDARD_DEVICES / Windows 双机路径必须保持默认可用，Workbench/Linux 不得成为启动依赖；WBC-601 与 WBC-602 可并行，WBC-603/604 必须遵守依赖解锁。CEX-701..705 只允许把已经成熟的 backend/API/action 变成可发现、可完成的用户路径，不得把 General AI / Butler Assistant / Engineering Manager 等尚未形成完整 runtime/product route 的 future seam 伪装成可用按钮；CEX-790 负责最终 backend→Web/Android 独立双线审计。所有 CEX 任务按 `capability-entry-closeout/PAPER_EVIDENCE_PROTOCOL.md` 强制保存 runtime error、test/CI failure、逻辑冲突、repair 前后数据与 opposite-host finding 的论文素材索引。SHOW-401 仍只能运行/观察已接受的 Utopia，不得修改 Utopia tracked source/test/docs；其只读边界不得被其它 programme 借用或突破。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态。
 
 ## MESH-301 设计审计结果
 
@@ -67,6 +68,16 @@ MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非
 - [WBC-602](./workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md) — `READY`；建立 additive Node Role / Capability / Resource descriptor 与 legacy defaults；
 - [WBC-603](./workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md) — `WAITING_DEPENDENCIES`；待 WBC-601/602 accepted 后建立 dormant Worker Pool + headless agent seam；
 - [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) — `WAITING_DEPENDENCIES`；待 WBC-603 accepted 后建立 STANDARD / WORKER_POOL / HYBRID 可逆切换；
+- [Capability Entry Closeout](./capability-entry-closeout/README.md) — `ACTIVE`；修复已存在能力的入口/可发现性/跨 surface parity，禁止 fake future capability；
+- [Capability Entry Matrix](./capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md) — 当前 backend→Web/Android 入口分类与差距；
+- [Paper Evidence Protocol](./capability-entry-closeout/PAPER_EVIDENCE_PROTOCOL.md) — CEX programme 强制论文素材留存规则；
+- [CEX-701](./capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md) — `READY`；rebind / reinstall recovery + clone finding 用户闭环；
+- [CEX-702](./capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md) — `READY`；拒绝切 provider → 改用另一设备的可执行用户选择；
+- [CEX-703](./capability-entry-closeout/CEX-703-capability-catalog-discoverability.md) — `READY`；直接查看 Utopia 全部当前可执行能力；
+- [CEX-704](./capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md) — `READY`；Android join approval + pairing generation/share；
+- [CEX-705](./capability-entry-closeout/CEX-705-android-member-device-management-parity.md) — `READY`；Android City/device/member/sharing/message 管理 parity；
+- [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) — `WAITING_DEPENDENCIES`；前五项完成后独立重建 backend→surface inventory 并冻结入口基线；
+- [Future Exposure Backlog](./capability-entry-closeout/FUTURE_EXPOSURE_BACKLOG.md) — General AI / Assistant / Engineering Manager / Android interactive Rooms / Workbench UI 等明确延后项；
 - [FR-001 Persistent Foreman Runtime](./future-plans/FR-001-Persistent-Foreman-Runtime.md) — 未来计划，不激活。
 
 ## 当前主机角色
