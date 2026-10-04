@@ -286,3 +286,57 @@ hosted CI               ★ 仍未取得（本地 PASS 不替代）
 - **浏览器里的"行内按钮"完整 DOM 路径**：仍未模拟"发现到一台 remote PC → 点击行内按钮"（需要真实 remote 发现行，本机造不出）。
 - **hosted CI**：`f3756ba` / `fa85dcd` / `024ca0a` / `afe9596` 的 CI 结论都还没有回填；云端同步工作流仍停在 `a7bab55`。
 - **界面文案/交互的真人观感**：以上都是自动化验证与我自己的判断；"双 Windows 连接是否够直接"最终要 Owner 在**两台真机**上试。
+
+---
+
+# 追加：启动器改为"新主机 clone 后双击即可打开"（2026-10-04 第四轮，Alien）
+
+> Owner 要求：`cmd` 启动器**默认直接启动**；若失败原因是依赖文件缺失，则在**项目根目录下的 `dependence` 文件夹**里安装；
+> 保证在**任意新主机上 clone 项目后都能正常打开**。代码落点 `utopia/main` = **acf7763**（已推送）。
+
+## A. 实现：先启动，需要时才准备
+
+| 顺序 | 做什么 | 何时才做 |
+|---|---|---|
+| 1 | 定位 node：先 `dependence\node`（上次取回的），再 PATH，再本机实际存在的几个位置 | 总是 |
+| 2 | **取回 node 运行时**到 `dependence\` 并解压（npmmirror 优先，nodejs.org 兜底；失败的残包会删掉，避免下次"有文件就跳过下载"） | **只在完全找不到 node 时** |
+| 3 | **检查依赖**：让 node 自己读 `package.json`，报告哪些包在 `node_modules` 里不存在；缺了才装 | **只在有缺失时** |
+| 4 | 启动 City | 总是 |
+
+**依赖清单由 node 从 `package.json` 读取**，不在批处理里再抄一份——抄一份的启动器会在第一次新增依赖时过期。
+**两个目录两种职责**：`node_modules\` 是包本身（标准位置），`dependence\` 是启动器自己的准备物（取回的运行时、npm 缓存、探测文件、`launcher.log`）；两者都被 Git 忽略，只有真正需要时才创建。
+
+## B. 实测证据（不是"读脚本觉得对"）
+
+**在一个真实的 clone 里跑的**（`git clone` 到临时目录，该目录**没有** `node_modules`、**没有** `dependence`）：
+
+```text
+node_modules 存在: False      dependence 存在: False
+启动后:
+  node: found on PATH
+  Missing package(s): bonjour-service qrcode ws
+  Installing into node_modules\ - first run only, this can take a minute ...
+  packages: installed.
+  City endpoint : http://<lan-ip>:4391
+dependence 内容: npm-cache, .env-probe, launcher.log
+```
+
+- **依赖齐全时**：`packages: OK - starting now.` —— 不联网、不安装，直接启动（本机复测）。
+- **不污染工作树**：自举不再生成 `package-lock.json`（无 lockfile 时显式 `--package-lock=false`），`git status` 只剩本次改动本身。
+- **clone 后 `.cmd` 的行尾**：`CR=223 / LF=223`，即新主机拿到的是 CRLF（见 C.5，这是修过的一处）。
+
+## C. 本轮缺陷（全部是我自己的）
+
+1. **首版带中文消息**：cmd.exe 用 OEM/ANSI 代码页解析批处理，**UTF-8 版本让 cmd 把命令片段当命令执行**。现在文件是**纯 ASCII + 英文消息**，中文说明放进 README（那里没有解析器会被伤害）。
+2. **文件是 LF 行尾**：cmd 同样处理不好。现在写 CRLF，并由写文件的那一步断言。
+3. **版本检查写成命令替换**（`node -p "…"` 套在 `for /f` 里）：本机读回成 `v0`。改为 **node 写 `dependence\.env-probe`、批处理只读行**——嵌套引号不值得拿启动器去赌。
+4. **首次安装让 npm 在检出目录里生成了 `package-lock.json`**：现在无 lockfile 时加 `--package-lock=false`（版本号本来就是精确的），自举不再改动工作树。
+5. **`.gitattributes` 把 `.cmd` 归到了 LF**（只对 `*.bat` 指定了 `eol=crlf`，`.cmd` 落到 `* text=auto eol=lf`）——**这条最隐蔽**：本机一直是 CRLF 所以看不出问题，而**新主机 clone 会拿到 LF**，启动器一到新机器就是坏的。已补 `*.cmd text eol=crlf` 并用真实 clone 复验。
+
+## D. 未验证 / DEFERRED（不许读成通过）
+
+- **"完全找不到 node"那条路没有实测**：本机有 node，所以第 2 步（下载并解压运行时）只做到了**代码与失败路径的设计**，
+  没有在真机上走通一次。它是唯一需要联网取运行时的分支。
+- **无网络/代理环境**：自举依赖取包；启动器会在失败时指向 `dependence\launcher.log` 并提示 `HTTPS_PROXY`，
+  但"完全离线仍能打开"**不成立**——那需要把依赖预先带进仓库，是另一个决定。
+- **依赖安装只在本机网络下验证过**（三个包，约十秒级）。
