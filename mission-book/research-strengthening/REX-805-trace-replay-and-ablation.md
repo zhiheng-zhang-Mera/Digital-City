@@ -24,6 +24,10 @@ review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
+research_evidence_applicability: APPLICABLE
+research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-STRUCTURED-HANDOFF","RS-G3-DYNAMIC-LIVENESS","RS-G4-UNIFIED-CONTROL-PLANE","RS-G4-USER-REACHABLE-TERMINAL"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
@@ -51,6 +55,20 @@ terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED
 - recovery off；
 - alternate-device off；
 - selected policy off。
+
+## G3/G4 ablation candidates
+
+除已有 handoff/retry/backoff/recovery 外，设计时必须允许未来 bounded ablation / replay 覆盖至少这些机制中的可行子集：
+
+- MissionBook persistent work state on/off or reduced view；
+- structured exact-state handoff vs summary-only；
+- exact identity/provenance validation on/off；
+- dynamic wake/re-scan classification vs naive stop/poll；
+- independent review/evidence reconciliation on/off；
+- Capability Registry-assisted localization vs repository-only exploration；
+- implementation-only terminal vs user-reachable/intent-validated terminal。
+
+这些是 replay capability，不要求 v1 一次实现所有实验；但 schema 不得把它们封死。
 
 ## 硬规则
 
