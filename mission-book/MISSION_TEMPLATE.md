@@ -30,6 +30,8 @@ ui_exemption_reason: null
 research_evidence_applicability: UNASSESSED
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []
+state_identity_evidence: UNASSESSED
+state_identity_evidence_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: null
@@ -72,11 +74,22 @@ ui_exemption_reason = <required only for INTERNAL_ONLY>
 research_evidence_applicability = APPLICABLE | NOT_APPLICABLE
 long_horizon_context_evidence = CAPTURED | NOT_OBSERVABLE | NOT_APPLICABLE
 research_evidence_refs = [...]
+state_identity_evidence = CAPTURED | NOT_OBSERVABLE | NOT_APPLICABLE
+state_identity_evidence_refs = [...]
 ```
 
 若出现长时/异步 Agent、context pressure、compaction、resume、model/harness switch、Owner 续接、false COMPLETE、duplicate/regression、stale state/SHA 或 task-pool drain 等现象，必须优先保存可观察 evidence，并记录 `NOT_OBSERVABLE + reason` 而不是猜测缺失 telemetry。
 
 发生 compaction / context reset / session resume / handoff 后，应优先验证 current mission、exact branch/SHA、completed/remaining work、blocker、next action、已失败路径与 acceptance gate 的恢复是否正确。
+
+若任务涉及 mutable branch/tag/head、exact SHA、dependency ancestry、Review/CI evidence binding、artifact/run identity 或 critical-point reconciliation，还必须判断是否出现：
+
+- `MUTABLE_REFERENCE_STATE_DRIFT`
+- `EVIDENCE_POINTER_MISMATCH`
+- `STALE_EXECUTION_IDENTITY`
+- `PROVENANCE_RELATION_MISMATCH`
+
+并记录 expected identity、实际 resolve 的 identity、evidence identity、provenance relation 与 freshness revalidation。不能把 branch 名或“绿色 CI”本身当作 exact evidence。
 
 禁止采集或推断隐藏 chain-of-thought；只记录显式 prompt/instruction（允许时）、execution state、logs、CI/tests、timestamps、token/cost telemetry（若可见）、Owner intervention、branch/SHA 与 observable action/result。
 
