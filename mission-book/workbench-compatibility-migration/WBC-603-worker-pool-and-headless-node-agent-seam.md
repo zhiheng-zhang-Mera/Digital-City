@@ -3,20 +3,20 @@ workbook_id: WBC-603
 phase: WORKBENCH_COMPATIBILITY_MIGRATION
 sequence: 603
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["9f3e20e8ec99d591812430bee71d27e68c4ad498"]
 dependency_source_workbooks: ["WBC-601","WBC-602"]
-dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
-baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
+dependency_source_shas: ["f66db60998343bf99243621cfcfa2363a4566db8","d99101fdac5169aad74ae84fb7c0c25be43ad7d9"]
+development_baseline_sha: "05ff89553fdd8d3c13219a4598fc02f8c6182a65"
+baseline_resolution_evidence: "mission-book/reports/WBC-603/CLAIM_RECORD.md"
+baseline_blocker: null
 dependencies: ["WBC-601:EXECUTION_BACKEND_STANDARD_COMPAT_ACCEPTED", "WBC-602:NODE_CAPABILITY_RESOURCE_COMPAT_ACCEPTED"]
-development_host: null
-development_branch: null
+development_host: Alien-codex
+development_branch: wbc/WBC-603-Alien-codex-worker-pool
 development_head_sha: null
 development_ci: null
 development_complete: false
