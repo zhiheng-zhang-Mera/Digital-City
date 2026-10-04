@@ -1134,6 +1134,73 @@ POST_MERGE_USER_INTENT_REGRESSION
 ```
 
 
+### 14B.14 City Work Monitor / JEV observability and Decision evidence
+
+当任务能被 City Work Monitor/JEV 观察，或发生自动 retry/reroute/reassign/review/escalation 等状态跃迁时，除了既有 §14B 字段，还应捕获**观察层与决策层本身是否改变系统自治质量**。
+
+核心架构规则：
+
+~~~text
+Observation = continuous / sidecar / non-authoritative
+Decision    = event-triggered / per-task / asynchronous
+Monitor     = projection of canonical truth
+~~~
+
+禁止：
+
+- 所有任务每次汇报都同步等待模型 decision；
+- JEV/Monitor 拥有 global execution lock；
+- 一个 decision queue 卡住导致其它任务停止；
+- dashboard 自建第二套 task/device/review/capability truth；
+- overview 折叠掉仍 active 的 warning/block/retry risk。
+
+若工具可观察，优先记录：
+
+~~~text
+canonical_event_id
+observed_at
+projected_at
+projection_latency_ms
+active_risk_present
+risk_bubbled_to_overview
+false_safe_summary
+edge_type
+edge_reason_complete
+decision_id
+decision_source
+decision_queue_wait_ms
+decision_latency_ms
+decision_timeout_or_fallback
+escalation_reason
+owner_intervention_required
+autonomy_resumed_after_decision
+unrelated_task_blocking
+monitor_reconciliation_result
+navigation_steps_to_cause_or_evidence
+~~~
+
+建议 failure labels：
+
+~~~text
+MONITOR_SYNC_BARRIER
+MONITOR_REALITY_DRIFT
+SUMMARY_HIDES_ACTIVE_RISK
+EDGE_CAUSALITY_MISSING
+DECISION_PROVENANCE_MISSING
+DECISION_TIMEOUT_GLOBAL_IMPACT
+DASHBOARD_BECOMES_SECOND_TASK_TRUTH
+~~~
+
+研究评级遵守 Watchlist：
+
+- generic Agent dashboard / topology graph / logs = G2；
+- hierarchical risk bubbling、edge causal observability、observe/decide decoupling、decision escalation provenance = G3；
+- 不因“做了一个全城仪表盘”自动新增 G4；只有它真实支撑既有 unified control plane / autonomy survival / multi-truth reality drift 的系统级证据时，才按对应 G4 记录。
+
+专题材料：
+
+`06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/{zh-CN,en}/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md`
+
 ## 14C. Capability Registry Chained Update Gate / 能力登记册连锁更新门
 
 `capability-registry/` 是 City 的长期能力户籍、实现定位与用户暴露地图。
