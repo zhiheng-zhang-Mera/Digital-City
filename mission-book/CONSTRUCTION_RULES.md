@@ -589,6 +589,179 @@ Formal Review 必须独立检查：
 
 这条规则对之后所有 Mission Book 新能力默认生效；Capability Entry Closeout programme 负责清理此前已经存在的历史入口债务。
 
+## 14B. Long-Horizon Agent Research Evidence Gate / 超长时 Agent 论文素材门
+
+所有新建或继续执行的工程书都必须判断本次施工是否产生“长时 Agent / context lifecycle / external execution state”研究价值。  
+这一规则是**全局素材防漏规则**，不要求任务本身属于 Research Strengthening programme。
+
+研究院专题入口：
+
+- 中文：`06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md`
+- English: `06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md`
+
+### 14B.1 每本工作书必须先做 applicability decision
+
+至少记录：
+
+```text
+research_evidence_applicability =
+  APPLICABLE
+  | NOT_APPLICABLE
+
+long_horizon_context_evidence =
+  CAPTURED
+  | NOT_OBSERVABLE
+  | NOT_APPLICABLE
+
+research_evidence_refs = [...]
+```
+
+不得因为“这不是论文任务”而省略判断。
+
+典型 `APPLICABLE` 信号包括：
+
+- 长时间/异步 Agent 施工；
+- context pressure / compaction；
+- session restart / resume；
+- model / provider / harness switch；
+- Mission Book / external state 恢复；
+- task-pool 连续领取与 drain；
+- Owner 被迫回来续接；
+- false COMPLETE；
+- duplicate / regression work；
+- stale branch / stale SHA / stale task state；
+- 长等待、错误阻塞判断、任务终止判断；
+- compaction 后恢复成功或失败。
+
+普通极短、单步、无上下文延续意义的任务可标 `NOT_APPLICABLE`，但必须显式写出。
+
+### 14B.2 三个长期研究问题
+
+未来开发素材优先围绕：
+
+1. **When to compact**  
+   记录压缩发生在什么 context pressure / token occupancy / task phase / semantic boundary；不要只记录“压过一次”。
+
+2. **What to retain**  
+   区分 active working context、compressed semantic state、external referenced evidence、authoritative structured execution state 与可丢弃 transient noise。
+
+3. **What to externalize**  
+   观察 Mission Book、reports、exact SHA、CI receipts、task pool 等外部状态是否改善 compaction/restart 后恢复、减少人工接续、重复工作、错误 COMPLETE 与 stale-state error。
+
+### 14B.3 能观察到时优先采集的字段
+
+```text
+agent_provider
+agent_model
+agent_harness
+harness_version_or_sha
+workbook_id
+run_or_session_id
+start_time
+end_time
+
+context_window_limit_if_known
+context_tokens_before_compaction_if_known
+context_occupancy_ratio_if_known
+compaction_trigger
+compaction_trigger_reason
+task_phase_at_compaction
+semantic_boundary_type
+
+summary_or_checkpoint_artifact_ref
+external_state_refs_used
+state_fields_reconstructed
+state_reconstruction_errors
+
+owner_intervention_count
+owner_intervention_reason
+task_transitions_completed
+duplicate_work_count
+stale_state_error_count
+false_completion_count
+regression_or_reopened_work_count
+recovery_time_if_measurable
+autonomous_work_span_if_measurable
+terminal_reason
+```
+
+工具不暴露某字段时写：
+
+```text
+NOT_OBSERVABLE + reason
+```
+
+**禁止猜测，禁止用 0 冒充未知值。**
+
+### 14B.4 Compaction / Resume 后优先检查 State Reconstruction
+
+若发生 compaction、context reset、session resume、agent handoff 或 model switch，优先用外部 ground truth 检查能否正确恢复：
+
+1. current mission/workbook；
+2. exact branch / full SHA；
+3. completed work；
+4. remaining work；
+5. known blocker/failure；
+6. next action；
+7. 已失败、不得无意义重复的路径；
+8. completion / acceptance gate。
+
+这些字段可用于后续计算 State Reconstruction Accuracy；不得由同一个 Agent 自评后直接当 ground truth。
+
+### 14B.5 不得为了采集素材扭曲正常施工
+
+默认以**被动采集自然施工数据**为主：
+
+- 不为了“有数据”故意制造故障；
+- 不为了延长 run 制造无价值任务；
+- 不为了测 compaction 故意塞垃圾上下文；
+- 不因为研究采集破坏 §9 no-make-work；
+- 只有专门的 research / fault-injection / controlled replay workbook 才允许受控干预。
+
+自然施工日志负责发现现象；因果结论留给后续 controlled replay / ablation。
+
+### 14B.6 数据边界与隐私
+
+只采集可观察工程事实和显式状态：
+
+- prompt/instruction（允许保存时）；
+- compaction/checkpoint event；
+- task/workbook state；
+- logs / CI / tests；
+- timestamps；
+- token/cost telemetry（工具提供时）；
+- Owner intervention；
+- branch/SHA；
+- observable action/result。
+
+**不得要求、推断或保存模型隐藏 chain-of-thought / private reasoning。**
+
+### 14B.7 存储位置
+
+- 无界 raw runtime / trace 继续遵守 [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)，不得堆进 City 当前施工面；
+- task-specific 有界证据进入对应 `mission-book/reports/<WORKBOOK-ID>/`；
+- Utopia 原始/共享 evidence 继续使用既有 evidence/evolution 路径；
+- 出现具有论文价值的现象时，在 Research Institute `paper-materials/{zh-CN,en}/` 建立或更新专题材料，并从 report 反向链接 exact evidence；
+- “没有可发表价值”也允许，只需在 report 中记录 `NO_RESEARCH_SIGNAL`，不得硬凑结论。
+
+### 14B.8 Review / Completion gate
+
+Formal Review 必须检查：
+
+1. applicability 是否判断；
+2. observable telemetry 是否诚实记录；
+3. compaction/resume 发生时是否留下恢复证据；
+4. research evidence refs 是否可追到 exact run / SHA / report；
+5. 是否把 `NOT_OBSERVABLE` 错写成数值；
+6. 是否遗漏明显的 Owner intervention、false completion、duplicate work 或 stale-state episode。
+
+若 `research_evidence_applicability = APPLICABLE` 且完全没有 evidence decision：
+
+`RESEARCH_EVIDENCE_CAPTURE_MISSING`
+
+任务可以保留代码实现结果，但不得完成其正式 Review/Closeout，直到补齐素材判断与已有证据索引。
+
+
 ## 15. 本文件的永久生命周期
 
 `CONSTRUCTION_RULES.md` 是 Mission Book 的常驻基础设施：
