@@ -1,0 +1,69 @@
+schema_version: 1
+capability_id: CAP-EXAMPLE-001
+name:
+  zh_CN: 示例能力
+  en: Example capability
+
+ownership:
+  city_owner: null
+  programme: null
+  canonical_module: null
+
+source_workbooks: []
+dependencies: []
+
+implementation:
+  repo: null
+  discovery_refs: []
+  paths: []
+  symbols: []
+  api_or_actions: []
+  last_verified_full_sha: null
+
+status:
+  implementation_status: NOT_IMPLEMENTED
+  backend_wiring_status: NOT_READY
+  user_reachability_status: MISSING
+  intent_validation_status: NOT_TESTED
+
+exposure:
+  class: null
+  user_visible_information: []
+  user_controls: []
+  intentionally_hidden_information: []
+  internal_only_exemption_reason: null
+
+surfaces: []
+# Example:
+# - platform: WEB
+#   location: "Task Detail > Actions > Transfer to device"
+#   nesting: L2_CONTEXTUAL
+#   discoverable: true
+#   enabled_when: "eligible target device exists"
+#   evidence_ref: null
+
+evidence:
+  implementation_refs: []
+  backend_wiring_refs: []
+  reachability_refs: []
+  intent_validation_refs: []
+  ui_or_e2e_refs: []
+
+timeline:
+  implementation_completed_at: null
+  first_surface_available_at: null
+  reachability_verified_at: null
+  intent_validated_at: null
+
+research_observations:
+  hidden_capability_detected: null
+  false_affordance_detected: null
+  wrong_semantics_detected: null
+  owner_intervention_count: null
+  rework_required: null
+  registry_reconciliation_result: null
+  paper_material_refs: []
+
+known_gaps: []
+last_reconciled_by_workbook: null
+last_reconciled_at: null
