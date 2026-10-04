@@ -161,15 +161,15 @@ topics:
     topic: control_plane_reality_drift
     capture_when: MissionBook/Registry/Git/CI/UI truths disagree
 
-  - id: RS-G4-USER-REACHABLE-TERMINAL
-    grade: G4_RARE_SYSTEMIC
+  - id: RS-G3-USER-REACHABLE-TERMINAL
+    grade: G3_SPARSE_ACTIVE
     topic: user_reachable_completion_as_terminal_condition
-    capture_when: internal completion differs from normal-user completion
+    capture_when: internal/test completion differs from normal-user completion; adjacent false-success and user-like validation work already exists
 
-  - id: RS-G4-PASSIVE-EVIDENCE-PIPELINE
-    grade: G4_RARE_SYSTEMIC
+  - id: RS-G3-PASSIVE-EVIDENCE-PIPELINE
+    grade: G3_SPARSE_ACTIVE
     topic: passive_development_to_research_evidence_pipeline
-    capture_when: normal development evidence becomes reusable longitudinal/replay material
+    capture_when: normal development evidence becomes reusable longitudinal/replay material; real-session trace collection already exists, so prioritize City-specific control-plane evidence
 
 rules:
   - G1/G2 must not trigger research-only make-work.
