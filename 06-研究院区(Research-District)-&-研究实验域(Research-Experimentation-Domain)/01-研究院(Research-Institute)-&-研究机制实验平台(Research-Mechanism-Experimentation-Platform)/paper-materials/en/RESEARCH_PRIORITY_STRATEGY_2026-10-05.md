@@ -465,3 +465,33 @@ G4-D Multi-truth control-plane reality drift
 ```
 
 These are evidence-priority labels, never first-ever novelty claims.
+
+## 9. Monitor / Decision observability addendum
+
+This City Work Monitor / JEV / Decision design is conservatively graded.
+
+### G2
+
+- generic agent dashboards / agent trees / topology graphs;
+- ordinary session logs / status cards;
+- generic observability UI;
+- progressive disclosure by itself.
+
+Collect normally, but do not treat these as standalone novelty.
+
+### New G3 priorities
+
+1. **Hierarchical risk bubbling**: whether an overview hides detail without hiding active warning/block/retry/degraded state.
+2. **Edge-causal observability**: whether handoff/retry/review/device/model-route edges carry traceable trigger, reason, and evidence rather than only node state.
+3. **Observe–decide decoupling**: whether continuous sidecar observation plus event-triggered per-task decisions avoids a city-wide synchronization bottleneck.
+4. **Decision escalation provenance**: source, latency, error, repeated escalation, and autonomy recovery across RULE → FAST_MODEL → CRITIC → OWNER.
+
+### No new standalone G4
+
+The monitor itself is not promoted to G4. It is primarily a measurement/reconciliation surface for:
+
+- G4-A unified repository control plane;
+- G4-C autonomy survival;
+- G4-D multi-truth reality drift.
+
+Topic note: `CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md`.
