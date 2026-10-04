@@ -173,6 +173,28 @@ remote branch tip differences are informational only
 
 若 branch 已前进，Reviewer 仍审 recorded exact head，除非工作书经过 reconciliation 明确 supersede 到新 SHA。
 
+### 2A.7 State identity / provenance research signal
+
+本节的 full-SHA / ancestor / exact-head 规则首先是**施工正确性要求**；同时，凡施工中实际发现以下情况，必须按 §14B 作为研究素材候选记录：
+
+- mutable branch/tag/head 在任务执行期间移动，导致 remembered state 与 current resolved state 不一致；
+- resume / compaction / handoff 后只恢复了 symbolic ref，丢失原 exact identity；
+- CI / Review / artifact 本身有效，但绑定到错误 head / run / task；
+- dependency marker 显示 COMPLETE，但 baseline 实际不含 accepted dependency SHA；
+- critical transition 前 revalidation 捕获到 stale identity / stale provenance。
+
+推荐 failure labels：
+
+```text
+MUTABLE_REFERENCE_STATE_DRIFT
+EVIDENCE_POINTER_MISMATCH
+BASELINE_ANCESTRY_MISMATCH
+STALE_EXECUTION_IDENTITY
+PROVENANCE_RELATION_MISMATCH
+```
+
+不得把“branch 会移动”本身包装成新研究贡献；研究价值在于 long-horizon Agent 的 state identity、provenance、freshness 及其与 compaction / resume / multi-agent concurrency 的交互。
+
 ## 3. 双主机独立性
 
 当工作书要求 Development + Review/Correction：
@@ -267,6 +289,15 @@ global_external_blocker
 wake_condition
 rescan_after
 terminal_reason
+
+expected_identity_if_applicable
+observed_symbolic_ref_if_applicable
+resolved_identity_at_use_if_applicable
+evidence_identity_if_applicable
+provenance_or_required_ancestor_refs
+freshness_revalidation_event
+identity_or_evidence_mismatch_type
+reconciliation_action
 ```
 
 ## 6. Wake-up：优先事件，20 分钟只是兜底
@@ -648,6 +679,9 @@ research_evidence_refs = [...]
 3. **What to externalize**  
    观察 Mission Book、reports、exact SHA、CI receipts、task pool 等外部状态是否改善 compaction/restart 后恢复、减少人工接续、重复工作、错误 COMPLETE 与 stale-state error。
 
+4. **What must remain immutable and be revalidated**  
+   观察哪些 execution-semantic identifiers 必须 exact-copy / structured serialization，而不能被 summary 自由改写；比较 mutable symbolic ref、immutable identity、identity+provenance、identity+provenance+freshness revalidation。
+
 ### 14B.3 能观察到时优先采集的字段
 
 ```text
@@ -704,7 +738,10 @@ NOT_OBSERVABLE + reason
 5. known blocker/failure；
 6. next action；
 7. 已失败、不得无意义重复的路径；
-8. completion / acceptance gate。
+8. completion / acceptance gate；
+9. execution-semantic identifiers 是否仍为原 exact identity；
+10. provenance / required ancestor relation 是否仍成立；
+11. critical transition 前 freshness 是否重新验证。
 
 这些字段可用于后续计算 State Reconstruction Accuracy；不得由同一个 Agent 自评后直接当 ground truth。
 
@@ -753,7 +790,10 @@ Formal Review 必须检查：
 3. compaction/resume 发生时是否留下恢复证据；
 4. research evidence refs 是否可追到 exact run / SHA / report；
 5. 是否把 `NOT_OBSERVABLE` 错写成数值；
-6. 是否遗漏明显的 Owner intervention、false completion、duplicate work 或 stale-state episode。
+6. 是否遗漏明显的 Owner intervention、false completion、duplicate work 或 stale-state episode；
+7. 是否把 mutable symbolic ref 当成 immutable evidence；
+8. CI / Review / artifact evidence 是否绑定 exact intended identity；
+9. compaction/resume 是否丢失 exact identity、provenance 或 freshness check。
 
 若 `research_evidence_applicability = APPLICABLE` 且完全没有 evidence decision：
 
