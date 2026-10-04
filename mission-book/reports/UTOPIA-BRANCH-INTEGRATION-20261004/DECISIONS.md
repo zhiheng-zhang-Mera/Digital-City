@@ -21,3 +21,5 @@ UI000候选属于最终UI之前的方向证据，不回滚当前产品；MESH两
 PR12整合旧pilot工具、JOIN501/502独立探针及UXI301错误前提修正规程。两个pilot冲突取union：保留当前观察序列与strayAgent计数，接入进程身份/界面路由修复。技术复核发现3项真实问题：selector未导出；weak/unavailable进程身份仍允许kill；重连探针未实际关闭socket。分别修复，保留红绿记录于本机Utopia/.runtime/history-audit；新route回归曾错误假设数字坐标，按既有ADB字符串contract修正，该失败不删除。最后focused35/35通过，独立本机技术复核无剩余阻塞；这不是跨物理主机Formal Review。
 
 UXI301追加是历史FAIL/ERROR与方法修正，不宣称当前handoff成功；固定fixture状态和时间代理指标的局限保留。精确最终PR12流水线等待中，终态后再合并并重验main。
+
+PR12实现0a5e9ba53772a1b01897c2edf34de3840de7c629 push CI37203861869终态success：Gateway/Web1242/1242；Rooms69/69；City1970通过/14跳过/0失败；Android及文档PASS。PR CI仍等待。补扫发现integration/join-502-nearby也已包含，追加其archive标签并按原SHA移除；当前共32个历史标签、26个历史head移除。

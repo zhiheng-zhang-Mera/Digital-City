@@ -187,6 +187,12 @@
       "branch": "uxi/UXI-391-remote-handoff-closeout",
       "tag": "archive/2026-10-04/uxi/UXI-391-remote-handoff-closeout",
       "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
+    },
+    {
+      "branch": "integration/join-502-nearby",
+      "sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
+      "tag": "archive/2026-10-04/integration/join-502-nearby",
+      "disposition": "ARCHIVED_REMOTE_BRANCH_REMOVED"
     }
   ],
   "verifiedMainCi": {
