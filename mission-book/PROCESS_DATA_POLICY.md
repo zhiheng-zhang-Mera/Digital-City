@@ -266,3 +266,86 @@ CAPABILITY_REGISTRY_REALITY_MISMATCH
 
 These mismatches are research-evidence candidates under `CONSTRUCTION_RULES.md §14B`; fixing the Registry must not erase the before-state.
 
+
+
+## City Work Monitor / JEV observation projection
+
+City Work Monitor 与 JEV 必须遵守同一数据边界：
+
+~~~text
+canonical Utopia task/action/event/device/review truth
+        ↓
+bounded observation adapter
+        ↓
+JEV observation layer
+        ↓
+normalized monitor projection
+        ↓
+UI / diagnostics
+~~~
+
+**Monitor is a projection, not a new authority surface.**  
+不得因为仪表盘需要方便查询，就复制第二套 scheduler/task/device/review/capability state。
+
+### Observation 与 Decision 分离
+
+~~~text
+ordinary event / heartbeat / progress
+→ observe + record + continue
+
+state transition requiring a choice
+→ Decision
+~~~
+
+JEV 可以持续观察；Decision 只能按事件触发。两者都不得变成全城同步执行锁。
+
+Decision 最低可观察 receipt：
+
+~~~text
+decision_id
+task_or_workbook_id
+trigger_event
+pre_state
+decision_source = RULE | FAST_MODEL | CRITIC | OWNER
+action
+confidence_if_available
+queue_wait_ms_if_observable
+decision_latency_ms_if_observable
+timeout_or_fallback
+escalation_reason
+post_state
+evidence_refs
+~~~
+
+工具不暴露的字段写 `NOT_OBSERVABLE + reason`，不得填 0 冒充。
+
+### 数据分层
+
+高频 heartbeat、raw event stream、UI refresh telemetry：
+
+~~~text
+→ .runtime / hosted artifacts
+~~~
+
+只有有界的 state transition、decision receipt、failure/recovery、reconciliation 与研究所需 sample 才进入 evolution inbox / accepted episode。
+
+Digital-City 继续只保存：
+
+- compact monitor/decision summary；
+- exact run/SHA/artifact pointers；
+- bounded research index；
+- blocker / reconciliation / Owner decision。
+
+### Monitor-specific failure labels
+
+~~~text
+MONITOR_SYNC_BARRIER
+MONITOR_REALITY_DRIFT
+SUMMARY_HIDES_ACTIVE_RISK
+EDGE_CAUSALITY_MISSING
+DECISION_PROVENANCE_MISSING
+DECISION_TIMEOUT_GLOBAL_IMPACT
+DASHBOARD_BECOMES_SECOND_TASK_TRUTH
+~~~
+
+出现这些现象时，修复前后的 bounded evidence 必须保留；修复后不得清洗掉 before-state。
