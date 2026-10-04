@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "0e9bea3ce739b979e582a428af8fb233045a5e75",
-    "name": "V0.2 checks",
-    "run_id": 37205444427,
+    "head_sha": "d3262ce2dd81e51a53e39e6f9add8dee650a7682",
+    "name": "City linkage check",
+    "run_id": 37222674529,
     "status": "completed",
-    "updated_at": "2026-10-04T13:29:04Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37205444427"
+    "updated_at": "2026-10-04T18:00:32Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37222674529"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "Merge pull request #13 from zhiheng-zhang-Mera/fix/Alien-codex-host-inventory-retry",
-  "main_commit_time": "2026-10-04T13:23:19Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/0e9bea3ce739b979e582a428af8fb233045a5e75",
-  "main_sha": "0e9bea3ce739b979e582a428af8fb233045a5e75",
+  "main_commit_message": "Merge pull request #23 from zhiheng-zhang-Mera/fix/Alien-codex-pairing-city-neutral-lockout",
+  "main_commit_time": "2026-10-04T18:00:17Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/d3262ce2dd81e51a53e39e6f9add8dee650a7682",
+  "main_sha": "d3262ce2dd81e51a53e39e6f9add8dee650a7682",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
