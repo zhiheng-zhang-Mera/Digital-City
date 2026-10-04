@@ -5,10 +5,10 @@
 > Source of implementation truth: [zhiheng-zhang-Mera/utopia](https://github.com/zhiheng-zhang-Mera/utopia) `main`.
 > Planning/workbook truth remains in Digital-City Mission Book frontmatter and reports.
 
-- **Utopia main:** [`71c38c30b142`](https://github.com/zhiheng-zhang-Mera/utopia/commit/71c38c30b142aa540f424d0cef89db1a3cedc4a1)
-- **Commit:** integration(JOIN-502): the Pairing page is rendered ONCE, with both branches' content - the integration is functionally complete
-- **Commit time:** 2026-10-03T13:24:36Z
-- **CI:** [V0.2 checks #37129264996](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37129264996) — completed / success on `71c38c30b142`.
+- **Utopia main:** [`a7bab55f7893`](https://github.com/zhiheng-zhang-Mera/utopia/commit/a7bab55f7893b2f1f05ec381e75f65a22d597d35)
+- **Commit:** feat(relay): the transport behind relay-in-city - a City accepts an OUTBOUND dial from a peer that cannot be reached, and forwards join requests over it
+- **Commit time:** 2026-10-04T00:31:15Z
+- **CI:** [City linkage check #37165205854](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37165205854) — completed / success on `a7bab55f7893`.
 - **Reciprocal linkage:** `RECIPROCAL_LINK_OK`
 
 This file is refreshed by `.github/workflows/sync-utopia-status.yml`. The workflow

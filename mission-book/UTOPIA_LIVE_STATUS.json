@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
-    "name": "V0.2 checks",
-    "run_id": 37129264996,
+    "head_sha": "a7bab55f7893b2f1f05ec381e75f65a22d597d35",
+    "name": "City linkage check",
+    "run_id": 37165205854,
     "status": "completed",
-    "updated_at": "2026-10-03T14:23:09Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37129264996"
+    "updated_at": "2026-10-04T00:31:29Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37165205854"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "integration(JOIN-502): the Pairing page is rendered ONCE, with both branches' content - the integration is functionally complete",
-  "main_commit_time": "2026-10-03T13:24:36Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/71c38c30b142aa540f424d0cef89db1a3cedc4a1",
-  "main_sha": "71c38c30b142aa540f424d0cef89db1a3cedc4a1",
+  "main_commit_message": "feat(relay): the transport behind relay-in-city - a City accepts an OUTBOUND dial from a peer that cannot be reached, and forwards join requests over it",
+  "main_commit_time": "2026-10-04T00:31:15Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/a7bab55f7893b2f1f05ec381e75f65a22d597d35",
+  "main_sha": "a7bab55f7893b2f1f05ec381e75f65a22d597d35",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
