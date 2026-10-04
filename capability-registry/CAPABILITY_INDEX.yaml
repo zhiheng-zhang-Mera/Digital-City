@@ -1,0 +1,56 @@
+schema_version: 1
+registry_status: BOOTSTRAP_ACTIVE
+canonical_scope: digital-city-capability-inventory
+last_reconciled_at: null
+last_reconciled_city_sha: null
+
+authority:
+  mission_execution_truth: mission-book
+  capability_inventory_truth: capability-registry
+  implementation_truth: implementation repositories at exact full SHA
+  runtime_truth: observed runtime / UI / E2E evidence
+
+bootstrap:
+  legacy_backfill_status: PENDING
+  seed_sources:
+    - mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md
+  final_bootstrap_gate:
+    - mission-book/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md
+  policy: >-
+    Existing capabilities may remain LEGACY_BACKFILL_PENDING until verified.
+    Any workbook that touches one must backfill/reconcile that capability record.
+
+id_policy:
+  prefix: CAP
+  format: CAP-<DOMAIN>-<NNN>
+  immutable_after_assignment: true
+
+required_status_dimensions:
+  implementation_status:
+    - NOT_IMPLEMENTED
+    - PARTIAL
+    - COMPLETE
+    - DEPRECATED
+  backend_wiring_status:
+    - NOT_APPLICABLE
+    - NOT_READY
+    - PARTIAL
+    - VERIFIED
+  user_reachability_status:
+    - NOT_APPLICABLE
+    - MISSING
+    - PARTIAL
+    - VERIFIED
+  intent_validation_status:
+    - NOT_APPLICABLE
+    - NOT_TESTED
+    - MISMATCH
+    - VERIFIED
+
+exposure_classes:
+  - DIRECT_CONTROL
+  - OBSERVABLE_ADVANCED
+  - BACKGROUND_DISCLOSED
+  - INTERNAL_ONLY
+
+records: []
