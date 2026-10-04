@@ -34,6 +34,9 @@ capability_registry_sync_status: UNASSESSED
 research_evidence_applicability: UNASSESSED
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []
+research_watchlist_hits: []
+highest_research_grade_observed: NONE
+research_capture_level: STANDARD
 state_identity_evidence: UNASSESSED
 state_identity_evidence_refs: []
 owner_gate: NONE
@@ -120,6 +123,23 @@ state_identity_evidence_refs = [...]
 并记录 expected identity、实际 resolve 的 identity、evidence identity、provenance relation 与 freshness revalidation。不能把 branch 名或“绿色 CI”本身当作 exact evidence。
 
 禁止采集或推断隐藏 chain-of-thought；只记录显式 prompt/instruction（允许时）、execution state、logs、CI/tests、timestamps、token/cost telemetry（若可见）、Owner intervention、branch/SHA 与 observable action/result。
+
+### Research rarity / watchlist triage
+
+按 `RESEARCH_SIGNAL_WATCHLIST.yaml` 记录实际观察到的信号：
+
+```text
+research_watchlist_hits = [...]
+highest_research_grade_observed = NONE | G1_MATURE | G2_CROWDED | G3_SPARSE_ACTIVE | G4_RARE_SYSTEMIC
+research_capture_level = MINIMAL | STANDARD | PRIORITY | MAXIMUM_BOUNDED
+```
+
+规则：
+
+- G1/G2 不得触发 research-only make-work；
+- G3/G4 发生时优先保存 before/after、exact evidence、timeline、Owner intervention 与 replay/ablation opportunity；
+- 不在 watchlist 的现象标 `UNCLASSIFIED_CANDIDATE`，不得自行宣称新颖；
+- 投稿前必须重新做 literature review，当前 grade 只决定数据采集预算。
 
 ## 完成门槛
 ## Reports / Utopia evolution 记录
