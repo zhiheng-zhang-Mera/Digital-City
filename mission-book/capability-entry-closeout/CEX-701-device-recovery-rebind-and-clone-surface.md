@@ -3,7 +3,7 @@ workbook_id: CEX-701
 phase: CAPABILITY_ENTRY_CLOSEOUT
 sequence: 701
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -11,12 +11,12 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f"]
 dependency_source_workbooks: []
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "40e18db4a6cf5bba1490181a473bc62e681edb8a"
+baseline_resolution_evidence: "mission-book/reports/CEX-701/CLAIM_RECORD.md"
 baseline_blocker: null
 dependencies: ["JOIN-503 device enrollment semantics present"]
-development_host: null
-development_branch: null
+development_host: Alien-codex
+development_branch: cex/CEX-701-Alien-codex-device-recovery
 development_head_sha: null
 development_ci: null
 development_complete: false
