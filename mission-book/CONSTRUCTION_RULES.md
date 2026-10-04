@@ -8,7 +8,8 @@
 >
 > 当前监控看板：[README.md](./README.md)  
 > 工作书模板：[MISSION_TEMPLATE.md](./MISSION_TEMPLATE.md)  
-> 过程数据边界：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)
+> 过程数据边界：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
+> Capability Registry：[../capability-registry/README.md](../capability-registry/README.md)
 
 ## 0. 权威层级
 
@@ -620,6 +621,48 @@ Formal Review 必须独立检查：
 
 这条规则对之后所有 Mission Book 新能力默认生效；Capability Entry Closeout programme 负责清理此前已经存在的历史入口债务。
 
+### 14A.7 User-Reachable Vertical Slice First / 先打通最薄真实用户路径
+
+对需要用户直接操作或明显影响用户体验的 capability，默认施工顺序不得再是：
+
+```text
+完整 backend
+→ 完整内部体系
+→ 最后补 UI
+→ 最后才发现用户找不到 / 语义不对
+```
+
+也不得只做：
+
+```text
+UI shell
+→ placeholder/fake button
+→ 最后才接 backend
+```
+
+默认优先：
+
+```text
+accepted user verb / intent
+→ discoverable entry point
+→ thinnest real backend path
+→ observable result/error
+→ real E2E verification
+→ thicken internal capability
+→ expand UI/error/policy states
+→ intent validation
+```
+
+即：**先让用户走通一条真实路径，再把路径修宽。**
+
+允许例外：
+
+- INTERNAL_ONLY；
+- 纯底层 prerequisite，在当前任务阶段还不存在合理用户语义；
+- 明确的 foundational contract / schema / migration task。
+
+例外必须在工作书说明 why vertical slice is not yet applicable；不得用“UI 以后再做”作为默认理由。
+
 ## 14B. Long-Horizon Agent Research Evidence Gate / 超长时 Agent 论文素材门
 
 所有新建或继续执行的工程书都必须判断本次施工是否产生“长时 Agent / context lifecycle / external execution state”研究价值。  
@@ -800,6 +843,217 @@ Formal Review 必须检查：
 `RESEARCH_EVIDENCE_CAPTURE_MISSING`
 
 任务可以保留代码实现结果，但不得完成其正式 Review/Closeout，直到补齐素材判断与已有证据索引。
+
+
+### 14B.9 Capability exposure / reachability research signals
+
+以下事件一旦发生，默认视为 research-evidence candidate，必须按 §14B 保存有界证据或明确 `NOT_OBSERVABLE`：
+
+```text
+IMPLEMENTED_BUT_UNREACHABLE
+VISIBLE_BUT_NOT_WIRED
+VISIBLE_WRONG_SEMANTICS
+DISCOVERABILITY_GAP
+SURFACE_PARITY_GAP
+CAPABILITY_REGISTRY_STALE
+CAPABILITY_REGISTRY_REALITY_MISMATCH
+DUPLICATE_IMPLEMENTATION_DUE_TO_DISCOVERY_FAILURE
+```
+
+能观察时优先记录：
+
+```text
+capability_id
+implementation_completed_at
+first_surface_available_at
+backend_wiring_verified_at
+reachability_verified_at
+intent_validated_at
+surface_platform
+surface_location
+user_steps_to_reach
+owner_intervention_count
+rework_required
+duplicate_implementation_detected
+registry_reconciliation_result
+exact_implementation_sha
+ui_or_e2e_evidence_ref
+```
+
+可用于后续观察：
+
+```text
+Exposure Lag =
+  T(reachability_verified)
+  - T(implementation_complete)
+```
+
+自然施工记录只用于现象与 longitudinal evidence；不得直接把经典 vertical-slice 实践本身包装成 novelty。
+
+专题研究材料：
+
+- `Research Institute/paper-materials/{zh-CN,en}/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md`
+
+## 14C. Capability Registry Chained Update Gate / 能力登记册连锁更新门
+
+`capability-registry/` 是 City 的长期能力户籍、实现定位与用户暴露地图。
+
+职责边界：
+
+```text
+Mission Book
+= what should be built / claimed / reviewed next
+
+Capability Registry
+= what capability currently exists,
+  where it is implemented,
+  what the user can actually see/control,
+  and what exact evidence proves that state
+```
+
+二者必须连锁更新，不允许长期漂移成两套事实。
+
+### 14C.1 开工时声明
+
+任何新增或实质修改 capability 的工作书必须记录：
+
+```text
+capability_ids
+capability_registry_action =
+  CREATE
+  | UPDATE
+  | BACKFILL
+  | VERIFY_ONLY
+  | NOT_APPLICABLE
+capability_registry_refs
+capability_registry_sync_status
+```
+
+若新 capability 尚无 ID，应在设计阶段分配不可变 `CAP-<DOMAIN>-<NNN>`。
+
+禁止给每个普通 helper/function 单独创建 CAP id；Registry 单位是有产品/系统语义的 capability。
+
+### 14C.2 四维状态强制分离
+
+Registry 不允许只写 `COMPLETE=true`。
+
+至少分别维护：
+
+```text
+implementation_status
+backend_wiring_status
+user_reachability_status
+intent_validation_status
+```
+
+因此：
+
+```text
+implementation = COMPLETE
+reachability    = MISSING
+```
+
+是合法且必须诚实表达的状态。
+
+### 14C.3 Development 连锁更新
+
+Development 若改变以下任一事实：
+
+- implementation path/symbol/API/action；
+- capability semantics；
+- exposure class；
+- user-visible information；
+- direct control；
+- surface location；
+- platform parity；
+- implementation/entry/wiring/intention state；
+
+必须同步更新对应 Registry candidate record 或在 report 中留下明确待 Review reconciliation 的 exact diff。
+
+**产品代码完成但 Registry 未更新，不等于 Development closeout 完成。**
+
+### 14C.4 Formal Review 连锁对账
+
+Reviewer 必须独立验证：
+
+```text
+Registry claimed implementation
+↔ actual implementation at exact SHA
+
+Registry claimed surface
+↔ actual discoverable UI/runtime surface
+
+Registry claimed wiring
+↔ canonical backend behavior
+
+Registry claimed intent status
+↔ observed accepted user semantics
+```
+
+若代码变了但 Registry 没同步：
+
+`CAPABILITY_REGISTRY_STALE`
+
+若 Registry 声称存在的入口/行为在真实产品里找不到或不一致：
+
+`CAPABILITY_REGISTRY_REALITY_MISMATCH`
+
+二者均阻止正式 Review/Closeout。
+
+### 14C.5 Exact identity
+
+Registry verified record 必须记录：
+
+- implementation repo；
+- paths/symbols；
+- source workbook(s)；
+- last verified **40-character full SHA**；
+- UI/E2E/backend evidence refs。
+
+branch/tag 只用于 discovery；不得作为 capability verification identity。
+
+### 14C.6 Legacy bootstrap
+
+现有历史能力入口矩阵：
+
+`mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
+
+是 Registry 的 bootstrap evidence source，不是永久第二套 registry。
+
+- CEX programme 继续完成既有 exposure debt；
+- CEX-790 负责把 final verified inventory 回填/对齐到 `capability-registry/`；
+- 未回填旧能力可保持 `LEGACY_BACKFILL_PENDING`；
+- 后续任一 workbook 触及旧 capability 时，必须顺手完成其 Registry backfill/reconciliation；
+- 禁止为了快速填满 Registry 而复制未经 exact-head 验证的历史表格。
+
+### 14C.7 数据边界
+
+Registry 保存**当前 verified state + navigation/provenance**，不保存无界历史日志。
+
+历史失败、修复、Owner intervention、测量数据继续进入：
+
+- Utopia runtime/evolution evidence；
+- Mission Book reports；
+- Research Institute paper-materials。
+
+Registry 只引用 evidence。
+
+### 14C.8 Completion gate
+
+涉及 capability 新增/实质修改的任务，在以下条件同时满足前不得正式 complete：
+
+- Registry record 已 create/update/backfill；
+- exact implementation SHA 已绑定；
+- §14A exposure decision 一致；
+- backend wiring 状态一致；
+- user reachability 状态一致；
+- intent validation 状态诚实；
+- required surface/evidence refs 可追溯；
+- Formal Review 完成 Registry ↔ runtime reconciliation。
+
+`CAPABILITY_IMPLEMENTED != CAPABILITY_REGISTRY_RECONCILED != PRODUCT_COMPLETE`
+
+三者不得互相替代。
 
 
 ## 15. 本文件的永久生命周期
