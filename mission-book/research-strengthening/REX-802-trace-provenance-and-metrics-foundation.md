@@ -27,7 +27,7 @@ review_complete: false
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"]
-research_watchlist_hits: ["RS-G3-IDENTITY-PROVENANCE","RS-G3-DYNAMIC-LIVENESS","RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G4-AUTONOMY-SURVIVAL","RS-G4-REALITY-DRIFT","RS-G4-PASSIVE-EVIDENCE-PIPELINE"]
+research_watchlist_hits: ["RS-G3-IDENTITY-PROVENANCE","RS-G3-DYNAMIC-LIVENESS","RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-RULE-LIFECYCLE-DEBT","RS-G3-SUPERVISION-ATTENTION","RS-G3-SEMANTIC-INTEGRATION","RS-G4-AUTONOMY-SURVIVAL","RS-G4-REALITY-DRIFT","RS-G4-PASSIVE-EVIDENCE-PIPELINE"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC
 research_capture_level: MAXIMUM_BOUNDED
 state_identity_evidence: CAPTURED
@@ -109,6 +109,27 @@ Trace schema 必须优先支持以下 longitudinal questions，而不是只做 g
    - handoff artifact；
    - resumed next action；
    - rediscovery/repeated-work signal。
+
+5. **Rule lifecycle / governance debt**
+   - rule/section id + exact City rule SHA；
+   - source failure that introduced it；
+   - supersession/conflict/retirement；
+   - false blocking / stale guidance；
+   - observed task where the rule changed outcome。
+
+6. **Owner attention / escalation quality**
+   - intervention category；
+   - batchable / avoidable；
+   - bounded diagnosis completed before escalation；
+   - repeated root cause；
+   - escalation→autonomy-resumed duration。
+
+7. **Semantic integration**
+   - accepted source SHAs；
+   - integration SHA；
+   - component CI/review state；
+   - semantic invariant violation after clean merge；
+   - registry/runtime/user-intent drift。
 
 缺字段时必须 `NOT_OBSERVABLE + reason`，不得把 missing 当 0。
 
