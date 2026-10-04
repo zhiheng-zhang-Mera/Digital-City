@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-EXECUTION-001",
+  "name": {
+    "zh_CN": "标准设备执行后端兼容接口",
+    "en": "Standard device execution backend compatibility port"
+  },
+  "source_workbooks": [
+    "WBC-601"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "contracts/execution-backend-v1/execution-backend.mjs",
+      "services/dev-gateway/execution-backend/standard-devices.mjs",
+      "services/dev-gateway/server.mjs"
+    ],
+    "symbols": [
+      "createExecutionBackendRegistry",
+      "createStandardDevicesBackend",
+      "executionBackend"
+    ],
+    "api_or_actions": [
+      "POST /api/v0/node/claim",
+      "POST /api/v0/node/report",
+      "ExecutionBackendPort dispatch/control"
+    ],
+    "last_verified_full_sha": "11e59e71a2aaf00a03bb95d1f6d6a9a600191dd0"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "NOT_APPLICABLE",
+    "intent_validation_status": "VERIFIED"
+  },
+  "exposure": {
+    "class": "INTERNAL_ONLY",
+    "user_visible_information": [
+      "existing task execution results unchanged"
+    ],
+    "user_controls": [
+      "existing canonical task controls; no new user verb"
+    ],
+    "intentionally_hidden_information": [
+      "internal backend registration/dispatch seam"
+    ],
+    "internal_only_exemption_reason": "Foundational compatibility wrapper around accepted task path; no new user interaction required. Existing controls continue to serve user intent."
+  },
+  "surfaces": [],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:evidence/raw/mission-book/WBC-601/review-receipt.json"
+    ],
+    "intent_validation_refs": [
+      "mission-book/reports/WBC-601/REVIEW_FINDINGS.md"
+    ],
+    "ui_or_e2e_refs": [
+      "utopia:.runtime/evidence/mission-book/WBC-601/independent-baseline-comparison.json"
+    ]
+  },
+  "research_observations": {
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_CORRECTION_CI",
+    "paper_material_refs": [
+      "mission-book/reports/WBC-601/REVIEW_FINDINGS.md"
+    ]
+  },
+  "known_gaps": [
+    "Corrected exact-head CI pending",
+    "Original developerd65dbd3 failed independent dispatch negatives; source superseded only for review, developer identity preserved",
+    "Not merged; no Workbench worker pool implementation"
+  ],
+  "last_reconciled_by_workbook": "WBC-601"
+}

@@ -155,3 +155,9 @@ index, the READY workbooks visible on the live board are: `WBC-602`, `CEX-701` (
 * No token or cost telemetry: the harness did not expose it, and §14B.3 forbids substituting a number.
 * No compaction study: no compaction occurred in this session, so the fields are `NOT_OBSERVABLE + reason`
   rather than a fabricated trigger story.
+
+## Opposite-host review extension
+
+Alien-codex physical MERA-ALIANWARE independently found original dispatch target/reservation bypass and running-task reassignment, readiness contradiction, and null-port untyped refusal. See REVIEW_FINDINGS.md and correction11e59e71a2aaf00a03bb95d1f6d6a9a600191dd0. Existing developerCI success did not cover independent negatives. Reviewer original fixture-ID error retained as INVALID_INSTRUMENT, not product failure.
+
+research_watchlist_hits=[RS-G3-INDEPENDENT-REVIEW-BOUNDARY,RS-G3-IDENTITY-PROVENANCE,RS-G4-UNIFIED-CONTROL-PLANE]; highest_research_grade_observed=G4_RARE_SYSTEMIC; research_capture_level=MAXIMUM_BOUNDED. Original head, corrected head, role eligibility, canonical behavior comparator, new registry gate and pendingCI are separate evidence states. Not a novelty judgement.

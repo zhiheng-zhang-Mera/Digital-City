@@ -24,9 +24,15 @@ research_evidence_applicability: "APPLICABLE"
 long_horizon_context_evidence: "CAPTURED"
 research_evidence_refs: ["mission-book/reports/WBC-601/PAPER_MATERIAL_INDEX.md", "mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md", "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md", "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md"]
 review_host: Alien-codex
-review_head_sha: "d65dbd3af2d8903aca13726f74110e1f2f6b9b65"
+review_head_sha: "11e59e71a2aaf00a03bb95d1f6d6a9a600191dd0"
 review_ci: null
 review_complete: false
+capability_ids: [CAP-EXECUTION-001]
+capability_registry_action: BACKFILL
+capability_registry_refs: ["capability-registry/records/CAP-EXECUTION-001.yaml"]
+capability_registry_sync_status: CANDIDATE_RECONCILED
+user_exposure_class: INTERNAL_ONLY
+ui_exemption_reason: "Foundational execution backend seam; existing task controls remain authority, no new user execution verb"
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/WBC-601

@@ -21,3 +21,5 @@ research_evidence_refs: [mission-book/reports/CEX-703/CLAIM_RECORD.md, mission-b
 
 | Independent review P2 | uncertain request retry lost selection/key; route.fetch then response abort reproduces; fixed preserve draft through uncertainty | Utopia retry-red.log / retry-green.log | REPAIRED;9/9 |
 | Exact source CI | final a96da907a937eb043a59ddd00f48031ded749fa9 CI37207716885 success; earlier source success is not substituted | DEVELOPMENT_HANDOFF.md | PASS |
+
+Watchlist reconciliation at control rules9541aeb: research_watchlist_hits=[RS-G3-EXEC-WORK-ARTIFACT,RS-G3-IDENTITY-PROVENANCE,RS-G3-INDEPENDENT-REVIEW-BOUNDARY,RS-G4-CAPABILITY-STATE,RS-G4-USER-REACHABLE-TERMINAL]; highest_research_grade_observed=G4_RARE_SYSTEMIC; research_capture_level=MAXIMUM_BOUNDED. These are City predefined candidate classes, not novelty claims. Development/CI is complete while native online/opposite-host accepted intent remains pending; registry records four dimensions honestly. Source/report/CI links form the bounded event chain; unobservable timing/counters remain unknown.
