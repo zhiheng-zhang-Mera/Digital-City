@@ -900,7 +900,7 @@ Exposure Lag =
 
 专题研究材料：
 
-- `Research Institute/paper-materials/{zh-CN,en}/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md`
+- `06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/{zh-CN,en}/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md`
 
 ## 14C. Capability Registry Chained Update Gate / 能力登记册连锁更新门
 
