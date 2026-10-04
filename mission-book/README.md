@@ -1,6 +1,6 @@
 # Mission Book — 当前施工监控看板
 
-> 当前模式：**历史阶段已归档 → MESH-301 COMPLETE → SHOW-401 素材提取进行中 + Connection Onboarding JOIN-501/502/503 READY**  
+> 当前模式：**历史阶段已归档 → MESH-301 COMPLETE → SHOW-401 素材提取进行中 + Connection Onboarding JOIN-501/502/503 + Workbench Compatibility WBC-601..604 ACTIVE**  
 > 控制仓库：zhiheng-zhang-Mera/Digital-City  
 > 实现仓库：zhiheng-zhang-Mera/Utopia  
 > Utopia 实现状态不再手工硬编码；以自动生成的 [UTOPIA_LIVE_STATUS.md](./UTOPIA_LIVE_STATUS.md) / [UTOPIA_LIVE_STATUS.json](./UTOPIA_LIVE_STATUS.json) 为准。  
@@ -16,9 +16,10 @@
 | MESH-301 三端实机互联 | **COMPLETE / THREE_END_MESH_E2E_ACCEPTED** | 已完成 Alien Development + Mech Formal Review + main merge + merged-main CI；当前无可继续领取的 MESH 工作 |
 | SHOW-401 项目展示素材提取 | **IN_PROGRESS / execution_enabled=true** | 录制主 Demo + handoff 技术 Demo + 3 张截图 + 结果表 + 套磁/项目页核心文案；严禁修改 Utopia 产品代码 |
 | Connection Onboarding / JOIN-501..503 | **READY / execution_enabled=true** | 复用已完成 Remote Fabric，把新 PC 入城从 URL/token 手工连接优化为 nearby discovery + approval + enrollment + automatic reconnect；临时配对码只允许主动生成，ACTIVE 期间固定到消费/过期 |
+| Workbench Compatibility / WBC-601..604 | **ACTIVE / execution_enabled=true** | additive compatibility migration：STANDARD_DEVICES 保持当前 Windows 默认；预埋 WORKER_POOL / HYBRID backend、node capability/resource 与 headless agent seam；无 Workbench 环境必须完整可用 |
 | Persistent Foreman Runtime / FR-001 | **FUTURE / NOT ACTIVE** | 只做未来计划记录，不抢占当前施工 |
 
-MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非产品素材提取工作，并新增 **Connection Onboarding** 产品优化 programme。JOIN-501/502/503 只允许在已完成的 Remote Fabric 上做 pairing/onboarding/integration 优化，不得复活 RF-001..010 或重写 transport/trust 基础设施。SHOW-401 仍只能运行/观察已接受的 Utopia，不得修改 Utopia tracked source/test/docs；其只读边界不得被 JOIN programme 借用或突破。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态。
+MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非产品素材提取工作、**Connection Onboarding** 产品优化 programme，以及 **Workbench Compatibility Migration** 基础设施兼容 programme。JOIN-501/502/503 只允许在已完成的 Remote Fabric 上做 pairing/onboarding/integration 优化，不得复活 RF-001..010 或重写 transport/trust 基础设施。WBC-601..604 只允许做 additive execution compatibility：当前 STANDARD_DEVICES / Windows 双机路径必须保持默认可用，Workbench/Linux 不得成为启动依赖；WBC-601 与 WBC-602 可并行，WBC-603/604 必须遵守依赖解锁。SHOW-401 仍只能运行/观察已接受的 Utopia，不得修改 Utopia tracked source/test/docs；其只读边界不得被其它 programme 借用或突破。UI-190 / UXI-390 的 Owner 视觉 gate 与 XX-000 disabled placeholder 仍保持原状态。
 
 ## MESH-301 设计审计结果
 
@@ -61,6 +62,11 @@ MESH-301 的产品施工已经完成。Owner 当前同时保留 **SHOW-401** 非
 - [JOIN-501](./connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md) — 临时配对码显式生成 + ACTIVE 固定显示直到消费/过期；
 - [JOIN-502](./connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md) — nearby PC discovery + existing trusted endpoint approval；
 - [JOIN-503](./connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md) — 首次登记后 routine reconnect 不再要求手输 bare token；
+- [Workbench Compatibility Migration](./workbench-compatibility-migration/README.md) — `ACTIVE`；保持 STANDARD_DEVICES/Windows 为默认可用基线，预埋未来 Worker Pool / Hybrid 切换；
+- [WBC-601](./workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md) — `READY`；包装现有 execution path 为 STANDARD_DEVICES backend，第一阶段不得改变调度结果；
+- [WBC-602](./workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md) — `READY`；建立 additive Node Role / Capability / Resource descriptor 与 legacy defaults；
+- [WBC-603](./workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md) — `WAITING_DEPENDENCIES`；待 WBC-601/602 accepted 后建立 dormant Worker Pool + headless agent seam；
+- [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) — `WAITING_DEPENDENCIES`；待 WBC-603 accepted 后建立 STANDARD / WORKER_POOL / HYBRID 可逆切换；
 - [FR-001 Persistent Foreman Runtime](./future-plans/FR-001-Persistent-Foreman-Runtime.md) — 未来计划，不激活。
 
 ## 当前主机角色
