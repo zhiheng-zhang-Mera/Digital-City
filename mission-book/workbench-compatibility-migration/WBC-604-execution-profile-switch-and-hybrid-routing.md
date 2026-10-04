@@ -5,7 +5,15 @@ sequence: 604
 execution_enabled: true
 status: WAITING_DEPENDENCIES
 implementation_repo: zhiheng-zhang-Mera/utopia
-baseline_policy: CLAIM_TIME_MAIN
+baseline_policy: IMMUTABLE_EXACT_SHA
+baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
+baseline_candidate_refs: ["refs/heads/main"]
+required_ancestor_shas: ["9f3e20e8ec99d591812430bee71d27e68c4ad498"]
+dependency_source_workbooks: ["WBC-603"]
+dependency_source_shas: []
+development_baseline_sha: null
+baseline_resolution_evidence: null
+baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
 dependencies: ["WBC-603:WORKER_POOL_AGENT_SEAM_ACCEPTED"]
 development_host: null
 development_branch: null
