@@ -5,7 +5,13 @@ sequence: 0
 execution_enabled: false
 status: NOT_STARTED
 implementation_repo: zhiheng-zhang-Mera/utopia
-baseline_policy: CLAIM_TIME_MAIN
+baseline_policy: IMMUTABLE_EXACT_SHA
+baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
+baseline_candidate_refs: ["refs/heads/main"]
+required_ancestor_shas: []
+dependency_source_shas: []
+development_baseline_sha: null
+baseline_resolution_evidence: null
 dependencies: []
 development_host: null
 development_branch: null
@@ -59,4 +65,4 @@ ui_exemption_reason = <required only for INTERNAL_ONLY>
 
 ## 绑定常驻规则
 
-本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh，以及 §14A Capability Exposure & User Control Gate 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
+本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、§2A immutable full-SHA baseline anchor、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh，以及 §14A Capability Exposure & User Control Gate 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
