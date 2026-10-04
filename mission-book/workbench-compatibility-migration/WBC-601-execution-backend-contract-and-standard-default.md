@@ -20,6 +20,9 @@ development_branch: "wbc/WBC-601-execution-backend-contract"
 development_head_sha: "d65dbd3af2d8903aca13726f74110e1f2f6b9b65"
 development_ci: "V0.2 checks run 37205291447 COMPLETED SUCCESS on headSha d65dbd3af2d8903aca13726f74110e1f2f6b9b65 (jobs: gateway-web success, android success); earlier run 37204673910 on the superseded head 9f9db6384779e75f51ec317074238c139e1de609 FAILED gateway-web on a defect in this task's own new test, repaired in d65dbd3 and recorded in reports/WBC-601/DEVELOPMENT_REPORT.md section 10"
 development_complete: true
+research_evidence_applicability: "APPLICABLE"
+long_horizon_context_evidence: "CAPTURED"
+research_evidence_refs: ["mission-book/reports/WBC-601/PAPER_MATERIAL_INDEX.md", "mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md", "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md", "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md"]
 review_host: null
 review_head_sha: null
 review_ci: null
