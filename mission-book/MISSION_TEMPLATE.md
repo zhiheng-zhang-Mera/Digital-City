@@ -27,6 +27,9 @@ user_exposure_surface: null
 user_exposure_nesting: null
 backend_wiring: UNASSESSED
 ui_exemption_reason: null
+research_evidence_applicability: UNASSESSED
+long_horizon_context_evidence: UNASSESSED
+research_evidence_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: null
@@ -60,9 +63,26 @@ ui_exemption_reason = <required only for INTERNAL_ONLY>
 若为 DIRECT_CONTROL / OBSERVABLE_ADVANCED / BACKGROUND_DISCLOSED，必须按 `CONSTRUCTION_RULES.md §14A` 证明入口、收纳、知情与 backend wiring；只有 INTERNAL_ONLY 可完全豁免 UI。
 
 ## 测试 / 实机 / 视觉证据
+
+## Research / Paper Material Capture / 论文素材采集判断
+
+每本工作书必须按 `CONSTRUCTION_RULES.md §14B` 明确判断：
+
+```text
+research_evidence_applicability = APPLICABLE | NOT_APPLICABLE
+long_horizon_context_evidence = CAPTURED | NOT_OBSERVABLE | NOT_APPLICABLE
+research_evidence_refs = [...]
+```
+
+若出现长时/异步 Agent、context pressure、compaction、resume、model/harness switch、Owner 续接、false COMPLETE、duplicate/regression、stale state/SHA 或 task-pool drain 等现象，必须优先保存可观察 evidence，并记录 `NOT_OBSERVABLE + reason` 而不是猜测缺失 telemetry。
+
+发生 compaction / context reset / session resume / handoff 后，应优先验证 current mission、exact branch/SHA、completed/remaining work、blocker、next action、已失败路径与 acceptance gate 的恢复是否正确。
+
+禁止采集或推断隐藏 chain-of-thought；只记录显式 prompt/instruction（允许时）、execution state、logs、CI/tests、timestamps、token/cost telemetry（若可见）、Owner intervention、branch/SHA 与 observable action/result。
+
 ## 完成门槛
 ## Reports / Utopia evolution 记录
 
 ## 绑定常驻规则
 
-本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、§2A immutable full-SHA baseline anchor、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh，以及 §14A Capability Exposure & User Control Gate 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
+本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、§2A immutable full-SHA baseline anchor、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh，以及 §14A Capability Exposure & User Control Gate、§14B Long-Horizon Agent Research Evidence Gate 等规则。若本工作书需要更严格的 task-specific gate，可追加；不得降低常驻规则。
