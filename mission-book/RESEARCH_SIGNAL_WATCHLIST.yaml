@@ -1,0 +1,137 @@
+schema_version: 1
+snapshot_date: 2026-10-05
+status: ACTIVE
+purpose: >
+  Pre-classified research-signal watchlist for normal Mission Book work.
+  Agents should tag observed episodes against this list instead of inventing novelty claims.
+grading:
+  G1_MATURE:
+    capture_level: MINIMAL
+    interpretation: mature engineering / background only
+  G2_CROWDED:
+    capture_level: STANDARD
+    interpretation: active and important, but crowded
+  G3_SPARSE_ACTIVE:
+    capture_level: PRIORITY
+    interpretation: clear phenomenon with sparse direct study
+  G4_RARE_SYSTEMIC:
+    capture_level: MAXIMUM_BOUNDED
+    interpretation: rare complete formulation/system evidence; recheck literature before claims
+
+topics:
+  - id: RS-G1-IMMUTABLE-VERSION
+    grade: G1_MATURE
+    topic: branch_to_exact_sha
+    capture_when: concrete failure or rework only
+
+  - id: RS-G1-VERTICAL-SLICE
+    grade: G1_MATURE
+    topic: classic_vertical_slice
+    capture_when: concrete agent failure only
+
+  - id: RS-G1-TRACEABILITY
+    grade: G1_MATURE
+    topic: generic_requirements_code_traceability
+    capture_when: concrete failure only
+
+  - id: RS-G2-COMPACTION
+    grade: G2_CROWDED
+    topic: context_compaction_timing_and_content
+    capture_when: normal telemetry; priority only when intersecting G3/G4
+
+  - id: RS-G2-EXEC-MEMORY
+    grade: G2_CROWDED
+    topic: generic_execution_state_memory
+    capture_when: normal telemetry
+
+  - id: RS-G2-FALSE-SUCCESS
+    grade: G2_CROWDED
+    topic: generic_false_completion_and_evidence_contracts
+    capture_when: normal telemetry
+
+  - id: RS-G2-ASYNC-MULTIAGENT
+    grade: G2_CROWDED
+    topic: generic_async_multi_agent_coordination
+    capture_when: normal telemetry
+
+  - id: RS-G2-CROSS-MODEL-REVIEW
+    grade: G2_CROWDED
+    topic: generic_cross_model_review
+    capture_when: normal telemetry
+
+  - id: RS-G2-EVOLVING-SPEC
+    grade: G2_CROWDED
+    topic: evolving_user_requirements
+    capture_when: normal telemetry
+
+  - id: RS-G3-EXEC-WORK-ARTIFACT
+    grade: G3_SPARSE_ACTIVE
+    topic: repository_resident_executable_work_state
+    capture_when: claim/resume/review/evidence-bound task state is involved
+
+  - id: RS-G3-IDENTITY-PROVENANCE
+    grade: G3_SPARSE_ACTIVE
+    topic: execution_identity_provenance_freshness
+    capture_when: SHA/ancestry/evidence binding/reconciliation changes outcome
+
+  - id: RS-G3-STRUCTURED-HANDOFF
+    grade: G3_SPARSE_ACTIVE
+    topic: structured_handoff_with_exact_state
+    capture_when: successor agent/model/host resumes interrupted work
+
+  - id: RS-G3-DYNAMIC-LIVENESS
+    grade: G3_SPARSE_ACTIVE
+    topic: dynamic_async_liveness_and_eligibility
+    capture_when: zero-claim/wait/wake/role-eligibility/no-idle logic matters
+
+  - id: RS-G3-INDEPENDENT-REVIEW-BOUNDARY
+    grade: G3_SPARSE_ACTIVE
+    topic: independent_review_as_state_and_evidence_boundary
+    capture_when: reviewer independently reconstructs state or falsifies user/runtime path
+
+  - id: RS-G3-REGISTRY-ONBOARDING
+    grade: G3_SPARSE_ACTIVE
+    topic: capability_registry_assisted_agent_onboarding
+    capture_when: registry changes search/localization/duplicate implementation behavior
+
+  - id: RS-G3-OWNER-INTERVENTION-TAXONOMY
+    grade: G3_SPARSE_ACTIVE
+    topic: naturalistic_owner_intervention_causes
+    capture_when: Owner must resume/correct/unblock/reframe work
+
+  - id: RS-G4-UNIFIED-CONTROL-PLANE
+    grade: G4_RARE_SYSTEMIC
+    topic: unified_repository_control_plane
+    capture_when: multiple MissionBook/Registry/identity/evidence/liveness mechanisms interact
+
+  - id: RS-G4-CAPABILITY-STATE
+    grade: G4_RARE_SYSTEMIC
+    topic: implementation_wiring_reachability_intent_state
+    capture_when: capability transitions among implementation/wiring/reachability/intent states
+
+  - id: RS-G4-AUTONOMY-SURVIVAL
+    grade: G4_RARE_SYSTEMIC
+    topic: autonomy_survival_until_owner_intervention
+    capture_when: long autonomous run or task-pool drain is observable
+
+  - id: RS-G4-REALITY-DRIFT
+    grade: G4_RARE_SYSTEMIC
+    topic: control_plane_reality_drift
+    capture_when: MissionBook/Registry/Git/CI/UI truths disagree
+
+  - id: RS-G4-USER-REACHABLE-TERMINAL
+    grade: G4_RARE_SYSTEMIC
+    topic: user_reachable_completion_as_terminal_condition
+    capture_when: internal completion differs from normal-user completion
+
+  - id: RS-G4-PASSIVE-EVIDENCE-PIPELINE
+    grade: G4_RARE_SYSTEMIC
+    topic: passive_development_to_research_evidence_pipeline
+    capture_when: normal development evidence becomes reusable longitudinal/replay material
+
+rules:
+  - G1/G2 must not trigger research-only make-work.
+  - G3/G4 episodes should preserve before/after and exact evidence when bounded and observable.
+  - No grade is a novelty guarantee; literature must be refreshed before publication.
+  - Hidden chain-of-thought must never be collected.
+  - If a signal is not on this watchlist, record it as UNCLASSIFIED_CANDIDATE rather than inventing a grade.
