@@ -112,3 +112,5 @@ Watchlist ids carried in the workbook frontmatter by the research monitor:
 * No experimental result: this task describes experiments and executes none, so there is no measurement to report.
 
 Opposite-host review produced concrete provenance/topology/exposure mismatches; see REVIEW_FINDINGS_Alien-codex.md. Red actual HTTP inputs main-only software and repeated-host arrays pass old validation despite stated gates. Preserve these findings alongside original14/14 tests; correction/acceptance pending.
+
+Final opposite-host acceptance PASS at corrected source 7e96a4d28f4cb701d7a0951bace69857c3228f32, exact hosted CI SUCCESS. See REVIEW_REPORT_Alien-codex.md for original-to-correction provenance, bounded user workflow, preserved invalid runs, and unobserved physical/Android execution. Earlier pending entries remain historical.

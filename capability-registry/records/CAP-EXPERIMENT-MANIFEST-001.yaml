@@ -29,7 +29,7 @@
   "status": {
     "backend_wiring_status": "VERIFIED",
     "user_reachability_status": "VERIFIED",
-    "intent_validation_status": "NOT_TESTED",
+    "intent_validation_status": "VERIFIED",
     "implementation_status": "COMPLETE"
   },
   "exposure": {
@@ -68,20 +68,22 @@
     "backend_wiring_refs": [
       "utopia:tests/rex801-alien-independent-review.test.mjs"
     ],
-    "intent_validation_refs": [],
+    "intent_validation_refs": [
+      "mission-book/reports/REX-801/REVIEW_REPORT_Alien-codex.md",
+      "utopia:tests/rex801-research-ui.test.mjs"
+    ],
     "reachability_refs": [
       "utopia:tests/rex801-research-ui.test.mjs"
     ]
   },
   "research_observations": {
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_PENDING_FINAL_EXACT_CI_AND_FORMAL_ACCEPTANCE",
+    "registry_reconciliation_result": "VERIFIED_BOUNDED_WEB_MANIFEST_WORKFLOW",
     "paper_material_refs": [
       "mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
-    "Exact corrected-head full-suite/CI pending",
     "Android Research surface NOT_RUN; REX807 further control surface",
     "No physical topology experiment executed",
     "Original source8f8c521 and corrected source7e96a4d are separate evidence identities"

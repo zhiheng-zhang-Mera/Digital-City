@@ -3,7 +3,7 @@ workbook_id: REX-801
 phase: RESEARCH_STRENGTHENING
 sequence: 801
 execution_enabled: true
-status: READY
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -31,16 +31,16 @@ development_complete: true
 review_host: Alien-codex
 review_head_sha: "7e96a4d28f4cb701d7a0951bace69857c3228f32"
 review_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37243645465"
-review_complete: false
+review_complete: true
 review_source_sha: "8f8c521fc299d622093776615b653457d8833f96"
 capability_ids: [CAP-EXPERIMENT-MANIFEST-001]
 capability_registry_action: CREATE
 capability_registry_refs: ["capability-registry/records/CAP-EXPERIMENT-MANIFEST-001.yaml"]
-capability_registry_sync_status: CANDIDATE_RECONCILED
+capability_registry_sync_status: RECONCILED
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
-backend_wiring: "VERIFIED — each research operation reaches the real registry: list and inspect read the stored documents, create/import validates against the LIVE capability vocabulary and persists, validate never persists, seeds are computed from the stored manifest. UI presentation is deferred to REX-807 (research control surface / progressive disclosure): see reports/REX-801/DEVELOPMENT_REPORT.md section 8 for the honest statement that the one-or-two-step user discoverability gate is NOT YET MET."
+backend_wiring: "VERIFIED — Web Advanced > Research imports authored JSON, validates without persistence, registers without execution, lists and inspects canonical documents; controlled browser reachability and refusal cases PASS. Fuller workflow remains REX-807."
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false

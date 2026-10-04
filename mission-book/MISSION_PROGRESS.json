@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 5,
+      "complete": 6,
       "total": 27
     },
     "tasks": {
-      "complete": 5,
+      "complete": 6,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 71,
+      "complete": 72,
       "total": 93
     },
     "tasks": {
-      "complete": 71,
+      "complete": 72,
       "total": 93
     }
   },
@@ -911,18 +911,18 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
-      "review_complete": 0,
+      "review_complete": 1,
       "status": "IN_PROGRESS",
-      "task_complete": 0,
+      "task_complete": 1,
       "tasks": [
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-801",
           "path": "research-strengthening/REX-801-experiment-manifest-and-registry.md",
-          "review_complete": false,
-          "status": "READY"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
