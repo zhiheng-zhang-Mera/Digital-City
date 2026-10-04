@@ -957,7 +957,9 @@ G4_RARE_SYSTEMIC → MAXIMUM_BOUNDED
 - dynamic async liveness / eligibility / wake semantics；
 - independent review as a state/evidence boundary；
 - Registry-assisted Agent onboarding/localization；
-- naturalistic Owner intervention taxonomy。
+- naturalistic Owner intervention taxonomy；
+- user-reachable completion as first-class terminal condition；
+- passive normal-development → research-evidence pipeline。
 
 若命中 G3，尽量保存：
 
@@ -982,9 +984,7 @@ research refs
 - unified repository control plane；
 - capability state: implementation → wiring → reachability → intent；
 - autonomy survival until Owner intervention；
-- MissionBook/Registry/Git/CI/UI control-plane reality drift；
-- user-reachable completion as first-class terminal condition；
-- passive development-to-research evidence pipeline。
+- MissionBook/Registry/Git/CI/UI control-plane reality drift。
 
 若命中 G4，除 G3 字段外优先保存：
 
