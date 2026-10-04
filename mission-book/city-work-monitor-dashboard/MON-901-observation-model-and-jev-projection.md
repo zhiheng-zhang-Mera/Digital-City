@@ -16,7 +16,7 @@ dependencies: []
 development_host: Alien-codex
 development_branch: mon/MON-901-Alien-codex-observation
 development_head_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
-development_ci: null
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37242446183"
 development_complete: false
 review_host: null
 review_head_sha: null
