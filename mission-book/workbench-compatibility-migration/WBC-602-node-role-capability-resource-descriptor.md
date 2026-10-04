@@ -26,8 +26,8 @@ development_head_sha: "c312a60b4d73f02597bde1f106372b253067fe33"
 development_ci: "V0.2 checks run 37206331839 COMPLETED SUCCESS on headSha c312a60b4d73f02597bde1f106372b253067fe33 (jobs: gateway-web success, android success), read from the Actions API and matched on headSha. No earlier failed run on this branch. Local pre-push evidence on the same head, after the repaired projection defect recorded in reports/WBC-602/DEVELOPMENT_REPORT.md section 5: 13/13 new tests pass; pnpm test 1250 tests / 1247 pass / 3 fail where all 3 are the pre-existing host-city-launcher environmental block (a resident City holds coordination port 4389 on this host, and those tests refuse to run by design); city/test-all.mjs 1984 tests / 1977 pass / 7 skipped / 0 fail; apps/rooms 69/69; check-bilingual SYNCHRONIZED; verify-promotion-history 10 records verified."
 development_complete: true
 review_host: Alien-codex
-review_head_sha: null
-review_ci: null
+review_head_sha: "d99101fdac5169aad74ae84fb7c0c25be43ad7d9"
+review_ci: "V0.2 checks run 37211820065 IN_PROGRESS on exact d99101fdac5169aad74ae84fb7c0c25be43ad7d9"
 review_complete: false
 owner_gate: NONE
 merge_authority: false

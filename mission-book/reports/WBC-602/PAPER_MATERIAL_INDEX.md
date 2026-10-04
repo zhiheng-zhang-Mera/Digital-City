@@ -123,3 +123,9 @@ board is exactly the stale-state class in I3.
 * No token/cost/compaction telemetry: no compaction occurred in this session and the harness exposes no occupancy
   numbers, so those fields are `NOT_OBSERVABLE + reason` rather than invented.
 * No hardware or GPU claim: the descriptor models no accelerator measurement at all, and says `UNSUPPORTED`.
+
+## Opposite-host correction evidence supersedes original projection assumptions
+
+Actual reviewer Alien-codex/MERA-ALIANWARE is distinct from developer Mech/MEGA-REP. Correction d99101fdac5169aad74ae84fb7c0c25be43ad7d9 binds REVIEW_FINDINGS.md and receipt; CI37211820065 IN_PROGRESS. Original unsupported-GPU statement above is a repaired defect: unmeasured hardware must be UNKNOWN. Six findings, root red/green19/19 and canonical HTTP10/10 equivalent; no hardware benchmark. CAP-NODE-DESCRIPTOR-001 foundation registry backfill, INTERNAL_ONLY with explicit no-new-user-verb exemption.
+
+research_evidence_applicability=APPLICABLE; long_horizon_context_evidence=CAPTURED. Current continuation revalidated source/control/CI; exact token/window/compaction trigger and global rework counters NOT_OBSERVABLE. Candidate watchlist RS-G3-INDEPENDENT-REVIEW-BOUNDARY, RS-G3-IDENTITY-PROVENANCE, RS-G3-SEMANTIC-INTEGRATION and RS-G4-CAPABILITY-STATE inherit City taxonomy, not novelty claims. Defects remain ordinary engineering evidence; foundation/formal/CI/main integration states stay distinct.
