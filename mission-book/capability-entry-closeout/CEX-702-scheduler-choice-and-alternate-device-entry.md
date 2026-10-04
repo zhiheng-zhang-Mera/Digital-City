@@ -3,7 +3,7 @@ workbook_id: CEX-702
 phase: CAPABILITY_ENTRY_CLOSEOUT
 sequence: 702
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -11,12 +11,12 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["ec12fd0831f31fd81aef9cd9dfb0c959d010f63b"]
 dependency_source_workbooks: []
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "0e9bea3ce739b979e582a428af8fb233045a5e75"
+baseline_resolution_evidence: "mission-book/reports/CEX-702/CLAIM_RECORD.md"
 baseline_blocker: null
 dependencies: ["REMOTE_HANDOFF_CLOSEOUT_REPAIRED"]
-development_host: null
-development_branch: null
+development_host: Alien-codex
+development_branch: cex/CEX-702-Alien-codex-alternate-device
 development_head_sha: null
 development_ci: null
 development_complete: false
@@ -28,6 +28,11 @@ owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/CEX-702
 terminal_marker: ALTERNATE_DEVICE_USER_CHOICE_EXPOSED
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md"]
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/CEX-702/CLAIM_RECORD.md"]
 ---
 
 # CEX-702 — Scheduler 用户选择：拒绝切服务 → 改用另一设备
