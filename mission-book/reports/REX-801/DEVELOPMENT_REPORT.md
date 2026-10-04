@@ -229,8 +229,27 @@ Workbook completion gates, mapped:
 
 ```text
 development_head_sha   8f8c521fc299d622093776615b653457d8833f96
-development_ci         V0.2 checks run 37241196692 on that exact SHA — result recorded in the workbook frontmatter
+development_ci         V0.2 checks run 37241196692 -> COMPLETED SUCCESS on that exact SHA
 ```
+
+### 7.1 Integration-ready candidate (§7 reconciliation, recorded without pre-empting the review)
+
+`main` moved while this task was in flight: `0e9bea3ce739b979e582a428af8fb233045a5e75` →
+`d3262ce2dd81e51a53e39e6f9add8dee650a7682` (the other host merged an unrelated pairing fix). Rather than leave a
+reviewer to discover a stale base, the branch was rebased onto current `main` and force-pushed **with lease**:
+
+```text
+integration_candidate_sha   ef89e917c0468b38ade26e666ca98c754ef8945a   (rebased onto d3262ce…, conflict-free)
+acceptance re-run on it     14/14 REX-801 tests pass; 4/4 tests/gateway.test.mjs pass;
+                            check-bilingual = SYNCHRONIZED
+candidate CI                V0.2 checks run 37241780688 -> COMPLETED SUCCESS on ef89e917… (gateway-web, android)
+```
+
+**Why `development_head_sha` was NOT changed to the candidate.** `development_head_sha` names the head the
+development evidence was produced on, and that evidence is real and still valid for `8f8c521`. Recording the
+rebased head as if the development had happened there would be a provenance mismatch — the same class of error as
+writing a SHA from memory. Which head the opposite-host review verifies is the reviewer's decision under §2A.6, so
+the candidate is recorded *beside* the verified development head, with neither replacing the other.
 
 ## 8. Capability Exposure Decision (`CONSTRUCTION_RULES.md` §14A)
 
