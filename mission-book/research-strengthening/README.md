@@ -21,7 +21,50 @@
 > 异步减压施工：[../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
 > 过程数据规则：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
 > 研究素材规则：[RESEARCH_EVIDENCE_PROTOCOL.md](./RESEARCH_EVIDENCE_PROTOCOL.md)  
+> 研究信号优先级：[../RESEARCH_SIGNAL_WATCHLIST.yaml](../RESEARCH_SIGNAL_WATCHLIST.yaml)  
+> 研究优先级策略：Research Institute `paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`  
 > 研究控制面原则：[RESEARCH_CONTROL_SURFACE.md](./RESEARCH_CONTROL_SURFACE.md)
+
+## 0A. 当前论文关注点优先级
+
+REX v1 的 instrumentation 不再平均服务所有话题。
+
+默认顺序：
+
+```text
+G4 first:
+  unified repository control plane
+  capability implementation→wiring→reachability→intent
+  autonomy survival until Owner intervention
+  control-plane reality drift
+  user-reachable completion terminal
+  passive development→research evidence pipeline
+
+G3 second:
+  repo-resident executable work state
+  exact identity/provenance/freshness
+  structured handoff with exact state
+  dynamic liveness/eligibility/wake
+  independent review as evidence boundary
+  registry-assisted onboarding/localization
+  Owner intervention taxonomy
+
+G2 supporting:
+  context compaction
+  generic execution memory
+  false-success transparency
+  generic async multi-agent
+  cross-model review
+  evolving requirements
+```
+
+原则：
+
+- REX-801/802 的 schema / trace fields 应优先覆盖 G3/G4；
+- G2 作为 stressor、control、covariate 或 supporting analysis；
+- G1 成熟实践只在真实 failure 时留证；
+- 不允许为了热门论文方向扭曲正常产品施工或制造假 workload；
+- 任何投稿前重新做 literature refresh，当前 grade 只决定 evidence budget。
 
 ## 1. PhD 申请强化目标
 
