@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-WORKER-POOL-AGENT-001",
+  "name": {
+    "zh_CN": "默认关闭 Worker Pool 与节点代理接口",
+    "en": "Dormant Worker Pool and headless node agent seam"
+  },
+  "source_workbooks": [
+    "WBC-603"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/dev-gateway/execution-backend/worker-pool.mjs",
+      "services/headless-node-agent/agent.mjs",
+      "services/dev-gateway/server.mjs"
+    ],
+    "symbols": [
+      "createWorkerPoolBackend",
+      "createHeadlessAgent",
+      "HEADLESS_AGENT_PROTOCOL_VERSION"
+    ],
+    "api_or_actions": [
+      "Dormant backend registration",
+      "Injected existing Gateway node register/heartbeat/descriptor/claim/report",
+      "Authorized existing sharing/task cancel routes"
+    ],
+    "last_verified_full_sha": "f3510862cc348a99004ca5bd5d151a7b56279724"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "NOT_APPLICABLE",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "INTERNAL_ONLY",
+    "user_visible_information": [],
+    "user_controls": [],
+    "intentionally_hidden_information": [
+      "internal contract raw identifiers from ordinary navigation"
+    ],
+    "internal_only_exemption_reason": "Default dormant foundation seam, explicit bounded contract proof only; no new ordinary user verb or product profile activation."
+  },
+  "surfaces": [],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/wbc603-worker-pool.test.mjs",
+      "utopia:tests/wbc603-headless-agent.test.mjs"
+    ],
+    "reachability_refs": [],
+    "intent_validation_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/22"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/WBC-603/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Opposite physical-host Formal Review pending",
+    "Real Workbench and Linux/macOS physical tests NOT_RUN",
+    "Product Worker Pool profile activation deferred",
+    "Checkpoint execution continuation/GPU-specific canonical telemetry/primary-agent migration not implemented",
+    "Cooperative cancellation; unresolved claim stop AGENT_BUSY"
+  ],
+  "last_reconciled_by_workbook": "WBC-603"
+}

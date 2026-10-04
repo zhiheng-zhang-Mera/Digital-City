@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["WBC-601:EXECUTION_BACKEND_STANDARD_COMPAT_ACCEPTED", "WBC-602:NODE_CAPABILITY_RESOURCE_COMPAT_ACCEPTED"]
 development_host: Alien-codex
 development_branch: wbc/WBC-603-Alien-codex-worker-pool
-development_head_sha: null
-development_ci: null
+development_head_sha: "f3510862cc348a99004ca5bd5d151a7b56279724"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37219829411"
 development_complete: false
 review_host: null
 review_head_sha: null
