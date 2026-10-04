@@ -68,14 +68,14 @@ Normal Utopia runtime
 |---|---|---|---|
 | [REX-801](./REX-801-experiment-manifest-and-registry.md) | Experiment Manifest + Registry | READY | 机器可读实验问题、拓扑、变量、重复次数和 acceptance |
 | [REX-802](./REX-802-trace-provenance-and-metrics-foundation.md) | Trace / Provenance / Metrics Foundation | READY | 统一记录 task/action/device/provider/handoff/retry/failure/recovery/human intervention |
-| [REX-803](./REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | WAITING_801_802 | 自动执行 controlled scenario × N |
-| [REX-804](./REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | WAITING_802 | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
-| [REX-805](./REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | WAITING_802_803 | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
-| [REX-806](./REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | WAITING_803_804_805 | normalized dataset、tables、artifact pack、reproduction docs |
-| [REX-807](./REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | WAITING_801_806 | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
-| [REX-890](./REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_ALL | 双机独立复现实验，冻结 Research Fabric v1 |
+| [REX-803](./REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | WAITING_DEPENDENCIES | 自动执行 controlled scenario × N |
+| [REX-804](./REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | WAITING_DEPENDENCIES | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
+| [REX-805](./REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | WAITING_DEPENDENCIES | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
+| [REX-806](./REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | WAITING_DEPENDENCIES | normalized dataset、tables、artifact pack、reproduction docs |
+| [REX-807](./REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | WAITING_DEPENDENCIES | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
+| [REX-890](./REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | 双机独立复现实验，冻结 Research Fabric v1 |
 
-REX-801 与 REX-802 可双机并行。后续严格按依赖解锁。
+REX-801 与 REX-802 可双机并行。后续任务统一为 `WAITING_DEPENDENCIES`，并使用 `DEPENDENCY_SHA_UNION_AT_CLAIM` 从前置 accepted full SHAs 建精确 union baseline；不会再把 main 分支名当作依赖已落地的证明。
 
 ## 4. 双机异步施工
 
