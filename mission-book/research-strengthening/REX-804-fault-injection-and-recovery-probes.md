@@ -18,6 +18,8 @@ review_ci: null
 review_complete: false
 user_exposure_class: ADVANCED_CONTROL
 user_exposure_surface: RESEARCH_DANGER_ZONE
+user_exposure_nesting: L3_ADVANCED
+backend_wiring: TO_BE_VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
