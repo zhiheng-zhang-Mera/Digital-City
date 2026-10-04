@@ -365,6 +365,76 @@ G1/G2 不得为了论文而制造额外 workload。G3/G4 也只能做 bounded in
 
 所有 grade 只代表当前采集优先级；投稿前必须刷新 literature review。
 
+## 6E. City Work Monitor / Observation–Decision / 监视器与决策层
+
+当 REX 本身或其它普通施工出现 JEV、City Work Monitor、任务图、状态跃迁 decision、自动 retry/reroute/escalation 时，研究数据必须区分：
+
+~~~text
+system truth
+→ observed event
+→ projected monitor state
+→ decision trigger
+→ decision source
+→ resulting state transition
+~~~
+
+不得把 UI 看到的状态直接当 ground truth；必须能回指 canonical event/state/evidence。
+
+优先字段：
+
+~~~text
+canonical_event_id
+observed_at
+projected_at
+projection_latency_ms
+active_risk_present
+risk_bubbled_to_overview
+false_safe_summary
+node_count
+edge_count
+edge_type
+edge_reason_complete
+decision_id
+decision_source
+decision_queue_wait_ms
+decision_latency_ms
+decision_timeout_or_fallback
+escalation_reason
+owner_intervention_required
+autonomy_resumed_after_decision
+unrelated_task_blocking
+monitor_reality_drift
+navigation_steps_to_cause
+navigation_steps_to_evidence
+~~~
+
+候选量化：
+
+~~~text
+Projection Lag
+Decision Latency
+Auto-resolution Rate
+Owner-required Rate
+Repeated-escalation Rate
+False-safe Summary Rate
+Edge Provenance Completeness
+Monitor Reality Drift Rate
+Unrelated-task Blocking Incidents
+~~~
+
+generic dashboard / topology / logs 单独属于 G2 supporting evidence；重点 G3 为：
+
+- hierarchical risk bubbling；
+- edge-causal observability；
+- continuous observation vs event-triggered nonblocking decision；
+- decision escalation provenance。
+
+这些结果可作为现有 G4 unified control plane、autonomy survival、multi-truth reality drift 的测量面，但**不自动构成新的 G4 novelty**。
+
+专题材料：
+
+`paper-materials/{zh-CN,en}/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md`
+
 ## 7. Completion gate
 
 任一 REX task 缺以下任一项不得 complete：
