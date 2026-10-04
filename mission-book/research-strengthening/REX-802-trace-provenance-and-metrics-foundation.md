@@ -3,7 +3,7 @@ workbook_id: REX-802
 phase: RESEARCH_STRENGTHENING
 sequence: 802
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -11,12 +11,12 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
 dependency_source_workbooks: []
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "0e9bea3ce739b979e582a428af8fb233045a5e75"
+baseline_resolution_evidence: "mission-book/reports/REX-802/CLAIM_RECORD.md"
 baseline_blocker: null
 dependencies: []
-development_host: null
-development_branch: null
+development_host: Alien-codex
+development_branch: rex/REX-802-Alien-codex-trace-foundation
 development_head_sha: null
 development_ci: null
 development_complete: false
