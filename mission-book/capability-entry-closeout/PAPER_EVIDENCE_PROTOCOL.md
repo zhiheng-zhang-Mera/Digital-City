@@ -260,3 +260,38 @@ mission-book/reports/CEX-PROGRAMME/PAPER_MATERIAL_SYNTHESIS.md
 - before/after user steps；
 - review-found defects；
 - final regression evidence。
+
+
+## 7. Capability Registry-specific evidence
+
+CEX tasks now also feed the durable City `capability-registry/`.
+
+Whenever observed, the paper index must retain the before/after evidence for:
+
+```text
+IMPLEMENTED_BUT_UNREACHABLE
+VISIBLE_BUT_NOT_WIRED
+VISIBLE_WRONG_SEMANTICS
+DISCOVERABILITY_GAP
+SURFACE_PARITY_GAP
+CAPABILITY_REGISTRY_STALE
+CAPABILITY_REGISTRY_REALITY_MISMATCH
+DUPLICATE_IMPLEMENTATION_DUE_TO_DISCOVERY_FAILURE
+```
+
+Prefer fields:
+
+```text
+capability_id
+implementation_completed_at
+first_surface_available_at
+reachability_verified_at
+intent_validated_at
+user_steps_before
+user_steps_after
+exact_implementation_sha
+registry_record_ref
+ui_or_e2e_evidence_ref
+```
+
+Registry reconciliation must not erase the pre-repair mismatch. The Registry stores current verified state; PAPER_MATERIAL_INDEX preserves the evolution/failure chain.
