@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-CITY-MEMBERS-NATIVE-001",
+  "name": {
+    "zh_CN": "Android 城市与成员管理",
+    "en": "Native City and member management"
+  },
+  "source_workbooks": [
+    "CEX-705"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "apps/android/app/src/main/java/city/utopia/control/MemberManagement.kt",
+      "apps/android/app/src/main/java/city/utopia/control/MemberManagementPanel.kt",
+      "apps/android/app/src/main/java/city/utopia/control/CityClient.kt"
+    ],
+    "symbols": [
+      "MemberManagementProjection",
+      "MemberManagementState",
+      "CityManagementSettings"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/device/installations",
+      "PATCH /api/v0/city/name",
+      "POST /api/v0/device/installations/:id/revoke",
+      "POST /api/v0/node/sharing",
+      "POST /api/v0/members/messages",
+      "POST /api/v0/members/messages/:id/receipt"
+    ],
+    "last_verified_full_sha": "de9185a4ef8d761053c88316ec9efeca037239fb"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "admission names and bound self",
+      "member and compute online separately",
+      "scoped installations",
+      "canonical message receipt state"
+    ],
+    "user_controls": [
+      "owner City rename",
+      "scoped revoke",
+      "own-node sharing",
+      "member message and receipt"
+    ],
+    "intentionally_hidden_information": [
+      "credentials",
+      "fingerprints"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "ANDROID",
+      "location": "Devices / More > Settings",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE and canonical matching identity/permission",
+      "evidence_ref": "mission-book/reports/CEX-705/PAPER_MATERIAL_INDEX.md"
+    }
+  ],
+  "evidence": {
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/21"
+    ],
+    "backend_wiring_refs": [
+      "utopia:tests/cex705-native-members.test.mjs",
+      "utopia:apps/android/app/src/test/java/city/utopia/control/MemberManagementTest.kt"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/CEX-705/development-receipt.json"
+    ],
+    "intent_validation_refs": []
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/CEX-705/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Native rename/revoke/sharing/outbound-send/reconnect physical tests NOT_RUN",
+    "Two physical hosts NOT_RUN",
+    "Opposite-host Formal Review pending",
+    "User primary-agent appointment/migration NOT_IMPLEMENTED"
+  ],
+  "last_reconciled_by_workbook": "CEX-705"
+}

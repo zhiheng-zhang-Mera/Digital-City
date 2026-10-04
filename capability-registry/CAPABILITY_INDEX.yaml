@@ -74,3 +74,6 @@ records:
 
   - capability_id: CAP-ONBOARDING-OWNER-001
     record_ref: records/CAP-ONBOARDING-OWNER-001.yaml
+
+  - capability_id: CAP-CITY-MEMBERS-NATIVE-001
+    record_ref: records/CAP-CITY-MEMBERS-NATIVE-001.yaml

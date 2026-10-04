@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["CITY_MEMBERS_HOST_ROLES_ACCEPTED_EXACT_SHA_REQUIRED"]
 development_host: Alien-codex
 development_branch: cex/CEX-705-Alien-codex-native-members
-development_head_sha: null
-development_ci: null
+development_head_sha: "de9185a4ef8d761053c88316ec9efeca037239fb"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37218345150"
 development_complete: false
 review_host: null
 review_head_sha: null
