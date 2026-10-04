@@ -356,3 +356,137 @@ failure
 - CentaurEval (ICML 2026)
 
 任何正式投稿前必须重新搜索最新文献，G3/G4 评级不是永久 novelty 声明。
+
+
+## 7. 第二轮定向扫描补充（2026-10-05）
+
+这一轮专门寻找新的 G3/G4 候选，并对几个看似稀缺的方向重新降级。
+
+### 7.1 新增降级到 G2 的方向
+
+- **generic repository instruction / AGENTS.md / rule learning**：已有 AGENTS.md 实证、Do Agent Rules Shape or Distort、RuleEvolve、AgentGuard，以及 accumulated behavioral rules；“给 Agent 写规则会不会更好”已经不是稀缺问题。
+- **generic long-horizon maintenance / technical debt**：SWE-CI、SlopCodeBench、ChainSWE、SWE-Chain、EvoClaw 已经形成明显热点。
+- **generic merge conflict / concurrent editing**：AgenticFlict、AgentRoom、agent-authored PR concurrency 已直接研究。
+- **generic abstention / no-op / action bias**：FixedBench 与 OverEager 已直接覆盖。
+- **generic logging / observability debt**：已有 4,550 个 agentic PR 的 logging 实证；普通“Agent 不会好好打日志”不再是稀缺点。
+- **plain intervention count**：SWE-Together 已使用 corrective feedback turns，The Work Behind Delegation 已建立 supervision workflow framework。
+
+这些方向继续留正常 telemetry，但不再消耗 G3/G4 的优先证据预算。
+
+### 7.2 新增 G3 — Rule lifecycle / governance debt
+
+自动学规则本身已经进入 G2；更稀缺的是**规则的完整生命周期**：
+
+```text
+real failure
+→ rule introduced
+→ scope / owner / evidence bound
+→ future activations
+→ prevented recurrence OR false blocking
+→ conflict / stale condition
+→ supersede / retire
+```
+
+建议记录：
+
+- rule_id / governing file / exact rule version；
+- source failure episode；
+- introduced_at / superseded_at / retired_at；
+- applies_to scope；
+- conflict_with_rule_ids；
+- violation recurrence；
+- false_block / unnecessary restriction；
+- token/context overhead（可测时）；
+- tasks where the rule changed outcome；
+- evidence that justified keeping/removing it。
+
+研究问题不是“规则是否有用”，而是：
+
+> **长期 Agent 工程里的规则会不会形成 governance debt，以及如何知道一条历史上正确的规则现在应该继续、收窄、supersede 或删除？**
+
+### 7.3 新增 G3 — Owner attention fragmentation / escalation quality
+
+人类监督已经是热点，因此不只数 intervention 次数。
+
+重点记录：
+
+```text
+HIGH_VALUE_DECISION
+AVOIDABLE_TECHNICAL_ESCALATION
+REPEAT_CLARIFICATION
+APPROVAL_ONLY
+RECOVERY_REQUIRED
+AMBIGUOUS_REQUIREMENT
+PERMISSION_OR_VALUE_JUDGMENT
+```
+
+以及：
+
+- escalation 是否可以由现有规则/证据自动解决；
+- 是否可以与其它问题 batch；
+- Owner 回复后 Agent 是否一次恢复，还是重复追问；
+- escalation 前是否已经做了足够 bounded diagnosis；
+- 同一 root cause 是否多次打断 Owner；
+- intervention burst / clustered interruptions；
+- 从第一次 escalation 到真正恢复自治的时间。
+
+这比单纯 Owner intervention count 更贴近“甩手掌柜”的真实成本。
+
+### 7.4 新增 G3 — Semantic integration beyond textual merge
+
+普通 merge conflict 已经降到 G2。重点转向：
+
+> **两个分支都通过各自 CI、Git 也能干净 merge，但 union 后产品语义不一致。**
+
+建议 failure labels：
+
+```text
+TEXTUALLY_CLEAN_SEMANTIC_CONFLICT
+ACCEPTED_CAPABILITY_OVERWRITTEN
+DEPENDENCY_UNION_SEMANTIC_MISMATCH
+POST_MERGE_REGISTRY_RUNTIME_MISMATCH
+POST_MERGE_USER_INTENT_REGRESSION
+```
+
+优先保存：
+
+- branch A/B exact accepted SHAs；
+- 各自独立 CI/Review evidence；
+- merge/union exact SHA；
+- 哪个语义 invariant 在 integration 后被破坏；
+- 为什么单分支测试没有捕获；
+- Registry/用户入口/ownership 是否一起漂移；
+- integration 修复前后证据。
+
+### 7.5 没有新增“硬凑”的 G4
+
+第二轮扫描没有发现一个比现有 G4-A..F 更可信的新完整问题。当前仍优先：
+
+- unified repository control plane；
+- capability implementation→wiring→reachability→intent；
+- autonomy survival；
+- multi-truth reality drift；
+- user-reachable completion terminal；
+- passive development-to-research evidence pipeline。
+
+**不为了让列表更长而制造 G4。**
+
+### 7.6 新增文献监控锚点
+
+- CodeTracer — arXiv:2604.11641
+- SlopCodeBench — arXiv:2603.24755
+- SWE-CI — arXiv:2603.03823
+- ChainSWE — arXiv:2607.02606
+- EvoClaw — arXiv:2603.13428
+- Do Agent Rules Shape or Distort? — arXiv:2604.11088
+- RuleEvolve — arXiv:2610.00650
+- AgentGuard — arXiv:2609.16287
+- Instruction Adherence in Coding Agent Configuration Files — arXiv:2605.10039
+- The Work Behind Delegation — arXiv:2609.24234
+- SWE-Together — arXiv:2606.29957
+- AgentRoom — arXiv:2608.23740
+- AgenticFlict — arXiv:2604.03551
+- Coding Agents Don't Know When to Act — arXiv:2605.07769
+- The Working Set of a Coding Agent / Coherence Debt — arXiv:2608.16630
+
+2026-09~10 更新速度很快，尤其 self-evolving rules、learned guardrails、intervention sentinels、multi-agent concurrency，可能数周内从 G3 滑到 G2。
