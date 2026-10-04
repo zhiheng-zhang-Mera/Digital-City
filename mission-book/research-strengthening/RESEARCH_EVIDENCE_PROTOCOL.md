@@ -295,6 +295,76 @@ user-reachable thin vertical slice first
 
 经典 vertical-slice / discoverability 工程实践本身不作为 novelty；研究对象是 Agentic development 的 implementation-to-exposure gap、Registry 辅助效果、返工与 Owner intervention。
 
+## 6D. Research Priority Triage / 研究优先级分流
+
+REX 不再把所有可测现象当成同等论文机会。
+
+权威 watchlist：
+
+`mission-book/RESEARCH_SIGNAL_WATCHLIST.yaml`
+
+策略：
+
+```text
+G1_MATURE        → MINIMAL
+G2_CROWDED       → STANDARD
+G3_SPARSE_ACTIVE → PRIORITY
+G4_RARE_SYSTEMIC → MAXIMUM_BOUNDED
+```
+
+### 当前 G3 重点
+
+- repository-resident executable work state；
+- exact identity / provenance / freshness；
+- structured handoff with exact continuation state；
+- dynamic liveness / eligibility / wake semantics；
+- independent Review as state/evidence boundary；
+- Registry-assisted Agent onboarding/localization；
+- naturalistic Owner intervention taxonomy。
+
+### 当前 G4 重点
+
+- unified repository-native control plane；
+- capability implementation→wiring→reachability→intent state；
+- autonomy survival until Owner intervention；
+- MissionBook/Registry/Git/CI/UI reality drift；
+- user-reachable completion as termination condition；
+- passive normal-development → research-evidence pipeline。
+
+### REX 数据要求
+
+G3/G4 campaign 除普通 experiment manifest 外，应尽量包含：
+
+```text
+research_signal_id
+research_grade_snapshot
+control_plane_rule_version
+before_state
+after_state
+authority_surfaces
+event_order
+exact SHA/run/artifact ids
+agent/model/harness
+owner_intervention
+task_transition_count
+handoff/resume state
+wake/eligibility state
+user_reachability state
+conflicting_truths
+independent_review_result
+ablation_or_replay_candidate
+```
+
+如果字段无法观察，写 `NOT_OBSERVABLE + reason`。
+
+G1/G2 不得为了论文而制造额外 workload。G3/G4 也只能做 bounded instrumentation；专门 fault injection / controlled ablation 必须由对应 REX workbook 明确授权。
+
+研究院策略快照：
+
+`paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`
+
+所有 grade 只代表当前采集优先级；投稿前必须刷新 literature review。
+
 ## 7. Completion gate
 
 任一 REX task 缺以下任一项不得 complete：
