@@ -48,17 +48,18 @@ user cannot discover / invoke / complete it from normal UI
 
 ### Claim-time 基线规则
 
-施工主机不得机械地从旧 main 开工。
+本 programme 完整继承 `CONSTRUCTION_RULES.md §2A`。
 
-每次 claim 必须：
+每次 claim：
 
-1. 比较 Utopia `main` 与当前最新活跃产品分支；
-2. 若 `codex/city-members-host-roles` 已合入 main，则从最新 main 开始；
-3. 若仍未合入且目标功能只存在于该超集分支，则从该分支最新 exact head 建任务 branch，并记录 `development_baseline_ref/head`；
-4. 若出现更新的功能超集分支，必须先做 scope reconciliation，证明其是 superseding product truth；
-5. 不允许从落后基线“重新实现”已经存在的新功能。
+1. 只把 `baseline_candidate_refs` 当 discovery ref；
+2. 从远端解析 full 40-character SHA；
+3. 验证工作书的每个 `required_ancestor_shas`；
+4. 全部满足后，才原子写入 `development_baseline_sha`；
+5. branch 名、短 SHA、README 文案都不能替代 ancestry proof；
+6. 如果需要的 upstream 仍只有开发 branch、尚未产生 accepted exact SHA，则保持 `WAITING_DEPENDENCIES`，不得“先从 branch 做着再说”。
 
-最终 integration 仍必须按常驻规则从**当时最新 main**开始做 union / rebase / conflict reconciliation。
+CEX-790 使用 `DEPENDENCY_SHA_UNION_AT_CLAIM`，从 CEX-701..705 的 accepted exact heads 建 union baseline；不得从一个不包含这些组件的 main 直接开始 final audit。
 
 ## 3. 当前确认的入口缺口
 
@@ -84,7 +85,7 @@ user cannot discover / invoke / complete it from normal UI
 | [CEX-705](./CEX-705-android-member-device-management-parity.md) | Android Member / Device Management | WAITING_DEPENDENCIES | 等待 City Members / Host Roles accepted exact SHA 后再施工 |
 | [CEX-790](./CEX-790-final-exposure-audit-and-freeze.md) | Final Exposure Audit / Freeze | WAITING_DEPENDENCIES | 再做一次 backend→surface 全量对账并冻结入口基线 |
 
-CEX-701..705 可在文件 ownership 不冲突时双机并行；CEX-790 必须等待前五项全部 Development + opposite-host Formal Review 完成。
+CEX-701..704 当前可在文件 ownership 不冲突时双机并行；CEX-705 保持 WAITING，直到 upstream accepted exact SHA 写入；CEX-790 必须等待前五项全部 Development + opposite-host Formal Review 完成。
 
 ## 5. 双机异步防阻塞模式
 
