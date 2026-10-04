@@ -7,17 +7,14 @@ on:
     paths:
       - "mission-book/**/*.md"
       - "mission-book/PROGRESS_MANIFEST.json"
+      - "mission-book/MISSION_PROGRESS.json"
       - "mission-book/tools/sync_mission_progress.py"
-      - "!mission-book/README.md"
-      - "!mission-book/MISSION_PROGRESS.json"
   push:
     branches: [main]
     paths:
       - "mission-book/**/*.md"
       - "mission-book/PROGRESS_MANIFEST.json"
       - "mission-book/tools/sync_mission_progress.py"
-      - "!mission-book/README.md"
-      - "!mission-book/MISSION_PROGRESS.json"
 
 permissions:
   contents: write
