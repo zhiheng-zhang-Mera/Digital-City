@@ -320,16 +320,16 @@ G4_RARE_SYSTEMIC → MAXIMUM_BOUNDED
 - dynamic liveness / eligibility / wake semantics；
 - independent Review as state/evidence boundary；
 - Registry-assisted Agent onboarding/localization；
-- naturalistic Owner intervention taxonomy。
+- naturalistic Owner intervention taxonomy；
+- user-reachable completion as termination condition；
+- passive normal-development → research-evidence pipeline。
 
 ### 当前 G4 重点
 
 - unified repository-native control plane；
 - capability implementation→wiring→reachability→intent state；
 - autonomy survival until Owner intervention；
-- MissionBook/Registry/Git/CI/UI reality drift；
-- user-reachable completion as termination condition；
-- passive normal-development → research-evidence pipeline。
+- MissionBook/Registry/Git/CI/UI reality drift。
 
 ### REX 数据要求
 
