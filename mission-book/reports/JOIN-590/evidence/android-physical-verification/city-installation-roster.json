@@ -1,0 +1,61 @@
+﻿{
+    "apiVersion":  0,
+    "schemaVersion":  0,
+    "cityId":  "031fdba6-e94c-4298-a095-6ff04a65481d",
+    "installations":  [
+                          {
+                              "installationId":  "ins-54ea7741a3fd9c6882930a409827f1b7",
+                              "deviceId":  "dev-bb313bf720a57976e49a502c6539cfde",
+                              "displayName":  "Mech-Fresh-Installation",
+                              "state":  "BOUND",
+                              "rebindRequired":  false,
+                              "enrolledAt":  "2026-10-05T01:53:25.062Z",
+                              "credentialFingerprint":  "sha256:8ad87808305af970bf044401028aca52fa54519388bcd78a5a518385fa2a24e9",
+                              "credentialId":  "cred-c5d3967c6a0039b490951f8eefaf6b07"
+                          },
+                          {
+                              "installationId":  "ins-7d99a13ba8cd4f0a9032d0f60d198919",
+                              "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f",
+                              "displayName":  "Mech-Fresh-Installation",
+                              "state":  "RETIRED",
+                              "rebindRequired":  false,
+                              "enrolledAt":  "2026-10-05T01:54:27.965Z",
+                              "credentialFingerprint":  "sha256:59d6587ac47c8a8821428c4d5c8e9504a9a22a491a719d7524766cfec6b95dc8",
+                              "credentialId":  "cred-aabc7fc426f191578854487fa3b81ee0"
+                          },
+                          {
+                              "installationId":  "ins-92893167bd38ba85b43fc527e586ddab",
+                              "deviceId":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                              "displayName":  "Android Â· PERM00",
+                              "state":  "BOUND",
+                              "rebindRequired":  false,
+                              "enrolledAt":  "2026-10-05T11:28:20.437Z",
+                              "credentialFingerprint":  "sha256:42763a89f42c3ebb8f3be5224ef59d77aa16230182526299d81d0a043d69bcdf",
+                              "credentialId":  "cred-72405c43b7560217abb321c9d68cadea"
+                          },
+                          {
+                              "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                              "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                              "displayName":  "Alien-PC-JOIN590",
+                              "state":  "RETIRED",
+                              "rebindRequired":  false,
+                              "enrolledAt":  "2026-10-05T11:29:27.879Z",
+                              "credentialFingerprint":  "sha256:4da1fe177dcc506f3bf7146f95dcd3a49478420f468b871d1ec35030e3272e36",
+                              "credentialId":  "cred-b170b55fdc2a5e64bbe939c3b66c82b5"
+                          },
+                          {
+                              "installationId":  "ins-896a709c2156f48cb5b5b4a6972bf125",
+                              "deviceId":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                              "displayName":  "Android Â· PERM00",
+                              "state":  "RETIRED",
+                              "rebindRequired":  false,
+                              "enrolledAt":  "2026-10-05T12:01:53.476Z",
+                              "credentialFingerprint":  "sha256:1324090e9965ae99fd91a8a8b931d1b7749f649532e574520ccd6469738b63f8",
+                              "credentialId":  "cred-86435a3e48e2bc36d9c840f0469095c8"
+                          }
+                      ],
+    "cloneFindings":  [
+
+                      ],
+    "scope":  "CITY"
+}
