@@ -58,21 +58,28 @@
     "backend_wiring_refs": [
       "utopia:tests/mon901-observation.test.mjs"
     ],
-    "intent_validation_refs": [],
+    "intent_validation_refs": [
+      "mission-book/reports/MON-901/REVIEW_REPORT.md"
+    ],
     "reachability_refs": [
       "utopia:evidence/raw/mission-book/MON-901/canary-receipt.json"
+    ],
+    "review_refs": [
+      "utopia:tests/mon901-mech-review-probes.test.mjs",
+      "mission-book/reports/MON-901/REVIEW_REPORT.md"
     ]
   },
   "research_observations": {
     "paper_material_refs": [
       "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md"
     ],
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW"
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED"
   },
   "known_gaps": [
-    "Opposite physical-host Formal Review NOT_RUN",
+    "Opposite physical-host Formal Review PASSED on 7eb38f1b930dfe6cc13dab0e17dedee467b1254b (Mech, MEGA-REP); finding F1 LOW (completeness.continuous is a constant contradicting the computed historyGap) recorded and left unrepaired",
     "Graph/inspector UI belongs to MON-902; decisions MON-903",
-    "Owner/review/CI/escalation absent-source NOT_OBSERVABLE"
+    "Owner/review/CI/escalation absent-source NOT_OBSERVABLE",
+    "No user-visible surface exercised by this slice; user_reachability_status remains PARTIAL"
   ],
   "last_reconciled_by_workbook": "MON-901"
 }
