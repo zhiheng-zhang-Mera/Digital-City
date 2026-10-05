@@ -108,6 +108,9 @@ def planned_changes() -> tuple[list[tuple[pathlib.Path, str]], list[str]]:
         if not wid:
             continue
         wid = str(wid)
+        if not ID_RE.fullmatch(wid):
+            # Templates such as MB-XXX are documentation, not real workbooks.
+            continue
         if wid in records:
             errors.append(f"duplicate workbook id {wid}: {records[wid][0]} / {path}")
         records[wid] = (path, text, data)
