@@ -27,7 +27,12 @@ review_host: Alien-codex
 review_source_sha: "b91677d1478950feb79742f618d0c981773d5bb7"
 review_head_sha: "ec3b6f996240ca71505b3b67af12cc222d1b283a"
 review_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37299383248"
-review_complete: false
+review_complete: true
+opposite_host_repair_verification: "PASS (owner-requested check, 2026-10-05, Mech host MEGA-REP - the opposite physical host to the repair author Alien-codex). The Android half of PR #28 was verified on the REAL handset OPPO PERM00 / BICIPVNB5HS85H9T, not on an emulator: gradlew :app:testDebugUnitTest + :app:assembleDebug BUILD SUCCESSFUL on JDK 17.0.18; the phone discovered the live City on the LAN; a fresh install joined with an owner-minted one-time code and the City recorded DEVICE_ENROLLED + DEVICE_SESSION_ISSUED, with the phone holding a durable 'sess:' member credential (NOT the owner token) and a credentialId identical to the City's installation record; the City was then RESTARTED and the handset reconnected BY ITSELF with no user input (event CLIENT_CONNECTED 'Android · PERM00'); the installation was then REVOKED (sessionsRevoked 2, DEVICE_REVOKED + MEMBER_REVOKED + CLIENT_DISCONNECTED), the phone's stored material was refused with HTTP 403 on /device/session, its preferences flipped to installationRetired=true with an emptied token, its UI showed 'Device enrollment retired · join again with owner approval', and NO DEVICE_ENROLLED followed - so there is no silent recovery. The gateway half was verified separately: a member session cannot mint a pairing code (403 SESSION_CANNOT_MINT_PAIRING) while the owner still can, and the exchange issues the durable credential. Recorded honestly: the Android unit tests run against the JVM org.json substitute, which does NOT reproduce the android.jar 'JSON null becomes the text null' quirk, so the device is the decisive instrument for that guard. NOT released by this verification: the terminal marker, because completion condition 9 (merged-main post-closeout verification) is unmet - PR #28 is still a draft and its author was actively committing to it at the time of this record."
+opposite_host_repair_verification_refs: ["mission-book/reports/JOIN-590/ANDROID_REPAIR_VERIFICATION_Mech.md", "mission-book/reports/JOIN-590/evidence/android-physical-verification/"]
+opposite_host_repair_verified_head_sha: "0ea9203d3409a59194675d48d93950c7af9fb92f"
+review_tip_at_verification_sha: "62e9bad92b70af3098da8ce421becf99d8c6d00c"
+review_tip_advance_note: "The tip advanced from the physically verified head 0ea9203d to 62e9bad9 in three commits, ALL of them under evidence/ (git diff --name-only 0ea9203d 62e9bad9 = 28 files, none outside evidence/), so the product code exercised on the handset is byte-identical to the tip. One push-triggered V0.2 run on 62e9bad9 (37305073567) failed a single test with HOST_SCAN_TIMEOUT (the Windows process inventory did not answer within the scan budget, and the code deliberately refuses to start a City it cannot confirm the host for); the SAME head's pull_request run 37305080096 is SUCCESS, so that failure is classified environment/runner, not a code defect. PR #28 was NOT marked ready and NOT merged: its author was actively pushing acceptance evidence and reconciling review scope while this verification ran, and CONSTRUCTION_RULES section 12 forbids one host cutting across another host's in-flight work."
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: PAIRING_AND_DEVICE_ONBOARDING
 user_exposure_nesting: L2_CONTEXTUAL
@@ -37,6 +42,8 @@ owner_gate: NONE
 merge_authority: true
 report_path: mission-book/reports/JOIN-590
 terminal_marker: CONNECTION_ONBOARDING_MERGED_MAIN_PHYSICAL_ACCEPTED
+terminal_marker_released: false
+completion_withheld_reason: "Owner decision, 2026-10-05: mark the review as passed only, and do not merge or release the terminal marker yet. The remaining completion condition is number 9, merged-main post-closeout verification: PR #28 is still a DRAFT and its author Alien-codex was actively committing acceptance evidence and reconciling review scope at the moment of this record, so merging it now would both release a marker whose name claims a merge that has not happened and cut across another host's in-flight work. This workbook's own status therefore stays READY even though review_complete is now true; the dashboard's derived programme status follows review_complete and will read COMPLETE while this field says otherwise."
 ---
 
 # JOIN-590 — Merged-main Physical Acceptance + Programme Closeout

@@ -18,8 +18,8 @@
 > 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 
-**全城合计：总任务 80/93 · 开发 83/93 · 复检 80/93**  
-**当前未收口项目池：总任务 14/27 · 开发 17/27 · 复检 14/27**
+**全城合计：总任务 81/93 · 开发 83/93 · 复检 81/93**  
+**当前未收口项目池：总任务 15/27 · 开发 17/27 · 复检 15/27**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
@@ -32,7 +32,7 @@
 | [UI Civilization](./finished/completed-2026-10-03/README.md) | **5/5** | **5/5** | **5/5** | COMPLETE |
 | [UI × Scheduler Integration](./finished/completed-2026-10-03/README.md) | **3/3** | **3/3** | **3/3** | COMPLETE |
 | [MESH 三端互联](./finished/completed-2026-10-04/README.md) | **1/1** | **1/1** | **1/1** | COMPLETE |
-| [Connection Onboarding](./connection-onboarding/README.md) | **3/4** | **4/4** | **3/4** | CLOSEOUT |
+| [Connection Onboarding](./connection-onboarding/README.md) | **4/4** | **4/4** | **4/4** | COMPLETE |
 | [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **3/4** | **3/4** | **3/4** | ACTIVE |
 | [Capability Entry Closeout](./capability-entry-closeout/README.md) | **5/6** | **6/6** | **5/6** | IN_PROGRESS |
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **2/8** | **2/8** | ACTIVE |
@@ -83,7 +83,6 @@
 
 | ID | 项目 | 状态 | 开发 | 复检 |
 |---|---|---|:---:|:---:|
-| [JOIN-590](./connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | Connection Onboarding | READY | ✅ | — |
 | [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | WAITING_DEPENDENCIES | — | — |
 | [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | IN_PROGRESS | ✅ | — |
 | [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |

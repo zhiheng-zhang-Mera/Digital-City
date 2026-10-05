@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 14,
+      "complete": 15,
       "total": 27
     },
     "tasks": {
-      "complete": 14,
+      "complete": 15,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 80,
+      "complete": 81,
       "total": 93
     },
     "tasks": {
-      "complete": 80,
+      "complete": 81,
       "total": 93
     }
   },
@@ -746,17 +746,17 @@
       "key": "join",
       "name": "Connection Onboarding",
       "readme": "connection-onboarding/README.md",
-      "review_complete": 3,
-      "status": "CLOSEOUT",
-      "task_complete": 3,
+      "review_complete": 4,
+      "status": "COMPLETE",
+      "task_complete": 4,
       "tasks": [
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "JOIN-590",
           "path": "connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md",
-          "review_complete": false,
+          "review_complete": true,
           "status": "READY"
         },
         {
