@@ -27,9 +27,9 @@ capability_registry_sync_status: CANDIDATE_RECONCILED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"]
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "478d486096512eea3266350efe070323a232a120"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 478d486096512eea3266350efe070323a232a120, resolved from refs/heads/cex/CEX-703-Alien-codex-capability-catalog (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. DEPENDENCY, verified rather than assumed: this workbook declares the dependency ASK_TARGETS_CONTRACT_PRESENT and required_ancestor_shas [69a097b5394a9fece39dd11cc13f04c9b4d28bfe]; the reviewer confirmed the ancestor is reachable from the reviewed head (git merge-base --is-ancestor exit 0) and that the ask/targets contract is present AT that ancestor in three places - the gateway route in services/dev-gateway/server.mjs, apps/web/terminal.js and apps/android/.../CityClient.kt - so the dependency is a contract that exists in the accepted line rather than a claim resting on this branch. Claim-time exact-head CI measured before any verdict: V0.2 checks push run 37222683667 completed/success on the reviewed head; PR pull run 37222688854 completed/success on the same head; City linkage check run 37222688771 completed/success (reciprocal-contract)."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
