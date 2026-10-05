@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 14,
+      "complete": 15,
       "total": 27
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 80,
+      "complete": 81,
       "total": 93
     },
     "review": {
@@ -742,7 +742,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 3,
+      "development_complete": 4,
       "key": "join",
       "name": "Connection Onboarding",
       "readme": "connection-onboarding/README.md",
@@ -752,7 +752,7 @@
       "tasks": [
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "JOIN-590",
           "path": "connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md",

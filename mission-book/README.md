@@ -18,8 +18,8 @@
 > 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 
-**全城合计：总任务 72/93 · 开发 80/93 · 复检 72/93**  
-**当前未收口项目池：总任务 6/27 · 开发 14/27 · 复检 6/27**
+**全城合计：总任务 72/93 · 开发 81/93 · 复检 72/93**  
+**当前未收口项目池：总任务 6/27 · 开发 15/27 · 复检 6/27**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
@@ -32,7 +32,7 @@
 | [UI Civilization](./finished/completed-2026-10-03/README.md) | **5/5** | **5/5** | **5/5** | COMPLETE |
 | [UI × Scheduler Integration](./finished/completed-2026-10-03/README.md) | **3/3** | **3/3** | **3/3** | COMPLETE |
 | [MESH 三端互联](./finished/completed-2026-10-04/README.md) | **1/1** | **1/1** | **1/1** | COMPLETE |
-| [Connection Onboarding](./connection-onboarding/README.md) | **3/4** | **3/4** | **3/4** | CLOSEOUT |
+| [Connection Onboarding](./connection-onboarding/README.md) | **3/4** | **4/4** | **3/4** | CLOSEOUT |
 | [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **2/4** | **3/4** | **2/4** | IN_PROGRESS |
 | [Capability Entry Closeout](./capability-entry-closeout/README.md) | **0/6** | **5/6** | **0/6** | IN_PROGRESS |
 | [Research Strengthening](./research-strengthening/README.md) | **1/8** | **2/8** | **1/8** | IN_PROGRESS |
@@ -83,7 +83,7 @@
 
 | ID | 项目 | 状态 | 开发 | 复检 |
 |---|---|---|:---:|:---:|
-| [JOIN-590](./connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | Connection Onboarding | READY | — | — |
+| [JOIN-590](./connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | Connection Onboarding | READY | ✅ | — |
 | [WBC-603](./workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md) | Workbench Compatibility | IN_PROGRESS | ✅ | — |
 | [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | WAITING_DEPENDENCIES | — | — |
 | [CEX-701](./capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md) | Capability Entry Closeout | IN_PROGRESS | ✅ | — |
