@@ -3,7 +3,7 @@ workbook_id: WBC-603
 phase: WORKBENCH_COMPATIBILITY_MIGRATION
 sequence: 603
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -22,8 +22,8 @@ development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37219
 development_complete: true
 review_host: "Mech"
 review_head_sha: "f3510862cc348a99004ca5bd5d151a7b56279724"
-review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, f3510862cc348a99004ca5bd5d151a7b56279724 (commit time 2026-10-05T04:15:31+11:00, 'feat(WBC-603): add dormant pool and canonical headless agent seam'), resolved from refs/heads/wbc/WBC-603-Alien-codex-worker-pool and confirmed NOT an ancestor of origin/main (unreviewed and unmerged, which is the expected state for a review target and is recorded rather than assumed). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author as section 3 requires. DEPENDENCY ACCEPTANCE MEASURED FROM THE WORKBOOKS, NOT FROM THE PROGRAMME README: WBC-601 review_ci = run 37208400707 and WBC-602 review_ci = 'V0.2 checks run 37211820065 COMPLETED SUCCESS on exact d99101fdac5169aad74ae84fb7c0c25be43ad7d9', and this workbook already binds dependency_source_shas to the two ACCEPTED review heads (f66db60998343bf99243621cfcfa2363a4566db8 and d99101fdac5169aad74ae84fb7c0c25be43ad7d9) rather than to the pre-review development heads. The exact-head review CI is re-measured after the review runs and recorded before any verdict."
-review_complete: false
+review_ci: "VERDICT PASS on the reviewed head. Exact-head CI re-measured by the reviewer: V0.2 checks run 37219829411 completed/success on f3510862cc348a99004ca5bd5d151a7b56279724 (gateway-web success, android success); PR22 pull-run 37219861813 success on the same head; reciprocal-contract 37219861825 success. Reviewer instruments: seven independent probes written for this review (tests/wbc603-mech-review-probes.test.mjs) 7/7 pass against a real gateway, plus the author suite unmodified 20/20 pass. One LOW finding recorded (F1: a drain that cannot establish the sharing state leaves the agent draining - fail-closed, but unrecoverable without an explicit resume); it does not block the PASS and is not repaired here. Terminal marker WORKER_POOL_AGENT_SEAM_ACCEPTED released by this review. See reports/WBC-603/REVIEW_REPORT.md."
+review_complete: true
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/WBC-603
