@@ -82,7 +82,27 @@ JOIN_REQUEST belonged to a different entrant (`Alien-Win`), and the phone is att
 Class: **exposure gap between "a surface is connected" and "an installation is enrolled"** — precisely the debt
 CEX-704 (Android native owner onboarding) exists to pay.
 
+### 4.1 Addendum — the pairing exchange was then run end-to-end on the device
+
+A fresh pairing session was minted on the canonical City and consumed from the physical device through the app's
+own **Settings → 配对 → Nearby Cities (LAN)** path. Measured: `pairing/info sessionState=USED`, then
+`/api/v0/device/installations count=0`, then `CLIENT_DISCONNECTED`/`CLIENT_CONNECTED` for `android-PERM00`, and the
+app's private preferences still holding `host/clientRef/cityId/token`.
+
+**I5 — "The action completed" and "the durable state was created" are different facts.** The session was
+genuinely consumed and the surface genuinely reconnected, yet no installation record exists and the client still
+holds a bare token. A verification that stopped at "the pairing succeeded" — the natural, visible success signal —
+would have recorded a passing enrollment that does not exist. Class of defect: **success signals that are true
+about the transaction and false about the state**. Paper angle: completion criteria for onboarding must be read
+from the durable registry, not from the last successful request.
+
+**I6 — Post-restart the surface recovered by itself and told the truth about two hosts.** The Android app
+re-entered the City with no credential entry and its Devices page showed `Alien-PC OFFLINE · Cached (445s)` beside
+`Mega-rep ONLINE (2s)` with a real snapshot time. Recorded because a "both online" display after a restart would
+have been the more flattering and less honest outcome; the platform's staleness handling is visible here.
+
 ## 5. Quantitative evidence
+
 
 ```text
 lan Cities visible from the phone            3 (two on Mech, one on Alien)

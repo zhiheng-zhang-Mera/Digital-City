@@ -139,6 +139,50 @@ City from the device (a pairing session was created for this and is listed in §
 appears in `/api/v0/device/installations`, restart, confirm tokenless reconnect for that installation, and only
 then revoke it and assert that a minted session is refused with `SESSION_UNKNOWN`.
 
+### 4.1 That next step was then attempted, and it sharpened the finding
+
+A fresh pairing session was minted on the canonical City and consumed from the physical device through the app's
+own **Settings → 配对** entry and `Nearby Cities (LAN)` list. Measured outcome:
+
+```text
+pairing/info after the device submitted             sessionState = USED   activeSession = false
+/api/v0/device/installations                        count = 0
+app prefs after the exchange (values redacted)      host, clientRef, cityId, token   <- unchanged shape
+events                                              seq=19 CLIENT_DISCONNECTED android-PERM00
+                                                    seq=20 CLIENT_CONNECTED    android-PERM00
+```
+
+So the exchange **completed** (the session was consumed, and the app dropped and re-established its event stream),
+while the **installation registry stayed empty** and the app kept the bare-token shape in app-private storage.
+Two readings are consistent with this and the report does not pick one without evidence:
+
+* the consumed exchange returned the city credential to a client that already held the token and therefore did not
+  persist a durable installation credential; or
+* the enrollment half of the exchange is reached only by a client that presents an `installation` object, and this
+  app build's pairing path does not.
+
+Either way the acceptance consequence is the same and is recorded plainly: **the "restart without re-entering a
+bare token" requirement is demonstrated for the control surfaces (Web and Android both reconnected with no
+credential entry, §2.4/§2.5), and is NOT yet demonstrated for an enrolled installation, because this City still
+has none.** Gate 3 has nothing to revoke and remains `DEFERRED`. This is exactly the exposure debt that
+`CEX-704` (Android native owner onboarding) exists to pay, and this report is a concrete reproduction for it.
+
+### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
+
+After the restart the Android app was left untouched. Without any user action it re-entered the City
+(`seq=20 CLIENT_CONNECTED android-PERM00`) and its **Devices** page rendered live canonical data:
+
+```text
+Alien-PC   OFFLINE · Cached   Platform: win32 · Agent 0.2.0   Last seen: 445s ago
+Mega-rep   ONLINE             Platform: win32 · Agent 0.2.0   Last seen: 2s ago   (CPU 15.5%, memory 18.9/31.7 GB)
+Last snapshot: 下午12:35:48
+```
+
+That is the workbook's "restart tokenless reconnect" observed from the physical surface, with a truthful
+OFFLINE-vs-ONLINE distinction between the two hosts rather than an optimistic both-online display.
+Evidence: `join590-evidence/28-cur` (UI dump captured while the page was live).
+
+
 ## 5. Capability Exposure Decision (§14A)
 
 ```text
