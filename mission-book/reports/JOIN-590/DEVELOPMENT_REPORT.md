@@ -373,6 +373,71 @@ the canonical City through the API was typed on the handset, submitted, and the 
   joining from Android needs that dial-out path implemented in this app; the mechanism and its payload whitelist
   already exist on the Web layer, so this is a bounded next step rather than new design work.
 
+### 2.11 Cross-network joining from Android over the City relay (requested change)
+
+The Android client can now join a City it cannot be dialled by. The transport is the City's own relay, which
+already existed for the Web layer; this adds the Android dialling client and the join that travels inside it.
+
+```text
+RelayDial.kt    ws(s)://<host>:<port>/api/v0/relay?apiVersion=0&schemaVersion=0&installationId=…&label=…
+                → {"kind":"relay-request","requestId":…,"path":…,"method":"POST","body":…}
+                ← {"type":"RELAY_READY","peerRef":…,"role":…,"verified":…,"payloads":[…]}
+                ← {"requestId":…,"ok":…,"status":…,"response":{"ok":…,"status":…,"payload":…}}
+RelayPairing.kt join/info → join/request → join/status (poll) → join/exchange
+```
+
+**Why approval and not a short code on this path.** The City's relay carries a NAMED route list and it does not
+include the `pairing` family, which is where a typed short code is consumed (`pairing/exchange`). That is the
+City's admission decision, not a client's, so the relay path joins the way the whitelisted routes are designed to —
+ask, wait for the owner's approval, then collect the credential with the claim this device generated. A typed short
+code therefore stays the **DIRECT** path; the relay path's user action is "ask, then wait for approval on the City",
+which needs no credential on this device at all.
+
+**Two defects were found and repaired while doing this:**
+
+**D-D (repaired, measured):** a relay dial carrying **neither** a credential **nor** a declared installation is
+answered `403 Rejected` by the City. A host-side probe pinned the rule precisely:
+
+```text
+dial with no credential, no installationId   -> REFUSED 403
+dial with the owner token                    -> READY  peerRef=control:owner  role=control-token  verified=true
+dial with installationId=android-PERM00      -> READY  peerRef=android-PERM00 role=joining-peer verified=false
+```
+
+So a non-owner joining device MUST declare an installation identity, and declaring it grants no trust: it is
+admitted as `joining-peer, verified:false`. The client now sends it.
+
+**D-E (repaired, measured on the device and then reproduced):** `JSONObject.optString("cityId")` on a JSON `null`
+returns the four-character text `"null"`, not `""`. The first version used `optString(...).takeIf { it.isNotEmpty() }`,
+so the City's `cityId: null` (legitimate: the join record does not repeat the City's own id) was adopted as the
+identity `"null"` and stored. The device then refused its **own** City with `City identity conflict` — the
+correctness check working against a value this client had corrupted. The rule now is that absence stays absent
+whatever JSON spells it as, with a unit-test regression guard (`RelayPairingIdentityTest`) and a repeatable
+host-side acceptance.
+
+**Evidence.**
+
+```text
+device (live)   City event stream: seq 66 RELAY_PEER_CONNECTED {"peerRef":"android-PERM00","role":"joining-peer",
+                "verified":false,"label":"Android · PERM00"} and seq 67 JOIN_REQUEST_CREATED
+                {"shortRef":"join-74d7a2463b","displayName":"Android · PERM00","platform":"android",
+                "installationHint":"android-PERM00","state":"PENDING"}; the phone displayed
+                "Waiting for the owner to approve on the City (join-74d7a2463b)…"
+host (repeatable) tests/join590-relay-acceptance.mjs against the canonical City -> PASS
+                RELAY_READY joining-peer; JOIN_INFO declaredCityId 031fdba6…; JOIN_REQUESTED join-0388eb6f44 PENDING;
+                OWNER_APPROVED 200; JOIN_STATUS approved=true; JOIN_EXCHANGE ok=true credentialPresent=true
+                rawCityId=null (JSON null) -> adoptedCityId=declaredCityId, nullWasNotAdoptedAsText=true
+build           :app:assembleDebug + :app:testDebugUnitTest BUILD SUCCESSFUL (incl. the new regression guard)
+root suite      1247 tests / 1244 pass / 3 fail  (the three pre-existing host-city-launcher environmental failures)
+```
+
+**Head:** `b91677d1478950feb79742f618d0c981773d5bb7`, CI `V0.2 checks 37259528163` success (gateway-web + android).
+
+**What is still not claimed:** the device-side relay run reached the *approval wait* and the owner approval was
+observed on the City, but the device's own post-approval reconnect was not re-verified after the D-E repair
+(after the fix the host-side acceptance covers the identical protocol path). The device is left installed with the
+fixed build so a reviewer can complete that last step by hand in one pass.
+
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
 
 After the restart the Android app was left untouched. Without any user action it re-entered the City
