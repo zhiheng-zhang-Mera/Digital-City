@@ -20,9 +20,9 @@ development_branch: cex/CEX-702-Alien-codex-alternate-device
 development_head_sha: "3d233ff39d1e96b8a590b12f520f98c283356f25"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37213802935"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "3d233ff39d1e96b8a590b12f520f98c283356f25"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 3d233ff39d1e96b8a590b12f520f98c283356f25, resolved from refs/heads/cex/CEX-702-Alien-codex-alternate-device (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. DEPENDENCY, verified rather than assumed: this workbook declares the dependency REMOTE_HANDOFF_CLOSEOUT_REPAIRED and required_ancestor_shas [ec12fd0831f31fd81aef9cd9dfb0c959d010f63b]; the reviewer confirmed UXI-391, the remote handoff closeout, is COMPLETE with review_host Mech and review_complete true, and that ec12fd0831f31fd81aef9cd9dfb0c959d010f63b is reachable from the reviewed head (git merge-base --is-ancestor exit 0). Claim-time exact-head CI measured before any verdict: V0.2 checks push run 37213802935 completed/success on the reviewed head; PR pull run 37213840569 completed/success on the same head; City linkage check run 37213840571 completed/success (reciprocal-contract)."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
