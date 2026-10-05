@@ -95,3 +95,8 @@ The independently reviewed development source was `b91677d1478950feb79742f618d0c
 ## Repair re-review request after physical window 6
 
 Please review Alien-codex product repair source `ec3b6f996240ca71505b3b67af12cc222d1b283a` in draft PR #28 from Mech, independently of the original Mech implementation. Evidence-only candidate is `151c065363e52fb6ba38b0332000a7a3687042c3`; exact source CI 37299383248 SUCCESS. Window6 now records actual Android member enrollment/renewal and Alien Windows enrollment → MEMBER → normal restart → self revoke → refused normal launch, plus phone/Web/City task result agreement. Full narrative and immutable receipts are in REPAIR_REPORT_Alien-codex.md. Do not issue full programme PASS until remaining exposure and merged-main gates pass. Please bind your code-review verdict to exact source/CI and retain any defects.
+
+
+### Follow-up for full repair verdict
+
+Mech supplied the gateway-only verification and actual City restart in reports/PR28-4391-DEPLOYMENT/PR28_FIX_VERIFICATION.md. Please complete review of Android NativeEnrollment, PairingApi/RelayPairing lifecycle, name/code prerequisites, TLS destination handling, CityClient renewal/self leave, and MainActivity credential persistence against product source ec3. Reconcile F-1 with accepted JOIN-502 and CEX-704 review §4.1 (trusted device approval is intentional). Keep scope explicit; provide full-source PASS or structured blocking findings. Physical window7 now independently verifies member recovery after the reported Mech City restart.

@@ -62,3 +62,16 @@ Alien 端已切换修补源码（工作树代码 ec3，证据 head 0ea），启�
 已发现并读取 Mech 同步的 [PR28 常驻部署记录](../PR28-4391-DEPLOYMENT/DEPLOYMENT_RECORD.md)（Digital-City commit ce45c070988bf5626d8b1f99949a89d802d908a9）：报告绑定代码目录 D:/utopia-pr28、SHA `0ea9203d3409a59194675d48d93950c7af9fb92f`、数据 C:/ProgramData/Utopia/host/city、PID 24100→5092、同 City。0ea 与 ec3 的产品代码一致，仅证据文件不同。这是对侧提供的部署测量记录，区别于 Alien 从 public descriptor 直接读取运行 SHA（协议仍不提供此字段）；不是对修补的正式代码复检。该部署重启发生在本次新安装注册之前，仍需注册后的主城重启验证。
 
 手机仍持有 Mech 成员会话时从“更多→配对→LAN”搜索，实际发现 Utopia · Mega-rep、http://172.31.12.151:4391 及正确 City ID。界面保持 ONLINE，没有重新注册；redacted round6-lan-browse.xml 暂存 Utopia .runtime，待主城重启后的补充制品一并固化。Windows 自身撤销后，手机自己的 installation 仍 BOUND、City GET 200；其成员安装只读列表不把无权查看的其它安装当作不存在。
+
+
+## 主城重启后复核与对侧审查范围（2026-10-05）
+
+用户报告 Mech 已重启，Mech 的 PR28_FIX_VERIFICATION.md §6 记录代码 0ea、PID 5092→22248、同数据目录与 City，事件边界 171→175。Alien 随后独立读取实际 City 事件 `172 CITY_STARTED`，并从原手机界面观察 ONLINE、现有 member session City GET 200、同 installation / durable credential，无任何新令牌输入。已完成的 Q-87818c40... 仍 COMPLETED，节点和 SHA256 均保持。之前已撤销的真实 Windows installation 在主城重启后再次 tokenless mint，仍 INSTALLATION_RETIRED / 403。此时才构成注册之后的真实主城进程重启恢复证据；没有用此前部署重启替代。
+
+[第七轮 immutable artifacts + receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/62e9bad92b70af3098da8ce421becf99d8c6d00c/evidence/raw/mission-book/JOIN590-repair/window7)；源代码仍 ec3，62e 是证据增量。自身 CI 尚待终态，不借用 151c 成功。
+
+对侧提供的 [修补复核](../PR28-4391-DEPLOYMENT/PR28_FIX_VERIFICATION.md)（Digital-City 33a04b6）独立确认网关成员不能 mint owner code、durable session 及撤销隔离；它只审两个网关行为，不等于全部 Android 修补的 opposite-host Formal Review。
+
+F-1 “member may approve/reject” 原观测保留，但期望需核对：JOIN-502 已接受的目标就是“existing trusted device decides”；join.mjs:1/260 与 server.mjs 既有 control credential 语义一致。CEX-704 同一 Mech 对侧 review §4.1 明确把“a member session must not decide admissions”作为错误 probe 期望予以纠正。不能因为最新报告把它称为 OWNER-only 就直接改变已接受的信任契约。将其归为 CONTRACT_EXPECTATION_CONFLICT，未实施 OWNER-only 补丁，要求复检方在最终裁决中处理该冲突。如 owner 明确要求收紧审批权，则是需要记录的新权限决策。
+
+剩余：完整 Android 修补对侧复检、Capability Exposure 总门以及 merged-main CI/产品复核；不会把局部 gateway VERIFIED 转成整体 PASS。主城重启子项已由上述新观测验证。
