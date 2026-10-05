@@ -19,6 +19,7 @@
 | `CAP-CITY-MEMBERS-NATIVE-001` | Android 城市与成员管理 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | no | yes | — | `de9185a4ef8d` | F1 MEDIUM recorded and left unrepaired: the shared member projection can report a device a |
 | `CAP-EXECUTION-001` | 标准设备执行后端兼容接口 | COMPLETE | VERIFIED | NOT_APPLICABLE | VERIFIED | INTERNAL_ONLY | no | no | — | `f66db6099834` | none recorded |
 | `CAP-EXPERIMENT-MANIFEST-001` | 实验清单登记与验证 | COMPLETE | VERIFIED | VERIFIED | VERIFIED | DIRECT_CONTROL | yes | no | — | `7e96a4d28f4c` | Android Research surface NOT_RUN; REX807 further control surface |
+| `CAP-HOST-LIFECYCLE-001` | 主机启动模式、随页面存续的城市生命周期与已存储角色 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | yes | no | 启动器 | `a8bce279e114` | 启动时会说明模式，但此后没有任何 Web/Android 界面显示当前城市属于哪种；角色被忽略也只体现在启动器那一行 |
 | `CAP-IDENTITY-001` | 设备身份恢复与冲突提示 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | yes | yes | — | `a24c04401308` | Android connected recovery NOT_RUN; only offline guidance was observed, and the Compose su |
 | `CAP-MON-001` | 全城旁路观察基础 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | no | no | API | `7eb38f1b930d` | Owner/review/CI/escalation absent-source NOT_OBSERVABLE |
 | `CAP-NODE-DESCRIPTOR-001` | 节点角色能力资源描述契约 | COMPLETE | VERIFIED | NOT_APPLICABLE | VERIFIED | INTERNAL_ONLY | no | no | — | `d99101fdac51` | none recorded |
@@ -42,6 +43,7 @@
 - `CAP-CITY-MEMBERS-NATIVE-001`：F1 MEDIUM recorded and left unrepaired: the shared member projection can report a device as connected while its own node record says offline, because members.mjs seeds the primary row with online true and can never correct it. members.mjs is NOT in the CEX-705 diff, so this is a pre-existing defect the new Android surface exposes rather than a regression. F2 LOW (the sharing success notice is unconditional and could mask a 404), F3 INFORMATIONAL (the owner own sharing control depends on the City hostDeviceId matching its node id) and F5/F6 INFORMATIONAL (the development receipt physical_not_run list is stale against PHYSICAL_FOLLOWUP.json, and the mandatory parity-gap count and message latency were left null and supplied by the review) are also recorded
 - `CAP-CITY-MEMBERS-NATIVE-001`：User-appointed primary-agent migration not implemented
 - `CAP-EXPERIMENT-MANIFEST-001`：Android Research surface NOT_RUN; REX807 further control surface
+- `CAP-HOST-LIFECYCLE-001`：没有任何 Web/Android 界面显示当前城市属于哪种启动模式，因此"随页面存续"只在启动时被说明、之后不可观察；intent validation 为 NOT_TESTED，因为没有跑过真实用户会话来确认这段话被理解
 - `CAP-IDENTITY-001`：Android connected recovery NOT_RUN; only offline guidance was observed, and the Compose surface was not rendered on a device by the review
 - `CAP-MON-001`：Owner/review/CI/escalation absent-source NOT_OBSERVABLE
 - `CAP-ONBOARDING-OWNER-001`：System share physical test CLOSED BY REVIEW: the chooser opens normally on OPPO PERM00, so the earlier NOT_RUN_AUTO_APPROVAL_REJECTED is superseded

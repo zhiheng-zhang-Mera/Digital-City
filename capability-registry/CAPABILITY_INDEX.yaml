@@ -85,6 +85,11 @@ records:
     exposure_class: DIRECT_CONTROL
     reconciliation: VERIFIED_BOUNDED_WEB_MANIFEST_WORKFLOW
     last_verified_full_sha: "7e96a4d28f4cb701d7a0951bace69857c3228f32"
+  - capability_id: CAP-HOST-LIFECYCLE-001
+    record_ref: records/CAP-HOST-LIFECYCLE-001.yaml
+    exposure_class: BACKGROUND_DISCLOSED
+    reconciliation: CREATED_BY_OWNER_DIRECTED_CHANGE
+    last_verified_full_sha: "a8bce279e1145f5b480a3a0eb4a74378aeb66d68"
   - capability_id: CAP-IDENTITY-001
     record_ref: records/CAP-IDENTITY-001.yaml
     exposure_class: DIRECT_CONTROL

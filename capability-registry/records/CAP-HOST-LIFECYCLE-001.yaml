@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-HOST-LIFECYCLE-001",
+  "name": {
+    "en": "Host start mode, page-tied City lifecycle, and stored-role persistence",
+    "zh_CN": "主机启动模式、随页面存续的城市生命周期与已存储角色"
+  },
+  "ownership": {
+    "programme": "OWNER_DIRECTED_CHANGE",
+    "canonical_module": "scripts/launcher-plan.mjs + services/dev-gateway"
+  },
+  "source_workbooks": [],
+  "source_reports": [
+    "mission-book/reports/HOST-START-MODES/DEVELOPMENT_REPORT.md"
+  ],
+  "dependencies": [],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "scripts/launcher-plan.mjs",
+      "scripts/utopia-client-launcher.mjs",
+      "services/dev-gateway/main.mjs",
+      "services/dev-gateway/server.mjs",
+      "services/dev-gateway/host-city.mjs",
+      "apps/web/app.js",
+      "scripts/start-city.ps1",
+      "tests/host-standalone-lifecycle.test.mjs",
+      "tests/host-lifecycle-process-e2e.test.mjs",
+      "docs/START_MODES.md"
+    ],
+    "symbols": [
+      "planStart",
+      "followsMembership",
+      "pageTied",
+      "describeStart",
+      "createGateway",
+      "armPageIdleExit",
+      "cancelPageIdleExit",
+      "exitPageLifecycle",
+      "publish"
+    ],
+    "api_or_actions": [
+      "POST /api/v0/host/release",
+      "GET /api/v0/city (snapshot field: lifecycle)",
+      "env CITY_LIFECYCLE = page | service | online",
+      "env CITY_PAGE_IDLE_MS"
+    ],
+    "last_verified_full_sha": "a8bce279e1145f5b480a3a0eb4a74378aeb66d68"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "BACKGROUND_DISCLOSED",
+    "class_reason": "the start mode decides how long a background process lives, which CONSTRUCTION_RULES.md §14A.4 forbids classifying as INTERNAL_ONLY; the person does not press a button to choose it, so it is disclosed rather than driven",
+    "user_visible_information": [
+      "the City endpoint and id at start",
+      "which life the City got: follows this page, keeps running on its own, or online",
+      "that a single-machine start did not use the stored role and that going online is what changes it"
+    ],
+    "user_controls": [
+      "closing the page (the implicit release of a page-tied City)",
+      "choosing the mode at start: default, --host-only, or --online"
+    ],
+    "intentionally_hidden_information": [
+      "the owner credential used by the release call",
+      "the page-idle grace timer implementation"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "launcher start output (human mode), lines after 'City: <endpoint>'",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "evidence_ref": "mission-book/reports/HOST-START-MODES/DEVELOPMENT_REPORT.md"
+    },
+    {
+      "platform": "WEB",
+      "location": "City snapshot / diagnostics (field: lifecycle)",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": false,
+      "evidence_ref": "mission-book/reports/HOST-START-MODES/DEVELOPMENT_REPORT.md"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:evidence/raw/mission-book/HOST-START-MODES/development-receipt.json"
+    ],
+    "reachability_refs": [
+      "utopia:tests/host-standalone-lifecycle.test.mjs (PROBE 8 asserts the exact disclosure words)",
+      "utopia:tests/host-lifecycle-process-e2e.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/commit/473d8e8901c97c0b92f5137ea1b6d70e949a8aee"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "hidden_capability_note": "before this change the start mode was a silent consequence of a detached spawn, and the stored role was consulted and rewritten without any user-visible statement of either fact",
+    "rework_required": false,
+    "registry_reconciliation_result": "CREATED_BY_OWNER_DIRECTED_CHANGE",
+    "paper_material_refs": []
+  },
+  "known_gaps": [
+    "No Web/Android surface renders which start mode a City is in: a page-tied City is disclosed at start but not observable afterwards. Minimal repair boundary: an L3 status row in the City panel plus a one-line notice on the page when city.lifecycle === 'page'.",
+    "intent_validation_status NOT_TESTED: no ordinary-user session was run to check that the disclosure is understood and that closing the page is expected",
+    "--online was verified at plan and process level only; the live enrolment path is covered by the JOIN-590 record",
+    "The three environmental failures in tests/host-city-launcher.test.mjs are pre-existing (the resident City holds coordination port 4389) and were reproduced unchanged at the unmodified baseline"
+  ],
+  "last_reconciled_by": "Mech-DS (owner-directed change, no workbook)"
+}

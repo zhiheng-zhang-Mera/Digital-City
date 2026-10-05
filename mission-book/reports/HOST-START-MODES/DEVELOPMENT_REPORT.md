@@ -8,8 +8,9 @@ IMPLEMENTATION     zhiheng-zhang-Mera/utopia
 CONTROL REPO       zhiheng-zhang-Mera/Digital-City
 BRANCH             mech/standalone-city-lifecycle
 BASE_SHA           d3262ce2dd81e51a53e39e6f9add8dee650a7682
-DEVELOPMENT_HEAD   473d8e8901c97c0b92f5137ea1b6d70e949a8aee
+DEVELOPMENT_HEAD   473d8e8901c97c0b92f5137ea1b6d70e949a8aee (behaviour)
 DOCS_HEAD          4ee0974  (bilingual docs + evidence receipt)
+DISCLOSURE_HEAD    a8bce279e1145f5b480a3a0eb4a74378aeb66d68 (§14A start disclosure + PROBE 8)
 PULL_REQUEST       zhiheng-zhang-Mera/utopia#26
 TERMINAL_MARKER    none — there is no workbook and therefore no marker to release
 REVIEW             not applicable (no workbook); opposite-host review not solicited
@@ -171,11 +172,64 @@ docs/START_MODES.md                       NEW   bilingual statement of the three
 evidence/raw/mission-book/HOST-START-MODES/development-receipt.json  NEW  recorded runs
 ```
 
-## 5. Evidence
+## 5. Capability gates (§14A exposure, §14C registry)
+
+### 5.1 Exposure decision
+
+```text
+QUESTION   should the user drive this capability, or merely know about it?
+CLASS      BACKGROUND_DISCLOSED
+WHY        the start mode decides how long a background process lives. §14A.4 forbids INTERNAL_ONLY for anything that
+           affects long-running background behaviour, and the person does not press a button to pick a mode - they just
+           start their City - so the right answer is disclosure rather than a control.
+NESTING    L2_CONTEXTUAL at the moment of starting (the launcher's own output); the machine-readable fields
+           (mode / lifecycle / roleIgnored in --json, lifecycle in the City snapshot) stay L4 technical detail.
+WIRING     the disclosure is computed from the same plan object that decides the mode, and the City snapshot is the
+           City's own answer - so the words cannot drift from the behaviour.
+```
+
+The disclosure was not an afterthought: without it the change would have been a silent alteration of how long a process
+lives, which is exactly the "capability the user should know about" case §14A exists for. Human mode now prints, after
+the endpoint:
+
+```text
+This City follows this page: closing it closes the City.
+A single-machine start does not use the stored role; going online is what changes the role.
+```
+
+`--json` stays one parseable line and carries the same facts as fields. PROBE 8 asserts these exact words, and asserts
+that a report with no lifecycle (the enrolment path) invents no disclosure it cannot support.
+
+```text
+REACHABILITY GAP (recorded, not papered over)
+no Web/Android surface renders which start mode a City is in. A page-tied City is disclosed at start and then not
+observable; a person who forgot cannot check. Minimal repair boundary: an L3 status row in the City panel, plus a
+one-line notice on the page itself when city.lifecycle === 'page'. Not built here because the owner asked for the
+behaviour, and §14A.6 permits a component-complete change to retain this seam once the decision and the seam are
+recorded. It is recorded as CAP-HOST-LIFECYCLE-001's known gap.
+```
+
+### 5.2 Registry chain update (§14C)
+
+```text
+capability_ids              ["CAP-HOST-LIFECYCLE-001"]  (new, immutable)
+capability_registry_action  CREATE
+record                      capability-registry/records/CAP-HOST-LIFECYCLE-001.yaml
+index / surface index       CAPABILITY_INDEX.yaml + SURFACE_INDEX.yaml updated
+matrices                    CAPABILITY_EXPOSURE_MATRIX.{en,zh-CN}.md updated (bilingual)
+sync status                 CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW
+last_verified_full_sha      a8bce279e1145f5b480a3a0eb4a74378aeb66d68
+four dimensions             implementation COMPLETE / wiring VERIFIED / reachability PARTIAL / intent NOT_TESTED
+```
+
+Registry integrity was checked after the edit: 13 records, no duplicate ids, every `record_ref` resolves, and all three
+files parse as YAML.
+
+## 6. Evidence
 
 ```text
 node --test tests/host-standalone-lifecycle.test.mjs
-  pass 7 / fail 0 / skipped 0 / todo 0 / duration_ms 3593.9936
+  pass 8 / fail 0 / skipped 0 / todo 0 / duration_ms 3602.9581
   PROBE 1  the plan defaults to a page-tied single-machine City; only --online follows a membership
   PROBE 2  closing the last page in page mode closes the City, and says why
   PROBE 3  a reload inside the grace window does NOT close the City
@@ -183,6 +237,7 @@ node --test tests/host-standalone-lifecycle.test.mjs
   PROBE 5  a City that never had a page does not close itself
   PROBE 6  the owner page can release the City explicitly, and only the owner
   PROBE 7  a hosting City ignores the release and never follows a page
+  PROBE 8  the person starting a City is told which life it got, and told why their stored role was ignored
 
 node --test tests/host-lifecycle-process-e2e.test.mjs
   pass 2 / fail 0
@@ -194,7 +249,7 @@ repository checks   check-bilingual SYNCHRONIZED; browser-relay-check 18/18
 regression subset   174 pass / 180; the 3 failures (3x host-city-launcher.test.mjs, relay-s1-tunnel) were reproduced
                     UNCHANGED at the unmodified baseline via git stash -> classified ENVIRONMENT (the resident City
                     holds coordination port 4389), not attributable to this change
-CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks gateway-web + android — see §6
+CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks gateway-web + android — see §7
 ```
 
 Fidelity note, recorded rather than glossed: the process-level E2E spawns its own isolated City and therefore needs
@@ -202,10 +257,10 @@ coordination port 4389 free, and `main.mjs` refuses to start while `findRunningC
 City was stopped for that run and **restored** afterwards (`031fdba6-e94c-4298-a095-6ff04a65481d`,
 `http://172.31.12.151:4391`, coordination 4389 ONLINE, health healthy, rooms READY, capabilities 7, ask/targets 16).
 The probes were not re-run at the docs-only head `4ee0974` because doing so would take the same City down again; no
-code changed between the recorded run and the docs commit, so the code head for every recorded number above is
-`473d8e89`.
+code changed between the recorded run and the docs commit. The disclosure commit `a8bce279e114` re-ran the probe suite
+afterwards (8/8, recorded above) and did not change any behaviour the E2E covers.
 
-## 6. Open items
+## 7. Open items
 
 ```text
 1  No workbook owns this surface -> allocate HOST-1xx (see §1). Until then, changes here are owner-directed and

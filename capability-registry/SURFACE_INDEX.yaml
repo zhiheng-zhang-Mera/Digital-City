@@ -16,6 +16,9 @@ platforms:
       - capability_id: CAP-EXPERIMENT-MANIFEST-001
         location: "Advanced > Research"
         nesting: L3_ADVANCED
+      - capability_id: CAP-HOST-LIFECYCLE-001
+        location: "launcher start output (human mode), after 'City: <endpoint>'"
+        nesting: L2_CONTEXTUAL
       - capability_id: CAP-IDENTITY-001
         location: "Settings > Device identity"
         nesting: L2_CONTEXTUAL
