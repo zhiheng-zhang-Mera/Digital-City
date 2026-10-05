@@ -97,7 +97,12 @@ def planned_changes() -> tuple[list[tuple[pathlib.Path, str]], list[str]]:
     records: dict[str, tuple[pathlib.Path, str, dict[str, Any]]] = {}
     errors: list[str] = []
     for path in MISSION.rglob("*.md"):
-        text = path.read_text(encoding="utf-8")
+        try:
+            text = path.read_text(encoding="utf-8")
+        except UnicodeDecodeError:
+            # Historical/legacy notes may use a local code page and do not
+            # participate in frontmatter dependency propagation.
+            continue
         data = frontmatter(text)
         wid = data.get("workbook_id") or data.get("mission_id")
         if not wid:
