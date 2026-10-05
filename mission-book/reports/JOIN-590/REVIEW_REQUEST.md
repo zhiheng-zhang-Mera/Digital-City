@@ -84,3 +84,9 @@ EXPECTED_CONTRACT / MINIMUM_REPAIR_BOUNDARY / EVIDENCE
 
 and record it as `mission-book/reports/JOIN-590/REVIEW_REPORT_<reviewer>.md` so the workbook's `review_*` fields can
 be bound to your exact head.
+
+## Alien-codex correction / evidence erratum (2026-10-05)
+
+This original request is retained as historical material. Runs 37205444427 / 37205444385 resolve to head `0e9bea3ce739b979e582a428af8fb233045a5e75`, not the d3262ce head claimed above. They cannot establish green CI for d3262ce.
+
+The independently reviewed development source was `b91677d1478950feb79742f618d0c981773d5bb7` (V0.2 37259528163). Alien-codex has now directly repaired the in-scope defects on `ec3b6f996240ca71505b3b67af12cc222d1b283a`, with exact-head V0.2 37299383248 completed SUCCESS. See [REPAIR_REPORT_Alien-codex.md](REPAIR_REPORT_Alien-codex.md). Physical acceptance is still incomplete: the repaired phone refused Mech's actual exchange reply after approval, and the deployed Mech process source remains unverified. Updating the actual server and completing the physical gates are required before a PASS verdict.
