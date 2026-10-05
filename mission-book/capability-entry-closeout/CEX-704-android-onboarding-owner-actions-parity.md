@@ -20,9 +20,9 @@ development_branch: cex/CEX-704-Alien-codex-native-owner-onboarding
 development_head_sha: "d05f5a455ff535e3e065b30ec9ec74bca2dbb521"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37216216410"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "d05f5a455ff535e3e065b30ec9ec74bca2dbb521"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, d05f5a455ff535e3e065b30ec9ec74bca2dbb521, resolved from refs/heads/cex/CEX-704-Alien-codex-native-owner-onboarding (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. DEPENDENCY UNION, verified rather than assumed: this workbook declares dependencies JOIN-501, JOIN-502 and JOIN-503 semantics present and required_ancestor_shas [e925ae1ef4dda6f51d89a1faa025d1b8666d8c58, 86deda9c2990c78d683a8c3515d251022df9d040, 77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f]; the reviewer confirmed all three source workbooks are COMPLETE with review_complete true, and that all three ancestor SHAs are reachable from the reviewed head (git merge-base --is-ancestor exit 0 for each). Claim-time exact-head CI measured before any verdict: V0.2 checks push run 37216216410 completed/success on the reviewed head; PR pull run 37216246024 completed/success on the same head; City linkage check run 37216246022 completed/success (reciprocal-contract)."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
