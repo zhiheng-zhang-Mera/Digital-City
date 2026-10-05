@@ -997,7 +997,7 @@
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
       "review_complete": 1,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 1,
       "tasks": [
         {
@@ -1016,7 +1016,7 @@
           "id": "MON-902",
           "path": "city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,

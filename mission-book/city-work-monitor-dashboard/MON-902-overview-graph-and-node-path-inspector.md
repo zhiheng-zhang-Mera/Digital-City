@@ -3,18 +3,18 @@ workbook_id: MON-902
 phase: CITY_WORK_MONITOR
 sequence: 2
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
-required_ancestor_shas: []
-dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
+required_ancestor_shas: ["7eb38f1b930dfe6cc13dab0e17dedee467b1254b"]
+dependency_source_shas: ["7eb38f1b930dfe6cc13dab0e17dedee467b1254b"]
+development_baseline_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-05): baseline_anchor_mode=DEPENDENCY_SHA_UNION_AT_CLAIM executed literally. Dependency MON-901 accepted exact head read from its workbook frontmatter (development_head_sha == review_head_sha) = 7eb38f1b930dfe6cc13dab0e17dedee467b1254b, which is the reviewed and released MON-901 head. The eligible base refs/heads/main resolved to d3262ce2dd81e51a53e39e6f9add8dee650a7682 and a worktree was created from that full SHA. The union was then constructed with git merge 7eb38f1b930dfe6cc13dab0e17dedee467b1254b, which fast-forwarded: MON-901 is a descendant of main, so the union baseline IS the MON-901 head and contains main rather than diverging from it. Ancestry verified with git merge-base --is-ancestor for the required ancestor and for d3262ce2dd81e51a53e39e6f9add8dee650a7682 -> both ANCESTOR_OK, so no BASELINE_ANCESTRY_MISMATCH. Dependency smoke run BEFORE any MON-902 product modification: node --test tests/mon901-observation.test.mjs -> pass 8 / fail 0 at the union baseline. One instrument failure recorded rather than hidden: the first smoke run failed with ERR_MODULE_NOT_FOUND for the package ws, because a fresh worktree has no node_modules; after npm ci the same command passed 8/8, so the failure was an environment-setup artefact, not a dependency defect. Development worktree: D:/utopia-mon902 on branch mon/MON-902-mech-overview-graph."
 dependencies: ["MON-901"]
-development_host: null
-development_branch: null
+development_host: "Mech"
+development_branch: "mon/MON-902-mech-overview-graph"
 development_head_sha: null
 development_ci: null
 development_complete: false
