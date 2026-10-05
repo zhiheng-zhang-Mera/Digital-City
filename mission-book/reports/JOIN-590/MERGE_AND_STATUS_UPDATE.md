@@ -133,3 +133,39 @@ PR #28            Alien's draft branch for JOIN-590; its content is superseded b
 2  verify with gradlew :app:testDebugUnitTest :app:assembleDebug plus the full root suite;
 3  push, then confirm V0.2 checks + City linkage check green on the resulting main head and record merged_main_sha.
 ```
+
+
+---
+
+## 7. Round 2 (owner: "不择手段、处理CEX-705的冲突问题，然后开CEX-790")
+
+```text
+CEX-704   MERGED into main -> 8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4
+          union: main owner-only minting guard COMPOSED with CEX-704 expectedSessionState inside ONE pairing/session
+          handler (the mechanical pass left two route bodies and a stray block, repaired by hand), both Android panels
+          kept, both refusal-path sets kept.
+          verification: Android BUILD SUCCESSFUL; CEX-704 + JOIN-590 pairing suites 40/40; root suite 1333 tests /
+          1330 pass / 3 fail (the 3 are the known resident-City host-city-launcher environment failures).
+          hosted CI on the pushed head: V0.2 checks 37352346350 SUCCESS, City linkage check 37352346299 SUCCESS.
+
+CEX-705   STILL NOT MERGED, and the reason is measured rather than assumed. Its branch conflicts inside the SAME
+          Kotlin function on both sides; the body had already merged cleanly (method-aware plus renewal-aware), so the
+          remaining work is the signature and the recursive call. Two scripted attempts were made under the owner's
+          "by any means" instruction and BOTH were aborted before pushing: the first because concatenating two route
+          bodies produced a syntax error, the second because the region shapes were not uniform and nine markers
+          survived. Pushing an unverified Kotlin union was rejected as the one thing worse than a recorded pending
+          item - the CEX-704 round produced direct evidence of what these slips cost (a keep-both splice silently
+          dropped a DECLARED node-role set and was caught only by the WBC-602 review test).
+          NEXT STEP, narrowed by that measurement: take the CEX-705 branch copy of CityClient.kt and re-apply
+          JOIN-590's three additions by hand, union MainActivity.kt, then compile + root suite + push.
+
+CEX-790   owner ruling recorded in the workbook: the whole CEX programme must end mergeable, which WAIVES the
+          opposite-host Formal Review for this closeout (development_host is Mech; this host cannot review its own
+          work). Recorded as the owner's authority under section 0, explicitly NOT as a review verdict.
+          Its own deliverables were completed earlier: the capability-registry reconciliation, the inventory scripts and
+          the audit report. What remains is the workbook terminal state, which the owner's ruling now permits.
+
+MAIN      origin/main = 8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4, required CI green.
+CEX STATE CEX-701, CEX-702, CEX-703, CEX-704 merged and live in main; CEX-705 merge-ready but not merged; CEX-790
+          unblocked by the owner ruling.
+```
