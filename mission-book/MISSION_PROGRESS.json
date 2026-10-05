@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 8,
+      "complete": 9,
       "total": 27
     },
     "tasks": {
-      "complete": 8,
+      "complete": 9,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 74,
+      "complete": 75,
       "total": 93
     },
     "tasks": {
-      "complete": 74,
+      "complete": 75,
       "total": 93
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
-      "review_complete": 1,
-      "status": "IN_PROGRESS",
-      "task_complete": 1,
+      "review_complete": 2,
+      "status": "ACTIVE",
+      "task_complete": 2,
       "tasks": [
         {
           "complete": true,
@@ -925,13 +925,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-802",
           "path": "research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
