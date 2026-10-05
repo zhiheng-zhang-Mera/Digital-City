@@ -81,20 +81,26 @@
     "reachability_refs": [
       "utopia:evidence/raw/mission-book/CEX-702/development-receipt.json"
     ],
-    "intent_validation_refs": []
+    "intent_validation_refs": [
+      "mission-book/reports/CEX-702/REVIEW_REPORT.md"
+    ],
+    "review_refs": [
+      "utopia:tests/cex702-mech-review-probes.test.mjs",
+      "mission-book/reports/CEX-702/REVIEW_REPORT.md"
+    ]
   },
   "research_observations": {
     "hidden_capability_detected": true,
     "false_affordance_detected": true,
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
       "mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
-    "Android online interaction NOT_RUN",
-    "Opposite physical-host Formal Review pending",
+    "Android online interaction NOT_RUN; the Compose surface was not rendered on a device or emulator by the review, and online_click and physical_devices_campaign remain NOT_RUN in the development receipt",
+    "Opposite physical-host Formal Review PASSED on 3d233ff39d1e96b8a590b12f520f98c283356f25 (Mech, MEGA-REP); findings F1 LOW (the mandatory handoff latency was recorded as NOT_OBSERVABLE although the author's own fixture could measure it; the review measured it instead - 13 ms click to handoff, 598 ms click to result, 4 ms canonical decline to handoff on one physical host), F2 INFORMATIONAL (a presentation.mjs comment still argues that this City keeps no per-node disable state, directly above the line that now reads sharingEnabled), F3 INFORMATIONAL (Web and Android fall back differently when a service ref does not resolve) and F4 INFORMATIONAL (the Android in-flight guard can latch if the client closes mid-request) recorded; none is repaired here",
     "No City primary-agent appointment or migration"
   ],
   "last_reconciled_by_workbook": "CEX-702"
