@@ -138,3 +138,5 @@ Alien-codex opposite-host reacceptance at fixed b91677d1478950feb79742f618d0c981
 Physical Android follow-up: PHYSICAL_REACCEPTANCE_Alien-codex.md binds fixed b91677d source to isolated-package APK 78e28b95..., records signature mismatch/harness failed attempt, confirms actual blank-code relay gating and real Mech approval wait, and preserves post-approval/reconnect/revoke as unverified. Same-LAN reachability is not cross-region/NAT evidence.
 
 Window2: PHYSICAL_WINDOW2_Alien-codex.md preserves real request join-eab97ea241, bounded absence of saved credential, uncommanded mdns trial change and late retry under changed trial identity. Cause unverified; no successful post-approval/reconnect/revoke claim. Raw redacted UI and native boundary evidence retained.
+
+Window3 approval success, native application restart reconnect and one-task phone/Web/canonical id/state/hash/seq comparison are captured in PHYSICAL_WINDOW3_Alien-codex.md. Retain all incomplete member enrollment/revoke/NAT gates. Raw UI/traces moved to Utopia bounded evidence commit ddf7e1aa0d0978f80bf1357306378c8595fe58f7 under PROCESS_DATA_POLICY; source b91677d remains the software identity.
