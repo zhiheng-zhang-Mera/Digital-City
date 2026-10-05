@@ -99,7 +99,7 @@ install/start headless node agent
 |---|---|---|---|
 | [WBC-601](./WBC-601-execution-backend-contract-and-standard-default.md) | Execution Backend Contract + Standard Default | READY | 把当前执行路径包成长期 STANDARD_DEVICES backend；第一阶段不改变调度结果 |
 | [WBC-602](./WBC-602-node-role-capability-resource-descriptor.md) | Node Role / Capability / Resource Descriptor | READY | 增加向后兼容的节点/资源描述；旧 Windows 节点无需新字段也能运行 |
-| [WBC-603](./WBC-603-worker-pool-and-headless-node-agent-seam.md) | Worker Pool + Headless Node Agent Seam | WAITING_DEPENDENCIES | 建立 dormant Worker Pool backend / agent contract；无真实工作台依赖 |
+| [WBC-603](./WBC-603-worker-pool-and-headless-node-agent-seam.md) | Worker Pool + Headless Node Agent Seam | COMPLETE | 建立 dormant Worker Pool backend / agent contract；无真实工作台依赖 |
 | [WBC-604](./WBC-604-execution-profile-switch-and-hybrid-routing.md) | Execution Profile Switch + Hybrid Routing | WAITING_DEPENDENCIES | 固化 STANDARD / WORKER_POOL / HYBRID 切换与 readiness/fallback 语义 |
 
 WBC-601 与 WBC-602 可由两台主机并行 Development。WBC-603/604 的实际代码 baseline 使用 `DEPENDENCY_SHA_UNION_AT_CLAIM`：前置 workbook accepted 后读取 full SHA，先组成 exact union baseline，再施工；不得从缺少依赖代码的 main 直接开始。
