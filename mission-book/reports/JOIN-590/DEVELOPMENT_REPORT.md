@@ -310,20 +310,30 @@ session-mint half is **not** claimed as working.
 Build/verification for this change:
 
 ```text
-:app:assembleDebug + :app:testDebugUnitTest   BUILD SUCCESSFUL (22 s / 21 s)
+:app:assembleDebug + :app:testDebugUnitTest   BUILD SUCCESSFUL (22 s / 21 s / 17 s / 13 s across iterations)
 device install                                Push Install Success; app runs, no crash
-five buttons render in one row               VERIFIED on PERM00 (UI dump: texts QR/LAN/BLE/CODE/TOKEN on one
-                                             36 dp line at the same y)
+five buttons render in one row               VERIFIED on PERM00 (UI dump: QR/LAN/BLE/CODE/TOKEN all on one
+                                             34 dp line at the same y; screenshot 92-five-row-v2.png)
 CODE reachable and wired                     VERIFIED (tap produces the request and a typed error message)
 session mint                                 NOT VERIFIED (D-B above)
 ```
+
+**D-C (OPEN, cosmetic, not a layout bug): the leading `Q` of the first label renders clipped in a device
+screenshot** (the preview reads `OR` while the accessibility tree reports exactly `QR`). Two layout causes were
+eliminated by measurement rather than by guessing: the button is ~73 dp wide (1080 px row minus 46 px margins
+minus four 2 dp gaps, divided by five) and the label at `labelSmall` needs ~24 dp, and Material's
+`ButtonDefaults.MinWidth = 58.dp` was released with `defaultMinSize(minWidth = 0.dp)` — after which the clipping
+was unchanged. The remaining suspect is the ROM's own font rendering (the same frame renders the other four
+labels intact), so this is recorded as a cosmetic handset artifact with the measurement that rules the layout
+out, rather than "fixed". A reviewer on another handset can settle it in one screenshot.
 
 Branch and head for this change (a product-code change, so the acceptance target is no longer the bare baseline):
 
 ```text
 branch  join/JOIN-590-merged-main-physical-acceptance
-head    8b97e72931c57ceb993f37307f012bd61f67fa22
-CI      V0.2 checks run 37255816279 on that head — see the workbook frontmatter for the conclusion
+head    8b97e72931c57ceb993f37307f012bd61f67fa22  (five-row change; CI V0.2 checks run 37255816279 success)
+note    the D-C iteration (zero content padding + defaultMinSize + 2 dp gaps) is committed on top of that head;
+        its own exact head and CI are recorded in the workbook frontmatter once pushed
 ```
 
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
