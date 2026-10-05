@@ -2,7 +2,7 @@ schema_version: 1
 registry_status: BOOTSTRAP_ACTIVE
 canonical_scope: digital-city-capability-inventory
 last_reconciled_at: "2026-10-05"
-last_reconciled_city_sha: pending-amend-with-the-commit-that-carries-this-reconciliation
+last_reconciled_city_sha: "d85c809ce388ecef37ece7a4ac643c325a76875c"
 final_audit: mission-book/reports/CEX-790/DEVELOPMENT_REPORT.md
 final_audit_baseline: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
 
