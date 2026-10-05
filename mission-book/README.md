@@ -77,16 +77,16 @@
 
 | ID | 项目 | 状态 | 开发 | 复检 |
 |---|---|---|:---:|:---:|
-| [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | WAITING_DEPENDENCIES | — | — |
+| [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | READY | — | — |
 | [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | IN_PROGRESS | ✅ | — |
-| [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
-| [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
+| [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | READY | — | — |
+| [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | READY | — | — |
 | [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [MON-902](./city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md) | City Work Monitor | IN_PROGRESS | ✅ | — |
-| [MON-903](./city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md) | City Work Monitor | WAITING_DEPENDENCIES | — | — |
+| [MON-903](./city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md) | City Work Monitor | READY | — | — |
 | [MON-990](./city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md) | City Work Monitor | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
 

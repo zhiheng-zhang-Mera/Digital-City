@@ -9,12 +9,14 @@ on:
       - "mission-book/PROGRESS_MANIFEST.json"
       - "mission-book/MISSION_PROGRESS.json"
       - "mission-book/tools/sync_mission_progress.py"
+      - "mission-book/tools/sync_dependency_state.py"
   push:
     branches: [main]
     paths:
       - "mission-book/**/*.md"
       - "mission-book/PROGRESS_MANIFEST.json"
       - "mission-book/tools/sync_mission_progress.py"
+      - "mission-book/tools/sync_dependency_state.py"
 
 permissions:
   contents: write
@@ -35,6 +37,14 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Check dependency propagation on PR
+        if: github.event_name == 'pull_request'
+        run: python mission-book/tools/sync_dependency_state.py --check
+
+      - name: Reconcile dependency propagation on main
+        if: github.event_name != 'pull_request'
+        run: python mission-book/tools/sync_dependency_state.py
+
       - name: Regenerate Mission Book progress
         run: python mission-book/tools/sync_mission_progress.py
 
@@ -53,13 +63,13 @@ jobs:
         if: github.event_name != 'pull_request'
         shell: bash
         run: |
-          if git diff --quiet -- mission-book/README.md mission-book/MISSION_PROGRESS.json; then
-            echo "Mission Book progress already synchronized."
+          if git diff --quiet -- mission-book; then
+            echo "Mission Book dependency state and progress already synchronized."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add mission-book/README.md mission-book/MISSION_PROGRESS.json
+          git add mission-book
           git commit -m "sync(mission-book): refresh generated progress"
           git pull --rebase origin main
           git push origin HEAD:main

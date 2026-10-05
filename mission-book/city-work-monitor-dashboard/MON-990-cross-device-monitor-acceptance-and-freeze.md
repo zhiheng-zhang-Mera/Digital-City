@@ -46,6 +46,8 @@ decision_trace_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-990
+dependency_source_workbooks: ["MON-902","MON-903"]
+baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
 ---
 
 # MON-990 — Cross-Device Monitor Acceptance & Freeze

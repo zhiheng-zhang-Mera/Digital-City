@@ -238,9 +238,9 @@ DASHBOARD_BECOMES_SECOND_TASK_TRUTH
 
 | ID | 工作 | 状态 |
 |---|---|---|
-| [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | READY |
-| [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | WAITING_MON_901 |
-| [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | WAITING_MON_901 |
+| [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | COMPLETE |
+| [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | IN_PROGRESS |
+| [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | READY |
 | [MON-990](./MON-990-cross-device-monitor-acceptance-and-freeze.md) | Cross-device acceptance + reality reconciliation + freeze | WAITING_MON_902_903 |
 
 MON-902 与 MON-903 在 MON-901 accepted 后可由不同主机并行。

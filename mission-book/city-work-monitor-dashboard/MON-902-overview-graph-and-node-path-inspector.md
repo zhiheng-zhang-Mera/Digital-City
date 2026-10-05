@@ -46,6 +46,7 @@ decision_trace_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-902
+dependency_source_workbooks: ["MON-901"]
 ---
 
 # MON-902 — Overview Graph + Node / Path Inspector

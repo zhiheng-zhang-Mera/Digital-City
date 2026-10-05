@@ -3,13 +3,13 @@ workbook_id: MON-903
 phase: CITY_WORK_MONITOR
 sequence: 3
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: READY
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: []
-dependency_source_shas: []
+dependency_source_shas: ["7eb38f1b930dfe6cc13dab0e17dedee467b1254b"]
 development_baseline_sha: null
 baseline_resolution_evidence: null
 dependencies: ["MON-901"]
@@ -46,6 +46,8 @@ decision_trace_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-903
+dependency_source_workbooks: ["MON-901"]
+baseline_blocker: null
 ---
 
 # MON-903 — Event-Triggered Decision Overlay

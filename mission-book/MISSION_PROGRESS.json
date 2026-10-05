@@ -833,7 +833,7 @@
           "id": "WBC-604",
           "path": "workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         }
       ],
       "total": 4
@@ -940,7 +940,7 @@
           "id": "REX-803",
           "path": "research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         },
         {
           "complete": false,
@@ -949,7 +949,7 @@
           "id": "REX-804",
           "path": "research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         },
         {
           "complete": false,
@@ -1025,7 +1025,7 @@
           "id": "MON-903",
           "path": "city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         },
         {
           "complete": false,

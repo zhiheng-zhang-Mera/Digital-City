@@ -258,6 +258,14 @@ claim 时必须对每一个 SHA 验证 ancestry。
 - `required_ancestor_shas` 不得填 branch 名、伪 SHA 或猜测值；
 - upstream 一旦 accepted，先回填其 exact SHA，再解锁 claim。
 
+依赖传播的控制面规则：
+
+- `DEPENDENCY_SHA_UNION_AT_CLAIM` 工作书必须显式声明 `dependency_source_workbooks`，或在 `dependencies` 中使用可唯一解析的 workbook ID；
+- accepted dependency SHA 统一取该前置工作书正式释放的 `review_head_sha`（历史 Correction / Verification 工作书取其对应 accepted exact head），不得混用 branch 名或仅凭 programme README；
+- 未 claim 且仅因 `DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE` 等待的工作书，在全部前置 accepted 后必须自动回填 `dependency_source_shas`、清除该 blocker，并从 `WAITING_DEPENDENCIES` 转为 `READY`；
+- 已写入 `development_baseline_sha` 的工作书不得由自动同步器重写其已冻结 dependency provenance；任何不一致必须作为显式 reconciliation 处理；
+- 控制仓库使用 `mission-book/tools/sync_dependency_state.py` 做上述传播；Mission progress 生成必须在依赖状态同步之后运行。
+
 ### 2A.6 Review / CI 同样不认 branch
 
 Formal Review 必须验证：
