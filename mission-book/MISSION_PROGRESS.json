@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 13,
+      "complete": 14,
       "total": 27
     },
     "tasks": {
-      "complete": 13,
+      "complete": 14,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 79,
+      "complete": 80,
       "total": 93
     },
     "tasks": {
-      "complete": 79,
+      "complete": 80,
       "total": 93
     }
   },
@@ -844,9 +844,9 @@
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
-      "review_complete": 4,
-      "status": "IN_PROGRESS",
-      "task_complete": 4,
+      "review_complete": 5,
+      "status": "ACTIVE",
+      "task_complete": 5,
       "tasks": [
         {
           "complete": true,
@@ -885,13 +885,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-705",
           "path": "capability-entry-closeout/CEX-705-android-member-device-management-parity.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
