@@ -20,9 +20,9 @@ development_branch: wbc/WBC-603-Alien-codex-worker-pool
 development_head_sha: "f3510862cc348a99004ca5bd5d151a7b56279724"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37219829411"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "f3510862cc348a99004ca5bd5d151a7b56279724"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, f3510862cc348a99004ca5bd5d151a7b56279724 (commit time 2026-10-05T04:15:31+11:00, 'feat(WBC-603): add dormant pool and canonical headless agent seam'), resolved from refs/heads/wbc/WBC-603-Alien-codex-worker-pool and confirmed NOT an ancestor of origin/main (unreviewed and unmerged, which is the expected state for a review target and is recorded rather than assumed). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author as section 3 requires. DEPENDENCY ACCEPTANCE MEASURED FROM THE WORKBOOKS, NOT FROM THE PROGRAMME README: WBC-601 review_ci = run 37208400707 and WBC-602 review_ci = 'V0.2 checks run 37211820065 COMPLETED SUCCESS on exact d99101fdac5169aad74ae84fb7c0c25be43ad7d9', and this workbook already binds dependency_source_shas to the two ACCEPTED review heads (f66db60998343bf99243621cfcfa2363a4566db8 and d99101fdac5169aad74ae84fb7c0c25be43ad7d9) rather than to the pre-review development heads. The exact-head review CI is re-measured after the review runs and recorded before any verdict."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
