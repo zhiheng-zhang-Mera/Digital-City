@@ -1,30 +1,77 @@
 schema_version: 1
-status: BOOTSTRAP_ACTIVE
+status: FINAL_AUDIT_RECONCILED
+last_reconciled_at: "2026-10-05"
+final_audit_baseline: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
 
 platforms:
   WEB:
     status: ACTIVE
-    surfaces: []
-  WINDOWS:
-    status: PLANNED_OR_EMBEDDED
-    surfaces: []
+    surfaces:
+      - capability_id: CAP-ASK-001
+        location: "Ask bar > View all capabilities > Ask/Do catalog"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-CAPABILITY-BRIDGE-001
+        location: "Advanced > Services"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-EXPERIMENT-MANIFEST-001
+        location: "Advanced > Research"
+        nesting: L3_ADVANCED
+      - capability_id: CAP-IDENTITY-001
+        location: "Settings > Device identity"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-RESEARCH-TRACE-001
+        location: "Advanced > Research trace"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-SCHEDULER-CHOICE-001
+        location: "Devices > scheduling task > Keep this service and use another device"
+        nesting: L2_CONTEXTUAL
   ANDROID:
     status: ACTIVE
-    surfaces: []
+    surfaces:
+      - capability_id: CAP-ASK-001
+        location: "Ask > 查看全部能力"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-CAPABILITY-BRIDGE-001
+        location: "More > 能力服务"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-CITY-MEMBERS-NATIVE-001
+        location: "Devices / More > Settings"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-IDENTITY-001
+        location: "More > Settings > Device recovery"
+        nesting: L3_ADVANCED
+      - capability_id: CAP-ONBOARDING-OWNER-001
+        location: "More > 配对 > connected City invitation/admission panel"
+        nesting: L2_CONTEXTUAL
+      - capability_id: CAP-RESEARCH-TRACE-001
+        location: "More > Research trace"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-SCHEDULER-CHOICE-001
+        location: "Devices > scheduling task > Keep this service and use another device"
+        nesting: L2_CONTEXTUAL
+  WINDOWS:
+    status: PLANNED_OR_EMBEDDED
+    surfaces:
+      []
   IOS:
     status: FUTURE
-    surfaces: []
+    surfaces:
+      []
   MACOS:
     status: FUTURE
-    surfaces: []
+    surfaces:
+      []
   LINUX:
     status: FUTURE
-    surfaces: []
+    surfaces:
+      []
   HARMONYOS:
     status: FUTURE
-    surfaces: []
+    surfaces:
+      []
 
 rules:
   - "Every non-INTERNAL_ONLY capability must map to at least one user-observable surface or carry an explicit gap."
   - "Surface locations are navigation aids, not proof; verified records require exact-head UI/E2E evidence."
   - "Do not fabricate parity for platforms that are not yet implemented."
+  - "Populated by the CEX-790 final audit from each record's own surfaces array; an empty list here means no record claims that platform."

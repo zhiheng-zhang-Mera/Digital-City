@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-CAPABILITY-BRIDGE-001",
+  "name": {
+    "en": "Capability catalog and invocation surface",
+    "zh_CN": "能力目录与调用入口"
+  },
+  "ownership": {
+    "programme": "CAPABILITY_ENTRY_CLOSEOUT",
+    "canonical_module": "services/capability-bridge"
+  },
+  "source_workbooks": [
+    "CEX-790"
+  ],
+  "dependencies": [],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/capability-bridge/bridge.mjs",
+      "services/capability-bridge/invocation-store.mjs",
+      "services/dev-gateway/server.mjs",
+      "apps/web/services.js",
+      "apps/android/app/src/main/java/city/utopia/control/ServicesPanel.kt"
+    ],
+    "symbols": [
+      "createBridge",
+      "bridge.registry",
+      "bridge.invoke"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/capabilities",
+      "GET /api/v0/capabilities/:id",
+      "POST /api/v0/capabilities/:id/invoke",
+      "GET /api/v0/capability-invocations",
+      "GET /api/v0/capability-invocations/:id"
+    ],
+    "last_verified_full_sha": "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "capability catalogue with availability",
+      "invocation result and status",
+      "invocation history"
+    ],
+    "user_controls": [
+      "list capabilities",
+      "invoke a capability operation",
+      "read an invocation result"
+    ],
+    "intentionally_hidden_information": [
+      "internal adapter wiring",
+      "credentials"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Services",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "evidence_ref": "mission-book/reports/CEX-790/DEVELOPMENT_REPORT.md"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > 能力服务",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "evidence_ref": "mission-book/reports/CEX-790/DEVELOPMENT_REPORT.md"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:evidence/raw/mission-book/CEX-790/capability-inventory.json"
+    ],
+    "reachability_refs": [
+      "utopia:evidence/raw/mission-book/CEX-790/CAPABILITY_ENTRY_INVENTORY.md"
+    ],
+    "intent_validation_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": true,
+    "rework_required": false,
+    "registry_reconciliation_result": "FINAL_AUDIT_BACKFILLED",
+    "paper_material_refs": [
+      "mission-book/reports/CEX-790/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "No end-to-end intent validation was performed by this backfill; the surfaces were inventoried, not exercised",
+    "Android reachability PARTIAL: the Services panel exists but was not driven on a device by this audit",
+    "The audit that created this record read the code at the dependency union baseline, not at main"
+  ],
+  "last_reconciled_by_workbook": "CEX-790"
+}

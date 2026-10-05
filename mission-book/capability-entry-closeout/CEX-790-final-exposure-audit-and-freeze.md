@@ -17,20 +17,37 @@ baseline_blocker: null
 dependencies: ["CEX-701:DEVICE_RECOVERY_ENTRY_ACCEPTED", "CEX-702:ALTERNATE_DEVICE_USER_CHOICE_EXPOSED", "CEX-703:CAPABILITY_CATALOG_DISCOVERABLE", "CEX-704:ANDROID_ONBOARDING_OWNER_ACTIONS_PARITY_ACCEPTED", "CEX-705:ANDROID_MEMBER_DEVICE_MANAGEMENT_PARITY_ACCEPTED"]
 development_host: "Mech"
 development_branch: "cex/CEX-790-mech-final-audit"
-development_head_sha: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
-development_ci: "CLAIM-TIME: no exact-head CI exists yet for this union; the union was validated locally on the claiming host (five task suites 12/12, join/pairing/enrollment/gateway set 154/154, check-bilingual SYNCHRONIZED, Android assembleDebug BUILD SUCCESSFUL with 18 suites / 97 tests / 0 failures) and the exact-head cloud CI will be recorded by DEVELOPMENT_CI before development_complete"
-development_complete: false
+development_head_sha: "04ecb7dd22ffd7296e00320b63681f7d9729181d"
+development_ci: "DEVELOPMENT CI (Mech host, 2026-10-05): union baseline run 37278820414 V0.2 checks push completed/success on 5c7d46dcbf1b01259b5edaf574b620714beb40b7; evidence head run 37280731460 V0.2 checks push completed/success on 04ecb7dd22ffd7296e00320b63681f7d9729181d with both jobs (android, gateway-web) success. Local validation on the union before that: five task suites 12/12, join/pairing/enrollment/gateway regression set 154/154, check-bilingual SYNCHRONIZED, and :app:testDebugUnitTest :app:assembleDebug BUILD SUCCESSFUL with 18 suites / 97 tests / 0 failures."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
-capability_ids: []
+capability_ids: ["CAP-CAPABILITY-BRIDGE-001"]
 capability_registry_action: BACKFILL
 capability_registry_refs: ["../../capability-registry/CAPABILITY_INDEX.yaml"]
-capability_registry_sync_status: PENDING
+capability_registry_sync_status: RECONCILED
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/CEX-790
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/CEX-790/PAPER_MATERIAL_INDEX.md","mission-book/reports/CEX-PROGRAMME/PAPER_MATERIAL_SYNTHESIS.md"]
+research_watchlist_hits: ["RS-G3-IDENTITY-PROVENANCE","RS-G3-INDEPENDENT-REVIEW-BOUNDARY","RS-G3-REGISTRY-ONBOARDING","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/CEX-790/DEVELOPMENT_REPORT.md"]
+monitor_observability_evidence: NOT_APPLICABLE
+monitor_observability_refs: []
+decision_trace_evidence: NOT_APPLICABLE
+decision_trace_refs: []
+user_exposure_class: INTERNAL_ONLY
+user_exposure_surface: null
+user_exposure_nesting: null
+backend_wiring: NOT_APPLICABLE
+ui_exemption_reason: "CEX-790 is an audit and freeze task: it rebuilds the entry inventory from the code and reconciles the Capability Registry. It adds no user-visible capability and no new user action - every surface it audits already belongs to CEX-701..705 and stays the user-facing entry. There is therefore no user action or awareness it must add, which is the only condition under which INTERNAL_ONLY is allowed."
 terminal_marker: CAPABILITY_ENTRY_BASELINE_AUDITED
 ---
 

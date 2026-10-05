@@ -1,8 +1,10 @@
 schema_version: 1
 registry_status: BOOTSTRAP_ACTIVE
 canonical_scope: digital-city-capability-inventory
-last_reconciled_at: null
-last_reconciled_city_sha: null
+last_reconciled_at: "2026-10-05"
+last_reconciled_city_sha: pending-amend-with-the-commit-that-carries-this-reconciliation
+final_audit: mission-book/reports/CEX-790/DEVELOPMENT_REPORT.md
+final_audit_baseline: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
 
 authority:
   mission_execution_truth: mission-book
@@ -11,7 +13,7 @@ authority:
   runtime_truth: observed runtime / UI / E2E evidence
 
 bootstrap:
-  legacy_backfill_status: PENDING
+  legacy_backfill_status: RECONCILED_AT_FINAL_AUDIT
   seed_sources:
     - mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md
   final_bootstrap_gate:
@@ -19,6 +21,10 @@ bootstrap:
   policy: >-
     Existing capabilities may remain LEGACY_BACKFILL_PENDING until verified.
     Any workbook that touches one must backfill/reconcile that capability record.
+  final_audit_note: >-
+    CEX-790 rebuilt the entry inventory from the code at the dependency union baseline and reconciled it against these
+    records. The audit found one reality mismatch (CAP-WORKER-POOL-AGENT-001 still claiming a pending Formal Review
+    after WBC-603 passed) and one unnamed user-facing surface (the capability bridge), both resolved here.
 
 id_policy:
   prefix: CAP
@@ -54,35 +60,63 @@ exposure_classes:
   - INTERNAL_ONLY
 
 records:
-  - capability_id: CAP-IDENTITY-001
-    record_ref: records/CAP-IDENTITY-001.yaml
-
   - capability_id: CAP-ASK-001
     record_ref: records/CAP-ASK-001.yaml
-
-  - capability_id: CAP-EXECUTION-001
-    record_ref: records/CAP-EXECUTION-001.yaml
-
-  - capability_id: CAP-RESEARCH-TRACE-001
-    record_ref: records/CAP-RESEARCH-TRACE-001.yaml
-
-  - capability_id: CAP-NODE-DESCRIPTOR-001
-    record_ref: records/CAP-NODE-DESCRIPTOR-001.yaml
-
-  - capability_id: CAP-SCHEDULER-CHOICE-001
-    record_ref: records/CAP-SCHEDULER-CHOICE-001.yaml
-
-  - capability_id: CAP-ONBOARDING-OWNER-001
-    record_ref: records/CAP-ONBOARDING-OWNER-001.yaml
-
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "478d486096512eea3266350efe070323a232a120"
+  - capability_id: CAP-CAPABILITY-BRIDGE-001
+    record_ref: records/CAP-CAPABILITY-BRIDGE-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FINAL_AUDIT_BACKFILLED
+    last_verified_full_sha: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
   - capability_id: CAP-CITY-MEMBERS-NATIVE-001
     record_ref: records/CAP-CITY-MEMBERS-NATIVE-001.yaml
-
-  - capability_id: CAP-WORKER-POOL-AGENT-001
-    record_ref: records/CAP-WORKER-POOL-AGENT-001.yaml
-
-  - capability_id: CAP-MON-001
-    record_ref: records/CAP-MON-001.yaml
-
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "de9185a4ef8d761053c88316ec9efeca037239fb"
+  - capability_id: CAP-EXECUTION-001
+    record_ref: records/CAP-EXECUTION-001.yaml
+    exposure_class: INTERNAL_ONLY
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "f66db60998343bf99243621cfcfa2363a4566db8"
   - capability_id: CAP-EXPERIMENT-MANIFEST-001
     record_ref: records/CAP-EXPERIMENT-MANIFEST-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: VERIFIED_BOUNDED_WEB_MANIFEST_WORKFLOW
+    last_verified_full_sha: "7e96a4d28f4cb701d7a0951bace69857c3228f32"
+  - capability_id: CAP-IDENTITY-001
+    record_ref: records/CAP-IDENTITY-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "a24c04401308b11548626239e8ca1f9b4276bbdf"
+  - capability_id: CAP-MON-001
+    record_ref: records/CAP-MON-001.yaml
+    exposure_class: BACKGROUND_DISCLOSED
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
+  - capability_id: CAP-NODE-DESCRIPTOR-001
+    record_ref: records/CAP-NODE-DESCRIPTOR-001.yaml
+    exposure_class: INTERNAL_ONLY
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "d99101fdac5169aad74ae84fb7c0c25be43ad7d9"
+  - capability_id: CAP-ONBOARDING-OWNER-001
+    record_ref: records/CAP-ONBOARDING-OWNER-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "d05f5a455ff535e3e065b30ec9ec74bca2dbb521"
+  - capability_id: CAP-RESEARCH-TRACE-001
+    record_ref: records/CAP-RESEARCH-TRACE-001.yaml
+    exposure_class: OBSERVABLE_ADVANCED
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "833279cae237080cca88b1b6dbc9f217027ba68f"
+  - capability_id: CAP-SCHEDULER-CHOICE-001
+    record_ref: records/CAP-SCHEDULER-CHOICE-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "3d233ff39d1e96b8a590b12f520f98c283356f25"
+  - capability_id: CAP-WORKER-POOL-AGENT-001
+    record_ref: records/CAP-WORKER-POOL-AGENT-001.yaml
+    exposure_class: INTERNAL_ONLY
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "f3510862cc348a99004ca5bd5d151a7b56279724"
