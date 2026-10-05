@@ -55,3 +55,10 @@ Alien 端已切换修补源码（工作树代码 ec3，证据 head 0ea），启�
 [第六轮不可变原始证据与 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/151c065363e52fb6ba38b0332000a7a3687042c3/evidence/raw/mission-book/JOIN590-repair/window6)，16 项安全制品；软件 SHA ec3 与 evidence SHA 151c 分开。41e 的 CI 已独立完成 SUCCESS：[37301659943](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37301659943)。新 151c 自身 CI 当前待终态，不转用旧成功。
 
 这些观测完成修补源码上的实际 Windows 入网、member 进程重启、自身撤销/拒绝及跨面 demo。仍待 Mech 主城真实进程重启、其准确运行源码确认、对 Alien 修补的 opposite-host Formal Review、完整 Capability Exposure Gate 和 merged-main post-closeout。两端 NAT 不可直达问题仍未实现，不将当前 /16 LAN 端点说成跨地域实测。review_complete 仍为 false。
+
+
+补充复核：第六轮 evidence head `151c065363e52fb6ba38b0332000a7a3687042c3` 的 V0.2 [37303827480](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37303827480) 已读回 completed/success、headSha 精确匹配；City linkage 37303827505 亦 completed/success。不能用此前的 pending 表述作为当前 CI 状态。
+
+已发现并读取 Mech 同步的 [PR28 常驻部署记录](../PR28-4391-DEPLOYMENT/DEPLOYMENT_RECORD.md)（Digital-City commit ce45c070988bf5626d8b1f99949a89d802d908a9）：报告绑定代码目录 D:/utopia-pr28、SHA `0ea9203d3409a59194675d48d93950c7af9fb92f`、数据 C:/ProgramData/Utopia/host/city、PID 24100→5092、同 City。0ea 与 ec3 的产品代码一致，仅证据文件不同。这是对侧提供的部署测量记录，区别于 Alien 从 public descriptor 直接读取运行 SHA（协议仍不提供此字段）；不是对修补的正式代码复检。该部署重启发生在本次新安装注册之前，仍需注册后的主城重启验证。
+
+手机仍持有 Mech 成员会话时从“更多→配对→LAN”搜索，实际发现 Utopia · Mega-rep、http://172.31.12.151:4391 及正确 City ID。界面保持 ONLINE，没有重新注册；redacted round6-lan-browse.xml 暂存 Utopia .runtime，待主城重启后的补充制品一并固化。Windows 自身撤销后，手机自己的 installation 仍 BOUND、City GET 200；其成员安装只读列表不把无权查看的其它安装当作不存在。
