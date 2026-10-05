@@ -18,8 +18,8 @@
 > 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 
-**全城合计：总任务 80/93 · 开发 82/93 · 复检 80/93**  
-**当前未收口项目池：总任务 14/27 · 开发 16/27 · 复检 14/27**
+**全城合计：总任务 80/93 · 开发 83/93 · 复检 80/93**  
+**当前未收口项目池：总任务 14/27 · 开发 17/27 · 复检 14/27**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
@@ -36,7 +36,7 @@
 | [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **3/4** | **3/4** | **3/4** | ACTIVE |
 | [Capability Entry Closeout](./capability-entry-closeout/README.md) | **5/6** | **6/6** | **5/6** | IN_PROGRESS |
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **2/8** | **2/8** | ACTIVE |
-| [City Work Monitor](./city-work-monitor-dashboard/README.md) | **1/4** | **1/4** | **1/4** | IN_PROGRESS |
+| [City Work Monitor](./city-work-monitor-dashboard/README.md) | **1/4** | **2/4** | **1/4** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
 机器可读镜像：[MISSION_PROGRESS.json](./MISSION_PROGRESS.json)。
@@ -92,7 +92,7 @@
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
-| [MON-902](./city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md) | City Work Monitor | IN_PROGRESS | — | — |
+| [MON-902](./city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md) | City Work Monitor | IN_PROGRESS | ✅ | — |
 | [MON-903](./city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md) | City Work Monitor | WAITING_DEPENDENCIES | — | — |
 | [MON-990](./city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md) | City Work Monitor | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |

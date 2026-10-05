@@ -15,9 +15,9 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 dependencies: ["MON-901"]
 development_host: "Mech"
 development_branch: "mon/MON-902-mech-overview-graph"
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "5460697cfde5d807f022698a0411b040634a458b"
+development_ci: "V0.2 checks run 37290746745 COMPLETED SUCCESS on headSha 5460697cfde5d807f022698a0411b040634a458b (jobs: gateway-web success, android success), read from the Actions API and matched on headSha; City linkage check run 37290746628 success on the same head. Both the push and the pull_request runs of V0.2 checks are green at this head. Earlier product head on this branch: 6bb19f3e842774eff98cccf30fb01a8784953f22 (run 37290149947 success). The head carries the browser-rendered UI evidence (tests/web.test.mjs) in addition to the projection and surface probes."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -25,22 +25,22 @@ review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor
 user_exposure_nesting: L1_PRIMARY
-backend_wiring: UNASSESSED
+backend_wiring: "VERIFIED end to end against the real gateway route. tests/mon902-monitor-panel.test.mjs creates a real canonical task through POST /api/v0/tasks, reads GET /api/v0/monitor/graph from the real gateway, asserts the graph describes that task, and renders THAT payload; it also asserts an unknown edge type filters to nothing, an unbounded collapse is refused with 400, and the route answers 401 without a credential. tests/web.test.mjs renders the page in a real Chromium and opens the inspector from a row."
 ui_exemption_reason: null
 capability_ids: ["CAP-MON-002"]
 capability_registry_action: CREATE
-capability_registry_refs: []
-capability_registry_sync_status: PENDING
+capability_registry_refs: ["capability-registry/records/CAP-MON-002.yaml"]
+capability_registry_sync_status: CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW
 research_evidence_applicability: APPLICABLE
-long_horizon_context_evidence: UNASSESSED
-research_evidence_refs: []
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md"]
 research_watchlist_hits: []
-highest_research_grade_observed: NONE
+highest_research_grade_observed: G3_SPARSE_ACTIVE
 research_capture_level: MAXIMUM_BOUNDED
-state_identity_evidence: UNASSESSED
-state_identity_evidence_refs: []
-monitor_observability_evidence: UNASSESSED
-monitor_observability_refs: []
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/MON-902/CLAIM_RECORD.md", "mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md"]
+monitor_observability_evidence: CAPTURED
+monitor_observability_refs: ["mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md", "mission-book/reports/MON-902/DEVELOPMENT_REPORT.md"]
 decision_trace_evidence: NOT_APPLICABLE
 decision_trace_refs: []
 owner_gate: NONE

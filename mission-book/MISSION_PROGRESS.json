@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 16,
+      "complete": 17,
       "total": 27
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 82,
+      "complete": 83,
       "total": 93
     },
     "review": {
@@ -992,7 +992,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 1,
+      "development_complete": 2,
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
@@ -1011,7 +1011,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "MON-902",
           "path": "city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md",
