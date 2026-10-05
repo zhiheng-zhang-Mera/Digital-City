@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 15,
+      "complete": 16,
       "total": 27
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 81,
+      "complete": 82,
       "total": 93
     },
     "review": {
@@ -840,7 +840,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 5,
+      "development_complete": 6,
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
@@ -895,7 +895,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-790",
           "path": "capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",

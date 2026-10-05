@@ -18,8 +18,8 @@
 > 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 
-**全城合计：总任务 80/93 · 开发 81/93 · 复检 80/93**  
-**当前未收口项目池：总任务 14/27 · 开发 15/27 · 复检 14/27**
+**全城合计：总任务 80/93 · 开发 82/93 · 复检 80/93**  
+**当前未收口项目池：总任务 14/27 · 开发 16/27 · 复检 14/27**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
@@ -34,7 +34,7 @@
 | [MESH 三端互联](./finished/completed-2026-10-04/README.md) | **1/1** | **1/1** | **1/1** | COMPLETE |
 | [Connection Onboarding](./connection-onboarding/README.md) | **3/4** | **4/4** | **3/4** | CLOSEOUT |
 | [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **3/4** | **3/4** | **3/4** | ACTIVE |
-| [Capability Entry Closeout](./capability-entry-closeout/README.md) | **5/6** | **5/6** | **5/6** | IN_PROGRESS |
+| [Capability Entry Closeout](./capability-entry-closeout/README.md) | **5/6** | **6/6** | **5/6** | IN_PROGRESS |
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **2/8** | **2/8** | ACTIVE |
 | [City Work Monitor](./city-work-monitor-dashboard/README.md) | **1/4** | **1/4** | **1/4** | ACTIVE |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
@@ -85,7 +85,7 @@
 |---|---|---|:---:|:---:|
 | [JOIN-590](./connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | Connection Onboarding | READY | ✅ | — |
 | [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | WAITING_DEPENDENCIES | — | — |
-| [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | IN_PROGRESS | — | — |
+| [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | IN_PROGRESS | ✅ | — |
 | [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
