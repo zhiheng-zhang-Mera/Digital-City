@@ -13,6 +13,7 @@ DOCS_HEAD          4ee0974  (bilingual docs + evidence receipt)
 DISCLOSURE_HEAD    a8bce279e1145f5b480a3a0eb4a74378aeb66d68 (§14A start disclosure + PROBE 8)
 CI_REPAIR_HEAD     4b2e701  (City-process acceptance moved out of the parallel suite)
 CI_REPAIR2_HEAD    7444974e8f4c2fb5571154d18c76d9d035bc51fb (membership rule redrawn after CI caught a real regression)
+FINAL_HEAD         b1157f3c3dec08976efe61fd7421efbce34ae727 (V0.2 checks green on push and pull_request)
 PULL_REQUEST       zhiheng-zhang-Mera/utopia#26
 TERMINAL_MARKER    none — there is no workbook and therefore no marker to release
 REVIEW             not applicable (no workbook); opposite-host review not solicited
@@ -251,8 +252,9 @@ repository checks   check-bilingual SYNCHRONIZED; browser-relay-check 18/18
 regression subset   174 pass / 180; the 3 failures (3x host-city-launcher.test.mjs, relay-s1-tunnel) were reproduced
                     UNCHANGED at the unmodified baseline via git stash -> classified ENVIRONMENT (the resident City
                     holds coordination port 4389), not attributable to this change
-CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks — see §7 for the red run this change
-                    caused and its repair. The acceptance re-verification of the repaired head is CI run on 4b2e701.
+CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks — see §7 for the three red runs this
+                    change caused and their repairs, and §7.4 for the green final head b1157f3c3dec (push run
+                    37292415979 and pull_request run 37292420548).
 ```
 
 Fidelity note, recorded rather than glossed: the process-level E2E spawns its own isolated City and therefore needs
@@ -351,7 +353,40 @@ REPAIR          the predicate moved out of main.mjs into services/dev-gateway/ho
                 real member agent whose City is unreachable and asserts it never reserves this host as a PRIMARY City,
                 never prints 'Utopia Host listening', and never opens the host's City port.
 CI_REPAIR3_HEAD 16f4854  (member-agent rule + docs; the rule's own commit is 6276b64)
+FINAL_HEAD      b1157f3c3dec08976efe61fd7421efbce34ae727
+FINAL CI        V0.2 checks 37292415979 (push) and 37292420548 (pull_request) -> COMPLETED SUCCESS on b1157f3c3dec08976efe61fd7421efbce34ae727
+                City linkage check 37292420610 -> success on the same head
 ```
+
+### 7.4 The fourth step, and the green head
+
+The refined rule separates the four cases in `selectMemberFile()`, and PROBE 12 pins each one:
+
+```text
+1  CITy_MEMBER_FILE present                 -> the member agent file, always (online by construction)
+2  stored selection role=MEMBER, credential -> FOLLOWED, even on a plain start: this host is resuming a membership it
+   present                                    already holds (the accepted restart contract)
+3  stored selection role=MEMBER, credential -> REFUSED with 'Selected member credential unavailable; no PRIMARY fallback
+   gone                                        started'. It may never quietly become a PRIMARY City in its place.
+4  leftover enrollment, NO stored selection -> NOT followed on a plain start (this is the defect the owner reported:
+                                               enrolling once diverted every later ordinary start); followed only
+                                               when the start is online
+```
+
+`tests/host-city-launcher.test.mjs:120` (`assert.equal(owned?.role,'MEMBER')` after a normal `main.mjs` restart) is the
+accepted test that forced case 2 to be kept, and it is the reason this report does not claim that "a single-machine start
+ignores the role" in the broad sense I first implemented: what it ignores is the *leftover enrollment* diversion, and
+what it never does is *write* the role. That is the precise reading of the owner's instruction that survives contact
+with the accepted contracts, and the CI result confirms it end to end:
+
+```text
+b1157f3  V0.2 checks: push SUCCESS, pull_request SUCCESS  (1257 tests, the 3 known host-city-launcher tests pass here
+         because the runner has the host to itself)  + City linkage check SUCCESS
+```
+
+For completeness: the transient `web-v02.test.mjs` failure (`RECONNECTING` vs `OFFLINE`) seen on head `6276b64`
+disappeared at `b1157f3` with no change to that file. It was a cascade of the still-broken launcher test leaving a City
+behind, not an independent defect; it is recorded here so the earlier red run is not left unexplained.
 
 The rule was written down in two files before it became a module with its own probe. A predicate that decides whether a
 process becomes a City or a client of one should never have been inline in a 110-line startup script, and it has now
