@@ -3,7 +3,7 @@ workbook_id: REX-802
 phase: RESEARCH_STRENGTHENING
 sequence: 802
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
@@ -22,8 +22,8 @@ development_ci: "V0.2 checks run 37211053490 COMPLETED SUCCESS on exact 833279ca
 development_complete: true
 review_host: "Mech"
 review_head_sha: "833279cae237080cca88b1b6dbc9f217027ba68f"
-review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 833279cae237080cca88b1b6dbc9f217027ba68f, resolved from refs/heads/rex/REX-802-Alien-codex-trace-foundation (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. The workbook declares no dependencies and no dependency_source_workbooks, so no dependency union needs re-verifying, but it does declare required_ancestor_shas [69a097b5394a9fece39dd11cc13f04c9b4d28bfe]; the reviewer verified that ancestor is reachable from the reviewed head (git merge-base --is-ancestor exit 0) rather than assuming it. Claim-time exact-head CI, re-measured by the reviewer before any verdict: V0.2 checks push run 37211053490 completed/success on the reviewed head (jobs android success, gateway-web success); PR17 pull run 37211470934 completed/success; City linkage check pull run 37211470918 completed/success (reciprocal-contract pass). Review scope to be independently manufactured per the workbook Review section: missing, duplicate and out-of-order events, a stale clock, restart, a partial trace and collector failure, plus proof that collector failure does not drag down Utopia product operation."
-review_complete: false
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 833279cae237080cca88b1b6dbc9f217027ba68f, resolved from refs/heads/rex/REX-802-Alien-codex-trace-foundation (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. The workbook declares no dependencies and no dependency_source_workbooks, so no dependency union needs re-verifying, but it does declare required_ancestor_shas [69a097b5394a9fece39dd11cc13f04c9b4d28bfe]; the reviewer verified that ancestor is reachable from the reviewed head (git merge-base --is-ancestor exit 0) rather than assuming it. Claim-time exact-head CI, re-measured by the reviewer before any verdict: V0.2 checks push run 37211053490 completed/success on the reviewed head (jobs android success, gateway-web success); PR17 pull run 37211470934 completed/success; City linkage check pull run 37211470918 completed/success (reciprocal-contract pass). Review scope to be independently manufactured per the workbook Review section: missing, duplicate and out-of-order events, a stale clock, restart, a partial trace and collector failure, plus proof that collector failure does not drag down Utopia product operation. || VERDICT PASS on the reviewed head. Exact-head CI re-measured by the reviewer: V0.2 checks push run 37211053490 completed/success on 833279cae237080cca88b1b6dbc9f217027ba68f (jobs android success, gateway-web success); PR17 pull run 37211470934 completed/success on the same head; City linkage check run 37211470918 completed/success (reciprocal-contract). Reviewer instruments: eleven independent probes written for this review (utopia tests/rex802-mech-review-probes.test.mjs 8/8 and tests/rex802-mech-review-web.test.mjs 3/3, branch review/REX-802-mech-review at f94967e) which MANUFACTURE the seven conditions this workbook demands - missing, duplicate and out-of-order events, a stale clock, restart, partial trace and collector failure - plus a storage whose load and append never settle, proving the collector cannot slow or block real City work. Author suite rerun unmodified 12/12 + 6/6. Android executed here: :app:testDebugUnitTest 83/83 on 15 suites and :app:assembleDebug SUCCESS (app-debug.apk 10500445 bytes; the byte count matches the author receipt but the SHA-256 does not, and no hermetic-build claim is made). Repo gates executed here: check-bilingual SYNCHRONIZED and browser-relay 18/18. Four findings recorded, none blocking: F1 LOW (completeness is a constant PARTIAL for every recording the Gateway can produce while a bare empty collector reads COMPLETE, so the field is inverted relative to usefulness and its reason is only legible inside folded raw JSON), F2 LOW (after a restart the snapshot run id over-claims a window that still holds the previous epoch run id), F3 LOW control plane (eight template fields were absent, including all four capability fields, while CAP-RESEARCH-TRACE-001 already existed; backfilled from the verified record by this review), F4 LOW test fidelity (the Android unit tests substitute org.json:json for android.jar, whose optString null semantics differ from the device, so the load-bearing 'null' guards are correct but uncovered). Failure classification is stated in section 5 of the report, including three environmental and two flake failures that also occur at the baseline or in isolation. Terminal marker RESEARCH_TRACE_FOUNDATION_ACCEPTED released by this review. See reports/REX-802/REVIEW_REPORT.md."
+review_complete: true
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md"]
@@ -40,6 +40,14 @@ ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/REX-802
+capability_ids: ["CAP-RESEARCH-TRACE-001"]
+capability_registry_action: CREATE
+capability_registry_refs: ["capability-registry/records/CAP-RESEARCH-TRACE-001.yaml"]
+capability_registry_sync_status: RECONCILED
+monitor_observability_evidence: NOT_APPLICABLE
+monitor_observability_refs: []
+decision_trace_evidence: NOT_APPLICABLE
+decision_trace_refs: []
 terminal_marker: RESEARCH_TRACE_FOUNDATION_ACCEPTED
 ---
 
@@ -173,3 +181,17 @@ raw ids 可折叠到 Technical Details。
 ## 完成门槛
 
 trace schema + collector + normalized view + user observability + review/CI/material index 全部满足。
+
+## 复核结论（Mech，对侧物理主机）
+
+Formal Review PASS，详见 `mission-book/reports/REX-802/REVIEW_REPORT.md`。十一项独立探针逐条人为制造本工作书
+Review 章节要求的 missing / duplicate / out-of-order / stale clock / restart / partial trace / collector failure，
+并额外用"永不返回"的存储证明采集器不构成产品执行屏障；作者测试套件未经修改地重跑。四项发现均不阻塞且未修复：
+F1（LOW）`completeness` 对网关能产生的一切记录恒为 PARTIAL，而空采集器反而报 COMPLETE，且其成因只存在于折叠的
+原始 JSON；F2（LOW）重启后快照 runId 覆盖了仍含上一 epoch 记录的窗口；F3（LOW，控制面）工作书原有八项模板字段
+缺失（含全部四项 capability 字段），而 `CAP-RESEARCH-TRACE-001` 已存在，由本次复核依已核记录回填并对账为
+`FORMAL_REVIEW_RECONCILED`；F4（LOW，测试保真度）Android 单测以 `org.json:json` 替换 android.jar，二者对 JSON null
+的 `optString` 语义不同，故设备侧真正起作用的 `"null"` 守卫正确但未被测试覆盖。一项委派仪器以"测试用 jar"为据
+得出该守卫为死代码的结论，已按 INVALID_INSTRUMENT 记录（对已发布应用不成立）。全量回归失败项已在报告中逐项分类：
+三项为环境性、一项在基线同样失败、一项为负载敏感抖动、两项归因于复核方浏览器带来的套件组成负载。本轮未渲染任何
+实体设备界面、未观测 experiment/provider/model/autonomy，不作性能声明；Android 在线渲染仍为 NOT_RUN。
