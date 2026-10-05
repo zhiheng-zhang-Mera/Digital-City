@@ -332,6 +332,52 @@ CI_REPAIR2_HEAD 7444974e8f4c2fb5571154d18c76d9d035bc51fb
 Both defects were found by the required hosted CI and by nothing else, which is the argument for §8's rule that local
 green is not evidence: on this host, the branch that broke could not fail.
 
+### 7.2 A third defect CI caught: the member agent was no longer an online start
+
+The second repair removed two failures but not the same two. Reading the remaining failure precisely showed a deeper
+cause than the launcher:
+
+```text
+OBSERVED        run 37290526406 (gateway-web): 1254 pass / 2 fail, the same two launcher tests
+                ✖ … "without launching a host City"  -> EBUSY on the member's own city.sqlite
+                ✖ … "Requires a free local host reservation"  (cascade)
+CAUSE           main.mjs derived "this is an online start" from CITY_LIFECYCLE==='online' alone. The launcher spawns a
+                MEMBER AGENT with CITY_MEMBER_FILE and NO declared lifecycle, so the member agent took the host path and
+                came up as a PRIMARY City of its own - a host City started where the caller had deliberately asked for
+                none, which is literally the assertion in the failing test's own name.
+REPAIR          the predicate moved out of main.mjs into services/dev-gateway/host-lifecycle.mjs as
+                resolveLifecycle(env), where ONLINE = declared 'online' OR a member agent, and where it can be tested
+                without spawning a process. PROBE 10 pins the rule; E2E 3 (in the host-owning acceptance file) spawns a
+                real member agent whose City is unreachable and asserts it never reserves this host as a PRIMARY City,
+                never prints 'Utopia Host listening', and never opens the host's City port.
+CI_REPAIR3_HEAD 16f4854  (member-agent rule + docs; the rule's own commit is 6276b64)
+```
+
+The rule was written down in two files before it became a module with its own probe. A predicate that decides whether a
+process becomes a City or a client of one should never have been inline in a 110-line startup script, and it has now
+hidden a regression twice.
+
+### 7.3 A real defect found while pinning E2E 3, recorded and deliberately NOT repaired
+
+```text
+OBSERVED        spawning main.mjs while another City runs on this host, with a non-default CITY_COORDINATION_PORT, makes
+                the process print 'Another City is already running on this host: …' and then ABORT with exit code
+                0xC0000409 (STATUS_STACK_BUFFER_OVERRUN) after a libuv assertion:
+                "Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\\win\\async.c, line 76"
+BASE COMPARISON the same spawn against the MON-901 head tree (which has no CITY_COORDINATION_PORT) exits 0 printing
+                'Utopia Gateway already reserved on this host: …'. So the abort is in main.mjs's refusal path
+                ('Another City is already running'), not in the reservation path this change touched: the new
+                CITY_COORDINATION_PORT test seam made an existing path reachable, which is how it was found.
+CLASSIFICATION  latent, pre-existing defect in startup refusal; outside the owner's request and outside the behaviour
+                this change owns. §8 forbids widening a repair beyond the observed defect and §9 forbids defensive
+                expansion, so it is recorded rather than fixed.
+CONSEQUENCE     E2E 3 asserts the invariant it is about (what the member agent refused to become) and records the exit
+                code instead of asserting one; and it still skips when a City already holds this host, which is the only
+                condition that reaches the aborting path.
+RECOMMENDATION  give the refusal path a workbook of its own (or fold it into the HOST-1xx workbook recommended in §1):
+                a second City must be refused with the documented exit and a closed reservation, not with a libuv abort.
+```
+
 ## 8. Open items
 
 ```text
