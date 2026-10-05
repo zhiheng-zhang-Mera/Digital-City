@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 12,
+      "complete": 13,
       "total": 27
     },
     "tasks": {
-      "complete": 12,
+      "complete": 13,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 78,
+      "complete": 79,
       "total": 93
     },
     "tasks": {
-      "complete": 78,
+      "complete": 79,
       "total": 93
     }
   },
@@ -844,9 +844,9 @@
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
-      "review_complete": 3,
+      "review_complete": 4,
       "status": "IN_PROGRESS",
-      "task_complete": 3,
+      "task_complete": 4,
       "tasks": [
         {
           "complete": true,
@@ -876,13 +876,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-704",
           "path": "capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
