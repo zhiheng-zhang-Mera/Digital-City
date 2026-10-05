@@ -22,6 +22,9 @@ platforms:
       - capability_id: CAP-IDENTITY-001
         location: "Settings > Device identity"
         nesting: L2_CONTEXTUAL
+      - capability_id: CAP-MON-002
+        location: "Primary navigation > City monitor"
+        nesting: L1_PRIMARY
       - capability_id: CAP-RESEARCH-TRACE-001
         location: "Advanced > Research trace"
         nesting: L4_TECHNICAL

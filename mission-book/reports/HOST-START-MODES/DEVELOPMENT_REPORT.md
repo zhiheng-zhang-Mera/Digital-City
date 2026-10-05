@@ -12,6 +12,7 @@ DEVELOPMENT_HEAD   473d8e8901c97c0b92f5137ea1b6d70e949a8aee (behaviour)
 DOCS_HEAD          4ee0974  (bilingual docs + evidence receipt)
 DISCLOSURE_HEAD    a8bce279e1145f5b480a3a0eb4a74378aeb66d68 (§14A start disclosure + PROBE 8)
 CI_REPAIR_HEAD     4b2e701  (City-process acceptance moved out of the parallel suite)
+CI_REPAIR2_HEAD    7444974e8f4c2fb5571154d18c76d9d035bc51fb (membership rule redrawn after CI caught a real regression)
 PULL_REQUEST       zhiheng-zhang-Mera/utopia#26
 TERMINAL_MARKER    none — there is no workbook and therefore no marker to release
 REVIEW             not applicable (no workbook); opposite-host review not solicited
@@ -295,6 +296,41 @@ REPAIR          the acceptance moves to tests/acceptance/ (outside the tests/*.t
 This is recorded rather than quietly fixed because it is the exact failure mode the rules warn about: a change that
 passes locally (where the resident City made the new acceptance *skip* and the launcher tests fail for a different,
 known reason) while breaking hosted CI.
+
+### 7.1 A second defect CI caught: the role rule was drawn one step too wide
+
+The first repair made the acceptance serialise, and CI went from 3 failures to 2 — but still red. The two that
+remained were **not** the environment's:
+
+```text
+OBSERVED        run 37288968499 (gateway-web): 1253 pass / 2 fail, both in tests/host-city-launcher.test.mjs
+                ✖ remote short code enrolls with a local member agent and reconnects without launching a host City
+                    EBUSY: resource busy or locked, unlink '…/.scratch-remote-launch-…/unused-host/city/city.sqlite'
+                ✖ PRIMARY launcher reports successful MEMBER transition and normal main restart preserves it
+                    Error: Requires a free local host reservation     (a cascade: the leaked City from the test above)
+CAUSE           I had gated the stored-membership path in scripts/utopia-client-launcher.mjs on followsMembership(plan),
+                which is true only for --online. A plain `--port` start by a host that is ALREADY a member of a City
+                therefore stopped reconnecting to that City and instead launched a SECOND City in the member's own state
+                directory - which is exactly what that accepted test forbids, and which then held city.sqlite open so the
+                next test could not reserve the host either. JOIN-503's accepted contract, not the environment.
+WHY LOCAL MISSED IT
+                the same test file fails on this host for an unrelated reason (the resident City holds coordination port
+                4389), so a local run could never distinguish my regression from the known environmental failure. This is
+                the cost of reviewing development on the machine that is running the product, and it is recorded here as
+                a failure of my own verification, not of the environment.
+REPAIR          the rule was redrawn in scripts/launcher-plan.mjs where it can be tested without a City:
+                planStart() now carries `hosting`, and mayFollowStoredMembership(plan) is false ONLY for an explicit
+                hosting start (--host-only / scripts/start-city.ps1). Any other start may RECONNECT to a membership
+                still on disk, because that host is already a member and pointing at that City is what being online
+                means for it; only an online start WRITES role.json (persistRole:false elsewhere, unchanged); and a
+                membership that cannot be honoured still refuses honestly rather than becoming a different City.
+                PROBE 9 pins the rule, and the launcher's report now says roleIgnored from the fact of whether a stored
+                role was actually followed, instead of from a plan predicate.
+CI_REPAIR2_HEAD 7444974e8f4c2fb5571154d18c76d9d035bc51fb
+```
+
+Both defects were found by the required hosted CI and by nothing else, which is the argument for §8's rule that local
+green is not evidence: on this host, the branch that broke could not fail.
 
 ## 8. Open items
 

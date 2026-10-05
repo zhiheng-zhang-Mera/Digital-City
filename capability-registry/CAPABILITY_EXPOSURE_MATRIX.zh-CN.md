@@ -22,6 +22,7 @@
 | `CAP-HOST-LIFECYCLE-001` | 主机启动模式、随页面存续的城市生命周期与已存储角色 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | yes | no | 启动器 | `a8bce279e114` | 启动时会说明模式，但此后没有任何 Web/Android 界面显示当前城市属于哪种；角色被忽略也只体现在启动器那一行 |
 | `CAP-IDENTITY-001` | 设备身份恢复与冲突提示 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | yes | yes | — | `a24c04401308` | Android connected recovery NOT_RUN; only offline guidance was observed, and the Compose su |
 | `CAP-MON-001` | 全城旁路观察基础 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | no | no | API | `7eb38f1b930d` | Owner/review/CI/escalation absent-source NOT_OBSERVABLE |
+| `CAP-MON-002` | 全城工作监视器总览图与节点/路径检查器 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | no | — | `6bb19f3e8427` | Android 端有意延后（Compose 图应一次性写就，并与 MON-903 决策叠加层一起做）；Owner-required 只能部分观察，界面每次都如实说明 |
 | `CAP-NODE-DESCRIPTOR-001` | 节点角色能力资源描述契约 | COMPLETE | VERIFIED | NOT_APPLICABLE | VERIFIED | INTERNAL_ONLY | no | no | — | `d99101fdac51` | none recorded |
 | `CAP-ONBOARDING-OWNER-001` | Android 城市邀请与入网审批 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | no | yes | — | `d05f5a455ff5` | System share physical test CLOSED BY REVIEW: the chooser opens normally on OPPO PERM00, so |
 | `CAP-RESEARCH-TRACE-001` | 研究记录与来源观察 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | yes | — | `833279cae237` | Android online rendering NOT_RUN; the Compose surface was not rendered on a device or emul |
@@ -38,6 +39,7 @@
 
 ## 本视图承载的未结项
 
+- `CAP-MON-002`：Android 端有意延后，以便 Compose 图只写一次（基于已稳定的投影契约，并与 MON-903 决策叠加层一起）；Owner-required 只能部分观察（仅规范中的 WAITING_CONFIRMATION），界面每次渲染都会说明这一限制
 - `CAP-ASK-001`：All16 native cards and mutating confirmation NOT_RUN; the Compose catalog was not rendered on a device or emulator by the review, and the author receipt records the online catalog as NOT_RUN
 - `CAP-CAPABILITY-BRIDGE-001`：No end-to-end intent validation was performed by this backfill; the surfaces were inventoried, not exercised
 - `CAP-CITY-MEMBERS-NATIVE-001`：F1 MEDIUM recorded and left unrepaired: the shared member projection can report a device as connected while its own node record says offline, because members.mjs seeds the primary row with online true and can never correct it. members.mjs is NOT in the CEX-705 diff, so this is a pre-existing defect the new Android surface exposes rather than a regression. F2 LOW (the sharing success notice is unconditional and could mask a 404), F3 INFORMATIONAL (the owner own sharing control depends on the City hostDeviceId matching its node id) and F5/F6 INFORMATIONAL (the development receipt physical_not_run list is stale against PHYSICAL_FOLLOWUP.json, and the mandatory parity-gap count and message latency were left null and supplied by the review) are also recorded
