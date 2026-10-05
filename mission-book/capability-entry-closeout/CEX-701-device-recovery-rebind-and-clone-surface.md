@@ -27,9 +27,9 @@ capability_registry_sync_status: CANDIDATE_RECONCILED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/CEX-701/CONTEXT_LIFECYCLE.md"]
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "a24c04401308b11548626239e8ca1f9b4276bbdf"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, a24c04401308b11548626239e8ca1f9b4276bbdf, resolved from refs/heads/cex/CEX-701-Alien-codex-device-recovery (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. DEPENDENCY, verified rather than assumed: this workbook declares the dependency JOIN-503 device enrollment semantics present and required_ancestor_shas [77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f]; the reviewer confirmed JOIN-503 is COMPLETE with review_host Mech and review_complete true, and that 77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f is reachable from the reviewed head (git merge-base --is-ancestor exit 0). Claim-time exact-head CI, re-measured by the reviewer before any verdict: V0.2 checks push run 37206760171 completed/success on the reviewed head (jobs android success, gateway-web success); PR run 37207112712 completed/success on the same head; City linkage check run 37207112720 completed/success (reciprocal-contract). Review scope to be independently constructed per the workbook Formal Review section: UNBOUND reinstall, legitimate rebind, wrong proof, clone finding, a session attempting to rebind another installation, self revoke and owner revoking another installation - plus at least one real browser flow."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
