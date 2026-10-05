@@ -20,9 +20,9 @@ development_branch: cex/CEX-705-Alien-codex-native-members
 development_head_sha: "de9185a4ef8d761053c88316ec9efeca037239fb"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37218345150"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "de9185a4ef8d761053c88316ec9efeca037239fb"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, de9185a4ef8d761053c88316ec9efeca037239fb, resolved from refs/heads/cex/CEX-705-Alien-codex-native-members (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. DEPENDENCY, verified rather than assumed: this workbook declares the dependency CITY_MEMBERS_HOST_ROLES_ACCEPTED_EXACT_SHA_REQUIRED and required_ancestor_shas [612c344f9f2b06a67b2645b4662d97750dd7c44e]; the reviewer confirmed that ancestor is reachable from the reviewed head (git merge-base --is-ancestor exit 0) and that the members contract it stands for - the api/v0/members routes added by the merged PR11 codex/city-members-host-roles line - is present AT that ancestor in services/dev-gateway/server.mjs, so the dependency is a contract in the accepted line rather than a claim resting on this branch. Claim-time exact-head CI measured before any verdict: V0.2 checks push run 37218345150 completed/success on the reviewed head; PR pull run 37218364139 completed/success on the same head; City linkage check run 37218364132 completed/success (reciprocal-contract)."
 review_complete: false
 owner_gate: NONE
 merge_authority: false
