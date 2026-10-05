@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 11,
+      "complete": 12,
       "total": 27
     },
     "tasks": {
-      "complete": 11,
+      "complete": 12,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 77,
+      "complete": 78,
       "total": 93
     },
     "tasks": {
-      "complete": 77,
+      "complete": 78,
       "total": 93
     }
   },
@@ -844,9 +844,9 @@
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
-      "review_complete": 2,
+      "review_complete": 3,
       "status": "IN_PROGRESS",
-      "task_complete": 2,
+      "task_complete": 3,
       "tasks": [
         {
           "complete": true,
@@ -867,13 +867,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-703",
           "path": "capability-entry-closeout/CEX-703-capability-catalog-discoverability.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
