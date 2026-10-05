@@ -78,20 +78,27 @@
       "utopia:evidence/raw/mission-book/CEX-705/development-receipt.json",
       "mission-book/reports/CEX-705/PHYSICAL_FOLLOWUP.json"
     ],
-    "intent_validation_refs": []
+    "intent_validation_refs": [
+      "mission-book/reports/CEX-705/REVIEW_REPORT.md"
+    ],
+    "review_refs": [
+      "utopia:tests/cex705-mech-review-authority.test.mjs",
+      "mission-book/reports/CEX-705/REVIEW_REPORT.md"
+    ]
   },
   "research_observations": {
     "hidden_capability_detected": true,
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
       "mission-book/reports/CEX-705/PAPER_MATERIAL_INDEX.md",
       "mission-book/reports/CEX-705/PHYSICAL_FOLLOWUP.json"
     ]
   },
   "known_gaps": [
-    "Opposite physical-host Formal Review",
-    "Two physical Windows campaign",
+    "Opposite physical-host REAL-DEVICE Formal Review PASSED on de9185a4ef8d761053c88316ec9efeca037239fb (Mech, MEGA-REP) with a nine-scenario matrix on OPPO PERM00, plus a Web/Android canonical-truth comparison",
+    "F1 MEDIUM recorded and left unrepaired: the shared member projection can report a device as connected while its own node record says offline, because members.mjs seeds the primary row with online true and can never correct it. members.mjs is NOT in the CEX-705 diff, so this is a pre-existing defect the new Android surface exposes rather than a regression. F2 LOW (the sharing success notice is unconditional and could mask a 404), F3 INFORMATIONAL (the owner own sharing control depends on the City hostDeviceId matching its node id) and F5/F6 INFORMATIONAL (the development receipt physical_not_run list is stale against PHYSICAL_FOLLOWUP.json, and the mandatory parity-gap count and message latency were left null and supplied by the review) are also recorded",
+    "Two physical Windows campaign still not run, and no second PHYSICAL handset participated: only one device is attached, and the other City members were driven with real session credentials over HTTP",
     "Tokenless installation refresh on physical Windows",
     "Native direct forbidden endpoint attack not performed; scoped UI blocks it and controlled backend negative tests cover403",
     "Compute advertisements are simulated, not Android execution or hardware speedup",
