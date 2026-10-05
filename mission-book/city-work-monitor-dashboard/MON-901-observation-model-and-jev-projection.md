@@ -18,9 +18,9 @@ development_branch: mon/MON-901-Alien-codex-observation
 development_head_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
 development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37242446183"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 7eb38f1b930dfe6cc13dab0e17dedee467b1254b, resolved from refs/heads/mon/MON-901-Alien-codex-observation. INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. The workbook has no dependencies and no required_ancestor_shas, so no dependency union needs re-verifying; the baseline it was built from is recorded as d3262ce2dd81e51a53e39e6f9add8dee650a7682. The exact-head review CI is re-measured by the reviewer and recorded before any verdict, together with the reviewer own instruments for the four checks this workbook names (projection is not task truth; JEV sidecar failure does not freeze tasks; projection matches canonical runtime; an observed risk leaves an exact evidence pointer)."
 review_complete: false
 user_exposure_class: BACKGROUND_DISCLOSED
 user_exposure_surface: City Work Monitor
