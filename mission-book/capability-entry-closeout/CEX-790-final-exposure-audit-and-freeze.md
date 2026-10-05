@@ -3,22 +3,22 @@ workbook_id: CEX-790
 phase: CAPABILITY_ENTRY_CLOSEOUT
 sequence: 790
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
 dependency_source_workbooks: ["CEX-701","CEX-702","CEX-703","CEX-704","CEX-705"]
-dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
-baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
+dependency_source_shas: ["a24c04401308b11548626239e8ca1f9b4276bbdf","3d233ff39d1e96b8a590b12f520f98c283356f25","478d486096512eea3266350efe070323a232a120","d05f5a455ff535e3e065b30ec9ec74bca2dbb521","de9185a4ef8d761053c88316ec9efeca037239fb"]
+development_baseline_sha: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+baseline_resolution_evidence: "mission-book/reports/CEX-790/CLAIM_RECORD.md"
+baseline_blocker: null
 dependencies: ["CEX-701:DEVICE_RECOVERY_ENTRY_ACCEPTED", "CEX-702:ALTERNATE_DEVICE_USER_CHOICE_EXPOSED", "CEX-703:CAPABILITY_CATALOG_DISCOVERABLE", "CEX-704:ANDROID_ONBOARDING_OWNER_ACTIONS_PARITY_ACCEPTED", "CEX-705:ANDROID_MEMBER_DEVICE_MANAGEMENT_PARITY_ACCEPTED"]
-development_host: null
-development_branch: null
-development_head_sha: null
-development_ci: null
+development_host: "Mech"
+development_branch: "cex/CEX-790-mech-final-audit"
+development_head_sha: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+development_ci: "CLAIM-TIME: no exact-head CI exists yet for this union; the union was validated locally on the claiming host (five task suites 12/12, join/pairing/enrollment/gateway set 154/154, check-bilingual SYNCHRONIZED, Android assembleDebug BUILD SUCCESSFUL with 18 suites / 97 tests / 0 failures) and the exact-head cloud CI will be recorded by DEVELOPMENT_CI before development_complete"
 development_complete: false
 review_host: null
 review_head_sha: null
