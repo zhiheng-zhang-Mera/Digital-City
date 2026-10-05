@@ -11,6 +11,7 @@ BASE_SHA           d3262ce2dd81e51a53e39e6f9add8dee650a7682
 DEVELOPMENT_HEAD   473d8e8901c97c0b92f5137ea1b6d70e949a8aee (behaviour)
 DOCS_HEAD          4ee0974  (bilingual docs + evidence receipt)
 DISCLOSURE_HEAD    a8bce279e1145f5b480a3a0eb4a74378aeb66d68 (§14A start disclosure + PROBE 8)
+CI_REPAIR_HEAD     4b2e701  (City-process acceptance moved out of the parallel suite)
 PULL_REQUEST       zhiheng-zhang-Mera/utopia#26
 TERMINAL_MARKER    none — there is no workbook and therefore no marker to release
 REVIEW             not applicable (no workbook); opposite-host review not solicited
@@ -249,7 +250,8 @@ repository checks   check-bilingual SYNCHRONIZED; browser-relay-check 18/18
 regression subset   174 pass / 180; the 3 failures (3x host-city-launcher.test.mjs, relay-s1-tunnel) were reproduced
                     UNCHANGED at the unmodified baseline via git stash -> classified ENVIRONMENT (the resident City
                     holds coordination port 4389), not attributable to this change
-CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks gateway-web + android — see §7
+CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks — see §7 for the red run this change
+                    caused and its repair. The acceptance re-verification of the repaired head is CI run on 4b2e701.
 ```
 
 Fidelity note, recorded rather than glossed: the process-level E2E spawns its own isolated City and therefore needs
@@ -260,7 +262,41 @@ The probes were not re-run at the docs-only head `4ee0974` because doing so woul
 code changed between the recorded run and the docs commit. The disclosure commit `a8bce279e114` re-ran the probe suite
 afterwards (8/8, recorded above) and did not change any behaviour the E2E covers.
 
-## 7. Open items
+## 7. A real CI defect this change introduced, and its repair
+
+Required CI on head `473d8e89` (run `37287799751`) and `4ee0974` (run `37288020267`) was **red**, with three failures in
+`tests/host-city-launcher.test.mjs`. The base commit `d3262ce2` was **green** on the same file (run `37222674520`), so
+this was not an inherited environment problem — the honest classification is a defect introduced by this change:
+
+```text
+OBSERVED        run 37287799751 (gateway-web): 1253 pass / 3 fail
+                ✖ two installation launchers share one City across ports and recover the same identity after a crash
+                    Error: Command failed: … utopia-client-launcher.mjs --host 127.0.0.1 --port 0 --no-open --json
+                    Utopia: City did not become ready within 45 seconds
+                ✖ remote short code enrolls with a local member agent and reconnects without launching a host City
+                    EBUSY: resource busy or locked, unlink '.scratch-remote-launch-…/city.sqlite'
+                ✖ PRIMARY launcher reports successful MEMBER transition and normal main restart preserves it
+                    Error: Requires a free local host reservation
+BASE COMPARISON d3262ce2 V0.2 checks 37222674520 -> SUCCESS (same file, same runner image family)
+CAUSE           the new tests/host-lifecycle-process-e2e.test.mjs spawns real Cities. node --test runs test FILES in
+                parallel, and starting a City is a HOST-WIDE act: host-preflight.mjs findRunningCities() scans the
+                process list for any other services/dev-gateway/main.mjs and main.mjs refuses to start while one
+                exists. Port separation is irrelevant to that rule, so my City made the launcher tests' Cities refuse
+                to start, in whichever order the scheduler happened to pick.
+REJECTED FIX    spawn the City from a command line the preflight does not recognise, so the collision would not be
+                seen. That is evasion: two Cities really would run on one host, which is the condition the product
+                forbids. Rejected explicitly.
+REPAIR          the acceptance moves to tests/acceptance/ (outside the tests/*.test.mjs glob), gains a
+                `pnpm test:acceptance` script, and the CI job runs it as its own step BEFORE `pnpm test`. Same job,
+                so it still gates the pull request; serialised, so it never overlaps another City. The file's header
+                documents the reason so the next person does not move it back.
+```
+
+This is recorded rather than quietly fixed because it is the exact failure mode the rules warn about: a change that
+passes locally (where the resident City made the new acceptance *skip* and the launcher tests fail for a different,
+known reason) while breaking hosted CI.
+
+## 8. Open items
 
 ```text
 1  No workbook owns this surface -> allocate HOST-1xx (see §1). Until then, changes here are owner-directed and
