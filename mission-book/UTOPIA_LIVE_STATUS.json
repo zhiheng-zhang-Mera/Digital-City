@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "e111eb2787e7464385b4b59e62e954ac1f5f678e",
+    "head_sha": "8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4",
     "name": "City linkage check",
-    "run_id": 37320215200,
+    "run_id": 37352346299,
     "status": "completed",
-    "updated_at": "2026-10-05T13:52:57Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37320215200"
+    "updated_at": "2026-10-05T17:57:53Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37352346299"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "integrate CEX-702 onto main: keep both scheduler entry points and both widened refusal paths; repair the duplicate node-registration write that dropped DECLARED roles",
-  "main_commit_time": "2026-10-05T13:45:41Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/e111eb2787e7464385b4b59e62e954ac1f5f678e",
-  "main_sha": "e111eb2787e7464385b4b59e62e954ac1f5f678e",
+  "main_commit_message": "integrate CEX-704 onto main: owner-only minting guard composed with expectedSessionState, both Android panels and both refusal-path sets kept",
+  "main_commit_time": "2026-10-05T17:49:07Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4",
+  "main_sha": "8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"

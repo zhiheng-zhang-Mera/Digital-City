@@ -5,10 +5,10 @@
 > Source of implementation truth: [zhiheng-zhang-Mera/utopia](https://github.com/zhiheng-zhang-Mera/utopia) `main`.
 > Planning/workbook truth remains in Digital-City Mission Book frontmatter and reports.
 
-- **Utopia main:** [`e111eb2787e7`](https://github.com/zhiheng-zhang-Mera/utopia/commit/e111eb2787e7464385b4b59e62e954ac1f5f678e)
-- **Commit:** integrate CEX-702 onto main: keep both scheduler entry points and both widened refusal paths; repair the duplicate node-registration write that dropped DECLARED roles
-- **Commit time:** 2026-10-05T13:45:41Z
-- **CI:** [City linkage check #37320215200](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37320215200) — completed / success on `e111eb2787e7`.
+- **Utopia main:** [`8ee3f8c1fcc8`](https://github.com/zhiheng-zhang-Mera/utopia/commit/8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4)
+- **Commit:** integrate CEX-704 onto main: owner-only minting guard composed with expectedSessionState, both Android panels and both refusal-path sets kept
+- **Commit time:** 2026-10-05T17:49:07Z
+- **CI:** [City linkage check #37352346299](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37352346299) — completed / success on `8ee3f8c1fcc8`.
 - **Reciprocal linkage:** `RECIPROCAL_LINK_OK`
 
 This file is refreshed by `.github/workflows/sync-utopia-status.yml`. The workflow
