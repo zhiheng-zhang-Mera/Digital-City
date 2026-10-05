@@ -265,6 +265,67 @@ development host cannot exercise would have put an unverified claim into the bra
 **reproduced, documented, and open**, with the first two obstacles named precisely (the IME covering `Connect`;
 the panel's content laid out beyond the last scrollable reach once City cards render).
 
+### 2.9 Five compact pairing actions in one row, and a short-code entry (requested change)
+
+At the Owner's direction the pairing screen was changed from four full-width stacked buttons to **five short
+actions in one horizontal row**, with the buttons made compact:
+
+```text
+row        [ QR | LAN | BLE | CODE | TOKEN ]   (36 dp tall, labelSmall, 4 dp gaps, horizontally scrollable if a
+                                                 future screen is narrower than 1080 px)
+below      one contextual hint line that names the selected method's requirement
+inputs     the two methods that need typed text (CODE, TOKEN) reveal their input INLINE BELOW the row, so the
+           primary action is never laid out past the fold
+```
+
+`CODE` is a new independent entry rather than a step after choosing a City: it resolves the City descriptor from
+the address this installation already knows (`pairing/info`), mints a one-time session as the owner
+(`pairing/session`), and submits the typed code through the **same** `pairing/exchange` call every other mode
+uses. `TOKEN` is the existing manual-connection path, unchanged.
+
+Two defects were found while doing this, and they are recorded as findings rather than smoothed away:
+
+**D-A (repaired): the pairing family was called without any credential.** `PairingApi.request` never set an
+Authorization header, so tapping the new `CODE` entry answered `401` — a "generate a pairing session" action that
+looked broken. The City authenticates `pairing/session` (it mints a code) while `pairing/info` and
+`pairing/exchange` are public by design; the client now attaches the owner credential **only** where the route
+requires it.
+
+**D-B (OPEN, not explained yet): the session mint from the device answers `404`.**
+
+```text
+from the device (app, CODE)            -> "Pairing rejected (HTTP 404)"
+from this host, identical request      -> 200 OK
+control: a non-existent pairing route  -> 404   (so 404 is this City's answer only for routes it lacks)
+canonical City event stream            -> records NOTHING for that attempt (seq 38..43 are only
+                                          CLIENT_DISCONNECTED/CLIENT_CONNECTED pairs)
+installed host value in app prefs      -> http://172.31.12.151:4391   (correct, verified)
+```
+
+Because the City logs nothing, the device's request is not reaching the City's route; the next iteration should
+capture the app's own HTTP log (or a device-side tcpdump) rather than assume a product defect. This is exactly the
+kind of "works from the host, not from the handset" gap that only a physical device exposes, and it is why the
+session-mint half is **not** claimed as working.
+
+Build/verification for this change:
+
+```text
+:app:assembleDebug + :app:testDebugUnitTest   BUILD SUCCESSFUL (22 s / 21 s)
+device install                                Push Install Success; app runs, no crash
+five buttons render in one row               VERIFIED on PERM00 (UI dump: texts QR/LAN/BLE/CODE/TOKEN on one
+                                             36 dp line at the same y)
+CODE reachable and wired                     VERIFIED (tap produces the request and a typed error message)
+session mint                                 NOT VERIFIED (D-B above)
+```
+
+Branch and head for this change (a product-code change, so the acceptance target is no longer the bare baseline):
+
+```text
+branch  join/JOIN-590-merged-main-physical-acceptance
+head    8b97e72931c57ceb993f37307f012bd61f67fa22
+CI      V0.2 checks run 37255816279 on that head — see the workbook frontmatter for the conclusion
+```
+
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
 
 After the restart the Android app was left untouched. Without any user action it re-entered the City
