@@ -81,21 +81,28 @@
     "reachability_refs": [
       "utopia:evidence/raw/mission-book/CEX-704/development-receipt.json"
     ],
-    "intent_validation_refs": []
+    "intent_validation_refs": [
+      "mission-book/reports/CEX-704/REVIEW_REPORT.md"
+    ],
+    "review_refs": [
+      "utopia:tests/cex704-mech-review-probes.test.mjs",
+      "utopia:tests/cex704-mech-review-authority.test.mjs",
+      "mission-book/reports/CEX-704/REVIEW_REPORT.md"
+    ]
   },
   "research_observations": {
     "hidden_capability_detected": true,
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
       "mission-book/reports/CEX-704/PAPER_MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
-    "System share physical test NOT_RUN_AUTO_APPROVAL_REJECTED",
-    "Optical QR scan and physical second-device consume NOT_RUN",
-    "Different physical-host Formal Review pending",
-    "Earlier full physical campaign APK SHA NOT_OBSERVABLE; final hash-bound smoke only",
+    "System share physical test CLOSED BY REVIEW: the chooser opens normally on OPPO PERM00, so the earlier NOT_RUN_AUTO_APPROVAL_REJECTED is superseded",
+    "Optical QR scan and a second PHYSICAL device consume remain NOT_RUN; the review consumer was the host, not a second handset",
+    "Different physical-host Formal Review PASSED on d05f5a455ff535e3e065b30ec9ec74bca2dbb521 (Mech, MEGA-REP) with an on-device matrix; F1 LOW (the share-failure guidance is rewritten by the 2-second poll so it can vanish before it is read), F2 INFORMATIONAL (a session generated on another surface leaves the handset owner with a disabled control and no countdown), F3 INFORMATIONAL (the invite link is a one-time bearer for the durable City credential - verified byte-identical and single use, and the existing programme contract) and F5 INFORMATIONAL (the panel has no test) recorded; none is repaired here",
+    "Earlier full physical campaign APK SHA NOT_OBSERVABLE; a build of the reviewed source matched the byte count but not the SHA-256, so the build is not hermetic",
     "No full native locale parity or cross-region relay claim"
   ],
   "last_reconciled_by_workbook": "CEX-704"
