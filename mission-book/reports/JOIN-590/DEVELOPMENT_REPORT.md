@@ -197,6 +197,45 @@ Runner: `D:\utopia-chat\join590-enrollment-acceptance.mjs` (process file). The d
 `join590-acceptance/fresh-installation-device.json` and never printed; the control token is read into a variable
 only.
 
+### 2.7 Clean-reinstall pass on the physical device (second run, app state wiped)
+
+The Android application was **uninstalled and reinstalled from the same merged-main APK** (`adb uninstall` →
+`adb install --no-streaming` → `Push Install Success`), which erased every private preference and made the device a
+genuinely fresh installation again. The run then re-established the whole path:
+
+```text
+fresh launch                -> "Find your City / 找到你的城市"; app prefs contained only clientRef (no host/cityId/token)
+Nearby Cities (LAN)         -> three City rows again (canonical 4391, the spare acceptance City 4310, Alien 4391)
+owner mints a pairing session -> short code, 300 s TTL
+pairing panel opens          -> code field + Connect
+Manual connection            -> City URL + pairing token accepted; "Save and connect"
+result                       -> app shows ONLINE and its Devices page renders live canonical data
+                               (Alien-PC OFFLINE · Cached 2463s; Mega-rep ONLINE), app prefs now hold host/cityId/token
+City side after the run      -> CLIENT_DISCONNECTED android-PERM00 (seq 36) -> CLIENT_CONNECTED android-PERM00 (seq 37)
+                               members: PRIMARY + MEMBER(dev-bb313bf7…) + web CONTROL_ONLY + android CONTROL_ONLY
+                               installations: 2 (the two created through the product's own client code in §2.6)
+```
+
+**Two things this second run establishes, and one it does not.**
+
+Established: (a) the merged-main APK installs and connects cleanly from a wiped state on real hardware — no stale
+credential is required and no duplicate City appears; (b) the surface reconnects to the same canonical `cityId`
+with the same identity discipline as before.
+
+Not established, and now confirmed a second time with a sharper cause: **the app cannot enrol itself.** On this
+screen size the short-code field and `Connect` button are laid out **below the fold** once the discovered-City
+cards are rendered (`PairingPanel.kt` renders the panel inside a non-scrolling `Column`, and the accessibility
+tree exposes only the visible nodes), so the app's own pairing path could not be completed from the device; the
+connected result came from the **Manual connection** (engineering fallback) path, which stores a bare
+`host/cityId/token` triple rather than a durable installation. That is why the City's installation registry still
+shows only the two records created through the product's client code, and why the live `android-PERM00` surface is
+a control-only client rather than an enrolled installation.
+
+This is recorded as **gate 4 / gate 8 evidence, not as a pass**: native onboarding on Android is the debt
+`CEX-704` exists to pay, and the two concrete obstacles found here (the IME covering `Connect` in the first run,
+and the panel overflowing the screen once Cities are listed in the second) are exactly the kind of real-device
+finding that surface work needs.
+
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
 
 After the restart the Android app was left untouched. Without any user action it re-entered the City
