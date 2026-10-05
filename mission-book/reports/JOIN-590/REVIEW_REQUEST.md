@@ -90,3 +90,8 @@ be bound to your exact head.
 This original request is retained as historical material. Runs 37205444427 / 37205444385 resolve to head `0e9bea3ce739b979e582a428af8fb233045a5e75`, not the d3262ce head claimed above. They cannot establish green CI for d3262ce.
 
 The independently reviewed development source was `b91677d1478950feb79742f618d0c981773d5bb7` (V0.2 37259528163). Alien-codex has now directly repaired the in-scope defects on `ec3b6f996240ca71505b3b67af12cc222d1b283a`, with exact-head V0.2 37299383248 completed SUCCESS. See [REPAIR_REPORT_Alien-codex.md](REPAIR_REPORT_Alien-codex.md). Physical acceptance is still incomplete: the repaired phone refused Mech's actual exchange reply after approval, and the deployed Mech process source remains unverified. Updating the actual server and completing the physical gates are required before a PASS verdict.
+
+
+## Repair re-review request after physical window 6
+
+Please review Alien-codex product repair source `ec3b6f996240ca71505b3b67af12cc222d1b283a` in draft PR #28 from Mech, independently of the original Mech implementation. Evidence-only candidate is `151c065363e52fb6ba38b0332000a7a3687042c3`; exact source CI 37299383248 SUCCESS. Window6 now records actual Android member enrollment/renewal and Alien Windows enrollment → MEMBER → normal restart → self revoke → refused normal launch, plus phone/Web/City task result agreement. Full narrative and immutable receipts are in REPAIR_REPORT_Alien-codex.md. Do not issue full programme PASS until remaining exposure and merged-main gates pass. Please bind your code-review verdict to exact source/CI and retain any defects.

@@ -39,3 +39,19 @@ Alien 端已切换修补源码（工作树代码 ec3，证据 head 0ea），启�
 [修补候选原始证据及 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/0ea9203d3409a59194675d48d93950c7af9fb92f/evidence/raw/mission-book/JOIN590-repair)。[第五轮固化 UI、native trace、只读回读、源码 CI 及 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/41e8743d7c49771bcc335add2ee722f73085869e/evidence/raw/mission-book/JOIN590-repair/window5)。41e 是新的 evidence-only head，当前尚待其自身 CI；源码 ec3 CI 与已有证据 head 0ea CI 的成功事实不转移到这个新 head。完整 CI log 留在 Utopia `.runtime`；Digital-City 只保留报告与索引。
 
 可以研究：客户端身份缺失、legacy token 兼容路径、不同 exchange 回复结构、测试对全局 reservation 的干扰、拒绝后的交互恢复、代码验证与实际部署之间的差异。不得将模拟 City 重启升级为 Mech 实机重启证据，也不得将 LAN 可达端点升级为两端不可达 NAT 的远程连接证据。真实 NAT 路由、最终 Windows 物理成员链路、完整 exposure、opposite-host 修补复检和 merged-main post-closeout 仍未完成。`review_complete: false`。
+
+
+## 第六轮更新后实机联动（2026-10-05，Alien-codex）
+
+用户报告 Mech 已更新；实际服务保持 canonical City `031fdba6-e94c-4298-a095-6ff04a65481d`，运行源码 SHA 尚不能从协议读回，保留 null。Android APK 仍为上述 ec3 修补构建。第五轮失败不撤销，以下是新的独立观测。
+
+- Alien 已有 City 上，手机六位短码在输入超过 3 秒后成功交换；保存完整安装凭据及 `sess:` 成员会话。强制停止并重启隔离应用后，安装身份不变、会话更新、City GET 200。手机点击“退出城市（仅本机）”后旧会话 401、无 Bearer 安装续期 403、原 owner City GET 200；重启仍无会话且显示 retired。原始 retired=false 是脚本读取 Android boolean `.text` 的错误，已在 proof 中注明，不当作产品失败。未覆盖生产包升级验证。
+- Mech 新审批请求 `join-0751220e8f` 成功交换。手机保存独立成员凭据；强制重启后同一 installation 和 durable credential 自动换取新会话、City GET 200，无人工令牌输入。
+- 实际 Alien Windows 申请 `a8c47038-1114-421e-a6fa-148d657b65c8`，入网名 `Alien-PC-JOIN590`。受信任侧批准后，PID 44580 从 PRIMARY 降为 MEMBER，仅本机原服务退休，Mech canonical City 保持。
+- 产品 `scripts/restart-gateway.ps1` 从修补 checkout 运行：PID 41244，MEMBER / ONLINE，仍是同一 Mech City 与安装身份；安装文件不存会话，重新取得成员会话，无人工令牌。Android 实际设备列表出现在线 `Alien-PC-JOIN590`。辅助脚本误试 `/api/v0/devices` 返回 404，是不存在的观察端点，不计设备接口 PASS；真实设备可见性来自手机 UI。
+- 手机在 Tasks 选择该 Windows 节点并执行 `CHECKPOINT_DEMO`：`Q-87818c40-a204-46d6-96e6-7da0077085fa`，由 `dev-e1d87b2a0ec5457e822b91d81e40dc67` 完成，SHA256 `4150752ac4f326d3d74dd939e31d6abfa3d8055df4a00d7614f7c360353bf71a`。实际 Web task detail、手机 detail 与 canonical API 对应同一任务及结果，7 events seq 158..164。只证明此次 demo 的跨设备执行及一致呈现，不泛化吞吐或通用资源调度性能。
+- Windows 使用自己的成员会话撤销自己的 installation：200，旧会话 401，续期 `INSTALLATION_RETIRED` / 403；Mech public City identity 不变。停掉此 member 后普通 launcher 退出 1，保留 MEMBER role，不存在 4389 reservation，监听检查 4389/4391/4320 均无本地备用 City。Alien 当前刻意保持已撤销状态，不能把手工 PRIMARY 恢复算自动拒绝。
+
+[第六轮不可变原始证据与 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/151c065363e52fb6ba38b0332000a7a3687042c3/evidence/raw/mission-book/JOIN590-repair/window6)，16 项安全制品；软件 SHA ec3 与 evidence SHA 151c 分开。41e 的 CI 已独立完成 SUCCESS：[37301659943](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37301659943)。新 151c 自身 CI 当前待终态，不转用旧成功。
+
+这些观测完成修补源码上的实际 Windows 入网、member 进程重启、自身撤销/拒绝及跨面 demo。仍待 Mech 主城真实进程重启、其准确运行源码确认、对 Alien 修补的 opposite-host Formal Review、完整 Capability Exposure Gate 和 merged-main post-closeout。两端 NAT 不可直达问题仍未实现，不将当前 /16 LAN 端点说成跨地域实测。review_complete 仍为 false。
