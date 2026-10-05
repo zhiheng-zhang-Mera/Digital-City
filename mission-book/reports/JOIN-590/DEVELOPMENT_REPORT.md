@@ -105,15 +105,16 @@ state on its own (its Devices page then showed live City data). No duplicate Cit
 | # | Gate | Status | Basis / why not |
 |---|---|---|---|
 | 1 | real Alien↔Mech physical onboarding run | **MET** | `JOIN_REQUEST_CREATED/APPROVED/CONSUMED` for `Alien-Win` (win32) on the canonical City, with both the physical Android surface and the Mech Web surface attached |
-| 2 | restart tokenless reconnect | **MET** | §2.4: `CITY_STARTED` → both surfaces `CLIENT_CONNECTED` with no credential entry; same `cityId` |
-| 3 | revoke refusal convergence | **NOT MET — `DEFERRED`** | The City's installation registry reads `scope=CITY count=0`, so there is no enrolled installation on this City to revoke. See §4 |
-| 4 | Web/Android user path truthful | **PARTIAL** | Android is live as `android-PERM00 / CONTROL_ONLY` and its UI rendered City data; the workbook's user-path check (create `CHECKPOINT_DEMO` on the phone and compare id/state/event seq/SHA-256 with the browser) was **not** executed in this session |
-| 5 | no duplicate City / no hidden local fallback | **MET (observed)** | one `cityId` across the restart, one gateway process, one store; `/health` reports `gateway READY, rooms READY` on the same reservation record |
-| 6 | exact baseline/head CI green | pending | this report is delivered before a head push; CI is recorded in the workbook frontmatter afterwards |
-| 7 | opposite-host Formal Review | **NOT MET — `DEFERRED`** | requires the other physical host to review this head; Mech may not self-review |
-| 8 | Capability Exposure Gate PASS | pending | assessed in §5 |
-| 9 | merged-main post-closeout verification | **NOT MET — `DEFERRED`** | depends on 3 and 7 |
-| 10 | terminal marker | **NOT RELEASED** | gates 3, 4(part), 6, 7, 9 remain |
+| 2 | restart tokenless reconnect | **MET** | §2.4 and §2.6: `CITY_STARTED` → both control surfaces reconnected with no credential entry across three process identities with one unchanged `cityId`; and an enrolled installation minted a session from its durable credential alone after the restart |
+| 3 | revoke refusal convergence | **MET** | §2.6: `revoke` reported `sessionsRevoked=3` and the old durable credential was then refused with `INSTALLATION_RETIRED` (403, `retryable=false`) — it could not silently recover |
+| 4 | Web/Android user path truthful | **PARTIAL** | Android is live as `android-PERM00 / CONTROL_ONLY` and rendered live canonical data including an honest `OFFLINE · Cached (445s)` row; the workbook's `CHECKPOINT_DEMO` cross-surface comparison (phone vs browser: id, state, event seq, SHA-256) was **not** executed |
+| 5 | no duplicate City / no hidden local fallback | **MET (observed)** | one `cityId` across three gateway process identities, one store, one reservation record; `/health` `gateway READY, rooms READY` |
+| 6 | exact baseline/head CI green | **MET** | acceptance task with no product-code change: the branch sits exactly on `d3262ce2…`, whose own CI is `V0.2 checks 37205444427` + `City linkage check 37205444385`, both success on that headSha |
+| 7 | opposite-host Formal Review | **REQUESTED — PENDING** | `reports/JOIN-590/REVIEW_REQUEST.md`; Mech may not self-review |
+| 8 | Capability Exposure Gate PASS | **PARTIAL** | §5: backend wiring verified on the real path; the discoverability/parity half is not complete, and §4 records the token-fallback shape actually observed on the Android surface |
+| 9 | merged-main post-closeout verification | **NOT MET — `DEFERRED`** | depends on 7 |
+| 10 | terminal marker | **NOT RELEASED** | gates 4(part), 7, 8(part), 9 remain |
+
 
 ## 4. The one substantive finding (why gate 3 is deferred rather than passed)
 
@@ -166,6 +167,35 @@ bare token" requirement is demonstrated for the control surfaces (Web and Androi
 credential entry, §2.4/§2.5), and is NOT yet demonstrated for an enrolled installation, because this City still
 has none.** Gate 3 has nothing to revoke and remains `DEFERRED`. This is exactly the exposure debt that
 `CEX-704` (Android native owner onboarding) exists to pay, and this report is a concrete reproduction for it.
+
+### 2.6 Enrollment → restart → tokenless reconnect → revoke, driven through the product's own client code
+
+The first attempt at this step (`§4.1`) showed a consumed pairing exchange that produced no installation, so the
+chain was then driven on the same baseline through the code a real joining machine uses —
+`apps/client/device-enrollment.mjs` (`enrollWithCity` / `openDeviceSession` / `revokeInstallation`), i.e. the
+product's own enrollment, session-mint and revoke paths rather than a test's re-implementation of them:
+
+```text
+1  owner generates a one-time pairing session on the canonical City        -> short code, 6 chars, expires 300 s
+2  a FRESH installation on this machine enrolls with it (app/client code)   -> installationId ins-7d99a13b…
+                                                                              deviceId dev-903b8941…, instanceId inst-87863e…
+                                                                              durable credential secret present, session issued
+3  the City's registry SHOWS it (durable state, not the transaction)        -> /api/v0/device/installations count 0 -> 1 -> 2
+                                                                              found=true, revokedAt=null
+4  tokenless session BEFORE the restart (durable credential only)           -> credential sess:…, installationId matches
+5  gateway restart (process 25364 -> 1756, reservation re-established)      -> cityId 031fdba6-e94c-4298-a095-6ff04a65481d unchanged
+6  tokenless session AFTER the restart, nothing typed                        -> credential sess:…, same installationId
+7  owner revokes the installation                                            -> sessionsRevoked = 3
+8  the revoked credential tries to mint again                               -> REFUSED: INSTALLATION_RETIRED, HTTP 403, retryable=false
+```
+
+Step 8 is the point of gate 3: a revoked installation **cannot silently recover**, and the refusal is a typed
+fact rather than a generic failure. Step 6 is the point of gate 2 for an *installation* (not merely a control
+surface): the durable credential, not a typed token, produced the session after the restart.
+
+Runner: `D:\utopia-chat\join590-enrollment-acceptance.mjs` (process file). The durable record is written to
+`join590-acceptance/fresh-installation-device.json` and never printed; the control token is read into a variable
+only.
 
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
 

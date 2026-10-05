@@ -20,9 +20,9 @@ long_horizon_context_evidence: "CAPTURED"
 research_evidence_refs: ["mission-book/reports/JOIN-590/PAPER_MATERIAL_INDEX.md"]
 state_identity_evidence: "CAPTURED"
 state_identity_evidence_refs: ["mission-book/reports/JOIN-590/PAPER_MATERIAL_INDEX.md"]
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "d3262ce2dd81e51a53e39e6f9add8dee650a7682"
+development_ci: "ACCEPTANCE TASK WITH NO PRODUCT CODE CHANGE. The branch join/JOIN-590-merged-main-physical-acceptance sits exactly on the resolved baseline d3262ce2dd81e51a53e39e6f9add8dee650a7682, so the implementation head under test IS the baseline and the required CI is the baseline's own run: on that exact sha, read from the Actions API and matched on headSha, 'V0.2 checks' run 37205444427 COMPLETED SUCCESS and 'City linkage check' run 37205444385 COMPLETED SUCCESS. No claim of a separate completed implementation head is made, and this field will be rewritten to an exact development head only if the review raises an in-scope repairable defect that produces one. Acceptance evidence (all on that baseline, on real hardware): merged-main debug APK built with Temurin 17 and installed on the physical PERM00 device (vendor installer confirmation completed by user-equivalent synthetic tap); the canonical City's event stream recorded the full chain JOIN_REQUEST_CREATED(Alien-Win,win32) -> APPROVED -> CONSUMED with the physical Android surface and the Mech Web surface both attached; the owner-approved gateway restart preserved cityId 031fdba6-e94c-4298-a095-6ff04a65481d across two process identities (21452 -> 25364 -> 1756) and both control surfaces reconnected with no credential re-entry; and a FRESH installation enrolled through the product's own client code (apps/client/device-enrollment.mjs) appeared in the City registry (count 0 -> 1 -> 2), survived the restart by minting a session from its durable credential alone, and after revoke was refused with INSTALLATION_RETIRED/403/retryable=false while 3 live sessions were revoked."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -30,7 +30,7 @@ review_complete: false
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: PAIRING_AND_DEVICE_ONBOARDING
 user_exposure_nesting: L2_CONTEXTUAL
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: "VERIFIED on the real path: the enrollment registry, the tokenless session mint, the revoke refusal and the canonical City state were all read back from the live City after the actions that changed them. See reports/JOIN-590/DEVELOPMENT_REPORT.md sections 2.4-2.6 and 3 for the gate-by-gate verdicts."
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: true
