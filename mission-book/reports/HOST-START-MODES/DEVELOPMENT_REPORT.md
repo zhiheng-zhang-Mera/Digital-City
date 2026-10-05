@@ -1,0 +1,217 @@
+# HOST-START-MODES — Owner-directed change report
+
+```text
+TASK_ID            HOST-START-MODES  (no owning workbook — see §1)
+KIND               OWNER_DIRECTED_CHANGE (not a claimed task)
+ROLE               Mech-DS (development host MEGA-REP)
+IMPLEMENTATION     zhiheng-zhang-Mera/utopia
+CONTROL REPO       zhiheng-zhang-Mera/Digital-City
+BRANCH             mech/standalone-city-lifecycle
+BASE_SHA           d3262ce2dd81e51a53e39e6f9add8dee650a7682
+DEVELOPMENT_HEAD   473d8e8901c97c0b92f5137ea1b6d70e949a8aee
+DOCS_HEAD          4ee0974  (bilingual docs + evidence receipt)
+PULL_REQUEST       zhiheng-zhang-Mera/utopia#26
+TERMINAL_MARKER    none — there is no workbook and therefore no marker to release
+REVIEW             not applicable (no workbook); opposite-host review not solicited
+```
+
+---
+
+## 1. Why this report exists without a workbook
+
+The owner's instruction was a direct change request, not a mission-book claim:
+
+> 调整启动器，单机启动时默认指向已打开的城市，关闭网页时直接关闭城市。开启城市时默认无视角色，仅当进入联机时进行角色调整。
+
+Before implementing, the control plane was searched for a workbook that owns the host **start-mode / page-lifecycle /
+stored-role** surface. None exists:
+
+```text
+search                    mission-book/**.md frontmatter + reports/ directories
+candidates inspected      SHOW-401 (showcase material extraction, development_host Alien)         -> unrelated
+                          JOIN-590 (connection onboarding, merged-main physical acceptance)      -> adjacent, not this
+                          CEX-701..705 / REX-802 / MON-901 (capability entry closeout)           -> unrelated
+result                    ZERO WORKBOOKS OWN THIS SURFACE
+```
+
+Classification (per the mission-book rule that an unowned change must still be recorded): this is an
+**OWNER_DIRECTED_CHANGE** delivered outside the claim system, with zero claims and zero markers. It is reported here,
+not in another workbook's report directory, so that JOIN-590's closeout record is not polluted by an unrelated diff.
+The report directory `reports/HOST-START-MODES/` intentionally has no workbook sibling; the progress generator
+(`mission-book/tools/sync_mission_progress.py`) iterates workbook frontmatter `task_globs`, not the `reports/` tree, so
+an orphan report directory is inert to it.
+
+**Recommendation.** Allocate a workbook for the host start-mode and lifecycle surface (`HOST-1xx`), because this change
+introduced durable, machine-readable lifecycle state (`CITY_LIFECYCLE`, `lifecycle` in the City snapshot, page-idle
+exit, role-vs-selection separation) that future work will need to claim against.
+
+## 2. The three defects the owner asked to remove
+
+```text
+D1  a single-machine City outlived the page that opened it
+    opening Utopia on one machine spawned a detached, unref'ed process that no page owned; closing the tab left a
+    City serving on the LAN with nobody at the keyboard. Observed as an integration consequence of the launcher's
+    detached spawn, not as a bug report with a reproducer.
+
+D2  the stored role decided what a single-machine start did
+    main.mjs read the stored selection from role.json and, when it said MEMBER of another City with an enrollment
+    file, diverted the start into the member/enrollment path — so a person who had once joined a friend's City
+    could not start their own City without first clearing state.
+
+D3  starting your own City silently destroyed the membership you had chosen
+    host-city.mjs publish() rewrote role.json to PRIMARY on every start. Even when a start did not take the member
+    path, the stored selection was overwritten. (D2 and D3 are facets of one modelling error: the running role and
+    the stored selection were the same fact.)
+```
+
+## 3. Decision record — choices, alternatives, and the judgement logic
+
+### 3.1 What "the City" is tied to in the default case
+
+```text
+CHOSEN      the page. Default start = standalone + page lifecycle. The City closes when the page that owns it goes
+            away, with an 8 s grace window (CITY_PAGE_IDLE_MS) so a reload does not kill it.
+REJECTED A  the process. A City that always outlives every page is exactly D1.
+REJECTED B  a desktop shell / tray icon. There is no launcher shell in this repository to own such a supervisor;
+            inventing one is a much larger change than the owner asked for, and it would move the life of a City
+            into a component no user can observe.
+REJECTED C  closing immediately on `pagehide`. `pagehide` fires on reload as well, so a reload would take the City
+            down and force a cold start. The grace window distinguishes "the person reloaded" from "the person left".
+JUDGEMENT   the default must be the least surprising life for the ordinary single-machine user, and "the window I
+            opened is the thing that is running" is that life. The grace window is the minimum mechanism that keeps
+            the common reload from being destructive.
+```
+
+### 3.2 Where the decision is made
+
+```text
+CHOSEN      a pure planning module, scripts/launcher-plan.mjs, exporting planStart({args}) -> {mode, lifecycle,
+            followsMembership, rolePersisted}, plus the predicates followsMembership(plan) / pageTied(plan).
+            The launcher and the gateway both consume the plan; the plan itself is unit-testable with no process,
+            no port, and no filesystem.
+REJECTED    scattering the mode decision across argument parsing in utopia-client-launcher.mjs. That is where the
+            enrolment diversion already lived, and the two role==='MEMBER' branches were the reason D2 was invisible:
+            there was no single place to read the rule from.
+JUDGEMENT   a decision that three components must agree on has to exist once, as data, before it exists as control
+            flow. All mode decisions are expressed as plan fields; every branch in the launcher is now gated on a
+            plan predicate rather than on a locally re-derived bool.
+```
+
+### 3.3 How a page releases a City it owns
+
+```text
+CHOSEN      two independent mechanisms:
+            (a) explicit — the page posts to POST /api/v0/host/release on unload with keepalive, so the City closes
+                the moment the person leaves rather than after the grace window;
+            (b) implicit — the gateway arms a page-idle exit when the last control surface disconnects.
+            Ownership is enforced: the route refuses a City session with OWNER_CREDENTIAL_REQUIRED, and a City whose
+            lifecycle is `service` answers released:false with reason "this City is not tied to a page".
+REJECTED A  relying only on the WebSocket close. A control surface can drop for reasons that are not the person
+            leaving (sleep, network blip, a suspended tab), so close alone would close Cities that are still wanted.
+REJECTED B  making the release route unauthenticated for convenience. Any page on the machine — including a page
+            loaded from another City — could then kill a City it does not own.
+JUDGEMENT   the page that opened the City is the only thing entitled to close it, and the City must be able to say
+            "no" truthfully. The two mechanisms are ordered so the fast path is explicit and the safety net is
+            implicit, and both funnel into one shutdown(reason) so the exit line and the process exit code are the
+            same however the City was closed.
+```
+
+### 3.4 Roles: running fact vs stored selection
+
+```text
+CHOSEN      separation. role.json keeps the stored selection; the coordination record keeps the running role. A
+            single-machine start runs PRIMARY and passes persistRole:false, leaving role.json byte-identical. Only an
+            online start (`--online`, or enrolling) reads the selection and writes it back.
+REJECTED A  deleting role.json on a single-machine start. That destroys information the person may want the next
+            time they go online.
+REJECTED B  honouring the stored role but not rewriting it. The single-machine start would then run a MEMBER City
+            with no membership — D2 with a quieter symptom.
+REJECTED C  renaming the file to make the distinction obvious. A migration for a naming preference is not worth the
+            risk to an installed data directory.
+JUDGEMENT   the owner's sentence "开启城市时默认无视角色，仅当进入联机时进行角色调整" is a statement about which action
+            adjusts the role: going online. Ignoring the role is therefore not deletion but non-consultation, and the
+            file is left as the person left it. The City announces the decision in its own startup record
+            (CITY_LIFECYCLE, CITY_ROLE_IGNORED) so the behaviour is inspectable instead of inferred.
+```
+
+### 3.5 How the lifecycle is declared
+
+```text
+CHOSEN      CITY_LIFECYCLE in the environment, normalised to page|service|online, default `page`; the gateway
+            echoes `lifecycle` in its own snapshot so the page never guesses.
+REJECTED    inferring page-tiedness from "was a page ever connected". A hosting City may have no page for hours and
+            would then be closed by the first page that ever touched it. Publish-time inference is unfalsifiable
+            after the fact; an explicit declaration is checkable at the process boundary.
+JUDGEMENT   every component that can close the City must be able to read the City's own answer to "may I be closed
+            by a page". `scripts/start-city.ps1` sets CITY_LIFECYCLE=service for exactly this reason: the hosting
+            entry point is the one that must survive the operator's browser.
+```
+
+## 4. What was implemented
+
+```text
+scripts/launcher-plan.mjs                 NEW  planStart / followsMembership / pageTied — the single rule
+scripts/utopia-client-launcher.mjs             consumes the plan; enrolment branch and both role==='MEMBER'
+                                               diversions gated on followsMembership(plan); spawn env carries
+                                               CITY_LIFECYCLE; the JSON report carries mode/lifecycle/roleIgnored
+services/dev-gateway/main.mjs                   CITY_LIFECYCLE normalised (default page); stored role consulted
+                                               only when online; one shutdown(reason) shared by lifecycle exit and
+                                               SIGINT/SIGTERM; startup record carries CITY_LIFECYCLE / CITY_ROLE_IGNORED
+services/dev-gateway/server.mjs                 createGateway({lifecycle, pageIdleMs, onLifecycleExit}); control-surface
+                                               tracking; armPageIdleExit / cancelPageIdleExit; snapshot.lifecycle;
+                                               POST /api/v0/host/release (local-only, owner-only, truthful refusal)
+services/dev-gateway/host-city.mjs              publish() honours persistRole:false
+apps/web/app.js                                 pagehide -> keepalive POST /api/v0/host/release when page-tied
+scripts/start-city.ps1                          CITY_LIFECYCLE=service
+tests/host-standalone-lifecycle.test.mjs  NEW   7 probes
+tests/host-lifecycle-process-e2e.test.mjs NEW   2 process-level acceptances
+tests/host-city-launcher.test.mjs               fixture now copies launcher-plan.mjs into both simulated installs;
+                                               no assertion changed
+docs/START_MODES.md                       NEW   bilingual statement of the three modes and their evidence
+evidence/raw/mission-book/HOST-START-MODES/development-receipt.json  NEW  recorded runs
+```
+
+## 5. Evidence
+
+```text
+node --test tests/host-standalone-lifecycle.test.mjs
+  pass 7 / fail 0 / skipped 0 / todo 0 / duration_ms 3593.9936
+  PROBE 1  the plan defaults to a page-tied single-machine City; only --online follows a membership
+  PROBE 2  closing the last page in page mode closes the City, and says why
+  PROBE 3  a reload inside the grace window does NOT close the City
+  PROBE 4  a second surface keeps the City alive
+  PROBE 5  a City that never had a page does not close itself
+  PROBE 6  the owner page can release the City explicitly, and only the owner
+  PROBE 7  a hosting City ignores the release and never follows a page
+
+node --test tests/host-lifecycle-process-e2e.test.mjs
+  pass 2 / fail 0
+  E2E 1  closing the last page ends the City process with exit code 0 and a /Utopia City closing/ line
+  E2E 2  a stored MEMBER role is ignored on a single-machine start, role.json is left byte-identical, and the same
+         stored role is honoured when the City is started online
+
+repository checks   check-bilingual SYNCHRONIZED; browser-relay-check 18/18
+regression subset   174 pass / 180; the 3 failures (3x host-city-launcher.test.mjs, relay-s1-tunnel) were reproduced
+                    UNCHANGED at the unmodified baseline via git stash -> classified ENVIRONMENT (the resident City
+                    holds coordination port 4389), not attributable to this change
+CI (PR #26)         City linkage check / reciprocal-contract SUCCESS; V0.2 checks gateway-web + android — see §6
+```
+
+Fidelity note, recorded rather than glossed: the process-level E2E spawns its own isolated City and therefore needs
+coordination port 4389 free, and `main.mjs` refuses to start while `findRunningCities()` sees any City. The resident
+City was stopped for that run and **restored** afterwards (`031fdba6-e94c-4298-a095-6ff04a65481d`,
+`http://172.31.12.151:4391`, coordination 4389 ONLINE, health healthy, rooms READY, capabilities 7, ask/targets 16).
+The probes were not re-run at the docs-only head `4ee0974` because doing so would take the same City down again; no
+code changed between the recorded run and the docs commit, so the code head for every recorded number above is
+`473d8e89`.
+
+## 6. Open items
+
+```text
+1  No workbook owns this surface -> allocate HOST-1xx (see §1). Until then, changes here are owner-directed and
+   carry no claim, no marker, and no review.
+2  The 3 environmental failures above are pre-existing and belong to whichever workbook owns the launcher test
+   suite; they are recorded here only so the classification is not lost.
+3  `--online` was verified at the plan and process level (E2E 2) but not against a second live City in this session;
+   JOIN-590's merged-main physical acceptance is the record for the live enrolment path.
+```
