@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 9,
+      "complete": 10,
       "total": 27
     },
     "tasks": {
-      "complete": 9,
+      "complete": 10,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 75,
+      "complete": 76,
       "total": 93
     },
     "tasks": {
-      "complete": 75,
+      "complete": 76,
       "total": 93
     }
   },
@@ -844,18 +844,18 @@
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
-      "review_complete": 0,
+      "review_complete": 1,
       "status": "IN_PROGRESS",
-      "task_complete": 0,
+      "task_complete": 1,
       "tasks": [
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-701",
           "path": "capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
