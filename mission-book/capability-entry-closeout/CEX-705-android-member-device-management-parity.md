@@ -50,7 +50,7 @@ decision_trace_evidence: NOT_APPLICABLE
 decision_trace_refs: []
 terminal_marker: ANDROID_MEMBER_DEVICE_MANAGEMENT_PARITY_ACCEPTED
 merged_main_sha: null
-merged_main_blocker: "NOT MERGED YET (conflicting; see the closeout report)"
+merged_main_blocker: "STILL NOT MERGED. Its branch conflicts with main inside the SAME Kotlin function on both sides: CEX-705 added a `method` parameter to CityClient.request so PATCH routes work (the city rename row), while JOIN-590 added the session-renewal semantics (allowRenew plus a 401/403 retry) to that same function; MainActivity also differs in two places (the member-management state block and the Settings page items). A mechanical keep-both splice silently keeps only one of the two behaviours - measured on the CEX-704 pass, where the same style of splice dropped a DECLARED role set and was caught only by the WBC-602 review test - so this one must be composed by hand and then re-verified with a gradle compile plus a root-suite run. Aborted deliberately rather than pushed unverified."
 merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
 ---
 
