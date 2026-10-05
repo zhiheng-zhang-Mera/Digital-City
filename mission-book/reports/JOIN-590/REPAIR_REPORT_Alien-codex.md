@@ -28,7 +28,7 @@ Android 实际 Gradle 构建成功，91 项单元测试、0 failure/error；实�
 
 第四轮 APK SHA256 `6790075dbd9f185b85d1dfb95568b9c643cc0432ef3033597d8fe270a5afd712`：`join-c301d67807` 请求成功，不输入无关短码；180 秒内未观测到审批，正常超时，恢复可操作状态。OS 拒绝 adb pm clear，未绕过；使用隔离应用自身“Clear pairing”开始试验。
 
-最终修补 APK SHA256 `970839d29a3066e01ecee8aab3040f9dc2ac81959727b144ab0694dd3d183800`：用户确认 Mech 就绪后创建 `join-535174ce61`，用户回复“已批准”。手机到达 APPROVED / exchange 后显示 `RELAY_ENROLLMENT_REFUSED: Enrollment missing cityId`，125 秒观察未保存凭据；Mech 安装列表只读回读仍为两条，与第三轮一致。该回复与旧交换行为一致，但 **Mech 进程源码 SHA 未核实**，不能据此断言某个确切版本正在运行。拒绝保存不完整入网回复是正确行为；跨主机产品验收尚未通过。
+最终修补 APK SHA256 `970839d29a3066e01ecee8aab3040f9dc2ac81959727b144ab0694dd3d183800`：用户确认 Mech 就绪后创建 `join-535174ce61`，用户回复“已批准”。手机到达 APPROVED / exchange 后显示 `RELAY_ENROLLMENT_REFUSED: Enrollment missing cityId`，125 秒观察未保存凭据；Mech 安装列表只读回读仍为两条，与第三轮一致。后续独立回读确认该请求为 CONSUMED，手机 credentialPresent=false、durableFieldNames=[]；本机 trace 10:59:08.181979Z APPROVED 后 10:59:08.199605Z retry。该回复与旧交换行为一致，但 **Mech 进程源码 SHA 未核实**，不能据此断言某个确切版本正在运行。拒绝保存不完整入网回复是正确行为；跨主机产品验收尚未通过。
 
 当前阻点是 Mech 实际服务需要部署修补网关，保留 canonical City `031fdba6-e94c-4298-a095-6ff04a65481d` 并重新入网。已请求用户协调更新，不用旧 owner token 代替新审批。手机单独重启、安装撤销、City 进程重启，以及真实 Windows 主机链路，均须在更新后的实际产品路径重新验收。
 
@@ -36,6 +36,6 @@ Alien 端已切换修补源码（工作树代码 ec3，证据 head 0ea），启�
 
 ## 证据与论文使用边界
 
-[修补候选原始证据及 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/0ea9203d3409a59194675d48d93950c7af9fb92f/evidence/raw/mission-book/JOIN590-repair)。第五轮 UI / 只读回读和 CI log 当前位于 Utopia `.runtime/evidence/JOIN590-device` / `.runtime`，待本轮结束选择性固化；Digital-City 只保留报告与索引。
+[修补候选原始证据及 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/0ea9203d3409a59194675d48d93950c7af9fb92f/evidence/raw/mission-book/JOIN590-repair)。[第五轮固化 UI、native trace、只读回读、源码 CI 及 receipt](https://github.com/zhiheng-zhang-Mera/utopia/tree/41e8743d7c49771bcc335add2ee722f73085869e/evidence/raw/mission-book/JOIN590-repair/window5)。41e 是新的 evidence-only head，当前尚待其自身 CI；源码 ec3 CI 与已有证据 head 0ea CI 的成功事实不转移到这个新 head。完整 CI log 留在 Utopia `.runtime`；Digital-City 只保留报告与索引。
 
 可以研究：客户端身份缺失、legacy token 兼容路径、不同 exchange 回复结构、测试对全局 reservation 的干扰、拒绝后的交互恢复、代码验证与实际部署之间的差异。不得将模拟 City 重启升级为 Mech 实机重启证据，也不得将 LAN 可达端点升级为两端不可达 NAT 的远程连接证据。真实 NAT 路由、最终 Windows 物理成员链路、完整 exposure、opposite-host 修补复检和 merged-main post-closeout 仍未完成。`review_complete: false`。

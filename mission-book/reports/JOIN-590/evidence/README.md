@@ -7,3 +7,5 @@ Raw UI XML and native trace snapshots formerly in this directory now live in the
 Original names retained: relay-blank-code.xml, mech-approval-pending.xml, mech-approval-timeout.xml, physical-pairing-events.jsonl, round2-request.xml, round2-final-ui.xml, round2-native-boundaries.json. Window3 adds redacted UI, screenshots, native event boundaries, saved-connection metadata and Web/canonical task proof. Receipt gives hashes. No credential or private backup is published.
 
 Software source b91677d1478950feb79742f618d0c981773d5bb7 and evidence-only commit ddf7e1aa0d0978f80bf1357306378c8595fe58f7 are separate identities. Formal acceptance remains incomplete; the evidence is candidate data.
+
+Repair source ec3b6f996240ca71505b3b67af12cc222d1b283a and its test/timeout evidence are indexed in [REPAIR_REPORT_Alien-codex.md](../REPAIR_REPORT_Alien-codex.md). [Window5 immutable evidence](https://github.com/zhiheng-zhang-Mera/utopia/tree/41e8743d7c49771bcc335add2ee722f73085869e/evidence/raw/mission-book/JOIN590-repair/window5) preserves approval followed by refusal of incomplete enrollment, with no credential persisted. Mech's deployed source remains unknown.
