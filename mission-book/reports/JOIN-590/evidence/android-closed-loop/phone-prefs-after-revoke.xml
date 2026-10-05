@@ -1,0 +1,17 @@
+﻿<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <string name="pendingDeviceId">dev-be7832e35fc34b85966c3bb43a992e1d</string>
+    <string name="clientRef">dev-7df0f3d9c5b143228dffaa73e7f15dcb</string>
+    <string name="cityId">031fdba6-e94c-4298-a095-6ff04a65481d</string>
+    <string name="deviceId">dev-7df0f3d9c5b143228dffaa73e7f15dcb</string>
+    <string name="deviceName">Android · PERM00</string>
+    <string name="token"></string>
+    <string name="enrollmentEndpoint">http://172.31.12.151:4391</string>
+    <boolean name="installationRetired" value="true" />
+    <string name="instanceId">inst-94cdc199876345cb9543bcd41c8beb1d</string>
+    <string name="credentialSecret"><REDACTED></string>
+    <string name="pendingInstanceId">inst-bf6b39e83aad4efeb335137b8c09520a</string>
+    <string name="host">http://172.31.12.151:4391</string>
+    <string name="credentialId">cred-675fa46db949cc6c7d49894079db2600</string>
+    <string name="installationId">ins-89b1220ec320061505dd69418d25639f</string>
+</map>

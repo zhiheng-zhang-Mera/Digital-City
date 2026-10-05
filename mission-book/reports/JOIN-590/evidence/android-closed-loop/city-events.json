@@ -1,0 +1,3061 @@
+﻿[
+    {
+        "id":  "3e15e97c-b374-4439-9bcc-288fd8464519",
+        "timestamp":  "2026-10-04T10:34:33.389Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  1
+    },
+    {
+        "id":  "fd6d9cc4-7a53-456f-942b-554662aae5ed",
+        "timestamp":  "2026-10-04T10:34:33.465Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "alien-reference-node"
+                    },
+        "seq":  2
+    },
+    {
+        "id":  "0be99e4e-0124-4e69-a507-08a0844358ae",
+        "timestamp":  "2026-10-04T10:34:34.469Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Web Â· Win32"
+                    },
+        "seq":  3
+    },
+    {
+        "id":  "ae35ba11-6e58-40e6-98ba-d100daa7d572",
+        "timestamp":  "2026-10-04T10:35:05.693Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "f02766fc-3ab8-4325-816d-4ca339e005fd",
+        "payload":  {
+                        "requestId":  "f02766fc-3ab8-4325-816d-4ca339e005fd",
+                        "shortRef":  "join-645069de8d",
+                        "displayName":  "Mech-rep",
+                        "platform":  "Win32",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  4
+    },
+    {
+        "id":  "706d4e85-e040-4c05-8222-dcce170d32d1",
+        "timestamp":  "2026-10-04T10:36:01.198Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Web Â· Win32"
+                    },
+        "seq":  5
+    },
+    {
+        "id":  "24322339-1f60-42a4-9d70-c80ead313dc5",
+        "timestamp":  "2026-10-05T01:22:09.772Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  6
+    },
+    {
+        "id":  "d553b3cb-1e51-489d-b9f2-5e7e9f4cc48f",
+        "timestamp":  "2026-10-05T01:23:30.136Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  7
+    },
+    {
+        "id":  "490c2fcf-7309-4cf8-9327-b353ae8176f6",
+        "timestamp":  "2026-10-05T01:24:35.805Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "6e7a3af1-4695-480b-979b-d635dde3d708",
+        "payload":  {
+                        "requestId":  "6e7a3af1-4695-480b-979b-d635dde3d708",
+                        "shortRef":  "join-3be5406f5a",
+                        "displayName":  "Alien-Win",
+                        "platform":  "win32",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  8
+    },
+    {
+        "id":  "f44a5b49-39fa-4ee9-b0c3-465c7b1c1cc5",
+        "timestamp":  "2026-10-05T01:24:46.807Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "6e7a3af1-4695-480b-979b-d635dde3d708",
+        "payload":  {
+                        "requestId":  "6e7a3af1-4695-480b-979b-d635dde3d708",
+                        "shortRef":  "join-3be5406f5a",
+                        "displayName":  "Alien-Win",
+                        "platform":  "win32",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  9
+    },
+    {
+        "id":  "f9361b75-7668-4fd3-9987-6ea31a851263",
+        "timestamp":  "2026-10-05T01:24:47.003Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "6e7a3af1-4695-480b-979b-d635dde3d708",
+        "payload":  {
+                        "requestId":  "6e7a3af1-4695-480b-979b-d635dde3d708",
+                        "shortRef":  "join-3be5406f5a",
+                        "displayName":  "Alien-Win",
+                        "platform":  "win32",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  10
+    },
+    {
+        "id":  "c8eb31eb-c434-4297-904a-10725ca43ad5",
+        "timestamp":  "2026-10-05T01:28:30.071Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  11
+    },
+    {
+        "id":  "e19fc7cd-03fa-4423-90e1-2ad75055501a",
+        "timestamp":  "2026-10-05T01:28:30.155Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  12
+    },
+    {
+        "id":  "4ec8f15f-a393-421b-923a-fd86be08f33d",
+        "timestamp":  "2026-10-05T01:28:31.023Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  13
+    },
+    {
+        "id":  "4f8620fc-e504-428e-a31f-9f5f40cdebb9",
+        "timestamp":  "2026-10-05T01:28:32.290Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  14
+    },
+    {
+        "id":  "9351cf7b-e471-42ec-83d7-3567f228a132",
+        "timestamp":  "2026-10-05T01:33:39.687Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  15
+    },
+    {
+        "id":  "81d6eaff-2ca9-4e43-ac34-25357f94d3ab",
+        "timestamp":  "2026-10-05T01:33:39.766Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  16
+    },
+    {
+        "id":  "9e275fb7-4f43-4616-a966-b3cb1853c2dd",
+        "timestamp":  "2026-10-05T01:33:41.379Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  17
+    },
+    {
+        "id":  "40dd455c-384a-451c-9fde-37e00660056f",
+        "timestamp":  "2026-10-05T01:33:42.443Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  18
+    },
+    {
+        "id":  "a0b4af6d-e491-4ca9-aba1-9b5d12571bc1",
+        "timestamp":  "2026-10-05T01:38:06.785Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  19
+    },
+    {
+        "id":  "d2384133-d712-4d67-9649-f1ebe4c146d6",
+        "timestamp":  "2026-10-05T01:38:06.947Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  20
+    },
+    {
+        "id":  "96bdfa46-0057-4d91-a529-4f63056b5e76",
+        "timestamp":  "2026-10-05T01:51:04.678Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  21
+    },
+    {
+        "id":  "21cd5e79-03b0-4253-b744-4f566d32a741",
+        "timestamp":  "2026-10-05T01:51:04.755Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  22
+    },
+    {
+        "id":  "a8dd7923-71da-46f2-977b-b0cfde132058",
+        "timestamp":  "2026-10-05T01:53:25.073Z",
+        "type":  "DEVICE_ENROLLED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-bb313bf720a57976e49a502c6539cfde",
+                        "installationId":  "ins-54ea7741a3fd9c6882930a409827f1b7",
+                        "displayName":  "Mech-Fresh-Installation",
+                        "unbound":  false
+                    },
+        "seq":  23
+    },
+    {
+        "id":  "a7d5de48-fc38-4959-8c25-8d75f985ea10",
+        "timestamp":  "2026-10-05T01:53:25.079Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-54ea7741a3fd9c6882930a409827f1b7",
+                        "deviceId":  "dev-bb313bf720a57976e49a502c6539cfde",
+                        "expiresAt":  "2026-10-05T13:53:25.077Z"
+                    },
+        "seq":  24
+    },
+    {
+        "id":  "73e4de60-91c8-4a1b-8e69-8876110cafc9",
+        "timestamp":  "2026-10-05T01:53:25.136Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-54ea7741a3fd9c6882930a409827f1b7",
+                        "deviceId":  "dev-bb313bf720a57976e49a502c6539cfde",
+                        "expiresAt":  "2026-10-05T13:53:25.133Z"
+                    },
+        "seq":  25
+    },
+    {
+        "id":  "eb676ce4-1d94-45cd-b21c-85a7f6809044",
+        "timestamp":  "2026-10-05T01:53:52.444Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  26
+    },
+    {
+        "id":  "90c284c0-da45-4ae2-924e-5bd9e98d9858",
+        "timestamp":  "2026-10-05T01:53:52.524Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  27
+    },
+    {
+        "id":  "04a893e3-1f9c-45ee-a86e-f26578bd4d0f",
+        "timestamp":  "2026-10-05T01:53:52.591Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  28
+    },
+    {
+        "id":  "6acb2f4a-63cf-466e-862c-35a33404af16",
+        "timestamp":  "2026-10-05T01:53:53.381Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  29
+    },
+    {
+        "id":  "8a593213-8def-4587-8dbb-5a5f7c450949",
+        "timestamp":  "2026-10-05T01:54:27.981Z",
+        "type":  "DEVICE_ENROLLED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f",
+                        "installationId":  "ins-7d99a13ba8cd4f0a9032d0f60d198919",
+                        "displayName":  "Mech-Fresh-Installation",
+                        "unbound":  false
+                    },
+        "seq":  30
+    },
+    {
+        "id":  "7101c8fe-b5ee-41d7-9774-6591b0027e15",
+        "timestamp":  "2026-10-05T01:54:27.989Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-7d99a13ba8cd4f0a9032d0f60d198919",
+                        "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f",
+                        "expiresAt":  "2026-10-05T13:54:27.985Z"
+                    },
+        "seq":  31
+    },
+    {
+        "id":  "b267f044-9bb5-4371-a058-ad459f59aba8",
+        "timestamp":  "2026-10-05T01:54:28.095Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-7d99a13ba8cd4f0a9032d0f60d198919",
+                        "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f",
+                        "expiresAt":  "2026-10-05T13:54:28.089Z"
+                    },
+        "seq":  32
+    },
+    {
+        "id":  "dc1c16bf-73cd-447d-837e-4fb59f670f83",
+        "timestamp":  "2026-10-05T01:54:28.148Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-7d99a13ba8cd4f0a9032d0f60d198919",
+                        "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f",
+                        "expiresAt":  "2026-10-05T13:54:28.142Z"
+                    },
+        "seq":  33
+    },
+    {
+        "id":  "736e7ab5-98f7-4f23-a883-17ceccc3166b",
+        "timestamp":  "2026-10-05T01:54:28.164Z",
+        "type":  "DEVICE_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-7d99a13ba8cd4f0a9032d0f60d198919",
+                        "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f",
+                        "reason":  "revoked_by_owner",
+                        "sessionsRevoked":  3
+                    },
+        "seq":  34
+    },
+    {
+        "id":  "b7ae979c-1160-4c8c-b59a-8c4d4580085b",
+        "timestamp":  "2026-10-05T01:54:28.166Z",
+        "type":  "MEMBER_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-903b89417b499523e4b4417bf3ec7e3f"
+                    },
+        "seq":  35
+    },
+    {
+        "id":  "54b98fa8-8f52-4991-8a1c-ff3d69b2752a",
+        "timestamp":  "2026-10-05T02:01:16.623Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  36
+    },
+    {
+        "id":  "0a08fc3b-b7d7-40cb-a198-ff9b30dc5b05",
+        "timestamp":  "2026-10-05T02:09:11.923Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  37
+    },
+    {
+        "id":  "bfae8636-b981-4360-964f-be7716e5c99a",
+        "timestamp":  "2026-10-05T02:12:45.289Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  38
+    },
+    {
+        "id":  "ed23a19d-9f22-4d81-8fb5-bfe395ac332d",
+        "timestamp":  "2026-10-05T02:12:53.337Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  39
+    },
+    {
+        "id":  "e3a9a98f-0d68-4f5f-8a9c-264fbafccea3",
+        "timestamp":  "2026-10-05T02:27:48.627Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  40
+    },
+    {
+        "id":  "c69e71da-223c-4814-b484-a0e1df59884b",
+        "timestamp":  "2026-10-05T02:27:57.646Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  41
+    },
+    {
+        "id":  "83477252-da00-42c9-b3c5-401d687230e2",
+        "timestamp":  "2026-10-05T02:29:53.047Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  42
+    },
+    {
+        "id":  "c2339d21-93bf-4aa2-8cdf-aa165bb0cc0e",
+        "timestamp":  "2026-10-05T02:30:01.389Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  43
+    },
+    {
+        "id":  "2e66fa9d-832d-4e02-b059-3d0f01b9a5c3",
+        "timestamp":  "2026-10-05T02:40:29.286Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  44
+    },
+    {
+        "id":  "f3894fa9-a0c3-432e-8613-80ddca230c8e",
+        "timestamp":  "2026-10-05T02:40:37.394Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  45
+    },
+    {
+        "id":  "99d1b17d-e1bf-4a64-83d9-aec6110ab7b5",
+        "timestamp":  "2026-10-05T02:42:03.444Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  46
+    },
+    {
+        "id":  "7d7b81ab-6130-4050-8988-8e24b8ce9344",
+        "timestamp":  "2026-10-05T02:42:10.869Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  47
+    },
+    {
+        "id":  "21cb3476-6f8f-4e53-acf9-f87f96be34c3",
+        "timestamp":  "2026-10-05T02:52:26.146Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  48
+    },
+    {
+        "id":  "e195d096-4739-4667-aa58-b497f8579493",
+        "timestamp":  "2026-10-05T02:52:34.577Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  49
+    },
+    {
+        "id":  "a22eeca6-02ee-4554-aa5a-8bf17c8e711f",
+        "timestamp":  "2026-10-05T02:53:42.275Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  50
+    },
+    {
+        "id":  "cfb38939-b0e4-489f-b72e-fb7f7b8616aa",
+        "timestamp":  "2026-10-05T02:53:49.617Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  51
+    },
+    {
+        "id":  "2db1f39f-b0e3-4d28-aa57-318338ada6e8",
+        "timestamp":  "2026-10-05T02:54:52.916Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  52
+    },
+    {
+        "id":  "79ae0dca-9bd5-4418-a946-b4f474207efa",
+        "timestamp":  "2026-10-05T02:54:53.051Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  53
+    },
+    {
+        "id":  "691d487c-e4d6-4fae-8395-c31b8700b6be",
+        "timestamp":  "2026-10-05T03:13:25.032Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  54
+    },
+    {
+        "id":  "4eba3799-973d-41be-89c5-6e01ae8be901",
+        "timestamp":  "2026-10-05T03:13:32.913Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  55
+    },
+    {
+        "id":  "3b3f57ac-149d-4c62-a2b5-dcae1b400edb",
+        "timestamp":  "2026-10-05T03:15:32.119Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "control:owner",
+                        "role":  "control-token",
+                        "verified":  true,
+                        "label":  "probe-with-token"
+                    },
+        "seq":  56
+    },
+    {
+        "id":  "e956498d-d18c-4308-86af-ff9990368a1f",
+        "timestamp":  "2026-10-05T03:15:32.127Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "control:owner",
+                        "connectedAt":  "2026-10-05T03:15:32.118Z"
+                    },
+        "seq":  57
+    },
+    {
+        "id":  "7b91bac6-53e7-4702-acec-2daed81179cd",
+        "timestamp":  "2026-10-05T03:15:50.964Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "probe"
+                    },
+        "seq":  58
+    },
+    {
+        "id":  "e3ab5afb-9e78-4c86-8dc5-82e48b31730f",
+        "timestamp":  "2026-10-05T03:15:50.974Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T03:15:50.964Z"
+                    },
+        "seq":  59
+    },
+    {
+        "id":  "bf9d82ac-584a-48e2-9881-825f28184f6f",
+        "timestamp":  "2026-10-05T03:16:34.253Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  60
+    },
+    {
+        "id":  "e35399cb-c6dc-45bf-ac0c-aef8ff486192",
+        "timestamp":  "2026-10-05T03:16:41.269Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  61
+    },
+    {
+        "id":  "91428e6b-d424-4028-9279-f68db7c20f47",
+        "timestamp":  "2026-10-05T03:17:17.329Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  62
+    },
+    {
+        "id":  "b217f366-ae31-4fa7-b0fb-039151023306",
+        "timestamp":  "2026-10-05T03:17:17.416Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T03:17:17.329Z"
+                    },
+        "seq":  63
+    },
+    {
+        "id":  "ac82f4d8-7859-430d-b7b9-ee2512c977f3",
+        "timestamp":  "2026-10-05T03:20:49.862Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  64
+    },
+    {
+        "id":  "7674545d-9271-484e-8698-35e9122d2b59",
+        "timestamp":  "2026-10-05T03:20:57.810Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  65
+    },
+    {
+        "id":  "46525b96-f7df-4047-9c58-3cb3947cd56d",
+        "timestamp":  "2026-10-05T03:21:40.757Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  66
+    },
+    {
+        "id":  "ceb2df37-ac35-4f14-ac51-2eedaf436e91",
+        "timestamp":  "2026-10-05T03:21:40.840Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "a7379c95-6ad6-4a40-9541-2e54060b7b48",
+        "payload":  {
+                        "requestId":  "a7379c95-6ad6-4a40-9541-2e54060b7b48",
+                        "shortRef":  "join-74d7a2463b",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  67
+    },
+    {
+        "id":  "d0cf05a8-0036-42bf-a33b-6d403087c9fe",
+        "timestamp":  "2026-10-05T03:22:08.632Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "a7379c95-6ad6-4a40-9541-2e54060b7b48",
+        "payload":  {
+                        "requestId":  "a7379c95-6ad6-4a40-9541-2e54060b7b48",
+                        "shortRef":  "join-74d7a2463b",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  68
+    },
+    {
+        "id":  "8c483764-3f95-4bc2-a901-48b2adc6182d",
+        "timestamp":  "2026-10-05T03:22:09.358Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "a7379c95-6ad6-4a40-9541-2e54060b7b48",
+        "payload":  {
+                        "requestId":  "a7379c95-6ad6-4a40-9541-2e54060b7b48",
+                        "shortRef":  "join-74d7a2463b",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  69
+    },
+    {
+        "id":  "1086557b-9e79-44f0-b58f-dde38e8f7003",
+        "timestamp":  "2026-10-05T03:22:09.414Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T03:21:40.757Z"
+                    },
+        "seq":  70
+    },
+    {
+        "id":  "5b5fd439-b2cd-4927-a057-d3437305eb52",
+        "timestamp":  "2026-10-05T03:22:09.480Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  71
+    },
+    {
+        "id":  "f956c73a-d3c5-462a-83d8-3c7c08bfdae2",
+        "timestamp":  "2026-10-05T03:25:01.650Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-relay-acceptance",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "relay acceptance"
+                    },
+        "seq":  72
+    },
+    {
+        "id":  "188fd930-d448-4ad4-835e-cf6c058f3e99",
+        "timestamp":  "2026-10-05T03:25:01.655Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "c0f4f36b-9a85-441d-9b9a-0a4f6b91de83",
+        "payload":  {
+                        "requestId":  "c0f4f36b-9a85-441d-9b9a-0a4f6b91de83",
+                        "shortRef":  "join-0388eb6f44",
+                        "displayName":  "Relay acceptance",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  73
+    },
+    {
+        "id":  "92a8c7ba-263e-4170-8c81-df780e25fa5a",
+        "timestamp":  "2026-10-05T03:25:01.674Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "c0f4f36b-9a85-441d-9b9a-0a4f6b91de83",
+        "payload":  {
+                        "requestId":  "c0f4f36b-9a85-441d-9b9a-0a4f6b91de83",
+                        "shortRef":  "join-0388eb6f44",
+                        "displayName":  "Relay acceptance",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  74
+    },
+    {
+        "id":  "13a33f84-d6be-470f-aed8-d563383d1b0d",
+        "timestamp":  "2026-10-05T03:25:01.680Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "c0f4f36b-9a85-441d-9b9a-0a4f6b91de83",
+        "payload":  {
+                        "requestId":  "c0f4f36b-9a85-441d-9b9a-0a4f6b91de83",
+                        "shortRef":  "join-0388eb6f44",
+                        "displayName":  "Relay acceptance",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  75
+    },
+    {
+        "id":  "3269b881-4480-42b3-ad0b-381619fa9816",
+        "timestamp":  "2026-10-05T03:25:01.684Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-relay-acceptance",
+                        "connectedAt":  "2026-10-05T03:25:01.650Z"
+                    },
+        "seq":  76
+    },
+    {
+        "id":  "b5ae86db-ef33-4bdf-910f-82a06c95db7e",
+        "timestamp":  "2026-10-05T08:53:52.320Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  77
+    },
+    {
+        "id":  "1b466557-b1ec-49e1-9c1a-5149d4342dab",
+        "timestamp":  "2026-10-05T08:53:52.378Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "alien-reference-node"
+                    },
+        "seq":  78
+    },
+    {
+        "id":  "4821e39e-807c-4920-83a4-aa6de4b052f6",
+        "timestamp":  "2026-10-05T09:03:53.099Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  79
+    },
+    {
+        "id":  "5314c367-cfd9-4cad-ac18-9976624df9c3",
+        "timestamp":  "2026-10-05T09:03:53.141Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "alien-reference-node"
+                    },
+        "seq":  80
+    },
+    {
+        "id":  "977514e5-ca59-49d6-a378-a24ba696dfb9",
+        "timestamp":  "2026-10-05T09:38:11.136Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  81
+    },
+    {
+        "id":  "08bb695b-2961-448e-b6c6-7d928b27b20a",
+        "timestamp":  "2026-10-05T09:38:11.160Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "a4335546-5be4-4325-a5ca-501fbdb51883",
+        "payload":  {
+                        "requestId":  "a4335546-5be4-4325-a5ca-501fbdb51883",
+                        "shortRef":  "join-4d2e2617ba",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  82
+    },
+    {
+        "id":  "e7025536-0475-41f7-bf7d-cbc96905ac31",
+        "timestamp":  "2026-10-05T09:41:12.269Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T09:38:11.135Z"
+                    },
+        "seq":  83
+    },
+    {
+        "id":  "d75b3ca8-c164-41bc-88a3-3be1692f07a3",
+        "timestamp":  "2026-10-05T10:00:38.699Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  84
+    },
+    {
+        "id":  "c2227276-1ecf-402a-9fcb-2b1f680d4ab7",
+        "timestamp":  "2026-10-05T10:00:38.720Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "73e9115e-bc5d-433e-bfd3-24eb87ec8fe7",
+        "payload":  {
+                        "requestId":  "73e9115e-bc5d-433e-bfd3-24eb87ec8fe7",
+                        "shortRef":  "join-eab97ea241",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  85
+    },
+    {
+        "id":  "4a0e0347-db6c-4065-a932-7b1f0839cc7c",
+        "timestamp":  "2026-10-05T10:02:10.106Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "install-mrf2j367y1",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Mech-rep"
+                    },
+        "seq":  86
+    },
+    {
+        "id":  "50195ead-394b-45d7-8d7e-18f0efcdd835",
+        "timestamp":  "2026-10-05T10:02:10.113Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "3a27d61d-c48e-438d-9da7-e52809d9a2d9",
+        "payload":  {
+                        "requestId":  "3a27d61d-c48e-438d-9da7-e52809d9a2d9",
+                        "shortRef":  "join-01fcf35e64",
+                        "displayName":  "Mech-rep",
+                        "platform":  "Win32",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  87
+    },
+    {
+        "id":  "349ee45b-45e1-4195-9c6a-8664022a1d96",
+        "timestamp":  "2026-10-05T10:03:40.030Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T10:00:38.698Z"
+                    },
+        "seq":  88
+    },
+    {
+        "id":  "bcd9756d-9796-4b95-ad9c-94cfd3f4d5b1",
+        "timestamp":  "2026-10-05T10:07:45.075Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "73e9115e-bc5d-433e-bfd3-24eb87ec8fe7",
+        "payload":  {
+                        "requestId":  "73e9115e-bc5d-433e-bfd3-24eb87ec8fe7",
+                        "shortRef":  "join-eab97ea241",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  89
+    },
+    {
+        "id":  "32f76029-7d76-4cc1-9254-5b7a267dd18b",
+        "timestamp":  "2026-10-05T10:07:45.088Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "3a27d61d-c48e-438d-9da7-e52809d9a2d9",
+        "payload":  {
+                        "requestId":  "3a27d61d-c48e-438d-9da7-e52809d9a2d9",
+                        "shortRef":  "join-01fcf35e64",
+                        "displayName":  "Mech-rep",
+                        "platform":  "Win32",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  90
+    },
+    {
+        "id":  "6ac019e3-7c6c-46b3-ad49-a368b12827cb",
+        "timestamp":  "2026-10-05T10:07:45.528Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "3a27d61d-c48e-438d-9da7-e52809d9a2d9",
+        "payload":  {
+                        "requestId":  "3a27d61d-c48e-438d-9da7-e52809d9a2d9",
+                        "shortRef":  "join-01fcf35e64",
+                        "displayName":  "Mech-rep",
+                        "platform":  "Win32",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  91
+    },
+    {
+        "id":  "85662ead-f3be-42fb-96af-eb841827dd2d",
+        "timestamp":  "2026-10-05T10:07:45.531Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "install-mrf2j367y1",
+                        "connectedAt":  "2026-10-05T10:02:10.106Z"
+                    },
+        "seq":  92
+    },
+    {
+        "id":  "2e3c1e02-15f2-4980-adbe-e25d6db39e33",
+        "timestamp":  "2026-10-05T10:07:45.564Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  93
+    },
+    {
+        "id":  "4e1f57c4-7f6c-4e25-a90c-f3e6e77219d1",
+        "timestamp":  "2026-10-05T10:07:52.309Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "diag-probe",
+                        "clientLabel":  "diag"
+                    },
+        "seq":  94
+    },
+    {
+        "id":  "1c3fd9f8-2f97-4432-9f35-cee14f8fc391",
+        "timestamp":  "2026-10-05T10:07:52.314Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "diag-probe",
+                        "clientLabel":  "diag"
+                    },
+        "seq":  95
+    },
+    {
+        "id":  "2edc9780-73b4-4f95-bd9e-72f832f5559a",
+        "timestamp":  "2026-10-05T10:11:10.315Z",
+        "type":  "CITY_RENAMED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "displayName":  "Utopia Â· Mega-rep"
+                    },
+        "seq":  96
+    },
+    {
+        "id":  "781ca563-9742-4075-ae6c-b0f3423001b8",
+        "timestamp":  "2026-10-05T10:11:13.430Z",
+        "type":  "CITY_RENAMED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "displayName":  "Utopia Â· Mega-rep"
+                    },
+        "seq":  97
+    },
+    {
+        "id":  "88e36374-b2dc-4ea9-a429-a76351a0a3ae",
+        "timestamp":  "2026-10-05T10:12:01.489Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  98
+    },
+    {
+        "id":  "8fe58b65-1fca-4652-8a89-ccfa48373cf2",
+        "timestamp":  "2026-10-05T10:12:01.506Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "5ae9d960-111a-4209-83a3-9e8b6e90c3c5",
+        "payload":  {
+                        "requestId":  "5ae9d960-111a-4209-83a3-9e8b6e90c3c5",
+                        "shortRef":  "join-fe7ec19fbc",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  99
+    },
+    {
+        "id":  "c8bae6d3-f35a-45aa-9bbb-50c86097aea1",
+        "timestamp":  "2026-10-05T10:12:10.193Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "5ae9d960-111a-4209-83a3-9e8b6e90c3c5",
+        "payload":  {
+                        "requestId":  "5ae9d960-111a-4209-83a3-9e8b6e90c3c5",
+                        "shortRef":  "join-fe7ec19fbc",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  100
+    },
+    {
+        "id":  "29a79082-19b9-4ece-a755-11641f901361",
+        "timestamp":  "2026-10-05T10:12:11.575Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "5ae9d960-111a-4209-83a3-9e8b6e90c3c5",
+        "payload":  {
+                        "requestId":  "5ae9d960-111a-4209-83a3-9e8b6e90c3c5",
+                        "shortRef":  "join-fe7ec19fbc",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  101
+    },
+    {
+        "id":  "03e46301-b72c-485a-9b68-bf1a6a2a73fb",
+        "timestamp":  "2026-10-05T10:12:11.596Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T10:12:01.488Z"
+                    },
+        "seq":  102
+    },
+    {
+        "id":  "3827a752-235a-47ae-925b-e729ae9a5f89",
+        "timestamp":  "2026-10-05T10:12:11.731Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  103
+    },
+    {
+        "id":  "4582e101-3bda-41a3-88e7-cfe0f411000f",
+        "timestamp":  "2026-10-05T10:13:24.893Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  104
+    },
+    {
+        "id":  "d3802b82-6d4f-4d6f-80ab-efe3a6226637",
+        "timestamp":  "2026-10-05T10:13:26.145Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  105
+    },
+    {
+        "id":  "321a8464-b903-4c62-9492-0469ddd69505",
+        "timestamp":  "2026-10-05T10:14:13.261Z",
+        "type":  "COMMAND_ACCEPTED",
+        "actor":  "gateway",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+
+                    },
+        "seq":  106
+    },
+    {
+        "id":  "130cc034-1603-4c91-9436-ed2e09900acb",
+        "timestamp":  "2026-10-05T10:14:13.262Z",
+        "type":  "TASK_CREATED",
+        "actor":  "gateway",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+
+                    },
+        "seq":  107
+    },
+    {
+        "id":  "fd69c0a5-ba9a-4355-92df-e149e3fc4adc",
+        "timestamp":  "2026-10-05T10:14:13.631Z",
+        "type":  "TASK_ASSIGNED",
+        "actor":  "alien-reference-node",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+                        "state":  "ASSIGNED",
+                        "progress":  0,
+                        "assignedNodeId":  "alien-reference-node"
+                    },
+        "seq":  108
+    },
+    {
+        "id":  "5d4779e3-e6e9-463e-abca-62dbe74a36a2",
+        "timestamp":  "2026-10-05T10:14:13.652Z",
+        "type":  "TASK_STARTED",
+        "actor":  "alien-reference-node",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+                        "state":  "RUNNING",
+                        "progress":  0,
+                        "lastCheckpoint":  null
+                    },
+        "seq":  109
+    },
+    {
+        "id":  "19affec3-68ce-4c9e-b8c8-4f3d8f9dffc5",
+        "timestamp":  "2026-10-05T10:14:13.679Z",
+        "type":  "TASK_CHECKPOINTED",
+        "actor":  "alien-reference-node",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+                        "state":  "RUNNING",
+                        "progress":  30,
+                        "lastCheckpoint":  {
+                                               "step":  "artifact-written",
+                                               "bytes":  65
+                                           }
+                    },
+        "seq":  110
+    },
+    {
+        "id":  "aa1091aa-8991-4c30-9f04-4be97591cc17",
+        "timestamp":  "2026-10-05T10:14:14.903Z",
+        "type":  "TASK_CHECKPOINTED",
+        "actor":  "alien-reference-node",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+                        "state":  "RUNNING",
+                        "progress":  75,
+                        "lastCheckpoint":  {
+                                               "step":  "hashed",
+                                               "sha256":  "1d75256ecf08d63f10f8fe9832a7a2f2212cf78d6b55498d7e0a909e4b6eec1b"
+                                           }
+                    },
+        "seq":  111
+    },
+    {
+        "id":  "792457a5-2eef-4c66-a66b-04153e5cd13d",
+        "timestamp":  "2026-10-05T10:14:16.129Z",
+        "type":  "TASK_COMPLETED",
+        "actor":  "alien-reference-node",
+        "taskId":  "Q-24ebb6d9-ea60-47bc-944b-e7e4da530819",
+        "payload":  {
+                        "state":  "COMPLETED",
+                        "progress":  100,
+                        "result":  {
+                                       "bytes":  65,
+                                       "sha256":  "1d75256ecf08d63f10f8fe9832a7a2f2212cf78d6b55498d7e0a909e4b6eec1b",
+                                       "cleaned":  true
+                                   }
+                    },
+        "seq":  112
+    },
+    {
+        "id":  "d3a5cb12-856b-4320-99c8-097aaf5cd4d0",
+        "timestamp":  "2026-10-05T10:15:52.823Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-aepd7czw",
+                        "clientLabel":  "Alien-codex JOIN590 review"
+                    },
+        "seq":  113
+    },
+    {
+        "id":  "d619812d-6a7e-488f-88df-a77918e5f07c",
+        "timestamp":  "2026-10-05T10:15:54.029Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-aepd7czw",
+                        "clientLabel":  "Alien-codex JOIN590 review"
+                    },
+        "seq":  114
+    },
+    {
+        "id":  "a03ad79e-2a30-4d76-8671-71c072ea0fd4",
+        "timestamp":  "2026-10-05T10:37:54.157Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  115
+    },
+    {
+        "id":  "c8966ced-04f7-451a-ae83-d9cd2e7c4c91",
+        "timestamp":  "2026-10-05T10:38:21.649Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  116
+    },
+    {
+        "id":  "b56fc728-5048-4311-9465-6a1b6231440c",
+        "timestamp":  "2026-10-05T10:42:27.967Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  117
+    },
+    {
+        "id":  "90d81704-2fcc-4028-843f-3e5d7f9b23d8",
+        "timestamp":  "2026-10-05T10:43:26.569Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  118
+    },
+    {
+        "id":  "58085448-cb2d-43d7-ad39-5fec29de9fa7",
+        "timestamp":  "2026-10-05T10:44:24.021Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  119
+    },
+    {
+        "id":  "67f09f24-231f-4202-b736-335daca31d91",
+        "timestamp":  "2026-10-05T10:45:45.671Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-d173a49ff62841e9be8d02a3ee713e9a",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  120
+    },
+    {
+        "id":  "d9a5dd70-6f32-49af-a2b7-3132126e3b20",
+        "timestamp":  "2026-10-05T10:45:45.690Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "ebe42ec7-1fee-457b-a3a7-d24b808b1bf7",
+        "payload":  {
+                        "requestId":  "ebe42ec7-1fee-457b-a3a7-d24b808b1bf7",
+                        "shortRef":  "join-c301d67807",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  121
+    },
+    {
+        "id":  "8d4ac64a-586c-41b1-b613-add5bcf32421",
+        "timestamp":  "2026-10-05T10:48:46.194Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-d173a49ff62841e9be8d02a3ee713e9a",
+                        "connectedAt":  "2026-10-05T10:45:45.671Z"
+                    },
+        "seq":  122
+    },
+    {
+        "id":  "336028b9-ad99-420a-a724-fd7f3ccae480",
+        "timestamp":  "2026-10-05T10:55:10.263Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "ebe42ec7-1fee-457b-a3a7-d24b808b1bf7",
+        "payload":  {
+                        "requestId":  "ebe42ec7-1fee-457b-a3a7-d24b808b1bf7",
+                        "shortRef":  "join-c301d67807",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  123
+    },
+    {
+        "id":  "baa43f7b-2172-4cdb-915a-9c306605dc58",
+        "timestamp":  "2026-10-05T10:58:04.572Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-d173a49ff62841e9be8d02a3ee713e9a",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  124
+    },
+    {
+        "id":  "1e24ee07-3701-4222-84b6-832289b2395f",
+        "timestamp":  "2026-10-05T10:58:04.588Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "6ef1a08f-eac9-4b42-8192-de785f7c0749",
+        "payload":  {
+                        "requestId":  "6ef1a08f-eac9-4b42-8192-de785f7c0749",
+                        "shortRef":  "join-535174ce61",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  125
+    },
+    {
+        "id":  "9e7d24cf-42cb-42ae-9e25-def3b2afac47",
+        "timestamp":  "2026-10-05T10:59:04.488Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "6ef1a08f-eac9-4b42-8192-de785f7c0749",
+        "payload":  {
+                        "requestId":  "6ef1a08f-eac9-4b42-8192-de785f7c0749",
+                        "shortRef":  "join-535174ce61",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  126
+    },
+    {
+        "id":  "67232209-f6dd-41e5-8774-d127764a32a7",
+        "timestamp":  "2026-10-05T10:59:05.570Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "6ef1a08f-eac9-4b42-8192-de785f7c0749",
+        "payload":  {
+                        "requestId":  "6ef1a08f-eac9-4b42-8192-de785f7c0749",
+                        "shortRef":  "join-535174ce61",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  127
+    },
+    {
+        "id":  "53efc820-620e-47de-ba1c-cd4c8b0733d6",
+        "timestamp":  "2026-10-05T10:59:05.589Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-d173a49ff62841e9be8d02a3ee713e9a",
+                        "connectedAt":  "2026-10-05T10:58:04.572Z"
+                    },
+        "seq":  128
+    },
+    {
+        "id":  "2f425f06-b83a-4e29-9bf8-3d7293d04613",
+        "timestamp":  "2026-10-05T11:15:22.813Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  129
+    },
+    {
+        "id":  "28d023e4-9019-4afb-b996-d1660d3470d9",
+        "timestamp":  "2026-10-05T11:15:22.843Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  130
+    },
+    {
+        "id":  "d92963f3-3afb-41bb-80f6-902185844e6c",
+        "timestamp":  "2026-10-05T11:15:23.108Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  131
+    },
+    {
+        "id":  "24659bf4-41b7-4bdb-8d3f-37800853a136",
+        "timestamp":  "2026-10-05T11:25:01.713Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  132
+    },
+    {
+        "id":  "86e1bb38-d42b-42d2-a3d7-83b2630a962d",
+        "timestamp":  "2026-10-05T11:25:02.024Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  133
+    },
+    {
+        "id":  "889c02ab-6f4e-406e-8149-7c9156d75fc2",
+        "timestamp":  "2026-10-05T11:28:01.588Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  134
+    },
+    {
+        "id":  "4701cefc-d408-470f-918f-bd7485ed6dd5",
+        "timestamp":  "2026-10-05T11:28:01.656Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "52954dc4-12f3-41db-a158-0b1ed9820317",
+        "payload":  {
+                        "requestId":  "52954dc4-12f3-41db-a158-0b1ed9820317",
+                        "shortRef":  "join-0751220e8f",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  135
+    },
+    {
+        "id":  "d703ced2-bade-403e-9f3b-6bc2c3acbc55",
+        "timestamp":  "2026-10-05T11:28:20.320Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "52954dc4-12f3-41db-a158-0b1ed9820317",
+        "payload":  {
+                        "requestId":  "52954dc4-12f3-41db-a158-0b1ed9820317",
+                        "shortRef":  "join-0751220e8f",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  136
+    },
+    {
+        "id":  "1b67e9c5-a282-4433-8fe5-20e9dfce9e46",
+        "timestamp":  "2026-10-05T11:28:20.431Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "52954dc4-12f3-41db-a158-0b1ed9820317",
+        "payload":  {
+                        "requestId":  "52954dc4-12f3-41db-a158-0b1ed9820317",
+                        "shortRef":  "join-0751220e8f",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  137
+    },
+    {
+        "id":  "3345be50-37c2-4ca5-b5c7-3f0273718185",
+        "timestamp":  "2026-10-05T11:28:20.449Z",
+        "type":  "DEVICE_ENROLLED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "installationId":  "ins-92893167bd38ba85b43fc527e586ddab",
+                        "displayName":  "Android Â· PERM00",
+                        "unbound":  false
+                    },
+        "seq":  138
+    },
+    {
+        "id":  "91da8d44-15cc-4721-861e-805b18a58278",
+        "timestamp":  "2026-10-05T11:28:20.457Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-92893167bd38ba85b43fc527e586ddab",
+                        "deviceId":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "expiresAt":  "2026-10-05T23:28:20.453Z"
+                    },
+        "seq":  139
+    },
+    {
+        "id":  "f433c353-dfa3-4ac7-8245-4d61fe57183d",
+        "timestamp":  "2026-10-05T11:28:20.516Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "connectedAt":  "2026-10-05T11:28:01.588Z"
+                    },
+        "seq":  140
+    },
+    {
+        "id":  "e8595f76-27cc-4963-a553-933db762b27b",
+        "timestamp":  "2026-10-05T11:28:20.599Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-92893167bd38ba85b43fc527e586ddab",
+                        "deviceId":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "expiresAt":  "2026-10-05T23:28:20.594Z"
+                    },
+        "seq":  141
+    },
+    {
+        "id":  "f537bc8e-cb39-4f33-a696-ce2ebd02f33e",
+        "timestamp":  "2026-10-05T11:28:20.680Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  142
+    },
+    {
+        "id":  "b8d7d323-db9b-4180-a100-852f6672dfb9",
+        "timestamp":  "2026-10-05T11:28:41.316Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  143
+    },
+    {
+        "id":  "d20b078b-cbe4-48fa-8a61-12efbae5183a",
+        "timestamp":  "2026-10-05T11:28:42.470Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-92893167bd38ba85b43fc527e586ddab",
+                        "deviceId":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "expiresAt":  "2026-10-05T23:28:42.464Z"
+                    },
+        "seq":  144
+    },
+    {
+        "id":  "4bd03d93-6dd8-460a-8d42-146aa53134b3",
+        "timestamp":  "2026-10-05T11:28:42.573Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  145
+    },
+    {
+        "id":  "2d477ea4-d043-452a-86e4-19ee85e8bf2c",
+        "timestamp":  "2026-10-05T11:28:54.256Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "a8c47038-1114-421e-a6fa-148d657b65c8",
+        "payload":  {
+                        "requestId":  "a8c47038-1114-421e-a6fa-148d657b65c8",
+                        "shortRef":  "join-3fe6916d63",
+                        "displayName":  "Alien-PC-JOIN590",
+                        "platform":  "win32",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  146
+    },
+    {
+        "id":  "875a289a-db2a-4b75-814e-2847f669b571",
+        "timestamp":  "2026-10-05T11:29:21.747Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "a8c47038-1114-421e-a6fa-148d657b65c8",
+        "payload":  {
+                        "requestId":  "a8c47038-1114-421e-a6fa-148d657b65c8",
+                        "shortRef":  "join-3fe6916d63",
+                        "displayName":  "Alien-PC-JOIN590",
+                        "platform":  "win32",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  147
+    },
+    {
+        "id":  "d745babc-24a0-45a6-acf1-c845fdd92761",
+        "timestamp":  "2026-10-05T11:29:27.877Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "a8c47038-1114-421e-a6fa-148d657b65c8",
+        "payload":  {
+                        "requestId":  "a8c47038-1114-421e-a6fa-148d657b65c8",
+                        "shortRef":  "join-3fe6916d63",
+                        "displayName":  "Alien-PC-JOIN590",
+                        "platform":  "win32",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  148
+    },
+    {
+        "id":  "cc32ebf1-e475-4275-99eb-9dca05291df3",
+        "timestamp":  "2026-10-05T11:29:27.883Z",
+        "type":  "DEVICE_ENROLLED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "displayName":  "Alien-PC-JOIN590",
+                        "unbound":  false
+                    },
+        "seq":  149
+    },
+    {
+        "id":  "de0129fc-042f-4caa-9ba1-bdf6c48c7b71",
+        "timestamp":  "2026-10-05T11:29:27.887Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:29:27.885Z"
+                    },
+        "seq":  150
+    },
+    {
+        "id":  "3caa3186-2f9c-48ac-bf3d-bddc8c8d86a2",
+        "timestamp":  "2026-10-05T11:29:27.942Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:29:27.937Z"
+                    },
+        "seq":  151
+    },
+    {
+        "id":  "b76289e5-4cda-46dc-a508-4d11841195bb",
+        "timestamp":  "2026-10-05T11:29:27.957Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:29:27.953Z"
+                    },
+        "seq":  152
+    },
+    {
+        "id":  "259bc93d-334b-4b65-94b2-34ef0585f255",
+        "timestamp":  "2026-10-05T11:29:28.020Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67"
+                    },
+        "seq":  153
+    },
+    {
+        "id":  "2dd78d71-cd97-4e0a-aa89-53373a6eda9c",
+        "timestamp":  "2026-10-05T11:30:06.973Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:30:06.969Z"
+                    },
+        "seq":  154
+    },
+    {
+        "id":  "13e3fe22-9783-45b7-ac9d-1cc229836070",
+        "timestamp":  "2026-10-05T11:30:12.353Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:30:12.344Z"
+                    },
+        "seq":  155
+    },
+    {
+        "id":  "0a776217-ae4c-4994-b540-e92703aad488",
+        "timestamp":  "2026-10-05T11:30:12.533Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:30:12.528Z"
+                    },
+        "seq":  156
+    },
+    {
+        "id":  "1b6e217a-18cf-46ca-9835-a851c1499c4a",
+        "timestamp":  "2026-10-05T11:30:33.089Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:30:33.084Z"
+                    },
+        "seq":  157
+    },
+    {
+        "id":  "f3809e14-1429-4049-b104-428977dfeecb",
+        "timestamp":  "2026-10-05T11:31:35.725Z",
+        "type":  "COMMAND_ACCEPTED",
+        "actor":  "gateway",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+
+                    },
+        "seq":  158
+    },
+    {
+        "id":  "092e0473-2c3e-464d-b5f2-440913c17957",
+        "timestamp":  "2026-10-05T11:31:35.725Z",
+        "type":  "TASK_CREATED",
+        "actor":  "gateway",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+
+                    },
+        "seq":  159
+    },
+    {
+        "id":  "c81c2fde-20f9-4adf-ae6f-7eb9d2de81b3",
+        "timestamp":  "2026-10-05T11:31:36.070Z",
+        "type":  "TASK_ASSIGNED",
+        "actor":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+                        "state":  "ASSIGNED",
+                        "progress":  0,
+                        "assignedNodeId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67"
+                    },
+        "seq":  160
+    },
+    {
+        "id":  "b8511516-20fa-481e-80ac-59ea8896aa66",
+        "timestamp":  "2026-10-05T11:31:36.115Z",
+        "type":  "TASK_STARTED",
+        "actor":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+                        "state":  "RUNNING",
+                        "progress":  0,
+                        "lastCheckpoint":  null
+                    },
+        "seq":  161
+    },
+    {
+        "id":  "fdba0ca0-ae42-48f0-81e7-0f22f9fc3576",
+        "timestamp":  "2026-10-05T11:31:36.132Z",
+        "type":  "TASK_CHECKPOINTED",
+        "actor":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+                        "state":  "RUNNING",
+                        "progress":  30,
+                        "lastCheckpoint":  {
+                                               "step":  "artifact-written",
+                                               "bytes":  65
+                                           }
+                    },
+        "seq":  162
+    },
+    {
+        "id":  "1578dd3c-0496-4047-bf31-7278f31d3006",
+        "timestamp":  "2026-10-05T11:31:37.347Z",
+        "type":  "TASK_CHECKPOINTED",
+        "actor":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+                        "state":  "RUNNING",
+                        "progress":  75,
+                        "lastCheckpoint":  {
+                                               "step":  "hashed",
+                                               "sha256":  "4150752ac4f326d3d74dd939e31d6abfa3d8055df4a00d7614f7c360353bf71a"
+                                           }
+                    },
+        "seq":  163
+    },
+    {
+        "id":  "6df46fa3-ce87-4188-b1d9-51272f9f0dff",
+        "timestamp":  "2026-10-05T11:31:38.573Z",
+        "type":  "TASK_COMPLETED",
+        "actor":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+        "taskId":  "Q-87818c40-a204-46d6-96e6-7da0077085fa",
+        "payload":  {
+                        "state":  "COMPLETED",
+                        "progress":  100,
+                        "result":  {
+                                       "bytes":  65,
+                                       "sha256":  "4150752ac4f326d3d74dd939e31d6abfa3d8055df4a00d7614f7c360353bf71a",
+                                       "cleaned":  true
+                                   }
+                    },
+        "seq":  164
+    },
+    {
+        "id":  "1dbb0001-c456-4a89-aee9-90eade9b32f7",
+        "timestamp":  "2026-10-05T11:32:35.421Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "expiresAt":  "2026-10-05T23:32:35.417Z"
+                    },
+        "seq":  165
+    },
+    {
+        "id":  "0ecd01f5-0abf-4447-a2b4-a6a1cef191fa",
+        "timestamp":  "2026-10-05T11:32:35.500Z",
+        "type":  "DEVICE_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-e7f0f7cd90d276ebf8985062ab1a88e1",
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+                        "reason":  "JOIN590_self_revoke_acceptance",
+                        "sessionsRevoked":  8
+                    },
+        "seq":  166
+    },
+    {
+        "id":  "1ea8464e-8f2f-4183-ad51-20649d7b9f7a",
+        "timestamp":  "2026-10-05T11:32:35.506Z",
+        "type":  "MEMBER_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-e1d87b2a0ec5457e822b91d81e40dc67"
+                    },
+        "seq":  167
+    },
+    {
+        "id":  "01f9da07-ec6d-42b9-988d-a1229133256d",
+        "timestamp":  "2026-10-05T11:38:11.762Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  168
+    },
+    {
+        "id":  "393f7e08-a3fb-4f0f-b2f0-a816b1f45373",
+        "timestamp":  "2026-10-05T11:38:11.873Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  169
+    },
+    {
+        "id":  "e100ee7e-38e8-470c-8aa8-0ea39b485539",
+        "timestamp":  "2026-10-05T11:38:14.227Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  170
+    },
+    {
+        "id":  "3d15082a-b436-4d3a-9192-5ed75c4aab0b",
+        "timestamp":  "2026-10-05T11:38:14.353Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  171
+    },
+    {
+        "id":  "bd3aca41-7321-4f76-9297-2876bc15ad06",
+        "timestamp":  "2026-10-05T11:41:30.972Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  172
+    },
+    {
+        "id":  "d84d5482-b8b3-4ff2-8fae-dac27ac04a5a",
+        "timestamp":  "2026-10-05T11:41:30.999Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  173
+    },
+    {
+        "id":  "bcb10288-475f-4f98-b332-4336a87fbac6",
+        "timestamp":  "2026-10-05T11:41:32.915Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  174
+    },
+    {
+        "id":  "5aea8bfe-d11d-4de4-b259-4376a7a77918",
+        "timestamp":  "2026-10-05T11:41:33.031Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  175
+    },
+    {
+        "id":  "5b2d8921-bd2b-470d-8667-65fd6714a6a0",
+        "timestamp":  "2026-10-05T11:42:20.211Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  176
+    },
+    {
+        "id":  "4430dc2b-bac8-44c2-9fa1-6e54d996e7fa",
+        "timestamp":  "2026-10-05T11:42:20.330Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  177
+    },
+    {
+        "id":  "889f20f6-d4b0-499c-ac1f-bf89bacd2bf3",
+        "timestamp":  "2026-10-05T11:56:00.868Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  178
+    },
+    {
+        "id":  "cffae309-c770-4dab-9bf8-183ae3e527a2",
+        "timestamp":  "2026-10-05T11:56:02.713Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-031fdba6e94c4298a0956ff04a65481d",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  179
+    },
+    {
+        "id":  "8e858bc2-977d-4f6f-a21b-2a94e7313b13",
+        "timestamp":  "2026-10-05T11:59:56.552Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  180
+    },
+    {
+        "id":  "42220335-d5b1-4049-ace2-506590be304c",
+        "timestamp":  "2026-10-05T12:00:06.102Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  181
+    },
+    {
+        "id":  "7651396a-78de-4617-8748-9b4fcae354c5",
+        "timestamp":  "2026-10-05T12:00:40.708Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  182
+    },
+    {
+        "id":  "5a05a4a1-33c4-42f6-ad7a-3681f57b78e5",
+        "timestamp":  "2026-10-05T12:01:53.486Z",
+        "type":  "DEVICE_ENROLLED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "installationId":  "ins-896a709c2156f48cb5b5b4a6972bf125",
+                        "displayName":  "Android Â· PERM00",
+                        "unbound":  false
+                    },
+        "seq":  183
+    },
+    {
+        "id":  "e75f50a4-481b-4fa4-9dca-6166d6b915cf",
+        "timestamp":  "2026-10-05T12:01:53.492Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-896a709c2156f48cb5b5b4a6972bf125",
+                        "deviceId":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "expiresAt":  "2026-10-06T00:01:53.490Z"
+                    },
+        "seq":  184
+    },
+    {
+        "id":  "e637016d-94d9-4bc8-ab26-be55e773d7b2",
+        "timestamp":  "2026-10-05T12:01:53.590Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-896a709c2156f48cb5b5b4a6972bf125",
+                        "deviceId":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "expiresAt":  "2026-10-06T00:01:53.588Z"
+                    },
+        "seq":  185
+    },
+    {
+        "id":  "61da3eb4-4610-42ab-a8ba-8b3f958d9a67",
+        "timestamp":  "2026-10-05T12:01:53.702Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  186
+    },
+    {
+        "id":  "1c5dc906-fbc3-4619-a050-a7cb9490d982",
+        "timestamp":  "2026-10-05T12:02:38.772Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  187
+    },
+    {
+        "id":  "61c50744-2615-4467-8f52-2a42c2de01a3",
+        "timestamp":  "2026-10-05T12:02:38.805Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  188
+    },
+    {
+        "id":  "e8ed6960-6e41-4a9b-acb0-d75df020bca3",
+        "timestamp":  "2026-10-05T12:02:39.496Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  189
+    },
+    {
+        "id":  "a0bc8966-0c5d-4cd2-a253-a94d4e753f4b",
+        "timestamp":  "2026-10-05T12:02:40.810Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  190
+    },
+    {
+        "id":  "56a502e8-d68c-4d79-9070-c9ad0be6c338",
+        "timestamp":  "2026-10-05T12:03:09.660Z",
+        "type":  "DEVICE_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-896a709c2156f48cb5b5b4a6972bf125",
+                        "deviceId":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "reason":  "left_by_device",
+                        "sessionsRevoked":  2
+                    },
+        "seq":  191
+    },
+    {
+        "id":  "f018f2f3-a8ab-44b8-ae57-732d407f83a7",
+        "timestamp":  "2026-10-05T12:03:09.661Z",
+        "type":  "MEMBER_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-8b20a1577f0540a29dbbdd43c8257cad"
+                    },
+        "seq":  192
+    },
+    {
+        "id":  "9ccfbca1-45db-4b75-a215-f15380a0d1ad",
+        "timestamp":  "2026-10-05T12:03:09.738Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-8b20a1577f0540a29dbbdd43c8257cad",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  193
+    },
+    {
+        "id":  "e65e7893-45cd-4c8e-8e41-1602dfcc5294",
+        "timestamp":  "2026-10-05T12:25:58.196Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  194
+    },
+    {
+        "id":  "0df83fb6-4e03-47d5-ac55-802f9d0c1113",
+        "timestamp":  "2026-10-05T12:25:58.224Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  195
+    },
+    {
+        "id":  "4f41ffb5-7518-4f45-b965-94869c4df846",
+        "timestamp":  "2026-10-05T12:26:00.979Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  196
+    },
+    {
+        "id":  "5d447bc7-df8f-4335-a59f-c68551be533a",
+        "timestamp":  "2026-10-05T12:26:16.104Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  197
+    },
+    {
+        "id":  "2f05053f-2689-4f09-a262-d948e6b6548f",
+        "timestamp":  "2026-10-05T12:26:47.528Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  198
+    },
+    {
+        "id":  "0018cd41-50de-41be-bef7-6178bab9f665",
+        "timestamp":  "2026-10-05T12:28:30.232Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  199
+    },
+    {
+        "id":  "6ff5345c-c34f-469b-b99a-ce26064e0e2e",
+        "timestamp":  "2026-10-05T12:28:30.246Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "89657721-5213-47c6-af30-c74014a43804",
+        "payload":  {
+                        "requestId":  "89657721-5213-47c6-af30-c74014a43804",
+                        "shortRef":  "join-f6a7ea28bb",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  200
+    },
+    {
+        "id":  "c07ae62c-487b-4c77-87a1-5d41111dc983",
+        "timestamp":  "2026-10-05T12:28:53.220Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "89657721-5213-47c6-af30-c74014a43804",
+        "payload":  {
+                        "requestId":  "89657721-5213-47c6-af30-c74014a43804",
+                        "shortRef":  "join-f6a7ea28bb",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  201
+    },
+    {
+        "id":  "2b57fa25-bf8a-42bf-85f1-1e7db42e19e4",
+        "timestamp":  "2026-10-05T12:28:54.726Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "89657721-5213-47c6-af30-c74014a43804",
+        "payload":  {
+                        "requestId":  "89657721-5213-47c6-af30-c74014a43804",
+                        "shortRef":  "join-f6a7ea28bb",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  202
+    },
+    {
+        "id":  "f8bead0e-4471-49ed-a12d-c22cc627b9ec",
+        "timestamp":  "2026-10-05T12:28:54.748Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "android-PERM00",
+                        "connectedAt":  "2026-10-05T12:28:30.232Z"
+                    },
+        "seq":  203
+    },
+    {
+        "id":  "d0cb544f-c961-4dab-aa8d-bcccf1468e9e",
+        "timestamp":  "2026-10-05T12:28:54.969Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  204
+    },
+    {
+        "id":  "399f7a75-7821-4514-b2eb-3719bd1ab046",
+        "timestamp":  "2026-10-05T12:29:15.793Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  205
+    },
+    {
+        "id":  "33cd53a5-0e44-40bc-87c2-0ed5e9b33722",
+        "timestamp":  "2026-10-05T12:29:17.654Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  206
+    },
+    {
+        "id":  "c37017b8-ed80-49af-ac21-48f303dfb7ce",
+        "timestamp":  "2026-10-05T12:29:45.944Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  207
+    },
+    {
+        "id":  "b8ec6ca2-7193-4293-8a06-28682e445337",
+        "timestamp":  "2026-10-05T12:29:45.968Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  208
+    },
+    {
+        "id":  "9992fe39-02bb-4ad6-be79-466e19a2a739",
+        "timestamp":  "2026-10-05T12:29:48.543Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  209
+    },
+    {
+        "id":  "1b7b14b2-d845-489c-a561-a759b8523a10",
+        "timestamp":  "2026-10-05T12:29:48.984Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  210
+    },
+    {
+        "id":  "c1a5308a-db8c-4ece-bb2f-fb086fb01855",
+        "timestamp":  "2026-10-05T12:32:04.574Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  211
+    },
+    {
+        "id":  "8e841114-3b56-42bc-9720-31fbcc09c982",
+        "timestamp":  "2026-10-05T12:32:04.604Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  212
+    },
+    {
+        "id":  "4a2e81ed-8468-4a0f-9a42-0c7e39d0e505",
+        "timestamp":  "2026-10-05T12:32:04.736Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  213
+    },
+    {
+        "id":  "5536b67b-e45a-4082-99b7-2018f7e890ea",
+        "timestamp":  "2026-10-05T12:32:06.901Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  214
+    },
+    {
+        "id":  "69b164d7-6fa2-453e-aa7b-982b4d03a5ce",
+        "timestamp":  "2026-10-05T12:32:23.336Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "android-PERM00",
+                        "clientLabel":  "PERM00"
+                    },
+        "seq":  215
+    },
+    {
+        "id":  "304a0b8e-cddb-45dd-911b-d3d35562cdc0",
+        "timestamp":  "2026-10-05T12:32:23.406Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  216
+    },
+    {
+        "id":  "ddfc0c3e-c3cc-4e31-ab2a-9416bbc0a874",
+        "timestamp":  "2026-10-05T12:32:54.726Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  217
+    },
+    {
+        "id":  "1bef1b9c-1a00-40a3-9d83-a85b1f815110",
+        "timestamp":  "2026-10-05T12:36:09.913Z",
+        "type":  "RELAY_PEER_CONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "role":  "joining-peer",
+                        "verified":  false,
+                        "label":  "Android Â· PERM00"
+                    },
+        "seq":  218
+    },
+    {
+        "id":  "ae78fd11-197a-4f6c-8cba-f523295c77a5",
+        "timestamp":  "2026-10-05T12:36:09.985Z",
+        "type":  "JOIN_REQUEST_CREATED",
+        "actor":  "city",
+        "taskId":  "277ef741-abaf-4bec-a77a-fcc024bbae24",
+        "payload":  {
+                        "requestId":  "277ef741-abaf-4bec-a77a-fcc024bbae24",
+                        "shortRef":  "join-de3513bc07",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "PENDING",
+                        "grantsTrust":  false
+                    },
+        "seq":  219
+    },
+    {
+        "id":  "0ad4ed4f-7c11-49bc-9bdc-8f545bf5d697",
+        "timestamp":  "2026-10-05T12:36:34.119Z",
+        "type":  "JOIN_REQUEST_APPROVED",
+        "actor":  "city",
+        "taskId":  "277ef741-abaf-4bec-a77a-fcc024bbae24",
+        "payload":  {
+                        "requestId":  "277ef741-abaf-4bec-a77a-fcc024bbae24",
+                        "shortRef":  "join-de3513bc07",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "APPROVED",
+                        "grantsTrust":  false
+                    },
+        "seq":  220
+    },
+    {
+        "id":  "bae571ba-8785-4221-b2e3-08723fd83404",
+        "timestamp":  "2026-10-05T12:36:34.413Z",
+        "type":  "JOIN_REQUEST_CONSUMED",
+        "actor":  "city",
+        "taskId":  "277ef741-abaf-4bec-a77a-fcc024bbae24",
+        "payload":  {
+                        "requestId":  "277ef741-abaf-4bec-a77a-fcc024bbae24",
+                        "shortRef":  "join-de3513bc07",
+                        "displayName":  "Android Â· PERM00",
+                        "platform":  "android",
+                        "state":  "CONSUMED",
+                        "grantsTrust":  false
+                    },
+        "seq":  221
+    },
+    {
+        "id":  "6554ae37-d590-44b2-aad2-9ad37f51ff97",
+        "timestamp":  "2026-10-05T12:36:34.419Z",
+        "type":  "DEVICE_ENROLLED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "installationId":  "ins-89b1220ec320061505dd69418d25639f",
+                        "displayName":  "Android Â· PERM00",
+                        "unbound":  false
+                    },
+        "seq":  222
+    },
+    {
+        "id":  "bdc4782d-d24d-4873-8f69-22d3272a3886",
+        "timestamp":  "2026-10-05T12:36:34.422Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-89b1220ec320061505dd69418d25639f",
+                        "deviceId":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "expiresAt":  "2026-10-06T00:36:34.421Z"
+                    },
+        "seq":  223
+    },
+    {
+        "id":  "464dce32-2d51-458d-b9f5-0405017df1b0",
+        "timestamp":  "2026-10-05T12:36:34.474Z",
+        "type":  "RELAY_PEER_DISCONNECTED",
+        "actor":  "city",
+        "taskId":  null,
+        "payload":  {
+                        "peerRef":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "connectedAt":  "2026-10-05T12:36:09.913Z"
+                    },
+        "seq":  224
+    },
+    {
+        "id":  "5fea7ccc-ab0a-42e2-b296-7dd27def8b2d",
+        "timestamp":  "2026-10-05T12:36:34.593Z",
+        "type":  "DEVICE_SESSION_ISSUED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-89b1220ec320061505dd69418d25639f",
+                        "deviceId":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "expiresAt":  "2026-10-06T00:36:34.591Z"
+                    },
+        "seq":  225
+    },
+    {
+        "id":  "40c2dc95-803f-4e69-9b90-89df71e60350",
+        "timestamp":  "2026-10-05T12:36:34.688Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  226
+    },
+    {
+        "id":  "8f833b48-34ff-4e41-8352-fc50d8793ea4",
+        "timestamp":  "2026-10-05T12:37:00.119Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  227
+    },
+    {
+        "id":  "f405a298-06f3-481d-98eb-8a99ba113d4f",
+        "timestamp":  "2026-10-05T12:37:00.148Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  228
+    },
+    {
+        "id":  "69c2121a-5f61-4bee-98cc-93f811913773",
+        "timestamp":  "2026-10-05T12:37:02.216Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  229
+    },
+    {
+        "id":  "6ca98128-dd84-41b6-8c5a-9fe644ede8f7",
+        "timestamp":  "2026-10-05T12:37:02.975Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  230
+    },
+    {
+        "id":  "82b19c49-3372-403c-b0de-2f06ff491fb6",
+        "timestamp":  "2026-10-05T12:37:31.741Z",
+        "type":  "DEVICE_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "installationId":  "ins-89b1220ec320061505dd69418d25639f",
+                        "deviceId":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "reason":  "left_by_device",
+                        "sessionsRevoked":  2
+                    },
+        "seq":  231
+    },
+    {
+        "id":  "9e3097a7-f58e-4d1f-b639-740002ab2ef1",
+        "timestamp":  "2026-10-05T12:37:31.743Z",
+        "type":  "MEMBER_REVOKED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "deviceId":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb"
+                    },
+        "seq":  232
+    },
+    {
+        "id":  "58b075dd-67d0-49a0-b35e-b0faa02f5ed6",
+        "timestamp":  "2026-10-05T12:37:31.803Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-7df0f3d9c5b143228dffaa73e7f15dcb",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  233
+    },
+    {
+        "id":  "84b5b3f1-dfd2-4ed9-94ec-e54941e899f8",
+        "timestamp":  "2026-10-05T12:38:06.360Z",
+        "type":  "CITY_STARTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "schemaVersion":  0
+                    },
+        "seq":  234
+    },
+    {
+        "id":  "e1b3a92e-1fe0-41d3-aa22-daa32b785f07",
+        "timestamp":  "2026-10-05T12:38:06.389Z",
+        "type":  "NODE_ONLINE",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "nodeId":  "dev-031fdba6e94c4298a0956ff04a65481d"
+                    },
+        "seq":  235
+    },
+    {
+        "id":  "f83415d4-018f-4341-9b20-bad6b39db062",
+        "timestamp":  "2026-10-05T12:38:06.710Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  236
+    },
+    {
+        "id":  "76c23eee-b375-4c59-8457-8fbfcef639a5",
+        "timestamp":  "2026-10-05T12:38:09.018Z",
+        "type":  "CLIENT_CONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "web-clrg4f8k",
+                        "clientLabel":  "Mech-rep"
+                    },
+        "seq":  237
+    },
+    {
+        "id":  "5d4add4e-a367-4a04-bf77-9004ec9ef0f5",
+        "timestamp":  "2026-10-05T12:38:38.873Z",
+        "type":  "CLIENT_DISCONNECTED",
+        "actor":  "gateway",
+        "taskId":  null,
+        "payload":  {
+                        "clientRef":  "dev-5bbb22fa7ffa4c45915e86c9085347ef",
+                        "clientLabel":  "Android Â· PERM00"
+                    },
+        "seq":  238
+    }
+]
