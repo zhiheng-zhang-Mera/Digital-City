@@ -88,9 +88,15 @@
     "reachability_refs": [
       "utopia:evidence/raw/mission-book/CEX-701/android-recovery-receipt.json"
     ],
-    "intent_validation_refs": [],
+    "intent_validation_refs": [
+      "mission-book/reports/CEX-701/REVIEW_REPORT.md"
+    ],
     "ui_or_e2e_refs": [
       "utopia:tests/cex701-recovery-ui.test.mjs"
+    ],
+    "review_refs": [
+      "utopia:tests/cex701-mech-review-probes.test.mjs",
+      "mission-book/reports/CEX-701/REVIEW_REPORT.md"
     ]
   },
   "timeline": {
@@ -102,14 +108,19 @@
   "research_observations": {
     "hidden_capability_detected": true,
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW",
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
       "mission-book/reports/CEX-701/PAPER_MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
-    "Opposite physical-host Formal Review pending",
-    "Android connected recovery NOT_RUN",
+    "Opposite physical-host Formal Review PASSED on a24c04401308b11548626239e8ca1f9b4276bbdf (Mech, MEGA-REP); findings F1 (fourteen template fields were absent from the workbook, including every exposure field) and F2 (the mandatory before/after user-path step counts are recorded nowhere) recorded, F1 reconciled and F2 left unrepaired",
+    "Android connected recovery NOT_RUN; only offline guidance was observed, and the Compose surface was not rendered on a device by the review",
+    "Android F5 MEDIUM: needsRecovery is an any-over-the-whole-scope aggregate rendered as this installation needs recovery, and the live Android credential is City-scoped, so an unrelated UNBOUND installation makes the device claim its own recovery is required",
+    "Android F6 LOW: installationId, state, errorCode, error and cloneFindings reason are unguarded against the device runtime returning the text null for a JSON null; latent because the Gateway never sends those fields null",
+    "Android F7 LOW: CityClient discards the server errorCode for /device/installations, so an authority refusal is rendered as a connection fault with a synthesised code",
+    "Android F8 LOW: the new unit assertions cannot fail and no test payload contains a JSON null, so the guards the real server exercises are uncovered",
+    "credentialFingerprint and credentialId travel in every /api/v0/device/installations row while this record lists the fingerprint as intentionally hidden; the fingerprint is sha256(secret), so the withholding is presentation-only",
     "Installed host still runs previous baseline; PR not merged"
   ],
   "last_reconciled_by_workbook": "CEX-701"
