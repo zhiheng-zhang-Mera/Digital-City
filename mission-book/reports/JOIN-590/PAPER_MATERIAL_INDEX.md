@@ -132,3 +132,5 @@ android unit tests + APK build               BUILD SUCCESSFUL in 3m09s (testDebu
 * No causal claim from I1–I4; they are naturalistic events, and §14B.5 reserves causation for controlled replay.
 * No credentials: neither the control token, the node token nor the pairing short code appears in this file or in
   the report.
+
+Alien-codex opposite-host reacceptance at fixed b91677d1478950feb79742f618d0c981773d5bb7 found actual Android-shaped relay exchange returns owner credential with zero installations (controlled actual Gateway), TLS scheme loss, unsupported both-behind-NAT reachability claim, unused-code entry gating, and stale old-head CI pointers. See REVIEW_REPORT_Alien-codex.md and independent-review-probe.mjs. Physical phone absent/Mech endpoint timeout; those gates NOT_RUN. No latency, NAT traversal or physical performance inference.
