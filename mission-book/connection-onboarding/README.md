@@ -1,9 +1,17 @@
 # Connection Onboarding Optimization / 连接入城优化工程
 
-> **状态：CLOSEOUT_READY / ACTIVE PROGRAMME**
+> **状态：COMPLETE / OWNER-CONFIRMED / READY TO ARCHIVE**
+>
+> **Owner 人工确认（2026-10-05）**：三端连接已由人工直接确认成功——Web 控制面、Windows 主机 City、Android 真机同时在网可用。
+> 这条确认是 Owner 级证据（`CONSTRUCTION_RULES.md` §0 权威层级第 1 条），已记入 JOIN-590 工作书的
+> `owner_manual_three_end_confirmation` 与 `reports/JOIN-590/FINAL_PHYSICAL_ACCEPTANCE_Mech.md`。
 >
 > 本工程不是重做 Remote Fabric。Remote Fabric 已于 2026-10-01 完成 RF-001..RF-010、合并 Utopia main 并归档。
 > 本工程只负责把已存在的 discovery / pairing / invite / trust / device identity 能力真正变成“新 PC 快速入城”的产品路径，并消除用户手工管理长期 token 的正常使用需求。
+>
+> 终态：JOIN-501/502/503 组件 + JOIN-590 的 merged-main 实机验收均已完成，终端标记
+> `CONNECTION_ONBOARDING_MERGED_MAIN_PHYSICAL_ACCEPTED` 已释放，Utopia main 已包含 JOIN-590 的合并提交
+> `59d3e09b1ea51c4b4024160fca1a575818077654`。整个 programme 可归档。
 >
 > 常驻施工规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
 > 异步减压施工：[../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  

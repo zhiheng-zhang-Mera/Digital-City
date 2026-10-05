@@ -49,6 +49,10 @@ long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md"]
 state_identity_evidence: CAPTURED
 state_identity_evidence_refs: ["mission-book/reports/CEX-702/CLAIM_RECORD.md"]
+merged_main_sha: "e111eb2787e7464385b4b59e62e954ac1f5f678e"
+merged_main_ci: "required CI on the merge/integration head; the JOIN-590 closeout integration head e111eb2787e7464385b4b59e62e954ac1f5f678e was verified locally at 1329/1332 with only the three known resident-City host-city-launcher failures, and the same head was pushed to main for hosted CI."
+merged_main_via: "integrated in the JOIN-590 closeout integration"
+merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
 ---
 
 # CEX-702 — Scheduler 用户选择：拒绝切服务 → 改用另一设备

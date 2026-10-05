@@ -35,6 +35,10 @@ report_path: mission-book/reports/WBC-602
 terminal_marker: NODE_CAPABILITY_RESOURCE_COMPAT_ACCEPTED
 user_exposure_class: INTERNAL_ONLY
 ui_exemption_reason: "Foundation descriptor metadata with no new ordinary user verb; explicit Capability Registry contract exemption"
+merged_main_sha: "52e66f3752b40c1754297174627f2c647f641f4c"
+merged_main_ci: "required CI on the merge/integration head; the JOIN-590 closeout integration head e111eb2787e7464385b4b59e62e954ac1f5f678e was verified locally at 1329/1332 with only the three known resident-City host-city-launcher failures, and the same head was pushed to main for hosted CI."
+merged_main_via: "PR #18"
+merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
 ---
 
 # WBC-602 — Node Role / Capability / Resource Descriptor 向后兼容化

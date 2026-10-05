@@ -49,6 +49,9 @@ monitor_observability_refs: []
 decision_trace_evidence: NOT_APPLICABLE
 decision_trace_refs: []
 terminal_marker: ANDROID_MEMBER_DEVICE_MANAGEMENT_PARITY_ACCEPTED
+merged_main_sha: null
+merged_main_blocker: "NOT MERGED YET (conflicting; see the closeout report)"
+merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
 ---
 
 # CEX-705 — Android City / Device / Member 管理入口补齐
