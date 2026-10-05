@@ -185,6 +185,7 @@ def render_progress(data: dict[str, Any]) -> str:
         "> **GENERATED VIEW — 禁止手工修改本区块。** 权威来源是各工作书 frontmatter；",
         "> 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。",
         "> FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。",
+        "> 已完成 programme 不在主任务栏重复展示；统一收纳于 [finished/README.md](./finished/README.md)，但仍计入全城合计和 `MISSION_PROGRESS.json`。",
         "",
         f"**全城合计：总任务 {ratio(o['tasks'])} · 开发 {ratio(o['development'])} · 复检 {ratio(o['review'])}**  ",
         f"**当前未收口项目池：总任务 {ratio(a['tasks'])} · 开发 {ratio(a['development'])} · 复检 {ratio(a['review'])}**",
@@ -193,6 +194,8 @@ def render_progress(data: dict[str, Any]) -> str:
         "|---|---:|---:|---:|---|",
     ]
     for p in data["programmes"]:
+        if p["status"] == "COMPLETE":
+            continue
         lines.append(
             f"| {link(p['name'], p.get('readme'))} | "
             f"**{p['task_complete']}/{p['total']}** | "

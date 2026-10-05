@@ -17,22 +17,13 @@
 > **GENERATED VIEW — 禁止手工修改本区块。** 权威来源是各工作书 frontmatter；
 > 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
+> 已完成 programme 不在主任务栏重复展示；统一收纳于 [finished/README.md](./finished/README.md)，但仍计入全城合计和 `MISSION_PROGRESS.json`。
 
 **全城合计：总任务 81/93 · 开发 83/93 · 复检 81/93**  
-**当前未收口项目池：总任务 15/27 · 开发 17/27 · 复检 15/27**
+**当前未收口项目池：总任务 11/23 · 开发 13/23 · 复检 11/23**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
-| [Replant / MB-001~012](./finished/replant/) | **12/12** | **12/12** | **12/12** | COMPLETE |
-| [Butler Assistant](./finished/completed-2026-10-01/MISSION_INDEX.md) | **9/9** | **9/9** | **9/9** | COMPLETE |
-| [Remote Fabric](./finished/completed-2026-10-01/MISSION_INDEX.md) | **10/10** | **10/10** | **10/10** | COMPLETE |
-| [General AI Gateway](./finished/completed-2026-10-01/MISSION_INDEX.md) | **9/9** | **9/9** | **9/9** | COMPLETE |
-| [Engineering Manager](./finished/completed-2026-10-01/MISSION_INDEX.md) | **13/13** | **13/13** | **13/13** | COMPLETE |
-| [Rescheduling vNext](./finished/completed-2026-10-03/README.md) | **4/4** | **4/4** | **4/4** | COMPLETE |
-| [UI Civilization](./finished/completed-2026-10-03/README.md) | **5/5** | **5/5** | **5/5** | COMPLETE |
-| [UI × Scheduler Integration](./finished/completed-2026-10-03/README.md) | **3/3** | **3/3** | **3/3** | COMPLETE |
-| [MESH 三端互联](./finished/completed-2026-10-04/README.md) | **1/1** | **1/1** | **1/1** | COMPLETE |
-| [Connection Onboarding](./connection-onboarding/README.md) | **4/4** | **4/4** | **4/4** | COMPLETE |
 | [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **3/4** | **3/4** | **3/4** | ACTIVE |
 | [Capability Entry Closeout](./capability-entry-closeout/README.md) | **5/6** | **6/6** | **5/6** | IN_PROGRESS |
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **2/8** | **2/8** | ACTIVE |
@@ -58,6 +49,9 @@
 上述设计审计问题均已在正式施工前/施工中处理。MESH-301 已完成三端实机互联、strict target-device routing、独立 Formal Review、review finding 修复、main merge 与 merged-main CI，并记录终态 `THREE_END_MESH_E2E_ACCEPTED`。
 
 ## 已完成 / 已归档
+
+- [finished 总索引](./finished/README.md) — 所有已完成 programme 的统一历史入口；主任务栏不再重复展示 COMPLETE 项目。
+- [completed-2026-10-06](./finished/completed-2026-10-06/README.md) — Connection Onboarding 4/4 已完成并登记归档；canonical JOIN-590 工作书保留原路径以保持历史链接稳定。
 
 - [completed-2026-10-04](./finished/completed-2026-10-04/README.md) — MESH-301 + JOIN-501/502/503 component workbooks；组件 exact SHAs 已固定，历史文件不再可 claim。
 

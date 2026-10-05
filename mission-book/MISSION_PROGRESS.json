@@ -1,16 +1,16 @@
 {
   "active_pool": {
     "development": {
-      "complete": 17,
-      "total": 27
+      "complete": 13,
+      "total": 23
     },
     "review": {
-      "complete": 15,
-      "total": 27
+      "complete": 11,
+      "total": 23
     },
     "tasks": {
-      "complete": 15,
-      "total": 27
+      "complete": 11,
+      "total": 23
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
@@ -741,11 +741,11 @@
       "total": 1
     },
     {
-      "active_pool": true,
+      "active_pool": false,
       "development_complete": 4,
       "key": "join",
       "name": "Connection Onboarding",
-      "readme": "connection-onboarding/README.md",
+      "readme": "finished/completed-2026-10-06/README.md",
       "review_complete": 4,
       "status": "COMPLETE",
       "task_complete": 4,

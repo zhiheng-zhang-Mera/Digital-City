@@ -90,9 +90,8 @@
         "finished/completed-2026-10-04/connection-onboarding-components/JOIN-*.md",
         "connection-onboarding/JOIN-*.md"
       ],
-      "active_pool": true,
-      "partial_status_label": "CLOSEOUT",
-      "readme": "connection-onboarding/README.md"
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-06/README.md"
     },
     {
       "key": "wbc",
