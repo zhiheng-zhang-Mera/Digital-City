@@ -236,6 +236,35 @@ This is recorded as **gate 4 / gate 8 evidence, not as a pass**: native onboardi
 and the panel overflowing the screen once Cities are listed in the second) are exactly the kind of real-device
 finding that surface work needs.
 
+### 2.8 An attempted fix for the pairing-panel defect, kept UNVERIFIED and reverted
+
+The panel-overflow defect in §2.7 was judged in scope (the workbook allows repairing in-scope onboarding defects
+that this acceptance exposes), so a repair was written, built and installed. **It could not be verified, and it was
+therefore reverted rather than shipped.** Recorded in full because an unverified fix left in the tree is exactly
+what a later reader would mistake for working code:
+
+```text
+change        PairingPanel.kt: bound the panel column (heightIn(max=460.dp)) + make it verticalScroll +
+              ImeAction.Done/KeyboardActions(onDone) so the code can be submitted from the keyboard
+build         :app:assembleDebug + :app:testDebugUnitTest -> BUILD SUCCESSFUL (20 s); APK installed, app ran, no crash
+observation   after the install the panel's own content ("Create a pairing session…", the code field, Connect)
+              still did not appear in the accessibility tree once Cities had been discovered, and repeated
+              LazyColumn scrolling (four different swipe geometries, including short slow swipes that avoid the
+              system gesture strip) never revealed it
+not verified  whether the constraint+scroll actually makes the input reachable, because no instrument could
+              reach it from the host side
+action        `git checkout -- PairingPanel.kt` -> worktree clean; the change is preserved as
+              D:\utopia-chat\JOIN590-pairing-panel-unverified.patch (7 insertions / 2 deletions) with the exact
+              reproduction above, so the next iteration can apply it and validate it on the device by hand
+```
+
+Why this is the honest outcome rather than a failure: the acceptance target is the baseline, the app's own pairing
+path is **not** what satisfied any gate (gates 1–3 were satisfied by the canonical join request and by the
+product's client-side enrollment code, both driven from the host side), and committing a UI change that the
+development host cannot exercise would have put an unverified claim into the branch. The defect remains
+**reproduced, documented, and open**, with the first two obstacles named precisely (the IME covering `Connect`;
+the panel's content laid out beyond the last scrollable reach once City cards render).
+
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
 
 After the restart the Android app was left untouched. Without any user action it re-entered the City
