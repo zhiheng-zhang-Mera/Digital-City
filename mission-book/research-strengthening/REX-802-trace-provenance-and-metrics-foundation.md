@@ -20,9 +20,9 @@ development_branch: rex/REX-802-Alien-codex-trace-foundation
 development_head_sha: "833279cae237080cca88b1b6dbc9f217027ba68f"
 development_ci: "V0.2 checks run 37211053490 COMPLETED SUCCESS on exact 833279cae237080cca88b1b6dbc9f217027ba68f; gateway-web and android success"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "833279cae237080cca88b1b6dbc9f217027ba68f"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 833279cae237080cca88b1b6dbc9f217027ba68f, resolved from refs/heads/rex/REX-802-Alien-codex-trace-foundation (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. The workbook declares no dependencies and no dependency_source_workbooks, so no dependency union needs re-verifying, but it does declare required_ancestor_shas [69a097b5394a9fece39dd11cc13f04c9b4d28bfe]; the reviewer verified that ancestor is reachable from the reviewed head (git merge-base --is-ancestor exit 0) rather than assuming it. Claim-time exact-head CI, re-measured by the reviewer before any verdict: V0.2 checks push run 37211053490 completed/success on the reviewed head (jobs android success, gateway-web success); PR17 pull run 37211470934 completed/success; City linkage check pull run 37211470918 completed/success (reciprocal-contract pass). Review scope to be independently manufactured per the workbook Review section: missing, duplicate and out-of-order events, a stale clock, restart, a partial trace and collector failure, plus proof that collector failure does not drag down Utopia product operation."
 review_complete: false
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
