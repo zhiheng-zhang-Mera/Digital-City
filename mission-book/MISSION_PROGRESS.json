@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 10,
+      "complete": 11,
       "total": 27
     },
     "tasks": {
-      "complete": 10,
+      "complete": 11,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 76,
+      "complete": 77,
       "total": 93
     },
     "tasks": {
-      "complete": 76,
+      "complete": 77,
       "total": 93
     }
   },
@@ -844,9 +844,9 @@
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
-      "review_complete": 1,
+      "review_complete": 2,
       "status": "IN_PROGRESS",
-      "task_complete": 1,
+      "task_complete": 2,
       "tasks": [
         {
           "complete": true,
@@ -858,13 +858,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-702",
           "path": "capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
