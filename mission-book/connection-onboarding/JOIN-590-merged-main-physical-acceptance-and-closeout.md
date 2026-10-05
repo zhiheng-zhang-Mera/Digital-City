@@ -10,11 +10,16 @@ baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["e925ae1ef4dda6f51d89a1faa025d1b8666d8c58", "86deda9c2990c78d683a8c3515d251022df9d040", "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f"]
 dependency_source_shas: ["e925ae1ef4dda6f51d89a1faa025d1b8666d8c58", "86deda9c2990c78d683a8c3515d251022df9d040", "77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f"]
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "d3262ce2dd81e51a53e39e6f9add8dee650a7682"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): baseline_anchor_mode=REMOTE_REF_EXACT_SHA_AT_CLAIM executed literally. `git fetch origin main` in zhiheng-zhang-Mera/utopia resolved refs/heads/main to the full SHA d3262ce2dd81e51a53e39e6f9add8dee650a7682 ('Merge pull request #23 from zhiheng-zhang-Mera/fix/Alien-codex-pairing-city-neutral-lockout'). ALL THREE required_ancestor_shas verified with `git merge-base --is-ancestor` -> ANCESTOR_OK for e925ae1ef4dda6f51d89a1faa025d1b8666d8c58 (JOIN-501), 86deda9c2990c78d683a8c3515d251022df9d040 (JOIN-502) and 77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f (JOIN-503), so no BASELINE_ANCESTRY_MISMATCH. Required CI on exactly that sha read from the Actions API and matched on headSha. PHYSICAL PREREQUISITE MEASURED AT CLAIM TIME, not assumed: `adb devices -l` reports a real attached Android device BICIPVNB5HS85H9T product:PERM00 model:PERM00, so the third surface this workbook requires for approval evidence exists as hardware rather than as an emulator (the utopia36 AVD was explicitly NOT used, because a simulated control surface would make the approval evidence fabricated). The SECOND physical Windows host is NOT part of this claim: every Alien+Mech joint step is recorded as deferred with an exact pending seam until that host participates, and no joint step will be reported as passed without it. Development worktree: D:/utopia-join590 on branch join/JOIN-590-merged-main-physical-acceptance, created from the resolved baseline SHA."
 dependencies: ["JOIN-501:PAIRING_SESSION_LIFECYCLE_ACCEPTED", "JOIN-502:NEARBY_PC_JOIN_ACCEPTED", "JOIN-503:DEVICE_ENROLLMENT_RECONNECT_ACCEPTED"]
-development_host: null
-development_branch: null
+development_host: "Mech"
+development_branch: "join/JOIN-590-merged-main-physical-acceptance"
+research_evidence_applicability: "APPLICABLE"
+long_horizon_context_evidence: "CAPTURED"
+research_evidence_refs: ["mission-book/reports/JOIN-590/PAPER_MATERIAL_INDEX.md"]
+state_identity_evidence: "CAPTURED"
+state_identity_evidence_refs: ["mission-book/reports/JOIN-590/PAPER_MATERIAL_INDEX.md"]
 development_head_sha: null
 development_ci: null
 development_complete: false
