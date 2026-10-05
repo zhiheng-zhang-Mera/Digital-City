@@ -336,6 +336,43 @@ note    the D-C iteration (zero content padding + defaultMinSize + 2 dp gaps) is
         its own exact head and CI are recorded in the workbook frontmatter once pushed
 ```
 
+### 2.10 Short-code entry accepts a TYPED code, with an editable City address (requested change)
+
+`CODE` no longer mints anything. Tapping it reveals the short-code entry **immediately and performs no network
+request**, because the normal joining case is the opposite of minting: the code was created on ANOTHER surface —
+the City's Web page, another trusted device, or an owner on the far side of a network — and this device only has
+to type it. The previous behaviour minted a session first, which required this device to hold the owner credential
+for that City, and that is what blocked the entry (and produced the `404` in D-B) instead of a text field.
+
+```text
+CODE  ->  [ City address (host:port or http://host:port) ]   <- editable, defaults to the known host
+          [ Short pairing code ]                             <- typed, ImeAction.Done submits
+          ( Connect with short code )                        <- primary action, no owner credential needed
+          ( Generate a code on the known City (owner) )      <- the mint, now an explicit secondary action
+```
+
+`pairWithCode(address, code)` resolves the City descriptor at the address, chooses the QR method **only** when the
+descriptor actually carries a session secret, and otherwise submits the typed code through the same canonical
+`pairing/exchange` call every other mode uses.
+
+**Verified on the physical device**: the address and code fields render inside the viewport; a short code minted on
+the canonical City through the API was typed on the handset, submitted, and the City reported the pairing session
+`USED`.
+
+**On the request for remote / cross-network connections — what is true today, and what is not.**
+
+* True: the entry is no longer limited to the LAN-discovered City. The address is editable, so the device can be
+  pointed at any **routable** City address (a host on another subnet, a VPN/overlay address, or a host with a
+  public address); the reachability check is the descriptor read itself, and a failure is reported as a typed
+  error rather than a silent wrong-City join.
+* Measured for context: the second physical host's City (`172.31.3.110:4391`, cityRef `e1d87b2a…`) answers
+  `pairing/info` from this machine, i.e. a real non-local City target exists on this network.
+* **NOT true yet, and therefore not claimed:** this app has **no relay transport**. When the target City is not
+  routable from the handset's network (the NAT-to-NAT case that `join-590`'s sibling work solved for the Web
+  surface with an outbound-dialling WebSocket pipe), the Android client still cannot reach it. Cross-network
+  joining from Android needs that dial-out path implemented in this app; the mechanism and its payload whitelist
+  already exist on the Web layer, so this is a bounded next step rather than new design work.
+
 ### 2.5 Post-restart behaviour of the Android surface (measured, not inferred)
 
 After the restart the Android app was left untouched. Without any user action it re-entered the City
