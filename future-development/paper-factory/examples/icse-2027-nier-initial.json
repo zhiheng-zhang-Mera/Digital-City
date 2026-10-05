@@ -1,0 +1,18 @@
+{
+  "schema_version": "paper-factory/venue-design-seed/v1",
+  "profile_id": "icse-2027-nier-initial",
+  "profile_version": "0.1-design-2026-10-05",
+  "operational_state": "DESIGN_SEED_NOT_RELEASE_AUTHORITY",
+  "submission_enabled": false,
+  "scope": {"publisher": "ACM_IEEE", "venue_id": "icse", "edition": "2027", "article_type": "NIER paper", "track": "NIER", "stage": "INITIAL"},
+  "observed_on": "2026-10-05",
+  "rules": [
+    {"rule_id": "NIER-FILES-01", "key": "manuscript.uploads", "value": {"required": ["pdf"]}, "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S05"], "source_locator": "CFP submission requirements", "condition": "Initial manuscript only; metadata, open-science and artifact requirements are separate."},
+    {"rule_id": "NIER-PAGES-01", "key": "format.page_budget", "value": {"main_content_max": 4, "additional_references_only_max": 1}, "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S05"], "source_locator": "CFP formatting and page limits", "condition": null},
+    {"rule_id": "NIER-SECTION-01", "key": "content.required_section", "value": "Future Plans", "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S05"], "source_locator": "CFP Future Plans requirement", "condition": null},
+    {"rule_id": "NIER-IDENTITY-01", "key": "review.anonymity", "value": "double_anonymous", "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S05"], "source_locator": "CFP double-anonymous review", "condition": null},
+    {"rule_id": "NIER-TEMPLATE-01", "key": "format.template", "value": {"class": "IEEEtran", "options": ["10pt", "conference"]}, "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S05"], "source_locator": "CFP LaTeX instructions", "condition": null}
+  ],
+  "unresolved_required_keys": ["full_current_stage_rule_inventory", "open_science_overlay", "AI_policy_overlay", "live_portal_fields_and_deadline_reconciliation", "author_and_consent_receipts", "actual_package_identity"],
+  "release_checks": ["refresh_official_sources", "resolve_all_applicable_unknowns_and_conflicts", "verify_stage_completeness", "verify_claim_graph", "check_overlap_lock", "inspect_anonymous_artifact_surfaces", "reconcile_pdf_portal", "obtain_target_bound_owner_approval"]
+}

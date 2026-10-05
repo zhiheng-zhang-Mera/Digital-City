@@ -1,0 +1,18 @@
+{
+  "schema_version": "paper-factory/venue-design-seed/v1",
+  "profile_id": "ieee-access-research-initial",
+  "profile_version": "0.1-design-2026-10-05",
+  "operational_state": "DESIGN_SEED_NOT_RELEASE_AUTHORITY",
+  "submission_enabled": false,
+  "scope": {"publisher": "IEEE", "venue_id": "ieee-access", "edition": "policy-observed-2026-10-05", "article_type": "Research Article", "track": null, "stage": "INITIAL"},
+  "observed_on": "2026-10-05",
+  "rules": [
+    {"rule_id": "ACCESS-FILES-01", "key": "manuscript.uploads", "value": {"required": ["editable_word_or_latex", "matching_pdf"]}, "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S01"], "source_locator": "Submission Checklist 1", "condition": null},
+    {"rule_id": "ACCESS-TEMPLATE-01", "key": "format.template", "value": "IEEE Access template, double-column single-spaced", "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S01"], "source_locator": "Submission Checklist 1", "condition": null},
+    {"rule_id": "ACCESS-LENGTH-01", "key": "format.recommended_pages", "value": "under_20", "normative_class": "VENUE_GUIDANCE", "verification": "VERIFIED", "source_refs": ["S01"], "source_locator": "Submission Checklist 17", "condition": null},
+    {"rule_id": "ACCESS-LENGTH-02", "key": "format.long_manuscript_permission", "value": "pre_submission_EIC_inquiry", "normative_class": "VENUE_REQUIREMENT", "verification": "VERIFIED", "source_refs": ["S01"], "source_locator": "Submission Checklist 17", "condition": "Over 20 pages under the guide's counting rule; article-type exceptions must be checked."},
+    {"rule_id": "ACCESS-COST-01", "key": "publication.current_cost", "value": null, "normative_class": "LOCAL_GATE", "verification": "UNVERIFIED", "source_refs": ["LOCAL"], "source_locator": "05-VENUE-ADAPTER.md section 6", "condition": "Before venue/budget authorization and any charge-bearing action"}
+  ],
+  "unresolved_required_keys": ["full_current_stage_rule_inventory", "publisher_policy_overlay", "article_specific_declarations", "live_portal_fields", "APC_and_publication_mode", "author_and_consent_receipts", "actual_package_identity"],
+  "release_checks": ["refresh_official_sources", "resolve_all_applicable_unknowns_and_conflicts", "verify_stage_completeness", "verify_claim_graph", "check_overlap_lock", "reconcile_source_pdf_portal", "obtain_target_bound_owner_approval"]
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Paper Factory disabled venue design seed",
+  "description": "Design-only schema. Validation is not submission clearance. See 05-VENUE-ADAPTER.md for stage completeness and freshness checks.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "profile_id", "profile_version", "operational_state", "submission_enabled", "scope", "observed_on", "rules", "unresolved_required_keys", "release_checks"],
+  "properties": {
+    "schema_version": {"const": "paper-factory/venue-design-seed/v1"},
+    "profile_id": {"type": "string", "minLength": 1},
+    "profile_version": {"type": "string", "minLength": 1},
+    "operational_state": {"const": "DESIGN_SEED_NOT_RELEASE_AUTHORITY"},
+    "submission_enabled": {"const": false},
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["publisher", "venue_id", "edition", "article_type", "track", "stage"],
+      "properties": {
+        "publisher": {"type": "string", "minLength": 1},
+        "venue_id": {"type": "string", "minLength": 1},
+        "edition": {"type": "string", "minLength": 1},
+        "article_type": {"type": "string", "minLength": 1},
+        "track": {"type": ["string", "null"]},
+        "stage": {"enum": ["INITIAL", "REVISION", "ACCEPTED", "PRODUCTION", "PREPRINT", "ARTIFACT"]}
+      }
+    },
+    "observed_on": {"type": "string", "format": "date"},
+    "rules": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["rule_id", "key", "value", "normative_class", "verification", "source_refs", "source_locator", "condition"],
+        "properties": {
+          "rule_id": {"type": "string", "minLength": 1},
+          "key": {"type": "string", "minLength": 1},
+          "value": {},
+          "normative_class": {"enum": ["VENUE_REQUIREMENT", "VENUE_GUIDANCE", "LOCAL_GATE"]},
+          "verification": {"enum": ["VERIFIED", "UNVERIFIED", "CONFLICT", "STALE", "NOT_APPLICABLE_WITH_REASON"]},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "source_locator": {"type": "string", "minLength": 1},
+          "condition": {"type": ["string", "null"]}
+        },
+        "allOf": [
+          {"if": {"properties": {"verification": {"const": "VERIFIED"}}}, "then": {"properties": {"source_refs": {"minItems": 1}}}}
+        ]
+      }
+    },
+    "unresolved_required_keys": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "release_checks": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+  }
+}

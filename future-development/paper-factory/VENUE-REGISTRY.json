@@ -1,0 +1,24 @@
+{
+  "schema_version": "paper-factory/venue-registry/v1",
+  "registry_kind": "DESIGN_ONLY",
+  "observed_on": "2026-10-05",
+  "submission_enabled": false,
+  "default_unknown_rule_behavior": "BLOCK_AFFECTED_RELEASE_NOT_RESEARCH",
+  "scope_note": "Journal profiles include distinct content/evidence strategies. No entry certifies eligibility or completeness. / 均非投稿放行凭证。",
+  "targets": [
+    {"id": "ieee-access", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S01"], "policy_status": "PARTIALLY_VERIFIED", "seed": "examples/ieee-access-initial.json", "submission_enabled": false},
+    {"id": "emse", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S02"], "policy_status": "PARTIALLY_VERIFIED", "submission_enabled": false},
+    {"id": "spe", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S04"], "policy_status": "SOURCE_CONFLICT", "submission_enabled": false},
+    {"id": "softwarex", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S07", "S12"], "policy_status": "JOURNAL_GUIDE_UNVERIFIED", "submission_enabled": false},
+    {"id": "software-impacts", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S08", "S12"], "policy_status": "JOURNAL_GUIDE_UNVERIFIED", "submission_enabled": false},
+    {"id": "peerj-computer-science", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S09"], "policy_status": "JOURNAL_GUIDE_UNVERIFIED", "submission_enabled": false},
+    {"id": "jss", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S10", "S12"], "policy_status": "JOURNAL_GUIDE_UNVERIFIED", "submission_enabled": false},
+    {"id": "ist", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S11", "S12"], "policy_status": "JOURNAL_GUIDE_UNVERIFIED", "submission_enabled": false},
+    {"id": "joss", "kind": "journal", "profile": "venues/JOURNALS.md", "source_ids": ["S03"], "policy_status": "PARTIALLY_VERIFIED", "manual_task": "substantive_author_editor_reviewer_conversation", "submission_enabled": false},
+    {"id": "icse-2027-nier", "kind": "conference_track", "profile": "venues/CONFERENCES.md", "source_ids": ["S05"], "policy_status": "PARTIALLY_VERIFIED", "seed": "examples/icse-2027-nier-initial.json", "submission_enabled": false},
+    {"id": "icse-2027-research", "kind": "conference_track", "profile": "venues/CONFERENCES.md", "source_ids": ["S14"], "policy_status": "PARTIALLY_VERIFIED", "cycle_status_at_observation": "INITIAL_SUBMISSION_CLOSED", "submission_enabled": false},
+    {"id": "icse-2027-tool-data", "kind": "conference_track", "profile": "venues/CONFERENCES.md", "source_ids": ["S15"], "policy_status": "PARTIALLY_VERIFIED", "article_types": ["tool_demonstration", "data_showcase"], "submission_enabled": false},
+    {"id": "preprints-org", "kind": "preprint", "profile": "venues/PREPRINTS.md", "source_ids": ["S06"], "policy_status": "PARTIALLY_VERIFIED", "upstream_routing_warning": "CROSS_SERVER_DUPLICATION_PREFERENCE_CONFLICT", "submission_enabled": false},
+    {"id": "arxiv", "kind": "preprint", "profile": "venues/PREPRINTS.md", "source_ids": ["S16"], "policy_status": "PARTIALLY_VERIFIED", "submission_enabled": false}
+  ]
+}
