@@ -162,12 +162,22 @@ four dimensions             implementation COMPLETE / wiring VERIFIED / reachabi
 ```text
 node --test tests/mon902-monitor-graph.test.mjs   pass 14 / fail 0     (projection rules)
 node --test tests/mon902-monitor-panel.test.mjs   pass 11 / fail 0     (surface rules, incl. the real route)
+node --test tests/web.test.mjs                    pass 2  / fail 0     (REAL BROWSER: the monitor page renders, a row
+                                                                       opens the inspector, no raw code is readable)
 node --test tests/mon901-observation.test.mjs     pass 8  / fail 0     (dependency smoke, before any product change)
 node --test tests/web-i18n.test.mjs               pass 9  / fail 0     (both locale packs still consistent)
 node --test tests/web-terminal-shell.test.mjs     pass 6  / fail 0     (the shell still renders with the new page)
 node --test tests/city-roads.test.mjs             pass 6  / fail 0     (see §5: an environment artefact, verified)
 node scripts/check-bilingual.mjs                  SYNCHRONIZED
 ```
+
+The browser probe is the workbook's "exact-head runtime/UI evidence" gate: string-level probes prove the rendering rules
+against real projection payloads, but only a browser proves that the page a person actually opens reaches the monitor
+from the primary navigation, renders it, opens the inspector from a row, and keeps the raw vocabulary off the readable
+page. Two honest notes from writing it: the shell uppercases headings in CSS, so `innerText` returns `CITY MONITOR` and
+the first draft's case-sensitive assertion failed against a correct product; and the fixture creates a real canonical
+task through `POST /api/v0/tasks` with `{type:'WAIT'}` (the only shape `validateCommand` accepts), so the graph in that
+probe describes real state rather than a fixture.
 
 The 14 projection probes assert, among others: every risk level is in the declared vocabulary and never a boolean; a
 task carrying active risk is never inside a cluster; a truncated window yields `NOT_OBSERVABLE` and never an empty risk
@@ -203,10 +213,20 @@ F2  full suite: 5 failures (1280 tests)
 F3  two probe drafts failed against my own wrong assumptions, both recorded rather than adjusted silently:
     - the surface probe asserted `"authoritative": false` inside the disclosure, but the disclosure is HTML-escaped
       like every other value, so the assertion was wrong, not the product;
+    - the browser probe asserted the visible heading with a case-sensitive match, but the shell uppercases headings in
+      CSS and `innerText` reflects that (`CITY MONITOR`), so again the assertion was wrong, not the product.
     - the "calm city" probe initially demanded no caveat at all, which contradicted the honesty rule. The product was
       changed deliberately instead of the assertion being weakened: the permanent Owner-gate limitation moved from the
       alarming blind-spot block to a quiet, always-present scope line, so a healthy city does not cry wolf while the
       limitation is still disclosed. Both the product and the probe changed, and the reason is this paragraph.
+
+F4  registry maintenance (control-plane side, not product code): preparing CAP-MON-002, a
+    `Get-Content -Raw | Set-Content -Encoding UTF8` round trip in Windows PowerShell MANGLED the Chinese capability name
+    (`全城工作监视器…` -> `鍏ㄥ煄宸ヤ綔…`) and added a UTF-8 BOM and CRLF endings, because that pipeline reads the file in
+    the ANSI code page. CLASS instrument failure. CAUGHT by re-reading the file and parsing it, not by the write
+    appearing to succeed. REPAIR: the record was rewritten whole with a UTF-8 writer, then verified by parsing it and
+    printing the Chinese value back, and both registry YAML files were confirmed BOM-free with LF endings. This is the
+    second BOM-class incident on this host, so the rule is now: never round-trip a non-ASCII file through that pipeline.
 ```
 
 ## 6. Research material (§14B)

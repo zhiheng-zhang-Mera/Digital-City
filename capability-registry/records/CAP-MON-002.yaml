@@ -27,7 +27,7 @@
     "api_or_actions": [
       "GET /api/v0/monitor/graph?edges=&collapse="
     ],
-    "last_verified_full_sha": "6bb19f3e842774eff98cccf30fb01a8784953f22"
+    "last_verified_full_sha": "5460697cfde5d807f022698a0411b040634a458b"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -47,7 +47,7 @@
     ],
     "user_controls": [],
     "intentionally_hidden_information": [
-      "raw risk codes, state tokens, completeness numbers and the reflow key — hidden behind one explicit Technical details disclosure, not removed",
+      "raw risk codes, state tokens, completeness numbers and the reflow key - hidden behind one explicit Technical details disclosure, not removed",
       "the owner credential"
     ],
     "internal_only_exemption_reason": null
@@ -64,10 +64,12 @@
   "evidence": {
     "backend_wiring_refs": [
       "utopia:tests/mon902-monitor-panel.test.mjs (creates a real canonical task, reads the real route, renders that payload)",
+      "utopia:tests/web.test.mjs (real browser: navigation reaches the page, a row opens the inspector)",
       "utopia:evidence/raw/mission-book/MON-902/development-receipt.json"
     ],
     "reachability_refs": [
-      "utopia:tests/mon902-monitor-panel.test.mjs (shell exposes data-page=Monitor and app.js reads monitor/graph)"
+      "utopia:tests/mon902-monitor-panel.test.mjs (shell exposes data-page=Monitor and app.js reads monitor/graph)",
+      "utopia:tests/web.test.mjs (the page is reached from the primary navigation in Chromium)"
     ],
     "intent_validation_refs": [],
     "implementation_refs": [

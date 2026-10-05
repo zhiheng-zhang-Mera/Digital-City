@@ -104,7 +104,7 @@ records:
     record_ref: records/CAP-MON-002.yaml
     exposure_class: OBSERVABLE_ADVANCED
     reconciliation: CREATED_BY_DEVELOPMENT
-    last_verified_full_sha: "6bb19f3e842774eff98cccf30fb01a8784953f22"
+    last_verified_full_sha: "5460697cfde5d807f022698a0411b040634a458b"
   - capability_id: CAP-NODE-DESCRIPTOR-001
     record_ref: records/CAP-NODE-DESCRIPTOR-001.yaml
     exposure_class: INTERNAL_ONLY

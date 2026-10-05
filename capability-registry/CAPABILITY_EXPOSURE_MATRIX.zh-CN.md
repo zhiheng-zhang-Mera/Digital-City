@@ -22,7 +22,7 @@
 | `CAP-HOST-LIFECYCLE-001` | 主机启动模式、随页面存续的城市生命周期与已存储角色 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | yes | no | 启动器 | `a8bce279e114` | 启动时会说明模式，但此后没有任何 Web/Android 界面显示当前城市属于哪种；角色被忽略也只体现在启动器那一行 |
 | `CAP-IDENTITY-001` | 设备身份恢复与冲突提示 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | yes | yes | — | `a24c04401308` | Android connected recovery NOT_RUN; only offline guidance was observed, and the Compose su |
 | `CAP-MON-001` | 全城旁路观察基础 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | no | no | API | `7eb38f1b930d` | Owner/review/CI/escalation absent-source NOT_OBSERVABLE |
-| `CAP-MON-002` | 全城工作监视器总览图与节点/路径检查器 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | no | — | `6bb19f3e8427` | Android 端有意延后（Compose 图应一次性写就，并与 MON-903 决策叠加层一起做）；Owner-required 只能部分观察，界面每次都如实说明 |
+| `CAP-MON-002` | 全城工作监视器总览图与节点/路径检查器 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | no | — | `5460697cfde5` | Android 端有意延后（Compose 图应一次性写就，并与 MON-903 决策叠加层一起做）；Owner-required 只能部分观察，界面每次都如实说明 |
 | `CAP-NODE-DESCRIPTOR-001` | 节点角色能力资源描述契约 | COMPLETE | VERIFIED | NOT_APPLICABLE | VERIFIED | INTERNAL_ONLY | no | no | — | `d99101fdac51` | none recorded |
 | `CAP-ONBOARDING-OWNER-001` | Android 城市邀请与入网审批 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | no | yes | — | `d05f5a455ff5` | System share physical test CLOSED BY REVIEW: the chooser opens normally on OPPO PERM00, so |
 | `CAP-RESEARCH-TRACE-001` | 研究记录与来源观察 | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | yes | — | `833279cae237` | Android online rendering NOT_RUN; the Compose surface was not rendered on a device or emul |
