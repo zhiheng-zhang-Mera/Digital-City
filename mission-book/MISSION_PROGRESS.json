@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 7,
+      "complete": 8,
       "total": 27
     },
     "tasks": {
-      "complete": 7,
+      "complete": 8,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 73,
+      "complete": 74,
       "total": 93
     },
     "tasks": {
-      "complete": 73,
+      "complete": 74,
       "total": 93
     }
   },
@@ -996,18 +996,18 @@
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
-      "review_complete": 0,
-      "status": "IN_PROGRESS",
-      "task_complete": 0,
+      "review_complete": 1,
+      "status": "ACTIVE",
+      "task_complete": 1,
       "tasks": [
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-901",
           "path": "city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
