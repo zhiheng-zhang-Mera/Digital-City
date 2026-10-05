@@ -5,11 +5,11 @@
       "total": 27
     },
     "review": {
-      "complete": 6,
+      "complete": 7,
       "total": 27
     },
     "tasks": {
-      "complete": 6,
+      "complete": 7,
       "total": 27
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 72,
+      "complete": 73,
       "total": 93
     },
     "tasks": {
-      "complete": 72,
+      "complete": 73,
       "total": 93
     }
   },
@@ -795,9 +795,9 @@
       "key": "wbc",
       "name": "Workbench Compatibility",
       "readme": "workbench-compatibility-migration/README.md",
-      "review_complete": 2,
-      "status": "IN_PROGRESS",
-      "task_complete": 2,
+      "review_complete": 3,
+      "status": "ACTIVE",
+      "task_complete": 3,
       "tasks": [
         {
           "complete": true,
@@ -818,13 +818,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "WBC-603",
           "path": "workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
