@@ -1,0 +1,114 @@
+# JOIN-590 — PAPER_MATERIAL_INDEX
+
+> Required by `CONSTRUCTION_RULES.md` §14B and by the Connection Onboarding process-data rules. Observable facts
+> only; credentials, short codes and long-lived tokens are never reproduced here.
+
+## 1. Applicability decision
+
+```text
+research_evidence_applicability = APPLICABLE
+long_horizon_context_evidence   = CAPTURED
+state_identity_evidence         = CAPTURED
+research_evidence_refs          = §6
+```
+
+This is APPLICABLE for both §14B reasons: the work was done by a long-running asynchronous agent across two
+physical hosts, **and** it is itself a physical-acceptance task, i.e. a naturalistic source of
+physical-host-only defects, restart timing, discovery latency and stale-state observations.
+
+## 2. External-state refs used
+
+```text
+control_repo    zhiheng-zhang-Mera/Digital-City @ main
+implementation  zhiheng-zhang-Mera/utopia
+workbook        mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
+report          mission-book/reports/JOIN-590/DEVELOPMENT_REPORT.md
+branch          join/JOIN-590-merged-main-physical-acceptance
+baseline_sha    d3262ce2dd81e51a53e39e6f9add8dee650a7682
+claim_commit    98137af
+canonical_city  031fdba6-e94c-4298-a095-6ff04a65481d (Mech, 172.31.12.151:4391)
+peer_city       e1d87b2a-0ec5-457e-822b-91d81e40dc67 (Alien, 172.31.3.110:4391)
+device          BICIPVNB5HS85H9T / PERM00 (Android 12, 172.31.3.18/16)
+```
+
+## 3. State identity, provenance and freshness
+
+```text
+expected_identity       canonical City cityId 031fdba6-… plus the workspace's immutable baseline SHA
+resolved_identity       read back from the live host reservation and /api/v0/city after each restart
+evidence_identity       the City's own event stream seq 1..18 (JOIN_* + CITY_STARTED + CLIENT_CONNECTED)
+provenance_relation     baseline ancestors verified ANCESTOR_OK at claim time; the accepted heads of
+                        JOIN-501/502/503 are ancestors of d3262ce2
+freshness_revalidation  the City's state was re-read after every interruption instead of being carried forward
+drift_classes_checked   MUTABLE_REFERENCE_STATE_DRIFT      -> the peer City (Alien) appeared on the LAN mid-session
+                                                             and was resolved by address, not assumed
+                        EVIDENCE_POINTER_MISMATCH         -> the first "three machines are linked" statement did
+                                                             not say which City; the claim was resolved to
+                                                             031fdba6 only after the user named it explicitly
+                        STALE_EXECUTION_IDENTITY          -> the resident gateway PID changed (21452 -> 25364);
+                                                             cityId and dataDir were re-verified as unchanged
+                        PROVENANCE_RELATION_MISMATCH      -> none
+```
+
+## 4. Incidents worth citing
+
+**I1 — Three Cities, one LAN, and a claim that did not name its subject.**
+The user's statement "three machines are manually confirmed linked" was true but **did not identify which City**.
+The LAN carried Mech's resident City (`031fdba6`), a second acceptance City started for this task (`1d5287bf`), and
+Alien's City (`e1d87b2a`). Acceptance evidence bound to the wrong City would have been worthless, so the subject
+was resolved by asking and then by reading canonical truth. Paper angle: **an ambiguous external assertion is not
+evidence; it is a pointer that must be resolved before it can be used**, and the resolution cost is small compared
+with the cost of an acceptance bound to the wrong identity.
+
+**I2 — Environment limits found only on real hardware.**
+(i) The host PATH ships JDK 26 and Gradle/AGP refuse it, so the build requires the Gradle-cached Temurin 17.
+(ii) The vendor installer blocks installation behind a confirmation page, but the activity is not `FLAG_SECURE`,
+so a synthetic tap completes it — a genuine user-equivalent action, not a bypass.
+(iii) The soft keyboard covered the pairing `Connect` button, so coordinate taps landed on the keyboard.
+Class: **UI/geometry hazards that no unit test can see**. (iii) is directly relevant to CEX-704's native onboarding
+work: a real device flow must keep its primary action reachable with the IME open.
+
+**I3 — A foreground launcher under a timeout took the City down.**
+Running `scripts/restart-gateway.ps1` from a foreground shell meant the harness timeout killed the launcher
+together with the gateway. Recovery was immediate and the City returned with the **same cityId**, which converted
+an operational mistake into a state-identity observation: the restart preserved canonical identity while the
+process identity changed. Recorded because it is the kind of thing that silently becomes "restart failed" in a
+report; here it is "restart succeeded, launcher lifetime was managed wrongly".
+
+**I4 — A live surface that is not an enrolled installation.**
+The Android surface is live as `android-PERM00 / CONTROL_ONLY`, while the City's installation registry is empty and
+the app's own preferences hold `host/clientRef/cityId/token` — the engineering-fallback shape. So the approved
+JOIN_REQUEST belonged to a different entrant (`Alien-Win`), and the phone is attached through the token path.
+Class: **exposure gap between "a surface is connected" and "an installation is enrolled"** — precisely the debt
+CEX-704 (Android native owner onboarding) exists to pay.
+
+## 5. Quantitative evidence
+
+```text
+lan Cities visible from the phone            3 (two on Mech, one on Alien)
+mDNS discovery rows observed                 3, all MDNS_DNS_SD, stale=false
+onboarding chain latency (canonical truth)   JOIN_REQUEST_CREATED 01:24:35.805Z
+                                             JOIN_REQUEST_APPROVED 01:24:46.807Z   (+11.0 s)
+                                             JOIN_REQUEST_CONSUMED 01:24:47.003Z   (+0.2 s)
+gateway restart -> both surfaces reconnected CITY_STARTED seq 11 / CLIENT_CONNECTED 13,14  (and 15..18 on a second cycle)
+canonical members after restart              3 (PRIMARY + web CONTROL_ONLY + android CONTROL_ONLY)
+installation registry count                  0   <- the finding in I4
+android unit tests + APK build               BUILD SUCCESSFUL in 3m09s (testDebugUnitTest + assembleDebug)
+```
+
+## 6. Research topics these observations feed
+
+```text
+.../paper-materials/{en,zh-CN}/
+  LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md
+  LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md   <- I1, I3
+```
+
+## 7. What this index deliberately does not claim
+
+* No compaction/token telemetry: the harness exposes none and no compaction occurred (`NOT_OBSERVABLE + reason`).
+* No performance or discovery-latency-quality claim: the two measured latencies are single observations, not
+  distributions.
+* No causal claim from I1–I4; they are naturalistic events, and §14B.5 reserves causation for controlled replay.
+* No credentials: neither the control token, the node token nor the pairing short code appears in this file or in
+  the report.
