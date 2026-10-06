@@ -11,6 +11,7 @@
 | [溯源交叉核对 / Provenance cross-check](PROVENANCE_CROSSCHECK_MECH.mjs) | 8/8：从城市原始回执出发逐行重算数据集与三项指标、点名两个未交付 campaign 与 accounting / Recomputed from the City's raw store, not from the package |
 | [可复现性 / Reproducibility](REPRODUCIBILITY_MECH.md) | 冻结 `generatedAt` 与事件流后**再导出 11/11 字节相同**（含 `checksums.json`）；朴素重导只差 3 处且已解释；负对照改 1 ms 即变红 / Frozen-input re-export is byte-identical; the naive delta is explained; a 1 ms perturbation turns the probe red |
 | [复现探针 / Probe](evidence-tools/REPRODUCIBILITY_PROBE_MECH.mjs) | 需要产出该 City 的 owner 凭据才能运行；对侧主机（MEMBER）不可运行 / Requires the producing City's owner credential; the opposite host as MEMBER cannot run it |
+| [第三种重算 / Third recomputation](evidence-tools/THIRD_RECOMPUTE_PYTHON_MECH.py) | **Python** 实现，只读包内字节、12/12 通过、负对照会红；顺手量出 `durationMs` 与任务时间戳相差 7–63 ms（用它会算出不同的中位数）/ Python, package-only, 12/12, falsified by a control; it also measured that `durationMs` differs from the task bracket by 7-63 ms |
 
 ## 边界 / Limits
 

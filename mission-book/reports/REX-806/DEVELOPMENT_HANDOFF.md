@@ -67,6 +67,12 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 
 **但本机那次运行不是复检证据**——请对侧主机自己跑一遍，或自己另写一份。提供它的唯一目的是让「独立重算」从一下午变成五秒钟，从而真的被执行，而不是被放过。 / This host's run of it is NOT review evidence: run it yourself, or write your own.
 
+## 重算时的一个陷阱，用第三种实现量出来的 / A recomputation trap, measured by a third implementation
+
+本机另写了一份**Python** 第三实现（`reports/REX-806/evidence-tools/THIRD_RECOMPUTE_PYTHON_MECH.py`，12 项检查，只读包内字节、不碰 City）。它与那两个 JS 实现互相独立，因此能查出「两份 JS 一致、但都错」的那一类问题。结果：**对已发布包 12/12 通过**；把某一行 `taskUpdatedAt` 挪动 1 秒的负对照会让它红 2 项。 / A third, Python implementation was written against the same bytes (12 checks, no City access). It passes 12/12 on the published package, and a +1 s perturbation of one row turns two checks red.
+
+它顺手量出一件**复检者很可能踩到的事**：包内 `normalized-dataset.json` 里有一个 `durationMs` 字段，它与 `(taskUpdatedAt - taskCreatedAt)` **不相等**——实测 24 行全部略大 7–63 ms（同向）。两者是同一区间的两次测量：`durationMs` 来自 run 记录，而指标用的是 canonical task 的时间戳对（`reproduction.json` 第 3 步写的就是后者）。**用 `durationMs` 重算会得到一个不同的中位数，然后看起来像包和复算不一致。** 本机第一版探针正是把这个假设当成了被测对象的性质，因此得到 24 条假失败；这条缺陷连同它的数字一起留在工具注释里。 / `durationMs` is NOT the interval the metric uses: it is 7-63 ms larger than the task bracket on every row. Recomputing the median from `durationMs` yields a different number that looks like a package/recomputation mismatch. My first probe assumed they were equal and produced 24 false failures; the defect and its numbers are kept in the tool's comments.
+
 ## 本机明确不主张的 / Explicitly not claimed
 
 ```text
