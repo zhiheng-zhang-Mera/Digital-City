@@ -31,6 +31,10 @@
 机器可读镜像：[MISSION_PROGRESS.json](./MISSION_PROGRESS.json)。
 <!-- MISSION_PROGRESS:END -->
 
+## 暂停中的扩建迁移系列
+
+- [DGX — Deliberative Governance Expansion & Migration / 审议治理扩建迁移](./deliberative-governance-expansion-migration/README.md) — **PARKED / NOT ACTIVATED**。所有工作书 `execution_enabled=false`，baseline/dependency exact SHA 当前故意留空；仅在 Owner 显式激活后按当时 canonical truth 重新解析并原子锚定。本系列不计入当前活跃施工池，不得仅因目录存在而 claim。
+
 ## MESH-301 设计审计结果
 
 [MESH-301 — 三端实机互联与相互指挥](./finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md)
