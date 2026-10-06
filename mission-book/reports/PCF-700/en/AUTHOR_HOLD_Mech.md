@@ -70,6 +70,13 @@ T2  `git worktree remove` descends a `node_modules` directory junction and delet
 
 ## 5. Review entry points (everything the author provides)
 
+**Added 2026-10-06T21:53:55Z, self-check at the frozen head**: `AUTHOR_SELF_CHECK_AT_FROZEN_HEAD_Mech.md` - a read-only
+self-check found that the tier table's PREDICATE is wider than its conclusion ("references" includes bare textual
+mentions, not only import edges): of `execution-backend-v1`'s four production mentioners, two are mention-only
+(`standard-devices.mjs`, `server.mjs`), yet **not one of the four LIVE_WIRED conclusions rests on a bare mention**; EM,
+GAI and `rs-cross-device-return-v1` are not even mentioned in production code. Under the freeze, the change that
+tightens the predicate waits for a NEW head after the verdict - `659ff6a` is not moved during the review.
+
 ```text
 REVIEW_READINESS_MECH.md   the one-command eight-recomputation baseline (expected output and three falsifications)
 REVIEW_HANDOFF_Mech.md     the exact head, reproducible commands R0-R6, falsifiable seams S1-S8, declared done/undone

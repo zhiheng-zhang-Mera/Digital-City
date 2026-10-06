@@ -61,6 +61,12 @@ T2  `git worktree remove` 在 `node_modules` 是目录 junction 时会**顺着�
 
 ## 5. 复检入口（作者提供的全部材料）
 
+**追加（2026-10-06T21:53:55Z，冻结头自查）**：`AUTHOR_SELF_CHECK_AT_FROZEN_HEAD_Mech.md` —— 作者在冻结头上只读自查，
+发现五档表的**判据比结论宽**（「引用」含纯文本提及，不只有 import 边）：`execution-backend-v1` 的 4 个产线提及者中
+2 个是纯提及（`standard-devices.mjs`、`server.mjs`），但**四个 LIVE_WIRED 结论没有一个是靠纯提及撑住的**；
+EM/GAI 与 `rs-cross-device-return-v1` 更是在产线里连提及都没有。按冻结承诺，**收紧判据的改动留到裁决后的新头**，
+不在复检期动 `659ff6a`。
+
 ```text
 REVIEW_READINESS_MECH.md   一条命令的 8 项重算基线（含预期输出与三向证伪）
 REVIEW_HANDOFF_Mech.md     精确头、可复现命令 R0–R6、可证伪断点 S1–S8、作者已声明的完成与未完成

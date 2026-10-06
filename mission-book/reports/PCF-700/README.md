@@ -9,11 +9,12 @@
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| en | 5 | [打开 / Open](en/README.md) |
+| en | 6 | [打开 / Open](en/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [AUTHOR_HOLD_Mech.md](AUTHOR_HOLD_Mech.md)
+- [AUTHOR_SELF_CHECK_AT_FROZEN_HEAD_Mech.md](AUTHOR_SELF_CHECK_AT_FROZEN_HEAD_Mech.md)
 - [CLAIM_REPORT.md](CLAIM_REPORT.md)
 - [DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md)
 - [REVIEW_HANDOFF_Mech.md](REVIEW_HANDOFF_Mech.md)
