@@ -84,9 +84,26 @@ CEX-790 使用 `DEPENDENCY_SHA_UNION_AT_CLAIM`，从 CEX-701..705 的 accepted e
 | [CEX-703](./CEX-703-capability-catalog-discoverability.md) | Capability Catalog / Discoverability | READY | 让用户无需先 Ask 失败即可查看 Utopia 能做什么 |
 | [CEX-704](./CEX-704-android-onboarding-owner-actions-parity.md) | Android Onboarding Owner Actions | READY | Android 补 join approval + pairing generation/share |
 | [CEX-705](./CEX-705-android-member-device-management-parity.md) | Android Member / Device Management | WAITING_DEPENDENCIES | 等待 City Members / Host Roles accepted exact SHA 后再施工 |
-| [CEX-790](./CEX-790-final-exposure-audit-and-freeze.md) | Final Exposure Audit / Freeze | WAITING_DEPENDENCIES | 再做一次 backend→surface 全量对账并冻结入口基线 |
+| [CEX-790](./CEX-790-final-exposure-audit-and-freeze.md) | Final Exposure Audit / Freeze | COMPLETE | 再做一次 backend→surface 全量对账并冻结入口基线 |
 
 CEX-701..704 当前可在文件 ownership 不冲突时双机并行；CEX-705 保持 WAITING，直到 upstream accepted exact SHA 写入；CEX-790 必须等待前五项全部 Development + opposite-host Formal Review 完成。
+
+### CEX-790 实测状态（2026-10-06）
+
+本表此前仍写着 `WAITING_DEPENDENCIES`，与 workbook 的 `status: 'COMPLETE'` 不一致——这是一处项目看板漂移，现按 workbook 事实更正。
+
+```text
+WORKBOOK      CEX-790 status COMPLETE；development_host Mech；development_head_sha 04ecb7dd22ffd7296e00320b63681f7d9729181d
+              review 由 Owner ruling 豁免（review_host null + review_waiver_authority 记录），merge_authority false
+INTEGRATION   Alien 于 2026-10-06 做了 current-main 集成：integration/CEX-790-Alien-20261006 @ 4688274255464383d577841a37e85a556d92c678
+              （merge 65f86f91，父提交 = main 213f9f9f + 作者分支 04ecb7dd），PR #33，MERGEABLE / CLEAN
+              Alien 报告：reports/CEX-790/ALIEN_INTEGRATION_REPORT.md
+VERIFICATION  Mech（对侧物理主机）独立验证报告：reports/CEX-790/INDEPENDENT_VERIFICATION_Mech.md
+              —— 逐文件来源可追溯（无 evil merge）、两个已发布修复被逐字节采纳、server.mjs 为干净并集、
+              三条被引用的 CI 逐次 API 复核均为 SUCCESS attempt 1、本机复现 1356/1359（3 项为本机常驻 City 占用）
+NOT DONE      本机未合并、无 merge authority；PR #33 的合并决定不在本机
+```
+
 
 ## 5. 双机异步防阻塞模式
 

@@ -193,7 +193,9 @@ PROBE       falsified on the unguarded tree, which reports the half-switch itsel
             offer, so the controller probe is the authority for the typed code and the route probe proves only the
             forwarding and the absence of a leak on the refusal it can actually reach
 LOCAL       3/3 new probes; the three existing WBC-604 suites green (19 tests across the four files); full suite
-            1348/1353 with the same 5 inherited environment failures as at baseline 213f9f9f
+            1348/1353. CORRECTED LATER - see "Correction: the five failures were not all environment" below: 3 were this
+            host's resident-City reservation (a genuine host condition) and 2 were a missing `city` install on this host
+            (a setup error of mine), not environment properties as first recorded
 CI          V0.2 checks push run 37412629328 COMPLETED SUCCESS (attempt 1) on 1f2f08ca4d947ef55c08b9aac946f424f4a28587,
             jobs android and gateway-web both success; read per-run from the Actions API and matched on headSha
 NOT DONE    WBC-604 is COMPLETE and this host did NOT reopen it, did NOT merge, and did NOT touch main
@@ -219,8 +221,9 @@ CHANGE      services/capability-bridge/theme-artifacts.mjs
             services/dev-gateway/server.mjs
               health reports an `artifacts` component and deliberately EXCLUDES it from the degraded calculation
             tests/bridge-artifact-store-guard.test.mjs  (NEW, 5 probes)
-LOCAL       5/5 new probes; theme-build-bridge suite (3 tests incl. the pre-existing one) green; full suite 1350/1355
-            with the 5 known inherited environment failures, identical at baseline 213f9f9f
+LOCAL       5/5 new probes; theme-build-bridge suite (3 tests incl. the pre-existing one) green; full suite 1350/1355.
+            CORRECTED LATER - see "Correction: the five failures were not all environment" below: only 3 of the 5 were a
+            host condition, and 2 were a setup error of mine
 CI          V0.2 checks push run 37410914313 COMPLETED SUCCESS (attempt 1) on 8c67bb224a4d52e47ee2cdd470690f50c39c72d6,
             jobs android and gateway-web both success; read per-run from the Actions API and matched on headSha. The
             first commit's run 37410520455 is also COMPLETED SUCCESS (attempt 1) on its own head 3a6b1572. Both CI
@@ -278,5 +281,47 @@ Three sharper observations, all of them about instruments rather than about prod
 
 Both bricking instances found by shape A carry falsified probes and adoptable branches; the falsification output (the
 `mkdirSync -> createThemeArtifacts -> createBridge -> createGateway` chain) is quoted above rather than reconstructed.
+
+## Correction: the five failures were not all environment
+
+Both repair records above, and the commit messages on both branches, describe this host's suite result as *"the 5
+inherited environment failures … identical at baseline 213f9f9f"*. **Half of that was wrong**, and it was found while
+independently reproducing a different host's integration, not while re-reading my own work:
+
+```text
+3 failures   host-city-launcher, "Requires a free local host reservation"
+             GENUINE HOST CONDITION: the resident City on this machine holds the reservation.
+2 failures   CORRUPT_INPUT in capability-adapters and city-roads
+             MY OWN SETUP ERROR, not an environment property.
+```
+
+The falsification is a one-variable experiment on one worktree at one head, with the only difference being whether
+`city/node_modules` exists:
+
+```text
+city/node_modules ABSENT    node --test tests/capability-adapters.test.mjs tests/city-roads.test.mjs
+                            tests 11   pass 9    fail 2   (both CORRUPT_INPUT)
+city/node_modules PRESENT   tests 11   pass 11   fail 0
+```
+
+The cause is mundane: `capability-adapters.test.mjs` imports the document readers from
+`../city/09-planning-knowledge/…`, and those readers load `mammoth` / `pdfjs-dist` / `fflate` / `yaml`, which live in
+`city/package.json` and are installed by a **separate, deliberate** step (`pnpm --dir city install`, `.github/workflows/
+ci.yml` line 20). This host used a root-only `npm ci`, and `npm` at that, in a repository whose lockfiles are both pnpm.
+The same root-only install is also why the integration's own `tests/cex790-current-inventory.test.mjs` failed here with
+`Cannot find module 'yaml'` before that step was run, and why the audit's own documentation says to install both.
+
+What this changes for a reader of this record: any "5 inherited environment failures" figure from this host means
+*3 host-reservation failures plus 2 not-installed-dependency failures*. With the documented setup the correct figure is
+**1356/1359**, the 3 remaining failures being the resident-City reservation. The commit messages on `repair/REX-801-…`,
+`repair/capability-bridge-…` and `repair/WBC-604-…` still carry the old phrase; they are left as written, because
+rewriting published history to hide a classification error is worse than the error, and this section is the correction
+of record.
+
+The pattern this belongs to is the one already stated three times above: **a measurement is only as good as the
+instrument's setup, and an instrument that has never been asked whether its setup was complete will report a confident,
+stable, wrong number.** The stable part is what made it convincing — the same two failures appeared in every run for
+several rounds, which read as "environment" rather than as "not installed".
+
 
 
