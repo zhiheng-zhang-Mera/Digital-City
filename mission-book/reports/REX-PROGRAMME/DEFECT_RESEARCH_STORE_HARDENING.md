@@ -50,9 +50,9 @@ CHANGE      services/dev-gateway/research/registry.mjs
               is still validated and answered as "validated but not filed", and the City keeps serving
 LOCAL       2/2 new probes; REX-801 manifest suite, the Alien independent-review suite, the research UI browser suite
             and the REX-802 gateway suite all pass (16 tests across those files)
-CI          push run 37408867982 was IN PROGRESS when this file was written. No CI claim is made here until it is
-            terminal - a CI field is composed from a per-run API read, never from an expectation (the rule this round
-            recorded after a near-miss on REX-803's own CI field).
+CI          V0.2 checks push run 37408867982 COMPLETED SUCCESS on a676c8c4dbebe9f1ed3f78e6c8fdfd99a620bcfb (attempt 1),
+            read from the Actions API and matched on headSha. A CI field is composed from a per-run read, never from an
+            expectation - the rule this round recorded after a near-miss on REX-803's own CI field.
 NOT DONE    the host did NOT merge it, did NOT change the registry's semantics beyond the guard, and did NOT touch main
 ```
 
