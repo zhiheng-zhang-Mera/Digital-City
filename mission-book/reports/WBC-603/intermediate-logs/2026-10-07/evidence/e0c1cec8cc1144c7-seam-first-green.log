@@ -1,0 +1,45 @@
+✖ a City with no Workbench starts, serves and executes: the seam adds no startup dependency (115.5364ms)
+✔ the port and the live route reach the same claim decision on the same facts (141.976ms)
+✔ an offline named device is withheld by the port exactly as the route withholds it (120.0203ms)
+✔ the City exposes which backend placed the work, and only STANDARD_DEVICES is ever enabled (65.7993ms)
+✔ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (167.0891ms)
+✔ crash and restart use canonical interruption refusal rather than duplicate execution (141.6088ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (0.893ms)
+✔ executor failure after progress remains canonical FAILED and drain permits held completion (179.0511ms)
+✔ cancel aborts held executor and late result never replaces terminal state (107.3663ms)
+✔ pool registers dormant without adapter or I/O and refuses direct or registry work (3.462ms)
+✔ explicit pool narrows canonical endpoints by membership, role and descriptor readiness (0.9841ms)
+✔ enabled pool with missing canonical adapter fails typed unavailable (0.1742ms)
+✔ pool control must not cancel work held by an unrelated standard endpoint (0.2156ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2828.6678
+
+✖ failing tests:
+
+test at tests\wbc601-gateway-equivalence.test.mjs:68:1
+✖ a City with no Workbench starts, serves and executes: the seam adds no startup dependency (115.5364ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      'STANDARD_DEVICES',
+  +   'WORKER_POOL'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-WBC603/tests/wbc601-gateway-equivalence.test.mjs:79:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'STANDARD_DEVICES', 'WORKER_POOL' ],
+    expected: [ 'STANDARD_DEVICES' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

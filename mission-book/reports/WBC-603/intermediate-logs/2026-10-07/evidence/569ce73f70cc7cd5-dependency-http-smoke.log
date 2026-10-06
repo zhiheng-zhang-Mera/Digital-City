@@ -1,0 +1,12 @@
+✔ a City with no Workbench starts, serves and executes: the seam adds no startup dependency (271.9456ms)
+✔ the port and the live route reach the same claim decision on the same facts (128.7581ms)
+✔ an offline named device is withheld by the port exactly as the route withholds it (136.6481ms)
+✔ the City exposes which backend placed the work, and only STANDARD_DEVICES is ever enabled (68.5988ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1658.7878

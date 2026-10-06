@@ -1,0 +1,58 @@
+✖ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (146.9494ms)
+✔ crash and restart use canonical interruption refusal rather than duplicate execution (121.6437ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (1.0701ms)
+✖ executor failure after progress remains canonical FAILED and drain permits held completion (237.99ms)
+✔ cancel aborts held executor and late result never replaces terminal state (142.112ms)
+✔ delayed old-task cancel cannot abort a later task or admit work while control pending (18.9666ms)
+✔ stop during unresolved claim refuses busy and preserves assignment for subsequent stop (14.9084ms)
+✔ explicit bounded pool adapter executes canonical canary, then absent pool leaves standard work usable (216.9059ms)
+✔ pool registers dormant without adapter or I/O and refuses direct or registry work (3.2584ms)
+✔ explicit pool narrows canonical endpoints by membership, role and descriptor readiness (1.0216ms)
+✔ enabled pool with missing canonical adapter fails typed unavailable (0.1789ms)
+✔ pool control must not cancel work held by an unrelated standard endpoint (0.2199ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 10
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2000.3162
+
+✖ failing tests:
+
+test at tests\wbc603-headless-agent.test.mjs:8:1
+✖ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (146.9494ms)
+  Error: Only this device may change its resource sharing
+      at request (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:5:453)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async call (file:///D:/Utopia-WBC603/services/headless-node-agent/agent.mjs:16:14)
+      at async Object.drain (file:///D:/Utopia-WBC603/services/headless-node-agent/agent.mjs:61:293)
+      at async file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:9:174
+      at async fixture (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:5:715)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    code: 'GATEWAY_REFUSAL',
+    status: 403
+  }
+
+test at tests\wbc603-headless-agent.test.mjs:18:1
+✖ executor failure after progress remains canonical FAILED and drain permits held completion (237.99ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'FAILED'
+  - 'COMPLETED'
+  
+      at file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:22:116
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async fixture (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:5:715)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'FAILED',
+    expected: 'COMPLETED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

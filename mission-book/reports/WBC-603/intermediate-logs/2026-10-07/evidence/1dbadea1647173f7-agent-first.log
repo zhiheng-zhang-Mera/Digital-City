@@ -1,0 +1,36 @@
+✖ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (127.2688ms)
+✖ crash and restart use canonical interruption refusal rather than duplicate execution (76.3212ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (1.1723ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 1
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1286.2926
+
+✖ failing tests:
+
+test at tests\wbc603-headless-agent.test.mjs:6:1
+✖ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (127.2688ms)
+  TypeError: Provided value cannot be bound to SQLite parameter 1.
+      at Store.get (file:///D:/Utopia-WBC603/services/dev-gateway/store.mjs:37:83)
+      at file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:7:277
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async fixture (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:4:661)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    code: 'ERR_INVALID_ARG_TYPE'
+  }
+
+test at tests\wbc603-headless-agent.test.mjs:9:1
+✖ crash and restart use canonical interruption refusal rather than duplicate execution (76.3212ms)
+  [TypeError: fetch failed] {
+    [cause]: Error: read ECONNRESET
+        at TCP.onStreamRead (node:internal/stream_base_commons:216:20) {
+      errno: -4077,
+      code: 'ECONNRESET',
+      syscall: 'read'
+    }
+  }

@@ -1,0 +1,4 @@
+✔ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (176.447ms)
+✔ crash and restart use canonical interruption refusal rather than duplicate execution (127.5603ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (0.8837ms)
+✖ executor failure after progress remains canonical FAILED and drain permits held completion (124.2109ms)

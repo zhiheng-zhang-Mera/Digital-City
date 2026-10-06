@@ -1,0 +1,55 @@
+✔ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (166.7734ms)
+✔ crash and restart use canonical interruption refusal rather than duplicate execution (141.1125ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (0.8705ms)
+✔ executor failure after progress remains canonical FAILED and drain permits held completion (189.462ms)
+✔ cancel aborts held executor and late result never replaces terminal state (109.1726ms)
+✖ delayed old-task cancel cannot abort a later task or admit work while control pending (19.7653ms)
+✖ stop during unresolved claim refuses busy and preserves assignment for subsequent stop (0.9227ms)
+ℹ Error: Test "delayed old-task cancel cannot abort a later task or admit work while control pending" at tests\wbc603-headless-agent.test.mjs:29:1 generated asynchronous activity after the test ended. This activity created the error "HeadlessAgentError: TRANSPORT_TIMEOUT" and would have caused the test to fail, but instead triggered an unhandledRejection event.
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6715.8342
+
+✖ failing tests:
+
+test at tests\wbc603-headless-agent.test.mjs:29:1
+✖ delayed old-task cancel cannot abort a later task or admit work while control pending (19.7653ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   id: 'q2',
+  +   progress: 100,
+  +   state: 'COMPLETED'
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:34:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'q2', state: 'COMPLETED', progress: 100 },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\wbc603-headless-agent.test.mjs:37:1
+✖ stop during unresolved claim refuses busy and preserves assignment for subsequent stop (0.9227ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:41:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'AGENT_BUSY' },
+    operator: 'rejects',
+    diff: 'simple'
+  }

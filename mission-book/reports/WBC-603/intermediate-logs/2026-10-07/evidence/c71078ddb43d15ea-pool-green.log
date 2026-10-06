@@ -1,0 +1,11 @@
+✔ pool registers dormant without adapter or I/O and refuses direct or registry work (3.0703ms)
+✔ explicit pool narrows canonical endpoints by membership, role and descriptor readiness (1.0142ms)
+✔ enabled pool with missing canonical adapter fails typed unavailable (0.1865ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 965.5176
