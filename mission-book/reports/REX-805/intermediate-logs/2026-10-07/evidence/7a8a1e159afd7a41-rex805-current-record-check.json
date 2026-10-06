@@ -1,0 +1,283 @@
+{
+  "workbooks": 143,
+  "modern": 89,
+  "legacy_skipped": 54,
+  "errors": 0,
+  "warnings": 34,
+  "excused": 4,
+  "unreadable": [
+    "finished\\completed-2026-10-01\\reports\\BA-005\\CORRECTION_REPORT.md",
+    "finished\\completed-2026-10-01\\reports\\EM-002\\CORRECTION_REPORT.md",
+    "finished\\completed-2026-10-01\\reports\\EM-005\\CORRECTION_REPORT.md",
+    "finished\\completed-2026-10-01\\reports\\GAI-003\\CORRECTION_REPORT.md",
+    "finished\\completed-2026-10-01\\reports\\RF-005\\CORRECTION_REPORT.md"
+  ],
+  "findings": [
+    {
+      "severity": "WARN",
+      "code": "DEV_COMPLETE_WITHOUT_HEAD",
+      "workbook": "RS-201",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-201-动态AI池与可用性选择.md",
+      "detail": "development_complete is true but development_head_sha is '44a0e4f'"
+    },
+    {
+      "severity": "WARN",
+      "code": "DEV_COMPLETE_WITHOUT_HEAD",
+      "workbook": "RS-202",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-202-多设备并发感知与再调度.md",
+      "detail": "development_complete is true but development_head_sha is 'b3a9ad0'"
+    },
+    {
+      "severity": "WARN",
+      "code": "DEV_COMPLETE_WITHOUT_HEAD",
+      "workbook": "RS-203",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-203-跨设备执行回传与降级恢复.md",
+      "detail": "development_complete is true but development_head_sha is 'ec9e507'"
+    },
+    {
+      "severity": "WARN",
+      "code": "DEV_COMPLETE_WITHOUT_HEAD",
+      "workbook": "RS-290",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-290-调度契约回归与基线冻结.md",
+      "detail": "development_complete is true but development_head_sha is '2f81296'"
+    },
+    {
+      "severity": "WARN",
+      "code": "DEV_COMPLETE_WITHOUT_HEAD",
+      "workbook": "UXI-301",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-integration\\UXI-301-调度状态接入非工程化UI.md",
+      "detail": "development_complete is true but development_head_sha is '1c516b6'"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "RS-201",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-201-动态AI池与可用性选择.md",
+      "detail": "report_path mission-book/reports/RS-201/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "RS-202",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-202-多设备并发感知与再调度.md",
+      "detail": "report_path mission-book/reports/RS-202/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "RS-203",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-203-跨设备执行回传与降级恢复.md",
+      "detail": "report_path mission-book/reports/RS-203/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "RS-290",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-290-调度契约回归与基线冻结.md",
+      "detail": "report_path mission-book/reports/RS-290/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UI-000",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-000-视觉方向候选与审美门禁.md",
+      "detail": "report_path mission-book/reports/UI-000/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UI-101",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-101-Web产品壳与信息架构.md",
+      "detail": "report_path mission-book/reports/UI-101/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UI-102",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-102-Android产品壳与信息架构.md",
+      "detail": "report_path mission-book/reports/UI-102/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UI-103",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-103-Rooms统一视觉与嵌入体验.md",
+      "detail": "report_path mission-book/reports/UI-103/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UI-190",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-190-跨端视觉审查与UI基线冻结.md",
+      "detail": "report_path mission-book/reports/UI-190/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UXI-301",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-integration\\UXI-301-调度状态接入非工程化UI.md",
+      "detail": "report_path mission-book/reports/UXI-301/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UXI-390",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-integration\\UXI-390-双机最终产品验收与收口.md",
+      "detail": "report_path mission-book/reports/UXI-390/ does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPORT_PATH_MISSING",
+      "workbook": "UXI-391",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-integration\\UXI-391-Remote-Handoff收尾修复与合并回接.md",
+      "detail": "report_path mission-book/reports/UXI-391 does not exist"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_CLAIMED_WITHOUT_HEAD",
+      "workbook": "RS-203",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-203-跨设备执行回传与降级恢复.md",
+      "detail": "review_host is set but review_head_sha is not an exact 40-character SHA"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_COMPLETE_WITHOUT_HEAD",
+      "workbook": "RS-203",
+      "file": "mission-book\\finished\\completed-2026-10-03\\rescheduling-vnext\\RS-203-跨设备执行回传与降级恢复.md",
+      "detail": "review_complete is true but review_head_sha is '44b52e2'"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "JOIN-590",
+      "file": "mission-book\\connection-onboarding\\JOIN-590-merged-main-physical-acceptance-and-closeout.md",
+      "detail": "review_head_sha ec3b6f996240ca71505b3b67af12cc222d1b283a differs from development_head_sha b91677d1478950feb79742f618d0c981773d5bb7 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "MON-902",
+      "file": "mission-book\\city-work-monitor-dashboard\\MON-902-overview-graph-and-node-path-inspector.md",
+      "detail": "review_head_sha f4988248a3316806fc2e3fa9e62864ed129fe7b3 differs from development_head_sha 3a88e23f91924576178973ef46c620b20ffa2aaf (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "MON-903",
+      "file": "mission-book\\city-work-monitor-dashboard\\MON-903-event-triggered-decision-overlay.md",
+      "detail": "review_head_sha 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224 differs from development_head_sha 78bdd9dc873ebc257aedecf421068a1387dbec82 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "REX-801",
+      "file": "mission-book\\research-strengthening\\REX-801-experiment-manifest-and-registry.md",
+      "detail": "review_head_sha 7e96a4d28f4cb701d7a0951bace69857c3228f32 differs from development_head_sha 8f8c521fc299d622093776615b653457d8833f96 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "REX-803",
+      "file": "mission-book\\research-strengthening\\REX-803-scenario-runner-and-repetition-engine.md",
+      "detail": "review_head_sha 8798ba9dd37051626033ad72080b2fad3ff66149 differs from development_head_sha a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "UI-000",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-000-视觉方向候选与审美门禁.md",
+      "detail": "review_head_sha 6edd10379b4dbe22caa89fb45287c836f91151bf differs from development_head_sha 01b4b87a8dc80ad40775816b61487483388c4277 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "UI-101",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-101-Web产品壳与信息架构.md",
+      "detail": "review_head_sha 2c6e787c3a08166378c0f645a1ee200ce6885414 differs from development_head_sha 56c819000548d9496ecb9fd2459f19d1ad9fcec1 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "UI-102",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-102-Android产品壳与信息架构.md",
+      "detail": "review_head_sha ed4a663a4724c228d971809efcf42f113a9d7ca3 differs from development_head_sha 61598be960a7137225d029fe08ccd678cdb6d506 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "UI-103",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-103-Rooms统一视觉与嵌入体验.md",
+      "detail": "review_head_sha dcde3afe958577a470ee6a0e6f08e819c9d0d19f differs from development_head_sha 399a1c118fa0016e7f30ce8f0e3ba01917b39db1 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "UI-190",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-civilization\\UI-190-跨端视觉审查与UI基线冻结.md",
+      "detail": "review_head_sha 11bb3f6fc76aecbb1ae41f2e258cccf7beaa429b differs from development_head_sha 10cdd75604836ad0b903f4dd749e80e16bdf32b6 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "UXI-390",
+      "file": "mission-book\\finished\\completed-2026-10-03\\ui-integration\\UXI-390-双机最终产品验收与收口.md",
+      "detail": "review_head_sha 6a82e35a2c5c40db426f815056bac6fda4c6806d differs from development_head_sha 149a4c14b596b92f04fab6269eca1dcb7727303f (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "WBC-601",
+      "file": "mission-book\\workbench-compatibility-migration\\WBC-601-execution-backend-contract-and-standard-default.md",
+      "detail": "review_head_sha f66db60998343bf99243621cfcfa2363a4566db8 differs from development_head_sha d65dbd3af2d8903aca13726f74110e1f2f6b9b65 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD",
+      "workbook": "WBC-602",
+      "file": "mission-book\\workbench-compatibility-migration\\WBC-602-node-role-capability-resource-descriptor.md",
+      "detail": "review_head_sha d99101fdac5169aad74ae84fb7c0c25be43ad7d9 differs from development_head_sha c312a60b4d73f02597bde1f106372b253067fe33 (legitimate for a repair head; the workbook must say which head was reviewed)"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_REPORT_MISSING",
+      "workbook": "CEX-790",
+      "file": "mission-book\\capability-entry-closeout\\CEX-790-final-exposure-audit-and-freeze.md",
+      "detail": "review_complete is true but mission-book/reports/CEX-790 has no REVIEW_REPORT.md"
+    },
+    {
+      "severity": "WARN",
+      "code": "REVIEW_REPORT_MISSING",
+      "workbook": "WBC-604",
+      "file": "mission-book\\workbench-compatibility-migration\\WBC-604-execution-profile-switch-and-hybrid-routing.md",
+      "detail": "review_complete is true but mission-book/reports/WBC-604 has no REVIEW_REPORT.md"
+    },
+    {
+      "severity": "EXCUSED",
+      "code": "REVIEW_WAIVED_BY_RECORDED_AUTHORITY",
+      "workbook": "CEX-790",
+      "file": "mission-book\\capability-entry-closeout\\CEX-790-final-exposure-audit-and-freeze.md",
+      "detail": "review_complete is true without a review_host; the workbook records the waiver in owner_ruling_2026_10_05"
+    },
+    {
+      "severity": "EXCUSED",
+      "code": "REVIEW_WAIVED_BY_RECORDED_AUTHORITY",
+      "workbook": "CEX-790",
+      "file": "mission-book\\capability-entry-closeout\\CEX-790-final-exposure-audit-and-freeze.md",
+      "detail": "review_complete is true without an exact review_head_sha; the workbook records the waiver in owner_ruling_2026_10_05"
+    },
+    {
+      "severity": "EXCUSED",
+      "code": "REVIEW_WAIVED_BY_RECORDED_AUTHORITY",
+      "workbook": "WBC-604",
+      "file": "mission-book\\workbench-compatibility-migration\\WBC-604-execution-profile-switch-and-hybrid-routing.md",
+      "detail": "review_complete is true without a review_host; the workbook records the waiver in review_waiver_authority"
+    },
+    {
+      "severity": "EXCUSED",
+      "code": "REVIEW_WAIVED_BY_RECORDED_AUTHORITY",
+      "workbook": "WBC-604",
+      "file": "mission-book\\workbench-compatibility-migration\\WBC-604-execution-profile-switch-and-hybrid-routing.md",
+      "detail": "review_complete is true without an exact review_head_sha; the workbook records the waiver in review_waiver_authority"
+    }
+  ]
+}

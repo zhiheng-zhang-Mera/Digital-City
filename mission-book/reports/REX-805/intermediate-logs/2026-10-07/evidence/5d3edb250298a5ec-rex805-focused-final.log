@@ -1,0 +1,22 @@
+✔ REX805 real canonical original/replay/ablation preserve selected seed and change target policy only (596.5489ms)
+✔ REX805 replay API is Owner-only and lists truthful bounded mechanism support (85.7854ms)
+✔ REX805 replay preserves selected seed and input with fresh identities and untouched source (2.3813ms)
+✔ REX805 alternate-device ablation changes actual target selection and records exact mechanism (0.8962ms)
+✔ REX805 unsupported, ambiguous and ineffective ablations are refused before creating experiments (0.9327ms)
+✔ REX805 corrupt source identity, seed, measured outcome and index cannot be laundered into replay (0.7799ms)
+✔ REX805 comparisons expose policy difference and reject changed source material (0.7337ms)
+✔ REX805 registry persistence failure refuses execution while retaining original (0.2411ms)
+✔ REX805 unavailable fault conditions and undeclared request switches are refused explicitly (0.3582ms)
+✔ REX805 selected index1 preserves original derived seed under new run index0 (16.0293ms)
+✔ REX805 offset is bounded, typed and checked before creating work (1.7734ms)
+✔ REX805 interrupted recovery and resume retain offset and refuse offset drift (25.272ms)
+✔ REX805 Web owner selects recorded run and executes real replay/ablation from Research (3138.6706ms)
+✔ REX805 Web switching source discards a delayed comparison from the previous selection (2018.5288ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9836.3833
