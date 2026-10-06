@@ -3,7 +3,7 @@ workbook_id: MON-903
 phase: CITY_WORK_MONITOR
 sequence: 3
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM

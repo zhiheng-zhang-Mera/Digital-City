@@ -151,6 +151,16 @@ tree, `D:/utopia-join590/scripts/stop-city.ps1` followed by `D:/utopia-rex803/sc
 172.31.12.151 -Port 4391` from the desired worktree; the host reservation (`C:\ProgramData\Utopia\host\city`) is shared,
 so the cityId, the store and the enrollments persist across the switch.
 
+### 5A. The gate's blocker, measured rather than assumed (2026-10-06T02:25Z)
+
+The Alien + Mech + Android experiment was REGISTERED on the live City and a campaign was attempted against it. The City
+refused with `TOPOLOGY_NOT_READY` and named exactly one missing identity, `alien-reference-node`, alongside the live
+worker and control surface it does have. The full measurement, the verbatim refusal and the one-command re-run
+instructions are in [THREE_END_GATE_MEASUREMENT.md](./THREE_END_GATE_MEASUREMENT.md). The three-end experiment
+(`mech-alien-android-two-host-repetition`, TWO_HOST_MESH, software ref `utopia@57d1c919…`) is now registered, so the
+gate becomes a single POST once the Alien host's node is online. It remains a PARTIAL gate: no three-end campaign result
+is claimed, and the Alien node has not been online at any point during this task.
+
 ## 6. Claim collision (recorded per the owner's rule)
 
 Alien published the REX-803 claim at Digital-City `5baee25` (11:45:02); this host published its claim at `1acdc10`

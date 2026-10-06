@@ -86,7 +86,7 @@
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [MON-902](./city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md) | City Work Monitor | IN_PROGRESS | ✅ | — |
-| [MON-903](./city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md) | City Work Monitor | READY | ✅ | — |
+| [MON-903](./city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md) | City Work Monitor | IN_PROGRESS | ✅ | — |
 | [MON-990](./city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md) | City Work Monitor | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
 

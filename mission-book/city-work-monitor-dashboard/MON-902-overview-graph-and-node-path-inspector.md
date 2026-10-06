@@ -15,13 +15,14 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 dependencies: ["MON-901"]
 development_host: "Mech"
 development_branch: "mon/MON-902-mech-overview-graph"
-development_head_sha: "5460697cfde5d807f022698a0411b040634a458b"
-development_ci: "V0.2 checks run 37290746745 COMPLETED SUCCESS on headSha 5460697cfde5d807f022698a0411b040634a458b (jobs: gateway-web success, android success), read from the Actions API and matched on headSha; City linkage check run 37290746628 success on the same head. Both the push and the pull_request runs of V0.2 checks are green at this head. Earlier product head on this branch: 6bb19f3e842774eff98cccf30fb01a8784953f22 (run 37290149947 success). The head carries the browser-rendered UI evidence (tests/web.test.mjs) in addition to the projection and surface probes."
+development_head_sha: "fd70d00837a8309db718ee56fab7738a8b947530"
+development_ci: "CORRECTED CLAIM. The previous value of this field asserted that BOTH the push and the pull_request V0.2 runs were green on 5460697cfde5d807f022698a0411b040634a458b. That was wrong, and this host measured it wrong: re-reading the Actions API for that head shows push run 37290743026 COMPLETED FAILURE (job gateway-web failure, job android success) alongside pull run 37290746745 success and linkage 37290746628 success. The failure was a measurement defect in MON-902's own browser probe: tests/web.test.mjs waited for `.monitor-panel`, which exists while the page still says 'Loading from the Gateway...', and then asserted loaded-state copy - so it passed locally and in one CI run and failed in the push run with actual 'CITY MONITOR\\n\\nLoading from the Gateway...'. It is preserved in the record rather than cleaned away (evidence protocol section 1). REPAIRED by marking the panel's state machine-readably (data-loaded true/false/error) and waiting for the projection in the probe. NEW HEAD fd70d00837a8309db718ee56fab7738a8b947530 carries the repair. ITS EXACT-HEAD CI, re-read per run: V0.2 checks push run 37403423102 COMPLETED SUCCESS (jobs gateway-web pass 5m24s, android pass 1m24s) as reported by the PR check view for the same head; the earlier head's PR run 37290746745 was also green. At hand-off, PR zhiheng-zhang-Mera/utopia#27 reports the head as mergeable=CONFLICTING, which is the latest-main integration obligation recorded in integration_note and in DEVELOPMENT_HANDOFF.md section 3, not a CI failure."
 development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
+integration_note: "LATEST-MAIN INTEGRATION IS STILL OWED. Measured at hand-off: the reviewed head is 48 commits behind origin/main 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef (32 commits ahead of the merge-base 7eb38f1b930dfe6cc13dab0e17dedee467b1254b). Seven files are touched on BOTH sides and will need a union at merge: apps/web/app.js, apps/web/i18n/en.js, apps/web/i18n/zh-CN.js, apps/web/index.html, services/dev-gateway/server.mjs, package-lock.json, city/package-lock.json."
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor
 user_exposure_nesting: L1_PRIMARY

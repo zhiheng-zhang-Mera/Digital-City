@@ -8,7 +8,8 @@ CONTROL REPO       zhiheng-zhang-Mera/Digital-City
 BRANCH             mon/MON-902-mech-overview-graph
 ANCHOR MODE        DEPENDENCY_SHA_UNION_AT_CLAIM
 BASELINE (UNION)   7eb38f1b930dfe6cc13dab0e17dedee467b1254b   (= MON-901 accepted head; contains main d3262ce2)
-DEVELOPMENT HEAD   6bb19f3e842774eff98cccf30fb01a8784953f22
+DEVELOPMENT HEAD   fd70d00837a8309db718ee56fab7738a8b947530   (see section 8: the head moved once to repair a CI
+                                                              failure this task's own probe caused)
 PULL REQUEST       zhiheng-zhang-Mera/utopia#27
 WORKTREE           D:/utopia-mon902
 DEVELOPMENT HOST   Mech (MEGA-REP)
@@ -245,4 +246,31 @@ theme rather than new novelty claims.
    implementation makes the limitation visible, which is a design decision the reviewer should confirm.
 3  The opposite-host Formal Review has not been started; this host may not review its own development.
 4  Terminal marker NOT released. development_complete is recorded in the workbook; review_complete is not.
+```
+
+## 8. Late defect found by re-reading the recorded CI, and repaired
+
+This task had already been reported as complete when a later, unrelated measurement pass re-read the Actions API for the
+recorded head instead of trusting the field this report had written. It found that the claim "both the push and the
+pull_request runs are green" was false.
+
+```text
+OBSERVATION   head 5460697cfde5d807f022698a0411b040634a458b had push run 37290743026 COMPLETED FAILURE
+              (job gateway-web failure, android success) while its PR run 37290746745 and linkage 37290746628 succeeded.
+              The workbook field and this report both over-claimed. Both have been corrected in place; the failure is
+              preserved, not cleaned away.
+REPRODUCTION  the failing assertion was tests/web.test.mjs:49 -
+              actual 'CITY MONITOR\n\nLoading from the Gateway...' vs expected the loaded-state copy regex.
+ROOT CAUSE    MEASUREMENT DEFECT (the probe, not the product). The probe waited for `.monitor-panel`, which exists as
+              soon as the page mounts, and then asserted content that only exists after the projection arrives. It
+              passed locally and in one CI run and failed in the other, i.e. it raced the fetch.
+REPAIR        the panel's state is now machine-readable (`data-loaded` true / false / error), and the probe waits for
+              `data-loaded="true"`. This is a product change, small on purpose: without it there is no way for any
+              reader - human or test - to tell a shell from a projection.
+REGRESSION    the probe can no longer pass before the projection arrives.
+NEW HEAD      fd70d00837a8309db718ee56fab7738a8b947530
+CLASSIFICATION  MEASUREMENT_DEFECT, repaired; the recorded over-claim is a RECORD DEFECT of this task and is also
+                corrected in the workbook frontmatter.
+LESSON        a CI field that says "both runs are green" must be written from a per-run read of both events, not from
+                one green run plus an assumption about the other one.
 ```
