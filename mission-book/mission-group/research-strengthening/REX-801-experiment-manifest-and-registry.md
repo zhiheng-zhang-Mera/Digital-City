@@ -43,13 +43,14 @@ user_exposure_nesting: L3_ADVANCED
 backend_wiring: "VERIFIED — Web Advanced > Research imports authored JSON, validates without persistence, registers without execution, lists and inspects canonical documents; controlled browser reachability and refusal cases PASS. Fuller workflow remains REX-807."
 ui_exemption_reason: null
 owner_gate: NONE
-merge_authority: false
+merge_authority: true
 report_path: mission-book/reports/REX-801
 terminal_marker: EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED
 merged_main_sha: "e111eb2787e7464385b4b59e62e954ac1f5f678e"
 merged_main_ci: "required CI on the merge/integration head; the JOIN-590 closeout integration head e111eb2787e7464385b4b59e62e954ac1f5f678e was verified locally at 1329/1332 with only the three known resident-City host-city-launcher failures, and the same head was pushed to main for hosted CI."
 merged_main_via: "PR #25, integrated in the JOIN-590 closeout integration"
 merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
+owner_gate_ruling_2026_10_07: "OWNER GATE OPEN for the REX series (owner instruction this session): QUALIFIED sub-tasks may merge, i.e. those whose own review is complete and whose marker is released. merge_authority is set true on REX-801..805 (all accepted and now in main) and stays false on REX-806/807/890 until their reviews complete - acceptance, the opposite-host review and the markers are unchanged, and section 3 still forbids self-review. Recorded by Mech-DS."
 ---
 
 # REX-801 — Experiment Manifest + Registry

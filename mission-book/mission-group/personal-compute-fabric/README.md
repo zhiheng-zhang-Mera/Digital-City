@@ -1,9 +1,11 @@
 # PCF — Personal Compute Fabric / 个人异构计算织网（增强版）
 
-> **PARKED / NOT ACTIVATED / DESIGN ONLY — 本次只登记规划，不授权施工。**
+> **PARKED / NOT ACTIVATED / DESIGN ONLY — 设计期状态（历史）**
 > 所有工作书 `execution_enabled: false`；实现基准、依赖 SHA、领取者和验收证据故意留空。PCF 不加入当前 `PROGRESS_MANIFEST.json`，不改变在途任务、主任务分母或 Utopia 运行行为。
 
-[English](en/README.md) · [架构](ARCHITECTURE.md) · [施工与证据合同](EXECUTION_CONTRACT.md) · [激活与扩容](ACTIVATION_AND_EXTENSION.md) · [实验与收口](RESEARCH_AND_RELEASE.md) · [机器可读计划](PROGRAMME_MANIFEST.json)
+> **2026-10-07 有界激活 / bounded activation（Owner 指令）**：Owner 本轮指示「打开 PCF 系列、连续承接其任务、单独开一个分支系列」。按本系列自己的激活规则（§2 首激活事务）执行：控制面兼容缺口**先修**（`sync_dependency_state.py` 的 ID_RE 加入 PCF —— 修前 PCF 依赖 id 对工具完全不可见）、`PROGRESS_MANIFEST.json` 加入**显式文件集**（本轮只含 PCF-700，不用宽 glob）、依赖 reconcile 实测**只改 PCF-700 一本**（701..728 保持 parked、未解锁、未补 anchor）、四个 accepted WBC 依赖头实测**都已在 main**。因此 **PCF-700 被启用并领取**（`Mech-DS`，分支系列 `pcf/series-mech`，任务分支 `pcf/PCF-700-mech-ownership-and-reality-audit`），**其余 28 本保持 parked**、不进入当前分母、不获得执行权/预算/凭据/合并权。完整回执见 [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md)，领取记录见 `reports/PCF-700/CLAIM_REPORT.md`。 / The owner's instruction this session was executed as a bounded activation: the control-plane gap was fixed first, the manifest carries an explicit one-workbook file set, the reconciler touched only PCF-700, and the four accepted WBC dependencies are already in main. PCF-700 is claimed; the other 28 workbooks stay parked.
+
+[English](en/README.md) · [架构](ARCHITECTURE.md) · [施工与证据合同](EXECUTION_CONTRACT.md) · [激活与扩容](ACTIVATION_AND_EXTENSION.md) · [实验与收口](RESEARCH_AND_RELEASE.md) · [机器可读计划](PROGRAMME_MANIFEST.json) · [激活回执](ACTIVATION_RECEIPT_2026_10_07.md)
 
 ## 定位与范围
 
@@ -111,15 +113,16 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **72**.
+当前Markdown文档 / Current Markdown documents: **74**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| en | 36 | [打开 / Open](en/README.md) |
+| en | 37 | [打开 / Open](en/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [ACTIVATION_AND_EXTENSION.md](ACTIVATION_AND_EXTENSION.md)
+- [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md)
 - [ARCHITECTURE.md](ARCHITECTURE.md)
 - [CHILD_WORKBOOK_TEMPLATE.md](CHILD_WORKBOOK_TEMPLATE.md)
 - [EXECUTION_CONTRACT.md](EXECUTION_CONTRACT.md)
@@ -156,3 +159,16 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 - [RESEARCH_AND_RELEASE.md](RESEARCH_AND_RELEASE.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `IN_PROGRESS`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [PCF-700](PCF-700-ownership-and-reality-audit.md) | IN_PROGRESS | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->

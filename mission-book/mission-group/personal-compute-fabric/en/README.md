@@ -3,6 +3,8 @@
 > PARKED / NOT ACTIVATED / DESIGN ONLY. Planning does not authorize implementation.
 > Every canonical workbook has execution_enabled=false and intentionally empty execution anchors, claims and evidence. PCF is excluded from the active progress manifest and changes no running Utopia behavior.
 
+> **2026-10-07 bounded activation (owner instruction).** The owner instructed this session that the PCF series be opened and its tasks taken in sequence on a dedicated branch series. The series' own activation rules were followed: the control-plane gap was fixed first (`sync_dependency_state.py`'s ID_RE did not recognise PCF, so every PCF dependency id was invisible to the tool), the progress manifest gained an explicit one-workbook file set rather than a broad glob, the reconciler measurably touched only PCF-700 (701..728 stayed parked, not enabled, not unblocked, no anchors added), and all four accepted WBC dependency heads are already in main. **PCF-700 is therefore enabled and claimed** by Mech-DS on series branch `pcf/series-mech`, task branch `pcf/PCF-700-mech-ownership-and-reality-audit`; **the other 28 workbooks stay parked**, out of the current denominator, and gain no execution right, budget, credential or merge authority. Full receipt: [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md); claim record: `reports/PCF-700/CLAIM_REPORT.md`.
+
 [中文](../README.md) · [Architecture](ARCHITECTURE.md) · [Execution contract](EXECUTION_CONTRACT.md) · [Activation and extension](ACTIVATION_AND_EXTENSION.md) · [Research and release](RESEARCH_AND_RELEASE.md) · [Planned membership](../PROGRAMME_MANIFEST.json)
 
 ## Purpose
@@ -91,7 +93,7 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **36**.
+当前Markdown文档 / Current Markdown documents: **37**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -99,6 +101,7 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 ### 本目录说明 / Local documents
 
 - [ACTIVATION_AND_EXTENSION.md](ACTIVATION_AND_EXTENSION.md)
+- [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md)
 - [ARCHITECTURE.md](ARCHITECTURE.md)
 - [CHILD_WORKBOOK_TEMPLATE.md](CHILD_WORKBOOK_TEMPLATE.md)
 - [EXECUTION_CONTRACT.md](EXECUTION_CONTRACT.md)
@@ -135,3 +138,16 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 - [RESEARCH_AND_RELEASE.md](RESEARCH_AND_RELEASE.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `IN_PROGRESS`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [PCF-700](../PCF-700-ownership-and-reality-audit.md) | IN_PROGRESS | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->

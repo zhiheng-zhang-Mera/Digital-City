@@ -4,20 +4,20 @@ phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
 spec_revision: 2
 parent_workbook_id: null
-execution_enabled: false
-status: NOT_STARTED
-activation_state: PARKED_OWNER_NOT_ACTIVATED
+execution_enabled: true
+status: IN_PROGRESS
+activation_state: ACTIVATED_OWNER_2026_10_07
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: []
 required_ancestor_shas: []
 dependency_source_workbooks: ["WBC-601","WBC-602","WBC-603","WBC-604"]
-dependency_source_shas: []
-development_baseline_sha: null
-anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
-development_host: null
-development_branch: null
+dependency_source_shas: ["f66db60998343bf99243621cfcfa2363a4566db8","d99101fdac5169aad74ae84fb7c0c25be43ad7d9","f3510862cc348a99004ca5bd5d151a7b56279724","213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef"]
+development_baseline_sha: "312b627b54af5bbf274fa25eca8f8383869c1c34"
+anchor_state: RESOLVED_AT_CLAIM
+development_host: "Mech"
+development_branch: "pcf/PCF-700-mech-ownership-and-reality-audit"
 development_head_sha: null
 development_ci: null
 development_complete: false
@@ -30,9 +30,11 @@ backend_wiring: UNASSESSED
 capability_ids: []
 capability_registry_action: UNASSESSED
 capability_registry_sync_status: UNASSESSED
-owner_gate: OWNER_ACTIVATION_REQUIRED
+owner_gate: SATISFIED_OWNER_ACTIVATION_2026_10_07
 merge_authority: false
-report_path: null
+report_path: "mission-book/reports/PCF-700"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-07): PCF-700 is the first task of the owner-opened PCF series. baseline_anchor_mode is DEPENDENCY_SHA_UNION_AT_CLAIM and the declared sources are the four accepted WBC heads WBC-601 f66db6099834, WBC-602 d99101fdac51, WBC-603 f3510862cc34, WBC-604 213f9f9f7087. MEASURED: every one of the four is ALREADY an ancestor of origin/main 312b627b54af, because the WBC series was merged; the claim-time union is therefore main itself and needs no union merge (measured, not assumed: f66db6099834 in_main=True ; d99101fdac51 in_main=True ; f3510862cc34 in_main=True ; 213f9f9f7087 in_main=True). CONTROL-PLANE PREREQUISITE (PCF activation rules section 2.3) completed and regressed BEFORE this claim: sync_dependency_state.py ID_RE now recognises PCF (it did not, so every PCF dependency id was invisible), PROGRESS_MANIFEST.json now carries an explicit PCF file set for this one workbook rather than a broad glob, and running the reconciler touched exactly this workbook - parked PCF tasks were not enabled, not unblocked and not given anchors, no claim or completed record changed, and the English mirror carries no duplicate workbook id. Owner gate: the owner instructed this session that the PCF series be opened and its tasks taken in sequence, so owner_gate moves from OWNER_ACTIVATION_REQUIRED to SATISFIED_OWNER_ACTIVATION_2026_10_07. Boundaries not crossed and recorded instead: no purchase or paid service, no system-service installation, no change to the running City profile, and no merge authority (merge_authority stays false; the series branch accumulates verified work for a later ruling)."
+baseline_blocker: null
 ---
 
 # PCF-700 — 所有权、调用链与兼容现实审计

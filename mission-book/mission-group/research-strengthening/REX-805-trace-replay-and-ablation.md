@@ -40,11 +40,12 @@ user_exposure_nesting: L3_ADVANCED
 backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
-merge_authority: false
+merge_authority: true
 development_report_ref: mission-book/reports/REX-805/DEVELOPMENT_HANDOFF.md
 development_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/38"
 report_path: mission-book/reports/REX-805
 terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED
+owner_gate_ruling_2026_10_07: "OWNER GATE OPEN for the REX series (owner instruction this session): QUALIFIED sub-tasks may merge, i.e. those whose own review is complete and whose marker is released. merge_authority is set true on REX-801..805 (all accepted and now in main) and stays false on REX-806/807/890 until their reviews complete - acceptance, the opposite-host review and the markers are unchanged, and section 3 still forbids self-review. Recorded by Mech-DS."
 ---
 
 # REX-805 — Trace Replay + Ablation Engine

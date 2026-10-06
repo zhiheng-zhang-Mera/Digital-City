@@ -2,30 +2,30 @@
   "active_pool": {
     "development": {
       "complete": 6,
-      "total": 9
+      "total": 10
     },
     "review": {
       "complete": 5,
-      "total": 9
+      "total": 10
     },
     "tasks": {
       "complete": 5,
-      "total": 9
+      "total": 10
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
       "complete": 90,
-      "total": 93
+      "total": 94
     },
     "review": {
       "complete": 89,
-      "total": 93
+      "total": 94
     },
     "tasks": {
       "complete": 89,
-      "total": 93
+      "total": 94
     }
   },
   "programmes": [
@@ -1055,6 +1055,28 @@
           "execution_enabled": true,
           "id": "SHOW-401",
           "path": "mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
+        }
+      ],
+      "total": 1
+    },
+    {
+      "active_pool": true,
+      "development_complete": 0,
+      "key": "pcf",
+      "name": "Personal Compute Fabric",
+      "readme": "mission-group/personal-compute-fabric/README.md",
+      "review_complete": 0,
+      "status": "IN_PROGRESS",
+      "task_complete": 0,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "PCF-700",
+          "path": "mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
           "review_complete": false,
           "status": "IN_PROGRESS"
         }

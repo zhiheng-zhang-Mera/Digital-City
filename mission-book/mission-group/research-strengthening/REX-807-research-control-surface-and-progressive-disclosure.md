@@ -33,6 +33,7 @@ owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/REX-807
 terminal_marker: RESEARCH_CONTROL_SURFACE_ACCEPTED
+owner_gate_ruling_2026_10_07: "OWNER GATE OPEN for the REX series (owner instruction this session): QUALIFIED sub-tasks may merge, i.e. those whose own review is complete and whose marker is released. merge_authority is set true on REX-801..805 (all accepted and now in main) and stays false on REX-806/807/890 until their reviews complete - acceptance, the opposite-host review and the markers are unchanged, and section 3 still forbids self-review. Recorded by Mech-DS."
 ---
 
 # REX-807 — Research Control Surface + Progressive Disclosure

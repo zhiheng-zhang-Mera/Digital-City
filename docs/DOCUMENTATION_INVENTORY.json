@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1656,
-  "total_bytes": 12019204,
+  "markdown_count": 1659,
+  "total_bytes": 12043755,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 4079,
+      "bytes": 4353,
       "encoding_state": "UTF8",
       "chinese_characters": 300,
-      "english_words": 260,
+      "english_words": 283,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9213,6 +9213,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07.md",
+      "bytes": 4541,
+      "encoding_state": "UTF8",
+      "chinese_characters": 168,
+      "english_words": 59,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/mission-group/personal-compute-fabric/ARCHITECTURE.md",
       "bytes": 8788,
       "encoding_state": "UTF8",
@@ -9250,7 +9259,7 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
-      "bytes": 3622,
+      "bytes": 5626,
       "encoding_state": "UTF8",
       "chinese_characters": 434,
       "english_words": 103,
@@ -9511,10 +9520,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "bytes": 13004,
+      "bytes": 15044,
       "encoding_state": "UTF8",
-      "chinese_characters": 1379,
-      "english_words": 709,
+      "chinese_characters": 1582,
+      "english_words": 816,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9534,6 +9543,15 @@
       "chinese_characters": 2,
       "english_words": 544,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07.md",
+      "bytes": 4629,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 100,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -9835,10 +9853,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "bytes": 12168,
+      "bytes": 13902,
       "encoding_state": "UTF8",
-      "chinese_characters": 90,
-      "english_words": 1219,
+      "chinese_characters": 132,
+      "english_words": 1376,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9853,10 +9871,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 54634,
+      "bytes": 55317,
       "encoding_state": "UTF8",
-      "chinese_characters": 3979,
-      "english_words": 2299,
+      "chinese_characters": 4101,
+      "english_words": 2315,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9880,7 +9898,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-801-experiment-manifest-and-registry.md",
-      "bytes": 8742,
+      "bytes": 9214,
       "encoding_state": "UTF8",
       "chinese_characters": 221,
       "english_words": 109,
@@ -9889,7 +9907,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
-      "bytes": 12354,
+      "bytes": 12826,
       "encoding_state": "UTF8",
       "chinese_characters": 488,
       "english_words": 339,
@@ -9898,7 +9916,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
-      "bytes": 7225,
+      "bytes": 7697,
       "encoding_state": "UTF8",
       "chinese_characters": 70,
       "english_words": 64,
@@ -9907,7 +9925,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
-      "bytes": 10633,
+      "bytes": 11105,
       "encoding_state": "UTF8",
       "chinese_characters": 183,
       "english_words": 60,
@@ -9916,7 +9934,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-805-trace-replay-and-ablation.md",
-      "bytes": 9320,
+      "bytes": 9792,
       "encoding_state": "UTF8",
       "chinese_characters": 232,
       "english_words": 157,
@@ -9925,7 +9943,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 10438,
+      "bytes": 10911,
       "encoding_state": "UTF8",
       "chinese_characters": 202,
       "english_words": 154,
@@ -9934,7 +9952,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 2691,
+      "bytes": 3164,
       "encoding_state": "UTF8",
       "chinese_characters": 160,
       "english_words": 64,
@@ -9943,7 +9961,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
-      "bytes": 3000,
+      "bytes": 3473,
       "encoding_state": "UTF8",
       "chinese_characters": 105,
       "english_words": 85,
@@ -9952,10 +9970,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 63051,
+      "bytes": 63754,
       "encoding_state": "UTF8",
       "chinese_characters": 201,
-      "english_words": 5016,
+      "english_words": 5100,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13146,6 +13164,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/PCF-700/CLAIM_REPORT.md",
+      "bytes": 4105,
+      "encoding_state": "UTF8",
+      "chinese_characters": 156,
+      "english_words": 34,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/POOL_RECHECK_Alien_2026-10-06.md",
       "bytes": 2240,
       "encoding_state": "UTF8",
@@ -13210,10 +13237,10 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 4497,
+      "bytes": 4556,
       "encoding_state": "UTF8",
-      "chinese_characters": 238,
-      "english_words": 213,
+      "chinese_characters": 240,
+      "english_words": 216,
       "paired_path": "mission-book/reports/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },

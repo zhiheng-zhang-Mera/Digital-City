@@ -38,7 +38,7 @@ user_exposure_nesting: L4_TECHNICAL
 backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
-merge_authority: false
+merge_authority: true
 report_path: mission-book/reports/REX-802
 capability_ids: ["CAP-RESEARCH-TRACE-001"]
 capability_registry_action: CREATE
@@ -53,6 +53,7 @@ merged_main_sha: "e111eb2787e7464385b4b59e62e954ac1f5f678e"
 merged_main_ci: "required CI on the merge/integration head; the JOIN-590 closeout integration head e111eb2787e7464385b4b59e62e954ac1f5f678e was verified locally at 1329/1332 with only the three known resident-City host-city-launcher failures, and the same head was pushed to main for hosted CI."
 merged_main_via: "PR #17, integrated in the JOIN-590 closeout integration"
 merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
+owner_gate_ruling_2026_10_07: "OWNER GATE OPEN for the REX series (owner instruction this session): QUALIFIED sub-tasks may merge, i.e. those whose own review is complete and whose marker is released. merge_authority is set true on REX-801..805 (all accepted and now in main) and stays false on REX-806/807/890 until their reviews complete - acceptance, the opposite-host review and the markers are unchanged, and section 3 still forbids self-review. Recorded by Mech-DS."
 ---
 
 # REX-802 — Trace / Provenance / Metrics Foundation

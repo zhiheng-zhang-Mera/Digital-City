@@ -137,6 +137,15 @@
       ],
       "active_pool": true,
       "readme": "mission-group/showcase-material-extraction/README.md"
+    },
+    {
+      "key": "pcf",
+      "name": "Personal Compute Fabric",
+      "task_globs": [
+        "mission-group/personal-compute-fabric/PCF-700-*.md"
+      ],
+      "active_pool": true,
+      "readme": "mission-group/personal-compute-fabric/README.md"
     }
   ]
 }
