@@ -272,3 +272,52 @@ CI       V0.2 checks push run 37414436113 COMPLETED SUCCESS (attempt 1) on b4dac
 ```
 
 它属于此前已说明三次的模式：**测量质量取决于工具设置；从未被追问设置是否完整的工具，会给出自信、稳定但错误的数字。** 稳定恰是它令人信服之处：同样两项失败连续多轮每次出现，被读成“环境问题”，而不是“依赖未安装”。
+## 在已合并 main 和待合并候选上重新扫描
+
+修复发布后发生两件事：本 session 中 `origin/main` 首次移动到 `b06504f`，即 PR #33 合并，带两个已采纳 store-guard 分支及其探针；另一分支成为 merge candidate，即 Alien 的 REX-803 review candidate `8798ba9`。两者使用相同工具扫描，让族记录描述实际即将运行的代码，而非经历大量工作前旧测量提交的状态。
+
+```text
+SHAPE A  a FILE where the module needs a DIRECTORY        main 213f9f9f      merged main b06504f   REX-803 candidate 8798ba9
+theme-packages (bridge artifacts)                         BRICKED EEXIST     STARTED               STARTED
+research (REX-801 registry parent)                        BRICKED ENOTDIR    STARTED               STARTED
+research/experiments (REX-801 registry)                   BRICKED EEXIST     STARTED               STARTED
+research/campaigns (REX-803 campaigns)                    STARTED            STARTED               STARTED
+monitor (MON-903 decision store)                          STARTED            STARTED               STARTED
+research-trace (REX-802 collector)                        STARTED            STARTED               STARTED
+
+SHAPE B  a DIRECTORY where the module needs a FILE
+city.sqlite (canonical store)                             BRICKED            BRICKED               BRICKED       F-1 open by choice
+join-requests.json (join store)                           STARTED            STARTED               STARTED       F-2 open by decision
+execution-profile.json (WBC-604)                          half-switch        half-switch           half-switch   F-3 open, repair unadopted
+
+UNIT PROBES
+join store, unwritable file      request() RESOLVED PENDING, nothing persisted            unchanged on all three
+profile store, unwritable file   change() THREW EPERM, live profile STANDARD -> WORKER_POOL unchanged on all three
+```
+
+前三行验证本宿主自身被采纳的工作：经 PR #33 到达 main 的两条修复，使整个 shape-A 族在已合并 main 上可启动，而非只在自身分支。这比“分支绿色”更强，也是记录需要的结论。
+
+最后两行是诚实保留项，其中一项本轮发生变化：
+
+```text
+F-1  city.sqlite as a directory still stops the City with "unable to open database file". Bricking is CORRECT here;
+     only the diagnostic is missing. Reporter unchanged, unrepaired by design.
+F-2  the join store still returns HTTP 200 with an in-memory row and persists nothing, deliberately and silently.
+     Reported; the silence is a documented design decision in join.mjs, not a coding error.
+F-3  the execution-profile half-switch is STILL LIVE ON MERGED MAIN: change() throws a raw EPERM while the live profile
+     has already moved STANDARD_DEVICES -> WORKER_POOL. The repair for it has been published since round 15 and has
+     never been adopted, so the defect outlived two merges.
+```
+
+对于 F-3，本宿主决定使其尽可能容易采纳，而非只重复报告：把修复 cherry-pick 到**当前 main**，发布 `repair/WBC-604-mech-profile-persist-first-on-current-main @ ad1b3e8`，让 CI 运行完整已合并套件，而非建立在两次合并之前的 baseline。分支测量：
+
+```text
+focused   the F-3 probes plus the three existing WBC-604 suites    19 pass / 0 fail
+sweep     profile store, unwritable file -> change() THREW PROFILE_STORE_UNAVAILABLE;
+          live profile STANDARD_DEVICES -> STANDARD_DEVICES        (was EPERM and STANDARD -> WORKER_POOL)
+full      1359/1362, the 3 failures being this host's resident-City host reservation
+CI        V0.2 checks push run 37425834472 COMPLETED SUCCESS (attempt 1) on ad1b3e8, jobs android and
+          gateway-web both success
+```
+
+与此前一轮 B4 相同的经验，明确为规则：**修复必须在合并结果上测量，不能仅在自身旧 baseline 上测量。** 落后两次合并的 baseline 上绿色分支，只提供没人将运行的提交的证据。

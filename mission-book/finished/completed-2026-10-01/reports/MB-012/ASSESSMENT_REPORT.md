@@ -334,7 +334,7 @@ unless the Owner explicitly resets or reopens it.
 
 With MB-010, MB-011 and MB-012 all closed, the assessment-first queue
 (`MB-010 → MB-011 → MB-012`) is **empty**: every enabled Mission in
-[MISSION_INDEX.md](../MISSION_INDEX.md) now has `verification_complete = true`.
+[MISSION_INDEX.md](../../MISSION_INDEX.md) now has `verification_complete = true`.
 
 ## 9. Cross-Mission note (MB-010 / MB-011 / MB-012)
 

@@ -33,3 +33,17 @@ A later inspection found an Alien member record for the same City at the standar
 尝试前 canonical snapshot 有10个COMPLETED任务、无活动任务。没有修改存储的安装记录、重新配对或解除退休状态，凭据没有落入证据。实体campaign保持NOT_RUN，继续等待可用的正确安装配置。
 
 Before the attempt, the canonical snapshot contained10 COMPLETED tasks and no active tasks. The stored enrollment was not modified, paired again or unretired; credentials remain absent from evidence. The physical campaign remains NOT_RUN pending a valid installation configuration.
+
+## 正式重新连接与 main 编译 / Formal reconnection and main build
+
+2026-10-06，用户提供 Mech 当前 City 的一次性配对码后，官方客户端启动器完成重新登记。Alien 以 MEMBER 身份运行，City ID 为 `031fdba6-e94c-4298-a095-6ff04a65481d`，设备为 `dev-8128a1ef25c5c4b7f66fc31b21705858`，显示名 `Alien-MERA-ALIANWARE`。本机此前没有运行中的旧 City；旧数据和退休安装备份保留。只启动成员及本地4389协调端点，没有启动新的 PRIMARY。配对码、令牌和会话凭据不进入证据。
+
+On 2026-10-06, after the user supplied a one-time pairing code for Mech's current City, the official client launcher completed enrollment. Alien runs as a MEMBER in City `031fdba6-e94c-4298-a095-6ff04a65481d`, device `dev-8128a1ef25c5c4b7f66fc31b21705858`, named `Alien-MERA-ALIANWARE`. No old local City was running; old data and the retired enrollment backup were retained. Only the member and local coordination endpoint4389 started, with no new PRIMARY. Pairing codes, tokens and session credentials are excluded from evidence.
+
+独立读取本地成员状态和 Gateway canonical roster，Alien 与 Mech 均在线，Android 配置的 City ID 一致。Alien 运行源码是已合入 CEX-790 的 main `b06504f1f96984c960b2661b8ee3a7130796d379`；Mech Gateway 的运行源码仍为 NOT_OBSERVED。该 main 的 Android `testDebugUnitTest assembleDebug` 在独立成员工作区完成，Gradle 输出 BUILD SUCCESSFUL（41项任务）。这些结果不等于 REX-803 候选部署或 controlled campaign 验收；campaign 仍为 NOT_RUN。
+
+Independent local member status and the Gateway canonical roster showed Alien and Mech online, with the same City ID in Android configuration. Alien runs merged CEX-790 main `b06504f1f96984c960b2661b8ee3a7130796d379`; Mech Gateway's runtime source remains NOT_OBSERVED. Android `testDebugUnitTest assembleDebug` on that main completed in the isolated member worktree: Gradle reported BUILD SUCCESSFUL,41 tasks. These observations do not establish REX-803 candidate deployment or controlled-campaign acceptance; the campaign remains NOT_RUN.
+
+补充构建统计：21个Android测试套件、111项测试，0失败、0错误；APK已生成。CEX-790清单与成员角色定向检查5/5通过。启动器集成3项因在线成员占用4389协调端口而拒绝运行，原始拒绝保留，不计为通过；为保持联机未停止成员。 / Additional build totals:21 Android suites,111 tests, zero failures/errors; APK generated. CEX-790 inventory and member-role checks passed5/5. Three launcher integration checks refused execution because the online member occupies coordination port4389; refusals are retained and are not passes. The member remains online.
+
+APK SHA256: `3b40b8d365a17893e01bdf88b190829f8de609bce3859ef10a7acadf4ca9ed0e`.

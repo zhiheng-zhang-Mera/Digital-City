@@ -1,6 +1,6 @@
 # JOIN-503 — Author's repair record for review findings D-1 / D-2
 
-> Workbook: [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
+> Workbook: [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
 > Reviewer's report: [REVIEW_REPORT.md](./REVIEW_REPORT.md) (Mech, opposite physical host)
 > Reviewed head: `ede6fa22e0165156aadcf3cbd6ba748b6f2b39d7`
 > **Repair head: `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f`**, branch `join/JOIN-503-device-enrollment-and-tokenless-reconnect`

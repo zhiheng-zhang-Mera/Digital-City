@@ -114,3 +114,79 @@ NOT DONE BY THE REVIEWER   no merge, no rewrite of the author's branch or its hi
 ```
 
 本任务 merge_authority=false，Reviewer 也无 authority。作者 tip 和 original reviewed head 未动，repair 旁路发布。
+# 第二次复验 — `fe700aba957990f93b22fd63d594ddfff7b4e243` 上 PASSED
+
+> 以下为原报告后续正式验收记录的完整译文；前面的旧失败结论保持历史来源，不覆盖。
+
+```text
+RE-REVIEWED HEAD    fe700aba957990f93b22fd63d594ddfff7b4e243   (branch rex/REX-804-Alien-codex-faults, PR #30)
+ANCESTRY            the original reviewed head f76ccf53 AND current main b06504f are both ancestors (exit 0 each)
+AUTHOR REPAIR       reports/REX-804/AUTHOR_REPAIR_Alien.md - the author independently reproduced B4 before fixing it
+VERDICT             B1 CLOSED, B4 CLOSED, no blocking finding remains. PASSED.
+TERMINAL MARKER     FAULT_INJECTION_RECOVERY_ACCEPTED — RELEASED on this head
+MERGE AUTHORITY     none; this host did not and does not merge
+```
+
+## B4 已关闭，在包含 current main 的 head 上测量
+
+发现原本是分支不能合入 current main，因为 fault controller 无保护 `mkdirSync` 再次触发 store-guard 缺陷，而 main 已带能捕获它的探针。现在 head 已包含 latest-main integration ancestor，复检者在**该 head 内部**重跑同一探针：
+
+```text
+tests/rex801-store-guard.test.mjs on fe700ab (contains current main)   2 pass / 0 fail, 97 ms and 51 ms
+the same probe on the merge before the repair                          1 pass / 1 FAIL, 34 201 ms, ENOTDIR
+the same probe on main alone                                           2 pass / 0 fail
+CI on fe700ab, read one run at a time and matched on headSha:
+    push          37424946247  COMPLETED SUCCESS attempt 1   (android, gateway-web)
+    pull_request  37424951038  COMPLETED SUCCESS attempt 1   (android, gateway-web)
+    linkage       37424951044  COMPLETED SUCCESS attempt 1   (reciprocal-contract)
+```
+
+此前 `075ddc1` 上变红的是 **pull_request** run，因为 PR 测试与 current main 的合并。现在同一步转绿，因而在复检者能够测量的意义上，分支可以合并。
+
+修复遵循缺陷族模式，而非只消除症状：`faults.mjs` 构造捕获自身失败，写入 `storeState`/`storeReason`；`list()` 披露它们；不可用存储上的 fault injection 返回带类型 **503 `FAULT_STORE_UNAVAILABLE`**，普通任务继续工作。Web Danger Zone 显示原因并禁用注入。这是降级、报告、继续服务，不是吞错。
+
+## 复检者此前记录的其他事项，在此 head 重新测量
+
+```text
+B1  an unreadable fault receipt prevented City startup      CLOSED (probe P8, and P1-P9 all pass)
+B3  a shapeless receipt adopted without identity            CLOSED (probe P9)
+F2  registry vocabulary and the missing receipt route        repaired by the author; the routes answer
+nine reviewer probes                                        9 pass / 0 fail
+REX-804's own four suites                                   12 pass / 0 fail
+full suite                                                  1379/1382, the 3 being this host's resident-City
+                                                            host reservation
+```
+
+## 本轮发现并修复的复检者自身工具缺陷
+
+此 head 第一次 full-suite 运行失败的是**复检者自己探针**，不是产品：
+
+```text
+"REX804 review P6 ... AssertionError: DELAY_RESULT recorded that it was exercised (got 0)"
+the same file in isolation: 9 pass / 0 fail
+```
+
+P6 对每个 fault class 使用 `durationMs: 150`，然后 sleep 350 ms，要求 exercise 落在宿主时间 150 ms 内；full-suite 负载下未达到。此窗口从来不是产品属性，而是工具对宿主的假定。这与第一次复验中复检者归类的作者 unit fixture **同类缺陷**，现在自身探针也出现，并以相同方式暴露：隔离绿色、满载结果不同。
+
+修复位于 `review/REX-804-mech-review @ 53d01a3`：窗口改为 1200 ms，持有 delayed report promise，并在 sleep 后等待，而非发出后不再管。修复后：
+
+```text
+isolation, three consecutive runs                      9 pass / 0 fail each
+beside three heavy browser suites (concurrent load)    13 pass / 0 fail
+full suite on fe700ab                                  1379/1382, P6 green
+```
+
+两种状态都保留记录，不抹掉红色记录。这对复检中的 timing-assumption 缺陷现在共有两个：作者 fixture 一个、复检者一个。有用观察是：**在此代码库中，不注入时钟的 fault-injection 测试实际测试的是宿主。**
+
+## 仍未测量且不算缺陷的范围
+
+```text
+Android native fault controls                 NOT_RUN; the author's capability record keeps PARTIAL for them and
+                                              this reviewer did not exercise a device
+physical/external-provider recovery           NOT_RUN; PROVIDER_UNAVAILABLE is injected at the claim seam, not at a
+                                              real external provider, and neither host claims otherwise
+DUPLICATE_EVENT recovery metric               structurally NOT_MEASURED, with the reason on the receipt; the
+                                              reviewer's P6 asserts the null AND the reason rather than accepting a 0
+```
+
+这些作为 scope 声明，不算通过。此处释放 `FAULT_INJECTION_RECOVERY_ACCEPTED`，仅针对已测量的 fault-injection/recovery surface；不声称物理 Android fault surface 或真实外部 provider 的结果。

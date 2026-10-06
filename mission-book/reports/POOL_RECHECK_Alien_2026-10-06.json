@@ -21,15 +21,6 @@
       "path": "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md"
     },
     {
-      "id": "REX-804",
-      "status": "IN_PROGRESS",
-      "developer": "Alien",
-      "development_complete": true,
-      "reviewer": "Mech",
-      "review_complete": false,
-      "path": "mission-book/research-strengthening/REX-804-fault-injection-and-recovery-probes.md"
-    },
-    {
       "id": "REX-805",
       "status": "WAITING_DEPENDENCIES",
       "developer": null,
@@ -118,5 +109,14 @@
     "URA-990",
     "XX-000"
   ],
-  "scope": "unclaimed tasks; owned repairs and external gates remain open"
+  "scope": "unclaimed tasks; owned repairs and external gates remain open",
+  "accepted_since_previous_recheck": [
+    {
+      "id": "REX-804",
+      "head_sha": "fe700aba957990f93b22fd63d594ddfff7b4e243",
+      "reviewer": "Mech",
+      "terminal_marker": "FAULT_INJECTION_RECOVERY_ACCEPTED",
+      "control_commit": "0b92abf879cfed9f4dc1ff1b0fd08f8ebb73013c"
+    }
+  ]
 }

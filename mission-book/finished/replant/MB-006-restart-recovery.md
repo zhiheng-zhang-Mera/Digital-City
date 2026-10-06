@@ -109,7 +109,7 @@ merged_main_sha: ce33792ed50787e991b22465da28feabc8e50c50
 - Implementation head: `9584b98bd9f2bacad93274c74716281c7e0b2b1e`
 - Migration head: `dab820b37ff39d1581b19dd43e75771507fb7139`
 - Hosted CI: implementation `36574888667` PASS; final branch `36575418378` PASS (gateway-web + android)
-- Report: [`reports/MB-006/MIGRATION_REPORT.md`](./reports/MB-006/MIGRATION_REPORT.md)
+- Report: [`reports/MB-006/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-006/MIGRATION_REPORT.md)
 - Not merged to `main`; `mission:finalize` deliberately not run (that belongs to the Verification host)
 
 > **Fidelity note for the Verification host.** Every defect this migration had to repair was
@@ -135,14 +135,14 @@ merged_main_sha: ce33792ed50787e991b22465da28feabc8e50c50
 - Episode: `data-records/evolution/episodes/mission-book/MB-006/episode.json` — `MB-006:0a48549fc6f5f8c6`, status `VERIFIED`, sha256 `8247ecd76a7fbf713027d4f379b055dbe1017939e6dacd882e2c8682c9f8d3e8`. `mission:finalize` ran and removed the current-tree inbox.
 - Merge to `main`: `ce33792ed50787e991b22465da28feabc8e50c50`. `main` had advanced to `83ea44e` (MB-002, verified by host `Alien`) while this episode was being finalized, so the two verified trees were **reconciled** rather than force-updated; the reconciliation keeps MB-001's district-level `kind: "infrastructure"`, MB-002's registry rewrite, and MB-003's/MB-006's module-level `capabilityProvider: false`, and takes the union of every mission's modules in the census test.
 - **Recorded tension (not silently satisfied):** the gate asks for two hosts to complete a real controlled restart, while rule 5 permits exactly one verification host. This host performed one real restart/relaunch; the migration host has its own. Both readings are recorded in the report's §5.2 rather than one being presented as the rule.
-- Report: [`reports/MB-006/VERIFICATION_REPORT.md`](./reports/MB-006/VERIFICATION_REPORT.md). Boundaries this verification did **not** establish — including that the crash-loop breaker/safe mode is not migrated, so no crash-loop/safe-mode behaviour test is possible at this boundary — are in §6.6.
+- Report: [`reports/MB-006/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-006/VERIFICATION_REPORT.md). Boundaries this verification did **not** establish — including that the crash-loop breaker/safe mode is not migrated, so no crash-loop/safe-mode behaviour test is possible at this boundary — are in §6.6.
 
 
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> **OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 

@@ -34,9 +34,9 @@ archive_reason: COMPONENT_OR_MISSION_COMPLETE
 # JOIN-501 — Pairing Session Lifecycle + Persistent Display
 
 > **Programme：** [README.md](./README.md)  
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
-> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../../../ASYNC_RELIEF_CONSTRUCTION.md)
+> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)
 
 ## 1. 目标
 

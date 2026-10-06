@@ -39,9 +39,9 @@ archive_reason: COMPONENT_OR_MISSION_COMPLETE
 
 # MESH-301 — 三端实机互联与相互指挥（Mech 主机 + Alien 主机 + Android 实机）
 
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
-> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../../../ASYNC_RELIEF_CONSTRUCTION.md)
+> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)
 > README 仅为监控看板，不是施工规范或 claim lock。
 >
 > **本文件是 Owner 授权 Alien 起草的草案（§12：任务创建属 Owner）。** 已于 2026-10-03 由 Owner 指示激活：

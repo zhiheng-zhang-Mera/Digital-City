@@ -13,11 +13,11 @@ Utopia accepted implementation baseline at archive time: main @ ec12fd0831f31fd8
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **162**.
+当前Markdown文档 / Current Markdown documents: **165**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| reports | 146 | [打开 / Open](reports/README.md) |
+| reports | 149 | [打开 / Open](reports/README.md) |
 | rescheduling-vnext | 5 | [打开 / Open](rescheduling-vnext/README.md) |
 | ui-civilization | 6 | [打开 / Open](ui-civilization/README.md) |
 | ui-integration | 4 | [打开 / Open](ui-integration/README.md) |

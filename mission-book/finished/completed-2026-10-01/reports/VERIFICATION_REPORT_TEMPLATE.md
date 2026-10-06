@@ -49,3 +49,7 @@ VERIFICATION_COMPLETE = false
 - Final branch HEAD required CI:
 - Merge result:
 - PASS / FAIL / BLOCKED:
+
+## Language reading links / 语言阅读链接
+
+[中文](./zh-CN/VERIFICATION_REPORT_TEMPLATE.md) · [English](./en/VERIFICATION_REPORT_TEMPLATE.md)

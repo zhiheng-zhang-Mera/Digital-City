@@ -1,6 +1,6 @@
 # UI-190 — 跨端视觉审查与 UI 基线冻结 · REVIEW REPORT
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md](../../ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md)
 > Review Host：`Mech`（Development Host 为 `Alien`，§3 双机独立成立）
 > 复核对象（Development 头）：`10cdd75604836ad0b903f4dd749e80e16bdf32b6`，CI `36893135833` success

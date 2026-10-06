@@ -1,6 +1,6 @@
 # UI-102 — Android 产品壳与信息架构 · REVIEW REPORT
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-102-Android产品壳与信息架构.md](../../ui-civilization/UI-102-Android产品壳与信息架构.md)
 > Review Host：`Alien`（Development Host 为 `Mech`，§3 双机独立成立）
 > 复核对象：`652c41c6ca72d591e3adab5cb78b9a2bc6b7a410`（Mech 的 Development 头，CI `36886549081` success）

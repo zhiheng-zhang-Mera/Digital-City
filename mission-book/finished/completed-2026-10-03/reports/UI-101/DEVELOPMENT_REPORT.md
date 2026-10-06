@@ -1,6 +1,6 @@
 # UI-101 — Web 产品壳与信息架构 · DEVELOPMENT REPORT
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-101-Web产品壳与信息架构.md](../../ui-civilization/UI-101-Web产品壳与信息架构.md)
 > Development Host：`Alien`　分支：`ui/UI-101-web-product-shell`
 > 结论头：`56c819000548d9496ecb9fd2459f19d1ad9fcec1`　CI：`36870347917` success

@@ -324,3 +324,4 @@ it *restated* the environment instead of asserting the contract. The relocating 
 — the equivalence tests that compare the port against the live route and the frozen guards passed on the failed
 run and were unchanged by the repair.
 
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

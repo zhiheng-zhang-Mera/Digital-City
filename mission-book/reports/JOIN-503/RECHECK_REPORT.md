@@ -1,6 +1,6 @@
 # JOIN-503 — Formal review, RE-CHECK after the repair
 
-> **Workbook:** [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md)  
+> **Workbook:** [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
 > **Original review:** [REVIEW_REPORT.md](./REVIEW_REPORT.md) — REPAIR REQUIRED (D-1, D-2) at `ede6fa2`  
 > **Re-checked head:** `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f` on `join/JOIN-503-device-enrollment-and-tokenless-reconnect`  
 > **Repair author:** Alien (development host) — **re-check by Mech** (different physical host)  

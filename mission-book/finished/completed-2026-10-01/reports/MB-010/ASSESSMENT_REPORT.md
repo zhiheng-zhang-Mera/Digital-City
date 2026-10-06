@@ -27,7 +27,7 @@ NO_VALUE_CANONICAL_RESULT = 判断无价值，任务保留，未迁移
 
 ## 0. 领取依据 / Why this Mission was claimable
 
-Selection followed [MISSION_INDEX.md](../MISSION_INDEX.md) and [README.md](../README.md) §3.
+Selection followed [MISSION_INDEX.md](../../MISSION_INDEX.md) and [README.md](../README.md) §3.
 
 ```text
 P0 (verification / integration): NONE eligible.

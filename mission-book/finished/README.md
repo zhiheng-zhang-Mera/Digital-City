@@ -47,13 +47,13 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **386**.
+当前Markdown文档 / Current Markdown documents: **459**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| completed-2026-10-01 | 201 | [打开 / Open](completed-2026-10-01/README.md) |
-| completed-2026-10-03 | 162 | [打开 / Open](completed-2026-10-03/README.md) |
-| completed-2026-10-04 | 5 | [打开 / Open](completed-2026-10-04/README.md) |
+| completed-2026-10-01 | 270 | [打开 / Open](completed-2026-10-01/README.md) |
+| completed-2026-10-03 | 165 | [打开 / Open](completed-2026-10-03/README.md) |
+| completed-2026-10-04 | 6 | [打开 / Open](completed-2026-10-04/README.md) |
 | completed-2026-10-06 | 1 | [打开 / Open](completed-2026-10-06/README.md) |
 | replant | 16 | [打开 / Open](replant/README.md) |
 

@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 975,
-  "total_bytes": 7924114,
+  "markdown_count": 1061,
+  "total_bytes": 8125123,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -1447,10 +1447,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
-      "bytes": 646,
+      "bytes": 638,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 77,
+      "english_words": 76,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -1483,10 +1483,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/README-legacy-dashboard.md",
-      "bytes": 20877,
+      "bytes": 20869,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 2166,
+      "english_words": 2165,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -1879,7 +1879,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/past-rules/2026-09-29-construction-rules-v1.md",
-      "bytes": 9826,
+      "bytes": 9833,
       "encoding_state": "UTF8",
       "chinese_characters": 1722,
       "english_words": 308,
@@ -1888,10 +1888,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
-      "bytes": 14590,
+      "bytes": 14738,
       "encoding_state": "UTF8",
       "chinese_characters": 631,
-      "english_words": 1212,
+      "english_words": 1224,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -1906,12 +1906,12 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/past-rules/README.md",
-      "bytes": 547,
+      "bytes": 1232,
       "encoding_state": "UTF8",
-      "chinese_characters": 94,
-      "english_words": 23,
+      "chinese_characters": 149,
+      "english_words": 53,
       "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/remote/README.md",
@@ -2023,21 +2023,21 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/ASSESSMENT_REPORT_TEMPLATE.md",
-      "bytes": 2026,
+      "bytes": 2172,
       "encoding_state": "UTF8",
-      "chinese_characters": 137,
-      "english_words": 123,
-      "paired_path": null,
-      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+      "chinese_characters": 145,
+      "english_words": 127,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/ASSESSMENT_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-001/CORRECTION_REPORT.md",
-      "bytes": 12626,
+      "bytes": 12770,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1277,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 14,
+      "english_words": 1284,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-001/zh-CN/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-001/DEVELOPMENT_REPORT.md",
@@ -2047,6 +2047,24 @@
       "english_words": 1330,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-001/README.md",
+      "bytes": 692,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-001/zh-CN/CORRECTION_REPORT.md",
+      "bytes": 8781,
+      "encoding_state": "UTF8",
+      "chinese_characters": 713,
+      "english_words": 264,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-001/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-002/CORRECTION_REPORT.md",
@@ -2059,12 +2077,30 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-002/DEVELOPMENT_REPORT.md",
-      "bytes": 13011,
+      "bytes": 13156,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1278,
+      "chinese_characters": 14,
+      "english_words": 1285,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-002/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-002/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-002/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 8140,
+      "encoding_state": "UTF8",
+      "chinese_characters": 485,
+      "english_words": 267,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-002/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-003/CORRECTION_REPORT.md",
@@ -2085,6 +2121,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-003/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-004/CORRECTION_REPORT.md",
       "bytes": 17380,
       "encoding_state": "UTF8",
@@ -2101,6 +2146,15 @@
       "english_words": 924,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-004/zh-CN/DEVELOPMENT_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-004/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-004/zh-CN/DEVELOPMENT_REPORT.md",
@@ -2128,6 +2182,15 @@
       "english_words": 964,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-005/zh-CN/DEVELOPMENT_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-005/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-005/zh-CN/CORRECTION_REPORT.md",
@@ -2166,6 +2229,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-006/README.md",
+      "bytes": 692,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-006/zh-CN/CORRECTION_REPORT.md",
       "bytes": 8673,
       "encoding_state": "UTF8",
@@ -2185,12 +2257,30 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-007/DEVELOPMENT_REPORT.md",
-      "bytes": 12456,
+      "bytes": 12601,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1096,
+      "chinese_characters": 14,
+      "english_words": 1103,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-007/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-007/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-007/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 8464,
+      "encoding_state": "UTF8",
+      "chinese_characters": 564,
+      "english_words": 217,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-007/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-008/CORRECTION_REPORT.md",
@@ -2211,13 +2301,22 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
-      "path": "mission-book/finished/completed-2026-10-01/reports/BA-009/CORRECTION_REPORT.md",
-      "bytes": 12479,
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-008/README.md",
+      "bytes": 632,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1260,
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-009/CORRECTION_REPORT.md",
+      "bytes": 12623,
+      "encoding_state": "UTF8",
+      "chinese_characters": 14,
+      "english_words": 1267,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-009/zh-CN/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/BA-009/DEVELOPMENT_REPORT.md",
@@ -2227,6 +2326,24 @@
       "english_words": 1459,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-009/README.md",
+      "bytes": 692,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-009/zh-CN/CORRECTION_REPORT.md",
+      "bytes": 8028,
+      "encoding_state": "UTF8",
+      "chinese_characters": 627,
+      "english_words": 191,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/BA-009/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/DEVELOPMENT_CI_RECOVERY_2026-10-01.md",
@@ -2256,6 +2373,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-001/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-002/CORRECTION_REPORT.md",
       "bytes": 18698,
       "encoding_state": "REPAIR_REQUIRED",
@@ -2270,6 +2396,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1415,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-002/README.md",
+      "bytes": 692,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2293,12 +2428,30 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-003/DEVELOPMENT_REPORT.md",
-      "bytes": 11143,
+      "bytes": 11288,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1092,
+      "chinese_characters": 14,
+      "english_words": 1099,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/EM-003/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-003/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-003/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 8041,
+      "encoding_state": "UTF8",
+      "chinese_characters": 814,
+      "english_words": 176,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/EM-003/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-004/CORRECTION_REPORT.md",
@@ -2317,6 +2470,15 @@
       "english_words": 1062,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/EM-004/zh-CN/DEVELOPMENT_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-004/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-004/zh-CN/DEVELOPMENT_REPORT.md",
@@ -2346,6 +2508,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-005/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-005/zh-CN/CORRECTION_REPORT.md",
       "bytes": 10124,
       "encoding_state": "REPAIR_REQUIRED",
@@ -2365,12 +2536,12 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-006/CORRECTION_REPORT.md",
-      "bytes": 11027,
+      "bytes": 11171,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1083,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 14,
+      "english_words": 1090,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/EM-006/zh-CN/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-006/DEVELOPMENT_REPORT.md",
@@ -2379,6 +2550,24 @@
       "chinese_characters": 14,
       "english_words": 872,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/EM-006/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-006/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-006/zh-CN/CORRECTION_REPORT.md",
+      "bytes": 7877,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1042,
+      "english_words": 96,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/EM-006/CORRECTION_REPORT.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -2409,6 +2598,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-007/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-007/zh-CN/DEVELOPMENT_REPORT.md",
       "bytes": 8488,
       "encoding_state": "UTF8",
@@ -2436,6 +2634,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-008/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-009/CORRECTION_REPORT.md",
       "bytes": 13701,
       "encoding_state": "UTF8",
@@ -2450,6 +2657,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1420,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-009/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2472,6 +2688,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-010/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-011/CORRECTION_REPORT.md",
       "bytes": 13723,
       "encoding_state": "UTF8",
@@ -2486,6 +2711,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1440,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-011/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2508,6 +2742,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-012/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/EM-013/CORRECTION_REPORT.md",
       "bytes": 15848,
       "encoding_state": "UTF8",
@@ -2522,6 +2765,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1289,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-013/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2544,6 +2796,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-001/README.md",
+      "bytes": 633,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-002/CORRECTION_REPORT.md",
       "bytes": 15102,
       "encoding_state": "UTF8",
@@ -2554,12 +2815,30 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-002/DEVELOPMENT_REPORT.md",
-      "bytes": 11191,
+      "bytes": 11336,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1168,
+      "chinese_characters": 14,
+      "english_words": 1175,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-002/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-002/README.md",
+      "bytes": 694,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-002/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 7619,
+      "encoding_state": "UTF8",
+      "chinese_characters": 705,
+      "english_words": 196,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-002/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-003/CORRECTION_REPORT.md",
@@ -2578,6 +2857,15 @@
       "english_words": 927,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-003/zh-CN/DEVELOPMENT_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-003/README.md",
+      "bytes": 694,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-003/zh-CN/CORRECTION_REPORT.md",
@@ -2608,30 +2896,75 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-004/DEVELOPMENT_REPORT.md",
-      "bytes": 12239,
+      "bytes": 12384,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1253,
+      "chinese_characters": 14,
+      "english_words": 1260,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-004/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-004/README.md",
+      "bytes": 694,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-004/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 8104,
+      "encoding_state": "UTF8",
+      "chinese_characters": 672,
+      "english_words": 222,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-004/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/CORRECTION_REPORT.md",
-      "bytes": 11041,
+      "bytes": 11185,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1080,
+      "chinese_characters": 14,
+      "english_words": 1087,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/zh-CN/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/DEVELOPMENT_REPORT.md",
+      "bytes": 13306,
+      "encoding_state": "UTF8",
+      "chinese_characters": 14,
+      "english_words": 1345,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/README.md",
+      "bytes": 694,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
-      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/DEVELOPMENT_REPORT.md",
-      "bytes": 13161,
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/zh-CN/CORRECTION_REPORT.md",
+      "bytes": 7407,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1338,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 822,
+      "english_words": 122,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 7774,
+      "encoding_state": "UTF8",
+      "chinese_characters": 491,
+      "english_words": 264,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/GAI-005/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-006/CORRECTION_REPORT.md",
@@ -2648,6 +2981,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1470,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-006/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2679,6 +3021,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-007/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/GAI-007/zh-CN/CORRECTION_REPORT.md",
       "bytes": 8035,
       "encoding_state": "UTF8",
@@ -2702,6 +3053,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1297,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-008/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2733,6 +3093,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-009/README.md",
+      "bytes": 633,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/LEGACY-BRANCH-AUDIT-2026-09-30.md",
       "bytes": 7840,
       "encoding_state": "UTF8",
@@ -2751,6 +3120,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-001/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-001/VERIFICATION_REPORT.md",
       "bytes": 40127,
       "encoding_state": "UTF8",
@@ -2765,6 +3143,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 3,
       "english_words": 2268,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-002/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2787,6 +3174,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-003/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-003/VERIFICATION_REPORT.md",
       "bytes": 32295,
       "encoding_state": "UTF8",
@@ -2801,6 +3197,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 3,
       "english_words": 2317,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-004/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -2823,6 +3228,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-005/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md",
       "bytes": 22659,
       "encoding_state": "UTF8",
@@ -2839,6 +3253,15 @@
       "english_words": 2693,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-006/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-006/VERIFICATION_REPORT.md",
@@ -2859,8 +3282,17 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-007/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-007/VERIFICATION_REPORT.md",
-      "bytes": 21324,
+      "bytes": 21327,
       "encoding_state": "UTF8",
       "chinese_characters": 112,
       "english_words": 2165,
@@ -2875,6 +3307,15 @@
       "english_words": 1686,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-008/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-008/VERIFICATION_REPORT.md",
@@ -2895,6 +3336,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/MB-009/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-009/VERIFICATION_REPORT.md",
       "bytes": 18908,
       "encoding_state": "UTF8",
@@ -2905,7 +3355,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-010/ASSESSMENT_REPORT.md",
-      "bytes": 26711,
+      "bytes": 26714,
       "encoding_state": "UTF8",
       "chinese_characters": 58,
       "english_words": 2063,
@@ -2923,7 +3373,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/MB-012/ASSESSMENT_REPORT.md",
-      "bytes": 32730,
+      "bytes": 32733,
       "encoding_state": "UTF8",
       "chinese_characters": 58,
       "english_words": 2462,
@@ -2932,19 +3382,19 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/MIGRATION_REPORT_TEMPLATE.md",
-      "bytes": 921,
+      "bytes": 1065,
       "encoding_state": "UTF8",
-      "chinese_characters": 32,
-      "english_words": 68,
-      "paired_path": null,
-      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+      "chinese_characters": 40,
+      "english_words": 72,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/MIGRATION_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/README.md",
-      "bytes": 8050,
+      "bytes": 7508,
       "encoding_state": "UTF8",
-      "chinese_characters": 501,
-      "english_words": 178,
+      "chinese_characters": 503,
+      "english_words": 230,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -2967,6 +3417,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-001/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-002/CORRECTION_REPORT.md",
       "bytes": 16672,
       "encoding_state": "UTF8",
@@ -2981,6 +3440,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1613,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-002/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -3001,6 +3469,15 @@
       "english_words": 1048,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/RF-003/zh-CN/DEVELOPMENT_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-003/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-003/zh-CN/DEVELOPMENT_REPORT.md",
@@ -3028,6 +3505,15 @@
       "english_words": 744,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/RF-004/zh-CN/DEVELOPMENT_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-004/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-004/zh-CN/CORRECTION_REPORT.md",
@@ -3066,6 +3552,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-005/README.md",
+      "bytes": 692,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-005/zh-CN/CORRECTION_REPORT.md",
       "bytes": 13045,
       "encoding_state": "REPAIR_REQUIRED",
@@ -3076,12 +3571,12 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-006/CORRECTION_REPORT.md",
-      "bytes": 11768,
+      "bytes": 11912,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1090,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 14,
+      "english_words": 1097,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/RF-006/zh-CN/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-006/DEVELOPMENT_REPORT.md",
@@ -3091,6 +3586,24 @@
       "english_words": 1411,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-006/README.md",
+      "bytes": 692,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-006/zh-CN/CORRECTION_REPORT.md",
+      "bytes": 8316,
+      "encoding_state": "UTF8",
+      "chinese_characters": 813,
+      "english_words": 101,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/RF-006/CORRECTION_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-007/CORRECTION_REPORT.md",
@@ -3103,12 +3616,30 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-007/DEVELOPMENT_REPORT.md",
-      "bytes": 12846,
+      "bytes": 12991,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1241,
+      "chinese_characters": 14,
+      "english_words": 1248,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/RF-007/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-007/README.md",
+      "bytes": 693,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 27,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-007/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 7787,
+      "encoding_state": "UTF8",
+      "chinese_characters": 479,
+      "english_words": 237,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/RF-007/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-008/CORRECTION_REPORT.md",
@@ -3125,6 +3656,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1420,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-008/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -3147,6 +3687,15 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-009/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/RF-010/CORRECTION_REPORT.md",
       "bytes": 15463,
       "encoding_state": "UTF8",
@@ -3165,11 +3714,29 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-010/README.md",
+      "bytes": 632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-01/reports/UPT-PRE-ASSISTANT/IMPLEMENTATION_REPORT.md",
       "bytes": 15439,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 1750,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/UPT-PRE-ASSISTANT/README.md",
+      "bytes": 715,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 30,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -3193,12 +3760,48 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/VERIFICATION_REPORT_TEMPLATE.md",
-      "bytes": 1045,
+      "bytes": 1195,
       "encoding_state": "UTF8",
-      "chinese_characters": 28,
-      "english_words": 79,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 36,
+      "english_words": 83,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/VERIFICATION_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/en/ASSESSMENT_REPORT_TEMPLATE.md",
+      "bytes": 2348,
+      "encoding_state": "UTF8",
+      "chinese_characters": 26,
+      "english_words": 215,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/ASSESSMENT_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/en/MIGRATION_REPORT_TEMPLATE.md",
+      "bytes": 1058,
+      "encoding_state": "UTF8",
+      "chinese_characters": 19,
+      "english_words": 86,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/MIGRATION_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/en/VERIFICATION_REPORT_TEMPLATE.md",
+      "bytes": 1188,
+      "encoding_state": "UTF8",
+      "chinese_characters": 19,
+      "english_words": 97,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/VERIFICATION_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/ASSESSMENT_REPORT_TEMPLATE.md",
+      "bytes": 2060,
+      "encoding_state": "UTF8",
+      "chinese_characters": 269,
+      "english_words": 46,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/en/ASSESSMENT_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/DEVELOPMENT_CI_RECOVERY_2026-10-01.md",
@@ -3216,6 +3819,24 @@
       "chinese_characters": 1185,
       "english_words": 166,
       "paired_path": "mission-book/finished/completed-2026-10-01/reports/LEGACY-BRANCH-AUDIT-2026-09-30.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/MIGRATION_REPORT_TEMPLATE.md",
+      "bytes": 1014,
+      "encoding_state": "UTF8",
+      "chinese_characters": 148,
+      "english_words": 21,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/en/MIGRATION_REPORT_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/zh-CN/VERIFICATION_REPORT_TEMPLATE.md",
+      "bytes": 1138,
+      "encoding_state": "UTF8",
+      "chinese_characters": 139,
+      "english_words": 28,
+      "paired_path": "mission-book/finished/completed-2026-10-01/reports/en/VERIFICATION_REPORT_TEMPLATE.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -3310,7 +3931,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md",
-      "bytes": 21199,
+      "bytes": 21205,
       "encoding_state": "UTF8",
       "chinese_characters": 2530,
       "english_words": 534,
@@ -3445,7 +4066,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_ZERO_CLAIM_2026-10-01.md",
-      "bytes": 6783,
+      "bytes": 6789,
       "encoding_state": "UTF8",
       "chinese_characters": 728,
       "english_words": 132,
@@ -3481,10 +4102,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/README.md",
-      "bytes": 4274,
+      "bytes": 4253,
       "encoding_state": "UTF8",
       "chinese_characters": 85,
-      "english_words": 52,
+      "english_words": 55,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -3607,7 +4228,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-000/HANDOFF_MECH_TO_ALIEN_HEAD_MOVE.md",
-      "bytes": 4476,
+      "bytes": 4485,
       "encoding_state": "UTF8",
       "chinese_characters": 689,
       "english_words": 86,
@@ -3616,7 +4237,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-000/HANDOFF_MECH_TO_ALIEN_POST_REVIEW_DELTA.md",
-      "bytes": 8514,
+      "bytes": 8523,
       "encoding_state": "UTF8",
       "chinese_characters": 1453,
       "english_words": 161,
@@ -3625,7 +4246,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-000/HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md",
-      "bytes": 8799,
+      "bytes": 8808,
       "encoding_state": "UTF8",
       "chinese_characters": 1350,
       "english_words": 200,
@@ -3634,7 +4255,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-000/OWNER_STYLE_RULING.md",
-      "bytes": 7991,
+      "bytes": 8000,
       "encoding_state": "UTF8",
       "chinese_characters": 1433,
       "english_words": 129,
@@ -3652,7 +4273,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-000/REVIEW_REPORT.md",
-      "bytes": 17725,
+      "bytes": 17737,
       "encoding_state": "UTF8",
       "chinese_characters": 2682,
       "english_words": 444,
@@ -3661,7 +4282,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-000/REVISION_REVIEW_REPORT.md",
-      "bytes": 10161,
+      "bytes": 10173,
       "encoding_state": "UTF8",
       "chinese_characters": 1586,
       "english_words": 138,
@@ -3679,7 +4300,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-101/DEVELOPMENT_REPORT.md",
-      "bytes": 6575,
+      "bytes": 6581,
       "encoding_state": "UTF8",
       "chinese_characters": 1201,
       "english_words": 134,
@@ -3687,8 +4308,17 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-03/reports/UI-101/README.md",
+      "bytes": 624,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-101/REVIEW_REPORT.md",
-      "bytes": 7139,
+      "bytes": 7148,
       "encoding_state": "UTF8",
       "chinese_characters": 1134,
       "english_words": 116,
@@ -3760,7 +4390,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-102/REVIEW_REPORT.md",
-      "bytes": 4425,
+      "bytes": 4431,
       "encoding_state": "UTF8",
       "chinese_characters": 802,
       "english_words": 100,
@@ -3786,8 +4416,17 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-03/reports/UI-103/README.md",
+      "bytes": 624,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-103/REVIEW_REPORT.md",
-      "bytes": 3860,
+      "bytes": 3866,
       "encoding_state": "UTF8",
       "chinese_characters": 645,
       "english_words": 64,
@@ -3804,8 +4443,17 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-03/reports/UI-190/README.md",
+      "bytes": 644,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 26,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-03/reports/UI-190/REVIEW_REPORT.md",
-      "bytes": 11807,
+      "bytes": 11813,
       "encoding_state": "UTF8",
       "chinese_characters": 2179,
       "english_words": 261,
@@ -4354,10 +5002,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/reports/UXI-391/OWNER_INSTRUCTION_THREE_END_TEST.md",
-      "bytes": 4697,
+      "bytes": 4724,
       "encoding_state": "UTF8",
       "chinese_characters": 379,
-      "english_words": 41,
+      "english_words": 42,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -4570,7 +5218,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-201-动态AI池与可用性选择.md",
-      "bytes": 33547,
+      "bytes": 33561,
       "encoding_state": "UTF8",
       "chinese_characters": 623,
       "english_words": 93,
@@ -4579,7 +5227,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-202-多设备并发感知与再调度.md",
-      "bytes": 48186,
+      "bytes": 48200,
       "encoding_state": "UTF8",
       "chinese_characters": 596,
       "english_words": 112,
@@ -4588,7 +5236,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md",
-      "bytes": 91957,
+      "bytes": 91971,
       "encoding_state": "UTF8",
       "chinese_characters": 573,
       "english_words": 102,
@@ -4597,7 +5245,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-290-调度契约回归与基线冻结.md",
-      "bytes": 82358,
+      "bytes": 82372,
       "encoding_state": "UTF8",
       "chinese_characters": 777,
       "english_words": 61,
@@ -4615,7 +5263,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md",
-      "bytes": 11495,
+      "bytes": 11509,
       "encoding_state": "UTF8",
       "chinese_characters": 824,
       "english_words": 128,
@@ -4624,7 +5272,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-101-Web产品壳与信息架构.md",
-      "bytes": 21612,
+      "bytes": 21626,
       "encoding_state": "UTF8",
       "chinese_characters": 581,
       "english_words": 131,
@@ -4633,7 +5281,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-102-Android产品壳与信息架构.md",
-      "bytes": 29513,
+      "bytes": 29527,
       "encoding_state": "UTF8",
       "chinese_characters": 1357,
       "english_words": 95,
@@ -4642,7 +5290,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md",
-      "bytes": 6026,
+      "bytes": 6040,
       "encoding_state": "UTF8",
       "chinese_characters": 593,
       "english_words": 125,
@@ -4651,7 +5299,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md",
-      "bytes": 70732,
+      "bytes": 70746,
       "encoding_state": "UTF8",
       "chinese_characters": 575,
       "english_words": 113,
@@ -4660,16 +5308,16 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-integration/README.md",
-      "bytes": 654,
+      "bytes": 1470,
       "encoding_state": "UTF8",
-      "chinese_characters": 106,
-      "english_words": 16,
+      "chinese_characters": 221,
+      "english_words": 50,
       "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-301-调度状态接入非工程化UI.md",
-      "bytes": 57317,
+      "bytes": 57331,
       "encoding_state": "UTF8",
       "chinese_characters": 822,
       "english_words": 60,
@@ -4678,7 +5326,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-390-双机最终产品验收与收口.md",
-      "bytes": 225780,
+      "bytes": 225794,
       "encoding_state": "UTF8",
       "chinese_characters": 424,
       "english_words": 92,
@@ -4687,7 +5335,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md",
-      "bytes": 53295,
+      "bytes": 53303,
       "encoding_state": "UTF8",
       "chinese_characters": 2537,
       "english_words": 622,
@@ -4696,16 +5344,16 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-04/README.md",
-      "bytes": 2864,
+      "bytes": 2824,
       "encoding_state": "UTF8",
       "chinese_characters": 140,
-      "english_words": 204,
+      "english_words": 199,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
-      "bytes": 17891,
+      "bytes": 17905,
       "encoding_state": "UTF8",
       "chinese_characters": 511,
       "english_words": 321,
@@ -4714,7 +5362,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
-      "bytes": 19364,
+      "bytes": 19386,
       "encoding_state": "UTF8",
       "chinese_characters": 558,
       "english_words": 272,
@@ -4723,7 +5371,7 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
-      "bytes": 20174,
+      "bytes": 20184,
       "encoding_state": "UTF8",
       "chinese_characters": 407,
       "english_words": 255,
@@ -4731,8 +5379,17 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/README.md",
+      "bytes": 887,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 65,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md",
-      "bytes": 23057,
+      "bytes": 23069,
       "encoding_state": "UTF8",
       "chinese_characters": 1780,
       "english_words": 531,
@@ -4750,136 +5407,136 @@
     },
     {
       "path": "mission-book/finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
-      "bytes": 17638,
+      "bytes": 17660,
       "encoding_state": "UTF8",
       "chinese_characters": 6,
-      "english_words": 1650,
+      "english_words": 1651,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-001-core-os.md",
-      "bytes": 7487,
+      "bytes": 7572,
       "encoding_state": "UTF8",
       "chinese_characters": 527,
-      "english_words": 424,
+      "english_words": 428,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-002-capability-fabric.md",
-      "bytes": 7230,
+      "bytes": 7315,
       "encoding_state": "UTF8",
       "chinese_characters": 523,
-      "english_words": 363,
+      "english_words": 367,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-003-worker-gateway.md",
-      "bytes": 19000,
+      "bytes": 19083,
       "encoding_state": "UTF8",
       "chinese_characters": 839,
-      "english_words": 1018,
+      "english_words": 1022,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-004-project-foreman.md",
-      "bytes": 10828,
+      "bytes": 10935,
       "encoding_state": "UTF8",
       "chinese_characters": 659,
-      "english_words": 721,
+      "english_words": 726,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-005-host-health.md",
-      "bytes": 10052,
+      "bytes": 10159,
       "encoding_state": "UTF8",
       "chinese_characters": 678,
-      "english_words": 619,
+      "english_words": 624,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-006-restart-recovery.md",
-      "bytes": 10120,
+      "bytes": 10205,
       "encoding_state": "UTF8",
       "chinese_characters": 585,
-      "english_words": 695,
+      "english_words": 699,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-007-research-institute.md",
-      "bytes": 12927,
+      "bytes": 13076,
       "encoding_state": "UTF8",
       "chinese_characters": 663,
-      "english_words": 863,
+      "english_words": 870,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-008-computer-use.md",
-      "bytes": 18070,
+      "bytes": 18197,
       "encoding_state": "UTF8",
       "chinese_characters": 659,
-      "english_words": 1250,
+      "english_words": 1256,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-009-theme-relocation.md",
-      "bytes": 10597,
+      "bytes": 10682,
       "encoding_state": "UTF8",
       "chinese_characters": 702,
-      "english_words": 654,
+      "english_words": 658,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-010-node-fabric.md",
-      "bytes": 19010,
+      "bytes": 19093,
       "encoding_state": "UTF8",
       "chinese_characters": 1619,
-      "english_words": 802,
+      "english_words": 806,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-011-customs.md",
-      "bytes": 22464,
+      "bytes": 22547,
       "encoding_state": "UTF8",
       "chinese_characters": 2166,
-      "english_words": 884,
+      "english_words": 888,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MB-012-runtime-compliance.md",
-      "bytes": 23011,
+      "bytes": 23094,
       "encoding_state": "UTF8",
       "chinese_characters": 2123,
-      "english_words": 950,
+      "english_words": 954,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
-      "bytes": 17558,
+      "bytes": 17752,
       "encoding_state": "UTF8",
       "chinese_characters": 6,
-      "english_words": 1169,
+      "english_words": 1178,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
-      "bytes": 42197,
+      "bytes": 42353,
       "encoding_state": "UTF8",
       "chinese_characters": 4458,
-      "english_words": 1596,
+      "english_words": 1603,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -4902,11 +5559,20 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
-      "path": "mission-book/logs/city-live-test/README.md",
-      "bytes": 2750,
+      "path": "mission-book/logs/README.md",
+      "bytes": 679,
       "encoding_state": "UTF8",
-      "chinese_characters": 433,
+      "chinese_characters": 60,
       "english_words": 40,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/logs/city-live-test/README.md",
+      "bytes": 3300,
+      "encoding_state": "UTF8",
+      "chinese_characters": 485,
+      "english_words": 69,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -4936,6 +5602,15 @@
       "english_words": 266,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/logs/integration/README.md",
+      "bytes": 669,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/logs/integration/RELAY_TUNNEL_S1_S3.md",
@@ -6090,6 +6765,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/CEX-PROGRAMME/README.md",
+      "bytes": 671,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 29,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/CEX-PROGRAMME/zh-CN/PAPER_MATERIAL_SYNTHESIS.md",
       "bytes": 17354,
       "encoding_state": "UTF8",
@@ -6106,6 +6790,15 @@
       "english_words": 189,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CITY-ROLE-20261005/README.md",
+      "bytes": 650,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 28,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/CITY-ROLE-20261005/SHORT_CODE_REMOTE_CHECK.md",
@@ -6162,20 +6855,29 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/JOIN-501/README.md",
+      "bytes": 626,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/JOIN-501/REVIEW_REPORT.md",
-      "bytes": 9967,
+      "bytes": 10006,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 1213,
+      "english_words": 1216,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/JOIN-502/DEVELOPMENT_REPORT.md",
-      "bytes": 15552,
+      "bytes": 15591,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 1811,
+      "english_words": 1814,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -6189,11 +6891,20 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/JOIN-502/README.md",
+      "bytes": 695,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/JOIN-502/REVIEW_REPORT.md",
-      "bytes": 7952,
+      "bytes": 7993,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 787,
+      "english_words": 790,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -6207,29 +6918,38 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/JOIN-503/README.md",
+      "bytes": 704,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/JOIN-503/RECHECK_REPORT.md",
-      "bytes": 4987,
+      "bytes": 5026,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 557,
+      "english_words": 560,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/JOIN-503/REPAIR_D1_D2.md",
-      "bytes": 6977,
+      "bytes": 7018,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 810,
+      "english_words": 813,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/JOIN-503/REVIEW_REPORT.md",
-      "bytes": 9343,
+      "bytes": 9382,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 932,
+      "english_words": 935,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -7360,10 +8080,10 @@
     },
     {
       "path": "mission-book/reports/POOL_RECHECK_Alien_2026-10-06.md",
-      "bytes": 1500,
+      "bytes": 2240,
       "encoding_state": "UTF8",
-      "chinese_characters": 143,
-      "english_words": 96,
+      "chinese_characters": 214,
+      "english_words": 142,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -7386,11 +8106,20 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/PR28-4391-DEPLOYMENT/README.md",
+      "bytes": 652,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 27,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/README.md",
-      "bytes": 4044,
+      "bytes": 3955,
       "encoding_state": "UTF8",
       "chinese_characters": 230,
-      "english_words": 191,
+      "english_words": 199,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -7666,10 +8395,10 @@
     },
     {
       "path": "mission-book/reports/REX-803/RESIDENT_CITY_RECHECK_Alien.md",
-      "bytes": 4207,
+      "bytes": 7057,
       "encoding_state": "UTF8",
-      "chinese_characters": 356,
-      "english_words": 287,
+      "chinese_characters": 607,
+      "english_words": 489,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -7809,6 +8538,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-804/ACCEPTED_RECORD_SYNC_Alien.md",
+      "bytes": 1698,
+      "encoding_state": "UTF8",
+      "chinese_characters": 124,
+      "english_words": 87,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-804/AUTHOR_REPAIR_Alien.md",
       "bytes": 4062,
       "encoding_state": "UTF8",
@@ -7855,7 +8593,7 @@
     },
     {
       "path": "mission-book/reports/REX-804/README.md",
-      "bytes": 958,
+      "bytes": 1023,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 30,
@@ -7936,10 +8674,10 @@
     },
     {
       "path": "mission-book/reports/REX-804/zh-CN/REVERIFICATION_REPORT.md",
-      "bytes": 6654,
+      "bytes": 11965,
       "encoding_state": "UTF8",
-      "chinese_characters": 316,
-      "english_words": 129,
+      "chinese_characters": 817,
+      "english_words": 195,
       "paired_path": "mission-book/reports/REX-804/REVERIFICATION_REPORT.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -7980,6 +8718,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-PROGRAMME/README.md",
+      "bytes": 749,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 29,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-PROGRAMME/zh-CN/ALIEN_CONTINUATION_PACKET.md",
       "bytes": 5260,
       "encoding_state": "UTF8",
@@ -7990,10 +8737,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md",
-      "bytes": 24387,
+      "bytes": 28381,
       "encoding_state": "UTF8",
-      "chinese_characters": 2363,
-      "english_words": 136,
+      "chinese_characters": 2661,
+      "english_words": 165,
       "paired_path": "mission-book/reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8008,25 +8755,25 @@
     },
     {
       "path": "mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md",
-      "bytes": 20268,
+      "bytes": 20376,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 1710,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 6,
+      "english_words": 1713,
+      "paired_path": "mission-book/reports/WBC-601/zh-CN/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/reports/WBC-601/PAPER_MATERIAL_INDEX.md",
-      "bytes": 12254,
+      "bytes": 12367,
       "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 826,
-      "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "chinese_characters": 6,
+      "english_words": 829,
+      "paired_path": "mission-book/reports/WBC-601/zh-CN/PAPER_MATERIAL_INDEX.md",
+      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/reports/WBC-601/README.md",
-      "bytes": 814,
+      "bytes": 815,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 28,
@@ -8058,6 +8805,24 @@
       "chinese_characters": 6,
       "english_words": 263,
       "paired_path": "mission-book/reports/WBC-601/zh-CN/REVIEW_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/WBC-601/zh-CN/DEVELOPMENT_REPORT.md",
+      "bytes": 16171,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2020,
+      "english_words": 109,
+      "paired_path": "mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/WBC-601/zh-CN/PAPER_MATERIAL_INDEX.md",
+      "bytes": 10857,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1197,
+      "english_words": 30,
+      "paired_path": "mission-book/reports/WBC-601/PAPER_MATERIAL_INDEX.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -8286,6 +9051,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/WBC-604/README.md",
+      "bytes": 684,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 28,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/WBC-604/zh-CN/CLAIM_RECORD.md",
       "bytes": 2117,
       "encoding_state": "UTF8",
@@ -8368,7 +9142,7 @@
     },
     {
       "path": "mission-book/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
-      "bytes": 9544,
+      "bytes": 10634,
       "encoding_state": "UTF8",
       "chinese_characters": 183,
       "english_words": 60,
@@ -8413,10 +9187,10 @@
     },
     {
       "path": "mission-book/research-strengthening/en/README.md",
-      "bytes": 18742,
+      "bytes": 21962,
       "encoding_state": "UTF8",
       "chinese_characters": 100,
-      "english_words": 1353,
+      "english_words": 1475,
       "paired_path": "mission-book/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8656,19 +9430,19 @@
     },
     {
       "path": "mission-book/tools/README.md",
-      "bytes": 6492,
+      "bytes": 6746,
       "encoding_state": "UTF8",
       "chinese_characters": 15,
-      "english_words": 601,
+      "english_words": 631,
       "paired_path": "mission-book/tools/README.zh-CN.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/tools/README.zh-CN.md",
-      "bytes": 5546,
+      "bytes": 5735,
       "encoding_state": "UTF8",
-      "chinese_characters": 898,
-      "english_words": 50,
+      "chinese_characters": 942,
+      "english_words": 53,
       "paired_path": "mission-book/tools/README.md",
       "language_presence": "PAIR_PRESENT"
     },

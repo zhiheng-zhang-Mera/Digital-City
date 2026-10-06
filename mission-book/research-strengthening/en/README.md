@@ -219,3 +219,38 @@ REX-804 re-verification finished; its verdict is recorded in [REVERIFICATION_REP
 REX-803 review8798ba9 exact CI全部SUCCESS，71相关测试与8独立critic探针通过；实体门槛仍NOT_RUN。常驻City实际回查确认Android/Gateway同City，Alien保存成员配置却被拒绝INSTALLATION_RETIRED，详见RESIDENT_CITY_RECHECK_Alien。REX-804 development候选fe700ab包含新main并修复Mech复验B4，19相关测试、push37424946247/PR37424951038/linkage37424951044均SUCCESS；development_complete=true，Mech对新候选的正式复验待完成。旧头075ddc1的B4 NOT_PASSED保持历史结论，不等同新头已验收。
 
 REX-803 review8798ba9 has all exact CI runs SUCCESS,71 affected tests and8 independent critic probes passing; the physical gate remains NOT_RUN. A live recheck confirms Android/Gateway identity agreement, but Alien's saved member configuration is rejected asINSTALLATION_RETIRED. REX-804 candidatefe700ab includes new main and repairs Mech's B4 finding;19 affected tests and all three exact CI runs succeed. Development is complete for Mech's formal re-verification. The NOT_PASSED verdict on previous075ddc1 remains historical; it does not accept the new head. Canonical workbooks remain authoritative.
+
+
+### Current candidate handoff update
+
+This is a reading translation of the historical handoff update in the canonical programme page. REX-803 review candidate 8798ba9 has all exact CI runs SUCCESS, with 71 affected tests and eight independent critic probes passing; the physical gate remains NOT_RUN. A live resident-City recheck confirms Android/Gateway City identity agreement, but Alien's saved member configuration is rejected as INSTALLATION_RETIRED; see RESIDENT_CITY_RECHECK_Alien. REX-804 development candidate fe700ab contains new main and repairs Mech's B4 finding; 19 affected tests and push 37424946247 / PR 37424951038 / linkage 37424951044 all succeed. Development_complete=true; at this handoff, Mech's formal re-verification was still pending. The B4 NOT_PASSED verdict on old head 075ddc1 is historical and does not itself accept the new head. The later acceptance follows below.
+
+### REX-804 re-verification: ACCEPTED
+
+Reading translation of the new canonical note; full evidence is in [REVERIFICATION_REPORT.md](../../reports/REX-804/REVERIFICATION_REPORT.md), with [complete Chinese reading translation](../../reports/REX-804/zh-CN/REVERIFICATION_REPORT.md). The canonical workbook remains authority.
+
+```text
+ACCEPTED HEAD   fe700aba957990f93b22fd63d594ddfff7b4e243
+                current main b06504f and original review target f76ccf53 are ancestors
+B1  CLOSED      unreadable fault receipt prevented City startup; reviewer P8 passes on all three heads
+B4  CLOSED      store-guard shape in fault controller's unguarded mkdir is repaired:
+                construction degrades into storeState/storeReason, list() discloses the reason,
+                injection into unavailable storage returns typed 503 FAULT_STORE_UNAVAILABLE,
+                and ordinary tasks are unaffected. Criterion: rerun the formerly red probe INSIDE
+                the head containing current main: rex801-store-guard 2/2 (97 ms / 51 ms,
+                previously 1/1 and 34,201 ms), plus pull_request run 37424951038 terminal SUCCESS,
+                which was red on 075ddc1.
+CI              push 37424946247 / PR 37424951038 / linkage 37424951044
+                API read independently per run: all SUCCESS attempt 1
+MARKER          FAULT_INJECTION_RECOVERY_ACCEPTED released on fe700ab
+SCOPE           Android native fault controls and physical/external-provider recovery remain NOT_RUN.
+                DUPLICATE_EVENT recovery metric is structurally NOT_MEASURED with receipt reason;
+                reviewer P6 asserts both the null and the reason.
+REVIEWER TOOL   Reviewer P6 used durationMs 150 with a 350 ms sleep, handing timing to the host;
+                under full load DELAY_RESULT count was 0. This is the same defect class as the
+                author's fixture in the first re-verification, exposed by isolation green / load red.
+                Fixed on review/REX-804-mech-review @ 53d01a3: 1200 ms window and held report promise awaited.
+                Afterwards: isolated 9/9 three times, 13/13 beside three heavy browser suites,
+                P6 green in full suite. Both states retained; corrected record does not erase red.
+REPORT          reports/REX-804/REVERIFICATION_REPORT.md
+```

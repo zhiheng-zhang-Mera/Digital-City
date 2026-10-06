@@ -254,7 +254,7 @@ data-records/evolution/episodes/mission-book/MB-011/           # 只有实际迁
 - Assessment branch: `mission/MB-011-customs` @ `82b6ac486d024efcfcc64703b58cc136b546caf9`（保留，不 merge、不删除）
 - Donor frozen baselines: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`, `zhiheng-zhang-Mera/DS-Hns@eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`
 - Selection basis: MB-010 closed as `NO_VALUE` (green `SKIPPED_NOT_REQUIRED`) and no eligible P0 exists, so the next lowest-sequence assessment-first Mission (MB-011) was claimed under README §3 P1A. Read-only reconnaissance only; no implementation code written.
-- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-011/ASSESSMENT_REPORT.md`](./reports/MB-011/ASSESSMENT_REPORT.md)
+- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-011/ASSESSMENT_REPORT.md`](../completed-2026-10-01/reports/MB-011/ASSESSMENT_REPORT.md)
 
 ### Assessment closeout (NO_VALUE)
 
@@ -315,10 +315,10 @@ plugin/adapter/installer 平台未迁移且归 `01/01 Customs (MB-011)`。评估
 
 ## 绑定执行条件（所有 Mission 强制）
 
-> **LATEST OWNER RULING:** [`response-9-30.md`](./response-9-30.md)  
-> **PRIOR OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)（未被 9-30 覆盖的条款继续有效）  
+> **LATEST OWNER RULING:** [`response-9-30.md`](../completed-2026-10-01/response-9-30.md)
+> **PRIOR OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)（未被 9-30 覆盖的条款继续有效）
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first + assessment-first）  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 
 ## Mission-specific evidence
 

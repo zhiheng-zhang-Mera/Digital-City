@@ -1,0 +1,34 @@
+name: Documentation and workbook integrity
+
+on:
+  push:
+    branches: ["docs/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: documentation-integrity-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check record-consistency guards
+        run: python mission-book/tools/test_check_record_consistency.py
+      - name: Check workbook records
+        run: python mission-book/tools/check_record_consistency.py
+      - name: Check accepted dependencies
+        run: python mission-book/tools/sync_dependency_state.py --check
+      - name: Check main board
+        run: python mission-book/tools/sync_mission_progress.py --check
+      - name: Check documentation navigation and inventory
+        run: python mission-book/tools/sync_documentation_navigation.py --check

@@ -34,8 +34,8 @@ archive_reason: COMPONENT_OR_MISSION_COMPLETE
 # JOIN-502 鈥?Nearby PC Discovery + Owner Approval
 
 > **Programme锛?* [README.md](./README.md)  
-> **甯搁┗鏂藉伐瑙勫垯锛?* [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **寮傛鍑忓帇鏂藉伐锛?* [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)
+> **甯搁┗鏂藉伐瑙勫垯锛?* [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **寮傛鍑忓帇鏂藉伐锛?* [../ASYNC_RELIEF_CONSTRUCTION.md](../../../ASYNC_RELIEF_CONSTRUCTION.md)
 
 ## 1. 鐩爣
 
@@ -172,8 +172,8 @@ Formal Review 鐢卞彟涓€瀹炰綋涓绘満鐙珛瀹屾垚銆?
 
 ## 11. Reports
 
-- [DEVELOPMENT_REPORT.md](../reports/JOIN-502/DEVELOPMENT_REPORT.md) 鈥?what was built, the eight load-bearing choices with their alternatives and costs, the six defects found by running it rather than reading it, the 搂9 test mapping, the real-host LAN acceptance, and the limits stated as limits.
-- [EVIDENCE_LIVE_LAN_ACCEPTANCE.md](../reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md) 鈥?the verbatim acceptance receipt, what each line establishes and what would falsify it, the investigated libuv teardown assertion, and the limits.
+- [DEVELOPMENT_REPORT.md](../../../reports/JOIN-502/DEVELOPMENT_REPORT.md) 鈥?what was built, the eight load-bearing choices with their alternatives and costs, the six defects found by running it rather than reading it, the 搂9 test mapping, the real-host LAN acceptance, and the limits stated as limits.
+- [EVIDENCE_LIVE_LAN_ACCEPTANCE.md](../../../reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md) 鈥?the verbatim acceptance receipt, what each line establishes and what would falsify it, the investigated libuv teardown assertion, and the limits.
 
 Handoff for the formal review 鈥?the next eligible role, on a **different physical host**:
 

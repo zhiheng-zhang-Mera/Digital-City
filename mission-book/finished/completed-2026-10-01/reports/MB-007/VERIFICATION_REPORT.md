@@ -277,7 +277,7 @@ Consequences, stated plainly:
 # APPENDIX — Repair step 1: Owner-override closeout (2026-09-30)
 
 This appendix is appended by the closeout repair required by
-[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)
+[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](../../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)
 §2. It closes the one gap §6.5 disclosed. **No part of the accepted implementation or
 verification was redone**, and the original blocker is preserved verbatim below.
 

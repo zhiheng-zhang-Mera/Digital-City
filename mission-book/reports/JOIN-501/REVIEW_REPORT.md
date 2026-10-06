@@ -1,6 +1,6 @@
 # JOIN-501 — Formal review report
 
-> **Workbook:** [JOIN-501-pairing-session-lifecycle-and-display.md](../../connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md)  
+> **Workbook:** [JOIN-501-pairing-session-lifecycle-and-display.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md)
 > **Reviewed head:** `e925ae1ef4dda6f51d89a1faa025d1b8666d8c58` on `join/JOIN-501-pairing-session-lifecycle`  
 > **Baseline:** Utopia `main` `13109b4c206feb3c1a9107b369715e84af65eaf1`  
 > **Development host:** Alien — **review host: Mech** (different physical host, per `CONSTRUCTION_RULES.md` §3)  

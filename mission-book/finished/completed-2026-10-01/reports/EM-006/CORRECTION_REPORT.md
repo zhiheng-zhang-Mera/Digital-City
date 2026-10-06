@@ -150,3 +150,7 @@ durable registry rather than a local guard — and the author's suite was never 
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/engineering-manager/EM-006-local-first-subworker-placement.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

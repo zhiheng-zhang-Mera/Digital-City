@@ -51,7 +51,7 @@ instruction.
 ## 0. Foundation start gate — OPEN
 
 The historical Pre-Assistant workbook is preserved at:
-[finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md](./finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
+[finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md](../replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
 
 Recorded accepted state:
 

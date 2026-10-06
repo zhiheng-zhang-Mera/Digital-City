@@ -50,7 +50,7 @@ repair_resume_point: "CLOSED 2026-09-30: both run-2 driver defects fixed, bounde
 
 > ## ✅ Owner ruling applied — Migration COMPLETE / Verification OPEN
 >
-> Owner 已在 [`response-9-29.md`](./response-9-29.md) R7 接受 `NO_VERDICT_IDENTICAL_SEAM` 的测量结论：对本 Mission
+> Owner 已在 [`response-9-29.md`](../completed-2026-10-01/response-9-29.md) R7 接受 `NO_VERDICT_IDENTICAL_SEAM` 的测量结论：对本 Mission
 > 的 `capabilityProvider:false` infrastructure/pipeline modules，不允许为了旧消费 gate 新增 UI/capability
 > 或改变既有判定；Verification Host 可使用真实、bounded、可复现的 Computer-Use chain 验证声明边界。
 >
@@ -140,7 +140,7 @@ repair_resume_point: "CLOSED 2026-09-30: both run-2 driver defects fixed, bounde
 - City claim commit: `f827756053c456e0e6e682c3ab20d9c98e14c50c`
 - Implementation head: `efdd403f81ad0c1b9f9fca56a2e51829efc6e5ea` (CI `36583979374` PASS)
 - Migration head: `aa2a6a8faab779a020d75b93dba548ba3755ce30` (CI `36584056291` PASS)
-- Report: [`reports/MB-008/MIGRATION_REPORT.md`](./reports/MB-008/MIGRATION_REPORT.md)
+- Report: [`reports/MB-008/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-008/MIGRATION_REPORT.md)
 - **Done:** six modules, 664 tests, the new `10-automation` district and
   `01-computer-use-runtime` building registered, census extended, the `capabilityProvider`
   filter added, full CI green, donor defects preserved verbatim and pinned.
@@ -165,7 +165,7 @@ repair_resume_point: "CLOSED 2026-09-30: both run-2 driver defects fixed, bounde
 - City claim commit: the commit that introduces this line (a commit cannot name itself; the SHA is recorded verbatim in `reports/MB-008/VERIFICATION_REPORT.md`)
 - Reviewed migration branch: `mission/MB-008-computer-use` @ `aa2a6a8faab779a020d75b93dba548ba3755ce30`
 - **Selection under `README.md` §3 (integration first).** **P0 — Verification / Integration**, and after MB-007 the only P0 left for this host: MB-008 has `migration_complete=true`, its verification stage is unclaimed, its migration host is `Alien` (≠ `Mech`), and it is not `BLOCKED_OWNER_DECISION`. The assessment-first Missions MB-010..012 are P1A and remain ineligible while a P0 exists.
-- **Basis for verification being open.** Owner ruling [`response-9-29.md`](./response-9-29.md) **R7** accepts this Mission's boundary (`NO_VERDICT_IDENTICAL_SEAM`: the candidate seam had a quantified semantic counterexample, so wiring it would have added product behaviour) and explicitly declares *"Owner hereby declares MB-008 Migration complete."* R7 authorises the `README.md` §7.2 bounded chain for this Mission: the Verification Host directly exercises the migrated modules' **contract / safety / recovery / postcondition** behaviour rather than inventing a consumer. R7 also warns that this exemption does **not** make Computer Use a complete product runtime — the deferred runtime plane stays deferred, and this verification may only verify the boundary the Mission declared.
+- **Basis for verification being open.** Owner ruling [`response-9-29.md`](../completed-2026-10-01/response-9-29.md) **R7** accepts this Mission's boundary (`NO_VERDICT_IDENTICAL_SEAM`: the candidate seam had a quantified semantic counterexample, so wiring it would have added product behaviour) and explicitly declares *"Owner hereby declares MB-008 Migration complete."* R7 authorises the `README.md` §7.2 bounded chain for this Mission: the Verification Host directly exercises the migrated modules' **contract / safety / recovery / postcondition** behaviour rather than inventing a consumer. R7 also warns that this exemption does **not** make Computer Use a complete product runtime — the deferred runtime plane stays deferred, and this verification may only verify the boundary the Mission declared.
 - **Integration note.** As with MB-007, verification begins by merging the latest `main` into this branch and resolving the shared control-plane union **before** any gate runs (`README.md` §6). The failure mode found on MB-007 was that this gate set cannot be run against an uncommitted merge: `verify-promotion-history` tests `HEAD`, so the merge must be committed first.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
 
@@ -240,10 +240,10 @@ Use a complete product runtime.
 
 ## 绑定执行条件（所有 Mission 强制）
 
-> **LATEST OWNER RULING:** [`response-9-30.md`](./response-9-30.md)  
-> **PRIOR OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)（未被 9-30 覆盖的条款继续有效）  
+> **LATEST OWNER RULING:** [`response-9-30.md`](../completed-2026-10-01/response-9-30.md)
+> **PRIOR OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)（未被 9-30 覆盖的条款继续有效）
 > **ACTIVE RULESET:** [`README.md`](./README.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若冲突，以最新日期 Owner response 为准。
 

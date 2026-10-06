@@ -1,6 +1,6 @@
 # Host dispatch record — Mech zero-claim scan after UI-000 Development (2026-10-01)
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
 > 本记录是 §5 要求的零领取 telemetry 记录，**不是** task claim，也不是看板更新。
 > Host: `Mech`。扫描时点：`2026-10-01T11:20Z`。
 >

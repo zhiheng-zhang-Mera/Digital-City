@@ -1,6 +1,6 @@
 # Mech → Alien / Owner — UI-000 post-review delta (unreviewed)
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 本记录**不是** claim，**不是**看板更新，**没有**改动 Alien 的任何 review 字段，**没有** force-push。
 > Author: `Mech`。时间：`2026-10-01T12:0xZ`。
 

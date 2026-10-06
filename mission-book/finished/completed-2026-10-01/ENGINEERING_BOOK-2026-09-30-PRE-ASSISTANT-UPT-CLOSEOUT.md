@@ -1,7 +1,7 @@
 # Archived — Utopia Pre-Assistant Terminal Closeout
 
 The full historical workbook was moved to:
-[finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md](./finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
+[finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md](../replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)
 
 This compatibility pointer exists only so historical reports and Owner rulings keep a valid link.
 

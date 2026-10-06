@@ -76,11 +76,11 @@ def series_outputs():
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');args=ap.parse_args()
- scopes=[ROOT/'mission-book/reports',ROOT/'mission-book/finished',ROOT/'docs']
+ scopes=[ROOT/'mission-book/reports',ROOT/'mission-book/finished',ROOT/'mission-book/logs',ROOT/'docs']
  targets=set(scopes)
  for scope in scopes:
   if scope.exists():
-   targets.update(p for p in scope.rglob('*') if p.is_dir() and len(documents(p))>=5 and p.name not in {'en','zh-CN'})
+   targets.update(p for p in scope.rglob('*') if p.is_dir() and len(documents(p))>=2 and p.name not in {'en','zh-CN'})
  # Materialize missing navigation files first, so parent counts are stable.
  missing=[p/'README.md' for p in targets if not (p/'README.md').exists()]
  if missing and args.check:

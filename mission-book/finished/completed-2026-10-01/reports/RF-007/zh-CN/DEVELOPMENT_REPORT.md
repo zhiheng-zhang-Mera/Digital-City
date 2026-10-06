@@ -1,0 +1,113 @@
+# RF-007 开发报告：版本化能力注册表与寻址
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = RF-007 (Remote Fabric programme, task 7 of 10)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 04d1247 (Digital-City main, "claim(RF-007): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T16:12:05Z
+CONTROL_REVISION_AT_CLAIM= 9fa6eaa (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = remote/RF-007-versioned-capability-registry
+IMPLEMENTATION_HEAD_SHA  = 496d0520af64396508ba5144888aa2a33f176de3
+BRANCH_CI                = 36742525949 — success
+LOCAL_CHECK_SUMMARY      = 108/108 tests pass, rooms 69/69, city 1801 pass/0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据保留任务、主机、claim／控制版本、仓库／baseline／branch／SHA／CI、检查和完成／禁merge。
+
+## 1. 交付物
+
+contracts/remote-capability-registry-v1/含capability-registry.mjs（versioned ids、advertisements、availability／loss、确定negotiation、trusted-node resolution、invocation tickets、wire serialization）、index.mjs、7suite、根tests/remote-capability-registry.test.mjs。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 异构两device同logical capability不同实现 | advertisement_count:2、heterogeneous_implementations:true、不同adapter_ref |
+| 不知device class请求兼容version | descriptor／resolution device_class:null，exact-major、确定tie |
+| 不支持版本明确失败 | INCOMPATIBLE_VERSION＋supported_versions、coerced:false／best_effort_downgrade:false |
+| loss使新invoke失效且state可见 | unavailable＋loss_reason、snapshot losses、invoke拒、readvertisement bump |
+| exclusive／shared／background和live／queue metadata跨wire／version存活 | roundtrip相等、未知execution key拒、unknown wire version拒 |
+| versioned IDs／descriptors、device和trusted nodes lookup | parseCapabilityId／lookup／snapshot／resolveAcrossTrusted |
+| 广告仅availability非permission | permission_granted:false，invoke explicit decision，ticket executed:false |
+| 确定version无coercion、动态loss／gain | 测2、3、4 |
+| 无phone_*／alien_*／OS上层方法 | phone_camera／unversioned拒，os_specific_method:null／device_specific:false |
+
+## 2. 决策日志
+
+**D1：领取。** scan无己repair／Mech Correction，Alien持BA004／005／006／008、EM004／005／008／009、GAI003…006、RF004／005／006。BA008后排Butler选RF007，为RF008／GAI007寻址层，RF invariant6唯一许可device访问是versioned capability。
+
+**D2：version协商。** 选semver range或advertisement整数major set exact match，选后者；caller未pin选最高mutual major。确定且不coercion，整数集合无string grammar歧义、total可审function，INCOMPATIBLE_VERSION列offer。
+
+**D3：ID是否device／OS-specific？** 否，只namespace.name@major，公开device_specific:false／os_specific:false／device_class:null／os_specific_method:null，parse拒phone_camera／无version。outscope hardcoded phone／alien／OS，invariant6要求resolve非device route，负flags可检查。
+
+**D4：advertising授什么？** 无。descriptor／lookup／snapshot／resolve都permission_granted:false／capability_is_not_permission:true；invoke无explicit policy拒PERMISSION_DECISION_REQUIRED，有则ticket executed:false／external_side_effect:false。outscope因advertise授access，invariant11权限intersection；registry无execution也无transport。
+
+**D5：loss表达。** versioned state非delete；UNAVAILABLE typed loss_reason、loss record带previous availability，snapshot含unavailable与losses；gain同advertisement_ref再advertise bump version。验收loss可见且阻新invoke。suite发现projection缺loss_reason只withdraw／snapshot有，现每projection补。
+
+**D6：确定tie。** negotiated major降序、node_ref、advertisement_version，取eligible[0]；同major两node同input同答案，test显式断。
+
+**D7：trusted resolve。** trusted_nodes filter，untrusted仍candidate带trusted:false／NOT_TRUSTED排除，只有不信任则NOT_TRUSTED。availability非trust，caller需见原因不假装广告不存在。
+
+**D8：serialization。** strict toWire／fromWire带contract version，wrong wire_version拒INCOMPATIBLE_CONTRACT／coerced:false，入时重验execution／constraints。permissive parser可跨version静默改metadata语义。
+
+**D9：范围。** 仅transport可寻node capability，不建provider／model或connector／worker，node_ref canonical RF不新身份。领域归GAI002、EM004／006，接缝第6节。
+
+**D10：无schema.json。** 同组件。
+
+## 3. 精确文件
+
+| 文件 | 变化 |
+|---|---|
+| contracts/remote-capability-registry-v1/capability-registry.mjs | 新ids／ad／negotiation／resolve／tickets／wire |
+| contracts/remote-capability-registry-v1/index.mjs | 新public |
+| contracts/remote-capability-registry-v1/tests/conformance.test.mjs | 新7 |
+| tests/remote-capability-registry.test.mjs | root新，101→108 |
+
+无City／Core／manifest／doc，additive。
+
+## 4. 测试、失败与修复
+
+7测，首run一真实defect，project无loss_reason，读capability state者只见unavailable无reason，不满足state可见；每projection补。其余首次过，包括wire roundtrip／ordering。
+
+## 5. 本地检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| node --test tests/*.test.mjs | 108过0败（101＋7） |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | 82ed36933fb4上10 OK |
+| node scripts/check-bilingual.mjs | docs／evidence／data-records SYNCHRONIZED |
+| CI36742525949，496d0520af64396508ba5144888aa2a33f176de3 | success |
+
+## 6. 接缝
+
+- RF006：ticket adapter／endpoint经connect session，cap不自transport；migration保node_ref／cap version。
+- RF008：ticket为command寻址半，envelope携negotiated_major／adapter_ref／execution metadata，exclusive决定BA008 lease。
+- RF009：availability与reachability不同，presence不复活withdrawn cap，reconnect重resolve不旧ticket。
+- RF010：permission_decision注入，policy boundary拥有decision／policy_ref。
+- RF001：node_ref canonical，registry不铸identity不以address作身份。
+- GAI002／007：device cap此resolve后GAI004 consent／budget，provider／model留domain只reference node。
+- EM004／006／007：worker cap留Engineering，shared node_ref＋versioned ID，merge统一grammar。
+- Owner：evolution component-stage问题未变。
+
+## 7. Correction开放项
+
+1. adapter不能serve却advertise major（registry信adapter_ref无法验）；同node／cap两ad竞withdraw；wire重复node／cap现last-write需确认；only requires_foreground:false现全match；permission_decision truthy nonobject。
+2. 确认integer major exactmatch、loss同advertisement versioned state。
+3. withdrawn是否invalidate已issue ticket？留RF008／006，ticket为addressing非session。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+```
+
+原始结论开发完成、仅Alien纠、Remote项目merge前禁。

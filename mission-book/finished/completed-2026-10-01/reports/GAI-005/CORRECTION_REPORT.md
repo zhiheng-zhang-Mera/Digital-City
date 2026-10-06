@@ -160,3 +160,7 @@ explicitly rather than folded into a success claim — and the author's suite wa
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/general-ai-gateway/GAI-005-triage-jev-routing.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

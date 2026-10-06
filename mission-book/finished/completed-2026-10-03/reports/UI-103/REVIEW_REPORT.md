@@ -1,6 +1,6 @@
 # UI-103 — Rooms 统一视觉与嵌入体验 · REVIEW REPORT
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md](../../ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md)
 > Review Host：`Alien`（Development Host 为 `Mech`，§3 双机独立成立）
 > 复核结论头：`dcde3afe958577a470ee6a0e6f08e819c9d0d19f`　CI：`36871415675` success

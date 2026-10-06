@@ -168,3 +168,7 @@ BLOCKER             = GITHUB_ACTIONS_BILLING_OR_SPENDING_LIMIT (Owner action; 4 
 PENDING_SEAM        = hosted CI for remote/RF-006-secure-transport-path-manager @ 8fbd71d
 CONTROL_BOOK_UPDATED = mission-book/remote/RF-006-secure-transport-path-manager.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

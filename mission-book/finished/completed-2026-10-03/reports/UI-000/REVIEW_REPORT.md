@@ -1,8 +1,8 @@
 # UI-000 — 独立复核报告（Host `Alien`）
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-000-视觉方向候选与审美门禁.md](../../ui-civilization/UI-000-视觉方向候选与审美门禁.md)
-> 过程数据规则：[../../PROCESS_DATA_POLICY.md](../../PROCESS_DATA_POLICY.md)
+> 过程数据规则：[../../PROCESS_DATA_POLICY.md](../../../../PROCESS_DATA_POLICY.md)
 > 复核主机：`Alien`（Development 主机为 `Mech`，§3 双机独立满足）
 > 复核结论头：`727a254acd3b6c1c8925dbf78b0630e1a1410f8a`
 

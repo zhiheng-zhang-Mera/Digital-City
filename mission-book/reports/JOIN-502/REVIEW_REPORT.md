@@ -1,6 +1,6 @@
 # JOIN-502 — Formal review (Alien, opposite host)
 
-> **Workbook:** [JOIN-502-nearby-pc-discovery-and-owner-approval.md](../../connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
+> **Workbook:** [JOIN-502-nearby-pc-discovery-and-owner-approval.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
 > **Reviewed head:** `86deda9c2990c78d683a8c3515d251022df9d040` on `join/JOIN-502-nearby-discovery-approval`
 > **Development host:** Mech — **review host: Alien** (different physical host; taken on a direct Owner authorisation, recorded in the workbook's `review_claim_basis`)
 > **Hosted CI on the reviewed head:** run `37119234473` COMPLETED SUCCESS on exactly that sha (workflow *V0.2 checks*, jobs `gateway-web` + `android`), re-queried by head_sha

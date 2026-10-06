@@ -126,65 +126,66 @@ VERIFICATION_COMPLETE = true|false
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **133**.
+当前Markdown文档 / Current Markdown documents: **202**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| BA-001 | 2 | [打开 / Open](BA-001/DEVELOPMENT_REPORT.md) |
-| BA-002 | 2 | [打开 / Open](BA-002/DEVELOPMENT_REPORT.md) |
-| BA-003 | 2 | [打开 / Open](BA-003/DEVELOPMENT_REPORT.md) |
-| BA-004 | 3 | [打开 / Open](BA-004/DEVELOPMENT_REPORT.md) |
-| BA-005 | 4 | [打开 / Open](BA-005/DEVELOPMENT_REPORT.md) |
-| BA-006 | 3 | [打开 / Open](BA-006/DEVELOPMENT_REPORT.md) |
-| BA-007 | 2 | [打开 / Open](BA-007/DEVELOPMENT_REPORT.md) |
-| BA-008 | 2 | [打开 / Open](BA-008/DEVELOPMENT_REPORT.md) |
-| BA-009 | 2 | [打开 / Open](BA-009/DEVELOPMENT_REPORT.md) |
-| EM-001 | 2 | [打开 / Open](EM-001/DEVELOPMENT_REPORT.md) |
-| EM-002 | 3 | [打开 / Open](EM-002/DEVELOPMENT_REPORT.md) |
-| EM-003 | 2 | [打开 / Open](EM-003/DEVELOPMENT_REPORT.md) |
-| EM-004 | 3 | [打开 / Open](EM-004/DEVELOPMENT_REPORT.md) |
-| EM-005 | 4 | [打开 / Open](EM-005/DEVELOPMENT_REPORT.md) |
-| EM-006 | 3 | [打开 / Open](EM-006/DEVELOPMENT_REPORT.md) |
-| EM-007 | 3 | [打开 / Open](EM-007/DEVELOPMENT_REPORT.md) |
-| EM-008 | 2 | [打开 / Open](EM-008/DEVELOPMENT_REPORT.md) |
-| EM-009 | 2 | [打开 / Open](EM-009/DEVELOPMENT_REPORT.md) |
-| EM-010 | 2 | [打开 / Open](EM-010/DEVELOPMENT_REPORT.md) |
-| EM-011 | 2 | [打开 / Open](EM-011/DEVELOPMENT_REPORT.md) |
-| EM-012 | 2 | [打开 / Open](EM-012/DEVELOPMENT_REPORT.md) |
-| EM-013 | 2 | [打开 / Open](EM-013/DEVELOPMENT_REPORT.md) |
-| GAI-001 | 2 | [打开 / Open](GAI-001/DEVELOPMENT_REPORT.md) |
-| GAI-002 | 2 | [打开 / Open](GAI-002/DEVELOPMENT_REPORT.md) |
-| GAI-003 | 4 | [打开 / Open](GAI-003/DEVELOPMENT_REPORT.md) |
-| GAI-004 | 2 | [打开 / Open](GAI-004/DEVELOPMENT_REPORT.md) |
-| GAI-005 | 2 | [打开 / Open](GAI-005/DEVELOPMENT_REPORT.md) |
-| GAI-006 | 3 | [打开 / Open](GAI-006/DEVELOPMENT_REPORT.md) |
-| GAI-007 | 3 | [打开 / Open](GAI-007/DEVELOPMENT_REPORT.md) |
-| GAI-008 | 3 | [打开 / Open](GAI-008/DEVELOPMENT_REPORT.md) |
-| GAI-009 | 2 | [打开 / Open](GAI-009/DEVELOPMENT_REPORT.md) |
-| MB-001 | 2 | [打开 / Open](MB-001/MIGRATION_REPORT.md) |
-| MB-002 | 2 | [打开 / Open](MB-002/MIGRATION_REPORT.md) |
-| MB-003 | 2 | [打开 / Open](MB-003/MIGRATION_REPORT.md) |
-| MB-004 | 2 | [打开 / Open](MB-004/MIGRATION_REPORT.md) |
-| MB-005 | 2 | [打开 / Open](MB-005/MIGRATION_REPORT.md) |
-| MB-006 | 2 | [打开 / Open](MB-006/MIGRATION_REPORT.md) |
-| MB-007 | 2 | [打开 / Open](MB-007/MIGRATION_REPORT.md) |
-| MB-008 | 2 | [打开 / Open](MB-008/MIGRATION_REPORT.md) |
-| MB-009 | 2 | [打开 / Open](MB-009/MIGRATION_REPORT.md) |
+| BA-001 | 4 | [打开 / Open](BA-001/README.md) |
+| BA-002 | 4 | [打开 / Open](BA-002/README.md) |
+| BA-003 | 3 | [打开 / Open](BA-003/README.md) |
+| BA-004 | 4 | [打开 / Open](BA-004/README.md) |
+| BA-005 | 5 | [打开 / Open](BA-005/README.md) |
+| BA-006 | 4 | [打开 / Open](BA-006/README.md) |
+| BA-007 | 4 | [打开 / Open](BA-007/README.md) |
+| BA-008 | 3 | [打开 / Open](BA-008/README.md) |
+| BA-009 | 4 | [打开 / Open](BA-009/README.md) |
+| EM-001 | 3 | [打开 / Open](EM-001/README.md) |
+| EM-002 | 4 | [打开 / Open](EM-002/README.md) |
+| EM-003 | 4 | [打开 / Open](EM-003/README.md) |
+| EM-004 | 4 | [打开 / Open](EM-004/README.md) |
+| EM-005 | 5 | [打开 / Open](EM-005/README.md) |
+| EM-006 | 5 | [打开 / Open](EM-006/README.md) |
+| EM-007 | 4 | [打开 / Open](EM-007/README.md) |
+| EM-008 | 3 | [打开 / Open](EM-008/README.md) |
+| EM-009 | 3 | [打开 / Open](EM-009/README.md) |
+| EM-010 | 3 | [打开 / Open](EM-010/README.md) |
+| EM-011 | 3 | [打开 / Open](EM-011/README.md) |
+| EM-012 | 3 | [打开 / Open](EM-012/README.md) |
+| EM-013 | 3 | [打开 / Open](EM-013/README.md) |
+| GAI-001 | 3 | [打开 / Open](GAI-001/README.md) |
+| GAI-002 | 4 | [打开 / Open](GAI-002/README.md) |
+| GAI-003 | 5 | [打开 / Open](GAI-003/README.md) |
+| GAI-004 | 4 | [打开 / Open](GAI-004/README.md) |
+| GAI-005 | 5 | [打开 / Open](GAI-005/README.md) |
+| GAI-006 | 4 | [打开 / Open](GAI-006/README.md) |
+| GAI-007 | 4 | [打开 / Open](GAI-007/README.md) |
+| GAI-008 | 4 | [打开 / Open](GAI-008/README.md) |
+| GAI-009 | 3 | [打开 / Open](GAI-009/README.md) |
+| MB-001 | 3 | [打开 / Open](MB-001/README.md) |
+| MB-002 | 3 | [打开 / Open](MB-002/README.md) |
+| MB-003 | 3 | [打开 / Open](MB-003/README.md) |
+| MB-004 | 3 | [打开 / Open](MB-004/README.md) |
+| MB-005 | 3 | [打开 / Open](MB-005/README.md) |
+| MB-006 | 3 | [打开 / Open](MB-006/README.md) |
+| MB-007 | 3 | [打开 / Open](MB-007/README.md) |
+| MB-008 | 3 | [打开 / Open](MB-008/README.md) |
+| MB-009 | 3 | [打开 / Open](MB-009/README.md) |
 | MB-010 | 1 | [打开 / Open](MB-010/ASSESSMENT_REPORT.md) |
 | MB-011 | 1 | [打开 / Open](MB-011/ASSESSMENT_REPORT.md) |
 | MB-012 | 1 | [打开 / Open](MB-012/ASSESSMENT_REPORT.md) |
-| RF-001 | 2 | [打开 / Open](RF-001/DEVELOPMENT_REPORT.md) |
-| RF-002 | 2 | [打开 / Open](RF-002/DEVELOPMENT_REPORT.md) |
-| RF-003 | 3 | [打开 / Open](RF-003/DEVELOPMENT_REPORT.md) |
-| RF-004 | 4 | [打开 / Open](RF-004/DEVELOPMENT_REPORT.md) |
-| RF-005 | 3 | [打开 / Open](RF-005/DEVELOPMENT_REPORT.md) |
-| RF-006 | 2 | [打开 / Open](RF-006/DEVELOPMENT_REPORT.md) |
-| RF-007 | 2 | [打开 / Open](RF-007/DEVELOPMENT_REPORT.md) |
-| RF-008 | 2 | [打开 / Open](RF-008/DEVELOPMENT_REPORT.md) |
-| RF-009 | 2 | [打开 / Open](RF-009/DEVELOPMENT_REPORT.md) |
-| RF-010 | 2 | [打开 / Open](RF-010/DEVELOPMENT_REPORT.md) |
-| UPT-PRE-ASSISTANT | 3 | [打开 / Open](UPT-PRE-ASSISTANT/IMPLEMENTATION_REPORT.md) |
-| zh-CN | 2 | [打开 / Open](zh-CN/DEVELOPMENT_CI_RECOVERY_2026-10-01.md) |
+| RF-001 | 3 | [打开 / Open](RF-001/README.md) |
+| RF-002 | 3 | [打开 / Open](RF-002/README.md) |
+| RF-003 | 4 | [打开 / Open](RF-003/README.md) |
+| RF-004 | 5 | [打开 / Open](RF-004/README.md) |
+| RF-005 | 4 | [打开 / Open](RF-005/README.md) |
+| RF-006 | 4 | [打开 / Open](RF-006/README.md) |
+| RF-007 | 4 | [打开 / Open](RF-007/README.md) |
+| RF-008 | 3 | [打开 / Open](RF-008/README.md) |
+| RF-009 | 3 | [打开 / Open](RF-009/README.md) |
+| RF-010 | 3 | [打开 / Open](RF-010/README.md) |
+| UPT-PRE-ASSISTANT | 4 | [打开 / Open](UPT-PRE-ASSISTANT/README.md) |
+| en | 3 | [打开 / Open](en/ASSESSMENT_REPORT_TEMPLATE.md) |
+| zh-CN | 5 | [打开 / Open](zh-CN/ASSESSMENT_REPORT_TEMPLATE.md) |
 
 ### 本目录说明 / Local documents
 

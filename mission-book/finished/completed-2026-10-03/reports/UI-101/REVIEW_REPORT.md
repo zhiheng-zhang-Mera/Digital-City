@@ -1,6 +1,6 @@
 # UI-101 — REVIEW REPORT（Host `Mech`）
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 复核对象：Web 产品壳，Development head `56c819000548d9496ecb9fd2459f19d1ad9fcec1`（CI `36870347917`）
 > 复核产出 head：`2c6e787c3a08166378c0f645a1ee200ce6885414`（CI `36871760594`）
 > Development 主机 `Alien`，复核主机 `Mech` → §3 双机独立满足

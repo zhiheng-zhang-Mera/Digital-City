@@ -69,3 +69,7 @@ ASSESSMENT_RESULT = FULL_MIGRATION | PARTIAL_MIGRATION | NO_VALUE
 - Assessment branch immutable HEAD:
 
 > NO_VALUE 时不生成假的 verified episode；保留 branch + 本报告 + evidence pointers。
+
+## Language reading links / 语言阅读链接
+
+[中文](./zh-CN/ASSESSMENT_REPORT_TEMPLATE.md) · [English](./en/ASSESSMENT_REPORT_TEMPLATE.md)

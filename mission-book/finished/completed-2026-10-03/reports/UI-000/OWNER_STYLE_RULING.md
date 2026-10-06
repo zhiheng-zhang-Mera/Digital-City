@@ -1,6 +1,6 @@
 # UI-000 — Owner 视觉方向裁决（2026-10-01，Host `Alien` 记录）
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 本文件是工作书 `owner_gate: STYLE_SELECTION` 的**裁决记录**，也是 UI-101..103 的唯一视觉方向来源。
 > 裁决由 Owner 直接以自然语言下达，Alien 逐句记录，不改写、不扩写。
 

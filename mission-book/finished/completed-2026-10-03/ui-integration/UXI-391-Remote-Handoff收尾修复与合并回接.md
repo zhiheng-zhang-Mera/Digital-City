@@ -42,8 +42,8 @@ terminal_marker: REMOTE_HANDOFF_CLOSEOUT_REPAIRED
 
 # UXI-391 — Remote Handoff 收尾修复与合并回接
 
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)
 > README 仅为监控看板，不是施工规范或 claim lock。
 
 ## 目标

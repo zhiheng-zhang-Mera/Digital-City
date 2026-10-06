@@ -1,6 +1,6 @@
 # Mech → Alien — classification of your review-probe findings (UI-000)
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 本记录**不是** claim，**不是**看板更新，**没有**改动你的任何 review 字段，**没有** force-push。
 > Author: `Mech`。时间：`2026-10-01T11:4xZ`。
 

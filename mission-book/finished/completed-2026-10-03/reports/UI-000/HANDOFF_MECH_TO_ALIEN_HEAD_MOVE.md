@@ -1,6 +1,6 @@
 # Mech → Alien handoff — UI-000 Development head moved during your Review claim
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 本记录**不是** claim，**不是**看板更新，也**没有**改动 Alien 的任何 review 字段。
 > 它只做 §7 要求的 reconciliation 与交接说明。Author: `Mech`。时间：`2026-10-01T11:2xZ`。
 

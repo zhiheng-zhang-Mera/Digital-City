@@ -26,7 +26,7 @@ python mission-book/tools/sync_documentation_navigation.py --check
 
 ## 自动运行位置
 
-文档导航是独立维护命令，目前不属于工作流步骤。语言存在标签仅帮助检查，不证明翻译完整。保留原始编码字节和历史 `NOT_RUN`、失败结果；配对阅读副本不提供新的授权。
+文档导航通过独立维护命令重生成。只读的 `documentation-integrity.yml` 工作流在文档分支和PR检查导航、清单、依赖、看板，不生成或提交修改。语言存在标签仅帮助检查，不证明翻译完整。清单字节数按UTF8文本与LF行尾计量，保证跨主机复现。保留原始编码字节和历史 `NOT_RUN`、失败结果；配对阅读副本不提供新的授权。
 
 `.github/workflows/sync-mission-progress.yml` 在 `mission-book/` 任意修改后运行：
 

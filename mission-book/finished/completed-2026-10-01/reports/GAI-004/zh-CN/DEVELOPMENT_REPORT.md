@@ -1,0 +1,116 @@
+# GAI-004 开发报告：API通道、明确同意与预算策略
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = GAI-004 (General AI Gateway programme, task 4 of 9)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 1f21790 (Digital-City main, "claim(GAI-004): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T15:11:40Z
+CONTROL_REVISION_AT_CLAIM= 0bc450e (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = general-ai/GAI-004-api-channel-consent-budget
+IMPLEMENTATION_HEAD_SHA  = fbb749272ad65c9a8de6cc303371b52fda22f7ef
+BRANCH_CI                = 36735078546 — success
+LOCAL_CHECK_SUMMARY      = 107/107 tests pass, rooms 69/69, city 1801 pass/0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据保留任务、主机、领取、控制版本、仓库、基线、分支／SHA、CI、107测试、rooms69／city1801及完成／禁止合并。
+
+## 1. 交付物
+
+contracts/general-ai-api-channel-v1/含api-channel.mjs（protocol adapters、ApiSwitchProposal、consent records、budget policy、admission、execution、usage accounting、redaction）、index.mjs、6测试与根tests/general-ai-api-channel.test.mjs。
+
+| 必需验收项 | 测试 |
+|---|---|
+| consent／budget admission前零API network | 每拒adapter counter0，double逐call记录 |
+| deny consent无call | REFUSED_NO_CONSENT／CONSENT_DENIED、adapter_called:false |
+| approve consent但deny budget无call | REFUSED_BUDGET／OVER_PER_ACTION_LIMIT、adapter_called:false |
+| 双批准可API run | ADMITTED、adapter一次 |
+| 明确use API为user choice | Web failure只提议不grant，user_directed:true、USER_COMMAND与USER_SETTING |
+| rate limit／auth／provider fault类型化 | 永不看似success |
+| 提供方缺usage unknown非0 | unknown使用测试 |
+| secret不进logs／Action provenance／reports | streaming仅adapter声明，secret不进provenance |
+| Web→API先proposal，WEB失败非permission | grants_permission:false、web_failure_implies_permission:false、仅proposal拒 |
+| 有budget非consent，consent→budget→admission | budget_available_implies_consent:false、user_consent_implied:false、无consent budget:null |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取任务。** 新扫描无自己repair、无Mech合格Correction，Alien有BA004／EM004／BA006／EM008／RF004排队或处理中。上次EM008后平局转离EM选GAI004：GAI005／006／007必须过consent／budget gate，且不同上次计划。
+
+**D2：什么授API permission？** Web失败、可用budget、明确user consent，唯第三。无consent总REFUSED_NO_CONSENT，无论Web／budget，budget不评null。硬policy两个禁止分别编码，caller不能洗Web失败或健康预算为permission；proposal数据grants_permission:false。
+
+**D3：proposal可携consent／admission？** 不可，strict input未知key INVALID_PROPOSAL。首版静默忽略额外consent，caller可误信携同意；拒unknown使“不grant”成为shape性质非约定。
+
+**D4：明确user command算escalation？** 不，direct use API command／setting为escalation:false、user_directed:true；proposal-backed consent才escalation:true及proposal_ref。Web失败非permission、明确command本身是consent，混淆会审计假称失败。
+
+**D5：budget何时查？** consent→budget→adapter，per-action／aggregate，REFUSED_BUDGET区别REFUSED_NO_CONSENT，遵顺序。仅前者人应“已花太多”，后者“须问用户”，仅后者需人决定。
+
+**D6：unknown usage。** 缺usage known:false、input_tokens／output_tokens／total_tokens／cost全null非0；unknown aggregate为AGGREGATE_USAGE_UNKNOWN，默认on_unknown_usage:REFUSE使REFUSED_USAGE_UNKNOWN，accumulateUsage未知sticky。缺usage不能0，免费表象实耗未测预算危险，0还静默关闭aggregate limit。
+
+**D7：缺adapter／不支持stream。** 无protocol adapter REFUSED_NO_ADAPTER，无stream支持STREAMING_UNSUPPORTED非retry，都call前。silent换protocol／downgrade是假channel success，工作簿要求typed adapter。
+
+**D8：边界fault而非throw。** adapter异常变ok:false、fault code／retryable／retry_after_ms，unknown码PROVIDER_FAULT。显式ok:false可检查，raw throw传truthiness caller可变假success。
+
+**D9：protocol与provider身份。** adapter键OPENAI_COMPATIBLE／ANTHROPIC／GEMINI，provider／model opaque独立带call／provenance。不可耦合，test一个protocol用deepseek provider证明。
+
+**D10：secret。** adapter收credential_ref handle非value；自身provenance／log／stored response递归脱敏，长消息secret-shaped substring也处理。边界是自身record非outgoing call，不静默改caller请求，test断两边。
+
+**D11：无schema.json。** 同其他所有组件分支。
+
+## 3. 精确文件
+
+| 文件 | 变化 |
+|---|---|
+| contracts/general-ai-api-channel-v1/api-channel.mjs | 新consent／proposal／budget／admission／execution／usage／redaction |
+| contracts/general-ai-api-channel-v1/index.mjs | 新public surface |
+| contracts/general-ai-api-channel-v1/tests/conformance.test.mjs | 新6tests |
+| tests/general-ai-api-channel.test.mjs | 新root runner，仓库101→107 |
+
+无City／Core、manifest／doc变更，merge仍additive。
+
+## 4. 测试、失败与修复
+
+6全过。suite发现真实defect proposal静默收consent key，模块修D3，现shape strict unknown INVALID_PROPOSAL，“无grant无携带”结构保证。未放宽expectation；proposal＋consent仍拒，因整体malformed proposal直接拒。
+
+## 5. 本地检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| node --test tests/*.test.mjs | 107测、107过、0败（101＋6） |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4上10条 |
+| node scripts/check-bilingual.mjs | docs／evidence／data-records PAIR_STATUS SYNCHRONIZED |
+| GitHub CI36735078546，fbb749272ad65c9a8de6cc303371b52fda22f7ef | success |
+
+## 6. 兄弟任务集成接缝
+
+- GAI003：web_channel_state给proposeApiSwitch为唯一escalation入口，proposal无session／consent；健康Web不禁明确command。
+- GAI005：routing须admit／execute非直adapter，两拒码分别问user／报limit。
+- GAI006：streaming adapter声明，cancel stream typed fault非partial success，对话复用redaction boundary。
+- GAI007：API副作用choke point，remote自consent，另一设备Web失败不是。
+- GAI002：protocol选adapter，credential_ref凭据；registry provider／model descriptors供opaque值，merge两词汇独立。
+- EM008／004：handle非value；secret scanning／redaction有意near-copy EM008，merge统一shared utility非两个。
+- RF：API-only为device-local sideeffect，RF006／EM007不可无明确user决定复制consent或credential handle。
+- Owner未变问题：evolution feed是否记component-stage事件。
+
+## 7. Correction主机开放项
+
+1. 对抗consent scope另一action、USER_SETTING复用无关action、proposal Web state成功、adapter usage input_tokens:0（报告0非缺失）、budget负或非integer。
+2. 确认D4 direct choice非escalation、D6 unknown aggregate默认拒。
+3. 确认scope-binding gap有意留GAI005／007而非这里。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+```
+
+原始结论保留开发完成、仅Alien纠正、GAI Gateway合并前禁止合并。

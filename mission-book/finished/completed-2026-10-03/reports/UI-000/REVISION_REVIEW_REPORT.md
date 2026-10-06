@@ -1,7 +1,7 @@
 # UI-000 — REVISION REVIEW REPORT（Host `Mech`）
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
-> 工作书：[../ui-civilization/UI-000-视觉方向候选与审美门禁.md](../ui-civilization/UI-000-视觉方向候选与审美门禁.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
+> 工作书：[../ui-civilization/UI-000-视觉方向候选与审美门禁.md](../../ui-civilization/UI-000-视觉方向候选与审美门禁.md)
 > 复核主机：`Mech`（revision Development 主机为 `Alien` → §3 双机独立满足；Alien 不得自审）
 > 复核对象：C″ = 修订后的候选 C，`revision_head_sha = aea8361c07c003f6f519829b6c1a208c20bccab1`
 > 复核产出的分支头：`2978e311959cffee40a172d0ea36e370e8ac59e7`
