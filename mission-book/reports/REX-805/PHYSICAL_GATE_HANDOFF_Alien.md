@@ -44,3 +44,10 @@ source digest     1390b60885d52bf1284b7b57f0a94a3db67d39ecedfb271a94d9c119035ed6
 3. Export the source receipt, Replay/Ablation receipts, corresponding experiment registry, two canonical tasks and both comparisons. Record timestamps, City identity, candidate/deployment bindings and every failure, timeout or missing observation. Publish raw materials and an index, rather than only screenshots or derived conclusions.
 4. The original and Replay should execute on Alien; Ablation should execute on Mech under the exact disabled policy. All three seeds should match. Independently check the source digest, fresh identities, seed offset, timeout, failure bound, manifest/registry references, actual placement and `controlledInputDifferences`. Different-input comparisons and synthetic outcomes cannot establish physical acceptance. Duration deltas do not establish causal performance.
 5. Only after the author verifies this development gate should development completion and formal handover be recorded. Mech can then independently claim and perform formal review. This handoff grants no product-main merge authority.
+
+
+## 候选替代 / Candidate supersession
+
+上述4b39468为交接时历史候选。现修复空限制集合误报并更新至 `0261a9ed1cec88df3ab4675623d422b37b33f270`；新精确版本CI/全量测试进行中，Mech部署应使用此修复或含此修复版本，并记录实际来源绑定。原始run、digest、预期落点和实体完成门槛不变。
+
+The4b39468 candidate above is the historical handoff snapshot. Repair of the empty-limit false mismatch advances the candidate to `0261a9ed1cec88df3ab4675623d422b37b33f270`; exact new-head CI/full-suite validation is in progress. Deploy this repair or a containing revision on Mech and record its actual source binding. The source run, digest, expected placement and physical completion gate are unchanged.

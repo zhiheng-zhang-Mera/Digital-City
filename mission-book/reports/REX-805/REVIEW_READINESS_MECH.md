@@ -79,6 +79,46 @@ preconditions are measured and can be used directly as assertions.
 `a524e1c` 后无新提交。本机继续按「记录真实外部缝、不空等」行事：领取要等交付，期间只做能在交付前完成的事。
 / The review stays unclaimed until the author hands over.
 
+## 收到实体门槛交接 / The physical-gate handoff, received
+
+作者在 `7ad7d19` 发布了 `PHYSICAL_GATE_HANDOFF_Alien.md`：把**开发门槛的执行**交给本机，明确**不是**开发完成声明、
+**不是**复检领取或验收，也**不**授予 product main 合并权；`development_complete=false` 保留。 / The author handed over
+execution of the development gate, explicitly not a completion declaration, not a review claim, and with no merge authority.
+
+它同时确认了本机仪器的边界，这一点我完全接受并记在这里：**合成 run 的仪器不能建立实体验收**（"synthetic outcomes
+cannot establish physical acceptance"），所以那份仪器只用于把复检要读的字段先摸清楚，不能当作门槛证据。 / It confirms
+what my instrument cannot do, and that boundary is accepted: a synthetic run cannot establish physical acceptance.
+
+交接给出的可直接执行源（本机将据以执行，不再自行推导）/ the ready source it names:
+
+```text
+sourceCampaignId  campaign-966cf439-7017-4bb0-88e8-981e59c18322
+sourceRunIndex    1
+source seed       414121415
+source task       Q-f78eaee3-2380-468e-969d-6012fba109b9
+original worker   dev-8128a1ef25c5c4b7f66fc31b21705858 (Alien)
+first worker      dev-031fdba6e94c4298a0956ff04a65481d (Mech)
+timeout / limits  30000 / {"maxFailures":3}
+digest kind       CANONICAL_PARSED_RECEIPT_SHA256
+source digest     1390b60885d52bf1284b7b57f0a94a3db67d39ecedfb271a94d9c119035ed67a
+```
+
+**本机的执行计划（下一步）/ the plan：**
+
+```text
+1  保留正式 City 数据目录，把常驻 City 更新到候选（或包含候选的版本），并记录「候选 → 实际进程」的部署绑定
+   —— 注意：此前用户对「Mech 已更新」的确认绑定的是旧候选 8798ba9，不能据此推定新候选已部署
+2  确认两个声明 worker 当前可用
+3  通过 Owner Research 端点：先 REPLAY（源 run 1），等终态；再从同一源 run 执行 alternate-device ABLATION，等终态
+   期望放置：original 与 Replay 落 Alien，Ablation 按 exact disabled policy 落 Mech；三个 seed 应一致
+4  导出：原 receipt、两个新 receipt、对应 experiment registry、两条 canonical task、两份 comparison，
+   以及时间戳、City 身份、部署绑定与所有失败/timeout/缺失项；独立核对 source digest、新身份、seed offset、
+   timeout、failure bound、manifest/registry 引用、实际放置与 controlledInputDifferences
+5  原始材料与索引交作者验证开发门槛；作者记录开发完成后，本机再独立领取正式复检
+```
+
+未观测项一律记 NOT_OBSERVED，不以合成或不同输入的结果替代。 / Anything not observed stays NOT_OBSERVED.
+
 本文件不改变任何工作书字段。 / This file changes no workbook field.
 
 语言配对 / Language pair: [Full English reading](./en/REVIEW_READINESS_MECH.md)
