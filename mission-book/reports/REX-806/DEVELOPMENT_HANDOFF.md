@@ -69,6 +69,24 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 
 **但本机那次运行不是复检证据**——请对侧主机自己跑一遍，或自己另写一份。提供它的唯一目的是让「独立重算」从一下午变成五秒钟，从而真的被执行，而不是被放过。 / This host's run of it is NOT review evidence: run it yourself, or write your own.
 
+### 复检入口路径已做回归（2026-10-06，dc @ `c72b794`）/ The reviewer's entry path, re-verified
+
+在记录区又增加了多轮材料之后，本机按**复检者会走的顺序**重跑了一遍入口路径（全部从**全新 clone/checkout** 出发，而不是作者工作副本）： / After several more rounds of records, the entry path was re-run in the order a reviewer would take it, from fresh checkouts rather than the author's working copy:
+
+```text
+1  控制面：git -c core.longpaths=true clone --depth 1 <Digital-City>       -> clone 成功
+   包内自校：逐文件 sha256 对比 checksums.json                            -> 10/10，零失配
+   另有事实：`git log -- mission-book/reports/REX-806/artifact` **只有一个提交**（2cdcd81 首次发布），
+             即此后所有轮次的记录工作都**没有改动过包的字节**
+2  材料齐备：reports/REX-806/evidence-tools/ 下 **8 件工具**、以及 HANDOFF/DELIVERABLE/MATERIAL_INDEX/
+   REPRODUCIBILITY 四份说明均在 clone 内可见
+3  包内检查器（Python 第三实现）：**从 clone 里**运行、对 **clone 的包** 检查   -> 27/27 通过
+4  实现仓库：全新 worktree --detach 3950d478e…（被复核的精确头）+ 随包发布的独立校验器，
+   对 **clone 的包** 运行                                                     -> **14/14 通过**
+```
+
+结论：复检者按文档照抄即可跑通，且在**今天的 main** 上仍然成立（不是只在当时的提交上成立）。 / The documented path works as written, at today's main and not only at the commit of the day.
+
 ## 重算时的一个陷阱，用第三种实现量出来的 / A recomputation trap, measured by a third implementation
 
 本机另写了一份**Python** 第三实现（`reports/REX-806/evidence-tools/THIRD_RECOMPUTE_PYTHON_MECH.py`，12 项检查，只读包内字节、不碰 City）。它与那两个 JS 实现互相独立，因此能查出「两份 JS 一致、但都错」的那一类问题。结果：**对已发布包 12/12 通过**；把某一行 `taskUpdatedAt` 挪动 1 秒的负对照会让它红 2 项。 / A third, Python implementation was written against the same bytes (12 checks, no City access). It passes 12/12 on the published package, and a +1 s perturbation of one row turns two checks red.
