@@ -363,8 +363,9 @@ CAMPAIGN    campaign-966cf439-7017-4bb0-88e8-981e59c18322，状态 COMPLETED (RE
 MATERIAL    三个 canonical task 全部 COMPLETED 且带 researchRunRef；research trace 记录
             RESEARCH_CAMPAIGN_STARTED @2026-10-06T08:00:39.601Z（storageState READY，completeness PARTIAL 如实标注）；
             不可变回执 campaign-966cf439-…json 已落盘于 <runtime>/research/campaigns/
-EVIDENCE    已发布可跨主机复核的匿名材料包（8 文件，含逐字节 immutable receipt、trace epoch 快照、
-            PARTIAL 的 missing/dropped/clock 逐项说明与由包内文件重算的 derived checks）：
+EVIDENCE    已发布可跨主机复核的匿名材料包（6 个数据文件 + 索引，含逐字节 immutable receipt、trace epoch 快照、
+            PARTIAL 的 missing/dropped/clock 逐项说明与由包内文件重算的 derived checks；生成器与第二实现另置于
+            payload 之外的 evidence-tools/）：
             reports/REX-803/evidence/MATERIAL_INDEX.md（+ MATERIAL_HANDOFF_MECH.md）
             早前只在本机磁盘的原始 JSON 引用同样保留：D:/utopia-chat/evidence/REX-803/…
             完整记录：reports/REX-803/THREE_END_GATE_MEASUREMENT.md
@@ -378,3 +379,39 @@ REX-803's three-end completion gate is **MET**: on 2026-10-06T08:01Z a controlle
 Alien 正式验收 exact8798ba9，材料38项独立检查通过，3次种子/执行节点与原始回执、canonical tasks 和 trace 对齐；trace metadata PARTIAL、未发布的全局197条原始窗口、缺失provenance和意图验证NOT_TESTED均保留。新入会身份开始于07:29，不能描述此前两天始终在线。详见 [正式验收](../reports/REX-803/FORMAL_ACCEPTANCE_Alien.md)。
 
 Alien accepts exact8798ba9 after38 independent material checks and three matching seed/placement/receipt/task/trace bindings. PARTIAL trace metadata, the unpublished whole197-record window, missing provenance and NOT_TESTED intent validation remain explicit. The fresh enrollment began at07:29, not two days earlier. See the formal acceptance report linked above.
+
+### REX 集成前置测量：两个产物各自干净，合在一起不干净 / REX integration preflight: each product merges clean, together they do not
+
+REX-803 被接受**之后**才第一次尝试集成，会把冲突留到最不方便的时候。所以先测（§11 要求集成从当时最新 main 开始，本轮从 `b06504f` 出发）： / Integrating for the first time only after REX-803 is accepted would surface the conflict at the worst moment, so it was measured first, from the then-latest main `b06504f`：
+
+```text
+rex/REX-804-Alien-codex-faults  -> main 单独                CLEAN
+rex/REX-803-mech-scenario-runner -> main 单独               CLEAN
+两者同时 / both together                                    CONFLICT x2，均在 services/dev-gateway/server.mjs
+```
+
+两处冲突都是 §11 点名的 union/superset 情形（双方互不引用：fault controller 不含 campaign，campaign 段不含 faults），已按显式并集解出并测量： / Both conflicts are the union/superset case - neither side references the other - resolved as an explicit union and measured：
+
+```text
+integration/REX-803-804-mech-preflight @ cd43572
+  focused  tests/rex803-*. + rex804-*.         34 pass / 0 fail
+  full     pnpm test                          1390 pass / 3 fail（3 项为 host-city-launcher 常驻占用，N/N-3 基线）
+```
+
+规则（把 WBC 的 B4/F-3 规则推广到集成方向）/ the rule, generalising the WBC B4/F-3 rule to integration：
+
+> **一条 branch 单独能进 main，不构成“多条 branch 能一起进 main”的证据。** / A branch that merges cleanly on its own is not evidence that several merge cleanly together.
+
+### 顺带发现：REX-804 的测试重写了它所认证的证据 / Surfaced: REX-804's test rewrites the evidence it certifies
+
+跑并集全量套件时发现结束后 tracked tree 是脏的，追进去是**已接受**的 REX-804 里的一处缺陷：`tests/rex804-web.test.mjs:9` 把截图写进**已提交**的证据路径 `evidence/raw/mission-book/REX-804/danger-zone.png`（正是 `PAPER_MATERIAL_INDEX.md` 引用的那份证据）。未修复 head 上实测：测试 **1 pass / 0 fail**，而 `git status` 同时显示该证据被改写（141809 → 139403 字节，取决于跑它的人的浏览器/字体/DPI/视口）。**会在你验证它时改变的证据不是证据**，且跑绿的测试把 tree 留脏，破坏复核记录依赖的 “tracked state clean after testing”。 / The union's full suite left the tree dirty: accepted REX-804's web test captures its screenshot into a committed evidence path, so a green run rewrites reviewed evidence and leaves the tree dirty.
+
+修复复用同程序内**已有的正确先例**（REX-803 的同类测试本来就写 `.runtime/evidence/…`，`.gitignore` 第 2 行）：`repair/REX-804-mech-test-evidence-outside-repo @ 690d723`，行为断言一行未改。并入并集后在合并结果上测量： / The repair reuses the correct precedent already in this programme and changes no assertion. Measured on the merge result：
+
+```text
+integration/REX-803-804-mech-preflight-with-evidence-repair @ 0492dfd
+  focused  tests/rex803-*. + rex804-*.         34 pass / 0 fail，跑后 CLEAN
+  full     pnpm test                          1390 pass / 3 fail，跑后 CLEAN（修复前同样 1390/3，但结束时是脏的）
+```
+
+即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**。本机对 REX 无合并授权、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`。
