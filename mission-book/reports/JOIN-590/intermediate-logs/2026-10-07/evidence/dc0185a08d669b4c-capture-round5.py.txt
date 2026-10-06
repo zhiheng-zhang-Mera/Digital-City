@@ -1,0 +1,8 @@
+import pathlib,subprocess,xml.etree.ElementTree as E,json,datetime
+R=pathlib.Path('D:/Utopia-JOIN590-Review/.runtime/evidence/JOIN590-device');A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T']
+def read(path):return subprocess.check_output(A+['exec-out','run-as','city.utopia.control.join590review','cat',path])
+prefs={n.get('name'):n.text for n in E.fromstring(read('shared_prefs/city-connection.xml'))}
+rows=[json.loads(row) for row in read('files/pairing-events.jsonl').splitlines()]
+start=next(r for r in reversed(rows) if r.get('event')=='start');trial=start['trialId']
+proof={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'trialId':trial,'credentialPresent':bool(prefs.get('token')),'durableFieldNames':[key for key in ['installationId','instanceId','credentialId','credentialSecret'] if key in prefs],'events':[r for r in rows if r.get('trialId')==trial]}
+R.joinpath('round5-native-proof.json').write_text(json.dumps(proof,indent=2),encoding='utf-8');print(json.dumps(proof))

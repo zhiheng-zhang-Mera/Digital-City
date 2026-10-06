@@ -1,0 +1,23 @@
+import {readFileSync,writeFileSync} from 'node:fs';
+import {readHostCity} from '../services/dev-gateway/host-city.mjs';
+const target='http://172.31.12.151:4391',cityId='031fdba6-e94c-4298-a095-6ff04a65481d';
+const local='http://172.31.3.110:4391';
+const headers={'Content-Type':'application/json','X-City-Api-Version':'0','X-City-Schema-Version':'0'};
+const record=await readHostCity();
+if(process.argv.includes('--start')){
+ if(record.role!=='PRIMARY'||record.cityId!=='e1d87b2a-0ec5-457e-822b-91d81e40dc67'||record.endpoint!==local)throw Error('Local host identity changed');
+ const info=await(await fetch(target+'/api/v0/join/info',{headers})).json();if(info.cityId!==cityId)throw Error('Remote City identity changed');
+ const config=JSON.parse(readFileSync(record.configFile,'utf8'));
+ const response=await fetch(local+'/api/v0/host/join',{method:'POST',headers:{...headers,Authorization:'Bearer '+config.token},body:JSON.stringify({mode:'request',endpoint:target,cityId,displayName:'Alien-PC-JOIN590'})});
+ const state=await response.json();if(!response.ok)throw Error(state.error||'Host request refused');
+ writeFileSync('.runtime/physical-host-ticket.json',JSON.stringify({ticketId:state.ticketId,configFile:record.configFile}),{mode:0o600});
+ console.log(JSON.stringify({state:state.state,ticketId:state.ticketId,cityId:state.cityId}));
+}else{
+ const ticket=JSON.parse(readFileSync('.runtime/physical-host-ticket.json','utf8'));
+ if(record.role==='MEMBER')console.log(JSON.stringify({role:record.role,cityId:record.cityId,gatewayPid:record.gatewayPid,endpoint:record.endpoint}));
+ else{
+  const config=JSON.parse(readFileSync(ticket.configFile,'utf8'));
+  const response=await fetch(local+'/api/v0/host/join/status?ticketId='+encodeURIComponent(ticket.ticketId),{headers:{...headers,Authorization:'Bearer '+config.token}});
+  const state=await response.json();console.log(JSON.stringify({status:response.status,state:state.state,requestId:state.requestId,cityId:state.cityId,error:state.error}));
+ }
+}

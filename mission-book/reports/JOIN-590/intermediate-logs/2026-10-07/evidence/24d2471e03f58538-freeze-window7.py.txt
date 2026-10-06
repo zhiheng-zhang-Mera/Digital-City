@@ -1,0 +1,6 @@
+from pathlib import Path
+import shutil,hashlib,json,datetime
+s=Path('.runtime/evidence/JOIN590-device');d=Path('evidence/raw/mission-book/JOIN590-repair/window7');d.mkdir(parents=True,exist_ok=True)
+names=['round7-after-city-restart.xml','round7-city-restart-proof.json','round6-lan-browse.xml','round6-after-windows-revoke.json']
+for n in names:shutil.copyfile(s/n,d/n)
+receipt={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'author':'Alien-codex','softwareSourceSha':'ec3b6f996240ca71505b3b67af12cc222d1b283a','mechReportedDeployedSha':'0ea9203d3409a59194675d48d93950c7af9fb92f','mechRestartReportCommit':'33a04b6d7fce43e4c086c269d660a817a1c3a0fd','mechReportedPidBefore':5092,'mechReportedPidAfter':22248,'observedCityStartedSeq':172,'retiredWindowsRenewalAfterCityRestart':{'status':403,'code':'INSTALLATION_RETIRED'},'priorEvidenceHead':'151c065363e52fb6ba38b0332000a7a3687042c3','priorEvidenceCi':{'id':37303827480,'conclusion':'success'},'mergedMainAcceptance':'NOT_RUN','fullOppositeHostAndroidRepairReview':'NOT_RUN','files':[{'path':n,'sha256':hashlib.sha256((d/n).read_bytes()).hexdigest()} for n in names]};(d/'receipt.json').write_text(json.dumps(receipt,indent=2));print(json.dumps({'files':len(names),'credentialIncluded':False}))

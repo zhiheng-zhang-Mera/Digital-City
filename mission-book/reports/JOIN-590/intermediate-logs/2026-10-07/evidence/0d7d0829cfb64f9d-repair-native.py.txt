@@ -1,0 +1,44 @@
+from pathlib import Path
+root=Path('apps/android/app/src/main/java/city/utopia/control')
+def edit(name, changes):
+ p=root/name;s=p.read_text(encoding='utf-8')
+ for old,new in changes:
+  assert old in s,(name,old[:100]);s=s.replace(old,new)
+ p.write_text(s,encoding='utf-8')
+edit('PairingProtocol.kt', [('return "http://${','return "${u.scheme}://${'),('if(u.port == -1) 80 else u.port','if(u.port == -1) (if(u.scheme=="https") 443 else 80) else u.port')])
+edit('RelayPairing.kt',[
+ ('val role: String)','val role: String, val enrollment: NativeEnrollment)'),
+ ('    displayName: String,\n    onProgress:', '    displayName: String,\n    installation: JSONObject,\n    onProgress:'),
+ ('target.first','target.host'),('target.second','target.port'),
+ ('host = host, port = port, label = displayName','host = host, port = port, secure = target.secure, label = displayName'),
+ ('installationId, displayName, main,','installationId, displayName, installation, main,'),
+ ('    displayName: String,\n    main:', '    displayName: String,\n    installation: JSONObject,\n    main:'),
+ ('dialedCityId, System.currentTimeMillis()','dialedCityId, installation, System.currentTimeMillis()'),
+ ('    dialedCityId: String,\n    started:', '    dialedCityId: String,\n    installation: JSONObject,\n    started:'),
+ ('dialedCityId, onProgress, onSuccess, onFailure)','dialedCityId, installation, onProgress, onSuccess, onFailure)'),
+ ('dialedCityId, started,','dialedCityId, installation, started,'),
+ ('    dialedCityId: String,\n    onProgress:', '    dialedCityId: String,\n    installation: JSONObject,\n    onProgress:'),
+ ('connection.forward("/api/v0/join/exchange", JSONObject().put("requestId", requestId).put("claim", claim))','connection.forward("/api/v0/join/exchange", JSONObject().put("requestId", requestId).put("claim", claim).put("installation", installation))'),
+ ('          onSuccess(Outcome(cityId = dialedCityId, credential = credential, peerRef = connection.peerRef, role = connection.role))','          runCatching { parseNativeEnrollment(payload!!, dialedCityId, installation.getString("instanceId")) }.fold({ record ->\n            onSuccess(Outcome(cityId = dialedCityId, credential = record.sessionCredential, peerRef = connection.peerRef, role = connection.role, enrollment = record))\n          }, { onFailure(RelayDialError("RELAY_ENROLLMENT_REFUSED", it.message ?: "Member enrollment required")) })'),
+])
+edit('PairingApi.kt',[
+ ('class PairingApi(private val log: PilotLog)', 'class PairingApi(private val log: PilotLog, private val enrollmentStore: NativeEnrollmentStore? = null, private val installation: (() -> JSONObject)? = null)'),
+ ('OkHttpClient.Builder().callTimeout','OkHttpClient.Builder().followRedirects(false).followSslRedirects(false).callTimeout'),
+ ('  val reply=request(d.endpoint,"exchange",body);','  installation?.invoke()?.let { body.put("installation",it) }\n  val reply=request(d.endpoint,"exchange",body);'),
+ ('log.event("authenticated"); Triple(d.endpoint,reply.getString("credential"),active)', 'if(installation!=null) { val record=parseNativeEnrollment(reply,d.cityId,body.getJSONObject("installation").getString("instanceId")); enrollmentStore?.save(d.endpoint,record) }; log.event("authenticated"); Triple(d.endpoint,reply.getString("credential"),active)'),
+])
+edit('PairingPanel.kt',[
+ (' val api=remember { PairingApi(log) };', ' val enrollmentStore=remember { NativeEnrollmentStore(context) }; val identity=remember { enrollmentStore.pendingIdentity() }\n var deviceName by remember { mutableStateOf("Android · ${Build.MODEL}") }\n fun installation()=org.json.JSONObject().put("deviceId",identity.first).put("instanceId",identity.second).put("displayName",deviceName.trim()).put("platform","android")\n val api=remember { PairingApi(log,enrollmentStore,{ installation() }) };'),
+ ('  val trimmed=address.trim().removePrefix("ws://").removePrefix("wss://")','  val trimmed=address.trim().replaceFirst("ws://","http://").replaceFirst("wss://","https://")'),
+ ('  if(ownerCode.isBlank()) { pairingError="Enter the short code"; return }','  if(!joinInputReady(relayMode,address,ownerCode,deviceName,busy)) { pairingError="Enter a valid City address, device name and (for direct join) six-digit code"; return }'),
+ ('    installationId = deviceInstallationId,\n    displayName = deviceLabel,','    installationId = identity.first,\n    displayName = deviceName.trim(),\n    installation = installation(),'),
+ ('     phase=pairingTransition(phase,"authenticated")','     enrollmentStore.save(codeEndpoint(address),outcome.enrollment)\n     phase=pairingTransition(phase,"authenticated")'),
+ ('     phase=pairingTransition(phase,"error"); pairingError=', '     message="Join failed · retry when ready"; phase=pairingTransition(phase,"error"); pairingError='),
+ ('   OutlinedTextField(ownerCode,', '   OutlinedTextField(deviceName,{deviceName=it},enabled=!busy,label={Text("Device name / 入网名称")},singleLine=true,modifier=Modifier.fillMaxWidth())\n   if(!relayMode) OutlinedTextField(ownerCode,'),
+ ('Checkbox(checked=relayMode,onCheckedChange=', 'Checkbox(checked=relayMode,enabled=!busy,onCheckedChange='),
+ ('works when neither side can be dialled (both behind NAT).','requires a reachable City address. NAT traversal requires a separately deployed public relay.'),
+ ('enabled=!busy && ownerCode.isNotBlank()', 'enabled=joinInputReady(relayMode,codeAddress.ifBlank { host },ownerCode,deviceName,busy)'),
+ ('  Text(message)','  OutlinedTextField(deviceName,{deviceName=it},enabled=!busy,label={Text("Device name / 入网名称")},singleLine=true,modifier=Modifier.fillMaxWidth())\n  Text(message)'),
+])
+# The universal name field covers discovery/QR too; avoid duplicating it in CODE mode.
+p=root/'PairingPanel.kt';s=p.read_text();s=s.replace('   OutlinedTextField(deviceName,{deviceName=it},enabled=!busy,label={Text("Device name / 入网名称")},singleLine=true,modifier=Modifier.fillMaxWidth())\n','');p.write_text(s)

@@ -1,0 +1,10 @@
+import pathlib,json,hashlib,subprocess
+root=pathlib.Path('D:/Utopia-JOIN590-Review');source=root/'.runtime/evidence/JOIN590-device';target=root/'evidence/raw/mission-book/JOIN590-repair/window5';target.mkdir(parents=True,exist_ok=True)
+for name in ['round5-request.xml','round5-after-approval.xml','round5-native-proof.json','round5-mech-readonly-proof.json']:
+ target.joinpath(name).write_bytes(source.joinpath(name).read_bytes())
+ci=json.loads(subprocess.check_output(['C:/Program Files/GitHub CLI/gh.exe','run','view','37299383248','--repo','zhiheng-zhang-Mera/utopia','--json','headSha,status,conclusion,url']))
+assert ci['headSha']=='ec3b6f996240ca71505b3b67af12cc222d1b283a' and ci['status']=='completed' and ci['conclusion']=='success'
+target.joinpath('source-ci.json').write_text(json.dumps(ci,indent=2),encoding='utf-8')
+receipt={'softwareSourceSha':ci['headSha'],'apkSha256':'970839d29a3066e01ecee8aab3040f9dc2ac81959727b144ab0694dd3d183800','applicationId':'city.utopia.control.join590review','cityId':'031fdba6-e94c-4298-a095-6ff04a65481d','requestRef':'join-535174ce61','requestId':'6ef1a08f-eac9-4b42-8192-de785f7c0749','result':'APPROVED_EXCHANGED_REFUSED_INCOMPLETE_ENROLLMENT','credentialPersisted':False,'deployedMechSourceSha':None,'physicalRestart':'NOT_RUN','physicalRevocation':'NOT_RUN','acceptance':'INCOMPLETE','artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in target.iterdir() if p.is_file()}}
+target.joinpath('receipt.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
+print(json.dumps({'files':len(receipt['artifacts']),'result':receipt['result']}))

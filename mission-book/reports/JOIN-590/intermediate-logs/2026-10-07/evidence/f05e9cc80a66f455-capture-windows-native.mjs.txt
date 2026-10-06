@@ -1,0 +1,8 @@
+import {readHostCity} from '../services/dev-gateway/host-city.mjs';
+import {readDeviceFile,openDeviceSession} from '../apps/client/device-enrollment.mjs';
+import {writeFileSync} from 'node:fs';
+const r=await readHostCity();if(r.role!=='MEMBER'||r.cityId!=='031fdba6-e94c-4298-a095-6ff04a65481d'||r.gatewayPid!==44580)throw Error('Unexpected member');
+const d=readDeviceFile(r.memberEnrollmentFile);const s=await openDeviceSession(d);const h={'Authorization':"[REDACTED]"+s.credential,'X-City-Api-Version':'0','X-City-Schema-Version':'0'};
+const city=await(await fetch(r.endpoint+'/api/v0/city',{headers:h})).json();
+const proof={at:new Date().toISOString(),scope:'physical Alien Windows native membership in Mech',role:r.role,cityId:r.cityId,gatewayPid:r.gatewayPid,endpoint:r.endpoint,deviceId:r.deviceId,installationId:d.installationId,instanceId:d.instanceId,displayName:d.displayName,sessionIsMember:s.credential.startsWith('sess:'),remoteCityMatches:city.cityId===r.cityId,durableCredentialStored:!!d.credentialId&&!!d.credentialSecret};
+writeFileSync('.runtime/evidence/JOIN590-device/windows-native-joined.json',JSON.stringify(proof,null,2));writeFileSync('.runtime/private-windows-session.json',JSON.stringify({credential:s.credential,installationId:d.installationId,credentialId:d.credentialId}));console.log(JSON.stringify(proof));

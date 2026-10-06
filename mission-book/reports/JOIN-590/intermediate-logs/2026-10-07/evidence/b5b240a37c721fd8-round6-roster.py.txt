@@ -1,0 +1,9 @@
+import subprocess,xml.etree.ElementTree as E,urllib.request,json,datetime,pathlib
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T'];p={n.get('name'):n.text for n in E.fromstring(subprocess.check_output(A+['exec-out','run-as','city.utopia.control.join590review','cat','shared_prefs/city-connection.xml']))};assert p['host']=='http://172.31.12.151:4391' and p['token'].startswith('sess:');h={'Authorization':"[REDACTED]"+p['token'],'X-City-Api-Version':'0','X-City-Schema-Version':'0'};proof={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'Mech canonical member roster after Windows self revoke'}
+for path in ['city','device/installations','pairing/info']:
+ with urllib.request.urlopen(urllib.request.Request(p['host']+'/api/v0/'+path,headers=h),timeout=5) as r:
+  d=json.load(r);proof[path]={'status':r.status,'cityId':d.get('cityId')}
+  if path=='device/installations':proof[path]['installations']=[{k:x.get(k) for k in ['installationId','deviceId','displayName','state','status']} for x in d.get('installations',[])]
+  if path=='city':proof[path]['topLevelNames']=list(d.keys())
+  if path=='pairing/info':proof[path].update({k:d.get(k) for k in ['sessionState','activeSession','sessionId']})
+pathlib.Path('.runtime/evidence/JOIN590-device/round6-after-windows-revoke.json').write_text(json.dumps(proof,indent=2));print(json.dumps(proof))

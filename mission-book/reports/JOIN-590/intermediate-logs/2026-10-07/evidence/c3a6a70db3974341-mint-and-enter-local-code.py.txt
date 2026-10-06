@@ -1,0 +1,15 @@
+import subprocess,xml.etree.ElementTree as E,re,json,pathlib,urllib.request,datetime
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T'];origin='http://172.31.3.110:4391';city='e1d87b2a-0ec5-457e-822b-91d81e40dc67'
+def adb(*x):return subprocess.check_output(A+list(x))
+assert any('mResumedActivity' in r and 'city.utopia.control.join590review/' in r for r in adb('shell','dumpsys','activity','activities').decode(errors='replace').splitlines())
+adb('shell','uiautomator','dump','/sdcard/join590-review.xml');tree=E.fromstring(adb('exec-out','cat','/sdcard/join590-review.xml'));fields=[n for n in tree.iter('node') if n.get('class')=='android.widget.EditText']
+assert len(fields)==3 and fields[1].get('text')==origin and fields[2].get('password')=='true'
+headers={'X-City-Api-Version':'0','X-City-Schema-Version':'0','Content-Type':'application/json'}
+with urllib.request.urlopen(urllib.request.Request(origin+'/api/v0/join/info',headers=headers),timeout=5) as response:assert json.load(response)['cityId']==city
+config=json.loads(pathlib.Path('D:/utopia/.runtime/local-config.json').read_text(encoding='utf-8'))
+request=urllib.request.Request(origin+'/api/v0/pairing/session',headers={**headers,'Authorization':"[REDACTED]"+config['token']},data=b'{}')
+with urllib.request.urlopen(request,timeout=5) as response:session=json.load(response)
+code=session['shortCode'];assert re.fullmatch(r'\d{6}',code)
+b=list(map(int,re.findall(r'\d+',fields[2].get('bounds'))));adb('shell','input','tap',str((b[0]+b[2])//2),str((b[1]+b[3])//2));adb('shell','input','keyevent','123');adb('shell','input','keyevent',*(['67']*len(fields[2].get('text',''))));adb('shell','input','text',code);adb('shell','input','keyevent','4')
+proof={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'physical Android short-code entry against existing patched Alien City','origin':origin,'cityId':city,'shortCodeEntered':True,'credentialLogged':False}
+pathlib.Path('D:/Utopia-JOIN590-Review/.runtime/evidence/JOIN590-device/local-native-code-entry.json').write_text(json.dumps(proof,indent=2),encoding='utf-8');print(json.dumps(proof))

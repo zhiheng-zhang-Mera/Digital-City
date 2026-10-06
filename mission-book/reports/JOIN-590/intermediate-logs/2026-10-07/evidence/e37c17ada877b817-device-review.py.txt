@@ -1,0 +1,21 @@
+import subprocess, pathlib, json, xml.etree.ElementTree as ET
+ADB='D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe'
+SERIAL='BICIPVNB5HS85H9T'
+ROOT=pathlib.Path('D:/Utopia-JOIN590-Review/.runtime/evidence/JOIN590-device')
+ROOT.mkdir(parents=True,exist_ok=True)
+def adb(*args):
+ return subprocess.run([ADB,'-s',SERIAL,*args],check=True,capture_output=True).stdout
+if not (ROOT/'private-original.tar').exists():
+ (ROOT/'private-original.tar').write_bytes(adb('exec-out','run-as','city.utopia.control','tar','-cf','-','shared_prefs','files'))
+ apk=adb('shell','pm','path','city.utopia.control').decode().strip().removeprefix('package:')
+ adb('pull',apk,str(ROOT/'original.apk'))
+ print('original APK and private config backed up; private contents not printed')
+adb('shell','am','start','-n','city.utopia.control/.MainActivity')
+adb('shell','uiautomator','dump','/sdcard/join590-review.xml')
+tree=ET.fromstring(adb('exec-out','cat','/sdcard/join590-review.xml'))
+safe=[]
+for n in tree.iter('node'):
+ if n.get('password')=='true':n.set('text','[REDACTED]')
+ if n.get('text') or n.get('content-desc'):safe.append({k:n.get(k) for k in ['text','content-desc','class','bounds','clickable','enabled']})
+(ROOT/'initial-ui.xml').write_bytes(ET.tostring(tree))
+print(json.dumps(safe,ensure_ascii=False))

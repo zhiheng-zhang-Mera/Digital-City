@@ -1,0 +1,38 @@
+from pathlib import Path
+p=Path('apps/android/app/src/main/java/city/utopia/control/RelayPairing.kt');s=p.read_text(encoding='utf-8')
+start=s.index('  fun joinViaApproval(');end=s.index('  private fun requestJoin',start)
+t=s[start:end]
+t=t.replace('    onProgress:','    progressCallback:').replace('    onSuccess:','    successCallback:').replace('    onFailure:','    failureCallback:')
+t=t.replace('  ) {\n    val target', '''  ): java.io.Closeable {
+    val main = Handler(Looper.getMainLooper())
+    val active = java.util.concurrent.atomic.AtomicBoolean(true)
+    var held: RelayConnection? = null
+    val handle = java.io.Closeable { active.set(false); main.removeCallbacksAndMessages(null); held?.close() }
+    val onProgress: (String,String)->Unit = { stage,detail -> main.post { if(active.get())progressCallback(stage,detail) } }
+    val onSuccess: (Outcome)->Unit = { value -> main.post { if(active.compareAndSet(true,false)) { main.removeCallbacksAndMessages(null); successCallback(value) } } }
+    val onFailure: (RelayDialError)->Unit = { error -> main.post { if(active.compareAndSet(true,false)) { held?.close();main.removeCallbacksAndMessages(null);failureCallback(error) } } }
+    val target''')
+t=t.replace(')); return }', ')); return handle }')
+t=t.replace('    val main = Handler(Looper.getMainLooper())\n\n    RelayDial','\n    RelayDial')
+t=t.replace('      onReady = { connection ->','      onReady = { connection ->\n        held=connection\n        if(!active.get()) { connection.close();return@dial }')
+t=t.replace('installation, main, onProgress','installation, main, active, onProgress')
+t=t.replace('      onFailure = onFailure,\n    )','      onFailure = onFailure,\n    )\n    return handle')
+s=s[:start]+t+s[end:]
+s=s.replace('    main: Handler,\n    onProgress:', '    main: Handler,\n    active: java.util.concurrent.atomic.AtomicBoolean,\n    onProgress:')
+s=s.replace('dialedCityId, installation, System.currentTimeMillis()', 'dialedCityId, installation, active, System.currentTimeMillis()')
+s=s.replace('    installation: JSONObject,\n    started:', '    installation: JSONObject,\n    active: java.util.concurrent.atomic.AtomicBoolean,\n    started:')
+s=s.replace('dialedCityId, installation, started,','dialedCityId, installation, active, started,')
+s=s.replace('    if (System.currentTimeMillis() - started', '    if(!active.get())return\n    if (System.currentTimeMillis() - started')
+s=s.replace('connection.forward("/api/v0/join/status", JSONObject().put("requestId", requestId).put("claim", claim)) { status ->','connection.forward("/api/v0/join/status", JSONObject().put("requestId", requestId).put("claim", claim)) { status ->\n      if(!active.get())return@forward')
+s=s.replace('connection.forward("/api/v0/join/request", ask) { asked ->','connection.forward("/api/v0/join/request", ask) { asked ->\n      if(!active.get())return@forward')
+s=s.replace('connection.forward("/api/v0/join/info", JSONObject()) { info ->','connection.forward("/api/v0/join/info", JSONObject()) { info ->\n          if(!active.get())return@forward')
+# Correct obsolete network claims in source documentation as well as UI.
+s=s.replace('A City behind NAT cannot be dialled, and neither can the device. The one direction that\n * works is OUTBOUND: this app opens a socket to the City and keeps it.', 'The device opens an outbound socket to a reachable City and keeps it.\n * A private City behind unreachable NAT still needs a public forwarding endpoint.')
+p.write_text(s,encoding='utf-8')
+p=Path('apps/android/app/src/main/java/city/utopia/control/PairingPanel.kt');s=p.read_text(encoding='utf-8')
+s=s.replace(' val api=remember', ' val relayHandle=remember { arrayOfNulls<java.io.Closeable>(1) }\n val api=remember',1)
+s=s.replace('   RelayPairing.joinViaApproval(', '   relayHandle[0]?.close()\n   relayHandle[0]=RelayPairing.joinViaApproval(')
+s=s.replace('onDispose { lifecycle.removeObserver(observer);','onDispose { relayHandle[0]?.close(); lifecycle.removeObserver(observer);')
+s=s.replace('},singleLine=true,placeholder={Text(host.ifBlank', '},enabled=!busy,singleLine=true,placeholder={Text(host.ifBlank')
+s=s.replace('which is the only direction that works when both ends are behind NAT.','which requires a reachable City endpoint.')
+p.write_text(s,encoding='utf-8')

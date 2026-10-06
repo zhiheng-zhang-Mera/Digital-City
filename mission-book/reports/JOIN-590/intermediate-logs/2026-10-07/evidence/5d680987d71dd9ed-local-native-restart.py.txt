@@ -1,0 +1,15 @@
+import subprocess,pathlib,xml.etree.ElementTree as E,json,datetime,urllib.request,time
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T'];R=pathlib.Path('.runtime/evidence/JOIN590-device');pkg='city.utopia.control.join590review'
+def adb(*x):return subprocess.check_output(A+list(x),stderr=subprocess.DEVNULL)
+def prefs():return {n.get('name'):n.text for n in E.fromstring(adb('exec-out','run-as',pkg,'cat','shared_prefs/city-connection.xml'))}
+before=prefs();assert before['token'].startswith('sess:') and before['host']=='http://172.31.3.110:4391'
+(R/'private-local-member-before.json').write_text(json.dumps(before))
+(R/'local-native-joined.json').write_bytes((R/'round2-saved-connection.json').read_bytes());(R/'local-native-joined-ui.xml').write_bytes((R/'round2-final-ui.xml').read_bytes())
+adb('shell','am','force-stop',pkg);adb('shell','am','start','-n',pkg+'/city.utopia.control.MainActivity')
+for attempt in range(15):
+ time.sleep(2);after=prefs()
+ if after.get('token')!=before['token'] and after.get('token','').startswith('sess:'):break
+q=urllib.request.Request(after['host']+'/api/v0/city',headers={'Authorization':"[REDACTED]"+after['token'],'X-City-Api-Version':'0','X-City-Schema-Version':'0'})
+with urllib.request.urlopen(q,timeout=5) as response:city=json.load(response);status=response.status
+proof={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'scope':'physical Android process restart against patched Alien','cityId':city['cityId'],'memberSession':after.get('token','').startswith('sess:'),'sessionChanged':after.get('token')!=before['token'],'sameInstallation':after.get('installationId')==before['installationId'],'sameDurableCredential':after.get('credentialId')==before['credentialId'] and after.get('credentialSecret')==before['credentialSecret'],'cityStatus':status,'credentialInputRequired':False}
+(R/'local-native-restart.json').write_text(json.dumps(proof,indent=2));print(json.dumps(proof))

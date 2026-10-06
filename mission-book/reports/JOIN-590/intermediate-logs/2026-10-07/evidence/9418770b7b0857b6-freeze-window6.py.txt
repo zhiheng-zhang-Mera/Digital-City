@@ -1,0 +1,8 @@
+from pathlib import Path
+import json,hashlib,datetime,shutil
+src=Path('.runtime/evidence/JOIN590-device');dst=Path('evidence/raw/mission-book/JOIN590-repair/window6');dst.mkdir(parents=True,exist_ok=True)
+names=['local-native-code-entry.json','local-native-joined.json','local-native-joined-ui.xml','local-native-restart.json','local-native-revocation.json','round6-request.xml','round6-native-joined.json','round6-native-joined-ui.xml','round6-native-restart.json','round6-native-task.xml','round6-web-task-proof.json','round6-web-task.png','windows-native-joined.json','windows-native-restart.json','windows-native-revoke.json','windows-native-refused-restart.json']
+for name in names:shutil.copyfile(src/name,dst/name)
+receipt={'at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'author':'Alien-codex','softwareSourceSha':'ec3b6f996240ca71505b3b67af12cc222d1b283a','previousEvidenceHead':'41e8743d7c49771bcc335add2ee722f73085869e','previousEvidenceCi':{'run':37301659943,'conclusion':'success'},'androidAppId':'city.utopia.control.join590review','apkSha256':'970839d29a3066e01ecee8aab3040f9dc2ac81959727b144ab0694dd3d183800','mechRuntimeSourceSha':None,'mechUpdateOperatorReported':True,'observedMechCanonicalCity':'031fdba6-e94c-4298-a095-6ff04a65481d','phoneRequestShortRef':'join-0751220e8f','windowsRequestId':'a8c47038-1114-421e-a6fa-148d657b65c8','mergedMainPhysicalAcceptance':'NOT_RUN','mechCityProcessRestart':'NOT_RUN','oppositeHostRepairReview':'NOT_RUN','files':[{'path':n,'sha256':hashlib.sha256((dst/n).read_bytes()).hexdigest()} for n in names]}
+(dst/'receipt.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
+print(json.dumps({'files':len(names),'software':receipt['softwareSourceSha'],'privateFilesIncluded':False}))
