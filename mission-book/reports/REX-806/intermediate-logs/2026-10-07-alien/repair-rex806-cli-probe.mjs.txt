@@ -1,0 +1,19 @@
+import {createServer} from 'node:http';
+import {spawn} from 'node:child_process';
+import {mkdirSync,writeFileSync,readFileSync,existsSync} from 'node:fs';
+import {resolve} from 'node:path';
+const mode=process.argv[2]||'healthy';
+const output=resolve('.runtime/cli-probe-'+mode);mkdirSync(output,{recursive:true});
+const config=resolve(output,'fixture-config.json');writeFileSync(config,JSON.stringify({token:'synthetic-review-fixture'}));
+const campaign={campaignId:'campaign-review',scenarioId:'WAIT',state:'COMPLETED',totalRuns:1,repetitions:1,warmup:0,context:{manifest:{workers:['fixture-worker']}},runs:[{index:0,state:'MEASURED',measured:true,warmup:false,result:{taskRef:'Q-fixture',state:'COMPLETED',assignedNodeId:'fixture-worker'}}],summary:{planned:1,accounted:1,measured:1,failed:0,timedOut:0,warmup:0}};
+const city={cityId:'synthetic-review-city',status:'ONLINE',nodes:[{id:'fixture-worker',online:true}],members:[{deviceId:'fixture-member',nodeId:'fixture-worker',installationId:'fixture-installation'}],tasks:[{id:'Q-fixture',state:'COMPLETED',researchRunRef:'campaign-review:0',createdAt:'2026-10-07T00:00:00.000Z',updatedAt:'2026-10-07T00:00:01.000Z'}],events:[]};
+const requests=[];
+const server=createServer((req,res)=>{requests.push(req.url);let body;
+ if(req.url==='/api/v0/city')body=city;
+ else if(req.url==='/api/v0/research/campaigns')body={receipts:mode==='empty'?[]:[{campaignId:'campaign-review'},...(mode==='corrupt'?[{file:'campaign-broken.json',state:'UNREADABLE',reason:'RECEIPT_UNREADABLE'}]:[])],experiments:[],live:mode==='missing'?{campaignId:'campaign-lost',state:'COMPLETED'}:null};
+ else if(req.url==='/api/v0/research/campaigns/campaign-review')body={campaign};
+ else if(req.url==='/api/v0/research/trace')body={trace:{records:[]}};
+ else{res.writeHead(404);res.end(JSON.stringify({error:'FIXTURE_NOT_FOUND'}));return;}
+ res.setHeader('Content-Type','application/json');res.end(JSON.stringify(body));});
+await new Promise(r=>server.listen(0,'127.0.0.1',r));
+try{const child=spawn(process.execPath,['scripts/export-research-artifact.mjs','--city','http://127.0.0.1:'+server.address().port,'--config',config,'--out',resolve(output,'artifact')]);let stdout='',stderr='';child.stdout.on('data',b=>stdout+=b);child.stderr.on('data',b=>stderr+=b);const code=await new Promise((r,j)=>{child.on('error',j);child.on('close',r)});const topology=existsSync(resolve(output,'artifact/topology.json'))?JSON.parse(readFileSync(resolve(output,'artifact/topology.json'))):null;const result={mode,fixtureOnly:true,code,stdout,stderr,requests,expectedMemberIds:['fixture-member'],actualMemberIds:topology?.members??null};writeFileSync(resolve('.runtime','rex806-cli-'+mode+'.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));}finally{await new Promise(r=>server.close(r));}

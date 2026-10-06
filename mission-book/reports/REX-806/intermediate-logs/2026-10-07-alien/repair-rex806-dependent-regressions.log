@@ -1,0 +1,15 @@
+✔ REX803 campaigns: every repetition is a real canonical task, and the receipt accounts for all of them (412.1975ms)
+✔ REX803 campaigns: the surface is owner-only, and every refusal is typed (258.7958ms)
+✔ REX803 campaigns: the topology gate is measured against live refs, and its refusal states what was missing (103.474ms)
+✔ REX803 campaigns: stopping cancels the canonical task the run had already created (206.0949ms)
+✔ REX805 real canonical original/replay/ablation preserve selected seed and change target policy only (644.9976ms)
+✔ REX805 replay API is Owner-only and lists truthful bounded mechanism support (91.7133ms)
+✔ REX805 an unbounded HTTP campaign remains comparable after runner normalizes absent limits (356.1014ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3110.5715

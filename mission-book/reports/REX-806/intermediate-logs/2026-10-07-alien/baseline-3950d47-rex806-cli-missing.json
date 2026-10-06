@@ -1,0 +1,17 @@
+{
+  "mode": "missing",
+  "fixtureOnly": true,
+  "code": 0,
+  "stdout": "artifact    artifact-synthetic-review-city-1-campaigns\ncity        synthetic-review-city  campaigns=1  runs=1  measured=1\nmetrics     reported=4  notMeasured=23  of 27 named\n  completion_time_ms = 1000 (G1, n=1)\n  failure_rate = 0 (G1, n=1)\n  duplicate_execution_count = 0 (G1, n=1)\n  convergence_missing_event_count = 0 (G2, n=1)\nfailures    unmeasured runs=0  warmup runs=0  campaign outcomes=0 (warmups are NOT failures)\naccounting  planned=1 accounted=1 measured=1 undelivered=0\nexclusions  3\nwritten     D:\\Utopia-tree\\REX-801-890\\Utopia-REX806-Alien-Review-20261007\\.runtime\\cli-probe-missing\\artifact (11 files, checksums.json included)\n",
+  "stderr": "",
+  "requests": [
+    "/api/v0/city",
+    "/api/v0/research/campaigns",
+    "/api/v0/research/campaigns/campaign-review",
+    "/api/v0/research/trace"
+  ],
+  "expectedMemberIds": [
+    "fixture-member"
+  ],
+  "actualMemberIds": []
+}

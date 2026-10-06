@@ -1,0 +1,15 @@
+{
+  "mode": "empty",
+  "fixtureOnly": true,
+  "code": 1,
+  "stdout": "",
+  "stderr": "no campaign receipt is readable from this City; an artifact with no real source is not worth exporting\n",
+  "requests": [
+    "/api/v0/city",
+    "/api/v0/research/campaigns"
+  ],
+  "expectedMemberIds": [
+    "fixture-member"
+  ],
+  "actualMemberIds": null
+}

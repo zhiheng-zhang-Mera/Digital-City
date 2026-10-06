@@ -1,0 +1,16 @@
+PASS  every section the workbook names is present  [11 sections]
+PASS  checksums cover the bytes on disk  [10 files]
+PASS  metrics.csv has the documented header  [metric,scope,value,reason,n,provenance]
+PASS  the CSV reports exactly the catalogue of named metrics  [27 rows vs 27 named]
+PASS  every NOT_MEASURED row carries a real reason  [23 unavailable]
+PASS  every measured row carries provenance  [all measured rows]
+PASS  completion_time_ms recomputes from the dataset  [recomputed 6595 at n=22, package says 6595 at n=22]
+PASS  failure_rate recomputes from the accounting  [recomputed 0 at n=24, package says 0 at n=24]
+PASS  duplicate_execution_count recomputes from the run references  [recomputed 0 over 24 references, package says 0]
+PASS  convergence_missing_event_count recomputes from the dataset  [recomputed 0, package says 0]
+PASS  every placement verdict agrees with its own expected node  [24 rows]
+PASS  the seed-only deviation appears exactly on the ablation rows  [4 ablation rows, 2 rows where the seed and the policy disagree]
+PASS  planned = accounted + undelivered is stated, not implied  [planned=32 accounted=24 undelivered=8 from 2 campaign(s)]
+PASS  an unobserved intervention window is NOT_MEASURED rather than 0  [value=NOT_MEASURED]
+
+14/14 independent checks pass on D:/Utopia-tree/REX-801-890/Digital-City-REX806-Alien-Review-20261007/mission-book/reports/REX-806/artifact
