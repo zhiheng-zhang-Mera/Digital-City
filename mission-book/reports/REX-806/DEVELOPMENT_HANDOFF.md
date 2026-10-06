@@ -80,6 +80,7 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 **另外两处容易读成不一致的地方，先写在这里**（都是定义问题，不是缺陷）： / Two more easy misreadings, both definitional:
 1. `manifest.supporting.campaigns = 18`，而 dataset 里只有 **16** 个不同的 `campaignId`——另外 2 个是被拒（`TOPOLOGY_NOT_READY`）而**一个 run 都没交付**的 campaign，它们出现在 accounting 与 `failures.json` 里，**不应**出现在 dataset 里（工具已断言这一点）。
 2. `manifest.supporting.replays = 11`，而 dataset 里 `replayMode=REPLAY` 的行只有 **7** 行——11 = 7 个 REPLAY + **4 个 ABLATION**（消融本身也是重放）；普通 campaign run 的 `replayMode` 为 `null`。
+3. `rawPointers.canonicalTasks` 有 **26** 条，而 dataset 只引用 **24** 个不同 `taskRef`——该列表是**导出时刻城市的整份任务表**（权威计数是工作书的 `runCount`/`measuredRuns`），多出的 2 条是更早的 `CHECKPOINT_DEMO` 任务、与任何 campaign 无关（`POINTERS_RECOMPUTE_CITY_MECH.py` 会逐条点名它们）。另外指针前缀按存储区分：`trace:`、`task:`、`event:`、`receipt:`。
 
 ## 本机明确不主张的 / Explicitly not claimed
 
