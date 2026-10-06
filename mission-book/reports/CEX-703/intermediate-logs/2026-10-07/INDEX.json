@@ -685,6 +685,42 @@
       "redaction_count": 0,
       "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
       "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "CEX-703",
+      "round_label": ".runtime/evidence/mission-book/CEX-703/native-catalog-fixture.mjs",
+      "source": "D:/Utopia-CEX703/.runtime/evidence/mission-book/CEX-703/native-catalog-fixture.mjs",
+      "source_worktree": "D:/Utopia-CEX703",
+      "source_branch": "refs/heads/cex/CEX-703-Alien-codex-capability-catalog",
+      "worktree_head_at_capture": "478d486096512eea3266350efe070323a232a120",
+      "historical_run_head": null,
+      "original_bytes": 1622,
+      "original_sha256": "9c4a447dc3fb829b5b3ad8cccfb219ba7e8e0dad58cadefdfec2ccf4c404daaf",
+      "published_bytes": 1589,
+      "published_sha256": "085a60fd8693dc80ac26834300e00676c3fb9e0dcf3308e327391f845b639935",
+      "published_path": "mission-book/reports/CEX-703/intermediate-logs/2026-10-07/evidence/085a60fd8693dc80-native-catalog-fixture.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 3,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "CEX-703",
+      "round_label": ".runtime/evidence/mission-book/CEX-703/terminal-candidate.js",
+      "source": "D:/Utopia-CEX703/.runtime/evidence/mission-book/CEX-703/terminal-candidate.js",
+      "source_worktree": "D:/Utopia-CEX703",
+      "source_branch": "refs/heads/cex/CEX-703-Alien-codex-capability-catalog",
+      "worktree_head_at_capture": "478d486096512eea3266350efe070323a232a120",
+      "historical_run_head": null,
+      "original_bytes": 31662,
+      "original_sha256": "df9902821c35d55118712dcfb2e05494d8931964ce1a366b0f2c1c175a7ebc5d",
+      "published_bytes": 31662,
+      "published_sha256": "df9902821c35d55118712dcfb2e05494d8931964ce1a366b0f2c1c175a7ebc5d",
+      "published_path": "mission-book/reports/CEX-703/intermediate-logs/2026-10-07/evidence/df9902821c35d551-terminal-candidate.js.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
     }
   ]
 }
