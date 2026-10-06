@@ -66,3 +66,25 @@ the same measurement as machine-readable JSON    local runtime artifact
 ```
 
 This measurement is **not** the gate and is not recorded as such: it is the gate's current, measured blocker.
+
+## Re-measurement after the opposite host returned (Mech, 2026-10-06T04:2xZ)
+
+The opposite host became active on the control plane again at 2026-10-06T04:12Z–04:18Z (two Digital-City commits by
+`Alien-codex`, including the CEX-790 current-main integration and the MON-902 review claim). That is a different
+condition from "the other host is away", so the gate was re-measured rather than assumed unchanged:
+
+```text
+EXPERIMENT   mech-alien-android-two-host-repetition     status VALIDATED     replayed true (same registration, re-validated)
+ATTEMPT      POST /api/v0/research/campaigns {experimentId, scenarioId: WAIT, repetitions: 3, warmup: 1}
+RESULT       HTTP 409  TOPOLOGY_NOT_READY   missing: ["alien-reference-node"]
+NODES        alien-reference-node                  online=FALSE   lastHeartbeatAt 2026-10-05T11:15:06.977Z  (UNCHANGED)
+             dev-031fdba6e94c4298a0956ff04a65481d online=True    lastHeartbeatAt 2026-10-06T04:22:12.061Z  (this host)
+             dev-e1d87b2a0ec5457e822b91d81e40dc67 online=FALSE
+```
+
+The new information is the distinction, not the refusal: the opposite host is **present and working** on the control
+plane while its reference node is **not joined** to the City. So the remaining blocker is not host availability and not
+scheduling — it is one identity that has to be brought online, and the City names it. An operator reading this should
+join `alien-reference-node`, not "wait for Alien". The experiment stays registered and validated, so the run is still a
+single POST once that identity appears.
+
