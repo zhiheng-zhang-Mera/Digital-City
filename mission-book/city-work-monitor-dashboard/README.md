@@ -239,7 +239,7 @@ DASHBOARD_BECOMES_SECOND_TASK_TRUTH
 | ID | 工作 | 状态 |
 |---|---|---|
 | [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | COMPLETE |
-| [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | IN_PROGRESS |
+| [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | COMPLETE（reviewer 已在对侧修复 head 上验收，marker MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED） |
 | [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | IN_PROGRESS (development complete, review pending) |
 | [MON-990](./MON-990-cross-device-monitor-acceptance-and-freeze.md) | Cross-device acceptance + reality reconciliation + freeze | WAITING_MON_902_903 |
 
@@ -254,11 +254,13 @@ REVIEW        Alien（对侧物理主机）已执行，判定为**返修**：独
               review 报告：reports/MON-902/INDEPENDENT_REVIEW_Alien.md
               作者接受与教训：reports/MON-902/AUTHOR_ACCEPTANCE_OF_REVIEW.md
 REPAIR        review/MON-902-Alien-20261006 @ f4988248a3316806fc2e3fa9e62864ed129fe7b3，PR #34，MERGEABLE
-              review_status = REPAIRED_AWAITING_EXACT_HEAD_CI（workbook 原值）
-              三个 exact-head run 已全部 terminal SUCCESS attempt 1（push 37414577586、PR 37414583160、
-              linkage 37414583135，逐次 API 读出并比对 headSha）——但**验收与 marker 仍属 reviewer 决定**，
-              作者不代为宣布通过
-MERGE         merge_authority false，本机未合并
+ACCEPTANCE    reviewer 已在其自己的修复 head 上完成验收：workbook status = COMPLETE，review_complete = true，
+              review_status = ACCEPTED_EXACT_HEAD_WITH_DOCUMENTED_SURFACE_STRATEGY，
+              terminal marker = MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED；CAP-MON-002 已推进到 FORMAL_REVIEW_RECONCILED
+              三个 exact-head run 均为 terminal SUCCESS attempt 1（push 37414577586、PR 37414583160、linkage
+              37414583135）——作者与 reviewer 各自独立逐次 API 读出，结论一致
+STILL OPEN    Android 原生与真机跨设备验收 NOT_RUN，按声明策略归 MON-990；该 marker 是任务级验收，不是 programme freeze
+MERGE         merge_authority false，本机未合并；验收决定由 reviewer 作出，作者不参与
 ```
 
 值得入库的失败形状（作者自评）：MON-902 的任务主题就是「不要把不安全的画面显示成安全」，而作者自己的 projection 里有三条

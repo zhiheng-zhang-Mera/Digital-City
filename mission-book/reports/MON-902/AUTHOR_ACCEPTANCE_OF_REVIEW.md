@@ -82,16 +82,35 @@ The author records the measured result and **does not** convert it into acceptan
 `review_complete`, and releasing any marker are the reviewer's decisions on their own head, and PR #34's `mergeStateStatus`
 was `UNSTABLE` only because those checks were still in flight.
 
+## 5. Closing note: the reviewer accepted, on their own head
 
-## 5. Author's state
+The reviewer has since completed the acceptance. The author records it as fact and changes nothing about the findings:
 
 ```text
-MON-902 CLOSED?           no. review_complete is false; acceptance and the marker are the reviewer's decision on their
-                          own head f4988248, whose three exact-head runs are now terminal SUCCESS (see the addendum)
+VERDICT      PASS at the MON-902 task-stage surface strategy (independent review, on the reviewer's repaired head)
+WORKBOOK     status COMPLETE; review_complete true; review_status ACCEPTED_EXACT_HEAD_WITH_DOCUMENTED_SURFACE_STRATEGY
+             terminal_marker MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED; merge_authority false
+REGISTRY     CAP-MON-002 reconciliation moved to FORMAL_REVIEW_RECONCILED
+REVIEW DOC   reports/MON-902/REVIEW_REPORT.md (canonical entrypoint) + INDEPENDENT_REVIEW_Alien.md
+STILL OPEN   Android native and physical cross-device acceptance, NOT_RUN and deferred to MON-990
+             the marker is a task-stage acceptance, NOT the programme freeze
+```
+
+Two independent hosts read the same three exact-head runs and agree they are terminal SUCCESS
+(`37414577586` / `37414583160` / `37414583135`); this document's addendum and the reviewer's `review_ci` field were
+produced separately and match. That agreement is the least interesting part of the review — the seven accepted defects
+are the substance.
+
+
+## 6. Author's state
+
+```text
+MON-902 CLOSED?           yes, by the reviewer: COMPLETE with MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED on f4988248, a head
+                          the author did not write. The author's side of the record ends here.
 WHAT THE AUTHOR OWNS NOW  nothing further in code: the reviewer's repair is the review head and the author does not
                           re-review it. The author's remaining obligation is this record and the lessons below.
 NOT DONE BY THE AUTHOR    no merge (merge_authority false), no push to the review branch, no edit of the reviewer's
-                          report, and no claim that MON-902 is accepted
+                          report, and no participation in the acceptance decision
 ```
 
 Lessons carried forward, in the form the next task can use:
