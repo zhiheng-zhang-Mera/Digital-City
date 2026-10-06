@@ -19,13 +19,13 @@
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 > 已完成 programme 不在主任务栏重复展示；统一收纳于 [finished/README.md](./finished/README.md)，但仍计入全城合计和 `MISSION_PROGRESS.json`。
 
-**全城合计：总任务 83/93 · 开发 87/93 · 复检 83/93**  
-**当前未收口项目池：总任务 13/23 · 开发 17/23 · 复检 13/23**
+**全城合计：总任务 84/93 · 开发 87/93 · 复检 84/93**  
+**当前未收口项目池：总任务 14/23 · 开发 17/23 · 复检 14/23**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **4/8** | **2/8** | IN_PROGRESS |
-| [City Work Monitor](./city-work-monitor-dashboard/README.md) | **1/4** | **3/4** | **1/4** | IN_PROGRESS |
+| [City Work Monitor](./city-work-monitor-dashboard/README.md) | **2/4** | **3/4** | **2/4** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
 机器可读镜像：[MISSION_PROGRESS.json](./MISSION_PROGRESS.json)。
@@ -81,7 +81,6 @@
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
-| [MON-902](./city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md) | City Work Monitor | IN_PROGRESS | ✅ | — |
 | [MON-903](./city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md) | City Work Monitor | IN_PROGRESS | ✅ | — |
 | [MON-990](./city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md) | City Work Monitor | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |

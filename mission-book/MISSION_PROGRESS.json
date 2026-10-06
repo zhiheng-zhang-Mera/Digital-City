@@ -5,11 +5,11 @@
       "total": 23
     },
     "review": {
-      "complete": 13,
+      "complete": 14,
       "total": 23
     },
     "tasks": {
-      "complete": 13,
+      "complete": 14,
       "total": 23
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 83,
+      "complete": 84,
       "total": 93
     },
     "tasks": {
-      "complete": 83,
+      "complete": 84,
       "total": 93
     }
   },
@@ -996,9 +996,9 @@
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
-      "review_complete": 1,
+      "review_complete": 2,
       "status": "IN_PROGRESS",
-      "task_complete": 1,
+      "task_complete": 2,
       "tasks": [
         {
           "complete": true,
@@ -1010,13 +1010,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-902",
           "path": "city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,

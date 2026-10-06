@@ -3,7 +3,7 @@ workbook_id: MON-902
 phase: CITY_WORK_MONITOR
 sequence: 2
 execution_enabled: true
-status: IN_PROGRESS
+status: "COMPLETE"
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -20,8 +20,8 @@ development_ci: "\"TERMINAL CI ON THE REVIEW TARGET 3a88e23f91924576178973ef46c6
 development_complete: true
 review_host: "Alien"
 review_head_sha: "f4988248a3316806fc2e3fa9e62864ed129fe7b3"
-review_ci: "PENDING exact-head push 37414577586 / PR 37414583160 / linkage 37414583135"
-review_complete: false
+review_ci: "Exact f4988248a3316806fc2e3fa9e62864ed129fe7b3: push 37414577586 COMPLETED SUCCESS; PR 37414583160 COMPLETED SUCCESS; linkage 37414583135 COMPLETED SUCCESS, independently read via Actions API; PR34 CLEAN / MERGEABLE; remote feature tip equals local, clean worktree."
+review_complete: true
 integration_note: "LATEST-MAIN INTEGRATION PERFORMED on this head (3a88e23f91924576178973ef46c620b20ffa2aaf): origin/main 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef was merged in (a merge commit, so the earlier evidence head fd70d008 keeps its recorded CI), and the five conflicting files were resolved as UNIONS - apps/web/index.html (MON-902's City monitor button kept beside every other programme's nav entry), apps/web/i18n/en.js and zh-CN.js (MON-902's 89 monitor keys kept alongside main's key blocks; 527 keys in both packs, zero duplicate keys, zero parity gap), apps/web/app.js (monitor import, state, loadMonitor/renderMonitor, the Monitor page dispatch, the go() reset and the three monitor click handlers re-applied onto main's wiring) and services/dev-gateway/server.mjs (the monitor-graph import and route re-applied). The two lockfiles merged automatically. VERIFICATION after the union: 62 tests pass across MON-902's own suites plus MON-901, REX-801, REX-802 and WBC-604 route/failsafe suites; the browser suite 2/2; and a surface-preservation check confirming all twelve nav pages (including Monitor, Research and ResearchTrace) plus the monitor, research-experiment, execution-profile and trace routes are present. The branch diff against main is now exactly MON-902's work (13 files, +1220/-3), so the reviewer reads MON-902 and nothing else."
 previous_heads: "6bb19f3e842774eff98cccf30fb01a8784953f22 (push 37290149947 success); 5460697cfde5d807f022698a0411b040634a458b (PR 37290746745 success + linkage 37290746628 success, PUSH 37290743026 FAILURE - see development_ci); fd70d00837a8309db718ee56fab7738a8b947530 (flake repair; push 37403423102 SUCCESS)"
 user_exposure_class: OBSERVABLE_ADVANCED
@@ -32,7 +32,7 @@ ui_exemption_reason: null
 capability_ids: ["CAP-MON-002"]
 capability_registry_action: CREATE
 capability_registry_refs: ["capability-registry/records/CAP-MON-002.yaml"]
-capability_registry_sync_status: CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW
+capability_registry_sync_status: "FORMAL_REVIEW_RECONCILED"
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md"]
@@ -50,8 +50,10 @@ merge_authority: false
 report_path: mission-book/reports/MON-902
 dependency_source_workbooks: ["MON-901"]
 review_branch: "review/MON-902-Alien-20261006"
-review_status: "REPAIRED_AWAITING_EXACT_HEAD_CI"
+review_status: "ACCEPTED_EXACT_HEAD_WITH_DOCUMENTED_SURFACE_STRATEGY"
 review_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/34"
+terminal_marker: "MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED"
+review_report: "mission-book/reports/MON-902/INDEPENDENT_REVIEW_Alien.md"
 ---
 
 # MON-902 — Overview Graph + Node / Path Inspector

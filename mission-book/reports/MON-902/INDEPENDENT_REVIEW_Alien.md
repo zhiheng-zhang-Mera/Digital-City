@@ -22,3 +22,7 @@ Product evidence: `evidence/raw/mission-book/MON-902/alien-review/` contains ori
 Hosted final-head CI is PENDING at publication: push 37414577586, PR 37414583160, linkage 37414583135. Formal acceptance is withheld until terminal exact-head results are read. Full local broad run was started before final source edits and is provisional, never exact-head CI evidence.
 
 Surface scope: desktop Web verified. Android native monitor and physical cross-device acceptance NOT_RUN, deliberately deferred by the author strategy to MON-903/MON-990. Model/provider/review metadata absent from canonical MON-901 remains NOT_OBSERVABLE. Owner-required metadata is bounded to canonical task observations; no Mission Book gates are invented. Registry reconciliation and final acceptance pending CI. No main merge authorized/performed.
+
+## Final exact-head gate (Alien measured, 2026-10-06)
+
+Accepted MON-902 review head: `f4988248a3316806fc2e3fa9e62864ed129fe7b3`. Actions push 37414577586, PR 37414583160 and linkage 37414583135 all COMPLETED SUCCESS. PR34 is CLEAN/MERGEABLE. Local HEAD = remote feature tip; worktree clean. Registry reconciled at this exact head. The provisional broad local run completed 1387/1387 PASS but began before the final cache edit; hosted final-head results are the acceptance authority. Android native/physical cross-device NOT_RUN remains MON-990 scope. Stage terminal marker: `MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED`; this is not programme-wide freeze or a main merge.

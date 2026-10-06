@@ -9,8 +9,12 @@
     "programme": "CITY_WORK_MONITOR",
     "canonical_module": "services/dev-gateway/monitor-graph.mjs + apps/web/monitor-graph.js"
   },
-  "source_workbooks": ["MON-902"],
-  "dependencies": ["CAP-MON-001"],
+  "source_workbooks": [
+    "MON-902"
+  ],
+  "dependencies": [
+    "CAP-MON-001"
+  ],
   "implementation": {
     "repo": "zhiheng-zhang-Mera/utopia",
     "paths": [
@@ -23,11 +27,20 @@
       "apps/web/i18n/zh-CN.js",
       "docs/CITY_WORK_MONITOR_GRAPH.md"
     ],
-    "symbols": ["buildGraph", "RISK_LEVELS", "monitorOverview", "monitorNodePanel", "monitorPathPanel", "monitorTechnical", "blindSpots", "scopeCaveats"],
+    "symbols": [
+      "buildGraph",
+      "RISK_LEVELS",
+      "monitorOverview",
+      "monitorNodePanel",
+      "monitorPathPanel",
+      "monitorTechnical",
+      "blindSpots",
+      "scopeCaveats"
+    ],
     "api_or_actions": [
       "GET /api/v0/monitor/graph?edges=&collapse="
     ],
-    "last_verified_full_sha": "5460697cfde5d807f022698a0411b040634a458b"
+    "last_verified_full_sha": "f4988248a3316806fc2e3fa9e62864ed129fe7b3"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -45,7 +58,13 @@
       "what the monitor never covers by design (Mission Book Owner gates and escalations are outside MON-901)",
       "for every claim, the reason and the canonical evidence reference"
     ],
-    "user_controls": [],
+    "user_controls": [
+      "read-only expand/collapse",
+      "semantic path filter",
+      "node/path inspection",
+      "exact canonical evidence disclosure",
+      "refresh"
+    ],
     "intentionally_hidden_information": [
       "raw risk codes, state tokens, completeness numbers and the reflow key - hidden behind one explicit Technical details disclosure, not removed",
       "the owner credential"
@@ -65,23 +84,27 @@
     "backend_wiring_refs": [
       "utopia:tests/mon902-monitor-panel.test.mjs (creates a real canonical task, reads the real route, renders that payload)",
       "utopia:tests/web.test.mjs (real browser: navigation reaches the page, a row opens the inspector)",
-      "utopia:evidence/raw/mission-book/MON-902/development-receipt.json"
+      "utopia:evidence/raw/mission-book/MON-902/development-receipt.json",
+      "utopia:tests/mon902-alien-review.test.mjs (eleven independent probes, real task/path/event evidence in three interactions)"
     ],
     "reachability_refs": [
       "utopia:tests/mon902-monitor-panel.test.mjs (shell exposes data-page=Monitor and app.js reads monitor/graph)",
-      "utopia:tests/web.test.mjs (the page is reached from the primary navigation in Chromium)"
+      "utopia:tests/web.test.mjs (the page is reached from the primary navigation in Chromium)",
+      "utopia:evidence/raw/mission-book/MON-902/alien-review/runtime-capture.json"
     ],
     "intent_validation_refs": [],
     "implementation_refs": [
-      "https://github.com/zhiheng-zhang-Mera/utopia/pull/27"
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/27",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/34"
     ]
   },
   "research_observations": {
     "hidden_capability_detected": false,
-    "rework_required": false,
-    "registry_reconciliation_result": "CREATED_BY_DEVELOPMENT",
+    "rework_required": true,
+    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
     "paper_material_refs": [
-      "mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/MON-902/INDEPENDENT_REVIEW_Alien.md"
     ]
   },
   "known_gaps": [
