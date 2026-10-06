@@ -912,7 +912,7 @@
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
       "review_complete": 5,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 5,
       "tasks": [
         {
@@ -967,7 +967,7 @@
           "id": "REX-806",
           "path": "research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
           "review_complete": false,
-          "status": "READY"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
