@@ -80,7 +80,7 @@
 | [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | COMPLETE | — | — |
 | [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | COMPLETE | ✅ | — |
 | [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | IN_PROGRESS | — | — |
-| [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | READY | — | — |
+| [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | IN_PROGRESS | — | — |
 | [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
