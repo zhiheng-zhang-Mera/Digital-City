@@ -1,0 +1,9 @@
+✔ JOIN-502 surface: a refused browse still offers the fallbacks, and a rejected ask leaves the device untrusted (5638.8981ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6978.8149
