@@ -65,7 +65,31 @@ REX-806      rex/REX-806-mech-metrics-and-export @ 3950d47（开发完成）
 ```text
 1  MON 合并窗口是否开启（整条系列，代价已测清：一次合并、一处并集、零删除）
 2  REX 合并窗口是否开启（须先等 REX-805 被验收；三家并集已预备好）
-3  两处待采纳的修复提案：REX-804 证据写入修复、relay 限流探针修复
+3  待采纳的修复提案（下表的「当前位置」为本机 2026-10-06 按**内容**逐一实测，不是按 sha 祖先关系推断）
+```
+
+### 待采纳修复的真实位置 / Where the pending repairs actually stand (verified by content, 2026-10-06)
+
+```text
+已采纳  store-guard 家族两例（research registry、capability-bridge 主题产物）
+        main 的 CEX-790 集成提交 65f86f9 按内容实现了本机那套模式（构造期降级 + storeState/storeReason + 守卫测试），
+        因此**按 sha 查祖先会查不到**。复测证据见 reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md
+
+可立即采纳  repair/mech-relay-rate-probe-burst @ 14499ad
+        parent = b06504f（current main）⇒ **恰好一个提交叠在 main 上**，采纳即 fast-forward
+        改动仅 tests/relay-s1-tunnel.test.mjs：把「顺序 30 次请求」换成「30 次并发写满管道」，并把 429 断言里
+        带上实测发送耗时——原版在满载主机上会把限流器正常工作误报成产品缺陷（REX 集成预检时真的发生过）
+
+需随分支走  repair/REX-804-mech-test-evidence-outside-repo @ 690d723
+        parent = fe700ab（被验收但**未并入 main** 的 REX-804 头），因此该分支相对 main 有 10 个提交
+        **不能单独采纳**：本机要采纳的只有里面那一个 hunk（截图从已提交的 evidence 路径改到 .runtime/），
+        它应当随 REX-804 分支一起进入 main（而该分支先要解决 B4 的 fault store guard，修复 @ adc075e）
+
+仍开放且需先 rebase  repair/WBC-604-mech-profile-persist-first @ 1f2f08c（F-3 profile 半切换）
+        parent = 213f9f9，切在 CEX-790 集成之前，按现状采纳会删掉那次集成的测试 ⇒ 必须先 rebase
+
+仍开放且已就绪  repair/mech-city-store-diagnostic-on-current-main @ be3670b（F-1 typed 诊断）
+        parent = b06504f ⇒ 一个提交叠在 current main 上；其守卫探针在该 tip 上 3/3 通过
 ```
 
 本清单不改变任何工作书字段，也未合并任何东西。 / This inventory changes no workbook field and merges nothing.

@@ -55,6 +55,34 @@ Three items await Owner or the record holder:
 
 1. Whether to open the MON merge window for the entire series. Cost measured: one merge, one union conflict, zero deletions.
 2. Whether to open the REX merge window. REX-805 must first be accepted; the three-way union is prepared.
-3. Adoption of two repair proposals: REX-804 evidence writing and relay rate-limit probes.
+3. Adoption of the repair proposals listed below. Their "where it stands" was measured **by content** on 2026-10-06, not inferred from SHA ancestry.
+
+## Where the pending repairs actually stand
+
+```text
+ADOPTED   the two store-guard instances (research registry, capability-bridge theme artifacts)
+          main's CEX-790 integration commit 65f86f9 implements this host's own pattern by content
+          (degrade at construction + storeState/storeReason + guard tests), so an ancestry check finds nothing.
+          Re-measured evidence: reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md
+
+READY NOW repair/mech-relay-rate-probe-burst @ 14499ad
+          parent = b06504f (current main) => exactly one commit on top of main; adoption is a fast-forward.
+          Changes only tests/relay-s1-tunnel.test.mjs: the sequential 30-request loop becomes 30 concurrent writes
+          that fill the pipe, and the 429 assertion now reports the measured send span. The old shape was a
+          host-speed assertion in disguise that reported a working limiter as a product defect under load.
+
+RIDES ALONG repair/REX-804-mech-test-evidence-outside-repo @ 690d723
+          parent = fe700ab (the accepted but UNMERGED REX-804 head), so the branch is 10 commits ahead of main and
+          cannot be adopted alone. The part to adopt is its single hunk (the screenshot moves from the committed
+          evidence path to .runtime/), and it should enter main together with the REX-804 branch - which first
+          needs the B4 fault-store guard, repair @ adc075e.
+
+OPEN, REBASE FIRST repair/WBC-604-mech-profile-persist-first @ 1f2f08c (F-3 profile half-switch)
+          parent = 213f9f9, cut before the CEX-790 integration; adopting it as-is would delete that integration's
+          tests, so it must be rebased onto current main.
+
+OPEN, READY repair/mech-city-store-diagnostic-on-current-main @ be3670b (F-1 typed diagnostic)
+          parent = b06504f => one commit on top of current main; its guard probes pass 3/3 at that tip.
+```
 
 This inventory changes no workbook fields and merges nothing.
