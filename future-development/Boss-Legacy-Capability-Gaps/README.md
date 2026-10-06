@@ -564,3 +564,96 @@ PLACEMENT_DECISION          = DEFERRED
 IMPLEMENTATION              = NOT_STARTED_BY_DESIGN
 CURRENT_UTOPIA_WORK         = UNBLOCKED
 ```
+
+## English explanation / 英文逐项说明
+
+### Purpose, hold rules and recorded identity
+
+This records capabilities found missing, incompletely transferred, or worth later harvesting during the Boss → Digital-City/Utopia inventory. It is not a construction workbook, code-migration instruction or placement decision. Status remains `RECORDED_FOR_FUTURE_MAJOR_DEVELOPMENT`, review date 2026-10-02, source `zhiheng-zhang-Mera/Codex-Boss`, and placement remains deferred.
+
+Only during a future major development phase should each item be reconsidered: is it still needed; has the new architecture replaced it; should design or code be harvested; where would it belong; should it incubate in Utopia first; is implementation worthwhile or should it remain historical reference?
+
+Until a separately started initiative, do not create City buildings, assign districts, copy Boss code, create current tasks, block Utopia UI/scheduling/Remote/Assistant/General AI Gateway, or impose old architecture simply because an implementation exists. Compare better new alternatives before harvesting.
+
+### BLG-001 — Self Cognition
+
+Original capability builds a Self Model from manifests, ownership, composition root and authority rules; describes components, capabilities, dependencies/dependents, state ownership and authority; calculates dependency paths/blast radius; detects drift; and distinguishes UNKNOWN, NOT_MEASURED and UNAVAILABLE. A failed lookup does not prove absence. Recorded assessment: `MISSING_EQUIVALENT`. Utopia has constituent fabrics/authority but no observed equivalent queryable reconstruction of its own structure. Reference paths remain in the original BLG-001 section.
+
+### BLG-002 — Self Diagnosis
+
+Original capability diagnoses from Self Model plus observations, distinguishes ROOT_CAUSE/CONTRIBUTING_FACTOR/DOWNSTREAM_SYMPTOM, maintains multiple hypotheses, proposes missing evidence/diagnostic plans and non-executable treatments, and separates diagnosis from repair authority. Recorded assessment: `MISSING_EQUIVALENT`. Host Health, Restart Recovery and Public Security are not equivalent system diagnosis.
+
+### BLG-003 — Self Case Record
+
+Original capability keeps append-only timelines of symptoms, observations, hypotheses/revisions, treatment, verification and final root cause without hindsight overwriting. It links recurrence, prior evidence, lesson candidates and diagnostic-quality measures such as false-high-confidence. Assessment: `MISSING_EQUIVALENT`. Utopia construction/task evolution episodes do not replace the system's own fault case library.
+
+### BLG-004 — Runtime Intelligence Plane
+
+Original chain is OBSERVE → MEASURE → MODEL → RECOMMEND → SHADOW EVALUATE. It includes model capability ledger, skill-loadout intelligence, node profiling, scheduling advice, continuation evaluation, context/knowledge lifecycle, replay/prospective/calibration, failure-domain attribution and shadow counterfactuals. Assessment: `PARTIAL_HARVEST_ONLY`; Node/Fleet/telemetry/routing are present but not the full plane. Future questions include continue/stop/model-switch/task-split/reviewer timing, HOT/WARM/COLD/RARE/REDUNDANT skills, new-model warm starts, and shadow-only recommendations that cannot seize authority.
+
+### BLG-005 — Adaptive Provider Intelligence
+
+The original complete chain is Episode → Outcome Evaluation → Task Fingerprint → Concept Mining → Provider/Model Profile → Behaviour Epoch → Change-Point Detection → Adaptive Scoring → Routing Feedback → Policy Candidate → Historical Replay → Shadow Evaluation → Controlled Trial → Promotion → Rollback. Assessment: `PARTIAL`. Utopia has evolution inbox/verified episodes, expected-utility adaptive scoring and some provider/fleet routing. An equivalent learned-profile store, concept miner/registry, epochs, change-point detector, feedback ledger, candidate policy and full replay/shadow/trial/promotion/rollback cycle have not been observed.
+
+### BLG-006 — Self-Evolution Pipeline
+
+Original capability covers host, sandbox, candidate changes, qualification/promotion boundary, replay/shadow/controlled promotion, rollback and Root Trust/Owner authority. Assessment: `MISSING_FULL_PIPELINE`. Evolution Feed remains experience capture: experience/episode is not authority. A future decision must separately consider experience → pattern → candidate → sandbox → replay → shadow → independent verification → promotion → rollback.
+
+### BLG-007 — Generic State Core
+
+Original capability includes state database, authoritative journal, transactions, consumers/cursors, schema/namespace migration, recovery, quarantine, shadow comparison and ownership migration bookkeeping. Assessment: `MISSING_GENERIC_EQUIVALENT`. Existing Root Authority/Audit/Task/Fleet layers do not establish an observed equivalent transactional durable substrate. Reassess when multi-device/assistant/provider and offline/reconnect/failover needs expand.
+
+### BLG-008 — Personal Workspace and Artifact Backbone
+
+Original capability includes workspace registry/selection, task workspace, durable roots, artifact backbone, external-session ledger, archive/restore and workspace ownership. Assessment: `PARTIAL`. Handoff, engineering context, result artifacts and knowledge/documents do not yet establish the full user-level current workspace + recent files/text/context + task artifacts + external sessions + continuation. Reassess later.
+
+### BLG-009 — Generic Attachment Store
+
+Original `attachment.store@1` provides durable task/dialogue objects. Assessment: `MISSING_EQUIVALENT`. Document intake parses knowledge; it does not replace shared references for images, ZIP, PDF, code bundles and arbitrary attachments across Assistant/General AI/Engineering/Research.
+
+### BLG-010 — Generic Plugin Runtime
+
+Original capability includes contract, host, runner, broker, permissions, credential references, execution authorization and sandbox. Assessment: `MISSING_GENERIC_RUNTIME`. Fabric and Skill Intake mostly register/invoke known capabilities. Future Skill/Plugin stores or network extension discovery need external extension → manifest → admission → permission → credential boundary → sandbox → registration reconsidered.
+
+### BLG-011 — Credential/Secret Vault
+
+Original capability stores secrets and references, maintains GitHub credential boundaries, and prevents unauthorized capabilities from receiving secret payloads. Assessment: `PARTIAL / NO_CITYWIDE_EQUIVALENT_CONFIRMED`. Local auth/profile/session mechanisms do not confirm a unified City vault. Reassess with General AI, Engineering, remote services and plugin expansion.
+
+### BLG-012 — Full Research Conductor
+
+Beyond transferred/rebuilt protocol/review/statistics/evidence/provenance/manuscript components, Boss has literature retrieval, source store, live executor, conductor, supervisor/runtime, environment manager, run recorder, LaTeX compiler and end-to-end orchestration. Assessment: `PARTIAL`; many method components do not prove a complete autonomous research loop. A future paper pipeline should be redesigned rather than copied by default.
+
+### BLG-013 — Autonomous Environment Explorer
+
+Original design includes world models, repository/world inspection, unknown-environment exploration, high-level planning, and learning unfamiliar software above Computer Use. Assessment: `MISSING_HIGH_LEVEL_EQUIVALENT`. Execution and world verification alone are not unknown environment → observe → hypothesize → explore → model → plan → act → learn. Reassess for human-like acceptance and unfamiliar software operation.
+
+### BLG-014 — Remaining 10x Distributed Governance
+
+Many `electron/tenx/**` capabilities are superseded by Fleet/Node/Remote/Provider; wholesale migration is prohibited. Remaining candidates include task leases, generic artifact ledger, knowledge sync/conflicts, login health, historical provider learning, platform observability/audit, runtime budgets, resource control and human-guidance gates. Assessment: `PARTIALLY_SUPERSEDED / REQUIRES_FUTURE_DIFF`. Compare each old capability with actual future Utopia implementation; mark covered items superseded rather than migrate. The original sections retain exact reference paths for all items.
+
+### Exclusions, future order and review gate
+
+Explicit new successors already cover Root Authority/Trust, Audit Ledger, Task Lifecycle, basic Fleet Routing, Node/Capability Fabric, Foreman, Worker Gateway, Host Health, Restart Recovery, Knowledge Core, Document Intake/Readers, basic Computer Use, Remote Fabric, General AI Gateway, Assistant/Handoff, Theme Engine and Research evidence/protocol/review/statistics/provenance/manuscript cores. Do not list these as legacy gaps. A later regression needs its own review.
+
+Suggested future review order is A: BLG-001–006 introspection/evolution; B: BLG-007–011 generic infrastructure; C: BLG-012–014 higher-level enhancement. This is not current construction priority.
+
+Before future work, run `BOSS_LEGACY_GAP_REVIEW`: determine whether Utopia filled the gap, whether old design remains correct, design versus code reuse, architectural conflicts, independent incubation, need for real-use evidence, and shared substrate versus local capability. `SUPERSEDED`, `NO_EXTRACTION` and `KEEP_AS_REFERENCE` are valid results; migration is not mandatory. Current conclusions remain recorded/deferred/`NOT_STARTED_BY_DESIGN`, with current Utopia work unblocked.
+
+## 快速信息仪表盘与导航 / Quick dashboard and navigation
+
+目录数量实测于2026-10-06；状态是既有文档记录，不是新运行验收。 / Directory counts measured on 2026-10-06; status reflects existing documentation rather than new runtime acceptance.
+
+| 项目 / Item | 值 / Value |
+|---|---|
+| 直接子目录 / Direct subdirectories | 0 |
+| 递归Markdown文档 / Recursive Markdown documents | 1 |
+| 状态 / Status | DESIGN_RECORDED_NOT_ACTIVATED; legacy entries NOT_STARTED_BY_DESIGN / 设计未启用、遗留缺口未开工 |
+| 语言 / Language | 同文中英或明确互链语言对 / Same-file bilingual explanations or linked language pairs |
+
+### 文档与资源导航 / Documents and resources
+
+| 入口 / Entry | 用途 / Purpose |
+|---|---|
+| [README.md](./README.md) | 说明文档 / Explanatory document |
+
+[返回未来储备 / Back to future inventory](../README.md)

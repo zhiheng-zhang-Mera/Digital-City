@@ -58,3 +58,41 @@ Existing producer schemas remain authoritative. The research adapter maps their 
 ## 7. Measurement burden / 采集负担
 
 Record observability overhead where measurable, sampling changes and collector outages. Apply quota/backpressure to evidence capture, not a global product lock. If reliable minimal capture is unavailable, mark the affected interval ineligible for claims requiring it and continue independent work. / 采集失败只降低对应证据可用性，不让论文记录系统阻塞正常开发。
+
+## 中文完整说明 / Complete Chinese explanation
+
+### 1. 有界采集
+
+范围内每项任务留最小观察，重要变化、失败修复留更丰富记录。也收正常成功工作，使未来可能获得分母。明确范围、采集起止、采样、保留、丢失事件和采集故障；覆盖未知不能推断总体失败率。没有日志不算成功，未知不补零。
+
+### 2. 最小记录字段
+
+身份包括 project/task/attempt/event ID、父/因果引用和 schema 版本；来源包括 repository、path/object ID、完整来源提交、测量实现提交、run ID、字节摘要、取回位置；时间包括生产者时间戳、时区、观察时间、时钟不确定性及可用顺序。
+
+背景包括目标、工作负载、配置依赖、环境、主机化名、会话/提供者/模型可观察身份；结果包括原始结果、范围、验收依据、例外覆盖引用、原始证据分类；覆盖包括纳入总体、可用性、缺失丢失及理由、选择政策；权限包括敏感性、允许消费者、许可同意、保留到期和允许归档位置；派生包括 normalizer/parser 版本、来源引用、有意义的置信度及必要人工裁决。
+
+报告存储提交不一定是被测实现。哈希只提供篡改证据，不证明诚实采集或原始字节仍存在。
+
+### 3. 持久取回与派生
+
+短期 CI artifact 过期前，在批准存储归档允许的字节，验证取回与校验和，记录保留责任。原始材料不进 City，优先紧凑 manifest，不能只依赖可变分支、截图名字或死链接。受限原件留受控存储，公开仅许可派生物。
+
+脱敏是带自身摘要、变换配方、受限来源映射的新派生物，不改历史来源。不可变历史不凌驾秘密删除、到期保留或合法删除义务；留受限 tombstone，使无法再支持的论点失效。个人数据哈希不能代替匿名化。
+
+### 4. 三种验收
+
+产品验收遵守原产品/mission 契约；研究可采纳要求来源、可用性、权限和有界相关性；出版授权要求具体包的科学、政策和作者批准。产品失败可以是有效研究证据，未完任务可贡献失败观察但不自动成为 accepted evolution episode；绿色产品测试不授权一般研究主张。不得修改 Utopia finalizer 把有趣失败放入学习 feed，BLOCKED/NO_VALUE 等材料独立标注。
+
+### 5. 分类
+
+原始和归一标签分别保存，区分成功、已观察失败、预期/意外阻塞、取消、无效测量、未运行、不可观察、缺失、采集失败。EXPECTED_BLOCK 不代表任务成功；后续修复不覆盖先前失败。
+
+来源类别分别为自然开发、受控验证、回放分析、模拟 fixture、项目作者叙述、结构化投影、独立测量，对应原文大写枚举。回放解析不是重跑真实提供者，作者叙述不是独立复现，不得升级类别。
+
+### 6. 安全归一化
+
+原生产 schema 权威不变，研究适配映射事件，不为论文任意新增生产事件。隐藏模型版本或时间保持 NOT_OBSERVABLE。不记录隐藏推理、凭据、无限制会话或无关个人材料。分别去重 task/attempt/run/review episode；多日志、多重试不是独立样本。
+
+### 7. 采集负担
+
+可测时记录观察开销、采样变化和停机。配额/背压只施加采集，不锁产品。最小可靠采集不可用时，使对应区间不适用需要它的论点，其他工作继续。

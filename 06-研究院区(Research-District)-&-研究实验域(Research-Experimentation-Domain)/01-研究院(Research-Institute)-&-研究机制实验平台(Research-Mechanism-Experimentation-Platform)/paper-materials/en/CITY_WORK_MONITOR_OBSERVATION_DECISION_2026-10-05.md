@@ -191,3 +191,7 @@ This is best used as instrumentation and empirical evidence for the larger contr
 > Persistent control state is insufficient if operators and successor agents cannot observe causally meaningful state transitions without turning observability into a synchronous control bottleneck.
 
 Refresh the literature before submission. Current grades control evidence budget; they are not first-ever claims.
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md) · [English](../en/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md)

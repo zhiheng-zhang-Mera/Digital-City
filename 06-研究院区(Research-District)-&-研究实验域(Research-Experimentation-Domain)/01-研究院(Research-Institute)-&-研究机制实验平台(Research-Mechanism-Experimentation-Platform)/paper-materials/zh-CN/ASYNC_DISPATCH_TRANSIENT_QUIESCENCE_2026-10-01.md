@@ -89,3 +89,7 @@ terminal_reason
 - 平均铺开与 dependency-aware drain-first 两种策略的 programme drain 时间。
 
 这既是论文素材，也是 Utopia 的自进化狗粮：调度器需要学会“现在没有可运行工作”是一种状态，而不是天然的结束。
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md) · [English](../en/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md)

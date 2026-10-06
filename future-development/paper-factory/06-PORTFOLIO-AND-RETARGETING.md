@@ -40,3 +40,31 @@ Upstream currently lists Preprints.org followed by arXiv when available. The cur
 ## 6. Research value, not production quota / 价值而非配额
 
 Do not optimize papers per month, positive-result rate or simulated acceptance probability. Useful metrics: fraction of admitted claims with retrievable evidence, missingness visibility, reproducibility success, audit effort, avoidable submission defects, policy drift detection and Owner intervention burden. Report these only after implementation and real measurement. / 这些是未来评估指标，不是本设计已经取得的效果。
+
+## 中文完整说明 / Complete Chinese explanation
+
+### 1. 上游权威
+
+Essay-Book PUBLICATION-PIPELINE.md 保持投稿路线权威，各论文证据账本保持科学权威，本设计不自动实现或修改。A/B/C 是路由启发，不是录用保证或刊等级映射；证据等级与文章形态独立，探索想法适合 idea track 不等于完整实证期刊稿。先看科学证据独立贡献，再看周期信誉费用；排名不绕过预算合规，快速刊不保证快录用。
+
+### 2. 家族台账
+
+第二稿前记录主RQ、贡献、claim IDs、共享新增数据、分析、软件版本、先前发表、活跃尝试、增量、明确排除的主张。按语义比较不只文件相似度，共享数据可有独立贡献，改名或组件边界不证明独立。实质重复应合并扩展或放弃，不按楼栋函数数拆稿。Hns 保留原治理NIER，Boss 仅证据审查后准入独立问题且不为数量解冻，Utopia 优先项目演示artifact，无新增期限。
+
+### 3. 保留证据的转投
+
+拒绝/撤回后记真实决定状态，分类适配、贡献、方法、证据、报告、政策、呈现问题，提出增量。有用冻结核心可复用，仅格式变化不改数据。真实错误追加纠正并追踪受影响论点分析预印本目标稿，新建版本，旧回执公开记录保留。新增实验先判必要成本，可缩窄转投。
+
+修订可含干净稿、标注稿、逐项回复、修订源补充和变更账本；必需文件由当前阶段政策定。回复说明实际改动位置，未经新有效执行回执不能声称实验运行。
+
+### 4. 会议扩展期刊
+
+须贡献增量表、原稿引用披露、权益和专项政策检查；不设统一新增文字百分比。增页改写截图不自动构成新贡献，复用实验保留身份不算独立复现。SPE/EMSE 相关记录提交时仍刷新。
+
+### 5. 预印本独立选择
+
+上游默认可用时 Preprints.org 后 arXiv，但 S06 指南不鼓励多站重复，是偏好冲突而非全面禁令。向Owner展示 CROSS_SERVER_DUPLICATION_PREFERENCE_CONFLICT，不静默重复发布或修改上游。筛查背书许可替换不同；先查目标预印本匿名政策并确认身份公开，不能承诺撤销所有公开副本。
+
+### 6. 研究价值
+
+不优化月论文数、阳性率、模拟录用概率。未来实测指标可含可取回证据支持比例、缺失透明、复现成功、审计成本、可避免投稿缺陷、规则漂移检测、Owner介入负担；只有实现实测后报告，不能称当前效果。

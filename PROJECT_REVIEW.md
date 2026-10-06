@@ -418,3 +418,7 @@ Because the successor artifact is explicitly Owner-excluded from Digital-City, r
 **Decision:** `SUPERSEDED_BY_PRIVACY_LENS_NOT_ADMITTED`.
 
 Historical GitHub evidence remains available outside the City registry; no runtime/module migration is performed.
+
+---
+
+语言配对 / Language pair: [English](./PROJECT_REVIEW.md) · [中文](./docs/zh-CN/PROJECT_REVIEW.md)

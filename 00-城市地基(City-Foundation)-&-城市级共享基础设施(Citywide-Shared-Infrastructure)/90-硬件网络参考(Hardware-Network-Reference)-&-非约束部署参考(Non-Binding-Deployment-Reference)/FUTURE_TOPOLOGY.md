@@ -131,3 +131,25 @@ worker 可以在条件允许时继续：
 中央服务恢复后再同步、reconcile 或 replay。
 
 是否允许领取“全新任务”应由当时实际 task ownership / consistency 模型决定，而不是由本参考文档预先强制。
+
+## English explanation / 英文说明
+
+Status remains `FUTURE_REFERENCE_ONLY`, with `BINDING = false`. The diagram above is a desired reference shape rather than the current topology: Windows workers (Alien/Mech/others), macOS workers and Android/iPhone/HarmonyOS devices connect to possible Linux-A/B server/verifier hosts and shared local services/clean-room evidence.
+
+### Reference roles
+
+Windows and macOS can both perform ordinary engineering work. Windows specialises in native Windows adaptation/physical acceptance and Android tooling/physical-device bridging; macOS specialises in native macOS adaptation, iOS tooling and iPhone/iOS acceptance. Neither is restricted to verification alone.
+
+Physical mobile devices provide UI, lifecycle and permission acceptance; network, notifications, Bluetooth, sensors and background-behaviour evidence; and Remote Fabric, assistant embodiment or control-surface verification. Emulators and VMs supplement rather than automatically replace physical results.
+
+Two Linux hosts may eventually supply common City backends, task/state/event coordination, artifacts/evidence/cache, CI coordination, disposable VM/container verifiers, replication/snapshots/recovery and persistent LAN servers. Separate persistent City services from ephemeral clean Linux VM/container, optional Windows VM and other disposable acceptance environments, so server continuity and reproducible/destroyable tests can coexist.
+
+### Redundancy
+
+Two machines reduce single-machine risk but do not by themselves establish high availability. If state replication is actually built, consider primary/standby or explicit quorum, parallel verification, prevention of two self-declared sole primaries, an optional lightweight witness/arbiter, and versioned/immutable backups that replicas cannot replace. These remain design precautions rather than present obligations.
+
+### Network and degraded operation
+
+Prefer logical identity, capabilities, service discovery and current endpoints over business logic fixed to IP/MAC/hostname/network card/router. Future Remote Fabric can select LAN, Wi-Fi, Bluetooth, VPN/overlay, Internet relay or another transport according to the environment.
+
+Central Linux unavailability need not stop every worker. Where conditions permit, workers can continue already-claimed tasks, local tests, native acceptance and local journals/pending evidence, then synchronise/reconcile/replay after recovery. Whether a worker may claim a brand-new task depends on the actual task ownership and consistency model at that time; this reference does not predefine that rule.

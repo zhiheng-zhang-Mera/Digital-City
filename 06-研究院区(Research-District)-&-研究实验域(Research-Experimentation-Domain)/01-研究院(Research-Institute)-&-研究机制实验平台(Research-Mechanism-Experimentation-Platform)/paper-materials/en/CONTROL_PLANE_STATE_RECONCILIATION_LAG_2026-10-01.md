@@ -62,3 +62,7 @@ This incident supports a broader systems hypothesis:
 > In asynchronous engineering control planes, event-driven worker updates alone are insufficient when external evidence can transition out-of-band; periodic/event-triggered authoritative reconciliation reduces false blocking, false eligibility decisions, and provenance misattribution.
 
 Useful measurements include recovery-to-reconciliation lag, stale task count, stale blocker duration, false scheduler ineligibility, evidence-pointer mismatch rate, and the number of unnecessary Owner interventions caused by stale control metadata.
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md) · [English](../en/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md)

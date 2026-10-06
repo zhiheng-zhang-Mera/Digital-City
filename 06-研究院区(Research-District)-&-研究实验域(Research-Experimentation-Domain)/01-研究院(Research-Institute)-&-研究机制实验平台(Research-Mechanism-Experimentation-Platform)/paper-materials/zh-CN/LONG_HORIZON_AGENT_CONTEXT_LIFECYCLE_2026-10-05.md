@@ -262,3 +262,6 @@ SRA = correctly reconstructed required state fields
 
 > **When to compact → What to retain → What to externalize → What must remain immutable and be revalidated.**
 
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md) · [English](../en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md)

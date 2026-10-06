@@ -62,3 +62,7 @@ Potential measurements include:
 - same-task contention vs independent-task concurrency.
 
 This record freezes only the problem, hypotheses, and design lessons. The concrete solution remains an out-of-repository draft and is not yet a City engineering constraint.
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md) · [English](../en/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md)

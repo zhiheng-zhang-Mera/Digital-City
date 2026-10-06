@@ -62,3 +62,7 @@ FACT: SINGLE_EMPTY_OR_SLOW_RESPONSE_PROVES_PROVIDER_CONTENTION=false
 - 同一任务与互不相关任务在并发时的差异。
 
 这条记录只冻结“问题 + 假设 + 设计启示”。具体解决方案仍处于仓库外草案阶段，尚未成为 City 工程约束。
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md) · [English](../en/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md)

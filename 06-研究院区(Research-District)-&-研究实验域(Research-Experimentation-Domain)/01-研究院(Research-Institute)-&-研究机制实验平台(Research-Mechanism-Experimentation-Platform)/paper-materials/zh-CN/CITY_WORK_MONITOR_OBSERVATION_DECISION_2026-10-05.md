@@ -198,3 +198,7 @@ navigation_steps_to_evidence
 > Persistent control state is insufficient if operators and successor agents cannot observe causally meaningful state transitions without turning observability into a synchronous control bottleneck.
 
 正式投稿前必须重新做 literature review；当前 G3/G4 只是证据预算，不是首创声明。
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md) · [English](../en/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md)

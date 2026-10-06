@@ -495,3 +495,7 @@ The monitor itself is not promoted to G4. It is primarily a measurement/reconcil
 - G4-D multi-truth reality drift.
 
 Topic note: `CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md`.
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md) · [English](../en/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md)
