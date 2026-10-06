@@ -912,7 +912,7 @@
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
       "review_complete": 2,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 2,
       "tasks": [
         {
@@ -940,7 +940,7 @@
           "id": "REX-803",
           "path": "research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
           "review_complete": false,
-          "status": "READY"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
