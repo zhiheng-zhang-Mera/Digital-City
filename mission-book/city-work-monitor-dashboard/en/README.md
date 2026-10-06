@@ -260,13 +260,13 @@ Only explicit Owner permission changes workbook `execution_enabled: false → tr
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 3/4 · 开发 / Development 4/4 · 复检 / Review 3/4 · `IN_PROGRESS`
+总完成 / Complete 4/4 · 开发 / Development 4/4 · 复检 / Review 4/4 · `COMPLETE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
 | [MON-901](../MON-901-observation-model-and-jev-projection.md) | COMPLETE | YES | YES | YES |
 | [MON-902](../MON-902-overview-graph-and-node-path-inspector.md) | COMPLETE | YES | YES | YES |
 | [MON-903](../MON-903-event-triggered-decision-overlay.md) | COMPLETE | YES | YES | YES |
-| [MON-990](../MON-990-cross-device-monitor-acceptance-and-freeze.md) | IN_PROGRESS | YES | NO | YES |
+| [MON-990](../MON-990-cross-device-monitor-acceptance-and-freeze.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->

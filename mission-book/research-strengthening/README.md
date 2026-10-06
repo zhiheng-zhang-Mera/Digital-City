@@ -418,25 +418,31 @@ Alien accepts exact8798ba9 after38 independent material checks and three matchin
 
 ### REX 集成前置测量：两个产物各自干净，合在一起不干净 / REX integration preflight: each product merges clean, together they do not
 
-REX-803 被接受**之后**才第一次尝试集成，会把冲突留到最不方便的时候。所以先测（§11 要求集成从当时最新 main 开始，本轮从 `b06504f` 出发）： / Integrating for the first time only after REX-803 is accepted would surface the conflict at the worst moment, so it was measured first, from the then-latest main `b06504f`：
+REX-803 被接受**之后**才第一次尝试集成，会把冲突留到最不方便的时候。所以先测（§11 要求集成从当时最新 main 开始，本轮从 `b06504f` 出发，用**已接受的**身份）： / Integrating for the first time only after REX-803 is accepted would surface the conflict at the worst moment, so it was measured first, from the then-latest main `b06504f`, using the **accepted** identities：
 
 ```text
-rex/REX-804-Alien-codex-faults  -> main 单独                CLEAN
-rex/REX-803-mech-scenario-runner -> main 单独               CLEAN
-两者同时 / both together                                    CONFLICT x2，均在 services/dev-gateway/server.mjs
+8798ba9 已接受 REX-803 -> main 单独                CLEAN
+fe700ab 已接受 REX-804 -> main 单独                CLEAN
+两者同时 / both together                          CONFLICT x2，均在 services/dev-gateway/server.mjs
 ```
 
 两处冲突都是 §11 点名的 union/superset 情形（双方互不引用：fault controller 不含 campaign，campaign 段不含 faults），已按显式并集解出并测量： / Both conflicts are the union/superset case - neither side references the other - resolved as an explicit union and measured：
 
 ```text
-integration/REX-803-804-mech-preflight @ cd43572
-  focused  tests/rex803-*. + rex804-*.         34 pass / 0 fail
-  full     pnpm test                          1390 pass / 3 fail（3 项为 host-city-launcher 常驻占用，N/N-3 基线）
+integration/REX-accepted-heads-mech-preflight @ 704c518   （父提交 = 两个已接受身份）
+  focused  tests/rex803-*. + rex804-*.         48 pass / 0 fail（13 套件）
+  full     pnpm test                          1404 pass / 3 fail / 1407（3 项为 host-city-launcher 常驻占用，N/N-3 基线）
 ```
+
+**第一版测错了 head，已更正：** 它合并的是 `rex/REX-803-mech-scenario-runner`，而该 tip `a695bb9` 是已接受头 `8798ba9` 的祖先、**落后 14 个提交**，缺的正是种子/放置修复 `42acdc6`、回执顺序与关闭修复 `07e8c3c` 等。按“把任务分支合进来”的机械做法会集成一个从未被验收的头。 / The first version merged the development branch, whose tip is 14 commits behind the accepted head - missing the very repairs the accepted campaign ran.
 
 规则（把 WBC 的 B4/F-3 规则推广到集成方向）/ the rule, generalising the WBC B4/F-3 rule to integration：
 
 > **一条 branch 单独能进 main，不构成“多条 branch 能一起进 main”的证据。** / A branch that merges cleanly on its own is not evidence that several merge cleanly together.
+
+> **“把任务分支合进来”不是一条集成规则。** 集成来源必须是工作书记录的那个被验收的确切提交——32 本工作书扫描中 1 项 tip 超前于已验收头（JOIN-590，多出的那个提交正是删除证据的提交）、3 项 tip 落后（MON-902/MON-903/REX-803）、1 项已验收头不在任何 ref 上（UI-000）。见 `reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。 / The task branch is not the integration source: 1 accepted task's tip is ahead of its accepted head, 3 are behind, 1 accepted head is on no ref.
+
+另外，首次全量运行还出现过一个第 4 红项 `tests/relay-s1-tunnel.test.mjs:420`，**已查明是 main 自身的漂移探针**（1000 ms 窗口内第 21 个请求才 429，而探针顺序发 30 个请求；主机一忙窗口就追不上），重跑即消失、并集未改动该测试与该限流器一行。 / A fourth failure in the first full run was classified as main's own host-speed-dependent probe: it vanished on the repeat and the union touches neither the test nor the limiter.
 
 ### 顺带发现：REX-804 的测试重写了它所认证的证据 / Surfaced: REX-804's test rewrites the evidence it certifies
 
@@ -445,9 +451,10 @@ integration/REX-803-804-mech-preflight @ cd43572
 修复复用同程序内**已有的正确先例**（REX-803 的同类测试本来就写 `.runtime/evidence/…`，`.gitignore` 第 2 行）：`repair/REX-804-mech-test-evidence-outside-repo @ 690d723`，行为断言一行未改。并入并集后在合并结果上测量： / The repair reuses the correct precedent already in this programme and changes no assertion. Measured on the merge result：
 
 ```text
-integration/REX-803-804-mech-preflight-with-evidence-repair @ 0492dfd
-  focused  tests/rex803-*. + rex804-*.         34 pass / 0 fail，跑后 CLEAN
-  full     pnpm test                          1390 pass / 3 fail，跑后 CLEAN（修复前同样 1390/3，但结束时是脏的）
+integration/REX-accepted-heads-mech-preflight-with-evidence-repair @ 56b9752
+  focused  tests/rex803-*. + rex804-*.         48 pass / 0 fail，跑后 CLEAN
+  full     pnpm test                          1404 pass / 3 fail / 1407，跑后 CLEAN
+  （未含修复的同一个并集 @ 704c518：同样 1404/1407，但跑完后 tracked state 是脏的）
 ```
 
-即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**。本机对 REX 无合并授权、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`。
+即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**——两种状态下测试结果完全相同，只有含修复的那个状态在结束时是干净的。本机对 REX 无合并授权（`merge_authority: false`）、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`、`reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。

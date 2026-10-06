@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED"]
 development_host: "Alien"
 development_branch: "rex/REX-805-alien-replay-ablation"
-development_head_sha: null
-development_ci: "NOT_RUN: no REX805 implementation head yet"
+development_head_sha: "4b3946868d4083285da8a8d99eac2642890b37c4"
+development_ci: "PASS exact head 4b3946868d4083285da8a8d99eac2642890b37c4: push37440884928, PR37440891856, linkage37440891872 all COMPLETED SUCCESS. Local full1412/1409PASS/3ENV_FAIL (resident City4389); independent code re-review six Important fixes PASS. Opposite-host physical acceptance pending; development_complete remains false."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -31,10 +31,12 @@ research_capture_level: MAXIMUM_BOUNDED
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
+development_report_ref: mission-book/reports/REX-805/DEVELOPMENT_CHECKPOINT.md
+development_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/38"
 report_path: mission-book/reports/REX-805
 terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED
 ---
