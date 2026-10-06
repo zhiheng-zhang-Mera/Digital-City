@@ -84,7 +84,41 @@ and is done.
 - It does not claim Alien's work, does not merge, and does not touch main.
 - `owner_required: false`, `terminal_reason: null`, `pool_incomplete: true`.
 - wake conditions: the Alien reference node joining the City; a verdict landing on REX-803 or MON-903; a repaired
-  REX-804 head; an adoption decision on either open repair branch; or a fresh Owner instruction that opens new work for
+  REX-804 head; an adoption decision on an open repair branch; or a fresh Owner instruction that opens new work for Mech.
+
+## The REX-803 gate blocker was a secret with no channel, and that is now fixed
+
+Three rounds of measurement all ended with the City refusing `TOPOLOGY_NOT_READY` and naming `alien-reference-node` as
+the only missing identity, which reads like a host that will not show up. The real reason is narrower: the shipped
+reference node authenticates with `CITY_NODE_TOKEN`, that token is a secret held by the City's own host, the programme
+forbids writing secrets into records, and therefore **no channel existed** by which the other physical host could obtain
+it. Waiting was never going to change that.
+
+The City already contains the mechanism that removes the secret - `pairing/info` and `pairing/exchange` are public, a
+consumed owner-minted short code enrolls the caller and returns a `sess:` credential scoped to its own device, the auth
+preamble returns early for a session bearer, and `assertOwnNode` still confines a member to its own node identity. What
+was missing was a joiner that uses it:
+
+```text
+feat/mech-join-worker-without-node-token @ c19da18   CI push 37428348788 SUCCESS attempt 1
+  scripts/join-worker.mjs      consume the short code, become a member, run the reference worker with the session
+  tests/join-worker.test.mjs   a real child process joins and the City lists it ONLINE with the capabilities an
+                               eligible worker needs; killing it takes it offline
+```
+
+What the other host does, once, transporting no secret:
+
+```text
+on the City host      POST /api/v0/pairing/session with the owner credential -> a short code
+                      read the identity the joiner prints and declare it in the experiment manifest
+on the joining host   CITY_URL=http://<city-host>:4310 node scripts/join-worker.mjs --code <shortCode> \
+                        --name "alien reference node"
+```
+
+This does not close the REX-803 completion gate and is not recorded as if it did: the gate still needs that node live and
+a campaign run on the three-end topology. It does mean nothing but one command and one short code now stands in the way.
+
+REX-804 head; an adoption decision on either open repair branch; or a fresh Owner instruction that opens new work for
   Mech.
 
 

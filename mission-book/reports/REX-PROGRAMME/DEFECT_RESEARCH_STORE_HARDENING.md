@@ -400,9 +400,48 @@ This is the same lesson the B4 finding taught one round earlier, stated as a rul
 merge result, not on its own old base.** A branch that is green against a base two merges behind is evidence about a
 commit nobody will run.
 
+## The family now has one guard instead of five scattered probes
 
+Every instance above was repaired where it was found and shipped with that module's own probe, which is why the file
+names read like a list: `rex801-store-guard`, `bridge-artifact-store-guard`, the MON-903 sibling sweep, the REX-803
+receipt/close probes, the REX-804 B4 guard. Five probes over five modules, and no guard over the **family** - which is
+precisely why the sixth instance was always going to land silently. There is now one:
 
+```text
+test/mech-startup-store-family-guard @ 8e1c1c5   (base = the F-3 repair on current main, ad1b3e8)
+  tests/startup-store-family-guard.test.mjs
+```
 
+It is deliberately about the shape rather than about any one module, and the list of stores is the thing a new module
+has to join:
 
+```text
+SHAPE A  a file where a startup store needs a directory, for every store the City touches while being constructed -
+         theme-packages, research, research/experiments, research/campaigns, research/faults, monitor, research-trace.
+         The City must START and report itself serving.
+SHAPE B  the canonical database is the ONE case where refusing to start is CORRECT, and the case asserts the refusal is
+         DIAGNOSABLE rather than pretending bricking should be degraded away (F-1, open by choice).
+SHAPE B  the join store is pinned as KNOWN BEHAVIOUR, not as a desired one (F-2, reported, not repaired here) - a guard
+         that quietly accepts a defect is worse than no guard, because it looks like coverage.
+SHAPE B  a profile the City cannot persist is refused with a typed code and the running profile does not move (F-3,
+         repaired on this branch).
+CONTROL  with every store healthy the City starts, serves and accepts a task, so the SHAPE A loop cannot pass by the
+         City refusing to run for some other reason.
+```
+
+**Falsified before trusted.** Run against unmodified main `b06504f` the same file gives **11 pass / 1 fail**, and the
+single red case is exactly the live defect:
+
+```text
+✖ SHAPE B: a profile the City cannot persist is refused, and the running profile does not move
+  AssertionError: and typed, not a raw filesystem errno   actual: 'EPERM'
+```
+
+With the F-3 repair present, **12/12**. A guard that has never been seen to fail is not evidence, which is the same
+rule the individual probes were held to.
+
+CI          V0.2 checks push run 37429465001 COMPLETED SUCCESS (attempt 1) on 8e1c1c5, jobs gateway-web and
+            android both success
+FULL SUITE  1371/1374 on the branch, the 3 being this host's resident-City host reservation
 
 [完整中文阅读译本 / Chinese reading translation](./zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md)

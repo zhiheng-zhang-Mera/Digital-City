@@ -117,6 +117,11 @@ DEFECT  services/dev-gateway/execution-profile.mjs 的 change() 先改运行态�
         in place ... it never half-switches"），且路由把裸 EPERM 与绝对路径直接抛给 owner 控制面。
 实测    merged main b06504f 上的 sweep 单元探针：change() THREW EPERM; live profile STANDARD_DEVICES -> WORKER_POOL
 REPAIR  repair/WBC-604-mech-profile-persist-first-on-current-main @ ad1b3e8（**建在当前 main 之上**，不是旧 base）
+GUARD   tests/startup-store-family-guard.test.mjs（分支 test/mech-startup-store-family-guard @ 8e1c1c5）把整个
+        store-guard 家族收进一处：SHAPE A 对 City 构造期触碰的每个 store 埋「应为目录处放文件」并要求 City 仍然启动；
+        SHAPE B 把 F-1（此处拒启是正确的，断言可诊断而非假装可降级）、F-2（作为**已知行为**钉住，不当作期望行为）
+        与 F-3（必须 typed 拒绝且运行态不动）分别记录。**先证伪再信任**：在未修复的 main b06504f 上同一文件
+        11 pass / 1 fail，唯一红项正是仍在存活的 F-3（EPERM）；带修复后 12/12。CI push 37429465001 SUCCESS attempt 1。
         修复后：F-3 探针与三个既有 WBC-604 套件 19/19；sweep 变为 change() THREW PROFILE_STORE_UNAVAILABLE 且
         live profile STANDARD_DEVICES -> STANDARD_DEVICES；全量 1359/1362（3 项为本机常驻 City 占用）；
         托管 push run 37425834472 SUCCESS attempt 1（android 与 gateway-web 均绿）

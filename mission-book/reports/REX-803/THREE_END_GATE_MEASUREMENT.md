@@ -88,6 +88,55 @@ scheduling — it is one identity that has to be brought online, and the City na
 join `alien-reference-node`, not "wait for Alien". The experiment stays registered and validated, so the run is still a
 single POST once that identity appears.
 
+## Why the third identity has never joined, and the tool that removes the reason
 
+Every measurement of this gate has ended the same way: the City refuses with `TOPOLOGY_NOT_READY` and names
+`alien-reference-node` as the only missing identity. Three rounds of that read like a host that will not show up. It is
+not that, and the real reason is narrower and fixable.
+
+```text
+the shipped reference node authenticates with CITY_NODE_TOKEN   agents/reference-node/main.mjs:2
+the node token is a secret held by the City's own host          <runtime>/local-config.json
+the programme forbids writing secrets into records              CONSTRUCTION_RULES / PROCESS_DATA_POLICY
+=> there was NO CHANNEL by which the second physical host could obtain the credential it needs
+```
+
+So the blocker was credential delivery, and no amount of waiting was going to change it. The City already contains the
+mechanism that removes the secret; what was missing was a joiner that uses it:
+
+```text
+pairing/info, pairing/exchange        PUBLIC routes, no node token and no version header required
+a consumed owner-minted short code    ENROLLS the caller and returns a `sess:` credential scoped to its own device
+the auth preamble                     returns early for a session bearer, so a session suffices for node/*
+assertOwnNode                         still confines a member to its OWN node identity - no authority is widened
+the reference agent                   already accepts a credentialProvider instead of a static token
+```
+
+`scripts/join-worker.mjs` on `feat/mech-join-worker-without-node-token @ c19da18` is that joiner and nothing more:
+consume the short code, become a member, run the reference worker with the session credential, remember the device
+identity across restarts. `tests/join-worker.test.mjs` proves it with a real child process - the owner mints a code, a
+separate process consumes it, the City lists that identity ONLINE with the execution capabilities an eligible worker
+needs, killing the process takes it offline, and where the build has this task's campaign route the City counts it as a
+campaign worker (asserted as a 404 elsewhere rather than skipped). CI: V0.2 checks push run 37428348788 COMPLETED SUCCESS (attempt 1) on c19da18, jobs gateway-web and android both green.
+
+What the other host has to do, once, with no secret transported:
+
+```text
+on the City host   POST /api/v0/pairing/session with the owner credential  -> a short code
+                   read the node identity the joiner prints, and declare it in the experiment manifest
+on the joining host
+                   CITY_URL=http://<city-host>:4310 node scripts/join-worker.mjs --code <shortCode> \
+                     --name "alien reference node"
+```
+
+Two of the probe's own drafts were wrong in the way this programme keeps recording, and both are fixed rather than
+papered over: the first let an unhandled rejection abort the process so a caller capturing output saw **nothing** - the
+least diagnosable failure a tool can have - and the second waited 2800 ms against a 2000 ms heartbeat timeout, so it
+passed or failed depending on where the last heartbeat fell. That second one is the "window only just covers the
+property" defect this programme has now recorded four times, and the committed probe gives it real margin instead.
+
+**This does not close the gate and is not recorded as if it did.** The gate still requires the Alien host's own node to
+be live in the City and a campaign to run on the three-end topology; what has changed is that nothing but one command
+and one short code now stands between the programme and that campaign.
 
 [完整中文阅读译本 / Chinese reading translation](./zh-CN/THREE_END_GATE_MEASUREMENT.md)
