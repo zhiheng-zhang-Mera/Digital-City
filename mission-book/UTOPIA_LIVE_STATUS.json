@@ -1,12 +1,12 @@
 {
   "ci": {
-    "conclusion": null,
+    "conclusion": "success",
     "head_sha": "b06504f1f96984c960b2661b8ee3a7130796d379",
-    "name": "V0.2 checks",
-    "run_id": 37422119627,
-    "status": "in_progress",
-    "updated_at": "2026-10-06T06:08:27Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37422119627"
+    "name": "City linkage check",
+    "run_id": 37422119640,
+    "status": "completed",
+    "updated_at": "2026-10-06T06:08:33Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37422119640"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",

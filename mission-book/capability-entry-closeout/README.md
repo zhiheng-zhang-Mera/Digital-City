@@ -220,3 +220,5 @@ CEX final audit 完成时，Registry reconciliation 是 completion gate，不是
 CEX-790 已按 Owner 明确授权合入 Utopia main；PR33 merge SHA `b06504f1f96984c960b2661b8ee3a7130796d379`，原审核提交4688274为祖先。合并前所有检查通过；合并后CI仍待终态，不能据此宣布部署完成。
 
 CEX-790 was merged into Utopia main under explicit Owner authorization; PR33 merge SHA `b06504f1f96984c960b2661b8ee3a7130796d379` includes audited head4688274. All premerge checks passed; postmerge CI is pending. This does not claim runtime deployment. See [merge record](../reports/CEX-790/MAIN_MERGE_REPORT.md).
+
+合并后验证 / Postmerge verification: exact main `b06504f1f96984c960b2661b8ee3a7130796d379`, V0.2 checks37422119627 and linkage37422119640 completed SUCCESS. 两组检查已实测通过；部署状态未观测 / Both checks passed by live measurement; deployment remains unobserved.

@@ -55,8 +55,8 @@ terminal_marker_release_basis: 'Released under the same owner ruling, after the 
 integration_branch: "integration/CEX-790-Alien-20261006"
 integration_head_sha: "4688274255464383d577841a37e85a556d92c678"
 integration_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/33"
-integration_status: MERGED_MAIN_CI_PENDING
-integration_ci: Premerge exact4688274 all terminal SUCCESS; PR33 MERGED at b06504f1f96984c960b2661b8ee3a7130796d379. Merged-main runs37422119640/37422119627 pending; no postmerge PASS claim.
+integration_status: MERGED_MAIN_VERIFIED
+integration_ci: Audited4688274 premerge all SUCCESS; merged-main b06504f1f96984c960b2661b8ee3a7130796d379 runs37422119627 V0.2 checks and37422119640 linkage both terminal SUCCESS. PR33 MERGED.
 integration_report: "mission-book/reports/CEX-790/ALIEN_INTEGRATION_REPORT.md"
 owner_priority_override_2026_10_06: "CEX-790 merge-readiness first, then MON directly; supersedes REX-before-MON. SHOW excluded."
 integration_merge_sha: b06504f1f96984c960b2661b8ee3a7130796d379
