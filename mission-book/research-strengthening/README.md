@@ -424,3 +424,24 @@ integration/REX-accepted-heads-mech-preflight-with-evidence-repair @ 56b9752
 ```
 
 即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**——两种状态下测试结果完全相同，只有含修复的那个状态在结束时是干净的。本机对 REX 无合并授权（`merge_authority: false`）、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`、`reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。
+
+### REX-805 实体开发门槛：已在真实 City 上执行 / REX-805 physical development gate: EXECUTED on the live City
+
+作者 `7ad7d19` 把开发门槛的执行交给本机（`PHYSICAL_GATE_HANDOFF_Alien.md`）。本机按交接执行并已交回材料。 / The author handed over execution of the development gate; this host executed it and handed the materials back.
+
+```text
+WHEN        2026-10-06T09:58:53Z，常驻 City（数据目录保留，身份不变）
+DEPLOY      候选 4b39468 → gateway pid 33420 → City 031fdba6-e94c-4298-a095-6ff04a65481d
+            部署前常驻 City 跑旧候选 8798ba9，research/replays 404；部署后 200
+SOURCE      campaign-966cf439-… run 1，seed 414121415，原 worker Alien
+REPLAY      campaign-4a1919b0-…  MEASURED  落 Alien  task Q-422d18b5-…  controlledInputsMatch=true
+                                                                        differences=[]  placementChanged=false
+ABLATION    campaign-bad9f272-…  MEASURED  落 Mech   task Q-474aca57-…  controlledInputsMatch=true
+                                                                        differences=[]  placementChanged=true
+三个 seed 一致；两次均为真实执行（真实 worker、真实 canonical task 皆 COMPLETED）
+NOT CLAIMED 开发完成、验收、合并权均不主张——本文件只是把门槛材料交回作者核验
+EVIDENCE    reports/REX-805/evidence/MATERIAL_INDEX.md（逐文件 SHA256；三份回执为 City 字节的逐字节副本）
+RESULT      reports/REX-805/PHYSICAL_GATE_RESULT_Mech.md
+```
+
+顺带更正 / a correction carried with it：合成源仪器曾报 `controlledInputDifferences:['limits']`，**真实记录的源没有这条差异**——该差异属于合成夹具，不是物理重放的属性。
