@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 19,
+      "complete": 20,
       "total": 23
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 89,
+      "complete": 90,
       "total": 93
     },
     "review": {
@@ -907,7 +907,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 5,
+      "development_complete": 6,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
@@ -962,7 +962,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "REX-806",
           "path": "research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",

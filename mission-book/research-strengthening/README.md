@@ -1,46 +1,46 @@
-# Research Strengthening / 研究强化工程
+﻿# Research Strengthening / 鐮旂┒寮哄寲宸ョ▼
 
-> **状态：READY / ACTIVE PROGRAMME**
+> **鐘舵€侊細READY / ACTIVE PROGRAMME**
 >
-> 本工程把 Utopia 从“可用的个人万能终端”继续强化为一个**可做可重复实验的多设备智能软件系统研究试验台**。
+> 鏈伐绋嬫妸 Utopia 浠庘€滃彲鐢ㄧ殑涓汉涓囪兘缁堢鈥濈户缁己鍖栦负涓€涓?*鍙仛鍙噸澶嶅疄楠岀殑澶氳澶囨櫤鑳借蒋浠剁郴缁熺爺绌惰瘯楠屽彴**銆?
 >
-> 目标不是再堆一个孤立功能，而是让已有的 scheduler、handoff、recovery、AI/service routing、multi-device、Rooms、Actions、Remote Fabric 与未来 Workbench 都能被：
+> 鐩爣涓嶆槸鍐嶅爢涓€涓绔嬪姛鑳斤紝鑰屾槸璁╁凡鏈夌殑 scheduler銆乭andoff銆乺ecovery銆丄I/service routing銆乵ulti-device銆丷ooms銆丄ctions銆丷emote Fabric 涓庢湭鏉?Workbench 閮借兘琚細
 >
 > ```text
-> 定义实验
-> → 重复运行
-> → 自动追踪
-> → 故障注入
-> → 回放
-> → 消融
-> → 统计
-> → 导出研究 artifact
+> 瀹氫箟瀹為獙
+> 鈫?閲嶅杩愯
+> 鈫?鑷姩杩借釜
+> 鈫?鏁呴殰娉ㄥ叆
+> 鈫?鍥炴斁
+> 鈫?娑堣瀺
+> 鈫?缁熻
+> 鈫?瀵煎嚭鐮旂┒ artifact
 > ```
 >
-> 常驻施工规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> 异步减压施工：[../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
-> 过程数据规则：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
-> 研究素材规则：[RESEARCH_EVIDENCE_PROTOCOL.md](./RESEARCH_EVIDENCE_PROTOCOL.md)  
-> 研究信号优先级：[../RESEARCH_SIGNAL_WATCHLIST.yaml](../RESEARCH_SIGNAL_WATCHLIST.yaml)  
-> 研究优先级策略：Research Institute `paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`  
-> 研究控制面原则：[RESEARCH_CONTROL_SURFACE.md](./RESEARCH_CONTROL_SURFACE.md)
+> 甯搁┗鏂藉伐瑙勫垯锛歔../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
+> 寮傛鍑忓帇鏂藉伐锛歔../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)  
+> 杩囩▼鏁版嵁瑙勫垯锛歔../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> 鐮旂┒绱犳潗瑙勫垯锛歔RESEARCH_EVIDENCE_PROTOCOL.md](./RESEARCH_EVIDENCE_PROTOCOL.md)  
+> 鐮旂┒淇″彿浼樺厛绾э細[../RESEARCH_SIGNAL_WATCHLIST.yaml](../RESEARCH_SIGNAL_WATCHLIST.yaml)  
+> 鐮旂┒浼樺厛绾х瓥鐣ワ細Research Institute `paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`  
+> 鐮旂┒鎺у埗闈㈠師鍒欙細[RESEARCH_CONTROL_SURFACE.md](./RESEARCH_CONTROL_SURFACE.md)
 
-## 0A. 当前论文关注点优先级
+## 0A. 褰撳墠璁烘枃鍏虫敞鐐逛紭鍏堢骇
 
-REX v1 的 instrumentation 不再平均服务所有话题。
+REX v1 鐨?instrumentation 涓嶅啀骞冲潎鏈嶅姟鎵€鏈夎瘽棰樸€?
 
-默认顺序：
+榛樿椤哄簭锛?
 
 ```text
 G4 first:
   unified repository control plane
-  capability implementation→wiring→reachability→intent
+  capability implementation鈫抴iring鈫抮eachability鈫抜ntent
   autonomy survival until Owner intervention
   control-plane reality drift
 
 G3 second:
   user-reachable completion terminal
-  passive development→research evidence pipeline
+  passive development鈫抮esearch evidence pipeline
   repo-resident executable work state
   exact identity/provenance/freshness
   structured handoff with exact state
@@ -63,264 +63,264 @@ G2 supporting:
   generic agent monitoring dashboard / topology graph / logs
 ```
 
-原则：
+鍘熷垯锛?
 
-- REX-801/802 的 schema / trace fields 应优先覆盖 G3/G4；
-- G2 作为 stressor、control、covariate 或 supporting analysis；
-- G1 成熟实践只在真实 failure 时留证；
-- 不允许为了热门论文方向扭曲正常产品施工或制造假 workload；
-- 任何投稿前重新做 literature refresh，当前 grade 只决定 evidence budget。
+- REX-801/802 鐨?schema / trace fields 搴斾紭鍏堣鐩?G3/G4锛?
+- G2 浣滀负 stressor銆乧ontrol銆乧ovariate 鎴?supporting analysis锛?
+- G1 鎴愮啛瀹炶返鍙湪鐪熷疄 failure 鏃剁暀璇侊紱
+- 涓嶅厑璁镐负浜嗙儹闂ㄨ鏂囨柟鍚戞壄鏇叉甯镐骇鍝佹柦宸ユ垨鍒堕€犲亣 workload锛?
+- 浠讳綍鎶曠鍓嶉噸鏂板仛 literature refresh锛屽綋鍓?grade 鍙喅瀹?evidence budget銆?
 
-## 1. PhD 申请强化目标
+## 1. PhD 鐢宠寮哄寲鐩爣
 
-本 programme 必须产生的不只是“又多一套代码”，而是能在申请材料里诚实支持：
+鏈?programme 蹇呴』浜х敓鐨勪笉鍙槸鈥滃張澶氫竴濂椾唬鐮佲€濓紝鑰屾槸鑳藉湪鐢宠鏉愭枡閲岃瘹瀹炴敮鎸侊細
 
-- reproducible experimentation；
-- empirical software engineering；
-- multi-device / distributed systems evaluation；
-- AI-agent / tool-use evaluation；
-- fault injection / recovery / resilience；
-- human intervention measurement；
-- trace replay；
-- ablation study；
-- research artifact packaging。
+- reproducible experimentation锛?
+- empirical software engineering锛?
+- multi-device / distributed systems evaluation锛?
+- AI-agent / tool-use evaluation锛?
+- fault injection / recovery / resilience锛?
+- human intervention measurement锛?
+- trace replay锛?
+- ablation study锛?
+- research artifact packaging銆?
 
-完成后应能把 Utopia 描述为：
+瀹屾垚鍚庡簲鑳芥妸 Utopia 鎻忚堪涓猴細
 
 > a reproducible experimental platform for studying multi-device AI-assisted software systems, with controlled workloads, fault injection, trace replay, ablation, cross-device scheduling and automated research-artifact generation.
 
-## 2. 架构原则
+## 2. 鏋舵瀯鍘熷垯
 
-Research Fabric 不成为第二套 task truth，也不接管正常产品执行。
+Research Fabric 涓嶆垚涓虹浜屽 task truth锛屼篃涓嶆帴绠℃甯镐骇鍝佹墽琛屻€?
 
 ```text
 Normal Utopia runtime
-        │
-        ├── canonical tasks/actions/events
-        │
-        └── Research & Evaluation Fabric
-              ├─ Experiment Registry
-              ├─ Trace / Provenance
-              ├─ Scenario Runner
-              ├─ Fault Injection
-              ├─ Replay / Ablation
-              ├─ Metrics
-              └─ Artifact Export
+        鈹?
+        鈹溾攢鈹€ canonical tasks/actions/events
+        鈹?
+        鈹斺攢鈹€ Research & Evaluation Fabric
+              鈹溾攢 Experiment Registry
+              鈹溾攢 Trace / Provenance
+              鈹溾攢 Scenario Runner
+              鈹溾攢 Fault Injection
+              鈹溾攢 Replay / Ablation
+              鈹溾攢 Metrics
+              鈹斺攢 Artifact Export
 ```
 
-研究能力读取/编排现有产品 contract；不得为了实验方便复制 scheduler、device identity、Remote Fabric 或 Action truth。
+鐮旂┒鑳藉姏璇诲彇/缂栨帓鐜版湁浜у搧 contract锛涗笉寰椾负浜嗗疄楠屾柟渚垮鍒?scheduler銆乨evice identity銆丷emote Fabric 鎴?Action truth銆?
 
-## 3. Programme 工作拆分
+## 3. Programme 宸ヤ綔鎷嗗垎
 
-| ID | 工作 | 状态 | 目标 |
+| ID | 宸ヤ綔 | 鐘舵€?| 鐩爣 |
 |---|---|---|---|
-| [REX-801](./REX-801-experiment-manifest-and-registry.md) | Experiment Manifest + Registry | COMPLETE | 机器可读实验问题、拓扑、变量、重复次数和 acceptance |
-| [REX-802](./REX-802-trace-provenance-and-metrics-foundation.md) | Trace / Provenance / Metrics Foundation | COMPLETE | 统一记录 task/action/device/provider/handoff/retry/failure/recovery/human intervention |
-| [REX-803](./REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | READY | 自动执行 controlled scenario × N |
-| [REX-804](./REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | READY | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
-| [REX-805](./REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | WAITING_DEPENDENCIES | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
-| [REX-806](./REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | WAITING_DEPENDENCIES | normalized dataset、tables、artifact pack、reproduction docs |
-| [REX-807](./REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | WAITING_DEPENDENCIES | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
-| [REX-890](./REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | 双机独立复现实验，冻结 Research Fabric v1 |
+| [REX-801](./REX-801-experiment-manifest-and-registry.md) | Experiment Manifest + Registry | COMPLETE | 鏈哄櫒鍙瀹為獙闂銆佹嫇鎵戙€佸彉閲忋€侀噸澶嶆鏁板拰 acceptance |
+| [REX-802](./REX-802-trace-provenance-and-metrics-foundation.md) | Trace / Provenance / Metrics Foundation | COMPLETE | 缁熶竴璁板綍 task/action/device/provider/handoff/retry/failure/recovery/human intervention |
+| [REX-803](./REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | READY | 鑷姩鎵ц controlled scenario 脳 N |
+| [REX-804](./REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | READY | 鏁呮剰鍒堕€犺妭鐐?缃戠粶/provider/load/stale/duplicate 绛夋晠闅滃苟閲忓寲鎭㈠ |
+| [REX-805](./REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | WAITING_DEPENDENCIES | 鍚屼竴 trace 閲嶆斁骞跺叧闂?handoff/retry/backoff 绛夋満鍒跺仛娑堣瀺 |
+| [REX-806](./REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | WAITING_DEPENDENCIES | normalized dataset銆乼ables銆乤rtifact pack銆乺eproduction docs |
+| [REX-807](./REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | WAITING_DEPENDENCIES | 缁?Owner 鏈€澶у疄楠屾帉鎺?鐭ユ儏鏉冿紝浣嗕笉姹℃煋鏅€氱敤鎴蜂富瀵艰埅 |
+| [REX-890](./REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | 鍙屾満鐙珛澶嶇幇瀹為獙锛屽喕缁?Research Fabric v1 |
 
-REX-801 与 REX-802 已完成并释放 accepted exact heads。REX-803 与 REX-804 现已解锁，可在文件 ownership 不冲突时双机并行；后续 REX-805/806/807/890 继续按真实前置关系保持 `WAITING_DEPENDENCIES`。所有依赖任务使用 `DEPENDENCY_SHA_UNION_AT_CLAIM` 从前置 accepted full SHAs 建精确 union baseline；不会再把 main 分支名当作依赖已落地的证明。
+REX-801 涓?REX-802 宸插畬鎴愬苟閲婃斁 accepted exact heads銆俁EX-803 涓?REX-804 鐜板凡瑙ｉ攣锛屽彲鍦ㄦ枃浠?ownership 涓嶅啿绐佹椂鍙屾満骞惰锛涘悗缁?REX-805/806/807/890 缁х画鎸夌湡瀹炲墠缃叧绯讳繚鎸?`WAITING_DEPENDENCIES`銆傛墍鏈変緷璧栦换鍔′娇鐢?`DEPENDENCY_SHA_UNION_AT_CLAIM` 浠庡墠缃?accepted full SHAs 寤虹簿纭?union baseline锛涗笉浼氬啀鎶?main 鍒嗘敮鍚嶅綋浣滀緷璧栧凡钀藉湴鐨勮瘉鏄庛€?
 
-### REX-803 当前实测状态（Mech，2026-10-06）
+### REX-803 褰撳墠瀹炴祴鐘舵€侊紙Mech锛?026-10-06锛?
 
 ```text
 DEVELOPMENT   COMPLETE on exact a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df
-              （本表此前写着 57d1c919，那是首轮开发 head；该 head 之后因本任务自测发现 R-1/R-2 而前移，workbook 的
-              development_head_sha 是 a695bb9。此处按 workbook 事实更正。）
-              branch rex/REX-803-mech-scenario-runner，PR #31
-PHYSICAL      两组 controlled campaign 已在真实常驻 City 上运行，物理 Android 手机（OPPO PERM00）作为在线控制面，
-              本机 reference node 执行每一次重复；回执/trace/canonical task 回读证据在
+              锛堟湰琛ㄦ鍓嶅啓鐫€ 57d1c919锛岄偅鏄杞紑鍙?head锛涜 head 涔嬪悗鍥犳湰浠诲姟鑷祴鍙戠幇 R-1/R-2 鑰屽墠绉伙紝workbook 鐨?
+              development_head_sha 鏄?a695bb9銆傛澶勬寜 workbook 浜嬪疄鏇存銆傦級
+              branch rex/REX-803-mech-scenario-runner锛孭R #31
+PHYSICAL      涓ょ粍 controlled campaign 宸插湪鐪熷疄甯搁┗ City 涓婅繍琛岋紝鐗╃悊 Android 鎵嬫満锛圤PPO PERM00锛変綔涓哄湪绾挎帶鍒堕潰锛?
+              鏈満 reference node 鎵ц姣忎竴娆￠噸澶嶏紱鍥炴墽/trace/canonical task 鍥炶璇佹嵁鍦?
               utopia:evidence/raw/mission-book/REX-803/
-GATE          PARTIAL：completion gate 要求的 Alien + Mech + Android 拓扑中，Alien 主机节点全程 offline
-              （最后心跳 2026-10-05T11:15:06Z，本机每次测量均未变化），未作为 gate 通过，也未声称通过
-REVIEW        PENDING，review_host = Alien（对侧物理主机）。terminal marker 未释放，merge_authority=false
-AUTHOR PASS   作者两轮自测已把缺陷与修复发布为两个可采纳分支，**均未移动 review 靶点**：
-              repair/REX-803-mech-receipt-order-and-close @ 07e8c3c —— 回执列表按文件名（随机 UUID）排序导致
-                「最新」列表实际返回最旧三条；有界列表不披露历史总量；close() 后 start() 仍会启动新战役
-              probe/REX-803-mech-two-worker-rehearsal @ 42acdc6（叠加在上者之上）—— **两 worker 拓扑演练发现
-                「按种子选择 worker」这条规则从未执行**：runOnce 读 context?.workers 而路由从不设置它（拓扑在
-                context.manifest.workers），于是每次重复都是无目标创建，回执里的 assignedNodeId 是「谁先领到」。
-                模块注释与 PAPER_MATERIAL_INDEX 都宣称相反。单 worker 的 fixture 无法区分「规则生效」与「规则
-                从未运行」，因此它躲过了 33 个探针、一轮作者对抗自测和一次对侧 review。
-              两者 CI 分别为 push 37418750045（attempt 1 失败 → attempt 2 成功，两次都留档）与
-              push 37420563832 SUCCESS attempt 1。
-RECOMMEND     对第二项发现，作者**建议硬化 head**（虚假的可复现性声明比存储边界情况更不该留在 review 靶点上）；
-              但未单方面执行——本任务已有过一次领取碰撞，靶点移动必须由 reviewer 一句话触发。
+GATE          PARTIAL锛歝ompletion gate 瑕佹眰鐨?Alien + Mech + Android 鎷撴墤涓紝Alien 涓绘満鑺傜偣鍏ㄧ▼ offline
+              锛堟渶鍚庡績璺?2026-10-05T11:15:06Z锛屾湰鏈烘瘡娆℃祴閲忓潎鏈彉鍖栵級锛屾湭浣滀负 gate 閫氳繃锛屼篃鏈０绉伴€氳繃
+REVIEW        PENDING锛宺eview_host = Alien锛堝渚х墿鐞嗕富鏈猴級銆倀erminal marker 鏈噴鏀撅紝merge_authority=false
+AUTHOR PASS   浣滆€呬袱杞嚜娴嬪凡鎶婄己闄蜂笌淇鍙戝竷涓轰袱涓彲閲囩撼鍒嗘敮锛?*鍧囨湭绉诲姩 review 闈剁偣**锛?
+              repair/REX-803-mech-receipt-order-and-close @ 07e8c3c 鈥斺€?鍥炴墽鍒楄〃鎸夋枃浠跺悕锛堥殢鏈?UUID锛夋帓搴忓鑷?
+                銆屾渶鏂般€嶅垪琛ㄥ疄闄呰繑鍥炴渶鏃т笁鏉★紱鏈夌晫鍒楄〃涓嶆姭闇插巻鍙叉€婚噺锛沜lose() 鍚?start() 浠嶄細鍚姩鏂版垬褰?
+              probe/REX-803-mech-two-worker-rehearsal @ 42acdc6锛堝彔鍔犲湪涓婅€呬箣涓婏級鈥斺€?**涓?worker 鎷撴墤婕旂粌鍙戠幇
+                銆屾寜绉嶅瓙閫夋嫨 worker銆嶈繖鏉¤鍒欎粠鏈墽琛?*锛歳unOnce 璇?context?.workers 鑰岃矾鐢变粠涓嶈缃畠锛堟嫇鎵戝湪
+                context.manifest.workers锛夛紝浜庢槸姣忔閲嶅閮芥槸鏃犵洰鏍囧垱寤猴紝鍥炴墽閲岀殑 assignedNodeId 鏄€岃皝鍏堥鍒般€嶃€?
+                妯″潡娉ㄩ噴涓?PAPER_MATERIAL_INDEX 閮藉绉扮浉鍙嶃€傚崟 worker 鐨?fixture 鏃犳硶鍖哄垎銆岃鍒欑敓鏁堛€嶄笌銆岃鍒?
+                浠庢湭杩愯銆嶏紝鍥犳瀹冭翰杩囦簡 33 涓帰閽堛€佷竴杞綔鑰呭鎶楄嚜娴嬪拰涓€娆″渚?review銆?
+              涓よ€?CI 鍒嗗埆涓?push 37418750045锛坅ttempt 1 澶辫触 鈫?attempt 2 鎴愬姛锛屼袱娆￠兘鐣欐。锛変笌
+              push 37420563832 SUCCESS attempt 1銆?
+RECOMMEND     瀵圭浜岄」鍙戠幇锛屼綔鑰?*寤鸿纭寲 head**锛堣櫄鍋囩殑鍙鐜版€у０鏄庢瘮瀛樺偍杈圭晫鎯呭喌鏇翠笉璇ョ暀鍦?review 闈剁偣涓婏級锛?
+              浣嗘湭鍗曟柟闈㈡墽琛屸€斺€旀湰浠诲姟宸叉湁杩囦竴娆￠鍙栫鎾烇紝闈剁偣绉诲姩蹇呴』鐢?reviewer 涓€鍙ヨ瘽瑙﹀彂銆?
 ```
 
-REX-803 的 review 必须独立制造 workbook Review 段列出的条件（重复执行、取消、重启、timeout、partial campaign、
-seed reproducibility），作者自测不构成 review 证据；作者提出的攻击清单见
-`reports/REX-803/DEVELOPMENT_HANDOFF.md`，reviewer 可以并且应当拒绝它、另立更严格的探针。
+REX-803 鐨?review 蹇呴』鐙珛鍒堕€?workbook Review 娈靛垪鍑虹殑鏉′欢锛堥噸澶嶆墽琛屻€佸彇娑堛€侀噸鍚€乼imeout銆乸artial campaign銆?
+seed reproducibility锛夛紝浣滆€呰嚜娴嬩笉鏋勬垚 review 璇佹嵁锛涗綔鑰呮彁鍑虹殑鏀诲嚮娓呭崟瑙?
+`reports/REX-803/DEVELOPMENT_HANDOFF.md`锛宺eviewer 鍙互骞朵笖搴斿綋鎷掔粷瀹冦€佸彟绔嬫洿涓ユ牸鐨勬帰閽堛€?
 
-### 跨任务缺陷：一个不可用的文件存储可以阻止 City 启动（Mech，2026-10-06）
+### 璺ㄤ换鍔＄己闄凤細涓€涓笉鍙敤鐨勬枃浠跺瓨鍌ㄥ彲浠ラ樆姝?City 鍚姩锛圡ech锛?026-10-06锛?
 
-REX-803 的作者自测在修完自身缺陷后，把同一探针指向“City 启动期会碰到的每一个文件存储”，发现该失效形状**在 main 上仍然存活**：在应当是目录的位置放一个文件，会让 `createGateway` 直接抛错，City 连端口都不绑定。
+REX-803 鐨勪綔鑰呰嚜娴嬪湪淇畬鑷韩缂洪櫡鍚庯紝鎶婂悓涓€鎺㈤拡鎸囧悜鈥淐ity 鍚姩鏈熶細纰板埌鐨勬瘡涓€涓枃浠跺瓨鍌ㄢ€濓紝鍙戠幇璇ュけ鏁堝舰鐘?*鍦?main 涓婁粛鐒跺瓨娲?*锛氬湪搴斿綋鏄洰褰曠殑浣嶇疆鏀句竴涓枃浠讹紝浼氳 `createGateway` 鐩存帴鎶涢敊锛孋ity 杩炵鍙ｉ兘涓嶇粦瀹氥€?
 
 ```text
-SHAPE A  在应为目录的位置放一个文件（6 个 store，main 213f9f9f → 修复分支 8c67bb2）
-theme-packages (capability-bridge)  BRICKED EEXIST  →  STARTED        <- 第二个实例，已给可采纳修复
-research (REX-801 registry parent)  BRICKED ENOTDIR →  仍 BRICKED     <- 已单独报告并给可采纳修复
-research/experiments (REX-801)      BRICKED EEXIST  →  仍 BRICKED     <- 同上
-research/campaigns / monitor / research-trace                            STARTED → STARTED
+SHAPE A  鍦ㄥ簲涓虹洰褰曠殑浣嶇疆鏀句竴涓枃浠讹紙6 涓?store锛宮ain 213f9f9f 鈫?淇鍒嗘敮 8c67bb2锛?
+theme-packages (capability-bridge)  BRICKED EEXIST  鈫? STARTED        <- 绗簩涓疄渚嬶紝宸茬粰鍙噰绾充慨澶?
+research (REX-801 registry parent)  BRICKED ENOTDIR 鈫? 浠?BRICKED     <- 宸插崟鐙姤鍛婂苟缁欏彲閲囩撼淇
+research/experiments (REX-801)      BRICKED EEXIST  鈫? 浠?BRICKED     <- 鍚屼笂
+research/campaigns / monitor / research-trace                            STARTED 鈫?STARTED
 
-SHAPE B  在应为文件的位置放一个目录（3 个 store，两个分支结果相同）
-city.sqlite (canonical store)       BRICKED "unable to open database file"   <- F-1 新实例：此处拒绝启动是**正确**的，
-                                                                                缺的是可诊断的 typed 原因
-join-requests.json (join store)     STARTED，HTTP 200 且内存中已生成审批行，但**什么都没落盘**   <- F-2 有意的静默
-execution-profile.json (WBC-604)    change() 抛错，但内存 profile 已经切换   <- F-3 违反该模块自己声明的 rule 2
-                                                                                （已给第三个可采纳修复分支）
+SHAPE B  鍦ㄥ簲涓烘枃浠剁殑浣嶇疆鏀句竴涓洰褰曪紙3 涓?store锛屼袱涓垎鏀粨鏋滅浉鍚岋級
+city.sqlite (canonical store)       BRICKED "unable to open database file"   <- F-1 鏂板疄渚嬶細姝ゅ鎷掔粷鍚姩鏄?*姝ｇ‘**鐨勶紝
+                                                                                缂虹殑鏄彲璇婃柇鐨?typed 鍘熷洜
+join-requests.json (join store)     STARTED锛孒TTP 200 涓斿唴瀛樹腑宸茬敓鎴愬鎵硅锛屼絾**浠€涔堥兘娌¤惤鐩?*   <- F-2 鏈夋剰鐨勯潤榛?
+execution-profile.json (WBC-604)    change() 鎶涢敊锛屼絾鍐呭瓨 profile 宸茬粡鍒囨崲   <- F-3 杩濆弽璇ユā鍧楄嚜宸卞０鏄庣殑 rule 2
+                                                                                锛堝凡缁欑涓変釜鍙噰绾充慨澶嶅垎鏀級
 ```
 
-v1 版本的表格声称有 8 个探针，实际只有 6 个（其中两行 `relative = null` 根本没埋雷，join 行的 `HTTP 400` 还是探针自身把字段名写成 `claimSecret` 造成的）。该仪器缺陷连同更正后的实测一并记录，不做静默清洗。
+v1 鐗堟湰鐨勮〃鏍煎０绉版湁 8 涓帰閽堬紝瀹為檯鍙湁 6 涓紙鍏朵腑涓よ `relative = null` 鏍规湰娌″煁闆凤紝join 琛岀殑 `HTTP 400` 杩樻槸鎺㈤拡鑷韩鎶婂瓧娈靛悕鍐欐垚 `claimSecret` 閫犳垚鐨勶級銆傝浠櫒缂洪櫡杩炲悓鏇存鍚庣殑瀹炴祴涓€骞惰褰曪紝涓嶅仛闈欓粯娓呮礂銆?
 
-完整记录（两个 bricking 实例、F-1/F-2/F-3 三种不同失效模式、成对前后测、三个可采纳修复分支、以及三条仪器教训）见
+瀹屾暣璁板綍锛堜袱涓?bricking 瀹炰緥銆丗-1/F-2/F-3 涓夌涓嶅悓澶辨晥妯″紡銆佹垚瀵瑰墠鍚庢祴銆佷笁涓彲閲囩撼淇鍒嗘敮銆佷互鍙婁笁鏉′华鍣ㄦ暀璁級瑙?
 [reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md)
-（扫描 harness 作为可复现证据一并提交为 `reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`）。
-涉及的模块均已合并进 main 且其任务（REX-801、MB-008 legacy、WBC-604）已关闭，因此本机只发布测量、修复分支与探针，
-**不合并、不改 main、不触碰关闭任务的记录**。
+锛堟壂鎻?harness 浣滀负鍙鐜拌瘉鎹竴骞舵彁浜や负 `reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`锛夈€?
+娑夊強鐨勬ā鍧楀潎宸插悎骞惰繘 main 涓斿叾浠诲姟锛圧EX-801銆丮B-008 legacy銆乄BC-604锛夊凡鍏抽棴锛屽洜姝ゆ湰鏈哄彧鍙戝竷娴嬮噺銆佷慨澶嶅垎鏀笌鎺㈤拡锛?
+**涓嶅悎骞躲€佷笉鏀?main銆佷笉瑙︾鍏抽棴浠诲姟鐨勮褰?*銆?
 
-该缺陷同时是 REX 的论文素材（§7）：重复故障注入、before/after 对照、以及一条可复用的“失效形状扫描”方法学。
+璇ョ己闄峰悓鏃舵槸 REX 鐨勮鏂囩礌鏉愶紙搂7锛夛細閲嶅鏁呴殰娉ㄥ叆銆乥efore/after 瀵圭収銆佷互鍙婁竴鏉″彲澶嶇敤鐨勨€滃け鏁堝舰鐘舵壂鎻忊€濇柟娉曞銆?
 
-### 当前可领取状态（Mech 复扫，2026-10-06）
+### 褰撳墠鍙鍙栫姸鎬侊紙Mech 澶嶆壂锛?026-10-06锛?
 
-按领取规则重扫整个 mission-book（24 个真实 workbook，模板 XX-000 除外）后的结论：**Mech 当前可领取的开发任务为 0**。
-
-```text
-READY 且未被领取                                    0
-开发已完成、等待对侧主机 review                     2   (REX-803 / MON-903；作者均为 Mech，§3 禁止自审)
-review 已被领取、等待判定                           2   (MON-902 → Alien 已领取；REX-804 → Mech 已给 NOT PASSED)
-依赖未满足                                         5   (REX-805/806/807/890、MON-990)
-对侧主机已领取未开工                                1   (SHOW-401，dev=Alien)
-```
-
-REX-805 的 `dependencies` 明确要求 `REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED`，因此它不会因为 REX-801/802 已接受而解锁。
-本机可做的下一步全部落在对侧物理主机（Alien review / Alien repair）或离线的 Alien 节点上；本机不做投机性 union baseline，
-也不自行制造“可领取”工作。本轮的施工因此落在**不占任务、可复用的验证与缺陷发现**上，其结果即上文两项实测。
-
-对侧主机于 2026-10-06 15:12–15:18 重新上线（Alien-codex），完成了 CEX-790 current-main 集成（PR #33，MERGEABLE，
-CI 绿），并在其中**采纳了本机发布的两个 store-guard 修复分支**（附来源标注）；同时领取了 MON-902 review。
-该集成报告另记录了一条 Owner 指令：优先 CEX-790 并使其可合并，随后直接做 MON，取代此前的 REX-before-MON 排序，
-SHOW 仍然排除。该指令直接授权的是 Alien 的集成与后续 MON 工作；本机据此复扫任务池，结论不变（Mech 可领取为 0）。
-
-## 4. 双机异步施工
-
-沿用现有 Alien / Mech：
+鎸夐鍙栬鍒欓噸鎵暣涓?mission-book锛?4 涓湡瀹?workbook锛屾ā鏉?XX-000 闄ゅ锛夊悗鐨勭粨璁猴細**Mech 褰撳墠鍙鍙栫殑寮€鍙戜换鍔′负 0**銆?
 
 ```text
-Alien Development  → Mech Formal Review
-Mech Development   → Alien Formal Review
+READY 涓旀湭琚鍙?                                   0
+寮€鍙戝凡瀹屾垚銆佺瓑寰呭渚т富鏈?review                     2   (REX-803 / MON-903锛涗綔鑰呭潎涓?Mech锛屄? 绂佹鑷)
+review 宸茶棰嗗彇銆佺瓑寰呭垽瀹?                          2   (MON-902 鈫?Alien 宸查鍙栵紱REX-804 鈫?Mech 宸茬粰 NOT PASSED)
+渚濊禆鏈弧瓒?                                        5   (REX-805/806/807/890銆丮ON-990)
+瀵逛晶涓绘満宸查鍙栨湭寮€宸?                               1   (SHOW-401锛宒ev=Alien)
 ```
 
-强制继承：
+REX-805 鐨?`dependencies` 鏄庣‘瑕佹眰 `REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED`锛屽洜姝ゅ畠涓嶄細鍥犱负 REX-801/802 宸叉帴鍙楄€岃В閿併€?
+鏈満鍙仛鐨勪笅涓€姝ュ叏閮ㄨ惤鍦ㄥ渚х墿鐞嗕富鏈猴紙Alien review / Alien repair锛夋垨绂荤嚎鐨?Alien 鑺傜偣涓婏紱鏈満涓嶅仛鎶曟満鎬?union baseline锛?
+涔熶笉鑷鍒堕€犫€滃彲棰嗗彇鈥濆伐浣溿€傛湰杞殑鏂藉伐鍥犳钀藉湪**涓嶅崰浠诲姟銆佸彲澶嶇敤鐨勯獙璇佷笌缂洪櫡鍙戠幇**涓婏紝鍏剁粨鏋滃嵆涓婃枃涓ら」瀹炴祴銆?
 
-- atomic claim；
-- different physical host review；
-- CI / 长实验等待不占主机；
-- event wake-up；
-- 约 20 分钟 bounded rescan；
-- fresh critic；
-- Review → Repair；
-- exact-head evidence；
-- latest-main integration；
-- no make-work。
+瀵逛晶涓绘満浜?2026-10-06 15:12鈥?5:18 閲嶆柊涓婄嚎锛圓lien-codex锛夛紝瀹屾垚浜?CEX-790 current-main 闆嗘垚锛圥R #33锛孧ERGEABLE锛?
+CI 缁匡級锛屽苟鍦ㄥ叾涓?*閲囩撼浜嗘湰鏈哄彂甯冪殑涓や釜 store-guard 淇鍒嗘敮**锛堥檮鏉ユ簮鏍囨敞锛夛紱鍚屾椂棰嗗彇浜?MON-902 review銆?
+璇ラ泦鎴愭姤鍛婂彟璁板綍浜嗕竴鏉?Owner 鎸囦护锛氫紭鍏?CEX-790 骞朵娇鍏跺彲鍚堝苟锛岄殢鍚庣洿鎺ュ仛 MON锛屽彇浠ｆ鍓嶇殑 REX-before-MON 鎺掑簭锛?
+SHOW 浠嶇劧鎺掗櫎銆傝鎸囦护鐩存帴鎺堟潈鐨勬槸 Alien 鐨勯泦鎴愪笌鍚庣画 MON 宸ヤ綔锛涙湰鏈烘嵁姝ゅ鎵换鍔℃睜锛岀粨璁轰笉鍙橈紙Mech 鍙鍙栦负 0锛夈€?
 
-研究任务尤其禁止“实验跑着所以主机只能等”。长 repetitions / fault campaign / CI 期间，施工主机应继续扫描其它不冲突工作。
+## 4. 鍙屾満寮傛鏂藉伐
 
-## 5. Research Fabric 不是 Workbench 前置依赖
+娌跨敤鐜版湁 Alien / Mech锛?
 
-Alien + Mech + Android 就必须能完成 v1。
+```text
+Alien Development  鈫?Mech Formal Review
+Mech Development   鈫?Alien Formal Review
+```
 
-未来 Workbench 只是：
+寮哄埗缁ф壙锛?
+
+- atomic claim锛?
+- different physical host review锛?
+- CI / 闀垮疄楠岀瓑寰呬笉鍗犱富鏈猴紱
+- event wake-up锛?
+- 绾?20 鍒嗛挓 bounded rescan锛?
+- fresh critic锛?
+- Review 鈫?Repair锛?
+- exact-head evidence锛?
+- latest-main integration锛?
+- no make-work銆?
+
+鐮旂┒浠诲姟灏ゅ叾绂佹鈥滃疄楠岃窇鐫€鎵€浠ヤ富鏈哄彧鑳界瓑鈥濄€傞暱 repetitions / fault campaign / CI 鏈熼棿锛屾柦宸ヤ富鏈哄簲缁х画鎵弿鍏跺畠涓嶅啿绐佸伐浣溿€?
+
+## 5. Research Fabric 涓嶆槸 Workbench 鍓嶇疆渚濊禆
+
+Alien + Mech + Android 灏卞繀椤昏兘瀹屾垚 v1銆?
+
+鏈潵 Workbench 鍙槸锛?
 
 ```text
 additional experiment nodes / higher workload scale
 ```
 
-而不是：
+鑰屼笉鏄細
 
 ```text
 research architecture prerequisite
 ```
 
-若本 programme 因没有 Linux/Workbench 无法正常开发或验证基础 contract，即设计失败。
+鑻ユ湰 programme 鍥犳病鏈?Linux/Workbench 鏃犳硶姝ｅ父寮€鍙戞垨楠岃瘉鍩虹 contract锛屽嵆璁捐澶辫触銆?
 
-## 6. 用户暴露原则
+## 6. 鐢ㄦ埛鏆撮湶鍘熷垯
 
-本 programme 全部服从全局 `CONSTRUCTION_RULES.md` 的 **Capability Exposure Gate**。
+鏈?programme 鍏ㄩ儴鏈嶄粠鍏ㄥ眬 `CONSTRUCTION_RULES.md` 鐨?**Capability Exposure Gate**銆?
 
-特别地：
+鐗瑰埆鍦帮細
 
-- experiment create/run/stop/export = 用户直接操作，必须有明确入口；
-- experiment status / metrics / provenance = 用户必须可观察；
-- fault injection = 高影响高级控制，不放普通主导航，但必须有显式 Research/Advanced 入口、风险说明和确认；
-- raw internal trace plumbing = 可为 INTERNAL_ONLY，但必须有 exposure decision 记录；
-- 普通 Utopia 用户不应被 Research controls 淹没。
+- experiment create/run/stop/export = 鐢ㄦ埛鐩存帴鎿嶄綔锛屽繀椤绘湁鏄庣‘鍏ュ彛锛?
+- experiment status / metrics / provenance = 鐢ㄦ埛蹇呴』鍙瀵燂紱
+- fault injection = 楂樺奖鍝嶉珮绾ф帶鍒讹紝涓嶆斁鏅€氫富瀵艰埅锛屼絾蹇呴』鏈夋樉寮?Research/Advanced 鍏ュ彛銆侀闄╄鏄庡拰纭锛?
+- raw internal trace plumbing = 鍙负 INTERNAL_ONLY锛屼絾蹇呴』鏈?exposure decision 璁板綍锛?
+- 鏅€?Utopia 鐢ㄦ埛涓嶅簲琚?Research controls 娣规病銆?
 
-详细收纳见 [RESEARCH_CONTROL_SURFACE.md](./RESEARCH_CONTROL_SURFACE.md)。
+璇︾粏鏀剁撼瑙?[RESEARCH_CONTROL_SURFACE.md](./RESEARCH_CONTROL_SURFACE.md)銆?
 
-## 7. 强制论文素材
+## 7. 寮哄埗璁烘枃绱犳潗
 
-所有 REX 任务执行 [RESEARCH_EVIDENCE_PROTOCOL.md](./RESEARCH_EVIDENCE_PROTOCOL.md)。
+鎵€鏈?REX 浠诲姟鎵ц [RESEARCH_EVIDENCE_PROTOCOL.md](./RESEARCH_EVIDENCE_PROTOCOL.md)銆?
 
-任何：
+浠讳綍锛?
 
-- 运行报错；
-- test/CI fail；
-- timeout；
-- race；
-- incorrect measurement；
-- false assumption；
-- Development / Review 逻辑冲突；
-- fault campaign unexpected outcome；
-- failed replay；
-- non-reproducible result；
-- before/after metrics；
+- 杩愯鎶ラ敊锛?
+- test/CI fail锛?
+- timeout锛?
+- race锛?
+- incorrect measurement锛?
+- false assumption锛?
+- Development / Review 閫昏緫鍐茬獊锛?
+- fault campaign unexpected outcome锛?
+- failed replay锛?
+- non-reproducible result锛?
+- before/after metrics锛?
 
-都必须保存，不得在修复后清洗。
+閮藉繀椤讳繚瀛橈紝涓嶅緱鍦ㄤ慨澶嶅悗娓呮礂銆?
 
 ## 8. Final merge lock
 
-现在不创建 final integration workbook。
+鐜板湪涓嶅垱寤?final integration workbook銆?
 
-只有 REX-801..807 全部：
+鍙湁 REX-801..807 鍏ㄩ儴锛?
 
-- Development complete；
-- opposite-host Review complete；
-- exact-head CI green；
-- exposure decision satisfied；
-- PAPER/RESEARCH material index complete；
+- Development complete锛?
+- opposite-host Review complete锛?
+- exact-head CI green锛?
+- exposure decision satisfied锛?
+- PAPER/RESEARCH material index complete锛?
 
-之后 REX-890 才能进行独立 reproduction study。
+涔嬪悗 REX-890 鎵嶈兘杩涜鐙珛 reproduction study銆?
 
-Programme terminal marker：
+Programme terminal marker锛?
 
 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE`
 
-该 marker 不代表所有论文问题已经回答，只代表 Utopia 已具备可靠地产生研究数据的基础设施。
+璇?marker 涓嶄唬琛ㄦ墍鏈夎鏂囬棶棰樺凡缁忓洖绛旓紝鍙唬琛?Utopia 宸插叿澶囧彲闈犲湴浜х敓鐮旂┒鏁版嵁鐨勫熀纭€璁炬柦銆?
 
-## 当前回查 / Current pool recheck
+## 褰撳墠鍥炴煡 / Current pool recheck
 
-REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 可按 accepted 依赖领取；806/807/890 继续按任务书依赖等待。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
+REX-803 宸蹭簬 exact8798ba9 瀹屾垚 Alien 瀵规満姝ｅ紡楠屾敹锛氭妧鏈妫€涓庝笁绔?campaign 鍘熷鏉愭枡鍧囨牳楠岋紝SCENARIO_REPETITION_ENGINE_ACCEPTED 宸查噴鏀俱€倀race metadata 淇濇寔 PARTIAL銆俁EX-804 宸蹭簬 exactfe700aba 楠屾敹銆俁EX-805 鍙寜 accepted 渚濊禆棰嗗彇锛?06/807/890 缁х画鎸変换鍔′功渚濊禆绛夊緟銆係HOW 涓嶆墽琛岋紝涓嶅惎鐢?parked/new programme銆備互涓嬫棭鏈熸钀戒繚鐣欎负 dated history锛屽綋鍓嶆潈濞佽浠诲姟涓綋涓庢寮忛獙鏀舵姤鍛娿€?
 
 REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-end material review; SCENARIO_REPETITION_ENGINE_ACCEPTED is released while trace metadata remains PARTIAL. REX-804 is accepted at exactfe700aba. REX-805 can be claimed against accepted dependency heads;806/807/890 continue waiting under their workbook dependencies. SHOW and parked/new programme execution remain excluded. Earlier sections below are dated history; current authority is the workbook and formal acceptance report.
 
 
 ---
 
-[English translation / 完整英文说明](./en/README.md)
+[English translation / 瀹屾暣鑻辨枃璇存槑](./en/README.md)
 
 <!-- SERIES_DASHBOARD:START -->
-## 任务快速面板 / Task dashboard
+## 浠诲姟蹇€熼潰鏉?/ Task dashboard
 
-自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+鑷姩璇诲彇canonical宸ヤ綔涔︼紱鏈〃涓嶆彁渚涢鍙栭攣鎴栭澶朼uthority銆?/ Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 5/8 · 开发 / Development 5/8 · 复检 / Review 5/8 · `IN_PROGRESS`
+鎬诲畬鎴?/ Complete 5/8 路 寮€鍙?/ Development 5/8 路 澶嶆 / Review 5/8 路 `IN_PROGRESS`
 
-| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+| 浠诲姟 / Task | 鐘舵€?/ Status | 寮€鍙?/ Development | 澶嶆 / Review | 鍙墽琛?/ Enabled |
 |---|---|:---:|:---:|:---:|
 | [REX-801](REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
 | [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
@@ -333,189 +333,208 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 
 <!-- SERIES_DASHBOARD:END -->
 
-### Mech 复验结果（2026-10-06，REX-804）/ Mech re-verification of REX-804
+### Mech 澶嶉獙缁撴灉锛?026-10-06锛孯EX-804锛? Mech re-verification of REX-804
 
-REX-804 的复验已完成，结论写入 `reports/REX-804/REVERIFICATION_REPORT.md`：
+REX-804 鐨勫楠屽凡瀹屾垚锛岀粨璁哄啓鍏?`reports/REX-804/REVERIFICATION_REPORT.md`锛?
 
-- **B1 已关闭**：f4ceae73 的 `faults.mjs` 与本人发布的修复分支逐字节一致，本人九个探针（含 P8 这个 B1 回归守卫）在 f4ceae73 与分支 tip `075ddc13` 上均 **9/9 通过**。
-- f4ceae73 上那次 CI 红被归类为**作者自测的宿主调度依赖**，不是产品回归：采纳之后两个提交只改测试与证据，两 head 之间 `services/apps/contracts` 差异为**空**；本机在两侧各连续 5 次 8/8 通过。作者自行诊断并注入受控时钟修复。
-- **新增阻塞性发现 B4**：该分支**无法并入当前 main**。tip 的 PR run 红而 push run 绿不是抖动——push 针对旧 base，PR 针对与新 main 的合并结果。本机在 `origin/main b06504f`（现已包含被采纳的 REX-801 store-guard 探针）与 `075ddc13` 的合并结果上确定性复现：`tests/rex801-store-guard.test.mjs` **1 pass / 1 FAIL，`ENOTDIR ... mkdir '<runtime>/research/faults'`**，而 main 单独运行为 2/2。根因是一行：`services/dev-gateway/research/faults.mjs:9` 的 `mkdirSync` 无保护，而该控制器在 City 启动期被构造——**这是 store-guard 类的第五个实例，也是最尖锐的一个**，因为同一文件里的**读**路径已为 B1 修好，而同一行的 mkdir 没修。
-- **判定 `075ddc13`：NOT PASSED（B4）**；marker `FAULT_INJECTION_RECOVERY_ACCEPTED` 未释放，`review_complete` 保持 false。
-- 可采纳最小修复：`repair/REX-804-mech-fault-store-guard-on-current-main` @ adc075e（= 合并结果 + 该一文件的保护构造）。修复后同合并结果上：REX-801 守卫测试 **2/2（91ms，原为 1/1 且 34 201ms）**、REX-804 四个套件 **19/19**、托管 push run **37424594316 SUCCESS attempt 1**（gateway-web 与 android 均绿，且恰是原先变红的那一步）。
+- **B1 宸插叧闂?*锛歠4ceae73 鐨?`faults.mjs` 涓庢湰浜哄彂甯冪殑淇鍒嗘敮閫愬瓧鑺備竴鑷达紝鏈汉涔濅釜鎺㈤拡锛堝惈 P8 杩欎釜 B1 鍥炲綊瀹堝崼锛夊湪 f4ceae73 涓庡垎鏀?tip `075ddc13` 涓婂潎 **9/9 閫氳繃**銆?
+- f4ceae73 涓婇偅娆?CI 绾㈣褰掔被涓?*浣滆€呰嚜娴嬬殑瀹夸富璋冨害渚濊禆**锛屼笉鏄骇鍝佸洖褰掞細閲囩撼涔嬪悗涓や釜鎻愪氦鍙敼娴嬭瘯涓庤瘉鎹紝涓?head 涔嬮棿 `services/apps/contracts` 宸紓涓?*绌?*锛涙湰鏈哄湪涓や晶鍚勮繛缁?5 娆?8/8 閫氳繃銆備綔鑰呰嚜琛岃瘖鏂苟娉ㄥ叆鍙楁帶鏃堕挓淇銆?
+- **鏂板闃诲鎬у彂鐜?B4**锛氳鍒嗘敮**鏃犳硶骞跺叆褰撳墠 main**銆倀ip 鐨?PR run 绾㈣€?push run 缁夸笉鏄姈鍔ㄢ€斺€攑ush 閽堝鏃?base锛孭R 閽堝涓庢柊 main 鐨勫悎骞剁粨鏋溿€傛湰鏈哄湪 `origin/main b06504f`锛堢幇宸插寘鍚閲囩撼鐨?REX-801 store-guard 鎺㈤拡锛変笌 `075ddc13` 鐨勫悎骞剁粨鏋滀笂纭畾鎬у鐜帮細`tests/rex801-store-guard.test.mjs` **1 pass / 1 FAIL锛宍ENOTDIR ... mkdir '<runtime>/research/faults'`**锛岃€?main 鍗曠嫭杩愯涓?2/2銆傛牴鍥犳槸涓€琛岋細`services/dev-gateway/research/faults.mjs:9` 鐨?`mkdirSync` 鏃犱繚鎶わ紝鑰岃鎺у埗鍣ㄥ湪 City 鍚姩鏈熻鏋勯€犫€斺€?*杩欐槸 store-guard 绫荤殑绗簲涓疄渚嬶紝涔熸槸鏈€灏栭攼鐨勪竴涓?*锛屽洜涓哄悓涓€鏂囦欢閲岀殑**璇?*璺緞宸蹭负 B1 淇ソ锛岃€屽悓涓€琛岀殑 mkdir 娌′慨銆?
+- **鍒ゅ畾 `075ddc13`锛歂OT PASSED锛圔4锛?*锛沵arker `FAULT_INJECTION_RECOVERY_ACCEPTED` 鏈噴鏀撅紝`review_complete` 淇濇寔 false銆?
+- 鍙噰绾虫渶灏忎慨澶嶏細`repair/REX-804-mech-fault-store-guard-on-current-main` @ adc075e锛? 鍚堝苟缁撴灉 + 璇ヤ竴鏂囦欢鐨勪繚鎶ゆ瀯閫狅級銆備慨澶嶅悗鍚屽悎骞剁粨鏋滀笂锛歊EX-801 瀹堝崼娴嬭瘯 **2/2锛?1ms锛屽師涓?1/1 涓?34 201ms锛?*銆丷EX-804 鍥涗釜濂椾欢 **19/19**銆佹墭绠?push run **37424594316 SUCCESS attempt 1**锛坓ateway-web 涓?android 鍧囩豢锛屼笖鎭版槸鍘熷厛鍙樼孩鐨勯偅涓€姝ワ級銆?
 
 REX-804 re-verification is complete; the verdict is in `reports/REX-804/REVERIFICATION_REPORT.md`. **B1 is closed** (the author's `faults.mjs` is byte-identical to this reviewer's published repair; all nine reviewer probes pass on both repaired heads, including the P8 regression guard). The interim CI red at f4ceae73 is a **host-scheduling-dependent test**, not a product regression: the two commits after the adoption change tests and evidence only, the product diff between the heads is empty, and the suite passes 8/8 five times on each head here. **New blocking finding B4:** the branch is **not mergeable into current main** - the tip's PR run is red while its push run is green because a push tests the old base and a PR tests the merge with the new main; reproduced deterministically on the local merge of `origin/main b06504f` with `075ddc13`, where the adopted REX-801 store-guard probe goes 1 pass / 1 fail with `ENOTDIR ... mkdir '<runtime>/research/faults'` against 2/2 on main alone. Root cause is the unguarded `mkdirSync` at `services/dev-gateway/research/faults.mjs:9`, constructed during City startup - the **fifth instance of the store-guard class**, and the sharpest, because the read path in the same file was repaired for B1 while the mkdir on the same line was not. **Verdict on `075ddc13`: NOT PASSED for B4**, marker unreleased. Adoptable minimum repair `repair/REX-804-mech-fault-store-guard-on-current-main` @ adc075e (the merge result plus the guarded construction): after it the guard test is 2/2 in 91 ms and hosted push run 37424594316 is terminal SUCCESS attempt 1 on the merge.
 
 
 
-复验来源说明 / Re-verification provenance: 上述 Mech 结论针对历史 `075ddc13`，完整证据见 [REVERIFICATION_REPORT](../reports/REX-804/REVERIFICATION_REPORT.md)（[完整中文](../reports/REX-804/zh-CN/REVERIFICATION_REPORT.md)）；[英文阅读译本](./en/README.md)保留全部复验细节。后续 [AUTHOR_REPAIR](../reports/REX-804/AUTHOR_REPAIR_Alien.md)（[完整中文](../reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md)）是独立作者修复来源，不自行构成对侧宿主验收；[canonical 工作书](./REX-804-fault-injection-and-recovery-probes.md)仍是当前 authority。 / The Mech verdict above concerns historical `075ddc13`; the linked report and complete Chinese reading translation preserve its evidence, and the English reading page preserves all details. The later linked author repair is a separate provenance source and does not itself establish opposite-host acceptance; the canonical workbook remains current authority.
+澶嶉獙鏉ユ簮璇存槑 / Re-verification provenance: 涓婅堪 Mech 缁撹閽堝鍘嗗彶 `075ddc13`锛屽畬鏁磋瘉鎹 [REVERIFICATION_REPORT](../reports/REX-804/REVERIFICATION_REPORT.md)锛圼瀹屾暣涓枃](../reports/REX-804/zh-CN/REVERIFICATION_REPORT.md)锛夛紱[鑻辨枃闃呰璇戞湰](./en/README.md)淇濈暀鍏ㄩ儴澶嶉獙缁嗚妭銆傚悗缁?[AUTHOR_REPAIR](../reports/REX-804/AUTHOR_REPAIR_Alien.md)锛圼瀹屾暣涓枃](../reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md)锛夋槸鐙珛浣滆€呬慨澶嶆潵婧愶紝涓嶈嚜琛屾瀯鎴愬渚у涓婚獙鏀讹紱[canonical 宸ヤ綔涔(./REX-804-fault-injection-and-recovery-probes.md)浠嶆槸褰撳墠 authority銆?/ The Mech verdict above concerns historical `075ddc13`; the linked report and complete Chinese reading translation preserve its evidence, and the English reading page preserves all details. The later linked author repair is a separate provenance source and does not itself establish opposite-host acceptance; the canonical workbook remains current authority.
 
-### 当前候选交接更新 / Current candidate handoff update
+### 褰撳墠鍊欓€変氦鎺ユ洿鏂?/ Current candidate handoff update
 
-REX-803 review8798ba9 exact CI全部SUCCESS，71相关测试与8独立critic探针通过；实体门槛仍NOT_RUN。常驻City实际回查确认Android/Gateway同City，Alien保存成员配置却被拒绝INSTALLATION_RETIRED，详见RESIDENT_CITY_RECHECK_Alien。REX-804 development候选fe700ab包含新main并修复Mech复验B4，19相关测试、push37424946247/PR37424951038/linkage37424951044均SUCCESS；development_complete=true，Mech对新候选的正式复验待完成。旧头075ddc1的B4 NOT_PASSED保持历史结论，不等同新头已验收。
+REX-803 review8798ba9 exact CI鍏ㄩ儴SUCCESS锛?1鐩稿叧娴嬭瘯涓?鐙珛critic鎺㈤拡閫氳繃锛涘疄浣撻棬妲涗粛NOT_RUN銆傚父椹籆ity瀹為檯鍥炴煡纭Android/Gateway鍚孋ity锛孉lien淇濆瓨鎴愬憳閰嶇疆鍗磋鎷掔粷INSTALLATION_RETIRED锛岃瑙丷ESIDENT_CITY_RECHECK_Alien銆俁EX-804 development鍊欓€塮e700ab鍖呭惈鏂癿ain骞朵慨澶峂ech澶嶉獙B4锛?9鐩稿叧娴嬭瘯銆乸ush37424946247/PR37424951038/linkage37424951044鍧嘢UCCESS锛沝evelopment_complete=true锛孧ech瀵规柊鍊欓€夌殑姝ｅ紡澶嶉獙寰呭畬鎴愩€傛棫澶?75ddc1鐨凚4 NOT_PASSED淇濇寔鍘嗗彶缁撹锛屼笉绛夊悓鏂板ご宸查獙鏀躲€?
 
 REX-803 review8798ba9 has all exact CI runs SUCCESS,71 affected tests and8 independent critic probes passing; the physical gate remains NOT_RUN. A live recheck confirms Android/Gateway identity agreement, but Alien's saved member configuration is rejected asINSTALLATION_RETIRED. REX-804 candidatefe700ab includes new main and repairs Mech's B4 finding;19 affected tests and all three exact CI runs succeed. Development is complete for Mech's formal re-verification. The NOT_PASSED verdict on previous075ddc1 remains historical; it does not accept the new head. Canonical workbooks remain authoritative.
 
 
-### REX-804 复验结论：已验收 / REX-804 re-verification: ACCEPTED
+### REX-804 澶嶉獙缁撹锛氬凡楠屾敹 / REX-804 re-verification: ACCEPTED
 
 ```text
-ACCEPTED HEAD   fe700aba957990f93b22fd63d594ddfff7b4e243（含 current main b06504f 与原始评审靶点 f76ccf53 为祖先）
-B1  CLOSED      不可读故障回执阻止 City 启动 —— 本人 P8 回归守卫在三个 head 上均通过
-B4  CLOSED      同一 store-guard 形状出现在 fault controller 的无保护 mkdir —— 现已修复：构造期降级为
-                storeState/storeReason、list() 披露、对不可用存储注入返回 typed 503 FAULT_STORE_UNAVAILABLE、
-                普通任务不受影响。判据是在**含 current main 的 head 内部**重跑那条当初变红的探针：
-                tests/rex801-store-guard.test.mjs 2/2（97ms / 51ms，原为 1/1 且 34 201ms），
-                以及 pull_request run 37424951038 终态 SUCCESS —— 该 run 在 075ddc1 上正是红的。
-CI              push 37424946247 / PR 37424951038 / linkage 37424951044，逐次 API 复核，均 SUCCESS attempt 1
-MARKER          FAULT_INJECTION_RECOVERY_ACCEPTED 已在 fe700ab 上释放
-SCOPE           明确而非暗示：Android 原生故障控制面与真机/外部 provider 恢复仍为 NOT_RUN；
-                DUPLICATE_EVENT 的恢复指标结构性 NOT_MEASURED（回执带原因），本人 P6 断言的正是这个 null + 原因
-REVIEWER 仪器   本轮还发现并修好了**本人自己的**探针缺陷：P6 用 durationMs 150 配 350ms 睡眠，把「多快算快」
-                交给了宿主；满载下 DELAY_RESULT 计数为 0。这与本人在第一轮复验中给作者 fixture 做的分类是
-                同一个缺陷类，且同样由「隔离绿 / 满载红」暴露。修复于 review/REX-804-mech-review @ 53d01a3
-                （窗口 1200ms + 等待被持有的 report promise）；修后隔离 9/9 ×3、与三个重型浏览器套件并发
-                13/13、全量套件中 P6 亦绿。两次状态都入档，未用修正覆盖红的一次。
-报告            reports/REX-804/REVERIFICATION_REPORT.md
+ACCEPTED HEAD   fe700aba957990f93b22fd63d594ddfff7b4e243锛堝惈 current main b06504f 涓庡師濮嬭瘎瀹￠澏鐐?f76ccf53 涓虹鍏堬級
+B1  CLOSED      涓嶅彲璇绘晠闅滃洖鎵ч樆姝?City 鍚姩 鈥斺€?鏈汉 P8 鍥炲綊瀹堝崼鍦ㄤ笁涓?head 涓婂潎閫氳繃
+B4  CLOSED      鍚屼竴 store-guard 褰㈢姸鍑虹幇鍦?fault controller 鐨勬棤淇濇姢 mkdir 鈥斺€?鐜板凡淇锛氭瀯閫犳湡闄嶇骇涓?
+                storeState/storeReason銆乴ist() 鎶湶銆佸涓嶅彲鐢ㄥ瓨鍌ㄦ敞鍏ヨ繑鍥?typed 503 FAULT_STORE_UNAVAILABLE銆?
+                鏅€氫换鍔′笉鍙楀奖鍝嶃€傚垽鎹槸鍦?*鍚?current main 鐨?head 鍐呴儴**閲嶈窇閭ｆ潯褰撳垵鍙樼孩鐨勬帰閽堬細
+                tests/rex801-store-guard.test.mjs 2/2锛?7ms / 51ms锛屽師涓?1/1 涓?34 201ms锛夛紝
+                浠ュ強 pull_request run 37424951038 缁堟€?SUCCESS 鈥斺€?璇?run 鍦?075ddc1 涓婃鏄孩鐨勩€?
+CI              push 37424946247 / PR 37424951038 / linkage 37424951044锛岄€愭 API 澶嶆牳锛屽潎 SUCCESS attempt 1
+MARKER          FAULT_INJECTION_RECOVERY_ACCEPTED 宸插湪 fe700ab 涓婇噴鏀?
+SCOPE           鏄庣‘鑰岄潪鏆楃ず锛欰ndroid 鍘熺敓鏁呴殰鎺у埗闈笌鐪熸満/澶栭儴 provider 鎭㈠浠嶄负 NOT_RUN锛?
+                DUPLICATE_EVENT 鐨勬仮澶嶆寚鏍囩粨鏋勬€?NOT_MEASURED锛堝洖鎵у甫鍘熷洜锛夛紝鏈汉 P6 鏂█鐨勬鏄繖涓?null + 鍘熷洜
+REVIEWER 浠櫒   鏈疆杩樺彂鐜板苟淇ソ浜?*鏈汉鑷繁鐨?*鎺㈤拡缂洪櫡锛歅6 鐢?durationMs 150 閰?350ms 鐫＄湢锛屾妸銆屽蹇畻蹇€?
+                浜ょ粰浜嗗涓伙紱婊¤浇涓?DELAY_RESULT 璁℃暟涓?0銆傝繖涓庢湰浜哄湪绗竴杞楠屼腑缁欎綔鑰?fixture 鍋氱殑鍒嗙被鏄?
+                鍚屼竴涓己闄风被锛屼笖鍚屾牱鐢便€岄殧绂荤豢 / 婊¤浇绾€嶆毚闇层€備慨澶嶄簬 review/REX-804-mech-review @ 53d01a3
+                锛堢獥鍙?1200ms + 绛夊緟琚寔鏈夌殑 report promise锛夛紱淇悗闅旂 9/9 脳3銆佷笌涓変釜閲嶅瀷娴忚鍣ㄥ浠跺苟鍙?
+                13/13銆佸叏閲忓浠朵腑 P6 浜︾豢銆備袱娆＄姸鎬侀兘鍏ユ。锛屾湭鐢ㄤ慨姝ｈ鐩栫孩鐨勪竴娆°€?
+鎶ュ憡            reports/REX-804/REVERIFICATION_REPORT.md
 ```
 
 REX-804 is **ACCEPTED** at `fe700ab`: B1 (an unreadable fault receipt prevented City startup) and B4 (the same store-guard shape in the fault controller's unguarded `mkdir`, which made the branch unmergeable into current main) are both **closed**, and closed by the reviewer's own regression probes rather than by the author's suite - the B4 criterion being the exact probe that was red on the unguarded merge, re-run **inside the head that contains current main** (2/2 in 97 ms, where it was 1/1 and 34 201 ms), plus the pull_request run 37424951038 that is now terminal SUCCESS at the step that was red at 075ddc1. Three exact-head runs, read one at a time, all SUCCESS attempt 1. Marker **FAULT_INJECTION_RECOVERY_ACCEPTED released**, with scope stated rather than implied: Android native fault controls and physical/external-provider recovery remain NOT_RUN and DUPLICATE_EVENT recovery stays structurally NOT_MEASURED. This round also found and fixed **the reviewer's own** instrument defect - P6 handed "how fast is fast" to the host with a 150 ms fault window and a 350 ms sleep, failing under full-suite load with "DELAY_RESULT recorded that it was exercised (got 0)"; the same defect class the reviewer had classified in the author's fixture one round earlier, and exposed the same way by a green isolated run disagreeing with a loaded one. Fixed on `review/REX-804-mech-review @ 53d01a3` (1200 ms window, and the held report promise is awaited); both states are kept in the record.
 
-### REX-803 三端完成闸门：已在真实 City 上跑通 / REX-803 three-end completion gate: MET on the live City
+### REX-803 涓夌瀹屾垚闂搁棬锛氬凡鍦ㄧ湡瀹?City 涓婅窇閫?/ REX-803 three-end completion gate: MET on the live City
 
 ```text
-WHEN        2026-10-06T08:01Z，常驻 City（已更新到 8798ba9 并保留数据目录）
-BLOCKER     **不是对侧主机不在**，而是 manifest 里写了过期的身份：历次尝试都声明 alien-reference-node
-            （Alien 主机 2026-10-05 用过的名字，早已离线），而同一台主机全程以规范化入会身份
-            dev-8128a1ef25c5c4b7f66fc31b21705858（Alien-MERA-ALIANWARE）在线。
-            这是 F8 的推广：manifest 必须声明 City **实际报告**的身份，记住的名字会腐烂。
-CAMPAIGN    campaign-966cf439-7017-4bb0-88e8-981e59c18322，状态 COMPLETED (REPETITIONS_FINISHED)
-            拓扑 TWO_HOST_MESH：hosts/workers = [Mech dev-031fdba6…, Alien dev-8128a1ef…]，
-            controlSurface = Android PERM00 dev-be7832e35…
-  run 0     MEASURED  放置 dev-031fdba6…(Mech)   task Q-be723362-…
-  run 1     MEASURED  放置 dev-8128a1ef…(Alien)  task Q-f78eaee3-…   <- 由**对侧主机**执行并测得
-  run 2     MEASURED  放置 dev-031fdba6…(Mech)   task Q-697aab2c-…
+WHEN        2026-10-06T08:01Z锛屽父椹?City锛堝凡鏇存柊鍒?8798ba9 骞朵繚鐣欐暟鎹洰褰曪級
+BLOCKER     **涓嶆槸瀵逛晶涓绘満涓嶅湪**锛岃€屾槸 manifest 閲屽啓浜嗚繃鏈熺殑韬唤锛氬巻娆″皾璇曢兘澹版槑 alien-reference-node
+            锛圓lien 涓绘満 2026-10-05 鐢ㄨ繃鐨勫悕瀛楋紝鏃╁凡绂荤嚎锛夛紝鑰屽悓涓€鍙颁富鏈哄叏绋嬩互瑙勮寖鍖栧叆浼氳韩浠?
+            dev-8128a1ef25c5c4b7f66fc31b21705858锛圓lien-MERA-ALIANWARE锛夊湪绾裤€?
+            杩欐槸 F8 鐨勬帹骞匡細manifest 蹇呴』澹版槑 City **瀹為檯鎶ュ憡**鐨勮韩浠斤紝璁颁綇鐨勫悕瀛椾細鑵愮儌銆?
+CAMPAIGN    campaign-966cf439-7017-4bb0-88e8-981e59c18322锛岀姸鎬?COMPLETED (REPETITIONS_FINISHED)
+            鎷撴墤 TWO_HOST_MESH锛歨osts/workers = [Mech dev-031fdba6鈥? Alien dev-8128a1ef鈥锛?
+            controlSurface = Android PERM00 dev-be7832e35鈥?
+  run 0     MEASURED  鏀剧疆 dev-031fdba6鈥?Mech)   task Q-be723362-鈥?
+  run 1     MEASURED  鏀剧疆 dev-8128a1ef鈥?Alien)  task Q-f78eaee3-鈥?  <- 鐢?*瀵逛晶涓绘満**鎵ц骞舵祴寰?
+  run 2     MEASURED  鏀剧疆 dev-031fdba6鈥?Mech)   task Q-697aab2c-鈥?
   summary   planned 3 / accounted 3 / measured 3 / timedOut 0 / failed 0 / terminalAccountingComplete true
-            三条放置均在运行前由 runSeed 预测并与实际一致
-MATERIAL    三个 canonical task 全部 COMPLETED 且带 researchRunRef；research trace 记录
-            RESEARCH_CAMPAIGN_STARTED @2026-10-06T08:00:39.601Z（storageState READY，completeness PARTIAL 如实标注）；
-            不可变回执 campaign-966cf439-…json 已落盘于 <runtime>/research/campaigns/
-EVIDENCE    已发布可跨主机复核的匿名材料包（6 个数据文件 + 索引，含逐字节 immutable receipt、trace epoch 快照、
-            PARTIAL 的 missing/dropped/clock 逐项说明与由包内文件重算的 derived checks；生成器与第二实现另置于
-            payload 之外的 evidence-tools/）：
-            reports/REX-803/evidence/MATERIAL_INDEX.md（+ MATERIAL_HANDOFF_MECH.md）
-            早前只在本机磁盘的原始 JSON 引用同样保留：D:/utopia-chat/evidence/REX-803/…
-            完整记录：reports/REX-803/THREE_END_GATE_MEASUREMENT.md
-NOT CLAIMED terminal marker 未释放。REX-803 的 Formal Review 属对侧主机，作者不代为判定；本机只交付证据。
+            涓夋潯鏀剧疆鍧囧湪杩愯鍓嶇敱 runSeed 棰勬祴骞朵笌瀹為檯涓€鑷?
+MATERIAL    涓変釜 canonical task 鍏ㄩ儴 COMPLETED 涓斿甫 researchRunRef锛況esearch trace 璁板綍
+            RESEARCH_CAMPAIGN_STARTED @2026-10-06T08:00:39.601Z锛坰torageState READY锛宑ompleteness PARTIAL 濡傚疄鏍囨敞锛夛紱
+            涓嶅彲鍙樺洖鎵?campaign-966cf439-鈥son 宸茶惤鐩樹簬 <runtime>/research/campaigns/
+EVIDENCE    宸插彂甯冨彲璺ㄤ富鏈哄鏍哥殑鍖垮悕鏉愭枡鍖咃紙6 涓暟鎹枃浠?+ 绱㈠紩锛屽惈閫愬瓧鑺?immutable receipt銆乼race epoch 蹇収銆?
+            PARTIAL 鐨?missing/dropped/clock 閫愰」璇存槑涓庣敱鍖呭唴鏂囦欢閲嶇畻鐨?derived checks锛涚敓鎴愬櫒涓庣浜屽疄鐜板彟缃簬
+            payload 涔嬪鐨?evidence-tools/锛夛細
+            reports/REX-803/evidence/MATERIAL_INDEX.md锛? MATERIAL_HANDOFF_MECH.md锛?
+            鏃╁墠鍙湪鏈満纾佺洏鐨勫師濮?JSON 寮曠敤鍚屾牱淇濈暀锛欴:/utopia-chat/evidence/REX-803/鈥?
+            瀹屾暣璁板綍锛歳eports/REX-803/THREE_END_GATE_MEASUREMENT.md
+NOT CLAIMED terminal marker 鏈噴鏀俱€俁EX-803 鐨?Formal Review 灞炲渚т富鏈猴紝浣滆€呬笉浠ｄ负鍒ゅ畾锛涙湰鏈哄彧浜や粯璇佹嵁銆?
 ```
 
-REX-803's three-end completion gate is **MET**: on 2026-10-06T08:01Z a controlled campaign ran on the live City (updated to `8798ba9`, data directory retained) across the Mech + Alien + Android topology, with all three repetitions measured - including the one placed on the **Alien host's** node - every canonical task COMPLETED with its `researchRunRef`, the trace recording the campaign, and the immutable receipt filed. The two-day blocker was **not** an absent host: every earlier attempt declared `alien-reference-node`, a name the Alien machine used on 2026-10-05 and which went stale, while the same host was online the whole time under its canonical enrolled identity `dev-8128a1ef…`. That is finding F8 generalised - a manifest must declare the identities the City actually reports. The terminal marker is **not** released: the Formal Review and its verdict belong to the opposite host, and this host is the author. The reviewer's one blocking condition - that the raw material existed only on this host's drive while a MEMBER session correctly refuses the owner-scoped endpoints - is now answered by a published, hash-bound package under `reports/REX-803/evidence/` (redacted raw JSON, byte-identical immutable receipt, the whole collector epoch holding the campaign, per-file SHA256, and the missing/dropped/clock reasons for `PARTIAL` recomputed from the collector's own predicate), together with the generating script and the arithmetic that re-derives each seed and placement from the package alone.
+REX-803's three-end completion gate is **MET**: on 2026-10-06T08:01Z a controlled campaign ran on the live City (updated to `8798ba9`, data directory retained) across the Mech + Alien + Android topology, with all three repetitions measured - including the one placed on the **Alien host's** node - every canonical task COMPLETED with its `researchRunRef`, the trace recording the campaign, and the immutable receipt filed. The two-day blocker was **not** an absent host: every earlier attempt declared `alien-reference-node`, a name the Alien machine used on 2026-10-05 and which went stale, while the same host was online the whole time under its canonical enrolled identity `dev-8128a1ef鈥. That is finding F8 generalised - a manifest must declare the identities the City actually reports. The terminal marker is **not** released: the Formal Review and its verdict belong to the opposite host, and this host is the author. The reviewer's one blocking condition - that the raw material existed only on this host's drive while a MEMBER session correctly refuses the owner-scoped endpoints - is now answered by a published, hash-bound package under `reports/REX-803/evidence/` (redacted raw JSON, byte-identical immutable receipt, the whole collector epoch holding the campaign, per-file SHA256, and the missing/dropped/clock reasons for `PARTIAL` recomputed from the collector's own predicate), together with the generating script and the arithmetic that re-derives each seed and placement from the package alone.
 
-### REX-803 正式验收 / Formal acceptance
+### REX-803 姝ｅ紡楠屾敹 / Formal acceptance
 
-Alien 正式验收 exact8798ba9，材料38项独立检查通过，3次种子/执行节点与原始回执、canonical tasks 和 trace 对齐；trace metadata PARTIAL、未发布的全局197条原始窗口、缺失provenance和意图验证NOT_TESTED均保留。新入会身份开始于07:29，不能描述此前两天始终在线。详见 [正式验收](../reports/REX-803/FORMAL_ACCEPTANCE_Alien.md)。
+Alien 姝ｅ紡楠屾敹 exact8798ba9锛屾潗鏂?8椤圭嫭绔嬫鏌ラ€氳繃锛?娆＄瀛?鎵ц鑺傜偣涓庡師濮嬪洖鎵с€乧anonical tasks 鍜?trace 瀵归綈锛泃race metadata PARTIAL銆佹湭鍙戝竷鐨勫叏灞€197鏉″師濮嬬獥鍙ｃ€佺己澶眕rovenance鍜屾剰鍥鹃獙璇丯OT_TESTED鍧囦繚鐣欍€傛柊鍏ヤ細韬唤寮€濮嬩簬07:29锛屼笉鑳芥弿杩版鍓嶄袱澶╁缁堝湪绾裤€傝瑙?[姝ｅ紡楠屾敹](../reports/REX-803/FORMAL_ACCEPTANCE_Alien.md)銆?
 
 Alien accepts exact8798ba9 after38 independent material checks and three matching seed/placement/receipt/task/trace bindings. PARTIAL trace metadata, the unpublished whole197-record window, missing provenance and NOT_TESTED intent validation remain explicit. The fresh enrollment began at07:29, not two days earlier. See the formal acceptance report linked above.
 
-### REX 集成前置测量：两个产物各自干净，合在一起不干净 / REX integration preflight: each product merges clean, together they do not
+### REX 闆嗘垚鍓嶇疆娴嬮噺锛氫袱涓骇鐗╁悇鑷共鍑€锛屽悎鍦ㄤ竴璧蜂笉骞插噣 / REX integration preflight: each product merges clean, together they do not
 
-REX-803 被接受**之后**才第一次尝试集成，会把冲突留到最不方便的时候。所以先测（§11 要求集成从当时最新 main 开始，本轮从 `b06504f` 出发，用**已接受的**身份）： / Integrating for the first time only after REX-803 is accepted would surface the conflict at the worst moment, so it was measured first, from the then-latest main `b06504f`, using the **accepted** identities：
-
-```text
-8798ba9 已接受 REX-803 -> main 单独                CLEAN
-fe700ab 已接受 REX-804 -> main 单独                CLEAN
-两者同时 / both together                          CONFLICT x2，均在 services/dev-gateway/server.mjs
-```
-
-两处冲突都是 §11 点名的 union/superset 情形（双方互不引用：fault controller 不含 campaign，campaign 段不含 faults），已按显式并集解出并测量： / Both conflicts are the union/superset case - neither side references the other - resolved as an explicit union and measured：
+REX-803 琚帴鍙?*涔嬪悗**鎵嶇涓€娆″皾璇曢泦鎴愶紝浼氭妸鍐茬獊鐣欏埌鏈€涓嶆柟渚跨殑鏃跺€欍€傛墍浠ュ厛娴嬶紙搂11 瑕佹眰闆嗘垚浠庡綋鏃舵渶鏂?main 寮€濮嬶紝鏈疆浠?`b06504f` 鍑哄彂锛岀敤**宸叉帴鍙楃殑**韬唤锛夛細 / Integrating for the first time only after REX-803 is accepted would surface the conflict at the worst moment, so it was measured first, from the then-latest main `b06504f`, using the **accepted** identities锛?
 
 ```text
-integration/REX-accepted-heads-mech-preflight @ 704c518   （父提交 = 两个已接受身份）
-  focused  tests/rex803-*. + rex804-*.         48 pass / 0 fail（13 套件）
-  full     pnpm test                          1404 pass / 3 fail / 1407（3 项为 host-city-launcher 常驻占用，N/N-3 基线）
+8798ba9 宸叉帴鍙?REX-803 -> main 鍗曠嫭                CLEAN
+fe700ab 宸叉帴鍙?REX-804 -> main 鍗曠嫭                CLEAN
+涓よ€呭悓鏃?/ both together                          CONFLICT x2锛屽潎鍦?services/dev-gateway/server.mjs
 ```
 
-**第一版测错了 head，已更正：** 它合并的是 `rex/REX-803-mech-scenario-runner`，而该 tip `a695bb9` 是已接受头 `8798ba9` 的祖先、**落后 14 个提交**，缺的正是种子/放置修复 `42acdc6`、回执顺序与关闭修复 `07e8c3c` 等。按“把任务分支合进来”的机械做法会集成一个从未被验收的头。 / The first version merged the development branch, whose tip is 14 commits behind the accepted head - missing the very repairs the accepted campaign ran.
+涓ゅ鍐茬獊閮芥槸 搂11 鐐瑰悕鐨?union/superset 鎯呭舰锛堝弻鏂逛簰涓嶅紩鐢細fault controller 涓嶅惈 campaign锛宑ampaign 娈典笉鍚?faults锛夛紝宸叉寜鏄惧紡骞堕泦瑙ｅ嚭骞舵祴閲忥細 / Both conflicts are the union/superset case - neither side references the other - resolved as an explicit union and measured锛?
 
-规则（把 WBC 的 B4/F-3 规则推广到集成方向）/ the rule, generalising the WBC B4/F-3 rule to integration：
+```text
+integration/REX-accepted-heads-mech-preflight @ 704c518   锛堢埗鎻愪氦 = 涓や釜宸叉帴鍙楄韩浠斤級
+  focused  tests/rex803-*. + rex804-*.         48 pass / 0 fail锛?3 濂椾欢锛?
+  full     pnpm test                          1404 pass / 3 fail / 1407锛? 椤逛负 host-city-launcher 甯搁┗鍗犵敤锛孨/N-3 鍩虹嚎锛?
+```
 
-> **一条 branch 单独能进 main，不构成“多条 branch 能一起进 main”的证据。** / A branch that merges cleanly on its own is not evidence that several merge cleanly together.
+**绗竴鐗堟祴閿欎簡 head锛屽凡鏇存锛?* 瀹冨悎骞剁殑鏄?`rex/REX-803-mech-scenario-runner`锛岃€岃 tip `a695bb9` 鏄凡鎺ュ彈澶?`8798ba9` 鐨勭鍏堛€?*钀藉悗 14 涓彁浜?*锛岀己鐨勬鏄瀛?鏀剧疆淇 `42acdc6`銆佸洖鎵ч『搴忎笌鍏抽棴淇 `07e8c3c` 绛夈€傛寜鈥滄妸浠诲姟鍒嗘敮鍚堣繘鏉モ€濈殑鏈烘鍋氭硶浼氶泦鎴愪竴涓粠鏈楠屾敹鐨勫ご銆?/ The first version merged the development branch, whose tip is 14 commits behind the accepted head - missing the very repairs the accepted campaign ran.
 
-> **“把任务分支合进来”不是一条集成规则。** 集成来源必须是工作书记录的那个被验收的确切提交——32 本工作书扫描中 1 项 tip 超前于已验收头（JOIN-590，多出的那个提交正是删除证据的提交）、3 项 tip 落后（MON-902/MON-903/REX-803）、1 项已验收头不在任何 ref 上（UI-000）。见 `reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。 / The task branch is not the integration source: 1 accepted task's tip is ahead of its accepted head, 3 are behind, 1 accepted head is on no ref.
+瑙勫垯锛堟妸 WBC 鐨?B4/F-3 瑙勫垯鎺ㄥ箍鍒伴泦鎴愭柟鍚戯級/ the rule, generalising the WBC B4/F-3 rule to integration锛?
 
-**REX-805 候选头现已纳入同一测量**（`4b39468`，尚未验收）：它对 main 是 **fast-forward**（main 是它的祖先，它比 main 多 15 个提交），对已接受并集 803+804 则有 server.mjs 一处 union 冲突，已按三家并集解出。`integration/REX-805-candidate-mech-preflight @ 0d8bdce`：定向 67/67，全量 1423/1426（3 项 host-city-launcher），跑后 CLEAN。**那个 fast-forward 正是“集成来源必须是接受身份”这条规则最锋利的例子：按分支名走不是多带一个提交，而是整条 main 被候选头替换。** / The REX-805 candidate is now measured too: a fast-forward onto main, one union conflict against the accepted 803+804 union, resolved as a three-way union; 67/67 focused and 1423/1426 full, clean after. The fast-forward is why the accepted-head rule matters most here.
+> **涓€鏉?branch 鍗曠嫭鑳借繘 main锛屼笉鏋勬垚鈥滃鏉?branch 鑳戒竴璧疯繘 main鈥濈殑璇佹嵁銆?* / A branch that merges cleanly on its own is not evidence that several merge cleanly together.
 
-另外，首次全量运行还出现过一个第 4 红项 `tests/relay-s1-tunnel.test.mjs:420`，**已查明是 main 自身的漂移探针**（1000 ms 窗口内第 21 个请求才 429，而探针顺序发 30 个请求；主机一忙窗口就追不上），重跑即消失、并集未改动该测试与该限流器一行。 / A fourth failure in the first full run was classified as main's own host-speed-dependent probe: it vanished on the repeat and the union touches neither the test nor the limiter.
+> **鈥滄妸浠诲姟鍒嗘敮鍚堣繘鏉モ€濅笉鏄竴鏉￠泦鎴愯鍒欍€?* 闆嗘垚鏉ユ簮蹇呴』鏄伐浣滀功璁板綍鐨勯偅涓楠屾敹鐨勭‘鍒囨彁浜も€斺€?2 鏈伐浣滀功鎵弿涓?1 椤?tip 瓒呭墠浜庡凡楠屾敹澶达紙JOIN-590锛屽鍑虹殑閭ｄ釜鎻愪氦姝ｆ槸鍒犻櫎璇佹嵁鐨勬彁浜わ級銆? 椤?tip 钀藉悗锛圡ON-902/MON-903/REX-803锛夈€? 椤瑰凡楠屾敹澶翠笉鍦ㄤ换浣?ref 涓婏紙UI-000锛夈€傝 `reports/INTEGRATION_SOURCE_SWEEP_MECH.md`銆?/ The task branch is not the integration source: 1 accepted task's tip is ahead of its accepted head, 3 are behind, 1 accepted head is on no ref.
 
-### 顺带发现：REX-804 的测试重写了它所认证的证据 / Surfaced: REX-804's test rewrites the evidence it certifies
+**REX-805 鍊欓€夊ご鐜板凡绾冲叆鍚屼竴娴嬮噺**锛坄4b39468`锛屽皻鏈獙鏀讹級锛氬畠瀵?main 鏄?**fast-forward**锛坢ain 鏄畠鐨勭鍏堬紝瀹冩瘮 main 澶?15 涓彁浜わ級锛屽宸叉帴鍙楀苟闆?803+804 鍒欐湁 server.mjs 涓€澶?union 鍐茬獊锛屽凡鎸変笁瀹跺苟闆嗚В鍑恒€俙integration/REX-805-candidate-mech-preflight @ 0d8bdce`锛氬畾鍚?67/67锛屽叏閲?1423/1426锛? 椤?host-city-launcher锛夛紝璺戝悗 CLEAN銆?*閭ｄ釜 fast-forward 姝ｆ槸鈥滈泦鎴愭潵婧愬繀椤绘槸鎺ュ彈韬唤鈥濊繖鏉¤鍒欐渶閿嬪埄鐨勪緥瀛愶細鎸夊垎鏀悕璧颁笉鏄甯︿竴涓彁浜わ紝鑰屾槸鏁存潯 main 琚€欓€夊ご鏇挎崲銆?* / The REX-805 candidate is now measured too: a fast-forward onto main, one union conflict against the accepted 803+804 union, resolved as a three-way union; 67/67 focused and 1423/1426 full, clean after. The fast-forward is why the accepted-head rule matters most here.
 
-跑并集全量套件时发现结束后 tracked tree 是脏的，追进去是**已接受**的 REX-804 里的一处缺陷：`tests/rex804-web.test.mjs:9` 把截图写进**已提交**的证据路径 `evidence/raw/mission-book/REX-804/danger-zone.png`（正是 `PAPER_MATERIAL_INDEX.md` 引用的那份证据）。未修复 head 上实测：测试 **1 pass / 0 fail**，而 `git status` 同时显示该证据被改写（141809 → 139403 字节，取决于跑它的人的浏览器/字体/DPI/视口）。**会在你验证它时改变的证据不是证据**，且跑绿的测试把 tree 留脏，破坏复核记录依赖的 “tracked state clean after testing”。 / The union's full suite left the tree dirty: accepted REX-804's web test captures its screenshot into a committed evidence path, so a green run rewrites reviewed evidence and leaves the tree dirty.
+鍙﹀锛岄娆″叏閲忚繍琛岃繕鍑虹幇杩囦竴涓 4 绾㈤」 `tests/relay-s1-tunnel.test.mjs:420`锛?*宸叉煡鏄庢槸 main 鑷韩鐨勬紓绉绘帰閽?*锛?000 ms 绐楀彛鍐呯 21 涓姹傛墠 429锛岃€屾帰閽堥『搴忓彂 30 涓姹傦紱涓绘満涓€蹇欑獥鍙ｅ氨杩戒笉涓婏級锛岄噸璺戝嵆娑堝け銆佸苟闆嗘湭鏀瑰姩璇ユ祴璇曚笌璇ラ檺娴佸櫒涓€琛屻€?/ A fourth failure in the first full run was classified as main's own host-speed-dependent probe: it vanished on the repeat and the union touches neither the test nor the limiter.
 
-修复复用同程序内**已有的正确先例**（REX-803 的同类测试本来就写 `.runtime/evidence/…`，`.gitignore` 第 2 行）：`repair/REX-804-mech-test-evidence-outside-repo @ 690d723`，行为断言一行未改。并入并集后在合并结果上测量： / The repair reuses the correct precedent already in this programme and changes no assertion. Measured on the merge result：
+### 椤哄甫鍙戠幇锛歊EX-804 鐨勬祴璇曢噸鍐欎簡瀹冩墍璁よ瘉鐨勮瘉鎹?/ Surfaced: REX-804's test rewrites the evidence it certifies
+
+璺戝苟闆嗗叏閲忓浠舵椂鍙戠幇缁撴潫鍚?tracked tree 鏄剰鐨勶紝杩借繘鍘绘槸**宸叉帴鍙?*鐨?REX-804 閲岀殑涓€澶勭己闄凤細`tests/rex804-web.test.mjs:9` 鎶婃埅鍥惧啓杩?*宸叉彁浜?*鐨勮瘉鎹矾寰?`evidence/raw/mission-book/REX-804/danger-zone.png`锛堟鏄?`PAPER_MATERIAL_INDEX.md` 寮曠敤鐨勯偅浠借瘉鎹級銆傛湭淇 head 涓婂疄娴嬶細娴嬭瘯 **1 pass / 0 fail**锛岃€?`git status` 鍚屾椂鏄剧ず璇ヨ瘉鎹鏀瑰啓锛?41809 鈫?139403 瀛楄妭锛屽彇鍐充簬璺戝畠鐨勪汉鐨勬祻瑙堝櫒/瀛椾綋/DPI/瑙嗗彛锛夈€?*浼氬湪浣犻獙璇佸畠鏃舵敼鍙樼殑璇佹嵁涓嶆槸璇佹嵁**锛屼笖璺戠豢鐨勬祴璇曟妸 tree 鐣欒剰锛岀牬鍧忓鏍歌褰曚緷璧栫殑 鈥渢racked state clean after testing鈥濄€?/ The union's full suite left the tree dirty: accepted REX-804's web test captures its screenshot into a committed evidence path, so a green run rewrites reviewed evidence and leaves the tree dirty.
+
+淇澶嶇敤鍚岀▼搴忓唴**宸叉湁鐨勬纭厛渚?*锛圧EX-803 鐨勫悓绫绘祴璇曟湰鏉ュ氨鍐?`.runtime/evidence/鈥锛宍.gitignore` 绗?2 琛岋級锛歚repair/REX-804-mech-test-evidence-outside-repo @ 690d723`锛岃涓烘柇瑷€涓€琛屾湭鏀广€傚苟鍏ュ苟闆嗗悗鍦ㄥ悎骞剁粨鏋滀笂娴嬮噺锛?/ The repair reuses the correct precedent already in this programme and changes no assertion. Measured on the merge result锛?
 
 ```text
 integration/REX-accepted-heads-mech-preflight-with-evidence-repair @ 56b9752
-  focused  tests/rex803-*. + rex804-*.         48 pass / 0 fail，跑后 CLEAN
-  full     pnpm test                          1404 pass / 3 fail / 1407，跑后 CLEAN
-  （未含修复的同一个并集 @ 704c518：同样 1404/1407，但跑完后 tracked state 是脏的）
+  focused  tests/rex803-*. + rex804-*.         48 pass / 0 fail锛岃窇鍚?CLEAN
+  full     pnpm test                          1404 pass / 3 fail / 1407锛岃窇鍚?CLEAN
+  锛堟湭鍚慨澶嶇殑鍚屼竴涓苟闆?@ 704c518锛氬悓鏍?1404/1407锛屼絾璺戝畬鍚?tracked state 鏄剰鐨勶級
 ```
 
-即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**——两种状态下测试结果完全相同，只有含修复的那个状态在结束时是干净的。本机对 REX 无合并授权（`merge_authority: false`）、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`、`reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。
+鍗筹細**銆屽叏閲忕豢銆嶄笌銆岃窇瀹屽叏閲忓悗 tree 骞插噣銆嶆槸涓や欢涓嶅悓鐨勪簨**鈥斺€斾袱绉嶇姸鎬佷笅娴嬭瘯缁撴灉瀹屽叏鐩稿悓锛屽彧鏈夊惈淇鐨勯偅涓姸鎬佸湪缁撴潫鏃舵槸骞插噣鐨勩€傛湰鏈哄 REX 鏃犲悎骞舵巿鏉冿紙`merge_authority: false`锛夈€佷篃鏃?REX 鍚堝苟绐楀彛锛屼慨澶嶄笌骞堕泦鍒嗘敮鍧囦负**宸查獙璇併€佸緟閲囩撼**鐨勬彁妗堛€傚畬鏁磋褰曪細`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`銆乣reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`銆乣reports/INTEGRATION_SOURCE_SWEEP_MECH.md`銆?
 
-### REX-805 实体开发门槛：已在真实 City 上执行 / REX-805 physical development gate: EXECUTED on the live City
+### REX-805 瀹炰綋寮€鍙戦棬妲涳細宸插湪鐪熷疄 City 涓婃墽琛?/ REX-805 physical development gate: EXECUTED on the live City
 
-作者 `7ad7d19` 把开发门槛的执行交给本机（`PHYSICAL_GATE_HANDOFF_Alien.md`）。本机按交接执行并已交回材料。 / The author handed over execution of the development gate; this host executed it and handed the materials back.
+浣滆€?`7ad7d19` 鎶婂紑鍙戦棬妲涚殑鎵ц浜ょ粰鏈満锛坄PHYSICAL_GATE_HANDOFF_Alien.md`锛夈€傛湰鏈烘寜浜ゆ帴鎵ц骞跺凡浜ゅ洖鏉愭枡銆?/ The author handed over execution of the development gate; this host executed it and handed the materials back.
 
 ```text
-WHEN        2026-10-06  两次：作者修复前 4b39468，修复后重跑 0261a9e（常驻 City，数据目录保留，身份不变）
-DEPLOY      4b39468 → pid 33420；0261a9e → pid 44088；均 → City 031fdba6-e94c-4298-a095-6ff04a65481d
-            部署前常驻 City 跑旧候选 8798ba9，research/replays 404；两次部署后均 200
-SOURCE      campaign-966cf439-… run 1，seed 414121415，原 worker Alien（两次同一源）
-REPLAY      4b39468: campaign-4a1919b0-… 落 Alien   0261a9e: campaign-cdf39b7f-… 落 Alien
-ABLATION    4b39468: campaign-bad9f272-… 落 Mech    0261a9e: campaign-481a1761-… 落 Mech
-            两次均：MEASURED、controlledInputsMatch=true、differences=[]、Ablation placementChanged=true
-            三个 seed 一致；全部为真实执行（真实 worker、真实 canonical task 皆 COMPLETED）
-NOT CLAIMED 开发完成、验收、合并权均不主张——只把门槛材料交回作者核验
-EVIDENCE    reports/REX-805/evidence/（4b39468）与 reports/REX-805/evidence-repaired/（0261a9e）
-            逐文件 SHA256；三份回执为 City 字节的逐字节副本；同源回执在两个包与 REX-803 包中哈希相同
+WHEN        2026-10-06  涓ゆ锛氫綔鑰呬慨澶嶅墠 4b39468锛屼慨澶嶅悗閲嶈窇 0261a9e锛堝父椹?City锛屾暟鎹洰褰曚繚鐣欙紝韬唤涓嶅彉锛?
+DEPLOY      4b39468 鈫?pid 33420锛?261a9e 鈫?pid 44088锛涘潎 鈫?City 031fdba6-e94c-4298-a095-6ff04a65481d
+            閮ㄧ讲鍓嶅父椹?City 璺戞棫鍊欓€?8798ba9锛宺esearch/replays 404锛涗袱娆￠儴缃插悗鍧?200
+SOURCE      campaign-966cf439-鈥?run 1锛宻eed 414121415锛屽師 worker Alien锛堜袱娆″悓涓€婧愶級
+REPLAY      4b39468: campaign-4a1919b0-鈥?钀?Alien   0261a9e: campaign-cdf39b7f-鈥?钀?Alien
+ABLATION    4b39468: campaign-bad9f272-鈥?钀?Mech    0261a9e: campaign-481a1761-鈥?钀?Mech
+            涓ゆ鍧囷細MEASURED銆乧ontrolledInputsMatch=true銆乨ifferences=[]銆丄blation placementChanged=true
+            涓変釜 seed 涓€鑷达紱鍏ㄩ儴涓虹湡瀹炴墽琛岋紙鐪熷疄 worker銆佺湡瀹?canonical task 鐨?COMPLETED锛?
+NOT CLAIMED 寮€鍙戝畬鎴愩€侀獙鏀躲€佸悎骞舵潈鍧囦笉涓诲紶鈥斺€斿彧鎶婇棬妲涙潗鏂欎氦鍥炰綔鑰呮牳楠?
+EVIDENCE    reports/REX-805/evidence/锛?b39468锛変笌 reports/REX-805/evidence-repaired/锛?261a9e锛?
+            閫愭枃浠?SHA256锛涗笁浠藉洖鎵т负 City 瀛楄妭鐨勯€愬瓧鑺傚壇鏈紱鍚屾簮鍥炴墽鍦ㄤ袱涓寘涓?REX-803 鍖呬腑鍝堝笇鐩稿悓
 RESULT      reports/REX-805/PHYSICAL_GATE_RESULT_Mech.md
 ```
 
-**关于 `limits` 的更正链 / a correction chain, stated：** 本机合成源仪器曾报 `controlledInputDifferences:['limits']`；第一次实体跑（源恰好是非空 limits）看不到它，本机因此在材料索引里写成「属于合成夹具」；作者随后以 `0261a9e` 修复了空 limit 集（`{}` 与 `null` 的 canonical 差异）并加了回归测试——**证明该缺陷真实且一般**，本机那句结论下得太满，已在结果记录里改正：合成夹具触发了一个真实缺陷，而物理源没有覆盖那个分支。
+**鍏充簬 `limits` 鐨勬洿姝ｉ摼 / a correction chain, stated锛?* 鏈満鍚堟垚婧愪华鍣ㄦ浘鎶?`controlledInputDifferences:['limits']`锛涚涓€娆″疄浣撹窇锛堟簮鎭板ソ鏄潪绌?limits锛夌湅涓嶅埌瀹冿紝鏈満鍥犳鍦ㄦ潗鏂欑储寮曢噷鍐欐垚銆屽睘浜庡悎鎴愬す鍏枫€嶏紱浣滆€呴殢鍚庝互 `0261a9e` 淇浜嗙┖ limit 闆嗭紙`{}` 涓?`null` 鐨?canonical 宸紓锛夊苟鍔犱簡鍥炲綊娴嬭瘯鈥斺€?*璇佹槑璇ョ己闄风湡瀹炰笖涓€鑸?*锛屾湰鏈洪偅鍙ョ粨璁轰笅寰楀お婊★紝宸插湪缁撴灉璁板綍閲屾敼姝ｏ細鍚堟垚澶瑰叿瑙﹀彂浜嗕竴涓湡瀹炵己闄凤紝鑰岀墿鐞嗘簮娌℃湁瑕嗙洊閭ｄ釜鍒嗘敮銆?
 
-### REX-805 作者交付 / Author handover
+### REX-805 浣滆€呬氦浠?/ Author handover
 
-最新作者交付候选为 `0261a9ed1cec88df3ab4675623d422b37b33f270`，精确CI三项成功、独立代码复审通过。前驱4b39468的实体材料经作者63/63独立核验；最终修复针对无额外限制时的null/{}比较，真实非空限制路径的前驱材料仍是有界开发依据，不声称最终候选实体部署已观测。开发完成5/8、正式复检4/8、任务完成4/8；REX805仍IN_PROGRESS，正式review_host仍null、terminal未释放。见 [开发交付](../reports/REX-805/DEVELOPMENT_HANDOFF.md) 和 [材料索引](../reports/REX-805/PAPER_MATERIAL_INDEX.md)。
+鏈€鏂颁綔鑰呬氦浠樺€欓€変负 `0261a9ed1cec88df3ab4675623d422b37b33f270`锛岀簿纭瓹I涓夐」鎴愬姛銆佺嫭绔嬩唬鐮佸瀹￠€氳繃銆傚墠椹?b39468鐨勫疄浣撴潗鏂欑粡浣滆€?3/63鐙珛鏍搁獙锛涙渶缁堜慨澶嶉拡瀵规棤棰濆闄愬埗鏃剁殑null/{}姣旇緝锛岀湡瀹為潪绌洪檺鍒惰矾寰勭殑鍓嶉┍鏉愭枡浠嶆槸鏈夌晫寮€鍙戜緷鎹紝涓嶅０绉版渶缁堝€欓€夊疄浣撻儴缃插凡瑙傛祴銆傚紑鍙戝畬鎴?/8銆佹寮忓妫€4/8銆佷换鍔″畬鎴?/8锛汻EX805浠岻N_PROGRESS锛屾寮弐eview_host浠峮ull銆乼erminal鏈噴鏀俱€傝 [寮€鍙戜氦浠榏(../reports/REX-805/DEVELOPMENT_HANDOFF.md) 鍜?[鏉愭枡绱㈠紩](../reports/REX-805/PAPER_MATERIAL_INDEX.md)銆?
 
 The author hands over exact candidate `0261a9ed1cec88df3ab4675623d422b37b33f270`, with three successful exact-head CI runs and independent code re-review. The author independently verifies the predecessor4b39468 physical packet with63/63 checks. The final fix concerns null/{} comparison without extra bounds; the measured predecessor nonempty-bound path remains a bounded development basis, not observation of final-candidate physical deployment. Development is5/8, formal review4/8 and accepted tasks4/8. REX805 remains IN_PROGRESS with review_host null and no released terminal. See the [handover](../reports/REX-805/DEVELOPMENT_HANDOFF.md) and [material index](../reports/REX-805/PAPER_MATERIAL_INDEX.md).
 
-前段“limits差异属于合成夹具”的推论限于那份有maxFailures=3的实体源；作者另以真实HTTP无额外限制源复现并修复误报，不能将该推论推广到所有真实campaign。 / The earlier synthetic-fixture inference is limited to that physical source with maxFailures=3. The author separately reproduced and repaired the mismatch with a real HTTP source without extra bounds; the inference cannot extend to every real campaign.
+鍓嶆鈥渓imits宸紓灞炰簬鍚堟垚澶瑰叿鈥濈殑鎺ㄨ闄愪簬閭ｄ唤鏈塵axFailures=3鐨勫疄浣撴簮锛涗綔鑰呭彟浠ョ湡瀹濰TTP鏃犻澶栭檺鍒舵簮澶嶇幇骞朵慨澶嶈鎶ワ紝涓嶈兘灏嗚鎺ㄨ鎺ㄥ箍鍒版墍鏈夌湡瀹瀋ampaign銆?/ The earlier synthetic-fixture inference is limited to that physical source with maxFailures=3. The author separately reproduced and repaired the mismatch with a real HTTP source without extra bounds; the inference cannot extend to every real campaign.
 
-作者追加：最终0261a9e实体重跑已获原始包63/63及普通MEMBER规范任务独立核验，前驱-only缺口由此替代；正式对侧复检仍待领取/裁决。 / Author update: final0261a9e physical repetition now has63/63 raw-packet checks and independently matched ordinary-MEMBER canonical tasks, superseding the predecessor-only gap. Formal opposite-host claim/verdict remains pending.
+浣滆€呰拷鍔狅細鏈€缁?261a9e瀹炰綋閲嶈窇宸茶幏鍘熷鍖?3/63鍙婃櫘閫歁EMBER瑙勮寖浠诲姟鐙珛鏍搁獙锛屽墠椹?only缂哄彛鐢辨鏇夸唬锛涙寮忓渚у妫€浠嶅緟棰嗗彇/瑁佸喅銆?/ Author update: final0261a9e physical repetition now has63/63 raw-packet checks and independently matched ordinary-MEMBER canonical tasks, superseding the predecessor-only gap. Formal opposite-host claim/verdict remains pending.
 
-### REX-805 正式复检：**通过**，标记已释放 / Formal review: PASSED, marker released
+### REX-805 姝ｅ紡澶嶆锛?*閫氳繃**锛屾爣璁板凡閲婃斁 / Formal review: PASSED, marker released
 
 ```text
-WHEN        2026-10-06，对侧主机 Mech 独立复检（作者 Alien，另一台物理主机，§3 满足）
+WHEN        2026-10-06锛屽渚т富鏈?Mech 鐙珛澶嶆锛堜綔鑰?Alien锛屽彟涓€鍙扮墿鐞嗕富鏈猴紝搂3 婊¤冻锛?
 HEAD        0261a9ed1cec88df3ab4675623d422b37b33f270
-CLAIM       领取先于任何裁决发布：reports/REX-805/REVIEW_CLAIM_Mech.md
-PROBES      本机自造 17 项，全部通过：13 项打常驻真实 City（跑的就是被审 head），4 项在被审 head 上进程内
-  live      P1 空 limit 集源全链路（作者 0261a9e 修的分支）**被独立复现**：limits={} → 重放
-              controlledInputsMatch=true、differences=[]；新 campaign/experiment/canonical task 均为新身份
-            P2 同一源重放两次，9 个描述性字段完全一致
-            P3 alternate-device 消融落第一个声明 worker，placementChanged 如实（源本就在该 worker 上 => false）
-            P4/P4b 策略外机制、以及带消融控制的 REPLAY，均按名拒绝 ABLATION_UNSUPPORTED
-            P5/P5b 未知源、越界 index 均按名拒绝
-  inproc    P6 记录拓扑不在线 -> 409 REPLAY_TOPOLOGY_NOT_READY：**不可用条件确实不能被重放**
-            P7 receipt store 不可用（目录位置是文件）时 **City 仍然启动并服务**，storeState=UNAVAILABLE
-              reason=ENOTDIR，重放被打字化拒绝而非崩溃（store-guard 家族性质成立）
-OBSERVATION store 不可用时 replay 的 POST 回 404 CAMPAIGN_UNKNOWN（源查找先于引擎的 REPLAY_STORE_UNAVAILABLE）；
-            同一响应链已披露 storeState 与 reason，可区分 => 表述精度问题，**不构成缺陷**
-OWN DEFECTS 第一轮 live 探针 8/13，五个失败**全是本机探针的缺陷**（等待谓词、过窄错误码、把
-            「消融必然改变放置」当假设）；修正后 13/13，过程保留
-VERDICT     PASSED on 0261a9e；未发现缺陷
-MARKER      TRACE_REPLAY_ABLATION_ACCEPTED **已释放**，范围如实标注：真机渲染半边 NOT_OBSERVED
-NOT CLAIMED 不行使任何产品 main 合并权；durationDeltaMs 不作因果性能结论
-REPORT      reports/REX-805/REVIEW_REPORT.md；探针 reports/REX-805/REVIEW_PROBES_{LIVE,INPROCESS}_Mech.mjs
+CLAIM       棰嗗彇鍏堜簬浠讳綍瑁佸喅鍙戝竷锛歳eports/REX-805/REVIEW_CLAIM_Mech.md
+PROBES      鏈満鑷€?17 椤癸紝鍏ㄩ儴閫氳繃锛?3 椤规墦甯搁┗鐪熷疄 City锛堣窇鐨勫氨鏄瀹?head锛夛紝4 椤瑰湪琚 head 涓婅繘绋嬪唴
+  live      P1 绌?limit 闆嗘簮鍏ㄩ摼璺紙浣滆€?0261a9e 淇殑鍒嗘敮锛?*琚嫭绔嬪鐜?*锛歭imits={} 鈫?閲嶆斁
+              controlledInputsMatch=true銆乨ifferences=[]锛涙柊 campaign/experiment/canonical task 鍧囦负鏂拌韩浠?
+            P2 鍚屼竴婧愰噸鏀句袱娆★紝9 涓弿杩版€у瓧娈靛畬鍏ㄤ竴鑷?
+            P3 alternate-device 娑堣瀺钀界涓€涓０鏄?worker锛宲lacementChanged 濡傚疄锛堟簮鏈氨鍦ㄨ worker 涓?=> false锛?
+            P4/P4b 绛栫暐澶栨満鍒躲€佷互鍙婂甫娑堣瀺鎺у埗鐨?REPLAY锛屽潎鎸夊悕鎷掔粷 ABLATION_UNSUPPORTED
+            P5/P5b 鏈煡婧愩€佽秺鐣?index 鍧囨寜鍚嶆嫆缁?
+  inproc    P6 璁板綍鎷撴墤涓嶅湪绾?-> 409 REPLAY_TOPOLOGY_NOT_READY锛?*涓嶅彲鐢ㄦ潯浠剁‘瀹炰笉鑳借閲嶆斁**
+            P7 receipt store 涓嶅彲鐢紙鐩綍浣嶇疆鏄枃浠讹級鏃?**City 浠嶇劧鍚姩骞舵湇鍔?*锛宻toreState=UNAVAILABLE
+              reason=ENOTDIR锛岄噸鏀捐鎵撳瓧鍖栨嫆缁濊€岄潪宕╂簝锛坰tore-guard 瀹舵棌鎬ц川鎴愮珛锛?
+OBSERVATION store 涓嶅彲鐢ㄦ椂 replay 鐨?POST 鍥?404 CAMPAIGN_UNKNOWN锛堟簮鏌ユ壘鍏堜簬寮曟搸鐨?REPLAY_STORE_UNAVAILABLE锛夛紱
+            鍚屼竴鍝嶅簲閾惧凡鎶湶 storeState 涓?reason锛屽彲鍖哄垎 => 琛ㄨ堪绮惧害闂锛?*涓嶆瀯鎴愮己闄?*
+OWN DEFECTS 绗竴杞?live 鎺㈤拡 8/13锛屼簲涓け璐?*鍏ㄦ槸鏈満鎺㈤拡鐨勭己闄?*锛堢瓑寰呰皳璇嶃€佽繃绐勯敊璇爜銆佹妸
+            銆屾秷铻嶅繀鐒舵敼鍙樻斁缃€嶅綋鍋囪锛夛紱淇鍚?13/13锛岃繃绋嬩繚鐣?
+VERDICT     PASSED on 0261a9e锛涙湭鍙戠幇缂洪櫡
+MARKER      TRACE_REPLAY_ABLATION_ACCEPTED **宸查噴鏀?*锛岃寖鍥村瀹炴爣娉細鐪熸満娓叉煋鍗婅竟 NOT_OBSERVED
+NOT CLAIMED 涓嶈浣夸换浣曚骇鍝?main 鍚堝苟鏉冿紱durationDeltaMs 涓嶄綔鍥犳灉鎬ц兘缁撹
+REPORT      reports/REX-805/REVIEW_REPORT.md锛涙帰閽?reports/REX-805/REVIEW_PROBES_{LIVE,INPROCESS}_Mech.mjs
 ```
 
-由此 **REX-805 完成**（工作书 `status: COMPLETE`、`review_complete: true`），主任务板随之更新：Research Strengthening **5/8**，全城 **89/93**。下一步可按依赖续接 REX-806（其依赖 REX-803/804/805 现已全部 accepted）。
+鐢辨 **REX-805 瀹屾垚**锛堝伐浣滀功 `status: COMPLETE`銆乣review_complete: true`锛夛紝涓讳换鍔℃澘闅忎箣鏇存柊锛歊esearch Strengthening **5/8**锛屽叏鍩?**89/93**銆備笅涓€姝ュ彲鎸変緷璧栫画鎺?REX-806锛堝叾渚濊禆 REX-803/804/805 鐜板凡鍏ㄩ儴 accepted锛夈€?
+
+### REX-806 开发交付：材料导出可生成、可独立重算 / REX-806 development handover
+
+```text
+branch / head   rex/REX-806-mech-metrics-and-export @ d7aa5d7
+baseline        e18c5c5 = claim-time union（REX-803 8798ba9 · REX-804 fe700ab · REX-805 0261a9e）
+CI              94a7d24 push37451114057 · d7aa5d7 push37452319948，均 SUCCESS attempt 1
+local full      1445 / 1442 pass / 3 fail（3 项为 host-city-launcher 常驻占用；该 head 本轮未出现负载敏感失败）
+PROBES          18/18（13 模块 + 5 接口），先证伪再信任；接口探针自身错过两次（未注册 experiment、
+                回执文件名不符 runner 的 campaign-<uuid>.json 模式），修正后才 18/18
+SURFACES        GET /research/artifacts[?format=csv] 与 /research/artifacts/preview?limit=N，三条全部
+                成员会话 403 RESEARCH_OWNER_REQUIRED；无源 422 ARTIFACT_NO_SOURCE
+ARTIFACT        reports/REX-806/artifact/：18 个真实 campaign / 24 runs / 22 measured；4 项指标有值、
+                23 项 NOT_MEASURED 并写明原因；逐文件 SHA256，全新 clone 校验 10/10
+HANDOFF         reports/REX-806/DEVELOPMENT_HANDOFF.md（列出对侧主机应独立重算的最小集合）
+NOT CLAIMED     marker RESEARCH_ARTIFACT_EXPORT_ACCEPTED 未释放；本机不行使产品 main 合并权
+```
+
+对侧主机复检时请特别核对：`intervention_count` **不是 0**（城市记录不表达 Owner 行为，工作书要求未知不得写 0），以及 `placementMatchesSeedAlone` 的 false **恰好**只出现在 `replayMode=ABLATION` 的行上（消融政策本就要覆盖种子放置）。
