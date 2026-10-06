@@ -1,0 +1,16 @@
+✔ fault confirmation, live canonical target and bounded duration required (2.529ms)
+✔ heartbeat loss refuses only targeted heartbeats, stop and expiry restore requests (27.2513ms)
+✔ provider unavailable refuses targeted claim and records measured recovery after stop (4.7577ms)
+✔ delayed report releases immediately on emergency stop without blocking unrelated requests (11.0013ms)
+✔ duplicate event affects observation only and is absent after emergency stop (3.6433ms)
+✔ restart disables persisted activation and never resumes fault silently (4.1409ms)
+✔ unexercised or stopped fault cannot receive unrelated future detection or recovery measurements (2.8315ms)
+✔ expired fault persistence failure cannot turn normal canonical observation into an error (3.2491ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1070.6874

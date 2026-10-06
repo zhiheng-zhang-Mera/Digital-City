@@ -1,0 +1,20 @@
+✔ S1: a peer that cannot be dialled registers over an OUTBOUND socket, and the City names its ref (136.0799ms)
+✔ S1: admission reuses the City’s OWN credentials - a session ref comes from the registry, and a bad one is refused (119.9419ms)
+✔ S3: a real join completes over the pipe - the CITY runs the payload, the owner approves, the claim is spent once (98.1037ms)
+✔ S3: without approval the pipe grants nothing - the City is not joined just because a path exists (76.1514ms)
+✔ S2/S3: the relay refuses to be an open proxy - no path outside the list, and no widening by method (106.6107ms)
+✔ S3: a City refusal travels back as its OWN status, so the surface can say why instead of "unreachable" (70.6154ms)
+✔ S2: the dialling peer also SERVES the City - a payload the City PUSHES runs on the City it was dialled to (75.9342ms)
+✔ N2: the whole cross-network join runs over the pipe - capability, ask, decision, credential (146.0335ms)
+✔ N2: a rejection is reported AS a rejection and never retried; the flow stops there (125.0196ms)
+✔ N2: a pipe that answers for ANOTHER City is refused before an ask is created (74.9153ms)
+✔ N2: the reach decision sends the same link to navigation and the far network to the pipe (0.3118ms)
+✔ S1: a pipe that never stops is rate-limited, and the version check still applies to the handshake (999.6221ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2225.6443
