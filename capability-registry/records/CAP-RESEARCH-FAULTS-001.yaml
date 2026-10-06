@@ -10,7 +10,7 @@ implementation:
   paths: [services/dev-gateway/research/faults.mjs, services/dev-gateway/server.mjs, apps/web/research-faults.js]
   symbols: [createFaultController, renderFaults]
   api_or_actions: [GET /api/v0/research/faults, POST /api/v0/research/faults, POST /api/v0/research/faults/:id/stop]
-  last_verified_full_sha: 9b68d4f7054bb911c484340532cc3b5ae9ed47ac
+  last_verified_full_sha: ef11bb7a160b1388b234b63215207d56d3f51950
 status:
   implementation_status: CANDIDATE
   backend_wiring_status: LOCALLY_VERIFIED

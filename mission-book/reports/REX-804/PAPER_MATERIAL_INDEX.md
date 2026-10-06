@@ -14,3 +14,5 @@ Failure chain: unused historical fault received later natural detection/recovery
 Failure chain: expiry receipt write error escaped after canonical commit → storage failure falsification → remove injection first and contain persistence error → regression PASS → opposite-host confirmation NOT_RUN.
 
 Signals: bounded observation/runtime control truth, measurement error, explicit Owner authorization, capability wiring/reachability, nonblocking unrelated task boundary. Physical host/provider recovery, autonomous span, tokens and cross-host causal latency NOT_MEASURED. No novelty or performance claims.
+
+Selected numeric/trace artifact: `utopia:evidence/raw/mission-book/REX-804/controlled-probe.json`, source `9b68d4f7054bb911c484340532cc3b5ae9ed47ac`, packaging head `ef11bb7a160b1388b234b63215207d56d3f51950`. Contains 963ms observed canonical heartbeat detection, 22ms/24ms/7ms first restored request measurements, three duplicate observations, and explicit nulls. Packaging is not an accepted research result.

@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
 development_host: Alien
 development_branch: rex/REX-804-Alien-codex-faults
-development_head_sha: 9b68d4f7054bb911c484340532cc3b5ae9ed47ac
-development_ci: "37397118298 IN_PROGRESS at candidate 9b68d4f7054bb911c484340532cc3b5ae9ed47ac"
+development_head_sha: ef11bb7a160b1388b234b63215207d56d3f51950
+development_ci: "37397436261 IN_PROGRESS at candidate ef11bb7a160b1388b234b63215207d56d3f51950"
 development_complete: false
 review_host: null
 review_head_sha: null

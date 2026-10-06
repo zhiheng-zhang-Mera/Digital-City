@@ -134,4 +134,4 @@ records:
     record_ref: records/CAP-RESEARCH-FAULTS-001.yaml
     exposure_class: ADVANCED_CONTROL
     reconciliation: CANDIDATE_PENDING_FORMAL_REVIEW
-    last_verified_full_sha: "9b68d4f7054bb911c484340532cc3b5ae9ed47ac"
+    last_verified_full_sha: "ef11bb7a160b1388b234b63215207d56d3f51950"

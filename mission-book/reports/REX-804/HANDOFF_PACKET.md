@@ -6,8 +6,8 @@ IMPLEMENTATION_REPO: zhiheng-zhang-Mera/utopia
 CONTROL_REPO: zhiheng-zhang-Mera/Digital-City
 BRANCH: rex/REX-804-Alien-codex-faults
 BASELINE_SHA: 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef
-HEAD_SHA: 9b68d4f7054bb911c484340532cc3b5ae9ed47ac
-CI: 37397118298; terminal state pending at first publication
+HEAD_SHA: ef11bb7a160b1388b234b63215207d56d3f51950
+CI: 37397436261; terminal state pending at first publication
 
 DONE: Four bounded explicit-target classes, Web Danger Zone, emergency stop, persisted receipts, causal metric guards, expiry storage isolation, bilingual docs, focused 10 PASS.
 CURRENT_TRUTH: Implementation candidate pushed; full-suite/CI acceptance and formal Mech Review pending. No self-certification.
