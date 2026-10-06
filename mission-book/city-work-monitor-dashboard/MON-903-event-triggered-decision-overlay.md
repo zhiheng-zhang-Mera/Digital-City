@@ -16,7 +16,7 @@ dependencies: ["MON-901"]
 development_host: "Mech"
 development_branch: "mon/MON-903-mech-decision-overlay"
 development_head_sha: "1d1593df9f3370711df7fbb735fb2ccb393e7494"
-development_ci: "V0.2 checks 37401385199 on exact 1d1593df9f3370711df7fbb735fb2ccb393e7494 - IN PROGRESS when this report was written; the terminal result is recorded in DEVELOPMENT_REPORT.md when observed. LOCAL measurement at that head: npm test -> 1365 tests, 1360 pass / 5 fail, the five being the same inherited-environment failures reported for REX-803 (capability-adapters and city-roads CORRUPT_INPUT, reproduced identically at baseline 213f9f9f, and host-city-launcher x3 because the resident City holds the host coordination reservation). MON-903's own probes: 8 unit + 5 real-gateway + 2 browser, all pass, plus the MON-901 dependency suite 8/8 unchanged."
+development_ci: "V0.2 checks run 37401385199 COMPLETED SUCCESS on exact 1d1593df9f3370711df7fbb735fb2ccb393e7494 (gateway-web, android, docs/promotion gates), read from the Actions API and matched on headSha; PR zhiheng-zhang-Mera/utopia#32 opened on the same head. LOCAL measurement at that head: npm test -> 1365 tests, 1360 pass / 5 fail, the five being the same inherited-environment failures reported for REX-803 (capability-adapters and city-roads CORRUPT_INPUT, reproduced identically at baseline 213f9f9f, and host-city-launcher x3 because the resident City holds the host coordination reservation). MON-903's own probes: 8 unit + 5 real-gateway + 2 browser, all pass, plus the MON-901 dependency suite 8/8 unchanged."
 development_complete: true
 review_host: null
 review_head_sha: null

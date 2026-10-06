@@ -9,7 +9,7 @@ BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef
                     7eb38f1b930dfe6cc13dab0e17dedee467b1254b is an ancestor of main, so the union IS main
 DEPENDENCY SMOKE    node --test tests/mon901-observation.test.mjs -> 8 pass / 0 fail, before any product change
 DEV HEAD            1d1593df9f3370711df7fbb735fb2ccb393e7494
-CI (exact head)     V0.2 checks 37401385199 (in progress at the time of writing this report; recorded as measured)
+CI (exact head)     V0.2 checks 37401385199 COMPLETED SUCCESS on that head (gateway-web, android, docs/promotion)
 PR                  zhiheng-zhang-Mera/utopia#32
 REVIEW HOST         Alien — OUTSTANDING, not performed by this host
 TERMINAL MARKER     none declared by this workbook; the workbook's completion gate is a nine-item list
@@ -115,8 +115,9 @@ user-visible provenance                        MET   the Decision provenance pag
 no-global-barrier evidence                     MET   structural (no lock anywhere) + a probe showing two tasks decided
                                                      in parallel + a real-gateway probe where an unrelated task
                                                      completes while another task's decision is being made
-exact-head tests/CI                            PARTIAL  15 local probes green; hosted CI 37401385199 in progress at
-                                                     the time of writing and to be recorded when terminal
+exact-head tests/CI                            MET  15 local probes green and hosted V0.2 checks 37401385199
+                                                     COMPLETED SUCCESS on the exact head 1d1593df9f3370711
+                                                     df7fbb735fb2ccb393e7494, re-read from the Actions API
 opposite-host review                           PENDING  review_host must be Alien; not performed by this host
 PAPER_MATERIAL_INDEX                           MET   mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md
 ```
@@ -131,7 +132,7 @@ O2  No resolver is configured in this City, so every uncertain case reaches the 
     That is the honest production behaviour; a reviewer with a fixture resolver should confirm the bounded contract.
 O3  `wrong auto-decision and repair` and `confidence versus final review outcome` are reported as unsupported: both
     need an independent judge, which this overlay cannot be.
-O4  Hosted exact-head CI must be recorded when terminal.
+O4  RESOLVED before hand-off: hosted CI is terminal SUCCESS on the exact head (run 37401385199), and the PR is #32.
 F1  FINDING (recorded, not repaired): the canonical vocabulary has no BLOCKED task state and no review/merge event, so
     three of the eight trigger kinds (BLOCKED, READY_FOR_REVIEW, MERGE_READY) are expressed indirectly or must be
     submitted. A reviewer should decide whether that belongs in this workbook or in a later one.
