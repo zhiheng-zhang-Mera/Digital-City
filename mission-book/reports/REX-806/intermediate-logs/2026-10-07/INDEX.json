@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "task": "REX-806",
+  "records": [
+    {
+      "task": "REX-806",
+      "round_label": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+      "source": "D:/DC-Alien/mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+      "source_worktree": "D:/DC-Alien",
+      "source_branch": "refs/heads/construction/alien-codex-dispatch-20261004",
+      "worktree_head_at_capture": "480d5ae44ebb31005c798f354665e5ecdea03900",
+      "historical_run_head": null,
+      "original_bytes": 4397,
+      "original_sha256": "1d4e64275b4751d06ead988e9548271da26d64568928e27b49762344c4dee669",
+      "published_bytes": 4397,
+      "published_sha256": "1d4e64275b4751d06ead988e9548271da26d64568928e27b49762344c4dee669",
+      "published_path": "mission-book/reports/REX-806/intermediate-logs/2026-10-07/evidence/1d4e64275b4751d0-REX-806-metrics-analysis-and-artifact-export.md.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "REX-806",
+      "round_label": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+      "source": "D:/Digital-City-TaskSync-20261006/mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+      "source_worktree": "D:/Digital-City-TaskSync-20261006",
+      "source_branch": "refs/heads/sync/REX804-accepted-records-20261006",
+      "worktree_head_at_capture": "d9aed0c1bdaf47b2ca54426f8ce9e29d47a103ce",
+      "historical_run_head": null,
+      "original_bytes": 6488,
+      "original_sha256": "a7583ab2e16111c3f75be913d345a31d92f4593f0151f8b053fbb49dc86e9073",
+      "published_bytes": 6488,
+      "published_sha256": "a7583ab2e16111c3f75be913d345a31d92f4593f0151f8b053fbb49dc86e9073",
+      "published_path": "mission-book/reports/REX-806/intermediate-logs/2026-10-07/evidence/a7583ab2e16111c3-REX-806-metrics-analysis-and-artifact-export.md.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    }
+  ]
+}
