@@ -1,0 +1,70 @@
+{
+  "tasks": [
+    {
+      "id": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "type": "WAIT",
+      "domain": "system",
+      "state": "COMPLETED",
+      "createdAt": "2026-10-06T08:00:46.988Z",
+      "updatedAt": "2026-10-06T08:00:53.592Z",
+      "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "progress": 100,
+      "lastCheckpoint": {
+        "step": "wait",
+        "tick": 5
+      },
+      "result": {
+        "waitedMs": 6000
+      },
+      "error": null,
+      "researchRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+      "targetDeviceRef": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "targetIntentAt": "2026-10-06T08:00:46.988Z",
+      "targetStateAtCreation": "ELIGIBLE"
+    },
+    {
+      "id": "Q-bb06cb49-8cf4-498a-999b-77dd399a3a33",
+      "type": "WAIT",
+      "domain": "system",
+      "state": "COMPLETED",
+      "createdAt": "2026-10-06T10:09:12.569Z",
+      "updatedAt": "2026-10-06T10:09:19.031Z",
+      "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "progress": 100,
+      "lastCheckpoint": {
+        "step": "wait",
+        "tick": 5
+      },
+      "result": {
+        "waitedMs": 6000
+      },
+      "error": null,
+      "researchRunRef": "campaign-cdf39b7f-f6ff-4ddf-b611-4139f64c57d5:0",
+      "targetDeviceRef": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "targetIntentAt": "2026-10-06T10:09:12.569Z",
+      "targetStateAtCreation": "ELIGIBLE"
+    },
+    {
+      "id": "Q-c2681877-d9a7-43b7-a127-1ead05e6edcb",
+      "type": "WAIT",
+      "domain": "system",
+      "state": "COMPLETED",
+      "createdAt": "2026-10-06T10:11:13.388Z",
+      "updatedAt": "2026-10-06T10:11:19.998Z",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "progress": 100,
+      "lastCheckpoint": {
+        "step": "wait",
+        "tick": 5
+      },
+      "result": {
+        "waitedMs": 6000
+      },
+      "error": null,
+      "researchRunRef": "campaign-481a1761-1b5d-440d-a5a0-1743599b512a:0",
+      "targetDeviceRef": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "targetIntentAt": "2026-10-06T10:11:13.388Z",
+      "targetStateAtCreation": "ELIGIBLE"
+    }
+  ]
+}

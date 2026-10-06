@@ -7,3 +7,4 @@
 # directory that publishes a per-file SHA256 therefore belongs here, not just the first one that hit the problem.
 mission-book/reports/REX-803/evidence/** -text
 mission-book/reports/REX-805/evidence/** -text
+mission-book/reports/REX-805/evidence-repaired/** -text
