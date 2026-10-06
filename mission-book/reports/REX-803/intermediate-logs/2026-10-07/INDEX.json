@@ -721,6 +721,42 @@
       "redaction_count": 0,
       "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
       "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "REX-803",
+      "round_label": ".runtime/rex803-existing-member.mjs",
+      "source": "D:/Utopia-REX803-Review/.runtime/rex803-existing-member.mjs",
+      "source_worktree": "D:/Utopia-REX803-Review",
+      "source_branch": "refs/heads/review/REX-803-Alien-20261006",
+      "worktree_head_at_capture": "8798ba9dd37051626033ad72080b2fad3ff66149",
+      "historical_run_head": null,
+      "original_bytes": 897,
+      "original_sha256": "4b5046c57a5960b3f31cb1e1e073012922681e649ecb01a60426c16b2cb2da60",
+      "published_bytes": 897,
+      "published_sha256": "4b5046c57a5960b3f31cb1e1e073012922681e649ecb01a60426c16b2cb2da60",
+      "published_path": "mission-book/reports/REX-803/intermediate-logs/2026-10-07/evidence/4b5046c57a5960b3-rex803-existing-member.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "REX-803",
+      "round_label": ".runtime/accept-rex803.py",
+      "source": "D:/Digital-City-TaskSync-20261006/.runtime/accept-rex803.py",
+      "source_worktree": "D:/Digital-City-TaskSync-20261006",
+      "source_branch": "refs/heads/sync/REX804-accepted-records-20261006",
+      "worktree_head_at_capture": "d9aed0c1bdaf47b2ca54426f8ce9e29d47a103ce",
+      "historical_run_head": null,
+      "original_bytes": 5712,
+      "original_sha256": "8c61fed3707d0a31955cc974efc69f8dfb5b6f5c8aa52974db81ef686025d4c8",
+      "published_bytes": 5712,
+      "published_sha256": "8c61fed3707d0a31955cc974efc69f8dfb5b6f5c8aa52974db81ef686025d4c8",
+      "published_path": "mission-book/reports/REX-803/intermediate-logs/2026-10-07/evidence/8c61fed3707d0a31-accept-rex803.py.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
     }
   ]
 }
