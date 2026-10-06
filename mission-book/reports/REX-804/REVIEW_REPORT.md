@@ -140,3 +140,16 @@ workbook's own completion gate. The terminal marker `FAULT_INJECTION_RECOVERY_AC
 `review_complete` remains false. Re-verification requires a repaired head — the author's own repair or adoption of the
 review branch above — with exact-head CI green, after which the reviewer's probes must be re-run on that head and the
 verdict re-issued.
+
+## 7. Measurement honesty notes
+
+```text
+The reviewed head's CI was green and independently re-read (section 1). The REVIEW BRANCH's own CI (push run
+37399882138 on 737c3e1602b87b18395c69757127a3b500fc54e4) was still IN_PROGRESS when this report was published, so
+this report does NOT claim hosted CI for the repair proposal - the repair is stated as local verification only
+(18/18 in one run) and as a proposal awaiting the author's acceptance and exact-head CI.
+A superseded commit f7c10f2f0767198c0dcff00808b71150ea160c09 also has a queued run (37399871315) because the
+reviewer's first commit of the review branch was amended to restore the AUTHOR's evidence screenshot, which running
+the author's web test had overwritten. That screenshot was restored rather than re-attributed.
+```
+
