@@ -128,13 +128,28 @@ REX-801 与 REX-802 已完成并释放 accepted exact heads。REX-803 与 REX-80
 ### REX-803 当前实测状态（Mech，2026-10-06）
 
 ```text
-DEVELOPMENT   COMPLETE on exact 57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1 (branch rex/REX-803-mech-scenario-runner, PR #31)
+DEVELOPMENT   COMPLETE on exact a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df
+              （本表此前写着 57d1c919，那是首轮开发 head；该 head 之后因本任务自测发现 R-1/R-2 而前移，workbook 的
+              development_head_sha 是 a695bb9。此处按 workbook 事实更正。）
+              branch rex/REX-803-mech-scenario-runner，PR #31
 PHYSICAL      两组 controlled campaign 已在真实常驻 City 上运行，物理 Android 手机（OPPO PERM00）作为在线控制面，
               本机 reference node 执行每一次重复；回执/trace/canonical task 回读证据在
               utopia:evidence/raw/mission-book/REX-803/
 GATE          PARTIAL：completion gate 要求的 Alien + Mech + Android 拓扑中，Alien 主机节点全程 offline
-              （最后心跳 2026-10-05T11:15:06Z），未作为 gate 通过，也未声称通过
+              （最后心跳 2026-10-05T11:15:06Z，本机每次测量均未变化），未作为 gate 通过，也未声称通过
 REVIEW        PENDING，review_host = Alien（对侧物理主机）。terminal marker 未释放，merge_authority=false
+AUTHOR PASS   作者两轮自测已把缺陷与修复发布为两个可采纳分支，**均未移动 review 靶点**：
+              repair/REX-803-mech-receipt-order-and-close @ 07e8c3c —— 回执列表按文件名（随机 UUID）排序导致
+                「最新」列表实际返回最旧三条；有界列表不披露历史总量；close() 后 start() 仍会启动新战役
+              probe/REX-803-mech-two-worker-rehearsal @ 42acdc6（叠加在上者之上）—— **两 worker 拓扑演练发现
+                「按种子选择 worker」这条规则从未执行**：runOnce 读 context?.workers 而路由从不设置它（拓扑在
+                context.manifest.workers），于是每次重复都是无目标创建，回执里的 assignedNodeId 是「谁先领到」。
+                模块注释与 PAPER_MATERIAL_INDEX 都宣称相反。单 worker 的 fixture 无法区分「规则生效」与「规则
+                从未运行」，因此它躲过了 33 个探针、一轮作者对抗自测和一次对侧 review。
+              两者 CI 分别为 push 37418750045（attempt 1 失败 → attempt 2 成功，两次都留档）与
+              push 37420563832 SUCCESS attempt 1。
+RECOMMEND     对第二项发现，作者**建议硬化 head**（虚假的可复现性声明比存储边界情况更不该留在 review 靶点上）；
+              但未单方面执行——本任务已有过一次领取碰撞，靶点移动必须由 reviewer 一句话触发。
 ```
 
 REX-803 的 review 必须独立制造 workbook Review 段列出的条件（重复执行、取消、重启、timeout、partial campaign、
