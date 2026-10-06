@@ -5,6 +5,8 @@
 
 > **2026-10-07 有界激活 / bounded activation（Owner 指令）**：Owner 本轮指示「打开 PCF 系列、连续承接其任务、单独开一个分支系列」。按本系列自己的激活规则（§2 首激活事务）执行：控制面兼容缺口**先修**（`sync_dependency_state.py` 的 ID_RE 加入 PCF —— 修前 PCF 依赖 id 对工具完全不可见）、`PROGRESS_MANIFEST.json` 加入**显式文件集**（本轮只含 PCF-700，不用宽 glob）、依赖 reconcile 实测**只改 PCF-700 一本**（701..728 保持 parked、未解锁、未补 anchor）、四个 accepted WBC 依赖头实测**都已在 main**。因此 **PCF-700 被启用并领取**（`Mech-DS`，分支系列 `pcf/series-mech`，任务分支 `pcf/PCF-700-mech-ownership-and-reality-audit`），**其余 28 本保持 parked**、不进入当前分母、不获得执行权/预算/凭据/合并权。完整回执见 [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md)，领取记录见 `reports/PCF-700/CLAIM_REPORT.md`。 / The owner's instruction this session was executed as a bounded activation: the control-plane gap was fixed first, the manifest carries an explicit one-workbook file set, the reconciler touched only PCF-700, and the four accepted WBC dependencies are already in main. PCF-700 is claimed; the other 28 workbooks stay parked.
 
+> **2026-10-07 PCF-700 异机验收通过（ACCEPTED）；PCF-701 已按序激活并领取 / PCF-700 accepted by the opposite host; PCF-701 activated and claimed in sequence**：对侧实体主机（Alien）在 exact `659ff6a` 上完成正式复检并裁决 **ACCEPTED（仅 audit/compatibility scope，未要求修复）**：独立装依赖后 C1–C7 + D1–D4 **11/11**、**六次证伪**各自非零退出后复位再 11/11、审计包 8/8、五个单写者指纹由对侧用 Python 另行重算、exact-head CI 37502818037 单独复核 success；并做了**真实异机样本**（对侧 MEMBER 提交普通 WAIT 任务 `Q-2e77523f…`，Mech 节点执行 5 次 checkpoint 后完成，对侧独立读取 canonical 结果）——但它明确写出这**不**把契约行升级为 TWO_HOST_VERIFIED / ORIGIN_AGENT_CONSUMED。作者侧确认见 `reports/PCF-700/AUTHOR_ACKNOWLEDGEMENT_Mech.md`（含**未修**的判据精度限制：LIVE_WIRED 判据是「文本引用」，其中 2 个产线提及者无 import 边，结论不变；作者主动推迟该改动，不改写被验收头）。据此 **PCF-701 已激活并领取**（`ACTIVATION_RECEIPT_2026_10_07_PCF-701.md`、`reports/PCF-701/CLAIM_REPORT.md`，分支 `pcf/PCF-701-mech-live-resource-telemetry`，baseline = 系列头 `659ff6a`）。`merge_authority` 仍为 false：已验收头只**累计**在 `pcf/series-mech`，合并权仍在 Owner。 / The opposite host accepted PCF-700 at exact 659ff6a (audit/compatibility scope, no repair requested) with independent falsifications and a real cross-host MEMBER sample, while explicitly not upgrading rows to the two-host tiers. PCF-701 is now activated and claimed in sequence on baseline 659ff6a; merge authority remains the owner's.
+
 > **2026-10-07 作者冻结头自查（只读）/ author self-check at the frozen head**：`reports/PCF-700/AUTHOR_SELF_CHECK_AT_FROZEN_HEAD_Mech.md`。冻结头 `659ff6a` 本机复跑 11/11、`check:docs` 与复检包 8/8 均 exit 0、工作树干净；自查发现五档表的**判据比结论宽**（「引用」含纯文本提及）：`execution-backend-v1` 的 4 个产线提及者中 2 个无 import 边，但**四个 LIVE_WIRED 结论无一靠纯提及支撑**；EM/GAI 与 `rs-cross-device-return-v1` 在产线里连提及都没有。按冻结承诺，**收紧判据的改动留到裁决后的新头**，复检期不动 `659ff6a`。
 
 > **2026-10-07 PCF-700 进入复检，作者侧冻结 / review started, author side frozen**：对侧实体主机已接入并开始 PCF-700 的正式复检。作者侧的冻结与配合口径写在 `reports/PCF-700/AUTHOR_HOLD_Mech.md`：**在裁决或明确要求之前不再向 `pcf/PCF-700-mech-ownership-and-reality-audit` 与 `pcf/series-mech` 推送任何提交**（复检目标头恒为 `659ff6a`），不触碰 `review_*` 字段、不创建/修改复检方的领取与报告、不释放 marker；修复一律在**新头**上做并保留被复检头的全部记录。领取仍由复检方发布（截至本行，工作书 `review_host` 仍为 null、远端尚无 `review/PCF-700-*` 分支）。 / The opposite host has begun the formal review; the author's freeze and handling protocol are in `reports/PCF-700/AUTHOR_HOLD_Mech.md`. No further commits to the reviewed branches until a verdict, no touching of the reviewer's fields or reports, and any repair happens on a new head.
@@ -125,16 +127,17 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **74**.
+当前Markdown文档 / Current Markdown documents: **76**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| en | 37 | [打开 / Open](en/README.md) |
+| en | 38 | [打开 / Open](en/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [ACTIVATION_AND_EXTENSION.md](ACTIVATION_AND_EXTENSION.md)
 - [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md)
+- [ACTIVATION_RECEIPT_2026_10_07_PCF-701.md](ACTIVATION_RECEIPT_2026_10_07_PCF-701.md)
 - [ARCHITECTURE.md](ARCHITECTURE.md)
 - [CHILD_WORKBOOK_TEMPLATE.md](CHILD_WORKBOOK_TEMPLATE.md)
 - [EXECUTION_CONTRACT.md](EXECUTION_CONTRACT.md)
@@ -177,10 +180,11 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 1/1 · 开发 / Development 1/1 · 复检 / Review 1/1 · `COMPLETE`
+总完成 / Complete 1/2 · 开发 / Development 1/2 · 复检 / Review 1/2 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
 | [PCF-700](PCF-700-ownership-and-reality-audit.md) | COMPLETE | YES | YES | YES |
+| [PCF-701](PCF-701-live-resource-telemetry.md) | IN_PROGRESS | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->

@@ -2,30 +2,30 @@
   "active_pool": {
     "development": {
       "complete": 7,
-      "total": 10
+      "total": 11
     },
     "review": {
       "complete": 6,
-      "total": 10
+      "total": 11
     },
     "tasks": {
       "complete": 6,
-      "total": 10
+      "total": 11
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
       "complete": 91,
-      "total": 94
+      "total": 95
     },
     "review": {
       "complete": 90,
-      "total": 94
+      "total": 95
     },
     "tasks": {
       "complete": 90,
-      "total": 94
+      "total": 95
     }
   },
   "programmes": [
@@ -1068,7 +1068,7 @@
       "name": "Personal Compute Fabric",
       "readme": "mission-group/personal-compute-fabric/README.md",
       "review_complete": 1,
-      "status": "COMPLETE",
+      "status": "IN_PROGRESS",
       "task_complete": 1,
       "tasks": [
         {
@@ -1079,9 +1079,18 @@
           "path": "mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
           "review_complete": true,
           "status": "COMPLETE"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "PCF-701",
+          "path": "mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
+          "review_complete": false,
+          "status": "IN_PROGRESS"
         }
       ],
-      "total": 1
+      "total": 2
     }
   ],
   "schema_version": 1,

@@ -142,7 +142,8 @@
       "key": "pcf",
       "name": "Personal Compute Fabric",
       "task_globs": [
-        "mission-group/personal-compute-fabric/PCF-700-*.md"
+        "mission-group/personal-compute-fabric/PCF-700-*.md",
+        "mission-group/personal-compute-fabric/PCF-701-*.md"
       ],
       "active_pool": true,
       "readme": "mission-group/personal-compute-fabric/README.md"
