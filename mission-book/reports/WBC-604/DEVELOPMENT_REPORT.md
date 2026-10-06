@@ -26,18 +26,36 @@ services/dev-gateway/execution-profile.mjs   NEW
 tests/wbc604-execution-profile.test.mjs   NEW   10 tests, 10 pass
 ```
 
+## Done in round 2 (control surface reachable from the running City)
+
+```text
+services/dev-gateway/server.mjs
+  * the controller is created after the backends are registered, reading readiness through
+    executionBackends.forProfile(profile).readiness(); a DORMANT backend reports ABSENT instead of throwing, which is
+    what keeps "the pool is not there yet" from becoming a City that will not start;
+  * GET  /api/v0/execution-profile  -> the state: live profile, default, every profile's readiness + activatable, and
+    how the selection was decided (DEFAULT / PERSISTED / RECOVERED_TO_DEFAULT);
+  * POST /api/v0/execution-profile  -> {profile} to change or {action:'ROLLBACK'} to roll back; a refusal answers the
+    controller's typed code (PROFILE_NOT_READY / PROFILE_UNKNOWN) with HTTP 409 and CHANGES NOTHING;
+  * both routes are owner-only: a member session is refused, because where work runs is an owner-level decision;
+  * the City snapshot's executionBackend.profile now reports the LIVE profile instead of the startup value.
+
+tests/wbc604-profile-route.test.mjs   NEW   2 tests (route contract + persisted selection across a restart)
+VERIFIED  32 tests / 32 pass across wbc604 (unit + route), wbc601, wbc602, wbc603 and mon901 - no regression from the
+          wiring; branch head d5382a799a656dbed03c95da4707aeee19c87d79 pushed, hosted CI in flight.
+```
+
 ## Still to do before WBC-604 can be called complete
 
 ```text
-1  wire the control surface into the gateway: GET /api/v0/execution-profile (state) and POST /api/v0/execution-profile
-   (change + rollback), owner-authenticated, and have the City snapshot report the LIVE profile from the controller
-   instead of the startup-frozen CITY_EXECUTION_PROFILE value;
-2  route the HYBRID decision through the claim path so rule precedence is enforced where work is actually assigned,
-   and prove a task with no requirements keeps the legacy default;
-3  fail-safe evidence the workbook demands: pool lost mid-flight does not touch canonical task truth; in-flight
-   ownership follows the existing lease/recovery; rollback while in-flight;
-4  exact-head CI, then the opposite-host Formal Review (another physical host has to attack switch race, stale
-   readiness and strict-target-vs-hybrid preference).
+1  call chooseHybridTarget from the CLAIM path so the precedence is enforced where work is actually assigned. The
+   contract and its ten tests exist, but today the only enabled profile is STANDARD_DEVICES (the pool backend is
+   registered DORMANT), so the claim path's current behaviour is already correct and the invocation is only meaningful
+   once a pool backend can be enabled - which is exactly what the WORKER_POOL activation this task adds would allow;
+2  fail-safe evidence the workbook demands: pool lost mid-flight does not touch canonical task truth; in-flight
+   ownership follows the existing lease/recovery; rollback while a task is in flight;
+3  exact-head CI on this branch, then the opposite-host Formal Review (another physical host has to attack switch race,
+   stale readiness and strict-target-vs-hybrid preference).
 ```
 
 The terminal marker `EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED` is NOT released: the contract and its tests exist, but the
