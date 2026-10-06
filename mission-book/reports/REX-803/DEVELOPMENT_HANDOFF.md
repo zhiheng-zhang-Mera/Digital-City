@@ -121,3 +121,27 @@ target in this handoff must not find it moved underneath them. The reviewer may 
 review head, or ask the author to harden `a695bb9` and re-record its exact-head CI — both are one command away, and the
 second option produces a new target rather than replacing this one silently.
 
+### A second, more serious finding, and a recommendation about the head
+
+A two-worker topology rehearsal — the first time this campaign code has ever run with more than one placement candidate
+— found that **the derived-seed placement rule never executed** (`reports/REX-803/AUTHOR_TWO_WORKER_REHEARSAL.md`).
+`runOnce` read `context?.workers`, which the route never sets, so every repetition was created untargeted and the
+`assignedNodeId` on the receipt was whichever able worker claimed first. The module comment and
+`PAPER_MATERIAL_INDEX.md` both claimed the opposite. With one worker — every fixture, and both physical campaigns,
+because the Android handset was a control surface rather than a worker — the two readings are indistinguishable.
+
+```text
+probe/REX-803-mech-two-worker-rehearsal @ 42acdc6bfacb1e2260364afd2edce041f003638c   (stacked on the branch above)
+  red on 07e8c3c: "6 of 6 campaign task(s) were created with no targetDeviceRef"
+                  "run 1 (seed 2220486659) landed on rehearsal-alpha, but the declared rule selects rehearsal-beta"
+  fixed:          runOnce reads context?.manifest?.workers, so a repetition is targeted by its own derived seed
+  CI:             push 37420563832 SUCCESS attempt 1
+```
+
+**The author's recommendation for this one differs from the storage findings: the head SHOULD be hardened.** A false
+reproducibility claim is worse to leave on a review target than an edge case in a receipt list, and a reviewer who
+spends budget discovering it has spent it on something the author already knows. The author is not acting on that
+recommendation unilaterally, because the collision record is explicit about what happens when a target moves under a
+reviewer; one instruction from the reviewer is all it takes.
+
+

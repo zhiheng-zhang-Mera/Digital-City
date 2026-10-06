@@ -18,8 +18,14 @@ below exists to make a lost, cancelled, timed-out or interrupted repetition *vis
   result the City did not reach, and it cannot report success for work that never executed.
 - **Seeds are derived, never drawn.** `seed(campaignSeed, index)` is a pure FNV-1a function, and the default campaign
   seed is the experiment's immutable identity (`<experimentId>@<digest>`). Two hosts running the same registered
-  manifest derive the same sequence with no number passed between them; the run seed is *used* to select among the
-  experiment's declared workers, so a repetition's placement is reproducible too.
+  manifest derive the same sequence with no number passed between them.
+  **CORRECTION (2026-10-06, second-fusion pass):** this entry also claimed that the run seed is "used to select among
+  the experiment's declared workers, so a repetition's placement is reproducible too". On the reviewed head that claim
+  was FALSE: `runOnce` read `context?.workers`, which the route never sets, so the placement rule never executed and a
+  repetition's `assignedNodeId` was whichever able worker claimed first. Found by the two-worker rehearsal on its first
+  run, not by any one-worker test, and the repair is published on
+  `probe/REX-803-mech-two-worker-rehearsal` — see `AUTHOR_THIRD_CLASS_SWEEP.md` section 7 and
+  `AUTHOR_TWO_WORKER_REHEARSAL.md`. The derived-seed *sequence* claim above is unaffected and was separately probed.
 - **Warmup is executed and never measured**, by name, so a result cannot silently include a run that existed only to
   warm the system.
 - **Accounting invariant.** Every planned repetition lands in exactly one state
