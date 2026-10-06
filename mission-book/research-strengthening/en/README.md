@@ -1,5 +1,8 @@
 # Research Strengthening
 
+> **Latest authority update:** [REX-805 formal acceptance and REX-806 claim](#rex-805-formally-accepted-rex-806-claimed--latest-reading-update) supersede older pending-review snapshots. Handset-rendered REX-805 comparison-page evidence remains NOT_OBSERVED.
+
+
 > **Reading chronology:** this page retains earlier programme and candidate snapshots. The [latest REX-805 physical-development and author-handover update](#rex-805-development-handover-and-final-physical-repetition--latest-reading-snapshot) records final `0261a9e` repetition and supersedes earlier predecessor-only/no-final-observation accounts. Canonical workbooks determine current state; no earlier pending statement should be read as a newer verdict.
 
 
@@ -484,3 +487,66 @@ The earlier inference “the limits difference belongs to the synthetic fixture�
 
 **Author's subsequent update:** the final `0261a9e` physical repetition now has **63/63 raw-package checks**, plus independent reconciliation of canonical tasks through an ordinary MEMBER session. This supersedes the predecessor-only gap. Formal opposite-host Review still awaits claim and verdict. The earlier absence of final-head observation is historical, not the current physical-gate state.
 <!-- READING_REX805_PHYSICAL_FINAL_1654E86:END -->
+
+
+<!-- READING_REX805_ACCEPTED_REX806_CLAIM_0425630:START -->
+## REX-805 formally accepted; REX-806 claimed — latest reading update
+
+This complete reading translation follows the newly appended [canonical programme section](../README.md), source SHA256 `3069e258c1bac73b7516c4378f1f27d74d2460dab06ddbec99fa56bf6bc440c9`. The linked canonical workbooks and formal reports remain authority. Earlier REX-805 review_host=null, pending-verdict and unreleased-marker statements above are historical snapshots, superseded by the formal acceptance below. Earlier predecessor-only physical observations were already superseded by the final-head repetition. **Handset-rendered REX-805 comparison-page evidence remains NOT_OBSERVED; no MON screenshot is REX-805 evidence.**
+
+### REX-805 formal Review: PASSED, marker released
+
+```text
+WHEN        2026-10-06，对侧主机 Mech 独立复检（作者 Alien，另一台物理主机，§3 满足）
+HEAD        0261a9ed1cec88df3ab4675623d422b37b33f270
+CLAIM       领取先于任何裁决发布：reports/REX-805/REVIEW_CLAIM_Mech.md
+PROBES      本机自造 17 项，全部通过：13 项打常驻真实 City（跑的就是被审 head），4 项在被审 head 上进程内
+  live      P1 空 limit 集源全链路（作者 0261a9e 修的分支）**被独立复现**：limits={} → 重放
+              controlledInputsMatch=true、differences=[]；新 campaign/experiment/canonical task 均为新身份
+            P2 同一源重放两次，9 个描述性字段完全一致
+            P3 alternate-device 消融落第一个声明 worker，placementChanged 如实（源本就在该 worker 上 => false）
+            P4/P4b 策略外机制、以及带消融控制的 REPLAY，均按名拒绝 ABLATION_UNSUPPORTED
+            P5/P5b 未知源、越界 index 均按名拒绝
+  inproc    P6 记录拓扑不在线 -> 409 REPLAY_TOPOLOGY_NOT_READY：**不可用条件确实不能被重放**
+            P7 receipt store 不可用（目录位置是文件）时 **City 仍然启动并服务**，storeState=UNAVAILABLE
+              reason=ENOTDIR，重放被打字化拒绝而非崩溃（store-guard 家族性质成立）
+OBSERVATION store 不可用时 replay 的 POST 回 404 CAMPAIGN_UNKNOWN（源查找先于引擎的 REPLAY_STORE_UNAVAILABLE）；
+            同一响应链已披露 storeState 与 reason，可区分 => 表述精度问题，**不构成缺陷**
+OWN DEFECTS 第一轮 live 探针 8/13，五个失败**全是本机探针的缺陷**（等待谓词、过窄错误码、把
+            「消融必然改变放置」当假设）；修正后 13/13，过程保留
+VERDICT     PASSED on 0261a9e；未发现缺陷
+MARKER      TRACE_REPLAY_ABLATION_ACCEPTED **已释放**，范围如实标注：真机渲染半边 NOT_OBSERVED
+NOT CLAIMED 不行使任何产品 main 合并权；durationDeltaMs 不作因果性能结论
+REPORT      reports/REX-805/REVIEW_REPORT.md；探针 reports/REX-805/REVIEW_PROBES_{LIVE,INPROCESS}_Mech.mjs
+```
+
+Complete translation of the Review record:
+
+- **When and independence:** on 2026-10-06, Mech independently reviewed work developed by Alien on another physical host, satisfying §3.
+- **Head:** `0261a9ed1cec88df3ab4675623d422b37b33f270`.
+- **Claim:** [REVIEW_CLAIM_Mech.md](../../reports/REX-805/REVIEW_CLAIM_Mech.md) was published before any verdict.
+- **Probes:** this host built 17 probes, all passing: 13 against the real resident City running the reviewed head, four in-process at that head.
+- **P1, live:** independently reproduced the empty-limit-set source branch repaired by the author at 0261a9e. A persisted limits={} source replays with controlledInputsMatch=true and differences=[]. The campaign, experiment and canonical task each receive new identities.
+- **P2, live:** replaying one source twice produces agreement on all nine descriptive fields.
+- **P3, live:** alternate-device ablation lands on the first declared worker and reports placementChanged honestly, including false where the source was already on that worker.
+- **P4/P4b, live:** an out-of-policy mechanism and a REPLAY carrying ablation controls are both refused by name as ABLATION_UNSUPPORTED.
+- **P5/P5b, live:** an unknown source and out-of-range index are refused by name.
+- **P6, in-process:** recorded topology offline yields 409 REPLAY_TOPOLOGY_NOT_READY. **Unavailable conditions genuinely cannot be replayed.**
+- **P7, in-process:** if a file occupies the receipt-directory path, **City still starts and serves** with storeState=UNAVAILABLE and reason=ENOTDIR. Replay receives a typed refusal instead of crashing, maintaining the store-guard family property.
+- **Observation, not a defect:** with unavailable storage, replay POST returns 404 CAMPAIGN_UNKNOWN because source lookup precedes the engine's REPLAY_STORE_UNAVAILABLE check. The same response chain discloses storeState and reason, so callers can distinguish the conditions. This is wording precision, **not a defect**.
+- **The reviewer's own defects:** the first live run passed 8/13. All five failures belonged to this host's probes: the waiting predicate, an overly narrow error-code expectation, and assuming ablation must always change placement. After correction, 13/13 passed; the full history is retained.
+- **Verdict:** PASSED at 0261a9e; this reviewer found no defect.
+- **Marker:** TRACE_REPLAY_ABLATION_ACCEPTED **released**, with the scope explicitly retaining handset rendering as NOT_OBSERVED.
+- **Not claimed:** no product-main merge authority is exercised. durationDeltaMs is not a causal performance conclusion.
+- **Report and probes:** [REVIEW_REPORT.md](../../reports/REX-805/REVIEW_REPORT.md), [REVIEW_PROBES_LIVE_Mech.mjs](../../reports/REX-805/REVIEW_PROBES_LIVE_Mech.mjs) and [REVIEW_PROBES_INPROCESS_Mech.mjs](../../reports/REX-805/REVIEW_PROBES_INPROCESS_Mech.mjs).
+
+Consequently **REX-805 is complete**, with workbook status:COMPLETE and review_complete:true. The main task board records Research Strengthening **5/8** and citywide **89/93**. REX-806 may proceed according to dependencies: REX-803, REX-804 and REX-805 are all accepted.
+
+### REX-806 claim provenance
+
+The current [canonical REX-806 workbook](../REX-806-metrics-analysis-and-artifact-export.md) records Mech's claim and IN_PROGRESS state, with claim-time evidence published in [CLAIM_REPORT.md](../../reports/REX-806/CLAIM_REPORT.md) before product changes. This note reads that metadata without reproducing executable frontmatter or granting a new claim.
+
+Accepted dependencies are REX-803 `8798ba9dd37051626033ad72080b2fad3ff66149`, REX-804 `fe700aba957990f93b22fd63d594ddfff7b4e243` and REX-805 `0261a9ed1cec88df3ab4675623d422b37b33f270`. Claim-time baseline `e18c5c5350d7657cf046b7ba6bbcd888dc2a1540` is their exact union, not an assumption that a main branch name proves integration. All three accepted heads are verified ancestors of that baseline. Before any REX-806 product change, dependency smoke across 17 suites passed **68/68**. The known REX-804 web-test behavior that rewrites committed danger-zone.png evidence remains recorded, with its published repair awaiting adoption; it is not silently corrected by this reading page.
+
+REX-806 Development and Review remain incomplete in this snapshot; no development CI or acceptance marker is inferred from the claim. REX-805 handset comparison-page rendering remains **NOT_OBSERVED**, as the reconciliation record requires.
+<!-- READING_REX805_ACCEPTED_REX806_CLAIM_0425630:END -->

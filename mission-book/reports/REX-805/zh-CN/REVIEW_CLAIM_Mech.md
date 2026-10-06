@@ -1,8 +1,12 @@
-# REX-805 正式复检领取 / Formal review claim — Mech
+> 阅读译本 / Reading translation。原文件仍为正式历史记录；本文件不新增领取、验收、任务状态或合并权。所有原始代码证据块逐字保留。
 
-2026-10-06，Mech-DS（`MEGA-REP`），角色 Mech-DS。本文件在**任何裁决之前**发布，只记录领取时的测量与领取本身；**尚无任何复检结论**。 / Published before any verdict: claim-time measurements and the claim, no conclusion.
+[原文 / Canonical source](../REVIEW_CLAIM_Mech.md)
 
-## 为什么现在可以领 / Why the claim is legitimate now
+# REX-805 正式复检领取 — Mech：中文阅读译本
+
+2026-10-06，Mech-DS，实体主机 `MEGA-REP`，角色 Mech-DS。本记录在任何裁决前发布，仅记录领取时测量与领取本身，当时尚无复检结论。
+
+## 为什么现在可以领取
 
 ```text
 development_complete   true（作者 8da6b91「Verify the final REX805 physical packet and canonical task bindings」）
@@ -11,9 +15,9 @@ development_ci         PASS exact head：push 37446455570 / PR 37446461188 / lin
 review_host            null（未被领取）→ 本机领取
 ```
 
-作者此前把实体门槛交给本机执行（`PHYSICAL_GATE_HANDOFF_Alien.md`），本机已执行并在修复前后各跑一次（`PHYSICAL_GATE_RESULT_Mech.md`，材料见 `evidence/` 与 `evidence-repaired/`）。作者随后记录了开发完成。 / The author handed the physical gate over, this host executed it twice (before and after the repair), and the author has now recorded development completion.
+作者此前通过 `PHYSICAL_GATE_HANDOFF_Alien.md` 将实体门槛执行交给本机。本机已在修复前后各执行一次，见 `PHYSICAL_GATE_RESULT_Mech.md`，材料位于 `evidence/` 与 `evidence-repaired/`。随后作者记录开发完成。
 
-## 领取时间的测量 / Claim-time measurements
+## 领取时间的测量
 
 ```text
 被审头 / reviewed head   0261a9ed1cec88df3ab4675623d422b37b33f270
@@ -31,16 +35,16 @@ union baseline            已接受 803+804 并集 = 704c518；被审头叠加�
                           focused 68/68（17 套件）· full 1424/1427（3 项 host-city-launcher）· 跑后 CLEAN
 ```
 
-## 独立性 / Independence
+## 独立性
 
 ```text
 作者 / author      Alien（对侧物理主机 MERA-ALIANWARE）
 复检者 / reviewer  Mech（本机 MEGA-REP）
 ```
 
-两者是**不同的实体主机**，§3 满足，因此这不是自审。作者提交的独立代码复检（六项 Important 修复）与本机复检是两件事，本机不会把它当作自己的复检证据。 / Different physical hosts, so §3 is satisfied; the author's own code re-review is not adopted as this host's evidence.
+两者为不同实体主机，符合 §3，因此不是自审。作者提交的独立代码复检，包括六项 Important 修复，与本机复检是两件事；本机不把作者重审当作自己的证据。
 
-## 本机将怎么做这次复检 / How this review will be conducted
+## 本机如何进行复检
 
 ```text
 1  不复用作者套件；制造本机自己的探针（清单见 REVIEW_READINESS_MECH.md）
@@ -57,7 +61,9 @@ union baseline            已接受 803+804 并集 = 704c518；被审头叠加�
 3  结论只在探针跑完后给出，并明确区分「测量」与「判断」
 ```
 
-## 领取 / The claim
+实体材料沿用本机实际执行的两次门槛，逐字节可核对。未观测部分标 NOT_OBSERVED，不当作通过。根据 [范围更正记录](../RECORD_RECONCILIATION.md)，开发方和复检方均没有观测 REX-805 研究比较页的手机渲染；MON 手机截图不属于该证据。
+
+## 领取
 
 ```text
 review_host     Mech
@@ -67,6 +73,4 @@ terminal_marker TRACE_REPLAY_ABLATION_ACCEPTED — 未释放
 merge_authority 无（本机行使任何产品 main 合并权）
 ```
 
-本领取不改变 `development_*` 字段；`status` 保持不变，直到复检有结论。 / This claim changes no development field.
-
-语言配对 / Language pair: [中文完整读本 / Full Chinese reading](./zh-CN/REVIEW_CLAIM_Mech.md)
+本领取不改变 `development_*` 字段。`status` 保持不变，直到复检作出结论。上方引用块保留原始记录，包括其合并权字段括注；该字段“无”不授予产品 main 合并权。

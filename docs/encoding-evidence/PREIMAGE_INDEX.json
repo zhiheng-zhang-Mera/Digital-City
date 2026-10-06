@@ -42,6 +42,13 @@
       "original_bytes": 24667,
       "preimage_ref": "docs/encoding-evidence/CONNECTION_ONBOARDING_INTEGRATION.md.bin",
       "repair": "readable bilingual navigation facade; original bytes preserved; irreversible historical prose remains unknown; ASCII projection is not semantic reconstruction"
+    },
+    {
+      "path": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md",
+      "original_sha256": "120f1928e7f9a9e3149c511e4364d93672c68385ac645e368546db3db5d57063",
+      "original_bytes": 9536,
+      "preimage_ref": "mission-book/reports/REX-805/encoding-preimage.bin",
+      "repair": "Keep formal acceptance frontmatter; restore only body from verified Git commit 8da6b91; see RECORD_RECONCILIATION.md"
     }
   ]
 }

@@ -1,12 +1,12 @@
 # REX-806 — Metrics Analysis + Research Artifact Export
 
-> **Reading translation; non-authoritative.** [Canonical source and live metadata](../REX-806-metrics-analysis-and-artifact-export.md). Source workbook/report controls state, claims, SHA, CI, and gates.
+> **Reading translation; non-authoritative.** [Canonical source and live metadata](../REX-806-metrics-analysis-and-artifact-export.md). Current frontmatter and authoritative reports determine status, claims, exact SHAs, CI and gates. This reading page does not copy or supersede live task metadata.
 >
-> [Persistent rules](../../CONSTRUCTION_RULES.md) · [Async protocol](../../ASYNC_RELIEF_CONSTRUCTION.md) · [Research material](./RESEARCH_EVIDENCE_PROTOCOL.md)
+> [Standing rules](../../CONSTRUCTION_RULES.md) · [Async protocol](../../ASYNC_RELIEF_CONSTRUCTION.md) · [Research material](./RESEARCH_EVIDENCE_PROTOCOL.md)
 
 ## Objective
 
-Export inspectable experiments:
+Export experiments as inspectable artifacts:
 
 ```text
 artifact/
@@ -25,20 +25,58 @@ artifact/
 
 ## Metrics
 
-Support at least metrics backed by predecessor actual data: completion/recovery/handoff time; failure rate; intervention/retry counts; duplicate execution; measurable convergence/missing events; transitions before Owner intervention; time/steps to first intervention; constructible intervention-free survival; cause taxonomy; pre-intervention pool drain; control-plane mismatch count/reconciliation time; implementation→wiring→reachability→intent timestamps; measurable Exposure Lag/Intent Lag; experimentally supplied Registry localization/onboarding costs; high-value Owner decision count; avoidable technical escalation count; repeated clarification count; escalation→autonomy-resumed time; measurable batchable-escalation count/interruption bursts; rule activation/conflict/false-block/retirement; textually clean semantic-integration failure count; independently green components→integrated semantic failure count. Unsupported metrics use NOT_MEASURED.
+At minimum, support the following from actual predecessor data:
+
+- completion time;
+- recovery time;
+- handoff time;
+- failure rate;
+- intervention count;
+- retry count;
+- duplicate execution;
+- convergence / missing event, where measurable;
+- task transitions before Owner intervention;
+- time / steps to first Owner intervention;
+- intervention-free survival, where constructible;
+- intervention cause taxonomy;
+- task-pool drain before intervention;
+- control-plane reality mismatch count / reconciliation time;
+- implementation→wiring→reachability→intent transition timestamps;
+- Exposure Lag / Intent Lag, where measurable;
+- Registry-assisted localization/onboarding cost, where supplied by the experiment;
+- high-value Owner decision count;
+- avoidable technical escalation count;
+- repeat clarification count;
+- escalation → autonomy-resumed time;
+- batchable escalation count / interruption burst, where measurable;
+- rule activation / conflict / false-block / retirement observations;
+- textually clean semantic integration failure count;
+- independently green components → integrated semantic failure count.
+
+Mark unsupported metrics NOT_MEASURED.
 
 ### Metric interpretation guard
 
-owner_intervention_count = 0 requires observation of the complete window with genuinely no intervention; unknown is NOT_MEASURED. Longer runs are not necessarily more autonomous: classify idle loops, duplicates, blocked polling separately. Insufficient survival samples export raw censored episodes rather than forced conclusions. G1/G2 default to supporting metrics; prioritize G3/G4 in paper-ready tables.
+- owner_intervention_count=0 is permitted only when the entire window is explicitly observed with genuinely no intervention. Unknown must be NOT_MEASURED.
+- “Ran longer” does not mean greater autonomy. Classify idle loops, duplicate work and blocked polling separately.
+- Where survival samples are insufficient, export only raw censored-episode data without forcing a curve or conclusion.
+- G1/G2 metrics default to supporting analysis; prioritize G3/G4 metrics in paper-ready tables.
 
 ## Export
 
-DIRECT_CONTROL: preview dataset, export artifact, export CSV/table-ready data, reproduction instructions. Never automatically generate exaggerated conclusions; separate statistics from paper narrative.
+DIRECT_CONTROL:
+
+- preview dataset;
+- export artifact;
+- export CSV/table-ready data;
+- reproduction instructions.
+
+Do not automatically generate exaggerated conclusions. Keep statistical results separate from the paper narrative.
 
 ## Review
 
-Reviewer independently recomputes at least one metric group from export and checks checksum/provenance.
+The reviewer independently recomputes at least one metric group from the export package and checks checksums/provenance.
 
 ## Completion gate
 
-A real campaign yields a complete artifact independently readable/recomputable on another physical host.
+Generate a complete artifact from a real campaign, independently read and recomputed on another physical host.

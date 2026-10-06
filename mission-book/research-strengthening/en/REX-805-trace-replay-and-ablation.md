@@ -1,31 +1,55 @@
 # REX-805 — Trace Replay + Ablation Engine
 
-> **Reading translation; non-authoritative.** [Canonical source and live metadata](../REX-805-trace-replay-and-ablation.md). Source workbook/report controls state, claims, SHA, CI, and gates.
+> **Reading translation; non-authoritative.** [Canonical source and live metadata](../REX-805-trace-replay-and-ablation.md). Current frontmatter and authoritative reports determine status, claims, exact SHAs, CI and gates. This reading page does not copy or supersede live task metadata.
 >
-> [Persistent rules](../../CONSTRUCTION_RULES.md) · [Async protocol](../../ASYNC_RELIEF_CONSTRUCTION.md) · [Research material](./RESEARCH_EVIDENCE_PROTOCOL.md)
+> [Standing rules](../../CONSTRUCTION_RULES.md) · [Async protocol](../../ASYNC_RELIEF_CONSTRUCTION.md) · [Research material](./RESEARCH_EVIDENCE_PROTOCOL.md)
 
 ## Objective
 
-Select a recorded run, replay inputs/scenario, and configure ablation without altering original trace: handoff off, retry off, backoff off, recovery off, alternate-device off, selected policy off.
+Allow selection of a recorded run, replaying its inputs/scenario and configuring ablation without altering the original trace:
+
+- handoff off;
+- retry off;
+- backoff off;
+- recovery off;
+- alternate-device off;
+- selected policy off.
 
 ## G3/G4 ablation candidates
 
-Beyond existing handoff/retry/backoff/recovery, design future bounded replay/ablation to permit a feasible subset of: MissionBook persistent state on/off/reduced; structured exact-state versus summary-only handoff; identity/provenance validation on/off; dynamic wake/rescan versus naive stop/poll; independent Review/reconciliation on/off; Registry-assisted localization versus repository-only exploration; implementation-only versus reachable/intent-validated terminal; current versus bounded older/reduced/superseded rule view (safe replay only); naive Owner escalation versus rule/evidence-resolved or batched escalation; textual-merge-only acceptance versus semantic integration/reconciliation guards.
+Beyond existing handoff/retry/backoff/recovery, the design must allow future bounded ablation/replay to cover at least a feasible subset of these mechanisms:
 
-These are replay capabilities, not a requirement to implement every experiment in v1; schema cannot prohibit them. Rule/governance replay uses versioned rule snapshots only and never changes current production rules. Semantic-integration replay binds accepted source SHAs and integration SHA.
+- MissionBook persistent work state on/off, or a reduced view;
+- structured exact-state handoff versus summary-only handoff;
+- exact identity/provenance validation on/off;
+- dynamic wake/rescan classification versus naive stop/poll;
+- independent Review/evidence reconciliation on/off;
+- Capability Registry-assisted localization versus repository-only exploration;
+- implementation-only terminal versus user-reachable/intent-validated terminal;
+- current rule set versus a bounded older/reduced/superseded rule view, only where safe replay is possible;
+- naive Owner escalation versus rule/evidence-resolved or batched escalation policy;
+- textual-merge-only acceptance versus semantic integration/reconciliation guards.
+
+These are replay capabilities. V1 need not implement every experiment at once, but its schema must not prohibit them.
+
+Rule-lifecycle/governance-policy replay may use only versioned rule snapshots; it must not change current production rules for an experiment. Semantic-integration replay must bind source accepted SHAs and the integration SHA.
 
 ## Hard rules
 
-Replay ≠ original run. New experiment/run IDs required. Declare external-provider nondeterminism. Do not pretend unavailable real-world conditions are deterministic replay. Record exact disabled mechanisms.
+- Replay is not the original run.
+- Replay requires new experiment/run ids.
+- Declare when external-provider determinism cannot be guaranteed.
+- Do not present an unavailable real-world condition as deterministic replay.
+- Ablation must record the exact disabled mechanism.
 
 ## User entry
 
-Direct Replay/Ablation in Research, outside ordinary primary navigation.
+Provide Replay/Ablation directly on the Research page, outside ordinary primary navigation.
 
 ## Review
 
-Independently replay same trace; distinguish genuine policy-induced differences from harness drift.
+Independently replay the same trace. Check whether result differences come from real policy changes rather than harness drift.
 
 ## Completion gate
 
-At least one multi-device scenario supports traceable original→replay→ablation comparison.
+At least one multi-device scenario must complete a traceable original → replay → ablation comparison.

@@ -14,9 +14,9 @@ Original workbook frontmatter still determines state, claims, dependencies, exac
 
 ## 证据与编码 / Evidence and encoding
 
-REX-803 固定原始包保持六份 JSON 与 MATERIAL_INDEX；REX-805 两次实体包分别绑定其候选，索引译本和独立核验均放在包外。原始 payload 不生成额外 README，也不把作者或 reviewer 的派生结果混入原包。所有声明精确字节的 REX 材料与六份编码原件使用 `-text` 禁止 Git 换行转换；导航检查另核对原件长度/hash，拒绝静默修复或替换声明值。
+REX-803 固定原始包保持六份 JSON 与 MATERIAL_INDEX；REX-805 两次实体包分别绑定其候选，索引译本和独立核验均放在包外。原始 payload 不生成额外 README，也不把作者或 reviewer 的派生结果混入原包。所有声明精确字节的 REX 材料与七份编码前像使用 `-text` 禁止 Git 换行转换；导航检查另核对原件长度/hash，拒绝静默修复或替换声明值。
 
-The fixed REX-803 packet retains six JSON files and MATERIAL_INDEX. REX-805's two physical packets each retain their candidate binding; translated indexes and independent checks live outside them. Raw payloads receive no extra generated README and no author/reviewer derived output. Indexed exact-byte REX materials and six encoding preimages use `-text` to prevent Git newline conversion. Navigation checks additionally verify preimage lengths/hashes and refuse silent repair or replacement of declared values.
+The fixed REX-803 packet retains six JSON files and MATERIAL_INDEX. REX-805's two physical packets each retain their candidate binding; translated indexes and independent checks live outside them. Raw payloads receive no extra generated README and no author/reviewer derived output. Indexed exact-byte REX materials and seven encoding preimages use `-text` to prevent Git newline conversion. Navigation checks additionally verify preimage lengths/hashes and refuse silent repair or replacement of declared values.
 
 不可逆编码内容保留 [原字节与索引](encoding-evidence/PREIMAGE_INDEX.json)，阅读入口明确哪些含义无法恢复；ASCII 投影不是语义重建。四份历史规范读本的来源和精确版本见 [来源审计](../mission-book/finished/READING_TRANSLATION_PROVENANCE.md)。现存说明中的历史凭据行已脱敏，没有宣称清除了 Git 历史。
 
