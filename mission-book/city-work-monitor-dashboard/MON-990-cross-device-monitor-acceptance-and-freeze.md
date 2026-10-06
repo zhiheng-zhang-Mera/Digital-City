@@ -15,7 +15,7 @@ baseline_resolution_evidence: "Claim-time Alien MERA-ALIANWARE: main213f9f9 plus
 dependencies: ["MON-902", "MON-903"]
 development_host: "Alien"
 development_branch: "mon/MON-990-Alien-20261006"
-development_head_sha: null
+development_head_sha: "523eb472e8b21d069e914fa6e862406bc33df092"
 development_ci: null
 development_complete: false
 review_host: null
@@ -48,6 +48,7 @@ merge_authority: false
 report_path: mission-book/reports/MON-990
 dependency_source_workbooks: ["MON-902","MON-903"]
 baseline_blocker: null
+development_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/36"
 ---
 
 # MON-990 — Cross-Device Monitor Acceptance & Freeze
