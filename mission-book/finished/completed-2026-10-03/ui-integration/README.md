@@ -18,10 +18,12 @@ UXI-390 做双机最终回归、Web/Android/Rooms 产品验收、视觉一致性
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **4**.
+当前Markdown文档 / Current Markdown documents: **9**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
+| en | 4 | [打开 / Open](en/README.md) |
+| zh-CN | 1 | [打开 / Open](zh-CN/UXI-301-调度状态接入非工程化UI.md) |
 
 ### 本目录说明 / Local documents
 

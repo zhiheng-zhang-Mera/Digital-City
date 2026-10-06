@@ -321,3 +321,41 @@ CI        V0.2 checks push run 37425834472 COMPLETED SUCCESS (attempt 1) on ad1b
 ```
 
 与此前一轮 B4 相同的经验，明确为规则：**修复必须在合并结果上测量，不能仅在自身旧 baseline 上测量。** 落后两次合并的 baseline 上绿色分支，只提供没人将运行的提交的证据。
+
+
+## 缺陷族现在有一个统一守卫，而非五个分散探针
+
+以上每实例均在发现处修复，并附模块自己的探针：rex801-store-guard、bridge-artifact-store-guard、MON-903 sibling sweep、REX-803 receipt/close probe、REX-804 B4 guard。五模块五探针，但没有整个族的 guard，所以第六实例仍可能静默发生。现在已有：
+
+```text
+test/mech-startup-store-family-guard @ 8e1c1c5   (base = the F-3 repair on current main, ad1b3e8)
+  tests/startup-store-family-guard.test.mjs
+```
+
+它刻意针对形态而非单模块；新模块必须加入 store list：
+
+```text
+SHAPE A  a file where a startup store needs a directory, for every store the City touches while being constructed -
+         theme-packages, research, research/experiments, research/campaigns, research/faults, monitor, research-trace.
+         The City must START and report itself serving.
+SHAPE B  the canonical database is the ONE case where refusing to start is CORRECT, and the case asserts the refusal is
+         DIAGNOSABLE rather than pretending bricking should be degraded away (F-1, open by choice).
+SHAPE B  the join store is pinned as KNOWN BEHAVIOUR, not as a desired one (F-2, reported, not repaired here) - a guard
+         that quietly accepts a defect is worse than no guard, because it looks like coverage.
+SHAPE B  a profile the City cannot persist is refused with a typed code and the running profile does not move (F-3,
+         repaired on this branch).
+CONTROL  with every store healthy the City starts, serves and accepts a task, so the SHAPE A loop cannot pass by the
+         City refusing to run for some other reason.
+```
+
+**先证伪，再信任。** 在未修改 main b06504f 运行同一文件得到 **11 pass / 1 fail**，唯一红色正是仍存在的缺陷：
+
+```text
+✖ SHAPE B: a profile the City cannot persist is refused, and the running profile does not move
+  AssertionError: and typed, not a raw filesystem errno   actual: 'EPERM'
+```
+
+带 F-3 修复时 **12/12**。从未被观察失败的 guard 不是证据，和各独立探针接受的规则相同。
+
+CI：V0.2 checks push 37429465001 COMPLETED SUCCESS attempt 1，head 8e1c1c5，gateway-web/android 均成功。
+FULL SUITE：分支 1371/1374；三项是本宿主常驻 City 占用 host reservation。

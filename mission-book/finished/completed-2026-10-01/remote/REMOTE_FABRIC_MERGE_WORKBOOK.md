@@ -87,3 +87,5 @@ frontmatter (`merge_status`, `merge_archive_tag`, `merge_main_sha`, `merge_main_
 MERGE_STATUS = COMPLETE
 REMOTE_FABRIC_MERGED_MAIN_CI_GREEN
 ```
+
+语言配对 / Language pair: [English](./REMOTE_FABRIC_MERGE_WORKBOOK.md) · [中文](./zh-CN/REMOTE_FABRIC_MERGE_WORKBOOK.md)

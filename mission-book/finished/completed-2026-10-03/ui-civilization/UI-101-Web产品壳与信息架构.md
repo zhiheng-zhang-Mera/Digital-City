@@ -106,3 +106,6 @@ report_path: mission-book/reports/UI-101/
 - City 只写有界 DEVELOPMENT_REPORT / REVIEW_REPORT。
 - raw screenshot、浏览器 trace、Android 实机证据、失败重试留在 Utopia runtime/evidence；有研究价值的结构化事件按 PROCESS_DATA_POLICY 进入 evolution。
 
+
+
+[阅读译本 / Reading translation](./en/UI-101-Web产品壳与信息架构.md)

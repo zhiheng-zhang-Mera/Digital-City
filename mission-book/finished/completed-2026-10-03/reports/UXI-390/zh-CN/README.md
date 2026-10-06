@@ -1,0 +1,22 @@
+# zh-CN / 文档导航
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **7**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+
+### 本目录说明 / Local documents
+
+- [CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md](CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md)
+- [DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md](DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md)
+- [DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md](DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md)
+- [VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md](VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md)
+- [VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md](VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md)
+- [VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md](VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->

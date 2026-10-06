@@ -78,3 +78,5 @@ the same pattern as the BOM and the CRLF anchor problem.
 if any frontmatter is malformed, so this becomes a gate that can be run before future freezes rather
 than a one-off. It is the instrument that would have caught the UI-000/UI-101 duplicates before they
 were committed.
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CONTROL_PLANE_FRONTMATTER_SWEEP_MECH.md)

@@ -137,3 +137,7 @@ acceptance claim at all.
 - Dependency installation is part of the gate procedure in a fresh Correction worktree
   (`pnpm install --frozen-lockfile` at the root and under `city/`). No billing refusal was recorded as a code
   failure; every hosted run in this task that started executed real steps.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

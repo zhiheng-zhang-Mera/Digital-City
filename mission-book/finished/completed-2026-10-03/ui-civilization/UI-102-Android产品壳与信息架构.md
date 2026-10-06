@@ -98,3 +98,9 @@ report_path: mission-book/reports/UI-102/
 ## Reports / evolution
 - City 閸欘亜鍟撻張澶屾櫕 DEVELOPMENT_REPORT / REVIEW_REPORT閵?
 - raw screenshot閵嗕焦绁荤憴鍫濇珤 trace閵嗕竸ndroid 鐎圭偞婧€鐠囦焦宓侀妴浣搞亼鐠愩儵鍣哥拠鏇犳殌閸?Utopia runtime/evidence閿涙稒婀侀惍鏃傗敀娴犲嘲鈧偐娈戠紒鎾寸€崠鏍︾皑娴犺埖瀵?PROCESS_DATA_POLICY 鏉╂稑鍙?evolution閵?
+
+
+[阅读译本 / Reading translation](./zh-CN/UI-102-Android产品壳与信息架构.md)
+
+
+[阅读译本 / Reading translation](./en/UI-102-Android产品壳与信息架构.md)

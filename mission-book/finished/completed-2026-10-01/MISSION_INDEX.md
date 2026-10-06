@@ -111,3 +111,5 @@ same commit, so no commit history was deleted and every Development/Correction h
 the remote branch list ends with only `main`. Deferred real external seams (real provider/login proof, real
 two-device transport E2E, Claude Code/WorkBuddy acceptance) were **not** fabricated by merging and remain open
 programme-integration gates recorded in the individual reports.
+
+语言配对 / Language pair: [English](./MISSION_INDEX.md) · [中文](./zh-CN/MISSION_INDEX.md)

@@ -65,3 +65,30 @@ Mech 不能执行 1–3，因为三个任务都由自己开发；也不能在 he
 - 不领取 Alien 的工作，不合并，也不修改 main。
 - `owner_required: false`、`terminal_reason: null`、`pool_incomplete: true`。
 - 唤醒条件：Alien reference node 加入 City；REX-803 或 MON-903 出现复检结论；REX-804 有修复后 head；两条开放修复分支有采纳决策；或新的 Owner 指令为 Mech 开放工作。
+
+
+## REX-803 门槛阻塞是缺少传输渠道的秘密，该问题现在已修复
+
+三轮测量都以 City 拒绝 TOPOLOGY_NOT_READY、具名 alien-reference-node 为唯一缺失身份结束，看似宿主不愿出现。实际原因更窄：交付 reference node 使用 CITY_NODE_TOKEN；秘密由 City 所在宿主持有；项目禁止把秘密写入记录。因此其他物理宿主取得凭证的渠道根本不存在。等待不会改变。
+
+City 已包含消除秘密传输的机制：pairing/info、pairing/exchange 为 public；owner 发出的短码被消费后注册 caller，并返回仅限其 device 的 sess: credential；auth preamble 对 session bearer 提前返回；assertOwnNode 仍把 member 限于自身 node identity，没有扩大 authority。缺少的是使用它的 joiner：
+
+```text
+feat/mech-join-worker-without-node-token @ c19da18   CI push 37428348788 SUCCESS attempt 1
+  scripts/join-worker.mjs      consume the short code, become a member, run the reference worker with the session
+  tests/join-worker.test.mjs   a real child process joins and the City lists it ONLINE with the capabilities an
+                               eligible worker needs; killing it takes it offline
+```
+
+对侧宿主执行一次，无需传输秘密：
+
+```text
+on the City host      POST /api/v0/pairing/session with the owner credential -> a short code
+                      read the identity the joiner prints and declare it in the experiment manifest
+on the joining host   CITY_URL=http://<city-host>:4310 node scripts/join-worker.mjs --code <shortCode> \
+                        --name "alien reference node"
+```
+
+这不关闭 REX-803 完成门槛，也不记录为已关闭：仍需 node 在线并运行三端 topology campaign。但现在只差一个命令和一个短码。
+
+原文追加段末仍保留一条重复唤醒片段：REX-804 有新 head、任一开放修复分支有采纳决策，或新 Owner 指令为 Mech 开放工作。

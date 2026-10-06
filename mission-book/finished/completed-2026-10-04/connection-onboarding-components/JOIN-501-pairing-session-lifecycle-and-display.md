@@ -207,3 +207,6 @@ Formal Review 必须由另一实体主机：
 - 无隐式 generation；
 
 全部满足后才可设置。
+
+
+[阅读译本 / Reading translation](./en/JOIN-501-pairing-session-lifecycle-and-display.md)

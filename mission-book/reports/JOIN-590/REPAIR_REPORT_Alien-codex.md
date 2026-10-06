@@ -75,3 +75,5 @@ Alien 端已切换修补源码（工作树代码 ec3，证据 head 0ea），启�
 F-1 “member may approve/reject” 原观测保留，但期望需核对：JOIN-502 已接受的目标就是“existing trusted device decides”；join.mjs:1/260 与 server.mjs 既有 control credential 语义一致。CEX-704 同一 Mech 对侧 review §4.1 明确把“a member session must not decide admissions”作为错误 probe 期望予以纠正。不能因为最新报告把它称为 OWNER-only 就直接改变已接受的信任契约。将其归为 CONTRACT_EXPECTATION_CONFLICT，未实施 OWNER-only 补丁，要求复检方在最终裁决中处理该冲突。如 owner 明确要求收紧审批权，则是需要记录的新权限决策。
 
 剩余：完整 Android 修补对侧复检、Capability Exposure 总门以及 merged-main CI/产品复核；不会把局部 gateway VERIFIED 转成整体 PASS。主城重启子项已由上述新观测验证。
+
+语言配对 / Language pair: [原文 / Source](./REPAIR_REPORT_Alien-codex.md) · [译本 / Translation](./en/REPAIR_REPORT_Alien-codex.md)

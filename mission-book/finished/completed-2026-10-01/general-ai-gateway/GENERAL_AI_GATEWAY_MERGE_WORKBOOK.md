@@ -76,3 +76,5 @@ workbook frontmatter (`merge_status`, `merge_archive_tag`, `merge_main_sha`, `me
 MERGE_STATUS = COMPLETE
 GENERAL_AI_GATEWAY_MERGED_MAIN_CI_GREEN
 ```
+
+语言配对 / Language pair: [English](./GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md) · [中文](./zh-CN/GENERAL_AI_GATEWAY_MERGE_WORKBOOK.md)

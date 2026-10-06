@@ -200,3 +200,9 @@ OWNER_REQUIRED       false
 EVIDENCE_POINTERS    reports/JOIN-502/*, tests/join502-*.test.mjs, services/dev-gateway/{join,nearby}.mjs
 ```
 
+
+
+[阅读译本 / Reading translation](./zh-CN/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
+
+
+[阅读译本 / Reading translation](./en/JOIN-502-nearby-pc-discovery-and-owner-approval.md)

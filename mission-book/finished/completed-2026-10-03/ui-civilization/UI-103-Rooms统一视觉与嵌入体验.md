@@ -86,3 +86,6 @@ report_path: mission-book/reports/UI-103/
 ## Reports / evolution
 - City 只写有界 DEVELOPMENT_REPORT / REVIEW_REPORT。
 - raw screenshot、浏览器 trace、Android 实机证据、失败重试留在 Utopia runtime/evidence；有研究价值的结构化事件按 PROCESS_DATA_POLICY 进入 evolution。
+
+
+[阅读译本 / Reading translation](./en/UI-103-Rooms统一视觉与嵌入体验.md)

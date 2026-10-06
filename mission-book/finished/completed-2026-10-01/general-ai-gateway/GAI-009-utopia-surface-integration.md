@@ -87,3 +87,6 @@ This task participates in the normative global BA/RF/GAI/EM pool defined by `mis
 - Hosted CI, real-provider login, long tests and Remote Fabric waits never idle the host. Retain the claim, record the exact seam, and claim another eligible global stage in a separate worktree.
 - Missing Remote Fabric uses stable RemoteExecutionPort doubles for component work. Real cross-device proof belongs to programme integration.
 - A host stops claiming only when a fresh global scan finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.
+
+
+[阅读译本 / Reading translation](./zh-CN/GAI-009-utopia-surface-integration.md)

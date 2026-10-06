@@ -558,3 +558,5 @@ SKIPPED_NOT_REQUIRED with evidence-backed NO_VALUE
 但 MB-003 若“仍有价值、只是没有真实 provider 环境”，必须停在 BLOCKED。
 
 7 → 8 → 3 全部闭环后，调度器才回到 MB-010 → MB-011 → MB-012 assessment-first 队列。
+
+语言配对 / Language pair: [中文](./ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md) · [English](./en/ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)

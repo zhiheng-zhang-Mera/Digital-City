@@ -100,3 +100,9 @@ Web/Android presentation adapter銆乂iewModel銆佺敤鎴锋枃妗堛€佸凡�
 ## Reports / evolution
 - City 鍙繚瀛樻湁鐣岀粨璁恒€丼HA銆丆I 鍜屽紓甯告憳瑕併€?
 - 璋冨害鍐茬獊銆乭andoff銆乫allback銆乥usy/unavailable 鏍锋湰鎸?PROCESS_DATA_POLICY 鍐欏叆 Utopia evolution evidence銆?
+
+
+[阅读译本 / Reading translation](./zh-CN/UXI-301-调度状态接入非工程化UI.md)
+
+
+[阅读译本 / Reading translation](./en/UXI-301-调度状态接入非工程化UI.md)

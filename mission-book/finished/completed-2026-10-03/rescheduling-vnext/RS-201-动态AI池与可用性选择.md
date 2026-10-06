@@ -89,3 +89,6 @@ General AI registry/provider/session/availability contract、对应 runtime/adap
 ## Reports / evolution
 - City 只保存有界结论、SHA、CI 和异常摘要。
 - 调度冲突、handoff、fallback、busy/unavailable 样本按 PROCESS_DATA_POLICY 写入 Utopia evolution evidence。
+
+
+[阅读译本 / Reading translation](./en/RS-201-动态AI池与可用性选择.md)

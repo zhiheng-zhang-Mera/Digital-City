@@ -81,3 +81,41 @@ NODES        alien-reference-node                  online=FALSE   lastHeartbeatA
 ```
 
 新信息是区别而非拒绝：对侧主机存在并在 control-plane 施工，但 reference node 未加入 City。剩余 blocker 不是主机 availability 或调度，而是 City 点名的一个 identity 需上线。应加入 alien-reference-node，而非“等 Alien”；experiment 保持 registered/validated，节点出现后仍只需一个 POST。
+
+
+## 为什么第三个身份一直未加入，以及消除原因的工具
+
+每次门槛测量都以 City 拒绝 TOPOLOGY_NOT_READY、具名 alien-reference-node 为唯一缺失身份结束。三轮看似宿主不愿出现，但实际原因更窄且可修复。
+
+```text
+the shipped reference node authenticates with CITY_NODE_TOKEN   agents/reference-node/main.mjs:2
+the node token is a secret held by the City's own host          <runtime>/local-config.json
+the programme forbids writing secrets into records              CONSTRUCTION_RULES / PROCESS_DATA_POLICY
+=> there was NO CHANNEL by which the second physical host could obtain the credential it needs
+```
+
+阻塞的是凭证交付，等待不会改变。City 已包含消除秘密传输的机制，缺少的是利用它的 joiner：
+
+```text
+pairing/info, pairing/exchange        PUBLIC routes, no node token and no version header required
+a consumed owner-minted short code    ENROLLS the caller and returns a `sess:` credential scoped to its own device
+the auth preamble                     returns early for a session bearer, so a session suffices for node/*
+assertOwnNode                         still confines a member to its OWN node identity - no authority is widened
+the reference agent                   already accepts a credentialProvider instead of a static token
+```
+
+feat/mech-join-worker-without-node-token @ c19da18 的 scripts/join-worker.mjs 只做这件事：消费短码，成为 member，使用 session credential 运行 reference worker，跨重启记住 device identity。tests/join-worker.test.mjs 使用真实子进程证明：owner 发码，独立进程消费，City 列出身份 ONLINE 且具有 eligible worker 所需 execution capabilities；杀进程后离线。若 build 有本任务 campaign route，City 将其算作 campaign worker；其他 build 明确断言 404，而非跳过。CI V0.2 push 37428348788 COMPLETED SUCCESS attempt 1，head c19da18，gateway-web/android 均绿。
+
+对侧宿主仅需执行一次，不传输秘密：
+
+```text
+on the City host   POST /api/v0/pairing/session with the owner credential  -> a short code
+                   read the node identity the joiner prints, and declare it in the experiment manifest
+on the joining host
+                   CITY_URL=http://<city-host>:4310 node scripts/join-worker.mjs --code <shortCode> \
+                     --name "alien reference node"
+```
+
+探针自己的两个初稿也错误，按项目惯例保留并修复，而非掩盖：第一稿让 unhandled rejection 中止进程，捕获输出的 caller 什么也看不到，这是最不可诊断的失败；第二稿在 2000 ms heartbeat timeout 下等待 2800 ms，结果取决于最后 heartbeat 的位置。这是项目第四次记录“窗口勉强覆盖性质”的缺陷，已提交探针给予真实余量。
+
+**这不关闭门槛，也不记录为已经关闭。** 仍需 Alien 自己 node 在 City 在线，并运行三端 topology campaign；改变的是，现在只差一个命令和一个短码。

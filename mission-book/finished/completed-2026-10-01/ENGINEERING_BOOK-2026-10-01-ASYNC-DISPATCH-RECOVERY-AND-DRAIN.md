@@ -413,3 +413,4 @@ E2E and real third-party connector acceptance (Claude Code, WorkBuddy) remain op
 `REAL_PROVIDER_ACCEPTANCE_PENDING`-style programme-integration gates exactly as the individual reports record.
 Appendices above are unchanged.
 
+语言配对 / Language pair: [English](./ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md) · [中文](./zh-CN/ENGINEERING_BOOK-2026-10-01-ASYNC-DISPATCH-RECOVERY-AND-DRAIN.md)

@@ -1,0 +1,118 @@
+# EM-008 开发报告——凭据引用与持久化连接器配置／会话
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = EM-008 (Engineering Manager programme, task 8 of 13)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 52cdc8d (Digital-City main, "claim(EM-008): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T15:01:02Z
+CONTROL_REVISION_AT_CLAIM= c99b7d8 (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = engineering-manager/EM-008-credential-profile-session
+IMPLEMENTATION_HEAD_SHA  = 963b4f2e47fbb8715d1cf98cf90baee0f79a9c5d
+BRANCH_CI                = 36734070041 — success
+LOCAL_CHECK_SUMMARY      = 109/109 tests pass, rooms 69/69, city 1801 pass/0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+## 1. 交付物
+
+`contracts/engineering-auth-profile-v1/` 包含 `auth-profile.mjs`（模式、引用、生命周期／新鲜度、状态、注意事项信封、脱敏、重启快照及旧路径桥接）、`index.mjs`、8 项测试套件，以及根入口 `tests/engineering-auth-profile.test.mjs`。
+
+验收要求与测试对应如下。
+
+| 验收要求 | 测试与证明 |
+|---|---|
+| 规范作业／连接器／任务状态存放句柄或引用，而非明文秘密 | `canonical state holds handle references, never plaintext secrets`：`credential_ref` 是句柄，值只能从存储解析，`findSecretFields(record)` 为空 |
+| 失败测试中的日志／报告不含秘密值 | `secret values are absent from logs and errors even when the secure store fails`：恶意存储在错误消息中包含秘密，类型化错误、脱敏日志及诊断快照仍不含秘密 |
+| 过期会话进入 EXPIRED／NEEDS_USER，而非 READY | `an expired session becomes EXPIRED/NEEDS_USER with a job-scoped AttentionEnvelope` |
+| 重启恢复获准持久化的配置／会话引用 | `restart restores permitted persistent session references, and only those` |
+| 安全存储缺失时如实降级，不回退至共享明文状态 | `missing secure-store support degrades honestly with no plaintext fallback` |
+| 旧 DeepSeek 环境发现可通过抽象消费，不能成为通用模式 | `legacy DeepSeek env discovery is consumable through the abstraction without becoming the schema` |
+| AuthMode 词汇、三类引用契约及生命周期／新鲜度元数据 | `each auth mode maps to exactly one reference kind, and NONE needs no handle`；`the profile contract is declarative, versioned and lifecycle-honest` |
+| 日志、报告、产物及诊断快照脱敏 | 测试 1、3 的 `redact()`／`findSecretFields()` 断言与 `diagnosticSnapshot()` |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 原因）
+
+**D1——领取哪个任务。** 最新扫描没有本机负责的修复，也没有 Mech 可领取的 Correction：Alien 持有 BA-004、RF-004 Correction，EM-003 已修正且绿灯。前次 BA-006（Butler）使平局规则排除 BA，候选为 EM-008／GAI-004／RF-005。选择 EM-008，因为 EM-011（DeepSeek Harness＋Codex）、EM-012（连接器 SDK）需要这项基础；EM-004 注册表、EM-005 注意事项信封和 EM-009 重启恢复也都要消费已经存在的认证状态。
+
+**D2——自建凭据存储，还是消费中立端口。** 选项为：(a) Engineering Manager 专属安全存储；(b) 中立 00-Foundation `SecureHandleStorePort`；(c) 把句柄写入配置记录。选择 (b)，注入端口并发布描述符（`engineering_may_define_its_own_store: false`）。工作簿禁止第二套领域专属安全存储引擎，GAI-002 已消费相同端口和 `putHandle`／`resolveHandle`／`revokeHandle` 三方法；合并时一项真实实现应同时满足两项目。(c) 会使规范状态变为秘密存储，违反第一项验收要求。
+
+**D3——没有安全存储时怎么办。** 拒绝绑定秘密（`SECURE_STORE_REQUIRED`，503），报告 `MISSING`；已有引用时为 `UNAVAILABLE`。绝不把值写入记录或日志。验收要求明确禁止回退到共享明文状态：如实降级应是类型化拒绝与可见的非 READY 状态，测试还断言之后记录仍无明文。
+
+**D4——一个引用字段还是三个。** 三类模式恰好填充一个字段：API_KEY／OAUTH／DEVICE_CODE 使用 `credential_ref`，BROWSER_PROFILE／DESKTOP_SESSION 使用 `profile_ref`，CLI_SESSION 使用 `session_ref`；底层句柄始终为 `handle_ref`。工作簿分别列出三类引用契约，对全部六种模式断言完整映射，避免调用者把会话句柄当凭据句柄。`NONE` 不映射引用，报告 `READY`／`NO_AUTH_REQUIRED`，因为不需要认证的本地工具已经就绪。
+
+**D5——过期边界。** `expires_at` 等于求值时刻即算**过期**；只有实际 READY 时 `freshness.fresh` 才为 true。边界必须采取失败关闭，把“此刻到期”视为仍新鲜正是验收针对的过期会话问题。测试曾期望相反结果；保留模块的失败关闭行为并修正期望。
+
+**D6——AttentionEnvelope 从哪里来。** 只有调用者提供信封所属 `job_ref` 才生成信封；否则 `attention: null`，并报告 `attention_skipped_reason: 'ATTENTION_IS_JOB_SCOPED'`。信封逐字段使用 EM-005 的字段集，`kind: 'AUTHENTICATION'`、`blocking: true`。EM-005 要求作业引用，为满足验证器虚构作业 ID 会制造记录。仍显示 `attention_required: true` 与 `reason`，不隐藏状态。
+
+**D7——哪些内容可跨重启。** 仅标为 `PERSISTENT` 的 CLI_SESSION／BROWSER_PROFILE／DESKTOP_SESSION 配置；持有者凭据不得标为持久化（`MODE_NOT_PERSISTABLE`），快照仅携带引用。恢复时存储不能再解析的引用报告为 `degraded_profile`，状态 `MISSING`／`HANDLE_UNRESOLVABLE`，不能为 READY。工作簿要求获准会话引用跨重启，凭据值不是会话，“已恢复”也不能意味着“假定仍有效”。
+
+**D8——如何桥接旧 DeepSeek 路径。** `discoverFromLegacyEnv({ env })` 接受注入的环境对象，不访问 `process.env`，保持模块纯净；仅读取已声明旧键 `DEEPSEEK_API_KEY`，通过句柄存储保存值，返回与任何其他连接器字段集一致的**中立**配置记录。环境键本身作为配置字段时被拒绝（`PLAINTEXT_REFUSED`）。验收要求抽象可消费旧发现而不能成为通用模式；提供商专属描述符会把旧模式夹带进新模式，测试断言无关连接器的中立记录形状完全相同。
+
+**D9——秘密检测与脱敏范围。** 扫描和脱敏涵盖秘密形状的键（排除 `*_ref` 句柄引用与布尔断言标志），也涵盖较长字符串中的秘密子串，防止存储错误消息把密钥带进日志。失败测试把秘密放进存储抛出的消息；只匹配整串曾漏过，测试发现后模块已处理。
+
+**D10——不提供 `schema.json`。** 与其他组件分支一致。
+
+## 3. 精确文件
+
+| 文件 | 变更 |
+|---|---|
+| `contracts/engineering-auth-profile-v1/auth-profile.mjs` | 新增模式、引用、状态、注意事项、脱敏、重启及旧路径桥接 |
+| `contracts/engineering-auth-profile-v1/index.mjs` | 新增公开接口 |
+| `contracts/engineering-auth-profile-v1/tests/conformance.test.mjs` | 新增 8 项一致性测试 |
+| `tests/engineering-auth-profile.test.mjs` | 新增根测试入口（原文记录仓库测试 106 → 109） |
+
+没有修改 City／Core 文件、清单或文档，因此合并保持增量添加。
+
+## 4. 测试汇总、失败与修复
+
+8 项测试首次运行有五个期望失败；原文分类为两项真实模块缺陷、三项模块行为正确而需修正的期望。
+
+1. **缺陷：** `findSecretFields` 把本模块 `secret_material_present` 布尔标志判为秘密，使干净记录看似受污染。跳过布尔值，并将标志改名为描述性的 `references_only`，避免自我触发。
+2. **缺陷：** `redact()` 只在整个值像秘密时匹配，恶意存储消息 `store exploded while writing sk-live-…` 把密钥漏入日志。改为秘密子串脱敏；失败测试证明日志、错误和快照均干净。
+3. **期望：** `discoverFromLegacyEnv` 传入 `at: undefined` 被以“must not be null”拒绝。模块改为把 null／缺失时刻解释为“使用时钟”，两个 `at` 规范条目标为可空；缺失可选时刻不是错误。（保留原文对本项的分类与修复叙述。）
+4. **期望：** 测试认为到期时刻等于求值时刻应 READY。保留失败关闭的 EXPIRED，把测试到期时刻改为更晚（D5）。
+5. **期望：** 含秘密的 `api_key` 输入曾期望 `INVALID_PROFILE`，模块实际返回更具体且有用的 `PLAINTEXT_REFUSED`。拆分测试：普通未知键断言前者，含秘密键断言后者。
+
+## 5. 本地检查与 CI
+
+| 检查 | 原报告结果 |
+|---|---|
+| `node --test tests/*.test.mjs` | 109 项，109 通过，0 失败（101 基线＋8 新增） |
+| `node --test apps/rooms/tests/*.test.mjs` | 69 通过，0 失败 |
+| `node city/test-all.mjs` | 1801 通过，0 失败 |
+| `node scripts/verify-promotion-history.mjs` | OK，在 82ed36933fb4 验证 10 条记录 |
+| `node scripts/check-bilingual.mjs` | 文档、证据、数据记录 `PAIR_STATUS = SYNCHRONIZED` |
+| 963b4f2e47fbb8715d1cf98cf90baee0f79a9c5d 上 GitHub CI 36734070041 | success |
+
+上节入口计数和本节基线计数均按原文保留。
+
+## 6. 交给同级任务的集成接口
+
+- **中立 00-Foundation `SecureHandleStorePort`：** 与 GAI-002 完全相同地消费三方法并发布描述符。真实端口交付者承担真实保证，两项目应由一个实现服务。
+- **EM-004（能力探测＋认证注册表）：** `AUTH_STATUSES` 是相同七值词汇。实例 `auth` 块 `{status, handle_ref}` 可直接填入 `authStatusFor(...)` 投影，句柄来自三类引用字段。
+- **EM-005（注意事项）：** 信封逐字段匹配 `ATTENTION_ENVELOPE_SPEC`，种类 AUTHENTICATION，路由／排序可直接消费。
+- **EM-009（运行时健康／重启／恢复）：** `exportPersistentRefs()`／`restore()` 是恢复的认证数据部分；EM-009 应调度它们，不另定义快照格式。
+- **EM-011／EM-012（真实连接器、SDK）：** 连接器声明 `mode`＋`persistence`，通过句柄存储绑定，记录不引入提供商专属信息。旧桥接给 EM-011 迁移路径，不把 `DEEPSEEK_API_KEY` 变为模式字段。
+- **GAI-002／GAI-003（General AI 注册表、Web 通道会话）：** 相同中立端口与状态词汇；合并时两个 `SECURE_HANDLE_STORE_PORT` 描述符应为共享常量。
+- **Remote Fabric（RF-002／RF-006）：** 配置／会话引用默认不复制到远端节点，明确在范围外；RF 必须视句柄引用为节点本地内容。
+- **Owner 问题（不变）：** 演进动态是否记录组件阶段事件。
+
+## 7. Correction 主机待处理项
+
+1. 对抗审查应尝试：通过非存储错误路径泄露秘密，例如含密钥的 `expires_at`／`profile_id`；嵌套数组中藏秘密的快照；恢复非持久化配置；存储替身为未保存的值返回句柄。
+2. 确认 D7 仅会话类模式可持久化、D8 返回中立记录并注入环境对象而不读 `process.env`。
+3. 确认 D5 的边界即过期是预期的失败关闭解释。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+```

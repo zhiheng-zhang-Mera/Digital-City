@@ -125,3 +125,21 @@ Registry reconciliation is a CEX final-audit completion gate, not optional docum
 CEX-790 merged into Utopia main under explicit Owner authorization. PR33 merge SHA `b06504f1f96984c960b2661b8ee3a7130796d379` includes audited 4688274 as ancestor. Premerge checks passed; the earlier update recorded postmerge CI pending and made no deployment claim. [Merge record](../../reports/CEX-790/MAIN_MERGE_REPORT.md).
 
 Later postmerge measurement: exact main `b06504f1f96984c960b2661b8ee3a7130796d379`, V0.2 checks37422119627 and linkage37422119640 completed SUCCESS. Both measured checks passed; runtime deployment remains unobserved.
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 6/6 · 开发 / Development 6/6 · 复检 / Review 6/6 · `COMPLETE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [CEX-701](../CEX-701-device-recovery-rebind-and-clone-surface.md) | COMPLETE | YES | YES | YES |
+| [CEX-702](../CEX-702-scheduler-choice-and-alternate-device-entry.md) | COMPLETE | YES | YES | YES |
+| [CEX-703](../CEX-703-capability-catalog-discoverability.md) | COMPLETE | YES | YES | YES |
+| [CEX-704](../CEX-704-android-onboarding-owner-actions-parity.md) | COMPLETE | YES | YES | YES |
+| [CEX-705](../CEX-705-android-member-device-management-parity.md) | COMPLETE | YES | YES | YES |
+| [CEX-790](../CEX-790-final-exposure-audit-and-freeze.md) | COMPLETE | YES | YES | YES |
+
+<!-- SERIES_DASHBOARD:END -->

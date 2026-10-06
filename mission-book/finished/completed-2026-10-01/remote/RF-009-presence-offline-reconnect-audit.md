@@ -138,3 +138,6 @@ This task participates in the normative global BA/RF/GAI/EM pool defined by `mis
 ## Merge lock
 
 No worker may merge `remote/RF-009-presence-offline-reconnect-audit` to Utopia main. A Remote Fabric project merge workbook may be created only after **every RF-001..RF-010** branch passes the two-stage/two-host gate.
+
+
+[阅读译本 / Reading translation](./zh-CN/RF-009-presence-offline-reconnect-audit.md)

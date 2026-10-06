@@ -5,7 +5,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **149**.
+当前Markdown文档 / Current Markdown documents: **151**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -19,9 +19,9 @@
 | UI-103 | 3 | [打开 / Open](UI-103/README.md) |
 | UI-190 | 3 | [打开 / Open](UI-190/README.md) |
 | UXI-301 | 9 | [打开 / Open](UXI-301/README.md) |
-| UXI-390 | 44 | [打开 / Open](UXI-390/README.md) |
+| UXI-390 | 45 | [打开 / Open](UXI-390/README.md) |
 | UXI-391 | 20 | [打开 / Open](UXI-391/README.md) |
-| zh-CN | 8 | [打开 / Open](zh-CN/DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md) |
+| zh-CN | 9 | [打开 / Open](zh-CN/README.md) |
 
 ### 本目录说明 / Local documents
 

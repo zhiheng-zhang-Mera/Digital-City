@@ -1,0 +1,110 @@
+# BA-003 开发报告：设备具身与前台绑定
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = BA-003 (Butler Assistant programme)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = de097e7 (Digital-City main, "claim(BA-003): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T12:49:29Z
+CONTROL_REVISION_AT_CLAIM= 94b6431 (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = assistant/BA-003-device-embodiment-binding
+IMPLEMENTATION_HEAD_SHA  = eb3b1a1233a05c056dcc366341c76e0a20faa2f5
+BRANCH_CI                = 36717697673 — gateway-web success, android success
+LOCAL_CHECK_SUMMARY      = 115/115 tests pass, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+TASK-SPECIFIC EXTERNAL   = none required (no UI/device acceptance in this bounded scope)
+```
+
+原始块保留任务、主机、领取、控制版本、repo／baseline／branch／head／CI、115检查、完成／禁合并及本范围无UI／device外部验收要求。
+
+## 1. 交付物
+
+| 文件 | 目的 |
+|---|---|
+| contracts/assistant-embodiment-v1/descriptors.mjs | descriptor词汇、RF identity引用、竞争identity guard、strict validation |
+| contracts/assistant-embodiment-v1/registry.mjs | many-to-many attach、exclusive foreground、local context、read-only task port、snapshot／restore／revalidation |
+| contracts/assistant-embodiment-v1/index.mjs | 公共面／保证 |
+| contracts/assistant-embodiment-v1/tests/conformance.test.mjs | 14测 |
+| 根tests/assistant-embodiment.test.mjs | pnpm注册 |
+
+| 验收 | 测试 |
+|---|---|
+| 一assistant同时PC／Android | 同logical并存、每device独立 |
+| device拒第二同时foreground | FOREGROUND_ALREADY_BOUND |
+| A→B时无关A后台仍owner且继续安全执行 | switch后台owner／execution／uncancelled |
+| 不silent handoff／cancel／replace executor | read-only log无mutation，task row字节前后同 |
+| switch clean释放重绑local | A→B释放outgoing context、local不authoritative |
+| restart从authority重建非stale local | restart重构／reconnect belief冲突STALE_LOCAL_BINDING |
+
+## 2. 决策日志
+
+**D1：claim。** scan无己repair／opposite correction，BA002 Alien已领、RF002 Alien开发中；不同上次GAI，BA003为BA001／002后下一基础，选。
+
+**D2：位置。** contracts/assistant-embodiment-v1，薄root、无schema。同BA002判断session语义非wire，contract不暗示City building。
+
+**D3：物理identity跨分支。** 不得仿RF也不得消费copy未合BA001／002。选Butler mint、无shape caller、canonical typed nonauthoritative reference三选第三。device_identity_ref为authority:REMOTE_FABRIC／device_id dev-<32 hex>／installation_ref；identity_source RF需ref或UNAVAILABLE需null，不能不一致。递归拒butler_device_id／device_trust_state／device_key等。知道device非拥有authority，mint违反namespace、无shape逼caller临时造。
+
+**D4：不移动task结构化。** 文档promise或不可mutation port，选TaskObservationPort恰listTasksOwnedBy／describeExecutor／isLeaseValid／isCapabilityAvailable、may_mutate_ownership／cancel／reassign false。double每call log，switch后仅观察、task unchanged；method set可测，promise不。
+
+**D5：两foreground操作。** overwrite setForeground或bind＋switch，选后。bind已有则FOREGROUND_ALREADY_BOUND，switch显式handover可expectedForegroundRef CAS。单overwrite无法测拒、stale view silent takeover，CAS FOREGROUND_MISMATCH测试。
+
+**D6：local context。** untyped bag或typed＋nonauthority，选SENSORY_CONTEXT／UI_TRANSIENT／LOCAL_SCRATCH，各存instant、结构排snapshot，switch／release／detach释放、stale revalidation清。无typed招leak，snapshot排使恢复不能复活local assumption，同BA002 D4。
+
+**D7：恢复非一布尔。** restore通过同exclusive gate seed durable binding，restored_foreground标RESTORED_FROM_AUTHORITY并revalidation_required_for；revalidate四reason AUTHORITATIVE_AGREEMENT／STALE_LOCAL_BINDING／AUTHORITATIVE_NO_FOREGROUND／LOCAL_SESSION_HAS_NO_FOREGROUND。“过时”与“没人持此device”不同事实恢复，折一会下一行动含糊。stale也清local，session authority不再认。
+
+**D8：detach foreground。** 工作簿没定，选释放binding及local，不能未attached仍foreground回答，记录policy选择。
+
+**D9：descriptor refresh。** 同embodiment重注册幂等更新cap／display；现embodiment_ref换device拒EMBODIMENT_DEVICE_MISMATCH，同device两embodiment拒DUPLICATE_DEVICE_IDENTITY。防silent repoint及重复建模破exclusive。
+
+**D10：ui_surfaces NONE。** exclusive，无UI不能另declare surface，不然谁答foreground不可决定。
+
+**D11：Android／Computer Use。** 无使用，bounded contract无UI／device interaction，outscope排device UI beyond adapters；Owner仅验收需时授权，此处未需，未观察不claim。
+
+**D12：evolution inbox。** 未用，同BA001 D11、BA002 D13、EM001 D13、GAI001 D10、RF001 D8。
+
+## 3. 测试汇总
+
+14全过：RF identity／competing拒、unavailable诚实、closed capability／sensor／surface／action／kind／locality／version／unknown／NONE／instant／handle；一assistant PC Android attach不等foreground；第二foreground拒；detach释放；A→B清outgoing；CAS stale拒及同switch幂等；后台continuity read-onlylog；perdevice local非authority；restart authority重构丢local；四reason revalidation；两device foreground独立；duplicate identity／unknown embodiment／constructor拒。
+
+## 4. 检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 115过0败（101＋14） |
+| node scripts/verify-promotion-history.mjs | 82ed36933fb4上10 OK |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败7跳同baseline |
+| corepack pnpm check:docs | docs／evidence／data-records SYNCHRONIZED |
+| CI36717697673，eb3b1a1233a05c056dcc366341c76e0a20faa2f5 | gateway-web／android success |
+
+## 5. 接缝
+
+- BA002：attach／detach为Core connectEmbodiment device侧，Core epoch、registry localbinding／context；merge统一embodiment_ref为Core sessionidentity。
+- BA004：handoff责任非foreground，要两显式handoff＋switch非一。
+- BA007：bind／switch／listAssistantsForDevice picker，ALREADY_BOUND／MISMATCH分别offer switch／refresh。
+- BA008：每binding is_execution_lease:false，lease归BA008。
+- BA009：attached是present非authorized，registry无grant。
+- RF001：device_ref沿RF dev-<32hex>，accepted后原样引用，不mint。
+- Android／Web：descriptorFor报告自身、reconnect revalidate，不能假定仍foreground。
+
+## 6. 开放项
+
+1. 并发switch、restore bind、switch中detach攻双foreground，跨switch local leak，任一registry call改taskowner／executor。
+2. 确认detach释放与descriptor refresh语义。
+3. merge统一此embodiment_ref与BA002 session身份。
+4. 确认BA evolution D12。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_BUTLER_PROJECT_MERGE
+```
+
+原始结论开发完成、仅Alien纠、Butler合并前禁。

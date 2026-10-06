@@ -169,3 +169,5 @@ MAIN      origin/main = 8ee3f8c1fcc8ae6730064d826e43e4829acdbbb4, required CI gr
 CEX STATE CEX-701, CEX-702, CEX-703, CEX-704 merged and live in main; CEX-705 merge-ready but not merged; CEX-790
           unblocked by the owner ruling.
 ```
+
+语言配对 / Language pair: [English](./MERGE_AND_STATUS_UPDATE.md) · [中文](./zh-CN/MERGE_AND_STATUS_UPDATE.md)

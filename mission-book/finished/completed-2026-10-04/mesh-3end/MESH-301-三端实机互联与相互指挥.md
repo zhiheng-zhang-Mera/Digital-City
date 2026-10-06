@@ -251,3 +251,6 @@ exact review-head CI 绿 → 合并 Utopia main → 验 main CI → 记录终态
 ## 绑定常驻规则
 
 本工作书自动继承 `mission-book/CONSTRUCTION_RULES.md` 的原子领取、双机独立、等待/唤醒、20 分钟兜底重扫、external reconciliation、exact-head CI/evidence、no-idle、no-make-work、integration refresh 等规则，并继承 `mission-book/ASYNC_RELIEF_CONSTRUCTION.md` 的 Hns supervisor / Codex worker、Review→Repair 自动接力与 L0→L3 escalation 规则。异步减压只减少 Owner 人工中转，不得降低实体主机独立复核、CI、证据或安全门槛。
+
+
+[阅读译本 / Reading translation](./en/MESH-301-三端实机互联与相互指挥.md)

@@ -160,3 +160,6 @@ Formal Review 必须由另一实体主机完成。
 - Development + opposite-host Review + exact-head CI；
 
 全部通过后才可设置。
+
+
+[阅读译本 / Reading translation](./en/JOIN-503-device-enrollment-and-tokenless-reconnect.md)

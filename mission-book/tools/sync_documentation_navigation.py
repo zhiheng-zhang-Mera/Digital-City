@@ -72,6 +72,20 @@ def series_outputs():
    want=re.sub('<!-- SERIES_DASHBOARD:START -->.*?<!-- SERIES_DASHBOARD:END -->',lambda _:b,text,flags=re.S)
   else:want=text.rstrip()+'\n\n'+b+'\n'
   outputs[p]=want
+  # Reading views share the canonical dashboard, with links back to authoritative workbooks.
+  for language in ('en','zh-CN'):
+   peer=p.parent/language/p.name
+   if not peer.exists():continue
+   peer_block=b
+   for task in programme['tasks']:
+    source=ROOT/'mission-book'/task['path']
+    original=os.path.relpath(source,p.parent).replace('\\','/').replace(' ','%20')
+    relocated=os.path.relpath(source,peer.parent).replace('\\','/').replace(' ','%20')
+    peer_block=peer_block.replace(']('+original+')',']('+relocated+')')
+   peer_text=peer.read_text(encoding='utf-8')
+   if '<!-- SERIES_DASHBOARD:START -->' in peer_text:
+    outputs[peer]=re.sub('<!-- SERIES_DASHBOARD:START -->.*?<!-- SERIES_DASHBOARD:END -->',lambda _:peer_block,peer_text,flags=re.S)
+   else:outputs[peer]=peer_text.rstrip()+'\n\n'+peer_block+'\n'
  return outputs
 
 def main():
@@ -80,7 +94,7 @@ def main():
  targets=set(scopes)
  for scope in scopes:
   if scope.exists():
-   targets.update(p for p in scope.rglob('*') if p.is_dir() and len(documents(p))>=2 and p.name not in {'en','zh-CN'})
+   targets.update(p for p in scope.rglob('*') if p.is_dir() and len(documents(p))>=2)
  # Materialize missing navigation files first, so parent counts are stable.
  missing=[p/'README.md' for p in targets if not (p/'README.md').exists()]
  if missing and args.check:

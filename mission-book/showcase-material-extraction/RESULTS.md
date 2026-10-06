@@ -28,3 +28,5 @@ Keep historical accepted evidence separate from the showcase take.
 - Android is currently a **control surface, not a worker node**.
 - Remote handoff acceptance does **not** imply transparent exactly-once migration for every arbitrary side-effect task.
 - Historical acceptance numbers must not be presented as measurements from the new showcase take.
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/RESULTS.md)
