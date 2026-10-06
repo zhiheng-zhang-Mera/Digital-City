@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1642,
-  "total_bytes": 11917600,
+  "total_bytes": 11921287,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -14038,19 +14038,19 @@
     },
     {
       "path": "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md",
-      "bytes": 20038,
+      "bytes": 22142,
       "encoding_state": "UTF8",
-      "chinese_characters": 1460,
-      "english_words": 477,
+      "chinese_characters": 1687,
+      "english_words": 551,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/PAPER_MATERIAL_INDEX.md",
-      "bytes": 7872,
+      "bytes": 8574,
       "encoding_state": "UTF8",
-      "chinese_characters": 783,
-      "english_words": 413,
+      "chinese_characters": 853,
+      "english_words": 457,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -14128,7 +14128,7 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/REX-890_CLAIM_READINESS_MECH.md",
-      "bytes": 17975,
+      "bytes": 18403,
       "encoding_state": "UTF8",
       "chinese_characters": 1062,
       "english_words": 363,
@@ -14173,10 +14173,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/en/REX-890_CLAIM_READINESS_MECH.md",
-      "bytes": 14598,
+      "bytes": 15051,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 1068,
+      "english_words": 1124,
       "paired_path": "mission-book/reports/REX-PROGRAMME/REX-890_CLAIM_READINESS_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },

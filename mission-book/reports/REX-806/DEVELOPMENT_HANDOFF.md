@@ -163,6 +163,24 @@ R-2 一份回执被**删除** -> 城市窗口 total 随之下降（receipts=1, w
 **托管 CI（exact head）**：push run 37465078880 @ `4349f3d` —— **gateway-web 与 android 均 SUCCESS attempt 1**。
 **未做且写明**：损失**尚未写进包内**（需要 artifact 模块新增 `unreadableReceipts` 段），因此只读包的人目前仍只看到能读到的那些 campaign。 / Verified on three paths; hosted CI green at the exact head; the loss is not yet carried inside the package, which is stated rather than implied.
 
+## 环境绑定：由**外部指纹**佐证，而不是只靠操作者自述 / The environment binding, attested from outside
+
+`environment.json` 只能写「部署的候选由操作者观察」（exporter 读的是 City，不是进程树）。但**每个头服务的路由集不同**，因此可以从外面把「这台 City 到底跑的是哪一代」测出来：main 只有 experiments/trace/monitor/execution-profile；REX-805 头加上 campaigns 与 replays；REX-806 头再加上 faults 与 artifacts。 / environment.json can only say the candidate was observed by the operator; route presence can do better.
+
+实测（`evidence-tools/DEPLOYMENT_FINGERPRINT_MECH.mjs`，本机对产出该包的那台 City `172.31.12.151:4391` 运行）：
+
+```text
+owner 凭据   experiments=200 trace=200 campaigns=200 replays=200 **faults=404 artifacts=404** monitor=200 execution-profile=200
+member 会话  experiments=200 trace=403 campaigns=403 replays=403 **faults=404 artifacts=404** monitor=200 execution-profile=403
+指纹结论     匹配 **REX-805 头（0261a9e）**：有 campaigns 与 replays，没有 fault 控制器、也没有 artifact 导出面
+member=owner 每个路由的「存在与否」完全一致（存在但 owner-only -> 403；不存在 -> 404）
+副作用       为该 member 探针临时登记的设备已 **revoke（HTTP 200）**，对活着的 City 不留成员
+```
+
+**对复检者直接有用的一点**：这不要求 owner 凭据——**对侧主机用它自己持有的 MEMBER 会话就能跑**（403 与 404 的差别即可判定路由是否存在），因此「这个包产自哪一代」不再只是本机的自述。 / The opposite host can run this with its own member session, so the binding is no longer only this host's assertion.
+
+**边界（写明）**：它证明的是**能力是否存在**，不是 commit SHA——两个路由集相同的头在这里无法区分；**未认证**客户端也做不到（City 在匹配路由之前对所有路由一律 401，已实测）。 / It attests capability presence, not a SHA; an unauthenticated client cannot do it at all.
+
 ## 本机明确不主张的 / Explicitly not claimed
 
 ```text

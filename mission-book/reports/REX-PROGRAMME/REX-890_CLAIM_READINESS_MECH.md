@@ -155,6 +155,9 @@ PASS  the independent verifier accepts the produced package  14/14 independent c
    fault store，它以 `STARTED-DEGRADED storeState=UNAVAILABLE reason=EEXIST` 如实报出降级；已部署候选
    `0261a9e` 上该格是 `NOT EXERCISED`（那个头根本没有 fault 面）。唯一剩下的家族项是**规范库的无类型消息**
    （F-1：拒绝启动正确、原因不可诊断），其修复 `be3670b` 已就绪可采纳
+6  对侧**可以用自己持有的 MEMBER 会话**判定另一台 City 跑的是哪一代（`evidence-tools/DEPLOYMENT_FINGERPRINT_MECH.mjs`）：
+   路由「存在但 owner-only」回 403、不存在回 404 —— 对 side 做双机 study 时，双方都能独立确认对方 City 的能力面，
+   不需要交换 owner 凭据（实测：本机对产出包的 City 得到 faults/artifacts=404，匹配 REX-805 头指纹）
 ```
 
 **本机演练自身的缺陷也记录在案**：① 在驱动循环里调用 `record()`，同一条检查刷了几百行、把前面的阶段全埋了；
