@@ -26,7 +26,7 @@ review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-
 review_complete: false
 review_verdict: "NOT_PASSED_RETURNED_FOR_REPAIR"
 review_report_ref: "mission-book/reports/REX-804/REVIEW_REPORT.md"
-review_repair_proposal_ref: "utopia:review/REX-804-mech-review@737c3e1602b87b18395c69757127a3b500fc54e4"
+review_repair_proposal_ref: "utopia:review/REX-804-mech-review@737c3e1602b87b18395c69757127a3b500fc54e4 (reviewer probes + repair, CI 37399882138 SUCCESS); utopia:repair/REX-804-mech-minimal@19a420c6725532eabb9bf4cb0b06add180f6ce4e (the same repair alone, parented on the reviewed head so the author can fast-forward; CI 37402198156 SUCCESS). Both are PROPOSALS: neither is an accepted head, and the terminal marker stays unreleased until a repaired head passes re-review."
 user_exposure_class: ADVANCED_CONTROL
 user_exposure_surface: RESEARCH_DANGER_ZONE
 user_exposure_nesting: L3_ADVANCED

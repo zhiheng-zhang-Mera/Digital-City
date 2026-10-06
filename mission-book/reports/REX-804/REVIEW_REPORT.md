@@ -128,10 +128,27 @@ CHANGE  services/dev-gateway/research/faults.mjs — construction now validates 
         collects anything it cannot use into a `broken` list (UNREADABLE_RECEIPT / RECEIPT_SHAPE_MISMATCH /
         RECEIPT_REWRITE_FAILED), and never throws. `list()` publishes `broken`, exactly as the experiment registry does.
 BRANCH  review/REX-804-mech-review @ 737c3e1602b87b18395c69757127a3b500fc54e4
+        V0.2 checks 37399882138 COMPLETED SUCCESS (reviewer probes + the repair together, 18/18 locally)
 GUARDS  P8 and P9 are the regression guards; the author's own 10 focused tests still pass unmodified alongside them
-        (18/18 in one run: 8 + 1 author suites, 9 reviewer probes).
 NOT DONE  the reviewer did NOT change the fault semantics, the routes, the UI, or any other file.
 ```
+
+### 5A. Adoptable minimal repair on the AUTHOR's own line
+
+So that the repair does not have to be extracted from a reviewer branch, the same change is also published on a branch
+whose parent IS the author's reviewed head, containing the repair and only its two regression guards:
+
+```text
+BRANCH   repair/REX-804-mech-minimal @ 19a420c6725532eabb9bf4cb0b06add180f6ce4e
+PARENT   f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5   (the reviewed head - a fast-forward for the author's branch)
+CHANGE   1 file: services/dev-gateway/research/faults.mjs (the reader guard)
+        1 file added: tests/rex804-receipt-guard.test.mjs (the two probes named above)
+CI       V0.2 checks 37402198156 COMPLETED SUCCESS on 19a420c6725532eabb9bf4cb0b06add180f6ce4e
+LOCAL    11/11 in one run (2 guards + the author's 8 unit probes + the author's 1 gateway probe)
+STATUS   PROPOSED, NOT ACCEPTED. Adopting it is the author's act (or the owner's ruling); the reviewer's verdict stays
+         NOT PASSED on f76ccf53 until a repaired head is re-reviewed, and no terminal marker is released by this branch.
+```
+
 
 ## 6. Verdict
 
@@ -144,12 +161,11 @@ verdict re-issued.
 ## 7. Measurement honesty notes
 
 ```text
-The reviewed head's CI was green and independently re-read (section 1). The REVIEW BRANCH's own CI (push run
-37399882138 on 737c3e1602b87b18395c69757127a3b500fc54e4) was still IN_PROGRESS when this report was published, so
-this report does NOT claim hosted CI for the repair proposal - the repair is stated as local verification only
-(18/18 in one run) and as a proposal awaiting the author's acceptance and exact-head CI.
-A superseded commit f7c10f2f0767198c0dcff00808b71150ea160c09 also has a queued run (37399871315) because the
-reviewer's first commit of the review branch was amended to restore the AUTHOR's evidence screenshot, which running
-the author's web test had overwritten. That screenshot was restored rather than re-attributed.
+The reviewed head's CI was green and independently re-read (section 1). The REVIEW BRANCH's own CI is now terminal
+SUCCESS: V0.2 checks run 37399882138 COMPLETED SUCCESS on 737c3e1602b87b18395c69757127a3b500fc54e4 (the reviewer's
+probes plus the minimum repair). An earlier commit of that branch (f7c10f2f0767198c0dcff00808b71150ea160c09) had a
+queued run which was CANCELLED as superseded: the first commit of the branch was amended to restore the AUTHOR's
+evidence screenshot, which running the author's web test had overwritten. That screenshot was restored rather than
+re-attributed.
 ```
 
