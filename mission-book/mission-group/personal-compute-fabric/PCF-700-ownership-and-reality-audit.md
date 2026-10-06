@@ -18,8 +18,8 @@ development_baseline_sha: "312b627b54af5bbf274fa25eca8f8383869c1c34"
 anchor_state: RESOLVED_AT_CLAIM
 development_host: "Mech"
 development_branch: "pcf/PCF-700-mech-ownership-and-reality-audit"
-development_head_sha: null
-development_ci: null
+development_head_sha: "d611cfe5f0272673706b9dc5c9f6b85ed40a9406"
+development_ci: "V0.2 checks run 37497553367 on head d611cfe5f0272673706b9dc5c9f6b85ed40a9406 (hosted, repo zhiheng-zhang-Mera/utopia); local: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail. The series branch pcf/series-mech was fast-forwarded to this same head."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -49,11 +49,20 @@ baseline_blocker: null
 
 ## 子步骤与验收
 
-- [ ] 为每个拟复用点记录 declaration → caller → live API → user surface → exact evidence；特别区分 profile 切换、纯 HYBRID helper 与真正 dispatch/claim 的接线，不能因导出函数存在就认为已启用。
-- [ ] 写 no-workbench 启动、legacy untargeted、strict-target 离线拒绝/等待、结果回原端、旧 descriptor 缺新字段仍有效的兼容反例。运行 `node --test tests/pcf700-compatibility.test.mjs`。
-- [ ] 冻结 ARCHITECTURE 中类型/接口到实际代码的映射、公共文件单写者和拟增加的辅助状态；证明没有新 canonical Task/Action/device/credential DB。
+- [x] 为每个拟复用点记录 declaration → caller → live API → user surface → exact evidence；特别区分 profile 切换、纯 HYBRID helper 与真正 dispatch/claim 的接线，不能因导出函数存在就认为已启用。
+      → `docs/{zh-CN,en}/pcf/ownership-map.md` §1；三层接线分别判为 LIVE_WIRED / NOT_WIRED / LIVE_WIRED，`chooseHybridTarget` 由测试 C6 冻结为 NOT_WIRED。多记录四条本机探针自身的错误（§6）。
+- [x] 写 no-workbench 启动、legacy untargeted、strict-target 离线拒绝/等待、结果回原端、旧 descriptor 缺新字段仍有效的兼容反例。运行 `node --test tests/pcf700-compatibility.test.mjs`。
+      → C1–C7 全部落地，实测 7 tests / 7 pass / 0 fail（提交前重跑 1.06 s）；head `d611cfe`。
+- [x] 冻结 ARCHITECTURE 中类型/接口到实际代码的映射、公共文件单写者和拟增加的辅助状态；证明没有新 canonical Task/Action/device/credential DB。
+      → §2：九个接口与八个类型**实测全部不存在**，`observeResources` / `admit` 是同名异物；§4：单写者清单 + 裸 City 启动后数据目录无 pcf 状态。
 - [ ] 明确每本下游的 component/exposure owner，检查 UI→backend 依赖无环；需要拆 primitive/product-wiring 时先修任务 DAG 和正式 scope，而非给 exposure gate 造例外。
+      → 本轮只做到 owner 逐本列出 + 模块边界层无环（§5）；**逐文件依赖矩阵与机器可读单写者清单未完成**，列为下一增量。
 - [ ] 两主机独立核对样本调用链；未证明的 seam 标 UNKNOWN/NOT_WIRED，列入相应下游验收，不能清零。
+      → **未完成**：必须由另一实体主机执行（§3 禁止自审）。本机已在 §3 明确标出 NOT_WIRED 的 seam 与原因，未用本机结果替代异机复检。
+
+### 2026-10-07 关键路径问题（上报，不自行开例外）
+
+PCF-701..728 **全部**（直接或间接）依赖 PCF-700；PCF-701 达到 READY 要求依赖任务 status=COMPLETE（一致性检查规则 4）。本任务 `review_host: null`，正式复检只能由另一实体主机完成。因此本系列当前**唯一关键路径是 PCF-700 的异机复检**，不是再领一本——这与 REX 系列上一轮卡住的成因同构。本机不自行复检、不为依赖门造例外；判断与选项已记入 `reports/PCF-700/DEVELOPMENT_REPORT.md` §3 J3。
 
 ## 扩容与边界
 
