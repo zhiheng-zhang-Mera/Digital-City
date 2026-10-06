@@ -1,0 +1,19 @@
+✔ PCF-700 C1: a City with no fabric or workbench configuration starts and serves with the default backend (128.9225ms)
+✔ PCF-700 C2: a legacy untargeted task is still claimable by any able node (93.6346ms)
+✔ PCF-700 C3: a task whose strict target is absent is withheld from other nodes, never silently re-routed (80.5704ms)
+✔ PCF-700 C4: a result returns to the canonical origin surface, not only to the executor (101.4521ms)
+✔ PCF-700 C5: a legacy descriptor is tolerated by the contract, and the live route states what it requires (78.0197ms)
+✔ PCF-700 C6: the HYBRID helper is exported but NOT wired into the gateway (frozen as NOT_WIRED) (1.2612ms)
+✔ PCF-700 C7: the pooled backend is registered but not active, and the strict-target guard is wired into claim (71.1621ms)
+✔ PCF-700 D1: no backend module imports a front-end module, so the UI -> backend direction stays acyclic (382.2015ms)
+✔ PCF-700 D2: every endpoint a user surface names is one the gateway actually serves (316.485ms)
+✔ PCF-700 D3: every engineering and general-ai contract carries at least one test (385.4142ms)
+✔ PCF-700 D4: no runtime module refers to the fabric yet, so the audit really is still an audit (313.5839ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3283.8052

@@ -1,0 +1,104 @@
+{
+  "candidate": "659ff6aa98bc5675862b1170ed0cf5e1b78dba5f",
+  "host": "Alien",
+  "records": [
+    {
+      "file": "pcf700-after-upgrade.json",
+      "bytes": 4494,
+      "sha256": "b4452afd15aade6a82b5bffe5a31cf3dc1bedd94633d7267e2bf90b8f23557ad"
+    },
+    {
+      "file": "pcf700-alien-baseline.log",
+      "bytes": 1352,
+      "sha256": "2bc166455db934462fe3ab3a0d70545f513ed33e7700301a4c7b25d005aff806"
+    },
+    {
+      "file": "pcf700-alien-observed.json",
+      "bytes": 24249,
+      "sha256": "7141b88d28f34a1ab5af1a871f017508a1d6364ab2672a83dad28203d43622f0"
+    },
+    {
+      "file": "pcf700-before-upgrade.json",
+      "bytes": 4494,
+      "sha256": "0ea531ee4e9f563b08e434dc186883d8335b2fd771908b527a2219c4fbd5ff12"
+    },
+    {
+      "file": "pcf700-bilingual.log",
+      "bytes": 114,
+      "sha256": "21c2b1c69d0d4ba306e8827e5c4435628ce64029fe7c95749042664f0da864ca"
+    },
+    {
+      "file": "pcf700-city-install.log",
+      "bytes": 668,
+      "sha256": "33bba71c625bf5d6c933ed9b5e31b2eae0b02f845cb0fdba1df3391fcc20172d"
+    },
+    {
+      "file": "pcf700-falsification-summary.json",
+      "bytes": 411,
+      "sha256": "cf2a373b1b4298756811e25fd9a38affb3928450b7c5081ae2c139af62ee0628"
+    },
+    {
+      "file": "pcf700-falsify-C2.log",
+      "bytes": 1212,
+      "sha256": "da3b34a7fcb0b55fe6a355dbd7661530ee80d3b66688b6f081baf49b4bd117df"
+    },
+    {
+      "file": "pcf700-falsify-C3.log",
+      "bytes": 1816,
+      "sha256": "2229d9ad5a85c5938a4773a6e12c80ddc3d2163ccef8debc2aead2036694df2f"
+    },
+    {
+      "file": "pcf700-falsify-D1.log",
+      "bytes": 1118,
+      "sha256": "c544a7e0f3027ba606465c3d6fe4dff6d6ecf4f45656dbdf2d4f6c1ceba6bc08"
+    },
+    {
+      "file": "pcf700-falsify-D2.log",
+      "bytes": 1149,
+      "sha256": "07f8b0218e0f20b53f57b680103a025ccb7dad04485e035abfa8a4a5723b047e"
+    },
+    {
+      "file": "pcf700-falsify-D3.log",
+      "bytes": 1082,
+      "sha256": "070d61ce35b40e61b30eaabdd4a1ec5504f859197ae1b05aebc2ab5c1615157e"
+    },
+    {
+      "file": "pcf700-falsify-D4.log",
+      "bytes": 1133,
+      "sha256": "f1095ff56a0d0b223ab82fffecd4aea1c1166bc80c0b5f938490d28a4e5bae9d"
+    },
+    {
+      "file": "pcf700-member-launch.err.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "pcf700-member-launch.log",
+      "bytes": 40,
+      "sha256": "088721a1872ac0094144d95ec11d0d2e9ef34d500b57f33bb1c8aa1e0f7ba7cb"
+    },
+    {
+      "file": "pcf700-restored.log",
+      "bytes": 1351,
+      "sha256": "01d6f3df4c5e578708b9ac5e560264fc4fb0e7a0b90545902627ff872e1d855b"
+    },
+    {
+      "file": "pcf700-reuse-audit.log",
+      "bytes": 24929,
+      "sha256": "354f855648975841d401eaacfe76e6a47085d1de7af02fd73bc63aeeb5aa5466"
+    },
+    {
+      "file": "pcf700-review-packet.log",
+      "bytes": 1377,
+      "sha256": "6b963d984bdae2a0021cff35506abcbfbed7a29bbb889a03f9971c00e14a740a"
+    }
+  ],
+  "independent_python_fingerprints": [
+    "services/dev-gateway/server.mjs",
+    "services/dev-gateway/store.mjs",
+    "services/dev-gateway/targeting.mjs",
+    "services/dev-gateway/execution-profile.mjs",
+    "contracts/node-descriptor-v1/node-descriptor.mjs"
+  ],
+  "acceptance": "PENDING_TWO_HOST_LIVE_SAMPLE"
+}
