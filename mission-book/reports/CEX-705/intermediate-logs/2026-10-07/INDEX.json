@@ -973,6 +973,42 @@
       "redaction_count": 0,
       "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
       "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "CEX-705",
+      "round_label": ".runtime/evidence/mission-book/CEX-705/physical-fixture.mjs",
+      "source": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/physical-fixture.mjs",
+      "source_worktree": "D:/Utopia-CEX705",
+      "source_branch": "refs/heads/cex/CEX-705-Alien-codex-native-members",
+      "worktree_head_at_capture": "de9185a4ef8d761053c88316ec9efeca037239fb",
+      "historical_run_head": null,
+      "original_bytes": 3117,
+      "original_sha256": "33adc16156470a551127faf968151296176ef31d0bd0e2397bb1fd22061109d4",
+      "published_bytes": 3092,
+      "published_sha256": "f5eb24704d8cf3563fac0d566c8e1e8f924a5e71651d6928435cbffec8ff0475",
+      "published_path": "mission-book/reports/CEX-705/intermediate-logs/2026-10-07/evidence/f5eb24704d8cf356-physical-fixture.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 3,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "CEX-705",
+      "round_label": ".runtime/evidence/mission-book/CEX-705/physical-management-followup.mjs",
+      "source": "D:/Utopia-CEX705/.runtime/evidence/mission-book/CEX-705/physical-management-followup.mjs",
+      "source_worktree": "D:/Utopia-CEX705",
+      "source_branch": "refs/heads/cex/CEX-705-Alien-codex-native-members",
+      "worktree_head_at_capture": "de9185a4ef8d761053c88316ec9efeca037239fb",
+      "historical_run_head": null,
+      "original_bytes": 3166,
+      "original_sha256": "ce4154d126e4000b2b05f8078a21f265d69287e4c33738ec0d89835ff4d7dbcc",
+      "published_bytes": 3141,
+      "published_sha256": "106389529a9255a59d875a57082b9fd7818afeeb0d7ac31961898968d9b593a7",
+      "published_path": "mission-book/reports/CEX-705/intermediate-logs/2026-10-07/evidence/106389529a9255a5-physical-management-followup.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 3,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
     }
   ]
 }
