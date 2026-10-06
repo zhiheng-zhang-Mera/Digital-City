@@ -99,6 +99,7 @@ REX-806      rex/REX-806-mech-metrics-and-export @ 3950d47（开发完成）
         ① 空 store 拒绝时不再于 libuv 断言中崩溃（exit 1）；② 一份回执损坏时不再整次导出无产物，
         而是跳过并按文件名 + typed 原因点名、可读的照常导出、退出码 1
         验证：拒绝路径 exit=1；损坏回执 → 产物 + exit 1 + 点名；端到端演练 13/13、产出包 14/14
+        托管 CI：push run 37465078880 @ 4349f3d —— gateway-web 与 android 均 SUCCESS attempt 1
         （被取代的 repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63 只修①，保留作为历史）
 
 可立即采纳（历史）  repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63（REX-806 导出 CLI 拒绝路径退出码）

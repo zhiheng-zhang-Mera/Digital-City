@@ -149,7 +149,8 @@ R-2 一份回执被**删除** -> 城市窗口 total 随之下降（receipts=1, w
 ```
 
 **验证（本分支三条路径全过）**：拒绝路径 exit=1；损坏回执 → 有产物 + exit 1 + 点名；端到端演练 **13/13**、产出包 **14/14**。
-**未做且写明**：损失**尚未写进包内**（需要 artifact 模块新增 `unreadableReceipts` 段），因此只读包的人目前仍只看到能读到的那些 campaign。 / Verified on three paths; the loss is not yet carried inside the package, which is stated rather than implied.
+**托管 CI（exact head）**：push run 37465078880 @ `4349f3d` —— **gateway-web 与 android 均 SUCCESS attempt 1**。
+**未做且写明**：损失**尚未写进包内**（需要 artifact 模块新增 `unreadableReceipts` 段），因此只读包的人目前仍只看到能读到的那些 campaign。 / Verified on three paths; hosted CI green at the exact head; the loss is not yet carried inside the package, which is stated rather than implied.
 
 ## 本机明确不主张的 / Explicitly not claimed
 
