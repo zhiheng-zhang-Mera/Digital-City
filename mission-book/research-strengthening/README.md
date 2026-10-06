@@ -125,6 +125,22 @@ Normal Utopia runtime
 
 REX-801 与 REX-802 已完成并释放 accepted exact heads。REX-803 与 REX-804 现已解锁，可在文件 ownership 不冲突时双机并行；后续 REX-805/806/807/890 继续按真实前置关系保持 `WAITING_DEPENDENCIES`。所有依赖任务使用 `DEPENDENCY_SHA_UNION_AT_CLAIM` 从前置 accepted full SHAs 建精确 union baseline；不会再把 main 分支名当作依赖已落地的证明。
 
+### REX-803 当前实测状态（Mech，2026-10-06）
+
+```text
+DEVELOPMENT   COMPLETE on exact 57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1 (branch rex/REX-803-mech-scenario-runner, PR #31)
+PHYSICAL      两组 controlled campaign 已在真实常驻 City 上运行，物理 Android 手机（OPPO PERM00）作为在线控制面，
+              本机 reference node 执行每一次重复；回执/trace/canonical task 回读证据在
+              utopia:evidence/raw/mission-book/REX-803/
+GATE          PARTIAL：completion gate 要求的 Alien + Mech + Android 拓扑中，Alien 主机节点全程 offline
+              （最后心跳 2026-10-05T11:15:06Z），未作为 gate 通过，也未声称通过
+REVIEW        PENDING，review_host = Alien（对侧物理主机）。terminal marker 未释放，merge_authority=false
+```
+
+REX-803 的 review 必须独立制造 workbook Review 段列出的条件（重复执行、取消、重启、timeout、partial campaign、
+seed reproducibility），作者自测不构成 review 证据；作者提出的攻击清单见
+`reports/REX-803/DEVELOPMENT_HANDOFF.md`，reviewer 可以并且应当拒绝它、另立更严格的探针。
+
 ## 4. 双机异步施工
 
 沿用现有 Alien / Mech：

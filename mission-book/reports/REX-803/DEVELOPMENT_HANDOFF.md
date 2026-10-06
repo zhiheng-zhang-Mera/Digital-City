@@ -1,0 +1,97 @@
+# REX-803 development handoff and opposite-host review request — Mech → Alien
+
+```text
+FROM            Mech (COMPUTERNAME MEGA-REP), role Mech-DS, development_host for REX-803
+TO              Alien (opposite physical host) — review_host for REX-803, unclaimed
+REVIEW TARGET   57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1
+                branch rex/REX-803-mech-scenario-runner (remote tip equals that commit)
+PR              zhiheng-zhang-Mera/utopia#31
+INDEPENDENCE    the workbook records development_host=Mech, so a reviewer on the Alien host is a different physical
+                host, which is what CONSTRUCTION_RULES section 3 requires. This document is NOT a review, and the
+                author's own tests are NOT review evidence.
+MARKER          SCENARIO_REPETITION_ENGINE_ACCEPTED — held until the review releases it
+MERGE AUTHORITY false; do not merge this branch into main on the strength of this document
+```
+
+## What to review, in the workbook's own words
+
+The workbook's Review section names the conditions to manufacture independently: **repeated execution, cancellation,
+restart, timeout, partial campaign, seed reproducibility**. The author's instruments are in the PR; a reviewer's own
+probes are expected in addition, on a `review/REX-803-<host>` branch, against the exact target SHA above.
+
+Suggested attack list (the author's own, offered so the reviewer can reject it rather than repeat it):
+
+```text
+A1  Break the accounting invariant: a terminal campaign must satisfy accounted === planned with no state double
+    counted. Try a stop racing a timeout; a resume racing a start; an abandon racing a drained loop.
+A2  Leak work: after STOP, TIMEOUT, process death or CITY_SHUTDOWN, prove no canonical task is left non-terminal for a
+    campaign that is no longer running, and that recovery finds by reference rather than by shape.
+A3  Seed reproducibility: prove two independent runs of the same registered manifest derive the same seed sequence for
+    the same indices, including after a resume, and that no clock or random source reaches a measured value.
+A4  Readiness: prove a campaign cannot start on a topology the City does not have, and that the refusal names what is
+    missing; try a manifest whose declared surface exists but whose worker is offline.
+A5  Authority: prove an enrolled member and a node credential cannot start, stop or inspect a campaign, and that a
+    stale surface cannot stop a campaign it is not looking at.
+A6  Trace honesty: prove every settled run (including timeouts and cancellations) has a receipt naming the real
+    canonical task, and that a run whose cleanup fails says so rather than reporting a clean stop.
+```
+
+## Exact-head CI (author-measured; the reviewer must re-measure independently)
+
+```text
+V0.2 checks      37399258359 (push) and 37399254235 (pull) on 57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1
+City linkage     37399258414 success
+EARLIER HEADS    85a79eca4fe0f4ad8882148725249e016434873e green (V0.2 37398347907/37398374690, linkage 37398375378);
+                 e284b712c53e5b7f44acdb878afd6a23c7953735 green (linkage 37399121438). The head moved to repair a
+                 defect the first PHYSICAL campaign found, then to add that campaign's evidence.
+LOCAL            npm test: 1363 pass / 5 fail — the five are inherited-environment failures, each reproduced at the
+                 baseline 213f9f9f (capability-adapters, city-roads) or caused by the resident City holding the host
+                 reservation (host-city-launcher x3). The reviewer should re-measure on their own host.
+```
+
+## What the physical work already covers, and what it does not
+
+Two controlled campaigns were run on the live resident City with the physical Android handset connected as the control
+surface and this host's reference node executing every repetition (evidence:
+`utopia:evidence/raw/mission-book/REX-803/`). They cover the happy path on real hardware, the derived-seed property,
+the accounting invariant and the trace-run-receipt binding. They do **not** cover failure, timeout, exclusion,
+cancellation, restart or partial-campaign behaviour on hardware — that is still only covered by the automated probes,
+so a reviewer's own fault instruments remain the point of the review.
+
+## Honest state of the workbook completion gate
+
+The workbook requires at least one controlled campaign on the **Alien + Mech + Android** topology with a full research
+trace. At development end this host measured the physical topology rather than assuming it:
+
+```text
+alien-reference-node   online=FALSE, last heartbeat 2026-10-05T11:15:06Z   (cannot be started by this host)
+android PERM00         member online=FALSE                                (handset is on ADB at this host)
+resident 4391 City     running join590 code, no campaign surface yet
+```
+
+So the gate is **PARTIAL**: this host can exercise Mech + Android on real hardware, and cannot supply the Alien host.
+That is a physical-topology blocker, not a code one, and it is recorded as such in DEVELOPMENT_REPORT.md and
+PAPER_MATERIAL_INDEX.md rather than smoothed over.
+
+## Findings handed over (recorded, not repaired, and not claimed as fixed)
+
+```text
+F7  The experiment manifest contract has no warmup field, so a campaign that uses warmup measures something its own
+    description does not contain. The campaign receipt records the warmup actually used. Owner: REX-801/REX-807.
+F8  ANDROID_CONTROL_SURFACE is satisfied by a NAME, not by a platform fact: the topology gate requires a declared
+    control surface whose text matches /android/i, while the City's native Android enrollment replaces the app's
+    android-<MODEL> client ref with a device id (apps/android/.../NativeEnrollment.kt stores record.deviceId as
+    clientRef). OBSERVED on hardware: the live Android surface was dev-be7832e35fc34b85966c3bb43a992e1d. An experiment
+    therefore cannot declare the Android topology using the identity the City actually reports. Recorded for REX-807.
+F9  REX-801's registry field named `digest` holds the canonical serialisation of the manifest, not a hash. Using it as
+    an identity produced defect D-7 (the whole manifest inside every campaign seed). Raised for REX-801/REX-806.
+F10 LOW: after a campaign finishes, the owner-facing form still shows the operator's last typed digits rather than the
+    parameters of the campaign that ran. The totals state the truth. Recorded for REX-807.
+D-7 Defect found by the FIRST PHYSICAL CAMPAIGN and repaired on this head: see DEVELOPMENT_REPORT.md section 3.
+```
+
+## What the author asks the reviewer to be sceptical about
+
+The runner is deliberately NOT a scheduler, and the temptation for a reviewer is to test it as one. The properties worth
+attacking are the ones in section "What a campaign is" of the PR: that a run is real canonical work, that an absence is
+always explained, that a stop reaches the work, and that a resume continues rather than replays.

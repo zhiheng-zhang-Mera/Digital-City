@@ -115,6 +115,11 @@ records:
     exposure_class: DIRECT_CONTROL
     reconciliation: FORMAL_REVIEW_RECONCILED
     last_verified_full_sha: "d05f5a455ff535e3e065b30ec9ec74bca2dbb521"
+  - capability_id: CAP-RESEARCH-CAMPAIGN-001
+    record_ref: records/CAP-RESEARCH-CAMPAIGN-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW
+    last_verified_full_sha: "57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1"
   - capability_id: CAP-RESEARCH-TRACE-001
     record_ref: records/CAP-RESEARCH-TRACE-001.yaml
     exposure_class: OBSERVABLE_ADVANCED

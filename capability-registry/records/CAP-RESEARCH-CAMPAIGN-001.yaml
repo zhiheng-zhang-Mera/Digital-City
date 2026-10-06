@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-RESEARCH-CAMPAIGN-001",
+  "name": {
+    "zh_CN": "受控重复运行与研究回执",
+    "en": "Controlled campaign runner and repetition receipts"
+  },
+  "source_workbooks": [
+    "REX-803"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/dev-gateway/scenario-runner.mjs",
+      "services/dev-gateway/server.mjs",
+      "apps/web/research-campaign.js"
+    ],
+    "symbols": [
+      "createScenarioRunner",
+      "runSeed",
+      "createResearchCampaignView"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/research/campaigns",
+      "POST /api/v0/research/campaigns",
+      "POST /api/v0/research/campaigns/stop",
+      "GET /api/v0/research/campaigns/<campaignId>"
+    ],
+    "last_verified_full_sha": "57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "which described experiment and which scenario a campaign runs",
+      "planned, measured, warmup and unmeasured repetition counts",
+      "every repetition that produced no measurement with its typed reason",
+      "the canonical City task each measured repetition corresponds to",
+      "filed campaign receipts"
+    ],
+    "user_controls": [
+      "choose experiment and scenario",
+      "set repetitions and warmup",
+      "start a campaign",
+      "stop a running campaign",
+      "resume or explicitly abandon a campaign a previous process left unfinished"
+    ],
+    "intentionally_hidden_information": [
+      "credentials and control tokens",
+      "the City's control-surface token material",
+      "free-text operator reason internals beyond the bounded reason string"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Research campaigns",
+      "nesting": "L3_ADVANCED",
+      "discoverable": true,
+      "enabled_when": "ONLINE + City owner (control credential)",
+      "evidence_ref": "mission-book/reports/REX-803/DEVELOPMENT_REPORT.md"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/rex803-campaign-surface.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:tests/rex803-campaign-web.test.mjs",
+      "utopia:evidence/raw/mission-book/REX-803/physical-campaign-live-surface.png"
+    ],
+    "intent_validation_refs": [],
+    "review_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/31"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": true,
+    "registry_reconciliation_result": "CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "user_reachability_status is PARTIAL: the Web surface is reached and exercised both by a real browser test and by two controlled campaigns against the live resident City with a physical Android handset connected as the control surface, while no Android surface exists for campaigns. That gap is deliberate and belongs to REX-807 (research control surface / progressive disclosure).",
+    "intent_validation_status is NOT_TESTED: no opposite-host Formal Review has validated that the surface means what an owner expects it to mean.",
+    "The workbook completion gate (a controlled campaign on the Alien + Mech + Android topology) is not yet met: the Alien host node was offline throughout, so only Mech + Android was exercised (recorded as PARTIAL GATE and never claimed as the gate).",
+    "The experiment manifest contract has no warmup field, so a campaign that uses warmup measures something the description does not contain; the campaign receipt records the warmup actually used.",
+    "ANDROID_CONTROL_SURFACE is satisfied by a declared NAME rather than by a platform fact: a natively enrolled handset reports a device id as its client ref, so the Android topology cannot be declared with the identity the City observes (finding F8).",
+    "REX-801's registry field named `digest` holds a canonical serialisation rather than a hash; the campaign route hashes it locally, and the field naming is raised as finding F9.",
+    "rework_required is true because the first physical campaign forced a repair (D-7: the campaign seed contained the whole manifest) and the head moved twice after the first green CI."
+  ],
+  "last_reconciled_by_workbook": "REX-803"
+}

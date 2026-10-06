@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
 development_host: "Mech"
 development_branch: "rex/REX-803-mech-scenario-runner"
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1"
+development_ci: "V0.2 checks run 37399258359 (push) and run 37399254235 (pull) on exact 57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1; City linkage check run 37399258414 success. EARLIER HEADS: 85a79eca4fe0f4ad8882148725249e016434873e measured green (V0.2 37398347907/37398374690, linkage 37398375378) and e284b712c53e5b7f44acdb878afd6a23c7953735 measured green (linkage 37399121438). The head moved twice because development continued: once to repair a defect the FIRST PHYSICAL CAMPAIGN found (the campaign seed was the registry's canonical serialisation of the manifest rather than a short hash, defect D-7) and once to add the physical campaign evidence itself."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -27,12 +27,24 @@ review_complete: false
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/REX-803
 terminal_marker: SCENARIO_REPETITION_ENGINE_ACCEPTED
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+state_identity_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md"]
+state_identity_evidence_refs: ["mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md"]
+research_watchlist_hits: ["RS-G3-IDENTITY-PROVENANCE","RS-G3-DYNAMIC-LIVENESS","RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-PASSIVE-EVIDENCE-PIPELINE","RS-G4-REALITY-DRIFT"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
+capability_ids: ["CAP-RESEARCH-CAMPAIGN-001"]
+capability_registry_action: CREATE
+capability_registry_refs: ["capability-registry/records/CAP-RESEARCH-CAMPAIGN-001.yaml"]
+physical_gate_status: "PARTIAL - two controlled campaigns were run on the live resident City on 2026-10-06 with the physical Android handset (OPPO PERM00) connected as the live control surface and the host reference node executing every repetition; the Alien host node was OFFLINE (last heartbeat 2026-10-05T11:15:06Z), so the Alien + Mech + Android topology the completion gate names was not available and is NOT claimed."
 ---
 
 # REX-803 — Controlled Scenario Runner + Repetition Engine

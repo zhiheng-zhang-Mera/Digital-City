@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 14,
+      "complete": 15,
       "total": 23
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 84,
+      "complete": 85,
       "total": 93
     },
     "review": {
@@ -907,7 +907,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 3,
+      "development_complete": 4,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
@@ -935,7 +935,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "REX-803",
           "path": "research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
