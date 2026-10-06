@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 15,
+      "complete": 16,
       "total": 23
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 85,
+      "complete": 86,
       "total": 93
     },
     "review": {
@@ -992,7 +992,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 2,
+      "development_complete": 3,
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
@@ -1020,7 +1020,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "MON-903",
           "path": "city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md",

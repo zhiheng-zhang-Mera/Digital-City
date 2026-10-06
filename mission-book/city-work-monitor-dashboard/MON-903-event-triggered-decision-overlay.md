@@ -15,9 +15,9 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 dependencies: ["MON-901"]
 development_host: "Mech"
 development_branch: "mon/MON-903-mech-decision-overlay"
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "1d1593df9f3370711df7fbb735fb2ccb393e7494"
+development_ci: "V0.2 checks 37401385199 on exact 1d1593df9f3370711df7fbb735fb2ccb393e7494 - IN PROGRESS when this report was written; the terminal result is recorded in DEVELOPMENT_REPORT.md when observed. LOCAL measurement at that head: npm test -> 1365 tests, 1360 pass / 5 fail, the five being the same inherited-environment failures reported for REX-803 (capability-adapters and city-roads CORRUPT_INPUT, reproduced identically at baseline 213f9f9f, and host-city-launcher x3 because the resident City holds the host coordination reservation). MON-903's own probes: 8 unit + 5 real-gateway + 2 browser, all pass, plus the MON-901 dependency suite 8/8 unchanged."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -25,24 +25,24 @@ review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor / Task Inspector / Autonomy & Approval
 user_exposure_nesting: L2_CONTEXTUAL
-backend_wiring: UNASSESSED
+backend_wiring: "VERIFIED locally: tests/mon903-decision-route.test.mjs drives the real gateway (create task -> claim -> report FAILED) and asserts the decision receipt appears with the canonical event it cites as evidence; tests/mon903-decisions-web.test.mjs renders the surface in a real Chromium and reads the pre/post state, the evidence pointer and the explicit 'Applied by: nobody'. Hosted CI verification is pending."
 ui_exemption_reason: null
 capability_ids: ["CAP-MON-003"]
 capability_registry_action: CREATE
-capability_registry_refs: []
-capability_registry_sync_status: PENDING
+capability_registry_refs: ["capability-registry/records/CAP-MON-003.yaml"]
+capability_registry_sync_status: CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW
 research_evidence_applicability: APPLICABLE
-long_horizon_context_evidence: UNASSESSED
-research_evidence_refs: []
-research_watchlist_hits: []
-highest_research_grade_observed: NONE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md"]
+research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-PASSIVE-EVIDENCE-PIPELINE","RS-G3-DYNAMIC-LIVENESS","RS-G4-REALITY-DRIFT"]
+highest_research_grade_observed: G3_SPARSE_ACTIVE
 research_capture_level: MAXIMUM_BOUNDED
-state_identity_evidence: UNASSESSED
-state_identity_evidence_refs: []
-monitor_observability_evidence: UNASSESSED
-monitor_observability_refs: []
-decision_trace_evidence: UNASSESSED
-decision_trace_refs: []
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md"]
+monitor_observability_evidence: CAPTURED
+monitor_observability_refs: ["mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md"]
+decision_trace_evidence: CAPTURED
+decision_trace_refs: ["mission-book/reports/MON-903/DEVELOPMENT_REPORT.md"]
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-903

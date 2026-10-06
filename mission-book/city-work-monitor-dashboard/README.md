@@ -240,10 +240,25 @@ DASHBOARD_BECOMES_SECOND_TASK_TRUTH
 |---|---|---|
 | [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | COMPLETE |
 | [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | IN_PROGRESS |
-| [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | READY |
+| [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | IN_PROGRESS (development complete, review pending) |
 | [MON-990](./MON-990-cross-device-monitor-acceptance-and-freeze.md) | Cross-device acceptance + reality reconciliation + freeze | WAITING_MON_902_903 |
 
 MON-902 与 MON-903 在 MON-901 accepted 后可由不同主机并行。
+
+### MON-903 当前实测状态（Mech，2026-10-06）
+
+```text
+DEVELOPMENT   COMPLETE on exact 1d1593df9f3370711df7fbb735fb2ccb393e7494
+              (branch mon/MON-903-mech-decision-overlay; union baseline = main 213f9f9f with MON-901 7eb38f1b inside)
+WIRING        GET/POST /api/v0/monitor/decisions 与 GET /api/v0/monitor/decisions/:id 已在真实 gateway 上验证；
+              MON-901 投影的 decision 字段由只读快照注入；Web 页面 Advanced > Decision provenance 由真实浏览器验证
+NOT DONE      无 Android 面（归 MON-990 跨设备验收）；本城未配置 resolver，因此所有不确定情形以
+              RESOLVER_NOT_CONFIGURED 升级到 Owner（如实记录，不假装模型已接入）
+REVIEW        PENDING，review_host 必须为 Alien（对侧物理主机）。terminal marker 未释放，merge_authority=false
+```
+
+MON-903 的 review 必须独立验证：触发分类是否有遗漏或错收、no-barrier 是否真的成立、是否存在任何让决策改变状态的路径、
+回执契约是否完整、指标是否会美化读者。作者提出的开放项见 `reports/MON-903/DEVELOPMENT_REPORT.md` 第 6 节。
 
 ## 8. 激活条件
 

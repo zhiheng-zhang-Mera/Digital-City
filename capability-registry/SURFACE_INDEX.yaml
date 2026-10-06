@@ -25,6 +25,9 @@ platforms:
       - capability_id: CAP-MON-002
         location: "Primary navigation > City monitor"
         nesting: L1_PRIMARY
+      - capability_id: CAP-MON-003
+        location: "Advanced > Decision provenance"
+        nesting: L2_CONTEXTUAL
       - capability_id: CAP-RESEARCH-CAMPAIGN-001
         location: "Advanced > Research campaigns"
         nesting: L3_ADVANCED

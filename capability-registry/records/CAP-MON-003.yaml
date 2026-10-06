@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-MON-003",
+  "name": {
+    "en": "Event-triggered decision overlay with escalation provenance",
+    "zh_CN": "事件触发的决策叠加层与升级溯源"
+  },
+  "ownership": {
+    "programme": "CITY_WORK_MONITOR",
+    "canonical_module": "services/dev-gateway/decision.mjs + apps/web/monitor-decisions.js"
+  },
+  "source_workbooks": ["MON-903"],
+  "dependencies": ["CAP-MON-001"],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/dev-gateway/decision.mjs",
+      "services/dev-gateway/server.mjs",
+      "services/dev-gateway/observation.mjs",
+      "apps/web/monitor-decisions.js",
+      "apps/web/app.js",
+      "apps/web/index.html",
+      "apps/web/i18n/en.js",
+      "apps/web/i18n/zh-CN.js",
+      "docs/CITY_WORK_MONITOR_DECISIONS.md"
+    ],
+    "symbols": [
+      "createDecisionOverlay",
+      "resolveByRule",
+      "TRIGGER_KINDS",
+      "TRIGGER_SOURCES",
+      "OWNER_BOUNDARY_KINDS",
+      "DECISION_ACTIONS",
+      "createMonitorDecisionsView"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/monitor/decisions",
+      "GET /api/v0/monitor/decisions/:id",
+      "POST /api/v0/monitor/decisions"
+    ],
+    "last_verified_full_sha": "1d1593df9f3370711df7fbb735fb2ccb393e7494"
+  },
+  "status": {
+    "implementation_status": "CANDIDATE",
+    "backend_wiring_status": "LOCALLY_VERIFIED",
+    "user_reachability_status": "WEB_VERIFIED_ANDROID_PENDING",
+    "intent_validation_status": "PENDING_FORMAL_REVIEW"
+  },
+  "exposure": {
+    "class": "OBSERVABLE_ADVANCED",
+    "user_visible_information": [
+      "which canonical event triggered a decision and on which task",
+      "which layer resolved it (rule / fast model / critic / owner)",
+      "the bounded action and whether the owner is required, with the escalation reason",
+      "decision latency, queue wait, timeouts and fallbacks",
+      "the canonical event each decision cites as evidence",
+      "explicitly, that no decision applied anything"
+    ],
+    "user_controls": [
+      "refresh the decision window",
+      "expand one decision's provenance",
+      "submit a trigger for a kind no canonical event expresses (owner only)"
+    ],
+    "intentionally_hidden_information": [
+      "credentials",
+      "hidden reasoning: never requested and never stored",
+      "resolver internals beyond the bounded action, confidence and reason"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Decision provenance",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE; reading needs an authenticated City credential, submitting a trigger needs the owner",
+      "evidence_ref": "utopia:tests/mon903-decisions-web.test.mjs"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/mon903-decision-route.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:tests/mon903-decisions-web.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "review_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/1d1593df9f3370711df7fbb735fb2ccb393e7494"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": true,
+    "registry_reconciliation_result": "CANDIDATE_PENDING_FORMAL_REVIEW",
+    "paper_material_refs": [
+      "mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Only the Web surface exists. No Android surface is claimed; the programme assigns cross-device monitor acceptance to MON-990.",
+    "The decision window is surfaced as its own Advanced page because the City monitor page that will host it belongs to MON-902, which is developed but not yet merged. The projection already carries the decisions, so folding the panel in is a presentation change.",
+    "No resolver (fast model or critic) is configured in this City, so every uncertain case escalates to the owner with RESOLVER_NOT_CONFIGURED. That is the honest production behaviour, not a completed model integration.",
+    "The workbook's own vocabulary names BLOCKED, READY_FOR_REVIEW and MERGE_READY, none of which any canonical event expresses directly; BLOCKED is mapped to TASK_TARGET_WAITING and the other two must be submitted explicitly.",
+    "rework_required is true because three defects were found and repaired during development, including a decision layer whose model stage could never run and a schemaVersion collision that broke the wire envelope.",
+    "wrong-auto-decision and confidence-versus-review-outcome are NOT_OBSERVABLE from this overlay: both need an independent judge."
+  ],
+  "last_reconciled_by_workbook": "MON-903"
+}
