@@ -22,6 +22,22 @@
 
 **2026-10-06 复核（本轮）/ re-measured this round：** main 仍是 `b06504f`，本清单的测量基准未变；三个已验收 REX 头仍都不在 main 上；上一版把 REX-805 记成「候选 4b39468（尚未验收）」已更正为 **已验收 `0261a9e`**（本机复检通过并释放标记），并补上 REX-806 一行。 / The basis is unchanged, and the two stale rows are corrected.
 
+**2026-10-06 已执行（Owner 授权合并窗口）/ executed: the merge this inventory was preparing**
+
+```text
+MERGE HEAD  merge/REX-series-mech-owner-window @ 312b627（随后 fast-forward 到 main）
+内容        14499ad（relay 探针修复）+ be3670b（规范库 typed 诊断）+ 0261a9e（REX-805，内含 803）
+            + fe700ab（REX-804）+ 690d723 的 hunk（REX-804 证据写入修复，按内容采纳）
+冲突        仅 services/dev-gateway/server.mjs 一处，按并集解出（campaigns/replays + faults 都构造、
+            返回都暴露、teardown 两边都释放）——与 704c518 / e18c5c5 的解法一致，是第三次独立解出
+验证        REX-801..805 套件 99/99 · 三面共存冒烟 v2 跑通（campaign→replay 在 fault ACTIVE 下闭合）
+            · 全量：合并树 4376/4363（6 项失败：3 项既有 launcher + 3 项隔离复跑全过）
+                    基线 main 4305/4292（6 项失败：3 项既有 launcher + 主题陷阱 + MESH-301 + relay 探针）
+            => 合并**没有引入新的确定性失败**，并让 relay 探针那项失败消失（正是采纳的修复）
+不改变      REX-806 仍 IN_PROGRESS（标记未释放）⇒ REX-807/890 仍 WAITING_DEPENDENCIES；合并 ≠ 验收
+详见        reports/REX-PROGRAMME/REX_SERIES_MERGE_MECH_2026_10_06.md
+```
+
 ## 集成方实际要解决什么 / What an integrator actually has to resolve
 
 ```text
