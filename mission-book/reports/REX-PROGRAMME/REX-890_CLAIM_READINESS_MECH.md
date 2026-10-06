@@ -71,6 +71,46 @@ C  由记录持有人裁决：最低 study 的「one injected fault」以 fault 
 
 **本机的建议（不是决定）**：先走 A + 对 handoff 走 (i)，并把两处判断写进工作书；若记录持有人要求 handoff 场景本身，则应把它记为 REX 系列的**新增范围**，而不是塞进 REX-890 的完成门槛。 / Suggested, not decided: option A plus treating the placement decision as the routing decision, with both judgements recorded in the workbook.
 
+### 3.1 A 到底是不是「部署演练」？——已实测 / Is option A only a deployment exercise? Measured
+
+「能力是否存在」不能靠读代码回答，所以本机写了一个**只在临时目录里起一个 City** 的探针
+（[`rex890-fault-and-artifact-feasibility.mjs`](./rex890-fault-and-artifact-feasibility.mjs)，不碰常驻 City、不碰它的数据目录与凭据），
+在两个头上跑同一份： / A probe that starts one City in a temp directory, run against two heads with the identical file:
+
+```text
+HEAD UNDER TEST  3950d47（REX-806 union head，含 fault 控制器与 artifact 导出面）
+  PASS  artifact surface is deployed (typed 422, not 404)        HTTP 422 ARTIFACT_NO_SOURCE
+  PASS  artifact preview answers the same way                    HTTP 422
+  PASS  [non-discriminating] research surface refuses node cred   HTTP 401
+  PASS  a fault can be injected on this head                     HTTP 200 fault-73c3602c-…
+  PASS  the fault is targeted: faulted node fails, other does not target=503 other=200
+  PASS  recovery is observable after the stop                    stop=200 recovered=200
+  PASS  the receipt exposes the fault with metrics               status=STOPPED injected=1 detection=null recovery=6
+  PASS  fault and artifact surfaces coexist on one City           artifacts=422 fault detail=200
+  8/8 feasibility checks pass                                    exit=0
+
+CONTROL  0261a9e（今天实际部署在 City 上的候选）
+  FAIL  artifact surface is deployed                             HTTP 404
+  FAIL  artifact preview answers the same way                    HTTP 404
+  PASS  [non-discriminating] research surface refuses node cred   HTTP 401
+  FAIL  a fault can be injected on this head                     HTTP 404
+  FAIL  fault-dependent checks were skipped, not passed           targeting/recovery/receipt/coexistence 在此头无法测量
+  1/5 feasibility checks pass                                    exit=1
+```
+
+**结论**：REX-890 的「注入故障 + 恢复」在**已存在但未部署**的头上是可执行的，包括定向性（只有被注入的节点失败）、
+可观测恢复、以及故障回执上的 metrics；**选项 A 是部署演练，不是产品缺口**。反过来，今天 City 上确实是 404 ——
+两个头用同一份探针给出不同结果，这才是这条证据的分量所在。 / Option A is a deployment exercise rather than a product gap; the same probe distinguishes the two heads, which is what gives the measurement its weight.
+
+**一条必须自己先踩的诚实细节**：探针在注入后 2 秒内就 stop，因此 `detectionTimeMs` 保持**未测**（回执里带 typed
+`missingReasons`），只有 `recoveryTimeMs` 有值——**「不知道就不写数」的规则在故障回执内部同样成立**，探针没有因为
+「反正它会自己填」而放松断言。若要 study 里拿到 detection 值，必须让故障持续超过 heartbeat 超时并等待离线被观测。 / The probe stopped the fault before the heartbeat timeout, so `detectionTimeMs` stayed NOT_MEASURED with a typed reason while recovery was measured: the honesty rule holds inside the fault receipt too.
+
+**探针自己的两个缺陷（记录在案）**：① 它最初只读 `error.code`，而 City 的错误有两种形状（老路由是字符串、新路由是对象），
+于是把一个**正常工作的导出面**报成失败；② 它在控制头（没有 fault 路由）上假设故障一定存在，于是抛异常中断——正是它本应
+描述的那个头。两者都已修正，且在§3.1 的探针里带着注释保留。另有一条**非区分性检查**（研究面拒绝节点凭据）在两个头上都
+通过，因此它**永远不能**被引用为「故障面存在」的证据，标签里已写明。 / Two of the probe's own defects are recorded (error shape; assuming a fault exists), plus one check labelled non-discriminating because it passes on both heads.
+
 ## 4. 领取时该跑的清单 / The checklist a claimant should run
 
 ```text

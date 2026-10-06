@@ -62,6 +62,37 @@ The same decision is owed for "one handoff": v1 supports the WAIT scenario only,
 
 Suggested rather than decided: option A, plus (i), with both judgements written into the workbook; if a real handoff scenario is required, it belongs in the series' scope as an addition rather than inside REX-890's completion gate.
 
+## Is option A only a deployment exercise? Measured
+
+"Does the capability exist" cannot be answered by reading code, so a probe was written that starts one City in a temp directory only (never touching the resident City, its data dir or its credentials) and was run against two heads with the identical file: [rex890-fault-and-artifact-feasibility.mjs](./rex890-fault-and-artifact-feasibility.mjs).
+
+```text
+HEAD UNDER TEST  3950d47 (the REX-806 union head: fault controller and artifact surface)
+  PASS  artifact surface is deployed (typed 422, not 404)        HTTP 422 ARTIFACT_NO_SOURCE
+  PASS  artifact preview answers the same way                    HTTP 422
+  PASS  [non-discriminating] research surface refuses node cred   HTTP 401
+  PASS  a fault can be injected on this head                     HTTP 200
+  PASS  the fault is targeted: faulted node fails, other does not target=503 other=200
+  PASS  recovery is observable after the stop                    stop=200 recovered=200
+  PASS  the receipt exposes the fault with metrics               status=STOPPED injected=1 detection=null recovery=6
+  PASS  fault and artifact surfaces coexist on one City           artifacts=422 fault detail=200
+  8/8 pass, exit=0
+
+CONTROL  0261a9e (the candidate actually deployed on the City today)
+  FAIL  artifact surface                                        HTTP 404
+  FAIL  artifact preview                                        HTTP 404
+  PASS  [non-discriminating] research surface refuses node cred  HTTP 401
+  FAIL  a fault can be injected                                 HTTP 404
+  FAIL  fault-dependent checks were skipped, not passed          unmeasurable on this head
+  1/5 pass, exit=1
+```
+
+So REX-890's injected fault with recovery is executable on a head that already exists but is not deployed - including targeting (only the faulted node fails), observable recovery, and metrics on the fault receipt. Option A is a deployment exercise, not a product gap. Conversely the City today really does answer 404, and the same probe distinguishes the two heads, which is what gives the measurement its weight.
+
+One honest detail the probe had to hit itself: it stopped the fault inside the 2 s heartbeat timeout, so `detectionTimeMs` stayed NOT_MEASURED with a typed `missingReasons` entry while `recoveryTimeMs` was measured - the "never write a number you did not observe" rule holds inside the fault receipt too. A study that wants a detection value must let the fault outlive the heartbeat timeout and wait for the offline transition to be observed.
+
+Two of the probe's own defects are kept in the code with their comments: it first read only `error.code` although the City answers errors in two shapes (a string on older routes, an object on newer ones), which reported a working export surface as a failure; and it assumed a fault existed, so it threw on the control head that has no fault route - the very head it was written to characterise. One check (the research surface refusing a node credential) passes on both heads and is labelled non-discriminating, so it must never be quoted as evidence that the fault surface exists.
+
 ## The checklist a claimant should run
 
 1. Confirm all seven markers REX-801..807 are released and take each task's ACCEPTED SHA - not a development head, not a branch name.
