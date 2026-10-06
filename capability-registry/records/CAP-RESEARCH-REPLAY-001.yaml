@@ -98,7 +98,8 @@
     "V1 supports stateless WAIT and exact alternate-device ablation only; other mechanisms and unsnapshotted file/fault conditions are refused.",
     "Web reachability PARTIAL; native Android research controls remain for REX-807 and handset comparison rendering NOT_OBSERVED.",
     "Intent validation NOT_TESTED; control-input replay is not external-provider determinism or causal performance. Source refs do not attest current-process software identity.",
-    "All seven Important defects and failed intermediate/measurement attempts remain in the development checkpoint and execution ledger."
+    "All seven Important defects and failed intermediate/measurement attempts remain in the development checkpoint and execution ledger.",
+    "Final packet index still names old PID33420 while PHYSICAL_GATE_RESULT reports second-deployment PID44088. This published-field discrepancy is retained for formal reviewer reconciliation;63 material checks do not independently attest remote PID/source."
   ],
   "last_reconciled_by_workbook": "REX-805"
 }
