@@ -39,6 +39,7 @@ recurring error class - a probe that agrees with its own assumption:
 """
 import csv
 import json
+import math
 import os
 import pathlib
 import statistics
@@ -72,6 +73,10 @@ def norm_n(value):
 
 
 # 1 completion_time_ms = median over MEASURED runs whose task is COMPLETED.
+#    ROUNDING, and my SIXTH wrong premise: the exporter's median is `Math.round((a+b)/2)` - half UP - while
+#    Python's round() is half to EVEN. On an even-sized sample whose two middle values differ by an odd number,
+#    the two disagree by one unit (measured: 32.5 -> the package's 33 against Python's 32). The comparison now
+#    mirrors the documented convention instead of assuming Python's.
 durations = []
 for row in rows:
     if row.get('measured') is not True:
@@ -88,7 +93,7 @@ for row in rows:
     durations.append((u - c).total_seconds() * 1000.0)
 median_ms = statistics.median(durations) if durations else None
 check('completion_time_ms recomputes',
-      str(int(round(median_ms))) == metrics['completion_time_ms']['value'] and str(len(durations)) == metrics['completion_time_ms']['n'],
+      str(int(math.floor(median_ms + 0.5))) == metrics['completion_time_ms']['value'] and str(len(durations)) == metrics['completion_time_ms']['n'],
       f"python median={median_ms} n={len(durations)} | package value={metrics['completion_time_ms']['value']} n={metrics['completion_time_ms']['n']}")
 
 # 2 durationMs is NOT the task interval the metric uses - measured and reported, not asserted equal.

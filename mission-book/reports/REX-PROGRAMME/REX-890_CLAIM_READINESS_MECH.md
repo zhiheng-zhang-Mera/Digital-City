@@ -113,6 +113,50 @@ CONTROL  0261a9e（今天实际部署在 City 上的候选）
 描述的那个头。两者都已修正，且在§3.1 的探针里带着注释保留。另有一条**非区分性检查**（研究面拒绝节点凭据）在两个头上都
 通过，因此它**永远不能**被引用为「故障面存在」的证据，标签里已写明。 / Two of the probe's own defects are recorded (error shape; assuming a fault exists), plus one check labelled non-discriminating because it passes on both heads.
 
+### 3.2 端到端演练：一个全新的 City 能不能产出可验证的材料包 / End-to-end rehearsal on a brand-new City
+
+上面测的是「能力存在」。真正要回答的是**整条链**能不能跑通，所以本机写了一个演练
+（[`rex890-study-rehearsal.mjs`](./rex890-study-rehearsal.mjs)，临时目录 + 临时端口 + 一次性凭据，**完全不碰常驻 City**）：
+新建 City → 两个执行节点 → 登记实验 → 跑一个 6 次重复的 campaign → 注入一次故障并观察恢复 → **用真正的 CLI 导出**
+→ 用独立的包内校验器验证。**13/13 通过**： / The rehearsal runs the whole chain on a City that did not exist a minute earlier - fresh City, two execution nodes, experiment registration, a 6-repetition campaign, a real fault injected and recovered, export by the real CLI, verification by the independent verifier:
+
+```text
+PASS  a fresh City starts and answers the owner            HTTP 200
+PASS  two execution nodes are online                        worker-a:true worker-b:true
+PASS  the experiment registers / the campaign starts         HTTP 200 / HTTP 200（6 runs）
+PASS  the campaign settles                                  state=COMPLETED
+PASS  the City holds a receipt for the campaign             receipts=1
+PASS  both workers did real work (multi-device placement)    workers that claimed: worker-b, worker-a
+PASS  a fault can be injected in this City                   HTTP 200
+PASS  the fault is targeted: only the faulted worker refused faulted=503 other=200
+PASS  recovery is observable after the stop                  stop=200 recovered=200
+PASS  the fault receipt records what was observed            status=STOPPED injected=1 detection=null recovery=4
+PASS  the real exporter CLI produces a package               exit=0 · 1 campaign / 6 runs / 6 measured / 4 项有值 / 23 NOT_MEASURED
+PASS  the independent verifier accepts the produced package  14/14 independent checks pass
+```
+
+产出的包又用本记录区的**第三种实现**（Python，27 项）复核：**27/27**。它是**另一座 City**的包，因此这条同时证明
+校验器不是为那一份包量身定做的。 / The produced package also passes the 27-check Python implementation - and it comes from a different City, which shows the checker is not tailored to one package.
+
+### 3.3 演练量出的「怎么写 study」规则（对领取者直接有用）/ What the rehearsal measured about writing the study
+
+```text
+1  manifest 的 workers 必须是 hosts 的子集，且 SINGLE_CITY 的 maxHosts = 1
+   => 两个 worker 的 study **不能**声明 SINGLE_CITY；正确写法是 TWO_HOST_MESH + hosts=workers=[两个 device ref]
+   （本机实测：SINGLE_CITY + 2 hosts 被回 TOPOLOGY_IMPOSSIBLE；hosts=[city] + workers=[a,b] 被回
+     「worker a is not one of the declared hosts」；常驻 City 里 18 个真实回执用的正是 TWO_HOST_MESH）
+2  每次 run 只创建一个 task，且**按放置结果指定给某一台 worker**，所以驱动端要对每个 worker 都发起 claim，
+   拿到 task 的那个再报 RUNNING -> COMPLETED；run 是**串行**的，下一个 task 在上一个终态后才出现
+3  故障注入若安排在 campaign 进行中并落在**被指定的那台** worker 上，会合法地卡住该 run——
+   这本身是一个值得单独做的实验，不该和「能不能产出材料包」混在一次里
+4  宿主型阻塞陷阱：City 跑在父进程里时，**不能用 spawnSync 去调 CLI**——spawnSync 阻塞父进程事件循环，
+   子进程对 City 的 HTTP 请求永远等不到响应（实测连续三次 ETIMEDOUT）；改用异步 spawn 即通
+```
+
+**本机演练自身的缺陷也记录在案**：① 在驱动循环里调用 `record()`，同一条检查刷了几百行、把前面的阶段全埋了；
+② 在循环里反复 stop 同一个故障；③ 用 spawnSync 调 CLI 造成自锁（见第 4 条）；④ 把两个 worker 写进 `hosts` 而
+`topology` 写 SINGLE_CITY。四条都在脚本注释里，因为它们正是这份评审材料想记录的那类错误：**探针/工装与自己的假设一致，就不算证据**。 / Four defects of the rehearsal itself are kept in its comments.
+
 ## 4. 领取时该跑的清单 / The checklist a claimant should run
 
 ```text

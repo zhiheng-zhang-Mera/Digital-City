@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1642,
-  "total_bytes": 11890246,
+  "total_bytes": 11900903,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -14038,19 +14038,19 @@
     },
     {
       "path": "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md",
-      "bytes": 11896,
+      "bytes": 14285,
       "encoding_state": "UTF8",
-      "chinese_characters": 1141,
-      "english_words": 351,
+      "chinese_characters": 1254,
+      "english_words": 396,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/PAPER_MATERIAL_INDEX.md",
-      "bytes": 5924,
+      "bytes": 6637,
       "encoding_state": "UTF8",
-      "chinese_characters": 555,
-      "english_words": 298,
+      "chinese_characters": 645,
+      "english_words": 341,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -14128,10 +14128,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/REX-890_CLAIM_READINESS_MECH.md",
-      "bytes": 13263,
+      "bytes": 17489,
       "encoding_state": "UTF8",
-      "chinese_characters": 757,
-      "english_words": 262,
+      "chinese_characters": 1062,
+      "english_words": 363,
       "paired_path": "mission-book/reports/REX-PROGRAMME/en/REX-890_CLAIM_READINESS_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14173,10 +14173,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/en/REX-890_CLAIM_READINESS_MECH.md",
-      "bytes": 10719,
+      "bytes": 14048,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 718,
+      "english_words": 1002,
       "paired_path": "mission-book/reports/REX-PROGRAMME/REX-890_CLAIM_READINESS_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },

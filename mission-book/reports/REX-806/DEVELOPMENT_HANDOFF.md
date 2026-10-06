@@ -82,6 +82,30 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 2. `manifest.supporting.replays = 11`，而 dataset 里 `replayMode=REPLAY` 的行只有 **7** 行——11 = 7 个 REPLAY + **4 个 ABLATION**（消融本身也是重放）；普通 campaign run 的 `replayMode` 为 `null`。
 3. `rawPointers.canonicalTasks` 有 **26** 条，而 dataset 只引用 **24** 个不同 `taskRef`——该列表是**导出时刻城市的整份任务表**（权威计数是工作书的 `runCount`/`measuredRuns`），多出的 2 条是更早的 `CHECKPOINT_DEMO` 任务、与任何 campaign 无关（`POINTERS_RECOMPUTE_CITY_MECH.py` 会逐条点名它们）。另外指针前缀按存储区分：`trace:`、`task:`、`event:`、`receipt:`。
 
+## 已知缺陷：导出 CLI 的「拒绝路径」退出码是崩溃码（本机演练发现）/ Known defect: the CLI's refusal path exits with a crash code
+
+端到端演练（REX-890 预检 §3.2）顺手发现了本机自己交付物里的一个缺陷，记录而不掩盖： / The end-to-end rehearsal found this defect in this host's own deliverable:
+
+```text
+复现 / reproduce  把 CLI 指向一台**没有任何可读回执**的 City（临时 City 即可）：
+                  node scripts/export-research-artifact.mjs --city <fresh city> --out <dir> --config <config>
+                  -> 正确打印拒绝理由 "no campaign receipt is readable from this City; ..."
+                  -> 随后 process.exit(1)（scripts/export-research-artifact.mjs:38）触发 libuv 断言：
+                     Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\win\async.c, line 76
+                  -> 进程退出码 **3221226505 (0xC0000409)**，不是 1
+证据 / evidence   reports/REX-806/evidence-tools/REFUSAL_EXIT_CHECK_MECH.mjs（本机实测确认，见其头部）
+影响 / impact     调用方（study runner、CI、复检自动化）**无法区分**「按设计拒绝」与「导出器崩了」；
+                  一个正确的拒绝看起来像一次崩溃。这不影响正常导出路径（有回执时 exit=0，演练已证）
+根因 / cause      `process.exit()` 在 fetch 的 keep-alive 句柄仍处于关闭中时被调用，Windows 上 libuv 断言
+建议修法 / fix   拒绝路径不要 `process.exit(1)`：置 `process.exitCode = 1` 并**跳过后续导出**（本文件是 ESM，
+                  顶层不能 `return`，因此需要一个 `else` 包裹或把主体收进 async main —— 属于结构性小改）
+本机为何不直接发布修复 / why no repair branch yet
+                  结构性小改 + 需要重跑全套；本机不愿发布**未经验证**的修复（本记录区其他修复都带负对照）。
+                  该缺陷已足够明确，可独立领取修复
+```
+
+**这条同时说明演练的价值**：它不是为了证明「能跑」，它顺手把一个**只会在失败路径上出现**的缺陷抓了出来——而失败路径恰恰是最少被测的路径。 / The rehearsal did not just prove the happy path; it surfaced a defect that only appears on the failure path, which is the least tested one.
+
 ## 本机明确不主张的 / Explicitly not claimed
 
 ```text

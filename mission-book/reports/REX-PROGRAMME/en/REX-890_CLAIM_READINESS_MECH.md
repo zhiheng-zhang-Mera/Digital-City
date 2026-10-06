@@ -96,6 +96,36 @@ One honest detail the probe had to hit itself: it stopped the fault inside the 2
 
 Two of the probe's own defects are kept in the code with their comments: it first read only `error.code` although the City answers errors in two shapes (a string on older routes, an object on newer ones), which reported a working export surface as a failure; and it assumed a fault existed, so it threw on the control head that has no fault route - the very head it was written to characterise. One check (the research surface refusing a node credential) passes on both heads and is labelled non-discriminating, so it must never be quoted as evidence that the fault surface exists.
 
+## End-to-end rehearsal on a brand-new City
+
+Existence of a capability is not the whole chain, so a rehearsal ([rex890-study-rehearsal.mjs](./rex890-study-rehearsal.mjs), temp dir, ephemeral port, throwaway credentials, nothing of the resident City touched) runs: fresh City, two execution nodes, experiment registration, a 6-repetition campaign, a real fault injected and recovered, export by the real CLI, verification by the independent verifier. **13/13 pass**:
+
+```text
+PASS  a fresh City starts and answers the owner            HTTP 200
+PASS  two execution nodes are online                        worker-a:true worker-b:true
+PASS  the experiment registers / the campaign starts         HTTP 200 / HTTP 200 (6 runs)
+PASS  the campaign settles                                   state=COMPLETED
+PASS  the City holds a receipt for the campaign              receipts=1
+PASS  both workers did real work (multi-device placement)     worker-b and worker-a each claimed
+PASS  a fault can be injected in this City                    HTTP 200
+PASS  the fault is targeted: only the faulted worker refused  503 vs 200
+PASS  recovery is observable after the stop                   stop=200 recovered=200
+PASS  the fault receipt records what was observed             STOPPED, injected=1, detection=null, recovery=4
+PASS  the real exporter CLI produces a package                exit=0; 1 campaign / 6 runs / 6 measured / 4 reported / 23 NOT_MEASURED
+PASS  the independent verifier accepts the produced package   14/14 independent checks pass
+```
+
+The produced package then passes this record area's third implementation (Python, 27 checks): 27/27. It comes from a **different City**, so the checker is not tailored to one package.
+
+## What the rehearsal measured about writing the study
+
+1. Manifest `workers` must be a subset of `hosts`, and `SINGLE_CITY` permits one host. A two-worker study therefore **cannot** declare SINGLE_CITY: the correct shape is `TWO_HOST_MESH` with `hosts = workers = [two device refs]`. Measured refusals: SINGLE_CITY with 2 hosts is rejected `TOPOLOGY_IMPOSSIBLE`; hosts=[one] with two workers is rejected because "worker a is not one of the declared hosts". The 18 real receipts in the resident City use exactly TWO_HOST_MESH.
+2. Each campaign run creates ONE task and addresses it to the worker placement chose, so the driver must attempt a claim from every worker and report RUNNING then COMPLETED from whichever received it. Runs are sequential: the next task appears only after the previous one reaches a terminal state.
+3. A fault injected during a campaign and landing on the addressed worker legitimately stalls that run. That is an experiment worth doing on its own; it should not be mixed into "can a City produce an artifact".
+4. Hosting trap: when the City runs inside the parent process, the CLI must NOT be invoked with spawnSync - spawnSync blocks the parent's event loop, so the child's HTTP request to the City is never served (measured three times as ETIMEDOUT). Async spawn works.
+
+Four defects of the rehearsal itself are kept in its comments: calling record() inside the drive loop (one check printed hundreds of times and buried earlier phases), stopping the same fault on every iteration, the spawnSync self-deadlock, and writing two workers into `hosts` while declaring SINGLE_CITY.
+
 ## The checklist a claimant should run
 
 1. Confirm all seven markers REX-801..807 are released and take each task's ACCEPTED SHA - not a development head, not a branch name.
