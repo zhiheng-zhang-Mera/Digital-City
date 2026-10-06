@@ -33,7 +33,9 @@ opposite host 必须     从 artifact/manifest 重建 · 独立执行 · 重算�
 multi-device execution        有，但目前只体现为放置 / placement                     REX-806 包 24 行落在 2 个 device（20 / 4）
 one handoff or routing        只有 routing（放置决策），**没有 handoff**              live City `GET /research/replays` -> supportedScenarios=[WAIT]；
                                                                                     replay.mjs:55 对 scenarioId!=='WAIT' 或带 faultProfileRef 的源
-                                                                                    回 REPLAY_CONDITION_UNAVAILABLE
+                                                                                    回 REPLAY_CONDITION_UNAVAILABLE；
+                                                                                    **routing 这一半已有独立证据**：放置策略本身按城市原始回执
+                                                                                    复算 6/6（REX-806 的 PLACEMENT_RECOMPUTE_CITY_MECH.py）
 one injected fault + recovery **没有** / absent                                      包内 `exclusions.json` 第三条（what = "fault and recovery
                                                                                     metrics"，why = "no fault receipt is present in the provided
                                                                                     sources"）；live City `GET /research/faults` -> **404**

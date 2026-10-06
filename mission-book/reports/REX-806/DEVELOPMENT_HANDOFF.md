@@ -40,6 +40,8 @@ PROBES        24/24（13 模块 + 5 接口 + 6 校验器），先证伪再信任
 3  duplicate / convergence  用 dataset 的 taskRef / researchRunRef 关系复算（本机均为 0，n=24 / n=22）
 4  placement            核对 placementMatchesPolicy 与 placementMatchesSeedAlone 的差异是否**恰好**出现在
                         replayMode=ABLATION 的行上（本机：policy 24/24 成立；seed-alone 仅 ablation 两行为 false）
+                        —— 若要复核**策略本身**而不只是自洽性，必须在持有该 City 凭据的机器上跑
+                        `evidence-tools/PLACEMENT_RECOMPUTE_CITY_MECH.py`（本机实测 6/6）
 5  NOT_MEASURED         逐条核对 23 项 NOT_MEASURED 与其 reason；特别核对 intervention_count **不是 0**
 6  checksums.json       对目录内文件做 sha256，与本机给的值比对
 ```
@@ -86,12 +88,11 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 · 不主张 Owner 侧指标（干预计数等）：城市记录不表达 Owner 行为，全部 NOT_MEASURED 并写明原因；
   按工作书要求，未知不得写成 0
 · 不主张 durationDeltaMs 的因果性能结论
-· **不主张「放置判定已被独立重算」**：包内 `placementMatchesPolicy` 是对「assignedNodeId 是否等于
-  expectedNodeIdByPolicy」的一致性命中，而 `expectedNodeIdByPolicy` 本身来自 City 的实验清单声明顺序
-  （例如 `POLICY_ALTERNATE_DEVICE_DISABLED_PINS_FIRST_DECLARED_WORKER` 里的「第一个声明 worker」），
-  **包里没有声明顺序**，因此任何只读包的校验器都无法重新推导它。包能证明的是：判定与它自己点名的节点一致
-  （27 项里的第 26 项），且 seed-only 偏离**只**出现在消融行上；要真正复核策略本身，必须在持有该 City
-  凭据的机器上读实验清单与 registry
+· **放置策略已由本机按城市原始回执复算（6/6），但「只读包」仍然做不到**：`expectedNodeIdByPolicy` 取决于
+  City 回执里的**声明顺序**（`context.manifest.workers`）与生效政策，包里没有这两样；`PLACEMENT_RECOMPUTE_CITY_MECH.py`
+  用与网关/replay 共享的规则重算（`alternate-device` 被禁用 → `workers[0]`，否则 `targetDeviceRef ?? workers[seed % len]`），
+  实测 6/6，且翻转某一行的期望节点会让它变红。**该工具需要产出 City 的 owner 凭据，因此对侧主机（MEMBER）
+  不能运行它**；对侧能跑的是包内那 27 项检查（它只能证明「判定与行内点名的节点一致」）或自己另写的重算。
 · 本机无产品 main 合并权
 ```
 

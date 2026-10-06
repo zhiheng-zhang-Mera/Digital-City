@@ -24,7 +24,10 @@ element                       state today                    evidence or gap (me
 multi-device execution        present, as placement          the REX-806 package's 24 rows land on 2 devices (20 / 4)
 one handoff or routing        routing only, NO handoff       live City GET /research/replays -> supportedScenarios=[WAIT];
                                                              replay.mjs:55 refuses scenarioId!=='WAIT' or a faultProfileRef
-                                                             source with REPLAY_CONDITION_UNAVAILABLE
+                                                             source with REPLAY_CONDITION_UNAVAILABLE. The routing half now has
+                                                             its own evidence: the placement policy itself was recomputed from
+                                                             the City's raw receipts, 6/6 (REX-806's
+                                                             PLACEMENT_RECOMPUTE_CITY_MECH.py)
 one injected fault+recovery   ABSENT                         the package's third exclusion ("fault and recovery metrics: no
                                                              fault receipt is present in the provided sources");
                                                              live City GET /research/faults -> 404 (the fault controller
