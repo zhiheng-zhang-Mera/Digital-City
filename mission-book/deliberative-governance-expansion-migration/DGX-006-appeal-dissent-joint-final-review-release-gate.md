@@ -59,6 +59,8 @@ report_path: null
 
 在 Integrated Candidate 形成后，把结果发回所有实际参与者做 scoped final review，并提供有界申诉/少数意见机制。
 
+Final review 消费的是**显式结果、证据、accepted assumptions、unresolved uncertainty 与 integration delta**，不要求共享或复现任何隐藏 chain-of-thought。
+
 ## Final reviewer verdict
 
 ```text
@@ -77,7 +79,9 @@ BLOCK
 - 无未解决 Critical；
 - 无未解决 Major factual/safety/correctness objection；
 - 对应领域责任 reviewer 的必需 gate 已 PASS；
-- dissent 可保留但不得被静默删除。
+- independence floor 已满足；
+- dissent 可保留但不得被静默删除；
+- integration 没有把子任务结果扩写成证据不支持的更强结论。
 
 重大 REQUEST_CHANGES/BLOCK → 返回 Integration；Owner-only 边界 → Owner。
 
@@ -87,4 +91,4 @@ BLOCK
 
 ## 完成门槛
 
-有界终审、无无限 consensus loop、release receipt 可审计。
+有界终审、无无限 consensus loop、release receipt 可审计；参与者不同意不等于自动阻塞，但 Critical/Major 未解决问题不得被多数票覆盖。
