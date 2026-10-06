@@ -141,6 +141,24 @@ REX-803 的 review 必须独立制造 workbook Review 段列出的条件（重�
 seed reproducibility），作者自测不构成 review 证据；作者提出的攻击清单见
 `reports/REX-803/DEVELOPMENT_HANDOFF.md`，reviewer 可以并且应当拒绝它、另立更严格的探针。
 
+### 跨任务缺陷：一个不可用的文件存储可以阻止 City 启动（Mech，2026-10-06）
+
+REX-803 的作者自测在修完自身缺陷后，把同一探针指向“City 启动期会碰到的每一个文件存储”，发现该失效形状**在 main 上仍然存活**：在应当是目录的位置放一个文件，会让 `createGateway` 直接抛错，City 连端口都不绑定。
+
+```text
+实测（同一 harness，八次探针，main 213f9f9f → 修复分支 8c67bb2）
+theme-packages (capability-bridge)  BRICKED EEXIST  →  STARTED        <- 第二个实例，已给可采纳修复
+research (REX-801 registry parent)  BRICKED ENOTDIR →  仍 BRICKED     <- 已单独报告并给可采纳修复
+research/experiments (REX-801)      BRICKED EEXIST  →  仍 BRICKED     <- 同上
+research/campaigns / monitor / research-trace / join-requests.json / execution-profile.json  STARTED → STARTED
+```
+
+完整记录（两个实例、成对前后测、两个可采纳修复分支、以及“已有测试在坏树上通过”的仪器教训）见
+[reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md)。
+两个模块均已合并进 main 且其任务已关闭，因此本机只发布测量、修复分支与探针，**不合并、不改 main、不触碰关闭任务的记录**。
+
+该缺陷同时是 REX 的论文素材（§7）：重复故障注入、before/after 对照、以及一条可复用的“失效形状扫描”方法学。
+
 ## 4. 双机异步施工
 
 沿用现有 Alien / Mech：

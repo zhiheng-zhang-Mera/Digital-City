@@ -128,6 +128,14 @@ start. REX-801 is closed and merged, so this host did not touch its code on this
 adoptable repair (`repair/REX-801-mech-store-guard`) and the pattern analysis are recorded in
 [../REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md).
 
+One round later the same sweep was widened from the research stores to **every file store the City touches at startup**
+(eight traps, one shape, seconds to run). It found a second live instance in merged main - the capability-bridge
+theme-artifact root, which bricked construction through `mkdirSync -> createThemeArtifacts -> createBridge ->
+createGateway` - and, with it, a sharper lesson: a test for that exact scenario already existed and **passed on the broken
+tree**, because it planted the fault after construction and so reproduced the symptom without the defect. Both instances,
+the paired before/after sweep table and the second adoptable repair
+(`repair/capability-bridge-mech-artifact-store-guard`) are in the same programme record.
+
 ### 3Y. A record defect caught in this host's own hand, before it was committed
 
 ```text
