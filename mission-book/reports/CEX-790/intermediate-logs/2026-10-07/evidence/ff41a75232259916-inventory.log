@@ -1,0 +1,36 @@
+REGISTRY_API_PATHS 39 ["/api/v0/ask/targets","/api/v0/ask","/api/v0/capabilities","/api/v0/capabilities/:id","/api/v0/capabilities/:id/invoke","/api/v0/capability-invocations","/api/v0/capability-invocations/:id","/api/v0/device/installations"]
+REGISTRY_RECORD_API_COUNTS ["CAP-ASK-001:2","CAP-CAPABILITY-BRIDGE-001:5","CAP-CITY-MEMBERS-NATIVE-001:6","CAP-EXECUTION-001:2","CAP-EXPERIMENT-MANIFEST-001:1","CAP-HOST-LIFECYCLE-001:2","CAP-IDENTITY-001:3","CAP-MON-001:1","CAP-MON-002:1","CAP-MON-003:3","CAP-NODE-DESCRIPTOR-001:3","CAP-ONBOARDING-OWNER-001:5","CAP-RESEARCH-CAMPAIGN-001:4","CAP-RESEARCH-FAULTS-001:3","CAP-RESEARCH-TRACE-001:1","CAP-SCHEDULER-CHOICE-001:2","CAP-WORKER-POOL-AGENT-001:0"]
+SOURCES {"gateway_route":60,"gateway_transport":2,"action_route_kind":4,"ask_target":16,"room_catalog":20,"capability_registry_record":17,"web_entry":47,"android_entry":35,"scheduler_user_action":4}
+CLASSES {"INTERNAL_PROTOCOL":22,"EXPOSED":151,"EXPOSED_ADVANCED":2,"CURRENT_ENTRY_GAP":5,"PARITY_GAP":7,"INTERNAL_TRANSPORT":2,"FUTURE_PRODUCT_INTEGRATION":6,"DEPRECATED":10}
+TOTAL 205
+--- CURRENT_ENTRY_GAP / PARITY_GAP items ---
+CURRENT_ENTRY_GAP | gateway_route | GET /api/v0/execution-profile | no user surface and no capability record names this route
+CURRENT_ENTRY_GAP | gateway_route | POST /api/v0/execution-profile | no user surface and no capability record names this route
+CURRENT_ENTRY_GAP | gateway_route | POST /api/v0/host/join | no user surface and no capability record names this route
+CURRENT_ENTRY_GAP | gateway_route | GET /api/v0/host/join/status | no user surface and no capability record names this route
+PARITY_GAP | gateway_route | POST /api/v0/tasks/:id/cancel | only one first-class surface is detectable (web=false, android=true)
+PARITY_GAP | gateway_route | POST /api/v0/tasks/:id/provider-choice | only one first-class surface is detectable (web=false, android=true)
+PARITY_GAP | gateway_route | GET /api/v0/research/experiments/:id/seeds | only one first-class surface is detectable (web=true, android=false)
+PARITY_GAP | gateway_route | GET /api/v0/research/experiments/:id | only one first-class surface is detectable (web=true, android=false)
+PARITY_GAP | gateway_route | POST /api/v0/research/experiments/:id/register | only one first-class surface is detectable (web=true, android=false)
+PARITY_GAP | web_entry | page:Research | Web page with no matching Android page
+PARITY_GAP | web_entry | page:Actions | Web page with no matching Android page
+CURRENT_ENTRY_GAP | scheduler_user_action | CONFIRM | ACTION_WIRING kind=unwired
+--- registry reconciliation states ---
+CAP-ASK-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-CAPABILITY-BRIDGE-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=FINAL_AUDIT_BACKFILLED
+CAP-CITY-MEMBERS-NATIVE-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-EXECUTION-001 | class=INTERNAL_ONLY | wire=VERIFIED | reach=NOT_APPLICABLE | recon=FORMAL_REVIEW_RECONCILED
+CAP-EXPERIMENT-MANIFEST-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=VERIFIED | recon=VERIFIED_BOUNDED_WEB_MANIFEST_WORKFLOW
+CAP-HOST-LIFECYCLE-001 | class=BACKGROUND_DISCLOSED | wire=VERIFIED | reach=PARTIAL | recon=CREATED_BY_OWNER_DIRECTED_CHANGE
+CAP-IDENTITY-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-MON-001 | class=BACKGROUND_DISCLOSED | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-MON-002 | class=OBSERVABLE_ADVANCED | wire=VERIFIED | reach=PARTIAL | recon=CREATED_BY_DEVELOPMENT
+CAP-MON-003 | class=OBSERVABLE_ADVANCED | wire=LOCALLY_VERIFIED | reach=WEB_VERIFIED_ANDROID_PENDING | recon=CANDIDATE_PENDING_FORMAL_REVIEW
+CAP-NODE-DESCRIPTOR-001 | class=INTERNAL_ONLY | wire=VERIFIED | reach=NOT_APPLICABLE | recon=FORMAL_REVIEW_RECONCILED
+CAP-ONBOARDING-OWNER-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-RESEARCH-CAMPAIGN-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW
+CAP-RESEARCH-FAULTS-001 | class=ADVANCED_CONTROL | wire=LOCALLY_VERIFIED | reach=WEB_VERIFIED_ANDROID_PENDING | recon=CANDIDATE_PENDING_FORMAL_REVIEW
+CAP-RESEARCH-TRACE-001 | class=OBSERVABLE_ADVANCED | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-SCHEDULER-CHOICE-001 | class=DIRECT_CONTROL | wire=VERIFIED | reach=PARTIAL | recon=FORMAL_REVIEW_RECONCILED
+CAP-WORKER-POOL-AGENT-001 | class=INTERNAL_ONLY | wire=VERIFIED | reach=NOT_APPLICABLE | recon=FORMAL_REVIEW_RECONCILED

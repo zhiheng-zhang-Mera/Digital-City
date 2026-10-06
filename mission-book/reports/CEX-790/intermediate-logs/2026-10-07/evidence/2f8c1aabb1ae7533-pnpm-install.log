@@ -1,0 +1,20 @@
+? Verifying lockfile against supply-chain policies (39 entries)...
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +38
+++++++++++++++++++++++++++++++++++++++
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: D:\.pnpm-store\v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 38, reused 38, downloaded 0, added 38, done
+✓ Lockfile passes supply-chain policies (39 entries in 793ms)
+
+dependencies:
++ bonjour-service 1.4.4
++ qrcode 1.5.4
++ ws 8.18.3
+
+devDependencies:
++ playwright 1.55.1
+
+Done in 1.2s using pnpm v11.19.0

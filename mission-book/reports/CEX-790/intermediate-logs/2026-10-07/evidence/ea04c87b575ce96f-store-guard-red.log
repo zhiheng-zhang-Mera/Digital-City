@@ -1,0 +1,120 @@
+✖ theme artifact store degrades on an uncreatable root and refuses typed instead of throwing (2.3464ms)
+✖ a store that breaks after startup is recorded, and losing it cannot erase a finished build (2.2912ms)
+✖ a file at the theme-packages path leaves the City serving and the theme lab typed-failed (78.084ms)
+✖ degrading the artifact store blocks only the theme lab, never the capability registry (57.6653ms)
+✖ a store that breaks while the City runs is reported in health, not only after a restart (114.3109ms)
+✖ REX801 store guard: a file where research (the registry parent) belongs cannot stop the City (33838.5542ms)
+✖ REX801 store guard: a file where research/experiments (the registry itself) belongs cannot stop the City (33888.7642ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69728.9441
+
+✖ failing tests:
+
+test at tests\bridge-artifact-store-guard.test.mjs:30:1
+✖ theme artifact store degrades on an uncreatable root and refuses typed instead of throwing (2.3464ms)
+  Error: EEXIST: file already exists, mkdir 'C:\Users\15601\AppData\Local\Temp\utopia-artifact-unit-kdIWHe\theme-packages'
+      at Object.mkdirSync (node:fs:1411:26)
+      at createThemeArtifacts (file:///D:/Utopia-CEX790/services/capability-bridge/theme-artifacts.mjs:6:29)
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/bridge-artifact-store-guard.test.mjs:34:19)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    errno: -4075,
+    code: 'EEXIST',
+    syscall: 'mkdir',
+    path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\utopia-artifact-unit-kdIWHe\\theme-packages'
+  }
+
+test at tests\bridge-artifact-store-guard.test.mjs:46:1
+✖ a store that breaks after startup is recorded, and losing it cannot erase a finished build (2.2912ms)
+  TypeError: artifacts.state is not a function
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/bridge-artifact-store-guard.test.mjs:51:26)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests\bridge-artifact-store-guard.test.mjs:64:1
+✖ a file at the theme-packages path leaves the City serving and the theme lab typed-failed (78.084ms)
+  Error: EEXIST: file already exists, mkdir 'C:\Users\15601\AppData\Local\Temp\utopia-artifact-brick-Roscb9\theme-packages'
+      at Object.mkdirSync (node:fs:1411:26)
+      at createThemeArtifacts (file:///D:/Utopia-CEX790/services/capability-bridge/theme-artifacts.mjs:6:29)
+      at createBridge (file:///D:/Utopia-CEX790/services/capability-bridge/bridge.mjs:31:31)
+      at createGateway (file:///D:/Utopia-CEX790/services/dev-gateway/server.mjs:323:16)
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/bridge-artifact-store-guard.test.mjs:68:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12) {
+    errno: -4075,
+    code: 'EEXIST',
+    syscall: 'mkdir',
+    path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\utopia-artifact-brick-Roscb9\\theme-packages'
+  }
+
+test at tests\bridge-artifact-store-guard.test.mjs:96:1
+✖ degrading the artifact store blocks only the theme lab, never the capability registry (57.6653ms)
+  Error: EEXIST: file already exists, mkdir 'C:\Users\15601\AppData\Local\Temp\utopia-artifact-scope-Vn2Uln\theme-packages'
+      at Object.mkdirSync (node:fs:1411:26)
+      at createThemeArtifacts (file:///D:/Utopia-CEX790/services/capability-bridge/theme-artifacts.mjs:6:29)
+      at createBridge (file:///D:/Utopia-CEX790/services/capability-bridge/bridge.mjs:31:31)
+      at createGateway (file:///D:/Utopia-CEX790/services/dev-gateway/server.mjs:323:16)
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/bridge-artifact-store-guard.test.mjs:100:11)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12) {
+    errno: -4075,
+    code: 'EEXIST',
+    syscall: 'mkdir',
+    path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\utopia-artifact-scope-Vn2Uln\\theme-packages'
+  }
+
+test at tests\bridge-artifact-store-guard.test.mjs:113:1
+✖ a store that breaks while the City runs is reported in health, not only after a restart (114.3109ms)
+  TypeError: Cannot read properties of undefined (reading 'state')
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/bridge-artifact-store-guard.test.mjs:118:99)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\rex801-store-guard.test.mjs:25:3
+✖ REX801 store guard: a file where research (the registry parent) belongs cannot stop the City (33838.5542ms)
+  Error: ENOTDIR: not a directory, mkdir 'C:\Users\15601\AppData\Local\Temp\rex801-store-guard-6kPul4\research\experiments'
+      at mkdirSync (node:fs:1411:26)
+      at createExperimentRegistry (file:///D:/Utopia-CEX790/services/dev-gateway/research/registry.mjs:59:3)
+      at createGateway (file:///D:/Utopia-CEX790/services/dev-gateway/server.mjs:524:21)
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/rex801-store-guard.test.mjs:32:19)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -4052,
+    code: 'ENOTDIR',
+    syscall: 'mkdir',
+    path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\rex801-store-guard-6kPul4\\research\\experiments'
+  }
+
+test at tests\rex801-store-guard.test.mjs:25:3
+✖ REX801 store guard: a file where research/experiments (the registry itself) belongs cannot stop the City (33888.7642ms)
+  Error: EEXIST: file already exists, mkdir 'C:\Users\15601\AppData\Local\Temp\rex801-store-guard-31eQ3P\research\experiments'
+      at mkdirSync (node:fs:1411:26)
+      at createExperimentRegistry (file:///D:/Utopia-CEX790/services/dev-gateway/research/registry.mjs:59:3)
+      at createGateway (file:///D:/Utopia-CEX790/services/dev-gateway/server.mjs:524:21)
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX790/tests/rex801-store-guard.test.mjs:32:19)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    errno: -4075,
+    code: 'EEXIST',
+    syscall: 'mkdir',
+    path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\rex801-store-guard-31eQ3P\\research\\experiments'
+  }
