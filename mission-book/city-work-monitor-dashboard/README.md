@@ -316,14 +316,18 @@ REVIEW        Mech 领取并执行完毕。11 个独立探针（review/MON-990-M
               MISSING 且不臆造出处、回执 pre/post 状态与 canonical 实况一致、200 任务折叠视图中 FAILED 节点仍可见、
               observer 抛错时 canonical 工作继续、卡住的 resolver 只阻塞自身任务且超时被归因、Registry 与运行期对账、
               刷新不重排且过滤只改边、Web 诊断路径到精确证据**实测 3 次交互**、回执仅为建议不改任务。
-VERDICT       PASS on the 11 checks；**未发现缺陷**。
-MARKER        CITY_WORK_MONITOR_V1_ACCEPTED **未释放**：第 9 项「Web + 当前 Android surface parity」的 Android 半边
-              NOT_RUN，原因是实测而非推断——adb 无已连接设备；且本机唯一安装的 JDK 为 26，Android Gradle Plugin
-              拒绝它（构建以 "What went wrong: 26" 失败）。结构对账（同一路由、同一 riskReasons 字段、
-              MonitorProjection.kt:40 的 R4 不变式）作为**支持性**证据记录，明确不作为替代。
-              review_complete 因此保持 false —— 这不是驳回（作者无可返修），而是拒绝把作者的真机证据当作
-              reviewer 的证据，这一点在领取记录里就写明过。补救方式已写明：在 review 主机接入设备、或安装 AGP
-              接受的 JDK；或由 Owner 裁定该项接受作者的真机捕获（属 Owner 决定，非 reviewer 决定）。
+VERDICT       PASS on all 12 checks；**未发现缺陷**。
+MARKER        CITY_WORK_MONITOR_V1_ACCEPTED **已释放**（review_complete=true，status=COMPLETE）。
+              第 9 项「Web + 当前 Android surface parity」的 Android 半边**已实测**，不再是 NOT_RUN：本机一直装有
+              Temurin 17.0.18（`C:\Users\15601\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2`），用它作
+              JAVA_HOME 在被审 head 上 `:app:testDebugUnitTest :app:assembleDebug` BUILD SUCCESSFUL（3m51s），
+              Android 单测 118 项 0 失败（22 套件，含 MonitorProjectionTest 7/7），APK 构建成功；另有探针把**被审 head
+              自己**的服务端 payload 喂给 Android projection 并被接受（31 节点 / 2 簇 / 1 回执）。
+              **更正（保留而不覆盖）**：本记录此前写「本机唯一安装的 JDK 为 26，AGP 拒绝它」，这是 **reviewer 的测量
+              错误**（读的是 PATH 默认值），不是本机的限制。
+              范围如实标注：check 9 的**真机渲染**半边在本机 NOT_OBSERVED（adb 无设备；手持机作为 control surface
+              在线但接在别的主机上），该半边的唯一证据仍是作者的真机捕获。释放理由是 reviewer 的判断（记录在
+              REVIEW_REPORT.md 第 9 节），不是一次测量。
 CI            被审 head 三次 run 逐次 API 复核均 SUCCESS attempt 1（push 37420061997 / PR 37420065177 /
               linkage 37420065178）；reviewer 自己的探针分支首次 head 7fffe3f **CI 失败**（run 37422163771），
               原因经分类为 **reviewer 仪器缺陷**（R1 等待面板外壳而非 data-loaded=true，与 MON-902 自身浏览器

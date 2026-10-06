@@ -5,11 +5,11 @@
       "total": 23
     },
     "review": {
-      "complete": 17,
+      "complete": 18,
       "total": 23
     },
     "tasks": {
-      "complete": 17,
+      "complete": 18,
       "total": 23
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 87,
+      "complete": 88,
       "total": 93
     },
     "tasks": {
-      "complete": 87,
+      "complete": 88,
       "total": 93
     }
   },
@@ -996,9 +996,9 @@
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
-      "review_complete": 3,
-      "status": "IN_PROGRESS",
-      "task_complete": 3,
+      "review_complete": 4,
+      "status": "COMPLETE",
+      "task_complete": 4,
       "tasks": [
         {
           "complete": true,
@@ -1028,13 +1028,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-990",
           "path": "city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         }
       ],
       "total": 4

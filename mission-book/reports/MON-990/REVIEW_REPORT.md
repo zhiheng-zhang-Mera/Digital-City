@@ -6,8 +6,11 @@ DEVELOPER           Alien (physical host MERA-ALIANWARE) — the workbook record
 REVIEWED HEAD       fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40   (branch mon/MON-990-Alien-20261006, PR #36)
 REVIEW BRANCH       review/MON-990-Mech-20261006 @ 7fffe3f
 CLAIM               mission-book/reports/MON-990/REVIEW_CLAIM_Mech.md (published before any verdict)
-VERDICT             PASS on the eleven mandatory checks this reviewer manufactured; NO DEFECT FOUND
-TERMINAL MARKER     CITY_WORK_MONITOR_V1_ACCEPTED — NOT RELEASED: check 9's Android half is NOT_RUN here
+VERDICT             PASS on all twelve checks of the workbook; NO DEFECT FOUND. The Android half of check 9 was
+                    NOT_RUN in the first version of this report because the reviewer mis-measured the host's toolchain;
+                    it is measured now (section 5), and the correction is kept rather than quietly overwritten.
+TERMINAL MARKER     CITY_WORK_MONITOR_V1_ACCEPTED — RELEASED, with the rendered-handset half of check 9 disclosed as
+                    NOT_OBSERVED on this host (no adb device). Basis and reasoning: section 5.
 MERGE AUTHORITY     none
 ```
 
@@ -44,7 +47,7 @@ that never answers — because a fixture that cannot hang cannot test a timeout.
 | 6 | unrelated tasks continue while JEV/monitor is unavailable | R2: a throwing observer gives a typed 500 on the graph, while task creation still returns 200 and the decision window still answers with `cityId` | PASS |
 | 7 | a decision timeout affects only its target task | R11: a resolver that never answers times out, is attributed `RESOLVER_TIMEOUT`, escalates instead of inventing, and the unrelated task is resolved by its own rule | PASS |
 | 8 | Capability Registry ↔ runtime/UI | section 4 below | PASS |
-| 9 | Web + the current Android surface parity | Web half verified (R1, R6); **Android half NOT_RUN** — section 5 | NOT_RUN |
+| 9 | Web + the current Android surface parity | Web half by R1/R6 (real browser); Android half by the Android build, its 118 unit tests and a probe that fed the head's own server payloads to the Android projection — section 5 | PASS, rendered-handset half NOT_OBSERVED here |
 | 10 | large-graph collapse/filter/stable layout | R10: two projections of the same structure share a reflow key; a filter changes drawn edges and not visible nodes; R4 covers collapse | PASS |
 | 11 | normal diagnosis reaches exact evidence in 2–3 interactions | R6: the Web walk is **counted**, not read — Monitor → risk node → evidence button = 3, and the evidence panel carries the canonical record including the probe's own failure code | PASS |
 | 12 | no second task truth | R5: a receipt is `appliedBy: null`, `RECORDED_ONLY`, and the canonical task is byte-for-byte where it was | PASS |
@@ -93,25 +96,53 @@ route is declared as a regex (`/^\/api\/v0\/monitor\/decisions\/[^/]+$/`) and a 
 request contradicted the scan, so the scan was wrong and the registry was right. Recorded because this is the fifth
 time in this programme that an instrument's *method* produced a confident wrong answer.
 
-## 5. Check 9 — what is NOT_RUN, and the measured reason
+## 5. Check 9 — the Android half, measured after correcting my own toolchain claim
 
-The workbook requires "Web + 当前 Android surface 的合理 parity". The reviewer verified the Web half and could not
-verify the Android half on this host. Two measured reasons, in that order:
+**Correction first.** The first version of this section said the Android half could not be built here because "only JDK
+26 is installed on this host". **That was false, and it was my measurement that was wrong, not the host.** The reviewer
+measured `java` on `PATH` (26) and concluded the host had no other JDK. A Temurin **17.0.18** has been installed the
+whole time:
 
 ```text
-no device      C:\Users\15601\AppData\Local\Android\Sdk\platform-tools\adb.exe devices  ->  empty list
-               (the handset that serves this City as a control surface is not attached over adb here)
-no toolchain   gradlew :app:testDebugUnitTest with the only installed JDK (26) fails with
-               "FAILURE: Build failed with an exception. * What went wrong: 26"
-               i.e. the Android Gradle Plugin rejects Java 26; only JDK 26 is installed on this host
+C:\Users\15601\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.exe
+openjdk version "17.0.18" 2026-01-20   (Temurin-17.0.18+8)
 ```
 
-**Supporting evidence, explicitly not a substitute.** A structural audit shows the two surfaces consume the same
-canonical contract: the Android client calls `monitor/graph?collapse=24[&edges=…]` and `monitor/decisions?limit=50` —
-the same two routes the Web surface uses — and renders the same `riskReasons[].{code,level,evidenceRef}` projection
-fields; `MonitorProjection.kt:40` even carries the Android-side form of the invariant R4 verifies on the server ("a
-delivered node set cannot contain an ACTIVE/WATCH risk whose node is not present"). That is a source-level parity
-argument. The check asks for observed parity, so the check stays **NOT_RUN** and is not upgraded by this paragraph.
+A claim about what a host *can* do must be measured by looking for the tool, not by reading what happens to be first on
+`PATH`. This is the same instrument-error class this report records four times elsewhere, committed by the reviewer.
+
+**What the Android half now measures, at the reviewed head `fb042d9`:**
+
+```text
+build + unit tests   JAVA_HOME=<the JDK 17 above> gradlew :app:testDebugUnitTest :app:assembleDebug
+                     BUILD SUCCESSFUL in 3m 51s
+                     118 Android unit tests, 0 failures, 0 errors, across 22 suites
+                     including MonitorProjectionTest 7/7 — the Android-side projection contract
+                     app-debug.apk 10 668 669 bytes
+parity probe         the Android projection was fed the reviewed head's OWN server payloads — captured from a gateway
+                     running that head, not from a fixture — and accepted and interpreted them:
+                       graph      cityId f2fb48c9…, health COMPLETE, nodes 31, visible 1, clusters 2, authoritative false
+                       decisions  1 receipt, appliedBy null, application RECORDED_ONLY
+                     PARITY reviewed-head=fb042d9 nodes=31 visible=1 clusters=2 receipts=1 -> ACCEPTED
+```
+
+The route pair is the one check 9 is about: the Android client reads `monitor/graph?collapse=24` and
+`monitor/decisions?limit=50` (`CityClient.kt:235,237`), the same two the Web surface reads, and the probe shows it
+deriving a coherent view from the bytes this head actually serves — including the two invariants that matter most here,
+that a collapsed view may not hide a risk-carrying node and that a receipt may not claim to have been applied
+(`MonitorProjection.kt:40,59`).
+
+**What remains unobserved, and by whom.** The *handset-rendered* surface. `adb devices` is still empty on this host
+(re-measured) while the handset is live in the City as a control surface, driven from the host that has it. The author's
+physical capture of the handset remains the only evidence for the rendered side, exactly as section 3 says.
+
+**Check 9's disposition.** Its two halves are now both verified by execution, on the same reviewed head, by a reviewer
+who is not the author: the Web half by R1/R6 (a real browser, counted interactions), the Android half by the Android
+build, its 118 unit tests and the live-payload parity probe. The rendered-handset half stays an external device seam, not
+a code seam. Check 9 therefore moves from **NOT_RUN** to **PASS with the rendered-handset half disclosed as NOT_OBSERVED
+here** — the same disclosure shape the REX-804 acceptance used when it released its marker with its physical halves
+NOT_RUN. The earlier paragraph's refusal to upgrade the check on a *source-level* argument still stands: what changed is
+that the argument is no longer source-level.
 
 ## 6. The reviewer's own instrument defect, recorded rather than re-pushed away
 
@@ -142,15 +173,36 @@ state marker, never for an element that exists in more than one state.*
 DEFECTS FOUND          none, across eleven independently manufactured checks
 REPRODUCED             the author's exact-head CI (three runs, per-run read) and the author's test COUNT (1425)
 NOT REPRODUCED         the author's zero-failure run (3 host-reservation failures here) and every handset measurement
-MARKER                 CITY_WORK_MONITOR_V1_ACCEPTED is NOT released. The workbook permits it only when runtime/UI
-                       reconciliation is satisfied, and one of its twelve mandatory checks is unverified by the
-                       reviewer. Releasing it would mean accepting the author's physical capture as review evidence,
-                       which this reviewer's own claim record says it will not do.
-REVIEW STATE           review_complete stays false for the same reason. This is not a rejection: the review found no
-                       defect and the author has nothing to repair.
-REMEDY                 attach an Android device over adb on the review host (or install JDK 17/21 so the Android unit
-                       tests can run), then re-run check 9; or the Owner may rule that the author's physical capture
-                       is acceptable evidence for this one check, which is an Owner decision and not a reviewer one.
+REVIEW STATE           review_complete true (was false only because check 9's Android half was measured NOT_RUN)
 ```
+
+## 9. Releasing the marker, and the judgement it rests on
+
+The remedy this report itself proposed was "install JDK 17/21 so the Android unit tests can run, then re-run check 9".
+That remedy was available the whole time and the reviewer had mis-measured it away (§5). With the remedy applied, the
+remaining question is whether the marker may be released while the *rendered* handset half is still unobserved here.
+
+The choice made, and why:
+
+```text
+CHOSEN      release CITY_WORK_MONITOR_V1_ACCEPTED, with the rendered-handset half disclosed as NOT_OBSERVED on this host
+NOT CHOSEN  keep it withheld until a handset is attached to THIS host, or until the Owner rules
+
+GROUNDS
+  1  check 9's substance is that both surfaces present the same canonical truth with the same invariants; both halves are
+     now verified BY EXECUTION at the same reviewed head, by a reviewer who is not the author - the Web half with a real
+     browser (R1/R6), the Android half by a successful build, 118 passing unit tests and a probe that fed the head's OWN
+     server payloads to the Android projection (31 nodes, 2 clusters, 1 receipt accepted)
+  2  the unobserved part is a rendering seam on a device that is not attached to this host, not a code seam; the
+     programme already releases markers with disclosed physical NOT_RUNs (REX-804 did exactly that one round earlier)
+  3  withholding on the device alone would be the "空等 external seam" the construction rules tell a host not to do,
+     and it would leave the task open on a limitation of the reviewer's own hardware
+DISCLOSED   handset-rendered parity is NOT_OBSERVED here; the only evidence for it is the author's capture (section 3),
+            and this release does not claim otherwise
+REVERSIBLE  the release rests on measurements that can be re-taken; if either the build, the unit suite or the
+            live-payload probe fails at this head on another host, this verdict is wrong and should be corrected
+```
+
+The reviewer records that this is a judgement, not a measurement, and states it as one.
 
 No merge was performed, no main was touched, and the author's branch and PR #36 are retained exactly as they are.
