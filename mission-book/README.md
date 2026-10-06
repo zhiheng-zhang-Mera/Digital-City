@@ -19,12 +19,12 @@
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 > 已完成 programme 不在主任务栏重复展示；统一收纳于 [finished/README.md](./finished/README.md)，但仍计入全城合计和 `MISSION_PROGRESS.json`。
 
-**全城合计：总任务 85/93 · 开发 87/93 · 复检 85/93**  
-**当前未收口项目池：总任务 15/23 · 开发 17/23 · 复检 15/23**
+**全城合计：总任务 85/93 · 开发 88/93 · 复检 85/93**  
+**当前未收口项目池：总任务 15/23 · 开发 18/23 · 复检 15/23**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
-| [Research Strengthening](./research-strengthening/README.md) | **2/8** | **3/8** | **2/8** | IN_PROGRESS |
+| [Research Strengthening](./research-strengthening/README.md) | **2/8** | **4/8** | **2/8** | IN_PROGRESS |
 | [City Work Monitor](./city-work-monitor-dashboard/README.md) | **3/4** | **4/4** | **3/4** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
@@ -83,7 +83,7 @@
 | ID | 项目 | 状态 | 开发 | 复检 |
 |---|---|---|:---:|:---:|
 | [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
-| [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | IN_PROGRESS | — | — |
+| [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
