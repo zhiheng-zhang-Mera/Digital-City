@@ -75,3 +75,6 @@ Two instrument notes, both mine, both kept because deleting the evidence of one'
 loses its value: the first run **aborted** because a bare `chromium.launch()` fails on this host and the task's
 own E2E uses `channel: 'msedge'` — I copied its launch rather than skipping the check; and the second run's
 false failure is described above.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_ROOMS_LEG_AND_LOCALISATION_DIVERGENCE.md)

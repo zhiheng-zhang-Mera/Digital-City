@@ -69,3 +69,6 @@ addition to the cross-host run that passed 13/13 and the UI-level result-return 
 
 `mission-book/reports/UXI-391/review-by-mech/handoff-verification.json` — the task id, both node ids, the
 from/to ownership refs, the epoch, the final state and result, and all seventeen results.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_SINGLE_HOST_SEAM_PASS.md)

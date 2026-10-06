@@ -109,3 +109,6 @@ The release now releases the guard hold too, and my run is the evidence a third 
 screenshots), `handoff-verification.json`, `load-semantics-by-mech.json`, `repair-verification-by-mech.json`;
 and the narrative records `VERIFICATION_MECH_*`, `FINDING_MECH_*`, `CORRECTION_MECH_*`,
 `REESTABLISHMENT_MECH_*` and `REVIEW_LEDGER_MECH_UXI391.md`.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_REPORT.md)

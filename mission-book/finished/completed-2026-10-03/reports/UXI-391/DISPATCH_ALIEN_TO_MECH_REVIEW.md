@@ -111,3 +111,5 @@ CITY_NODE_TOKEN = uxi391-dualhost-node
 A 侧启动时会把 `URL / CITY_TOKEN / CITY_NODE_TOKEN` 打印出来，并写入
 `evidence/raw/mission-book/UXI-391/dualhost-host-a.json`（该文件含 url、port、nodeA、targetTaskId），
 因此即使我们不同时在线，你的 B 侧也能凭这份记录对齐。
+
+[阅读译本 / Reading translation](./en/DISPATCH_ALIEN_TO_MECH_REVIEW.md)

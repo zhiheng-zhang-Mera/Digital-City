@@ -89,3 +89,8 @@ monorepo/single-repo 内仍可以通过 package/module boundary、contract tests
 ## 完成门槛
 
 形成可机器检查的 dependency/lifecycle rule proposal 与最小 boundary tests。
+
+
+---
+
+语言读本 / Reading translation: [English](en/URA-003-dependency-lifecycle-failure-boundaries.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

@@ -135,3 +135,5 @@ proposed_next_action
 ## 完成门槛
 
 版本化 Constitution + decomposition contract + ProblemGraph/TaskCapsule/ResultEnvelope schema + invariant tests + authority boundary + failure semantics。
+
+语言配对 / Language pair: [English reading](./en/DGX-002-constitution-and-core-deliberation-contracts.md)

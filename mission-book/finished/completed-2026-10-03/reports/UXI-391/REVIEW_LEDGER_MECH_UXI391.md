@@ -81,3 +81,6 @@ Stated because a ledger that lists only successes is not a ledger.
 1. Re-run the cross-host half with my node named **`Mech-test`** once the development host's window is open.
 2. Re-check gates 9–12 after step 7.
 3. Write `review_result` and set `review_complete`.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_LEDGER_MECH_UXI391.md)

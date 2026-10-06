@@ -1,3 +1,8 @@
+# Mission workbook template — English reading version
+
+[Authoritative template](../MISSION_TEMPLATE.md). This reading copy is documentation; the YAML example below is not a registered workbook.
+
+```yaml
 ---
 workbook_id: XX-000
 phase: PHASE_NAME
@@ -47,6 +52,8 @@ owner_gate: NONE
 merge_authority: false
 report_path: null
 ---
+```
+
 
 # XX-000 — Workbook title
 

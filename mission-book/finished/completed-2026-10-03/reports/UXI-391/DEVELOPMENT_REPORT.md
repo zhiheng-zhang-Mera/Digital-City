@@ -182,3 +182,5 @@ App 指向本次运行的 Gateway（未重启、未指向 B），面板在该运
 
 **合并预览（当时实测）**：分支相对 `origin/main` 为 `17 files changed, +1700/-20`，`main` 是分支祖先（可 fast-forward），
 新增 7 个脚本、1 个测试、5 份证据、`services/dev-gateway/handoff.mjs`，并修改 `presentation.mjs` / `server.mjs` / `gateway-presentation.test.mjs`。
+
+[阅读译本 / Reading translation](./en/DEVELOPMENT_REPORT.md)

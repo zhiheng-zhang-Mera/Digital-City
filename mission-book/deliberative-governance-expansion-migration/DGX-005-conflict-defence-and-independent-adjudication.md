@@ -131,3 +131,5 @@ evidence_refs
 ## 完成门槛
 
 冲突不会静默覆盖；仲裁 provenance 可追踪；能证明 Pass A 与 Pass B 的信息边界；缺证据时不得伪造确定结论。
+
+语言配对 / Language pair: [English reading](./en/DGX-005-conflict-defence-and-independent-adjudication.md)

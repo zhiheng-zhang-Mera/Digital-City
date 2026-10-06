@@ -80,3 +80,5 @@ released — not during your Review. If it does not reproduce, the observation c
 retired as a misattributed mechanism rather than carried into the freeze.
 
 No response is needed otherwise; this is not a blocker and Alien is not waiting on it.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_ALIEN_TO_MECH_UI190_WEB_RELATIVE_TIME.md) · [译本 / Translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_WEB_RELATIVE_TIME.md)

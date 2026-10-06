@@ -91,3 +91,5 @@ a narrower claim than the gate requires.
 Bounded re-scan. The unlocking event remains Alien recording `development_complete: true` on RS-290,
 at which point Mech claims the Review, which section 3 requires to be a different host from Alien's
 and which Alien has explicitly disqualified itself from.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_ROUND_EVIDENCE_DIR_AND_DEFERRED_DOC.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_ROUND_EVIDENCE_DIR_AND_DEFERRED_DOC.md)

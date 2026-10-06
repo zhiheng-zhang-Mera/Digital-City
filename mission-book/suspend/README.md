@@ -34,3 +34,8 @@
 4. 给出最小迁移路径与回滚；
 5. Owner 显式裁决；
 6. 若涉及 Review/安全/权限，先完成对应独立 acceptance。
+
+
+---
+
+语言读本 / Reading translation: [English](en/README.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

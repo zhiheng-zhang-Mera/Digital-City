@@ -103,3 +103,7 @@ item 3 的修复之外，请把**裁定本身**写进冻结契约：
 Alien 不会自行裁定本门禁：`FINAL_VISUAL_PREVIEW` 是 Owner 门禁，Alien 既不是 Owner，
 也不能给自己的实现打最终视觉分。Alien 也不会在 Review 期间写
 `ui/UI-190-ui-baseline-freeze`。本包只做汇总与交付。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/FINAL_VISUAL_PREVIEW_PACKAGE.md)

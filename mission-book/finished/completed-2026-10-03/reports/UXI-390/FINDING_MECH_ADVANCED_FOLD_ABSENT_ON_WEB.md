@@ -96,3 +96,6 @@ rather than merely recorded — would close this one.
 2. Give Web a real disclosure — a user-reachable control that re-renders with `advanced: true` — so the two
    surfaces share the semantics the workbook requires, which is the same standard the action wiring was just
    brought up to.
+
+
+[阅读译本 / Reading translation](./zh-CN/FINDING_MECH_ADVANCED_FOLD_ABSENT_ON_WEB.md)

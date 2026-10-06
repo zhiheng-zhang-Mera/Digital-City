@@ -637,3 +637,7 @@ A blocker is preferable to false completion.
 [ ] FINAL_STATUS = PRE_ASSISTANT_TERMINAL_FOUNDATION_COMPLETE
 [ ] STOP
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)

@@ -76,3 +76,6 @@ verified.
 
 `mission-book/reports/UXI-391/review-by-mech/load-semantics-by-mech.json` — the live vector, the live pressure
 judgement, the five dimensions and every assertion above.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_LOAD_SEMANTICS.md)

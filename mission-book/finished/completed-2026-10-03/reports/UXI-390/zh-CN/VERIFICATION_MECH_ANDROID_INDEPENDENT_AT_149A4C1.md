@@ -1,0 +1,70 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../VERIFICATION_MECH_ANDROID_INDEPENDENT_AT_149A4C1.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# VERIFICATION — Mech：149a4c1被审head、360dp窄屏独立Android验收
+
+```text
+FROM = Mech (Review host)   TREE = 149a4c14b596b92f04fab6269eca1dcb7727303f  (verified by git rev-parse)
+DEVICE = utopia36 AVD, sdk_gphone64_x86_64, Android 16, 720x1600 @ 320dpi = 360dp
+STATUS = part of the UXI-390 REVIEW. Gate items are scored only in the review verdict, not here.
+```
+
+记录释义：Mech Review主机，git rev-parse核验完整tree；utopia36 AVD sdk_gphone64_x86_64、Android16、720x1600/320dpi=360dp。属Review，gate仅verdict评分。
+
+## 为什么运行
+
+Gate4“真实dual-device E2E”MET仅依据Web E2E与 **只有Alien在自身真机运行的Android验收**。§3不允许review在不可见另一半只依作者测量，这是本task首独立Android。Handoff还留reviewer按需加narrow coverage，360dp正如此。
+
+## 方法
+
+全部同process，因调用结束harness杀tree；distinct port、freshCITY_DATA启动真实gateway/reference node。**先kill executor再create work**，不能complete，真正waiting panel，复用Alien recipe。通过/data/local/tmp及run-as cp以本run token seed app自身connection；adb reverse设备loopback，force-stop/relaunch，走全部bottom tabs逐页dump UI tree。
+
+**首次拍错页**：tab walk停Activity，图为timeline非scheduler。保留非悄换，不支持所求claim。Recapture **断言自身precondition**，header确认才capture，正是Alien scripts抓三instrument faults纪律。
+
+## 实测结果
+
+**1. 默认无raw RS290token leak—PASS**。全部22tokens：PRESSURE_PAUSED、USER_DEVICE_DISABLED family、FRESHNESS_*、AT_CAPACITY、SESSION_CONGESTED、LOAD_UNMEASURED、POLICY_EXCLUDED、CHANNEL_READINESS_UNKNOWN、AVAILABILITY_UNKNOWN、REMOTE_STATE_UNKNOWN、REMOTE_ONLINE、SESSION_ENDED、CREDENTIALS_MISSING、REGION_UNSUPPORTED、SELECTABLE、DEVICE_ONLINE、STRUCTURAL、RESOURCE，搜 **每tab** 6pages/50strings **零匹配**。Narrow Android独立确认gate2。
+
+**2. Panel用户语言、仅Devices**，与Webplacement相同：
+
+```text
+WHY THINGS ARE WAITING
+Running in a reduced state
+The current service is responding slowly. Use another available one?
+Some of what this depends on is not fully known right now.
+Not available · This device isn't taking new work
+Cancel
+Choose another service
+SCHEDULING DETAIL
+展开
+```
+
+原块释义：为何等待、降级状态、当前service慢是否用其他、依赖未知、不可用因设备不接work、Cancel/换service、调度detail/展开。
+
+**3. 诚实控件在pixels非仅source**：Cancel live accent，Choose another service **grey**，supportedActions={CANCEL}及live要求handler/token-supported/not-unwired上屏。8ab8225/cd298c3修复独立确认。
+
+**4. Advanced存在且collapsed**，SCHEDULING DETAIL加expand，Android承载Web曾缺失后修项。
+
+## 360dp visual critic（§3Review主机责任）
+
+**V-1：共享component expand/collapse为硬编码中文**：
+
+```kotlin
+apps/android/app/src/main/java/city/utopia/control/ui/UtopiaComponents.kt:243
+  Text(if (open) "收起" else "展开", style = ..., color = ...)
+```
+
+周围全部English，故英文panel夹中文control。Title已localised，唯affordance literal非resource。
+
+**归因避免误评分**：TechnicalDetails在shared UtopiaComponents.kt，由panel **复用** 非重写，正确fold非delete纪律。Defect属 **冻结UI190 component** 非UXI390引入。因review surface可见且gate5一致要求而记，但归baseline非本task。
+
+**V-2：rawtask id窄屏wrap撞state**。Q-6c889879-2ee2-4e63-8793-bc2f3bb98205右列折 **四行**，碎段-2ee2-4e63/-8793-bc2f/3bb98205紧邻Running in a reduced state，读线破坏。1440x900无，正是reviewer加narrow理由。Id也是默认rawproduct vocabulary，邻近但非gate2的22token禁令。
+
+此项 **尚不归因**：layout属UXI301，但UI190是否已有id convention需先读baseline才归责。
+
+## 证据
+
+mission-book/reports/UXI-390/mech-review/：android-sweep.json全部6pages/strings/22search零结果；android-panel-texts.json captureprecondition/text；android-devices-360dp.png **错页首图保留**；确认header才capture的android-panel-devices-360dp.png，SHA25691bf81aa0d7d9dc25b439de68f96f8f04005824f7a1acbd9e0fd58a7be293708。
+
+**披露policy张力，不自行解决**：PROCESS_DATA_POLICY第16行禁City堆screenshots，故Alienpixels在implementationrepo。Visualcritic/Ownergate都需pixels，此处发两小图并请Owner，非单方面解释。若不许City留，可按本报告两scripts精确重生。

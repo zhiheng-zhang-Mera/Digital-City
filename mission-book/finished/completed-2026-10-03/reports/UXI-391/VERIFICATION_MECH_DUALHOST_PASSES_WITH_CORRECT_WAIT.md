@@ -80,3 +80,6 @@ passes on **memory** with `cpu=null`.
 `evidence/raw/mission-book/UXI-391/review-by-mech/dualhost-b-by-mech.json` — the receipt written by my own
 instrument, carrying the target id, both node ids, the from/to ownership refs, the epoch, the final state and
 result, and every assertion above.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_DUALHOST_PASSES_WITH_CORRECT_WAIT.md)

@@ -1,4 +1,4 @@
-> 中文阅读译本 / Reading translation。此文件没有工作书元数据，也不赋予 authority。以下规则与状态属于历史归档；[canonical source](../MISSION_TEMPLATE-legacy.md) 的原始 frontmatter 是唯一元数据来源。
+> English reading version. This copy has no workbook metadata and grants no authority. The rules and states below belong to the historical archive; the original frontmatter of the [canonical source](../MISSION_TEMPLATE-legacy.md) remains the sole metadata source.
 
 # MB-XXX — Mission title / 任务标题
 

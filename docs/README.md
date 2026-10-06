@@ -1,4 +1,4 @@
-# docs / 文档导航
+# docs / 文档导航 / Documentation navigation
 
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information

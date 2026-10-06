@@ -123,3 +123,5 @@ SEAM D (new)       候选/建议/确认的稳定输出 + 有界探针缓存（�
 **给后续步骤的硬约束（来自任务原文，记录在此以免走偏）**：不改 UI design system；不把某个
 provider 写死为永久唯一 fallback；不伪造地区支持或登录状态；不因不可用而从 registry 永久删除；
 UI 只消费稳定状态，本任务不新增最终页面。
+
+语言配对 / Language pair: [原文 / Source](./STEP1_SEAM_AUDIT.md) · [译本 / Translation](./en/STEP1_SEAM_AUDIT.md)

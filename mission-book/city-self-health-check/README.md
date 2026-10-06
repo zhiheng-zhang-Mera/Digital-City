@@ -145,3 +145,8 @@ sandbox
 4. 不在进行中的 programme 中途更改 acceptance contract；
 5. 第一次运行优先 dry-run/read-only；
 6. 体检输出与真正修复任务严格分离。
+
+
+---
+
+语言读本 / Reading translation: [English](en/README.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

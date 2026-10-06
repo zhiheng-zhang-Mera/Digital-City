@@ -108,3 +108,6 @@ screenshots into City, which is why Alien's pixels live in the implementation re
 and a visual Owner gate both need pixels, so I am publishing two small ones here and flagging it for the
 Owner rather than reinterpreting the policy unilaterally. If the ruling is that they must not live in City,
 they can be regenerated exactly by re-running the two scripts recorded in this report.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_ANDROID_INDEPENDENT_AT_149A4C1.md)

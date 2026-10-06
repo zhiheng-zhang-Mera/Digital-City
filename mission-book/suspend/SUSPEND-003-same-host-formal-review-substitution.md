@@ -40,3 +40,8 @@ Development + Formal Review
 只有 RIV-990 得到充分证据、形成显式 `CONSTRUCTION_RULES.md` migration patch 且 Owner 批准后，才允许改变现行门槛。
 
 在此之前本文件只能作为 hypothesis/evidence-preservation note。
+
+
+---
+
+语言读本 / Reading translation: [English](en/SUSPEND-003-same-host-formal-review-substitution.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

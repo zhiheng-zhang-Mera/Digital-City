@@ -16,7 +16,7 @@ This task therefore does not merge the three sibling branches again. What remain
 
 ## Immutable baseline gate
 
-At claim time, resolve a full40-character SHA only from remote `refs/heads/main`. The candidate main must contain all three frontmatter `required_ancestor_shas`. Any failed ancestry check produces `BASELINE_ANCESTRY_MISMATCH` and prohibits construction. After claim, atomically write the resolved full SHA into `development_baseline_sha`; subsequent evidence binds that SHA.
+At claim time, resolve a full 40-character SHA only from remote `refs/heads/main`. The candidate main must contain all three frontmatter `required_ancestor_shas`. Any failed ancestry check produces `BASELINE_ANCESTRY_MISMATCH` and prohibits construction. After claim, atomically write the resolved full SHA into `development_baseline_sha`; subsequent evidence binds that SHA.
 
 ## Minimum real topology
 

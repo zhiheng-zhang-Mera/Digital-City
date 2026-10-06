@@ -119,3 +119,7 @@ rescan  约 20 分钟一次（§5.1 兜底，不 busy-poll）
 ```
 
 
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/OWNER_STYLE_RULING.md)

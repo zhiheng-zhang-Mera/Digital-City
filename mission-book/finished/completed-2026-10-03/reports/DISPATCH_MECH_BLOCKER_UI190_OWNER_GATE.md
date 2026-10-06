@@ -99,3 +99,5 @@ than parking it: two critic rounds by self-built and deliberately different inst
 Android connected capture on the route Development had recorded as exhausted, one confirmed defect
 found and repaired and verified two-sided, and the bounded `REVIEW_REPORT.md` written where
 `report_path` had pointed at an empty directory.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_BLOCKER_UI190_OWNER_GATE.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_BLOCKER_UI190_OWNER_GATE.md)

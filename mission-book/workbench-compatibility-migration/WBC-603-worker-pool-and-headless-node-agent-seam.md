@@ -133,3 +133,5 @@ STANDARD_DEVICES
 
 - `mission-book/reports/WBC-603/DEVELOPMENT_REPORT.md`
 - `mission-book/reports/WBC-603/REVIEW_REPORT.md`
+
+语言配对 / Language pair: [English reading](./en/WBC-603-worker-pool-and-headless-node-agent-seam.md)

@@ -127,3 +127,84 @@ REMEDY                 attach an Android device over adb on the review host (or 
 无merge/main改，author branch/PR36原样保留。
 
 语言配对 / Language pair: [English](../REVIEW_REPORT.md) · [中文](./REVIEW_REPORT.md)
+
+
+## 2026-10-06正式复检更新：以下取代上方历史待验收裁决
+
+上方保留的是此前 Android NOT_RUN、标记未释放的历史译文。规范原报告现已修正§5、§7并新增§9，完整新增正文如下；当前状态以原工作书及本次正式复检为准。
+
+### 5. 第9检查的 Android 部分：纠正工具链声明后实测
+
+先纠正：旧报告称本机只有 JDK26，不能构建 Android。这是复检者测量错误，不是主机限制；只查看PATH中的java就推断没有别的JDK。Temurin17.0.18一直已安装于：
+
+```text
+C:\Users\15601\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2\bin\java.exe
+openjdk version "17.0.18" 2026-01-20   (Temurin-17.0.18+8)
+```
+
+判断一台主机能做什么，要查找工具，不能只读PATH首项。这与报告其他位置四次记录的测量方法错误同类，且此次由复检者造成。
+
+精确复检版本 fb042d9 的 Android 实测：
+
+```text
+build + unit tests   JAVA_HOME=<the JDK 17 above> gradlew :app:testDebugUnitTest :app:assembleDebug
+                     BUILD SUCCESSFUL in 3m 51s
+                     118 Android unit tests, 0 failures, 0 errors, across 22 suites
+                     including MonitorProjectionTest 7/7 — the Android-side projection contract
+                     app-debug.apk 10 668 669 bytes
+parity probe         the Android projection was fed the reviewed head's OWN server payloads — captured from a gateway
+                     running that head, not from a fixture — and accepted and interpreted them:
+                       graph      cityId f2fb48c9…, health COMPLETE, nodes 31, visible 1, clusters 2, authoritative false
+                       decisions  1 receipt, appliedBy null, application RECORDED_ONLY
+                     PARITY reviewed-head=fb042d9 nodes=31 visible=1 clusters=2 receipts=1 -> ACCEPTED
+```
+
+该路径对就是检查9：Android在 CityClient.kt235/237读取 monitor/graph?collapse=24 和 monitor/decisions?limit=50，与Web相同。探针让Android读取本版本真实服务输出，导出一致视图，包括两个重要不变量：折叠不能隐藏携带风险的节点；receipt不能谎称已执行（MonitorProjection.kt40/59）。
+
+仍未观察的是手机渲染本身。复检主机重新执行adb devices仍为空，手机在City中作为control surface在线但连接到另一主机。作者手机实拍仍是渲染侧唯一证据，正如§3所述。
+
+检查9两半现由非作者复检者在同一版本通过执行验证：Web由R1/R6真实浏览器计数；Android由构建、118单测与live-payload parity probe。因此从NOT_RUN变为PASS，同时明确“本机手机渲染NOT_OBSERVED”。此披露方式与REX804在物理部分NOT_RUN下释放标记一致。此前拒绝仅凭源码升级判断仍有效；改变的是如今证据已通过执行，而非只读源码。
+
+### 7. 当前判定
+
+```text
+DEFECTS FOUND          none, across eleven independently manufactured checks
+REPRODUCED             the author's exact-head CI (three runs, per-run read) and the author's test COUNT (1425)
+NOT REPRODUCED         the author's zero-failure run (3 host-reservation failures here) and every handset measurement
+REVIEW STATE           review_complete true (was false only because check 9's Android half was measured NOT_RUN)
+```
+
+十一项独立制造检查没有发现缺陷；逐项复现作者精确CI三项和测试数量1425。未复现作者零失败（此处三项主机reservation失败）及全部手机测量。review_complete现为true；此前false仅因为第9项Android部分测为NOT_RUN。
+
+### 9. 释放标记及其判断依据
+
+报告原先建议“安装JDK17/21以运行Android测试，再复检第9项”。其实工具一直可用，却被复检者错误测成不存在（§5）。执行该补救后，剩余判断是：复检主机仍未观察手机实际渲染时是否可以释放标记。
+
+选择及理由原证据块保留：
+
+```text
+CHOSEN      release CITY_WORK_MONITOR_V1_ACCEPTED, with the rendered-handset half disclosed as NOT_OBSERVED on this host
+NOT CHOSEN  keep it withheld until a handset is attached to THIS host, or until the Owner rules
+
+GROUNDS
+  1  check 9's substance is that both surfaces present the same canonical truth with the same invariants; both halves are
+     now verified BY EXECUTION at the same reviewed head, by a reviewer who is not the author - the Web half with a real
+     browser (R1/R6), the Android half by a successful build, 118 passing unit tests and a probe that fed the head's OWN
+     server payloads to the Android projection (31 nodes, 2 clusters, 1 receipt accepted)
+  2  the unobserved part is a rendering seam on a device that is not attached to this host, not a code seam; the
+     programme already releases markers with disclosed physical NOT_RUNs (REX-804 did exactly that one round earlier)
+  3  withholding on the device alone would be the "空等 external seam" the construction rules tell a host not to do,
+     and it would leave the task open on a limitation of the reviewer's own hardware
+DISCLOSED   handset-rendered parity is NOT_OBSERVED here; the only evidence for it is the author's capture (section 3),
+            and this release does not claim otherwise
+REVERSIBLE  the release rests on measurements that can be re-taken; if either the build, the unit suite or the
+            live-payload probe fails at this head on another host, this verdict is wrong and should be corrected
+```
+
+选择：释放CITY_WORK_MONITOR_V1_ACCEPTED，明确该主机手机渲染NOT_OBSERVED。未选择：等待手机连接此主机，或等待Owner裁决。
+
+依据1：检查9实质是两端展示相同规范事实及不变量；同版本非作者已通过执行验证Web（真实浏览器R1/R6）和Android（成功构建、118单测、31nodes/2clusters/1receipt的本版本真实载荷投影）。依据2：未观察部分是未连接设备的渲染seam，不是代码seam；系列此前已有带披露物理NOT_RUN的验收（REX804）。依据3：仅因设备等候属于常驻规则要求避免的空等external seam，会把任务卡在复检主机硬件限制上。
+
+明确披露：该主机手机渲染parity NOT_OBSERVED，唯作者§3实拍作证，释放不声称其他。可逆：测量能重跑；若其他主机在同版本构建、单测或live-payload probe失败，裁决应纠正。
+
+复检者明确这是判断而不是测量。没有merge，没有修改产品main，作者分支与PR36原样保留。

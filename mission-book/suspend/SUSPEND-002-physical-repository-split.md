@@ -46,3 +46,8 @@ Utopia 未来可能从单 repo 拆成多个独立 repository/package/release uni
 **Logical decoupling first; physical split only on measured benefit.**
 
 该文件不授权任何 repo split。
+
+
+---
+
+语言读本 / Reading translation: [English](en/SUSPEND-002-physical-repository-split.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

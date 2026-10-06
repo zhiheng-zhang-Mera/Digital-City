@@ -339,3 +339,7 @@ T4 由 **Independent Verification Host** 执行，并"在两台都可用时使�
 
 **范围.** 豁免只涉及"验收主机是否与实现主机不同"这一条；其余 T4 要求（真实执行、独立探针、范围审计、
 独立结论）一项不降。
+
+## Language / 语言
+
+[English full reading](en/response-9-30.md) · 中文原文见上。

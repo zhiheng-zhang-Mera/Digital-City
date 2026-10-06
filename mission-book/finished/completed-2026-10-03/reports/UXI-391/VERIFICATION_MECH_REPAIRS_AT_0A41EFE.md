@@ -85,3 +85,6 @@ the new head, with gate 8 re-verified there. Gates 9–12 remain pending step 7.
 ## Evidence
 
 `mission-book/reports/UXI-391/review-by-mech/repair-verification-by-mech.json`.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_REPAIRS_AT_0A41EFE.md)

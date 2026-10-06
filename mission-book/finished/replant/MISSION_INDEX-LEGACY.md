@@ -216,3 +216,7 @@ branch audit after the merges   : 34 origin refs checked, unmerged = 0
 merged-main CI                  : run 36678805229 on d0dea7b - gateway-web success, android success
 city main (this record)         : 247f20264cd1c0085f068f61ab0eaa18b2825ffd
 ```
+
+## Language / 语言
+
+[完整中文读本](zh-CN/MISSION_INDEX-LEGACY.md) · English source above.

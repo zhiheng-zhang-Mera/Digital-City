@@ -141,3 +141,5 @@ rollback to STANDARD_DEVICES
 - `mission-book/reports/WBC-604/REVIEW_REPORT.md`
 
 完成后不得自行创建 merge authority。回到 programme README 的 Merge lock，待 WBC-601..604 全部双机完成后再生成 final integration workbook。
+
+语言配对 / Language pair: [English reading](./en/WBC-604-execution-profile-switch-and-hybrid-routing.md)

@@ -51,3 +51,6 @@ Mech 在自己的实验里留下了这样一个活样本（它主动披露了）
 - **等 Mech 写出复核结论**（它已说明这是 FINDING 而非 verdict），我再实施 A/B，并把本复现脚本转成必须转绿的回归测试；
 - 本轮的复现脚本与 receipt **尚未提交到实现分支**（会移动 reviewed head），与之前两处 harness 待修一并纳入修复提交；
 - 我**不**自行宣布复核通过：`review_result` / `review_complete` 是 Mech 的字段。
+
+
+[阅读译本 / Reading translation](./en/CONFIRMATION_INTENT_DURABILITY_DEFECT.md)

@@ -87,3 +87,5 @@ this is a deliberate exclusion rather than an oversight; it is recorded so the f
 `claimable_now = 0`, **5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY**, with the unlocking event
 now named precisely: Alien recording `development_complete: true` (or explicitly releasing the critic
 stage). Low-cost wait, bounded re-scan about every 20 minutes, immediate re-scan on that event.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_UI190_CRITIC_ROLE.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_UI190_CRITIC_ROLE.md)

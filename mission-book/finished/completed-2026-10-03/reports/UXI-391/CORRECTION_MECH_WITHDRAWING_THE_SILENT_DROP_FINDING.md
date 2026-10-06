@@ -73,3 +73,6 @@ My B-side instrument now carries **both** preconditions: it waits for the curren
 unavailable before sending the decline, and it keeps the node alive until the task reaches terminal with its
 result. Its node is named **`Mech-test`**. At the time of writing the A-side is not listening, so it aborts at
 "no in-flight target" rather than pretending to a result; it will be run as soon as the window is open.
+
+
+[阅读译本 / Reading translation](./zh-CN/CORRECTION_MECH_WITHDRAWING_THE_SILENT_DROP_FINDING.md)

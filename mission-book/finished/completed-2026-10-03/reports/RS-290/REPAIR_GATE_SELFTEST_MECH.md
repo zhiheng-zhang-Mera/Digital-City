@@ -79,3 +79,5 @@ Both were caught by execution rather than by reading, which is the only reason t
 Nothing about the verdict: `review_complete` stays `false` and the repair is still Alien's per the
 Owner ruling. What it changes is that the repair is now a bounded, proven-small change with an
 acceptance gate Alien can run before pushing, rather than an open-ended request.
+
+语言配对 / Language pair: [原文 / Source](./REPAIR_GATE_SELFTEST_MECH.md) · [译本 / Translation](./zh-CN/REPAIR_GATE_SELFTEST_MECH.md)

@@ -1,0 +1,119 @@
+> English reading translation / 英文阅读译本. The [original document](../CHK-301-quarterly-architecture-self-review.md) remains authoritative for status and evidence. This reader grants no claim, execution, activation, or migration authority.
+
+# CHK-301 — Quarterly Architecture + Self Review / Quarterly architecture and self-review
+
+> **PARKED / NOT ACTIVATED.** Currently preserves only the quarterly self-check design; it authorizes no self-modification.
+
+## Objective
+Building on the CHK-201 full check, answer:
+
+> How does City/Utopia currently understand itself? What recurring “illnesses” have appeared recently? Which improvements deserve consideration as safe self-evolution candidates?
+
+## A. Self Cognition
+Use the Capability Registry, City topology, URA, Mission Book, dependency graph, and runtime evidence to establish a queryable self-model:
+
+```text
+what capabilities exist
+where implemented
+canonical owner
+dependencies/dependents
+authority
+user surfaces
+runtime state
+blast radius
+unknown / not measured / unavailable
+```
+
+The main correspondence is Boss BLG-001, but reconstruct by default rather than copying the old implementation.
+
+## B. Self Diagnosis
+Build diagnoses with multiple hypotheses for quarterly findings:
+
+```text
+symptom
+→ observations
+→ hypotheses
+→ missing evidence
+→ root cause / contributing factor / downstream symptom
+→ treatment candidates
+```
+
+Separate diagnostic authority from repair authority. Corresponds to BLG-002.
+
+## C. System Case Record
+Consolidate recurring defects and recovery events into long-term case records:
+
+```text
+symptom history
+initial hypotheses
+revisions
+repairs/rejected repairs
+verification
+root cause
+recurrence links
+lessons/candidate rules
+```
+
+Do not overwrite original judgments with hindsight. Corresponds to BLG-003.
+
+## D. Runtime Intelligence Review
+Quarterly aggregation:
+- Provider/model fit for tasks;
+- Routing outcomes;
+- When splitting, reviewing, or switching models helped or harmed;
+- Bottlenecks;
+- Stale or unused skills;
+- Continuation and stopping quality;
+- Resource and budget observations.
+
+Corresponds to BLG-004 / BLG-005. Produce recommendations; do not directly change routing policy.
+
+## E. Boss Legacy Reconciliation
+Always review BLG-001 through BLG-006:
+
+```text
+SUPERSEDED
+KEEP_AS_REFERENCE
+LEGACY_HARVEST_CANDIDATE
+PARTIALLY_RECOVERED
+STILL_MISSING
+```
+
+Do not migrate Boss back as an entire package.
+
+## F. Evolution Review
+Find recurring patterns in verified episodes and system cases, producing:
+
+```text
+candidate_id
+source_patterns
+problem_statement
+proposed_change
+expected_benefit
+risk
+authority_scope
+affected_capabilities
+replay/shadow opportunity
+rollback_plan_candidate
+evidence_needed
+recommended_destination
+```
+
+Only these outputs are permitted:
+- NO_CHANGE;
+- OBSERVE_MORE;
+- EVOLUTION_CANDIDATE;
+- RETIRE_RULE_CANDIDATE;
+- RECLASSIFY_CAPABILITY_CANDIDATE;
+- LEGACY_HARVEST_CANDIDATE;
+- SUPERSEDED_BOSS_CAPABILITY.
+
+## Prohibitions
+- Automatically changing production rules;
+- Automatic promotion;
+- Turning experience directly into authority;
+- Bypassing the Owner gate through quarterly review;
+- Manufacturing candidates because evolution is assumed to be mandatory.
+
+## Completion gate
+Produce a quarterly self-review package in which every candidate is traceable to evidence or a case. Producing an evolution candidate is not required.

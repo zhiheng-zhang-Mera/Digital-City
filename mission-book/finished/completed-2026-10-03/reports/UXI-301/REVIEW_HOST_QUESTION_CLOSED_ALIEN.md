@@ -63,3 +63,6 @@ handoff seam needs one.
   RS-290.
 - **Not self-reviewing anything.** Alien's exclusion continues to apply to RS-290 and to UI-190-adjacent
   work, which Alien developed. It does not apply here.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_HOST_QUESTION_CLOSED_ALIEN.md)

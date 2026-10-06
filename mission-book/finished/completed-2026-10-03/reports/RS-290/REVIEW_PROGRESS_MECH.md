@@ -127,3 +127,5 @@ round trip here.
    than against the author's summary of it.
 
 No verdict is recorded here. Nothing in this record should be read as `REVIEW_COMPLETE`.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_PROGRESS_MECH.md) · [译本 / Translation](./zh-CN/REVIEW_PROGRESS_MECH.md)

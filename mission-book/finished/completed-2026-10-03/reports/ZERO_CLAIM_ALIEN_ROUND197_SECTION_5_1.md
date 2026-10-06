@@ -115,3 +115,5 @@ the handoff seam was resolved to "unreachable by design" out of the product's ow
 false premise implied a reachable seam (`d9d317a`) — the completion gate was audited item by item as
 MET / NOT MET (`ab66d59`), and the deferral's recorded reason, which was measurably false, was replaced with
 the true one (`c028e4a`).
+
+语言配对 / Language pair: [原文 / Source](./ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md) · [译本 / Translation](./zh-CN/ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md)

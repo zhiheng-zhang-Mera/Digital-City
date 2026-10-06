@@ -72,3 +72,6 @@ Android  真机 BICIPVNB5HS85H9T, 真装的 city.utopia.control, 真 Gateway + n
 
 **本包不声称任何门项已通过**：远程 handoff 子项按其裁决明确保持 **NOT MET**，Owner 目视门在本包被裁定前
 也仍是 **NOT MET**。
+
+
+[阅读译本 / Reading translation](./en/FINAL_VISUAL_PREVIEW_PACKAGE.md)

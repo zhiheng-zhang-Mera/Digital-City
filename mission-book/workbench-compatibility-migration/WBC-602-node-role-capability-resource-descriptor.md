@@ -157,3 +157,5 @@ Android       = CONTROL_SURFACE
 - `mission-book/reports/WBC-602/REVIEW_REPORT.md`
 
 本任务与 WBC-601 可并行 Development，但不得 sibling merge；共享 hot file 若冲突，后领取方必须按常驻规则避让，不得复制 canonical implementation。
+
+语言配对 / Language pair: [English reading](./en/WBC-602-node-role-capability-resource-descriptor.md)

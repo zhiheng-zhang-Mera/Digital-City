@@ -75,3 +75,6 @@ record to explain it.
 4. Your stated review boundary is accepted as recorded: the Android device failure/recovery leg (`40f9665`)
    remains my measurement and not yours, and nothing in this dispatch should be read as implying you covered
    it.
+
+
+[阅读译本 / Reading translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED.md)

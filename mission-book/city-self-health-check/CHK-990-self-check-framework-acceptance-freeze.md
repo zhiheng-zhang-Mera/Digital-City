@@ -82,3 +82,8 @@ report_path: null
 只有通过 CHK-990 后，才允许把小/大/季度体检变成真正周期运行机制。
 
 即使通过，也不自动创建定时任务；调度频率与执行主机需另行显式启用。
+
+
+---
+
+语言读本 / Reading translation: [English](en/CHK-990-self-check-framework-acceptance-freeze.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

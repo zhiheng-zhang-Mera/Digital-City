@@ -178,3 +178,8 @@ recommended_destination
 ## 完成门槛
 
 形成 quarterly self-review package，其中每个候选都能追溯到 evidence/case，不要求一定产生 evolution candidate。
+
+
+---
+
+语言读本 / Reading translation: [English](en/CHK-301-quarterly-architecture-self-review.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

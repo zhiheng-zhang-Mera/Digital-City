@@ -248,3 +248,7 @@ Owner 判断（都不阻塞，也不影响 A/B/C 的可比性）：
    产品序数。这不构成硬规则违反（候选 a 不显示序数、b/c 显示，属设计差异），如需统一可在 UI-101..103
    一并处理。
 
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/REVIEW_REPORT.md)

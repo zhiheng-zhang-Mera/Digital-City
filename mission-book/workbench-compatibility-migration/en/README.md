@@ -2,7 +2,7 @@
 
 [Canonical programme board](../README.md). This reading has no authority fields. Historical READY/merge-lock prose is retained alongside later COMPLETE updates; current canonical workbooks determine status.
 
-All WBC601/602/603/604 tasks are COMPLETE and entered Utopia main (latest integration213f9f9f). WBC604 development and exact-head CI completed and EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED was released. The fail-safe defect that persisted an unavailable selected profile was found and repaired while writing the fail-safe tests.
+All WBC-601/602/603/604 tasks are COMPLETE and entered Utopia main (latest integration 213f9f9f). WBC-604 development and exact-head CI completed and EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED was released. The fail-safe defect that persisted an unavailable selected profile was found and repaired while writing the fail-safe tests.
 
 ## Historical READY / ACTIVE scope and Owner constraints
 
@@ -14,7 +14,7 @@ This programme preserves the Windows two-host operating mode as a lasting compat
 4. Future hardware is enabled by registering nodes, passing readiness and switching Execution Profile, without another large business migration.
 5. Continue Alien/Mech asynchronous Development→opposite-host Formal Review.
 
-Standing rules: [construction](../../CONSTRUCTION_RULES.md), [relief](../../ASYNC_RELIEF_CONSTRUCTION.md), [process](../../PROCESS_DATA_POLICY.md). Accepted three-end baseline9f3e20e8ec99d591812430bee71d27e68c4ad498: [MESH301](../../finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md).
+Standing rules: [construction](../../CONSTRUCTION_RULES.md), [relief](../../ASYNC_RELIEF_CONSTRUCTION.md), [process](../../PROCESS_DATA_POLICY.md). Accepted three-end baseline 9f3e20e8ec99d591812430bee71d27e68c4ad498: [MESH-301](../../finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md).
 
 ## 1. Programme goal
 
@@ -52,7 +52,7 @@ Assistant, Gateway, Remote Fabric, Shared Task Core and UI main flows should not
 
 ### STANDARD_DEVICES — current default, retained long term
 
-Default profile. Existing Windows Alien/Mech paths continue working; adding resources does not change untargeted scheduling; MESH301 strict target-device intent keeps its meaning. Android remains a control surface and is never represented as an execution worker. No absent-Workbench startup failure, global blocker or waiting-for-server state is allowed.
+Default profile. Existing Windows Alien/Mech paths continue working; adding resources does not change untargeted scheduling; MESH-301 strict target-device intent keeps its meaning. Android remains a control surface and is never represented as an execution worker. No absent-Workbench startup failure, global blocker or waiting-for-server state is allowed.
 
 ### WORKER_POOL — future explicit switch
 
@@ -64,18 +64,18 @@ Workbench prefers suitable general compute. Real Windows/macOS/Android/iOS devic
 
 ## 3. Product truths that cannot change
 
-Do not redefine canonical Shared Task Core truth, accepted task lifecycle, lease/ownership/idempotency, Remote Fabric trust/transport ownership, General AI Gateway provider/channel semantics, Engineering Manager/GAI responsibilities, MESH301 strict target semantics, Web/Android control-surface identity or accepted Windows operation. Workbench adapts to these contracts.
+Do not redefine canonical Shared Task Core truth, accepted task lifecycle, lease/ownership/idempotency, Remote Fabric trust/transport ownership, General AI Gateway provider/channel semantics, Engineering Manager/GAI responsibilities, MESH-301 strict target semantics, Web/Android control-surface identity or accepted Windows operation. Workbench adapts to these contracts.
 
 ## 4. Work split
 
 | Task | Status | Goal |
 |---|---|---|
-| [WBC601](../WBC-601-execution-backend-contract-and-standard-default.md) | COMPLETE | Wrap current execution in permanent STANDARD_DEVICES; preserve scheduling results initially. |
-| [WBC602](../WBC-602-node-role-capability-resource-descriptor.md) | COMPLETE | Add compatible node/resource descriptors; old Windows nodes work without new fields. |
-| [WBC603](../WBC-603-worker-pool-and-headless-node-agent-seam.md) | COMPLETE | Dormant pool/agent contract without real Workbench dependency. |
-| [WBC604](../WBC-604-execution-profile-switch-and-hybrid-routing.md) | COMPLETE | STANDARD/WORKER_POOL/HYBRID switching and readiness/fallback semantics. |
+| [WBC-601](../WBC-601-execution-backend-contract-and-standard-default.md) | COMPLETE | Wrap current execution in permanent STANDARD_DEVICES; preserve scheduling results initially. |
+| [WBC-602](../WBC-602-node-role-capability-resource-descriptor.md) | COMPLETE | Add compatible node/resource descriptors; old Windows nodes work without new fields. |
+| [WBC-603](../WBC-603-worker-pool-and-headless-node-agent-seam.md) | COMPLETE | Dormant pool/agent contract without real Workbench dependency. |
+| [WBC-604](../WBC-604-execution-profile-switch-and-hybrid-routing.md) | COMPLETE | STANDARD/WORKER_POOL/HYBRID switching and readiness/fallback semantics. |
 
-### WBC604 remaining defect and published repair — Mech2026-10-06
+### WBC-604 remaining defect and published repair — Mech 2026-10-06
 
 Despite component COMPLETE, an unresolved defect remains on main after two merges. The following original diagnostic block is preserved verbatim, followed by its full English meaning:
 
@@ -99,15 +99,15 @@ NOT DONE 本机不合并（merge_authority=false）；是否采纳由 WBC-604 �
 ```
 
 
-DEFECT: execution-profile.mjs change() alters live state before persistence (profile=requested before persist()). A failed storage write leaves a half-switch: caller receives an exception while the City runs an unpersisted profile. This violates module rule2 (failed activation keeps current profile and never half-switches); bare EPERM and an absolute path reach the Owner surface.
+DEFECT: execution-profile.mjs change() alters live state before persistence (profile=requested before persist()). A failed storage write leaves a half-switch: caller receives an exception while the City runs an unpersisted profile. This violates module rule 2 (failed activation keeps current profile and never half-switches); bare EPERM and an absolute path reach the Owner surface.
 
-MEASURED: merged-mainb06504f unit sweep throws EPERM while live STANDARD_DEVICES changes to WORKER_POOL.
+MEASURED: merged main b06504f unit sweep throws EPERM while live STANDARD_DEVICES changes to WORKER_POOL.
 
-REPAIR: repair/WBC-604-mech-profile-persist-first-on-current-main atad1b3e8, built on current main rather than the old base. GUARD: startup-store-family-guard.test.mjs on the test/mech-startup-store-family branch; exact original branch, head and probe identities are retained in the block above. Before repair, the guard exposes surviving F3 EPERM; with repair12/12. CIpush37429465001 succeeds attempt1. After repair, F3 and three WBC604 suites19/19; sweep throws PROFILE_STORE_UNAVAILABLE and live STANDARD_DEVICES remains unchanged. Full1359/1362 has three resident-City environment failures. Hostedpush37425834472 succeeds attempt1, Android and Gateway/Web green. Pattern family: reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md F3. NOT DONE: no local merge (merge_authority=false); the WBC604 record holder decides adoption.
+REPAIR: repair/WBC-604-mech-profile-persist-first-on-current-main at ad1b3e8, built on current main rather than the old base. GUARD: startup-store-family-guard.test.mjs on the test/mech-startup-store-family branch; exact original branch, head and probe identities are retained in the block above. Before repair, the guard exposes surviving F3 EPERM; with repair: 12/12. CI push 37429465001 succeeds attempt 1. After repair, F3 and three WBC-604 suites 19/19; sweep throws PROFILE_STORE_UNAVAILABLE and live STANDARD_DEVICES remains unchanged. Full suite 1359/1362 has three resident-City environment failures. Hosted push 37425834472 succeeds attempt 1, Android and Gateway/Web green. Pattern family: reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md F3. NOT DONE: no local merge (merge_authority=false); the WBC-604 record holder decides adoption.
 
 Republication on current main follows the earlier B4 rule: measure repairs on the actual integration result, rather than a base two merges behind. Green on a commit nobody runs is not evidence.
 
-Historical status semantics: COMPLETE means Development, opposite-host Formal Review and exact-head required CI completed; it does not by itself mean a component merged to main. WBC601/602 accepted heads entered WBC603 dependency-union; the programme remained under final integration lock§8. WBC601/602 can develop in parallel. WBC603/604 resolve accepted full dependency SHAs into an exact union at claim time; starting from main that lacks dependency code is forbidden.
+Historical status semantics: COMPLETE means Development, opposite-host Formal Review and exact-head required CI completed; it does not by itself mean a component merged to main. WBC-601/602 accepted heads entered WBC-603 dependency-union; the programme remained under final integration lock §8. WBC-601/602 can develop in parallel. WBC-603/604 resolve accepted full dependency SHAs into an exact union at claim time; starting from main that lacks dependency code is forbidden.
 
 ## 5. Asynchronous two-host construction
 
@@ -127,9 +127,9 @@ Mech
 
 
 1. Development and Formal Review use different physical hosts.
-2. WBC601/602 can overlap, without sibling merges.
+2. WBC-601/602 can overlap, without sibling merges.
 3. Hosted CI/long waits do not occupy a host: scan other eligible stages.
-4. Inherit claim races, zero-claim,20-minute fallback rescans and typed external blocks.
+4. Inherit claim races, zero-claim, 20-minute fallback rescans and typed external blocks.
 5. Local fresh critics diagnose; they cannot impersonate opposite-host Formal Review.
 6. Real file ownership conflicts require later claimants to avoid/wait for that seam; do not duplicate canonical logic for concurrency.
 7. An idle programme does not justify creating extra future-server functionality.
@@ -187,7 +187,7 @@ STANDARD_DEVICES→WORKER_POOL/HYBRID must permit returning to STANDARD_DEVICES,
 
 ## 8. Historical merge lock
 
-This directory initially creates no final integration/merge workbook. Create one only after every WBC601..604 has Development complete, opposite-host Formal Review complete, green exact-head required CI, no unresolved Owner gate and no unresolved compatibility regression. Start final integration from the then-latest Utopia main and enforce NO_WORKBENCH_REGRESSION.
+This directory initially creates no final integration/merge workbook. Create one only after every WBC-601..604 has Development complete, opposite-host Formal Review complete, green exact-head required CI, no unresolved Owner gate and no unresolved compatibility regression. Start final integration from the then-latest Utopia main and enforce NO_WORKBENCH_REGRESSION.
 
 Final marker: WORKBENCH_COMPATIBILITY_READY_WINDOWS_BASELINE_PRESERVED. It does not certify physical Workbench acceptance. When hardware arrives, a separate hardware-onboarding/real-pool workbook proves registration, readiness and real load rather than repeating business migration. This historical provision does not activate a new programme in the present task.
 

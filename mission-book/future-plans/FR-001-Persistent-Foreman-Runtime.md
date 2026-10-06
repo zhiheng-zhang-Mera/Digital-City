@@ -280,3 +280,5 @@ FUTURE PLAN = RECORDED
 EXECUTION   = NOT AUTHORIZED
 PROMOTION   = OWNER REQUIRED
 ```
+
+语言配对 / Language pair: [English reading](./en/FR-001-Persistent-Foreman-Runtime.md)

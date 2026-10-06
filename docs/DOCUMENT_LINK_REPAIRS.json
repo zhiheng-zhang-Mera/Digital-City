@@ -1003,6 +1003,12 @@
       "target": "../MISSION_INDEX.md",
       "resolved": "mission-book/finished/completed-2026-10-01/MISSION_INDEX.md",
       "new_target": "../../MISSION_INDEX.md"
+    },
+    {
+      "source": "mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md",
+      "target": "evidence/MATERIAL_HANDOFF_MECH.md",
+      "resolved": "mission-book/reports/REX-803/MATERIAL_HANDOFF_MECH.md",
+      "new_target": "MATERIAL_HANDOFF_MECH.md"
     }
   ],
   "preserved_evidence_links": [],

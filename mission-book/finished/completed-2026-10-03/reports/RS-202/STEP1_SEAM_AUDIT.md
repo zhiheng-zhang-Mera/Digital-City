@@ -106,3 +106,5 @@ SEAM C (路由序列)       消费 RS-201 的 suggestSwitch 作为「切换选�
 SEAM D (re-scan)        事件驱动优先，20 分钟仅作上限参考；不得死等
 SEAM E (anti-flap)      新建 hysteresis；可借鉴 scale_up_after_ticks 的「连续 N 次」形状
 ```
+
+语言配对 / Language pair: [原文 / Source](./STEP1_SEAM_AUDIT.md) · [译本 / Translation](./en/STEP1_SEAM_AUDIT.md)

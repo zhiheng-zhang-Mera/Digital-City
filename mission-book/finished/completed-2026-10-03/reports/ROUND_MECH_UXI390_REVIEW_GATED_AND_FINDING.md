@@ -130,3 +130,5 @@ watcher polling `origin/main` every 60 s for ~9.5 minutes, printing the baseline
 exiting on the transition, on any material workbook change, or at the deadline. The gate is open when
 `development_complete: true`; the review is then run against the exact `development_head_sha` recorded in the
 workbook, not against whatever the branch tip happens to be.
+
+语言配对 / Language pair: [原文 / Source](./ROUND_MECH_UXI390_REVIEW_GATED_AND_FINDING.md) · [译本 / Translation](./zh-CN/ROUND_MECH_UXI390_REVIEW_GATED_AND_FINDING.md)

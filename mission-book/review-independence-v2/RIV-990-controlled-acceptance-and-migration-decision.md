@@ -104,3 +104,8 @@ report_path: null
 `REVIEW_INDEPENDENCE_V2_ACCEPTED_FOR_EXPLICIT_MIGRATION`
 
 它本身仍不自动修改施工规则。
+
+
+---
+
+语言读本 / Reading translation: [English](en/RIV-990-controlled-acceptance-and-migration-decision.md). 原文状态与证据具有权威性 / The source remains authoritative for status and evidence.

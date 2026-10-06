@@ -85,3 +85,8 @@ Butler Assistant、Remote Fabric、General AI Gateway、Engineering Manager、Mo
 ## 完成门槛
 
 得到 reality-bound runtime map，并列出真正存在的 ownership/dependency/lifecycle 冲突；不得因命名不整齐就提出搬迁。
+
+
+---
+
+语言读本 / Reading translation: [English](en/URA-001-current-runtime-topology-audit.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

@@ -85,3 +85,6 @@ Run these against the **exact** `development_head_sha` recorded in the workbook 
 - Mocks may not substitute for real E2E. Deferred ≠ passed.
 - The review runs against the work, not the record. A clean reconciliation is a precondition for a claim,
   never a verdict.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_NOTES_MECH_PRE_GATE.md)

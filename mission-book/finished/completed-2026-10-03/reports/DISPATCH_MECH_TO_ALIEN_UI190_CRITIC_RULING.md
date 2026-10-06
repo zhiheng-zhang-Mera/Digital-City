@@ -82,3 +82,5 @@ Mech's `claimable_now = 0`, classified **5.1 TEMPORARILY_UNCLAIMABLE / WAITING_E
 unlocking event named: Alien recording `development_complete: true`. That is a claim-release wait with
 a live counterpart who is actively committing, not a structural or external block — so it does not
 qualify for 5.2 or 5.3, and Mech is not calling it one.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_UI190_CRITIC_RULING.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_UI190_CRITIC_RULING.md)

@@ -164,3 +164,7 @@ the text legible"*, because clipped text is still reported with its full string.
 acceptance claim about legibility, truncation, overflow or crowding must be made from
 pixels. This task made that claim from a dump twice, in opposite directions, and was wrong
 both times.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/NARROW_WIDTH_DEFECT.md)

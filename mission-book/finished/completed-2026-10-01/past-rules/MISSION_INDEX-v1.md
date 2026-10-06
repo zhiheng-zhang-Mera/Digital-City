@@ -143,3 +143,7 @@
 3. **`DONOR.json` 台账形状不统一**：MB-001 用扁平结构（`repository`/`commit`/`sourcePaths` 在顶层），MB-002/004/005/006 用 `donors[]`；两类都自洽，但按一种形状写的读取器读不了另一种。
 4. **规则 5 会让某些 Mission 对某些主机永久不可领取，本表看不出来。** MB-005 与 MB-009 的 Migration 由 `Mech` 完成，因此 `Mech` 永远不能领取它们的 Verification；但本表那一行原先写着 `NOT_STARTED`，读起来却像"任何主机都能领"。这两台最终由 `Alien` 完成（City `1ac40d4`、`0764924`、`d6969d9`），问题已解；不过只要 rule 5 与"先迁移后验证"的队列同时存在，索引就应当能表达"哪台主机**不**能领"，否则每台自动施工主机都得自己推导一遍。这是索引的可用性缺口，不是缺陷。
 5. **MB-003 的验证门槛在本机不可满足**：第一道门槛要求用**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported，并明确禁止 mock pass；迁移的 `provider-adapter` 只包装调用方注入的 hook，其 `DONOR.json` 把真实 provider HTTP 调用与 web session 列为 DEFERRED。`Mech` 已在 `reports/MB-003/VERIFICATION_REPORT.md` §6 列出三个 Owner 选项；在其决定前 MB-003 与依赖它的 MB-004 都无法进入 `VERIFICATION_COMPLETE`。
+
+## Language / 语言
+
+[English full reading](en/MISSION_INDEX-v1.md) · [完整中文读本](zh-CN/MISSION_INDEX-v1.md)。

@@ -185,3 +185,5 @@ KEEP IN PLACE
 - 不得为了 DGX 打开已经冻结的旧任务 acceptance boundary。
 
 默认优先等当前 Monitor programme 完成既定 freeze，再决定 DGX 的具体锚点与施工顺序；Owner 可另行裁决。
+
+语言配对 / Language pair: [English reading](./en/README.md)

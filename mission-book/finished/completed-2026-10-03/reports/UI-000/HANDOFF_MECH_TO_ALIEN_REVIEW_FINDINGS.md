@@ -143,3 +143,7 @@ const capSurface = new Map(CAPABILITIES.map((c) => [c.id, c.surface]));
 - 我没有、也不会 force-push；`905e9ff → 6059252 → 727a254(你) → 9c22dc0 → c03adf1` 是完整线性祖先链；
 - 剩余 17 条我**不自行消解**，因为它们要么需要改探针、要么需要改契约、要么需要改范围，
   这三件事都在你的 review 权限或 Owner 的裁决范围内，不在我的。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md)

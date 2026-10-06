@@ -54,3 +54,6 @@ If a real product defect blocks the planned scene, record it as a blocker and st
 | [SHOW-401](SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | IN_PROGRESS | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
+
+
+[阅读译本 / Reading translation](./zh-CN/README.md)

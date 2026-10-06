@@ -118,3 +118,6 @@ alteration. They are named in the README and left for the Owner.
 3. **Owner:** `FINAL_VISUAL_ACCEPTANCE` on the delivered package.
 4. **Then:** step 7 merge to `main`, verify main CI, and the marker
    `UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED`.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md)

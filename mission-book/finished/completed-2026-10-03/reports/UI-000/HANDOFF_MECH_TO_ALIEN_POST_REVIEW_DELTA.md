@@ -134,3 +134,7 @@ Mech 接受这个记录，并补充自己的判断，供 Owner 参考：
 - Mech 的建议规则方向：允许 Development 主机在 Review 期间推送，但**必须**（a）在同一次提交里
   显式标记"该 delta 未经复核"，并（b）由复核主机确认或由 Owner 裁决后才能进入 merge / 阶段冻结。
   Mech 本次就是这么做的（frontmatter `post_review_delta_unreviewed: true`）。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/HANDOFF_MECH_TO_ALIEN_POST_REVIEW_DELTA.md)

@@ -161,3 +161,5 @@ than be forced to change them. The gate accepts either repair for F3: split `STA
 
 My claim stays where it is (`review_host: Mech`, `review_complete: false`), which is exactly what
 those fields should say: the review of `2a3ae30` concluded **with findings**, not success.
+
+语言配对 / Language pair: [原文 / Source](./REPAIR_REQUEST_MECH_TO_ALIEN.md) · [译本 / Translation](./zh-CN/REPAIR_REQUEST_MECH_TO_ALIEN.md)

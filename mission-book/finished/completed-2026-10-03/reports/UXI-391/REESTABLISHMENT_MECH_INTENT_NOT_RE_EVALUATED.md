@@ -86,3 +86,6 @@ Gate 7 is **MET** on both hosts' independent records (`56bb905`). Gates 1–8 ar
 This defect is a **residual that no gate in the workbook's list names**, which is why it is recorded here
 rather than scored: the gates ask whether the handoff works, and it does; they do not ask whether a decline
 that cannot be honoured at that instant is ever revisited, and it is not.
+
+
+[阅读译本 / Reading translation](./zh-CN/REESTABLISHMENT_MECH_INTENT_NOT_RE_EVALUATED.md)

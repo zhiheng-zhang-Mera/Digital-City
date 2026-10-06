@@ -56,10 +56,14 @@ receipts/            每轮有界收据（逐项 PASS/FAIL/NOT_RUN 的观测）
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **2**.
+当前Markdown文档 / Current Markdown documents: **5**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| register | 1 | [打开 / Open](register/JOIN-LIVE-2026-10-03-01.md) |
+| en | 1 | [打开 / Open](en/README.md) |
+| register | 3 | [打开 / Open](register/README.md) |
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+
+[阅读译本 / Reading translation](./en/README.md)

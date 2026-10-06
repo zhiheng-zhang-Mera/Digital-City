@@ -154,3 +154,5 @@ review of `2a3ae30` concluded **with findings**, not success.
 
 F1 is the one I would fix first: it is the only finding where the wrong path produces a *worse user
 outcome than doing nothing*, by demanding a provider choice where waiting would have worked.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_FINDINGS_MECH.md) · [译本 / Translation](./zh-CN/REVIEW_FINDINGS_MECH.md)

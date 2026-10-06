@@ -35,6 +35,13 @@
       "original_bytes": 14052,
       "preimage_ref": "docs/encoding-evidence/RF-005-CORRECTION_REPORT.md.bin",
       "repair": "invalid separator to hyphen; other invalid sequences to U+FFFD; no missing semantic text inferred"
+    },
+    {
+      "path": "mission-book/logs/integration/CONNECTION_ONBOARDING_INTEGRATION.md",
+      "original_sha256": "143b0b56e2d2f6c7962dff37bbe84597431bf1809fa9ce2f1614f15d6cf5e8e1",
+      "original_bytes": 24667,
+      "preimage_ref": "docs/encoding-evidence/CONNECTION_ONBOARDING_INTEGRATION.md.bin",
+      "repair": "readable bilingual navigation facade; original bytes preserved; irreversible historical prose remains unknown; ASCII projection is not semantic reconstruction"
     }
   ]
 }

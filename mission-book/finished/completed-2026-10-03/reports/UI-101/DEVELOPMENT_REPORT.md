@@ -96,3 +96,7 @@ unmatched         state=没有匹配   controls=16
   复核对 advanced surface 的裁定同一逻辑；`tests/web-v02.test.mjs` 亦钉住此处的 `NODE_ONLINE`。
 - 演示数据（房间摘要等）仍是英文，未随界面本地化——属数据层，非本次 presentation 范围，记录备查。
 - 本报告由 Development 主机 `Alien` 出具；按 §3，UI-101 的独立复核**必须由 Mech** 执行，Alien 不得自审。
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./en/DEVELOPMENT_REPORT.md)

@@ -120,3 +120,7 @@ main 最近 CI                          = success（36830053908 等）
 
 **明确不在本核验范围内**，以免被读成超出实际：这只证明**可合并性**，不证明合并后的 main CI 会绿 —— 那要在真合并后按 step 8 记录精确 SHA/CI；也不主张 Owner gate 已过。本核验不改任何分支、不推进冻结、不构成冻结声明。
 
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/REVIEW_REPORT.md)

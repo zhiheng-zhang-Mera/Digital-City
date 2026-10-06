@@ -154,3 +154,7 @@ REVIEW_RESULT                    PASS_WITH_REPAIRS
   若后续需要第三台主机确认这些修复，请按其自身判断处理，本机不主张自己的修复已被独立确认。
 - 复核完成后 UI-000 的"第二主机独立 review"门槛对**被采用的产物**成立，
   UI-101..103 的依赖随之满足（是否领取由各主机按 §2 自行判断）。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/REVISION_REVIEW_REPORT.md)

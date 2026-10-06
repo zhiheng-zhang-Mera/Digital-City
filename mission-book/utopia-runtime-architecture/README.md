@@ -80,3 +80,8 @@ classify first
 ```
 
 当前默认：**single Utopia repo remains acceptable**。物理拆仓属于 suspend 中保留的未来选项，不是本系列默认目标。
+
+
+---
+
+语言读本 / Reading translation: [English](en/README.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

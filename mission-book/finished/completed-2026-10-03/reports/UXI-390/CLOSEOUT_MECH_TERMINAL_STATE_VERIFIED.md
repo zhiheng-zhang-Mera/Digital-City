@@ -76,3 +76,6 @@ unapplied mutation that nearly produced a finding asserting the opposite of the 
 One timing note for the record's accuracy: my previous round reported gate 8 as unclaimed. That was true when
 checked and **was superseded inside the same round** by `d6e0c05` landing between my sync and my push. The
 statement was time-bounded, not wrong, and it is the reason this round re-synced before concluding.
+
+
+[阅读译本 / Reading translation](./zh-CN/CLOSEOUT_MECH_TERMINAL_STATE_VERIFIED.md)

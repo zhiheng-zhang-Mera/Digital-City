@@ -89,3 +89,6 @@ My working set recorded the Android choice round-trip as owed and in flight, on 
 verified rather than open, and I will verify it at the recorded head during the review rather than taking the
 commit message as the verification — not because I doubt it, but because it is the one acceptance item that
 has been genuinely in doubt for several rounds and it deserves its own measurement.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_MUTATION_OF_THE_WIRING_GUARD.md)

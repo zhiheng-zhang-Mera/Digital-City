@@ -75,3 +75,6 @@ baseline convention). Whether that is MET or NOT MET is the review verdict's cal
 made here.
 
 Nothing in this document is a repair. All three are cheap and none touches the RS-290 contract.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_FINDING_MECH_CROSS_SURFACE_COMPARISON.md)

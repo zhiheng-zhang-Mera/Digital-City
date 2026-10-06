@@ -33,12 +33,13 @@ These files are historical evidence and are not claim surfaces. New construction
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **13**.
+当前Markdown文档 / Current Markdown documents: **14**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
 | connection-onboarding-components | 9 | [打开 / Open](connection-onboarding-components/README.md) |
 | mesh-3end | 3 | [打开 / Open](mesh-3end/README.md) |
+| zh-CN | 1 | [打开 / Open](zh-CN/README.md) |
 
 <!-- DOCUMENT_NAVIGATION:END -->
 
@@ -54,3 +55,6 @@ These files are historical evidence and are not claim surfaces. New construction
 | [MESH-301](mesh-3end/MESH-301-三端实机互联与相互指挥.md) | COMPLETE | YES | YES | NO |
 
 <!-- SERIES_DASHBOARD:END -->
+
+
+[阅读译本 / Reading translation](./zh-CN/README.md)

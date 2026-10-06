@@ -104,3 +104,5 @@ KEEP-IN-PLACE 优先；通过 typed port/reference 连接。若需要 EXTRACT，
 ## 完成门槛
 
 至少 Engineering 与 Research 在不复制 canonical truth 的情况下完成 adapter conformance；Health 对未实现部分诚实标记 capability unavailable；现有领域 Review gate 不因 adapter 接入而被隐式降低。
+
+语言配对 / Language pair: [English reading](./en/DGX-004-domain-profile-adapters-and-soft-migration.md)

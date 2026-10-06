@@ -91,3 +91,8 @@ escalation
 ## 完成门槛
 
 形成与 Foreman/Capability Registry 可对接的 contract；仍不修改当前 §3。
+
+
+---
+
+语言读本 / Reading translation: [English](en/RIV-004-capability-based-reviewer-selection.md). 原文状态与证据具有权威性 / The source remains authoritative for status and evidence.

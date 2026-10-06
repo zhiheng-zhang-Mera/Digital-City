@@ -187,3 +187,5 @@ MB-009 最终存在真实 Theme capability consumption，并已完成 Migration 
 3. **MB-003 继续 BLOCKED**，等待 authorised superseding execution-seam Mission。
 4. 当前调度采用 `README.md` v2 的 **integration-first + WIP limit 2**。
 5. 任何下一位实际触碰 MB-003/007/008 branch 的 worker，先记录一次 `OWNER_INTERVENTION` event，引用本文件，再执行后续工作。
+
+语言配对 / Language pair: [English reading](./en/response-9-29.md)

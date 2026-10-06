@@ -39,3 +39,19 @@ This archive ledger is the finished-directory record used by the Mission Book ho
 | [JOIN-503](../completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md) | COMPLETE | YES | YES | NO |
 
 <!-- SERIES_DASHBOARD:END -->
+
+
+[阅读译本 / Reading translation](./zh-CN/README.md)
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **2**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| zh-CN | 1 | [打开 / Open](zh-CN/README.md) |
+
+<!-- DOCUMENT_NAVIGATION:END -->

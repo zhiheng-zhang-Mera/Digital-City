@@ -559,3 +559,7 @@ LLM router、人格/个人助理层、长期助理记忆、主动代理或其他
 旧版 migration-first rule 及旧模板已归档到 [`past-rules/`](../completed-2026-10-01/past-rules)。
 
 **现役 Mission 文件不再复制完整全局规则。** Mission-specific gates 仍然有效；全局流程统一引用本文件，避免未来规则更新后十二份文件互相漂移。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/README-LEGACY-MIGRATION-CONTROL.md)

@@ -68,3 +68,6 @@ Utopia `main` 现为 `d0507b0`。全部 11 本工作书均为 `development_compl
 1. **选项 2 能力**：让 City 发布真实五维负载向量并接通拒绝切换路径，使 `ALTERNATE_DEVICE` 真正可达；
 2. **基线重开**：C-3 窄屏 id 布局 与 V-3 三面本地化姿态（含给 Android 引入字符串资源）；
 3. **控制面加固**：给校验器加双重编码检测、修复三本已关闭工作书的编码、裁决复核截图是否可留 City。
+
+
+[阅读译本 / Reading translation](./en/RECORD_ALIEN_UXI390_FINAL_PRODUCT_ACCEPTANCE.md)

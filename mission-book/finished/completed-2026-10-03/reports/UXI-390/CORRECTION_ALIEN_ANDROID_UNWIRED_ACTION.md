@@ -96,3 +96,6 @@ should absorb (2) as well as (1), or whether the `CHOOSE_PROVIDER` gap should be
 deferral the way the remote-handoff seam was.
 
 Reproduction is unchanged: `PROBE_uxi390_android_confirm2.ps1` with `PROBE_uxi390_node_b.mjs`.
+
+
+[阅读译本 / Reading translation](./zh-CN/CORRECTION_ALIEN_ANDROID_UNWIRED_ACTION.md)

@@ -81,3 +81,6 @@ Owner 指示把**本机节点名改为 `Alien-test`**：`scripts/uxi391-node.mjs
 3. Owner 已指示在双机验证之后进行**三端实机测试**（Mech 主机 + Alien 主机 + Android 实机，
    Android 可对两台主机下指令、任一主机可对他机下令/向中心汇报、三端实时同步彼此状态）。
    那属**新能力**，我已记录为 `OWNER_INSTRUCTION_THREE_END_TEST.md`，不会塞进 UXI-391；等 UXI-391 收口后再启动。
+
+
+[阅读译本 / Reading translation](./en/DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED_SINGLE_SHOT.md)

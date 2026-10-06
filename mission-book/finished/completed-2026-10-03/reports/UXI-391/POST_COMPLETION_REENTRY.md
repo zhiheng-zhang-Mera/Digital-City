@@ -69,3 +69,6 @@ Owner  = 批准 / 修改 MESH-301 草案，并对草案内两个岔路给出裁�
 Alien  = 批准后按 §2 原子领取 MESH-301 并开工；在此之前维持 §5.1 兜底重扫（事件优先）
 Mech   = 无待办（UXI-391 的复核已签署并在终态声明中被引用）
 ```
+
+
+[阅读译本 / Reading translation](./en/POST_COMPLETION_REENTRY.md)

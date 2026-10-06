@@ -60,7 +60,7 @@ mission-book/UTOPIA_LIVE_STATUS.md · .json           由工作流每 5 分钟�
 ### 2.3 环境事实（下一轮直接用）
 
 ```text
-City 令牌（Owner 提供）    控制令牌 1Q2W3E4R   节点令牌 1Q2W3E4R-node   （勿写入任何 Git 对象）
+City 令牌（Owner 提供）    控制令牌 [REDACTED]   节点令牌 [REDACTED]   （勿写入任何 Git 对象）
 City 启动                  D:\A-Utopia\Utopia.cmd（已自定位 node 运行时；node 不在用户/系统 PATH，
                            实际在 D:\DS-Hns\runtime\node-v24.14.1-win-x64\node.exe）
 桌面入口                   C:\Users\15601\OneDrive\Desktop\Utopia.cmd
@@ -206,7 +206,7 @@ mission-book/UTOPIA_LIVE_STATUS.md · .json           由工作流每 5 分钟�
 ### 2.3 环境事实（下一轮直接用）
 
 ```text
-City 令牌（Owner 提供）    控制令牌 1Q2W3E4R   节点令牌 1Q2W3E4R-node   （勿写入任何 Git 对象）
+City 令牌（Owner 提供）    控制令牌 [REDACTED]   节点令牌 [REDACTED]   （勿写入任何 Git 对象）
 City 启动                  D:\A-Utopia\Utopia.cmd（已自定位 node 运行时；node 不在用户/系统 PATH，
                            实际在 D:\DS-Hns\runtime\node-v24.14.1-win-x64\node.exe）
 桌面入口                   C:\Users\15601\OneDrive\Desktop\Utopia.cmd
@@ -313,3 +313,7 @@ N4  浏览器里的"行内按钮"完整 DOM 路径：目前浏览器检查是直
 > 先读 `Digital-City/mission-book/logs/integration/RELAY_TUNNEL_S1_S3.md`（本轮全部事实与 DEFERRED 都在里面），
 > 请 Owner 对 §五 的台账处置给一句话，然后执行 §四 的 N2（界面最后一跳），
 > 保持 §二 的环境事实与 §六 的纪律。
+
+## Language / 语言
+
+[English full reading](en/NEXT_ROUND.md)。本次文档整理遮盖两处历史明文凭据，未重写Git历史。 / This documentation pass redacts two historical plaintext credential lines; Git history is retained.

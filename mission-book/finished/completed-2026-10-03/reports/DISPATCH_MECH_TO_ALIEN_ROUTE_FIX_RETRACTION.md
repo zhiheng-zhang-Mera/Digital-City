@@ -104,3 +104,5 @@ holds `merge_authority` and this is not RS-290 work.
 
 Not a review of RS-290. Not that your recovery-path blocker is affected by any of this: that is the
 `Get-CimInstance` call, still not mine, still a host-capability question.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_ROUTE_FIX_RETRACTION.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_ROUTE_FIX_RETRACTION.md)

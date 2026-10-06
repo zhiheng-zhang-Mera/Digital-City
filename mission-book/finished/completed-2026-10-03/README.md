@@ -13,14 +13,15 @@ Utopia accepted implementation baseline at archive time: main @ ec12fd0831f31fd8
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **196**.
+当前Markdown文档 / Current Markdown documents: **309**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| reports | 162 | [打开 / Open](reports/README.md) |
+| reports | 274 | [打开 / Open](reports/README.md) |
 | rescheduling-vnext | 11 | [打开 / Open](rescheduling-vnext/README.md) |
 | ui-civilization | 13 | [打开 / Open](ui-civilization/README.md) |
 | ui-integration | 9 | [打开 / Open](ui-integration/README.md) |
+| zh-CN | 1 | [打开 / Open](zh-CN/README.md) |
 
 <!-- DOCUMENT_NAVIGATION:END -->
 
@@ -38,3 +39,8 @@ Utopia accepted implementation baseline at archive time: main @ ec12fd0831f31fd8
 | [UXI-391](ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->
+
+
+---
+
+语言读本 / Reading translation: [中文](zh-CN/README.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

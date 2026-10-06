@@ -92,3 +92,5 @@ BLOCK
 ## 完成门槛
 
 有界终审、无无限 consensus loop、release receipt 可审计；参与者不同意不等于自动阻塞，但 Critical/Major 未解决问题不得被多数票覆盖。
+
+语言配对 / Language pair: [English reading](./en/DGX-006-appeal-dissent-joint-final-review-release-gate.md)

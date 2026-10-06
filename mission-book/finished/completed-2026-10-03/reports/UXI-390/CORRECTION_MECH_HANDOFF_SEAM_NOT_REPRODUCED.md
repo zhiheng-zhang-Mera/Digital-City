@@ -93,3 +93,6 @@ the original deferral, caught one level down.
 
 The three-instance "correct component, no caller" pattern in the same document is unaffected; it rests on
 greps I ran directly.
+
+
+[阅读译本 / Reading translation](./zh-CN/CORRECTION_MECH_HANDOFF_SEAM_NOT_REPRODUCED.md)

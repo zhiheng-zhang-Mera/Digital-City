@@ -175,3 +175,8 @@ retire/narrow/keep?
 ## 输出
 
 只生成 census/report + follow-up routing，不直接大修。
+
+
+---
+
+语言读本 / Reading translation: [English](en/CHK-201-full-capability-architecture-census.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

@@ -307,3 +307,5 @@ reviewer's act, and the repaired head is released back to Mech for a fresh revie
 its own repair. The E2E was run on this host, which is the development host, and its independence rests on
 the published raw evidence being checkable by Mech — as Mech demonstrated by decoding the recovery
 observation sequence rather than trusting the summary booleans.
+
+语言配对 / Language pair: [原文 / Source](./REPAIR_ALIEN_F1F2F3.md) · [译本 / Translation](./zh-CN/REPAIR_ALIEN_F1F2F3.md)

@@ -43,7 +43,8 @@ def block(folder):
 def expected(folder):
  p=folder/'README.md'
  if p.exists():text=p.read_text(encoding='utf-8')
- else:text=f'# {folder.name} / 文档导航\n\n本页导航保留原目录的文档和证据。 / This page navigates the existing documents and evidence.\n'
+ else:text=f'# {folder.name} / 文档导航 / Documentation navigation\n\n本页导航保留原目录的文档和证据。 / This page navigates the existing documents and evidence.\n'
+ text=re.sub(r'^# '+re.escape(folder.name)+r' / 文档导航$',f'# {folder.name} / 文档导航 / Documentation navigation',text,flags=re.M)
  generated=block(folder)
  if START in text and END in text:
   return re.sub(re.escape(START)+'.*?'+re.escape(END),lambda _:generated,text,flags=re.S)
@@ -135,6 +136,8 @@ def main():
   for language in ('en','zh-CN'):
    if p.name.endswith('.'+language+'.md'):
     candidates.append(p.with_name(p.name[:-len('.'+language+'.md')]+'.md'))
+  if rel=='mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md':
+   candidates.append(p.parent.parent/'zh-CN'/p.name)
   for candidate in candidates:
    if candidate!=p and candidate.exists():
     peer=relative(candidate);break

@@ -108,3 +108,5 @@ options unilaterally. Put plainly to the Owner, the choice is:
 
 I recommend **1**, falling back to **2** only if Alien does not act, because F1 in particular produces
 a worse user outcome than doing nothing and should not be frozen as-is.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_ADDENDUM_MECH.md) · [译本 / Translation](./zh-CN/REVIEW_ADDENDUM_MECH.md)

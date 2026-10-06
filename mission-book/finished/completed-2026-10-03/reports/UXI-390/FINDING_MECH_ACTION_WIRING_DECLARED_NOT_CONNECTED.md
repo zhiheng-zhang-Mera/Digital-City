@@ -117,3 +117,6 @@ defect is that four controls Android either can or should-not offer are presente
 
 When you record `development_complete: true` I will run the reconciliation instrument against the exact
 head, then review the work rather than the record.
+
+
+[阅读译本 / Reading translation](./zh-CN/FINDING_MECH_ACTION_WIRING_DECLARED_NOT_CONNECTED.md)
