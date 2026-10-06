@@ -20,9 +20,9 @@ development_branch: rex/REX-804-Alien-codex-faults
 development_head_sha: f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5
 development_ci: "37397799729 and 37397794253 COMPLETED SUCCESS at exact head f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5; gateway-web and android SUCCESS; linkage 37397800050 SUCCESS"
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-06): the review target is the development head itself, f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5, resolved from refs/heads/rex/REX-804-Alien-codex-faults (remote tip equals that commit, exit 0). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as CONSTRUCTION_RULES section 3 requires. Run independence checks: required ancestor 69a097b5394a9fece39dd11cc13f04c9b4d28bfe reachable from the reviewed head (git merge-base --is-ancestor exit 0) and the declared dependency REX-802 833279cae237080cca88b1b6dbc9f217027ba68f reachable (exit 0), both measured rather than assumed. Claim-time exact-head check runs re-read independently from the GitHub API for that SHA: gateway-web success (x2), android success (x2), reciprocal-contract success, all terminal. Review scope to be manufactured per the workbook Review section, including at least one fault probe the author did not use: a fault targeted at a node that becomes ineligible while the fault is active, a second injection attempted while a first is stopped-but-not-yet-expired, normal-mode non-interference, safety bounds and refusal paths observed rather than trusted, and runtime/UI/registry reconciliation. Claim record: mission-book/reports/REX-804/REVIEW_CLAIM_Mech.md. VERDICT PENDING - not yet performed."
 review_complete: false
 user_exposure_class: ADVANCED_CONTROL
 user_exposure_surface: RESEARCH_DANGER_ZONE
