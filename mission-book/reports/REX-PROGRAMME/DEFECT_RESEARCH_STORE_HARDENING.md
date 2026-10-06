@@ -339,5 +339,63 @@ instrument's setup, and an instrument that has never been asked whether its setu
 stable, wrong number.** The stable part is what made it convincing — the same two failures appeared in every run for
 several rounds, which read as "environment" rather than as "not installed".
 
+## The sweep re-run on merged main and on the pending merge candidate
 
+Two things happened after the repairs were published: `origin/main` moved for the first time in this session (to
+`b06504f`, the merge of PR #33, which carries the two adopted store-guard branches and their probes), and a second
+branch became a merge candidate (Alien's REX-803 review candidate `8798ba9`). Both were swept with the same harness, so
+the family record says what is true of the code that is actually about to run rather than of the commit it was measured
+on months of work ago.
 
+```text
+SHAPE A  a FILE where the module needs a DIRECTORY        main 213f9f9f      merged main b06504f   REX-803 candidate 8798ba9
+theme-packages (bridge artifacts)                         BRICKED EEXIST     STARTED               STARTED
+research (REX-801 registry parent)                        BRICKED ENOTDIR    STARTED               STARTED
+research/experiments (REX-801 registry)                   BRICKED EEXIST     STARTED               STARTED
+research/campaigns (REX-803 campaigns)                    STARTED            STARTED               STARTED
+monitor (MON-903 decision store)                          STARTED            STARTED               STARTED
+research-trace (REX-802 collector)                        STARTED            STARTED               STARTED
+
+SHAPE B  a DIRECTORY where the module needs a FILE
+city.sqlite (canonical store)                             BRICKED            BRICKED               BRICKED       F-1 open by choice
+join-requests.json (join store)                           STARTED            STARTED               STARTED       F-2 open by decision
+execution-profile.json (WBC-604)                          half-switch        half-switch           half-switch   F-3 open, repair unadopted
+
+UNIT PROBES
+join store, unwritable file      request() RESOLVED PENDING, nothing persisted            unchanged on all three
+profile store, unwritable file   change() THREW EPERM, live profile STANDARD -> WORKER_POOL unchanged on all three
+```
+
+The first three rows are the verification of this host's own adopted work: the two repairs that reached `main` through
+PR #33 make the whole shape-A family start, on the merged main, not only on their own branches. That is a stronger
+statement than "the branch was green" and it is the one the record needs.
+
+The last two rows are the honest remainder, and one of them moved this round:
+
+```text
+F-1  city.sqlite as a directory still stops the City with "unable to open database file". Bricking is CORRECT here;
+     only the diagnostic is missing. Reporter unchanged, unrepaired by design.
+F-2  the join store still returns HTTP 200 with an in-memory row and persists nothing, deliberately and silently.
+     Reported; the silence is a documented design decision in join.mjs, not a coding error.
+F-3  the execution-profile half-switch is STILL LIVE ON MERGED MAIN: change() throws a raw EPERM while the live profile
+     has already moved STANDARD_DEVICES -> WORKER_POOL. The repair for it has been published since round 15 and has
+     never been adopted, so the defect outlived two merges.
+```
+
+F-3 is the one this host decided to make maximally easy to adopt rather than merely re-report: the repair was
+cherry-picked onto **current main** and published as
+`repair/WBC-604-mech-profile-persist-first-on-current-main @ ad1b3e8`, so its CI runs the whole merged suite instead of a
+branch built on a base that is two merges old. Measured on that branch:
+
+```text
+focused   the F-3 probes plus the three existing WBC-604 suites    19 pass / 0 fail
+sweep     profile store, unwritable file -> change() THREW PROFILE_STORE_UNAVAILABLE;
+          live profile STANDARD_DEVICES -> STANDARD_DEVICES        (was EPERM and STANDARD -> WORKER_POOL)
+full      1359/1362, the 3 failures being this host's resident-City host reservation
+CI        V0.2 checks push run 37425834472 COMPLETED SUCCESS (attempt 1) on ad1b3e8, jobs android and
+          gateway-web both success
+```
+
+This is the same lesson the B4 finding taught one round earlier, stated as a rule: **a repair must be measured on the
+merge result, not on its own old base.** A branch that is green against a base two merges behind is evidence about a
+commit nobody will run.
