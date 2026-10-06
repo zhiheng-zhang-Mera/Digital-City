@@ -82,7 +82,7 @@ full      pnpm test                                              1404 pass / 3 f
   executeRelayPayload（逐行比对与 main 相同）
 ```
 
-这是一条**属于 main 自身的、随主机速度漂移的探针**：它把“限流器是否生效”写成了“主机是否足够快”。本系列已多次记录同类仪器缺陷；此处只做分类与证据，不主张修复属于本任务。 / A host-speed-dependent probe in main's own suite: it turns "does the limiter work" into "is the host fast enough". Classified here with evidence; repairing it is not claimed as this task's work.
+这是一条**属于 main 自身的、随主机速度漂移的探针**：它把“限流器是否生效”写成了“主机是否足够快”。本系列已多次记录同类仪器缺陷。分类与完整证据见 `reports/RELAY_RATE_PROBE_HOST_SPEED_MECH.md`：现场只观测到一次且**无法按需复现**（12 个 CPU 占满进程 0/6、并发完整全量套件 0/6），因此改为用「同一限流器 + 同一注入 60 ms 延迟、只改发送纪律」的对照实验直接证明耦合：顺序 await 0/30 被拒、并发突发 10/30 被拒。修复提案 `repair/mech-relay-rate-probe-burst @ 14499ad`（待 JOIN 记录持有人采纳，本机不合并）。 / A host-speed-dependent probe in main's own suite. Observed once in situ and not reproducible on demand, so the coupling was proved with a controlled experiment instead; the repair is a proposal awaiting the JOIN record holder's adoption.
 
 ## 这轮顺带发现的真实缺陷 / A real defect this preflight surfaced
 
@@ -119,7 +119,7 @@ full      pnpm test                                              1404 pass / 3 f
 ## 这轮**没有**做什么，以及为什么 / What this round did NOT do
 
 - **没有合并进 main。** 本机对 REX 没有合并授权（工作书 `merge_authority: false`）；本轮目标授予的合并窗口是 CEX（已用）与 WBC（已用），REX 的集成窗口尚未开启。这条前置测量的价值就在于：等窗口开启时它是机械的。 / No merge to main: this host holds no REX merge authority (the workbook records `merge_authority: false`) and no REX merge window has been granted. The value of the preflight is that the eventual step becomes mechanical.
-- **没有改动 relay 那条漂移探针。** 它是 main 自身的仪器缺陷（见上），修复不属于本任务；此处只做分类与证据。 / The drifting relay probe was not modified: it is main's own instrument defect and repairing it is not this task's work.
+- **没有改动 relay 那条漂移探针的产品代码。** 它是 main 自身的仪器缺陷（见上），修复提案只改探针的发送纪律与失败信息，不改任何产品断言，也不合并进 main。 / The drifting relay probe's product assertions were not touched: the proposal changes only the probe's sending discipline and its failure message, and is not merged.
 
 ## 与 WBC 那条规则的呼应 / Echoes the WBC rule
 

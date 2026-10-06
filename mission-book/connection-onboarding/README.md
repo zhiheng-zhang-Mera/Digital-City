@@ -234,3 +234,19 @@ Token may remain inside protocol/session plumbing, but normal users must not be 
 - revoke 后旧身份不能继续自动接入。
 
 所有过程继续继承 Mission Book 的双实体主机独立复核规则。
+
+## 9. 已接受之后发现的一处测试探针缺陷（待记录持有人决定）/ A test-probe defect found after acceptance
+
+JOIN-590 已 COMPLETE 且标记已释放。其后的 REX 集成前置测量在跑全量套件时，遇到 `tests/relay-s1-tunnel.test.mjs:420` 一次假红，追进去是**测试探针自身**的缺陷，不是产品： / JOIN-590 is COMPLETE with its marker released. A later full-suite run produced a false red at that line; the cause is the probe, not the product:
+
+```text
+规则 / the rule     同一 relay peer 在 1000 ms 窗口内第 21 个请求得到 429（RELAY_REQUESTS_PER_SECOND=20）
+探针 / the probe    顺序 await 发 30 个请求，要求至少一个 429
+=> 只有当前 21 次往返平均快于约 48 ms 时才成立；主机一忙，窗口被重新填满，断言失败而限流器正常
+```
+
+- 现场证据 / in situ：并集全量首跑 4 红含本项，重跑 3 红（本项消失）；main 基线 3 红（同样三个 launcher）；并集未改动该测试与限流器任何一行。
+- 限度 / limit：**无法按需复现**（12 个 CPU 占满进程 0/6；并发完整全量套件 0/6）——如实记录，不含糊成“已复现”。
+- 直接证明 / proved directly：同一个限流器、同一个 helper、同样注入的 60 ms 每请求延迟，只改发送纪律：顺序 await **0/30 被拒**，并发突发 **10/30 被拒**（30 个请求 0 ms 内写完）；两次数字一致；修复后探针本机连跑 10 次 0 失败、全量 1356/1359（3 项为 host-city-launcher）。
+- 修复 / repair：`repair/mech-relay-rate-probe-burst`（建在当前 main `b06504f`），三段产品断言一字未改，只把突发真的作为突发发出，并在失败信息里报告发送跨度。
+- 状态 / status：**已验证、待采纳的提案**。本机对 JOIN 系列无合并授权，是否采纳由该任务记录持有人决定。完整记录：`../reports/RELAY_RATE_PROBE_HOST_SPEED_MECH.md`。
