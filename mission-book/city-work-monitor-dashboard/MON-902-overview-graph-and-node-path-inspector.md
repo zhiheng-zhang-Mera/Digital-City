@@ -19,8 +19,8 @@ development_head_sha: "3a88e23f91924576178973ef46c620b20ffa2aaf"
 development_ci: "\"TERMINAL CI ON THE REVIEW TARGET 3a88e23f91924576178973ef46c620b20ffa2aaf: V0.2 checks push run 37404641090 COMPLETED SUCCESS, V0.2 checks pull_request run 37404644103 COMPLETED SUCCESS, City linkage check run 37404644095 COMPLETED SUCCESS - all three read from the Actions API and matched on headSha. HISTORY, preserved rather than cleaned: an earlier value of this field claimed both runs on 5460697cfde5d807f022698a0411b040634a458b were green; re-reading the API showed push run 37290743026 COMPLETED FAILURE (gateway-web) beside pull run 37290746745 success and linkage 37290746628 success. That failure was a MEASUREMENT DEFECT in MON-902's own browser probe (it waited for .monitor-panel, which exists while the page still says 'Loading from the Gateway...', then asserted loaded-state copy). Repaired at fd70d00837a8309db718ee56fab7738a8b947530 (push 37403423102 success) by marking the panel state machine-readably (data-loaded true/false/error) and waiting for the projection. Head 6bb19f3e842774eff98cccf30fb01a8784953f22 was the first product head (push 37290149947 success).\" NEW HEAD fd70d00837a8309db718ee56fab7738a8b947530 carries the repair. ITS EXACT-HEAD CI, re-read per run: V0.2 checks push run 37403423102 COMPLETED SUCCESS (jobs gateway-web pass 5m24s, android pass 1m24s) as reported by the PR check view for the same head; the earlier head's PR run 37290746745 was also green. At hand-off, PR zhiheng-zhang-Mera/utopia#27 reports the head as mergeable=CONFLICTING, which is the latest-main integration obligation recorded in integration_note and in DEVELOPMENT_HANDOFF.md section 3, not a CI failure.\""
 development_complete: true
 review_host: "Alien"
-review_head_sha: "3a88e23f91924576178973ef46c620b20ffa2aaf"
-review_ci: null
+review_head_sha: "f4988248a3316806fc2e3fa9e62864ed129fe7b3"
+review_ci: "PENDING exact-head push 37414577586 / PR 37414583160 / linkage 37414583135"
 review_complete: false
 integration_note: "LATEST-MAIN INTEGRATION PERFORMED on this head (3a88e23f91924576178973ef46c620b20ffa2aaf): origin/main 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef was merged in (a merge commit, so the earlier evidence head fd70d008 keeps its recorded CI), and the five conflicting files were resolved as UNIONS - apps/web/index.html (MON-902's City monitor button kept beside every other programme's nav entry), apps/web/i18n/en.js and zh-CN.js (MON-902's 89 monitor keys kept alongside main's key blocks; 527 keys in both packs, zero duplicate keys, zero parity gap), apps/web/app.js (monitor import, state, loadMonitor/renderMonitor, the Monitor page dispatch, the go() reset and the three monitor click handlers re-applied onto main's wiring) and services/dev-gateway/server.mjs (the monitor-graph import and route re-applied). The two lockfiles merged automatically. VERIFICATION after the union: 62 tests pass across MON-902's own suites plus MON-901, REX-801, REX-802 and WBC-604 route/failsafe suites; the browser suite 2/2; and a surface-preservation check confirming all twelve nav pages (including Monitor, Research and ResearchTrace) plus the monitor, research-experiment, execution-profile and trace routes are present. The branch diff against main is now exactly MON-902's work (13 files, +1220/-3), so the reviewer reads MON-902 and nothing else."
 previous_heads: "6bb19f3e842774eff98cccf30fb01a8784953f22 (push 37290149947 success); 5460697cfde5d807f022698a0411b040634a458b (PR 37290746745 success + linkage 37290746628 success, PUSH 37290743026 FAILURE - see development_ci); fd70d00837a8309db718ee56fab7738a8b947530 (flake repair; push 37403423102 SUCCESS)"
@@ -50,7 +50,8 @@ merge_authority: false
 report_path: mission-book/reports/MON-902
 dependency_source_workbooks: ["MON-901"]
 review_branch: "review/MON-902-Alien-20261006"
-review_status: "CLAIMED_INDEPENDENT_REVIEW"
+review_status: "REPAIRED_AWAITING_EXACT_HEAD_CI"
+review_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/34"
 ---
 
 # MON-902 — Overview Graph + Node / Path Inspector
