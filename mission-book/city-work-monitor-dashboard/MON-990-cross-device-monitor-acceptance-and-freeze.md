@@ -18,8 +18,8 @@ development_branch: "mon/MON-990-Alien-20261006"
 development_head_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
 development_ci: "SUCCESS exact fb042d9: push37420061997 / PR37420065177 / linkage37420065178 all terminal SUCCESS; PR36 CLEAN/MERGEABLE; remote/local exact and clean. Earlier523eb47 failure retained."
 development_complete: true
-review_host: null
-review_head_sha: null
+review_host: "Mech"
+review_head_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
 review_ci: null
 review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
