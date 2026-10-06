@@ -1,0 +1,19 @@
+✔ Alien: completed work does not imply an offline host is holding executable work or current retry/wait (11.4437ms)
+✔ Alien: missing coverage metadata cannot yield a calm graph (0.3312ms)
+✔ Alien: collapsed normal work stays collapsed in actual rendered overview, with stable visible order (2.319ms)
+✔ Alien: a path preserves observed event provenance and explicitly unknown timing (0.4482ms)
+✔ Alien: a failure points to its matching transition, not an unrelated later event (0.1908ms)
+✔ Alien browser: offline invalidates a delayed monitor response (1531.1924ms)
+✔ Alien browser: an old credential response cannot replace the new scope or another page (856.537ms)
+✔ Alien browser: a newer canonical snapshot arriving during a fetch receives a follow-up projection (854.2265ms)
+✔ Alien browser: heartbeat-only refresh preserves visible row identity (841.8395ms)
+✔ Alien browser: assignment path reaches real canonical event in three interactions (1284.6103ms)
+✔ Alien browser: cluster expands, edge filter is reachable and evidence opens exact canonical reference (1547.1511ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9664.6603

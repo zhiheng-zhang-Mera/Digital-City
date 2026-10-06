@@ -1,0 +1,80 @@
+✔ Alien: completed work does not imply an offline host is holding executable work or current retry/wait (11.6425ms)
+✔ Alien: missing coverage metadata cannot yield a calm graph (0.2287ms)
+✔ Alien: collapsed normal work stays collapsed in actual rendered overview, with stable visible order (2.366ms)
+✔ Alien: a path preserves observed event provenance and explicitly unknown timing (0.4197ms)
+✔ Alien browser: offline invalidates a delayed monitor response (1467.1532ms)
+✖ Alien browser: cluster expands, edge filter is reachable and evidence opens exact canonical reference (1787.0042ms)
+✔ MON-902 graph: every risk level is one of the declared vocabulary and never a boolean (16.2793ms)
+✔ MON-902 graph: a failed task and an offline device holding work are ACTIVE risks that reach the summary (1.3452ms)
+✔ MON-902 graph: an offline device with no work assigned is a WATCH, not an incident (0.4011ms)
+✔ MON-902 graph: absence of retries is NOT claimed from a truncated event window (0.8149ms)
+✔ MON-902 graph: repeated hand-off refusals for one task become one ACTIVE risk with its count (0.636ms)
+✔ MON-902 graph: a task waiting on a device is a WATCH until that device reports ready (0.3641ms)
+✔ MON-902 graph: a monitor that cannot see must not look calm (0.5717ms)
+✔ MON-902 graph: a path pointing at an absent device is reported as a causality gap (0.4358ms)
+✔ MON-902 graph: the edge filter removes types from the picture and never invents others (0.3568ms)
+✔ MON-902 graph: a large city collapses unremarkable work but never collapses an active risk (2.0259ms)
+✔ MON-902 graph: the layout does not reshuffle because an event arrived (0.3705ms)
+✔ MON-902 graph: the interaction budget from overview to a risk is stated and small (0.2177ms)
+✔ MON-902 graph: owner-required state is reported as observable or explicitly not observable, never as none (0.1917ms)
+✔ MON-902 graph: an invalid view is refused rather than projected into a comfortable empty city (0.4407ms)
+✔ MON-902 panel: an active risk is visible on the overview without opening anything (2.3044ms)
+✔ MON-902 panel: raw projection vocabulary does not render outside the disclosure (10.8699ms)
+✔ MON-902 panel: a calm banner is never printed over a city the projection cannot see (0.6414ms)
+✖ MON-902 panel: a collapsed cluster still reports the risk it contains (2.5736ms)
+✔ MON-902 panel: the node inspector answers what, why, who and what-next, and keeps the exact reference (0.8144ms)
+✔ MON-902 panel: a path with no stated cause is shown as unexplained, not as fine (0.4836ms)
+✔ MON-902 panel: a stale selection says so instead of rendering an empty panel (0.1599ms)
+✔ MON-902 panel: ids and labels from the city are escaped in text and attribute positions (0.3447ms)
+✔ MON-902 panel: every word the surface uses exists in both locale packs, including every risk code (1.6138ms)
+✔ MON-902 panel: the shell exposes the page and fetches the real route (0.9934ms)
+✔ MON-902 panel: the page is wired to the real gateway projection route end to end (188.8451ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 29
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6003.286
+
+✖ failing tests:
+
+test at tests\mon902-alien-review.test.mjs:55:1
+✖ Alien browser: cluster expands, edge filter is reachable and evidence opens exact canonical reference (1787.0042ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(await page.locator('.monitor-panel [data-monitor-node]').count()>=140)
+  
+      at file:///D:/Utopia-MON902/tests/mon902-alien-review.test.mjs:59:92
+      at async fixture (file:///D:/Utopia-MON902/tests/mon902-alien-review.test.mjs:43:378)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\mon902-monitor-panel.test.mjs:83:1
+✖ MON-902 panel: a collapsed cluster still reports the risk it contains (2.5736ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Collapsed/. Input:
+  
+  '<section class="panel monitor-panel" data-loaded="true" aria-labelledby="monitor-title"><h2 id="monitor-title">City monitor</h2><p class="muted">What the city is doing right now, what is at risk, and what this picture cannot see.</p><p class="monitor-banner alert" role="status">Things need attention: <strong>1</strong></p><h3>At risk now</h3><ul class="monitor-rows"><li class="monitor-row risk-active" data-monitor-node="risky"><span class="monitor-dot" aria-hidden="true"></span><span class="monitor-row-label">city-task</span><span class="monitor-row-why">This task failed</span><span class="monitor-row-state">failed</span></li></ul><h3>Worth watching</h3><p class="muted">Nothing is degraded.</p><h3>Other work</h3><p class="muted">No other task is in this window.</p><ul class="monitor-clusters"><li class="monitor-cluster"><button data-monitor-cluster="cluster:TASK:RUNNING" aria-expanded="false">Expand <strong>200</strong> running · NONE</button></li></ul><p class="muted monitor-scope">Always true of this monitor: Whether the owner is needed cannot be told from here.</p><p class="muted">A risk on this page is one click from its reason and its canonical evidence.</p></section>'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-MON902/tests/mon902-monitor-panel.test.mjs:89:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<section class="panel monitor-panel" data-loaded="true" aria-labelledby="monitor-title"><h2 id="monitor-title">City monitor</h2><p class="muted">What the city is doing right now, what is at risk, and what this picture cannot see.</p><p class="monitor-banner alert" role="status">Things need attention: <strong>1</strong></p><h3>At risk now</h3><ul class="monitor-rows"><li class="monitor-row risk-active" data-monitor-node="risky"><span class="monitor-dot" aria-hidden="true"></span><span class="monitor-row-label">city-task</span><span class="monitor-row-why">This task failed</span><span class="monitor-row-state">failed</span></li></ul><h3>Worth watching</h3><p class="muted">Nothing is degraded.</p><h3>Other work</h3><p class="muted">No other task is in this window.</p><ul class="monitor-clusters"><li class="monitor-cluster"><button data-monitor-cluster="cluster:TASK:RUNNING" aria-expanded="false">Expand <strong>200</strong> running · NONE</button></li></ul><p class="muted monitor-scope">Always true of this monitor: Whether the owner is needed cannot be told from here.</p><p class="muted">A risk on this page is one click from its reason and its canonical evidence.</p></section>',
+    expected: /Collapsed/,
+    operator: 'match',
+    diff: 'simple'
+  }
