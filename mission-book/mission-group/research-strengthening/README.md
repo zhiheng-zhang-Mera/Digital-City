@@ -192,7 +192,9 @@ v1 版本的表格声称有 8 个探针，实际只有 6 个（其中两行 `rel
 **v3 复测（2026-10-06，Mech）**：补上第五个实例（REX-804 的 fault store）并新增「该头不构造的 store 不得读成安全启动」规则后，
 `3950d47`（REX-890 若要部署就是这个头）上**五个模块级实例全部已守卫**——fault store 报
 `STARTED-DEGRADED storeState=UNAVAILABLE reason=EEXIST`；已部署候选 `0261a9e` 该格为 `NOT EXERCISED`（无 fault 面）。
-harness 见 `reports/REX-PROGRAMME/store-shape-sweep-v3.mjs`。
+并且被验收头 `fe700ab` 的守卫**比当初的 `adc075e` 更严**：把文件放在 fault store 位后 City 照常启动、列表如实报降级，
+而**启动故障被 typed 拒绝**（503 `FAULT_STORE_UNAVAILABLE`）；因此 `690d723` 不再等待 `adc075e`。
+harness 见 `reports/REX-PROGRAMME/store-shape-sweep-v3.mjs` 与 `fault-store-start-check.mjs`。
 涉及的模块均已合并进 main 且其任务（REX-801、MB-008 legacy、WBC-604）已关闭，因此本机只发布测量、修复分支与探针，
 **不合并、不改 main、不触碰关闭任务的记录**。
 

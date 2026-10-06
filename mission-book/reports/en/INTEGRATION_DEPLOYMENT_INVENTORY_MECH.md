@@ -74,8 +74,11 @@ READY NOW repair/mech-relay-rate-probe-burst @ 14499ad
 RIDES ALONG repair/REX-804-mech-test-evidence-outside-repo @ 690d723
           parent = fe700ab (the accepted but UNMERGED REX-804 head), so the branch is 10 commits ahead of main and
           cannot be adopted alone. The part to adopt is its single hunk (the screenshot moves from the committed
-          evidence path to .runtime/), and it should enter main together with the REX-804 branch - which first
-          needs the B4 fault-store guard, repair @ adc075e.
+          evidence path to .runtime/), and it should enter main together with the REX-804 branch.
+          Correction (measured 2026-10-06): it no longer waits on adc075e - the accepted head fe700ab already
+          carries the fault-store guard, and a stricter one (degrade at construction plus a typed 503
+          FAULT_STORE_UNAVAILABLE refusal to start a fault). Evidence:
+          reports/REX-PROGRAMME/fault-store-start-check.mjs and store-shape-sweep-v3.mjs
 
 OPEN, REBASE FIRST repair/WBC-604-mech-profile-persist-first @ 1f2f08c (F-3 profile half-switch)
           parent = 213f9f9, cut before the CEX-790 integration; adopting it as-is would delete that integration's

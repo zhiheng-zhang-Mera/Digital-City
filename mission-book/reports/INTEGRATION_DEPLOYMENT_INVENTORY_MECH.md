@@ -83,7 +83,10 @@ REX-806      rex/REX-806-mech-metrics-and-export @ 3950d47（开发完成）
 需随分支走  repair/REX-804-mech-test-evidence-outside-repo @ 690d723
         parent = fe700ab（被验收但**未并入 main** 的 REX-804 头），因此该分支相对 main 有 10 个提交
         **不能单独采纳**：本机要采纳的只有里面那一个 hunk（截图从已提交的 evidence 路径改到 .runtime/），
-        它应当随 REX-804 分支一起进入 main（而该分支先要解决 B4 的 fault store guard，修复 @ adc075e）
+        它应当随 REX-804 分支一起进入 main
+        更正（2026-10-06 实测）：**不再等待 `adc075e`**——被验收头 `fe700ab` 自身已带 fault store 守卫，
+        且比 `adc075e` 更严（构造期降级 + `start` 被 typed 拒 503 FAULT_STORE_UNAVAILABLE）；
+        证据 reports/REX-PROGRAMME/fault-store-start-check.mjs 与 store-shape-sweep-v3.mjs
 
 仍开放且需先 rebase  repair/WBC-604-mech-profile-persist-first @ 1f2f08c（F-3 profile 半切换）
         parent = 213f9f9，切在 CEX-790 集成之前，按现状采纳会删掉那次集成的测试 ⇒ 必须先 rebase

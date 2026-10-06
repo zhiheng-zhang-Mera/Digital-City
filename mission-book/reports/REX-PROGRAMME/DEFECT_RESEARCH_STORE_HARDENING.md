@@ -260,6 +260,22 @@ SHAPE B join / profile                 静默 / 半切换（F-2、F-3 未修） 
 发现（B4）并在被验收头 `fe700ab` 内修好，v3 现在把它显示为 `STARTED-DEGRADED` 并带 typed 原因。剩下的唯一家族项是
 **规范库的那条无类型消息**（F-1：此处拒绝启动是**正确**行为，缺的是可诊断的原因），其修复 `be3670b` 已就绪。 / On 3950d47 all five module-level instances are guarded; the only remaining family item is F-1's untyped canonical-store message, whose repair is ready.
 
+**「守卫」的有两种实现，且被采纳的那一种更严**：`fe700ab`（被验收头）除了构造期降级，还在 `start` 上加了
+`if(storeState!=='READY')fail('FAULT_STORE_UNAVAILABLE',503)`；而当初作为「可合并最小修复」发布的 `adc075e`
+只降级、并把状态经访问器暴露。本机用 [`fault-store-start-check.mjs`](./fault-store-start-check.mjs) 在 `3950d47` 上实测：
+把文件放在 fault store 的位置后，City 照常启动、列表如实报 `storeState=UNAVAILABLE reason=EEXIST`，而**启动一个故障被
+typed 拒绝**（HTTP 503 `FAULT_STORE_UNAVAILABLE`）——即「记不下来的故障不会被注入」。因此： / The accepted head's guard is stricter than the repair offered for merging, and this was measured:
+
+```text
+fe700ab（被验收 REX-804 头，随 3950d47）  构造期降级 + **start 拒绝**（503 FAULT_STORE_UNAVAILABLE）  <- 实测行为
+adc075e（早期的可合并最小修复）            只降级 + 访问器暴露状态（start 不再拒绝）                  <- 已被前者取代
+=> 结论：690d723（REX-804 证据写入修复）**不再等待 adc075e**；它只需随 REX-804 分支/其被验收头一起进入 main。
+   本记录此前把它写成「需先解决 B4 的 guard（adc075e）」的那句话是**过期**的，已在此更正。
+```
+
+**顺带一条自我印证**：本机写这个探针时，末尾用 `process.exit()` 又触发了**同一个 libuv 断言**（也正是本轮给导出 CLI
+修的那个缺陷），改成 `process.exitCode` 后干净退出 0 —— 同一个修法在两处都成立。 / Writing this probe reproduced the very libuv assertion just repaired in the exporter CLI; the same exit-code fix cleared it.
+
 ### F-3's repair, adopted pattern (third adoptable branch)
 
 F-3 is the one of the three whose fix is both unambiguous and tiny — the module's own documented rule says what the
