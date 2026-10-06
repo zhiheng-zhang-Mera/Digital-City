@@ -2,14 +2,14 @@
 
 ```text
 TASK_ID            PCF-700
-REVIEW TARGET      0899da833e39caa924bdc77bf1020ba5fa572b03
+REVIEW TARGET      659ff6aa98bc5675862b1170ed0cf5e1b78dba5f
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit (= the current tip of pcf/series-mech)
 BASELINE           312b627b54af5bbf274fa25eca8f8383869c1c34
 AUTHOR HOST        Mech (COMPUTERNAME MEGA-REP, role Mech-DS)
 REVIEWER           the other physical host (section 3 forbids self-review; this file is NOT a review claim and
                    carries no verdict)
 DEVELOPMENT        the development side is closed (development_complete: true); awaiting the opposite-host review
-CI                 run 37501463875 completed / success (head 0899da8, gateway-web and android both green)
+READINESS          reports/PCF-700/REVIEW_READINESS_MECH.md (one command, eight recomputations, itself falsified)
 DELIVERABLES       docs/{zh-CN,en}/pcf/{ownership-map,reuse-tiers,ui-backend-matrix}.md,
                    tests/pcf700-{compatibility,dependency-direction}.test.mjs,
                    scripts/pcf700-reuse-audit.mjs, data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -17,12 +17,11 @@ DELIVERABLES       docs/{zh-CN,en}/pcf/{ownership-map,reuse-tiers,ui-backend-mat
 REPORT             reports/PCF-700/DEVELOPMENT_REPORT.md
 ```
 
-> Why the target moved: the earlier delivery head `d611cfe5f0272673706b9dc5c9f6b85ed40a9406` failed hosted CI at step
-> `pnpm check:docs` (the repository gate `scripts/check-bilingual.mjs` read one directory level only and hit EISDIR on
-> the nested `docs/*/pcf/` the workbook requires). The repair head `a2a5673` turned both jobs green, `f75b2a6` is
-> increment 2 (the five-tier check, the UI->backend matrix and the single-writer list), and the current head `0899da8`
-> closes the BuildConfig question (measured NOT APPLICABLE) and closes the development side. **Review `0899da8`**; the
-> failed head and its root cause are kept in DEVELOPMENT_REPORT section 2.5.
+> Why the target moved: `d611cfe` failed hosted CI at step `pnpm check:docs` (the repository gate read one directory
+> level only and hit EISDIR on the nested `docs/*/pcf/` the workbook requires); `a2a5673` repaired the gate, `f75b2a6`
+> is increment 2 (the five-tier check, the UI->backend matrix, the single writers), `0899da8` closed the BuildConfig
+> question and the development side, and the current head `659ff6a` adds the review-readiness packet.
+> **Review `659ff6a`**; the failed head and its root cause are kept in DEVELOPMENT_REPORT section 2.5.
 
 ## 1. Why this file exists
 
@@ -34,8 +33,12 @@ where the evidence is; the author writes no verdict here and does not turn this 
 ## 2. What the reviewer must manufacture independently (never read the author's conclusions as evidence)
 
 ```text
+R0 run the readiness packet FIRST: node scripts/pcf700-review-packet.mjs (usage and the expected 8/8 output are in
+   reports/PCF-700/REVIEW_READINESS_MECH.md). It recomputes the author's claims so your effort goes into judgement;
+   it was itself falsified (tampered fingerprint -> C1+C8 fail; changed tier -> C1 fails; a created candidate
+   directory -> C7 fails), and it proves nothing about the two-host tiers.
 R1 resolve the exact head yourself: git ls-remote origin pcf/PCF-700-mech-ownership-and-reality-audit must equal
-   0899da833e39caa924bdc77bf1020ba5fa572b03, and 312b627b54af5b must be an ancestor of it.
+   659ff6aa98bc5675862b1170ed0cf5e1b78dba5f, and 312b627b54af5b must be an ancestor of it.
 R2 re-run the author suite: corepack pnpm install --frozen-lockfile AND
    corepack pnpm --dir city install --frozen-lockfile (both steps - a root node_modules junction does not install the
    city workspace), then node --test tests/pcf700-compatibility.test.mjs,

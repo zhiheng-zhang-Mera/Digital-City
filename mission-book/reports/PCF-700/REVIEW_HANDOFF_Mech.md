@@ -2,13 +2,13 @@
 
 ```text
 TASK_ID            PCF-700
-REVIEW TARGET      0899da833e39caa924bdc77bf1020ba5fa572b03
+REVIEW TARGET      659ff6aa98bc5675862b1170ed0cf5e1b78dba5f
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit（= pcf/series-mech 当前头）
 BASELINE           312b627b54af5bbf274fa25eca8f8383869c1c34
 AUTHOR HOST        Mech（COMPUTERNAME MEGA-REP，role Mech-DS）
 REVIEWER          另一实体主机（§3 禁止自审；本文件**不是**复检声明，也不构成裁决）
 DEVELOPMENT        开发侧已收口（development_complete: true）；等异机 Formal Review
-CI                 run 37501463875 completed / success（head 0899da8，gateway-web 与 android 全绿）
+READINESS          reports/PCF-700/REVIEW_READINESS_MECH.md（一条命令跑 8 项重算，已证伪）
 DELIVERABLES       docs/{zh-CN,en}/pcf/{ownership-map,reuse-tiers,ui-backend-matrix}.md,
                    tests/pcf700-{compatibility,dependency-direction}.test.mjs,
                    scripts/pcf700-reuse-audit.mjs、data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -16,11 +16,10 @@ DELIVERABLES       docs/{zh-CN,en}/pcf/{ownership-map,reuse-tiers,ui-backend-mat
 REPORT             reports/PCF-700/DEVELOPMENT_REPORT.md
 ```
 
-> 复检目标说明：前一交付头 `d611cfe5f0272673706b9dc5c9f6b85ed40a9406` 在 hosted CI 上因 step `pnpm check:docs`
-> 失败（仓库闸门 `scripts/check-bilingual.mjs` 只读一层目录，遇到工作书要求的 `docs/*/pcf/` 嵌套直接 EISDIR）；
-> 修复头 `a2a5673` 让两个 job 全绿；`f75b2a6` 是增量 2（五档核对 + UI→后端矩阵 + 单写者清单）；当前头 `0899da8`
-> 关闭 BuildConfig 项（实测**不适用**）并收口开发侧。**复检请以 `0899da8` 为对象**；失败头与根因保留在
-> DEVELOPMENT_REPORT §2.5。
+> 复检目标说明：`d611cfe` 在 hosted CI 上因 step `pnpm check:docs` 失败（仓库闸门只读一层目录，遇到工作书要求的
+> `docs/*/pcf/` 嵌套直接 EISDIR）；`a2a5673` 修好闸门，`f75b2a6` 是增量 2（五档核对 + UI→后端矩阵 + 单写者），
+> `0899da8` 关闭 BuildConfig 项并收口开发侧，当前头 `659ff6a` 增加复检就绪包。**复检请以 `659ff6a` 为对象**；
+> 失败头与根因保留在 DEVELOPMENT_REPORT §2.5。
 
 ## 1. 本交接存在的原因 / Why this file exists
 
@@ -29,8 +28,11 @@ PCF 系列 701..728 **全部**（直接或间接）依赖 PCF-700，而 PCF-701 
 ## 2. 复检方需要独立制造什么（不要读作者结论当证据）/ What the reviewer must manufacture independently
 
 ```text
+R0 先跑复检包：node scripts/pcf700-review-packet.mjs（用法与预期 8/8 输出见 `reports/PCF-700/REVIEW_READINESS_MECH.md`）。
+   它重算作者的主张，让你的力气花在判断上；它自己也被证伪过（篡改指纹 → C1+C8 红；改 tier → C1 红；
+   临时创建候选目录 → C7 红），且它对两主机两档**什么也没证明**。
 R1 独立取得精确头：git ls-remote origin pcf/PCF-700-mech-ownership-and-reality-audit，
-   确认等于 0899da833e39caa924bdc77bf1020ba5fa572b03；再确认 312b627b54af5b 是该头祖先。
+   确认等于 659ff6aa98bc5675862b1170ed0cf5e1b78dba5f；再确认 312b627b54af5b 是该头祖先。
 R2 独立重跑作者套件：corepack pnpm install --frozen-lockfile && corepack pnpm --dir city install --frozen-lockfile
    （两步必须都做：根目录 node_modules 是 junction 时 city workspace 不会被装上），
    然后 node --test tests/pcf700-compatibility.test.mjs、node --test tests/pcf700-dependency-direction.test.mjs，

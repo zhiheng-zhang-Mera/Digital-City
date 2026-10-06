@@ -10,9 +10,10 @@ HOST               Mech（COMPUTERNAME MEGA-REP；role Mech-DS，development sid
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
 SERIES BRANCH      pcf/series-mech（= f75b2a6，本系列累计头）
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  （= origin/main，见 CLAIM_REPORT.md）
-HEAD_SHA           0899da833e39caa924bdc77bf1020ba5fa572b03  （增量 3/开发侧收口；前序头 f75b2a6、a2a5673、d611cfe）
+HEAD_SHA           659ff6aa98bc5675862b1170ed0cf5e1b78dba5f  （增量 4/复检就绪包；前序头 0899da8、f75b2a6、a2a5673、d611cfe）
 CI                 run 37497553367（d611cfe，**失败**）→ run 37498638940（a2a5673，**success**）
-                   → run 37500280971（f75b2a6，**success**）→ run 37501463875（0899da8，**success**，两 job 全绿）
+                   → run 37500280971（f75b2a6，**success**）→ run 37501463875（0899da8，**success**）
+                   → run 37502818037（659ff6a，**success**，两 job 全绿）
 DEVELOPMENT        开发侧完成（development_complete: true）：子步骤 1–4 全部交付并附证据；子步骤 5 的**开发半**
                    已完成（未证明项全部标出并归类），**执行半属复检方**（EXECUTION_CONTRACT §14 要求另一实体主机）
 DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md、reuse-tiers.md、ui-backend-matrix.md,
@@ -143,6 +144,16 @@ UI→后端方向
 **增量 2 的仪器错误（记录）**：第一版方向探针用一条宽松正则，报出 19 条「后端 import 前端」，**全部假阳性**（服务路径与 tests/scripts 驱动器）；修好后只认 `import ... from '...'`，又被**副作用导入** `import '../apps/web/app.js';`（真实依赖）绕过——后者靠**故意证伪守卫**发现。D1–D4 四条守卫都已用「制造反例 → 变红 → 复位 → 变绿」证伪过（probe 文件均即建即删，树保持干净）。探针脚本被排除在自身统计之外，避免自我放大。
 
 **增量 2 的 CI**：`f75b2a6` 的 hosted run **37500280971 completed / success**（gateway-web success、android success，含 `pnpm test` 与 `pnpm check:docs` 在内的每一步全绿）。本机：两套 PCF 测试合计 11/11（7 兼容 + 4 依赖方向），check:docs 三处 PAIR_STATUS = SYNCHRONIZED。
+
+## 6.5 增量 4：把复检第一步压成一条命令（`scripts/pcf700-review-packet.mjs`）
+
+作者把每条主张写成可重算检查：`node scripts/pcf700-review-packet.mjs` 会自己重跑审计脚本，把发布记录**逐字段**比对（**故意排除** `measuredAt` 主机/node 元数据并排序所有列表——报告有差异就是证据有差异，不是机器有差异）。八项检查：C1 整份记录可重算、C2 恰好四个 LIVE_WIRED、C3 EM/GAI 零产线引用、C4 后端不 import 前端、C5 UI 端点全部可解析、C6 无运行期模块引用 fabric、C7 候选 PCF 目录未创建、C8 五个单写者指纹可重算。本机 exact 实测 **8/8，退出码 0**。
+
+**证伪**（否则它只是好看的输出）：篡改一处单写者 SHA256 → C1+C8 FAIL（6/8，退出码 1）；改一处 tier 为 LIVE_WIRED → C1 FAIL（7/8，退出码 1）；临时创建 `contracts/personal-compute-fabric-v1/` → C7 FAIL（并连带 C1），退出码 1；复位后 8/8。完整基线与用法见 `reports/PCF-700/REVIEW_READINESS_MECH.md`。
+
+**这个包自己的两个仪器错误（记录）**：E1 第一版探针在**带 BOM** 的记录上崩溃（PS 5.1 的 `Set-Content -Encoding UTF8` 默认写 BOM），而崩溃**恰好也返回退出码 1**——正确的退出码、错误的原因，修法是读取时剥离 BOM；E2 用 PowerShell 管道捕获**非零退出**的 node 进程时 stdout 可能被吞掉（FAIL 行一度不可见），修法是探针支持 `--out`，证伪证据一律从文件读。
+
+**这个包不证明**：TWO_HOST_VERIFIED / ORIGIN_AGENT_CONSUMED（跨机必须由另一实体主机真跑）；也不跑测试套件——7/7 与 4/4 仍须复检方自己运行并自己证伪。
 
 ## 7. 下一步（交给下一轮或异机复检）/ Next
 

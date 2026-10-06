@@ -10,9 +10,10 @@ HOST               Mech (COMPUTERNAME MEGA-REP; role Mech-DS, development side)
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
 SERIES BRANCH      pcf/series-mech (= f75b2a6, the series' accumulated head)
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  (= origin/main; see CLAIM_REPORT.md)
-HEAD_SHA           0899da833e39caa924bdc77bf1020ba5fa572b03  (increment 3 / development closure; earlier heads f75b2a6, a2a5673, d611cfe)
+HEAD_SHA           659ff6aa98bc5675862b1170ed0cf5e1b78dba5f  (increment 4 / review readiness; earlier heads 0899da8, f75b2a6, a2a5673, d611cfe)
 CI                 run 37497553367 (d611cfe, **failure**) -> run 37498638940 (a2a5673, **success**)
-                   -> run 37500280971 (f75b2a6, **success**) -> run 37501463875 (0899da8, **success**, both jobs green)
+                   -> run 37500280971 (f75b2a6, **success**) -> run 37501463875 (0899da8, **success**)
+                   -> run 37502818037 (659ff6a, **success**, both jobs green)
 DEVELOPMENT        development_complete: true - sub-steps 1-4 are delivered with their evidence and the DEVELOPMENT half
                    of sub-step 5 is done (every unproven item is labelled and attributed); its EXECUTION half belongs to
                    the reviewer (EXECUTION_CONTRACT section 14 requires the other physical host)
@@ -176,6 +177,31 @@ tree clean). The probe script is excluded from its own subject so it cannot infl
 **Increment 2's CI**: hosted run **37500280971 completed / success** on `f75b2a6` (gateway-web success, android success;
 every step green, including `pnpm test` and `pnpm check:docs`). Locally: 11/11 across the two PCF suites (7
 compatibility + 4 dependency-direction) and PAIR_STATUS = SYNCHRONIZED in all three roots.
+
+## 6.5 Increment 4: the first step of the review reduced to one command (`scripts/pcf700-review-packet.mjs`)
+
+The author wrote every claim as a recomputable check: `node scripts/pcf700-review-packet.mjs` re-runs the audit itself
+and compares the published record FIELD FOR FIELD (deliberately excluding the `measuredAt` host/node metadata and
+sorting every list, so a difference in the report means a difference in the EVIDENCE rather than in the machine). Eight
+checks: C1 the whole record recomputes, C2 exactly four LIVE_WIRED contracts, C3 EM/GAI have zero production
+references, C4 no backend imports the front end, C5 every UI endpoint resolves, C6 no runtime module refers to the
+fabric, C7 the candidate PCF directories are absent, C8 five single-writer fingerprints recompute. Measured here:
+**8/8, exit 0**.
+
+**Falsified** (otherwise it is just pretty output): tampering with one single-writer SHA256 -> C1+C8 FAIL (6/8, exit 1);
+changing one tier to LIVE_WIRED -> C1 FAIL (7/8, exit 1); creating `contracts/personal-compute-fabric-v1/` temporarily
+-> C7 FAIL (and C1 with it), exit 1; restored -> 8/8. The full baseline and usage live in
+`reports/PCF-700/REVIEW_READINESS_MECH.md`.
+
+**The packet's own two instrument errors (recorded)**: E1 the first probe CRASHED on a BOM-prefixed record (PS 5.1's
+`Set-Content -Encoding UTF8` writes a BOM) and that crash ALSO returned exit 1 - the right exit code for the wrong
+reason; the reader now strips a BOM. E2 capturing a non-zero-exit node process through a PowerShell pipeline can
+swallow its stdout (the FAIL lines were briefly invisible), so the packet supports `--out` and all falsification
+evidence is read from that file.
+
+**What the packet does not prove**: TWO_HOST_VERIFIED / ORIGIN_AGENT_CONSUMED (the cross-host chain must be genuinely
+run by the other physical host), and it runs no test suite - the 7/7 and 4/4 suites still have to be run and falsified
+by the reviewer.
 
 ## 7. Next (for the next round or the opposite-host review)
 
