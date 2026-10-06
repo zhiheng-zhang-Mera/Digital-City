@@ -1,4 +1,4 @@
-// Feasibility fixture for the REX-805 review: can a replay be exercised on a City with no executing worker?
+﻿// Feasibility fixture for the REX-805 review: can a replay be exercised on a City with no executing worker?
 //
 // Last round's smoke established that a replay needs a MEASURED source run, and that a bare in-process City cannot
 // produce one because nothing executes canonical tasks. The review needs the replay chain, so this builds the
@@ -90,6 +90,14 @@ try {
   const readiness = (await api('research/campaigns')).body.topology;
   console.log(`fixture     topology now live: workers=${JSON.stringify(readiness.workers)} surfaces=${JSON.stringify(readiness.surfaces.map(s => s.ref))}`);
 
+  // The engine's preflight requires the recorded topology to be live at the instant of EVERY replay, and these
+  // registrations carry no heartbeat, so they decay during each 30-second wait. A real worker would not need this.
+  const keepTopologyLive = async () => {
+    for (const id of ['fx-worker', 'fx-alternate']) {
+      await fetch(`${app.url}/api/v0/node/register`, {method: 'POST', headers: {...H, Authorization: 'Bearer fx-node'}, body: JSON.stringify({id, displayName: id, metadata: {platform: 'reference'}, capabilities: ['task.execute.safe', 'filesystem.temp']})});
+    }
+  };
+
   const replay = await api('research/replays', {sourceCampaignId: campaignId, sourceRunIndex: 0, mode: 'REPLAY'});
   console.log(`REPLAY      status=${replay.status} ${JSON.stringify(replay.body).slice(0, 220)}`);
   assert.ok([200, 201].includes(replay.status), `REPLAY must be accepted once a measured source exists (answered ${replay.status})`);
@@ -100,11 +108,47 @@ try {
   for (let i = 0; i < 45 && replayLive?.state === 'RUNNING'; i += 1) { await sleep(1000); replayLive = (await api('research/campaigns')).body.live; }
   const comparison = await api(`research/replays/${encodeURIComponent(replayCampaignId)}`);
   console.log(`COMPARE     status=${comparison.status} keys=${Object.keys(comparison.body?.comparison ?? {}).join(',') || '(none)'}`);
-  console.log(`COMPARE     body=${JSON.stringify(comparison.body?.comparison ?? comparison.body).slice(0, 400)}`);
   assert.equal(comparison.status, 200, 'the comparison must answer for a replay of a measured source run');
+  const first = comparison.body.comparison;
+
+  // What the engine means by the controlled-input difference it reported. Print the whole comparison: `limits` is one of
+  // the controlled dimensions, and reading it beats guessing.
+  console.log(`COMPARE     full=${JSON.stringify(first).slice(0, 1200)}`);
+
+  // Determinism: the same recorded source, replayed again. If the engine refuses a second replay, the refusal is itself
+  // the measurement - a typed refusal is information, and this instrument records it rather than failing on it.
+  await keepTopologyLive();
+  const replay2 = await api('research/replays', {sourceCampaignId: campaignId, sourceRunIndex: 0, mode: 'REPLAY'});
+  if ([200, 201].includes(replay2.status)) {
+    const replay2Id = replay2.body.started?.campaignId ?? replay2.body.started?.id;
+    let live2 = (await api('research/campaigns')).body.live;
+    for (let i = 0; i < 45 && live2?.state === 'RUNNING'; i += 1) { await sleep(1000); live2 = (await api('research/campaigns')).body.live; }
+    const second = (await api(`research/replays/${encodeURIComponent(replay2Id)}`)).body.comparison;
+    const deterministicFields = ['mode', 'sourceRunRef', 'disabledMechanisms', 'controlledInputsMatch', 'controlledInputDifferences', 'expectedTarget', 'placementChanged', 'determinism', 'nondeterministicConditions'];
+    const differing = deterministicFields.filter(field => JSON.stringify(first?.[field]) !== JSON.stringify(second?.[field]));
+    console.log(`DETERMINISM two replays of one source differ on: ${differing.length ? differing.join(',') : '(nothing)'}`);
+    console.log(`DETERMINISM engine determinism field: ${JSON.stringify(first?.determinism)} / ${JSON.stringify(second?.determinism)}`);
+  } else {
+    console.log(`DETERMINISM second replay refused: status=${replay2.status} errorCode=${replay2.body?.errorCode} detail=${JSON.stringify(replay2.body?.detail ?? replay2.body?.error ?? null).slice(0, 160)}`);
+  }
+
+  // ABLATION: the other half of the task. It needs a source with a real alternate-device selection (2+ workers, no
+  // explicit target, no inherited disables), which this fixture has.
+  await keepTopologyLive();
+  const ablation = await api('research/replays', {sourceCampaignId: campaignId, sourceRunIndex: 0, mode: 'ABLATION', disabledMechanisms: ['alternate-device']});
+  if ([200, 201].includes(ablation.status)) {
+    const ablationId = ablation.body.started?.campaignId ?? ablation.body.started?.id;
+    let live3 = (await api('research/campaigns')).body.live;
+    for (let i = 0; i < 45 && live3?.state === 'RUNNING'; i += 1) { await sleep(1000); live3 = (await api('research/campaigns')).body.live; }
+    const ablationComparison = (await api(`research/replays/${encodeURIComponent(ablationId)}`)).body.comparison;
+    console.log(`ABLATION    accepted; compare mode=${ablationComparison?.mode} disabled=${JSON.stringify(ablationComparison?.disabledMechanisms)} expectedTarget=${JSON.stringify(ablationComparison?.expectedTarget)} placementChanged=${ablationComparison?.placementChanged}`);
+  } else {
+    console.log(`ABLATION    refused: status=${ablation.status} errorCode=${ablation.body?.errorCode} detail=${JSON.stringify(ablation.body?.detail ?? ablation.body?.error ?? null).slice(0, 160)}`);
+  }
   console.log('FEASIBLE    a replay runs and compares on a City with no executor, using an authentic receipt with a patched run');
 } finally {
   await browser?.close().catch(() => {});
   await app.close();
   await rm(dir, {recursive: true, force: true});
 }
+

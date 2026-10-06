@@ -25,18 +25,37 @@
 ## 结果 / Result
 
 ```text
-REPLAY   status=200  started.campaignId=campaign-5b24ba5a-…  state=RUNNING
+REPLAY   status=200  started.campaignId=campaign-b1dee2a5-…  state=RUNNING
          replay={schemaVersion:1, mode:'REPLAY', …}
 COMPARE  status=200  keys = state, campaignId, sourceRunRef, mode, disabledMechanisms,
          controlledInputsMatch, controlledInputDifferences, original, replayed, expectedTarget,
          placementChanged, durationDeltaMs, causalPerformanceClaim, determinism,
          nondeterministicConditions
-         body = {state:'COMPLETED', sourceRunRef:'campaign-c238cce9-…:0', mode:'REPLAY',
-                 controlledInputsMatch:false, controlledInputDifferences:['limits'], …}
-FEASIBLE 在没有执行者的 City 上，用「真实回执 + 补过的 run」可以完整跑通重放与比较
+DETERMINISM 同一源重放两次，在 9 个描述性字段上差异 = **无**；引擎自报 determinism='CONTROL_INPUTS_ONLY'
+ABLATION     status=200；比较 mode=ABLATION、disabledMechanisms=['alternate-device']、
+             expectedTarget='fx-worker'、**placementChanged=true**
+             —— 源 run 放在 fx-alternate，关掉交替设备选择后应落在 fx-worker：消融机制**可被观测**
+FEASIBLE     在没有执行者的 City 上，用「真实回执 + 补过的 run」完整跑通 REPLAY 与 ABLATION 两种模式
 ```
 
-**一处值得复检追下去的观察 / one observation the review should chase：** 比较结果把 `controlledInputsMatch` 报成 **false**，差异项是 `limits`。也就是说仪器**主动声明了受控输入不一致**，而不是在不可比的两次执行之间默默比较——这正是本系列反复要求的行为。但这里源回执是合成 run、`limits` 来自并集 City 的默认值，所以**尚未回答**：物理记录的真实 campaign 会不会也出现这条差异。复检时用真实回执测一次即可定性。 / The comparison honestly declares a controlled-input mismatch (`limits`) rather than silently comparing incomparable runs. Whether a physically recorded source shows it too is a review question, not answered here.
+## 一处已定位的发现：`controlledInputsMatch` 会被误报为 false / A located finding
+
+第一次跑通时就注意到比较结果把 `controlledInputsMatch` 报成 **false**、差异项是 `limits`。本轮把它查到了可以交付给复检的程度： / The first working run reported `controlledInputsMatch:false` with `controlledInputDifferences:['limits']`. This round located it.
+
+```text
+实测 / measured   源回执与重放回执的 limits **逐字节相同**（都是 {}），stopConditions / timeout / repetitions 亦相同
+定位 / located    research/replay.mjs:108
+                  check('limits', replay.limits, limits(expectedManifest, selectedLimits(source)));
+                  —— 即把**持久化的** replay.limits 与一个**重新计算**的对象比较；这个 `limits` 由 gateway 注入
+                  （server.mjs:679 注入 campaignLimits，HTTP 启动路径在 server.mjs:1177 用的是同一个函数）
+推断 / inference  当持久化对象的形状与重算结果不同时，比较就会报出一个源与重放**并不存在**的受控输入差异
+方向 / direction  这个误报方向是**保守**的：它声称不一致，而不是声称一致；但它使 controlledInputsMatch 作为
+                  「这两次执行可比吗」的信号不再可靠
+边界 / boundary   重算对象的确切形状（campaignLimits 在 requested={} 下的返回值）本轮**没有**完全推导出来，
+                  所以这里只写「已实测 + 已定位」，不写结论性的根因归属
+```
+
+**这不是本次工具的问题**，而是被这次工具照出来的：仪器把「受控输入是否一致」做成了一个可读字段，于是它自己的这个维度是否可信，就能被检查了。复检时用**物理记录的**源回执再测一次即可定性（真实 campaign 也是走 HTTP 启动路径，因此很可能同样触发）。 / Not a flaw in this instrument - it is what the instrument made visible. The review should re-test with a physically recorded source.
 
 ## 引擎对源的要求（实测，复检直接可用）/ What the engine requires of a source
 
@@ -48,7 +67,9 @@ run：index 唯一、state 可观测、warmup=false、measured 与 state 一致�
      **assignedNodeId === replayTarget(context, seed)**（放置必须与种子推导一致）
 campaignSeed 为字符串、timeout 1..3600000、scenarioId 为字符串
 preflight：**被记录的拓扑必须在“现在”是活的**（NOT_READY 一律拒：不可用条件不可确定性重放）；
-           已有 campaign 正在 RUNNING 或 receipt store 非 READY 也会拒
+          已有 campaign 正在 RUNNING 或 receipt store 非 READY 也会拒
+          —— 实测细节：无心跳的注册节点会在**每次 30 秒等待**里掉线，所以**每一次** replay 之前都要重新注册；
+          最初只注册一次，第二次 replay 与 ablation 都被 REPLAY_TOPOLOGY_NOT_READY 拒（工具因此改成每次刷新）
 模式：v1 只支持 REPLAY 与「精确的 alternate-device 消融」；消融要求源具有可禁用的交替设备选择
      （声明 ≥2 workers 且运行期确实选中过交替设备）
 ```
