@@ -105,7 +105,6 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 ```
 
 **更新（同轮内已修完并验证）/ Updated in the same round - repaired and verified:**
-
 ```text
 BRANCH      repair/REX-806-mech-exporter-refusal-exit-code @ 44dec630ea84ab5be2cb204072a8572a5555a797
             parent = 3950d47（被交付的开发头）⇒ 采纳是 fast-forward
@@ -127,6 +126,30 @@ NOT CLAIMED 本机不行使产品 main 合并权；被交付头 3950d47 仍带�
 ```
 
 **这条同时说明演练的价值**：它不是为了证明「能跑」，它顺手把一个**只会在失败路径上出现**的缺陷抓了出来——而失败路径恰恰是最少被测的路径。 / The rehearsal did not just prove the happy path; it surfaced a defect that only appears on the failure path, which is the least tested one.
+
+## 已知缺陷 2：一个坏回执会让整次导出死掉（演练发现，已修复并验证）/ Defect 2: one bad receipt killed the whole export
+
+用**两场 campaign 的临时 City** 实测（`evidence-tools/RECEIPT_ROBUSTNESS_MECH.mjs`）： / Measured on a throwaway City holding two campaigns:
+
+```text
+R-1 一份回执损坏 -> 城市列表仍列出它，形状带 typed 原因且**没有 campaignId**：
+      {"file":"campaign-<uuid>.json","state":"UNREADABLE","reason":"RECEIPT_UNREADABLE"}
+    旧 CLI 对它的明细请求未加保护 -> 在 get() 抛出未捕获错误 -> **整次导出没有任何产物**，
+    退出码 0xC0000409；而旁边那场可读的 campaign 本可以照常导出
+    修复 repair/REX-806-mech-exporter-unreadable-receipt @ 4349f3d（parent = 3950d47，采纳即 fast-forward）
+      · 按列表已给出的信号跳过该条（不再发出 GET research/campaigns/undefined）
+      · 在 stderr 按文件名 + reason 点名（实测输出 `campaign-8567106f-…json  RECEIPT_UNREADABLE`）
+      · 可读的 campaign 照常导出，**退出码 1** —— 部分产物不得读成一次干净成功
+      · 同分支顺带收编拒绝路径修复（空 store 现在 exit 1 而不是 libuv 断言崩溃），
+        因此它**取代** repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63
+R-2 一份回执被**删除** -> 城市窗口 total 随之下降（receipts=1, window.total=1），包里变成一场自洽的
+    单 campaign study，**没有任何可点名的东西**。这是 **store 的边界**而不是读取方的缺陷：目录式 store
+    没有墓碑，删除不留痕。记录在此是为了让「包内自洽」永远不被当成「记录没有缺失」的证据；
+    若要根治需要 store 侧保留单调计数/墓碑
+```
+
+**验证（本分支三条路径全过）**：拒绝路径 exit=1；损坏回执 → 有产物 + exit 1 + 点名；端到端演练 **13/13**、产出包 **14/14**。
+**未做且写明**：损失**尚未写进包内**（需要 artifact 模块新增 `unreadableReceipts` 段），因此只读包的人目前仍只看到能读到的那些 campaign。 / Verified on three paths; the loss is not yet carried inside the package, which is stated rather than implied.
 
 ## 本机明确不主张的 / Explicitly not claimed
 

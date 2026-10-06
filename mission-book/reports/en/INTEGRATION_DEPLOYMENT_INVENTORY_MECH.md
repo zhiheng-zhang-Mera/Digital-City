@@ -65,6 +65,19 @@ ADOPTED   the two store-guard instances (research registry, capability-bridge th
           (degrade at construction + storeState/storeReason + guard tests), so an ancestry check finds nothing.
           Re-measured evidence: reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md
 
+READY NOW repair/REX-806-mech-exporter-unreadable-receipt @ 4349f3d (SUPERSEDES 44dec63 below)
+          parent = 3950d47, so adoption is a fast-forward. It repairs both failure paths of the exporter:
+          (1) an empty store now refuses with exit 1 instead of dying in a libuv assertion, and (2) a corrupt
+          receipt no longer kills the whole export - it is skipped, named by file and typed reason, the readable
+          campaigns are still exported, and the exit code is 1.
+          Verified: refusal exits 1; a corrupt receipt yields an artifact plus exit 1 and names it; the end-to-end
+          rehearsal passes 13/13 with the produced package verifying 14/14.
+          (repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63 fixed only (1) and is kept as history.)
+
+HISTORICAL repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63
+          Contained in 4349f3d; adopt the former unless only the refusal path is wanted. The defect: the CLI printed
+          the right refusal and then process.exit(1) tripped a libuv assertion, exiting 3221226505 instead of 1.
+
 READY NOW repair/mech-relay-rate-probe-burst @ 14499ad
           parent = b06504f (current main) => exactly one commit on top of main; adoption is a fast-forward.
           Changes only tests/relay-s1-tunnel.test.mjs: the sequential 30-request loop becomes 30 concurrent writes

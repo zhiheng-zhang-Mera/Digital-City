@@ -94,8 +94,15 @@ REX-806      rex/REX-806-mech-metrics-and-export @ 3950d47（开发完成）
 仍开放且已就绪  repair/mech-city-store-diagnostic-on-current-main @ be3670b（F-1 typed 诊断）
         parent = b06504f ⇒ 一个提交叠在 current main 上；其守卫探针在该 tip 上 3/3 通过
 
-可立即采纳  repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63（REX-806 导出 CLI 拒绝路径退出码）
-        parent = 3950d47（REX-806 被交付的开发头）⇒ 采纳即 fast-forward
+可立即采纳  repair/REX-806-mech-exporter-unreadable-receipt @ 4349f3d（**取代**下面的 44dec63）
+        parent = 3950d47 ⇒ 采纳即 fast-forward；同时修好导出器**两条失败路径**：
+        ① 空 store 拒绝时不再于 libuv 断言中崩溃（exit 1）；② 一份回执损坏时不再整次导出无产物，
+        而是跳过并按文件名 + typed 原因点名、可读的照常导出、退出码 1
+        验证：拒绝路径 exit=1；损坏回执 → 产物 + exit 1 + 点名；端到端演练 13/13、产出包 14/14
+        （被取代的 repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63 只修①，保留作为历史）
+
+可立即采纳（历史）  repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63（REX-806 导出 CLI 拒绝路径退出码）
+        parent = 3950d47 ⇒ 采纳即 fast-forward；**已被 4349f3d 包含**，除非只想修①否则应采纳前者
         缺陷：CLI 在「没有可读回执」时打印了正确理由，却因 process.exit(1) 触发 libuv 断言，
         退出码为 3221226505 (0xC0000409) 而非 1 —— 调用方无法区分「按设计拒绝」与「崩溃」
         验证：拒绝路径 exit=1；正常路径端到端演练 13/13、产出包 14/14；本分支 REX-806 三套件 24/24
