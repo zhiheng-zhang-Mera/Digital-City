@@ -255,3 +255,7 @@ CORRECTION_HEAD_SHA = e9add9d1773e46087f032e47572bf69420b3710f
 BRANCH_CI           = 36716375960 — gateway-web success, android success
 MERGE_STATUS        = FORBIDDEN_UNTIL_BUTLER_PROJECT_MERGE
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

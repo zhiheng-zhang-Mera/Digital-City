@@ -217,3 +217,7 @@ Registry 不能替代真实 UI/E2E evidence，也不能自证正确。
 真正值得研究的是：
 
 > **Agentic software development 是否存在稳定的 implementation-to-exposure gap，以及 durable capability registry + user-reachable vertical-slice gating 是否能降低这种 gap、人工接续和返工。**
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md) · [English](../en/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md)

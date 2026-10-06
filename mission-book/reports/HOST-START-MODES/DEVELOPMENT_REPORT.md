@@ -423,3 +423,5 @@ RECOMMENDATION  give the refusal path a workbook of its own (or fold it into the
 3  `--online` was verified at the plan and process level (E2E 2) but not against a second live City in this session;
    JOIN-590's merged-main physical acceptance is the record for the live enrolment path.
 ```
+
+语言配对 / Language pair: [原文 / Source](./DEVELOPMENT_REPORT.md) · [译本 / Translation](./zh-CN/DEVELOPMENT_REPORT.md)

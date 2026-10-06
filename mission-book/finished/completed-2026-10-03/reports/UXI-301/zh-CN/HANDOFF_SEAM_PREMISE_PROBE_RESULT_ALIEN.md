@@ -1,0 +1,63 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../HANDOFF_SEAM_PREMISE_PROBE_RESULT_ALIEN.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# UXI-301 — HANDOFF-SEAM 前提：实际执行结果（Alien）
+
+```text
+AUTHOR  = Alien, independent of UXI-301's development (Mech develops it)
+SUBJECT = the premise behind Mech's deferred remote-handoff gate item
+METHOD  = the exact experiment specified in HANDOFF_SEAM_PREMISES_MEASURED_ALIEN.md, executed
+VERDICT = BOTH PREMISES FALSIFIED BY MEASUREMENT
+```
+
+记录释义：作者 Alien 独立于 UXI-301 开发主机 Mech；对象为 Mech 延后 remote-handoff gate 的前提；精确执行 HANDOFF_SEAM_PREMISES_MEASURED_ALIEN.md 规定实验；两前提均由测量证伪。
+
+同目录早先记录读取冻结 City 代码，有意声明 **假设** 而非结果，因为 programme 已七次记录：从机制 **形状** 推断结果会发布错误结论。实验现已运行，假设获确认。本文件用实测数字取代“看起来可驱动”。
+
+## 原始测量
+
+Probe .runtime/uxi301-premise-probe.ps1，针对冻结 City（产品 tree 与 main1a5bc0e 字节一致），gateway 加真实 reference node alien-reference-node，两个 service processes 在同一 command 内启动并停止。
+
+```text
+registered nodes = 1  (alien-reference-node)
+
+TYPE=WAIT              created_type=WAIT              (echoed back by the API)
+  transitions      : 220ms:RUNNING -> 6310ms:COMPLETED
+  RUNNING occupancy: 6090ms
+
+TYPE=CHECKPOINT_DEMO   created_type=CHECKPOINT_DEMO
+  transitions      : 214ms:QUEUED -> 1088ms:RUNNING -> 3483ms:COMPLETED
+  RUNNING occupancy: 2395ms
+```
+
+## 前提 1 — “City 只能创建一种 task type”：**已证伪**
+
+同次运行经 POST /api/v0/tasks 创建两不同 types；存储 task 回显请求 type，两项 created_type 均匹配。这是执行而非代码阅读：API 接受选择的 type 并持久化。
+
+## 前提 2 — “无法 HOLD 节点保持占用”：**已证伪**
+
+WAIT task 让节点保持 RUNNING **6090 ms**；六秒内节点可证占用，work 可证仍 assigned/in-flight。正是 Mech 报告无法维持的条件；六秒比 routing query 所需毫秒窗口大三个数量级。
+
+## 附带纠正
+
+Mech 前提还称 City work“远少于一秒完成”。实测快类型 CHECKPOINT_DEMO 占用节点 **2395 ms**，非亚秒。信念可能来自早期 pilots 约1秒poll，通常观察时已完成；但较早观察到完成与生命周期短是不同事实，deferral 从前者推论。
+
+## 对后续判断的影响
+
+Mech 延后“remote handoff result 返回当前界面”gate，并问 Owner 是否可用 seam 已测量且归因 City 代替实际驱动。这假定 seam 不可驱动，而实测它可驱动：
+
+1. 创建 WAIT 占用交互设备节点，实测约6秒窗口。
+2. 窗口内在第二合格设备存在时发出 routing query。
+3. 观察 ALTERNATE_DEVICE → REMOTE_HANDOFF，断言 result 返回当前界面。
+
+Mech 自身 probe 在给定条件时已达到 withoutDecline=SWITCH_OFFERED、withDecline=ALTERNATE_DEVICE，故仅缺第1步且现已可用。
+
+**建议仅作为建议提出**：实际 drive，不裁定 waiver。比 Owner ruling 便宜、产生证据而非豁免，亦是 UXI-301 第7步要求：真实并发、provider-unavailable、device-busy、remote-handoff E2E 驱动 UI，不仅静态 mocks。
+
+## 遵守的边界
+
+- Alien **未** 触及 Mech branch、UXI-301 workbook fields、apps/**。Probe 在创建一次性 tasks 并停掉自身 services 的意义上，读取/驱动冻结 City HTTP API。
+- Probe 在 mission-book/reports/UXI-301/ 逐字复现，使任意主机可重跑并获得同样数字，不靠目信 Alien。
+- Alien **未** 领取 UXI-301：development_complete false、review_host null。Alien 仍是合格 review 主机，Mech 声明开发完成后领取 Review。
+- **并非批评 Mech 测量纪律。** 四失败尝试详细保留，probe 确实达到 ALTERNATE_DEVICE。证伪的是尝试继承的 **前提**：只有一种 task type。

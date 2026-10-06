@@ -75,3 +75,7 @@ For a placeholder, state what evidence would justify creating a dedicated reposi
 - [ ] boundaries stated
 - [ ] `CITY_MANIFEST.yaml` updated
 - [ ] root README updated when navigation/topology changes
+
+---
+
+语言配对 / Language pair: [English](./BUILDING_TEMPLATE.md) · [中文](./docs/zh-CN/BUILDING_TEMPLATE.md)

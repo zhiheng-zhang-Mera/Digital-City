@@ -150,3 +150,6 @@ SELF-TEST       adversarial pass before review: two defects found and repaired (
 REVIEW          PENDING (Alien) — not performed, not claimed
 MARKER          SCENARIO_REPETITION_ENGINE_ACCEPTED NOT released
 ```
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/PAPER_MATERIAL_INDEX.md)

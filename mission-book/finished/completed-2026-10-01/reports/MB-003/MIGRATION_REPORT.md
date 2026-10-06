@@ -340,3 +340,5 @@ Independent-review hints only; no conclusion is suggested.
 - Branch HEAD: `aff3c283e34b596c6c0ba6c666aed96893b6c395` on
   `zhiheng-zhang-Mera/utopia`, branch `mission/MB-003-worker-gateway`.
 - The migration host did **not** merge, and did **not** run `pnpm mission:finalize`.
+
+语言配对 / Language pair: [原文 / Source](./MIGRATION_REPORT.md) · [译本 / Translation](./zh-CN/MIGRATION_REPORT.md)

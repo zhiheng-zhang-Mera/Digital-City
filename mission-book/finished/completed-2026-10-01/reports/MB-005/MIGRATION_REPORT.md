@@ -396,3 +396,7 @@ Verification Host will review and merge. The Android job ran on CI's
 
 The `migration_ci` field in `mission-book/MB-005-host-health.md` records the same
 facts; that field is the runtime truth.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/MIGRATION_REPORT.md)

@@ -35,8 +35,8 @@ archive_reason: COMPONENT_OR_MISSION_COMPLETE
 # JOIN-503 — Device Enrollment + Tokenless Routine Reconnect
 
 > **Programme：** [README.md](./README.md)  
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../ASYNC_RELIEF_CONSTRUCTION.md)
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **异步减压施工：** [../ASYNC_RELIEF_CONSTRUCTION.md](../../../ASYNC_RELIEF_CONSTRUCTION.md)
 
 ## 1. 目标
 
@@ -160,3 +160,6 @@ Formal Review 必须由另一实体主机完成。
 - Development + opposite-host Review + exact-head CI；
 
 全部通过后才可设置。
+
+
+[阅读译本 / Reading translation](./en/JOIN-503-device-enrollment-and-tokenless-reconnect.md)

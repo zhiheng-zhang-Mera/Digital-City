@@ -9,3 +9,5 @@ long_horizon_context_evidence: CAPTURED
 research_evidence_refs: [mission-book/reports/CEX-703/CLAIM_RECORD.md]
 
 Freshness caught stale eligibility on REX-801 before mutation. No false claim created. Context counters NOT_OBSERVABLE.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

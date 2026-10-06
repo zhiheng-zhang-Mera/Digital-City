@@ -111,4 +111,6 @@ pnpm mission:event -- ...
 pnpm mission:finalize -- ...
 ```
 
-详细过程数据边界见 [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)。
+详细过程数据边界见 [PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)。
+
+语言配对 / Language pair: [English reading](./en/2026-09-29-construction-rules-v1.md)

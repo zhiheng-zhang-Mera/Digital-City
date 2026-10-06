@@ -120,3 +120,5 @@ source digest     1390b60885d52bf1284b7b57f0a94a3db67d39ecedfb271a94d9c119035ed6
 未观测项一律记 NOT_OBSERVED，不以合成或不同输入的结果替代。 / Anything not observed stays NOT_OBSERVED.
 
 本文件不改变任何工作书字段。 / This file changes no workbook field.
+
+语言配对 / Language pair: [Full English reading](./en/REVIEW_READINESS_MECH.md)

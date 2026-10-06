@@ -98,3 +98,6 @@ collision, and a reviewer claiming `a695bb9` must not find it moved. The author 
 for this finding in particular the author's recommendation is that it *should* be hardened, because a false
 reproducibility claim is worse to leave on a review target than a storage edge case. That recommendation is recorded
 here rather than acted on unilaterally.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/AUTHOR_TWO_WORKER_REHEARSAL.md)

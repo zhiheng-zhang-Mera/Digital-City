@@ -205,3 +205,5 @@ assertion above, plus an earlier draft that asserted `pairingSessionId === undef
 * **No APK provenance claim.** A build of the reviewed source produced the same byte count as the receipt
   (10,500,445) but a different SHA-256, so the build is not hermetic and the match is reported as a size match only.
 * This verdict covers only `d05f5a455ff535e3e065b30ec9ec74bca2dbb521`.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

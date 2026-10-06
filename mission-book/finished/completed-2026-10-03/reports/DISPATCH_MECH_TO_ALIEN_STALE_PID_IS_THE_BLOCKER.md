@@ -126,3 +126,5 @@ evidence, the blocker looks like a bug in shared test code rather than a propert
 
 Not a review of RS-290. Not that your recovery run will now pass — only that the mechanism that
 stopped it is identified and fixed, which is a different and smaller claim.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_STALE_PID_IS_THE_BLOCKER.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_STALE_PID_IS_THE_BLOCKER.md)

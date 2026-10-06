@@ -1,0 +1,102 @@
+# GAI-006 纠正报告：canonical对话、InputBundle、流式与取消
+
+[English authoritative source / 英文权威原稿](../CORRECTION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION              = GAI-006 (General AI Gateway programme, task 6 of 9)
+PROGRAMME            = GENERAL_AI_GATEWAY_ENGINEERING
+STAGE                = CORRECTION (complete — see §5 for the Owner boundaries)
+CORRECTION_HOST      = Alien
+DEVELOPMENT_HOST     = Mech
+CONTROL_BOOK         = Digital-City/mission-book/general-ai-gateway/GAI-006-conversation-input-stream-cancel.md
+CLAIM_COMMIT         = 844d357 (Digital-City main, claim of GAI-006 Correction by Alien)
+CLAIMED_AT           = 2026-10-01T01:04:32Z
+COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DEVELOPMENT_HEAD     = ac2df607e5aa01744678aa1e26aab481187ff356
+DEVELOPMENT_CI       = 36740524898-success
+CORRECTION_BRANCH    = general-ai/GAI-006-conversation-input-stream-cancel
+CORRECTION_HEAD_SHA  = be8aa47bd16b705c11b8f830febf4eede59007a3
+BRANCH_CI            = 36800604338-gateway-web-success-android-success
+LOCAL_CHECK_SUMMARY  = GAI-006 17 pass (7 author + 10 Alien regressions), root/rooms/city/promotion/bilingual all pass
+MERGE                = NOT PERFORMED (forbidden for component branches)
+CORRECTION_COMPLETE  = true (hosted CI green on the exact pushed head)
+```
+
+原始元数据保留任务、完整阶段、两host、工作簿、领取、基线、开发／纠正SHA及CI、最终17项通过、禁止合并与精确head完成依据。
+
+## 1. 托管CI
+
+```text
+development head   ac2df60 (Mech)   run 36740524898   success 2026-09-30T15:56:25Z
+corrected head     be8aa47 (Alien)
+  first pass       dd799e2   run 36800022352   success
+  final head       be8aa47   run 36800604338   success
+```
+
+两个纠正head均在GitHub托管runner执行真实步骤且通过；精确最终head托管CI绿，满足本Correction完成条件。
+
+## 2. 独立审查方法
+
+1. git archive开发head，全部四task blob核Git对象，目录D:\A-Utopia\.runtime\evidence\mission-book\GAI-006\frozen-ac2df60\。
+2. 独立审查只看冻结导出，先读工作簿，每声明可运行复现，产p01–p12加negative controls。作者7项全过，对方报12缺陷。
+3. 自己独立7机制，按机制合并19，本轮修10，余在第5节带复现；原稿首轮因context budget用尽未修复重验，诚实记录correction_complete仍false。保留该首轮叙述，不能用顶部最终true替换历史。
+
+## 3. 本轮修复缺陷
+
+| # | 机制 | 根因 | 修复 | 回归 |
+|---|---|---|---|---|
+| 1 | canonical允许列表原型链成员，toString／constructor／valueOf／hasOwnProperty／isPrototypeOf／__defineGetter__／__proto__过防护，item spread重发入bundle；staging subspec同洞，class也算plain | key in spec | Reflect.ownKeys配Object.hasOwn及plain prototype | 是 |
+| 2 | 循环caller使共用freezer无类型RangeError Maximum call stack size exceeded，缺陷1为载体，policy第二路径 | Object.values递归无visited | visited对象集 | 是 |
+| 3 | 全caller时间未验、共享shape-only，not-an-instant／2026-02-30T00:00:00Z写record／journal，注入clock同弱点 | 十入口when??now／regex | 全callerInstant／isRealInstant，含clock、envelope、provenance、staging deadline | 是 |
+| 4 | policy未验、digest literal opt-in，require_digest:1／'true'关闭验证，未验file入bundle；Infinity／NaN移界，allowed_media_types:null raw TypeError | 展开无check、===true | 正安全整数限、非空media list、require_digest布尔 | 是 |
+| 5 | result attachments全未验，raw string、bogus digest／负size接受，max_files不约束结果 | clone(attachments)无check | 完成turn前验plain records数组、logical_ref及media_type／size_bytes／digest／origin_device_ref类型 | 是 |
+| 6 | clone失败前已变状态，function provider触DataCloneError但binding已superseded／push，projection重clone使conversation永久抛；bundle同形 | 返回值构造前变更 | 所有binding字段、result text先验再改记录 | 是 |
+| 7 | 已结束turn partial可改，attachTransport接受COMPLETED／CANCELLED late transport | 无turn检查 | TURN_ALREADY_COMPLETE／TURN_CANCELLED拒后transport | 是 |
+| 8 | cancel后所有late result同reconciled:<turn>:<partial_count+1>，counter冻结、不同结果无法区分 | identity据冻结counter | 每turn单调reconciliation counter | 是 |
+| 9 | reference note无类型，对象／循环到freezer | key允许但无type | 给定note须text | 是 |
+| 10 | 并入3：cleanup_by只shape | regex | realinstant | 是 |
+
+## 4. 本地测试汇总
+
+```text
+corrected module  14 tests / 14 pass / 0 fail
+development head  14 tests /  7 pass / 7 fail   ← the Alien regressions are the difference
+root / rooms / city / promotion-history / bilingual   all green (exit 0)
+```
+
+首轮14/14、开发7过／7败，Alien回归是差异；根／rooms／city／promotion-history／双语exit0。
+
+证据D:\A-Utopia\.runtime\evidence\mission-book\GAI-006\：字节验frozen-ac2df60/；pre-fix-check/未修模块7败；patch-conversation.mjs与-2.mjs两可重跑锚保护轮；prefix-test.log、postfix-test.log、gate-*.log、ci-*.log。
+
+## 5. 第三修复轮、Owner边界与剩余接缝
+
+### 第三轮修复（均回归）
+
+| id | 机制 | 修复 |
+|---|---|---|
+| D7 | eventsFor声称对话有序GAI语义stream，却只replay逐turn PARTIAL，CANCELLED从不出、seq每turn重置、全terminal:false | conversation范围单调stream_seq，两声明kind PARTIAL／CANCELLED，真实terminal仅cancel为true，仍读partial实时transport_ref |
+| D8 | max_text_chars只限bundle顶text，1MB logical_ref／context_ref接受 | 所有自由文本限界，logical_ref／media_type／display_name／origin_device_ref／staging_ref／references[].ref/kind/note／context_refs[]，BOUNDS_EXCEEDED |
+| D6b | cleanup_by验了但无decision读取，1999 deadline接受、releaseStaging忽略 | 创建已过期拒STAGING_POLICY_REQUIRED；stagingPlan报overdue，release报overdue_logical_refs／cleanup_deadline_enforced，迟release可见 |
+
+### Owner边界：Correction不得静默改作者编码行为
+
+| id | 机制 | 未在此修复理由 |
+|---|---|---|
+| D10 | isDigest收8–64hex，32-bit可作sha256 | conformance.test.mjs断言sha256:0123456789abcdef（16hex）true；精确64是public constant行为变更，需Owner |
+| D11 | validateItem伪造staging:{policy:NO_STAGING}，stagingPlan常量staging_explicit:true／every_item_has_explicit_policy | 未声明staging item作者也断言true，“explicit”固化契约；诚实改staging_declared需Owner |
+| D12 | INVALID_CONVERSATION／TRANSPORT_IS_NOT_CANONICAL声明不抛，BACKEND_THREAD_LOST仅reason | caller目前不能获得，接线为契约面决定非错误修复 |
+
+### 工作簿未定契约问题（记录，不作缺陷）
+
+1. CLOSED仍收createInputBundle／emitPartial／finalizeTurn，仅openTurn／bindBackend拒。作者注释“后续工作拒绝”，工作簿沉默。
+2. reportBackendLoss不比thread_ref与active binding， unrelated thread报告使live LOST、REBIND_REQUIRED。
+3. bundle可无限turn重放，caller result_ref从不验存在。
+4. mutate-then-clone（原稿称D5）已修binding refs／result text，余路径未穷尽重新probe。
+
+没有已知错误故意留：各项为契约问题或作者常量，记给Owner。
+
+## 6. 剩余外部接缝
+
+无内容依赖硬件／provider account／另一计划。provider／model binding只是caller引用；真实provider事实归GAI002和live adapter，这些为本计划已纠正组件。

@@ -121,3 +121,8 @@ Reviewer 从导出包独立重算至少一组指标，并核对 checksum/provena
 ## 完成门槛
 
 可从一组真实 campaign 生成完整 artifact，并由另一实体主机独立读取/重算。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-806-metrics-analysis-and-artifact-export.md)

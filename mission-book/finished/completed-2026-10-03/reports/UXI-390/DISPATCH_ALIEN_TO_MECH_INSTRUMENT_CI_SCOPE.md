@@ -54,3 +54,8 @@ Nothing here is a review of UXI-390 and I make no claim about it. Still owed on 
 `actor=user` from an interaction through the Android surface, and the remaining named coverage (three-plus
 Rooms, declined-switch through queue, remote handoff plus result, provider and device failure plus recovery).
 I will declare `development_complete` only when those are done or explicitly recorded as not met.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

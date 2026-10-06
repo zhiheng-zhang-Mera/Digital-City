@@ -100,3 +100,35 @@ TEST_FAILED
 都可以重新设计。
 
 真正的硬约束应从**真实需求和已验证实现**产生，而不是从这份未来硬件图产生。
+
+## English explanation / 英文说明
+
+Status remains `ADVISORY_ONLY`. These are precautions against costly redesign, rather than automatically effective coding rules.
+
+### 1. Bind work to capabilities where possible
+
+Prefer requirements such as `android_build` and `windows_native_test` to a fixed `must_run_on = Alien`. Device names may express scheduling preferences, evidence and current ownership, but should not become business semantics unnecessarily.
+
+### 2. Keep platform differences at adapter/provider boundaries
+
+Component upgrades such as RAM/SSD/GPU should change telemetry/capability records. A same-platform replacement should require re-registration and permission/certificate/pairing updates. Major OS changes primarily affect platform adapters; new OS support needs a provider/adapter; a new device paradigm may require a capability-schema extension. Ordinary hardware upgrades should not rewrite City Core.
+
+### 3. Future devices are not current prerequisites
+
+Do not assume current Utopia work must wait for a Mac, Linux-A/B, or an iPhone/HarmonyOS device before unrelated Windows/Android work can merge. A platform becomes a bounded prerequisite only when that particular task explicitly requires authentic evidence from it.
+
+### 4. Separate current truth from future reference
+
+Current facts come from live or recent device registry/heartbeats, mission claims, capability advertisements, task reports and platform acceptance reports. This directory describes future reference design only.
+
+### 5. Distinguish clean-room and native verification
+
+Future evidence may use `LOCAL_PASS`, `CROSS_HOST_PASS`, `CLEANROOM_PASS`, `NATIVE_PLATFORM_PASS`, and `EXTERNAL_CI_PASS`; these answer different questions. A Windows test in a Linux VM does not automatically replace physical Windows evidence, and an iOS simulator does not automatically replace iPhone behaviour.
+
+### 6. External CI should not automatically halt the entire City
+
+Hosted GitHub CI supplies independent environments and external evidence. Infrastructure failure must be separated from failed software tests: an unstarted job may be `CI_INFRA_BLOCKED`, rather than `TEST_FAILED`. Work independent of that gate should continue.
+
+### 7. Future implementations may diverge
+
+Experiments may favour a single Linux host, NAS/mini-PC/cloud service, no VM, dropping a platform, a replacement platform, or different discovery/transport. Redesign is allowed. Genuine hard constraints arise from real requirements and verified implementation, rather than this future hardware diagram.

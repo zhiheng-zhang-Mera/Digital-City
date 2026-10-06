@@ -324,3 +324,6 @@ same code, and the repaired head differs from the reviewed head in exactly three
 `development_head_sha` was updated to the same sha in the same commit, because a review that passes a head the
 workbook does not name is the §7 mismatch the rule exists to prevent; that is a factual field, changed because
 this review's finding moved the head, and it is recorded here rather than done silently.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_REPORT.md)

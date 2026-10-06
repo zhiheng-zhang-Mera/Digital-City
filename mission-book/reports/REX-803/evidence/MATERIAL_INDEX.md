@@ -156,3 +156,6 @@ This answers the part of the request that was a publication problem: the raw mat
 and a reviewer on another host could not see it. Still outside it, and not claimed: the physical handset's own logs,
 and anything read from the Alien host's filesystem. No token, session, pairing code, installation credential or
 private content is present; the export script refuses to publish a package that contains any of them.
+
+
+[Complete Chinese reading translation / 完整中文阅读译本](../zh-CN/MATERIAL_INDEX.md)

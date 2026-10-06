@@ -23,3 +23,6 @@ REX-803 product file was touched.
 REX-803's own scope (scenario definitions, a repetition engine, bounded runs and their receipts) is developed on the
 branch above. The terminal marker is NOT released by this claim, and the opposite-host Formal Review the programme
 requires remains outstanding.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CLAIM_RECORD.md)

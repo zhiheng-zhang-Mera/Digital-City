@@ -57,3 +57,8 @@ different physical host from Alien's, and Alien has explicitly disqualified itse
 worth re-checking on each scan: whether Alien cleared the recovery-path blocker, since that is what
 stands between this pool and `RESCHEDULING_BASELINE_FROZEN`, and it is now a host-capability
 question rather than a product question.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

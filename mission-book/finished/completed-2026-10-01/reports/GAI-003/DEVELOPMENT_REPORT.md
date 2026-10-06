@@ -137,3 +137,7 @@ REAL_PROVIDER_ACCEPTANCE = DEFERRED_TO_PROGRAMME_INTEGRATION (no provider on thi
 CORRECTION_ELIGIBLE      = true (must be performed by Alien, not Mech)
 MERGE_STATUS             = FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

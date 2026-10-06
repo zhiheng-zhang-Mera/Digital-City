@@ -65,3 +65,6 @@ no-op'd, and an assertion that read the working tree instead of the branch. The 
 **reading one comment in the code**. That is recorded as the lesson it is: several of the longest detours in
 this task would have been avoided by reading the interface before building a probe around an assumption about
 it.
+
+
+[阅读译本 / Reading translation](./zh-CN/GATE_AUDIT_ALIEN_UXI390.md)

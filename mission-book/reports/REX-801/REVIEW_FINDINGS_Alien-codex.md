@@ -13,3 +13,6 @@ Controlled real browser tests now traverse navigation→import→validate(no reg
 Original exact source remains historical. Corrections live on review/REX-801-Alien-codex, not Mech's source branch. Final corrected candidate SHA/CI pending; review_complete=false until gates and technical correction review pass. Preserve original development evidence and use explicit source→corrected acceptance relation.
 
 Final correction candidate7e96a4d28f4cb701d7a0951bace69857c3228f32; PR25; exact CI37243645465 running. Per section3 review may repair scoped findings: original development_head_sha8f8c521 remains immutable; review_source_sha records independently examined source; corrected review_head_sha explicitly supersedes the review claim8f8c521 for final acceptance. This follows prior WBC601/602 source→correction provenance convention and does not substitute unrelated ef89e917 branch tip. Technical independent browser2/2 PASS after refresh-error P2 correction, final focused23/23 PASS; final full-root session10319 is live on fixed committed source. Earlier session7773 interrupted after source edits, INVALID_SOURCE_CHANGED_DURING_RUN; retained, not final proof. MON001 registry record now linked from central index, alongside new manifest capability candidate.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_FINDINGS_Alien-codex.md)

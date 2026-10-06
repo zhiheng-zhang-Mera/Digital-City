@@ -1,0 +1,70 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../REVIEW_LEDGER_MECH_UXI391.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# REVIEW LEDGER — Mech，UXI-391（持续更新的文档；最终 review_result 的依据）
+
+```text
+REVIEW HOST   = Mech (Mega-rep / 172.31.12.151)
+REVIEWED HEAD = 269aa969a285b78283ed6f7bd3b0cf432cfdcbd9   (recorded head == origin branch tip)
+CLAIMED       = 2026-10-03T01:21:18Z after 13/13 exact-head reconciliation
+STATUS        = review IN PROGRESS. Every "MET" below is MY measurement, not a restatement of the author's.
+```
+
+复核主机为 Mech（Mega-rep / 172.31.12.151）；记录的复核头等于远端分支 tip。2026-10-03T01:21:18Z 在 exact-head reconciliation 13/13 后领取。历史状态为复核进行中：下面每个 MET 都来自**我的测量**，不是复述作者报告。
+
+## 十二道门槛、证据与测量人
+
+| # | 门槛 | 裁定 | 证据（除注明外均为独立测量） |
+|---|---|---|---|
+| 1 | 对错误前提有 append-only 纠正 | **MET** | `ERRATUM_WRONG_PREMISE_CORRECTED.md` 是独立文件，UXI-390 工作书仍保留原错误字段 `development_uxi390_handoff_resolved_no_load_vector` 与 `development_uxi390_unknown_load_ineligible`，所以纠正了历史而未改写历史。事实内容由我在 gate 2 的测量交叉证实。 |
+| 2 | 五维负载语义与代码及测试一致 | **MET** | 我的测量 **PASS 20/20**：自选边界（0% 为已观测零、100% 包含在内、101%/负数/字符串拒绝、memory 守卫、只有 gpu 的 telemetry 不产出向量）；自选数值的压力语义（partial 命名、0.9 与 0.22 取 binding 而非平均、空为 UNKNOWN 而非 idle、五维）；真实管线上的 live node。 |
+| 3 | 单机双节点 handoff E2E | **MET** | 我的测量 **PASS 17/17**。 |
+| 4 | 真正发生所有权移交 | **MET** | 我的同一轮：`from=mech-a to=mech-b`、epoch 2、同一 task id、重新排队；跨主机为 `from=dualhost-node-a to=mech-review-b`、epoch 2。精确记录那轮实际节点名，不整理美化；本 ledger 早稿曾写入我自己编的名字。 |
+| 5 | 同一 task id 在 B 继续并达到终态 | **MET** | 我的同一轮为 COMPLETED，`result={"waitedMs":6000}`，记录的执行者为 alternate。 |
+| 6 | 结果回到原 surface | **MET** | 我的真实浏览器 **PASS 9/9**：同一页面实例，从未刷新或改指向，显示完成结果；截图在原 Task Registry 显示 `WAIT Q-40f00d9a…` **COMPLETED**。 |
+| 7 | Alien + Mech 两实体主机最终验收 | **MET — 两侧均有记录，位于不同主机** | 我的一侧通过真实 LAN **13/13**（`dualhost-b-by-mech.json`）；开发主机以自己的 receipt（`dualhost-host-a.json`）记录 **10/10**，明确 `to: mech-review-b`、同一任务 COMPLETED、`reloaded=false`、无 token 泄漏。`56bb905` 记录通过并明确我方使用独立仪器和节点。 |
+| 8 | 精确复核头 CI | **MET** | run `37075869218` 精确绑定 `269aa96`、分支正确、两 job success。由我的仪器从 GitHub 解析，不是读取字段。 |
+| 9 | Utopia main 合并与 main CI | **NOT MET — 等待 Step 7** | UXI-391 尚未执行 Step 7。 |
+| 10 | 记录 `REMOTE_HANDOFF_CLOSEOUT_REPAIRED` | **NOT MET — 等待 Step 7** | 工作书 terminal_marker 字段声明此标记，但尚未签发。 |
+| 11 | 生成 `POST_COMPLETION_REENTRY.md` | **NOT MET — 等待 Step 7** | 文件不存在；它是 Step 7 交付项，所以这是顺序问题而非缺口。 |
+| 12 | 领取下一本可执行 merge 工作书，或 typed zero-claim | **结果已确定，尚不能记录** | 已核验看板：其他工作书都是 REVIEW_COMPLETE、冻结或 FINAL_PRODUCT_ACCEPTED；XX-000 是 execution_enabled:false 的模板。**不存在其他可执行工作书**，所以必须为 typed zero-claim，Step 7 后才可记录。 |
+
+## 我执行的负向控制，没有一条来自作者
+
+```text
+no transfer occurs without a recorded decline
+a dead holder's task stays NON-TERMINAL rather than being failed or faked
+the run is never COMPLETED while no device executed it
+a DUPLICATE decline does not transfer again or bump the epoch
+work reserved for one device is NOT taken by a different live device
+the RECOVERED original holder cannot re-take work that has moved away
+no raw RS-290 scheduler token leaks (Android 6-tab sweep; Web final page; both clean)
+```
+
+完整释义：没有记录 decline 就不移交；死亡持有者的任务保持 NON-TERMINAL，不被标失败或伪造；无人执行时绝不 COMPLETED；重复 decline 不再次转移或递增 epoch；为一设备预留的任务不被另一 live device 领取；恢复的原持有者不能抢回已移出的任务；Android 六标签扫描与 Web 最终页均无 raw RS-290 scheduler token 泄漏。
+
+## OPEN 残留：双方均复现，但工作书没有一道门槛命名它
+
+**记录的 switch-decline 持久存在，但从不重新评估。** plan 只在 switch-declined 路由内消费，因此当时没有合格 alternate 的 decline（正是推翻我第一次错误描述的 DIRECT 情况）不会再被读取。后来合格 alternate 出现，任务仍无限期停留在原设备，没有重试，也没有 surface 告知用户其决定未生效。当时的 NOT_APPLICABLE 正确；缺陷是它对**这个 intent 成为最终结论**。
+
+- **作者自己的仪器复现**（`scripts/uxi391-intent-durability.mjs`）：无 alternate 时记录 decline 而不移动；合格 alternate 后来出现，记录的 decline **30 秒内仍不被履行**；**第二次** decline 则立即在 epoch=2 移交。这证明意图持久存在，只是从未重读。
+- **作者也确认第二个残留：** handoffTargetRef 为单一设备预留任务，claimAllowed 拒绝所有其他设备；若指定设备死亡，任务**任何人都无法领取**。
+- **已设计但刻意未应用修复，**因为我的复核头保持不变：A 在既有 1 秒 sweep 内进行幂等 plan 再评估，仅限非终态且 switchDeclined===true，复用 guard epoch 和 bridge 的 ALREADY_TRANSFERRED/REFUSED 分支；B 为 reservation 增加有限到期及带 debounce 的回收路径。
+- **处置决定不属于我。** 我的复核记录 OPEN 缺陷与已设计修复；现在应用（移动 head、要求重新核验）还是带残留接受 UXI-391，由作者与 Owner 决定。
+
+工作书十二道门槛没有询问当时无法履行的 decline 是否会被重新访问，所以记在这里而不计入评分。
+
+## 本次复核中对我自身记录的纠正
+
+必须写明，因为只列成功的 ledger 不是 ledger。
+
+- **撤回 finding：** 我曾发布“记录的 decline 会被静默丢弃”。Alien 的 Gateway 事件序列证明 decline 当时 A 仍健康，planner DIRECT 与 bridge NOT_APPLICABLE **正确**。撤回记录见 `CORRECTION_MECH_WITHDRAWING_THE_SILENT_DROP_FINDING.md`。
+- **我的仪器在终态前退出：** 早次实验的节点在 progress=36 离开 City，任务永不完成，验收实例不能恢复（中断任务不 replay）。是我的责任；Alien 准确定位，我现在将其作为 prerequisite 2。
+- **三处仪器问题都属于我，并全部修复而非绕过：** locale 假设（UI 显示“在线”而非 ONLINE）、缺 prerequisite 1（两次）、我自己的 PowerShell round-trip 引发编码损坏。
+
+## 复核签署前还剩什么
+
+1. 开发主机窗口打开后，以我的节点名 **Mech-test** 重跑跨机半侧。
+2. Step 7 后重核 gates 9–12。
+3. 写入 review_result 并设置 review_complete。

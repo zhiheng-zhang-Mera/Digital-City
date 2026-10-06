@@ -903,3 +903,7 @@ terminal_marker: UTOPIA_SHOWCASE_PACKAGE_READY
 1. **Utopia 是 READ-ONLY runtime source；本工作书永远无权修改其产品代码。**
 2. **程序运行必须通过前台产品窗口可见；terminal 只能辅助。**
 3. **展示材料的成功标准是可追溯的真实产品行为，不是“视频看起来像成功”。**
+
+## Language / 语言
+
+[English full reading](en/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) · 中文原文见上；本轮不执行SHOW。

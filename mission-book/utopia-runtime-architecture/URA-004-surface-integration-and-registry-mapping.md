@@ -90,3 +90,8 @@ failure/refusal presentation
 ## 完成门槛
 
 runtime taxonomy 与 Capability Registry/Exposure Gate 之间没有第二套冲突状态。
+
+
+---
+
+语言读本 / Reading translation: [English](en/URA-004-surface-integration-and-registry-mapping.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

@@ -169,3 +169,6 @@ evidence screenshot, which running the author's web test had overwritten. That s
 re-attributed.
 ```
 
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_REPORT.md)

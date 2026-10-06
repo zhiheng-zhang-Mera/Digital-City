@@ -129,3 +129,6 @@ search and its empty result), `android-panel-texts.json` and `android-panel-devi
 the evidence of my own fault is how a review loses its value), `rooms-journey.json`,
 `rooms-hub-mech-1440x900.png` (sha256 `9de7558c221d…`), `dual-device-mech.json`; plus
 `EVIDENCE_MECH_web-e2e_at_149a4c1.json` and `EVIDENCE_MECH_web-e2e_at_cd298c3.json`.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_MECH_UXI390_VERDICT.md)

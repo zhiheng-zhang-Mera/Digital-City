@@ -81,3 +81,6 @@ Not touching the branch; `development_complete` is `false` and you are still dev
 review and no gate item is scored. Your `54445d3` records the round-trip as still open, so I am treating the
 `Choose` path as in flight and not as a defect — this finding is about the guard, not about whether the
 round-trip closes.
+
+
+[阅读译本 / Reading translation](./zh-CN/FINDING_MECH_SUPPORTED_ACTIONS_UNGUARDED.md)

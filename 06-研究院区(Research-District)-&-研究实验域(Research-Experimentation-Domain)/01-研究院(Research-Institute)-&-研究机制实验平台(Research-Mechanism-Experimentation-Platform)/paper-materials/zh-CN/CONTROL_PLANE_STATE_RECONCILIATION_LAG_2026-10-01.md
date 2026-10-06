@@ -62,3 +62,7 @@ required stage terminal state == run conclusion/status
 > 在异步工程控制面中，如果外部证据允许脱离 worker 提交而发生状态变化，仅依赖事件驱动的 worker 回写不足以保证一致性；基于权威源的事件触发/周期 reconciliation 可以降低假阻塞、错误资格判断和证据错配。
 
 可测量指标包括：外部恢复到控制面回填的延迟、stale task 数量、stale blocker 持续时间、调度器错误无资格次数、evidence pointer 错配率，以及由状态滞后导致的 Owner 人工介入次数。
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md) · [English](../en/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md)

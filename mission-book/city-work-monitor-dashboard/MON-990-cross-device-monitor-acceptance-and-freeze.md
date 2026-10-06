@@ -100,3 +100,8 @@ development_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/36"
 `CITY_WORK_MONITOR_V1_ACCEPTED`
 
 只有 exact-head CI、opposite-host review、runtime/UI reconciliation、Registry reconciliation 与论文素材索引全部满足后才能写入。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/MON-990-cross-device-monitor-acceptance-and-freeze.md)

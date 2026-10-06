@@ -58,3 +58,33 @@ Before review, declare required gate set, review budget and stop conditions. Dis
 ## 6. Audit trail / 审计
 
 Record decisions as bounded receipts: who/which role decided; inputs/version; findings and source references; alternatives; action; approval; final output identity. Do not store hidden reasoning. Status projections must show both last completed stage and current blocker, not summarize everything as green. / 审计记录可核查依据和结果，不保存私有思维链。
+
+## 中文完整说明 / Complete Chinese explanation
+
+### 1. 独立生命周期
+
+研究从索引/信号/分诊/Owner 选择，到证据准入/冻结/分析/核心评审，再专项构建/预检/等待 Owner 发布。每步允许 WAITING_INPUT、POLICY_UNRESOLVED、NARROWING、MERGED_INTO_OTHER、RETIRED 或证据失效返回；信号不自动开稿。
+
+投稿从草稿包/批准包/发送请求到真实提交回执/审稿，再修订/拒绝/录用/确认撤回，最后 camera-ready 或公开记录。发送请求无确认时状态 SUBMISSION_STATE_UNKNOWN，不能标失败或已提交，重试前核对门户邮件；内部绿灯或预测不产生 ACCEPTED。预印本有独立版本化发布流程（草稿、作者批准、真实编号版本、纠正替换、平台允许的撤回），不推进同行评审状态。
+
+### 2. 批准边界
+
+论文家族须选题范围批准；新验证须实验资源数据权限预算批准；选刊须目标/类型/工作流/模式/最高成本；作者须真实贡献和全体同意，声明由人确认；公开须确切包/身份/数据范围/许可/目的地；投稿须目标阶段哈希政策快照冲突重叠检查；付款撤稿改作者须独立权限，不从写作许可推断。
+
+批准绑定内容政策哈希和动作类型，实质事实变化使相关批准失效。Owner 不能覆盖出版商禁令、编造同意或未取得的伦理批准。事务预检可自动，法律版权伦理保证仍需真实人工决定；未变内部步骤无需重批。
+
+### 3. 非阻塞调度
+
+集成时复用任务基础设施，否则有界本地 manifest 队列即可。每作业包含幂等键、不可变输入、lease/heartbeat、超时重试预算、输出回执依赖。文献访问付款Owner长分析只阻塞该候选阶段，其他授权工作继续，不建全城同步批准循环。独立取证检索格式检查可并行，等待释放主机；模型可取消有预算，不因任务池仍有候选制造无限工作。
+
+### 4. 投稿并发
+
+登记锁针对活跃同行评审中实质重叠论点家族，不只标题。可起草多个方案，外部同时投稿遵守实际政策，保守默认一个重叠评审尝试。预印本另查。拒绝/确认撤回解锁转投决定，不自动发送。标题变化不能规避一稿多投，共用数据不自动否定独立问题；贡献重叠歧义由人工处理。
+
+### 5. 收敛
+
+评审前声明门禁、预算、停止条件。无支持主张、错数、必需来源文件缺失、隐私身份泄露、政策冲突是关键缺陷；可选改进另列。关键项通过修复、缩窄、允许的披露或停止处理；加基线建议不自动强制。预算耗尽仍有关键缺陷则保持阻塞并给最短路径；非关键入未来工作。不绕过硬缺陷、不自动升级新工程。
+
+### 6. 审计
+
+有界回执记录决定者/角色、输入版本、finding/来源、备选、动作、批准、输出身份。只留可核查依据和结果，不留隐藏推理。投影同时显示最近完成阶段和当前阻塞，不把整体汇总为绿色。

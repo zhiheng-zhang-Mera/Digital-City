@@ -158,3 +158,8 @@ Formal Review PASS，详见 `mission-book/reports/MON-901/REVIEW_REPORT.md`。�
 作者测试套件未经修改地重跑。两项发现已记录且均不阻塞：F1（LOW）`completeness.continuous` 为硬编码常量，
 与相邻的计算字段 `historyGap` 在完整连续窗口下相互矛盾；F2（INFORMATIONAL）`state_identity_evidence` 声明
 CAPTURED 但引用为空，指针由复核方补入。本轮未验证任何用户可见界面；graph/inspector UI 属 MON-902。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/MON-901-observation-model-and-jev-projection.md)

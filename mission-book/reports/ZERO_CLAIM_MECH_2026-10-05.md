@@ -121,3 +121,5 @@ Per §4 and §9 this was **not** filled with new features. While REX-801's hoste
 the control-plane records for REX-801 and re-read the whole board twice (the second read caught the other host's
 progress from `READY` to `COMPLETE` on WBC-601/602), so the classification above is a measurement rather than a
 recollection.
+
+语言配对 / Language pair: [原文 / Source](./ZERO_CLAIM_MECH_2026-10-05.md) · [译本 / Translation](./zh-CN/ZERO_CLAIM_MECH_2026-10-05.md)

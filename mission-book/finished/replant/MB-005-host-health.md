@@ -31,7 +31,7 @@ merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
 > 这一句按两种读法记录为 **mission-design tension**：Reading 1（按参与主机角色）已满足；
 > Reading 2（两台物理机器）在本会话不可满足 —— 规则 5 只允许一台验证主机且禁止第三台，本机只有一台机器。
 > 与 MB-006 验证报告 §5.2 的先例一致，**两种读法都记录，不择一断言，也不伪造第二台机器**。
-> 完整问题/选择/判断逻辑见 [`reports/MB-005/VERIFICATION_REPORT.md`](./reports/MB-005/VERIFICATION_REPORT.md) §6.1。
+> 完整问题/选择/判断逻辑见 [`reports/MB-005/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md) §6.1。
 > 同报告另有两点需 Owner 注意：`bandKeyOf` 的 donor bug 建议专项裁决（§7.2），
 > 以及本次验证发现并修复了迁移夹带的一处**测试弱化**（§3.3）。
 
@@ -104,7 +104,7 @@ merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
 - Implementation commit: `5fbbec666f61b2ff82f06a85630c2fb538ca7631`
 - Final branch HEAD: `545d38fa6cc7023826c5a3a4a09cb2e37265eb06` (implementation + the event-stream closeout commit)
 - Migration CI: **PASS** — run `36571598704` (`V0.2 checks`) on `5fbbec66…`: `gateway-web` success, `android` success. The closeout commit carries its own branch run.
-- Migration Report: [`reports/MB-005/MIGRATION_REPORT.md`](./reports/MB-005/MIGRATION_REPORT.md)
+- Migration Report: [`reports/MB-005/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-005/MIGRATION_REPORT.md)
 - **NOT merged to `main`**, as the migration stage requires.
 - Selection note: MB-003 (sequence 3) was claimed by host `Alien` and MB-004 (sequence 4) depends on MB-003, so sequence order selected MB-005.
 
@@ -126,7 +126,7 @@ merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
     `DONOR.json`.
 - Episode closeout: `75f9acd1e6e4738b46f663412935624359ea586c` (`MB-005:bc50edf4e6a626d8`)
 - Merged to `main`: `cfe34df1109dbe6a90348f1a671bae6ff1dc3074`
-- Verification Report: [`reports/MB-005/VERIFICATION_REPORT.md`](./reports/MB-005/VERIFICATION_REPORT.md)
+- Verification Report: [`reports/MB-005/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md)
 - **Gate clause recorded as a tension, reported to the Owner:** the "two hosts" wording of the
   real-telemetry clause. See the report §6.1. Everything else in the gate is met.
 - Selection note: re-read against the latest Digital-City `main` (`d6969d9`) immediately
@@ -159,8 +159,8 @@ merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> **OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
@@ -170,3 +170,6 @@ merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
 - pressure/unknown/anti-flap trials
 - bounded action-request receipts
 - status/history consumer evidence
+
+
+[阅读译本 / Reading translation](./en/MB-005-host-health.md)

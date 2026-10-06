@@ -81,3 +81,6 @@ gate 10   PAUSED on D-R1 - no repair commit on mesh/MESH-301-three-end yet (tip 
 gates 1-9, 11   MET
 Endpoint A      resident City + worker up, visible console window, shared City shows Mech-Win online
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_THREE_SURFACE_SCENARIO_REBUILD.md)

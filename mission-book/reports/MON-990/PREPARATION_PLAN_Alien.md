@@ -22,3 +22,5 @@ Review focus: stale callbacks across City/connection/page changes; unavailable o
 6. Publish feature PR and terminal exact-head CI, provide opposite-host reviewer handoff and bounded artifacts. Mark `CITY_WORK_MONITOR_V1_ACCEPTED` only after that host review and every runtime/Registry/research gate pass. If host review is outstanding, keep explicit awaiting-review state and do not fabricate a freeze.
 
 Preparation measurements: physical device BICIPVNB5HS85H9T is online, model PERM00, SDK31, 1080x2400; existing packages `city.utopia.control` and `.join590review` are preserved. MON-903 is currently awaiting CI; this plan is not a development claim or acceptance.
+
+语言配对 / Language pair: [English](./PREPARATION_PLAN_Alien.md) · [中文](./zh-CN/PREPARATION_PLAN_Alien.md)

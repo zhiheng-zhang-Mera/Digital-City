@@ -97,3 +97,5 @@ above — so the union is built from **reviewed** heads and not from development
   particular F1 of the CEX-705 review (the member projection reporting an offline node as connected) is a defect in
   `members.mjs` that this union carries, and CEX-790's audit is where it should be classified.
 * It does not claim the union was independently reviewed. That is what CEX-790's own opposite-host review is for.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

@@ -88,3 +88,8 @@ conflict_recusal
 ## 完成门槛
 
 profile schema、eligibility semantics、failure/unknown semantics、与当前 §3 的兼容映射全部明确。
+
+
+---
+
+语言读本 / Reading translation: [English](en/RIV-002-independence-profile-and-assurance-classes.md). 原文状态与证据具有权威性 / The source remains authoritative for status and evidence.

@@ -74,3 +74,6 @@ claim, never a verdict.
 Nothing here is a review of UXI-390 and I hold nothing on it. When you declare `development_complete: true` I
 will run the §7 reconciliation against the exact head before claiming, as you did for UXI-301, and then
 review the work itself rather than the record.
+
+
+[阅读译本 / Reading translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_EVIDENCE_PATH_AND_OVERWRITE.md)

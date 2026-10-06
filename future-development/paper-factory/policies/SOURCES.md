@@ -45,3 +45,25 @@ These identify inspected document contents, not immutable promises about later m
 ## Operational source receipt / 运行时来源回执
 
 Future receipt fields: source_id, official_url, title, publisher, applicable venue/article/stage, checked_at, observed_text_locator, rule interpretation, capture method, permitted snapshot location/digest if archived, verification actor, conflicts, next refresh trigger. A null digest with a reason is preferable to a fictional checksum; release needs sufficient auditable evidence for each applicable requirement.
+
+## 中文完整说明 / Complete Chinese explanation
+
+### 来源范围与日期
+
+观察日期 2026-10-05，仅有界设计研究，不是永久政策认证。出版事实仅用官方来源，不复制版权全文。本次没归档网页源字节，snapshot_digest 不可用，不编造；运行适配器须保存许可的有日期规则回执/定位，发布前刷新。
+
+### 来源逐项定位
+
+原文表保留官方链接和机器状态。S01 IEEE Access 核查提交清单和稿型；S02 EMSE 核查源文件、编辑流程、标题页、数据政策、会议扩展；S03 JOSS 核查筛选、AI、提交评审；S04 SPE 是带冲突的官方索引文本，定位初投修订和关键词；S05 NIER 核查 CFP、提交格式、Future Plans、日期；S06 Preprints.org 核查准备、AI、提交、版本跨站。
+
+S07 SoftwareX、S08 Software Impacts、S09 PeerJ、S10 JSS、S11 IST 均寻求当前指南但访问失败，状态仍 UNVERIFIED_ACCESS_FAILED。S12 Elsevier AI 核查作者使用、图片概念图图文摘要差异；S13 SIGSOFT 实证标准是方法指导，不是通用目标规则；S14 ICSE研究轨核查格式周期，周期已结束；S15工具数据展示核查论文视频工具数据提交；S16 arXiv 核查格式注册背书提交。其余已核项只表示有界阅读，不是整套规则穷尽。
+
+### 解释限制
+
+访问失败包括HTTP/cache错误，不把第三方镜像提升为官方。不可访问目标可有内部内容证据策略，但不声称未核数字、评审模式、capsule平台费用是官方要求。SPE上传/关键词冲突未解决；Preprints多站偏好不等于禁令；JOSS动作AI限制不等于禁AI开发；Access建议页数不等于硬上限，不能压为真假位。
+
+清单非穷尽，作者伦理、开放科学、类型、实时门户、专题、AI子政策、成本需目标最终核验。
+
+### 上游锚点与回执
+
+原文四个blob精确标记读到的City根文档、process data policy、research-strengthening、Essay-Book routing 内容，不保证之后main不变；启用需最新完整提交/文件身份及差异。未来回执字段包含source_id、官方URL、题名出版商、适用目标类型阶段、核查时间、文字定位、解释、采集方式、许可快照位置/摘要、核验者、冲突和下次刷新触发。空摘要带原因优于假校验和；发布各项适用要求须足够可审计证据。

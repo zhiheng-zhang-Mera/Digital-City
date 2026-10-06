@@ -62,3 +62,5 @@ Write 3–5 bounded questions, not claimed results.
 - [ ] Does not present historical validation as the new take's measurement.
 - [ ] Distinguishes product behavior from the AI-assisted development process.
 - [ ] Uses exact physical setup when describing validation.
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CORE_MESSAGES.md)

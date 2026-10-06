@@ -81,3 +81,51 @@
 For the Elsevier targets, [S12] distinguishes manuscript assistance from figures and other outputs. Empirical images/data must not be fabricated. Conceptual diagrams and graphical abstracts have different permissions; general-purpose generative-image use for graphical abstracts is restricted. / 应分别管理文本、真实数据图、概念图和图文摘要，不能用一个 ai_allowed=true 覆盖全部。
 
 Local implementation: keep task-specific allow/deny/disclosure rules and human verification records. A future graphics adapter must reproduce data plots from admitted data and preserve the plotted numerical values. / 本地策略是保留可追溯配方，不从模型生成“漂亮结果图”。
+
+## 中文完整说明 / Complete Chinese explanation
+
+所有profile为禁用设计，快照2026-10-05。“已观察规则”仅官方有界阅读，不是完整当前清单；“内部策略”不是编辑偏好或录用保证。来源及未知见SOURCES。
+
+### 1. IEEE Access
+
+先定实际稿型：机制稿需问题机制适当验证，负结果稿需有意义假设和有效负结果，不能只是构建失败。按冻结语料组织，不把NIER未来计划改名成评估。
+
+S01记录初投需可编辑Word/LaTeX和匹配PDF，使用自身模板、署名和简介；source/PDF限制40MB、3–10关键词；AI文本按规定致谢引用。少于20页为指导，更长有条件咨询EIC，不是统一硬限。输出稿型决定、完整技术稿、一致报告、简介ORCID清单、范围结果限制、AI使用图及真实修订账本；APC、阶段门户、出版政策保持待刷新，不把源文件延到录用。
+
+### 2. EMSE
+
+按方法组织RQ、总体选择、操作测量、依赖观察、分析结果威胁数据可访问，丰富日志不是采样框架。S02记录初投每次修订都需可编辑源、单盲、150–250词摘要、4–6关键词，可选结构摘要、研究稿数据可用声明，重大会议扩展披露增量重叠。输出选择账本、方法预检、可选Context/Objective/Method/Results/Conclusions摘要、声明源包、数据访问和复现说明；成功复跑不证明因果有效。
+
+### 3. SPE
+
+关注实际软件问题、工程备选权衡、运行观察、超越单仓库的经验；本地轶事有界、无实现设计另路。S04记录250词摘要、常规/短文40/10页指导、会议扩展增量披露；但同官方页初投LaTeX上传和六/七关键词互相冲突。SOURCE_CONFLICT须当前门户/编辑澄清；可内部备完整源，但不称初投上传已确定，不能静选宽松段落。
+
+### 4. SoftwareX
+
+S07本次无法取得当前指南，数字模板包硬要求UNVERIFIED，不抄旧3000/4000词说法。内部强调可复用研究目的、架构备选、精确release、可装例子、测试复现、许可依赖和实际使用；足以复用不复制完整开发手册，私有规模不冒充外部影响。待核类型模板、软件元数据、字页预算、仓库归档release许可、capsule、图、数据AI、格式匿名APC。每必需条件需当前官方来源，此profile不是READY。
+
+### 5. Software Impacts
+
+S08指南不可访问，硬要求未核。策略是具体研究工作流、何人使用、证据、限制、复现例子，开发者自用明确标注，潜在影响不是实测。待核模板字预算、代码复现平台、元数据、许可归档图费用阶段，不未经核查把Code Ocean等列硬要求。
+
+### 6. PeerJ Computer Science
+
+S09获取失败，评审模式数字成本上传未核。策略为独立有界计算问题、方法证据限制复现，给方法完整卡不是信誉标签或更易录用假设。待核贡献类型统计数据代码、摘要关键词、参考声明匿名源、预印本费用，仅已核项可运行。
+
+### 7. JSS
+
+S10指南不可用，具体规则未核。选系统/软件工程对象，说明技术新意或独立实证发现并连到实测软件结果；总览本身不是研究贡献，不直接复制城市图。待核类别专题、实证复现、结构摘要、highlights/graphical abstract、数据、参考文件、匿名、重叠成本；这些是字段，不是一律必需。
+
+### 8. IST
+
+S11指南不可用，具体规则未核。合适稿件强调SE技术实践、用途、可靠结果/适用评估。综述需独立文献选择协议，不由related work直接转换。待核研究综述其他类别、摘要节长度、highlights、复现、匿名署名、修订和费用，不因同出版商继承JSS未核设置。
+
+### 9. JOSS
+
+S03记录公开OSI许可研究软件、持续公开开发超过六个月和实际研究使用，仓库dump或未来广告不足。提交paper.md及软件关联来源，接受软件以tagged release和DOI归档；AI需披露，作者编辑/评审对话除翻译外禁AI。
+
+检查安装测试维护研究效用release来源。Essay-Book保留正文权威，需写软件仓库时导出独立批准副本，追踪精确对应，不改冻结产品或双重写作。实质编辑回复直接人工，不AI写后点击，不把自动内部审查称外部JOSS审查；投稿刷新资格政策。
+
+### 10. 出版商AI覆盖
+
+Elsevier S12区分正文协助、图片其他输出，实证图数据不得编造，概念图和图文摘要许可不同，通用生成图文摘要受限。内部按动作允许/拒绝/披露及人工检查，不用一个ai_allowed覆盖全部。未来数据图须从准入数据重现，数值保留、配方可追踪，不模型生成漂亮“结果”。

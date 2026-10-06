@@ -41,7 +41,7 @@ repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 
 > ## ✅ Owner ruling applied — Migration COMPLETE / Verification OPEN
 >
-> Owner 已在 [`response-9-29.md`](./response-9-29.md) R6 接受本 Mission 的边界：当前没有语义等价的 Utopia 产品消费面时，
+> Owner 已在 [`response-9-29.md`](../completed-2026-10-01/response-9-29.md) R6 接受本 Mission 的边界：当前没有语义等价的 Utopia 产品消费面时，
 > 对 `capabilityProvider:false` 的 research pipeline，允许 Verification Host 使用真实、bounded、可复现的研究链路
 > 作为“真实消费”证据；不得为了验收新增 Web/Android capability。
 >
@@ -128,7 +128,7 @@ repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 - City claim commit: `c6ff44f4bd6e2a711a2e838d1efd04e61fd0b5e4`
 - Implementation head: `71267e83570f5749bb2d1cf9537040ef0af869eb` (CI `36577840443` PASS)
 - Migration head: `68015caa71b7788f700abb1c7918d1b5ee8f9e8c` (CI `36578310170` PASS)
-- Report: [`reports/MB-007/MIGRATION_REPORT.md`](./reports/MB-007/MIGRATION_REPORT.md)
+- Report: [`reports/MB-007/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-007/MIGRATION_REPORT.md)
 - **Done:** ported, parity-tested (142 tests, plus a 1 590-comparison differential harness on
   `research-manuscript`), registered behind `capabilityProvider: false`, full CI green, donor defects
   preserved verbatim and pinned by tests.
@@ -144,7 +144,7 @@ repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 - Reviewed migration branch: `mission/MB-007-research-institute` @ `68015caa71b7788f700abb1c7918d1b5ee8f9e8c`
 - **Selection under the current scheduler (`README.md` §3).** This is a **P0 — Verification / Integration** claim, not an assessment. At the time of claiming, the queue read: MB-001/002/004/005/006/009 verified and merged; MB-003 `BLOCKED_OWNER_DECISION` (excluded by P0's own condition); MB-007 and MB-008 `migration_complete=true`, verification unclaimed, migration host `Alien` ≠ `Mech`. MB-007 is the lower sequence, so it is taken first; MB-008 remains available to another host. MB-010..012 are assessment-first (P1A) and are therefore **not** eligible while a P0 exists for this host.
 - **Integration pressure (P0 sort key 1 and 2).** The branch is **23 commits behind** the implementation repo's `main` and **touches the shared control plane** (`city/CITY_IMPLEMENTATION_MANIFEST.json`, `city/manifest.mjs`, `city/tests/manifest.test.mjs`, `services/capability-bridge/registry.mjs`). Per `README.md` §6, verification begins by merging the latest `main` into this branch and resolving the manifest/registry/census union and semantic conflicts **before** running the Mission gates — not by force-updating or rewriting the migration host's history.
-- **Basis for verification being open.** Owner ruling [`response-9-29.md`](./response-9-29.md) **R6** explicitly declares: *"ACCEPT THE BOUNDARY. MIGRATION IS COMPLETE; OPEN VERIFICATION."* The migration host recorded its product-consumption gate as `RUNTIME_FAIL / BLOCKED` (`MB-007:7d6c861428278c83`) and wrote no `MIGRATION_COMPLETE` event, so this claim rests on the Owner ruling plus `README.md` §7.2's v2 rule for infrastructure/pipeline modules with no equivalent product seam: the Verification Host satisfies the real-consumption gate with a **real, bounded, reproducible research chain** that directly executes the migrated modules and records inputs, outputs, failure/recovery, parity and evidence.
+- **Basis for verification being open.** Owner ruling [`response-9-29.md`](../completed-2026-10-01/response-9-29.md) **R6** explicitly declares: *"ACCEPT THE BOUNDARY. MIGRATION IS COMPLETE; OPEN VERIFICATION."* The migration host recorded its product-consumption gate as `RUNTIME_FAIL / BLOCKED` (`MB-007:7d6c861428278c83`) and wrote no `MIGRATION_COMPLETE` event, so this claim rests on the Owner ruling plus `README.md` §7.2's v2 rule for infrastructure/pipeline modules with no equivalent product seam: the Verification Host satisfies the real-consumption gate with a **real, bounded, reproducible research chain** that directly executes the migrated modules and records inputs, outputs, failure/recovery, parity and evidence.
 - **Rule 9 discipline:** this host's independent review is performed and written down **before** the Migration Report is opened.
 
 #### Verification closeout
@@ -154,15 +154,15 @@ repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 - Real consumption: the `README.md` §7.2 bounded research chain, 22 steps across all five migrated modules on a seeded, reproducible measurement (effect `0.4800`, permutation `p = 0.0330`, bootstrap CI `[106.500, 108.183]`), with negative controls that **refuse** a broken artifact chain, a vetoed review and a primary claim resting on an `UNSUPPORTED` citation, and six provenance digests pinned in `run/provenance-ledger.json`.
 - Final branch CI: `36650198208` PASS at `ff50086`. Merge to `main`: `cb8e0bd77ccf0864cf0af50b4624f2f556b6b279`, CI `36650723833` PASS. All five gates re-run green on the merged tree.
 - **Episode: none, and that is deliberate.** `pnpm mission:finalize` refuses this Mission with `Missing PASS MIGRATION_COMPLETE`, because the migration host recorded `RUNTIME_FAIL/BLOCKED` for the product-consumption gate and never wrote that event. This verifier did **not** backfill it — that would attribute to host `Alien` a claim it never made. The deviation and the request to the Owner are in `reports/MB-007/VERIFICATION_REPORT.md` §6.5; the same question applies to MB-008, whose ruling is worded identically.
-- Report: [`reports/MB-007/VERIFICATION_REPORT.md`](./reports/MB-007/VERIFICATION_REPORT.md). Not established: no compiled PDF (the donor's compile step is deferred), no re-derived donor differential for the five modules' PARITY vectors, and this does not make the research pipeline a complete product runtime.
+- Report: [`reports/MB-007/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-007/VERIFICATION_REPORT.md). Not established: no compiled PDF (the donor's compile step is deferred), no re-derived donor differential for the five modules' PARITY vectors, and this does not make the research pipeline a complete product runtime.
 
 
 ## 绑定执行条件（所有 Mission 强制）
 
-> **LATEST OWNER RULING:** [`response-9-30.md`](./response-9-30.md)  
-> **PRIOR OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)（未被 9-30 覆盖的条款继续有效）  
+> **LATEST OWNER RULING:** [`response-9-30.md`](../completed-2026-10-01/response-9-30.md)
+> **PRIOR OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)（未被 9-30 覆盖的条款继续有效）
 > **ACTIVE RULESET:** [`README.md`](./README.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若冲突，以最新日期 Owner response 为准。
 
@@ -173,3 +173,6 @@ repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 - statistics/evidence receipts
 - manuscript/PDF artifact digest
 - resume/partial-failure trace
+
+
+[阅读译本 / Reading translation](./en/MB-007-research-institute.md)

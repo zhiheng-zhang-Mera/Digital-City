@@ -1,0 +1,1029 @@
+{
+  "schema_version": 1,
+  "basis": "exact existing canonical paths; no inferred missing artifact or acceptance",
+  "changed_links": [
+    {
+      "source": "mission-book/reports/JOIN-501/REVIEW_REPORT.md",
+      "target": "../../connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
+      "new_target": "../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md"
+    },
+    {
+      "source": "mission-book/reports/JOIN-502/DEVELOPMENT_REPORT.md",
+      "target": "../../connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "new_target": "../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md"
+    },
+    {
+      "source": "mission-book/reports/JOIN-502/REVIEW_REPORT.md",
+      "target": "../../connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "new_target": "../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md"
+    },
+    {
+      "source": "mission-book/reports/JOIN-503/RECHECK_REPORT.md",
+      "target": "../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "new_target": "../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md"
+    },
+    {
+      "source": "mission-book/reports/JOIN-503/REPAIR_D1_D2.md",
+      "target": "../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "new_target": "../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md"
+    },
+    {
+      "source": "mission-book/reports/JOIN-503/REVIEW_REPORT.md",
+      "target": "../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "new_target": "../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md"
+    },
+    {
+      "source": "mission-book/logs/city-live-test/README.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/logs/city-live-test/README.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+      "target": "./finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+      "resolved": "mission-book/finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+      "new_target": "../replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/README-legacy-dashboard.md",
+      "target": "./finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+      "resolved": "mission-book/finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+      "new_target": "../replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-001-core-os.md",
+      "target": "./reports/MB-001/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-001/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-001/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-001-core-os.md",
+      "target": "./reports/MB-001/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-001/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-001/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-001-core-os.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-001-core-os.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-002-capability-fabric.md",
+      "target": "./reports/MB-002/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-002/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-002/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-002-capability-fabric.md",
+      "target": "./reports/MB-002/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-002/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-002/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-002-capability-fabric.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-002-capability-fabric.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-003-worker-gateway.md",
+      "target": "./reports/MB-003/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-003/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-003/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-003-worker-gateway.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-003-worker-gateway.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-003-worker-gateway.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-004-project-foreman.md",
+      "target": "./reports/MB-004/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-004-project-foreman.md",
+      "target": "./reports/MB-004/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-004/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-004/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-004-project-foreman.md",
+      "target": "./reports/MB-004/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-004-project-foreman.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-004-project-foreman.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-005-host-health.md",
+      "target": "./reports/MB-005/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-005-host-health.md",
+      "target": "./reports/MB-005/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-005/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-005/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-005-host-health.md",
+      "target": "./reports/MB-005/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-005-host-health.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-005-host-health.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-006-restart-recovery.md",
+      "target": "./reports/MB-006/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-006/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-006/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-006-restart-recovery.md",
+      "target": "./reports/MB-006/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-006/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-006/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-006-restart-recovery.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-006-restart-recovery.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./reports/MB-007/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-007/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-007/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./reports/MB-007/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-007/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-007/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-007-research-institute.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-008-computer-use.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-008-computer-use.md",
+      "target": "./reports/MB-008/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-008/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-008/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-008-computer-use.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-008-computer-use.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-008-computer-use.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-008-computer-use.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-009-theme-relocation.md",
+      "target": "./reports/MB-009/MIGRATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-009/MIGRATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-009/MIGRATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-009-theme-relocation.md",
+      "target": "./reports/MB-009/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-009/VERIFICATION_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-009/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-009-theme-relocation.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-009-theme-relocation.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-010-node-fabric.md",
+      "target": "./reports/MB-010/ASSESSMENT_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-010/ASSESSMENT_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-010/ASSESSMENT_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-010-node-fabric.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-010-node-fabric.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-010-node-fabric.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-011-customs.md",
+      "target": "./reports/MB-011/ASSESSMENT_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-011/ASSESSMENT_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-011/ASSESSMENT_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-011-customs.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-011-customs.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-011-customs.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-012-runtime-compliance.md",
+      "target": "./reports/MB-012/ASSESSMENT_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-012/ASSESSMENT_REPORT.md",
+      "new_target": "../completed-2026-10-01/reports/MB-012/ASSESSMENT_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-012-runtime-compliance.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-012-runtime-compliance.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MB-012-runtime-compliance.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./response-9-29.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-29.md",
+      "new_target": "../completed-2026-10-01/response-9-29.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md",
+      "new_target": "../completed-2026-10-01/ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./response-9-30.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+      "new_target": "../completed-2026-10-01/response-9-30.md"
+    },
+    {
+      "source": "mission-book/finished/replant/README-LEGACY-MIGRATION-CONTROL.md",
+      "target": "./past-rules/",
+      "resolved": "mission-book/finished/completed-2026-10-01/past-rules",
+      "new_target": "../completed-2026-10-01/past-rules"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
+      "target": "../ASYNC_RELIEF_CONSTRUCTION.md",
+      "resolved": "mission-book/ASYNC_RELIEF_CONSTRUCTION.md",
+      "new_target": "../../../ASYNC_RELIEF_CONSTRUCTION.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "target": "../ASYNC_RELIEF_CONSTRUCTION.md",
+      "resolved": "mission-book/ASYNC_RELIEF_CONSTRUCTION.md",
+      "new_target": "../../../ASYNC_RELIEF_CONSTRUCTION.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "target": "../reports/JOIN-502/DEVELOPMENT_REPORT.md",
+      "resolved": "mission-book/reports/JOIN-502/DEVELOPMENT_REPORT.md",
+      "new_target": "../../../reports/JOIN-502/DEVELOPMENT_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "target": "../reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md",
+      "resolved": "mission-book/reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md",
+      "new_target": "../../../reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "target": "../ASYNC_RELIEF_CONSTRUCTION.md",
+      "resolved": "mission-book/ASYNC_RELIEF_CONSTRUCTION.md",
+      "new_target": "../../../ASYNC_RELIEF_CONSTRUCTION.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md",
+      "target": "../ASYNC_RELIEF_CONSTRUCTION.md",
+      "resolved": "mission-book/ASYNC_RELIEF_CONSTRUCTION.md",
+      "new_target": "../../../ASYNC_RELIEF_CONSTRUCTION.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_ZERO_CLAIM_2026-10-01.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-201-动态AI池与可用性选择.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-201-动态AI池与可用性选择.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-201-动态AI池与可用性选择.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-202-多设备并发感知与再调度.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-202-多设备并发感知与再调度.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-202-多设备并发感知与再调度.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-290-调度契约回归与基线冻结.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-290-调度契约回归与基线冻结.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-290-调度契约回归与基线冻结.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-101-Web产品壳与信息架构.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-101-Web产品壳与信息架构.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-101-Web产品壳与信息架构.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-102-Android产品壳与信息架构.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-102-Android产品壳与信息架构.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-102-Android产品壳与信息架构.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/README.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-301-调度状态接入非工程化UI.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-301-调度状态接入非工程化UI.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-301-调度状态接入非工程化UI.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-390-双机最终产品验收与收口.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-390-双机最终产品验收与收口.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-390-双机最终产品验收与收口.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md",
+      "target": "../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/HANDOFF_MECH_TO_ALIEN_HEAD_MOVE.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/HANDOFF_MECH_TO_ALIEN_POST_REVIEW_DELTA.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/OWNER_STYLE_RULING.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/REVIEW_REPORT.md",
+      "target": "../../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/REVIEW_REPORT.md",
+      "target": "../../PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/REVISION_REVIEW_REPORT.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-000/REVISION_REVIEW_REPORT.md",
+      "target": "../ui-civilization/UI-000-视觉方向候选与审美门禁.md",
+      "resolved": "mission-book/finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md",
+      "new_target": "../../ui-civilization/UI-000-视觉方向候选与审美门禁.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-101/DEVELOPMENT_REPORT.md",
+      "target": "../../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-101/REVIEW_REPORT.md",
+      "target": "../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-102/REVIEW_REPORT.md",
+      "target": "../../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-103/REVIEW_REPORT.md",
+      "target": "../../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UI-190/REVIEW_REPORT.md",
+      "target": "../../CONSTRUCTION_RULES.md",
+      "resolved": "mission-book/CONSTRUCTION_RULES.md",
+      "new_target": "../../../../CONSTRUCTION_RULES.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-03/reports/UXI-391/OWNER_INSTRUCTION_THREE_END_TEST.md",
+      "target": "../mesh-3end/MESH-301-三端实机互联与相互指挥.md",
+      "resolved": "mission-book/finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md",
+      "new_target": "../../../completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/2026-09-29-construction-rules-v1.md",
+      "target": "./PROCESS_DATA_POLICY.md",
+      "resolved": "mission-book/PROCESS_DATA_POLICY.md",
+      "new_target": "../../../PROCESS_DATA_POLICY.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-001-core-os.md",
+      "resolved": "mission-book/finished/replant/MB-001-core-os.md",
+      "new_target": "../../replant/MB-001-core-os.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-002-capability-fabric.md",
+      "resolved": "mission-book/finished/replant/MB-002-capability-fabric.md",
+      "new_target": "../../replant/MB-002-capability-fabric.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-003-worker-gateway.md",
+      "resolved": "mission-book/finished/replant/MB-003-worker-gateway.md",
+      "new_target": "../../replant/MB-003-worker-gateway.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-004-project-foreman.md",
+      "resolved": "mission-book/finished/replant/MB-004-project-foreman.md",
+      "new_target": "../../replant/MB-004-project-foreman.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-005-host-health.md",
+      "resolved": "mission-book/finished/replant/MB-005-host-health.md",
+      "new_target": "../../replant/MB-005-host-health.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-006-restart-recovery.md",
+      "resolved": "mission-book/finished/replant/MB-006-restart-recovery.md",
+      "new_target": "../../replant/MB-006-restart-recovery.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-007-research-institute.md",
+      "resolved": "mission-book/finished/replant/MB-007-research-institute.md",
+      "new_target": "../../replant/MB-007-research-institute.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-008-computer-use.md",
+      "resolved": "mission-book/finished/replant/MB-008-computer-use.md",
+      "new_target": "../../replant/MB-008-computer-use.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-009-theme-relocation.md",
+      "resolved": "mission-book/finished/replant/MB-009-theme-relocation.md",
+      "new_target": "../../replant/MB-009-theme-relocation.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-010-node-fabric.md",
+      "resolved": "mission-book/finished/replant/MB-010-node-fabric.md",
+      "new_target": "../../replant/MB-010-node-fabric.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-011-customs.md",
+      "resolved": "mission-book/finished/replant/MB-011-customs.md",
+      "new_target": "../../replant/MB-011-customs.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./MB-012-runtime-compliance.md",
+      "resolved": "mission-book/finished/replant/MB-012-runtime-compliance.md",
+      "new_target": "../../replant/MB-012-runtime-compliance.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./reports/MB-004/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md",
+      "new_target": "../reports/MB-004/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./reports/MB-004/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md",
+      "new_target": "../reports/MB-004/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./reports/MB-005/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-005/VERIFICATION_REPORT.md",
+      "new_target": "../reports/MB-005/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+      "target": "./reports/MB-009/VERIFICATION_REPORT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/reports/MB-009/VERIFICATION_REPORT.md",
+      "new_target": "../reports/MB-009/VERIFICATION_REPORT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/reports/MB-007/VERIFICATION_REPORT.md",
+      "target": "../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md",
+      "new_target": "../../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/reports/MB-010/ASSESSMENT_REPORT.md",
+      "target": "../MISSION_INDEX.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/MISSION_INDEX.md",
+      "new_target": "../../MISSION_INDEX.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-01/reports/MB-012/ASSESSMENT_REPORT.md",
+      "target": "../MISSION_INDEX.md",
+      "resolved": "mission-book/finished/completed-2026-10-01/MISSION_INDEX.md",
+      "new_target": "../../MISSION_INDEX.md"
+    },
+    {
+      "source": "mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md",
+      "target": "evidence/MATERIAL_HANDOFF_MECH.md",
+      "resolved": "mission-book/reports/REX-803/MATERIAL_HANDOFF_MECH.md",
+      "new_target": "MATERIAL_HANDOFF_MECH.md"
+    }
+  ],
+  "preserved_evidence_links": [],
+  "navigation_restored": [
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
+      "target": "./README.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md",
+      "target": "./README.md"
+    },
+    {
+      "source": "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
+      "target": "./README.md"
+    }
+  ]
+}

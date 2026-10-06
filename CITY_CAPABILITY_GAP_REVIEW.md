@@ -86,3 +86,7 @@ Do not block the terminal milestone on:
 - public/cloud networking.
 
 Those are attachable domain capabilities after the product spine feels coherent.
+
+---
+
+语言配对 / Language pair: [English](./CITY_CAPABILITY_GAP_REVIEW.md) · [中文](./docs/zh-CN/CITY_CAPABILITY_GAP_REVIEW.md)

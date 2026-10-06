@@ -55,3 +55,8 @@ DGX 可以声明某个 deliberation/adjudication 需要的 independence floor；
 3. 不在在途 Formal Review 中途改变 assurance contract；
 4. 为候选新 profile 定义可证伪的 controlled comparison；
 5. RIV-990 之前禁止修改现行 §3 为更宽松规则。
+
+
+---
+
+语言读本 / Reading translation: [English](en/README.md). 原始状态与证据以本文件为准 / This source remains authoritative for status and evidence.

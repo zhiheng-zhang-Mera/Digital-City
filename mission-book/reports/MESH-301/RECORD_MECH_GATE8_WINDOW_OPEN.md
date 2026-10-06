@@ -62,3 +62,6 @@ the device, or by a script on the development host driving the device?** The wor
 leaves its own receipt and they do not endorse each other; that distinction is the difference between evidence
 and narration, and it is the one part of gate 4 that canonical truth cannot corroborate (no requester field).
 Not a blocker for the window — just don't let it be discovered during the review.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_GATE8_WINDOW_OPEN.md)

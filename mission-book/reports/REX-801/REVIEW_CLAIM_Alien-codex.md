@@ -5,3 +5,6 @@ Alien-codex on MERA-ALIANWARE claims review of Mech (MEGA-REP) development. Fres
 Remote branch tip ef89e917c0468b38ade26e666ca98c754ef8945a is a separately documented integration candidate with CI37241780688 success. CONSTRUCTION_RULES section2A.6 requires reviewed head == recorded development_head_sha; branch movement is informational unless workbook explicitly supersedes development head. Choice: review8f8c521 without overwriting Mech's historical development facts; do not treat ef89e917 as reviewed. No merge authority claimed.
 
 Independent review scope: malformed manifests, unknown capabilities, impossible topology, conflicting variables, duplicate IDs, same-seed determinism; persistence/canonical vocabulary; no second task database or fault permissions; direct-control reachability gap and exposure acceptance must be judged explicitly, not inferred from API alone. review_complete=false pending actual execution/findings.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_CLAIM_Alien-codex.md)

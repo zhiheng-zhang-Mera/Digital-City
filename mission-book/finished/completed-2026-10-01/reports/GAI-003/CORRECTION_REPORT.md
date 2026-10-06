@@ -1,4 +1,4 @@
-# GAI-003 Correction Report �?Web-First Channel + Persistent Session
+# GAI-003 Correction Report  - Web-First Channel + Persistent Session
 
 ```text
 MISSION              = GAI-003 (General AI Gateway programme, task 3 of 9)
@@ -14,7 +14,7 @@ DEVELOPMENT_HEAD     = e55da499193b644280fd34eee63749d9c9e9c8a4
 DEVELOPMENT_CI       = 36729727681-success
 CORRECTION_BRANCH    = general-ai/GAI-003-web-channel-persistent-session
 CORRECTION_HEAD_SHA  = d3f6a27f6bf809c8b3ee7c4281268f8a865928b6
-BRANCH_CI            = 36740641211 �?gateway-web success, android success
+BRANCH_CI            = 36740641211  - gateway-web success, android success
 LOCAL_CHECK_SUMMARY  = GAI-003 13 pass, root 112 pass, rooms 69 pass, city 1801 pass,
                        promotion-history OK at e55da49, bilingual SYNCHRONIZED
 MERGE                = NOT PERFORMED (forbidden for component branches)
@@ -41,7 +41,7 @@ narrower and different:
 - no Boss profile/process/endpoint/repository is accessed.
 
 Two things I would otherwise have mis-reported: this module has **no request-deduplication
-requirement** (so its absence is not a defect), and cross-provider isolation **is** required �?which is
+requirement** (so its absence is not a defect), and cross-provider isolation **is** required  - which is
 what made the first finding below a violation of the acceptance list rather than only of a principle.
 
 ## 2. Confirmed defects and repairs
@@ -53,7 +53,7 @@ what made the first finding below a violation of the acceptance list rather than
 | C3 | medium | `web_channel_version` was written by `persist` and never checked by `restore`, so another schema version restored silently | the persisted version must match |
 | C4 | low | `opened_at` was stored with no validation at all, so caller text became a persisted City-state instant | instants validated on the way in |
 
-### C1 (high) �?a restore could take over a live session across providers
+### C1 (high)  - a restore could take over a live session across providers
 
 ```text
 live session       = web-session-1  provider-alpha  handle-A  conversations ["conversation-1"]
@@ -66,13 +66,13 @@ persist(live.session_ref).provider_ref -> "provider-BETA"
 
 A persisted blob is caller-supplied, and `restore` trusted `persisted.session_ref` verbatim as the
 Map key. One provider's or account's state therefore replaced a **live** session belonging to a
-different provider and account �?the workbook's acceptance line "provider-specific adapter failure does
+different provider and account  - the workbook's acceptance line "provider-specific adapter failure does
 not corrupt another provider/account" read as an identity guarantee, and the module's own separation of
 session/profile/handle authority. Repaired by refusing a restore whose `session_ref` is already live;
 the caller must close it first. A restore onto an unused ref still works, which is the real
 restart/reopen path the acceptance describes.
 
-### C2 (medium) �?raw browser state could hide behind a non-enumerable key
+### C2 (medium)  - raw browser state could hide behind a non-enumerable key
 
 `findForbiddenPersistedFields` walked `Object.entries`, so an own **non-enumerable** `cookies` field was
 invisible to the scan and `restore` accepted it:
@@ -86,11 +86,11 @@ non-enumerable restore -> restored: true
 The module's own published guarantee (`RAW_COOKIE_IN_CITY_STATE`) is that raw browser state never
 enters persisted City state. The scan is now own-key complete via `Reflect.ownKeys`, cycle-safe (it
 walks caller-supplied data), and the refusal order was deliberately arranged so a payload carrying raw
-browser state is diagnosed as a **cookie** violation rather than as the identity conflict �?the
+browser state is diagnosed as a **cookie** violation rather than as the identity conflict  - the
 security-relevant diagnosis wins. The author's suite asserts exactly that ordering, and my first
 version of the fix got it wrong; see §6.
 
-### C3 / C4 �?persistence hygiene
+### C3 / C4  - persistence hygiene
 
 * `persist` wrote `web_channel_version: 1` and `restore` never read it: version `999` and *no version
   at all* both restored successfully. A persisted state from another schema version is not this
@@ -100,7 +100,7 @@ version of the fix got it wrong; see §6.
   `isIsoInstant` also round-trips to the calendar instant it claims, so an impossible date is refused
   rather than stored.
 
-### Second review pass �?five further mechanisms, four repaired
+### Second review pass  - five further mechanisms, four repaired
 
 The independent reviewer's report arrived after the first push and confirmed C1–C4 plus five mechanisms
 I had not found. Four were repaired in a second commit (CI 36741939879); the fifth is recorded below.
@@ -109,12 +109,12 @@ I had not found. Four were repaired in a second commit (CI 36741939879); the fif
 | --- | --- | --- | --- |
 | C5 | **high** | `restore` read `profile_handle_ref`/`session_ref` through the prototype chain and accepted class instances: an object whose only own key was the version restored successfully | persisted state must be a bare own-property object |
 | C6 | **high** | `complete` set `SUCCEEDED` and then read the session, so a completion whose session had been closed reported success while silently dropping the thread | the owning session is read before the state is committed; a closed session is a typed refusal and the execution stays `RUNNING` |
-| C7 | **high** | `accountRef` was stored with no validation at all, so raw credential bytes round-tripped through persist �?JSON �?restore �?persist with the guard reporting nothing | an account handle must be reference-shaped **and** not credential-shaped |
+| C7 | **high** | `accountRef` was stored with no validation at all, so raw credential bytes round-tripped through persist �?JSON �?restore �?persist with the guard reporting nothing | an account handle must be reference-shaped **and** not credential-shaped |
 | C8 | medium | the forbidden-name scan matched exact lower-case names only, so `Cookies`, `TOKENS` and similar case variants passed | case-insensitive name matching |
-| C9 | medium | unknown `request` fields are accepted and forwarded to the adapter verbatim | recorded, not repaired �?see §3.6 |
+| C9 | medium | unknown `request` fields are accepted and forwarded to the adapter verbatim | recorded, not repaired  - see §3.6 |
 
 C7 needed two attempts: my first fix used a reference grammar (`[A-Za-z0-9:._/-]`), and a GitHub token
-is alphanumeric with underscores, so it **passed** �?my own new test caught it. The check now also
+is alphanumeric with underscores, so it **passed**  - my own new test caught it. The check now also
 refuses recognisable credential shapes (GitHub, Slack, AWS, provider-style keys, JWTs, PEM blocks),
 which is the same mechanism already used for the EM-004 registry.
 
@@ -131,10 +131,10 @@ which is the same mechanism already used for the EM-004 registry.
    module is pure and has no clock, so this is the only shape available at this layer.
 4. **Cross-provider isolation is structural per channel instance** (one channel = one adapter), so the
    only path that could mix providers was the session-ref overwrite in C1; that is now closed.
-5. **No Android device observation and no Computer-Use session** �?a pure module with no device surface.
+5. **No Android device observation and no Computer-Use session**  - a pure module with no device surface.
 6. **Unknown `request` fields are forwarded to the adapter verbatim** (reviewer C9). Not repaired: the
-   request is owned by the provider-neutral adapter and is **not** persisted �?the execution record
-   stores only `request_ref` �?so an extension cannot enter the canonical City record. The workbook's
+   request is owned by the provider-neutral adapter and is **not** persisted  - the execution record
+   stores only `request_ref`  - so an extension cannot enter the canonical City record. The workbook's
    acceptance says nothing about request-envelope strictness, and imposing a spec here would invent the
    adapter's request vocabulary. Recorded for the Owner.
 7. **A refused `execute` still records the observed channel state** (reviewer D8). The write at
@@ -154,7 +154,7 @@ which is the same mechanism already used for the EM-004 registry.
 ## 4. Tests and CI
 
 Author suite **8/8 pass unchanged** (after the deliberate ordering change in C2, which the author's
-suite already asserts). Suite extended **8 �?11 tests**, every negative assertion paired with a
+suite already asserts). Suite extended **8 �?11 tests**, every negative assertion paired with a
 legitimate neighbour: a live ref is refused *and* an unused ref restores; a wrong version is refused
 *and* version 1 is accepted; an impossible instant is refused *and* a real one is stored.
 
@@ -166,7 +166,7 @@ node scripts/verify-promotion-history.mjs   -> OK (10 records at e55da49)
 node scripts/check-bilingual.mjs            -> SYNCHRONIZED
 ```
 
-Implementation CI: **36740641211 �?gateway-web success, android success** on
+Implementation CI: **36740641211  - gateway-web success, android success** on
 `general-ai/GAI-003-web-channel-persistent-session` @ `f718a57`.
 
 ## 5. Unstated decisions (problem / choice / rationale)
@@ -185,7 +185,7 @@ Implementation CI: **36740641211 �?gateway-web success, android success** on
    restart is inconsistent with that.
 5. **Cycles in the persisted scan.** *Choice:* a `WeakSet` visited guard. *Rationale:* the scan walks
    caller-supplied data, and an unguarded recursive walk over data is an untyped `RangeError` waiting
-   to happen �?a class already repaired in four sibling contracts this session.
+   to happen  - a class already repaired in four sibling contracts this session.
 
 ## 6. Honest self-errors
 
@@ -204,10 +204,22 @@ Implementation CI: **36740641211 �?gateway-web success, android success** on
 ## 7. Result
 
 Four confirmed defects repaired at the mechanism, with paired regression tests. Five boundaries are
-recorded with reasoning �?including two non-requirements I explicitly declined to "fix" �?and the
+recorded with reasoning  - including two non-requirements I explicitly declined to "fix"  - and the
 acceptance list, not my brief, decided which mechanisms counted as defects.
 
 ```text
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/general-ai-gateway/GAI-003-web-channel-persistent-session.md
 ```
+
+
+## 历史编码说明 / Historical encoding note
+
+本文件在此次整理前含无效UTF-8字节。仅将损坏标点改为普通连接符，其他无法恢复的序列显示为U+FFFD；没有猜测缺失文字或改写验收结论。原始字节保存在docs/encoding-evidence，可按SHA256核对。
+
+This file contained invalid UTF-8 before maintenance. Damaged separator punctuation is rendered as a plain hyphen; other undecodable sequences are shown as U+FFFD. Missing text and acceptance conclusions are not inferred. Original bytes are retained under docs/encoding-evidence with SHA256 provenance.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/CORRECTION_REPORT.md)保留全部章节、原代码证据和编码未知位置，不产生新的历史状态或验收。 / [Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md) preserves every section, original code evidence and unknown encoding locations; it creates no new historical state or acceptance.

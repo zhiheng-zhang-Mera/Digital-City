@@ -38,3 +38,5 @@
 Role boundary revalidated at exact pointfix sourcea7d6f2a9b97e02d5fd10adf3a73eafb4a5f3ef6e: host-member-role + city-members + city-members-ui 11/11 PASS. Observed controlled native production local Gateway/worker retirement and target PRIMARY preservation; restart keeps MEMBER/original City pointer. This is controlled integration evidence, not double-physical-host acceptance.
 
 PR23 merged-main d3262ce2dd81e51a53e39e6f9add8dee650a7682 CI37222674520 terminal SUCCESS. Sourcea7d6f2a is retained by verified cloud archive tag; remote head removed with exact-SHA lease after ancestry verification. CEX703 source478d486 exact CI and all PR checks SUCCESS; opposite physical-host Formal Review remains pending.
+
+语言配对 / Language pair: [原文 / Source](./DEVELOPMENT_LOG.md) · [译本 / Translation](./en/DEVELOPMENT_LOG.md)

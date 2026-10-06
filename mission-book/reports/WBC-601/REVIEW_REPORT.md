@@ -9,3 +9,5 @@ STANDARD_DEVICES wraps canonical store, Core placement, strict target and handof
 Registry CAP-EXECUTION-001 independently reconciled to exact corrected source, implementation COMPLETE/backend VERIFIED/internal reachability NOT_APPLICABLE/compatibility intent VERIFIED. INTERNAL_ONLY justified as foundation wrapper; no new user verb. Research/material indices bind original negative/fix/head/CI/provenance, unavailable context counters remain unknown. Watchlist follows frozen City rulesa44613d; no novelty claim.
 
 Formal terminal marker EXECUTION_BACKEND_STANDARD_COMPAT_ACCEPTED established for this corrected source. PR https://github.com/zhiheng-zhang-Mera/utopia/pull/16 is reviewable. merge_authority=false remains unchanged: no merge performed. Downstream main-anchored work must wait until accepted source is an ancestor of its resolved baseline, even though this workbook is COMPLETE. This is task acceptance, not a claim the installed product or main already contains it.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

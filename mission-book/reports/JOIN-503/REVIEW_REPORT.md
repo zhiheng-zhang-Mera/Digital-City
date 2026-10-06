@@ -1,6 +1,6 @@
 # JOIN-503 — Formal review report
 
-> **Workbook:** [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md)  
+> **Workbook:** [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
 > **Reviewed head:** `ede6fa22e0165156aadcf3cbd6ba748b6f2b39d7` on `join/JOIN-503-device-enrollment-and-tokenless-reconnect`  
 > **Development host:** Alien — **review host: Mech** (different physical host, `CONSTRUCTION_RULES.md` §3)  
 > **Hosted CI on the reviewed head:** run `37117241912` COMPLETED SUCCESS on exactly that sha, branch `join/JOIN-503-device-enrollment-and-tokenless-reconnect` (workflow *V0.2 checks*), re-queried by head_sha rather than inherited  
@@ -83,3 +83,5 @@ REVIEWER                Mech
 ```
 
 The repair is a two-hunk change in one file and can be cherry-picked or re-applied by hand; re-applying it in your own words is welcome, and a new head with its own hosted CI is what closes this review.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_REPORT.md) · [译本 / Translation](./zh-CN/REVIEW_REPORT.md)

@@ -192,3 +192,5 @@ F3  FINDING for MON-990: the decision window is surfaced on its own page today b
     MON-902, which is developed but not yet merged. Integration is a presentation change only.
 MERGE AUTHORITY  false — this host does not merge MON-903.
 ```
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

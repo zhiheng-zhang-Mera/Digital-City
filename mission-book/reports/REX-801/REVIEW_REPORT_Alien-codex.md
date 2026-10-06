@@ -9,3 +9,6 @@ Fixed candidate validation: focused 23/23 PASS; full root 1256/1256 PASS; Rooms 
 Root raw log `.runtime/evidence/mission-book/REX-801/root-final.log` SHA256 `e96e6eb92373ff648e5b97f66724a01e98d9d140e154da94e8041f9470eab3e5`. Tracked implementation evidence receipt: `evidence/raw/mission-book/REX801/review-receipt.json`; original negative and correction evidence remain preserved. Initial independent invalid worker fixture is INVALID_FIXTURE; interrupted full run during edits is INVALID_SOURCE_CHANGED_DURING_RUN. Neither counts as final acceptance evidence.
 
 Exposure gate PASS for this bounded Web manifest workflow; capability CAP-EXPERIMENT-MANIFEST-001 reconciled. No physical topology experiment, hardware availability, execution performance, Android Research parity, fault authority, second task database, or fabricated measurement is claimed. REX-807 retains the fuller research control workflow. Formal review complete, terminal marker EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED released; merge_authority remains false and PR25 is not merged.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_REPORT_Alien-codex.md)

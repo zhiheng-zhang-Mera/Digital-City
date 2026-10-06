@@ -53,13 +53,13 @@ BOSS_HNS_CONNECTORS = DEFERRED
 
 发生冲突时按以下顺序解释：
 
-1. Owner 的最新显式裁决：[`response-9-30.md`](./response-9-30.md)；
-2. [`response-9-29.md`](./response-9-29.md) 中未被 9-30 覆盖的既有裁决；
+1. Owner 的最新显式裁决：[`response-9-30.md`](../completed-2026-10-01/response-9-30.md)；
+2. [`response-9-29.md`](../completed-2026-10-01/response-9-29.md) 中未被 9-30 覆盖的既有裁决；
 3. 本文件的当前规则；
 4. Mission 当前 front matter + mission-specific gates；
 5. 当前 Utopia `main` 的事实状态；
 6. Assessment / Migration / Verification Report（历史证据）；
-7. [`past-rules/`](./past-rules/)（纯历史归档）。
+7. [`past-rules/`](../completed-2026-10-01/past-rules)（纯历史归档）。
 
 报告中的旧 rule 编号、旧判断、旧阻塞原因不会自动覆盖后来的 Owner 裁决。
 
@@ -285,7 +285,7 @@ City 级默认机制：
 - capability enumeration 不应把这类 module 暴露成不可调用的产品 capability；
 - building 可在必要时使用自己的 `kind` 覆盖 district 的默认 `kind`，由统一的 effective-kind 逻辑判断。
 
-具体 Owner 裁决见 [`response-9-29.md`](./response-9-29.md)。
+具体 Owner 裁决见 [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)。
 
 ## 9. 独立 Verification
 
@@ -309,7 +309,7 @@ mission-book/reports/MB-xxx/
 └─ VERIFICATION_REPORT.md  # 仅实际迁移时
 ```
 
-Utopia 过程数据继续遵守 [`PROCESS_DATA_POLICY.md`](./PROCESS_DATA_POLICY.md)：
+Utopia 过程数据继续遵守 [`PROCESS_DATA_POLICY.md`](../../PROCESS_DATA_POLICY.md)：
 
 - raw evidence → `.runtime/evidence/mission-book/...`
 - bounded events → `data-records/evolution/inbox/mission-book/...`
@@ -375,7 +375,7 @@ MB-010..012 已由 Owner 于 2026-09-30 启用为**可自动领取的价值评�
 
 ## 13. 当前 7 → 8 → 3 收口工程
 
-绑定工程书：[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](./ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)。
+绑定工程书：[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](../completed-2026-10-01/ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)。
 
 - **Step 1 — MB-007:** COMPLETE。实现、Owner-override finalizer、verified episode、repair merge 均已闭环；禁止再修改 Research Institute 实现。
 - **Step 2 — MB-008:** ✅ **COMPLETE (2026-09-30)。** 价值复核 = `ROUTE_B_CONTINUE`（`main` 无 `10-automation`，且不覆盖 safety/contract 面）。分支已先同步 `main`（`77b774c`，reconciled CI `36655586918` PASS）。bounded chain 全绿：happy path / 真实 refusal（`DESTRUCTIVE_FORBIDDEN`，零 mutation，artifact 逐字节一致）/ 真实 miss（真删文件，同一真实 `facts.fileExists` 报 absent，donor postcondition `failure` kind `file`）/ recovery（donor `retry`+`RETRYABLE`、`settle stable` → `landed`，复验 `success`），`NO_MOCK_FACTS = true`。`RUNTIME_PASS` `bbf126ea…`、final `CI_RESULT` PASS `06f57c06…`、`VERIFICATION_COMPLETE` PASS `fd0225d1…`。owner-override episode `MB-008:6ae0bbd46e425c9f`（sha256 `a4b6e8fc6c87d07a3ac03a767e9a12f92bdf32931f37e624e48650a5a5b87e0e`），inbox 已消费，Alien 的 `RUNTIME_FAIL/BLOCKED` 保留（未伪造 `MIGRATION_COMPLETE`，R5）。final branch CI `36663533485` PASS（`f8f82cd`）；merge `168182c`（`--no-ff`）；merged-main CI `36663813362` PASS；merged-main 五门禁全绿 + 结构检查全 OK。**deferred runtime plane 仍未迁入**（无真实 desktop/browser/UI 自动化）。
@@ -524,7 +524,7 @@ SHA"。三个 Mission 都没有实现，所以即使 provenance branch 已归档
 ## 13.4 当前产品收尾：Pre-Assistant Terminal Foundation
 
 MB-001..012 已全部闭环，当前 migration / assessment 队列为空。根据 Owner ruling
-[`response-9-30.md#R12`](./response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)，
+[`response-9-30.md#R12`](../completed-2026-10-01/response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)，
 Mission Book 从 donor migration 调度器切换为**本轮产品收尾控制面**。
 
 绑定工程书：
@@ -556,6 +556,10 @@ LLM router、人格/个人助理层、长期助理记忆、主动代理或其他
 
 ## 14. 历史规则
 
-旧版 migration-first rule 及旧模板已归档到 [`past-rules/`](./past-rules/)。
+旧版 migration-first rule 及旧模板已归档到 [`past-rules/`](../completed-2026-10-01/past-rules)。
 
 **现役 Mission 文件不再复制完整全局规则。** Mission-specific gates 仍然有效；全局流程统一引用本文件，避免未来规则更新后十二份文件互相漂移。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/README-LEGACY-MIGRATION-CONTROL.md)

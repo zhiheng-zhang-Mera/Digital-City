@@ -70,3 +70,6 @@ review.
 issuing the `FINAL_VISUAL_ACCEPTANCE` ruling — the material for which is already delivered. Step 7's merge was
 **pre-verified read-only** and is mechanically a clean fast-forward (`merge-tree` exit 0, no conflicts); it has
 deliberately **not** been taken, because it is step 7 and follows both gates.
+
+
+[阅读译本 / Reading translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_REVIEW_READY.md)

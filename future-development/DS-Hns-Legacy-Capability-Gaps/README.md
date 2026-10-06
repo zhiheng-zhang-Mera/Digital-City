@@ -634,3 +634,92 @@ PLACEMENT_DECISION            = DEFERRED
 IMPLEMENTATION                = NOT_STARTED_BY_DESIGN
 CURRENT_UTOPIA_WORK           = UNBLOCKED
 ```
+
+## English explanation / 英文逐项说明
+
+### Purpose, identity and hold rules
+
+This inventory records incompletely transferred generic capabilities, abstractions/contracts without executors, partially superseded donor candidates, and capabilities potentially useful for universal personal terminals/long unattended operation. It is not a construction workbook or placement decision. Status remains `RECORDED_FOR_FUTURE_MAJOR_DEVELOPMENT`, review date 2026-10-02, source `zhiheng-zhang-Mera/DS-Hns`, SHA `eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b`. The original statement that main matched the 2026-09-29 snapshot belongs to that recorded review, rather than a fresh remote check.
+
+At the next major phase, ask whether Utopia filled each gap, whether the old direction remains sound, design versus code reuse, supersession by Manager/Fabric/Remote/Gateway, implementation value and eventual placement. Until separately started, create no buildings, district placements, Hns runtime dependencies or current tasks; do not block UI/scheduling/Remote/Assistant/Gateway; do not migrate Hns wholesale; compare new architecture first. Hns retains its historical/current engineering-worker identity.
+
+### Main capabilities already transferred
+
+These are excluded from gaps: the Hns engineering modules already have Foreman counterparts plus CI repair/correction/failure recovery; Engineering Manager V1 Job/Result/Artifact, registry, LOCAL_FIRST placement, remote return/control, credentials/profiles/sessions, health/recovery, DAG/pool, reference connectors, SDK and task surface were merged into Utopia main; Host Health, Restart Recovery, main Computer Use and Theme Engine have successors. Skill Intake format/source/catalog/archive safety transferred, but installation/removal remains HLG-005. These remain the original review's recorded assessments.
+
+### HLG-001 — Concrete Local Sub-worker Executor
+
+Original capability comprises a pure Node executor process, versioned stdio NDJSON, Task/Result, explicit scripted `operations[]`, WorkerManager, state machine, event bus, reporting/snapshots/ownership, profiling/metrics, crash recovery, pause/resume/cancel/takeover, local persistence, Live View and workspace modes. Assessment: `PARTIAL_ABSTRACTION_MIGRATED_EXECUTOR_MISSING`. Manager has SCRIPTED_EXECUTOR semantics, DAG/pool, LOCAL_FIRST, remote fallback, generic managed process and contracts, but no observed equivalent concrete `app/sub-worker/*` executor. Foreman/scheduler/placement is not an actual executor process.
+
+### HLG-002 — Generic Plugin Lifecycle
+
+Original `dshns.plugin/v1` separates installed/enabled/loaded/healthy, and includes manager, capability dependency resolution/collision refusal, isolated listeners, layered configuration, resource manager, health supervision, SOFT/DEGRADED/FATAL faults, declared fallbacks, lockfile/drift enforcement and enable/disable/load/unload/reload/health. Assessment: `MISSING_GENERIC_EQUIVALENT`. Discovery/routing is not a mountable, unloadable, degradable healthy plugin host. Combine with Boss plugin-runtime review; Hns is a mature operational donor.
+
+### HLG-003 — Plugin Adaptation, Compatibility and Isolation
+
+Original detector → adapter → descriptor supports Native Hns/Cordis/DSH/Process adapters, in-process/isolated/declarative runtimes and reserved remote vocabulary, process boundaries, isolated adapter failures, batch adaptation, bounded errors and permission declarations. Adapter failure must not break other plugins or product startup. Assessment: `MISSING_GENERIC_EQUIVALENT`. Engineering connectors are not generic plugin adapters; reassess for a general extension ecosystem.
+
+### HLG-004 — Plugin Store, Live Installation and Hot Reload
+
+Original capability covers GitHub/default-branch inspection, manifest preflight, no false rejection under uncertainty, zero download/residue for invalid plugins, staging/install records, enable/mount, community installation, hot reload and isolated store failure. Assessment: `MISSING_GENERIC_PLUGIN_STORE`; Skill Intake is not a store. Future design should consider discover → inspect → preflight → stage → validate → install → mount → health → rollback/remove rather than reinvent it.
+
+### HLG-005 — Full Skill Lifecycle
+
+Original capability covers offline curated/live GitHub search, URL/repository/subtree/raw-file/local-path sources, tar safety, staged real Harness-root installation, installed-set detection, single/batch/collection deletion, live refresh without restart and management UI. Assessment: `PARTIAL`. Format/parsing/catalog/archive inspection/safety/discovery migrated; filesystem extraction/install/remove explicitly did not. Future choices are provider-root management, Utopia package/install abstraction, or intake-only with provider-controlled installation.
+
+### HLG-006 — Engineering Acceleration
+
+Original pack includes repo-map, dirty-context, context-cache, reasoning governor, tool batching, command cache, persistent tools, incremental validation, patch-first, parallel execution and workspace isolation. Assessment: `PARTIALLY_SUPERSEDED_REQUIRES_DIFF`. New architecture absorbed DAG concurrency, resource-aware counts, scope conflicts, worktrees and some focused/affected/full verification. Unconfirmed equivalents include repository graphs, dirty-context budgets, stable cache, reasoning levels, read batching, verified command-result cache, persistent shell/LSP/browser/model sessions and patch-first mutation. Compare individually; do not copy the pack.
+
+### HLG-007 — Routine Decision Interceptor
+
+Original policy distinguishes HARD_BLOCKER from DECIDABLE. Only unavailable permissions/credentials, irreversible external actions, proven incompatible goals and truly absent required resources ordinarily need the user. Routine continuation/retry/A-B/implementation choices may proceed under deterministic policy with a decision ledger. Direction-stall ladder: AUTO_DECIDE → STRONG_STEER → INDEPENDENT_DECISION → FRESH_EPISODE. Assessment: `MISSING_EQUIVALENT_POLICY`. Attention/Return Control transports blockers, but does not determine which questions should never interrupt users. Potential high-value donor for unattended work.
+
+### HLG-008 — External-Agent Semantic Progress and Recovery
+
+Original observation differs for headless/official sessions; states are WORKING/SLOW/STALLED/FAILED; stale busy is not liveness; soft deadlines probe and hard stalls recover. It includes bounded continuation, model-done versus verified-complete, R0–R8 recovery, replacement providers, straggler/quorum policies and waiting episodes releasing slots. Assessment: `PARTIAL`. Foreman/Manager have supervision, verification, recovery and runtime-health retry/reassignment, but semantic external-session progress, probes, re-steering, session recovery, alternate provider and fresh episodes remain distinct donor candidates. Review together with Boss continuation/runtime intelligence to avoid two schedulers.
+
+### HLG-009 — Optional-Module Protection and Warm Startup
+
+Original protection prevents optional failures collapsing the main product, tracks DISABLED/STARTING/HEALTHY/DEGRADED/FAILED/RECOVERING, bounds startup, uses immediate/delayed retry/stop, fallbacks and uniform health. Startup cache restores first, verifies later; hints cannot seize authoritative ownership. Assessment: `MISSING_GENERIC_EQUIVALENT`. Health/Restart are not complete optional-feature isolation with product-first availability and background restoration. Reassess as module counts grow.
+
+### HLG-010 — Terminal Notifications
+
+Original capability observes session/task terminal states, normalizes COMPLETED/FAILED/CANCELLED, emits exactly-once events, deduplicates taskId/state/epoch, offers desktop/sound notifications, isolates notification failure and primes startup to avoid old-history alerts. Assessment: `MISSING_GENERIC_PRODUCT_EQUIVALENT`. User-attention requests differ from a single alert that background work finished. Consider a unified centre when background volume warrants it.
+
+### HLG-011 — Provider Cost, Balance, Quota and Off-Peak Scheduling
+
+Original capability covers balance lookup, open-time refresh, concurrent coalescing, provider isolation, stale-last-success, pricing/cost, peak/off-peak logic and scheduled queues. Assessment: `OPTIONAL_REUSE_NOT_CURRENT_CORE_GAP`. Billing reasonably remains Hns-local; future Gateway/connectors may harvest it for quotas, balances, cost routing or off-peak work. Default is no migration.
+
+### HLG-012 — Long-Hosting Soak and Chaos Qualification
+
+Original capability includes synthetic 6/12/24h soak, real-time hosting, faults/chaos, restart recovery, task continuity, resource growth, separation of process recovery from task-semantic recovery, and explicit combined long-host gates. Assessment: `MISSING_EQUIVALENT_QUALIFICATION_HARNESS`. Unit/CI/physical tests and Health/Restart do not establish an equivalent harness. A future claim of long unattended task continuation after crash/restart/transient failure needs real qualification, not inference from module tests. Original sections preserve all exact donor paths.
+
+### Excluded local implementations and cross-review
+
+Keep official DSH shell embedding, Alien/Mega Dock/window/frosted-glass UI, DSH browser/session glue, DeepSeek auth/updater, Harness Windows installer/bootstrap, Hns launcher/tray/icons, local settings/history, version alignment and package/update plumbing provider-local by default. If Utopia needs installation/updating, design its own model rather than copy the Hns shell.
+
+Review both legacy inventories together: Boss runtime/sandbox/credentials with Hns manager/adapters/compat/store/lockfile/health; Boss runtime intelligence/adaptive learning/evolution with Hns question interception/progress/recovery/acceleration; Boss State Core/diagnosis/cases with Hns health/restart/continuity/chaos. Build one architecture rather than revive both old stacks. Reliability should combine state truth + health + diagnosis + recovery + continuity + long-host qualification.
+
+### Future review gate and unchanged conclusion
+
+Run `HNS_LEGACY_GAP_REVIEW` before a future initiative: current coverage, Boss overlap, Engineering versus generic scope, donor suitability, contract/test/failure reuse with rewritten implementation, need for real multi-device/long-term evidence, and essential Utopia capability versus provider optimization. Valid outcomes include SUPERSEDED, NO_EXTRACTION, KEEP_IN_HNS, KEEP_AS_REFERENCE, HARVEST_DESIGN_ONLY and HARVEST_TESTS_ONLY. Placement remains deferred, implementation `NOT_STARTED_BY_DESIGN`, current Utopia work unblocked.
+
+## 快速信息仪表盘与导航 / Quick dashboard and navigation
+
+目录数量实测于2026-10-06；状态是既有文档记录，不是新运行验收。 / Directory counts measured on 2026-10-06; status reflects existing documentation rather than new runtime acceptance.
+
+| 项目 / Item | 值 / Value |
+|---|---|
+| 直接子目录 / Direct subdirectories | 0 |
+| 递归Markdown文档 / Recursive Markdown documents | 1 |
+| 状态 / Status | DESIGN_RECORDED_NOT_ACTIVATED; legacy entries NOT_STARTED_BY_DESIGN / 设计未启用、遗留缺口未开工 |
+| 语言 / Language | 同文中英或明确互链语言对 / Same-file bilingual explanations or linked language pairs |
+
+### 文档与资源导航 / Documents and resources
+
+| 入口 / Entry | 用途 / Purpose |
+|---|---|
+| [README.md](./README.md) | 说明文档 / Explanatory document |
+
+[返回未来储备 / Back to future inventory](../README.md)

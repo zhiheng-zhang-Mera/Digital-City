@@ -198,3 +198,8 @@ Normal terminal target:
 If every remaining stage requires a genuinely external Owner/hardware/provider action that cannot be mediated, report:
 `GLOBAL_POOL_DRAINED_WITH_TYPED_EXTERNAL_OWNER_ACTION`
 with exact blockers. Never convert that state into success and never manufacture additional internal work merely to avoid reporting it.
+
+
+---
+
+语言读本 / Reading translation: [中文](zh-CN/CROSS_PROGRAMME_EXECUTION_CONTRACT.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

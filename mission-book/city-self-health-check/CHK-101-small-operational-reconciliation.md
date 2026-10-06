@@ -151,3 +151,8 @@ OBSERVE_MORE
 ## 完成门槛
 
 形成 bounded health report；若需维修，只创建/建议后续正式工作项，不在本任务扩边施工。
+
+
+---
+
+语言读本 / Reading translation: [English](en/CHK-101-small-operational-reconciliation.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

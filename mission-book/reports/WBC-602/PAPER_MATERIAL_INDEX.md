@@ -131,3 +131,5 @@ Actual reviewer Alien-codex/MERA-ALIANWARE is distinct from developer Mech/MEGA-
 research_evidence_applicability=APPLICABLE; long_horizon_context_evidence=CAPTURED. Current continuation revalidated source/control/CI; exact token/window/compaction trigger and global rework counters NOT_OBSERVABLE. Candidate watchlist RS-G3-INDEPENDENT-REVIEW-BOUNDARY, RS-G3-IDENTITY-PROVENANCE, RS-G3-SEMANTIC-INTEGRATION and RS-G4-CAPABILITY-STATE inherit City taxonomy, not novelty claims. Defects remain ordinary engineering evidence; foundation/formal/CI/main integration states stay distinct.
 
 Final outcome: exact correction d99101fdac5169aad74ae84fb7c0c25be43ad7d9; CI37211820065 COMPLETED SUCCESS, opposite-host Formal Review PASS, CAP-NODE-DESCRIPTOR-001 reconciled. Accepted terminal refers to this exact source, not main inclusion. Source PR18 remains open under merge_authority=false.
+
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

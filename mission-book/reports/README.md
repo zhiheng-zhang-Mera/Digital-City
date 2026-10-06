@@ -30,3 +30,63 @@
 当前 Hns/Codex 施工还应遵循：
 
 `../ASYNC_RELIEF_CONSTRUCTION.md`
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **483**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| CEX-701 | 12 | [打开 / Open](CEX-701/README.md) |
+| CEX-702 | 12 | [打开 / Open](CEX-702/README.md) |
+| CEX-703 | 12 | [打开 / Open](CEX-703/README.md) |
+| CEX-704 | 10 | [打开 / Open](CEX-704/README.md) |
+| CEX-705 | 10 | [打开 / Open](CEX-705/README.md) |
+| CEX-790 | 13 | [打开 / Open](CEX-790/README.md) |
+| CEX-PROGRAMME | 3 | [打开 / Open](CEX-PROGRAMME/README.md) |
+| CITY-ROLE-20261005 | 6 | [打开 / Open](CITY-ROLE-20261005/README.md) |
+| HOST-START-MODES | 3 | [打开 / Open](HOST-START-MODES/README.md) |
+| JOIN-501 | 5 | [打开 / Open](JOIN-501/README.md) |
+| JOIN-502 | 8 | [打开 / Open](JOIN-502/README.md) |
+| JOIN-503 | 10 | [打开 / Open](JOIN-503/README.md) |
+| JOIN-590 | 26 | [打开 / Open](JOIN-590/README.md) |
+| MESH-301 | 88 | [打开 / Open](MESH-301/README.md) |
+| MON-901 | 16 | [打开 / Open](MON-901/README.md) |
+| MON-902 | 20 | [打开 / Open](MON-902/README.md) |
+| MON-903 | 16 | [打开 / Open](MON-903/README.md) |
+| MON-990 | 20 | [打开 / Open](MON-990/README.md) |
+| MON-PROGRAMME | 3 | [打开 / Open](MON-PROGRAMME/README.md) |
+| PR28-4391-DEPLOYMENT | 6 | [打开 / Open](PR28-4391-DEPLOYMENT/README.md) |
+| REX-801 | 12 | [打开 / Open](REX-801/README.md) |
+| REX-802 | 10 | [打开 / Open](REX-802/README.md) |
+| REX-803 | 35 | [打开 / Open](REX-803/README.md) |
+| REX-804 | 20 | [打开 / Open](REX-804/README.md) |
+| REX-805 | 23 | [打开 / Open](REX-805/README.md) |
+| REX-806 | 3 | [打开 / Open](REX-806/README.md) |
+| REX-PROGRAMME | 11 | [打开 / Open](REX-PROGRAMME/README.md) |
+| UTOPIA-BRANCH-INTEGRATION-20261004 | 3 | [打开 / Open](UTOPIA-BRANCH-INTEGRATION-20261004/README.md) |
+| WBC-601 | 12 | [打开 / Open](WBC-601/README.md) |
+| WBC-602 | 12 | [打开 / Open](WBC-602/README.md) |
+| WBC-603 | 12 | [打开 / Open](WBC-603/README.md) |
+| WBC-604 | 7 | [打开 / Open](WBC-604/README.md) |
+| en | 6 | [打开 / Open](en/README.md) |
+| zh-CN | 6 | [打开 / Open](zh-CN/README.md) |
+
+### 本目录说明 / Local documents
+
+- [CONTROL_PLANE_DUPLICATE_KEYS_MECH.md](CONTROL_PLANE_DUPLICATE_KEYS_MECH.md)
+- [CONTROL_PLANE_ENCODING_MECH_FOUR_WORKBOOKS_DOUBLE_ENCODED.md](CONTROL_PLANE_ENCODING_MECH_FOUR_WORKBOOKS_DOUBLE_ENCODED.md)
+- [CONTROL_PLANE_FRONTMATTER_SWEEP_MECH.md](CONTROL_PLANE_FRONTMATTER_SWEEP_MECH.md)
+- [INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md](INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md)
+- [INTEGRATION_SOURCE_SWEEP_MECH.md](INTEGRATION_SOURCE_SWEEP_MECH.md)
+- [LAUNCHER_AND_SHAREABLE_INVITE.md](LAUNCHER_AND_SHAREABLE_INVITE.md)
+- [MISSION_BOARD_RECOUNT_MECH.md](MISSION_BOARD_RECOUNT_MECH.md)
+- [MON_INTEGRATION_PREFLIGHT_MECH.md](MON_INTEGRATION_PREFLIGHT_MECH.md)
+- [POOL_RECHECK_Alien_2026-10-06.md](POOL_RECHECK_Alien_2026-10-06.md)
+- [RELAY_RATE_PROBE_HOST_SPEED_MECH.md](RELAY_RATE_PROBE_HOST_SPEED_MECH.md)
+- [ZERO_CLAIM_MECH_2026-10-05.md](ZERO_CLAIM_MECH_2026-10-05.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->

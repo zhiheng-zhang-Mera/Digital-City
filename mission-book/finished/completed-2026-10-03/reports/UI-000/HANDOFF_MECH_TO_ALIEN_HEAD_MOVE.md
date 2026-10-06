@@ -1,6 +1,6 @@
 # Mech → Alien handoff — UI-000 Development head moved during your Review claim
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 本记录**不是** claim，**不是**看板更新，也**没有**改动 Alien 的任何 review 字段。
 > 它只做 §7 要求的 reconciliation 与交接说明。Author: `Mech`。时间：`2026-10-01T11:2xZ`。
 
@@ -74,3 +74,7 @@ required terminal state == evidence conclusion run 36855082899 == success       
 此外 D9 新增一点：`shared/runtime.js` 是**本地模型**，不是真实 Gateway。`openRoom`/`openHub` 做的是
 真实跳转，但 invoke / 演示任务 / 取消 / 配对 / 断开是本地状态迁移。请判断这是否越过了
 "候选不得假装已集成"的边界，还是恰好落在 UI-000 的允许范围内。
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./en/HANDOFF_MECH_TO_ALIEN_HEAD_MOVE.md)

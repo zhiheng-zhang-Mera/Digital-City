@@ -62,3 +62,35 @@ Dependency invalidation is narrow: source bytes or selection change -> affected 
 Start later with file-backed manifests, reproducible scripts and a resumable local queue; add an index database only for demonstrated scale needs. Provider access goes through the existing gateway and budget policy. Cloud analysis must respect data classifications. No permanent paid worker pool, public posting bot or new City building is implied.
 
 后续先做文件/manifest 与可恢复任务，不预先堆分布式微服务。长任务异步等待，预算不足暂停本任务，不锁全城。实现仓库与部署形态留到正式启用时确认。
+
+## 中文完整说明 / Complete Chinese explanation
+
+### 1. 架构选择
+
+状态仍是未来设计。巨型写作提示容易混合事实推断规则；逐刊复制流水线会复制证据并在纠正后漂移。采用统一证据/论点核心、声明式适配器和小型可恢复工作流。Agent 角色是可替换作业，不要求常驻多个模型。
+
+### 2. 逻辑层与归属
+
+采集适配把已有回执转换为有界来源引用和覆盖账本，归来源项目，新增生产事件需原契约变更。证据索引提供可检索、考虑权限的清单，仅紧凑索引留 City，原始字节在外部。研究观察台重建事件、信号、候选卡，属于派生研究状态，不是产品验收事实。科学核心把选题和冻结语料转换为分析论点不确定性图表，归论文仓库。投稿编译器把核心和版本化政策生成专项文稿/包，不复制分歧证据。审查发布依据包、测试和作者决定生成 Owner 治理的回执。
+
+### 3. 复用边界
+
+实际可用时读取 REX-801 manifest、REX-802 trace/provenance、REX-806 分析/artifact 导出。缺失功能只是局部缺口，不代表功能存在，也不阻塞全部回溯工作。新增验证未来可经明确批准委托 REX，不新建注入器、调度器或任务所有权图。先核验版本接口，READY 不是落地证明。
+
+总监视器/JEV 可投影作业状态；通过适配器读取规范运行事件，不能靠仪表盘编辑标记录用或实验成功。实际实现并资格验收后才登记能力/用户暴露；目录本身不计 active mission 或开发完成数。
+
+### 4. 统一中间表示
+
+Paper IR 是结构化研究对象，不是 PDF：问题、研究设计、语料版本、可采纳论点、限制、表格、作图配方、文献支持、作者确认声明、贡献重叠图。每个含量化或核心科学主张的句子对应 claim ID，每个表格单元对应计算和输入。各目标标题摘要可不同，但包内 metadata 与正文一致。
+
+建议论文家族目录包括候选及拒绝理由、冻结来源/选择/分析锁、科学核心、脚本环境配方输出、目标/届次/类型/阶段/修订 variants、评审，以及带批准哈希/门户字段/真实回执的 submissions。原文代码块是未来接口建议，不要求迁移 Hns 既有布局。
+
+### 5. 执行与增量失效
+
+确定性解析、计算、构建处理机器可检查工作；模型用于解释候选、文献映射和允许的写作。独立问题或专门检查可并行只读不可变输入。移动分支上的写作者不得覆盖另一作者章节，应提交 patch/proposal、受控协调一次并留来源；不同 Agent/host 仅是审查元数据，不证明独立。
+
+源字节/选择改变使受影响分析论点版本评审失效；文献改变使相关句子失效；只改模板仅重渲染预检，不是新实验；作者费用目标许可变化仅使相关批准失效。保留旧冻结和回执，不全量返工或改历史。
+
+### 6. 最小实现方向
+
+未来先文件 manifest、可复跑脚本、可恢复本地队列，仅在规模需求证明后加索引数据库。通过已有 gateway/预算访问提供者，云分析遵守数据分级。长任务异步等待，预算不足只暂停当前任务。未隐含常驻付费池、自动发布机器人或新 City 建筑；仓库部署启用时再决定。

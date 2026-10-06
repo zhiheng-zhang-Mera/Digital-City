@@ -13,7 +13,7 @@
 - [既有技术评审](REVIEW_REPORT.md)：修复后相关测试 71 PASS，独立 critic 8 PASS，涵盖取消、重启、timeout、partial accounting、seed 和 state/context 身份。中间全量套件结果不冒充最终 immutable head 全量结果。
 - Exact-head hosted CI：push `37423084327`、PR `37423138551`、linkage `37423138558`，逐次 API 读取均 terminal SUCCESS；[候选 PR37](https://github.com/zhiheng-zhang-Mera/utopia/pull/37)。候选 Android `testDebugUnitTest assembleDebug` 成功，21 suites / 111 tests / 0 failures / 0 errors；APK SHA256 `3b40b8d365a17893e01bdf88b190829f8de609bce3859ef10a7acadf4ca9ed0e`。
 - Mech Owner 启动的 campaign `campaign-966cf439-7017-4bb0-88e8-981e59c18322` 在 City `031fdba6-e94c-4298-a095-6ff04a65481d` 完成。Android PERM00 是已入会的 canonical control surface；执行节点按 Mech / Alien / Mech 分配。Alien 使用普通 MEMBER 权限独立读取三个 canonical COMPLETED task，不绕过 Owner 端点。
-- [原始材料索引](evidence/MATERIAL_INDEX.md)及[交付说明](evidence/MATERIAL_HANDOFF_MECH.md)：完整发布该 campaign 所处 collector epoch 的 52 条记录、31 条 canonical campaign/task events、3 条 measured run receipts。三次运行全部计入 terminal accounting，无失败、timeout、排除或 warmup；warmup 为 0。
+- [原始材料索引](evidence/MATERIAL_INDEX.md)及[交付说明](MATERIAL_HANDOFF_MECH.md)：完整发布该 campaign 所处 collector epoch 的 52 条记录、31 条 canonical campaign/task events、3 条 measured run receipts。三次运行全部计入 terminal accounting，无失败、timeout、排除或 warmup；warmup 为 0。
 - [独立材料核验](independent-material-checks-Alien.json)：38 项通过。评审自己重算七文件字节长度/SHA256、task/receipt/event/context 绑定、执行窗口、单 epoch monotonic 顺序、明确的 missing/drop/clock 声明，未仅依赖作者的 derived checks。种子另由独立 FNV-1a 计算和 exact candidate 的 `runSeed` 执行交叉核对：`397343796 / 414121415 / 430899034`，对应 worker indices `0 / 1 / 0`。
 
 The earlier technical review records 71 focused passes and eight independent critic passes, covering cancellation, restart, timeout, partial accounting, deterministic seeds and state/context identity. Intermediate full-suite output is not represented as a final immutable-head full-suite run. The three exact-head CI runs above were individually read from the API and succeeded. The candidate Android build and its 111 tests also succeeded.
@@ -45,3 +45,8 @@ The workbook, programme board, main board and Capability Registry are reconciled
 远端 caa15be 将 export/verify 方法移到 evidence-tools，六个原始数据文件字节不变。上述38项独立结果绑定 f3fb731 的布局（当时第七项为 exporter）；当前payload六文件由 Alien 再运行作者提供的另一核验器，22/22 PASS。作者核验器不是独立评审替代；38项评审结果放在报告层，不加入有固定哈希清单的原始payload。该核验器成功输出仍写 all7，实际清单/目录检查为6/6，这是展示文字残留，不是文件数证据。
 
 Commit caa15be moves methods into evidence-tools without changing the six raw data files. The38 reviewer checks bind the f3fb731 layout, whose seventh file was the exporter. Alien additionally executed the author's second verifier against the current six-file payload:22/22 PASS. This author instrument does not replace independent review. Reviewer results stay outside the fixed-index payload. Its displayed all7 message is stale presentation text; the actual list/directory check reports6/6.
+
+
+---
+
+语言读本 / Reading translation: [English](en/FORMAL_ACCEPTANCE_Alien.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

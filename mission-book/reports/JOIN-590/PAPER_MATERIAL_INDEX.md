@@ -145,3 +145,5 @@ Direct repair continuation: REPAIR_REPORT_Alien-codex.md binds correction source
 
 
 2026-10-05 window6: actual named Android and Windows member admission, process restart and tokenless renewal, self revoke/refused restart, phone-directed CHECKPOINT_DEMO and matching Web hash. Immutable artifact head 151c065363e52fb6ba38b0332000a7a3687042c3; software ec3b6f996240ca71505b3b67af12cc222d1b283a. See REPAIR_REPORT_Alien-codex.md for negative probes and limits. Mech City restart, exact live Mech source, opposite-host repair review, exposure/main closeout and true NAT remain unverified.
+
+语言配对 / Language pair: [原文 / Source](./PAPER_MATERIAL_INDEX.md) · [译本 / Translation](./zh-CN/PAPER_MATERIAL_INDEX.md)

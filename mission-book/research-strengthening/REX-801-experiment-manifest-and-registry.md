@@ -152,3 +152,8 @@ Experiment Manifest 必须能显式声明其研究信号来自 `RESEARCH_SIGNAL_
 - exact-head CI；
 - PAPER_MATERIAL_INDEX；
 - exposure gate PASS。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-801-experiment-manifest-and-registry.md)

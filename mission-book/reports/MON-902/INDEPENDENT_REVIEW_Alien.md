@@ -26,3 +26,5 @@ Surface scope: desktop Web verified. Android native monitor and physical cross-d
 ## Final exact-head gate (Alien measured, 2026-10-06)
 
 Accepted MON-902 review head: `f4988248a3316806fc2e3fa9e62864ed129fe7b3`. Actions push 37414577586, PR 37414583160 and linkage 37414583135 all COMPLETED SUCCESS. PR34 is CLEAN/MERGEABLE. Local HEAD = remote feature tip; worktree clean. Registry reconciled at this exact head. The provisional broad local run completed 1387/1387 PASS but began before the final cache edit; hosted final-head results are the acceptance authority. Android native/physical cross-device NOT_RUN remains MON-990 scope. Stage terminal marker: `MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED`; this is not programme-wide freeze or a main merge.
+
+语言配对 / Language pair: [English](./INDEPENDENT_REVIEW_Alien.md) · [中文](./zh-CN/INDEPENDENT_REVIEW_Alien.md)

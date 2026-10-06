@@ -23,3 +23,35 @@ The final merged-main physical acceptance workbook remains at its canonical hist
 - [Connection Onboarding programme README](../../connection-onboarding/README.md)
 
 This archive ledger is the finished-directory record used by the Mission Book homepage after the programme is removed from the active pool.
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 4/4 · 开发 / Development 4/4 · 复检 / Review 4/4 · `COMPLETE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [JOIN-590](../../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | COMPLETE | YES | YES | YES |
+| [JOIN-501](../completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md) | COMPLETE | YES | YES | NO |
+| [JOIN-502](../completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md) | COMPLETE | YES | YES | NO |
+| [JOIN-503](../completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md) | COMPLETE | YES | YES | NO |
+
+<!-- SERIES_DASHBOARD:END -->
+
+
+[阅读译本 / Reading translation](./zh-CN/README.md)
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **2**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| zh-CN | 1 | [打开 / Open](zh-CN/README.md) |
+
+<!-- DOCUMENT_NAVIGATION:END -->

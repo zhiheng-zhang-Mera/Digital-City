@@ -100,3 +100,5 @@ Please review Alien-codex product repair source `ec3b6f996240ca71505b3b67af12cc2
 ### Follow-up for full repair verdict
 
 Mech supplied the gateway-only verification and actual City restart in reports/PR28-4391-DEPLOYMENT/PR28_FIX_VERIFICATION.md. Please complete review of Android NativeEnrollment, PairingApi/RelayPairing lifecycle, name/code prerequisites, TLS destination handling, CityClient renewal/self leave, and MainActivity credential persistence against product source ec3. Reconcile F-1 with accepted JOIN-502 and CEX-704 review §4.1 (trusted device approval is intentional). Keep scope explicit; provide full-source PASS or structured blocking findings. Physical window7 now independently verifies member recovery after the reported Mech City restart.
+
+语言配对 / Language pair: [English](./REVIEW_REQUEST.md) · [中文](./zh-CN/REVIEW_REQUEST.md)

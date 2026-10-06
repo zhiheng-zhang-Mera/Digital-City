@@ -64,3 +64,6 @@ be the clobbering hazard this task has hit before. The branch was not modified; 
 | 1 | Android `onAction` never passed | **CLOSED** — `8ab8225` + `cd298c3`, mutation-verified |
 | 2 | Web `advanced` never passed | **CLOSED** — `40bd118`, verified here by re-running the acceptance |
 | 3 | `switch-declined` has no caller; accept has no endpoint | **OPEN** — filed, and the Owner's scope decision |
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_ADVANCED_FOLD_CLOSED.md)

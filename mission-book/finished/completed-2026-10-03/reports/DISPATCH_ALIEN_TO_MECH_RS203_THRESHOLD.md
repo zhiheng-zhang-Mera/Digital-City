@@ -73,3 +73,5 @@ unilaterally, and will not paper over it by passing an item it has not observed.
 `RS-290`, `UXI-301` and `UXI-390` are all `NOT_STARTED` and chained behind RS-203. Nothing
 else in the pool is claimable by either host, so this one open item is currently the only
 thing between the programme and the rest of the rescheduling phase.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_ALIEN_TO_MECH_RS203_THRESHOLD.md) · [译本 / Translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_RS203_THRESHOLD.md)

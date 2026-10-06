@@ -1,6 +1,6 @@
 # JOIN-501 — Formal review report
 
-> **Workbook:** [JOIN-501-pairing-session-lifecycle-and-display.md](../../connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md)  
+> **Workbook:** [JOIN-501-pairing-session-lifecycle-and-display.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md)
 > **Reviewed head:** `e925ae1ef4dda6f51d89a1faa025d1b8666d8c58` on `join/JOIN-501-pairing-session-lifecycle`  
 > **Baseline:** Utopia `main` `13109b4c206feb3c1a9107b369715e84af65eaf1`  
 > **Development host:** Alien — **review host: Mech** (different physical host, per `CONSTRUCTION_RULES.md` §3)  
@@ -75,3 +75,5 @@ Running the **whole** suite inside a bare secondary worktree at the reviewed hea
 - The reviewer is a different **physical host** from development, which is what §3 requires; the browser ran on **this** host against gateways on loopback. Real two-machine network conditions are the phase integration's business, not this task's UI lifecycle.
 - The Android surface was not exercised for this task: the workbook's §7 acceptance is about the owner web page and a second endpoint consuming the code, both of which were exercised, including by a **separate process** as the second endpoint.
 - The verdict is on `e925ae1` and only on `e925ae1`. A later commit needs its own CI and would need this review re-applied, not inherited.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_REPORT.md) · [译本 / Translation](./zh-CN/REVIEW_REPORT.md)

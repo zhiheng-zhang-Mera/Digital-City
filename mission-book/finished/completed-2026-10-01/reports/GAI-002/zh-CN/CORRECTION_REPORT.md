@@ -1,0 +1,154 @@
+# GAI-002 修正报告——提供商／模型／账户注册表
+
+[English authoritative source / 英文权威原稿](../CORRECTION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION              = GAI-002 (General AI Gateway programme)
+PROGRAMME            = GENERAL_AI_GATEWAY_ENGINEERING
+STAGE                = CORRECTION
+CORRECTION_HOST      = Alien
+DEVELOPMENT_HOST     = Mech
+CONTROL_BOOK         = Digital-City/mission-book/general-ai-gateway/GAI-002-provider-model-account-registry.md
+CLAIM_COMMIT         = 2a3bb34 (Digital-City main, claim of GAI-002 Correction by Alien)
+CLAIMED_AT           = 2026-09-30T14:05:00Z
+COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DEVELOPMENT_HEAD     = a6988c1725691a02f84e8ee1b9ca1bc6d1db6a17
+DEVELOPMENT_CI       = 36722553299-success
+CORRECTION_BRANCH    = general-ai/GAI-002-provider-model-account-registry
+CORRECTION_HEAD_SHA  = e27763a2fc4f246faa6166a5e85c0d899d9c7a7b
+BRANCH_CI            = 36726387305 — gateway-web success, android success
+LOCAL_CHECK_SUMMARY  = registry 14 pass, root 115 pass, city 1801 pass, promotion-history OK, docs SYNCHRONIZED
+MERGE                = NOT PERFORMED (forbidden for component branches)
+CORRECTION_COMPLETE  = true
+```
+
+## 1. 独立方法
+
+再次两审查，这次隔离机械实现，不靠主机可破纪律。审前不可变字节验证导出，审查者仅导入此处：
+
+```text
+D:\A-Utopia\.runtime\evidence\mission-book\GAI-002\frozen-a6988c1\
+records.mjs  exported=2a62948d… commit=2a62948d… match=True
+registry.mjs exported=58a5ac2b… commit=58a5ac2b… match=True
+index.mjs    exported=95210a68… commit=95210a68… match=True
+```
+
+BA-003/EM-002此前对正编辑工作树，前者自重建基线、后者一发现因此可测地错误。此处主机并行修，八探针都指a6988c1，三次重验导出原净，展示EM-002建议隔离。
+
+工具记录：git archive写文件再解包，PowerShell管tar损流Damaged tar archive。另commit -m含||元字符被PowerShell弄坏，Git当pathspec，提交静默未发生，改消息文件-F。
+
+结果八确认C1–C8、一疑现闭S1。自三个为C1两半（拼写／无值扫描）和C2，第四次仅部分重叠。
+
+## 2. 缺陷与修复
+
+### C1（高）——声明自由文本可带原始秘密
+
+findRawSecretFields只键名不值，display_name/provider_ref/source.ref/account_ref携API key、JWT、PEM私钥过验证入snapshot。冻结作者形状复现：
+
+```text
+control (valid record)            -> ok: true
+display_name = sk-live-…          -> ACCEPTED
+source.ref   = PEM private key    -> ACCEPTED
+provider_ref = sk-live-…          -> ACCEPTED
+```
+
+键guard又漏13拼写：credentials/tokens/secrets/apiKeys/api_keys/privateKeys/sessionKeys/authToken/bearerToken/clientSecret/accountCredential/tokenValue/passwordHash；api_key/apiKey/access_token却捕。
+
+修复每叶字符串检测PEM头、三段eyJ JWT、提供商key前缀、Bearer；正规化复数容错键，豁免句柄，值感知令数字max_tokens是数量非假阳性。
+
+### C2（高）——key in spec放原型成员
+
+records.checkShape原型链查。冻结结果：
+
+```text
+toString valueOf hasOwnProperty constructor isPrototypeOf propertyIsEnumerable toLocaleString
+__proto__ (JSON-parsed own key)                              -> all ACCEPTED
+mood (an ordinary unknown key)                               -> refused   <- control
+```
+
+普通mood拒为对照说明孔只原型。自有__proto__更坏，容器藏credentials/apiKeys/executionLease入snapshot，也违无grant/lease/token/policy。改自有键并每深度拒__proto__/prototype/constructor。
+
+### C3（高）——身份唯一不对称，同引用多记录
+
+upsertProvider不查，model仅models，account替换不保provider，违账户引用不能供provider/model。复现：
+
+```text
+upsertModel({model_ref:'id-1', provider_ref:'id-1'})          -> ACCEPTED; getProvider + getModel both found
+upsertProvider({provider_ref:'acct'})  (acct is an account)   -> ACCEPTED; getAccount + getProvider both found
+upsertProvider({provider_ref:'m1'})    (m1 is a model)        -> ACCEPTED
+upsertAccount({account_ref:'shared', provider_ref:'p2'})      -> ACCEPTED, silently re-pointed;
+                                                                gone from p1's listing
+upsertModel({model_ref:'m-shared', provider_ref:'p2'})        -> refused IDENTITY_COLLISION  <- control
+```
+
+正是开发6.1邀请的不同subject alias账户身份，成功；model拒对照证明account缺陷非选择。共享reference→kind/parent索引三upsert创建／更新都查，原位变parent IDENTITY_COLLISION，同parent幂等注册仍过。
+
+### C4（中高）——句柄计数器重启
+
+各store counter0生handle:kind:counter，两实例不同秘密同ref，规范账户持久后恢复可解析别会话字节。句柄稳定一凭据是结构性质非注释可补。未知revoke还静默revoked:false。
+
+修为内容寻址、epoch范围handle:kind:epoch:digest，跨epoch拒解析，未知撤销code:UNKNOWN_HANDLE，同epoch同值确定同ref。
+
+### C5（中）——陈旧通道恒真supported
+
+stale分支channel WEB或API恒真，已枚举验证且缺条目返回。路由查询列陈旧supported，同记录能力正确UNKNOWN，矛盾header；UNAVAILABLE也supported:true。现按新鲜／就绪，陈旧UNAVAILABLE不支持，AUTH_REQUIRED存在但需凭据仍支持，判断写UNSUPPORTED_READINESS非内联。存储枚举外readiness重验证S1。
+
+### C6／C7／C8（低）
+
+- freshness不论主体UNKNOWN_PROVIDER，模型／账户也误报provider，capability/readiness却对。absenceCodeFor统一各kind，去两重复三元。
+- 新鲜仅单侧，observed2099、ttl1在2026／2089都FRESH；未来非证据，改双侧。
+- snapshot hard_coded_identities字面0未测却开发用作证据，是承重空主张。现BUILT_IN_IDENTITIES.length推。
+
+## 3. 有意未修
+
+- HANDLE_SUFFIX豁免*_id，api_key_id不秘密。与审查有意分歧，六同级约定ID引用，独改不一致；Owner可全项目统一。
+- null原型spec与拒__proto__clone可纵深，但自有／保留键已阻验证，不入Map，clone保键不可达，非开放缺陷，第二机制同性质非必需。
+- S2 capability map原型盲，Object.create({TEXT:SUPPORTED})纯验证过；clone展平无未验证持久，审查也未到规范态，记录保留。
+
+## 4. 未规定决策
+
+**C1——并行修或等。** 并行，审只不可变、主机修树安全，过去等耗轮，隔离将等变工作。
+
+**C2——首修commit完成吗。** 不，f2134ea仅闭八中二，IN_PROGRESS，余六根因修写耐久笔记；六已知未闭却报完成是假成功。
+
+**C3——作者句柄fixture。** :59 handle:profile:1是记录值，:183只startsWith BROWSER_PROFILE前缀，新格式两者原样过；C1–8无作者改，7→14仅追加。
+
+**C4——演进记录。** 未写，理由同BA-001 D11/BA-002 C5/BA-003 C6/EM-001 D13/EM-002 C5/GAI-001 C6/RF-001 D8/RF-002 D13，迁移scope，无GAI事件验证，扩触冻结contracts。
+
+## 5. 测试
+
+| 检查 | 原结果 |
+|---|---|
+| 冻结八探针 | C1–8修前全复现 |
+| node --test contracts/general-ai-registry-v1/tests/conformance.test.mjs | 14过0败，7＋7 |
+| node --test tests/*.test.mjs | 115过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | f2134ea5f922本地Git验证10 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIRED |
+| e27763a2fc4f246faa6166a5e85c0d899d9c7a7b 的CI 36726387305 | gateway-web/android成功 |
+
+全部七开发每修后原样过，无作者改。shell ||提交失败已记，消息文件重跑。自一探针需句柄端口HANDLE_STORE_REQUIRED才能准入，是正确行为。
+
+## 6. 跨任务
+
+- GAI-003/004/005路由查面：C5陈旧supported false，附freshness/readiness；仅读supported旧恒true现false，预期修正。
+- GAI-004 AUTH_REQUIRED须支持但未就绪，不是不可用，UNSUPPORTED_READINESS判断。
+- 真实SecureHandleStorePort交付者拥有C4稳定／持久保证，此epoch内容地址只是确定替身，真实端口导出无，修未对真实验证。
+- 注册表无凭据存储／登录／执行／选择提供商，契约旗标不变，审查验证无产品名。
+
+## 7. Owner待项
+
+1. *_id六契约一致却豁api_key_id，应项目级裁决非单改。
+2. 无withdrawal/resurrection API，不能测撤回记录复活，后续先定义撤回。
+3. 演进问题仍开。
+
+```text
+CORRECTION_COMPLETE = true
+DEVELOPMENT_HOST    = Mech
+CORRECTION_HOST     = Alien   (different physical host — two-host gate satisfied)
+CORRECTION_HEAD_SHA = e27763a2fc4f246faa6166a5e85c0d899d9c7a7b
+BRANCH_CI           = 36726387305 — gateway-web success, android success
+MERGE_STATUS        = FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+```

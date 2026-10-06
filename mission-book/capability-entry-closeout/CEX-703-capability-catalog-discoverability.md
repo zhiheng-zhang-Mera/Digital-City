@@ -145,3 +145,8 @@ checklist / bookmarks / knowledge.add-entry（mutating 为真、未声明 side-e
 目标回答 room hub not reachable on loopback）——正是该差异使 F1 由潜在变为可达。十四项模板字段缺失，已由本次复核
 依作者自身 `CAP-ASK-001` 记录回填。Android 在线目录仍为 NOT_RUN，intent validation 仍为 NOT_TESTED。
 
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/CEX-703-capability-catalog-discoverability.md)

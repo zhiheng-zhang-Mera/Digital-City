@@ -105,3 +105,6 @@ branch  evidence/MESH-301-mech-receipts @ 1d2b159
 
 Anyone can re-run the two commands in section 1 against the receipts already on the development branch and get
 the same two verdicts. That is the point of publishing the inputs rather than just my conclusion.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_INDEPENDENT_GATE8_TABLE_REBUILD.md)

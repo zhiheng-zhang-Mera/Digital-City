@@ -1,0 +1,136 @@
+# 历史分支审计与 `mech/knowledge-room-k0` 的处置
+
+[English authoritative source / 英文权威原稿](../LEGACY-BRANCH-AUDIT-2026-09-30.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+STATUS: FINAL
+HOST: Mech
+DATE: 2026-09-30
+MODE_AT_TIME: BUTLER_ASSISTANT_PARALLEL_DEVELOPMENT
+AUTHORITY: direct Owner instruction (2026-09-30) + Owner confirmation, option A
+SCOPE: legacy branch audit and one branch disposition. BUTLER_MERGE lock untouched.
+IMPLEMENTATION_REPO: zhiheng-zhang-Mera/utopia
+UTOPIA_MAIN_AT_AUDIT: 8104f8289a76d15ff0197c953730edcef42cab5e
+MERGED_MAIN_CI: 36692675561 - android success, gateway-web success
+REMOTE_BRANCHES_AUDITED: 34
+REMOTE_BRANCHES_UNMERGED: 0
+BRANCH_UNDER_DECISION: mech/knowledge-room-k0
+BRANCH_HEAD: db7cfc5ef4b631c00149fe3657cc85b90d6f4356
+BRANCH_CI: 36700716264 - success
+DISPOSITION: PRESERVED_ON_ORIGIN / SUPERSEDED / NOT_MERGED
+```
+
+以上原始状态块逐字保留最终状态、主机、日期、运行模式、Owner 授权、范围、仓库、各 SHA、CI、审计分支数量和保留但不合并的处置。
+
+## 1. 收到的指令
+
+> 以主机 Mech 的身份，对 utopia 的各个分支进行 main 合并，保留工作历史，如果出现 Github CI
+> 测试报错，解决到全绿并记录到 city 和 utopia 的存档处。
+
+重述：以 Mech 主机身份，把 Utopia 的分支合并到 `main`，保留工作历史；若 GitHub CI 报错则修复到全绿，并把结果记录在 City 和 Utopia 存档。
+
+长期建设指令要求记录每个问题、选择和判断，不能静默解决。因此，本报告记录该指令的前提与仓库实际情况在哪里不一致，以及如何解决这一差异。
+
+## 2. 问题：前提已不成立
+
+勘察前先在两个仓库执行 `git fetch --prune`，遵循领取工作前必须确认最新状态的长期规则。勘察结果如下：
+
+```text
+utopia origin/main          = 8104f8289a76d15ff0197c953730edcef42cab5e
+git branch -r --no-merged origin/main   ->  (none)
+git branch    --no-merged origin/main   ->  mech/knowledge-room-k0   (local-only)
+remote branch count         = 34
+merged-main CI              = 36692675561  success
+CI run at audit time        = no in-progress run
+```
+
+所有远程分支都已合并。MB-010/011/012 的来源合并（`6e9781c`、`f22273c`、`e0d9470`）、`d0dea7b` 强制记录以及 UPT-PRE-ASSISTANT 基础合并（`8104f82`）均已存在且为绿色。唯一未合并引用是**从未推送、只存在于本地的分支**，所以“合并各分支”的指令已没有剩余远程工作需要集成。
+
+## 3. 问题：唯一剩余分支已经被替代，而不是待完成工作
+
+| 事实 | 值 |
+|---|---|
+| 内容 | 25 个文件／3034 行新增，**全部**在 `apps/knowledge-room/**` 下 |
+| 接线 | `ACCEPTANCE_K0.md` 声明 `apps/knowledge-room/**` 之外变更文件为 0；从未接入 Room Pack hub |
+| 自身测试 | 18/18 通过：store 6、search 4、import-export 4、http 4 |
+| 产品 | Knowledge Room：标题＋正文搜索、标签过滤、完整包导出、替换导入 |
+| main 中的等价实现 | `apps/rooms/rooms/knowledge/`（`client.mjs`、`room.server.mjs`）：同样功能，已集成 Room Pack hub、Web 和 Android |
+| 分支首个提交 | `9208903`，2026-09-29 **10:58:11** |
+| main 的 knowledge room | `67b27bf`，`feat(rooms): add knowledge room`，2026-09-29 **12:02:56** |
+
+该分支先写成，约一小时后被 main 实际交付的 Room Pack 实现替代。它是**更早的并行尝试**，而非未合并进展。
+
+## 4. 选择与判断逻辑
+
+按字面合并该分支会造成三项损害：
+
+1. **同一房间出现两个活跃实现**：main 同时保有未接线的 `apps/knowledge-room/` 与已接线的 `apps/rooms/rooms/knowledge/`，违反本 City 的 `apps/rooms/docs/en/INCUBATION_POLICY.md` 第 5 节“Room 和 City 绝不能分化成两个活跃实现”的要求。
+2. **main 新增 3034 行没有 CI 作业覆盖的无效产品代码**：根工作流运行 `tests/*.test.mjs`、`apps/rooms/tests/*.test.mjs`、`city/test-all.mjs`；分支的四个测试文件均不在其中，因此其 18 项测试以后不会被运行。
+3. **规则冲突**：活跃模式是 `BUTLER_ASSISTANT_PARALLEL_DEVELOPMENT`，`BUTLER_MERGE = FORBIDDEN`；只有全部 BA 任务完成 Development 和 Correction 才能创建合并工作簿。README 第 7.3 节要求集成不得丢弃有效行为；这里没有丢弃行为，而是在增加重复实现。
+
+长期例外条款“选择最优解”覆盖的是未指定选项。这是明确规则冲突中的重大产品拓扑决定，因此上报 Owner，而非单方面决定或机械照做。
+
+## 5. Owner 决定
+
+向 Owner 提出两个问题，回答如下：
+
+```text
+knowledge_room_k0  ->  A. push to origin to preserve history + record as superseded in
+                          City; do NOT merge into main
+ba_scope           ->  yes, legacy branches only; do NOT touch the BA merge lock
+```
+
+代码块含义：knowledge_room_k0 选择 A，推送 origin 保留历史并在 City 记录已被替代，**不合并到 main**；ba_scope 确认仅处理历史分支，不触碰 BA 合并锁。
+
+这里记录这些回答，因为它们是本处置的授权依据。该分支有意不合并，因此没有覆盖任何 City 规则，`BUTLER_MERGE` 继续为 `FORBIDDEN` 且未触碰。
+
+## 6. 已采取的行动
+
+```text
+utopia:  git push -u origin mech/knowledge-room-k0
+         -> refs/heads/mech/knowledge-room-k0 = db7cfc5ef4b631c00149fe3657cc85b90d6f4356
+         branch head equals the local head exactly; nothing rewritten, squashed or rebased
+utopia:  main 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+         docs(legacy-branches): audit all branches against main and record the
+         knowledge-room K0 disposition
+         -> adds evidence/raw/legacy-branches/2026-09-30-knowledge-room-k0-superseded.md only
+```
+
+以上原始行动记录保留推送命令、远程引用和完整 SHA，确认远程 head 与本地完全相等，未改写、squash 或 rebase；main 的归档提交仅增加所列原始证据 Markdown。
+
+推送前，该分支只存在于一台机器上，确实存在单点丢失风险。现在它以原 head 持久保存于 origin，四个提交均完整保留：`9208903` bootstrap、`61a464d` CRUD、`0ae5707` acceptance、`db7cfc5` acceptance record。这就是“保留工作历史”的实质含义。
+
+## 7. CI
+
+```text
+branch push CI  mech/knowledge-room-k0 @ db7cfc5  = 36700716264  success
+merged-main CI  origin/main @ 8104f82             = 36692675561  success
+main CI after the archive commit 82ed369          = 36700956282  success
+```
+
+分支推送触发该提交当时的工作流（“V0 checks”：`pnpm test`、`pnpm check:docs`，另有 Android 作业）。分支只增加 `apps/knowledge-room/**`，该工作流没有任何作业覆盖这个目录。
+
+**没有发生 CI 失败**，因此“解决到全绿”的修复条款没有触发：两次运行均首次尝试即为绿色。
+
+## 8. 记录后的验证
+
+```text
+utopia main after archive commit   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+files changed in that commit       = 1 (evidence/raw/legacy-branches/...md)
+product/runtime code changed       = 0
+main CI for 82ed369                = 36700956282  success (android success, gateway-web success)
+```
+
+原始验证记录确认归档后 main SHA、该提交只变更一个原始证据文件、产品／运行时代码变更为 0，以及该 main CI 的 Android 和 gateway-web 均成功。
+
+```text
+MAIN_CI_82ED369 = 36700956282 - success
+```
+
+## 9. 剩余状态与未作出的声明
+
+- **未声明** `mech/knowledge-room-k0` 没有价值：它包含 18 项通过测试和完整独立产品；为来源记录保留，未来仍可按 Owner 指令集成或删除。
+- **未声明** 此审计穷尽了历史分支工作：范围是所述 `CODE-SHA` 时刻 `refs/heads` 和 `refs/remotes/origin` 中的引用；未来若出现分化，需重新审计。
+- **未触碰** BA 合并锁、BA-001..BA-009 队列、冻结 Butler 基线 `8104f8289a76d15ff0197c953730edcef42cab5e`，以及 `MISSION_INDEX.md` 列出的四项结转、非阻断 Pre-Assistant 项。

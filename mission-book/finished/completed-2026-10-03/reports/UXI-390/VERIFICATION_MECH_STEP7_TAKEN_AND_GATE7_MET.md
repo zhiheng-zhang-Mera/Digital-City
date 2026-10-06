@@ -61,3 +61,8 @@ is the last technical precondition before the terminal marker.
 ## Scope
 
 Read-only. I merged nothing, moved no ref, and edited no field of the development host's or the Owner's.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

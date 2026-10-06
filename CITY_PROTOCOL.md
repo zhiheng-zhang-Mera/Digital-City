@@ -251,3 +251,7 @@ When city topology changes:
 5. avoid renaming districts or buildings casually once other tooling consumes their paths;
 6. keep placeholders explicitly non-operational until a project exists;
 7. do not promote a domain rule to city-wide scope merely for convenience.
+
+---
+
+语言配对 / Language pair: [English](./CITY_PROTOCOL.md) · [中文](./docs/zh-CN/CITY_PROTOCOL.md)

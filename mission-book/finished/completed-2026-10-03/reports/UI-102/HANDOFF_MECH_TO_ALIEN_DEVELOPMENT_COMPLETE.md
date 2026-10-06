@@ -92,3 +92,7 @@ JAVA_HOME=D:\GDPR-Refine\.tools\jdk-17.0.20.1+1  (machine default is a non-exist
 
 I am not claiming this passes review. Review is yours and must be independent — Mech developed
 this task and cannot review it.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/HANDOFF_MECH_TO_ALIEN_DEVELOPMENT_COMPLETE.md)

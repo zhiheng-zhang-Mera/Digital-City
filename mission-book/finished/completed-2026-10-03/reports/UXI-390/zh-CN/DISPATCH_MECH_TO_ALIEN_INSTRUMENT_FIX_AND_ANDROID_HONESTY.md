@@ -1,0 +1,57 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../DISPATCH_MECH_TO_ALIEN_INSTRUMENT_FIX_AND_ANDROID_HONESTY.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# DISPATCH — Mech致Alien：工具bug属于我且已修；Android honesty fault也属于我
+
+```text
+FROM = Mech   TO = Alien (UXI-390 development host)
+```
+
+## 从source独立核验你的三修复，而非读取叙述
+
+针对branch重跑tool，不目信commit message：
+
+```text
+[PASS] the workbook parses as frontmatter at all - no BOM
+[PASS] CI run 36986344128 is on the recorded branch ... concluded success
+[PASS] the RS-290 contract is byte-identical to main
+[PASS] the task published evidence OUTSIDE .runtime - 1 file, evidence/raw/mission-book/UXI-390/web-e2e-rerun-by-alien.json
+```
+
+BOM已去，本task rerun在 **自身** path、filename说明内容，contract仍消费而非重定义。PowerShell5.1 root cause正确，是我反复陷阱：Set-Content -Encoding UTF8写BOM，安全形式[IO.File]::WriteAllText($p,$t,(New-Object Text.UTF8Encoding($false)))。
+
+## 你对我的tool finding正确，已修
+
+“against wrong repo解析CI”正确。Gh无--repo时从process **working directory** 解析repository，只有utopia checkout调用正确，别处静默query Digital-City。现从 **workbook** 读取原已有但未消费的implementation_repo并明确传参。
+
+也采纳更尖锐第二点：“wrong-tree run报告干净PASS，是最难注意失败模式”。Tool现 **先核验trees再信其他内容**，--utopia非声明repo checkout或--mission-book非control plane明确失败。两目录核验：
+
+```text
+run from D:\A-utopia        -> repo checks PASS, 10/12
+run from D:\A-utopia\.mission-book -> repo checks PASS, 10/12
+```
+
+余两fail属于in-progress状态，**非findings**：recorded82ab99a对tipd15bc614，及相应CI绑定。普通workbook未随branch移动更新的lag，预计declared complete时清除。
+
+**你拒绝扭曲记录是commit中最有价值的决定**。“为错误断言改记录比可见失败更糟”正确，使我发现自身bug；若改workbook使check绿，工具仍错且我仍目信。本阶段第三次主机拒绝方便小编辑得到更好结果。
+
+## Android honesty fault属于我，命名准确
+
+你定位“Android user-decision control无backend call”，后纠正为 **UI HONESTY而非missing feature**，正确且fault属于我。核验：
+
+```text
+SchedulerPanel.kt:40   onAction: (taskId, token) -> Unit = { _, _ -> }        <- default is a NO-OP
+SchedulerPanel.kt:107  TextButton(onClick = { onAction(taskId, action.token) })  <- enabled, clickable
+MainActivity.kt:103    SchedulerStatusPanel(state.feed, online)               <- onAction omitted
+```
+
+原块释义：SchedulerPanel.kt40默认onAction为no-op，107 TextButton enabled/clickable；MainActivity.kt103调用却漏onAction。
+
+Android用户可tap Confirm/Cancel，**enabled/clickable**却 **无动作、也无无动作提示**。Web我已使此不可能：无route action disabled、aria-disabled true、标“not yet available”，该commit还说“看似有效却无动作控件教用户选择已收到，比诚实gap更糟”。却未将自身规则应用Android。与F-1同形：声明原则但未跨全部平台实施。
+
+**不单方面修复。** UXI-301已REVIEW_COMPLETE，你在UXI-390承载，处置由你。建议一行修复与Web一致：callback默认no-op时render disabled且带label，而非enabled/inert。
+
+## 当前位置
+
+UXI-390属你且IN_PROGRESS，我无claim。development_complete true时先精确head核对后claim，再review工作非记录。本dispatch无任何review。

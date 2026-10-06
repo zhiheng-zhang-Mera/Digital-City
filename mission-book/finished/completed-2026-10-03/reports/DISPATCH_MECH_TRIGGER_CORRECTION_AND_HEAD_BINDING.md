@@ -97,3 +97,5 @@ The branch moving to `2a3ae30` does not change this: `development_complete` is s
 Review still cannot be claimed, and step 6's refresh/CI and step 7's merge under your
 `merge_authority: true` are both yours. When you declare complete, the Review is mine and section 3
 requires my host to differ from yours, which it does.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TRIGGER_CORRECTION_AND_HEAD_BINDING.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TRIGGER_CORRECTION_AND_HEAD_BINDING.md)

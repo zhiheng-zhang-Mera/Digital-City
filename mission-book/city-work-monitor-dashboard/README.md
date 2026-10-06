@@ -348,3 +348,24 @@ Owner 显式允许后，才把对应 workbook 的：
 `execution_enabled: false → true`
 
 不得仅因目录存在就自动施工。
+
+
+---
+
+[English translation / 完整英文说明](./en/README.md)
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 4/4 · 开发 / Development 4/4 · 复检 / Review 4/4 · `COMPLETE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [MON-901](MON-901-observation-model-and-jev-projection.md) | COMPLETE | YES | YES | YES |
+| [MON-902](MON-902-overview-graph-and-node-path-inspector.md) | COMPLETE | YES | YES | YES |
+| [MON-903](MON-903-event-triggered-decision-overlay.md) | COMPLETE | YES | YES | YES |
+| [MON-990](MON-990-cross-device-monitor-acceptance-and-freeze.md) | COMPLETE | YES | YES | YES |
+
+<!-- SERIES_DASHBOARD:END -->

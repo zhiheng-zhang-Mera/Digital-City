@@ -94,3 +94,6 @@ above can be executed — or contradicted — by anyone, on either host, without
 
 Neither is a request to change a result. Both are the difference between a review that can decide gates 4 and
 11 from evidence and one that has to write "as reported".
+
+
+[阅读译本 / Reading translation](./zh-CN/PREREGISTRATION_MECH_FORMAL_REVIEW.md)

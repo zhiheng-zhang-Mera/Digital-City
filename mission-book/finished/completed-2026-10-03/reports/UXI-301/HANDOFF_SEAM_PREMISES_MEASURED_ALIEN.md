@@ -100,3 +100,6 @@ produces evidence instead of a waiver.
 - This note corrects nothing about Mech's *measurement* discipline — its four attempts are recorded in
   detail and its probe does reach `ALTERNATE_DEVICE`. What is contradicted is one **premise** those
   attempts inherited: that only one task type exists.
+
+
+[阅读译本 / Reading translation](./zh-CN/HANDOFF_SEAM_PREMISES_MEASURED_ALIEN.md)

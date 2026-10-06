@@ -120,3 +120,79 @@ MERGED_MAIN_SHA
 
 VERIFICATION_COMPLETE = true|false
 ```
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **327**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| BA-001 | 6 | [打开 / Open](BA-001/README.md) |
+| BA-002 | 6 | [打开 / Open](BA-002/README.md) |
+| BA-003 | 6 | [打开 / Open](BA-003/README.md) |
+| BA-004 | 6 | [打开 / Open](BA-004/README.md) |
+| BA-005 | 6 | [打开 / Open](BA-005/README.md) |
+| BA-006 | 6 | [打开 / Open](BA-006/README.md) |
+| BA-007 | 6 | [打开 / Open](BA-007/README.md) |
+| BA-008 | 6 | [打开 / Open](BA-008/README.md) |
+| BA-009 | 6 | [打开 / Open](BA-009/README.md) |
+| EM-001 | 6 | [打开 / Open](EM-001/README.md) |
+| EM-002 | 6 | [打开 / Open](EM-002/README.md) |
+| EM-003 | 6 | [打开 / Open](EM-003/README.md) |
+| EM-004 | 6 | [打开 / Open](EM-004/README.md) |
+| EM-005 | 6 | [打开 / Open](EM-005/README.md) |
+| EM-006 | 6 | [打开 / Open](EM-006/README.md) |
+| EM-007 | 6 | [打开 / Open](EM-007/README.md) |
+| EM-008 | 6 | [打开 / Open](EM-008/README.md) |
+| EM-009 | 6 | [打开 / Open](EM-009/README.md) |
+| EM-010 | 6 | [打开 / Open](EM-010/README.md) |
+| EM-011 | 6 | [打开 / Open](EM-011/README.md) |
+| EM-012 | 6 | [打开 / Open](EM-012/README.md) |
+| EM-013 | 6 | [打开 / Open](EM-013/README.md) |
+| GAI-001 | 6 | [打开 / Open](GAI-001/README.md) |
+| GAI-002 | 6 | [打开 / Open](GAI-002/README.md) |
+| GAI-003 | 6 | [打开 / Open](GAI-003/README.md) |
+| GAI-004 | 6 | [打开 / Open](GAI-004/README.md) |
+| GAI-005 | 6 | [打开 / Open](GAI-005/README.md) |
+| GAI-006 | 6 | [打开 / Open](GAI-006/README.md) |
+| GAI-007 | 6 | [打开 / Open](GAI-007/README.md) |
+| GAI-008 | 6 | [打开 / Open](GAI-008/README.md) |
+| GAI-009 | 6 | [打开 / Open](GAI-009/README.md) |
+| MB-001 | 6 | [打开 / Open](MB-001/README.md) |
+| MB-002 | 5 | [打开 / Open](MB-002/README.md) |
+| MB-003 | 6 | [打开 / Open](MB-003/README.md) |
+| MB-004 | 5 | [打开 / Open](MB-004/README.md) |
+| MB-005 | 5 | [打开 / Open](MB-005/README.md) |
+| MB-006 | 6 | [打开 / Open](MB-006/README.md) |
+| MB-007 | 6 | [打开 / Open](MB-007/README.md) |
+| MB-008 | 6 | [打开 / Open](MB-008/README.md) |
+| MB-009 | 5 | [打开 / Open](MB-009/README.md) |
+| MB-010 | 3 | [打开 / Open](MB-010/README.md) |
+| MB-011 | 3 | [打开 / Open](MB-011/README.md) |
+| MB-012 | 3 | [打开 / Open](MB-012/README.md) |
+| RF-001 | 6 | [打开 / Open](RF-001/README.md) |
+| RF-002 | 6 | [打开 / Open](RF-002/README.md) |
+| RF-003 | 6 | [打开 / Open](RF-003/README.md) |
+| RF-004 | 6 | [打开 / Open](RF-004/README.md) |
+| RF-005 | 6 | [打开 / Open](RF-005/README.md) |
+| RF-006 | 6 | [打开 / Open](RF-006/README.md) |
+| RF-007 | 6 | [打开 / Open](RF-007/README.md) |
+| RF-008 | 6 | [打开 / Open](RF-008/README.md) |
+| RF-009 | 6 | [打开 / Open](RF-009/README.md) |
+| RF-010 | 6 | [打开 / Open](RF-010/README.md) |
+| UPT-PRE-ASSISTANT | 6 | [打开 / Open](UPT-PRE-ASSISTANT/README.md) |
+| en | 4 | [打开 / Open](en/README.md) |
+| zh-CN | 6 | [打开 / Open](zh-CN/README.md) |
+
+### 本目录说明 / Local documents
+
+- [ASSESSMENT_REPORT_TEMPLATE.md](ASSESSMENT_REPORT_TEMPLATE.md)
+- [DEVELOPMENT_CI_RECOVERY_2026-10-01.md](DEVELOPMENT_CI_RECOVERY_2026-10-01.md)
+- [LEGACY-BRANCH-AUDIT-2026-09-30.md](LEGACY-BRANCH-AUDIT-2026-09-30.md)
+- [MIGRATION_REPORT_TEMPLATE.md](MIGRATION_REPORT_TEMPLATE.md)
+- [VERIFICATION_REPORT_TEMPLATE.md](VERIFICATION_REPORT_TEMPLATE.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->

@@ -1,6 +1,6 @@
 # Host dispatch record — Alien zero-claim scan (2026-10-01)
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
 > 本记录是 `CONSTRUCTION_RULES.md` §5 要求的零领取 telemetry 记录，不是任务 claim，也不是看板更新。
 > Host: `Alien`（`MERA-ALIANWARE`）。扫描时点：`2026-10-01T10:47:25Z`。
 
@@ -352,3 +352,5 @@ first would violate the declared phase order rather than unblock anything.
 
 Per section 5 this is the zero-claim outcome for the round; per section 9 no
 make-work was invented to fill it. No claim was taken and none was released.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md) · [译本 / Translation](./en/DISPATCH_ALIEN_ZERO_CLAIM_2026-10-01.md)

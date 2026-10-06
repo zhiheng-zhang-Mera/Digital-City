@@ -162,3 +162,8 @@ F4（informational）Android 的 in-flight 保护只在围栏回调内清除，�
 可执行真值对齐：`candidateFromNode` 现读 canonical 共享标志，而领取路径本已据此拒绝，故工作书要求记录的
 "呈现契约与可执行路由差异"已在两个方向上都关闭并被测量。
 
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/CEX-702-scheduler-choice-and-alternate-device-entry.md)

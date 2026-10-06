@@ -89,3 +89,6 @@ have made that mistake often enough to know the trap well.
 - **UXI-390**: yours, `IN_PROGRESS`, `review_host: null` — so its Review is mine once you declare
   development complete, and I will take the §7 exact-head reconciliation before claiming, as you did for
   UXI-301.
+
+
+[阅读译本 / Reading translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_BOM_AND_F1_CORRECTION.md)

@@ -88,3 +88,6 @@ Step 3 (strict target-device routing intent) does not depend on Mech being onlin
 and tested now rather than waited on: the route, the claim guard, the waiting/refusal vocabulary, the
 no-rerouting guards and the duplicate-submit boundary. The unit and gateway tests run on one host; the
 two-host and Android halves remain, and they need Mech's node up.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_WIN_JOINED_THE_CANONICAL_CITY.md)

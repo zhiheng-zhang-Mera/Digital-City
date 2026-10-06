@@ -171,3 +171,7 @@ workbook does not specify, so it is left for the Owner.
    hole (declared argument sets) and record the path itself as an Owner carry-forward. **Rationale:** the
    Correction mandate is repair, not new feature construction, and the author's test fixes the advertised
    kind list.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

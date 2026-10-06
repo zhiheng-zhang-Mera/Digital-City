@@ -1,0 +1,466 @@
+[
+  {
+    "source_line": 1,
+    "ascii_projection": "# [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?connection-onboarding[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 3,
+    "ascii_projection": "> [!WARNING]"
+  },
+  {
+    "source_line": 4,
+    "ascii_projection": "> **THIS FILE'S BODY IS CORRUPTED (uncorrectable).** Lines 1-73 are the result of an earlier wrong-encoding"
+  },
+  {
+    "source_line": 5,
+    "ascii_projection": "> round-trip (UTF-8 read as GBK, then written back as UTF-8 at least twice). Invalid bytes were replaced with `?`,"
+  },
+  {
+    "source_line": 6,
+    "ascii_projection": "> so the Chinese prose in that range is GONE - no reverse transcoding can recover it. The damage arrived in commit"
+  },
+  {
+    "source_line": 7,
+    "ascii_projection": "> `0b50398` and was pushed to GitHub; `origin/main` carries the same text. All ASCII content (commit SHAs, CI run"
+  },
+  {
+    "source_line": 8,
+    "ascii_projection": "> ids, test counts) and every line after this warning are intact, and the pre-damage text is still readable in"
+  },
+  {
+    "source_line": 9,
+    "ascii_projection": "> git history at `1abe534`."
+  },
+  {
+    "source_line": 10,
+    "ascii_projection": ">"
+  },
+  {
+    "source_line": 11,
+    "ascii_projection": "> **DO NOT treat the garbled lines as content.** The facts they held are independently recorded, in readable form,"
+  },
+  {
+    "source_line": 12,
+    "ascii_projection": "> in `mission-book/logs/integration/RELAY_TUNNEL_S1_S3.md` (section 5) and in the git history of this file."
+  },
+  {
+    "source_line": 13,
+    "ascii_projection": "> Rebuilding this file from those sources is an Owner decision; it has not been done."
+  },
+  {
+    "source_line": 15,
+    "ascii_projection": "> **Owner [UNRECOVERABLE_NON_ASCII]?Owner [UNRECOVERABLE_NON_ASCII]?final integration / merge workbook[UNRECOVERABLE_NON_ASCII]?*"
+  },
+  {
+    "source_line": 16,
+    "ascii_projection": "> `mission-book/connection-onboarding/README.md` [UNRECOVERABLE_NON_ASCII]?5 [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?JOIN [UNRECOVERABLE_NON_ASCII]?opposite-host review [UNRECOVERABLE_NON_ASCII]?> [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]er [UNRECOVERABLE_NON_ASCII]?2026-10-03 [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?main\"[UNRECOVERABLE_NON_ASCII]?**[UNRECOVERABLE_NON_ASCII]?*\"[UNRECOVERABLE_NON_ASCII]?> [UNRECOVERABLE_NON_ASCII]?**Owner [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]er-directed exemption[UNRECOVERABLE_NON_ASCII]?> [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]? [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 17,
+    "ascii_projection": "## 1. [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 18,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?exact-head CI [UNRECOVERABLE_NON_ASCII]?SUCCESS[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 19,
+    "ascii_projection": "```text"
+  },
+  {
+    "source_line": 20,
+    "ascii_projection": "join/JOIN-501 @ e925ae1   CI 37116491572 SUCCESS"
+  },
+  {
+    "source_line": 21,
+    "ascii_projection": "join/JOIN-502 @ 86deda9   CI 37119234473 SUCCESS"
+  },
+  {
+    "source_line": 22,
+    "ascii_projection": "join/JOIN-503 @ 77f7f2a   CI 37120646153 SUCCESS"
+  },
+  {
+    "source_line": 23,
+    "ascii_projection": "```"
+  },
+  {
+    "source_line": 25,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]OIN-503 [UNRECOVERABLE_NON_ASCII]?JOIN-501 [UNRECOVERABLE_NON_ASCII]?head [UNRECOVERABLE_NON_ASCII]?`501 [UNRECOVERABLE_NON_ASCII]?503` [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 26,
+    "ascii_projection": "### [UNRECOVERABLE_NON_ASCII]?main[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 28,
+    "ascii_projection": "```text"
+  },
+  {
+    "source_line": 29,
+    "ascii_projection": "merge 5d67976  JOIN-501"
+  },
+  {
+    "source_line": 30,
+    "ascii_projection": "merge 967a959  JOIN-503"
+  },
+  {
+    "source_line": 31,
+    "ascii_projection": "main = 967a9597fb9d1c0f1fc78886e4bde6e4f3d24dbf"
+  },
+  {
+    "source_line": 32,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?0"
+  },
+  {
+    "source_line": 33,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?1085 tests / 1085 pass / 0 fail"
+  },
+  {
+    "source_line": 34,
+    "ascii_projection": "check-bilingual[UNRECOVERABLE_NON_ASCII]s / evidence / data-records [UNRECOVERABLE_NON_ASCII]?PAIR_STATUS = SYNCHRONIZED"
+  },
+  {
+    "source_line": 35,
+    "ascii_projection": "hosted CI[UNRECOVERABLE_NON_ASCII]y linkage check 37124791081 SUCCESS[UNRECOVERABLE_NON_ASCII]?.2 checks 37124791099 [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 36,
+    "ascii_projection": "```"
+  },
+  {
+    "source_line": 38,
+    "ascii_projection": "### [UNRECOVERABLE_NON_ASCII]IN-502[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?main**[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 39,
+    "ascii_projection": "`main` [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?* JOIN-502[UNRECOVERABLE_NON_ASCII]N-502 [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 40,
+    "ascii_projection": "```text"
+  },
+  {
+    "source_line": 41,
+    "ascii_projection": "branch integration/join-502-nearby"
+  },
+  {
+    "source_line": 42,
+    "ascii_projection": "906df7e  union [UNRECOVERABLE_NON_ASCII]?+ [UNRECOVERABLE_NON_ASCII]?d419004  [UNRECOVERABLE_NON_ASCII]?```"
+  },
+  {
+    "source_line": 44,
+    "ascii_projection": "## 2. [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 46,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?union [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 47,
+    "ascii_projection": "| [UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?|"
+  },
+  {
+    "source_line": 48,
+    "ascii_projection": "|---|---|---|"
+  },
+  {
+    "source_line": 49,
+    "ascii_projection": "| 1 | union [UNRECOVERABLE_NON_ASCII]?`deviceClock`[UNRECOVERABLE_NON_ASCII]?`nearbyTimeoutMs` [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?JOIN-502 [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?* `ReferenceError`[UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?|"
+  },
+  {
+    "source_line": 50,
+    "ascii_projection": "| 2 | union [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?join [UNRECOVERABLE_NON_ASCII]?**401**[UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?|"
+  },
+  {
+    "source_line": 51,
+    "ascii_projection": "| 3 | [UNRECOVERABLE_NON_ASCII]?snapshot [UNRECOVERABLE_NON_ASCII]?`join.snapshot()`[UNRECOVERABLE_NON_ASCII] `join.mjs` **[UNRECOVERABLE_NON_ASCII]?* [UNRECOVERABLE_NON_ASCII]?join [UNRECOVERABLE_NON_ASCII]?`undefined`[UNRECOVERABLE_NON_ASCII]N-502 [UNRECOVERABLE_NON_ASCII]?`Cannot read properties of undefined` | **[UNRECOVERABLE_NON_ASCII]?* |"
+  },
+  {
+    "source_line": 53,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?3 [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?JOIN-502 [UNRECOVERABLE_NON_ASCII]?`join.mjs` [UNRECOVERABLE_NON_ASCII]?main [UNRECOVERABLE_NON_ASCII]?JOIN-501/503 [UNRECOVERABLE_NON_ASCII]?`render()`[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII] [UNRECOVERABLE_NON_ASCII]?1 [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?union/superset [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 54,
+    "ascii_projection": "## 3. CI [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 55,
+    "ascii_projection": "- [UNRECOVERABLE_NON_ASCII]?main [UNRECOVERABLE_NON_ASCII]?V0.2 checks [UNRECOVERABLE_NON_ASCII]n [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?terminal [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 56,
+    "ascii_projection": "  \"merge [UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]?- [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?merged-main CI**[UNRECOVERABLE_NON_ASCII]N-502 [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?- [UNRECOVERABLE_NON_ASCII]?`merge_authority` [UNRECOVERABLE_NON_ASCII]?false[UNRECOVERABLE_NON_ASCII]?Owner [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 57,
+    "ascii_projection": "## 4. [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 58,
+    "ascii_projection": "1. [UNRECOVERABLE_NON_ASCII]?3 [UNRECOVERABLE_NON_ASCII]?`services/dev-gateway/join.mjs` [UNRECOVERABLE_NON_ASCII]?`join502` [UNRECOVERABLE_NON_ASCII]?`snapshot()` [UNRECOVERABLE_NON_ASCII]?2. [UNRECOVERABLE_NON_ASCII]?`apps/web/app.js` [UNRECOVERABLE_NON_ASCII]?`render()` / [UNRECOVERABLE_NON_ASCII]?/ [UNRECOVERABLE_NON_ASCII]OIN-502 [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?   [UNRECOVERABLE_NON_ASCII]?JOIN-501 [UNRECOVERABLE_NON_ASCII]?lifecycle [UNRECOVERABLE_NON_ASCII]?JOIN-503 [UNRECOVERABLE_NON_ASCII]?3. [UNRECOVERABLE_NON_ASCII]?1104 [UNRECOVERABLE_NON_ASCII]?+ `check:docs` [UNRECOVERABLE_NON_ASCII]?`integration/join-502-nearby` [UNRECOVERABLE_NON_ASCII]?main[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?merge commit** [UNRECOVERABLE_NON_ASCII]?CI[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 59,
+    "ascii_projection": "## 5. [UNRECOVERABLE_NON_ASCII]Owner [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 61,
+    "ascii_projection": "Owner [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?UI [UNRECOVERABLE_NON_ASCII]?PC**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?WiFi/[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?PC [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?City**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 63,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]ain` [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 65,
+    "ascii_projection": "```text"
+  },
+  {
+    "source_line": 66,
+    "ascii_projection": "apps/web/primary-city.js      [UNRECOVERABLE_NON_ASCII]local > lan > remote > bluetooth > unknown[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 67,
+    "ascii_projection": "                              [UNRECOVERABLE_NON_ASCII]?> [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 68,
+    "ascii_projection": "                              chooseGroupCarrier[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 69,
+    "ascii_projection": "apps/web/connect-surface.js   PC [UNRECOVERABLE_NON_ASCII]?N [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 70,
+    "ascii_projection": "                              [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII] + [UNRECOVERABLE_NON_ASCII]?/ [UNRECOVERABLE_NON_ASCII]?/ [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 71,
+    "ascii_projection": "services/dev-gateway/nearby.mjs  joinCapability [UNRECOVERABLE_NON_ASCII]?carrierFacts[UNRECOVERABLE_NON_ASCII]ttachment/metered [UNRECOVERABLE_NON_ASCII]?null[UNRECOVERABLE_NON_ASCII]ode [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 72,
+    "ascii_projection": "apps/web/index.html           [UNRECOVERABLE_NON_ASCII]?#connect-host[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 73,
+    "ascii_projection": "```"
+  },
+  {
+    "source_line": 75,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 77,
+    "ascii_projection": "```text"
+  },
+  {
+    "source_line": 78,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]          27 [UNRECOVERABLE_NON_ASCII]?4 [UNRECOVERABLE_NON_ASCII] + 13 [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 79,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]          1131 tests / 1131 pass / 0 fail"
+  },
+  {
+    "source_line": 80,
+    "ascii_projection": "check-bilingual   docs / evidence / data-records [UNRECOVERABLE_NON_ASCII]?SYNCHRONIZED"
+  },
+  {
+    "source_line": 81,
+    "ascii_projection": "merged-main CI    a9481ef   City linkage check 37160987198 SUCCESS"
+  },
+  {
+    "source_line": 82,
+    "ascii_projection": "                            V0.2 checks        37160987195 SUCCESS[UNRECOVERABLE_NON_ASCII]ateway-web + android[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 83,
+    "ascii_projection": "```"
+  },
+  {
+    "source_line": 85,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]Cannot assign to read only property`[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 87,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]ttachment`/`metered` [UNRECOVERABLE_NON_ASCII]?node [UNRECOVERABLE_NON_ASCII]?null[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]VPN/[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?## 6. [UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 88,
+    "ascii_projection": "Owner [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?WiFi/[UNRECOVERABLE_NON_ASCII] PC [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 89,
+    "ascii_projection": "### 6.1 [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 91,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?NAT [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII] [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 92,
+    "ascii_projection": "### 6.2 [UNRECOVERABLE_NON_ASCII]apps/web/network-path.js`[UNRECOVERABLE_NON_ASCII] main[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 93,
+    "ascii_projection": "| [UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII] | [UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 94,
+    "ascii_projection": "|---|---|---|---|"
+  },
+  {
+    "source_line": 95,
+    "ascii_projection": "| 1 | direct / [UNRECOVERABLE_NON_ASCII] LAN | [UNRECOVERABLE_NON_ASCII]?| **[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 96,
+    "ascii_projection": "| 2 | **relay-in-city[UNRECOVERABLE_NON_ASCII]** | **[UNRECOVERABLE_NON_ASCII]** | [UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]NAT [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?City [UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 97,
+    "ascii_projection": "| 3 | overlay[UNRECOVERABLE_NON_ASCII]ailscale/WireGuard[UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]+[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] Owner [UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]/[UNRECOVERABLE_NON_ASCII]?|"
+  },
+  {
+    "source_line": 98,
+    "ascii_projection": "| 4 | inbound-forward[UNRECOVERABLE_NON_ASCII]?DNS[UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?* | [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 99,
+    "ascii_projection": "| 5 | public-relay | [UNRECOVERABLE_NON_ASCII] | [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?|"
+  },
+  {
+    "source_line": 100,
+    "ascii_projection": "| 6 | none | [UNRECOVERABLE_NON_ASCII]?| [UNRECOVERABLE_NON_ASCII]?Owner [UNRECOVERABLE_NON_ASCII]?|"
+  },
+  {
+    "source_line": 102,
+    "ascii_projection": "`planGroupPaths` [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?City [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 103,
+    "ascii_projection": "### 6.3 [UNRECOVERABLE_NON_ASCII]?bug [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 105,
+    "ascii_projection": "1. [UNRECOVERABLE_NON_ASCII]?`A && B`[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?/24 [UNRECOVERABLE_NON_ASCII]?2. [UNRECOVERABLE_NON_ASCII]`sameLan(selfAddress ?? peerAddress, peerAddress)` [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]\"**[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 106,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?2 [UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]?"
+  },
+  {
+    "source_line": 107,
+    "ascii_projection": "### 6.4 [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 109,
+    "ascii_projection": "`relay-in-city` [UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 111,
+    "ascii_projection": "```text"
+  },
+  {
+    "source_line": 112,
+    "ascii_projection": "1. City [UNRECOVERABLE_NON_ASCII]?WebSocket [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 113,
+    "ascii_projection": "   [UNRECOVERABLE_NON_ASCII]?join/approve [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 114,
+    "ascii_projection": "2. [UNRECOVERABLE_NON_ASCII]?choosePath [UNRECOVERABLE_NON_ASCII] relay-in-city [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 115,
+    "ascii_projection": "3. [UNRECOVERABLE_NON_ASCII]?trust store[UNRECOVERABLE_NON_ASCII]?JOIN-502 [UNRECOVERABLE_NON_ASCII]?claim[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 116,
+    "ascii_projection": "4. [UNRECOVERABLE_NON_ASCII]?PC [UNRECOVERABLE_NON_ASCII] join[UNRECOVERABLE_NON_ASCII] City [UNRECOVERABLE_NON_ASCII]?```"
+  },
+  {
+    "source_line": 118,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]?*[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]?VPN/[UNRECOVERABLE_NON_ASCII]?[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 119,
+    "ascii_projection": "## 7. JOIN-502 [UNRECOVERABLE_NON_ASCII]Alien [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 121,
+    "ascii_projection": "[UNRECOVERABLE_NON_ASCII]PC [UNRECOVERABLE_NON_ASCII] + [UNRECOVERABLE_NON_ASCII] JOIN-502 [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 123,
+    "ascii_projection": "### 7.1 [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 125,
+    "ascii_projection": "1. [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] API [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 126,
+    "ascii_projection": "2. [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 127,
+    "ascii_projection": "3. [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] + [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 129,
+    "ascii_projection": "### 7.2 [UNRECOVERABLE_NON_ASCII] R-2[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 131,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]/[UNRECOVERABLE_NON_ASCII] `GET /api/v0/join/nearby` [UNRECOVERABLE_NON_ASCII] **401**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] PC\"[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]PC [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 133,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 135,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] City [UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] City **[UNRECOVERABLE_NON_ASCII] mDNS [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]\"**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 137,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 139,
+    "ascii_projection": "| [UNRECOVERABLE_NON_ASCII] | [UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 140,
+    "ascii_projection": "|---|---|"
+  },
+  {
+    "source_line": 141,
+    "ascii_projection": "| [UNRECOVERABLE_NON_ASCII] | [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] `grantsTrust:false`**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 142,
+    "ascii_projection": "| [UNRECOVERABLE_NON_ASCII] | [UNRECOVERABLE_NON_ASCII] / approve / reject **[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] |"
+  },
+  {
+    "source_line": 144,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] `tests/join502-review-second-pass.test.mjs`[UNRECOVERABLE_NON_ASCII]3 [UNRECOVERABLE_NON_ASCII]`tests/join502-gateway.test.mjs` [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] 401 [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] + [UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 146,
+    "ascii_projection": "**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] `1145 tests / 1145 pass / 0 fail`[UNRECOVERABLE_NON_ASCII]`main` = `5f4b185`[UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 148,
+    "ascii_projection": "### 7.3 [UNRECOVERABLE_NON_ASCII]"
+  },
+  {
+    "source_line": 150,
+    "ascii_projection": "JOIN-502 [UNRECOVERABLE_NON_ASCII]4 [UNRECOVERABLE_NON_ASCII]\"fallback [UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] / [UNRECOVERABLE_NON_ASCII] / [UNRECOVERABLE_NON_ASCII] / [UNRECOVERABLE_NON_ASCII] token [UNRECOVERABLE_NON_ASCII]PC [UNRECOVERABLE_NON_ASCII]**\"[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] PC [UNRECOVERABLE_NON_ASCII]\"**[UNRECOVERABLE_NON_ASCII] 6 [UNRECOVERABLE_NON_ASCII]**[UNRECOVERABLE_NON_ASCII] fallback**[UNRECOVERABLE_NON_ASCII]\"[UNRECOVERABLE_NON_ASCII] City\"[UNRECOVERABLE_NON_ASCII]"
+  }
+]

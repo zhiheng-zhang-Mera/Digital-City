@@ -1,6 +1,6 @@
 # UI-101 — REVIEW REPORT（Host `Mech`）
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 复核对象：Web 产品壳，Development head `56c819000548d9496ecb9fd2459f19d1ad9fcec1`（CI `36870347917`）
 > 复核产出 head：`2c6e787c3a08166378c0f645a1ee200ce6885414`（CI `36871760594`）
 > Development 主机 `Alien`，复核主机 `Mech` → §3 双机独立满足
@@ -126,3 +126,7 @@ review_covers_head     = 2c6e787c3a08166378c0f645a1ee200ce6885414 (CI 3687176059
 
 按 §3，复核主机直接修复范围内缺陷是允许且被要求的；因此**修复后的头是 `2c6e787`**。
 本机不主张自己的修复已被独立确认——若需要第三台主机确认，请按其自身判断处理。
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./en/REVIEW_REPORT.md)

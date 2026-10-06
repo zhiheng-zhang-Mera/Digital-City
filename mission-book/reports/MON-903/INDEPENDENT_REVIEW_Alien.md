@@ -31,3 +31,5 @@ Final exact-head CI: push 37417270815 / PR 37417276076 PENDING; linkage 37417276
 ## Final gate PASS
 
 Accepted exact head `3cd32c60d8e9beb9df961e6b7ff193a3f69ec224`: push 37417270815, PR 37417276076, linkage 37417276063 terminal SUCCESS. PR35 CLEAN/MERGEABLE. Independently checked remote tip matches and local worktree clean. Local bounded full suite 1386 PASS / 0 FAIL / 0 SKIP; latest source unchanged by evidence commit. Alien is opposite Mech author host. Registry CAP-MON-003 reconciled at exact accepted head. Marker MON903_DECISION_OVERLAY_REVIEW_ACCEPTED accepts this task stage only; native parity and programme freeze remain MON-990. No product main merge.
+
+语言配对 / Language pair: [English](./INDEPENDENT_REVIEW_Alien.md) · [中文](./zh-CN/INDEPENDENT_REVIEW_Alien.md)

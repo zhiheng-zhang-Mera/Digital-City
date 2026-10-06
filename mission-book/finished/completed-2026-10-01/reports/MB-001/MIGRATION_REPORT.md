@@ -329,3 +329,7 @@ Independent-review hints only — no conclusion is suggested here.
   final branch `36566973111` PASS, and the claim-stage push
   `36564561252` PASS.
 - The migration host did **not** merge, and did **not** run `pnpm mission:finalize`.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/MIGRATION_REPORT.md)

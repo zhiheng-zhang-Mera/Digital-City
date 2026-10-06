@@ -82,3 +82,6 @@ confident wrong FAIL.
 
 There is no finding here against Alien or the product. The branch is clean, the suite is green apart from the
 two pre-existing failures, and the only defect was in the reviewer's clone.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_SUITE_AND_STALE_MAIN.md)

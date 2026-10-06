@@ -41,3 +41,8 @@ PASS  REX-803 已不在“未收口工作书”自动同步块中 / REX-803 has 
 - **不主张**重算了历史 64 本工作书：93 的分母包含归档 programme，其折算规则在生成器里，本机没有生成器源码，因此不作断言。 / It does NOT claim to have recomputed the historical 64 workbooks.
 - 本记录不构成新的修复授权，也不改变任何工作书字段；它只是一次只读核对。 / This record authorizes no repair and changes no workbook field; it is a read-only check.
 - 若此表与工作书冲突，以工作书 frontmatter 为准——这是主任务板自己写的规则，也是本次核对采用的方向。 / If the table conflicts with a workbook, the frontmatter wins, which is the board's own rule and the direction this check took.
+
+
+---
+
+语言读本 / Reading translation: [English](en/MISSION_BOARD_RECOUNT_MECH.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

@@ -1,0 +1,168 @@
+# MB-006 — 重启恢复站 — 验证报告
+
+[Authoritative source / 权威原稿](../VERIFICATION_REPORT.md)
+
+本文件为历史报告的完整阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+> 状态 IN PROGRESS。验证主机 Mech，领取2026-09-30T01:30:00Z（City34e9f33）。迁移主机Alien，与规则5要求不同。审查分支mission/MB-006-restart-recovery，dab820b37ff39d1581b19dd43e75771507fb7139。
+
+## 0. 规则9顺序（先读）
+
+规则9明确：验证主机先从供体、目标代码、diff、测试、运行状态完成独立审查并写发现，之后才能读迁移报告。§1–4是从分支、供体clone、自身探针写出的独立审查，未打开reports/MB-006/MIGRATION_REPORT.md；§5才首次咨询。开头历史IN PROGRESS与后续收尾均原意保留。
+
+## 1. 验证对象
+
+MB006从Hns绑定迁出dsh-restart重启票据、外部监督、重启、崩溃循环安全模式和审计，到city/02-engineering/04-restart-recovery-station。供体dsh-restart e20fb6cc43e27cedf6303471e5b8ee18e1383ecd。审查dab820b、基线c7ef3cd，31文件、+5812／−4，新建筑四模块：
+
+| 模块 | DONOR.json供体 |
+|---|---|
+| restart-protocol | src/shared/protocol.ts、types.ts、src/plugin/request-validator.ts |
+| restart-ticket | src/plugin/ticket-store.ts、atomic.ts |
+| restart-lock | src/plugin/restart-lock.ts |
+| checkpoint-gate | src/plugin/checkpoint-gate.ts |
+
+真实消费为services/dev-gateway/server.mjs用checkpointGate／unboundCheckpointPort替换重启后内联任务扫描，gateway.test.mjs新增证明。
+
+# A部分 — 独立审查（§2–4）
+
+## 2. 被审查修订必需门通过 — 已确认
+
+本主机在dab820b运行：pnpm test59/59、city206/206、rooms67/67。
+
+## 3. 独立发现
+
+### 3.1 本主机真实执行重启／重启启动 — 已确认
+
+首门是真实受控进程restart/relaunch。本主机执行，所有决定由迁移模块，只自行承担延后的进程信号与字节写入。驱动.runtime/evidence/mission-book/MB-006/run-1/restart-driver-v2.mjs，subject.mjs为受监督子进程；run/summary.json、restart-driver.log、27条追加审计run/audit.jsonl、子进程run/subject.log。
+
+| 场景 | 结果 |
+|---|---|
+| A失败关闭：checkpointRequired:true，无绑定port | 准入接受，锁IDLE→REQUESTED→CHECKPOINTING，迁移门authorized:false，回IDLE，无shutdown请求，子进程仍活、pid不变。重复／冷却分别DUPLICATE_REQUEST_ID、COOLDOWN_ACTIVE。 |
+| B授权：checkpointRequired:false | 门授权，原子票据checksum sha256:9aacf51e8c8e358aa6203c93f788d1d978444ec254fe270cc6470e13d1d2039a；子进程看到优雅关闭请求，以自身code7退出非kill；外部监督看到退出，以不同pid启动generation2；锁REQUESTED→CHECKPOINTING→SHUTTING_DOWN→RELAUNCHING→VERIFYING→IDLE，9转换、最终IDLE。 |
+
+优雅关闭非kill使其为重启而非崩溃：子进程读请求、停自身心跳、选process.exit(7)，监督观测精确code。新代写新身份与心跳。
+
+### 3.2 票据完整性逐级等于供体 — 已确认
+
+真实移植票据检查：有效null、篡reasonSummary为checksum、错误预期pid为wrong_pid、超过expiresAt为expired。verifyTicket精确六级同顺序missing、malformed、schema_version、checksum、expired、wrong_pid，对src/plugin/ticket-store.ts:103-138，无第七级。checksum真实SHA256供体规范JSON，字段改动捕获非容忍。
+
+### 3.3 供体限制保留而不修 — 已确认
+
+restart-protocol/DONOR.json逐字记录并引用供体：WAITING_FOR_EXIT_HAS_NO_DEADLINE，无timeout且无任何dirty restart记录（docs/failure-modes.md:106-109），NOT_MIGRATED_AND_NOT_FIXED；ALLOW_FORCE_TERMINATE_NEVER_CONSULTED，声明、验证但本发布从不读取（README.md:272），同状态；额外SUPERVISOR_STATE_STOPPED_NEVER_ASSIGNED、CROSS_RESTART_COOLDOWN_NOT_ENFORCED。代码一致，STOPPED声明无赋路径，allowForceTerminate验证未读，没有顺手静默关闭。
+
+### 3.4 gateway重接保持MB001行为 — 确认，附说明
+
+重启扫描现const { authorized } = await resumeGate.prepare('application', t.state !== 'QUEUED')，用checkpointGate({port:unboundCheckpointPort(),timeoutMs:0})。未绑定失败关闭，已开始任务拒绝并同旧错误／事件失败，QUEUED授权不动；阅读两版确认等价。
+
+说明非缺陷：扫描变async逐项await。createGateway为async，循环在listen前，没有请求能在扫描中服务；唯一可观测差异是失败任务事件顺序。
+
+### 3.5 无法确认项
+
+- 崩溃循环breaker／safe mode行为。src/supervisor/crash-loop-breaker.ts未迁移，各ledger延后supervisor，移植不能进入safe mode。仅带crashLoopState形态与CRASH_LOOP准入拒绝，已直接执行。用供体breaker驱动真实多次崩溃等于再实现分支没有的新能力。
+- 两参与主机重启。规则5仅一个验证主机，不能再加第二live重启，见5.2。
+- 票据阶梯外供体一致性。逐行对票据并驱动形态，但未重建锁转换表／验证器完整阶梯差分。
+
+## 4. 规则9状态
+
+§3建立写出后才打开迁移报告，§5首次引用，写§5时未改A部分发现。
+
+# B部分 — 对照（§5）
+
+## 5. 迁移报告
+
+A部分完成后写。
+
+### 5.1 逐项对照
+
+| 声称 | 独立审查状态 |
+|---|---|
+| 根59／rooms67／city206 | 本主机dab820b确认。 |
+| gateway扫描由迁移checkpoint门拥有 | 确认，代码对旧内联等价（3.4）。 |
+| 票据六级 | 对供体源码确认，全部级执行（3.2）。 |
+| 两供体限制原样未修 | 确认，加报告也记的两个gap（3.3）。 |
+| 交付crash-loop／safe mode | 边界非行为，词汇及CRASH_LOOP已移植执行，触发breaker随supervisor延后。 |
+| 绿后五保真修复：第七级、draft guard、重复canonicalJson、重声明词汇、虚构宽容 | 直接可查两项确认：无第七级，canonicalJson导入同级而不重声明；buildTicket无draft guard与说明一致。 |
+| MIGRATION_COMPLETE=true、未合并、未finalize | 对mission文件／分支确认。 |
+
+A部分无需纠正。报告保真说明“比较供体而非报告”如实有用，邀请的两检查均干净。
+
+### 5.2 双主机重启收据 — Mission设计张力
+
+门要求两台主机真实受控重启，规则5却仅一个验证者且禁止第三主机。本主机执行一个，迁移主机分支有自身运行通过。两主机指迁移／验证角色还是同角色两机器未定义，保留两解读：按参与角色满足，两者各有记录；按两独立机器，在规则5下结构不可满足，只能一主机验证。类似index已记录MB004依赖歧义，应Owner为剩余mission统一解决，非逐任务验证者解读。
+
+### 5.3 差异与修复
+
+提出一修复，符合规则10额外测试／证据、不新能力：MB001验证在main新增gateway重启恢复收据测试，MB006重接同扫描。合并后须一致，组合证据强于各自。§6记录实际运行／是否需代码。生产行为无需改。
+
+## 6. 标准评估、修复与收尾
+
+### 6.1 逐门
+
+| # | 门 | 判定 | 证据 |
+|---|---|---|---|
+| 1 | 两台主机真实受控restart/relaunch | 本主机满足，双主机条款设计张力 | 3.1真实子进程读shutdown并自身code7，监督新pid重启，迁移票据／锁／门决定步骤。迁移者自身记录，规则5不允第二live验证，5.2两解读未擅选。 |
+| 2 | checksum、dedup／cooldown、后启动验证、审计追踪 | 满足 | sha256:9aacf51e…规范checksum，checksum／wrong_pid／expired与重复／冷却拒绝已执行；后启动验证wrong_pid原被替换进程；27审计加subject日志。 |
+| 3 | 两供体限制原样、不修 | 满足 | 逐字引用、NOT_MIGRATED_AND_NOT_FIXED，STOPPED无赋、force未读（3.3）。 |
+| 4 | 两角色不同主机 | 满足 | Alien迁移、Mech验证。 |
+| 5 | 先独立后报告 | 满足 | A来自分支／clone／探针，§5首次报告。 |
+| 6 | 必要修复同分支不扩功能 | 满足 | 无生产改，仅证据和MB001组合行为测试（6.2）。 |
+| 7 | required CI与门全绿 | 满足 | 6.3。 |
+| 8 | 验证者合并main | DONE | 6.5 SHA。 |
+| 9 | City报告已提交 | 满足 | 本文件、mission字段、index行。 |
+
+### 6.2 修复
+
+无生产行为改变，只加规则10允许两项：
+
+1. MB001／006扫描汇合。main的MB001（d81a567合并）加中断任务跨重启不伪造成功测试，MB006以checkpoint门重接，合并树跑两套件（6.3）。无弱化；若需代码会在MB006分支按规则10，但实际不需。
+2. 共享city文件协调。MB006与MB001／003均改manifest JSON、manifest test、manifest.mjs、双架构、registry。解决冲突是合并非新能力，沿既有机制保留MB001地区kind:infrastructure及MB003／006模块capabilityProvider:false，清点取所有mission地区／模块并集。
+
+### 6.3 本主机门
+
+| 树 | 门 | 结果 |
+|---|---|---|
+| dab820b分支 | 根／city／rooms | 59/59、206/206、67/67。 |
+| dab820b加MB001main合并演练 | 三套件 | 见6.4。 |
+| 合并后main | 三套件、晋升、docs | 见6.5。 |
+
+### 6.4 证据指针
+
+本地主机git忽略：.runtime/evidence/mission-book/MB-006/run-1/INDEPENDENT-REVIEW-NOTES.md为A原笔记；restart-driver-v2.mjs／subject.mjs真实重启驱动与受监督对象；run/{summary.json,audit.jsonl,subject.log}机器结果／追加审计／自身生命周期；restart-driver.log控制台；donor/dsh-restart/为e20fb6cc用于逐级比较和CheckpointOutcome契约。
+
+跨主机：已合并mission/MB-006-restart-recovery dab820b及本事件流；data-records/evolution/episodes/mission-book/MB-006/episode.json；本报告提交Digital-City main。
+
+### 6.5 最终记录
+
+```text
+MISSION = MB-006
+ROLE = VERIFICATION
+HOST = Mech
+CLAIM_COMMIT = 34e9f33
+REVIEWED_BRANCH_HEAD = dab820b37ff39d1581b19dd43e75771507fb7139
+RECONCILED_TREE = d83ad167b98276639d076a8095bfb449ef272aac
+RECONCILED_CI = 36588756363 PASS (gateway-web + android)
+VERIFICATION_COMPLETE_EVENT_SHA = 39e6b6019498e8e08b7d4cf219ac48627cee2bd6
+VERIFIER_FINDING_SHA = eb7e987
+EPISODE_SHA = 75edd7e7184ad9518e44f8cfd62636aa7276fc13
+EPISODE_FILE = data-records/evolution/episodes/mission-book/MB-006/episode.json
+EPISODE_ID = MB-006:0a48549fc6f5f8c6
+EPISODE_SHA256 = 8247ecd76a7fbf713027d4f379b055dbe1017939e6dacd882e2c8682c9f8d3e8
+EPISODE_STATUS = VERIFIED
+FINAL_BRANCH_CI = 36589287739 PASS (gateway-web + android) at 75edd7e
+MERGED_MAIN_SHA = ce33792ed50787e991b22465da28feabc8e50c50
+MERGED_MAIN_CI = 36590045745 PASS (gateway-web + android)
+MERGE_NOTE = main had advanced to 83ea44e (MB-002, verified by host Alien) while this episode
+             was being finalized, so the two verified trees were reconciled in ce33792 rather
+             than force-updating main; the reconciliation is the union of all exclusion
+             mechanisms in registry.mjs and of all missions' modules in the census.
+CITY_REPORT = mission-book/reports/MB-006/VERIFICATION_REPORT.md
+```
+
+episode从验证事件依次VERIFIER_FINDING（规则9）、TEST_PASS、CI_RESULT=PASS、VERIFICATION_COMPLETE=PASS生成，当前树inbox移除，数据收尾75edd7e。按规则16最终分支再CI36589287739双job绿才合并。合并main已推进到83ea44e（Alien验证MB002），故ce33792协调而非强推，registry排除机制与清点均并集，原块保留全部SHA／episode摘要／CI。合并后五门再跑：根62/62、city352/352、rooms67/67、晋升10、docs SYNCHRONIZED。
+
+### 6.6 本验证未建立
+
+1. breaker／safe mode未测行为，因未迁移，仅词汇与CRASH_LOOP（3.5及VERIFIER_FINDING）。
+2. 第二主机live重启，5.2未定义解读且规则5一个验证者。
+3. 票据外供体一致性：阶梯逐行对并运行，锁表／验证器通过真实重启与直接拒绝探针，而非供体差分。
+4. 因此未产生mission crash-loop／safe-mode targeted test证据，明确记录而非模拟。

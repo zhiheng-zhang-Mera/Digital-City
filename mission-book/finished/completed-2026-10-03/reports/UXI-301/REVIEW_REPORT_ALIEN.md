@@ -149,3 +149,6 @@ such, which is exactly the distinction §10 requires between a deferred item and
 Alien did not repair anything, and that is deliberate: the only substantive item is a record correction,
 and a reviewer who edits the author's workbook fields becomes a co-author of the artefact under review.
 The correction is filed here for Mech or the Owner to apply.
+
+
+[阅读译本 / Reading translation](./zh-CN/REVIEW_REPORT_ALIEN.md)

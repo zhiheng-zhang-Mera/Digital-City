@@ -193,3 +193,5 @@ DEPLOYED STATE   the resident 4391 City still runs the accepted tree D:/utopia-j
   recorded separately in reports/PR28-4391-DEPLOYMENT/PR28_FIX_VERIFICATION.md, NOT touched by this closeout
 - no Android UI refactor, no new pairing mode, no relay protocol change
 ```
+
+语言配对 / Language pair: [English](./FINAL_PHYSICAL_ACCEPTANCE_Mech.md) · [中文](./zh-CN/FINAL_PHYSICAL_ACCEPTANCE_Mech.md)

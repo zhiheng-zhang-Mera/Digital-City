@@ -27,3 +27,6 @@ Final implementation/evidence head: `f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5`. 
 Development complete = true. Review complete = false. Registry remains CANDIDATE_PENDING_FORMAL_REVIEW. Mech must independently add a previously unused fault probe and reconcile exact-head runtime/UI/Registry; component Web verified, Android control seam remains documented. This is not REX programme completion.
 
 Control-plane command repair: PATH python was a WindowsApps placeholder with no real script execution. Actual D:/Tools/MonitorPython-3.13.0/python.exe ran dependency/progress sync and --check with explicit synchronized output. All eight REX frontmatters plus candidate/index YAML were parsed using the repository yaml package with uniqueKeys checks. Earlier silent placeholder calls are not claimed as successful validation.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

@@ -1,4 +1,4 @@
-# RF-005 Correction Report �?Remote Invite / Meeting Code / Deep-Link Rendezvous
+# RF-005 Correction Report  - Remote Invite / Meeting Code / Deep-Link Rendezvous
 
 ```text
 MISSION              = RF-005 (Remote Fabric programme, task 5 of 10)
@@ -14,7 +14,7 @@ DEVELOPMENT_HEAD     = 52646ac30c23ec33d70c4a787ac519be19969a89
 DEVELOPMENT_CI       = 36737404307-success
 CORRECTION_BRANCH    = remote/RF-005-remote-invite-rendezvous
 CORRECTION_HEAD_SHA  = d4fb94447a33fb005aab2af359a9ba385298b6fa
-BRANCH_CI            = 36748021061 �?gateway-web success, android success
+BRANCH_CI            = 36748021061  - gateway-web success, android success
 LOCAL_CHECK_SUMMARY  = RF-005 10 pass, root 111 pass, rooms 69 pass, city 1801 pass,
                        promotion-history OK at 52646ac, bilingual SYNCHRONIZED
 MERGE                = NOT PERFORMED (forbidden for component branches)
@@ -24,7 +24,7 @@ CORRECTION_COMPLETE  = true
 ## 1. Review method, and one honest caveat about its timing
 
 The revision under review was exported to a byte-verified immutable path before any review began
-(`frozen-52646ac`, four files `match=True`) �?the thirteenth use of this isolation. I read the
+(`frozen-52646ac`, four files `match=True`)  - the thirteenth use of this isolation. I read the
 workbook's own acceptance list before judging, then probed the module myself and repaired four
 mechanisms, each verified by replaying the original reproduction against the repaired module plus paired
 regression tests.
@@ -33,7 +33,7 @@ regression tests.
 adversarial probe of the frozen revision was still running when this repair was pushed. Every claim
 below is my own, independently reproduced; if that probe returns further findings they belong in a
 follow-up commit on this same branch, and this workbook should be reopened to `IN_PROGRESS` if so. The
-precedent in this programme is that a correction is not finished while any confirmed defect is open �?GAI-002 stayed `IN_PROGRESS` across two commits for exactly that reason.
+precedent in this programme is that a correction is not finished while any confirmed defect is open  - GAI-002 stayed `IN_PROGRESS` across two commits for exactly that reason.
 
 ## 2. Confirmed defects and repairs
 
@@ -44,7 +44,7 @@ precedent in this programme is that a correction is not finished while any confi
 | C3 | medium | `createInvite({ at: '2026-13-45T99:99:99Z' })` produced an untyped `RangeError: Invalid time value` from `toISOString()` rather than a typed refusal | the instant round-trips, and the computed expiry is built with a typed guard |
 | C4 | medium-low | revoking a **consumed** invite rewrote its terminal state from `USED` to `CANCELLED` | a terminal rendezvous keeps its recorded outcome; revoke on it is `RENDEZVOUS_UNAVAILABLE` |
 
-### C1 �?the two bounds that made the invitation layer unaccountable
+### C1  - the two bounds that made the invitation layer unaccountable
 
 `createInvite` validated `ttl_ms` against `config.max_ttl_ms`, and `config` came from an unvalidated
 policy spread. So the *ceiling itself* was caller-controlled:
@@ -60,10 +60,10 @@ being real. Both are now bounded, with `MAX_INVITE_TTL_MS` (24 h) and `MAX_RATE_
 as the hard limits a policy may narrow but not remove. `max_attempts: 0` already failed closed (a
 control confirmed it), so the fail-open direction was the unbounded one.
 
-### C2 / C3 �?hostile input produced untyped crashes
+### C2 / C3  - hostile input produced untyped crashes
 
 `parseLocator` is documented as "local, lookup-free validation: a caller learns whether their own input
-is well formed, nothing else" �?but two hostile inputs threw instead of returning a verdict:
+is well formed, nothing else"  - but two hostile inputs threw instead of returning a verdict:
 
 ```text
 parseLocator('digitalcity://join?c=%E0%A4%A')       -> URIError: URI malformed
@@ -90,17 +90,17 @@ fires on the sixth attempt in a window.
    (the module is pure and must not invent time), and the *window* is now bounded by C1, so this is a
    documented consequence of the injected-clock contract rather than a hole. Recorded for the Owner.
 2. **`redeem` creates a ticket per call and consumes nothing until the host confirms.** That is the
-   author's deliberate design �?"only accepted confirmations consume a use: a declined request leaves the
-   invite usable" �?and rate limiting bounds it per `client_ref`. Recorded because it means one locator
+   author's deliberate design  - "only accepted confirmations consume a use: a declined request leaves the
+   invite usable"  - and rate limiting bounds it per `client_ref`. Recorded because it means one locator
    can accumulate awaiting tickets.
 3. **The rate limiter trusts the caller's `at`** for its window arithmetic, which follows from the
    injected clock. A caller that supplies its own timestamps can shape its own window.
 4. **`journal` grows without bound** (it is an audit list, cloned on read). Recorded, not capped.
-5. **No Android device observation and no Computer-Use session** �?a pure module with no device surface.
+5. **No Android device observation and no Computer-Use session**  - a pure module with no device surface.
 
 ## 5. Tests and CI
 
-Author suite **6/6 pass unchanged**. Suite extended **6 �?9 tests**, every negative assertion paired with
+Author suite **6/6 pass unchanged**. Suite extended **6 �?9 tests**, every negative assertion paired with
 a legitimate neighbour (an immortal policy ceiling is refused *and* a legal long window is accepted; a
 malformed link is `BAD_LINK` *and* a well-formed link still parses; a consumed invite keeps `USED` *and*
 an active one still cancels).
@@ -113,7 +113,7 @@ node scripts/verify-promotion-history.mjs   -> OK (10 records at 52646ac)
 node scripts/check-bilingual.mjs            -> SYNCHRONIZED
 ```
 
-Implementation CI: **36748021061 �?gateway-web success, android success** on
+Implementation CI: **36748021061  - gateway-web success, android success** on
 `remote/RF-005-remote-invite-rendezvous` @ `2594512`.
 
 ## 6. Unstated decisions (problem / choice / rationale)
@@ -121,11 +121,11 @@ Implementation CI: **36748021061 �?gateway-web success, android success** on
 1. **What a policy may change.** *Choice:* a policy may narrow the invite window and the rate limit but
    not remove them; the ceiling is a module constant. *Rationale:* the module already treated
    `max_ttl_ms` as the guard for `ttl_ms`, so leaving the guard itself caller-controlled made the bound
-   decorative �?the same one-sided-bound shape repaired in RF-004 and EM-004 this session.
+   decorative  - the same one-sided-bound shape repaired in RF-004 and EM-004 this session.
 2. **What a malformed link means.** *Choice:* a `BAD_LINK` verdict. *Rationale:* the function is
    documented as local validation of the caller's own input; a crash is not a verdict, and hostile input
    is exactly what it must survive.
-3. **What "consumed" means for the record.** *Choice:* terminal is terminal �?a `USED` invite stays
+3. **What "consumed" means for the record.** *Choice:* terminal is terminal  - a `USED` invite stays
    `USED`. *Rationale:* the journal and the projection both report the outcome, and rewriting it to
    `CANCELLED` would make the audit disagree with what happened.
 4. **How the expiry instant is built.** *Choice:* a guarded `toISOString()` that refuses out of range
@@ -136,7 +136,7 @@ Implementation CI: **36748021061 �?gateway-web success, android success** on
 
 - My regression test imported a new constant from `index.mjs`, which re-exports explicitly rather than
   with `export *`, so the suite failed to link. I corrected the test to import from the module file. The
-  deeper question �?whether a new exported constant belongs on the published surface �?is worth a
+  deeper question  - whether a new exported constant belongs on the published surface  - is worth a
   convention, and is recorded here rather than silently resolved.
 - I shipped the repair commit while the second adversarial probe was still running. My own review was
   complete and its findings are all reproduced and repaired, so the correction is not a guess; but the
@@ -146,7 +146,7 @@ Implementation CI: **36748021061 �?gateway-web success, android success** on
 
 Four mechanisms repaired at the mechanism, with paired regression tests and replays of the original
 reproductions. Five boundaries are recorded with reasoning, the protections that held are listed so they
-are not re-litigated, and the one process caveat �?a second review still in flight �?is stated in the
+are not re-litigated, and the one process caveat  - a second review still in flight  - is stated in the
 report rather than omitted.
 
 ```text
@@ -154,7 +154,7 @@ CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/remote/RF-005-remote-invite-rendezvous.md
 ```
 
-## 9. Second review pass �� two high findings the first pass did not close
+## 9. Second review pass �� two high findings the first pass did not close
 
 The independent adversarial probe reported after the first repair commit. It confirmed C1-C4 and added
 two **high** mechanisms that my own review missed, one of which showed my C1 fix did not close the hole
@@ -162,10 +162,10 @@ it was aimed at. Both are now repaired (commit `d4fb944`, CI 36748913540).
 
 | id | severity | mechanism | repair |
 | --- | --- | --- | --- |
-| C5 | **high** | rate limiting was **opt-in**: `throttle()` ran only `if (isText(client_ref))`, and `client_ref` is caller-supplied, so an enumerating caller simply omitted it �� 200 000 well-formed guesses drew zero throttles. Bounding `max_attempts` (C1) did not help: a limiter that never runs has no limit. | an unnamed caller now shares one anonymous bucket; its over-limit answer is the *generic* failure, so throttling leaks nothing |
-| C6 | **high** | the caller supplied the time: `at: when` overrode the injected clock on preview/redeem/confirm/revoke, so an invite expired a year earlier still confirmed with `trust_established: true`, and an unparseable `at` made every expiry comparison false �� any invite immortal, and the limiter disabled with it | every decision path validates its instant (round-trip); an unparseable one is `INVALID_INVITE` |
-| C7 | medium | `locateFromUrl` never validated the host, so any HTTPS origin was blessed as a valid `WEB_LINK`, including `https://digitalcity.local@evil.example/join/<code>` | recorded, not repaired - see ��10 |
-| C8 | medium | `redeem` never consumes and nothing caps outstanding tickets: 20 000 retained tickets from one single-use invite | recorded, not repaired - see ��10 |
+| C5 | **high** | rate limiting was **opt-in**: `throttle()` ran only `if (isText(client_ref))`, and `client_ref` is caller-supplied, so an enumerating caller simply omitted it �� 200 000 well-formed guesses drew zero throttles. Bounding `max_attempts` (C1) did not help: a limiter that never runs has no limit. | an unnamed caller now shares one anonymous bucket; its over-limit answer is the *generic* failure, so throttling leaks nothing |
+| C6 | **high** | the caller supplied the time: `at: when` overrode the injected clock on preview/redeem/confirm/revoke, so an invite expired a year earlier still confirmed with `trust_established: true`, and an unparseable `at` made every expiry comparison false �� any invite immortal, and the limiter disabled with it | every decision path validates its instant (round-trip); an unparseable one is `INVALID_INVITE` |
+| C7 | medium | `locateFromUrl` never validated the host, so any HTTPS origin was blessed as a valid `WEB_LINK`, including `https://digitalcity.local@evil.example/join/<code>` | recorded, not repaired - see ��10 |
+| C8 | medium | `redeem` never consumes and nothing caps outstanding tickets: 20 000 retained tickets from one single-use invite | recorded, not repaired - see ��10 |
 
 **C5 is the finding of this correction.** My first pass bounded the *policy value* and left the
 *invocation* conditional on a caller-supplied field, so the acceptance line "guessing/enumeration tests
@@ -185,12 +185,12 @@ is what makes the other gates reachable.
 2. **Outstanding tickets are uncapped** (C8). The author's design consumes a use only at confirmation, so
    a locator can accumulate awaiting tickets; rate limiting now bounds the rate, not the total. A cap
    would change documented behaviour.
-3. **A future-dated `at` still starts the window in the future** (��4.1): the clock is injected by design.
+3. **A future-dated `at` still starts the window in the future** (��4.1): the clock is injected by design.
 
 ## 11. Process note, kept honest
 
 My first repair commit (`2594512`) was pushed **before** the independent probe reported, and my first
-attempt at the C5 test was wrong �� I asserted that every unnamed lookup fails while the invite was still
+attempt at the C5 test was wrong �� I asserted that every unnamed lookup fails while the invite was still
 usable, so the first five legitimately succeeded. I pushed that failing test, caught it in the same
 minute on the local run, and fixed it in `d4fb944` before CI could report on it. Both facts are recorded
 because the pushed-head CI is green *now*, and a reader of this report should know which commit was
@@ -198,6 +198,17 @@ green when.
 
 ```text
 CORRECTION_HEAD_SHA  = d4fb94447a33fb005aab2af359a9ba385298b6fa
-BRANCH_CI            = 36748913540 �� gateway-web success, android success
+BRANCH_CI            = 36748913540 �� gateway-web success, android success
 LOCAL_CHECK_SUMMARY  = RF-005 10 pass, root 111 pass, rooms 69 pass, city 1801 pass
 ```
+
+## 历史编码说明 / Historical encoding note
+
+本文件在此次整理前含无效UTF-8字节。仅将损坏标点改为普通连接符，其他无法恢复的序列显示为U+FFFD；没有猜测缺失文字或改写验收结论。原始字节保存在docs/encoding-evidence，可按SHA256核对。
+
+This file contained invalid UTF-8 before maintenance. Damaged separator punctuation is rendered as a plain hyphen; other undecodable sequences are shown as U+FFFD. Missing text and acceptance conclusions are not inferred. Original bytes are retained under docs/encoding-evidence with SHA256 provenance.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/CORRECTION_REPORT.md)保留全部章节、原代码证据和编码未知位置，不产生新的历史状态或验收。 / [Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md) preserves every section, original code evidence and unknown encoding locations; it creates no new historical state or acceptance.

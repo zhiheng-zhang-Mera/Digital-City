@@ -11,3 +11,5 @@ After resume the following external identities were revalidated using Git/gh/ADB
 Known failures: missing Web recovery UI, locale syntax error, owner roster retained across credential switch, invalid inherited SDK paths, premature physical UI dump. Raw failed evidence remains in Utopia runtime. Next: independent technical review and source CI, then opposite physical host acceptance. Avoid replaying device startup without waiting and verifying package. Do not run host lifecycle tests against installed active City. Formal review and merge authority remain false.
 
 Symbolic refs moved normally during development; latest control main resolved623190f4d223c90eae0943cc061bb19269f36a38 before this report. No evidence-pointer mismatch established. State reconstruction accuracy and global duplicate-work counts NOT_OBSERVABLE; this is a factual checkpoint, not a self-scored research result.
+
+语言配对 / Language pair: [English](./CONTEXT_LIFECYCLE.md) · [中文](./zh-CN/CONTEXT_LIFECYCLE.md)

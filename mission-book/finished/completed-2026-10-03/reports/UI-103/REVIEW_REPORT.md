@@ -1,6 +1,6 @@
 # UI-103 — Rooms 统一视觉与嵌入体验 · REVIEW REPORT
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md](../../ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md)
 > Review Host：`Alien`（Development Host 为 `Mech`，§3 双机独立成立）
 > 复核结论头：`dcde3afe958577a470ee6a0e6f08e819c9d0d19f`　CI：`36871415675` success
@@ -68,3 +68,7 @@ UI-103 的 frontmatter 记录了一条 `pending_seam`：
 - 390px 只抽测了 knowledge / data-lab / checklist 三间（其余七间为 1440 全量），属**抽样**而非全覆盖，
   如实标注；
 - 探针只做读操作与截图，不写入 hub 数据。
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./en/REVIEW_REPORT.md)

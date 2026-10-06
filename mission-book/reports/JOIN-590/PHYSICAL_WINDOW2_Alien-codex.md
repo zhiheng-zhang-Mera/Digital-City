@@ -11,3 +11,5 @@ An uncommanded UI transition occurred during the approval window: native log sta
 Phone automation taps stopped pending clarification of concurrent operation/state reset; no existing Gateway was stopped and no owner/global token was revoked. This window is not accepted; original review defects and withheld terminal marker remain. Need a coordinated fresh request with actual owner approval and exclusive handset interaction before the post-approval chain can be evaluated.
 
 Artifacts: evidence/round2-request.xml, evidence/round2-final-ui.xml, evidence/round2-native-boundaries.json. Password text is redacted in XML, and native boundary records contain only trial/mode/event/time/count fields. Source/build/private-backup identity remains as explicitly bound in the first physical report.
+
+语言配对 / Language pair: [English](./PHYSICAL_WINDOW2_Alien-codex.md) · [中文](./zh-CN/PHYSICAL_WINDOW2_Alien-codex.md)

@@ -97,3 +97,5 @@ Mech's next actionable work is RS-290's Review, which needs Alien's `development
 
 Low-cost bounded wait, ~20 min per §5.1, with an immediate re-scan on the wake condition. On the wake
 event: §7 reconciliation first if any external evidence is involved, then claim RS-290's Review.
+
+语言配对 / Language pair: [原文 / Source](./ZERO_CLAIM_MECH_ROUND49_SECTION_5_1.md) · [译本 / Translation](./zh-CN/ZERO_CLAIM_MECH_ROUND49_SECTION_5_1.md)

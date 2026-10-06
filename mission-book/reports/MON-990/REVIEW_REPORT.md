@@ -206,3 +206,5 @@ REVERSIBLE  the release rests on measurements that can be re-taken; if either th
 The reviewer records that this is a judgement, not a measurement, and states it as one.
 
 No merge was performed, no main was touched, and the author's branch and PR #36 are retained exactly as they are.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

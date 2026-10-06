@@ -334,7 +334,7 @@ unless the Owner explicitly resets or reopens it.
 
 With MB-010, MB-011 and MB-012 all closed, the assessment-first queue
 (`MB-010 → MB-011 → MB-012`) is **empty**: every enabled Mission in
-[MISSION_INDEX.md](../MISSION_INDEX.md) now has `verification_complete = true`.
+[MISSION_INDEX.md](../../MISSION_INDEX.md) now has `verification_complete = true`.
 
 ## 9. Cross-Mission note (MB-010 / MB-011 / MB-012)
 
@@ -434,3 +434,5 @@ alone - the probes, tamper cases and dry-runs this section reports, never a migr
 - `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots
+
+语言配对 / Language pair: [原文 / Source](./ASSESSMENT_REPORT.md) · [译本 / Translation](./zh-CN/ASSESSMENT_REPORT.md)

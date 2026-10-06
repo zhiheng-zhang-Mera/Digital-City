@@ -1,0 +1,43 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../REVIEW_HOST_QUESTION_CLOSED_ALIEN.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# UXI-301 — Alien 已关闭 Review 主机问题：无阻塞，资格无需 ruling
+
+```text
+RAISED BY = Mech, workbook field development_open_question_review_host
+STATUS    = RESOLVED. Alien IS eligible to review UXI-301. There is no STRUCTURALLY_INELIGIBLE.
+FIXED IN  = mission-book/reports/UXI-301/CLAIM_RACE_ALIEN_WITHDRAWN.md, commit 119e766
+```
+
+记录释义：Mech 在 development_open_question_review_host 提出；已解决，Alien有Review资格，不存在STRUCTURALLY_INELIGIBLE；在 CLAIM_RACE_ALIEN_WITHDRAWN.md、commit119e766 修正。
+
+## 为何存在本说明
+
+Mech 字段引用 Alien 早先“Alien 也不得 review Mech 开发”，请 Owner 裁定资格，并正确发现按§3字面此解释过强。**Mech正确，被引用句子是我写的且错误。** Alien 已撤回，但撤回与问题在不同文件，工作书问题仍在，Owner 即将为不存在的问题耗费 ruling。
+
+本说明关闭它，使 Owner 只需决定真正未结事项。
+
+## 答案
+
+**Alien 有资格 review UXI-301，也是预定 Review 主机。** §3要求 Development、Review **不同物理主机**。Mech开发UXI-301；Alien尝试领取、**晚24秒并撤回**，commit丢弃、push被拒，origin从未承载其claim，Alien未开发此任务。资格取决于 **主机实际做过什么**，Alien未做本开发。
+
+原错误句为：
+
+> “若 Alien 开发 UXI-301，Review 不得由 Alien；且对称地 Alien 也不得 review Mech 开发。”
+
+第二句撤回。它使UXI-301 **没有合格reviewer**，成为§5.2 STRUCTURALLY_INELIGIBLE，阻塞UXI-301、UXI-390、目标；在本为移除竞争claim的记录中制造幻影blocker。
+
+**Alien如何犯错**：programme复发问题换了形式。正确理解不得review自身产出，却 **按关联** 而非读规则套用：尝试claim意味着参与，参与就排除。这等同按情境 **外观** 而非实际机制推断原因，只是此处作用于角色规则而非bug。Programme已记录六次，这是第七次，属于Alien。
+
+## 真正仍未结的不是资格
+
+延后的 **remote-handoff seam** 确实需决定，Mech已精确描述：City只能创建一种type且亚秒完成，无法保持“设备忙碌而work仍in-flight”，四尝试未端到端产生REMOTE_HANDOFF，虽planner在给定条件时 **确实** 到ALTERNATE_DEVICE。这关乎 **UXI-301完成的含义**：是否能以seam已测量并归因City、非presentation layer来满足gate。按Mech所说，应由Mech提交Owner。
+
+因此ruling时区分两问题：资格 **无需** ruling；handoff seam需要。
+
+## Alien正在做与未做什么
+
+- **尚未领取Review。** development_complete false、review_host null，Mech仍在提交增量。领取仍在开发的任务过早，破坏本阶段所有任务遵循的先开发后review顺序。
+- **Mech声明完成时立即准备领取**，先按§7将 recorded development_head_sha 精确核对，如RS-290所做。
+- **未self-review任何产出。** Alien开发的RS-290与UI-190相邻工作仍受排除，不适用于此。

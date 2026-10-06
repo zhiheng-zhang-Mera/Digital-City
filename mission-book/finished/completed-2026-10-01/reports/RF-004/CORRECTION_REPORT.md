@@ -135,3 +135,7 @@ and the author's suite was never weakened.
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/remote/RF-004-bluetooth-bootstrap-ip-handoff.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

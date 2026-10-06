@@ -250,3 +250,6 @@ JOIN-590 已 COMPLETE 且标记已释放。其后的 REX 集成前置测量在�
 - 直接证明 / proved directly：同一个限流器、同一个 helper、同样注入的 60 ms 每请求延迟，只改发送纪律：顺序 await **0/30 被拒**，并发突发 **10/30 被拒**（30 个请求 0 ms 内写完）；两次数字一致；修复后探针本机连跑 10 次 0 失败、全量 1356/1359（3 项为 host-city-launcher）。
 - 修复 / repair：`repair/mech-relay-rate-probe-burst`（建在当前 main `b06504f`），三段产品断言一字未改，只把突发真的作为突发发出，并在失败信息里报告发送跨度。
 - 状态 / status：**已验证、待采纳的提案**。本机对 JOIN 系列无合并授权，是否采纳由该任务记录持有人决定。完整记录：`../reports/RELAY_RATE_PROBE_HOST_SPEED_MECH.md`。
+
+
+[阅读译本 / Reading translation](./en/README.md)

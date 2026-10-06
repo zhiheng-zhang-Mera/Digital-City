@@ -78,3 +78,8 @@ Diagnostics
 > **在不造成视觉和操作过载的前提下，给予用户最大的掌控权与知情权。**
 
 解决 overload 的手段是**分层、上下文、折叠、搜索与高级面板**，不是把可操作能力藏起来。
+
+
+---
+
+[English translation / 完整英文说明](./en/RESEARCH_CONTROL_SURFACE.md)

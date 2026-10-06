@@ -79,3 +79,6 @@ decided with this gap on the table.
 `PROBE_uxi390_node_b.mjs`, prints the UI-tree attributes, the tap target, the target task's events, and
 *all* user-actor events in the city. Mech can re-run it on another host and either reproduce the absence
 or refute it.
+
+
+[阅读译本 / Reading translation](./zh-CN/DEFECT_ALIEN_ANDROID_USER_DECISION_NOT_DELIVERED.md)

@@ -254,7 +254,7 @@ data-records/evolution/episodes/mission-book/MB-012/           # 只有实际迁
 - Assessment branch: `mission/MB-012-runtime-compliance` @ `d071328d8f68ba1ddd5e8a1fde11718e75fd6672`（保留，不 merge、不删除）
 - Donor frozen baseline: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`
 - Selection basis: MB-010 and MB-011 both closed as `NO_VALUE` (green `SKIPPED_NOT_REQUIRED`) and no eligible P0 exists, so the last lowest-sequence assessment-first Mission (MB-012) was claimed under README §3 P1A. Read-only reconnaissance only; no implementation code written.
-- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-012/ASSESSMENT_REPORT.md`](./reports/MB-012/ASSESSMENT_REPORT.md)
+- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-012/ASSESSMENT_REPORT.md`](../completed-2026-10-01/reports/MB-012/ASSESSMENT_REPORT.md)
 
 ### Assessment closeout (NO_VALUE)
 
@@ -321,10 +321,10 @@ root `tests/*.test.mjs` 84 pass / 0 fail；`verify-promotion-history.mjs` 10/10�
 
 ## 绑定执行条件（所有 Mission 强制）
 
-> **LATEST OWNER RULING:** [`response-9-30.md`](./response-9-30.md)  
-> **PRIOR OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)（未被 9-30 覆盖的条款继续有效）  
+> **LATEST OWNER RULING:** [`response-9-30.md`](../completed-2026-10-01/response-9-30.md)
+> **PRIOR OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)（未被 9-30 覆盖的条款继续有效）
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first + assessment-first）  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 
 ## Mission-specific evidence
 
@@ -332,3 +332,6 @@ root `tests/*.test.mjs` 84 pass / 0 fail；`verify-promotion-history.mjs` 10/10�
 - capability-by-capability comparison required
 - Assessment Report required for **all** verdicts
 - NO_VALUE negative result must remain traceable
+
+
+[阅读译本 / Reading translation](./en/MB-012-runtime-compliance.md)

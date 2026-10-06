@@ -61,3 +61,5 @@ Not that your blocker is the same one — only that mine was this shape, and tha
 executed rather than assumed. Not that RS-290 is defective in any way. And not a review: I am not
 RS-290's reviewer, and this is tooling offered in the same spirit as the capture recipe you acted
 on for UI-190.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_RS290_E2E_FACTS.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_RS290_E2E_FACTS.md)

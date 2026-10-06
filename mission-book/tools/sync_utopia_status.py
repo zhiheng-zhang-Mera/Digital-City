@@ -113,25 +113,27 @@ def main() -> None:
 
     ci = data["ci"]
     if ci is None:
-        ci_line = "No workflow run was found for the current main SHA."
+        ci_line = "当前 main SHA 未找到工作流记录。 / No workflow run was found for the current main SHA."
     else:
         ci_line = (
             f"[{ci['name']} #{ci['run_id']}]({ci['url']}) — "
             f"{ci['status']} / {ci['conclusion'] or 'pending'} on `{ci['head_sha'][:12]}`."
         )
 
-    md = f"""# Utopia Live Implementation Status
+    md = f"""# Utopia 实现状态 / Live Implementation Status
 
-> **GENERATED FILE — do not hand-edit.**
+> **自动生成，请修改生成器。 / GENERATED FILE — do not hand-edit.**
 >
-> Source of implementation truth: [{implementation_repo}](https://github.com/{implementation_repo}) `{branch}`.
-> Planning/workbook truth remains in Digital-City Mission Book frontmatter and reports.
+> 实现事实来源 / Source of implementation truth: [{implementation_repo}](https://github.com/{implementation_repo}) `{branch}`.
+> 规划和任务事实以 Digital-City 工作书元数据及报告为准。 / Planning/workbook truth remains in Digital-City Mission Book frontmatter and reports.
 
 - **Utopia main:** [`{sha[:12]}`]({commit_url})
-- **Commit:** {commit_message}
-- **Commit time:** {commit_time}
+- **提交 / Commit:** {commit_message}
+- **提交时间 / Commit time:** {commit_time}
 - **CI:** {ci_line}
-- **Reciprocal linkage:** `{link_state}`
+- **双向关联 / Reciprocal linkage:** `{link_state}`
+
+本页由 `.github/workflows/sync-utopia-status.yml` 刷新，仅在来源状态变化时提交；五分钟轮询不会制造空提交。
 
 This file is refreshed by `.github/workflows/sync-utopia-status.yml`. The workflow
 commits only when source state changes, so the five-minute poll does not create

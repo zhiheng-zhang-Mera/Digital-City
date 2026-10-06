@@ -143,7 +143,7 @@ repair_resume_point: "CLOSED / NO RESUME REQUIRED. Historical READY_FOR_VERIFICA
 - Implementation head: `aff3c283e34b596c6c0ba6c666aed96893b6c395`
 - Migration head: `c5734a5e646f1e379aa15282b59a08e8828d5d6a`
 - Hosted CI: implementation `36570163616` PASS; final branch `36571564418` PASS (gateway-web + android)
-- Report: [`reports/MB-003/MIGRATION_REPORT.md`](./reports/MB-003/MIGRATION_REPORT.md)
+- Report: [`reports/MB-003/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-003/MIGRATION_REPORT.md)
 - Not merged to `main`; `mission:finalize` deliberately not run (that belongs to the Verification host)
 
 > **Owner attention — cross-mission conflict.** MB-001 and MB-003 both branched from
@@ -224,10 +224,10 @@ Branch `mission/MB-003-worker-gateway` @ `60afe9e` → `8262a41`.
 
 ## 绑定执行条件（所有 Mission 强制）
 
-> **LATEST OWNER RULING:** [`response-9-30.md`](./response-9-30.md)  
-> **PRIOR OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)（未被 9-30 覆盖的条款继续有效）  
+> **LATEST OWNER RULING:** [`response-9-30.md`](../completed-2026-10-01/response-9-30.md)
+> **PRIOR OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)（未被 9-30 覆盖的条款继续有效）
 > **ACTIVE RULESET:** [`README.md`](./README.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若冲突，以最新日期 Owner response 为准。
 
@@ -237,3 +237,6 @@ Branch `mission/MB-003-worker-gateway` @ `60afe9e` → `8262a41`.
 - provider/version/readiness snapshots
 - interrupt/failure receipts
 - existing Skill Intake regression
+
+
+[阅读译本 / Reading translation](./en/MB-003-worker-gateway.md)

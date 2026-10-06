@@ -350,3 +350,5 @@ Nothing about this task required device observation, so none was performed.
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/remote/RF-003-local-discovery-lan-direct.md
 ```
+
+语言配对 / Language pair: [原文 / Source](./CORRECTION_REPORT.md) · [译本 / Translation](./zh-CN/CORRECTION_REPORT.md)

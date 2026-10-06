@@ -1,5 +1,7 @@
 # Async Relief Construction — Hns / Codex 异步减压施工协议
 
+[English translation / 完整英文](./en/ASYNC_RELIEF_CONSTRUCTION.md)
+
 > **状态：ACTIVE / NORMATIVE / TRANSITIONAL**
 >
 > **生效范围：** 当前及后续 Mission Book 工程，直到 Persistent Foreman Runtime（FR-001）被正式实现并取代本协议。

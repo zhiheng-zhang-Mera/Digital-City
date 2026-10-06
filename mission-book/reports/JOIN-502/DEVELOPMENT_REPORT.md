@@ -1,6 +1,6 @@
 # JOIN-502 — Development report
 
-> **Workbook:** [JOIN-502-nearby-pc-discovery-and-owner-approval.md](../../connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md)  
+> **Workbook:** [JOIN-502-nearby-pc-discovery-and-owner-approval.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
 > **Programme:** [connection-onboarding/README.md](../../connection-onboarding/README.md)  
 > **Development host:** Mech (this host) — review is deliberately left to a different physical host  
 > **Branch / head:** `join/JOIN-502-nearby-discovery-approval` @ `86deda9c2990c78d683a8c3515d251022df9d040`  
@@ -142,3 +142,5 @@ This demonstrates, against real services: two Cities discoverable over real mult
 2. the joined installation appearing in the City's Devices view as an enrolled node — that is JOIN-503's enrollment, deliberately not faked here;
 3. a revoke path exercised against a joined device (JOIN-503);
 4. the fragment hand-off on a platform whose launcher cannot open a second local City (falls back to QR / code / link / manual entry, all of which remain on screen).
+
+语言配对 / Language pair: [原文 / Source](./DEVELOPMENT_REPORT.md) · [译本 / Translation](./zh-CN/DEVELOPMENT_REPORT.md)

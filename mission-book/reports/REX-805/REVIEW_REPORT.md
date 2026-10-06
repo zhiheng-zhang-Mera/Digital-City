@@ -89,3 +89,5 @@ durationDeltaMs 不作因果性能结论（引擎自身 causalPerformanceClaim=f
 **PASSED on `0261a9ed1cec88df3ab4675623d422b37b33f270`。** 17 项本机探针全部通过：重放与比较的确定性与新身份成立、空 limit 集这一修复分支被独立复现、消融按精确策略落位并如实报告是否变化、六条拒绝路径均按名拒绝、记录拓扑不在线时拒绝重放、receipt store 不可用时 City 仍能启动并打字化拒绝。未发现缺陷；唯一的观察是 store 不可用场景下错误码表述不够精确，且同一响应链已提供可区分的 store 状态。
 
 标记 `TRACE_REPLAY_ABLATION_ACCEPTED` **释放**，范围如实标注：真机渲染半边 NOT_OBSERVED。本机不行使任何产品 main 合并权。
+
+语言配对 / Language pair: [中文完整读本 / Full Chinese reading](./zh-CN/REVIEW_REPORT.md)

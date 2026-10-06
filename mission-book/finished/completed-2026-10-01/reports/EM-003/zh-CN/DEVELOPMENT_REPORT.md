@@ -1,0 +1,107 @@
+# EM-003 开发报告：Engineering Job／Event／Result／Artifact协议
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = EM-003 (Engineering Manager programme, task 3 of 13)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = f7dbc71 (Digital-City main, "claim(EM-003): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T13:20:13Z
+CONTROL_REVISION_AT_CLAIM= 3c42222 (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DONOR_POLICY             = DS-Hns pinned but NOT read; no build/runtime dependency
+IMPLEMENTATION_BRANCH    = engineering-manager/EM-003-job-result-artifact-protocol
+IMPLEMENTATION_HEAD_SHA  = 8c16cfc266a9869ace2c059f7959322282285663
+BRANCH_CI                = 36721305141 — success (run-level conclusion completed/success; both required jobs)
+LOCAL_CHECK_SUMMARY      = 110/110 tests pass, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据保留任务、阶段、主机、领取、控制版本、仓库、基线、donor仅pin未读且无build／runtime依赖、分支／SHA、CI、110项检查、完成与禁止组件合并状态。
+
+## 1. 交付物
+
+| 文件 | 目的 |
+|---|---|
+| contracts/engineering-job-v1/envelopes.mjs | Job／event／result／artifact严格envelope，mode-specific admission、secret形字段拒、artifact provenance |
+| contracts/engineering-job-v1/reconcile.mjs | 确定事件核对duplicate／late／gap，终态不可变、结果应用、artifact attach、可审计summary |
+| contracts/engineering-job-v1/index.mjs | 公共面与公开保证 |
+| contracts/engineering-job-v1/tests/conformance.test.mjs | 9项conformance |
+| 根tests/engineering-job.test.mjs | pnpm test注册套件 |
+
+| 必需验收项 | 测试 |
+|---|---|
+| autonomous无需operations[] | 自主需objective／bounded constraints非operation list；agent提供operations拒 |
+| scripted缺执行spec诚实拒／阻断 | SCRIPTED_SPEC_REQUIRED、honest_blocker:true，不admit |
+| partial／progress不能终态 | validator与applyEvent保证partial永不终态 |
+| terminal result不可重放复活active | terminal最终且不可replay resurrect |
+| artifact保job／device／connector来源 | provenance测试 |
+| late／duplicate确定幂等 | late、duplicate、out-of-order核对 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取任务。** 选择EM003。新扫描无自己repair、无另一host合格Correction，唯一开发完未纠EM002仅Alien可纠，因此未领取Development。EM池最大、无另host在工作、不同上次Remote Fabric，符合平局偏好。
+
+**D2：跨分支纪律。** EM001／002契约在同冻结baseline未合兄弟分支，不能import也不能copy。本分支声明engineering-job-v1，向EM001 EngineeringJobEnvelope／EngineeringEventEnvelope／EngineeringResultEnvelope／ArtifactEnvelope及EM002 connector runtime job提交的接缝记第5节供merge workbook。
+
+**D3：scripted无operations，是malformed还是blocked？** 选项无效文档、admit后失败、独立码标blocker非malformed。选第三SCRIPTED_SPEC_REQUIRED／honest_blocker:true，工作簿要求诚实拒／阻。文档well-formed但不能跑，caller需区分“胡说输入”与“无可执行spec”；后失败会像runtime fault。
+
+**D4：分离两execution model。** admission mode-specific对称：scripted必须operations[]、agent必须没有。要求不把一个model强加另一个，只验单向会允许静默scripted agent或永不能执行scripted文档。
+
+**D5：乱序拒还是核对？** 确定核对，(sequence,event_id)排序，duplicate event_id无操作，不高于last sequence以LATE_EVENT忽略，forward jump应用但记gap_before:true。验收late／duplicate确定幂等，非保证顺序，RF RPC／EVENT／STREAM会重排，拒是错误策略。gap为任何非恰下一sequence，包括首event：从5开始确有洞，隐藏误导审计。首测试发现初last_sequence>0 guard静默标中段起流clean，开发中改规则。
+
+**D6：终态不可变在哪里强制。** 在applyEvent／applyResult状态，不仅validator。well-formed可晚到，拒应记record TERMINAL_JOB_IS_FINAL而非异常，避免late stream像fault。同result幂等DUPLICATE_RESULT，不同result抛TERMINAL_JOB_IS_FINAL。
+
+**D7：progress与terminal。** partial事件需partial block／progress_percent；低于100不可terminal，只有100形状可带。这使部分输出不能终态成为数据属性非codepath。
+
+**D8：artifact provenance。** 必需block带device_ref／connector_ref、可选event_ref，job ref在envelope，digest真实sha256:<64 hex>。attach复制provenance，caller不能改记录；验收明确三来源。
+
+**D9：transport中立。** 拒unknown fields，transport:'RF_STREAM'验证错而非接受扩展。RF可carriage但不得取代canonical Engineering，strict shape强制非惯例。
+
+**D10：无schema.json。** runtime／protocol语义代码验，同BA002 D2、BA003 D2。
+
+**D11：PROCESS_DATA_POLICY evolution inbox。** 未用，同EM001 D13／EM002 D14及其他计划报告。
+
+## 3. 测试汇总
+
+9项全过：autonomous／interactive无operations可admit、scripted形拒；scripted无operations诚实拒、有则admit；envelope strict route／version／mode／risk／placement／unknown／nested target permissions／raw-secret；partial不terminal、100%可；batch duplicate／late／out-of-order含顺序独立与gap；terminal result final、幂等replay、result／event复活拒；result诚实success需acceptance、无failing tests、version／job ref匹配、honest failure接受；artifact必需provenance、digest、幂等duplicate、cross-job拒；公开guarantees及transport neutral。
+
+## 4. 本地检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 110项、110过、0败（101＋9） |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4上10条 |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败、7跳同baseline |
+| corepack pnpm check:docs | docs／evidence／data-records PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI36721305141，8c16cfc266a9869ace2c059f7959322282285663 | success，观察android成功、run结论completed/success；jobs endpoint间歇502，所以run conclusion为权威记录 |
+
+## 5. 兄弟任务集成接缝
+
+- EM001：JOB_SPEC／EVENT_SPEC／RESULT_SPEC／ARTIFACT_SPEC与其预留四Envelope合并核对，同baseline同家族两独立声明。
+- EM002：admitJob为提交job在runtime前门槛，applyEvent／applyResult为progress stream状态面。
+- EM005：BLOCKED活跃非终态，blocking attention不结束job。
+- EM010：pool重排／retry须保job_version／sequence／terminal规则。
+- EM013：jobSummary是control应显示审计projection，canonical truth留Shared Task Core而非此处。
+- RF：cross-device可wrap，但module拒transport字段，RF envelope不可静默成canonical Engineering，见D9。
+
+## 6. Correction主机／Owner开放项
+
+1. 尝试非显然shape使partial终态、新id事件重放复活、attach他job复制provenance。
+2. 确认D3 honest_blocker:true作为其他cannot-execute预期形。
+3. 确认D5从sequence5起流报gap。
+4. evolution-feed仍待Owner，D11。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+```
+
+原始结论保留开发完成、仅Alien纠正、Engineering Manager项目合并前禁止合并。

@@ -448,3 +448,8 @@ generic dashboard / topology / logs 单独属于 G2 supporting evidence；重点
 - required experiment/raw pointers。
 
 REX-890 必须生成 programme synthesis，归纳可直接用于论文的方法学、失败分类和 quantitative findings。
+
+
+---
+
+[English translation / 完整英文说明](./en/RESEARCH_EVIDENCE_PROTOCOL.md)

@@ -1,0 +1,65 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../HANDOVER_MECH_TO_ALIEN_FOR_REVIEW.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# DISPATCH — Mech 致 Alien：UXI-301 开发完成并释放 Review，Owner 裁定你有资格
+
+```text
+FROM = Mech   TO = Alien
+BRANCH = uxi/UXI-301-scheduler-status-into-product-ui
+HEAD   = 1c516b6   CI = 36972345821 success (android + gateway-web)
+RULING = Owner: Alien reviews UXI-301; the handoff seam deferral is accepted
+```
+
+记录释义：Mech致Alien；branch/head/两jobs成功CI如原块；Owner裁定Alien review，并接受handoff seam延后。
+
+## 领取前首先应知道的事
+
+你在claim-race记录称UXI-301 Review“不得是Alien”，且对称地不能reviewMech开发。此解释会留下 **零合格reviewer**，属于§5.2结构性无资格，是唯一可能让任务永远无法完成的事。因此我提交Owner而非自行决定，**Owner裁定由你review**。
+
+理由：§3只要求Development、Review **不同物理主机**。你尝试claim、**晚24秒并撤回**，未开发此任务，明文不取消资格。你自排除比规则严。这是Owner判断，已作出。
+
+## 其次：先声明未满足项
+
+**一gate具名延后，不声称通过。** 工作书要求remote handoff result返回当前界面，未能端到端产生，原因在 **City** 而非UI：
+
+```text
+four attempts; the fourth MEASURED it:
+  a batch of TEN tasks created in parallel, their device torn down IMMEDIATELY
+  -> ZERO of ten survived as assigned and in flight
+cause: the City has ONE task type, it completes effectively instantaneously, and the City
+       assigns and executes inside the node's claim, so a node cannot be HELD occupied
+consequence: "busy device + free alternate" never persists, so the planner is never asked the
+             routing question that reaches ALTERNATE_DEVICE
+counter-evidence that the gap is on the City side: the planner DOES return
+       withoutDecline=SWITCH_OFFERED and withDecline=ALTERNATE_DEVICE when given the condition
+```
+
+历史理由完整释义：四次尝试，第四次测量并发创建十tasks、立即拆掉设备，零任务保持assigned/in-flight；原归因City仅一种type、近乎立即完成，node claim内assign并执行，无法HOLD占用，因此busy device+free alternate不持续，planner无法被问到ALTERNATE_DEVICE；反证seam在City侧是给定条件时planner确实返回withoutDecline=SWITCH_OFFERED、withDecline=ALTERNATE_DEVICE。本读本保留该历史理由，不把后续纠正覆盖到旧记录。
+
+Owner接受延后至integration。§10允许具名记录真实跨设备seam，并明确 **deferred ≠ passed**；请视开放integration seam，不算coverage。失败记录及reproduction script已作为证据提交。
+
+## 已实际驱动的内容：便于review聚焦实质
+
+| 内容 | 驱动方式 | 证据 |
+|---|---|---|
+| Web E2E真实条件 | 真实gateway、node、browser；kill executor，经UI创建真实work，恢复executor | web-e2e.json 8/8 |
+| switch路径真实到backend | 在线页面点击selectable provider自身控件，回读backend | web-e2e.json |
+| Android真实验收 | 本head真实APK、真实设备image，kill executor，capture界面 | android-real-acceptance.json 8/8 |
+| 真并发、device busy、provider unavailable | 各自针对真实gateway/node单独驱动 | named-cases.json 11/11 |
+| switch offer+decline | 两真实nodes，offer到界面、decline记录真实user intent | route-stage-case.json 6/6 |
+| hosted CI | 本branch每head绿 | 1c516b6的run36972345821 |
+
+## 如果我review，会攻击什么
+
+§3要求独立找问题，若不了解代码，我优先看：
+
+1. **adapter vocabulary是副本**。serveWeb仅serve apps/web，浏览器无法import RS-290 contract，两界面各自表。JS表对contract断言；Kotlin表由 **解析Kotlin源** 的test断言。但两副本终究是两副本，只有parity tests维系。
+2. **ACTION_WIRING同表由renderer和dispatcher读取**。错则panel与click handler一起错，除coverage assertions外无test对contract action list比较。
+3. **CONFIRM因无route被render DISABLED**。有意且带说明，但UI不能兑现contract action，reviewer可合理认定不完整而非诚实。
+4. **producer capacity model从自身node计数排除task**。防止running task呈QUEUED，看似任意，直到看见所防失败；值得自行构建test。
+5. **上述remote-handoff seam**，应检查确实City限制而非尝试排列造成。十task测量是证据，应攻击测量。
+
+## 领取
+
+development_host Mech、development_complete true、review_host null，Review可由你领取。我未设置review_host，因为claim应由你做。

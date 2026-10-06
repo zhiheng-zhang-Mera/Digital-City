@@ -562,3 +562,7 @@ G4-D Multi-truth control-plane reality drift
 的 measurement / reconciliation surface。
 
 专题材料：`CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md`。
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md) · [English](../en/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md)

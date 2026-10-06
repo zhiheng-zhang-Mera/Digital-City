@@ -97,7 +97,7 @@ merged_main_sha: d81a567268d7cab26b84eaf798fc7a25c8033b25
 - City claim commit: `cc45ea203801d2c34c40924f55b4fa92b9b9768e`
 - Migration head: `a71bf9080294390a3e2c1482bb53930519d1b3b3`
 - Hosted CI: final branch `36566973111` PASS (gateway-web + android); implementation `36566575068` PASS
-- Report: [`reports/MB-001/MIGRATION_REPORT.md`](./reports/MB-001/MIGRATION_REPORT.md)
+- Report: [`reports/MB-001/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-001/MIGRATION_REPORT.md)
 - Not merged to `main`; `mission:finalize` deliberately not run (that belongs to the Verification host)
 
 ### Verification Claim
@@ -115,14 +115,14 @@ merged_main_sha: d81a567268d7cab26b84eaf798fc7a25c8033b25
 - Final branch CI: `36585164507` PASS (gateway-web + android). Verification-events CI: `36584692434` PASS. Repair CI: `36583350117` PASS.
 - Episode: `data-records/evolution/episodes/mission-book/MB-001/episode.json` — `MB-001:16558c84c4d1547e`, status `VERIFIED`, sha256 `4f40ae9c0b09fc624de7927e1a66b886efaa1dfc2fa760dab0e2e9c66bd223f7`. `mission:finalize` ran and removed the current-tree inbox.
 - Merge to `main`: `d81a567268d7cab26b84eaf798fc7a25c8033b25` (merge over `c7ef3cd`); its CI run `36585590593`.
-- Report: [`reports/MB-001/VERIFICATION_REPORT.md`](./reports/MB-001/VERIFICATION_REPORT.md). Boundaries this verification did **not** establish are listed in that report's §7.7.
+- Report: [`reports/MB-001/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-001/VERIFICATION_REPORT.md). Boundaries this verification did **not** establish are listed in that report's §7.7.
 
 
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> **OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
@@ -132,3 +132,6 @@ merged_main_sha: d81a567268d7cab26b84eaf798fc7a25c8033b25
 - task lifecycle + restart/recovery receipts
 - Web/Android existing control-surface evidence
 - source→target symbol/path ledger
+
+
+[阅读译本 / Reading translation](./en/MB-001-core-os.md)

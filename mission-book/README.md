@@ -12,22 +12,22 @@
 > 研究信号优先级：[RESEARCH_SIGNAL_WATCHLIST.yaml](./RESEARCH_SIGNAL_WATCHLIST.yaml)
 
 <!-- MISSION_PROGRESS:START -->
-## 全城项目总进度（自动同步）
+## 全城项目总进度 / Citywide progress (generated)
 
-> **GENERATED VIEW — 禁止手工修改本区块。** 权威来源是各工作书 frontmatter；
-> 总任务完成 = 已完成复检/验证/Correction 的完整工作书。历史项目的 Correction / Verification 统一折算为“复检”。
-> FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
-> 已完成 programme 不在主任务栏重复展示；统一收纳于 [finished/README.md](./finished/README.md)，但仍计入全城合计和 `MISSION_PROGRESS.json`。
+> **GENERATED VIEW — 禁止手工修改 / Do not hand-edit.** 工作书frontmatter为权威 / Workbook frontmatter is authoritative.
+> 总完成以复检/验证完成计 / Total completion means completed review, verification or correction; historical stages use the same definition.
+> FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
+> 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计：总任务 89/93 · 开发 89/93 · 复检 89/93**  
-**当前未收口项目池：总任务 19/23 · 开发 19/23 · 复检 19/23**
+**全城合计 / Overall: 总任务 / Tasks 89/93 · 开发 / Development 89/93 · 复检 / Review 89/93**
+**当前未收口池 / Active pool: 总任务 / Tasks 19/23 · 开发 / Development 19/23 · 复检 / Review 19/23**
 
-| 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
+| 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|
 | [Research Strengthening](./research-strengthening/README.md) | **5/8** | **5/8** | **5/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
-机器可读镜像：[MISSION_PROGRESS.json](./MISSION_PROGRESS.json)。
+机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
 <!-- MISSION_PROGRESS:END -->
 
 ## 暂停中的扩建迁移系列
@@ -75,18 +75,18 @@
 - [finished/completed-2026-10-01](./finished/completed-2026-10-01/)
 
 <!-- ACTIVE_WORKBOOKS:START -->
-## 当前未收口工作书（自动同步）
+## 当前未收口工作书 / Open workbooks (generated)
 
-> 只列仍未完成复检/验证的工作书；状态与阶段直接来自 frontmatter。
+> 列出未完成复检的工作书 / Lists workbooks without completed review; status and stages come directly from frontmatter.
 
-| ID | 项目 | 状态 | 开发 | 复检 |
+| ID | 项目 / Programme | 状态 / Status | 开发 / Development | 复检 / Review |
 |---|---|---|:---:|:---:|
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | IN_PROGRESS | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
 
-若此表与工作书冲突，以工作书 frontmatter 为准，并视为 homepage sync drift。
+冲突以工作书为准 / Workbook frontmatter prevails on disagreement; treat the difference as homepage sync drift.
 <!-- ACTIVE_WORKBOOKS:END -->
 
 ## 当前主机角色

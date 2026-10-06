@@ -135,3 +135,6 @@ command from here.
   the existing suites and by the recorded physical campaign, not by this pass.
 - F-S6's consequence is a misleading list, not data loss: this module never deletes a receipt. Stated because the
   reviewer's MON-903 version of the same class *did* delete.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/AUTHOR_THIRD_CLASS_SWEEP.md)

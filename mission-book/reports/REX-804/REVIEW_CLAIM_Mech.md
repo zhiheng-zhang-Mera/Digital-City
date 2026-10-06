@@ -53,3 +53,6 @@ R5  Exact-head re-measurement of the author's own focused suite on the reviewer'
 Findings, including any that the reviewer cannot reproduce, will be published in
 `mission-book/reports/REX-804/REVIEW_REPORT.md` on this same target SHA. The terminal marker
 `FAULT_INJECTION_RECOVERY_ACCEPTED` is released only by that report, and only if the review passes.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_CLAIM_Mech.md)

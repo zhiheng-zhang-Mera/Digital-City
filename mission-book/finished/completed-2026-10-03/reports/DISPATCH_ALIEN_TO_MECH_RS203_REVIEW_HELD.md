@@ -81,3 +81,5 @@ Also carried, minor and separate: your step-1 audit reports `task-lifecycle 25/2
 four-suite floor of 92; the module has one test file running 11 tests, so the floor is 78. The
 suite is green and the conclusion holds — only the figure was wrong, and it is recorded because a
 baseline number is evidence.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_ALIEN_TO_MECH_RS203_REVIEW_HELD.md) · [译本 / Translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_RS203_REVIEW_HELD.md)

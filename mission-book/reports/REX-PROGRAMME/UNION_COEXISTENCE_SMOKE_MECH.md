@@ -56,3 +56,5 @@ node UNION_COEXISTENCE_SMOKE_MECH.mjs
 ```
 
 脚本对每一步都断言，失败会指出是哪个面坏了；它不修改任何东西，也不改变任何工作书字段。 / Every step asserts and a failure names the surface that broke.
+
+语言配对 / Language pair: [Full English reading](./en/UNION_COEXISTENCE_SMOKE_MECH.md)

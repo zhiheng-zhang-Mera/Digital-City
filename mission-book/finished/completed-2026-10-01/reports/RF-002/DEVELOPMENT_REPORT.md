@@ -217,3 +217,7 @@ DEVELOPMENT_COMPLETE = true (branch CI 36717914252 green on both required jobs)
 CORRECTION_ELIGIBLE  = true (must be performed by Mech, not Alien)
 MERGE_STATUS         = FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

@@ -124,3 +124,5 @@ The live 4391 City runs exactly the code of the verified head. If Alien's scope 
 deployed revision, `D:\utopia-pr28` (branch `deploy/PR28-4391`) can be re-pointed with
 `scripts\stop-city.ps1` + `scripts\start-city.ps1 -BindAddress 172.31.12.151 -Port 4391`, and the same state directory
 keeps the City identity and its members.
+
+语言配对 / Language pair: [English](./ANDROID_REPAIR_VERIFICATION_Mech.md) · [中文](./zh-CN/ANDROID_REPAIR_VERIFICATION_Mech.md)

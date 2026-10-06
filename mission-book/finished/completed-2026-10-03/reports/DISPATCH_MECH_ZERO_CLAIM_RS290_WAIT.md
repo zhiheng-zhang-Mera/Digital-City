@@ -55,3 +55,8 @@ Two things, and neither was a product defect:
 Low-cost wait on the rotation, bounded re-scan, and an immediate re-scan on the event that unlocks
 work: **Alien recording `development_complete: true` on RS-290**, at which point Mech claims its
 Review.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

@@ -166,3 +166,8 @@ full      pnpm test                                              1404 pass / 3 f
 WBC 系列在 `DEFECT_RESEARCH_STORE_HARDENING.md` 里确立过一条规则：**修复必须在合并结果上测量，而不是在自己的旧 base 上**——对一个没人会运行的 commit 保持绿色不构成证据（该规则来自 B4，由 F-3 修复重发到当前 main 之上而落实）。本条前置测量是同一规则在集成方向上的推广： / The WBC programme established that a repair must be measured on the merge result, not on its own old base; a green branch against a commit nobody will run is not evidence. This preflight generalises that rule in the integration direction:
 
 > **一条 branch 单独能进 main，不构成“多条 branch 能一起进 main”的证据。** / A branch that merges cleanly on its own is not evidence that several branches merge cleanly together.
+
+
+---
+
+语言读本 / Reading translation: [English](en/INTEGRATION_PREFLIGHT.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

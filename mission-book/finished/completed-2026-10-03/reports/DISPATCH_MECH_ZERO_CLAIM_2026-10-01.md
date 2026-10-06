@@ -1,6 +1,6 @@
 # Host dispatch record — Mech zero-claim scan after UI-000 Development (2026-10-01)
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
 > 本记录是 §5 要求的零领取 telemetry 记录，**不是** task claim，也不是看板更新。
 > Host: `Mech`。扫描时点：`2026-10-01T11:20Z`。
 >
@@ -108,3 +108,5 @@ evidence/raw/mission-book/UI-000/            有界截图证据 + parity-report.
 
 进入低成本等待：事件优先（UI-000 Review 完成 / Owner 裁决 / 新 eligible claim），
 事件缺失时约 20 分钟兜底重扫。不 busy-poll，不为保持忙碌制造无价值提交（§9）。
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_ZERO_CLAIM_2026-10-01.md) · [译本 / Translation](./en/DISPATCH_MECH_ZERO_CLAIM_2026-10-01.md)

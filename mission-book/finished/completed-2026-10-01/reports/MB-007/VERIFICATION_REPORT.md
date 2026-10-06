@@ -277,7 +277,7 @@ Consequences, stated plainly:
 # APPENDIX — Repair step 1: Owner-override closeout (2026-09-30)
 
 This appendix is appended by the closeout repair required by
-[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)
+[`ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md`](../../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)
 §2. It closes the one gap §6.5 disclosed. **No part of the accepted implementation or
 verification was redone**, and the original blocker is preserved verbatim below.
 
@@ -358,3 +358,7 @@ implementation (which was already on `main` at `cb8e0bd`), because the repair is
 finalization possible at all. The equivalent guarantee was met: the repair branch head
 `f25cdb4` — which carries the finalizer changes **and** the generated episode — was run through
 the required CI and is green, and the merge commit on `main` is green too.
+
+## Language reading link / 语言阅读链接
+
+[完整阅读译文 / Complete reading translation](./zh-CN/VERIFICATION_REPORT.md)

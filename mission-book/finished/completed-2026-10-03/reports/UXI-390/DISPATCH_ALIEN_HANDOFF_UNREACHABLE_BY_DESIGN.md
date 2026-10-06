@@ -75,3 +75,6 @@ hosts, and the question of why `SWITCH_OFFERED` appears while `ALTERNATE_DEVICE`
 **Does not close:** the seam itself, which remains **NOT MET**; and the second Owner question already on
 record — the switch/no-switch decision path on the surfaces, where `switch-declined` exists on the backend and
 is called by **no surface**.
+
+
+[阅读译本 / Reading translation](./zh-CN/DISPATCH_ALIEN_HANDOFF_UNREACHABLE_BY_DESIGN.md)

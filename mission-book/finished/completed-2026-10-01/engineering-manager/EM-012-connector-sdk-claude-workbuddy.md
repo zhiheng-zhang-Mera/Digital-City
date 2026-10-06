@@ -90,3 +90,6 @@ This task participates in the normative global BA/RF/GAI/EM pool defined by `mis
 - Hosted CI, long local tests, provider checks and Remote Fabric waits never idle the machine. Keep the claim, use a separate worktree and claim another eligible global stage.
 - Missing Remote Fabric or optional provider software is represented with stable ports/doubles and an explicit deferred integration seam; component work does not wait.
 - A host stops claiming only after a fresh scan of BA/RF/GAI/EM finds no actionable owned repair, no eligible opposite-host Correction and no unclaimed Development.
+
+
+[阅读译本 / Reading translation](./zh-CN/EM-012-connector-sdk-claude-workbuddy.md)

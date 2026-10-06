@@ -68,3 +68,31 @@ Metadata consistency is within a target variant. A venue-specific title/abstract
 ## Status projections / 状态投影
 
 City receives bounded candidate/target/stage/blocker/decision/evidence pointers, not the full source corpus. Dashboard, Essay-Book and publication registry reference the same package identity. An exported copy is not a second mutable canonical manuscript. / 展示层不会创造第二份论文状态真相。
+
+## 中文完整说明 / Complete Chinese explanation
+
+仅设计契约。机器ID跨语言稳定，展示说明含 zh-CN/en，不分叉状态。原文各代码块字段名是共同机器契约。
+
+### 候选
+
+必填字段覆盖身份家族schema、现象问题选题时间、来源证据类、覆盖单位任务尝试数、缺失排除结果分布、替代解释最近工作检索回执、探索确认方法限制、候选/不支持主张重叠、Owner选择回执、阶段阻塞下一步。未知计数可带理由，不能为类型填零。选题前回执可缺，但缺失阻止开稿；截图叙述先分类，不能强转独立测量。
+
+### 冻结
+
+字段覆盖冻结/前版时间语料截止、manifest摘要、准入不可用引用、实现和存储提交/环境、选择去重版本纳排账本、normalizer、权限保留、分析方案及选择时间/是否见发现数据、代码依赖随机种子、人工决定限制纠正扩展理由。语料锁事实、分析锁变换、论点锁解释、渲染锁稿件、政策锁规则；一个Git分支不等于五锁。
+
+### 论点
+
+字段含ID版本陈述类型总体范围、支持反证分析、假设不确定限制状态、允许复用角色、稿件位置、评审finding。类型区分观察事实、关联、因果推断、提议设计、未来计划、文献支持。SUPPORTED_WITHIN_SCOPE、UNRESOLVED、REFUTED、WITHDRAWN 不互换。直接/佐证/诊断/反证角色相对目标，属于拟检查，不是已证运行行为。
+
+### 分析回执
+
+每输出记录输入manifest、方法代码环境、执行身份、退出结果、文件摘要、实际警告验证。中心数字图表须分析或明确观察来源，不由写作者直接生成。
+
+### 投稿包
+
+字段覆盖包家族variant目标阶段修订、冻结分析论点图IR摘要、profile版本政策回执、文件角色大小摘要门户字段、匿名及source/PDF一致报告、声明确认权限、科学评审政策finding未解决必需键、预算授权发布批准、尝试ID外部回执真实交付状态。元数据在同一目标版本一致；标题摘要允许专项重写，但科学边界和PDF/source/门户同步。影响已批准外部动作的变化需相关批准失效并重新确认。
+
+### 投影
+
+City 仅接收有界候选目标阶段阻塞决定证据指针，不接原语料。仪表盘Essay-Book投稿登记引用同包身份；导出副本不是第二可变正文权威，展示不创造状态真相。

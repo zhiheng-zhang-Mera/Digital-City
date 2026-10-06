@@ -124,3 +124,8 @@ SUPERSEDED
 ## 完成门槛
 
 每个季度候选都有唯一 destination / defer reason / rejection reason；没有 ownerless evolution proposal。
+
+
+---
+
+语言读本 / Reading translation: [English](en/CHK-401-evolution-candidate-triage-routing.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

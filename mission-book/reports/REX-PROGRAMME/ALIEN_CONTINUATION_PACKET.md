@@ -118,6 +118,12 @@ on the joining host   CITY_URL=http://<city-host>:4310 node scripts/join-worker.
 This does not close the REX-803 completion gate and is not recorded as if it did: the gate still needs that node live and
 a campaign run on the three-end topology. It does mean nothing but one command and one short code now stands in the way.
 
+REX-804 head; an adoption decision on either open repair branch; or a fresh Owner instruction that opens new work for
+  Mech.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/ALIEN_CONTINUATION_PACKET.md)
+
 ## REX-803's physical gate is MET - the verdict is now yours alone
 
 Owner-directed acceptance run, 2026-10-06T08:01Z. The resident City was updated to `8798ba9` (your REX-803 review

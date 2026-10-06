@@ -330,3 +330,7 @@ Events recorded (all `MIGRATION` / `Mech`): `MISSION_CLAIMED`, `CHANGE_APPLIED`,
    green run.
 4. **No global apply crept in.** `globalApply: false` and `globalThemeApply: false`
    appear in the receipts; confirm the code path did not gain one anywhere.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/MIGRATION_REPORT.md)

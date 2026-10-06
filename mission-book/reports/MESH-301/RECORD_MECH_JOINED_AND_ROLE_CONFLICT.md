@@ -100,3 +100,6 @@ note  = Alien's drafting task was revised by a third party, so it is allowed to 
 reported a conflict, refused to resolve it by force, and the Owner then removed it. A record that only showed
 the final state would hide the part where declining to force the claim was what kept both hosts' work intact.
 
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_JOINED_AND_ROLE_CONFLICT.md)

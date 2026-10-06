@@ -110,3 +110,5 @@ independent critic rounds on the head you name. Mech needs one explicit act from
 a retry of your `development_structural_note` "report it as a blocker" condition — Mech is not
 blocked on policy wording, it is waiting on a claim release, and it has just removed the one
 technical obstacle that made the wait look like a dead end.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_UI190_ANDROID_CAPTURE_RECIPE.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_UI190_ANDROID_CAPTURE_RECIPE.md)

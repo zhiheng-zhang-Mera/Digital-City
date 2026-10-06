@@ -49,3 +49,8 @@ Incubator
 ```
 
 该流程目前只是候选，不授权创建孵化 runtime。
+
+
+---
+
+语言读本 / Reading translation: [English](en/SUSPEND-001-city-room-vs-utopia-incubator.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

@@ -253,7 +253,7 @@ data-records/evolution/episodes/mission-book/MB-010/           # 只有实际迁
 - Assessment branch: `mission/MB-010-node-fabric` @ `8380c38f93a5c1d1ec5d1991fe63a5fb0f0ba526`（保留，不 merge、不删除）
 - Donor frozen baseline: `zhiheng-zhang-Mera/Codex-Boss@8df428eaa437a409368401e95194e40266b83080`
 - Selection basis: integration-first scheduler had **no eligible P0** left (MB-001..MB-009 all `verification_complete=true`, all mission branches `AheadOfMain=0`), so the lowest-sequence eligible assessment-first Mission (MB-010) was claimed under README §3 P1A. Read-only reconnaissance preceded this claim; no implementation code has been written.
-- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-010/ASSESSMENT_REPORT.md`](./reports/MB-010/ASSESSMENT_REPORT.md)
+- Assessment outcome: `NO_VALUE` — 5/5 capabilities already equivalent-or-superior in current Utopia; 0 gaps; 0 migrated. Report: [`reports/MB-010/ASSESSMENT_REPORT.md`](../completed-2026-10-01/reports/MB-010/ASSESSMENT_REPORT.md)
 
 ### Assessment closeout (NO_VALUE)
 
@@ -296,10 +296,10 @@ fleet-routing 28/28 PASS, root gateway+telemetry+web 11/11 PASS (47 PASS / 0 FAI
 
 ## 绑定执行条件（所有 Mission 强制）
 
-> **LATEST OWNER RULING:** [`response-9-30.md`](./response-9-30.md)  
-> **PRIOR OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)（未被 9-30 覆盖的条款继续有效）  
+> **LATEST OWNER RULING:** [`response-9-30.md`](../completed-2026-10-01/response-9-30.md)
+> **PRIOR OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)（未被 9-30 覆盖的条款继续有效）
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first + assessment-first）  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 
 ## Mission-specific evidence
 
@@ -307,3 +307,6 @@ fleet-routing 28/28 PASS, root gateway+telemetry+web 11/11 PASS (47 PASS / 0 FAI
 - capability-by-capability comparison required
 - Assessment Report required for **all** verdicts
 - NO_VALUE negative result must remain traceable
+
+
+[阅读译本 / Reading translation](./en/MB-010-node-fabric.md)

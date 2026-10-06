@@ -125,3 +125,7 @@ Two further corrections to keep, both of which caused wasted cycles:
     Matching only `emulator` / `qemu-system-x86_64` leaves the real process alive; the
     next boot then dies with *"Running multiple emulators with the same AVD"* while
     `adb emu kill` appears to have succeeded. Kill by `qemu-system-x86_64*`.
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./zh-CN/E2E_VERIFICATION_NOTES.md)

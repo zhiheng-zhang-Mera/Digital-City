@@ -18,3 +18,5 @@ Controlled actual Gateway HTTP comparison against separate accepted baseline0e9b
 City ownership PRIMARY/MEMBER is separate from execution capability roles. This correction does not appoint or migrate a primary City agent. User-requested future City agent selection remains independently tracked CITY-ROLE-20261005.
 
 Final Formal PASS/terminal marker withheld until exact final CI and Capability Registry reconciliation. merge_authority=false.
+
+语言配对 / Language pair: [English](./REVIEW_FINDINGS.md) · [中文](./zh-CN/REVIEW_FINDINGS.md)

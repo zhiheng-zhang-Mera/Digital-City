@@ -42,8 +42,8 @@ terminal_marker: REMOTE_HANDOFF_CLOSEOUT_REPAIRED
 
 # UXI-391 — Remote Handoff 收尾修复与合并回接
 
-> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> **常驻施工规则：** [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **过程数据规则：** [../PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)
 > README 仅为监控看板，不是施工规范或 claim lock。
 
 ## 目标
@@ -380,3 +380,6 @@ City 只保存控制面报告、结论、SHA/CI 指针与最小必要文本证�
 
 1. **Development 单机优先，Review/最终物理验收双机；禁止为了“并发”人为拆出两个同时修改 handoff 核心的开发分支。**
 2. **终态后的 merge-workbook 自动回接是 completion gate，不是可选建议。**
+
+
+[阅读译本 / Reading translation](./en/UXI-391-Remote-Handoff收尾修复与合并回接.md)

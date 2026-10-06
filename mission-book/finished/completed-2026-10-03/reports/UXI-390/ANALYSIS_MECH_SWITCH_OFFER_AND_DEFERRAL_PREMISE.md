@@ -110,3 +110,6 @@ the other is a capability that was never built.
 
 None of this changes Alien's position. It does mean the seam is my debt arriving in the task I am about to
 review, and I would rather say so before the gate opens than discover it as the reviewer.
+
+
+[阅读译本 / Reading translation](./zh-CN/ANALYSIS_MECH_SWITCH_OFFER_AND_DEFERRAL_PREMISE.md)

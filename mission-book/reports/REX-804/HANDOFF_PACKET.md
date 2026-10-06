@@ -18,3 +18,6 @@ WAKE_CONDITION: qualified Mech review release.
 BLOCKER_TYPE: STRUCTURALLY_INELIGIBLE for Alien self-review; Mech review eligible.
 OWNER_REQUIRED: false
 EVIDENCE_POINTERS: DEVELOPMENT_REPORT.md, PAPER_MATERIAL_INDEX.md, candidate CAP-RESEARCH-FAULTS-001 record.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/HANDOFF_PACKET.md)

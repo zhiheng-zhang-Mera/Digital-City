@@ -1,0 +1,99 @@
+# EM-005 开发报告：Attention桥与最近设备通知／响铃
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = EM-005 (Engineering Manager programme, task 5 of 13)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 53829ae (Digital-City main, "claim(EM-005): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T13:55:55Z
+CONTROL_REVISION_AT_CLAIM= 69a2fe2 (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = engineering-manager/EM-005-attention-recent-device-alerts
+IMPLEMENTATION_HEAD_SHA  = adf0cf5e6bd17b5f1e4dba29a5f04d51743146f5
+BRANCH_CI                = 36725729360 — success
+LOCAL_CHECK_SUMMARY      = 111/111 tests pass, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据保留任务、主机、领取／控制版本、仓库、基线、分支／SHA、CI、111项检查、开发完成与禁止组件合并状态。
+
+## 1. 交付物
+
+contracts/engineering-attention-v1/ 含attention.mjs（envelope与验证、最近设备排序、声音策略、桥的open／deliver／acknowledge／withdraw／respond／查询）、index.mjs、10项套件与根tests/engineering-attention.test.mjs。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 多projection仍一attention_id一个逻辑问题 | 一个ID无论projection多少只一个问题 |
+| 当前交互设备合格在线则始终包含 | 当前设备总携可操作projection；不合格CURRENT_DEVICE_NOT_ELIGIBLE，绝不静默移投 |
+| 仅配置的最近2–3合格设备收辅助alert | 构造和排序都强制2–3范围 |
+
+计划其余硬规则逐项测试：按用户交互最近程度排序；首个有效确认全局胜出；重连／刷新／重试／heartbeat投递去重；抑声保通知；信息事件默认不铃；任何设备回答均路由原连接器。
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取任务。** 新扫描无自己修复、无另一主机合格Correction（Alien正纠GAI-002），进未领取Development。EM池最大、另一主机未在其中、不同于自己上次RF，且承担三硬不变量之一，选择EM-005。
+
+**D2：桥是否拥有通知状态。** envelope＋projections存桥中建模共享Attention projection；契约不拥有Engineering专属通知数据库，envelope带canonical attention_id／job_ref／connector_ref，使canonical Attention仍是fan-out来源。工作簿禁第二全局store，记录作为一个问题projection才能由logicalQuestions()检查“一ID一问题”。
+
+**D3：recent依据。** 选uptime／heartbeat age／真实user interaction recency，选第三；排offline／ineligible，平局device ref。要求最近用户操作，在线数月server非用户触设备，heartbeat是活性非attention。测试故意server最新heartbeat、phone最旧，phone仍胜。
+
+**D4：可操作副本位置。** 恰一ACTIONABLE，始终当前交互设备；辅助NOTIFY／RING。当前offline／ineligible类型拒绝，不静默移投。用户须在正在看的位置回答，静默移动问题会隐藏设备掉线。
+
+**D5：声音与可见性。** ringing／notification_visible独立；quiet／full-screen／protected使ringing:false、sound_suppressed:true但通知可见；blocking:false信息事件仅策略opt-in才铃。要求抑声不丢通知，单notified旗标无法表达。
+
+**D6：去重与delivery epoch。** 每projection带delivery_epoch，deliver每(device,epoch)记一次；后续同epoch都ALREADY_DELIVERED、ringing:false，无论重连、刷新、连接器重试、heartbeat。确认后所有投递按status拒。工作簿列四原因，统一幂等投递才能均不变第二次铃。
+
+**D7：谁能回答。** 任一被投影设备可确认，可操作设备无特权；首确认全局关闭问题，其余projection撤为ANSWERED_ELSEWHERE，不再可操作／可见。用户可直接回答响铃手机，不必走回交互设备。
+
+**D8：响应路由。** respond返回job_ref／connector_ref／answered_by_device_ref／routed_to_connector:true；第二响应或未确认设备响应被拒。回答须无论设备都到原连接器；重复回答是连接器从未请求的第二决定。
+
+**D9：时间处理。** 调用者可传毫秒或ISO，记录一律ISO，其他类型拒。测试发现桥逐字回显输入，at可能数字而created_at是ISO；统一atOf使审计同质。
+
+**D10：无schema.json。** 与BA002 D2、BA003 D2、EM003 D10、EM004 D9、GAI002 D9一致。
+
+## 3. 测试汇总
+
+10项全过：一ID一问题、重开为重投；仅当前可操作及不合格拒；构造／排序2–3界；旧heartbeat phone胜新server、offline／ineligible排除、确定平局；首确认胜、全局撤、重复答；响应路由、重复／未投影拒；四原因去重与确认后拒；quiet／full-screen／protected抑声保通知；信息默认不铃、opt-in才铃；withdraw、envelope严格kind／version／blocking类型／instant／unknown／空question及逐device projection查询。
+
+如实记录三开发问题：（1）open预标全部delivered，使首次实际投递如重复，改由deliver负责；（2）原样回显时间混数字／ISO，atOf修；（3）自己两预期错，时间类型与假定四设备都quiet的断言，确认模块行为正确后纠正。
+
+## 4. 本地检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 111项、111过、0败（101＋10） |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4上10条 |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败 |
+| corepack pnpm check:docs | PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI36725729360，adf0cf5e6bd17b5f1e4dba29a5f04d51743146f5 | success |
+
+## 5. 兄弟任务集成接缝
+
+- EM001：合并时AttentionEnvelope与projection绑其AttentionEnvelope和同名状态；projection词汇ACTIONABLE／NOTIFY／RING。
+- EM003：BLOCKED job自然产生attention；job终态withdraw关闭。
+- EM004：usability().blockers给question text；不可用是询问理由，不是替用户答理由。
+- EM007：远程worker permission／question经桥返回，因此答路由connector非device。
+- RF009：online／last_interacted_at须canonical presence与真实交互，非模块启发式；此契约只消费输入。
+- Web／Android：projectionsFor(deviceRef)查展示／可铃，acknowledge是唯一关闭方法。
+
+## 6. Correction主机／Owner开放项
+
+1. 尝试同epoch两铃（确认后投、同设备第二projection、同ID不同question重开）、未投影／offline答、违策略信息铃。
+2. 确认D7任一投影设备可答和D3平局规则。
+3. 确认recentDeviceCount默认3还是2；目前3且强制范围。
+4. evolution-feed仍待Owner。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+```
+
+原始结论开发完成、仅Alien纠正、Engineering Manager项目合并前禁止合并。

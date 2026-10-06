@@ -1,6 +1,6 @@
 # JOIN-503 — Author's repair record for review findings D-1 / D-2
 
-> Workbook: [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
+> Workbook: [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
 > Reviewer's report: [REVIEW_REPORT.md](./REVIEW_REPORT.md) (Mech, opposite physical host)
 > Reviewed head: `ede6fa22e0165156aadcf3cbd6ba748b6f2b39d7`
 > **Repair head: `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f`**, branch `join/JOIN-503-device-enrollment-and-tokenless-reconnect`
@@ -93,3 +93,5 @@ Receipt: `.runtime/evidence/join-final-test/receipt.json` (git-ignored, local); 
 3. Merge/integration remains out of scope here: `mission-book/connection-onboarding/README.md` section 5 forbids
    the phase integration workbook until all three JOIN tasks carry opposite-host reviews, and JOIN-502 is still
    waiting for a review this host cannot give.
+
+语言配对 / Language pair: [原文 / Source](./REPAIR_D1_D2.md) · [译本 / Translation](./zh-CN/REPAIR_D1_D2.md)

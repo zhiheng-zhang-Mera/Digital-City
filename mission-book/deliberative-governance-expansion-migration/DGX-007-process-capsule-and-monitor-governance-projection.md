@@ -97,3 +97,5 @@ Problem Graph 可以在 Monitor 中投影为 DAG，但其节点状态不得覆�
 ## 完成门槛
 
 至少一个无冲突案例和一个有冲突/仲裁案例能生成准确 Process Capsule，并能从 L0 追到 exact evidence；Owner 不需要阅读隐藏推理即可理解“怎么拆、谁做、为什么、证据是什么、哪里不确定”。
+
+语言配对 / Language pair: [English reading](./en/DGX-007-process-capsule-and-monitor-governance-projection.md)

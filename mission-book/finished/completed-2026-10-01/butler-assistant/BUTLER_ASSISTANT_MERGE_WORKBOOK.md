@@ -112,3 +112,5 @@ deliberately left unedited as contemporaneous evidence; current merge truth live
 MERGE_STATUS = COMPLETE
 BUTLER_ASSISTANT_MERGED_MAIN_CI_GREEN
 ```
+
+语言配对 / Language pair: [English](./BUTLER_ASSISTANT_MERGE_WORKBOOK.md) · [中文](./zh-CN/BUTLER_ASSISTANT_MERGE_WORKBOOK.md)

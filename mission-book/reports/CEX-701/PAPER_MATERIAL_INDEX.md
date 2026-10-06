@@ -37,3 +37,4 @@ Findings, none blocking. F1 LOW control plane: fourteen template fields were abs
 
 Regression: 196 tests across the related gateway/host/device/enrollment/identity set, 193 pass and 3 fail, the three being the known environmental host-city-launcher cases that refuse to disturb a resident City. Connected/native Android recovery remains NOT_RUN and intent validation remains NOT_TESTED; no performance or user-path measurement is claimed. Terminal marker DEVICE_RECOVERY_ENTRY_ACCEPTED released. See REVIEW_REPORT.md.
 
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

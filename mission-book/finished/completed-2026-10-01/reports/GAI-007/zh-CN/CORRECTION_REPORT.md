@@ -1,0 +1,84 @@
+# GAI-007 纠正报告：设备感知远程执行与结果返回
+
+[English authoritative source / 英文权威原稿](../CORRECTION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION              = GAI-007 (General AI Gateway programme, task 7 of 9)
+PROGRAMME            = GENERAL_AI_GATEWAY_ENGINEERING
+STAGE                = CORRECTION
+CORRECTION_HOST      = Alien
+DEVELOPMENT_HOST     = Mech
+CONTROL_BOOK         = Digital-City/mission-book/general-ai-gateway/GAI-007-device-aware-remote-execution.md
+CLAIM_COMMIT         = e6af91c (Digital-City main, claim of GAI-007 Correction by Alien)
+CLAIMED_AT           = 2026-10-01T01:23:05Z
+COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DEVELOPMENT_HEAD     = 99858b90e1470e7401d8ffd9cf52ade37d2c4381
+DEVELOPMENT_CI       = 36743516874-success
+CORRECTION_BRANCH    = general-ai/GAI-007-device-aware-remote-execution
+CORRECTION_HEAD_SHA  = a4791b0f3f0cc4e2379ecea205a68ef229eb844a
+BRANCH_CI            = 36801575502-gateway-web-success-android-success
+LOCAL_CHECK_SUMMARY  = GAI-007 19 pass (7 author + 12 Alien regressions), root/rooms/city/promotion/bilingual all pass
+MERGE                = NOT PERFORMED (forbidden for component branches)
+CORRECTION_COMPLETE  = true (hosted CI green on the exact pushed head)
+```
+
+原始元数据逐字保留任务、计划、主机、控制书、领取、基线、两阶段 SHA／CI、19 项通过、禁止组件合并与精确推送 head 的托管 CI 完成依据。
+
+## 1. 托管 CI
+
+```text
+development head   99858b9 (Mech)   run 36743516874   success 2026-09-30T16:20:49Z
+corrected head     a4791b0 (Alien)  run 36801575502   success
+```
+
+纠正 head 在 GitHub 托管 runner 执行真实工作流步骤。该 head 的绿色托管 CI 加 19 项套件（其中 12 项在 Development head 失败）构成完成证据。
+
+## 2. 独立审查方法
+
+1. 以 `git archive` 导出 Development head，全部四个 task blob 对照 Git 对象核验，位置 `D:\A-Utopia\.runtime\evidence\mission-book\GAI-007\frozen-99858b9\`。
+2. 独立对抗审查者**只**获得冻结导出，先读任务工作簿，每项声明须可运行探针 `p1`–`p4` 复现。面对作者 **7 项全过**套件，它报告 11 项实质发现。
+3. 自己独立发现 7 种机制，**按机制**合并为两轮修复 16 项。四个重叠发现——调度时健康重验证、attention 使终态退出、调用者控制策略、未验时间——确认首轮；七种新机制第二轮修复。
+4. 每个修复锚定一个 Development head 失败的回归：`99858b9` **7 过／12 败**，`a4791b0` **19 过／0 败**。
+
+## 3. 发现并修复的缺陷
+
+| # | 机制 | 根因 | 修复 |
+|---|---|---|---|
+| 1 | **V1 设备切换确认实际可由调用者开关。** `policy: { v1_confirmation_required: false }` 关闭要求，`'yes'`／`1` 等非布尔也静默关闭，无确认仍调度远程 | 检查 `config.v1_confirmation_required === true`，策略未验合并 | 策略必须 true，V1 要求确认；dispatch 对 REMOTE_DEVICE 硬编码门槛 |
+| 2 | **live action_id 绕两个确认门槛。** 去重先短路，持任意 live ID 可从被拒 proposal 得完整状态而非 PROPOSAL_NOT_CONFIRMED，并读取另一 proposal 的 final_ref | 去重在门槛前且未绑 proposal | 门槛先跑，仅 proposal 与 action 引用均匹配吸收重复，否则 DUPLICATE_DISPATCH |
+| 3 | **拒绝调度仍记为调度**（原文 `acceptance acceptance`）：丢弃端口 accepted:false，创建 dispatched:true／actions_created_on_execution_host:1 | 仅读 receipt_ref | 必须 accepted receipt，否则类型拒绝且不创建 action |
+| 4 | **可合成终态成功。** 无 payload_ref 的 FINAL 报 SUCCEEDED，router 从 event ref 铸 final_ref | `payload_ref ?? event.event_ref` | FINAL 须命名返回结果，否则 INVALID_REQUEST，绝不伪造 |
+| 5 | **已取消／完成 action 可被 raiseAttention 退出终态**，晚 FINAL 绕 recordEvent 终态防护，把取消报 SUCCEEDED | 无终态防护设置 AWAITING_USER | 已结束 action 的 attention 拒 LATE_EVENT_AFTER_TERMINAL，终态事实保留 |
+| 6 | **硬件认证路径未创建 action。** attention 名 action_id 无法 statusFor 解析，重复 dispatch 再铸 attention | 早返回在 actions.set 前 | 注册带 attention 的 AWAITING_USER action，使待决可寻址且无执行 |
+| 7 | **被拒取消仍报已取消。** 端口无 cancel 或执行者 accepted:false 仍设 CANCELLED | 构造取消忽略端口结果 | 要 accepted receipt，否则类型拒绝、action 仍 live |
+| 8 | **声明取消策略从未读取。** cancel_authorized_states 公开但决策只查 viewer 列表 | 未消费 config 字段 | 状态不在策略数组则拒取消 |
+| 9 | **向 stale／offline endpoint 调度。** 重列 endpoint 只比 endpoint_ref／device_ref，不查 presence／freshness／Web readiness／load | 资格谓词只用于排序 | 调度重评分，不再健康拒 NO_HEALTHY_ENDPOINT 并给排除原因 |
+| 10 | **所有调用者时间未验，共享检查仅形状。** garbage／不可能日期存入 dispatched_at／confirmed_at／cancelled_at，不可能 cleanup_by 存策略 | 六入口 when??now，正则验时 | 全部用 callerInstant／isRealInstant，包括时钟和暂存清理期限 |
+| 11 | **调用者可控健康上限。** max_freshness_ms Infinity／NaN 使全 fresh，max_load 可大于1，非数权重污染分数 | 策略未验合并 | 正有限上限、max_load 在(0,1]、非负有限权重、canonical states 数组 |
+| 12 | **省 seq 时精确重放应用两次。** 排序检查仅 opt-in | seq非null才检查 | 与最后事件 kind／payload／text 相同则 applied:false、duplicate:true |
+| 13 | **非布尔要求跳过排除。** requires_local_input:1／requires_session:'true' 当 false，不适 endpoint 仍合格 | 对输入 ===true | 给定旗标必须布尔 |
+| 14 | **非文本引用可让 freezer 无类型 RangeError 或 raw 存储。** user_ref／payload_ref／text／reason 无规则 | 无访问集递归且无类型检查 | 验文本、共用 freezer 防循环 |
+| 15 | **isPlainObject 接受异类对象。** class 实例过端口／策略／bundle | 仅typeof／Array.isArray | canonical record 须 object 或 null 原型 |
+| 16 | 暂存输入和结果引用无类型规则存储，不可能 cleanup_by 被接受 | 暂存时间仅形状验证 | 清理期限真实时间，暂存快照携验证值 |
+
+## 4. 本地测试汇总
+
+```text
+corrected module  19 tests / 19 pass /  0 fail
+development head  19 tests /  7 pass / 12 fail   ← the Alien regressions are the difference
+root / rooms / city / promotion-history / bilingual   all green (exit 0)
+```
+
+修复 19/19，开发 7 过／12 败，差异为 Alien 回归；根／rooms／city／promotion-history／双语 exit 0。
+
+证据位于 `D:\A-Utopia\.runtime\evidence\mission-book\GAI-007\`：字节核验 `frozen-99858b9/`、未修模块上修复套件 12 次失败的 `pre-fix-check/`、两轮锚保护 `patch-remote-execution.mjs` 和 `-2.mjs`、审查者 p1–p4 的 `probes/`、`author-after-patch*.log`、`prefix-test.log`、`postfix-test.log`、`gate-*.log`、`ci-*.log`。
+
+## 5. Owner 边界与契约问题（记录，不静默改变）
+
+1. **INVALID_PROPOSAL 仍从不抛出**，DUPLICATE_DISPATCH 现在会抛。格式错 proposal 以 INVALID_REQUEST 拒绝，一个声明码仍未用；记录而不赋其他含义。
+2. **远程调度前不重查本地健康。** 提议确认后交互设备恢复健康，仍远程调度。工作簿“当前设备 Web 健康则优先”可能只约束排序，因此是契约问题而非修复。
+3. **interaction_device_ref 任何地方都不变更**，这是模块核心不变量，已验证而未改变。
+
+列表没有已知错误行为故意留下：各项是刻意保留给 Owner 的契约问题或未用词汇。

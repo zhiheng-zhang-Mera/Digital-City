@@ -50,6 +50,8 @@ report_path: null
 
 # XX-000 — 工作书标题
 
+[English explanation / 完整英文说明](./en/MISSION_TEMPLATE.md)
+
 > **常驻施工规则：** [CONSTRUCTION_RULES.md](./CONSTRUCTION_RULES.md)  
 > **过程数据规则：** [PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
 > README 仅为监控看板，不是施工规范或 claim lock。

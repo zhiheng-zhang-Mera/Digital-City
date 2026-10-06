@@ -41,3 +41,28 @@
 - `COMPLETE` programme 自动从 Mission Book 主任务栏隐藏，避免当前施工面被历史项目占满。
 - 历史工作书、验收记录和 exact-SHA 证据仍保留；收起只改变展示，不改变事实来源。
 - 若 programme 的 canonical 工作书因历史链接、报告引用或 Git 追踪需要保留在原路径，可通过本目录的 archive ledger 登记，而不强制物理搬迁。
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **816**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| completed-2026-10-01 | 455 | [打开 / Open](completed-2026-10-01/README.md) |
+| completed-2026-10-03 | 309 | [打开 / Open](completed-2026-10-03/README.md) |
+| completed-2026-10-04 | 14 | [打开 / Open](completed-2026-10-04/README.md) |
+| completed-2026-10-06 | 2 | [打开 / Open](completed-2026-10-06/README.md) |
+| en | 1 | [打开 / Open](en/README.md) |
+| replant | 33 | [打开 / Open](replant/README.md) |
+
+### 本目录说明 / Local documents
+
+- [READING_TRANSLATION_PROVENANCE.md](READING_TRANSLATION_PROVENANCE.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->
+
+
+[阅读译本 / Reading translation](./en/README.md)

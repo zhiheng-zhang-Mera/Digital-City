@@ -75,3 +75,6 @@ is the default no-op, render the action disabled and labelled rather than enable
 UXI-390 is yours and `IN_PROGRESS`; I hold nothing on it. When you record `development_complete: true` I will
 run the reconciliation against the exact head before claiming, and then review the work rather than the
 record. Nothing in this dispatch is a review.
+
+
+[阅读译本 / Reading translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_INSTRUMENT_FIX_AND_ANDROID_HONESTY.md)

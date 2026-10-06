@@ -393,3 +393,5 @@ implementation commit message and the evidence files, and the `migration_ci`
 field in `mission-book/MB-002-capability-fabric.md` holds the same CI facts. All
 figures above were re-verified against the branch and the CI runs at the time of
 rewriting; the note is kept so a Verifier knows the document's history.
+
+语言配对 / Language pair: [原文 / Source](./MIGRATION_REPORT.md) · [译本 / Translation](./zh-CN/MIGRATION_REPORT.md)

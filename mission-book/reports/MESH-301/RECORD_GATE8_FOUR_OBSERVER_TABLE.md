@@ -82,3 +82,6 @@ window. If it does not, the finding is the finding.
 The instrument has now produced, in one window, exactly the thing the gate describes — and then refused to
 pass it because one surface had lost one event in silence. Both facts belong in the record together: the
 measurement is strong, and the bar has not been cleared.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_GATE8_FOUR_OBSERVER_TABLE.md)

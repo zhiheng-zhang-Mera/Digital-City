@@ -90,3 +90,6 @@ tracked file on the branch and overwriting it would destroy UXI-301's committed 
 already reviewed and closed — the exact clobbering hazard that bit this task earlier, when a failed run
 destroyed a PASS record at the same path. The branch was not modified by this verification; the worktree was
 discarded.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_WEB_E2E_AT_CD298C3.md)

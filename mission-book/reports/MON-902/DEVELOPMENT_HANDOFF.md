@@ -124,3 +124,5 @@ EARLIER HEADS          6bb19f3e... push 37290149947 success
                        fd70d008... push 37403423102 success (flake repair)
 LOCAL at the target    62 tests across MON-902 + MON-901 + REX-801 + REX-802 + WBC-604 suites; browser 2/2
 ```
+
+语言配对 / Language pair: [English](./DEVELOPMENT_HANDOFF.md) · [中文](./zh-CN/DEVELOPMENT_HANDOFF.md)

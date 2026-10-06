@@ -305,3 +305,7 @@ D6 a retired record keeps the quarantine evidence it already had
 D7 macPairingEvidence answers an unhelpful input shape with a declared refusal, not a TypeError
 D8 no evolution-feed event (schema pins MB- ids; contracts/** frozen for this task)
 ```
+
+## Language reading link / 语言阅读链接
+
+[完整阅读译文 / Complete reading translation](./zh-CN/CORRECTION_REPORT.md)

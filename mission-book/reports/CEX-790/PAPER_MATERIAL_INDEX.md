@@ -23,3 +23,5 @@ describe it. No performance or novelty conclusion is drawn from performing an au
   `intent_validation_status: NOT_TESTED`; no user surface was driven, and no device was used, by CEX-790.
 - Chronology: the union baseline is not `main`, none of the five dependency heads is merged, and no workbook grants
   merge authority. `CAPABILITY_ENTRY_BASELINE_AUDITED` is a review outcome and remains unreleased by development.
+
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

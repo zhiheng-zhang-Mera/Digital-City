@@ -53,3 +53,8 @@ flagged so the decision is made deliberately at the freeze rather than by omissi
 
 Review remains in progress and Alien is not waiting on a reply to this. Alien will not write
 to `ui/UI-190-ui-baseline-freeze` or to the workbook frontmatter until the claim is released.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

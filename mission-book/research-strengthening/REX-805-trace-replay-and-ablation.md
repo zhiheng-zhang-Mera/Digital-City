@@ -102,3 +102,8 @@ Research 页面直接提供 Replay / Ablation，不放普通主导航。
 ## 完成门槛
 
 至少一个 multi-device scenario 能完成 original → replay → ablation 的可追溯比较。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-805-trace-replay-and-ablation.md)

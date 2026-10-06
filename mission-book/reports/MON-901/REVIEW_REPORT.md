@@ -211,3 +211,5 @@ no second state machine for dashboard comfort  PROBE 1: the projection cannot wr
 * This verdict covers only `7eb38f1b930dfe6cc13dab0e17dedee467b1254b`. A later head needs its own review;
   nothing here transfers to it, and the probe branch `review/MON-901-mech-review` is review evidence, not
   a merge candidate.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

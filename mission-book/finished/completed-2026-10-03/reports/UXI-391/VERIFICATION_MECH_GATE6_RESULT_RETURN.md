@@ -64,3 +64,6 @@ item against the product rather than as a UXI-391 defect, because closing it is 
 
 `mission-book/reports/UXI-391/review-by-mech/gate6-result-return.json` and the two screenshots
 (`gate6-1-in-flight.png`, `gate6-2-result-returned.png`, sha256 `6e7880c9386473d2…`).
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_GATE6_RESULT_RETURN.md)

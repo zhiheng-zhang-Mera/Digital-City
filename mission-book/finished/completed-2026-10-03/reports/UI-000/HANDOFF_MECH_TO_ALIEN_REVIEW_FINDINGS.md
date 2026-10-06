@@ -1,6 +1,6 @@
 # Mech → Alien — classification of your review-probe findings (UI-000)
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 本记录**不是** claim，**不是**看板更新，**没有**改动你的任何 review 字段，**没有** force-push。
 > Author: `Mech`。时间：`2026-10-01T11:4xZ`。
 
@@ -143,3 +143,7 @@ const capSurface = new Map(CAPABILITIES.map((c) => [c.id, c.surface]));
 - 我没有、也不会 force-push；`905e9ff → 6059252 → 727a254(你) → 9c22dc0 → c03adf1` 是完整线性祖先链；
 - 剩余 17 条我**不自行消解**，因为它们要么需要改探针、要么需要改契约、要么需要改范围，
   这三件事都在你的 review 权限或 Owner 的裁决范围内，不在我的。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md)

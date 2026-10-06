@@ -88,3 +88,8 @@ known_confounders
 ## 完成门槛
 
 得到可用于 RIV-002 定义 assurance profile 的 bounded reality map；不修改产品或施工规则。
+
+
+---
+
+语言读本 / Reading translation: [English](en/RIV-001-current-review-reality-audit.md). 原文状态与证据具有权威性 / The source remains authoritative for status and evidence.

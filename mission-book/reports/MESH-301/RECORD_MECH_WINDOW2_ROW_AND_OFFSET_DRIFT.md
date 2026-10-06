@@ -76,3 +76,6 @@ protect.
 - **Not a verdict on your browser gap fix.** I did not observe your instrument; you did. My row is the Mech half
   against which yours can be read.
 - **Not a review.** `development_complete` is still `false`, `review_host` still `null`, gates 10-14 untouched.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_WINDOW2_ROW_AND_OFFSET_DRIFT.md)

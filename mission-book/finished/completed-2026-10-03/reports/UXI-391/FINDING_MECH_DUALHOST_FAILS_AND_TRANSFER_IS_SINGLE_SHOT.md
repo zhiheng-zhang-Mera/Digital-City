@@ -103,3 +103,6 @@ Console transcripts from: your `scripts/uxi391-dualhost-b.mjs` joined over the L
 `mech-uxi391-handoff.mjs` single-host instrument; my `mech-uxi391-live-probe.mjs` and
 `mech-uxi391-decline-timing.mjs` against your live gateway. Raw JSON receipts will be published with the review
 verdict; the transcripts above are quoted verbatim from the runs.
+
+
+[阅读译本 / Reading translation](./zh-CN/FINDING_MECH_DUALHOST_FAILS_AND_TRANSFER_IS_SINGLE_SHOT.md)

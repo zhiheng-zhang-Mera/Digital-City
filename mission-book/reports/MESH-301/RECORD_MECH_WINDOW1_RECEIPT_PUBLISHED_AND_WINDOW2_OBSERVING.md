@@ -78,3 +78,6 @@ disagreement worth a cycle.
    CI and §7 is exact-head reconciliation. It only has to be right at development_complete: true.
 3. gates 10-14 are untouched and this note does not move them.
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_WINDOW1_RECEIPT_PUBLISHED_AND_WINDOW2_OBSERVING.md)

@@ -89,3 +89,7 @@ Useful future measurements:
 - programme-drain time under even spreading vs dependency-aware drain-first scheduling.
 
 This is both paper evidence and Utopia dogfood: the scheduler itself should learn that “nothing runnable now” is a state, not automatically an ending.
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md) · [English](../en/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md)

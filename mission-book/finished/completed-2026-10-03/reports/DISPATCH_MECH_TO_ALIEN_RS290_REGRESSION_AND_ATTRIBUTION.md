@@ -98,3 +98,5 @@ shared harness can be corrected on its own head with a positive control, as I di
 line; it is not a claim about `rs/RS-290-*` and needs no review from you. Which is why the
 `try/catch`-or-`agentPid` suggestion above stays available to you without touching this task's
 reviewed tree.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_RS290_REGRESSION_AND_ATTRIBUTION.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_RS290_REGRESSION_AND_ATTRIBUTION.md)

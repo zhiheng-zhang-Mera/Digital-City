@@ -92,3 +92,5 @@ file whose CJK is present in double-encoded form, or which contains none of the 
 containing their mojibake forms — would catch this class at write time, on the same run that already checks for
 duplicate keys. Given that four workbooks drifted without anyone noticing, this belongs in the validator rather
 than in a reviewer's head.
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CONTROL_PLANE_ENCODING_MECH_FOUR_WORKBOOKS_DOUBLE_ENCODED.md)

@@ -82,3 +82,8 @@ report_path: null
 ## 边界
 
 URA-990 不自动授权物理拆仓。
+
+
+---
+
+语言读本 / Reading translation: [English](en/URA-990-soft-reclassification-acceptance-and-freeze.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

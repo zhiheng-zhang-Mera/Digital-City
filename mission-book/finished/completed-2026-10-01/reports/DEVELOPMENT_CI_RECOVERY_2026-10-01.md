@@ -87,3 +87,7 @@ host's completion would have fabricated the Development host's declaration — t
 exists to prevent — even though every underlying fact (pushed head, green run, real steps) was verifiable and
 verified here. The correct fix was the control plane's, and it arrived as `da309a6`.
 
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/DEVELOPMENT_CI_RECOVERY_2026-10-01.md)

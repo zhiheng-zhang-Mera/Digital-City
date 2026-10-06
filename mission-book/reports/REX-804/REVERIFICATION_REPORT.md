@@ -221,3 +221,5 @@ These are stated as scope, not as passes. The marker released here is `FAULT_INJ
 fault-injection and recovery surface that was measured, and it does not assert anything about a physical Android fault
 surface or a real external provider.
 
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVERIFICATION_REPORT.md)

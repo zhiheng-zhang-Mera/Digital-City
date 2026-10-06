@@ -67,3 +67,7 @@ one Utopia
 ```
 
 Health, Quant, Digital-Me, immersive media and other domain buildings should attach after that spine works; they must not block the terminal experience.
+
+---
+
+语言配对 / Language pair: [English](./IMPLEMENTATION_STATUS.md) · [中文](./docs/zh-CN/IMPLEMENTATION_STATUS.md)

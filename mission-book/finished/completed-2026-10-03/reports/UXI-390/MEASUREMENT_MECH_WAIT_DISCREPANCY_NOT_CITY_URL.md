@@ -77,3 +77,6 @@ Both A/B arms were run in a single process with the child's output captured, and
 script's own error text (`timed out waiting for assignment` vs the teardown-check failure), not by reading a
 tail. That matters because the failure modes of this script are textually distinguishable and I have already
 once drawn a conclusion from a run whose mutation had silently not applied.
+
+
+[阅读译本 / Reading translation](./zh-CN/MEASUREMENT_MECH_WAIT_DISCREPANCY_NOT_CITY_URL.md)

@@ -130,3 +130,6 @@ This task participates in the normative global BA/RF/GAI/EM pool defined by `mis
 ## Merge lock
 
 No worker may merge `assistant/BA-005-digital-me-context-gateway` to Utopia main. A project-wide merge workbook may be created only after every BA-001..BA-009 branch passes the two-stage/two-host gate.
+
+
+[阅读译本 / Reading translation](./zh-CN/BA-005-digital-me-context-gateway.md)

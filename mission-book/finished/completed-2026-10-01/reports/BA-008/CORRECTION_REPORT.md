@@ -136,3 +136,7 @@ The author's 7 tests are byte-identical to the Development head and all 7 pass; 
   review statements (§5) that re-measurement showed were probe artifacts.
 - No billing refusal was recorded as a code failure in this task; every hosted run that started executed real
   steps.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

@@ -284,3 +284,6 @@ state for a first component in a programme whose last exposure task owns the sur
   run/stop/export path in this task, by design (REX-803..806 own those).
 * **No fault injection authority** is granted anywhere: `faultProfileRef` is an opaque reference and
   `grantsFaultAuthority` is `false`.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

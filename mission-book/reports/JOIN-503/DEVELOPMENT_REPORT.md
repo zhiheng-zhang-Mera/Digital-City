@@ -139,3 +139,5 @@ credential、签发/校验会话、把生命周期拒绝翻译成 typed code。*
 3. **新 Settings 设备面板未经浏览器专测**（见 D9）。
 4. **Android 未参与**：本次未改 QR payload 格式，也未要求 Android 参与；section 9 未点名 Android。
 5. 本报告不声称任何"已复核"。所有结论均为 Development host 自测。
+
+语言配对 / Language pair: [原文 / Source](./DEVELOPMENT_REPORT.md) · [译本 / Translation](./en/DEVELOPMENT_REPORT.md)

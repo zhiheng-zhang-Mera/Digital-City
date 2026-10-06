@@ -87,3 +87,8 @@ compatibility/version contract
 ## 完成门槛
 
 taxonomy 决策表 + App Contract schema + 与 City topology/Capability Registry 的映射规则。
+
+
+---
+
+语言读本 / Reading translation: [English](en/URA-002-runtime-taxonomy-and-app-contract.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.

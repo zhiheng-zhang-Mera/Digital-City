@@ -1,6 +1,6 @@
 # JOIN-503 — Formal review, RE-CHECK after the repair
 
-> **Workbook:** [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md)  
+> **Workbook:** [JOIN-503-device-enrollment-and-tokenless-reconnect.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
 > **Original review:** [REVIEW_REPORT.md](./REVIEW_REPORT.md) — REPAIR REQUIRED (D-1, D-2) at `ede6fa2`  
 > **Re-checked head:** `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f` on `join/JOIN-503-device-enrollment-and-tokenless-reconnect`  
 > **Repair author:** Alien (development host) — **re-check by Mech** (different physical host)  
@@ -46,3 +46,5 @@ The minimum boundary in the original review covered the `installations` array. T
 - The verdict is on `77f7f2a` and only on `77f7f2a`. Any later commit needs its own CI and would need this re-check re-applied, not inherited.
 - One host was available to the reviewer; §9's two-machine path remains deferred as declared before the original review ran.
 - `merge_authority` is untouched: the phase merge lock in the programme README still requires all three JOIN tasks to be development-complete **with opposite-host reviews**. JOIN-501 and JOIN-503 are now in that state; JOIN-502 is development-complete on Mech and still awaits a review this host cannot give, so the phase gate is unchanged by this task.
+
+语言配对 / Language pair: [原文 / Source](./RECHECK_REPORT.md) · [译本 / Translation](./zh-CN/RECHECK_REPORT.md)

@@ -83,3 +83,6 @@ three-surface table, which is the last artifact before handoff.
   is one, and it is deliberately a receipt rather than a claim about the other two.
 - **It is not a review verdict.** The task is still in development (`development_complete: false`), no review
   claim has been made, and nothing here scores a gate.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_WEB_SURFACE_RECEIPT_AND_CLOCK_OFFSET.md)

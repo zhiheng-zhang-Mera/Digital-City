@@ -95,3 +95,5 @@
 - [ ] Android Studio shows the physical-device mirror.
 - [ ] CMD/PowerShell is auxiliary only.
 - [ ] RUNNING / assignment / handoff / completion evidence comes from product UI.
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DELIVERABLE_MANIFEST.md)

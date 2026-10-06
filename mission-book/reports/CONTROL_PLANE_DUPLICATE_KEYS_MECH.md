@@ -95,3 +95,5 @@ RS-290 is `REVIEW_COMPLETE` and its step 7 merges to `main` and declares
 means post-freeze archaeology reads whichever value the parser of the day prefers, and §7 exists
 precisely so that recorded state reconciles against evidence — a duplicated key defeats that by making
 "recorded" ill-defined.
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CONTROL_PLANE_DUPLICATE_KEYS_MECH.md)

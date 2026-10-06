@@ -32,3 +32,5 @@ Two retained rule receipts; one automatic suggestion and one Owner-required sugg
 Evidence under utopia:evidence/raw/mission-book/MON-990/alien-cross-device. Initial capture harness failures (notification modal, synchronous ADB blocking its in-process Gateway) retained, repaired by denying isolated app notifications and async ADB. Old global-calm copy assertion failed after truthful narrowing; replaced with receipt-window assertion,89 pass. No product main merge, no programme terminal marker.
 
 Local full suite1425 PASS /0 FAIL /0 SKIP at post-assertion source (0b61b67); final Chinese copy-only revision additionally locale9 PASS. Final hosted head fb042d9 passed both CI runs and linkage; development_complete released for formal Mech review. Earlier523eb47 push37419518154 and PR37419522999 FAILED the superseded global-Owner-calm assertion; final code asserts receipt-window scope. Hosted failure preserved separately; no flake classification.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

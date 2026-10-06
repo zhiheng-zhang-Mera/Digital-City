@@ -421,3 +421,7 @@ slugs that cannot occur in prose (`text-workshop`, `data-lab`).
 Mech makes no further Development-side changes to UI-000 unless hosted CI goes red or the review host /
 Owner rules that one is required. The branch history is linear and force-push-free:
 `905e9ff → 6059252 → 727a254 (Alien) → 9c22dc0 → c03adf1`.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

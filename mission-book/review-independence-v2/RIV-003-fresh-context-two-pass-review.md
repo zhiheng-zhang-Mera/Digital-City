@@ -97,3 +97,8 @@ Reviewer 对账 Pass A / Pass B，记录哪些结论因新增显式证据改变�
 ## 完成门槛
 
 协议、最小 context contract、reconciliation receipt 与可测偏差指标明确。
+
+
+---
+
+语言读本 / Reading translation: [English](en/RIV-003-fresh-context-two-pass-review.md). 原文状态与证据具有权威性 / The source remains authoritative for status and evidence.

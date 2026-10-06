@@ -86,3 +86,5 @@ report_path: null
 `DELIBERATIVE_GOVERNANCE_V2_CROSS_DOMAIN_ACCEPTED`
 
 该 marker 只表示治理/拆分/仲裁协议被验证，不表示所有领域专业模型都已实现，也不表示 Review Pool v2 已生效。
+
+语言配对 / Language pair: [English reading](./en/DGX-990-cross-domain-acceptance-and-freeze.md)

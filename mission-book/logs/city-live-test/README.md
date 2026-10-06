@@ -6,7 +6,7 @@
 > 与判定写入这里；**原始**过程数据（日志、sqlite、.jsonl 原件、备份）留在施工机的 `.runtime/`（Git 忽略），
 > 不进本目录。
 >
-> 上位规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)・过程数据边界：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)
+> 上位规则：[../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)・过程数据边界：[../PROCESS_DATA_POLICY.md](../../PROCESS_DATA_POLICY.md)
 
 ## 1. 为什么这个目录在 Cloud 而不是只在施工机
 
@@ -50,3 +50,20 @@ receipts/            每轮有界收据（逐项 PASS/FAIL/NOT_RUN 的观测）
 | RUN_ID | 日期 | 发起 | 第二主机 | 判定 |
 |---|---|---|---|---|
 | [JOIN-LIVE-2026-10-03-01](./register/JOIN-LIVE-2026-10-03-01.md) | 2026-10-03 | Alien | Mech | **NOT_RUN**（Mech 5 分钟窗口内未加入）+ Alien 单侧 38/38 自测 |
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **5**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| en | 1 | [打开 / Open](en/README.md) |
+| register | 3 | [打开 / Open](register/README.md) |
+
+<!-- DOCUMENT_NAVIGATION:END -->
+
+
+[阅读译本 / Reading translation](./en/README.md)

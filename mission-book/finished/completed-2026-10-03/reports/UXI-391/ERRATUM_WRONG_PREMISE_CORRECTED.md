@@ -65,3 +65,6 @@ remote handoff 在本 City 曾经不可达，原因不是产品设计上的缺�
 UXI-391 明确「不撤销 `UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED`」，所以我不动那个结论。
 但**那次裁决所依据的延期理由已被实测推翻**：延期理由应当是「曾因候选映射漏传 enablement 而不可达」，
 而该缺陷现已修复。是否据此改写 Owner 裁决记录，属 Owner 的决定，我只把事实摆在这里。
+
+
+[阅读译本 / Reading translation](./en/ERRATUM_WRONG_PREMISE_CORRECTED.md)

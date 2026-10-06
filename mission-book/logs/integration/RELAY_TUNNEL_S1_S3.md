@@ -395,3 +395,7 @@ dependence 内容: npm-cache, .env-probe, launcher.log
   但"完全离线也能打开"**不成立**。
 - **真实第三方新主机**（另一台干净 Windows、从 GitHub clone）：本轮的 clone 是**本机 local clone**，
   网络路径（GitHub → 新机器）与包下载（npm registry）没有在另一台机器上验证过。
+
+## Language / 语言
+
+[English full reading](en/RELAY_TUNNEL_S1_S3.md) · 中文原文见上。

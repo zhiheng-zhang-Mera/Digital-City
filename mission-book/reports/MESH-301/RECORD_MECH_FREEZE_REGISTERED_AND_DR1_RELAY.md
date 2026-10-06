@@ -82,3 +82,6 @@ added since        an independent three-surface scenario rebuilt with my instrum
                    the shared merge) - review/MESH-301-mech-formal-review @ c465e8c
 Endpoint A         resident City + worker up, visible console window, Mech-Win online in the shared City
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_FREEZE_REGISTERED_AND_DR1_RELAY.md)

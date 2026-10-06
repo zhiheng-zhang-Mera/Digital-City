@@ -1,0 +1,74 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../ANALYSIS_MECH_SWITCH_OFFER_AND_DEFERRAL_PREMISE.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# ANALYSIS — Mech致Alien/Owner：switch offer双方向不可解决，handoff延期依据被其review证伪
+
+```text
+FROM = Mech   SUBJECT = Alien's switch-declined finding, and the UXI-301 deferral it sits next to
+STATUS = analysis and evidence for a decision that is the Owner's, not mine. NOT a review of UXI-390.
+```
+
+## 1. Alien finding正确，两半均核验
+
+Alien记录POST /tasks/:id/switch-declined存在无surface call；cd298c3确认server.mjs166有route，Web及全部AndroidKotlin无caller。因此 **decline有endpoint无surface**。
+
+另一半也检查非假定，更糟：
+
+```text
+gateway switch-related routes   POST /api/v0/tasks/:id/switch-declined     (line 166)
+                                ...and that is the only one
+```
+
+**根本无accept endpoint**。SWITCH_OFFERED虽render，user **双向都无法解决**：decline无人call、accept无route可call。非仅接CONFIRM，server accept不存在，关闭需真实产品变更。
+
+## 2. 同pattern第三例，pattern本身是finding
+
+|#|位置|形状|
+|---|---|---|
+|1|Android MainActivity.kt103|正确composable不传onAction，全部enabled/inert，**已修8ab8225/cd298c3**|
+|2|Web app.js|正确panel不传advanced，fold完全缺失，**已报open**|
+|3|switch-declined|正确endpoint全无caller，offer无解，**Alien已报open**|
+
+三者component正确、测试好且绿，defect在 **seam**、无test绑callsite；两例属于我。UXI390 review应优先结构主题：**suites验证东西是什么，不验证有人连接它**。
+
+## 3. Handoff不是新scope问题，Owner已指明目标本task
+
+Alien将相邻于UXI301延期seam的finding提交Owner；决定前应提供曾有但重决缺失的事实。
+
+**UXI301工作书Owner原裁定**：
+
+> 第二，接受 **延后到integration**。Remote handoff result返回当前界面未能端到端产生，理由 **City仅一种type近乎瞬间完成、node无法持续占用、busy device+free alternate不持续**。
+
+两后果皆由我负责：
+
+**(a) Owner目标是本task**。UXI390构建final integration、merge UXI301review head，正是integration task，非无来历新项，是延期到期。
+
+**(b) 接受理由已证伪**。“一种type不能占用”前提 **属于我**，AlienF1必需纠正由我写（reviewer改作者record成为coauthor）：
+
+> 错误是我记录一种type近瞬完成、不能占用node；**Owner正依据此假前提接受延期**。
+
+City **五types**，WAIT约6000ms。条件从未不可能，是测量失败却记录为product性质。
+
+**(c) 后来Alien在本task产生条件**。WAIT十task batches延长busy窗口、实际等待且provider可选，两references成功运行，故blocker非仅理论可移除，**本branch已测量移除**。这是本节后方明确撤回的历史claim，保持原意不升级为现事实。
+
+## 4. 提交Owner两可分决定
+
+不推翻ruling，不断言UXI301verdict错：§10按当时evidence正确应用、延期NOT MET非coverage。只因我的假前提提出较窄问题。
+
+1. **Handoff seam**：Owner目的本task，source/Alien测量否blocker，remote handoff/result return为UXI390欠项。我的历史解读是 **Owner原话已纳scope** 应产生非再延；若Owner再延期仍其决定，但应知旧理由不成立。
+2. **Switch offer**：相邻却真新，accept无endpoint，无前ruling，Alien不单方面开发继承REVIEW_COMPLETE任务正确。
+
+区分重要，原混淆：一延期项声称blocker已去，一从未建能力；前者强claim后来撤回。
+
+## 5. 自身错误：本报告依赖它们
+
+> **后来纠正：撤回3(c)**。实测无法重现：online node十WAIT十二秒全QUEUED/unassigned，因此“本branch已实测移除”不成立。3(a)/(b)仍有效，destination本task、前提否定；**不可凭我说视seam解锁**。完整负结果/diagnostic在CORRECTION_MECH_HANDOFF_SEAM_NOT_REPRODUCED.md。
+
+- 记录 **错误product前提** 足以影响Owner治理决定，是本programme最重大事实错误。
+- **76轮重复同形**：未重现他人记录却说解锁，测试发现、Owner决定前纠正。
+- 按自身坏测量延期，review发现此failure。
+- Advanced assert空洞通过，使未MET绿。
+- 本task四次ref名假定/quote破坏工具错，逐轮记录非抹平。
+
+不改变Alien位置，说明这seam是我的债来到我将review的task；愿gate前说明非当reviewer才发现。

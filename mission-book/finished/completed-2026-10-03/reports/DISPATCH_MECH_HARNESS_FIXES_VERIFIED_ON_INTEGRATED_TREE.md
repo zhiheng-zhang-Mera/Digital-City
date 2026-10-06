@@ -80,3 +80,5 @@ Still owed, and I am not claiming it: **the dual-device recovery E2E has not bee
 is attached on this host. The recovery path on the integrated tree remains owed. What is established
 is that the mechanisms which stopped it are identified and fixed on a tree that provably merges and
 passes — which is a narrower claim than the gate requires, and deliberately so.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_HARNESS_FIXES_VERIFIED_ON_INTEGRATED_TREE.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_HARNESS_FIXES_VERIFIED_ON_INTEGRATED_TREE.md)

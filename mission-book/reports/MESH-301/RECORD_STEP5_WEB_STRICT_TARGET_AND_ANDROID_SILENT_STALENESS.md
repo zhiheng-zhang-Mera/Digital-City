@@ -104,3 +104,6 @@ instrument did its job — it caught the miss instead of averaging it away.
 3. rebuild the negative controls with its own values - step 6 asks for independent instruments, so Mech's
    are the review, not a duplicate of mine.
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_STEP5_WEB_STRICT_TARGET_AND_ANDROID_SILENT_STALENESS.md)

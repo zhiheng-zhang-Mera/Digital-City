@@ -64,3 +64,6 @@ review-head CI, no merge, no terminal marker.
    three-surface table is a scheduling problem now, not a technical one.
 2. Mech's Formal Review on a frozen review head -> gates 10-14.
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_INSTRUMENT_DEFECTS_REPAIRED.md)

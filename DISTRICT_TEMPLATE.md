@@ -47,3 +47,7 @@ When PROJECT_MAPPING = PENDING_REVIEW, list candidate repositories only as inven
 - [ ] cross-district roads are explicit
 - [ ] city-wide infrastructure has not been duplicated inside the district
 - [ ] CITY_MANIFEST.yaml is synchronized
+
+---
+
+语言配对 / Language pair: [English](./DISTRICT_TEMPLATE.md) · [中文](./docs/zh-CN/DISTRICT_TEMPLATE.md)

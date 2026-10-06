@@ -68,3 +68,49 @@ SNAPSHOT_DATE = 2026-10-01
 4. 单独的工程决策或验收规则落地。
 
 **Reference ≠ requirement.**
+
+## English explanation / 英文说明
+
+### Scope and snapshot
+
+This directory stores a future hardware/network reference for later design, engineering workbooks, device admission, acceptance and recovery discussions. Its recorded status remains `REFERENCE_ONLY_NON_BINDING`, with snapshot date 2026-10-01. It is neither a current implementation contract nor a mandatory code architecture.
+
+It is not an available-device inventory, a default task-claim eligibility gate, a merge/CI/acceptance prerequisite, a procurement instruction, or a requirement that Utopia, Remote Fabric, Engineering Manager or any other project use this topology. Future models, OS counts and server counts need not match. Actual devices, cost, experiments, platform constraints and project complexity may justify a simpler or different implementation. Current device facts, runtime capability registry, task reports and acceptance results always take precedence.
+
+### Device facts recorded on 2026-10-01
+
+| Device | Platform | Recorded role |
+|---|---|---|
+| Alien | Windows | Engineering work; native Windows adaptation/acceptance; Android development and bridge acceptance |
+| Mech | Windows | Engineering work; Windows adaptation/cross-acceptance; Android-related work and retesting |
+| One physical Android device | Android | Only mobile physical acceptance device confirmed in this snapshot |
+
+Linux Server A/B, Mac, iPhone, physical HarmonyOS and other planned devices did not exist or were not registered as available resources in that snapshot. Their absence must not block current workbooks. This is a dated record, not a fresh device availability check.
+
+### Navigation
+
+- [Future topology / 未来拓扑](./FUTURE_TOPOLOGY.md): advisory dual-Linux, multiple Windows/macOS and mobile topology.
+- [Development notes / 开发注意事项](./DEVELOPMENT_NOTES.md): future engineering principles that should not become hardcoded requirements automatically.
+
+Future work may borrow capability routing, dual-Linux redundancy and clean-room verification, platform-specific adapter boundaries, offline continuation/replay, and layering that keeps hardware upgrades out of City Core. A genuine hard gate requires confirmed current demand, minimum implementation validation, explicit ownership/failure boundaries, and a separate engineering decision or acceptance rule. Reference does not equal requirement.
+
+## 快速信息仪表盘与导航 / Quick dashboard and navigation
+
+实测范围：当前文档目录树，2026-10-06；实现状态引用原文已有记录，不是本次运行验收。 / Measurement: this documentation tree on 2026-10-06; implementation status quotes existing records, rather than a new runtime acceptance result.
+
+| 项目 / Item | 信息 / Information |
+|---|---|
+| 直接子目录 / Direct subdirectories | 0 |
+| 递归 Markdown 文档 / Recursive Markdown documents | 3 |
+| 文档覆盖 / Documentation coverage | 中文与英文说明已保存在同一文档 / Chinese and English explanations in the same document |
+| 原记录状态 / Recorded status | `REFERENCE_ONLY_NON_BINDING` |
+
+### 子区导航 / Subarea navigation
+
+本目录无直接子目录；功能归属和后续计划参见上方说明。 / No direct subdirectories; see the explanations above for capability ownership and future plans.
+
+### 本目录文档 / Documents in this directory
+
+- [DEVELOPMENT_NOTES.md](./DEVELOPMENT_NOTES.md) — 中文与英文说明 / Chinese and English explanations.
+- [FUTURE_TOPOLOGY.md](./FUTURE_TOPOLOGY.md) — 中文与英文说明 / Chinese and English explanations.
+- [README.md](./README.md) — 中文与英文说明 / Chinese and English explanations.

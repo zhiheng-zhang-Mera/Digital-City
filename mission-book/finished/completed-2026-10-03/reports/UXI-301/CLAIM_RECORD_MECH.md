@@ -63,3 +63,6 @@ Verified present on `main` at `1a5bc0ee`, because it is the surface UXI-301 must
 Begin step 1 (the adapter) and step 7's real-E2E-driven UI, on a worktree cut from `1a5bc0ee`, with
 inspectable evidence per the RS-203/RS-290 precedent that `.runtime/` is gitignored and therefore
 unopenable by a review host.
+
+
+[阅读译本 / Reading translation](./zh-CN/CLAIM_RECORD_MECH.md)

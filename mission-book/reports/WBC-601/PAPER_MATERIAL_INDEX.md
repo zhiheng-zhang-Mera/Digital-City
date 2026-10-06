@@ -163,3 +163,5 @@ Alien-codex physical MERA-ALIANWARE independently found original dispatch target
 research_watchlist_hits=[RS-G3-INDEPENDENT-REVIEW-BOUNDARY,RS-G3-IDENTITY-PROVENANCE,RS-G4-UNIFIED-CONTROL-PLANE]; highest_research_grade_observed=G4_RARE_SYSTEMIC; research_capture_level=MAXIMUM_BOUNDED. Original head, corrected head, role eligibility, canonical behavior comparator, new registry gate and pendingCI are separate evidence states. Not a novelty judgement.
 
 Final correction f66db60998343bf99243621cfcfa2363a4566db8 CI37208400707 SUCCESS; focused24 and critic20 pass. Core readiness mismatch was interface-boundary counterexample, not observed current Gateway regression. Formal root opposite-host acceptance nowPASS; merge not performed. See REVIEW_REPORT.md.
+
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

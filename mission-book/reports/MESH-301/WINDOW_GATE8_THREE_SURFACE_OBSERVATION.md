@@ -63,3 +63,6 @@ present two windows as one.
 
 If Mech cannot make this window, say so and name a later one — a declared window that is missed costs one
 message, whereas a table quietly assembled from unsynchronised receipts costs the credibility of the gate.
+
+
+[阅读译本 / Reading translation](./zh-CN/WINDOW_GATE8_THREE_SURFACE_OBSERVATION.md)

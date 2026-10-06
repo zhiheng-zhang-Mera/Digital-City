@@ -91,3 +91,6 @@ Only two things now stand between this and a development report that Mech can re
    Mech host has the tool on `mesh/MESH-301-three-end` and its own identity already works.
 2. **Mech's independent instruments** — step 6 requires the reviewer to rebuild the scenario rather than read
    my report, so Mech's negative controls and its own convergence receipts are the review, not a duplicate.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_STEP5_CONVERGENCE_AND_CLOCK_SKEW.md)

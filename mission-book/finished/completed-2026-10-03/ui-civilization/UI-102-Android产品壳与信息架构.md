@@ -44,8 +44,8 @@ report_path: mission-book/reports/UI-102/
 
 # UI-102 閳?Android 娴溠冩惂婢瑰厖绗屾穱鈩冧紖閺嬭埖鐎?
 
-> **鐢悂鈹楅弬钘変紣鐟欏嫬鍨敍?* [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **鏉╁洨鈻奸弫鐗堝祦鐟欏嫬鍨敍?* [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> **鐢悂鈹楅弬钘変紣鐟欏嫬鍨敍?* [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **鏉╁洨鈻奸弫鐗堝祦鐟欏嫬鍨敍?* [../PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)
 > 閺堫剙浼愭担婊€鍔熼崣顏勭暰娑斿鎹㈤崝锛勫閺?scope / dependency / acceptance閿涙盯鈧氨鏁?claim閵嗕胶鐡戝?閸炪倝鍟嬮妴涓咺閵嗕礁寮婚張铏瑰缁斿绗?merge 鐟欏嫬鍨禒銉ョ埗妞规槒顫夐崚娆庡姛娑撳搫鍣妴?
 
 ## 閻╊喗鐖?
@@ -93,8 +93,14 @@ report_path: mission-book/reports/UI-102/
 
 
 ## 缂佹垵鐣剧敮鎼佲敆鐟欏嫬鍨?
-閺堫兛鎹㈤崝锛勬埛閹?[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)閵嗗倻澹掗崚顐ｆЦ閿涙艾鎮撴禒璇插 Development/Review 娑撳秴绶遍崥灞煎瘜閺堢尨绱辩粵澶婄窡娑撳秶瀚崡鐘卞瘜閺堢尨绱遍梿鍫曨暙閸欐牕绻€妞よ鍨庣猾浼欑幢`WAITING_ELIGIBILITY` 娴滃娆㈤崬銈夊晪娴兼ê鍘涢妴浣哄 20 閸掑棝鎸撻崗婊冪俺闁插秵澹傞敍娑橆樆闁劍浠径宥呮倵韫囧懘銆?reconciliation閿涙保I/evidence 韫囧懘銆忕紒鎴濈暰 exact head閿涙稐绗夊妤€鍩楅柅鐘蹭海瀹搞儰缍旈幋鏍ㄦ惍閼奉亝澧挎径褑瀵栭崶娣偓?
+閺堫兛鎹㈤崝锛勬埛閹?[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)閵嗗倻澹掗崚顐ｆЦ閿涙艾鎮撴禒璇插 Development/Review 娑撳秴绶遍崥灞煎瘜閺堢尨绱辩粵澶婄窡娑撳秶瀚崡鐘卞瘜閺堢尨绱遍梿鍫曨暙閸欐牕绻€妞よ鍨庣猾浼欑幢`WAITING_ELIGIBILITY` 娴滃娆㈤崬銈夊晪娴兼ê鍘涢妴浣哄 20 閸掑棝鎸撻崗婊冪俺闁插秵澹傞敍娑橆樆闁劍浠径宥呮倵韫囧懘銆?reconciliation閿涙保I/evidence 韫囧懘銆忕紒鎴濈暰 exact head閿涙稐绗夊妤€鍩楅柅鐘蹭海瀹搞儰缍旈幋鏍ㄦ惍閼奉亝澧挎径褑瀵栭崶娣偓?
 
 ## Reports / evolution
 - City 閸欘亜鍟撻張澶屾櫕 DEVELOPMENT_REPORT / REVIEW_REPORT閵?
 - raw screenshot閵嗕焦绁荤憴鍫濇珤 trace閵嗕竸ndroid 鐎圭偞婧€鐠囦焦宓侀妴浣搞亼鐠愩儵鍣哥拠鏇犳殌閸?Utopia runtime/evidence閿涙稒婀侀惍鏃傗敀娴犲嘲鈧偐娈戠紒鎾寸€崠鏍︾皑娴犺埖瀵?PROCESS_DATA_POLICY 鏉╂稑鍙?evolution閵?
+
+
+[阅读译本 / Reading translation](./zh-CN/UI-102-Android产品壳与信息架构.md)
+
+
+[阅读译本 / Reading translation](./en/UI-102-Android产品壳与信息架构.md)

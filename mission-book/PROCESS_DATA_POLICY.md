@@ -1,5 +1,7 @@
 # Process Data / Utopia Dogfood Policy
 
+[English translation / 完整英文](./en/PROCESS_DATA_POLICY.md)
+
 ## Decision
 
 ```text

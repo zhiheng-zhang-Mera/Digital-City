@@ -67,3 +67,6 @@ terminal → 结果回到原 surface`，在**两台实体主机**上真实闭合
 
 **不意味着**：UXI-391 已完成。独立**复核结论**（`review_result`）仍是 Mech 的字段、尚未写出；
 Step 7（合并 main、main CI、`REMOTE_HANDOFF_CLOSEOUT_REPAIRED`、`POST_COMPLETION_REENTRY.md`）尚未执行。
+
+
+[阅读译本 / Reading translation](./en/RECORD_DUALHOST_ACCEPTANCE_PASS.md)

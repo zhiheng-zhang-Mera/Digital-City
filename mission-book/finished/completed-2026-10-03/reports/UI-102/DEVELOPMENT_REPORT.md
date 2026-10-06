@@ -164,3 +164,7 @@ Evidence: `evidence/raw/mission-book/UI-102/v2-*.{png,xml}` plus
   truth-parity this task just established. Raised as a **cross-surface** question.
 * **Review is not performed by Mech.** Per `CONSTRUCTION_RULES.md` §3 the review host must be a
   different physical host, so this report is offered for review, not as a verdict.
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./zh-CN/DEVELOPMENT_REPORT.md)

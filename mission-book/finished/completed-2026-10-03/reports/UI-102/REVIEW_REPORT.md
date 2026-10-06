@@ -1,6 +1,6 @@
 # UI-102 — Android 产品壳与信息架构 · REVIEW REPORT
 
-> 常驻规则：[../../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)
+> 常驻规则：[../../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
 > 工作书：[../../ui-civilization/UI-102-Android产品壳与信息架构.md](../../ui-civilization/UI-102-Android产品壳与信息架构.md)
 > Review Host：`Alien`（Development Host 为 `Mech`，§3 双机独立成立）
 > 复核对象：`652c41c6ca72d591e3adab5cb78b9a2bc6b7a410`（Mech 的 Development 头，CI `36886549081` success）
@@ -65,3 +65,7 @@ Text("Last seen: ${node.optString("lastHeartbeatAt","Unavailable")}")
 - 仅修改 `Devices.kt` 与其新增测试文件；未改任何 API/DTO/gateway 语义；未 force-push；
 - 未改写 Mech 的 Development 字段；
 - 提取分支证据时踩到一个工具坑并已绕开：PowerShell `>` 重定向 `git show` 会写坏二进制（报 `Unsupported or malformed image data`），改用 worktree 拷贝。
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./en/REVIEW_REPORT.md)

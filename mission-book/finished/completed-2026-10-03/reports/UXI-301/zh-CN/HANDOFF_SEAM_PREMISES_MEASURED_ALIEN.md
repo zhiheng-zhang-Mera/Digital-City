@@ -1,0 +1,76 @@
+# Reading translation / 阅读译本
+
+[Canonical historical source / 历史权威原文](../HANDOFF_SEAM_PREMISES_MEASURED_ALIEN.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
+
+# UXI-301 — 延后的 HANDOFF SEAM：对冻结 City 测量两项前提（Alien）
+
+```text
+AUTHOR   = Alien        (independent of UXI-301's development; Mech develops it)
+TARGET   = Mech's development_pending_seam_remote_handoff rationale
+BASIS    = the FROZEN City on main 1a5bc0e, read directly
+STATUS   = Mech's two premises are CONTRADICTED by the frozen code. The seam looks DRIVABLE.
+           I have NOT driven it. The exact experiment is specified below.
+```
+
+记录释义：作者 Alien 独立于 Mech 开发；针对 development_pending_seam_remote_handoff 理由，直接读取 main1a5bc0e 冻结 City。两前提被代码否定，seam 看似可驱动；**尚未实际驱动**，下文规定精确实验。
+
+## Mech 记录了什么，为何重要
+
+Mech 延后 UXI-301 gate“remote handoff result 返回当前界面”，并以四方式测量后给出理由：
+
+> “没有办法 HOLD 节点保持占用，所以无法维持‘当前设备忙碌或离线但 work 仍 assigned’条件，无法向 planner 发出到达 ALTERNATE_DEVICE 的 routing question。”
+
+其根本前提是“City 只能创建一种 task type，而且远少于一秒完成”。Mech 将此提交 Owner，因为它决定 **UXI-301 完成意味着什么**。这是待裁定的承重前提，应由非作者主机检查。
+
+## 测量事实 1 — City 有五种 task types，不是一种
+
+冻结 main1a5bc0e 的 services/dev-gateway/actions.mjs:356：
+
+```js
+export const CITY_TASK_TYPES = ['WAIT', 'CREATE_TEMP_ARTIFACT', 'HASH_TEMP_ARTIFACT', 'DELETE_TEMP_ARTIFACT', 'CHECKPOINT_DEMO'];
+```
+
+且 **可请求**，不仅声明：server.mjs:139-141 的 POST /api/v0/tasks 验证 b.type 并原样存储 type:b.type；contracts/city-control-v0/protocol.mjs validator 接受同五项 taskTypes。
+
+所以“City 只能创建一种类型”不适用于冻结 City。信念可能源于既有 harnesses 只 **实际使用** 一类型，RS-290 pilots 使用 CHECKPOINT_DEMO；但可达性与使用是不同事实，此处从使用推断可达性。
+
+## 测量事实 2 — WAIT 正是保持节点占用的方法
+
+agents/reference-node/runner.mjs:7-8：
+
+```js
+if(task.type==='WAIT'){
+  for(let i=1;i<=5;i++){await sleep(stepDelay);await update(i*18,{step:'wait',tick:i});}result={waitedMs:stepDelay*5};
+}
+```
+
+stepDelay 默认 **1200 ms**。所以 WAIT task 将节点保持 **约6秒**，持续报告 RUNNING、progress、checkpoint；不再 RUNNING 时 update() 抛错，即整个窗口节点真实占用、task 真实 in-flight。
+
+正是 Mech 报告无法维持的条件。六秒远长于导致早先尝试失败的亚秒完成，发 routing query 所需 retry window 仅毫秒级。
+
+## 确立与未确立的内容
+
+**确立**：冻结代码否定 deferral 两前提，存在文档明确、API 可达的机制，可在 work assigned 时保持节点忙碌。
+
+**未确立**：seam 已端到端通过。我读取机制，**未驱动它**。Programme 已七次记录从机制形状而非执行推断结果会发表错误结论，Mech 两次，第七次是我。因此这里只报告有代码根据、实验明确的强假设，**非结果**。按此行动者须先运行实验。
+
+## 能解决此问题的实验
+
+1. 启动 gateway 加真实 reference node，RS-290 的 .runtime/e2e-pipeline.ps1 已这样做。
+2. 经 POST /api/v0/tasks，以 {"type":"WAIT"} 在交互设备所在节点创建 **WAIT** task。
+3. state RUNNING 的约6秒窗口内，在第二合格设备存在时发 routing query，观察 planner 是否达到 ALTERNATE_DEVICE → REMOTE_HANDOFF。
+4. 断言 handoff result 返回交互界面，正是 gate 原文要求。
+
+Mech 自身记录说 **给定条件** 后 probe 已达到 withoutDecline=SWITCH_OFFERED、withDecline=ALTERNATE_DEVICE，故只缺第2步。
+
+## 给 Owner 的建议：明确只是建议
+
+Mech 所求 ruling 可能 **过早**。问题“可否以 seam 已测量并归因 City 来满足 gate”假设 seam 不可驱动。若 WAIT 按代码运行，seam 可驱动，诚实结果应是 **实际驱动** 而非豁免；亦符合 UXI-301 第7步“用真实并发、provider unavailable、device busy、remote handoff E2E 驱动 UI，而不是仅用静态 mock”。
+
+建议顺序：**先运行实验**，失败才 ruling。成本更低且产生证据而非 waiver。
+
+## 范围与边界
+
+- Alien **未** 触及 Mech branch、workbook fields、apps/**，这里只读取冻结 main。
+- Alien **未** 领取 UXI-301，development_complete false、review_host null；仍为合格 Review 主机，Mech 声明开发完成后领取。
+- 本说明不纠正 Mech **测量** 纪律：四尝试详细记录，probe 确实到 ALTERNATE_DEVICE。否定的是尝试继承的 **前提**：只有一种 task type。

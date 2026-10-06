@@ -32,7 +32,7 @@ merged_main_sha: 0eed05b58c126a70224cb4757ba12f76bbe4d4b7
 > 现为 `BLOCKED_OWNER_DECISION`，且本移植与网关**零耦合**，路由需要新写两侧 donor 都没有的胶水层，
 > 而 `MODE=MIGRATION_ONLY` 禁止发明行为。该条款的**实质**（真实 Engineering job，从 inspect/plan 到
 > result/evidence，禁止仅用单元测试替代）已由真实运行满足。完整问题/选择/判断逻辑见
-> [`reports/MB-004/VERIFICATION_REPORT.md`](./reports/MB-004/VERIFICATION_REPORT.md) §6.1；
+> [`reports/MB-004/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md) §6.1；
 > 同报告 §6.2 另记录一项跨 Mission 产品面观察（合并后 capability 列表增加 1 条不可调用条目）。
 
 ## 目标
@@ -103,7 +103,7 @@ merged_main_sha: 0eed05b58c126a70224cb4757ba12f76bbe4d4b7
 - Implementation commit: `8a0d5d6af7fd8ac007474e8df39c802b069ab785`
 - Final branch HEAD: `70806ad1277904c214f29f5da52cb5c7db1d90da`
 - Migration CI: **PASS** — run `36577933078` (`V0.2 checks`) on `faf6f7a011ff37ea427c592773bf837411964d7c`: `gateway-web` success, `android` success.
-- Migration Report: [`reports/MB-004/MIGRATION_REPORT.md`](./reports/MB-004/MIGRATION_REPORT.md)
+- Migration Report: [`reports/MB-004/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-004/MIGRATION_REPORT.md)
 - **NOT merged to `main`**, as the migration stage requires.
 - Dependency note: this Mission declares **依赖 Mission: MB-003**, and MB-003's migration was **complete** (`complete(MB-003)` on Digital-City main, verified before claiming), so the dependency gate was satisfied.
 - Selection note: selection was re-made against the latest Digital-City `main` **immediately before the claim**, as rule 3 requires. MB-006 was claimed by host `Alien` between two of this host's own commits, and a local claim for it was **abandoned** rather than forced through, because rule 4 forbids taking a task another host has claimed. No verification task was available to this host (MB-001's migration host is `Alien`; `Mech` migrated MB-002 and MB-005, so rule 5 forbids it from verifying either). Sequence order therefore selected MB-004.
@@ -122,7 +122,7 @@ merged_main_sha: 0eed05b58c126a70224cb4757ba12f76bbe4d4b7
     a real end-to-end runtime pilot. No production file changed.
 - Episode closeout: `4ae80785696eac1ca077a45a4a5507d3802b3995` (`MB-004:d5d6498644ddb928`)
 - Merged to `main`: `0eed05b58c126a70224cb4757ba12f76bbe4d4b7`
-- Verification Report: [`reports/MB-004/VERIFICATION_REPORT.md`](./reports/MB-004/VERIFICATION_REPORT.md)
+- Verification Report: [`reports/MB-004/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-004/VERIFICATION_REPORT.md)
 - **Gate clause not exercised, reported to the Owner:** the "through the MB-003 Worker Gateway"
   clause. See the report §6.1. The gate's substance was met with a real run.
 - Selection note: re-read against the latest Digital-City `main` (`de44f0b`) immediately before
@@ -159,8 +159,8 @@ merged_main_sha: 0eed05b58c126a70224cb4757ba12f76bbe4d4b7
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> **OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
@@ -170,3 +170,6 @@ merged_main_sha: 0eed05b58c126a70224cb4757ba12f76bbe4d4b7
 - worktree/ownership ledger
 - checkpoint/recovery receipts
 - review/verification/CI evidence
+
+
+[阅读译本 / Reading translation](./en/MB-004-project-foreman.md)

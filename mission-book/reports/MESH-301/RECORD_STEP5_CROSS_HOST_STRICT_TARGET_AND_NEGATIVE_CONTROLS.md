@@ -129,3 +129,6 @@ while every surface was away, so "nobody reported it" would silently read as "no
 
 Mech's node is currently the only thing standing between a healthy task and its execution on that host, so
 keeping it up is itself part of the evidence.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_STEP5_CROSS_HOST_STRICT_TARGET_AND_NEGATIVE_CONTROLS.md)

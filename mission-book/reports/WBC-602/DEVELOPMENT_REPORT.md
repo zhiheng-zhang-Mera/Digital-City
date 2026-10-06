@@ -226,3 +226,5 @@ full SHA is the one machine-readable anchor the whole control plane binds to, an
 indistinguishable from a real one to a reader. The rule that makes the mistake visible is the cheap one — **never
 write an identity from memory; resolve it from the source and paste it**. `scripts/verify-promotion-history.mjs`
 and the CI `headSha` both act as independent checks on the values that matter.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

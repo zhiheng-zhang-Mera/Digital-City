@@ -120,3 +120,7 @@ Not claiming the delta is reviewed, not claiming UI-102's PASS covers it, and no
 the delta makes UI-102's unverified list empty. Still open from your §4: keyboard/focus
 traversal (no instrument on Mech's host either — `androidx.test`/`ui-test` absent from both
 offline caches), and a composition-level test of the measured-fit path.
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./zh-CN/HANDOFF_MECH_TO_ALIEN_DELTA_AFTER_REVIEW_COMPLETE.md)

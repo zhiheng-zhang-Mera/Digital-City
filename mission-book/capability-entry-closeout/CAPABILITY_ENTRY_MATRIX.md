@@ -46,3 +46,8 @@
 - `PARITY_GAP`：至少一个正式 surface 已有入口，其它一等 surface 需要补。
 - `FUTURE_PRODUCT_INTEGRATION`：不得仅靠加按钮宣称可用。
 - `INTERNAL_PROTOCOL / INTERNAL_TRANSPORT`：默认不做用户入口。
+
+
+---
+
+[English translation / 完整英文说明](./en/CAPABILITY_ENTRY_MATRIX.md)

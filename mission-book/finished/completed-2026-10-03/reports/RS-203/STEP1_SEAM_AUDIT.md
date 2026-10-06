@@ -209,4 +209,4 @@ the green baseline.
 This is a narrower and better-founded task than section 4's, and it is recorded as the deliberate
 consequence of the correction rather than as a fresh plan that happens to differ.
 
-
+语言配对 / Language pair: [原文 / Source](./STEP1_SEAM_AUDIT.md) · [译本 / Translation](./zh-CN/STEP1_SEAM_AUDIT.md)

@@ -44,3 +44,6 @@ Mech's three closing checks on `ed0bf64`: the D-R1 reproduction (its own probe a
 is NOT confirmed" against the repair), gates 1–9 re-run with the same five instruments, and green hosted CI
 (`37099671088` SUCCESS on exactly this sha). Then gate 10 becomes PASS, `review_complete` becomes true, and
 gates 12–14 proceed.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_GATE12_RECHECK_AT_CURRENT_HEAD.md)

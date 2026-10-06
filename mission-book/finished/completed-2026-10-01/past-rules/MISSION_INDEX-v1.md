@@ -4,18 +4,18 @@
 
 | Seq | Mission | Enabled | Migration | Verification | 主要来源 | City target |
 |---:|---|:---:|:---:|:---:|---|---|
-| 1 | [MB-001](./MB-001-core-os.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
-| 2 | [MB-002](./MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 + DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 00/03 City Service Network — Capability Registry & Discovery |
-| 3 | [MB-003](./MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_OWNER_DECISION** | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/02 Worker Gateway — Engineering Provider Adapter Layer |
-| 4 | [MB-004](./MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 + Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 02/01 Project Foreman — Engineering Task Orchestrator |
-| 5 | [MB-005](./MB-005-host-health.md) | YES | COMPLETE | COMPLETE | zhiheng-zhang-Mera/dsh-health-scheduler @ 985e2b7389330db4b32ea2946e3657746c64b47b | 02/03 Host Health Station — Runtime Health Scheduling Service |
-| 6 | [MB-006](./MB-006-restart-recovery.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/dsh-restart @ e20fb6cc43e27cedf6303471e5b8ee18e1383ecd | 02/04 Restart Recovery Station — Safe Restart External Supervision |
-| 7 | [MB-007](./MB-007-research-institute.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 06/01 Research Institute — Research Mechanism Experimentation Platform |
-| 8 | [MB-008](./MB-008-computer-use.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 10/01 Computer Use Runtime — Generic Computer Interaction Execution Service |
-| 9 | [MB-009](./MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Utopia main 当前 city/11-entertainment/01-entertainment-centre/theme-engine | 00/05 City Control Centre — Presentation & Theming |
-| 10 | [MB-010](./MB-010-node-fabric.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/02 City Node Network — Device Node Fabric |
-| 11 | [MB-011](./MB-011-customs.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/01 Customs Security — Extension Admission Checks |
-| 12 | [MB-012](./MB-012-runtime-compliance.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/02 Public Security — Runtime Compliance Enforcement |
+| 1 | [MB-001](../../replant/MB-001-core-os.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/01 City Core — Runtime Trust & Orchestration Kernel |
+| 2 | [MB-002](../../replant/MB-002-capability-fabric.md) | YES | COMPLETE | COMPLETE | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 + DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 00/03 City Service Network — Capability Registry & Discovery |
+| 3 | [MB-003](../../replant/MB-003-worker-gateway.md) | YES | COMPLETE | **BLOCKED_OWNER_DECISION** | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 | 02/02 Worker Gateway — Engineering Provider Adapter Layer |
+| 4 | [MB-004](../../replant/MB-004-project-foreman.md) | YES | COMPLETE | COMPLETE | DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973 + Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 02/01 Project Foreman — Engineering Task Orchestrator |
+| 5 | [MB-005](../../replant/MB-005-host-health.md) | YES | COMPLETE | COMPLETE | zhiheng-zhang-Mera/dsh-health-scheduler @ 985e2b7389330db4b32ea2946e3657746c64b47b | 02/03 Host Health Station — Runtime Health Scheduling Service |
+| 6 | [MB-006](../../replant/MB-006-restart-recovery.md) | YES | COMPLETE | **COMPLETE** | zhiheng-zhang-Mera/dsh-restart @ e20fb6cc43e27cedf6303471e5b8ee18e1383ecd | 02/04 Restart Recovery Station — Safe Restart External Supervision |
+| 7 | [MB-007](../../replant/MB-007-research-institute.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 06/01 Research Institute — Research Mechanism Experimentation Platform |
+| 8 | [MB-008](../../replant/MB-008-computer-use.md) | YES | **BLOCKED_OWNER_DECISION** | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 10/01 Computer Use Runtime — Generic Computer Interaction Execution Service |
+| 9 | [MB-009](../../replant/MB-009-theme-relocation.md) | YES | COMPLETE | COMPLETE | Utopia main 当前 city/11-entertainment/01-entertainment-centre/theme-engine | 00/05 City Control Centre — Presentation & Theming |
+| 10 | [MB-010](../../replant/MB-010-node-fabric.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 00/02 City Node Network — Device Node Fabric |
+| 11 | [MB-011](../../replant/MB-011-customs.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/01 Customs Security — Extension Admission Checks |
+| 12 | [MB-012](../../replant/MB-012-runtime-compliance.md) | NO | NOT_STARTED | NOT_STARTED | Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080 | 01/02 Public Security — Runtime Compliance Enforcement |
 
 > **Dependency history for MB-004 (resolved, recorded so it is not re-litigated).** MB-004
 > declares `依赖 Mission: MB-003`. MB-003 was `migration_complete` while its Verification stage
@@ -42,7 +42,7 @@
 > real run (four-phase pilot, killed-process resume continuing in 4 steps instead of 6), and
 > record the **routing** clause as NOT EXERCISED rather than fabricate glue neither donor has,
 > which `MODE=MIGRATION_ONLY` forbids. Full problem/choice/logic in
-> [`reports/MB-004/VERIFICATION_REPORT.md`](./reports/MB-004/VERIFICATION_REPORT.md) §6.1.
+> [`reports/MB-004/VERIFICATION_REPORT.md`](../reports/MB-004/VERIFICATION_REPORT.md) §6.1.
 > MB-003's own Verification is now `BLOCKED_OWNER_DECISION`, so the option "wait for MB-003 to
 > land, then re-check" is gated behind that ruling.
 
@@ -60,7 +60,7 @@
 > City-level mechanism (e.g. a module-level `capabilityProvider: false`, already used by the
 > unmerged MB-003/006/007/008 branches) so that non-product modules stop appearing in the
 > capability list, rather than each Mission patching this individually. Detail in
-> [`reports/MB-004/VERIFICATION_REPORT.md`](./reports/MB-004/VERIFICATION_REPORT.md) §6.2.
+> [`reports/MB-004/VERIFICATION_REPORT.md`](../reports/MB-004/VERIFICATION_REPORT.md) §6.2.
 
 > **MB-005 verification: the "two hosts" clause, and a weakened test that was repaired.** (a) The
 > MB-005 gate reads *"两台主机分别用真实 telemetry 跑过正常、未知/缺失、持续压力/防抖场景"*.
@@ -75,7 +75,7 @@
 > assertion collapsed to a one-element check that could never fail. Repaired on the branch
 > (`977cd0c`) by pointing the fixture at `09-planning-knowledge` (two buildings) and asserting the
 > expected count. Detail in
-> [`reports/MB-005/VERIFICATION_REPORT.md`](./reports/MB-005/VERIFICATION_REPORT.md) §3.3 and §6.1.
+> [`reports/MB-005/VERIFICATION_REPORT.md`](../reports/MB-005/VERIFICATION_REPORT.md) §3.3 and §6.1.
 > The report also asks the Owner to rule on the donor `bandKeyOf` bug (its §7.2), which the
 > migration correctly ported rather than fixed.
 
@@ -94,7 +94,7 @@
 > assertions were strengthened rather than reduced, no ownership moved and no capability was
 > added — but the change touches a shared file and a test introduced by MB-001, so it is
 > reported here for the Owner. Options in
-> [`reports/MB-009/VERIFICATION_REPORT.md`](./reports/MB-009/VERIFICATION_REPORT.md) §5.4:
+> [`reports/MB-009/VERIFICATION_REPORT.md`](../reports/MB-009/VERIFICATION_REPORT.md) §5.4:
 > (a) accept building-level `kind` as a City mechanism, or (b) re-draw the district/building
 > ownership by Owner decision via a superseding Mission.
 >
@@ -143,3 +143,7 @@
 3. **`DONOR.json` 台账形状不统一**：MB-001 用扁平结构（`repository`/`commit`/`sourcePaths` 在顶层），MB-002/004/005/006 用 `donors[]`；两类都自洽，但按一种形状写的读取器读不了另一种。
 4. **规则 5 会让某些 Mission 对某些主机永久不可领取，本表看不出来。** MB-005 与 MB-009 的 Migration 由 `Mech` 完成，因此 `Mech` 永远不能领取它们的 Verification；但本表那一行原先写着 `NOT_STARTED`，读起来却像"任何主机都能领"。这两台最终由 `Alien` 完成（City `1ac40d4`、`0764924`、`d6969d9`），问题已解；不过只要 rule 5 与"先迁移后验证"的队列同时存在，索引就应当能表达"哪台主机**不**能领"，否则每台自动施工主机都得自己推导一遍。这是索引的可用性缺口，不是缺陷。
 5. **MB-003 的验证门槛在本机不可满足**：第一道门槛要求用**已安装且 donor 已支持的真实 provider** 跑通 detect→submit→progress→result/unsupported，并明确禁止 mock pass；迁移的 `provider-adapter` 只包装调用方注入的 hook，其 `DONOR.json` 把真实 provider HTTP 调用与 web session 列为 DEFERRED。`Mech` 已在 `reports/MB-003/VERIFICATION_REPORT.md` §6 列出三个 Owner 选项；在其决定前 MB-003 与依赖它的 MB-004 都无法进入 `VERIFICATION_COMPLETE`。
+
+## Language / 语言
+
+[English full reading](en/MISSION_INDEX-v1.md) · [完整中文读本](zh-CN/MISSION_INDEX-v1.md)。

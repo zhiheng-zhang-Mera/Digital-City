@@ -27,7 +27,7 @@ NO_VALUE_CANONICAL_RESULT = 判断无价值，任务保留，未迁移
 
 ## 0. 领取依据 / Why this Mission was claimable
 
-Selection followed [MISSION_INDEX.md](../MISSION_INDEX.md) and [README.md](../README.md) §3.
+Selection followed [MISSION_INDEX.md](../../MISSION_INDEX.md) and [README.md](../README.md) §3.
 
 ```text
 P0 (verification / integration): NONE eligible.
@@ -363,3 +363,5 @@ provenance alone - the tests, dry-runs and probes this section reports, not a mi
 - `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots
+
+语言配对 / Language pair: [原文 / Source](./ASSESSMENT_REPORT.md) · [译本 / Translation](./zh-CN/ASSESSMENT_REPORT.md)

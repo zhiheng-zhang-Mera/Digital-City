@@ -1,7 +1,7 @@
 # Mission Index — Migration Queue Closed / Pre-Assistant Product Closeout
 
-> **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response-9-30.md](./response-9-30.md) + [response-9-29.md](./response-9-29.md) where not superseded.  
-> Historical rules/index snapshots are under [past-rules/](./past-rules/).
+> **Runtime truth:** each Mission's current front matter + [README.md](./README.md) + [response-9-30.md](../completed-2026-10-01/response-9-30.md) + [response-9-29.md](../completed-2026-10-01/response-9-29.md) where not superseded.
+> Historical rules/index snapshots are under [past-rules/](../completed-2026-10-01/past-rules).
 
 ## Current phase — Owner ruling R12
 
@@ -13,7 +13,7 @@ AUTHORIZED_ORDER = T0 -> T1 -> T2 -> T3 -> T4 -> STOP
 ```
 
 Current work is product integration, not a new MB migration. See
-[`response-9-30.md#R12`](./response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)
+[`response-9-30.md#R12`](../completed-2026-10-01/response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)
 and the [binding workbook](./ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md).
 
 ## Current state
@@ -112,7 +112,7 @@ Unless a Mission explicitly says otherwise, a dependency is satisfied only when 
 
 ## Owner decisions now resolved
 
-Latest ruling: [response-9-30.md](./response-9-30.md). Prior rulings in [response-9-29.md](./response-9-29.md) remain effective where not superseded.
+Latest ruling: [response-9-30.md](../completed-2026-10-01/response-9-30.md). Prior rulings in [response-9-29.md](../completed-2026-10-01/response-9-29.md) remain effective where not superseded.
 
 - **Completion basis:** `IMPLEMENTED_COMPLETE`, `OWNER_ACCEPTED_COMPLETE`, and `SKIPPED_NOT_REQUIRED` are all valid Migration completion bases.
 - **MB-010/011/012:** assessment-first remains required; NO_VALUE now means retained + unmigrated + **green SKIPPED completion**, with Verification not required.
@@ -149,7 +149,7 @@ Old reports contain statements such as:
 - “MB-004 may still be blocked by MB-003”;
 - old rule numbers 1..16.
 
-Those statements remain valid descriptions of the state **when the reports were written**, but they are not current scheduler instructions. Use [past-rules/](./past-rules/) to interpret them historically and [response-9-29.md](./response-9-29.md) for the Owner's resolution.
+Those statements remain valid descriptions of the state **when the reports were written**, but they are not current scheduler instructions. Use [past-rules/](../completed-2026-10-01/past-rules) to interpret them historically and [response-9-29.md](../completed-2026-10-01/response-9-29.md) for the Owner's resolution.
 
 > **MB-010 / MB-011 / MB-012 — independent re-verification (host `Alien`, 2026-09-30).** Owner-directed:
 > redo the verification for the three assessment-first Missions **without reusing any existing test**, with
@@ -181,7 +181,7 @@ Those statements remain valid descriptions of the state **when the reports were 
 > `merged_main_sha: null` stays correct for all three. Every Mission branch that does carry implementation
 > (MB-001..MB-009) is **0 ahead / fully merged**.
 >
-> **Owner ruling [`response-9-30.md#R11`](./response-9-30.md) (2026-09-30): the three provenance branches are
+> **Owner ruling [`response-9-30.md#R11`](../completed-2026-10-01/response-9-30.md) (2026-09-30): the three provenance branches are
 > merged anyway.** After the independent verification passed, the Owner directed that the Utopia branches be
 > merged into `main` with operation history and SHA tracking preserved, and that the `NO_VALUE` confirmation
 > be **force-recorded under host `Alien`**. [README.md](./README.md) line 223 otherwise keeps a `NO_VALUE`
@@ -216,3 +216,7 @@ branch audit after the merges   : 34 origin refs checked, unmerged = 0
 merged-main CI                  : run 36678805229 on d0dea7b - gateway-web success, android success
 city main (this record)         : 247f20264cd1c0085f068f61ab0eaa18b2825ffd
 ```
+
+## Language / 语言
+
+[完整中文读本](zh-CN/MISSION_INDEX-LEGACY.md) · English source above.

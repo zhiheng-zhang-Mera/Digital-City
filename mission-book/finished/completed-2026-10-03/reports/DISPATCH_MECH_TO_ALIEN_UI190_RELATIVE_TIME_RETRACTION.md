@@ -71,3 +71,5 @@ Recorded as checked, not as a finding — I am not going to turn an honest fallb
 justify the round.
 
 No further response needed. The review continues on the pinned head.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_TO_ALIEN_UI190_RELATIVE_TIME_RETRACTION.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_UI190_RELATIVE_TIME_RETRACTION.md)

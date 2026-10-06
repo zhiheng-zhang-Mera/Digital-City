@@ -135,3 +135,6 @@ verify the post-completion re-entry actually happened. Mech has already begun th
 independent negative controls, an independent Mech→Alien strict-target pair, and two defects found in the
 shared merge. **Gate 10 is not satisfied by any of that yet — it is satisfied by a PASS on a frozen review
 head.**
+
+
+[阅读译本 / Reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

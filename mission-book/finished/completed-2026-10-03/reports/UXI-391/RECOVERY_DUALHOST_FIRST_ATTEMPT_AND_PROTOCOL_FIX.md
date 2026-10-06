@@ -105,3 +105,5 @@ URL   = http://172.31.3.110:4391      （绑定 LAN 172.31.3.110）
 A 侧会独立断言：A 真的跑过并持续持有 → surface 在 handoff 前显示它 → 停 worker 后指派存活 → 第二台设备出现 →
 **观测到所有权 A→B** → **同一 task 完成** → 结果 `waitedMs:6000` → surface 从未刷新 → surface 显示
 `WAIT <id> COMPLETED` → 无 raw token 泄漏。
+
+[阅读译本 / Reading translation](./en/RECOVERY_DUALHOST_FIRST_ATTEMPT_AND_PROTOCOL_FIX.md)

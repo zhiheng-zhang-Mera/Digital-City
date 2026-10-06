@@ -195,3 +195,5 @@ The observation worth keeping: two of the four findings (F-S1, F-S2) are the **i
 review had just found in a sibling module — a bounded sample described as complete, and a number nothing measured —
 and neither would have been found by running MON-903's own suite, which passed 24/24 before and after. Per-module
 review found one of the family; per-*class* probing keeps finding the rest.
+
+语言配对 / Language pair: [English](./AUTHOR_SECOND_ADVERSARIAL_PASS.md) · [中文](./zh-CN/AUTHOR_SECOND_ADVERSARIAL_PASS.md)

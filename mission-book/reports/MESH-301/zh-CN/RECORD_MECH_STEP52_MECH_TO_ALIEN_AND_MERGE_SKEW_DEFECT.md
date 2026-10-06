@@ -1,0 +1,190 @@
+# Reading translation / 阅读译本
+
+[Canonical source / 权威原文](../RECORD_MECH_STEP52_MECH_TO_ALIEN_AND_MERGE_SKEW_DEFECT.md)。本页完整翻译历史报告正文；原文及当前工作书 frontmatter 为权威，历史状态不替代当前状态。证据代码块逐字保留；阅读本不执行任务。
+
+# RECORD — Mech：第 5.2 步关闭（Mech 控制界面 → Alien worker），并发现共享收敛测量工具的两个缺陷
+
+```text
+FROM = Mech (endpoint A / formal reviewer)        TO = Alien (development host), Owner
+CITY = http://172.31.3.110:4391                    cityId 22e1216b-f124-4d4a-be4a-4a280558c027
+PRODUCT UNDER MEASUREMENT = mesh/MESH-301-three-end @ d919dc759f9a375ef8200b6bc7663aa8fa17852c
+CLOSES THE GAP ALIEN NAMED, verbatim from RECORD_STEP5_CROSS_HOST_STRICT_TARGET_AND_NEGATIVE_CONTROLS.md §5:
+  "One direction only. Alien control surface -> Mech worker is done. Mech control surface -> Alien worker is
+   not, and only the Mech host can produce it."
+```
+
+## 1. 实际运行内容，以及为何通过界面而非绕过界面
+
+工作书 allowed-change boundary 2 是“Web / Android 发起 strict-target safe task 的最小交互”。脚本 POST Action route 能证明 **route** 有效，不能证明 **界面** 能发出指令。因此按用户操作方式发出：在 **Mech 主机的真实浏览器** 中，使用产品自身 `#run-target` 选择设备，按产品自身 `#run` 按钮。
+
+产品身份不是自称，而是 **以 hash 测量**：在线 City `172.31.3.110:4391` 提供的 `/app.js` 和 `/index.html` 与本分支 head 字节完全一致（`sha256 4dc4ead1449ca3c5…`、`d8c7025ff1277cd1…`，24581 和 3120 字节）。不属于被审版本的界面 receipt 不是证据。
+
+```text
+surface identity      ref=web-mech-bpsf9r9j   label="Mech-Win-Web"   (set BEFORE load, so the stream
+                                                                      handshake declares it)
+selector options      (any), Alien-Win, Mech-Win        <- built from the City's own node list
+node fleet            Alien-Win:true, Mech-Win:true
+canonical baseline    seq 358 before the press
+```
+
+## 2. canonical truth 中端到端的指令
+
+```text
+seq 359 COMMAND_ACCEPTED   task Q-0e068bea-b66c-4061-bf41-a39d0d55e478   (issued from the MECH host)
+seq 360 TASK_CREATED       targetDeviceRef=Alien-Win  targetStateAtCreation=ELIGIBLE
+seq 371 TASK_ASSIGNED      assignedNodeId=Alien-Win
+seq 372 TASK_STARTED       Alien-Win
+seq 373 TASK_CHECKPOINTED  Alien-Win  progress=30
+seq 380 TASK_CHECKPOINTED  Alien-Win  progress=75  sha256=1fbb08a1…
+seq 382 TASK_COMPLETED     Alien-Win  result={bytes:65, sha256:1fbb08a15187f76d1fd0cde7ad3939411a07c4785327e0278cdef1a6c7a7543b}
+action  A-17ac7340-92b4-40e5-ae0c-eb251aeb9269  route=CITY_TASK  status=SUCCEEDED
+        backendRef.targetDeviceRef=Alien-Win     provenance.targetDeviceRef=Alien-Win
+```
+
+第 5.2 步因此成为运行事实：**Mech 控制界面严格指令 Alien worker，Alien worker 实际执行**；用户级意图可从 canonical Action truth 读取，满足第 3 步要求，而非只见于 task 行。
+
+此次运行有两点无需预先安排，值得说明，因为它们使结果可信而非摆拍：**City 正承受 Alien 主机大量并发负载**（同一 8 秒窗口，seq 355-395，两节点创建并执行另外四个任务），但严格定向任务仍只分配给 `Alien-Win`。**`Mech-Win` 全程忙于其他任务，始终不获准领取此任务。**
+
+## 3. 此界面自身的收敛 receipt
+
+在页面 **应用代码运行之前** 包装 `WebSocket` 捕获；记录的是浏览器实际收到的 frames 及接收时间，而非后续 polling：
+
+```text
+seq 359 COMMAND_ACCEPTED   server 03:29:04.098Z  observed 03:29:03.098Z  raw -1000ms  offset-free 1.0ms
+seq 360 TASK_CREATED       server 03:29:04.098Z  observed 03:29:03.098Z  raw -1000ms  offset-free 1.0ms
+seq 371 TASK_ASSIGNED      server 03:29:06.137Z  observed 03:29:05.138Z  raw  -999ms  offset-free 2.0ms
+seq 372 TASK_STARTED       server 03:29:06.142Z  observed 03:29:05.144Z  raw  -998ms  offset-free 3.0ms
+seq 373 TASK_CHECKPOINTED  server 03:29:06.147Z  observed 03:29:05.148Z  raw  -999ms  offset-free 2.0ms
+seq 380 TASK_CHECKPOINTED  server 03:29:07.352Z  observed 03:29:06.352Z  raw -1000ms  offset-free 1.0ms
+seq 382 TASK_COMPLETED     server 03:29:08.560Z  observed 03:29:07.562Z  raw  -998ms  offset-free 3.0ms
+clock offset (minimum-delay estimate, this host minus the City): -1001ms
+=> upper bound on this surface's convergence for its own instruction: 3.0ms     jitter 2.0ms
+34 distinct seq received in the session; every seq inside its window was observed
+```
+
+在无人调整时钟的情况下，offset 从早先 03:24 receipt 的 **-998 ms** 变为 03:29 的 **-1001 ms**。这正说明本主机时钟相对 City 漂移：一次 offset 测量具有有效期限，不是可以硬编码的常量。
+
+Mech receipt 也在服务器 canonical timeline 上送入 **开发主机自身的 merge**，用于互操作检查，而非我的 review 结论：
+
+```text
+CONVERGED  window=5000ms  surfaces=Mech-Win-Web   (--skew Mech-Win-Web=-1001 declared)
+34 events observed · 0 failures · 0 unmeasured
+```
+
+## 4. 按文档使用共享收敛测量工具时发现的两个缺陷
+
+二者均在任务分支的 `scripts/mesh301-mesh-probe.mjs`。**都不是产品缺陷，也不改变任何已记录结果**；均是测量工具缺陷，第二个具有危险性。
+
+**缺陷 1 — `--skew` 无法与 positional receipt filenames 同时使用。** 文件头同时记载 `merge --window 5000 --out convergence.json alien.jsonl mech.jsonl android.jsonl` 和 `--skew PERM00=592`。二者结合时，merge 会将 skew 的 **值** 视为 receipt 文件：
+
+```text
+$ node scripts/mesh301-mesh-probe.mjs merge --window 5000 --skew Mech-Win-Web=-1001 --out x.json mech.jsonl
+Error: ENOENT: no such file or directory, open '…\Mech-Win-Web=-1001'
+```
+
+第 206 行 positional-file filter 仅排除以 `--` 开头或匹配 `/^\d+$/` 的值，因此过滤了 `--window` 的值，却未过滤 `--skew` 的值；`--out` 值按名称排除。使用 `--file` 可行。
+
+**缺陷 2 — 更关键的是：不带 `--skew` 构建的表仍输出 `CONVERGED`。** 检查是 `latency <= windowMs`，`skew` 默认 `0`（275-277 行）；因此原始数字均约 **-1000 ms** 的界面——看起来在服务器发出每个事件之前一秒就观察到它——被评分为收敛，时钟 offset 被当成 latency 写入 latency 列：
+
+```text
+$ node scripts/mesh301-mesh-probe.mjs merge --window 5000 --out x.json mech.jsonl
+CONVERGED  window=5000ms  surfaces=Mech-Win-Web
+  359  -999ms   360  -999ms   371  -999ms   372  -999ms …
+```
+
+结合缺陷 1，失败模式是：文档中声明 offset 的方式在 receipts 为 positional 时崩溃；不崩溃的版本却静默将时钟差报告成 latency，同时说 CONVERGED。**按此方式组装的三界面表会错误，却看起来绿色。** Android 自身 offset 约 592ms、我的约 1001ms，因此对 gate-8 表不是假设风险。
+
+我 **没有** 声称任何已生成表用了这一方式。Alien 记录的运行声明 Android skew，因此使用了可行路径。这是在需要该表之前发现的缺陷。
+
+## 5. 我发现、追查并必须纠正的异常
+
+读取 §2 canonical truth 时，看见一个本不应存在的 entry：
+
+```text
+controlSurfaces: {"clientRef":null,"clientLabel":null,"connectedAt":"2026-10-03T03:28:48.472Z"}
+```
+
+我的初始解读是“陈旧、未命名且一直未被移除的控制界面”。若属实，将是 gate 1 和 gate 8 的真实发现，因为未命名 entry 虚增连接界面数量，且无法归属任何 receipt。我没有直接报告，而用自身 client 测试，采用开发 probe 同样的 handshake（`apiVersion` + `schemaVersion`，无 `clientRef`/`clientLabel`，第 103 行）：
+
+```text
+BEFORE                        only android-PERM00
+anonymous client OPEN         + {"clientRef":null,"clientLabel":null}    seq 412 CLIENT_CONNECTED {null,null}
+anonymous client CLOSED       entry GONE                               seq 413 CLIENT_DISCONNECTED {null,null}
+named client OPEN             + {"clientRef":"probe-mech-named","clientLabel":"Mech-Probe-Named"}
+named client CLOSED           entry GONE                               seq 415 CLIENT_DISCONNECTED {…}
+```
+
+所以纠正后的发现更窄，令人警惕的那一半是 **我的问题，不是产品问题**：
+
+1. City control-surface list 是 **实时连接** 列表，维护正确：命名和未命名 client 都在 close 时移除。
+2. **stream handshake 的身份为可选**，所以任何 stream client 即使未声明任何身份，也计为控制界面。开发 probe 就是此类 client；列表中无法区分 probe 连接与真实 endpoint。
+3. 因而 gate 1 的“三个控制 endpoint”只能依据 **命名** entries 读取，列表长度不是任何结论的证据。第 5.2 步运行时，有一个未命名 client 与两个命名界面共同在线；这与运行中的开发 probe 相符。
+
+## 6. 针对本任务实际审计的混淆，增加独立负控
+
+MESH-301 设计审计存在，是因为控制 clients 与 worker nodes 曾混淆。因此我增加的负控正是故意犯此错误：**界面将自身标签作为目标设备名称。**
+
+```text
+POST /api/v0/actions  input.targetDeviceRef="Mech-Win-Web"   (a real, currently-connected control surface)
+-> http 200, action.status=REFUSED, error.code=TARGET_DEVICE_UNKNOWN
+   "no City node identity \"Mech-Win-Web\" is known to this City",  backendRef.taskId=null
+```
+
+被拒绝，返回类型明确，**未创建任务**：控制界面不是设备，即使其标签出现在同一 City snapshot 中。该值有意与 Alien probe 的 `No-Such-Device`、`not a valid id`、`__no_such_device__` 不同：这是 **看起来合理** 的错误，而非明显无效字符串。
+
+## 7. 我的测量工具失败过一次，而且发生在一次成功运行上
+
+记录原因：这是本 programme 不断发现的同类缺陷；省略会让 receipt 看起来比实际运行更干净。
+
+尝试 1 正确发出指令，且 **在 Alien-Win 执行**（`seq 326-332`、`TASK_COMPLETED`、`sha256 85ff02bc…`）。随后工具以“no TASK_CREATED strictly targeted at Alien-Win appeared”中止，因为它在 `TASK_CREATED.payload.targetDeviceRef` 查找目标，而该事件 payload 为 `{}`。**目标是 task 的属性，不是 creation event 的属性。** 指令实际运行；工具无法看见，报错却会被读成产品故障。修复为依据按钮点击前后的 task 集合识别。失败尝试 receipt 也已写出，以免中止的运行被误认为从未发生。
+
+## 8. 本记录没有确立的结论
+
+- **不是三界面表。** 这仅是一个界面的 receipt。Gate 8 要求 Alien Web、Mech Web、Android 观察 **共同** 窗口，各写自身 receipt；我的可以与其他 receipt merge，不能代替它们。
+- **不是本窗口 offline/reconnect 那一半。** 此次未移走任何界面。Alien 用 browser probe 测了 offline/reconnect；Android 仍须自己执行（gate 9）。
+- **不是 offline-target wait。** 两节点全程在线，因此未重现“目标离线 → 等待、无静默 fallback”；Alien 另行记录，而我尚未独立重现，属于 review 工作。
+- **无 Formal Review、无 review-head CI、无 merge、无 terminal marker。** Gate 5.2 关闭不是 gate 10。
+
+## 9. 工作书未替我选择之处的决策
+
+```text
+MECH-D1  Issue the instruction through the product's own affordance (#run-target + #run), not a scripted POST.
+         Rationale: boundary 2 is about the SURFACE's interaction; a POST would prove less and look like more.
+MECH-D2  Verify the running product by hashing the served assets against the branch head rather than trusting
+         that the City is running the reviewed revision. A receipt about an unknown revision is not evidence.
+MECH-D3  Label the surface "Mech-Win-Web" and set it BEFORE load. Distinct from Alien's "Alien Web" so that
+         canonical truth can tell the two browsers apart; before load because the identity is declared in the
+         stream handshake and renaming afterwards does not re-register (a mistake I already made once).
+MECH-D4  Write my own instrument rather than reuse scripts/mesh301-web-surface.mjs, because independent review
+         may not lean on the development host's script - but emit the SAME JSONL record vocabulary, because that
+         is interop with the shared merge, not dependence on it.
+MECH-D5  Report only offset-corrected figures as latencies, and state the offset as an estimate. The raw column
+         is published beside it so the correction can be audited rather than trusted.
+MECH-D6  When an anomaly looks like a product defect, run the smallest experiment that can falsify MY reading
+         before reporting it. §5 is the result: the alarming half was my misreading, and saying so is cheaper
+         than a retraction later.
+```
+
+上述决策完整中文释义：MECH-D1 通过产品自身控件（`#run-target` + `#run`）发出指令，不以 scripted POST 代替；boundary 2 要验证界面交互，POST 证明较少却易显得证明较多。MECH-D2 将在线 assets 与 branch head hash 比对验证运行产品，不能目信 City 正在运行被审 revision；未知 revision receipt 不是证据。MECH-D3 在加载前将界面标签设为 `Mech-Win-Web`，区分 Alien 的 `Alien Web`，使 canonical truth 区分浏览器；身份在 stream handshake 声明，事后重命名不重新注册，这是我已犯过一次的错误。MECH-D4 自写工具而非复用 `scripts/mesh301-web-surface.mjs`，因为独立 review 不可依赖开发主机脚本；但输出相同 JSONL vocabulary，用于共享 merge 互操作，不代表依赖它。MECH-D5 仅把 offset-corrected 数字报告为 latency，并声明 offset 为估计；并列发布 raw 列以便审计修正，而非目信。MECH-D6 异常像产品缺陷时，先运行最小实验尝试证伪我的解读再报告；§5 证明令人警惕的那半是我的误读，说明这一点比之后撤回更省代价。
+
+## 10. 证据及位置
+
+保存在 Mech 主机 mesh301 review worktree：
+
+```text
+mech-mesh301-step52.mjs                                            the instrument (mine)
+evidence/raw/mission-book/MESH-301/review-by-mech/mech-web-strict-target.json
+evidence/raw/mission-book/MESH-301/review-by-mech/mech-web-strict-target.jsonl   (merge vocabulary)
+evidence/raw/mission-book/MESH-301/review-by-mech/mech-web-convergence-merge.json
+.runtime/tmp/mesh301-anon-surface-probe.mjs                        the §5 experiment
+.runtime/tmp/mesh301-cityprobe.mjs                                 the read-only control-plane probe
+```
+
+我 **不会** 将它们推入 `mesh/MESH-301-three-end`：该分支有一位开发 owner，将 reviewer 原始证据混入正是 Owner 要两主机避免的跨主机 head 碰撞（“避免与Alien机同时处理相同文件”）。将在 Formal Review 时发布到 review 分支；若三界面 merge 提前需要 Mech Web 行，可先交付 `.jsonl`。索取比猜测代价低。
+
+## 11. 我需要开发主机提供什么，以及后续工作
+
+1. 上述 `--skew` 缺陷是否应在组装 gate-8 表前于任务分支修复；这是你们的工具和决定。若维持现状，表必须使用 `--file` 加 `--skew`，绝不能使用 positional filenames。
+2. 希望三界面共同观察哪个窗口，使我的下一份 Mech Web receipt 能覆盖与 Alien Web、Android 相同 seq range，而非独立窗口。
+
+与此同时，无需等回复：Mech 主机保持作为 endpoint A 在线（`Mech-Win` worker、按需 `Mech-Win-Web`、常驻 City 和桌面 shortcut 在线）；我将继续验证“client 已连接”与“命名 endpoint 已连接”之间的混淆，确保 gate 1 仅据命名界面声称满足。

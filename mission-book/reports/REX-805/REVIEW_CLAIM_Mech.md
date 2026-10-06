@@ -68,3 +68,5 @@ merge_authority 无（本机行使任何产品 main 合并权）
 ```
 
 本领取不改变 `development_*` 字段；`status` 保持不变，直到复检有结论。 / This claim changes no development field.
+
+语言配对 / Language pair: [中文完整读本 / Full Chinese reading](./zh-CN/REVIEW_CLAIM_Mech.md)

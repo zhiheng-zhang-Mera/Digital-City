@@ -1,7 +1,7 @@
 # UI-000 — REVISION REVIEW REPORT（Host `Mech`）
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)
-> 工作书：[../ui-civilization/UI-000-视觉方向候选与审美门禁.md](../ui-civilization/UI-000-视觉方向候选与审美门禁.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md)
+> 工作书：[../ui-civilization/UI-000-视觉方向候选与审美门禁.md](../../ui-civilization/UI-000-视觉方向候选与审美门禁.md)
 > 复核主机：`Mech`（revision Development 主机为 `Alien` → §3 双机独立满足；Alien 不得自审）
 > 复核对象：C″ = 修订后的候选 C，`revision_head_sha = aea8361c07c003f6f519829b6c1a208c20bccab1`
 > 复核产出的分支头：`2978e311959cffee40a172d0ea36e370e8ac59e7`
@@ -154,3 +154,7 @@ REVIEW_RESULT                    PASS_WITH_REPAIRS
   若后续需要第三台主机确认这些修复，请按其自身判断处理，本机不主张自己的修复已被独立确认。
 - 复核完成后 UI-000 的"第二主机独立 review"门槛对**被采用的产物**成立，
   UI-101..103 的依赖随之满足（是否领取由各主机按 §2 自行判断）。
+
+## Language reading link / 语言阅读链接
+
+[Complete English reading translation / 英文完整阅读译文](./en/REVISION_REVIEW_REPORT.md)

@@ -1,0 +1,120 @@
+# GAI-006 开发报告——对话、InputBundle、流与取消
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = GAI-006 (General AI Gateway programme, task 6 of 9)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 0802c6f (Digital-City main, "claim(GAI-006): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T15:54:33Z
+CONTROL_REVISION_AT_CLAIM= ec5309b (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = general-ai/GAI-006-conversation-input-stream-cancel
+IMPLEMENTATION_HEAD_SHA  = ac2df607e5aa01744678aa1e26aab481187ff356
+BRANCH_CI                = 36740524898 — success
+LOCAL_CHECK_SUMMARY      = 108/108 tests pass, rooms 69/69, city 1801 pass/0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+## 1. 交付物
+
+contracts/general-ai-conversation-v1/的conversation.mjs实现规范对话身份、后端绑定／丢失、InputBundle验证、暂存计划／释放、有序部分输出、ResultEnvelope、幂等取消、晚到结果协调；另index、7测试、根tests/general-ai-conversation.test.mjs。
+
+| 要求 | 测试与证明 |
+|---|---|
+| 后端thread／设备变更对话仍继续 | `one conversation continues while backend thread, provider and device metadata change`，重绑provider/thread/device同conversation_id，conversation_identity_changed:false、thread_is_identity:false |
+| 后端thread丢失如实，不假延续 | `backend thread loss is reported and never becomes a silent false continuation`，continuation_available:false、silent_false_continuation:false，下轮REBIND_REQUIRED，对话不关闭 |
+| InputBundle大小／类型／摘要／来源 | `InputBundle enforces bounds, media type, digest and provenance`，BOUNDS_EXCEEDED、MEDIA_TYPE_NOT_ALLOWED、FILE_TOO_LARGE、DIGEST_REQUIRED、INVALID_DIGEST、PROVENANCE_REQUIRED |
+| 暂存明确清理 | `temporary staging metadata always carries an explicit cleanup policy`，每项政策，DELETE_AFTER_USE须cleanup_by，释放幂等 |
+| 部分有序版本非终态 | `partial events are ordered, versioned and never terminal, and RF envelopes stay non-canonical`，单调seq、terminal:false，缺口PARTIAL_OUT_OF_ORDER |
+| 取消幂等、晚结果协调非接受 | `cancellation is idempotent, works across channel changes, and reconciles late results`，重试同cancellation_ref，LATE_RESULT_AFTER_CANCEL协调丢弃、result:null |
+| ID独立提供商／设备／通道，thread为后端引用 | 测试1无channel/thread/device token，identity_is_provider_independent:true、provider_thread_is_canonical:false |
+| 文件逻辑引用带来源设备／暂存非远端路径 | 测试3每项origin_device_ref、canonical_path:null、hard_coded_remote_path:false |
+| 结果信封附件引用，部分非终态 | 测试5result_envelope_ref、terminal:true、partials_are_terminal:false |
+| GAI领域流规范，RF非规范 | 测试5attachTransport、transport_envelope_is_canonical:false、canonical_state_source:GAI_CONVERSATION |
+| 换主机／通道后取消协调仍有效 | 测试6binding_changed_since_opening:true、cancellation_works_across_channels:true |
+
+## 2. 决策日志
+
+**D1——任务。** 新扫描无本机修复、Mech无合资格Correction；Alien持BA-004/005/006、EM-004/005/008/009、GAI-003/004/005、RF-004/005/006。前RF-006排Remote Fabric，选GAI-006，接分流后对话／取消，供GAI-007/009消费。
+
+**D2——身份。** 熵派生conversation:<32 hex>无通道／提供商／thread／设备token，后端为有版本的SUPERSEDED/LOST绑定。验收跨元数据延续，身份非传输／提供商派生；测试无WEB/thread字符串，为廉价结构保护。
+
+**D3——thread消失。** reportBackendLoss将binding LOST、continuation_available:false、silent_false_continuation:false、rebind_required:true。对话仍OPEN，丢失非关闭，下轮REBIND_REQUIRED；不能死thread说继续，保持轨迹可正确重绑。
+
+**D4——InputBundle证明。** 文件／图像／引用／context数量、文本长度有界，媒体允许表、大小上限，每文件图像须sha256，来源命名通道／设备。要求而非接受缺摘要，使未验证二进制不能入规范态。
+
+**D5——摘要错误精确性。** 缺DIGEST_REQUIRED，有但畸形INVALID_DIGEST。初先通用形状使undefined为INVALID_BUNDLE，而调用者需可行动“给摘要”，故先验证摘要。
+
+**D6——暂存状态。** bundle和项不变，释放进度为旁边逐bundle集合。初改冻结item.staging_released=true抛TypeError，套件发现；记录是证据非可变工作对象，分开进度符合纪律。
+
+**D7——无digest函数不虚构。** bundle_digest:null、bundle_digest_status:NOT_COMPUTED、digest_computed_by:null；注入端口时才算并命名端口。虚构或未声明算法内部hash无法复现，null明确不可用。
+
+**D8——部分非终态。** 每turn严格单调seq、terminal:false、partial_is_terminal_success:false，唯一终态为finalizeTurn的ResultEnvelope，完成后partial拒。独立类型防“停止打字”误作成功。
+
+**D9——RF承载。** attachTransport记transport_ref，部分／结果／事件带非规范传输与来源GAI_CONVERSATION。RF可EVENT/STREAM携，但不拥有对话／结果规范，否定数据合并可查。
+
+**D10——取消。** 重复同cancellation_ref、duplicate:true，不论当前binding有效，记录binding_ref_at_cancel；晚结果accepted:false/reconciled:true、reconciliation_ref，保结果引用作丢弃、turn.result仍null。静默丢会失去提供商生成用户未要结果的证据。
+
+**D11——turn状态。** PENDING→STREAMING→COMPLETED或CANCELLED，终态不变。小完整状态机使已完成／取消类型拒非竞态，完成不可取消、取消不接partial。
+
+**D12——无schema.json。** 同其他组件。
+
+## 3. 精确文件
+
+| 文件 | 变更 |
+|---|---|
+| contracts/general-ai-conversation-v1/conversation.mjs | 新身份、绑定、丢失、bundle、暂存、流、取消 |
+| contracts/general-ai-conversation-v1/index.mjs | 新公开接口 |
+| contracts/general-ai-conversation-v1/tests/conformance.test.mjs | 新7测试 |
+| tests/general-ai-conversation.test.mjs | 新根入口101→108 |
+
+无City/Core、清单、文档变更，合并增量。
+
+## 4. 测试与修复
+
+7项首次四失败，两模块缺陷、两测试脚手架。
+
+1. releaseStaging变冻结item抛TypeError，外部集合修D6。
+2. 缺摘要INVALID_BUNDLE非DIGEST_REQUIRED，先摘要、分缺／畸形D5；md5畸形期望改INVALID_DIGEST。
+3. 完成turn的finalizeTurn无result_ref期望TURN_ALREADY_COMPLETE，模块先INVALID_REQUEST畸形。两行为分断言使顺序明确。
+4. 熵替身两注册表同ID使不共享断言失败，加逐registry盐，用>>>0，未mask XOR负hex也曾触严格验证，确认熵验证严格。
+
+## 5. 本地检查与CI
+
+| 检查 | 原结果 |
+|---|---|
+| node --test tests/*.test.mjs | 108过0败（101＋7） |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4验证10记录 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIR_STATUS=SYNCHRONIZED |
+| ac2df607e5aa01744678aa1e26aab481187ff356 的CI 36740524898 | success |
+
+## 6. 同级接口
+
+- GAI-003持久Web：允许重开在同对话bindBackend新绑定，会话ref属binding非身份，不建第二对话。
+- GAI-004 API：每turn仍须同意预算，对话／ResultEnvelope非同意。
+- GAI-005：路由定通道，CONFIRMATION_REQUIRED用户答前不打开turn。
+- GAI-007：中turn可移设备，turn/binding记录执行处，不新对话／二turn。
+- GAI-008：丢后端如实降级可报告，不盲重试。
+- RF-008/009：attachTransport唯一传输引用入口明确非规范，RF携字节不拥有，重连不重放取消turn。
+- RF-006：流经获选路径，迁移不重部分／结果，所以seq按turn非path。
+- Owner问题不变：演进是否记组件阶段。
+
+## 7. Correction待项
+
+1. 对抗：取消后partial缺seq；同对话两turn共享bundle；过去cleanup_by；活turn重绑（允许且逐turn记binding，确认）；别对话bundle引用，已有覆盖仍改路径重测。
+2. 确认D10晚结果有丢弃记录、D7无端口不编digest。
+3. 自动cleanup_by驱动releaseStaging与否，本同步模块刻意留调用者／调度。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
+```

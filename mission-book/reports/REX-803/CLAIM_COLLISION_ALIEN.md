@@ -5,3 +5,6 @@ Alien claim was atomically published at Digital-City `5baee25` before Mech's `1a
 Current governing workbook is preserved as Mech-owned. Alien stops product changes on its parallel branch and does not open a competing task PR or overwrite Mech claim. Alien candidate `cae38b22bfb6c1050221aa4aa3e51844e3ec6e47` remains reference evidence, not accepted task implementation. Independent local technical critique: 10 tests pass; not formal cross-host Review. CI run `37396501305` was in progress at observation. Opposite-host Formal Review of the canonical Mech implementation can be claimed only after its actual Development release.
 
 Classification: control-plane claim ownership drift / duplicate implementation. Research failure labels: `DUPLICATE_IMPLEMENTATION_DUE_TO_DISCOVERY_FAILURE`, `MUTABLE_REFERENCE_STATE_DRIFT`. Owner intervention not required for current safe reconciliation. Owner instruction order remains REX then MON; SHOW excluded.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CLAIM_COLLISION_ALIEN.md)

@@ -136,3 +136,6 @@ Nothing here is a three-end result. All of it ran on **one** host against a loop
 routing rule; it does not prove Alien → Mech or Android → Mech, and I will not describe it as if it did. Step 3
 is the mechanism; steps 4–6 are the three-end proof and they need Mech's node to stay online and the Android
 device to connect.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_STEP3_STRICT_TARGET_INTENT.md)

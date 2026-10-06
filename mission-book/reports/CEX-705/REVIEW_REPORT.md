@@ -174,3 +174,5 @@ workbook CEX-705
 * **No performance claim.** The latency figures in F6 are a local City on one physical host and are labelled as such.
 * This verdict covers only `de9185a4ef8d761053c88316ec9efeca037239fb`. A later head needs its own review, and
   `review/CEX-705-mech-review` is review evidence, not a merge candidate.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

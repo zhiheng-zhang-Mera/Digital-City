@@ -158,3 +158,7 @@ MAIN_CI_82ED369 = 36700956282 - success
 - **Not touched:** the BA merge lock, the BA-001..BA-009 queue, the frozen Butler
   baseline `8104f8289a76d15ff0197c953730edcef42cab5e`, and the four carried-forward
   non-blocking Pre-Assistant items listed in `MISSION_INDEX.md`.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/LEGACY-BRANCH-AUDIT-2026-09-30.md)

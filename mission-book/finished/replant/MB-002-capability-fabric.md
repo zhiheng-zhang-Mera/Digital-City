@@ -94,7 +94,7 @@ merged_main_sha: 83ea44e02274f8d5bcbe866d339a5cd703839e9b
 - Implementation branch: `mission/MB-002-capability-fabric` (created from `zhiheng-zhang-Mera/utopia` main @ `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`)
 - Migration HEAD: `db3ac518de1d6125e00cee1d9ff6ff7868b58336` (implementation commit `00607f8b243e166b112319b1663eebb3d763fcfc` + the event-stream closeout commit)
 - Migration CI: **PASS** — run `36568159888` (`V0.2 checks`) on `00607f8b243e166b112319b1663eebb3d763fcfc`: `gateway-web` success, `android` success. The follow-up event commit carries its own run on the same branch.
-- Migration Report: [`reports/MB-002/MIGRATION_REPORT.md`](./reports/MB-002/MIGRATION_REPORT.md)
+- Migration Report: [`reports/MB-002/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-002/MIGRATION_REPORT.md)
 - **NOT merged to `main`**, as the migration stage requires.
 
 ### Verification Claim
@@ -108,7 +108,7 @@ merged_main_sha: 83ea44e02274f8d5bcbe866d339a5cd703839e9b
   mixtures; no production file was changed by the verifier.
 - Episode closeout: `63acf7af029357ca8ad85939a23dc9ab46e06f85` (`MB-002:f859fd8391837e33`)
 - Merged to `main`: `83ea44e02274f8d5bcbe866d339a5cd703839e9b`
-- Verification Report: [`reports/MB-002/VERIFICATION_REPORT.md`](./reports/MB-002/VERIFICATION_REPORT.md)
+- Verification Report: [`reports/MB-002/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-002/VERIFICATION_REPORT.md)
 
 > **Order of work (rule 9).** The independent review comes FIRST and is written down before the
 > Migration Report is opened: donor, target code, diff, tests and running state only. The
@@ -118,8 +118,8 @@ merged_main_sha: 83ea44e02274f8d5bcbe866d339a5cd703839e9b
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> **OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
@@ -129,3 +129,6 @@ merged_main_sha: 83ea44e02274f8d5bcbe866d339a5cd703839e9b
 - Boss provider/broker parity
 - Hns lifecycle/fallback parity
 - cross-client result/error/history evidence
+
+
+[阅读译本 / Reading translation](./en/MB-002-capability-fabric.md)

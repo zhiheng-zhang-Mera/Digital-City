@@ -49,3 +49,7 @@ Neither implementation should absorb the other merely because both mention physi
 
 ## Deliberate non-unions
 Boss global scheduler ≠ Hns Engineering scheduler; Boss City Core ≠ Hns `app/core`; Boss global recovery ≠ Hns Engineering recovery ≠ dsh-restart; City Node identity ≠ Hns resource profiler. Similar vocabulary is not enough to collapse scope.
+
+---
+
+语言配对 / Language pair: [English](./COMPOSITE_UNIONS.md) · [中文](./docs/zh-CN/COMPOSITE_UNIONS.md)

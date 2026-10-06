@@ -47,3 +47,8 @@ TREATMENT （并发突发，同样 60 ms 延迟）   10 refusals / 30 requests  
 `repair/mech-relay-rate-probe-burst`（建在当前 main `b06504f` 之上）：既有的三段断言（无 ref 无凭据必须 403、版本不符必须 409、突发必须 429）一字未改，只改“怎么发这个突发”，并在失败信息里报告发送跨度，让“前提不成立”与“产品有问题”不再混为一谈。 / The three product assertions are unchanged; only the sending discipline and the failure message changed.
 
 状态 / status：**已验证、待采纳的提案**。本机对 JOIN 系列无合并授权；relay/JOIN 的记录持有人决定是否采纳。它同时也让 REX 集成的前置测量不再产生这条假红。 / A verified proposal awaiting adoption by the JOIN record holder; it also stops the REX integration preflight from producing this false red.
+
+
+---
+
+语言读本 / Reading translation: [English](en/RELAY_RATE_PROBE_HOST_SPEED_MECH.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

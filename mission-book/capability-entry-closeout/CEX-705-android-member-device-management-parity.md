@@ -176,3 +176,8 @@ parity gap 计数与消息延迟原记为 null，已由本次复核实测补上�
 9ms、回执往返 7ms、canonical 创建到接收 9ms，限定单机本地 City、非性能声明）。**限制**：本机仅挂载一台手机，故没有第二台
 **实体**手机参与（其余成员是以真实会话凭据经 HTTP 驱动的真实城市成员），Web 亦未以入网会话身份驱动，未做长稳/旋转/低内存测试。
 
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/CEX-705-android-member-device-management-parity.md)

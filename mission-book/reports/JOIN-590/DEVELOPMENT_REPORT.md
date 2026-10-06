@@ -492,3 +492,5 @@ credentials              never printed, never committed (read into a variable on
 * No claim is made that an enrolled installation survives a restart on this City: there is none.
 * No performance, latency or hardware-quality claim is made; the interruptions in §2.4 are reported as they
   happened, including the one caused by running a foreground launcher under a timeout.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

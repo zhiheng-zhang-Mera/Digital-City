@@ -34,3 +34,6 @@ nothing but is the Owner's call to make, because the window's length is the Owne
   window remains to stop honouring the credential — rotate the process onto a new port and a new pair — not to
   pretend an expiry happened. When `06:46:50Z` is reached, that rotation is what will happen, and the new
   measured address will supersede rather than edit this record.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_OWNER_EXTENDED_CREDENTIAL_WINDOW.md)

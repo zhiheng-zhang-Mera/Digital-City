@@ -27,3 +27,5 @@ MON-902 and MON-903 require accepted MON-901; MON-990 requires both. REX-801 is 
 JOIN-590 is READY but explicitly requires real Alien Windows + Mech Windows + physical Android approval, restart tokenless reconnect, and revoke refusal. No callable Mech physical session/address was provided, so logical peers cannot satisfy it. SHOW-401 has an existing Alien capture claim and requires the same three actual surfaces; do not overwrite that claim or manufacture missing footage. Prior physical/browser policy refusal remains preserved, not retried to bypass policy.
 
 Choice: retain bounded waiting eligibility rather than widen scope, bypass accepted-SHA gates, or declare completion. This scan is a control-plane observation, not a verified wait on a live execution handle. No task execution state changed, so progress totals are unchanged; synchronization check is still required before publication.
+
+语言配对 / Language pair: [English](./ELIGIBILITY_SCAN_20261005T103433_Alien-codex.md) · [中文](./zh-CN/ELIGIBILITY_SCAN_20261005T103433_Alien-codex.md)

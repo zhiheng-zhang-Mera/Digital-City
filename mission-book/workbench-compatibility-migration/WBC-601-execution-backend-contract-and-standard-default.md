@@ -170,3 +170,5 @@ Reviewer 应主动寻找“wrapper 看似兼容但默认路径已经改变”的
 - `mission-book/reports/WBC-601/REVIEW_REPORT.md`
 
 本任务自动继承常驻规则中的原子领取、双机独立、no-idle、typed zero-claim、20 分钟兜底重扫、exact-head evidence 与 integration refresh。
+
+语言配对 / Language pair: [English reading](./en/WBC-601-execution-backend-contract-and-standard-default.md)

@@ -26,3 +26,4 @@ F1 LOW paper material: this index states that the reviewer must independently re
 
 Android online interaction, physical pairing, distributed execution and cross-region relay remain NOT_RUN; intent validation remains NOT_TESTED. Terminal marker ALTERNATE_DEVICE_USER_CHOICE_EXPOSED released. See REVIEW_REPORT.md.
 
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

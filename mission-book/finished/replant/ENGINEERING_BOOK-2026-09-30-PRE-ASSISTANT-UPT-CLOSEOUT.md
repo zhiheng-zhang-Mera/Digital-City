@@ -4,7 +4,7 @@
 > Control repo: `zhiheng-zhang-Mera/Digital-City`  
 > Implementation repo: `zhiheng-zhang-Mera/Utopia`  
 > Owner-directed phase: **migration closeout → unified terminal foundation**  
-> Binding ruling: [response-9-30.md#R12](./response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)
+> Binding ruling: [response-9-30.md#R12](../completed-2026-10-01/response-9-30.md#r12--migration-only-正式结束进入-pre-assistant-product-closeout)
 >
 > **This workbook deliberately stops before any personalized assistant/persona layer.**
 
@@ -637,3 +637,7 @@ A blocker is preferable to false completion.
 [ ] FINAL_STATUS = PRE_ASSISTANT_TERMINAL_FOUNDATION_COMPLETE
 [ ] STOP
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md)

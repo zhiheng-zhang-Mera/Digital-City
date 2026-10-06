@@ -73,3 +73,6 @@ gate 3 的 remote handoff 子项 : 仍明确 NOT MET —— 你先前选项 1 �
 ```
 
 Alien 的零领取状态仍为 `5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY`，唤醒条件更新为：**Mech 完成复核**。
+
+
+[阅读译本 / Reading translation](./en/RECORD_ALIEN_UXI390_OWNER_VISUAL_RULING_PASSED.md)

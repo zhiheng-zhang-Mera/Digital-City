@@ -89,3 +89,6 @@ unapplied mutation earlier in this task, and it is recorded here because the tru
 `mission-book/reports/UXI-390/mech-review/android-failure-recovery.json` (both phases' full text, the 22-token
 search per phase, and the six results) plus `android-failure-panel-360dp.png` and
 `android-recovered-panel-360dp.png`.
+
+
+[阅读译本 / Reading translation](./zh-CN/VERIFICATION_MECH_ANDROID_FAILURE_RECOVERY.md)

@@ -116,3 +116,5 @@ fallback_or_escalation
 ## 完成门槛
 
 可解释分配、独立性 eligibility 检查、fallback、无可用候选时诚实升级；不得因评分服务故障冻结普通低风险任务，不得降低既有领域 gate。
+
+语言配对 / Language pair: [English reading](./en/DGX-003-capability-history-assignment-policy.md)

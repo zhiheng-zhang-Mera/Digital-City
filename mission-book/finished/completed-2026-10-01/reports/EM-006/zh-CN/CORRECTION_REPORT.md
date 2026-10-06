@@ -1,0 +1,108 @@
+# EM-006 纠正报告：本地优先Sub-worker放置门槛
+
+[English authoritative source / 英文权威原稿](../CORRECTION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION              = EM-006 (Engineering Manager programme, task 6 of 13)
+PROGRAMME            = ENGINEERING_MANAGER_ENGINEERING
+STAGE                = CORRECTION
+CORRECTION_HOST      = Alien
+DEVELOPMENT_HOST     = Mech
+CONTROL_BOOK         = Digital-City/mission-book/engineering-manager/EM-006-local-first-subworker-placement.md
+CLAIM_COMMIT         = 749cef6 (Digital-City main, claim of EM-006 Correction by Alien)
+CLAIMED_AT           = 2026-09-30T16:26:22Z
+COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DEVELOPMENT_HEAD     = 2894e8da9d95f54dbb568d8acc510b91bdeae4fb
+DEVELOPMENT_CI       = 36727765139-success
+CORRECTION_BRANCH    = engineering-manager/EM-006-local-first-subworker-placement
+CORRECTION_HEAD_SHA  = 3a3c4a5b1998eeb6b33ab3f7ee7c8d04bfbd8481
+BRANCH_CI            = 36745309710 — gateway-web success, android success
+LOCAL_CHECK_SUMMARY  = EM-006 11 pass, root 112 pass, rooms 69 pass, city 1801 pass,
+                       promotion-history OK at 2894e8d, bilingual SYNCHRONIZED
+MERGE                = NOT PERFORMED (forbidden for component branches)
+CORRECTION_COMPLETE  = true
+```
+
+原始元数据保留任务、主机、工作簿、领取、基线、开发／纠正SHA及CI、检查和完成／禁止组件合并状态。
+
+## 1. 独立审查方法
+
+两次审查针对开始前取得的字节核验不可变导出frozen-2894e8d，三个文件match=True，第十一次使用此隔离。通过修复模块重放原复现及成对回归验证。
+
+## 2. 已确认缺陷与修复
+
+确认十四项：本主机独立六、审查者十四；修复十一不同机制，三项记下方。
+
+| id | 严重度 | 机制 | 修复 |
+|---|---|---|---|
+| C1 | high | approval gate原型链读，Object.create({requires_user_approval:true})无证据却REMOTE_APPROVED、local_attempted_first:true | proposal须普通自有属性对象、合理回退理由、记录本地尝试 |
+| C2 | high | GPU负载验而不读，100%仍idle、full pool，证据也无值 | GPU95%阻断、80%限流，纳入证据 |
+| C3 | medium | policy只单侧界，cpu_block_percent:1000关闭阻断，reduce_concurrency_to:1000000给全池 | 每key双侧range |
+| C4 | medium | running9／max2超配给LOCAL_THROTTLED concurrency1 | 矛盾measurement为LOCAL_UNAVAILABLE |
+| C5 | medium | key in MEASUREMENT_SPEC，嵌套blocks全未验shape | own key与逐block字段列表 |
+| C6 | medium | 无evidence decision可提议，spread缺字段{}但claim真 | 非空own evidence带observed_at |
+| C7 | medium | 不同但合理reason候选接受 | 第3节记录未修 |
+| C8 | medium | Object.entries漏非枚举speed_rank，仍ranked_by_speed:false | 全own key、cycle-safe scan |
+| C9 | low | isIsoInstant仅形状，不可能时间作证据 | calendar round-trip |
+| C10 | low | 循环candidate raw RangeError | WeakSet visited |
+| C11 | low | workers.max无上限1.797e308作concurrency，free_bytes:0.5算capacity | 两者integer bounds |
+
+### C1／C2：真实后果的两项
+
+模块全部目的即头部“先尝试本机，绝不因别设备快而移动工作”。冻结版本让caller**自我批准**：approveRemoteFallback只查requires_user_approval，合成对象无依据却REMOTE_APPROVED／local_attempted_first:true；同时**忽略已验证测量**，GPU饱和视idle、给全pool。两者已关闭，approval重新检查提议来自本地尝试后的实测阻断。
+
+## 3. 核对审查者声明
+
+- **D2记分歧，不修。** 对方要求候选measured_reason等于decision reason。作者故意LOCAL_UNAVAILABLE配LOCAL_BLOCKED候选，字段意为该候选回退的实测理由，来自两个FALLBACK_REASONS。实施equality后作者test失败，**回退修复而非test**；test不编码缺陷、无虚假断言。Owner可裁更强解读。
+- D3／D4／D5／D6／D7／D8／D10分别C6、C6／4.2、C3、C8／C5、C9、C10、C11。
+- 保留对方被否定怀疑：预期DEFAULT_POLICY缺cpu_throttle_percent而fail-open，实际存在；merge后validate也防prototype继承policy override。
+- 接受重要未执行说明：无状态纯模块不存在guarantee2／3的slots／reservations／double-release／races状态半边可攻击，限制任何审查声明上限。
+
+## 4. 有意不修与边界
+
+1. 候选measured_reason不必等decision，见第3节。
+2. proposal仍可批准两次。single-use需有意不持有的durable state，同无proposal epoch原因。强制的是approval不能早于measurement。结转：工作簿“每epoch最多一active proposal”在模块**根本无epoch**，集成需durable proposal registry。
+3. 未知candidate字段仍复制proposal，如rank_by／allowed。measurement现拒未知，但candidate是provider-specific属性接缝，声明guard仅speed scan；这是最松剩余shape规则。
+4. assertLocalFirstAttempted接受[{scope:LOCAL}]无工作标识证据；纯module不能验实际尝试，要求job／attempt ref会收窄，记录不假定。
+5. 无Android观察／Computer-Use，无device surface纯模块。
+
+## 5. 测试与CI
+
+作者8/8不变，8→11测试，每negative配合法邻居：GPU饱和限流／idle全并发，超配不可用／普通允许，forged拒／honest批准，非枚举speed拒／clean接受。
+
+```text
+node --test tests/*.test.mjs                -> 112 pass, 0 fail
+node --test apps/rooms/tests/*.test.mjs     ->  69 pass, 0 fail
+node city/test-all.mjs                      -> 1801 pass, 0 fail (7 skipped)
+node scripts/verify-promotion-history.mjs   -> OK (10 records at 2894e8d)
+node scripts/check-bilingual.sh             -> SYNCHRONIZED
+```
+
+原始结果根112、rooms69、city1801全过0败（city7跳），2894e8d上10条promotion-history，双语同步。实现CI36745309710 gateway-web／android success，engineering-manager/EM-006-local-first-subworker-placement @3a3c4a5。
+
+## 6. 未明示决策（问题／选择／理由）
+
+1. 可批准什么：合理回退理由、local attempt、bare own-property。远程须实测本地拒，正确flag非measurement。
+2. GPU测量含义：同CPU／memory阻断限流，policy95／80、证据含值。已存在验而丢是最明显“非测量的测量”。
+3. 矛盾测量：LOCAL_UNAVAILABLE非throttle。运行worker超许可说明输入不可信，超限设备建议一个worker是基于荒谬数据的自信答。
+4. policy数字界：key集关闭、每key显式range。单侧非负允许policy关闭其要配置的阻断。
+5. approval可否早于evidence：不可。replayed decision proposal不能凭当时尚不存在证据获批。
+
+## 7. 如实自身错误
+
+- 未先读作者fixture就实施D2 equality，失败后回退自己改动非test；本会话一直遵守而此处忘记的教训是先看现套件怎样断言机制再定缺陷。
+- revert script切错行数导致syntax broken；恢复冻结file、去equality步骤重跑两patch，而非手修损伤；push前确认其他repair markers和11/11。两事故记录，因为某时“tests pass”也是broken tree表象。
+- probe显示helper对循环result抛，短暂像module仍失败；cycle guard在findSpeedFields，实际JSON.stringify在probe抛。
+
+## 8. 结果
+
+十一机制在机制层修复，成对回归、原复现重放。审查者一claim有证据分歧，五边界含工作簿未满足proposal epoch须durable registry而非local guard；作者suite从未削弱。
+
+```text
+CORRECTION_COMPLETE = true
+CONTROL_BOOK_UPDATED = mission-book/engineering-manager/EM-006-local-first-subworker-placement.md
+```
+
+原始结论保留Correction完成与控制工作簿路径。

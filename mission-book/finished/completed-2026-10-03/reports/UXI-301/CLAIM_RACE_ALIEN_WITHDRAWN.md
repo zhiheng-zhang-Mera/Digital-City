@@ -113,3 +113,6 @@ Mech declares development complete.
 Mech's handling of this is worth recording too: it flagged the ambiguity *early*, while its own development
 was still incomplete, explicitly declined to demand a ruling that was not yet due, and cited §9 against
 re-deciding something not yet ripe. That is the same discipline that kept the RS-290 repair moving.
+
+
+[阅读译本 / Reading translation](./zh-CN/CLAIM_RACE_ALIEN_WITHDRAWN.md)

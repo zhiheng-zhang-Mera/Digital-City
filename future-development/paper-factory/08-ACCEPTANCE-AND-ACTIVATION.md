@@ -61,3 +61,52 @@ When implemented, supply schema validation; fixture outcomes; exact code/config/
 ## 5. Stop and rollback / 停止与回退
 
 A false scientific claim, secret leak, unauthorized external action or truth-core divergence disables the affected release path and preserves incident evidence. It does not erase archives or stop unrelated City work. A safe lower-capability state is package-only mode with manual external submission. / 有风险时退回仅打包/人工提交，不伪装自动化成功。
+
+## 中文完整说明 / Complete Chinese explanation
+
+### 1. 延后启用
+
+这是未来测试要求，不是本次产品测试。仅架构记录，不因目录建立可领取任务、改进度、启动采集 daemon/实验/投稿适配器。实现前Owner评审设计、核对实际上游版本、选仓库、写有界计划，再按当时任务施工复检规则登记。不计开发或复检完成，不阻塞Utopia。
+
+### 2. 增量
+
+I0 离线只读索引覆盖账本，以取回去重缺失权限测试和零来源修改证明退出；I1 信号替代文献Owner选题台，以来源卡片且不自动开稿证明；I2 冻结分析论点可复现IR，以重算表及失败无结论保留证明；I3 NIER及一个需源期刊如Access，以同事实不同合规包证明；I4 家族重叠转投修订授权，以并发不双投和阶段检查证明；I5 可选外部执行以真实回执人工权限证明，不支持仍人工。每步可停，不要求首版全部14目标或自动投稿。
+
+### 3. 24项未来验收情景
+
+| ID | 场景 | 预期结果 |
+|---|---|---|
+| PF-T01 | 子项通过但必需整体验收失败 | 保留 FAIL，拒绝更广成功主张 |
+| PF-T02 | 失败/阻塞任务未合并 | 保留研究观察，不伪造accepted episode |
+| PF-T03 | 只收异常无总体分母 | 不声称总体失败率 |
+| PF-T04 | 同任务多重试日志副本 | 分别计数，不膨胀独立样本 |
+| PF-T05 | 摘要有效但artifact链接过期 | 标不可用，取回依赖主张未解决 |
+| PF-T06 | 修复/后续解释 | 保留之前状态时间，不回写PASS |
+| PF-T07 | 缺指标/隐藏模型身份 | NOT_OBSERVABLE及理由，不猜零默认 |
+| PF-T08 | 同核心适配NIER及需源期刊 | 包内容不同，实验数字和范围一致 |
+| PF-T09 | 仅模板转投 | 重建格式预检，不重跑产品 |
+| PF-T10 | 适用规则未核/冲突/过期 | 局部阻塞投稿，其他分析继续 |
+| PF-T11 | 不完整规则清单已列全绿 | 阶段完整性失败，不放行 |
+| PF-T12 | 匿名PDF但归档链接历史识别身份 | 身份门禁失败，即使作者字段空 |
+| PF-T13 | 重叠家族并发发送 | 最多一个授权，歧义先核对 |
+| PF-T14 | 发送后断网 | SUBMISSION_STATE_UNKNOWN，不重投 |
+| PF-T15 | 编辑回应禁AI | 人工实质回应，不模型写加人点击 |
+| PF-T16 | 批准后数据作者许可成本政策变化 | 相关批准失效，保留原批准包 |
+| PF-T17 | DOI存在但不支持主张 | 存在PASS不能覆盖支持FAIL |
+| PF-T18 | fixture混入实证 | 拒绝或隔离模拟，不称观察数据 |
+| PF-T19 | 日志模板政策中提示注入 | 不改权威、不外传、不外发 |
+| PF-T20 | 缺合作者同意/APC超预算 | 阻塞发布付款，不造确认 |
+| PF-T21 | 跨站预印本偏好冲突 | 展示路由决定，不自动双发 |
+| PF-T22 | 评审要未执行实验 | 报缺口/批准计划，不称完成 |
+| PF-T23 | 正负结果与聚类时间漂移 | 推断前核纳入理由方法假设 |
+| PF-T24 | 旧年份/错误阶段 | 拒profile不符，刷新精确目标 |
+
+fixture 为 DESIGN_FIXTURE_NOT_RESEARCH，独立来源命名空间，不进真实候选统计。
+
+### 4. 完成证据
+
+实现后提供schema验证、fixture结果、精确代码配置环境、适合任务的独立证据方法检查、来源零修改证明、UI可达控制、双目标构建预检、有限限制清单。运行测试/来源新鲜度与链接JSON验证独立。目录JSON不是流水线可用，编译不是发表资格，内部审核不是录用。
+
+### 5. 停止回退
+
+虚假科学主张、秘密泄露、未经授权外发或核心分歧，禁用受影响发布并留事件证据，不删归档、不停其他City工作。可退至仅打包人工外发，不伪装自动化成功。

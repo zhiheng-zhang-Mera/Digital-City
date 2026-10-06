@@ -201,3 +201,5 @@ workbook CEX-702
   plane by this review and stated as such.
 * This verdict covers only `3d233ff39d1e96b8a590b12f520f98c283356f25`. A later head needs its own review, and
   `review/CEX-702-mech-review` is review evidence, not a merge candidate.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

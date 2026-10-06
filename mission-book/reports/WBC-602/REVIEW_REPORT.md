@@ -7,3 +7,6 @@ Six descriptor/readiness/role/requirement inconsistencies independently reproduc
 Registry CAP-NODE-DESCRIPTOR-001 reconciled to exact paths/API/semantics. INTERNAL_ONLY foundation exemption explicit, no ordinary user surface claimed. Four dimensions COMPLETE/VERIFIED/NOT_APPLICABLE/VERIFIED refer to contract behavior, not hardware certification or a new City primary-agent choice.
 
 Terminal marker NODE_CAPABILITY_RESOURCE_COMPAT_ACCEPTED issued for exact d99101fdac5169aad74ae84fb7c0c25be43ad7d9. merge_authority remains false; PR stays open. Main-anchored dependent tasks cannot treat the terminal marker alone as accepted-main ancestry: exact reviewed head must first be included in independently resolved main with required CI and authorized integration.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_REPORT.md)

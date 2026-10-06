@@ -143,3 +143,7 @@ per-room divergence across all ten rooms, and not just the four captured; (b) wh
 treatment hurts any room's dense-workflow ergonomics (Data Lab's textareas, Prompts' long lists);
 (c) whether moving `127.0.0.1` into diagnostics still leaves the local-only safety property
 discoverable enough.
+
+## Language reading link / 语言阅读链接
+
+[Complete reading translation / 完整阅读译文](./zh-CN/DEVELOPMENT_REPORT.md)

@@ -139,6 +139,8 @@ property" defect this programme has now recorded four times, and the committed p
 be live in the City and a campaign to run on the three-end topology; what has changed is that nothing but one command
 and one short code now stands between the programme and that campaign.
 
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/THREE_END_GATE_MEASUREMENT.md)
+
 ## THE GATE IS MET — measured on the live City, 2026-10-06T08:01Z
 
 The completion gate is *"at least one controlled campaign on the Alien + Mech + Android base topology with a full research

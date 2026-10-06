@@ -135,3 +135,5 @@ Mech-Win worker         NOT running: replacing the resident instance for this la
                         the shared canonical City. MESH-301 is closed, so nothing depends on it, but it is a
                         real consequence of this change and is recorded rather than discovered later.
 ```
+
+语言配对 / Language pair: [原文 / Source](./LAUNCHER_AND_SHAREABLE_INVITE.md) · [译本 / Translation](./zh-CN/LAUNCHER_AND_SHAREABLE_INVITE.md)

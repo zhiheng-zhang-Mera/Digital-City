@@ -96,3 +96,6 @@ node scripts/mesh301-mesh-probe.mjs merge --window 5000 \
 
 The honest summary of this round: **the scheduling problem is solved and the table is one repaired finding
 away from being complete** — and it is reported as FAILED rather than as a pass with a footnote.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_GATE8_WINDOW_RUN_AND_TABLE.md)

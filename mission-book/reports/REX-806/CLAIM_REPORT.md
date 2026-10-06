@@ -69,3 +69,5 @@ development_baseline e18c5c5350d7657cf046b7ba6bbcd888dc2a1540（= 三个已接�
 terminal_marker      RESEARCH_ARTIFACT_EXPORT_ACCEPTED — 未释放
 merge_authority      无
 ```
+
+语言配对 / Language pair: [中文完整读本 / Full Chinese reading](./zh-CN/CLAIM_REPORT.md)

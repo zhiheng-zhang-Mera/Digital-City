@@ -1,0 +1,117 @@
+# EM-001 开发报告：核心契约与Engineering所有权边界
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = EM-001 (Engineering Manager programme)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 04ec68d (Digital-City main, claim of EM-001 Development by Mech)
+CLAIMED_AT               = 2026-09-30T12:08:39Z
+CONTROL_REVISION_AT_CLAIM= ef706ef (latest main when the claim was made; contained Alien's RF-001 claim 7e1a499)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+DONOR_REPO               = zhiheng-zhang-Mera/DS-Hns @ eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b (pinned, NOT read at runtime, NOT a dependency)
+IMPLEMENTATION_BRANCH    = engineering-manager/EM-001-core-contracts-boundaries
+IMPLEMENTATION_HEAD_SHA  = efa127b38e5285ec9beb25d85fc21160c13d5f7a
+BRANCH_CI                = 36713450542 — gateway-web success, android success
+LOCAL_CHECK_SUMMARY      = 123/123 tests pass, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据保留任务、主机、领取／control（含Alien RF001 claim）、repo／baseline、仅pin非runtime donor完整SHA、branch／head／CI、本地123及完成／禁合并。
+
+## 1. 交付物
+
+contracts/engineering-manager-v1/：
+
+| 文件 | 目的 |
+|---|---|
+| canonical.mjs | 确定canonical JSON与sha256、顺序无关identity |
+| ownership.mjs | concern→owner map，ENGINEERING route、owned state allowlist、foreign route／state／secret／Codex-Boss扫描、CanonicalTaskTruthPort |
+| envelopes.mjs | versioned job／event／attention／result／artifact／connector descriptor instance／capability／auth／remote fallback严格validators |
+| ports.mjs | Manager／Connector／Registry／RemoteExecution／TaskTruth contracts、conformance probe、deterministic double |
+| replay.mjs | submit／control／result幂等ledger、stable job identity、version／transition／terminal rules |
+| index.mjs／schema.json | public及published JSON Schema |
+| tests/conformance.test.mjs | 22suite |
+| 根tests/engineering-manager.test.mjs | pnpm test入口 |
+
+验收映射：
+
+- 四versioned public ports→PORT_CONTRACTS／describePort／probePortConformance。
+- job／connector instance／host／owner／coordinator／executor／lease IDs→JOB_SPEC的job_ref／city_task_ref／owner／executor／connector_instance_ref／lease_ref。
+- product/task semantic ENGINEERING，不HNS／CODEX／CLAUDE／WORKBUDDY owner routes→validateEngineeringRoute／PROVIDER_PRODUCT_PATTERN。
+- City／Shared Core canonical、EM仅execution→OWNED_STATE_FIELDS／FOREIGN_CANONICAL_FIELDS／TASK_TRUTH_PORT。
+- submit／control／result replay→createIdempotencyLedger／submitJob／applyControlCommand／applyResult。
+- 与GAI／BA／RF／City auth分离→CANONICAL_OWNERSHIP、foreign拒。
+
+## 2. 决策日志
+
+**D1：BA001后。** 等Correction、再BA、另计划未领三选EM001。freshglobal无repair／opposite correction tier3，Alien刚RF001，换计划且防双host同pool。EM13/41最大，EM001是002…013基础。
+
+**D2：位置。** contracts/engineering-manager-v1＋薄root，理由同BA001 D3既有contract／glob；无runtime／connector实现，防抢EM002／004。
+
+**D3：文档还是执行检查。** 选validators，全部验收negative invariant，markdown不fail build／future connector，route／foreign／secret／donor scans可且test。
+
+**D4：owner coordinator／executor。** 单owner可host或两必需subobject，选owner task_owner_ref／coordinator_ref与executor host_kind／host_ref／placement，resolveRoles executionHostChangeCreatesNewOwner:false。不变量10即同physical双角色也成立，approved local→remote保owner测试。
+
+**D5：replacement-safe。** 仅declaration、method lists＋probe、再double三选第三。允许missing siblings用stableport／double，probe missing／nonfunction／extension，deterministic double使EM002…012无provider bounded tests且仅scripted outcomes不silent success。
+
+**D6：幂等digest范围。** retry合法改变state／version／checkpoints／time，whole envelope会false KEY_REUSE，选semantic operation。submitIntent含route／refs／mode／owner／workspace／scope／acceptance／risk／operations／key；control job_ref／kind／job_version／issuer；result job_ref／result_ref／outcome／acceptance。真实保证同key不同intent拒，记录决定restart retry行为。
+
+**D7：version。** stale STALE_JOB_VERSION、future FUTURE_JOB_VERSION、terminal resume JOB_ALREADY_TERMINAL、另一result覆完成 DUPLICATE_RESULT_CONFLICT。未知version／state／route不能猜，late event不复活。
+
+**D8：attention。** 一device一question或shared envelope projections选后；一actionable＋最多3recent notify／ring。first-valid-ack所有停铃停actionable，project抑already-delivered／acked epoch。EM1–3／6、验收15–18，独立envelope会重连重复question铃。
+
+**D9：假成功。** SUCCEEDED须acceptance PASS、无failing tests、blocking_state:null，PHYSICAL_ACTION_REQUIRED不可success，rule10／acceptance20诚实hardware blocker。
+
+**D10：provider中性。** product名非route／required，仅ConnectorDescriptor.provider_ref opaque；Codex-Boss任何字符串也拒，tombstone，DS-Hns非runtime dependency。
+
+**D11：remote fallback。** requires_user_approval consttrue，candidate strict拒speed／load，reason限measuredlocalblocking、CURRENT_JOB、保owner。LOCAL_FIRST不能因快idle触，V1 explicit。
+
+**D12：schema drift。** suite据runtime required／enums比schema，单边变fail，published不装饰，同BA001移除speculative版本。
+
+**D13：evolution。** 不用，同BA001 D11，migration-scoped禁止自invent，report construction。
+
+## 3. 测试汇总
+
+22全过：providerneutral autonomous／distinct roles；scripted agent operations；unknown version／state／mode／event／port；foreign route；provider product route拒但ref允许；job／event／connector Codex-Boss；rawsecret拒handle准；owned state与foreign canonical；typed events；attention一actionable≤3distinct、informational无ring；firstack／reconnect无再铃；false success；probe extensions；double；submit replay／keyreuse；control version transition terminal；result幂等冲突；restart identity／incompatible拒；measured approved remote保owner；digest稳定／schema一致；typed error。negative断code且state不改。
+
+## 4. 检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 123全过0败（101＋22） |
+| node scripts/verify-promotion-history.mjs | 82ed36933fb4上10 OK |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败7跳同baseline |
+| corepack pnpm check:docs | docs／evidence／data-records SYNCHRONIZED |
+| CI36713450542，efa127b38e5285ec9beb25d85fc21160c13d5f7a | gateway-web／android success |
+
+## 5. 集成接缝
+
+- EM002／004／011／012：实现ConnectorPort、assertConformance、Registry注册、double测试，只有descriptor provider_ref可命provider。
+- EM003：四SPEC canonical wire，parseJobEnvelope／jobIdentityDigest restart。
+- EM005：attention shared projections helpers，delivery／ring／quiet仍彼scope。
+- EM006／007：PLACEMENT_STATES／validateFallback／applyApproved保LOCAL_FIRST owner，压力测量归006。
+- EM008：auth credential_ref handle，neutral store storage。
+- EM009：restart尊RECOVERING／BLOCKED／terminal。
+- EM013：TaskTruthPort Shared Core canonical，EM经它报execution／results／attention。
+- RF／GAI：RemoteExecutionPort适配RF非独立transport，identity RF非本mint。
+
+## 6. 开放项
+
+1. nested string／array／provider_ref overflow／foreign route case／prototype keys夹provider／foreign semantics。
+2. future connector另retryidentity需确认D6digest。
+3. EM evolution D13同BA001确认。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
+```
+
+原始结论开发完成、仅Alien纠、Engineering合并前禁。

@@ -443,3 +443,5 @@ rule the individual probes were held to.
 CI          V0.2 checks push run 37429465001 COMPLETED SUCCESS (attempt 1) on 8e1c1c5, jobs gateway-web and
             android both success
 FULL SUITE  1371/1374 on the branch, the 3 being this host's resident-City host reservation
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md)

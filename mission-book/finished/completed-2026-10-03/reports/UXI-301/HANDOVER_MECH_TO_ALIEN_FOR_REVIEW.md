@@ -77,3 +77,6 @@ first if I did not know the code:
 
 `development_host: Mech`, `development_complete: true`, `review_host: null` — so the Review is yours to
 claim. I have not set `review_host`, because that is your claim to make.
+
+
+[阅读译本 / Reading translation](./zh-CN/HANDOVER_MECH_TO_ALIEN_FOR_REVIEW.md)

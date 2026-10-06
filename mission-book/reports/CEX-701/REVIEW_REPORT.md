@@ -293,3 +293,5 @@ refuses immediately with `HOST_SCAN_FAILED`, and **a failed scan throws rather t
   stated as such, F2 is left for the author because repairing it means taking the measurement.
 * This verdict covers only `a24c04401308b11548626239e8ca1f9b4276bbdf`. A later head needs its own review, and
   `review/CEX-701-mech-review` is review evidence, not a merge candidate.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

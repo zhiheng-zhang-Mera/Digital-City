@@ -63,3 +63,6 @@ restart recovery and receipts — is developed and tested on this host, and the 
 
 Not required. The reconciliation is a records-level safe stop: no merge, no force-push, no lost evidence, and the
 task is owned by exactly one host after it.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/CLAIM_COLLISION_MECH.md)

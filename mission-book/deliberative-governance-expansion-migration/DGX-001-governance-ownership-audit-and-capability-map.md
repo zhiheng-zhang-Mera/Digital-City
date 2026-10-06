@@ -104,3 +104,5 @@ Shared Task Core、Capability Fabric、JEV/Monitor、Guardian/compliance、Engin
 ## 完成门槛
 
 形成 ownership map、冲突清单、KEEP/REFERENCE/EXTRACT 三分类、认知编排 primitive 的 owner map 与后续工作书输入；不得产生产品行为变化。
+
+语言配对 / Language pair: [English reading](./en/DGX-001-governance-ownership-audit-and-capability-map.md)

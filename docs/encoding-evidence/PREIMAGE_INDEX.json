@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/BA-005/CORRECTION_REPORT.md",
+      "original_sha256": "a91c03f3179df39c20e808a4a6645ca2da33fa77f335124212443d4acc71a405",
+      "original_bytes": 14891,
+      "preimage_ref": "docs/encoding-evidence/BA-005-CORRECTION_REPORT.md.bin",
+      "repair": "invalid separator to hyphen; other invalid sequences to U+FFFD; no missing semantic text inferred"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-002/CORRECTION_REPORT.md",
+      "original_sha256": "ba6ba606524af7ba1544fc548af84cc9261335a0ce247943bcee9cc453050013",
+      "original_bytes": 17972,
+      "preimage_ref": "docs/encoding-evidence/EM-002-CORRECTION_REPORT.md.bin",
+      "repair": "invalid separator to hyphen; other invalid sequences to U+FFFD; no missing semantic text inferred"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/EM-005/CORRECTION_REPORT.md",
+      "original_sha256": "ca371f49d97efb9aaf7e533560316ae9d5a505530a10436af170701b03ccd60b",
+      "original_bytes": 12514,
+      "preimage_ref": "docs/encoding-evidence/EM-005-CORRECTION_REPORT.md.bin",
+      "repair": "invalid separator to hyphen; other invalid sequences to U+FFFD; no missing semantic text inferred"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/GAI-003/CORRECTION_REPORT.md",
+      "original_sha256": "dc2a1ebb7cebe683056bda16418b7c66cd17c7904891497883dcb78f0491285e",
+      "original_bytes": 14620,
+      "preimage_ref": "docs/encoding-evidence/GAI-003-CORRECTION_REPORT.md.bin",
+      "repair": "invalid separator to hyphen; other invalid sequences to U+FFFD; no missing semantic text inferred"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-01/reports/RF-005/CORRECTION_REPORT.md",
+      "original_sha256": "4aca70c1ad9678003fc916e69e8f2d7a0243cd17a98a567cc00f2f7bcc167f20",
+      "original_bytes": 14052,
+      "preimage_ref": "docs/encoding-evidence/RF-005-CORRECTION_REPORT.md.bin",
+      "repair": "invalid separator to hyphen; other invalid sequences to U+FFFD; no missing semantic text inferred"
+    },
+    {
+      "path": "mission-book/logs/integration/CONNECTION_ONBOARDING_INTEGRATION.md",
+      "original_sha256": "143b0b56e2d2f6c7962dff37bbe84597431bf1809fa9ce2f1614f15d6cf5e8e1",
+      "original_bytes": 24667,
+      "preimage_ref": "docs/encoding-evidence/CONNECTION_ONBOARDING_INTEGRATION.md.bin",
+      "repair": "readable bilingual navigation facade; original bytes preserved; irreversible historical prose remains unknown; ASCII projection is not semantic reconstruction"
+    },
+    {
+      "path": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md",
+      "original_sha256": "120f1928e7f9a9e3149c511e4364d93672c68385ac645e368546db3db5d57063",
+      "original_bytes": 9536,
+      "preimage_ref": "mission-book/reports/REX-805/encoding-preimage.bin",
+      "repair": "Keep formal acceptance frontmatter; restore only body from verified Git commit 8da6b91; see RECORD_RECONCILIATION.md"
+    }
+  ]
+}

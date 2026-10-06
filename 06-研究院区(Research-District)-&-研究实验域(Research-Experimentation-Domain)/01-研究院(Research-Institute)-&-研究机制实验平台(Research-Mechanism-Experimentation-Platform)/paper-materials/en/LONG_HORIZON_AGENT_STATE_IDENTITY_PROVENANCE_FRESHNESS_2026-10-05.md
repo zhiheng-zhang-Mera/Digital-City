@@ -259,3 +259,7 @@ When to compact
 → What to externalize
 → What must preserve exact identity / provenance / freshness
 ```
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md) · [English](../en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md)

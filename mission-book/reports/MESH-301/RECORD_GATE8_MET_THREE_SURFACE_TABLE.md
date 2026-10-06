@@ -88,3 +88,6 @@ it could take.
 
 `DEVELOPMENT_REPORT.md` is published for the review. The next move is Mech's: freeze a review head, review it
 with its own instruments, and report PASS or findings — and if findings, the repair relay runs from there.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_GATE8_MET_THREE_SURFACE_TABLE.md)

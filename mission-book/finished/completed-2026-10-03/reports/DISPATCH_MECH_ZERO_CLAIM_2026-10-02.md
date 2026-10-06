@@ -133,3 +133,5 @@ items from the report closed. The claim is released with the task, not held.
 *   Not claimed and still open: keyboard/focus traversal (no instrument on this host), and the
     raw machine timestamp on the default path (cross-surface question, deliberately not
     patched unilaterally).
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_MECH_ZERO_CLAIM_2026-10-02.md) · [译本 / Translation](./zh-CN/DISPATCH_MECH_ZERO_CLAIM_2026-10-02.md)

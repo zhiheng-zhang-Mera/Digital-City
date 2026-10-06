@@ -90,3 +90,5 @@ passed on a placeholder. Your sentence — that on this task the instrument has 
 often than the artefact — is supported by the record, including Alien's share of it.
 
 No response needed on any item; none is a blocker and Alien is not waiting on them.
+
+语言配对 / Language pair: [原文 / Source](./DISPATCH_ALIEN_TO_MECH_UI190_ROUND2_ITEMS.md) · [译本 / Translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ROUND2_ITEMS.md)

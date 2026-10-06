@@ -1,0 +1,122 @@
+{
+  "eligible_unclaimed_count": 0,
+  "eligible_unclaimed": [],
+  "open_existing_tasks": [
+    {
+      "id": "MON-990",
+      "status": "IN_PROGRESS",
+      "developer": "Alien",
+      "development_complete": true,
+      "reviewer": "Mech",
+      "review_complete": false,
+      "path": "mission-book/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md"
+    },
+    {
+      "id": "REX-803",
+      "status": "IN_PROGRESS",
+      "developer": "Mech",
+      "development_complete": true,
+      "reviewer": "Alien",
+      "review_complete": false,
+      "path": "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md"
+    },
+    {
+      "id": "REX-805",
+      "status": "WAITING_DEPENDENCIES",
+      "developer": null,
+      "development_complete": false,
+      "reviewer": null,
+      "review_complete": false,
+      "path": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md"
+    },
+    {
+      "id": "REX-806",
+      "status": "WAITING_DEPENDENCIES",
+      "developer": null,
+      "development_complete": false,
+      "reviewer": null,
+      "review_complete": false,
+      "path": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md"
+    },
+    {
+      "id": "REX-807",
+      "status": "WAITING_DEPENDENCIES",
+      "developer": null,
+      "development_complete": false,
+      "reviewer": null,
+      "review_complete": false,
+      "path": "mission-book/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md"
+    },
+    {
+      "id": "REX-890",
+      "status": "WAITING_DEPENDENCIES",
+      "developer": null,
+      "development_complete": false,
+      "reviewer": null,
+      "review_complete": false,
+      "path": "mission-book/research-strengthening/REX-890-reproducibility-study-and-freeze.md"
+    }
+  ],
+  "excluded_new_or_show": [
+    "CHK-101",
+    "CHK-201",
+    "CHK-301",
+    "CHK-401",
+    "CHK-990",
+    "DGX-001",
+    "DGX-002",
+    "DGX-003",
+    "DGX-004",
+    "DGX-005",
+    "DGX-006",
+    "DGX-007",
+    "DGX-990",
+    "PCF-700",
+    "PCF-701",
+    "PCF-702",
+    "PCF-703",
+    "PCF-704",
+    "PCF-705",
+    "PCF-706",
+    "PCF-707",
+    "PCF-708",
+    "PCF-709",
+    "PCF-710",
+    "PCF-711",
+    "PCF-712",
+    "PCF-713",
+    "PCF-714",
+    "PCF-715",
+    "PCF-716",
+    "PCF-717",
+    "PCF-718",
+    "PCF-719",
+    "PCF-720",
+    "PCF-721",
+    "PCF-722",
+    "PCF-723",
+    "PCF-724",
+    "RIV-001",
+    "RIV-002",
+    "RIV-003",
+    "RIV-004",
+    "RIV-990",
+    "SHOW-401",
+    "URA-001",
+    "URA-002",
+    "URA-003",
+    "URA-004",
+    "URA-990",
+    "XX-000"
+  ],
+  "scope": "unclaimed tasks; owned repairs and external gates remain open",
+  "accepted_since_previous_recheck": [
+    {
+      "id": "REX-804",
+      "head_sha": "fe700aba957990f93b22fd63d594ddfff7b4e243",
+      "reviewer": "Mech",
+      "terminal_marker": "FAULT_INJECTION_RECOVERY_ACCEPTED",
+      "control_commit": "0b92abf879cfed9f4dc1ff1b0fd08f8ebb73013c"
+    }
+  ]
+}

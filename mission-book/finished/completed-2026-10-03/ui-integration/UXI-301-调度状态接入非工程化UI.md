@@ -47,8 +47,8 @@ report_path: mission-book/reports/UXI-301/
 
 # UXI-301 鈥?璋冨害鐘舵€佹帴鍏ラ潪宸ョ▼鍖?UI
 
-> **甯搁┗鏂藉伐瑙勫垯锛?* [../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
-> **杩囩▼鏁版嵁瑙勫垯锛?* [../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
+> **甯搁┗鏂藉伐瑙勫垯锛?* [../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> **杩囩▼鏁版嵁瑙勫垯锛?* [../PROCESS_DATA_POLICY.md](../../../PROCESS_DATA_POLICY.md)
 > 鏈伐浣滀功鍙畾涔変换鍔＄壒鏈?scope / dependency / acceptance锛涢€氱敤 claim銆佺瓑寰?鍞ら啋銆丆I銆佸弻鏈虹嫭绔嬩笌 merge 瑙勫垯浠ュ父椹昏鍒欎功涓哄噯銆?
 
 ## 鐩爣
@@ -95,8 +95,14 @@ Web/Android presentation adapter銆乂iewModel銆佺敤鎴锋枃妗堛€佸凡�
 
 
 ## 缁戝畾甯搁┗瑙勫垯
-鏈换鍔＄户鎵?[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)銆傜壒鍒槸锛氬悓浠诲姟 Development/Review 涓嶅緱鍚屼富鏈猴紱绛夊緟涓嶇嫭鍗犱富鏈猴紱闆堕鍙栧繀椤诲垎绫伙紱`WAITING_ELIGIBILITY` 浜嬩欢鍞ら啋浼樺厛銆佺害 20 鍒嗛挓鍏滃簳閲嶆壂锛涘閮ㄦ仮澶嶅悗蹇呴』 reconciliation锛汣I/evidence 蹇呴』缁戝畾 exact head锛涗笉寰楀埗閫犲亣宸ヤ綔鎴栨搮鑷墿澶ц寖鍥淬€?
+鏈换鍔＄户鎵?[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)銆傜壒鍒槸锛氬悓浠诲姟 Development/Review 涓嶅緱鍚屼富鏈猴紱绛夊緟涓嶇嫭鍗犱富鏈猴紱闆堕鍙栧繀椤诲垎绫伙紱`WAITING_ELIGIBILITY` 浜嬩欢鍞ら啋浼樺厛銆佺害 20 鍒嗛挓鍏滃簳閲嶆壂锛涘閮ㄦ仮澶嶅悗蹇呴』 reconciliation锛汣I/evidence 蹇呴』缁戝畾 exact head锛涗笉寰楀埗閫犲亣宸ヤ綔鎴栨搮鑷墿澶ц寖鍥淬€?
 
 ## Reports / evolution
 - City 鍙繚瀛樻湁鐣岀粨璁恒€丼HA銆丆I 鍜屽紓甯告憳瑕併€?
 - 璋冨害鍐茬獊銆乭andoff銆乫allback銆乥usy/unavailable 鏍锋湰鎸?PROCESS_DATA_POLICY 鍐欏叆 Utopia evolution evidence銆?
+
+
+[阅读译本 / Reading translation](./zh-CN/UXI-301-调度状态接入非工程化UI.md)
+
+
+[阅读译本 / Reading translation](./en/UXI-301-调度状态接入非工程化UI.md)

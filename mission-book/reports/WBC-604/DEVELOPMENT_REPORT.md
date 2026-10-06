@@ -95,3 +95,5 @@ REMAINING FOR THE WORKBOOK'S OWN GATE
      race, stale readiness and strict-target-vs-hybrid preference before the marker
      EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED can be released.
 ```
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

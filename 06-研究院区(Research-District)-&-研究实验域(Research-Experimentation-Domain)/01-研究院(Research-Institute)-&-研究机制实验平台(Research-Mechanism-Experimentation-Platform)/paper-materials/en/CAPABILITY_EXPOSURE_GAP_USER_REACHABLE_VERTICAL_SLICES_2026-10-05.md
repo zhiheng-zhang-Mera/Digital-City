@@ -215,3 +215,7 @@ Do not claim as primary novelty:
 The research target is:
 
 > **Whether agentic software development exhibits a persistent implementation-to-exposure gap, and whether durable capability registries plus user-reachable vertical-slice gating reduce that gap, human intervention, and rework.**
+
+---
+
+语言配对 / Language pair: [中文 / Chinese](../zh-CN/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md) · [English](../en/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md)

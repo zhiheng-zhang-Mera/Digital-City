@@ -103,7 +103,7 @@ merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
 - Provenance commit: `277f576e9eb35670d77edd0aa98c192d56a7a961`
 - Final branch HEAD: `d338152b0c7ef2ef7e94d78901454ea91f200156`
 - Migration CI: **PASS** — run `36580730966` (`V0.2 checks`) on `277f576e…`: `gateway-web` success, `android` success.
-- Migration Report: [`reports/MB-009/MIGRATION_REPORT.md`](./reports/MB-009/MIGRATION_REPORT.md)
+- Migration Report: [`reports/MB-009/MIGRATION_REPORT.md`](../completed-2026-10-01/reports/MB-009/MIGRATION_REPORT.md)
 - **NOT merged to `main`**, as the migration stage requires.
 - Selection note: selection was made against the latest Digital-City `main`. MB-007 and MB-008 are claimed by host `Alien`; every other enabled Mission has `migration_complete: true`. No verification task is available to this host (MB-001/003/006 belong to `Alien`; `Mech` migrated MB-002, MB-004 and MB-005, so rule 5 forbids it from verifying any of those). Sequence order therefore selected MB-009, the last unclaimed enabled Mission.
 
@@ -125,7 +125,7 @@ merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
     the Web and Android clients use.
 - Episode closeout: `40660e7479931b2218d28a8400a69f20c4a97b81` (`MB-009:e1f0526f2c07fb41`)
 - Merged to `main`: `b4bd602971abe83083cd72ab8247d9bd50371f57`
-- Verification Report: [`reports/MB-009/VERIFICATION_REPORT.md`](./reports/MB-009/VERIFICATION_REPORT.md)
+- Verification Report: [`reports/MB-009/VERIFICATION_REPORT.md`](../completed-2026-10-01/reports/MB-009/VERIFICATION_REPORT.md)
 - **Cross-mission conflict recorded and reported to the Owner:** the merge exposed a conflict
   between MB-001's district-level `kind` marker and MB-009's City-map-mandated target path.
   See the report §5.
@@ -160,8 +160,8 @@ merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
 ## 绑定执行条件（所有 Mission 强制）
 
 > **ACTIVE RULESET:** [`README.md`](./README.md)（integration-first v2）  
-> **OWNER RULINGS:** [`response-9-29.md`](./response-9-29.md)  
-> [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
+> **OWNER RULINGS:** [`response-9-29.md`](../completed-2026-10-01/response-9-29.md)
+> [`past-rules/`](../completed-2026-10-01/past-rules) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。
 
@@ -171,3 +171,6 @@ merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
 - theme/D9 parity digests
 - existing Web/Android service invocation
 - promotion/provenance continuity check
+
+
+[阅读译本 / Reading translation](./en/MB-009-theme-relocation.md)
