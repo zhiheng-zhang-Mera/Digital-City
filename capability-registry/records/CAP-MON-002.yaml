@@ -132,7 +132,7 @@
     "Owner-required state is only observable where a canonical task is WAITING_CONFIRMATION; Mission Book Owner gates are outside MON-901, so the graph answers NOT_OBSERVABLE with count null rather than claiming none, and the surface states this on every render.",
     "Repeated-path detection depends on the canonical refusal event vocabulary (TASK_HANDOFF_REFUSED, TASK_SWITCH_DECLINED) and on window continuity; it is bounded by the observation window.",
     "intent_validation_status NOT_TESTED: no ordinary-user session was run to confirm that the risk-first ordering and the wording are understood as intended.",
-    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI and opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
+    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
   ],
   "last_reconciled_by_workbook": "MON-990"
 }

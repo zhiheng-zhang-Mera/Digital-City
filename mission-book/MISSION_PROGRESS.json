@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 17,
+      "complete": 18,
       "total": 23
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 87,
+      "complete": 88,
       "total": 93
     },
     "review": {
@@ -992,7 +992,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 3,
+      "development_complete": 4,
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
@@ -1029,7 +1029,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "MON-990",
           "path": "city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",

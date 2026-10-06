@@ -16,8 +16,8 @@ dependencies: ["MON-902", "MON-903"]
 development_host: "Alien"
 development_branch: "mon/MON-990-Alien-20261006"
 development_head_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
-development_ci: "PENDING final push37420061997 / PR37420065177; linkage37420065178 SUCCESS. Earlier head523eb47 contained superseded global-Owner-calm test assertion; local89 corrected probes PASS."
-development_complete: false
+development_ci: "SUCCESS exact fb042d9: push37420061997 / PR37420065177 / linkage37420065178 all terminal SUCCESS; PR36 CLEAN/MERGEABLE; remote/local exact and clean. Earlier523eb47 failure retained."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -25,7 +25,7 @@ review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor
 user_exposure_nesting: L1_PRIMARY
-backend_wiring: "LOCALLY_VERIFIED controlled physical Android/Web same City and exact canonical FAILED evidence; observer500 independent task200; final hosted CI pending."
+backend_wiring: "LOCALLY_VERIFIED controlled physical Android/Web same City and exact canonical FAILED evidence; observer500 independent task200; final exact-head hosted CI SUCCESS."
 ui_exemption_reason: null
 capability_ids: ["CAP-MON-001", "CAP-MON-002", "CAP-MON-003"]
 capability_registry_action: VERIFY_ONLY

@@ -98,7 +98,7 @@
     "Opposite physical-host Formal Review PASSED on 7eb38f1b930dfe6cc13dab0e17dedee467b1254b (Mech, MEGA-REP); finding F1 LOW (completeness.continuous is a constant contradicting the computed historyGap) recorded and left unrepaired",
     "Graph/inspector UI belongs to MON-902; decisions MON-903",
     "Owner/review/CI/escalation absent-source NOT_OBSERVABLE",
-    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI and opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
+    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
   ],
   "last_reconciled_by_workbook": "MON-990"
 }

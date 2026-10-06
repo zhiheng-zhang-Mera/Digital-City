@@ -1,6 +1,6 @@
 # City Work Monitor research synthesis — bounded observations
 
-Candidate `fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40`, accepted dependency MON9017eb38f1b / MON902f4988248 / MON9033cd32c60; final programme acceptance pending opposite physical-host review and current CI. Source/capture identity is distinct from City identity. Controls and tests are inspectable, NOT a production performance or novelty claim.
+Candidate `fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40`, accepted dependency MON9017eb38f1b / MON902f4988248 / MON9033cd32c60; final programme acceptance pending opposite physical-host review; exact-head push37420061997 / PR37420065177 / linkage37420065178 all terminal SUCCESS. Source/capture identity is distinct from City identity. Controls and tests are inspectable, NOT a production performance or novelty claim.
 
 | Observation | Observed result | Scope / evidence |
 |---|---|---|

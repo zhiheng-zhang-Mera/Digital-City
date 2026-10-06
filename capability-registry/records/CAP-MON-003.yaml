@@ -134,7 +134,7 @@
     "The workbook's own vocabulary names BLOCKED, READY_FOR_REVIEW and MERGE_READY, none of which any canonical event expresses directly; BLOCKED is mapped to TASK_TARGET_WAITING and the other two must be submitted explicitly.",
     "rework_required is true because three defects were found and repaired during development, including a decision layer whose model stage could never run and a schemaVersion collision that broke the wire envelope.",
     "wrong-auto-decision and confidence-versus-review-outcome are NOT_OBSERVABLE from this overlay: both need an independent judge.",
-    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI and opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
+    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
     "Android is read-only; owner-trigger submission remains Web. Historical Owner-needed receipts do not imply a current approval queue."
   ],
   "last_reconciled_by_workbook": "MON-990"

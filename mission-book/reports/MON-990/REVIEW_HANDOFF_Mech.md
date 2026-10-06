@@ -1,6 +1,6 @@
 # MON-990 opposite-host handoff — candidate
 
-Alien author (MERA-ALIANWARE), exact candidate `fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40`, PR36. Review host must be opposite physical host Mech; source is frozen, final CI pending. Do not accept from workflow existence or technical critic. Formal claim only after development_complete is released following final CI.
+Alien author (MERA-ALIANWARE), exact candidate `fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40`, PR36. Review host must be opposite physical host Mech; source is frozen, exact-head push37420061997 / PR37420065177 / linkage37420065178 all terminal SUCCESS; PR36 CLEAN/MERGEABLE. Do not accept from workflow existence or technical critic. development_complete is now true following final CI; candidate is eligible for formal opposite-host review claim. Review has not been claimed or accepted by Alien.
 
 Read DEVELOPMENT_REPORT.md, product native closeout docs, raw runtime-capture/source-equivalence and red/green logs. Independently verify both dependency ancestors, protocol/membership parser, callback scope/offline fences and monitor executor without session/socket mutation. Reproduce monitor500 vs task progress and advisory timeout isolation; inspect actual Android/Web same-City source-pinned evidence, metadata absence, expanded risk/filter/offline, exact2/3 interactions. Check all three Registry records and programme synthesis.
 
