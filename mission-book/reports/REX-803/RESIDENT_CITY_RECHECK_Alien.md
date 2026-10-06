@@ -47,3 +47,9 @@ Independent local member status and the Gateway canonical roster showed Alien an
 补充构建统计：21个Android测试套件、111项测试，0失败、0错误；APK已生成。CEX-790清单与成员角色定向检查5/5通过。启动器集成3项因在线成员占用4389协调端口而拒绝运行，原始拒绝保留，不计为通过；为保持联机未停止成员。 / Additional build totals:21 Android suites,111 tests, zero failures/errors; APK generated. CEX-790 inventory and member-role checks passed5/5. Three launcher integration checks refused execution because the online member occupies coordination port4389; refusals are retained and are not passes. The member remains online.
 
 APK SHA256: `3b40b8d365a17893e01bdf88b190829f8de609bce3859ef10a7acadf4ca9ed0e`.
+
+## 当前canonical与权限实测 / Current canonical and authority measurement
+
+2026-10-06T07:54Z，用Alien正规成员会话只读获取City：两个在线node均公布task.execute.safe与filesystem.temp；Mech心跳07:54:41.474Z，Alien07:54:41.929Z。canonical controlSurfaces列出Alien新设备、Android `dev-be7832e35fc34b85966c3bb43a992e1d`（Android · PERM00）及Mech。与仅匹配手机配置不同，这是Gateway当前返回的控制界面引用。随后只读GET /api/v0/research/campaigns返回403 RESEARCH_OWNER_REQUIRED，未创建／停止／修改campaign。Owner端需以新Alien canonical身份注册或选择相应experiment；旧alien-reference-node声明不能当作新成员身份。
+
+At2026-10-06T07:54Z, an ordinary Alien member session read the canonical City. Both online nodes advertise task.execute.safe and filesystem.temp; Mech heartbeat07:54:41.474Z and Alien07:54:41.929Z. Canonical controlSurfaces list Alien's new device, Android `dev-be7832e35fc34b85966c3bb43a992e1d` (Android · PERM00), and Mech. These are current Gateway-returned references, beyond matching phone configuration. A read-only GET /api/v0/research/campaigns then returned403 RESEARCH_OWNER_REQUIRED; no campaign was created, stopped or modified. The Owner must register or select an experiment declaring the new canonical Alien identity; the old alien-reference-node declaration does not identify this member.
