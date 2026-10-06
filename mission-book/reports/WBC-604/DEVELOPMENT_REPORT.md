@@ -61,3 +61,37 @@ VERIFIED  32 tests / 32 pass across wbc604 (unit + route), wbc601, wbc602, wbc60
 The terminal marker `EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED` is NOT released: the contract and its tests exist, but the
 control surface is not yet reachable from the running City, which is exactly the gap between "the rule is implemented" and
 "the user can switch without a code submission".
+
+
+---
+
+## Round 3 (fail-safe, and a real defect the fail-safe work exposed)
+
+```text
+DEFECT FOUND BY WRITING THE FAIL-SAFE TESTS (and repaired):
+  round 2's controller obeyed a VALID persisted profile without re-checking readiness. A City that had switched to
+  WORKER_POOL while the pool was healthy, and then restarted after the pool went away, would have run a profile whose
+  backend cannot be activated - and executionBackends.active() throws BACKEND_DORMANT, which the claim path meets as an
+  exception. That is exactly the "pool lost" case the workbook lists under Fail-safe / rollback.
+  REPAIR: the load path is now readiness-aware. A persisted non-default profile is adopted only when its backend is READY
+  right now; otherwise the City runs STANDARD_DEVICES and keeps the request visible
+  (selection DEGRADED_TO_DEFAULT, selectedProfile vs profile, degradedFrom, recovery.code PROFILE_NOT_READY with the
+  measured state). When the pool is ready again the same persisted selection is simply adopted - no operator action.
+
+EVIDENCE ADDED  tests/wbc604-failsafe.test.mjs (4 tests)
+  * persisted-but-unusable profile degrades to the rollback profile, and is adopted once the pool is ready again;
+  * a REFUSED change leaves the persisted file and the running profile in agreement (nothing is written);
+  * every profile action - switch, rollback, refused switch - leaves canonical task truth byte-identical, and the
+    snapshot still reports the live profile;
+  * readiness is re-read on every question: a pool that becomes ready is switchable without a restart, and one that
+    degrades again is reported not-activatable WITH its reason.
+
+STATE  development COMPLETE on head 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef with exact-head CI green.
+REMAINING FOR THE WORKBOOK'S OWN GATE
+  1  route chooseHybridTarget through the claim path. Meaningful only once a pool backend can actually be enabled, which
+     is what this task's own WORKER_POOL activation would allow; today every claim already takes the compatible default,
+     which is what rule 4 requires;
+  2  the opposite-host Formal Review (gate 7). Development is by Mech; a different physical host must attack the switch
+     race, stale readiness and strict-target-vs-hybrid preference before the marker
+     EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED can be released.
+```

@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["WBC-603:WORKER_POOL_AGENT_SEAM_ACCEPTED"]
 development_host: "Mech"
 development_branch: "wbc/WBC-604-mech-execution-profile-switch"
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: "213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef"
+development_ci: "V0.2 checks COMPLETED SUCCESS on 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef (three runs on that head: push and pull_request, all success), read from the Actions API and matched on headSha. LOCAL VERIFICATION on the same head: WBC-604 unit + route + fail-safe suites plus wbc601/wbc602/wbc603 -> 28 tests / 28 pass."
+development_complete: "true"
 review_host: null
 review_head_sha: null
 review_ci: null
