@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task": "UI-000",
+  "records": [
+    {
+      "task": "UI-000",
+      "round_label": "foundation-ui000-review-en-draft.md",
+      "source": "D:/foundation-ui000-review-en-draft.md",
+      "source_worktree": "D:/",
+      "source_branch": null,
+      "worktree_head_at_capture": null,
+      "historical_run_head": null,
+      "original_bytes": 14679,
+      "original_sha256": "486ef2aef9d24183a0cbb9742c2c2540f4089f660364a91a4bc16e451e71310e",
+      "published_bytes": 14679,
+      "published_sha256": "486ef2aef9d24183a0cbb9742c2c2540f4089f660364a91a4bc16e451e71310e",
+      "published_path": "mission-book/reports/UI-000/intermediate-logs/2026-10-07/evidence/486ef2aef9d24183-foundation-ui000-review-en-draft.md.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    }
+  ]
+}
