@@ -57,12 +57,13 @@ report_path: null
 
 ## 目标
 
-对现有跨域能力做一次**软重分类审计**，不搬代码。生成机器可读/人工可读的 Governance Capability Map：
+对现有跨域能力做一次**软重分类审计**，不搬代码。除治理能力外，本轮增加对认知拆分/汇合所需 primitive 的 canonical owner 审计，生成机器可读/人工可读的 Governance Capability Map：
 
 ```text
 capability
 canonical_owner
 governance_role
+execution_role
 domain_profile
 consumer_refs
 duplication_or_conflict
@@ -71,16 +72,35 @@ migration_required
 
 ## 必查对象
 
-Shared Task Core、Capability Fabric、JEV/Monitor、Guardian/compliance、Engineering Foreman/verifier、Research Review/adjudicator、Health evidence/simulation seams、GAI triage、Owner gates。
+Shared Task Core、Capability Fabric、JEV/Monitor、Guardian/compliance、Engineering Foreman/verifier、Research Review/adjudicator、Health evidence/simulation seams、GAI triage、Owner gates，以及：
+
+- request decomposition / planner；
+- Shared Fact Snapshot；
+- Problem Graph / DAG representation；
+- Task Capsule；
+- structured Result / Evidence Envelope；
+- participant capability/history facts；
+- independence / recusal facts。
+
+## 关键审计问题
+
+1. 哪些 primitive 已由现有 Task/Event/Evidence infrastructure 提供？
+2. 哪些只是 governance schema，不需要新 runtime service？
+3. Problem Graph 是否会错误复制 Mission Book / scheduler truth？
+4. capability/history/independence facts 的 canonical owner 在哪里？
+5. 哪些现有 reviewer/critic/adjudicator 能力只需 adapter，而不是迁移？
+6. 是否存在“同一个概念在 Engineering / Research / DGX 各存一份”的 drift 风险？
 
 ## 强约束
 
 - 默认 `migration_required=false`；
 - DOMAIN_REVIEW 与 GOVERNANCE_REVIEW 分离；
 - DOMAIN_ADJUDICATOR 与 GOVERNANCE_ADJUDICATOR 分离；
-- history/reputation facts 不复制到治理楼；
-- 只有重复实现、跨域制度语义或 canonical owner 明显错误时允许提出迁移。
+- Problem Graph 不得成为第二套 runtime task truth；
+- history/reputation/independence facts 不复制成 DGX 私有数据库；
+- 只有重复实现、跨域制度语义或 canonical owner 明显错误时允许提出迁移；
+- 本工作书不得改变当前 Formal Review 异机门槛。
 
 ## 完成门槛
 
-形成 ownership map、冲突清单、KEEP/REFERENCE/EXTRACT 三分类与后续工作书输入；不得产生产品行为变化。
+形成 ownership map、冲突清单、KEEP/REFERENCE/EXTRACT 三分类、认知编排 primitive 的 owner map 与后续工作书输入；不得产生产品行为变化。
