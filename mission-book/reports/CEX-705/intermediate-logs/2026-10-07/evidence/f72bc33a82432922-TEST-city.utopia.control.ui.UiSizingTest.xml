@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.ui.UiSizingTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:46:21.349Z" hostname="MERA-ALIANWARE" time="0.007">
+  <properties/>
+  <testcase name="an unmeasurable slot yields instead of guessing" classname="city.utopia.control.ui.UiSizingTest" time="0.002"/>
+  <testcase name="all five primary labels fit their slot at the reference configuration" classname="city.utopia.control.ui.UiSizingTest" time="0.0"/>
+  <testcase name="a mis-ordered measurement list is rejected rather than silently mis-picked" classname="city.utopia.control.ui.UiSizingTest" time="0.0"/>
+  <testcase name="a narrow slot steps down instead of clipping the label" classname="city.utopia.control.ui.UiSizingTest" time="0.001"/>
+  <testcase name="the chosen size is always one that fits, or the caller is told none does" classname="city.utopia.control.ui.UiSizingTest" time="0.003"/>
+  <testcase name="the largest fitting size wins, not the smallest" classname="city.utopia.control.ui.UiSizingTest" time="0.0"/>
+  <testcase name="below the floor the entry degrades to icon-only rather than to a fragment" classname="city.utopia.control.ui.UiSizingTest" time="0.0"/>
+  <testcase name="a size that exactly fills the slot is a fit" classname="city.utopia.control.ui.UiSizingTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

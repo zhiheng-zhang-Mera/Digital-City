@@ -1,0 +1,25 @@
+✔ CEX705 canonical scoped management preserves rename/sharing/message/revoke authority and reconnect identity (474.8903ms)
+✔ each member sees itself first and all City devices by admission name, with real message receipt (3459.3004ms)
+✔ real joined devices retain names, appear beside the host and may register only their own worker (342.7296ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (247.5358ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (501.4467ms)
+✔ new admission cannot take the host or an existing member identity, even with a valid short code (258.2862ms)
+✔ an active browser session refresh actually extends expiry while preserving its installation scope (138.7048ms)
+✔ local primary control surface can switch only its own computing resources (206.6426ms)
+✔ JOIN-503 (1)(2): one join enrolls an installation, and a RESTART reconnects with nothing typed (215.1655ms)
+✔ JOIN-503 (3): an EXPIRED session is replaced by an internal re-auth, with no user-visible token prompt (177.6685ms)
+✔ JOIN-503 (4)(5): REVOKE denies reconnect, and a revoked installation cannot mint new membership (236.721ms)
+✔ JOIN-503 (6): a REINSTALL mints new identities and is unbound until an explicit rebind (191.1568ms)
+✔ JOIN-503 (7): the secret-exposure sweep - no durable secret in the snapshot, events, records or a URL (114.4212ms)
+✔ JOIN-503: a broken or foreign device file is refused rather than half-used (7.6562ms)
+✔ JOIN-503 (8): the engineering manual fallback still exists and is not the default path (109.5714ms)
+✔ JOIN-503: an invite of either shape is understood, and junk is refused instead of guessed at (0.6999ms)
+✔ JOIN-503: enrollment events are emitted on a CLONE, which is the population-level half of detection (97.7674ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5696.5913

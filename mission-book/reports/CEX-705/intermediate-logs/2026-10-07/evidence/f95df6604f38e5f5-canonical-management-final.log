@@ -1,0 +1,16 @@
+✔ CEX705 canonical scoped management preserves rename/sharing/message/revoke authority and reconnect identity (521.6056ms)
+✔ each member sees itself first and all City devices by admission name, with real message receipt (3354.9953ms)
+✔ real joined devices retain names, appear beside the host and may register only their own worker (317.6358ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (285.1778ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (508.2295ms)
+✔ new admission cannot take the host or an existing member identity, even with a valid short code (211.377ms)
+✔ an active browser session refresh actually extends expiry while preserving its installation scope (115.9521ms)
+✔ local primary control surface can switch only its own computing resources (189.0524ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5592.8334
