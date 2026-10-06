@@ -1,38 +1,78 @@
-# Alien continuation packet — REX then MON; SHOW excluded
+# Alien continuation packet — state as of 2026-10-06T04:30Z (Mech)
 
-Owner order: scan eligible REX workbooks in code order; complete the research acceptance prerequisite before MON construction. Never claim SHOW work. This is a checkpoint, not task-pool completion.
+This is a checkpoint written by Mech for the opposite physical host, not a task-pool completion and not a claim on
+Alien's behalf. It supersedes the earlier packet, whose opening sequencing line was overridden by the Owner instruction
+Alien itself recorded in `reports/CEX-790/ALIEN_INTEGRATION_REPORT.md` (prioritize CEX-790, make it mergeable, then work
+MON directly; SHOW remains excluded).
 
-## Current task truth
+## What is actually claimable now
 
-- REX-801/802 COMPLETE at accepted full SHAs in canonical workbooks.
-- REX-803 current workbook Mech-owned, Development incomplete and recorded head null. Alien earlier candidate is reference only after claim collision reconciliation; do not overwrite Mech claim.
-- REX-804 Alien-owned candidate f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5 on rex/REX-804-Alien-codex-faults, PR #30. Hosted final CI 37397799729 / 37397794253 in progress at this checkpoint; independently query terminal status before interpreting completion. No merge authority. Formal Review needs Mech and a previously unused fault probe.
-- REX-805/806/807/890 WAITING_DEPENDENCIES; accepted exact dependency heads unavailable. Do not construct speculative union baselines.
-- MON-901 COMPLETE; MON-902 Mech Development complete, review unclaimed; MON-903 READY; MON-990 depends on 902/903. Their eligibility does not override Owner's REX-before-MON order.
+```text
+claimable_now_for_Mech_in_any_programme: 0
+reason: every remaining actionable item is owned by, or owed to, the opposite physical host
+```
 
-## Zero-claim semantics
+A fresh scan of the whole mission-book (24 real workbooks, template XX-000 excluded) gives exactly:
 
-pool_incomplete: true
-claimable_now_for_Alien_in_REX: 0 after current REX804 Development delivery
-potentially_claimable_later: true
-classification: TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY
-structural_ineligibility_reason: Alien cannot perform its own REX804 Formal Review
-wake_condition: REX803 Development release; REX804 exact final CI; Mech review release; accepted dependency SHA propagation
-rescan_after: default approximately 20 minutes while a live controller is running; this packet does not imply an installed background timer
-terminal_reason: null
-owner_required: false
+| Bucket | Count | Items |
+|---|---|---|
+| READY and unclaimed | 0 | — |
+| Development complete, review unclaimed | 2 | REX-803, MON-903 — both authored by Mech, and §3 forbids self-review |
+| Review claimed, verdict pending | 2 | MON-902 → Alien (claimed); REX-804 → Mech (verdict **NOT PASSED**) |
+| WAITING_DEPENDENCIES | 5 | REX-805/806/807/890, MON-990 |
+| Claimed by Alien, not started | 1 | SHOW-401 |
 
-## Resume
+REX-805 is **not** unlocked by REX-801/802 alone: its `dependencies` field requires
+`REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED`, which does not exist yet.
 
-1. Fetch fresh Digital-City and Utopia refs; revalidate claim and exact IDs.
-2. Reconcile CI at final recorded head; preserve failed/cancelled/older runs.
-3. If REX803 Development released, Alien may atomically claim Formal Review at its recorded exact head, not the remembered branch tip.
-4. If REX804 eligible Mech review releases, propagate accepted heads and scan REX805 next.
-5. Use sync_dependency_state.py, then sync_mission_progress.py and --check after state transitions.
-6. Switch to MON only once the Owner's research prerequisite is met; preserve existing MON902 claim and begin eligible role in task-code order.
+## What Mech did while the pool was empty (all recorded, none of it a claim)
 
-Evidence: REX803/CLAIM_COLLISION_ALIEN.md; REX804/{DEVELOPMENT_REPORT,PAPER_MATERIAL_INDEX,HANDOFF_PACKET}.md; CAP-RESEARCH-FAULTS-001 candidate registry. Current findings and initial test failures remain preserved. Host identity Mera-Alianware = Alien; local critic is not second physical host.
+Three adoptable repair branches and one cross-task defect family, from a deliberate failure-shape sweep. Two of the
+three were **adopted by Alien inside PR #33** with provenance, which is recorded as an independent host accepting
+published repairs — not as a review of any Mech task.
 
-## Later release update (overrides earlier pending-CI checkpoint)
+```text
+repair/REX-801-mech-store-guard                            adopted into PR #33
+repair/capability-bridge-mech-artifact-store-guard @ 8c67bb2   adopted into PR #33
+repair/WBC-604-mech-profile-persist-first           @ 1f2f08c   AVAILABLE, not yet adopted
+```
 
-REX804 Development released at `f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5`: PR run 37397799729 and push run 37397794253 both COMPLETED SUCCESS at exact head. Gateway/Web and Android both SUCCESS; linkage 37397800050 SUCCESS. Mech Formal Review now eligible; Alien cannot self-review. REX803 still Mech-owned Development incomplete at final re-scan, so Alien review not yet eligible. REX805+ remain dependency-gated. Monitor remains held under Owner sequence. Task pool NOT terminal; no background timer was installed. Source recovery point, evidence and wake conditions are durable in Git.
+The third is the WBC-604 profile store: a change the City cannot persist used to be half-applied (the running profile
+moved while the caller got an exception) and the route surfaced a raw `EPERM` plus an absolute path. Falsified probe
+and the measured per-run CI are in `reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md`, which also carries the
+reproducible harness (`reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`) and the correction of the first sweep's
+overstated table.
+
+## REX-803's completion gate — the blocker is now a named identity, not a host
+
+Re-measured after Alien returned to the control plane at 04:12Z–04:18Z:
+
+```text
+EXPERIMENT  mech-alien-android-two-host-repetition   status VALIDATED   replayed true
+ATTEMPT     POST /api/v0/research/campaigns {experimentId, scenarioId: WAIT, repetitions: 3, warmup: 1}
+RESULT      HTTP 409  TOPOLOGY_NOT_READY   missing: ["alien-reference-node"]
+NODES       alien-reference-node  online=FALSE  lastHeartbeatAt 2026-10-05T11:15:06.977Z  (UNCHANGED)
+```
+
+Alien is present and working on the control plane while its reference node is not joined to the City. The remaining
+action is therefore "join `alien-reference-node`", not "wait for Alien"; the experiment is registered and re-validates
+on every attempt, so the run is a single POST once that identity appears.
+
+## What Alien's own queue looks like
+
+1. MON-902 Formal Review — claimed; Mech's development head is `3a88e23f91924576178973ef46c620b20ffa2aaf`, PR #27.
+2. REX-803 Formal Review — unclaimed and eligible; target `a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df`, PR #31.
+3. MON-903 Formal Review — unclaimed and eligible; target `78bdd9dc873ebc257aedecf421068a1387dbec82`, PR #32.
+4. REX-804 repair — Mech's verdict on `f76ccf53` is **NOT PASSED** (blocking finding B1: an unreadable fault receipt
+   stopped the City from starting). Re-verification requires a repaired head.
+5. Adoption decision on `repair/WBC-604-mech-profile-persist-first`.
+
+Mech cannot perform any of 1–3 (author), nor 4's re-verification on an unchanged head.
+
+## Honest limits of this packet
+
+- It contains no invented measurement. Every number is either a scan output, a per-run CI read, or a live City refusal.
+- It does not claim Alien's work, does not merge, and does not touch main.
+- `owner_required: false`, `terminal_reason: null`, `pool_incomplete: true`.
+- wake conditions: the Alien reference node joining the City; a review verdict landing on REX-803 / MON-902 / MON-903;
+  a repaired REX-804 head; or a fresh Owner instruction that opens new work for Mech.
