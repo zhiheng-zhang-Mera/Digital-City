@@ -1,0 +1,18 @@
+✔ owner campaign HTTP creates canonical tasks, refuses worker credential and stop preserves trace (266.2151ms)
+✔ warmups excluded, measured seeds repeat across fresh campaigns, all task receipts retained (30.8896ms)
+✔ timeout cancels owned canonical task and preserves excluded failures (29.6604ms)
+✔ stop cancels current task, launches no next run and keeps partial receipt (14.319ms)
+✔ restart interrupts campaign, cancels pending work, never silently resumes (16.3579ms)
+✔ topology refusal and configuration bounds prevent canonical task creation (2.0416ms)
+✔ MAX_FAILURES stops measured repetition while retaining failed receipt (10.8922ms)
+✔ completion first observed after deadline remains timeout rather than false success (11.7934ms)
+✔ restart discovers canonical ownership when task persisted before campaign taskRef write (25.6092ms)
+✔ Research Web starts real canonical campaign, observes progress and failed or excluded receipts (2811.5915ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3301.3145

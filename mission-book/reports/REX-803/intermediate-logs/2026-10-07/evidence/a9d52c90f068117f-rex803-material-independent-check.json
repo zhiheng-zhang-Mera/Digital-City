@@ -1,0 +1,171 @@
+{
+  "candidate": "8798ba9dd37051626033ad72080b2fad3ff66149",
+  "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+  "checks": [
+    {
+      "check": "seven exact-byte material hashes",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: campaign-receipt.json",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: manifest-and-seed.json",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: canonical-tasks.json",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: canonical-events.json",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: trace-snapshot.json",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: derived-checks.json",
+      "pass": true
+    },
+    {
+      "check": "sha256 and bytes: export-script.mjs",
+      "pass": true
+    },
+    {
+      "check": "identity agrees",
+      "pass": true
+    },
+    {
+      "check": "complete three-run accounting",
+      "pass": true
+    },
+    {
+      "check": "two actual workers",
+      "pass": true
+    },
+    {
+      "check": "three canonical tasks match independently read IDs",
+      "pass": true
+    },
+    {
+      "check": "entire published collector epoch",
+      "pass": true
+    },
+    {
+      "check": "run 0 placement/result/accounting",
+      "pass": true
+    },
+    {
+      "check": "run 0 trace receipt bound",
+      "pass": true
+    },
+    {
+      "check": "run 0 inside campaign window",
+      "pass": true
+    },
+    {
+      "check": "run 0 TASK_CREATED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 0 TASK_ASSIGNED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 0 TASK_STARTED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 0 TASK_COMPLETED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 1 placement/result/accounting",
+      "pass": true
+    },
+    {
+      "check": "run 1 trace receipt bound",
+      "pass": true
+    },
+    {
+      "check": "run 1 inside campaign window",
+      "pass": true
+    },
+    {
+      "check": "run 1 TASK_CREATED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 1 TASK_ASSIGNED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 1 TASK_STARTED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 1 TASK_COMPLETED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 2 placement/result/accounting",
+      "pass": true
+    },
+    {
+      "check": "run 2 trace receipt bound",
+      "pass": true
+    },
+    {
+      "check": "run 2 inside campaign window",
+      "pass": true
+    },
+    {
+      "check": "run 2 TASK_CREATED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 2 TASK_ASSIGNED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 2 TASK_STARTED has trace event",
+      "pass": true
+    },
+    {
+      "check": "run 2 TASK_COMPLETED has trace event",
+      "pass": true
+    },
+    {
+      "check": "campaign start bound",
+      "pass": true
+    },
+    {
+      "check": "missing metadata disclosed without drops",
+      "pass": true
+    },
+    {
+      "check": "clock bounds in published epoch",
+      "pass": true
+    },
+    {
+      "check": "monotonic ordering inside process epoch",
+      "pass": true
+    }
+  ],
+  "publishedRawEpochRecords": 52,
+  "wholeWindowCountDeclared": 197,
+  "wholeWindowRawRecordsPublished": false,
+  "traceCompleteness": "PARTIAL",
+  "missingFields": {
+    "experimentRef": 49,
+    "experimentRunRef": 49,
+    "providerRef": 52,
+    "modelRef": 52,
+    "channelRef": 52,
+    "softwareSha": 52,
+    "configRef": 52
+  }
+}
