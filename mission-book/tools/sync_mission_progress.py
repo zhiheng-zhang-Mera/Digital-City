@@ -31,14 +31,26 @@ TERMINAL_TOKENS = ("COMPLETE", "ACCEPTED", "MERGED_MAIN", "VERIFIED")
 
 def parse_scalar(raw: str) -> Any:
     value = raw.strip()
+    # A BOOLEAN IN QUOTES IS STILL A BOOLEAN. Two workbooks (CEX-790, WBC-604) were found on 2026-10-06 carrying
+    # `review_complete: "true"`; the earlier parser returned the STRING, so every `is True` check downstream - including
+    # acceptance propagation in sync_dependency_state.py - silently treated an accepted task as unreviewed. Quoted
+    # scalars are unquoted FIRST and then classified, so the two spellings cannot disagree again.
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+        unquoted = value[1:-1].strip()
+        lowered = unquoted.lower()
+        if lowered == "true":
+            return True
+        if lowered == "false":
+            return False
+        if lowered in {"null", "none", "~", ""}:
+            return None
+        return unquoted
     if value.lower() == "true":
         return True
     if value.lower() == "false":
         return False
     if value.lower() in {"null", "none", "~"}:
         return None
-    if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
-        return value[1:-1]
     return value
 
 

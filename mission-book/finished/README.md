@@ -17,6 +17,23 @@
 | UI × Scheduler Integration | 3/3 | [completed-2026-10-03](./completed-2026-10-03/README.md) |
 | MESH 三端互联 | 1/1 | [completed-2026-10-04](./completed-2026-10-04/README.md) |
 | Connection Onboarding | 4/4 | [completed-2026-10-06](./completed-2026-10-06/README.md) |
+| Workbench Compatibility | 4/4 | [archive ledger 2026-10-06](#在册但未物理搬迁--registered-in-place-2026-10-06) |
+| Capability Entry Closeout | 6/6 | [archive ledger 2026-10-06](#在册但未物理搬迁--registered-in-place-2026-10-06) |
+
+## 在册但未物理搬迁 / Registered in place (2026-10-06)
+
+下面两个 programme 在 2026-10-06 达到 COMPLETE，但按本目录的归档规则**不强制物理搬迁**：它们的 canonical 工作书、
+报告与 exact-SHA 证据被其他记录大量引用，移动路径会打断历史链接。因此在此登记，工作书保留原路径。
+
+| Programme | 完成度 | canonical 位置 | 完成依据 |
+|---|---:|---|---|
+| Workbench Compatibility | 4/4 | [workbench-compatibility-migration](../workbench-compatibility-migration/README.md) | WBC-604 于 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef 合入 main，并在 owner 指令下 waived 对侧复核（见 `review_waiver_authority`） |
+| Capability Entry Closeout | 6/6 | [capability-entry-closeout](../capability-entry-closeout/README.md) | CEX-790 收尾审计完成，其闭档同样由 owner 裁决 waived 对侧复核（见 `owner_ruling_2026_10_05`） |
+
+这两个 programme 之前仍出现在主任务栏，是因为它们的收尾工作书写着 `review_complete: "true"`（带引号，被旧解析器读成字符串），
+使收尾任务在统计里始终"未复检"。工具解析器于 2026-10-06 修正后，主任务栏自动把它们移出未收口池 - 这次归档登记是那一次修正的
+配套动作，而不是新的事实变化。两者的 waived 复核性质已由新的记录一致性检查器以
+`REVIEW_WAIVED_BY_RECORDED_AUTHORITY` 明确标注（见 `mission-book/tools/README.md`）。
 
 ## 归档规则
 

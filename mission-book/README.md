@@ -19,13 +19,11 @@
 > FUTURE-only 计划（当前 FR-001）在正式激活为工作书前不计入分母。
 > 已完成 programme 不在主任务栏重复展示；统一收纳于 [finished/README.md](./finished/README.md)，但仍计入全城合计和 `MISSION_PROGRESS.json`。
 
-**全城合计：总任务 81/93 · 开发 86/93 · 复检 81/93**  
-**当前未收口项目池：总任务 11/23 · 开发 16/23 · 复检 11/23**
+**全城合计：总任务 83/93 · 开发 87/93 · 复检 83/93**  
+**当前未收口项目池：总任务 13/23 · 开发 17/23 · 复检 13/23**
 
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
-| [Workbench Compatibility](./workbench-compatibility-migration/README.md) | **3/4** | **3/4** | **3/4** | ACTIVE |
-| [Capability Entry Closeout](./capability-entry-closeout/README.md) | **5/6** | **6/6** | **5/6** | ACTIVE |
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **4/8** | **2/8** | IN_PROGRESS |
 | [City Work Monitor](./city-work-monitor-dashboard/README.md) | **1/4** | **3/4** | **1/4** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
@@ -77,8 +75,6 @@
 
 | ID | 项目 | 状态 | 开发 | 复检 |
 |---|---|---|:---:|:---:|
-| [WBC-604](./workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md) | Workbench Compatibility | COMPLETE | — | — |
-| [CEX-790](./capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md) | Capability Entry Closeout | COMPLETE | ✅ | — |
 | [REX-803](./research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-804](./research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |

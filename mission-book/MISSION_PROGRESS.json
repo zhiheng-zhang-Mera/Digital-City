@@ -1,30 +1,30 @@
 {
   "active_pool": {
     "development": {
-      "complete": 16,
+      "complete": 17,
       "total": 23
     },
     "review": {
-      "complete": 11,
+      "complete": 13,
       "total": 23
     },
     "tasks": {
-      "complete": 11,
+      "complete": 13,
       "total": 23
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 86,
+      "complete": 87,
       "total": 93
     },
     "review": {
-      "complete": 81,
+      "complete": 83,
       "total": 93
     },
     "tasks": {
-      "complete": 81,
+      "complete": 83,
       "total": 93
     }
   },
@@ -791,13 +791,13 @@
     },
     {
       "active_pool": true,
-      "development_complete": 3,
+      "development_complete": 4,
       "key": "wbc",
       "name": "Workbench Compatibility",
       "readme": "workbench-compatibility-migration/README.md",
-      "review_complete": 3,
-      "status": "ACTIVE",
-      "task_complete": 3,
+      "review_complete": 4,
+      "status": "COMPLETE",
+      "task_complete": 4,
       "tasks": [
         {
           "complete": true,
@@ -827,12 +827,12 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
-          "development_complete": false,
+          "complete": true,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "WBC-604",
           "path": "workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
-          "review_complete": false,
+          "review_complete": true,
           "status": "COMPLETE"
         }
       ],
@@ -844,9 +844,9 @@
       "key": "cex",
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
-      "review_complete": 5,
-      "status": "ACTIVE",
-      "task_complete": 5,
+      "review_complete": 6,
+      "status": "COMPLETE",
+      "task_complete": 6,
       "tasks": [
         {
           "complete": true,
@@ -894,12 +894,12 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-790",
           "path": "capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
-          "review_complete": false,
+          "review_complete": true,
           "status": "COMPLETE"
         }
       ],

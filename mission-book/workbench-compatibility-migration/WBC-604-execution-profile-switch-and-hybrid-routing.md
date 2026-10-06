@@ -19,11 +19,12 @@ development_host: "Mech"
 development_branch: "wbc/WBC-604-mech-execution-profile-switch"
 development_head_sha: "213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef"
 development_ci: "V0.2 checks COMPLETED SUCCESS on 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef (three runs on that head: push and pull_request, all success), read from the Actions API and matched on headSha. LOCAL VERIFICATION on the same head: WBC-604 unit + route + fail-safe suites plus wbc601/wbc602/wbc603 -> 28 tests / 28 pass."
-development_complete: "true"
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
-review_complete: "true"
+review_complete: true
+review_waiver_authority: "OWNER INSTRUCTION (2026-10-05, recorded in this task's closeout and in mission-book/reports/WBC-604/): make the entire WBC sub-series mergeable by any means and accept the final result. That instruction waived the opposite-host Formal Review for WBC-604. NO reviewer evidence exists for this closure, and the reviewer checklist in this workbook remains UNEXECUTED; the waiver is an authority record, not a review."
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/WBC-604

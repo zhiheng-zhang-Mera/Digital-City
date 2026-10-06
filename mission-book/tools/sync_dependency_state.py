@@ -18,6 +18,19 @@ WAIT_BLOCKER = "DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE"
 
 def parse_value(raw: str) -> Any:
     v = raw.strip()
+    # A BOOLEAN IN QUOTES IS STILL A BOOLEAN. CEX-790 and WBC-604 were found carrying `review_complete: "true"`; the
+    # earlier version returned the STRING, so `is not True` below treated those accepted heads as unreviewed and their
+    # exact SHAs were invisible to dependency propagation. Quoted scalars are unquoted first, then classified.
+    if len(v) >= 2 and v[0] == v[-1] and v[0] in {'"', "'"}:
+        unquoted = v[1:-1].strip()
+        lowered = unquoted.lower()
+        if lowered == "true":
+            return True
+        if lowered == "false":
+            return False
+        if lowered in {"null", "none", "~", ""}:
+            return None
+        return unquoted
     if v.lower() == "true":
         return True
     if v.lower() == "false":
@@ -29,8 +42,6 @@ def parse_value(raw: str) -> Any:
             return json.loads(v)
         except json.JSONDecodeError:
             return v
-    if len(v) >= 2 and v[0] == v[-1] and v[0] in {'"', "'"}:
-        return v[1:-1]
     return v
 
 

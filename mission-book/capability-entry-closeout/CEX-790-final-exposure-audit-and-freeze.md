@@ -23,7 +23,7 @@ development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
-review_complete: 'true'
+review_complete: true
 capability_ids: ["CAP-CAPABILITY-BRIDGE-001"]
 capability_registry_action: BACKFILL
 capability_registry_refs: ["../../capability-registry/CAPABILITY_INDEX.yaml"]

@@ -1,0 +1,3 @@
+# Python bytecode from the Mission Book tools (checker test imports the checker module).
+__pycache__/
+*.pyc
