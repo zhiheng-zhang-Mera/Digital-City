@@ -1,4 +1,4 @@
-# EM-005 Correction Report �?Attention Bridge: Current + Recent-Device Delivery
+# EM-005 Correction Report  - Attention Bridge: Current + Recent-Device Delivery
 
 ```text
 MISSION              = EM-005 (Engineering Manager programme, task 5 of 13)
@@ -14,7 +14,7 @@ DEVELOPMENT_HEAD     = adf0cf5e6bd17b5f1e4dba29a5f04d51743146f5
 DEVELOPMENT_CI       = 36725729360-success
 CORRECTION_BRANCH    = engineering-manager/EM-005-attention-recent-device-alerts
 CORRECTION_HEAD_SHA  = cefc6c7ec5343a9d33ae2d6a927603be963389db
-BRANCH_CI            = 36739358075 �� gateway-web success, android success
+BRANCH_CI            = 36739358075 �� gateway-web success, android success
 LOCAL_CHECK_SUMMARY  = EM-005 16 pass, root 116 pass, rooms 69 pass, city 1801 pass,
                        promotion-history OK at adf0cf5e, bilingual SYNCHRONIZED
 MERGE                = NOT PERFORMED (forbidden for component branches)
@@ -45,7 +45,7 @@ repaired at the mechanism.
 | A8 | both | medium | identity was the caller-chosen `attention_id` alone: a different question under a live id was silently discarded | content-aware: identical is a re-delivery, different is a typed refusal |
 | A9 | both | medium | `isIsoInstant` was a digit-shape regex: an impossible instant entered the record, and `NaN` in the comparator made the ranking depend on input position | calendar round-trip |
 
-### A2 �?the module's central word had no bound
+### A2  - the module's central word had no bound
 
 The workbook's invariant exists so an alert reaches the devices the user actually touches. Ranking
 alone was not a bound:
@@ -58,11 +58,11 @@ a device dated 10 years ahead outranks every real one: true
 
 Repaired with a 30-day recency window and a clock-skew tolerance, both exported, applied only when a
 clock is supplied. **My first attempt at this repair was incomplete and my own probe caught it**: the
-window was honoured by `rankRecentDevices` but `open()` never passed a clock, so the bridge �?the only
-path that matters �?still ranked a five-year-old device as recent. `open()` now anchors the window to
+window was honoured by `rankRecentDevices` but `open()` never passed a clock, so the bridge  - the only
+path that matters  - still ranked a five-year-old device as recent. `open()` now anchors the window to
 the instant the question opens.
 
-### A3 / A4 / A5 �?three half-applied transitions
+### A3 / A4 / A5  - three half-applied transitions
 
 All three mutated canonical state and only then touched a value that could throw:
 
@@ -77,7 +77,7 @@ the question is already closed globally, further deliveries are refused, and the
 `duplicate: true`. All three now validate or clone *before* committing, verified by asserting the
 status is still `PENDING` and an honest retry succeeds.
 
-### A6 �?the routed answer was replaceable
+### A6  - the routed answer was replaceable
 
 `respond`'s guard only fired for a *different* device, so the acknowledging device could re-route
 repeatedly and the connector's already-received answer was silently replaced:
@@ -91,14 +91,14 @@ stored response now = {"answer":"NO, CHANGED MY MIND"}
 Now exactly one response routes, and the declared-but-dead `RESPONSE_ALREADY_ROUTED` code is what a
 repeat from the acknowledger throws.
 
-### A1 / A8 / A9 �?strictness, identity and instants
+### A1 / A8 / A9  - strictness, identity and instants
 
 * The ninth contract in this programme with the `key in spec` hole; the author's strictness test uses a
   field name that is not an `Object.prototype` member, which is why it survived.
 * Identity keyed on a caller-chosen id meant a *different* question under a live id was reported as a
   re-delivery and discarded. Identical content is still a re-delivery; different content is a typed
   refusal. The reviewer also noted that a legitimate re-open from a new thread never projects the new
-  current device �?that is the same mechanism (the stale record is returned instead of re-projected)
+  current device  - that is the same mechanism (the stale record is returned instead of re-projected)
   and is recorded below as a boundary rather than silently reshaped.
 * `isIsoInstant` must round-trip to the calendar instant it claims, which also removes the `NaN` that
   made the ranking depend on input array position.
@@ -107,14 +107,14 @@ repeat from the acknowledger throws.
 
 - **D1–D4, D6–D10** are A1–A4, A6–A9. **D5** is A5 and is a defect I had not found; its probe showed
   the routing committed with no stored response for an unstorable payload.
-- **The reviewer's reading of guarantee 5** �?that an acknowledgement suppresses delivery to a target
-  that was never delivered to �?is recorded as a guarantee-wording conflict, not a defect: the frozen
+- **The reviewer's reading of guarantee 5**  - that an acknowledgement suppresses delivery to a target
+  that was never delivered to  - is recorded as a guarantee-wording conflict, not a defect: the frozen
   suite and the published contract flags both state global closure as the design, so "one target's
   acknowledgement does not suppress another's delivery" describes a per-target model this module
   deliberately does not implement. Raised for the Owner rather than "fixed" by re-opening delivery
   after an answer.
 - **Guarantee 4 (urgency) is vacuous, not violated.** The reviewer confirmed there is no urgency or
-  severity field at all �?`urgency`, `severity` and `priority` are refused as unknown fields �?so there
+  severity field at all  - `urgency`, `severity` and `priority` are refused as unknown fields  - so there
   is no downgrade path to falsify. Recorded so the merge workbook is not told a guarantee failed when
   it was never implemented.
 - **Reviewer negative results recorded**: prototype-named *devices* are handled correctly by `===` and
@@ -135,11 +135,11 @@ repeat from the acknowledger throws.
    states no values; both are exported so they can be ruled on.
 5. **No urgency/severity model exists**, so guarantee 4 is unimplemented rather than broken. Adding one
    is Development scope.
-6. **No Android device observation and no Computer-Use session** �?a pure module with no device surface.
+6. **No Android device observation and no Computer-Use session**  - a pure module with no device surface.
 
 ## 5. Tests and CI
 
-Author suite **10/10 pass unchanged**. Suite extended **10 �?16 tests**, every negative assertion
+Author suite **10/10 pass unchanged**. Suite extended **10 �?16 tests**, every negative assertion
 paired with a legitimate neighbour. Local: root 116 pass, rooms 69 pass, city 1801 pass,
 promotion-history OK, bilingual SYNCHRONIZED.
 
@@ -153,7 +153,7 @@ promotion-history OK, bilingual SYNCHRONIZED.
    pure and has no clock; `rankRecentDevices` remains usable as a pure ranking, and the bridge always
    supplies a clock.
 3. **Where a refusal may land.** *Choice:* validate every value that can throw before any mutation.
-   *Rationale:* a half-applied refusal is worse than a slow one �?the caller is told the operation
+   *Rationale:* a half-applied refusal is worse than a slow one  - the caller is told the operation
    failed while the canonical state has already changed.
 4. **How many responses a question may route.** *Choice:* exactly one, with `RESPONSE_ALREADY_ROUTED`
    for the acknowledger and `ALREADY_ANSWERED` for anyone else. *Rationale:* a connector receives one
@@ -170,7 +170,7 @@ promotion-history OK, bilingual SYNCHRONIZED.
 - I corrupted `attention.mjs` with a shell-based edit: backticks inside a PowerShell double-quoted
   replacement are escape characters, so a comment was mangled into invalid UTF-8. I restored the file
   from the frozen export and re-applied every repair with a Node patch script instead of shell string
-  manipulation �?the repair set is unchanged, and the recovery is recorded because a corrupted file is
+  manipulation  - the repair set is unchanged, and the recovery is recorded because a corrupted file is
   a much worse outcome than a failed edit.
 - Three of my new tests were wrong before the code was (`assertAttentionEnvelope` was not imported, the
   fixture's device refs and question text were not what I assumed, and I asserted a literal question
@@ -188,3 +188,15 @@ Nothing about this task required device observation.
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/engineering-manager/EM-005-attention-recent-device-alerts.md
 ```
+
+
+## 历史编码说明 / Historical encoding note
+
+本文件在此次整理前含无效UTF-8字节。仅将损坏标点改为普通连接符，其他无法恢复的序列显示为U+FFFD；没有猜测缺失文字或改写验收结论。原始字节保存在docs/encoding-evidence，可按SHA256核对。
+
+This file contained invalid UTF-8 before maintenance. Damaged separator punctuation is rendered as a plain hyphen; other undecodable sequences are shown as U+FFFD. Missing text and acceptance conclusions are not inferred. Original bytes are retained under docs/encoding-evidence with SHA256 provenance.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/CORRECTION_REPORT.md)保留全部章节、原代码证据和编码未知位置，不产生新的历史状态或验收。 / [Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md) preserves every section, original code evidence and unknown encoding locations; it creates no new historical state or acceptance.

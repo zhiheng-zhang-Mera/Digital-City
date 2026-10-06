@@ -1,4 +1,4 @@
-# BA-005 Correction Report �?Digital-Me Scoped Context + Memory/Audience Gateway
+# BA-005 Correction Report  - Digital-Me Scoped Context + Memory/Audience Gateway
 
 ```text
 MISSION              = BA-005 (Butler Assistant programme, task 5 of 9)
@@ -14,7 +14,7 @@ DEVELOPMENT_HEAD     = 4fec952d414cee8cd67245f901c71a75cee93b30
 DEVELOPMENT_CI       = 36728731544-success
 CORRECTION_BRANCH    = assistant/BA-005-digital-me-context-gateway
 CORRECTION_HEAD_SHA  = 6c6d2d43bb89f11c82fabfea021e1d565b773ec5
-BRANCH_CI            = 3673—�?�?gateway-web success, android success
+BRANCH_CI            = 3673— -  - gateway-web success, android success
 LOCAL_CHECK_SUMMARY  = BA-005 21 pass, root 122 pass, rooms 69 pass, city 1801 pass,
                        promotion-history OK at 4fec952, bilingual SYNCHRONIZED
 MERGE                = NOT PERFORMED (forbidden for component branches)
@@ -31,7 +31,7 @@ D:\A-Utopia\.runtime\evidence\mission-book\BA-005\frozen-4fec952\contracts\digit
 ```
 
 Seventh use of this isolation. Repair was verified by replaying the original reproductions against the
-repaired module (`alien-verify-repair.mjs` 31 checks, `alien-verify-repair2.mjs` 32 checks �?63/63 PASS).
+repaired module (`alien-verify-repair.mjs` 31 checks, `alien-verify-repair2.mjs` 32 checks  - 63/63 PASS).
 
 ## 2. Confirmed defects and repairs
 
@@ -51,11 +51,11 @@ defects rather than bookkeeping. Fourteen confirmed, all repaired at the mechani
 | C9 | reviewer | medium | a malformed record threw *mid-loop*, after the port read and with values already resolved | every fetched record validated before anything is assembled |
 | C10 | reviewer | medium | duplicate `record_id` collapsed silently in the port | refused with `INVALID_RECORD` |
 | C11 | reviewer | medium | `rebuildDeviceEphemeralContext` validated nothing and shallow-froze only | entries validated, cloned and deep-frozen |
-| C12 | me | medium | cyclic/over-deep records �?untyped `RangeError` | cycle-safe scans + iterative depth bound |
+| C12 | me | medium | cyclic/over-deep records �?untyped `RangeError` | cycle-safe scans + iterative depth bound |
 | C13 | reviewer | low | `includeValues` read for truthiness: `'false'`, `1`, `{}`, `[]` all released values | strict `=== true` |
 | C14 | me | low | `isIsoInstant` shape-only | calendar round-trip |
 
-### C1 (critical) �?authority read through the prototype chain
+### C1 (critical)  - authority read through the prototype chain
 
 ```text
 assistantRef "toString"/"valueOf"/"constructor"/"__proto__" -> untyped TypeError
@@ -67,10 +67,10 @@ The reviewer's probe went further than mine: one key on `Object.prototype` grant
 own-key only, against a null-prototype snapshot of the policy, and a malformed grant is a typed
 refusal rather than a crash.
 
-### C2 (high) �?assistant-private memory had no owner
+### C2 (high)  - assistant-private memory had no owner
 
 `ASSISTANT_PRIVATE` isolation rested entirely on which scopes an assistant happened to be granted, so
-two assistants granted the same scope saw each other's private facts and values �?the opposite of the
+two assistants granted the same scope saw each other's private facts and values  - the opposite of the
 contract's own published claim. The record now carries an optional `owner_assistant_ref`, and a
 non-owner is refused with `NOT_THE_OWNER`.
 
@@ -82,7 +82,7 @@ without rewriting the author's fixtures or inventing a mandatory field. The publ
 updating the Development fixtures. This is the one part of a high finding deliberately left to
 integration, and it is stated rather than hidden.
 
-### C3 (high) �?one-sided freshness, in the disclosure path
+### C3 (high)  - one-sided freshness, in the disclosure path
 
 `age > ttl_ms` never fires for a record dated in the future, so a replayed or clock-skewed record was
 served as current with nothing in `stale`; a `NaN`-parsing instant (`2026-09-99T99:99:99Z`, which the
@@ -90,7 +90,7 @@ shape-only regex accepted) did the same; and `ttl_ms` had a minimum but no maxim
 claim to stay current for a century. Freshness is two-sided with a documented skew tolerance, the ttl
 has a ceiling and is clamped as well as validated, and an impossible instant is refused at validation.
 
-### C4 / C5 �?the strictness checks that did not check
+### C4 / C5  - the strictness checks that did not check
 
 `key in RECORD_SPEC` accepted own fields named after `Object.prototype` members (ninth contract in this
 programme with that hole), `Object.entries` did not see non-enumerable own fields, and a *bare* check
@@ -98,13 +98,13 @@ was missing entirely: a record refusing `persona` as its own field accepted the 
 through a prototype, and a class instance passed as a canonical record. Own-key scans plus a
 bare-object requirement now cover all three, and the forbidden-field scan is cycle-safe and bounded.
 
-### C6 �?a field that was validated, copied and never used
+### C6  - a field that was validated, copied and never used
 
 `sensitivity: 'SENSITIVE'` travelled into every projection and gated nothing, so a sensitive fact was
 released exactly like an ordinary one. Releasing it now needs the same explicit disclosure
 authorization the module already requires for release into another audience.
 
-### C7–C11 �?integrity of the decision and of the evidence
+### C7–C11  - integrity of the decision and of the evidence
 
 * The port handed out its own value object, so a caller could rewrite canonical user data and every
   later projection carried the edit.
@@ -114,7 +114,7 @@ authorization the module already requires for release into another audience.
 * A malformed record threw mid-loop, after the port read and with values already resolved, and
   out-of-scope records were never validated at all. Every fetched record is now validated before
   anything is assembled, so the refusal is typed and nothing is read out of the port.
-* Duplicate `record_id`s collapsed silently in the port's Map �?two canonical records became one with
+* Duplicate `record_id`s collapsed silently in the port's Map  - two canonical records became one with
   no error; now `INVALID_RECORD`.
 * Device-ephemeral rebuilds validated nothing and shallow-froze, so a fabricated
   `ASSISTANT_PRIVATE`/`SENSITIVE` payload was stamped as ephemeral and nested state stayed mutable.
@@ -122,13 +122,13 @@ authorization the module already requires for release into another audience.
 
 ## 3. Reviewer claims reconciled
 
-- **D1, D2, D4, D5, D12** are C1, C5, C4, C3, C12 �?the same mechanisms, repaired once.
+- **D1, D2, D4, D5, D12** are C1, C5, C4, C3, C12  - the same mechanisms, repaired once.
 - **D3, D6–D11, D13–D15** are C2, C7–C11, C13, C5.
 - **D11 is not accepted.** The reviewer holds that `disclosure_authorized` is unreachable for its
   stated purpose because the visibility matrix runs first and the test compares against the requested
   audience. My probe shows the opposite for the mismatch cases that matter: an `OWNER_PRIVATE` record
   projected into `SHARED_DEVICE` is withheld with `DISCLOSURE_NOT_AUTHORIZED` and **is served when the
-  flag is true** �?so the axis is reachable and does what it says. What is true is that a private fact
+  flag is true**  - so the axis is reachable and does what it says. What is true is that a private fact
   cannot reach `PUBLIC_CHANNEL` even with the flag set, because the visibility matrix does not list it;
   that is stricter than the workbook requires and is recorded below rather than "repaired" by
   broadening disclosure.
@@ -155,11 +155,11 @@ authorization the module already requires for release into another audience.
    The workbook states no values; they are exported so they can be ruled on.
 5. **`includeValues` remains a caller-supplied request.** It is now strictly boolean, and a value is
    still only released when the assistant's own policy grant allows it.
-6. **No Android device observation and no Computer-Use session** �?a pure module with no device surface.
+6. **No Android device observation and no Computer-Use session**  - a pure module with no device surface.
 
 ## 5. Tests and CI
 
-Author suite **8/8 pass unchanged**. Suite extended **8 �?21 tests**, every negative assertion paired
+Author suite **8/8 pass unchanged**. Suite extended **8 �?21 tests**, every negative assertion paired
 with a legitimate neighbour. Verification replays: **63/63 PASS**.
 
 ```text
@@ -193,12 +193,12 @@ android success.
 ## 7. Honest self-errors
 
 - Two of my new tests were wrong before the code was: I asserted an ephemeral entry's nested state was
-  frozen (it was only cloned �?the test was right and the code needed a deep freeze) and I used a
+  frozen (it was only cloned  - the test was right and the code needed a deep freeze) and I used a
   *string* port value in a mutation test, where writing a property to a primitive throws. The first
   caught a real gap; the second was pure test error.
 - I did not find C2, C5, C7, C8, C9, C10, C11 or C13. C2 is the most important miss of this session:
   I read the module's published `cross_assistant_private_memory_visible: false` claim and did not test
-  it, because the author's isolation test passes �?it passes only because the fixture gives each
+  it, because the author's isolation test passes  - it passes only because the fixture gives each
   assistant a *different scope*. A published guarantee is a test target, not a description.
 - I disagreed with the reviewer on D11 and checked before recording it, rather than accepting a
   finding because it was confidently stated.
@@ -214,3 +214,15 @@ reasoning. Nothing about this task required device observation.
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/butler-assistant/BA-005-digital-me-context-gateway.md
 ```
+
+
+## 历史编码说明 / Historical encoding note
+
+本文件在此次整理前含无效UTF-8字节。仅将损坏标点改为普通连接符，其他无法恢复的序列显示为U+FFFD；没有猜测缺失文字或改写验收结论。原始字节保存在docs/encoding-evidence，可按SHA256核对。
+
+This file contained invalid UTF-8 before maintenance. Damaged separator punctuation is rendered as a plain hyphen; other undecodable sequences are shown as U+FFFD. Missing text and acceptance conclusions are not inferred. Original bytes are retained under docs/encoding-evidence with SHA256 provenance.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/CORRECTION_REPORT.md)保留全部章节、原代码证据和编码未知位置，不产生新的历史状态或验收。 / [Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md) preserves every section, original code evidence and unknown encoding locations; it creates no new historical state or acceptance.

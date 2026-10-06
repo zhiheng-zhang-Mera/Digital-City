@@ -152,3 +152,8 @@ Fast model 只输出 bounded decision contract，不以自由长文作为执行�
 - exact-head tests/CI；
 - opposite-host review；
 - PAPER_MATERIAL_INDEX。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/MON-903-event-triggered-decision-overlay.md)

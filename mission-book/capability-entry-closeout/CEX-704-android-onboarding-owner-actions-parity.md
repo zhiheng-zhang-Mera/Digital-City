@@ -172,3 +172,8 @@ F4（LOW，控制面）工作书本有二十一项模板字段缺失（含全部
 是第二台**实体**手机：本机仅挂载一台，故消费方是本机；光学扫码与 Scan QR / LAN / BLE 流程亦未运行。APK 来源不作声明：
 同一源码构建的字节数（10500445）与收据一致但 SHA-256 不同，构建不可复现。
 
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/CEX-704-android-onboarding-owner-actions-parity.md)

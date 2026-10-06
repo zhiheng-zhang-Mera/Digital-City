@@ -117,3 +117,8 @@ CEX-703 先补“查看全部能力”。
 - keyboard shortcut。
 
 这些属于 UX enhancement，不是当前隐藏功能 defect。
+
+
+---
+
+[English translation / 完整英文说明](./en/FUTURE_EXPOSURE_BACKLOG.md)

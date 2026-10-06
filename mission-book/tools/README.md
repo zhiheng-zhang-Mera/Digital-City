@@ -1,13 +1,15 @@
 # Mission Book tooling / 任务书工具
 
-Four small, dependency-free Python tools. They only ever edit `mission-book/` inside the control repository, and every one
-of them is a reader of the workbooks' YAML frontmatter, which stays the source of truth.
+[完整中文说明](./README.zh-CN.md) · [Mission Book / 任务总览](../README.md)
+
+Five small, dependency-free Python tools. Workbook frontmatter stays the source of truth. The four task-state tools edit only `mission-book/`; the documentation-navigation tool also writes `docs/` navigation and inventory, and programme dashboards. It never changes task authority or acceptance.
 
 ```text
 sync_dependency_state.py           propagate accepted exact dependency heads into unclaimed workbooks; --check fails on drift
 sync_mission_progress.py           regenerate the main board (README.md) and MISSION_PROGRESS.json; --check fails on drift
 sync_utopia_status.py              refresh the live Utopia status block in the linkage record
 check_record_consistency.py        report record drift across the three record locations; exit 1 when an ERROR is found
+sync_documentation_navigation.py   regenerate bilingual navigation, programme dashboards and docs/DOCUMENTATION_INVENTORY.json; --check fails on drift
 test_check_record_consistency.py   tests for the checker, including the drift it must catch
 ```
 
@@ -18,9 +20,13 @@ python mission-book/tools/sync_dependency_state.py --check
 python mission-book/tools/sync_mission_progress.py
 python mission-book/tools/check_record_consistency.py
 python mission-book/tools/test_check_record_consistency.py
+python mission-book/tools/sync_documentation_navigation.py
+python mission-book/tools/sync_documentation_navigation.py --check
 ```
 
 ## Where they run automatically
+
+Documentation navigation is a separate maintenance command, not currently a workflow step. Its language-presence labels are inspection hints, not proof of complete translation. Preserve raw encoding preimages and historical `NOT_RUN`/failed results; paired reading views grant no new authority.
 
 `.github/workflows/sync-mission-progress.yml` runs on any change under `mission-book/`:
 

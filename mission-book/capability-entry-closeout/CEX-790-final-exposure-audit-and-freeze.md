@@ -185,3 +185,8 @@ Registry claim
 - terminal marker `CAPABILITY_ENTRY_BASELINE_AUDITED`。
 
 完成后才允许创建 programme final integration workbook。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/CEX-790-final-exposure-audit-and-freeze.md)

@@ -1,4 +1,4 @@
-# EM-002 Correction Report �?Connector Adapter + Process Runtime
+# EM-002 Correction Report  - Connector Adapter + Process Runtime
 
 ```text
 MISSION              = EM-002 (Engineering Manager programme)
@@ -11,7 +11,7 @@ CLAIM_COMMIT         = fb0e3a8 (Digital-City main, claim of EM-002 Correction by
 CLAIMED_AT           = 2026-09-30T13:40:00Z
 COMPONENT_BASELINE   = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
 DEVELOPMENT_HEAD     = 4e71558a9fc44a15a209eef4d711d8d90f90933b
-DEVELOPMENT_CI       = 36718724624 �?gateway-web success, android success
+DEVELOPMENT_CI       = 36718724624  - gateway-web success, android success
 CORRECTION_BRANCH    = engineering-manager/EM-002-connector-adapter-process-runtime
 CORRECTION_HEAD_SHA  = f389aa46b002d92ff3cb9201dd8b18c32073e149
 BRANCH_CI            = 36724202082 - gateway-web success, android success
@@ -53,10 +53,10 @@ kind of thing this programme's verification discipline exists to catch.
 
 ## 2. Confirmed defects and repairs
 
-### EM2-1 / D3 (high) �?`key in spec` accepted every `Object.prototype` name
+### EM2-1 / D3 (high)  - `key in spec` accepted every `Object.prototype` name
 
 `manifest.mjs` `checkShape` used `if (!(key in spec))`. `in` walks the prototype chain, so
-these were all "part of the canonical contract" �?and this ran for the manifest, each capability
+these were all "part of the canonical contract"  - and this ran for the manifest, each capability
 entry, each need entry, `limits` and `provenance`:
 
 ```text
@@ -69,7 +69,7 @@ limits.toString  provenance.hasOwnProperty  capabilities[0].valueOf  needs[0].co
 **Repair:** own-key lookup plus reserved prototype keys (`__proto__`/`prototype`/`constructor`)
 refused at every depth. All twelve cases now refuse.
 
-### EM2-2 / D4 (high) �?the secret scan missed every plural and compound spelling
+### EM2-2 / D4 (high)  - the secret scan missed every plural and compound spelling
 
 Fifteen spellings passed while `token`, `credential`, `api_key` and `apiKey` were caught:
 `credentials`, `tokens`, `secrets`, `apiKeys`, `api_keys`, `privateKeys`, `sessionKeys`,
@@ -80,38 +80,38 @@ Fifteen spellings passed while `token`, `credential`, `api_key` and `apiKey` wer
 trailing-plural tolerance, reference suffixes still exempt, and value-aware in one direction
 only so `max_tokens` stays a quantity rather than a false positive.
 
-### EM2-3 (high) �?values were never inspected
+### EM2-3 (high)  - values were never inspected
 
 A live `sk-live-…` key in `display_name` and in `entry_ref`, and a PEM block in
-`provenance.detection_evidence`, all validated clean �?in the two fields most likely to carry a
+`provenance.detection_evidence`, all validated clean  - in the two fields most likely to carry a
 credential (`entry_ref` names what will be executed; `detection_evidence` lands in auditable
 provenance). The module's own rule is "connectors declare needs, not secrets".
 
 **Repair:** recognisable credential content (PEM blocks, JWTs, provider key prefixes) is refused
 wherever it appears as a value.
 
-### EM2-4 / D8 (high) �?an adapter could forge the runtime kind
+### EM2-4 / D8 (high)  - an adapter could forge the runtime kind
 
 The provenance comment promised an adapter "cannot forge which adapter was selected or which
 runtime kind won". That was true for `selected_adapter_ref` and false for `runtime_kind`:
 `pipeline.mjs` preferred `manifest.runtime_kind` (the adapter's own output) over
 `winner.adapter.runtime_kind`. A `NODE`-registered adapter whose standardizer claimed `PYTHON`
 produced `runtime_kind: 'PYTHON'` in both the manifest and its provenance **with zero
-failures** �?forged provenance of the very field a later placement or safety decision reads.
+failures**  - forged provenance of the very field a later placement or safety decision reads.
 
 **Repair:** the declared kind is authoritative in both places, and the overstep is recorded as
 `ADAPTER_RUNTIME_KIND_MISMATCH` rather than silently rewritten.
 
-### EM2-5 (medium-high) �?an own `__proto__` key survived the pipeline
+### EM2-5 (medium-high)  - an own `__proto__` key survived the pipeline
 
 A standardizer returning `JSON.parse('{"__proto__":…}')` produced a manifest that reached the
 caller with `Object.hasOwn(manifest, '__proto__') === true` and `Object.keys` listing it, and no
 failure. This was EM2-1's impact path: a reserved key crossing the module boundary into
 downstream consumers. Closed by EM2-1 and asserted end to end (it is now refused at UNIFY).
 
-### EM2-6 (high) �?one `null` adapter stopped the whole pipeline
+### EM2-6 (high)  - one `null` adapter stopped the whole pipeline
 
-The module header promises "every stage is fault-isolated�?One malformed connector can therefore
+The module header promises "every stage is fault-isolated - One malformed connector can therefore
 never stop the others from loading." False for a nullish entry, and the *catch block itself* was
 the crash site, because it interpolated `` `${adapter.adapter_ref}` ``:
 
@@ -120,31 +120,31 @@ adapters: [null]                  -> THREW TypeError (reading 'adapter_ref')
 adapters: [null, good]            -> THREW; the good adapter never ran
 adapters: [undefined, good]       -> THREW
 adapters: [42|'x'|{}|[], good]    -> isolated correctly (unified=1, failures=1)
-loadConnectors([null, good], �?   -> THREW
+loadConnectors([null, good],  -    -> THREW
 ```
 
 `runAdapterPipeline` already used `adapter?.adapter_ref` at its own call site; the error handler
 did not. **Repair:** the failure detail is built null-safely, and nullish entries are in the
 regression set.
 
-### D1 (high) �?heartbeat freshness never fired with the module's own clock
+### D1 (high)  - heartbeat freshness never fired with the module's own clock
 
 `heartbeat` stored `clock()`'s ISO string; `checkHealth` computed `Date.parse(last)` and then
-`(now - last) > budget`, where `now` was the raw ISO string �?so the difference was `NaN`,
-`stale` was false forever, and **the entire `HEARTBEAT_LOST �?DEGRADED` path was dead code**. A
+`(now - last) > budget`, where `now` was the raw ISO string  - so the difference was `NaN`,
+`stale` was false forever, and **the entire `HEARTBEAT_LOST �?DEGRADED` path was dead code**. A
 three-hour-old heartbeat read as fresh against a thirty-second budget. The author's test passed
-only because it mixed a numeric `now` with a string `last` �?a combination the module never
+only because it mixed a numeric `now` with a string `last`  - a combination the module never
 produces, which is why a green suite proved nothing here.
 
 **Repair:** one `toEpochMs` coercion used by both sides, compared as numbers; an instant that
 was supplied but cannot be read now fails closed with `INVALID_TIMESTAMP` instead of reading as
 fresh. The author's test is corrected to use the module's own ISO clock.
 
-### D2 (high) �?a heartbeat resurrected a killed process
+### D2 (high)  - a heartbeat resurrected a killed process
 
 The startup timeout killed the process and left the instance `DEGRADED`; the next `heartbeat`
 unconditionally promoted any `DEGRADED` instance to `READY`, with no process, no new spawn and a
-dead handle �?and `invoke` then worked against that handle. One `DEGRADED` bucket held two
+dead handle  - and `invoke` then worked against that handle. One `DEGRADED` bucket held two
 incompatible causes (startup failure and heartbeat loss).
 
 **Repair:** a typed `degrade_reason`; a heartbeat clears **only** a heartbeat loss, and only on a
@@ -152,7 +152,7 @@ live handle; startup failure is recovered by a spawn-verified restart. Confirmed
 repair the pulse leaves it `DEGRADED` and `invoke` raises `RUNTIME_NOT_STARTED`, while a genuine
 heartbeat loss on a live handle is still cleared by a pulse.
 
-### D5 (high) �?`structuredClone` sat outside every guard
+### D5 (high)  - `structuredClone` sat outside every guard
 
 A third-party adapter returning a function- or symbol-valued manifest made `structuredClone`
 raise `DataCloneError`, which escaped `runAdapterPipeline` **and** `loadConnectors`, so a healthy
@@ -160,10 +160,10 @@ connector never loaded and no failure was recorded.
 
 **Repair:** the copy is guarded; an un-copyable output is that adapter's recorded failure.
 
-### D6 (high) �?the process port was given no bounds, no security context, and unverified kills
+### D6 (high)  - the process port was given no bounds, no security context, and unverified kills
 
-The spawn request was literally `{entry_ref, runtime_kind, host}` �?no argv, env, cwd, timeout,
-stdio or shell field �?and `entry_ref` was validated only as "nonempty text", so
+The spawn request was literally `{entry_ref, runtime_kind, host}`  - no argv, env, cwd, timeout,
+stdio or shell field  - and `entry_ref` was validated only as "nonempty text", so
 `../../../../etc/passwd`, `C:\Windows\System32\cmd.exe`, `/bin/sh -c "id"`, a NUL-bearing string
 and `-flag` all passed a field the runtime hands to the port *to execute*. `kill` was
 fire-and-forget: a port answering `{killed:false}` was treated as gone.
@@ -177,13 +177,13 @@ unbounded request is no longer expressible; and kill is verified, recorded
 **What this does not fix, recorded rather than implied:** argv/env/cwd confinement and timeout
 *enforcement* remain the port's responsibility. A synchronous module cannot own a timer, and this
 task ships no real port (its own D9). So guarantee 3 is now bounded at the request boundary but
-is **not substantiated by this layer** �?a later EM task must ship the port and prove it.
+is **not substantiated by this layer**  - a later EM task must ship the port and prove it.
 
-### D7 (high) �?the runtime never mediated the policy decision
+### D7 (high)  - the runtime never mediated the policy decision
 
 `start()` copied `policyDecision.granted` verbatim and never called
 `mediateConnectorPermissions`, so an undeclared grant and duplicate grants reached
-`provenance.granted_permissions` �?while the *same* decision through the mediator was refused
+`provenance.granted_permissions`  - while the *same* decision through the mediator was refused
 with `UNDECLARED_NEED_GRANT`. Separately, `mediateConnectorPermissions(manifest, {refused:[null]})`
 raised `TypeError: Cannot read properties of null (reading 'need_id')` out of a validator, and a
 refusal with no `need_id` was silently dropped, so a caller could not tell "policy refused this"
@@ -195,9 +195,9 @@ from "policy said nothing".
 ## 3. Recorded judgement, not repaired
 
 **The runtime's diagnostic banner is charged to the connector's log budget.** The reviewer
-raised this (its item E/7). It is a real design choice �?the connector's `max_log_bytes` covers
+raised this (its item E/7). It is a real design choice  - the connector's `max_log_bytes` covers
 the runtime's own "started as" line, so a connector whose budget is small records little of its
-own output �?but it is a policy question about whose budget diagnostics belong to, not a defect
+own output  - but it is a policy question about whose budget diagnostics belong to, not a defect
 with a clear right answer. Left as the author wrote it and raised to the Owner.
 
 **One part of the reviewer's item E did not reproduce:** it stated that the log-drop path returns
@@ -219,25 +219,25 @@ propagate a claim this host could not confirm.
 
 ## 5. Decisions not specified by the book
 
-**C1 �?Fix only what was confirmed, or also re-check the reviewer's contaminated runs?** Only
+**C1  - Fix only what was confirmed, or also re-check the reviewer's contaminated runs?** Only
 confirmed findings were repaired. The reviewer's revision discipline (`git show` export) made
 that possible; this host re-reproduced every finding independently against its own probes before
 touching the code, and re-reproduced each one after.
 
-**C2 �?Whether to change the author's heartbeat test.** Yes: it asserted freshness using a
+**C2  - Whether to change the author's heartbeat test.** Yes: it asserted freshness using a
 numeric `now` against a string `last`, a combination the module never produces, so it could not
 have failed while D1 was live. The test now uses the module's own ISO clock and asserts staleness.
 Correcting a test that encodes the defect is the opposite of weakening the suite, and it is
 recorded because a reviewer could otherwise read the change the other way.
 
-**C3 �?Whether to implement argv/env/cwd enforcement here.** No. A synchronous pure module cannot
+**C3  - Whether to implement argv/env/cwd enforcement here.** No. A synchronous pure module cannot
 own a timer, and the injected-port boundary is the author's D9. Passing the bounds is the part
 this layer can do; enforcement is recorded as the port's obligation and as an open seam.
 
-**C4 �?Whether the banner budget is a defect.** Judged a policy question, not repaired, and
+**C4  - Whether the banner budget is a defect.** Judged a policy question, not repaired, and
 raised to the Owner (§3).
 
-**C5 �?Evolution-feed record.** Not written, consistent with BA-001 D11 / BA-002 C5 / BA-003 C6 /
+**C5  - Evolution-feed record.** Not written, consistent with BA-001 D11 / BA-002 C5 / BA-003 C6 /
 EM-001 D13 / GAI-001 C6 / RF-001 D8 / RF-002 D13: the `contracts/evolution` schema is
 migration-scoped, so no EM event validates and extending it would touch the frozen
 `contracts/**` surface.
@@ -247,7 +247,7 @@ migration-scoped, so no EM event validates and extending it would touch the froz
 | Check | Result |
 |---|---|
 | `node --test contracts/engineering-connector-v1/tests/conformance.test.mjs` | 25 pass / 0 fail (14 Development + 11 new) |
-| `node --test tests/*.test.mjs` | **126** pass / 0 fail (the commit message for `f389aa4` says 132 �?that figure is wrong, see §1) |
+| `node --test tests/*.test.mjs` | **126** pass / 0 fail (the commit message for `f389aa4` says 132  - that figure is wrong, see §1) |
 | `node --test apps/rooms/tests/*.test.mjs` | 69 pass / 0 fail |
 | `node city/test-all.mjs` | 1801 pass / 0 fail |
 | `node scripts/verify-promotion-history.mjs` | 10 record(s) verified against local Git history at 4e71558a9fc4 |
@@ -256,8 +256,8 @@ migration-scoped, so no EM event validates and extending it would touch the froz
 
 FAILURE_REPAIR_SUMMARY: all 14 Development tests passed unchanged after every repair, except the
 one heartbeat test that encoded D1 (C2). No repair was reverted. One of this host's own new
-assertions was wrong on first run �?it expected `loadConnectors` to return two manifests from two
-identical observations, whereas the documented duplicate-connector-kind rule keeps one �?and was
+assertions was wrong on first run  - it expected `loadConnectors` to return two manifests from two
+identical observations, whereas the documented duplicate-connector-kind rule keeps one  - and was
 corrected in the test, not in the code.
 
 ## 7. Cross-task seams
@@ -289,8 +289,20 @@ corrected in the test, not in the code.
 ```text
 CORRECTION_COMPLETE = true
 DEVELOPMENT_HOST    = Mech
-CORRECTION_HOST     = Alien   (different physical host �?two-host gate satisfied)
+CORRECTION_HOST     = Alien   (different physical host  - two-host gate satisfied)
 CORRECTION_HEAD_SHA = f389aa46b002d92ff3cb9201dd8b18c32073e149
 BRANCH_CI           = 36724202082
 MERGE_STATUS        = FORBIDDEN_UNTIL_ENGINEERING_MANAGER_PROJECT_MERGE
 ```
+
+
+## 历史编码说明 / Historical encoding note
+
+本文件在此次整理前含无效UTF-8字节。仅将损坏标点改为普通连接符，其他无法恢复的序列显示为U+FFFD；没有猜测缺失文字或改写验收结论。原始字节保存在docs/encoding-evidence，可按SHA256核对。
+
+This file contained invalid UTF-8 before maintenance. Damaged separator punctuation is rendered as a plain hyphen; other undecodable sequences are shown as U+FFFD. Missing text and acceptance conclusions are not inferred. Original bytes are retained under docs/encoding-evidence with SHA256 provenance.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/CORRECTION_REPORT.md)保留全部章节、原代码证据和编码未知位置，不产生新的历史状态或验收。 / [Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md) preserves every section, original code evidence and unknown encoding locations; it creates no new historical state or acceptance.

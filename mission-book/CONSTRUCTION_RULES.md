@@ -1,5 +1,7 @@
 # Mission Book — 常驻施工规则
 
+[English translation / 完整英文](./en/CONSTRUCTION_RULES.md)
+
 > **状态：ACTIVE / NORMATIVE / PERSISTENT**
 >
 > 本文件是 `mission-book/` 的长期施工规范。它不属于任何单次任务、programme 或阶段，**不得在任务完成、阶段冻结或项目收口时移动进 `finished/`**。

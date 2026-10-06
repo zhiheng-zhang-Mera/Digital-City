@@ -1,5 +1,7 @@
 # Parked Programmes / 停放设计系列索引
 
+[English translation / 完整英文](./en/PARKED_PROGRAMMES.md)
+
 > 本页只做导航。以下系列**不在 `PROGRESS_MANIFEST.json` 中，不进入主任务统计，不构成可领取工作池**。
 
 | Series | Purpose | State |

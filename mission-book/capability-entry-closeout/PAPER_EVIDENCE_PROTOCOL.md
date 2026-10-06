@@ -295,3 +295,8 @@ ui_or_e2e_evidence_ref
 ```
 
 Registry reconciliation must not erase the pre-repair mismatch. The Registry stores current verified state; PAPER_MATERIAL_INDEX preserves the evolution/failure chain.
+
+
+---
+
+[English translation / 完整英文说明](./en/PAPER_EVIDENCE_PROTOCOL.md)
