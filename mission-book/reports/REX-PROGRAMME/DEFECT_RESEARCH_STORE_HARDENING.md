@@ -240,6 +240,26 @@ READ ONLY host-city.mjs:32   the host state directory         same: refuse is co
 
 **两条 READ ONLY 是本记录明确没有实测的部分**：它们属于启动器一级的形状（数据目录 / 主机状态目录本身不可用），不是模块构造期的 store，本机没有为它们造 trap，因此**不主张**它们的行为，只记录代码事实——两处都在 `try` 里直接把原始错误抛出。真正要修的仍然是同一件事：**拒绝是对的，说不清原因不是**。 / Those two rows are explicitly NOT measured here: they are launcher-level shapes, and this record makes no behavioural claim about them - only that both rethrow the raw error, which is the same "refusing is right, being uninformative is not" question.
 
+### 第五个实例（fault store）与「要部署的那个头」的实测 / The fifth instance and the deployable head
+
+v2 的扫描表里没有 fault store，因此「家族在**准备部署的那个头**上是否干净」这句话在 v3 之前没有证据。v3
+（[`store-shape-sweep-v3.mjs`](./store-shape-sweep-v3.mjs)）补上这一格，并新增一条规则：**某个头根本不构造的 store
+不得被读成「安全启动」**——探针会在 City 起来之后再问一次那个面，区分 `NOT EXERCISED`（该头没有这个面）、
+`STARTED-DEGRADED`（守卫生效并报出 typed 原因）与 `STARTED-SILENT`（陷阱进了模块、界面却不说）。 / v2 never swept the fault store, so "is the family clean on the head we would deploy" had no evidence before v3. v3 adds that row and a rule: a store a head does not construct must not read as a safe start.
+
+```text
+被测头 / head                        REX-806 头 3950d47（REX-890 若要部署就是这个）   已部署候选 0261a9e
+research/faults（REX-804 fault store）  STARTED-DEGRADED storeState=UNAVAILABLE        NOT EXERCISED
+                                        reason=EEXIST（守卫生效且如实报出）             （该头没有 fault 面，无人读这个陷阱）
+其余 6 个 SHAPE A store                全部 STARTED                                    全部 STARTED
+SHAPE B city.sqlite                    BRICKED「unable to open database file」（F-1 未修） 同左
+SHAPE B join / profile                 静默 / 半切换（F-2、F-3 未修）                    同左
+```
+
+**结论（可直接引用于 REX-890 的部署决策）**：`3950d47` 上**五个模块级实例全部已守卫**——第五个实例由 REX-804 复核
+发现（B4）并在被验收头 `fe700ab` 内修好，v3 现在把它显示为 `STARTED-DEGRADED` 并带 typed 原因。剩下的唯一家族项是
+**规范库的那条无类型消息**（F-1：此处拒绝启动是**正确**行为，缺的是可诊断的原因），其修复 `be3670b` 已就绪。 / On 3950d47 all five module-level instances are guarded; the only remaining family item is F-1's untyped canonical-store message, whose repair is ready.
+
 ### F-3's repair, adopted pattern (third adoptable branch)
 
 F-3 is the one of the three whose fix is both unambiguous and tiny — the module's own documented rule says what the

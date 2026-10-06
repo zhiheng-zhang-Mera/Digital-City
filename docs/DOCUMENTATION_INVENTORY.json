@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1642,
-  "total_bytes": 11903496,
+  "total_bytes": 11907732,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9745,10 +9745,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 52640,
+      "bytes": 53117,
       "encoding_state": "UTF8",
-      "chinese_characters": 3705,
-      "english_words": 2225,
+      "chinese_characters": 3769,
+      "english_words": 2250,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9844,10 +9844,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 60800,
+      "bytes": 61318,
       "encoding_state": "UTF8",
       "chinese_characters": 201,
-      "english_words": 4758,
+      "english_words": 4824,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14092,10 +14092,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md",
-      "bytes": 41093,
+      "bytes": 43298,
       "encoding_state": "UTF8",
-      "chinese_characters": 453,
-      "english_words": 2073,
+      "chinese_characters": 681,
+      "english_words": 2155,
       "paired_path": "mission-book/reports/REX-PROGRAMME/zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14128,7 +14128,7 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/REX-890_CLAIM_READINESS_MECH.md",
-      "bytes": 17489,
+      "bytes": 17975,
       "encoding_state": "UTF8",
       "chinese_characters": 1062,
       "english_words": 363,
@@ -14173,10 +14173,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/en/REX-890_CLAIM_READINESS_MECH.md",
-      "bytes": 14048,
+      "bytes": 14598,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 1002,
+      "english_words": 1068,
       "paired_path": "mission-book/reports/REX-PROGRAMME/REX-890_CLAIM_READINESS_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },

@@ -151,6 +151,10 @@ PASS  the independent verifier accepts the produced package  14/14 independent c
    这本身是一个值得单独做的实验，不该和「能不能产出材料包」混在一次里
 4  宿主型阻塞陷阱：City 跑在父进程里时，**不能用 spawnSync 去调 CLI**——spawnSync 阻塞父进程事件循环，
    子进程对 City 的 HTTP 请求永远等不到响应（实测连续三次 ETIMEDOUT）；改用异步 spawn 即通
+5  部署就绪性（sweep v3 实测）：`3950d47` 上**五个模块级 store-guard 实例全部已守卫**——包括 REX-804 的
+   fault store，它以 `STARTED-DEGRADED storeState=UNAVAILABLE reason=EEXIST` 如实报出降级；已部署候选
+   `0261a9e` 上该格是 `NOT EXERCISED`（那个头根本没有 fault 面）。唯一剩下的家族项是**规范库的无类型消息**
+   （F-1：拒绝启动正确、原因不可诊断），其修复 `be3670b` 已就绪可采纳
 ```
 
 **本机演练自身的缺陷也记录在案**：① 在驱动循环里调用 `record()`，同一条检查刷了几百行、把前面的阶段全埋了；
