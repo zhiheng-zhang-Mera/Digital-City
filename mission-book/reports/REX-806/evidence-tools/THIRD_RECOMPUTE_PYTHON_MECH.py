@@ -6,17 +6,31 @@ and scripts/verify-research-artifact.mjs re-computes them in the same language, 
 semantics. A Python recomputation with its own parser, its own median and its own timestamp handling can
 disagree where two JS implementations agree - which is exactly the class of error a review is looking for.
 
-Reads: normalized-dataset.json, metrics.csv, manifest.json, exclusions.json - nothing else, and no City access.
+Reads: normalized-dataset.json, metrics.csv, manifest.json, exclusions.json, tables.json, failures.json -
+nothing else, and no City access.
 Usage: python THIRD_RECOMPUTE_PYTHON_MECH.py   (REX806_ARTIFACT=<dir> to point it at another package)
 Writes: nothing. Exits non-zero on any disagreement.
 
-MEASURED: 12/12 on the published package; a scratch copy with one task timestamp moved by +1 s fails 2 checks, so
-the probe can fail. Two of its OWN defects were found and are kept in the comments where they happened:
-  1. it first ASSERTED that durationMs equals (taskUpdatedAt - taskCreatedAt) and reported 24 "failures" - those
-     are two different measurements of nearly the same interval (the run record vs the canonical task's bracket;
-     measured delta 7-63 ms, all one sign), so the probe's premise was the bug and not the package;
-  2. it first compared failure_rate as strings, so Python's 0.0 against the CSV's 0 read as a failure.
-Both belong to the instrument-error class this programme records: a probe that agrees with its own assumption.
+COVERAGE: 25 checks in two groups. (a) The four reported metrics are recomputed from the dataset and the
+accounting. (b) Cross-file coherence, which neither the exporter's probes nor the JS verifier examines: the
+metric catalogue and values in tables.json against metrics.csv, the run mix and state counts in the dataset
+against the manifest, and failures.json against the manifest's undelivered campaigns. A package can be
+self-consistent per file and still have a table or a failure list describing a different run set.
+
+MEASURED: 25/25 on the published package; four scratch controls each turn the intended checks red - one task
+timestamp moved by +1 s, a measured table value changed, an unavailable paper-ready metric fabricated as 0, and
+a dataset row's state rewritten. The probe can fail.
+
+FOUR OF ITS OWN PREMISES WERE WRONG, and they are kept where they happened because that is this programme's
+recurring error class - a probe that agrees with its own assumption:
+  1. it ASSERTED that durationMs equals (taskUpdatedAt - taskCreatedAt) and reported 24 "failures". They are two
+     measurements of nearly the same interval (run record vs canonical task bracket; measured delta 7-63 ms, one
+     sign), and the metric uses the task bracket, as reproduction.json says.
+  2. it compared failure_rate as strings, so Python's 0.0 against the CSV's 0 read as a failure.
+  3. it compared an absent n raw, so CSV's empty field against JSON's null reported three supporting rows.
+  4. it ASSUMED every campaign in the manifest contributes dataset rows. Two of the 18 delivered nothing - they
+     are the refused campaigns named in accounting - so the dataset carries 16 distinct campaignIds. Anyone
+     reading "18 campaigns" beside "16 campaign ids" should know this before calling it a mismatch.
 """
 import csv
 import json
@@ -30,6 +44,8 @@ data = json.loads((ART / 'normalized-dataset.json').read_text(encoding='utf-8'))
 rows = data['rows']
 manifest = json.loads((ART / 'manifest.json').read_text(encoding='utf-8'))
 exclusions = json.loads((ART / 'exclusions.json').read_text(encoding='utf-8'))
+tables = json.loads((ART / 'tables.json').read_text(encoding='utf-8'))
+failures_json = json.loads((ART / 'failures.json').read_text(encoding='utf-8'))
 
 with (ART / 'metrics.csv').open(encoding='utf-8', newline='') as handle:
     metrics = {r['metric']: r for r in csv.DictReader(handle)}
@@ -42,6 +58,12 @@ def check(name, ok, detail):
     checks.append((name, ok, detail))
     if not ok:
         failures.append(name)
+
+
+def norm_n(value):
+    """CSV writes an absent n as an empty field, JSON as null. MY THIRD WRONG PREMISE was comparing them raw
+    (str(None) vs '') and reporting three supporting rows as mismatches. Normalise before comparing."""
+    return '' if value in (None, 'null') else str(value)
 
 
 # 1 completion_time_ms = median over MEASURED runs whose task is COMPLETED.
@@ -142,6 +164,86 @@ check('dataset rows match manifest.runCount',
 measured = sum(1 for r in rows if r.get('measured') is True)
 check('measured rows match manifest.measuredRuns',
       measured == manifest['measuredRuns'], f"measured={measured} manifest.measuredRuns={manifest['measuredRuns']}")
+
+# ---- cross-file coherence: the four emitted files must describe the same experiment ----------------
+# None of these relations is checked by the exporter's own probes or by the JS verifier, which compare the
+# dataset against metrics.csv and then re-hash bytes. A package can be internally consistent per file and
+# still have tables.json or failures.json describing a different run set than normalized-dataset.json.
+
+# 10 the metric catalogue must be identical in both views, with no metric invented or dropped on either side.
+failures_doc = failures_json['failures'] if isinstance(failures_json, dict) and 'failures' in failures_json else failures_json
+table_metrics = {r['metric'] for r in tables['paper_ready']} | {r['metric'] for r in tables['supporting']}
+check('tables.json and metrics.csv name the same metric catalogue',
+      table_metrics == set(metrics),
+      f'{len(table_metrics)} in tables vs {len(metrics)} in CSV; '
+      f'only-tables={sorted(table_metrics - set(metrics))} only-csv={sorted(set(metrics) - table_metrics)}')
+
+# 11 every supporting row must reproduce the CSV exactly; every paper-ready row must be an unavailable metric
+#    carrying the CSV's own reason (a paper-ready table that quietly zeroes an unmeasured metric is the defect
+#    the workbook's guard warns about).
+support_bad = [r['metric'] for r in tables['supporting']
+               if str(r.get('value')) != metrics[r['metric']]['value'] or norm_n(r.get('n')) != norm_n(metrics[r['metric']]['n'])]
+paper_bad = [r['metric'] for r in tables['paper_ready']
+             if r.get('value') != 'NOT_MEASURED' or (r.get('reason') or '') != metrics[r['metric']]['reason']]
+check('supporting table rows match metrics.csv exactly', not support_bad, f'{len(support_bad)} differ: {support_bad}')
+check('paper-ready rows are unavailable metrics with the CSV reason', not paper_bad, f'{len(paper_bad)} differ: {paper_bad}')
+
+# 12 the paper-ready table is G3/G4-first, as its own note claims.
+scopes = {r.get('scope') for r in tables['paper_ready']}
+check('paper-ready rows are G3/G4 only', scopes <= {'G3', 'G4'}, f'scopes present: {sorted(scopes)}')
+
+# 13 dataset run mix must equal the manifest's supporting counts. Measured semantics, stated so that a reader
+#    does not read "replays 11" against "7 REPLAY rows" as a mismatch: supporting.replays counts replays
+#    INCLUDING the ablation replays, and the normal campaign runs carry no replayMode at all.
+import collections
+mix = collections.Counter(r.get('replayMode') for r in rows)
+ablation_rows = mix.get('ABLATION', 0)
+replay_rows = mix.get('REPLAY', 0)
+check('ablation rows match manifest ablations',
+      ablation_rows == manifest['supporting']['ablations'], f'dataset={ablation_rows} manifest={manifest["supporting"]["ablations"]}')
+check('replay + ablation rows match manifest replays',
+      replay_rows + ablation_rows == manifest['supporting']['replays'],
+      f'dataset REPLAY={replay_rows} + ABLATION={ablation_rows} = {replay_rows + ablation_rows} vs manifest {manifest["supporting"]["replays"]}')
+# 13b campaigns: MY SECOND WRONG PREMISE was that every campaign in the manifest contributes dataset rows.
+#     It does not: a campaign that delivered no run contributes none, and the two refused campaigns are named
+#     in accounting/failures instead. Measured relation, now asserted with its actual meaning, plus the stronger
+#     statement that a refused campaign must have no row at all.
+refused = {e['campaignId'] for e in manifest['supporting']['accounting']['undeliveredCampaigns']}
+dataset_campaigns = {r['campaignId'] for r in rows}
+check('dataset campaigns + refused campaigns account for manifest campaigns',
+      len(dataset_campaigns) + len(refused) == manifest['supporting']['campaigns'] and not (dataset_campaigns & refused),
+      f'dataset={len(dataset_campaigns)} refused={len(refused)} sum={len(dataset_campaigns) + len(refused)} '
+      f'manifest={manifest["supporting"]["campaigns"]}; refused campaigns appearing in the dataset: {sorted(dataset_campaigns & refused)}')
+
+# 14 states: MEASURED must equal measuredRuns, WARMUP must equal the warmup list, and the two together must
+#    account for every dataset row. This is the accounting check that keeps "a warmup is not a failure" true.
+states = collections.Counter(r.get('state') for r in rows)
+warmup_list = failures_doc.get('warmupRuns', [])
+unmeasured_list = failures_doc.get('unmeasuredRuns', [])
+check('dataset MEASURED rows match manifest.measuredRuns',
+      states.get('MEASURED', 0) == manifest['measuredRuns'], f'dataset={states.get("MEASURED", 0)} manifest={manifest["measuredRuns"]}')
+check('dataset WARMUP rows match failures.warmupRuns, and warmups are NOT listed as failures',
+      states.get('WARMUP', 0) == len(warmup_list) and not unmeasured_list,
+      f'dataset WARMUP={states.get("WARMUP", 0)} warmupRuns={len(warmup_list)} unmeasuredRuns={len(unmeasured_list)}')
+check('MEASURED + WARMUP account for every dataset row',
+      states.get('MEASURED', 0) + states.get('WARMUP', 0) == len(rows),
+      f'{states.get("MEASURED", 0)} + {states.get("WARMUP", 0)} = {states.get("MEASURED", 0) + states.get("WARMUP", 0)} of {len(rows)}')
+
+# 15 failures.json must name the same undelivered campaigns as the manifest's accounting, with the same reasons
+#    and the same planned counts - the two places a reader would look for "what never ran".
+outcomes = failures_doc.get('campaignOutcomes', [])
+manifest_undelivered = {e['campaignId']: e for e in manifest['supporting']['accounting']['undeliveredCampaigns']}
+outcome_ids = {e['campaignId'] for e in outcomes}
+check('failures.campaignOutcomes name exactly the manifest undelivered campaigns',
+      outcome_ids == set(manifest_undelivered),
+      f'failures={sorted(outcome_ids)} manifest={sorted(manifest_undelivered)}')
+check('undelivered reasons and planned counts agree',
+      all(e.get('reason') == manifest_undelivered[e['campaignId']]['reason'] and e.get('planned') == manifest_undelivered[e['campaignId']]['planned'] for e in outcomes),
+      f"{[(e['campaignId'][-8:], e.get('reason'), e.get('planned')) for e in outcomes]}")
+check('undelivered planned runs equal planned - accounted',
+      sum(e.get('planned', 0) for e in outcomes) == manifest['supporting']['accounting']['planned'] - manifest['supporting']['accounting']['accounted'],
+      f"sum(planned)={sum(e.get('planned', 0) for e in outcomes)} vs planned-accounted="
+      f"{manifest['supporting']['accounting']['planned'] - manifest['supporting']['accounting']['accounted']}")
 
 print(f'artifact: {manifest["artifactId"]}')
 for name, ok, detail in checks:

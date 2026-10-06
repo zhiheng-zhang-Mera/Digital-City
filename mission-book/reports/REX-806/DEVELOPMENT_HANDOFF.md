@@ -73,6 +73,12 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 
 它顺手量出一件**复检者很可能踩到的事**：包内 `normalized-dataset.json` 里有一个 `durationMs` 字段，它与 `(taskUpdatedAt - taskCreatedAt)` **不相等**——实测 24 行全部略大 7–63 ms（同向）。两者是同一区间的两次测量：`durationMs` 来自 run 记录，而指标用的是 canonical task 的时间戳对（`reproduction.json` 第 3 步写的就是后者）。**用 `durationMs` 重算会得到一个不同的中位数，然后看起来像包和复算不一致。** 本机第一版探针正是把这个假设当成了被测对象的性质，因此得到 24 条假失败；这条缺陷连同它的数字一起留在工具注释里。 / `durationMs` is NOT the interval the metric uses: it is 7-63 ms larger than the task bracket on every row. Recomputing the median from `durationMs` yields a different number that looks like a package/recomputation mismatch. My first probe assumed they were equal and produced 24 false failures; the defect and its numbers are kept in the tool's comments.
 
+工具的第二组检查做的是**跨文件一致性**（`tables.json` ↔ `metrics.csv`、dataset ↔ manifest、`failures.json` ↔ accounting），共 25 项，实跑 **25/25**，并用四个负对照证明每一项都会红（挪时间戳、改表格里的测量值、把 `intervention_count` 伪造成 0、改写某行 state）。这条检查抓的是「每个文件自己自洽、但描述的不是同一批 run」。 / Its second group checks cross-file coherence - 25 checks, 25/25, falsified by four controls.
+
+**另外两处容易读成不一致的地方，先写在这里**（都是定义问题，不是缺陷）： / Two more easy misreadings, both definitional:
+1. `manifest.supporting.campaigns = 18`，而 dataset 里只有 **16** 个不同的 `campaignId`——另外 2 个是被拒（`TOPOLOGY_NOT_READY`）而**一个 run 都没交付**的 campaign，它们出现在 accounting 与 `failures.json` 里，**不应**出现在 dataset 里（工具已断言这一点）。
+2. `manifest.supporting.replays = 11`，而 dataset 里 `replayMode=REPLAY` 的行只有 **7** 行——11 = 7 个 REPLAY + **4 个 ABLATION**（消融本身也是重放）；普通 campaign run 的 `replayMode` 为 `null`。
+
 ## 本机明确不主张的 / Explicitly not claimed
 
 ```text
