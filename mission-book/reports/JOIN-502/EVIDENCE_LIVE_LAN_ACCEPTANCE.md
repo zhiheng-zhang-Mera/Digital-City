@@ -70,3 +70,5 @@ path, and it does not change any observation above.
   is not, so workbook section 9's Alien + Mech topology is deferred to the phase integration.
 - BLE is advertise-only in the current code and a browser cannot scan it; the UI says so.
 - No independent review has re-run any of this.
+
+语言配对 / Language pair: [原文 / Source](./EVIDENCE_LIVE_LAN_ACCEPTANCE.md) · [译本 / Translation](./zh-CN/EVIDENCE_LIVE_LAN_ACCEPTANCE.md)

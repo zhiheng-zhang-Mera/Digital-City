@@ -98,3 +98,6 @@ assume it.
    canonical Action truth so that gate 4 becomes third-party verifiable, that is a design decision for them and
    it must land before release; it is not mine to add, and the workbook's boundaries do not obviously admit it.
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_REQUESTER_NOT_IN_CANONICAL_TRUTH.md)

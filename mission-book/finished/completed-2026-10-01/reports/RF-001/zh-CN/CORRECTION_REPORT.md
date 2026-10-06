@@ -1,0 +1,203 @@
+# RF-001 纠正报告 — 节点身份与安装生命周期
+
+[Authoritative source / 权威原稿](../CORRECTION_REPORT.md)
+
+本文件为历史报告的完整阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                     = RF-001 (Remote Fabric programme)
+STAGE                       = CORRECTION
+CORRECTION_HOST             = Mech  (Development host was Alien — two-host gate satisfied)
+CLAIM_COMMIT                = a7456d3 (Digital-City main, "claim(RF-001): Mech claims Correction stage")
+CLAIMED_AT                  = 2026-09-30T12:27:59Z
+DEVELOPMENT_HEAD_REVIEWED   = b1ee127bb7ba292bda7b817dd4910b4498f446c1
+DEVELOPMENT_CI_REVIEWED     = 36713816317 (gateway-web success, android success)
+COMPONENT_BASELINE          = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_REPO         = zhiheng-zhang-Mera/utopia
+CORRECTED_BRANCH            = remote/RF-001-node-identity-installation-lifecycle
+CORRECTED_HEAD_SHA          = 0f4c75b2ab641ba2111c8da58a3954db121cee34
+CORRECTED_BRANCH_CI         = 36715609917 — gateway-web success, android success
+LOCAL_CHECK_SUMMARY         = module 75/75, root 101/101, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+CORRECTION_COMPLETE         = true
+MERGE                       = NOT PERFORMED (forbidden for component branches)
+```
+
+## 1. 方法
+
+纠正是修复而非被动验证，因此先在Mech独立worktree检出作者分支，原样运行Alien65/65测试，建立环境一致基线，后续失败来自有意攻击。Mech PATH无pnpm，corepack解析CI固定11.19.0。然后先于阅读针对公开面／作者交接写probe.mjs、probe2.mjs，执行并保存git忽略.runtime/evidence/mission-book/RF-001/correction-001/。随后仅完整读探针指向的contracts.mjs键／安装验证和identity.mjs生命周期／克隆检测路径，同分支直接修复，每缺陷回归，再全本地检查与分支CI。
+
+六范围内缺陷全部修复，没有只报告不修复。
+
+## 2. 独立发现（均修前复现）
+
+### C1 — 退役设备仍有密钥权限（高）
+
+assertActiveKey仅查存在且ACTIVE，不查device.state。retireDevice历史保留密钥，退役仍ACTIVE。docblock把deviceId加通过assertActiveKey密钥作为信任标准，因此自称终局记录仍通过认证。
+
+```text
+PROBE P1 retired.state = RETIRED, keys[0].state = ACTIVE
+PROBE P1.assertActiveKey(retired): NO-THROW -> {"keyId":"key-1",...}
+```
+
+工作簿要求退役语义；若认证不终局，不变量6缓存非权威、恢复前重验就无意义。
+
+### C2 — 占位材料无法区别真实密钥（高）
+
+migrateDeviceIdentity为无密钥旧gateway创建legacy-gateway引用，v1无占位区分，明确未认证记录仍满足assertActiveKey。
+
+```text
+PROBE P2 keys=[{"keyId":"legacy-gateway",...,"state":"ACTIVE"}]
+PROBE P2.assertActiveKey(migrated): NO-THROW -> {"keyId":"legacy-gateway",...}
+```
+
+开发D10曾拒“省密钥放宽v1”，因会让未认证与认证同形、毁模块区别；实现恰如此，仅文字声称而契约无法表示。范围内设计缺陷，修复保留D10意图而非反转。
+
+### C3 — 重装可复用安装凭据（高）
+
+reinstallInstallation要求新installationId／instanceId却接受旧凭据handle或秘密。工作簿要求克隆或复用凭据不能让两物理安装共享有效身份。
+
+```text
+PROBE P3.reinstall(same credentialId+fingerprint): NO-THROW -> {"retired":{...},"installation":{...}}
+```
+
+### C4 — 群体扫描看不见复用凭据（中高）
+
+detectCredentialClones仅按installationId分组，两不同身份共享凭据不报告。作者交接开放问题，但“克隆／复用”措辞使其在范围内，因为复用秘密正是共享凭据方式。
+
+```text
+PROBE P4.detectCredentialClones(reused credential, distinct installation ids): NO-THROW -> []
+```
+
+### C5 — 隔离安装不能退役且拒绝误导（中）
+
+validateInstallation要求QUARANTINED与隔离块严格同时；退役／重装保留块却改RETIRED，合法操作抛malformed，消息描述已不处的状态，已知克隆无法退役／干净重装。
+
+```text
+PROBE P7.retireInstallation(quarantined): threw malformed: state QUARANTINED and a quarantine block must be set together
+PROBE P8.reinstallInstallation(quarantined, fresh ids): threw malformed: state QUARANTINED and a quarantine block must be set together
+```
+
+### C6 — MAC证据抛无类型TypeError（低）
+
+macPairingEvidence('3c:22:fb:11:22:33')单地址是自然调用误差，却(values??[]).map失败而非声明拒绝。路径目的从不阻断配对，偶然崩溃正是代码纪律要防。
+
+```text
+PROBE P5.macPairingEvidence("not-an-array"): threw TypeError: (values ?? []).map is not a function
+```
+
+## 3. 直接修复
+
+| 修复 | 文件 | 变更 |
+|---|---|---|
+| C1 | identity.mjs | assertActiveKey先拒RETIRED，device_retired；docblock三阶：设备未退役、键ACTIVE、真实材料。 |
+| C2 | contracts.mjs | KEY_MATERIALS=['PUBLIC_KEY_MATERIAL','PLACEHOLDER']，字段material，deviceKey要求已知，验证拒未知／缺失，复制构造保留。 |
+| C2 | identity.mjs | 占位key_material_missing，legacy-gateway标PLACEHOLDER。 |
+| C3 | identity.mjs | 重装拒复用handle或秘密，credential_reuse。 |
+| C4 | identity.mjs | 额外按fingerprint分组，REUSED_CREDENTIAL含installationIds，与SHARED_INSTALLATION_IDENTITY独立。 |
+| C5 | contracts.mjs | RETIRED可保已有隔离，消息符合真实规则。 |
+| C6 | identity.mjs | 单地址／数组／无输入可用，其他typed malformed。 |
+| 全部 | contracts.mjs | 拒绝词汇加key_material_missing、credential_reuse。 |
+| 全部 | index.mjs | 导出KEY_MATERIALS。 |
+
+相同探针输入的修后结果：
+
+```text
+PROBE P1.assertActiveKey(retired): threw device_retired
+PROBE P2.assertActiveKey(migrated): threw key_material_missing
+PROBE P3.reinstall(same credential): threw credential_reuse
+PROBE P4.detectCredentialClones(reused credential): [{"reason":"REUSED_CREDENTIAL","installationIds":[...]}]
+PROBE P5.macPairingEvidence("string"): one reported entry, no crash
+PROBE P7/P8 retire/reinstall of a quarantined installation: succeeded, quarantine block preserved
+```
+
+原块保留退役／缺材料／复用拒绝、扫描报告、单MAC不崩、隔离退役／重装成功保证据。
+
+## 4. 回归测试
+
+模块第12节correction round(host:Mech)加十测试，均在b1ee127失败、0f4c75b通过：C1退役权限；C2占位非认证且轮换恢复不改device_id；C2每v1键已知材料；C3三复用形态与新凭据成功；C4复用与共享身份区分；C5隔离退役保据、隔离重装、两侧隔离块合法性；C6MAC输入、两新拒绝词汇。
+
+75/75通过，65原有+10回归。无需改原测试；既有克隆两记录共享身份，数量仍同，经验证非假定。所有抛码均已声明不变量覆盖新两码。
+
+## 5. 未发现问题的检查（独立确认）
+
+- 交接1展示阶梯：他实例凭据先CLONE_DETECTED后未绑定，错凭据CREDENTIAL_MISMATCH，自建记录克隆被群体抓；未找到两实例共享身份仍接受序列。
+- 设备／安装终局：退役设备轮换拒绝、撤销活键拒绝；退役安装任意展示者拒绝，克隆不能清自身标记。
+- MAC非权限：trustFromMacEvidence任意输入拒绝；伪造证据不进权威字段；缺失／随机MAC不阻配对。
+- P6元数据非权限：deviceMetadata丢未知patch键，recordNetworkMetadata不能夹deviceId／keys／displayName。
+- 序列化无原始秘密，credentialLeakScan仍契约成立。
+- 交接5来源扩展证伪验证：programme PROVENANCE加donor使manifest测试失败，迁移DONOR删除ENOENT。taskID扩展未弱化迁移规则，programme不能声称donor，恢复干净后8通过。
+- 交接6清点fixture不能空洞通过：基础设施建筑显式列表加非空断言，必须遍历建筑才能到断言。
+- 无Date.now／Math.random／process.env／fs／socket，实例参数、熵明确16字节输入。
+
+## 6. 决策日志（问题 → 选择 → 拒绝方案 → 原因）
+
+**D1 — 修他主机实现而非复制。** 同分支独立worktree，先原套件复现再攻击。拒仅读diff评审，纠正是修复且无证伪观测是观点；拒重写模块，会丢验证工作使双主机证据无义。
+
+**D2 — 信任修复位置C1／2。** 唯一信任原语assertActiveKey，未来调用者继承。拒各caller查state，下一caller重现；拒退役文档无效，因为validator要求activeKeyId指ACTIVE，破坏刻意历史保留。
+
+**D3 — 表示没有的密钥。** 每键material:PUBLIC_KEY_MATERIAL|PLACEHOLDER，原语拒占位。拒省键（D10已拒、丢区别）、设备legacy:true（不泛化其他缺材料且事实属键）、发明材料（虚构密码事实）。明确后果：v1形态变更，键不声明material的v1文档拒key；模块自造文档且仅v1，无调用者破坏，契约更严格如实非静默宽松。
+
+**D4 — 重装拒还是群体报C3／4？** 两者，错误发生点拒，人工群体仍独立抓。仅群体时坏记录可能已绑定，仅重装则手建两记录隐形。
+
+**D5 — 扩发现还是复用？** 加reason独立REUSED_CREDENTIAL，“一身份两实例”与“一凭据两身份”需不同修复。拒每记录布尔。对读installationId／instances消费者为增量，现测试确认。
+
+**D6 — 退役隔离块保还是清？** 保，模块说原因原样供ledger，清即改历史。拒清丢证据、禁退役使已知坏安装不能退役。
+
+**D7 — 输入形状扩大拒绝面？** 是，三合法形态接受，其他声明malformed。拒仅文档数组期待，防阻配对调用者不能遭无类型错误。
+
+**D8 — 无演进事件。** 沿开发D8，schema固定MB-ID、contracts/**冻结，纠正记录为此报告。
+
+## 7. 对照开发报告
+
+- 每验收映射都有测试，Mech修前独立65/65通过。
+- 纯度、MAC、迁移、拒绝码重查成立。
+- 差异1 D10“保区别”意图未实现，材料无区分C2，现机器可查。
+- 差异2“未声称未发密钥”和“真实注册必须轮换”，前半直到C2仅文字，后半现占位不认证可强制非建议。
+- 差异3按installationId当覆盖凭据复用其实不覆盖C4，现加凭据维度及重装C3。
+- 扩展明确：D4clone同installationId异instanceId，工作簿reused扩至凭据，C3／4扩展非矛盾。
+
+## 8. 本地与CI
+
+| 检查 | 结果 |
+|---|---|
+| device-identity.test.mjs |75通过／0失败。|
+| corepack pnpm test |101通过／0失败。|
+| verify-promotion-history |b1ee127bb7ba历史10记录。|
+| rooms／city |0失败。|
+| corepack pnpm check:docs |三对PAIR_STATUS=SYNCHRONIZED。|
+| 0f4c75b2ab641ba2111c8da58a3954db121cee34的CI36715609917 |gateway-web／android成功。|
+
+无需架构文档改。范围内“无密钥材料、无逻辑设备／安装分离”一句描述旧gateway行仍真。
+
+## 9. 延后／范围外（同开发）
+
+无services/dev-gateway消费者、无传输／发现／配对／加密RF002–006、无在线／可达／策略RF009／010、无演进事件。未扩大，仅让声明边界可落实。
+
+## 10. Owner／最终集成开放项
+
+1. v1键material变更意味着手造而非enrollDevice／deviceKey文档必须指定。分支无此构造，Remote合并在RF002–010落地重查。
+2. clone发现有reason，消费者须分支而非假定全部installationId。
+3. 隔离可否另历史条目而非记录块是RF009／010账本架构问题，非缺陷。
+
+```text
+CORRECTION_COMPLETE = true
+DEVELOPMENT_HOST    = Alien
+CORRECTION_HOST     = Mech   (different physical host — two-host gate satisfied)
+CORRECTED_HEAD_SHA  = 0f4c75b2ab641ba2111c8da58a3954db121cee34
+MERGE_STATUS        = FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
+```
+
+## 11. 工作簿未指定决定（快速浏览）
+
+```text
+D1 probe-first correction on the author's own branch, in a separate worktree
+D2 trust repair at assertActiveKey (the module's single named trust primitive)
+D3 key "material" discriminator instead of relaxing the v1 document contract
+D4 credential reuse refused at reinstall AND reported by the population scan
+D5 population findings carry an explicit reason (REUSED_CREDENTIAL vs SHARED_INSTALLATION_IDENTITY)
+D6 a retired record keeps the quarantine evidence it already had
+D7 macPairingEvidence answers an unhelpful input shape with a declared refusal, not a TypeError
+D8 no evolution-feed event (schema pins MB- ids; contracts/** frozen for this task)
+```
+
+该原始总结依次记录先探针同分支独立worktree、信任原语修复、材料判别、重装与群体双保护、发现原因区分、隔离证据保留、MAC有类型拒绝，以及无演进事件的schema／冻结边界。

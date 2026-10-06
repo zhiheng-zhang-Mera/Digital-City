@@ -254,3 +254,7 @@ states plainly that the round-1 acceptance ran on the same physical host as the 
 only the Android device is separate hardware.
 
 STATUS: IMPLEMENTATION_REPORT
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/IMPLEMENTATION_REPORT.md)

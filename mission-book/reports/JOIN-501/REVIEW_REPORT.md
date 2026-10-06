@@ -75,3 +75,5 @@ Running the **whole** suite inside a bare secondary worktree at the reviewed hea
 - The reviewer is a different **physical host** from development, which is what §3 requires; the browser ran on **this** host against gateways on loopback. Real two-machine network conditions are the phase integration's business, not this task's UI lifecycle.
 - The Android surface was not exercised for this task: the workbook's §7 acceptance is about the owner web page and a second endpoint consuming the code, both of which were exercised, including by a **separate process** as the second endpoint.
 - The verdict is on `e925ae1` and only on `e925ae1`. A later commit needs its own CI and would need this review re-applied, not inherited.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_REPORT.md) · [译本 / Translation](./zh-CN/REVIEW_REPORT.md)

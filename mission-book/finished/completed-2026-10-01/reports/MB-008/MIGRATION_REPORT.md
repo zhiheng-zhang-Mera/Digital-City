@@ -249,3 +249,7 @@ not be taken over by a third host until the Owner rules.
 - Branch HEAD: `aa2a6a8faab779a020d75b93dba548ba3755ce30` on `zhiheng-zhang-Mera/utopia`,
   branch `mission/MB-008-computer-use`.
 - The migration host did **not** merge, and did **not** run `pnpm mission:finalize`.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/MIGRATION_REPORT.md)

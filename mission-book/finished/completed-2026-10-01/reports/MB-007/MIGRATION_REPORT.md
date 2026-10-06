@@ -261,3 +261,7 @@ Independent-review hints, if and when verification proceeds:
   `mission/MB-007-research-institute`.
 - Hosted CI: implementation `36577840443` PASS; claim-stage push `36576078261` PASS.
 - The migration host did **not** merge, and did **not** run `pnpm mission:finalize`.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/MIGRATION_REPORT.md)

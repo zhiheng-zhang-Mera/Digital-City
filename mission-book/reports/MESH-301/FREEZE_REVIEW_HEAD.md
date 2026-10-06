@@ -61,3 +61,6 @@ The workbook's repair relay is explicit: a finding goes back to the development 
 and re-presented. Two of the substantive defects in this task so far were found by the other host examining my
 work, and both made the result stronger. A PASS that costs nothing to give is worth less than a finding that
 costs a round, and this record should not be read as pressure for the former.
+
+
+[阅读译本 / Reading translation](./zh-CN/FREEZE_REVIEW_HEAD.md)

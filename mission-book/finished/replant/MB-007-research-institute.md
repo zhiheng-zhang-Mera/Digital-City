@@ -173,3 +173,6 @@ repair_ci: "repair-branch 36654292817 PASS; merged-main 36654669625 PASS"
 - statistics/evidence receipts
 - manuscript/PDF artifact digest
 - resume/partial-failure trace
+
+
+[阅读译本 / Reading translation](./en/MB-007-research-institute.md)

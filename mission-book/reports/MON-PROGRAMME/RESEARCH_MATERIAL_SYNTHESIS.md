@@ -33,3 +33,5 @@ MON990 technical critic exposed graph/receipt malformed objects crashing Compose
 Replay retained exact graph/receipt fixtures with and without collapse, metadata completeness and callback scope to measure false-safe output; remove semantic polling cache to measure inspector churn; compare per-task queues with a controlled global queue to measure unrelated work delay; evaluate a configured identified resolver with an independent decision judge. These are candidates, NOT_RUN. No hidden reasoning is requested or stored.
 
 Trace index: MON990 DEVELOPMENT_REPORT.md and product evidence/raw/mission-book/MON-990/alien-cross-device; prior task PAPER_MATERIAL_INDEX and review reports retain author/reviewer/raw failure distinctions.
+
+语言配对 / Language pair: [原文 / Source](./RESEARCH_MATERIAL_SYNTHESIS.md) · [译本 / Translation](./zh-CN/RESEARCH_MATERIAL_SYNTHESIS.md)

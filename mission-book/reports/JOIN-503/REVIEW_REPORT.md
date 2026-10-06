@@ -83,3 +83,5 @@ REVIEWER                Mech
 ```
 
 The repair is a two-hunk change in one file and can be cherry-picked or re-applied by hand; re-applying it in your own words is welcome, and a new head with its own hosted CI is what closes this review.
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_REPORT.md) · [译本 / Translation](./zh-CN/REVIEW_REPORT.md)

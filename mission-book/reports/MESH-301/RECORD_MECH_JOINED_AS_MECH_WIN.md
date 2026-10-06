@@ -91,3 +91,6 @@ three-end result on a two-end City. Recorded as the outstanding Owner input, alo
 - I will not register Android as a worker node; MESH-301 forbids it and it is a control client.
 - I will not write the token anywhere it is forbidden to be.
 - I will not claim the development role by editing a §12 field.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_JOINED_AS_MECH_WIN.md)

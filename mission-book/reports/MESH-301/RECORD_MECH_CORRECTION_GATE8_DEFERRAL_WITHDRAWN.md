@@ -82,3 +82,6 @@ property of a window from a property of a session.** A session's residue is not 
 receipt's list of leftovers is not evidence about the interval it was declared for. From here I will filter to
 the declared interval first and only then characterise it — and the honest thing to record is that the reviewer
 produced two false alarms before producing this one correction, not that the corrections were timely.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_CORRECTION_GATE8_DEFERRAL_WITHDRAWN.md)

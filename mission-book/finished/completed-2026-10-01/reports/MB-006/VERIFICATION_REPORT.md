@@ -288,3 +288,7 @@ before the merge, as rule 16 demands. All five gates were re-run on the merged t
    produced, and that is recorded rather than simulated.
 
 
+
+## Language reading link / 语言阅读链接
+
+[完整阅读译文 / Complete reading translation](./zh-CN/VERIFICATION_REPORT.md)

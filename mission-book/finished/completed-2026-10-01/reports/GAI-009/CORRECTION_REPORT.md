@@ -127,3 +127,7 @@ once all eleven regressions were in place.
   corrupted a suite in this session.
 - No billing refusal was recorded as a code failure; every hosted run in this task that started executed real
   steps, and the final head's run shows `gateway-web` and `android` success with real steps.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

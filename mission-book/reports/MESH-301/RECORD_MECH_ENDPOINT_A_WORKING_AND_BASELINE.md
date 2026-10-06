@@ -76,3 +76,6 @@ server sequence that a surface can read and timestamp locally.
   mint a node token. The control/node split is by construction in `server.mjs auth()`. The Owner then supplied
   the `-node` form, which is exactly the derivation Alien's decision D1 had already recorded, and once both were
   present the node registered on the first attempt. **No token value appears in this file or in Git.**
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_ENDPOINT_A_WORKING_AND_BASELINE.md)

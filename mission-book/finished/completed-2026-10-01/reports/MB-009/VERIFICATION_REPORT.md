@@ -302,3 +302,7 @@ ownership，并据此新建 superseding Mission，而不是由验证主机自行
 - 新增测试（分支内）：`apps/rooms/tests/promotion-relocation.test.mjs`
 - Episode：`data-records/evolution/episodes/mission-book/MB-009/episode.json`（`MB-009:e1f0526f2c07fb41`）
 - 合并提交：`b4bd602971abe83083cd72ab8247d9bd50371f57`
+
+## Language reading link / 语言阅读链接
+
+[完整阅读译文 / Complete reading translation](./en/VERIFICATION_REPORT.md)

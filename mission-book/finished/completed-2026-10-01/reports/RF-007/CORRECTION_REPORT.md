@@ -169,3 +169,7 @@ Nothing was rewritten: the Development head `496d052` and the previously reporte
    git-ignored `.runtime/evidence` tree, with only the module, its tests, the workbook and this report
    committed. **Rationale:** the repair must be reviewable, but probe scaffolding and patch scripts are
    not product artifacts.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

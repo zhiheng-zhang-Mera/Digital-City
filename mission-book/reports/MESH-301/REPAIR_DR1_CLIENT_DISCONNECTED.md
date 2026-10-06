@@ -121,3 +121,5 @@ conflated number inside the shipped source is the same defect in a smaller place
 29f2691  + the D-R1 repair and its regression guard (CI 37099421137 SUCCESS)
 ed0bf64  + the comment accuracy fix above  <- the head the review should now apply to
 ```
+
+[阅读译本 / Reading translation](./zh-CN/REPAIR_DR1_CLIENT_DISCONNECTED.md)

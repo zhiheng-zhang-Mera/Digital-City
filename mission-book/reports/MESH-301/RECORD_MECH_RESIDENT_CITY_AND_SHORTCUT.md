@@ -71,3 +71,6 @@ actually makes the run visible. That is why the shortcut points at the opener ra
 - **Does not:** implement or claim any strict-target behaviour (the development host's work), declare a
   canonical City, or move any gate. Gates 4, 5, 8 and 9 remain unmeasured; the Android control client is not in
   this picture at all.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_RESIDENT_CITY_AND_SHORTCUT.md)

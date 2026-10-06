@@ -153,3 +153,7 @@ that it obtains from the injected adapter, so the device-local policy itself is 
 adapter's advertisement. That proof belongs to the capability registry (RF-007) and the real transport
 adapter, both of which are corrected components in this programme. Nothing was rewritten: the Development
 head and every previously reported head are untouched.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

@@ -228,3 +228,5 @@ message key"，均通过。
    那属于 Review 可自行追加的独立证据，本轮没有做。
 4. **本报告不声称任何"已复核"**。所有测试结论均为 Development host 自测；Review 必须独立重跑并特别尝试
    用 route / reload / reconnect 让码提前消失或偷偷换码。
+
+语言配对 / Language pair: [原文 / Source](./DEVELOPMENT_REPORT.md) · [译本 / Translation](./en/DEVELOPMENT_REPORT.md)

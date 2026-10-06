@@ -83,3 +83,6 @@ have said so as a limit rather than glossed it.
 
 Non-blocking findings N-1..N-4 (the `-1 ms` negative latencies on Alien-Host, the hard-coded City display name,
 the two failure envelopes on the Action route, and the absent requester field) are in §4 of the report.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_FORMAL_REVIEW_DELIVERED_REPAIR_REQUIRED.md)

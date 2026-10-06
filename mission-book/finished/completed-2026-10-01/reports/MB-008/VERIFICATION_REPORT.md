@@ -406,3 +406,5 @@ becomes 🟢.
    two-host gate.
 5. `detectMiss` did not independently confirm the file miss (§3.3); the miss rests on the donor
    verifier's `failure` verdict, which is the donor's own path for a file effect.
+
+语言配对 / Language pair: [原文 / Source](./VERIFICATION_REPORT.md) · [译本 / Translation](./zh-CN/VERIFICATION_REPORT.md)

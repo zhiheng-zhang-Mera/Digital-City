@@ -325,3 +325,5 @@ attack on this branch, in the author's own assessment:
 
 DEVELOPMENT_COMPLETE = true (branch CI 36713816317 green on both required jobs)
 CORRECTION_ELIGIBLE = true (must be performed by Mech, not Alien)
+
+语言配对 / Language pair: [原文 / Source](./DEVELOPMENT_REPORT.md) · [译本 / Translation](./zh-CN/DEVELOPMENT_REPORT.md)

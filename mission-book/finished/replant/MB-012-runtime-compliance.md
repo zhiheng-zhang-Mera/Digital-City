@@ -332,3 +332,6 @@ root `tests/*.test.mjs` 84 pass / 0 fail；`verify-promotion-history.mjs` 10/10�
 - capability-by-capability comparison required
 - Assessment Report required for **all** verdicts
 - NO_VALUE negative result must remain traceable
+
+
+[阅读译本 / Reading translation](./en/MB-012-runtime-compliance.md)

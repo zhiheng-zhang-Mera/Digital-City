@@ -1,0 +1,201 @@
+# MB-007 — 研究院 — 验证报告
+
+[Authoritative source / 权威原稿](../VERIFICATION_REPORT.md)
+
+本文件为历史报告的完整阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+> 状态COMPLETE — OWNER_OVERRIDE_CLOSEOUT_COMPLETE。验证Mech，领取2026-09-30T03:10:00Z，City5d57a30；迁移Alien，不同主机。分支mission/MB-007-research-institute，迁移68015caa71b7788f700abb1c7918d1b5ee8f9e8c；先按README§6合最新main，协调提交8bce1f79ba0940e35eb3b2e2ac352793af886802。
+
+## 0. 规则9顺序
+
+README§9保持原纪律：验证者先从供体、目标、diff、测试、运行状态独立审查并写发现，之后读迁移报告。§1–4来自分支、代码、自身运行，§5首次咨询。
+
+## 1. 验证对象
+
+迁移Boss研究流水线到city/06-research/01-research-institute，五模块在已有evidence-engine旁。
+
+| 模块 | DONOR.json供体 | PARITY／ADAPT／EXT／DEFERRED |
+|---|---|---|
+| research-protocol | src/shared/research-{ir,protocol,contract,roles,command}.ts |11/5/1/5|
+| research-statistics | research-statistics.ts、research-battery.ts |8/5/0/5|
+| research-provenance | research-{citation,bibliography,input}.ts |5/5/0/5|
+| research-manuscript | research-{figures,manuscript}.ts |7/4/0/4|
+| research-review | research-{review,adjudicate,levela,levelb,capability-registry}.ts |8/5/0/5|
+
+均src/shared路径，供体zhiheng-zhang-Mera/Codex-Boss 8df428eaa437a409368401e95194e40266b83080。
+
+## 2. 先集成：任何门前同步分支
+
+README§6要求最新main非旧分支。领取时落后23提交且触manifest JSON、manifest.mjs、manifest测试、registry，正是scheduler P0集成压力。合main两冲突均取并集、不弱化：registry分支仅模块capabilityProvider:false，main已有building-aware kind过滤 `(b.kind ?? d.kind ?? 'domain') !== 'infrastructure'`、模块标记和MB009必需声明／枚举分离，main严格超集故取它并确认两过滤；manifest清点取当前地区并集，有冲突块是列表头非替代，曾只取分支丢七模块（foundationcore、fabric、theme、projectforeman），门捕获，恢复后通过。
+
+真实失败：合解完未提交时promotion门三theme记录报HEAD不存在，非内容错，因为pathExistsAt('HEAD',path)仍旧提交无MB009迁移。提交合并后10记录验证。这是门不能对未提交树运行的真实顺序限制，提交前很像内容缺陷，故记录。
+
+## 3. 独立发现
+
+### 3.1 协调修订必需门通过 — 确认
+
+8bce1f7本机根62/62、city1034/1035通过0失败（运行器一skipped/cancelled槽）、rooms69/69、promotion10、docs/evidence/data-records PAIR_STATUS=SYNCHRONIZED。
+
+### 3.2 有界研究链真实消费 — 确认，整流水线运行
+
+无语义等价Utopia面且禁止发明。Owner response-9-29.md R6接受边界，README§7.2授权替代：真实有界可复现链直接执行迁移模块，记录输入／输出／失败恢复／一致性／证据。本主机bounded-research-chain.mjs运行22步骤，全部六研究模块端到端：
+
+| 阶段 | 实际工作 |
+|---|---|
+| protocol | 验证研究契约含问题、假设、声称、实验、标准、引用政策、章节、验收；按供体ALLOWED_EXECUTABLES命令规格、预算、七角色。 |
+| 测量 | 种子20260930、每臂n40可复现双臂实验，数字计算非断言。 |
+| statistics | 对真实数组describe／bootstrapCi／effectSize／permutationP，effect0.4800、p0.0330、CI[106.500,108.183]。 |
+| provenance | 引用逐级UNSUPPORTED→METADATA_ONLY→SOURCE_RETRIEVED→CLAIM_SUPPORTED，references.bib两条。 |
+| manuscript | 供体形态markdown结果表、真实SVG指标图。 |
+| review | 四条件出版门失败／通过两态。 |
+| statistics battery | 供体六场景6/6预期判定。 |
+| 顶层裁决 | 完整制品链READY、pass:true、missing:[]。 |
+
+只有成功不能证明，负控为：缺statistics／citations／manuscript／final-audit，replication NOT_ATTEMPTED、review NOT_RUN的破链拒绝pass:false并列缺项；veto review拒绝；primaryClaimSupported有UNSUPPORTED引用拒、无则过；publicationReady不完整拒、完整过。
+
+run/provenance-ledger.json固定protocol、measurement、statistics、citation、manuscript、ledger自身摘要，使可复现和来源可检查而非叙述。
+
+### 3.3 Mission证据表 — 确认
+
+| 要求 | 产物 |
+|---|---|
+| 有界研究运行 |22步种子链。|
+| 来源ledger |run/provenance-ledger.json六摘要含自身。|
+| 统计／证据收据 |bootstrapCI、效果、置换p、六battery。|
+| manuscript／PDF摘要 |ledger表与SVG，manuscriptDigest。|
+| resume／部分失败轨迹 |破链／否决拒绝、missing[]。|
+
+手稿产物为表、图、章节计划及摘要，未编译PDF，编译不在迁移模块，供体PDF流水线DONOR明确延后。是边界，不能发明compiler补。
+
+### 3.4 无法确认
+
+无PDF／LaTeX编译；本轮未重建五模块对Codex-Boss8df428e差分，移植行为／拒绝执行了，但DONOR PARITY向量仍迁移者声称非重新推导；evidence-engine只套件验收未经此链，早于本任务且未改。
+
+## 4. 规则9状态
+
+§3先建立写出再读报告，§5首次引用。
+
+# B部分 — 对照（§5）
+
+## 5. 迁移报告
+
+A完成后写。
+
+### 5.1 逐项对照
+
+| 声称 | 结果 |
+|---|---|
+| 五模块与一致性测试 |代码／行为确认，向量未重推3.4。|
+| 缺陷原样固定 |读代码／驱动拒绝确认，破链和veto不假通过。|
+| capabilityProvider:false不虚扩产品 |确认，合并保main第二过滤。|
+| 无现有消费接缝 |apps／services不消费，research.evidence.review仅evidence-engine。|
+| 迁移完成开放验证 |OwnerR6与README7.2v2确认。|
+| 原报告RUNTIME_FAIL／BLOCKED |事实一致，Owner覆盖门非证据。|
+
+### 5.2 差异与修复
+
+仅一个合并修复：清点恢复并集，非行为改、无模块修改、无断言弱化。边界声称与代码无差异，DONOR延后真实缺席非stub。
+
+## 6. 标准、修复、收尾
+
+### 6.1 逐门
+
+| # | 门 | 判定 | 证据 |
+|---|---|---|---|
+|1|供体现有有界protocol→evidence/statistics→manuscript/PDF并来源|protocol→statistics→手稿制品满足，PDF明确延后|3.2链／ledger，compile不在模块。|
+|2|中断／部分失败ledger/resume／错误真值保持供体|满足|破链、veto、UNSUPPORTED拒绝，失败列缺项不假过。|
+|3|EvidenceEngine现有验收引用保持|满足|city／rooms含已有引擎、10promotion。|
+|4|不同主机|满足|Alien迁移Mech验证。|
+|5|先审后报告|满足|1–4先5。|
+|6|同分支必要修复不扩|满足|仅合并，无模块行为改。|
+|7|requiredCI／门绿|满足|6.2。|
+|8|验证者合main|DONE|6.4SHA。|
+|9|City报告提交|满足|本文件／missionFM。|
+
+### 6.2 本机门
+
+协调8bce1f7根62、city1034/1035零失败、rooms69、promotion10、docs同步；托管／合main见6.4。
+
+### 6.3 证据
+
+git忽略.runtime/evidence/mission-book/MB-007/run-1/：bounded-research-chain.mjs驱动；run/{summary.json,provenance-ledger.json,audit.jsonl}结果／六摘要／22步；bounded-research-chain.log；resolve-census-conflicts.mjs协调。跨主机已合分支8bce1f7、episode路径data-records/evolution/episodes/mission-book/MB-007/episode.json、本报告Digital-Citymain。早期指针与6.5当时无episode边界均保留。
+
+### 6.4 最终记录
+
+```text
+MISSION = MB-007
+ROLE = VERIFICATION
+HOST = Mech
+CLAIM_COMMIT = 5d57a30
+MIGRATION_HEAD = 68015caa71b7788f700abb1c7918d1b5ee8f9e8c
+RECONCILED_HEAD = 8bce1f79ba0940e35eb3b2e2ac352793af886802
+RECONCILED_CI = 36649748973 PASS (gateway-web + android)
+FINDING_SHA = ff500866f1665723a62c7d16e94ca052654c46a4
+FINAL_BRANCH_CI = 36650198208 PASS (gateway-web + android) at ff50086
+MERGED_MAIN_SHA = cb8e0bd77ccf0864cf0af50b4624f2f556b6b279
+MERGED_MAIN_CI = 36650723833 PASS (gateway-web + android)
+EPISODE = NOT GENERATED — mission:finalize refuses this Mission; see §6.5
+CITY_REPORT = mission-book/reports/MB-007/VERIFICATION_REPORT.md
+```
+
+合maincb8e0bd再门：根62、city1034/1035零失败、rooms69、promotion10、docs同步。
+
+### 6.5 规则16偏离披露：当时无已验证episode
+
+README§11以finalize生成episode收尾，但MB007不能，明确不静默跳过。finalize要求迁移者MIGRATION_COMPLETE PASS；Alien真实记录消费RUNTIME_FAIL／BLOCKED MB-007:7d6c861428278c83且未写完成，正是OwnerR6／README7.2覆盖门并宣告接受边界开放验证的情形。finalizer退出Missing PASS MIGRATION_COMPLETE。
+
+验证者没有补Alien完成事件，会把刻意未作声称归其名并埋阻碍。作为branch VERIFIER_FINDING与本报告记录。后果：无episode文件，不能按episode提交后最终CI顺序；等价保证为末分支ff50086 CI36650198208与合main36650723833全绿。合并直接依据R6非episode。请求Owner让finalizer接受裁决基础或授权superseding事件，MB008R7同措辞也遇。
+
+### 6.6 未建立
+
+无编译PDF，手稿摘要有；无五模块PARITY重推；引擎只套件未额外验证；不表示完整研究产品运行时，仅声明边界，延后仍延后。
+
+# 附录 — 修复步骤1：Owner覆盖收尾（2026-09-30）
+
+按[ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md](../../../ENGINEERING_BOOK-2026-09-30-MB-007-008-003-CLOSEOUT.md)§2要求追加，关闭6.5唯一缺口。未重做接受实现／验证，原阻碍保留。
+
+## 修复内容
+
+6.5拒绝Missing PASS MIGRATION_COMPLETE是不能表达v2的契约正确行为，不补迁移事件而扩契约：finalizer加--migration-acceptance host-pass|owner-override、--owner-ruling <ref>，默认host-pass不改变已有。owner-override验证七条件：真实迁移BLOCKED／FAIL；验证者OWNER_INTERVENTION；证据文档路径与rulinganchor或精确path#anchor定位干预；阻碍后独立VERIFIER_FINDING；最后CI_RESULT PASS；其后VERIFICATION_COMPLETE PASS；不同主机。已有hostPASS inbox拒，裸无anchor引用拒。mission-episode-v1.schema.json文档可选migrationAcceptance，不入required，此前六episode仍合法。finalize测试两happy路径及无阻碍／裁决／匹配／发现、发现早于阻碍、最后CI非PASS、同主机、hostPASS、host-pass模式ruling参数失败，11全过。
+
+## 未做
+
+未给Alien写MIGRATION_COMPLETE，timeline无此事件，原RUNTIME_FAIL／BLOCKED在timeline／failures[]。无模块改／重迁移，无改原迁移报告或本A／B。
+
+## 原阻碍保留
+
+> 迁移主机将消费门记RUNTIME_FAIL／BLOCKED（MB-007:7d6c861428278c83），无MIGRATION_COMPLETE。Owner response-9-29.md R6覆盖门，接受边界、迁移完成、开放验证。
+
+episode记录为何接受，不假装阻碍未发生：
+
+```json
+"migrationAcceptance": {
+  "mode": "OWNER_OVERRIDE",
+  "ownerRuling": "Digital-City/mission-book/response-9-29.md#R6",
+  "migrationBlockerEventId": "MB-007:7d6c861428278c83",
+  "ownerInterventionEventId": "MB-007:3a505bc6470364fb"
+}
+```
+
+该原JSON保留OWNER_OVERRIDE、裁决Digital-City/mission-book/response-9-29.md#R6、阻碍与干预精确ID。
+
+## 修复记录
+
+```text
+REPAIR_SEQUENCE = 1
+REPAIR_STATUS = COMPLETE
+REPAIR_BRANCH = repair/MB-007-owner-override-finalize
+FINALIZER_SHA = f25cdb4c98f0e349d386b31ab504d00700d9faf6
+REPAIR_BRANCH_CI = 36654292817 PASS (gateway-web + android)
+EPISODE_FILE = data-records/evolution/episodes/mission-book/MB-007/episode.json
+EPISODE_ID = MB-007:553ab7ba1c4b0902
+EPISODE_SHA256 = 1c5742fb44293cc829a356d3c1da80169702536276a51bb6eb96157f12d260ed
+INBOX_REMOVED = data-records/evolution/inbox/mission-book/MB-007/events.jsonl
+REPAIR_MERGE_SHA = d850d73a9c23dbd07f9a0c7483dd2f44272f273f
+MERGED_MAIN_CI = 36654669625 PASS (gateway-web + android)
+GATES = root 73/73 · city 1034/1035 (0 fail) · rooms 69/69 · promotion-history 10 records · check:docs SYNCHRONIZED
+```
+
+原记录保留repair1完成、分支、finalizer SHA、CI、episode文件／ID／摘要、inbox移除、merge与门计数。
+
+披露：书规定实现CI→CI_RESULT→VERIFICATION_COMPLETE→finalize→episode提交→最终CI→合并。本任务finalize在已接受实现cb8e0bd合main之后，因为修复才使其可能。等价保证为携finalizer与episode的修复分支f25cdb4经必需CI绿，main合并也绿。

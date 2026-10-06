@@ -153,3 +153,6 @@ merged_main_sha: ce33792ed50787e991b22465da28feabc8e50c50
 - post-relaunch verification
 - crash-loop/safe-mode targeted test
 - documented limitation parity
+
+
+[阅读译本 / Reading translation](./en/MB-006-restart-recovery.md)

@@ -363,3 +363,5 @@ MB-002 没有这个问题，因为它的模块落在 `infrastructure` district `
 - 现场工作记录（git-ignored）：`.runtime/evidence/mission-book/MB-004/run-001/WORKING_STATE.md`
 - Episode：`data-records/evolution/episodes/mission-book/MB-004/episode.json`（`MB-004:d5d6498644ddb928`）
 - 合并提交：`0eed05b58c126a70224cb4757ba12f76bbe4d4b7`
+
+语言配对 / Language pair: [原文 / Source](./VERIFICATION_REPORT.md) · [译本 / Translation](./en/VERIFICATION_REPORT.md)

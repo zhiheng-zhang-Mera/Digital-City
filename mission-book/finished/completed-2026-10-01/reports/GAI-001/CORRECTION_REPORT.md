@@ -352,3 +352,5 @@ CORRECTION_HEAD_SHA = c01cd60dd9e0fa42c4126a921240d81e408a3e35
 BRANCH_CI           = 36719793897 — gateway-web success, android success
 MERGE_STATUS        = FORBIDDEN_UNTIL_GENERAL_AI_GATEWAY_PROJECT_MERGE
 ```
+
+语言配对 / Language pair: [原文 / Source](./CORRECTION_REPORT.md) · [译本 / Translation](./zh-CN/CORRECTION_REPORT.md)

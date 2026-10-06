@@ -143,3 +143,7 @@ The author's 7 tests are unchanged and all 7 pass. Evidence under
   also reported the two author-encoded contracts in §5 that I deliberately did not "fix" as bugs.
 - No billing refusal was recorded as a code failure; every hosted run in this task that started executed
   real steps.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

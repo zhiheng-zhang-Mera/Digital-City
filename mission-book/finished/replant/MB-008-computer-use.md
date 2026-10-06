@@ -254,3 +254,6 @@ Use a complete product runtime.
 - postcondition verification
 - recovery/stall evidence
 - screenshot/UIA evidence where donor supports it
+
+
+[阅读译本 / Reading translation](./en/MB-008-computer-use.md)

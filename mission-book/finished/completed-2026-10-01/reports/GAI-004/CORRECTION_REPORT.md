@@ -206,3 +206,7 @@ BLOCKER             = GITHUB_ACTIONS_BILLING_OR_SPENDING_LIMIT (Owner action; jo
 PENDING_SEAM        = hosted CI for remote/general-ai/GAI-004-api-channel-consent-budget @ 11d5ece
 CONTROL_BOOK_UPDATED = mission-book/general-ai-gateway/GAI-004-api-channel-consent-budget.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

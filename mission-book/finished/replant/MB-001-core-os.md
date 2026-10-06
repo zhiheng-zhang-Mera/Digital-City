@@ -132,3 +132,6 @@ merged_main_sha: d81a567268d7cab26b84eaf798fc7a25c8033b25
 - task lifecycle + restart/recovery receipts
 - Web/Android existing control-surface evidence
 - source→target symbol/path ledger
+
+
+[阅读译本 / Reading translation](./en/MB-001-core-os.md)

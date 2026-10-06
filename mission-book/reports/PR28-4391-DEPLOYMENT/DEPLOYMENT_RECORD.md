@@ -101,3 +101,5 @@ cd D:\utopia      ; .\scripts\start-city.ps1 -BindAddress 172.31.12.151 -Port 43
 
 The previous revision is still checked out in `D:\utopia` at `48cbc21376007c5461e8e456a898c3f788f0fa77`, and the data
 directory was never moved, so a rollback restores exactly the pre-deployment City.
+
+语言配对 / Language pair: [原文 / Source](./DEPLOYMENT_RECORD.md) · [译本 / Translation](./zh-CN/DEPLOYMENT_RECORD.md)

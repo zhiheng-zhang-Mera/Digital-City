@@ -326,3 +326,6 @@ plugin/adapter/installer 平台未迁移且归 `01/01 Customs (MB-011)`。评估
 - capability-by-capability comparison required
 - Assessment Report required for **all** verdicts
 - NO_VALUE negative result must remain traceable
+
+
+[阅读译本 / Reading translation](./en/MB-011-customs.md)

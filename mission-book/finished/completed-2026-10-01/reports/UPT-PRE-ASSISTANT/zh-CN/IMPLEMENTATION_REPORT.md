@@ -1,0 +1,125 @@
+# UPT-PRE-ASSISTANT——实现报告
+
+[English authoritative source / 英文权威原稿](../IMPLEMENTATION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+> 工作簿：ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md
+> 约束裁决：response-9-30.md#R12，MIGRATION_ONLY→PRE_ASSISTANT_PRODUCT_CLOSEOUT
+> 仓库：zhiheng-zhang-Mera/utopia；实现主机Alien（MERA-ALIANWARE）
+> 分支product/upt-pre-assistant-closeout，自d0dea7bcb66cf57edee73c67ddfb9526337dfb4e建立。
+
+这是产品集成报告。没有重新查donor、创建Room、BOSS/HNS连接器，任何路由无LLM。
+
+## 0. T0——迁移结项与冻结
+
+T0.1重新证明基线：MB-001..012两完成值12/12真；实现mission分支领先main数0；R11三来源6e9781c/f22273c/e0d9470都是main祖先；MB010..012 merged_main_sha仍null；基线main托管36678805229两job PASS。
+
+T0.2双语Utopia docs MIGRATION_PHASE_CLOSEOUT，FACT/STATUS/SHA/RUNS行相同由check-bilingual强制，明确MB010..012负面结果来源非转移能力。退出MIGRATION_QUEUE_CLOSED=true、REOPENED_MISSIONS=0、UNMERGED_IMPLEMENTATION_MISSION_BRANCHES=0、BASELINE_TRUTH_RECORDED=true，commit506dce3。
+
+## 1. T1——正常产品接Room Pack
+
+### T1.1 主机生命周期
+
+start-city.ps1启动Gateway、参考Agent、Room Hub，各等自身health并processes.json记roomsPid/Url/State/Reason。Hub启动／答失败UNAVAILABLE带原因且大声报，City仍跑但Rooms如实。
+
+stop-city停三者，先各命令行验证并清未登记Agent/Hub；host-processes共规则脚本路径须独立参数、当前进程与祖先绝不候选。不是多余保护：此前两次CommandLine宽like匹配执行shell命令文本杀自己，harness子runner崩，遗Agent因杀launcher非目标。现共享测试helper。
+
+二次启动是重启非副本，停已记、清未记，Gateway不能bind则拒，不静默连旧。LAN本机测：
+
+```text
+start  -> gateway pid, agent pid, rooms READY (pid, http://127.0.0.1:4320/, loopback only)
+start again -> "Stopped the previous reference node Agent", "Stopped the previous Gateway",
+               "Stopping stale Room Hub pid ..."
+after two starts -> gateway=1 agent=1 hub=1
+listeners        -> 127.0.0.1:4320 (hub) and 172.31.3.110:4310 (gateway)
+```
+
+Hub仅loopback，gateway LAN，未为Android方便削隔离。
+
+### T1.2 Web
+
+导航Home、Tools/Rooms、Devices、Activity、Advanced含Services/Tasks/Actions/Pairing/Settings，旧入口全可达。Home GET rooms列10已接收Room中文标签／号码／摘要／持久性，Tools iframe loopback hubUrl开原UI。Hub不可用显gateway原因非空成功，无Room模型重写。双语各186 keys无漏无空，独立核见验证报告。
+
+### T1.3 Android
+
+Rooms panel经认证CityClient读GET rooms，显availability/reason/checkedAt及10目录；DTO刻意不模型loopback hubUrl，不能用、不从设备开Hub口。available:false显UNAVAILABLE非错误／空成功。
+
+工作簿明确导航列在Web T1.2，因此Web应用；Android保旧底栏，加Ask/Rooms/Action，Services/Tasks仍可达。
+
+## 2. T2——规范Action facade
+
+actions.mjs在三既有后端上一Action：
+
+```text
+route        ROOM | CAPABILITY | CITY_TASK          (BOSS and HNS do not exist in this phase)
+status       QUEUED RUNNING WAITING_CONFIRMATION SUCCEEDED FAILED REFUSED CANCELLED UNAVAILABLE
+backendRef   the real room id / capabilityId+invocationId / taskId
+resultRef    the real room record, invocation digest, or City task id
+provenance   source, host, roomId/capabilityId/taskId/invocationId, and a status history
+```
+
+代码强制：ROOM调用自身loopback API存真实record，checklist非City任务；CAPABILITY调真实bridge保invocationId/digest；CITY_TASK建真实控制任务每读重查，QUEUED变RUNNING/SUCCEEDED因为task变；REFUSED政策、UNAVAILABLE不能运行、FAILED故障区分，成功仅真实后端答；idempotencyKey重放首Action不再执行。
+
+rooms.mjs唯一Hub路径，probe可用不可用都resolve，下线不throw，让产品渲染不可用非失败页。static.mjs以apps/web包含检查server替硬编码页map，新页不需传输改，拒遍历。
+
+## 3. T3——确定Ask/Do
+
+intents literal规则映literal目标，九规则文档、知识、清单、书签、hash、证据、主题、支持City任务、本地note。
+
+- 唯高置信匹配运行，router DETERMINISTIC_RULES、deterministic:true、llm:false，客户端不可虚构。
+- search knowledge for X有两真实owner，Knowledge Room与City能力，AMBIGUOUS两项，无执行。
+- City task/theme sideEffect须AWAITING_CONFIRMATION，confirm:true重送前不执行。
+- 无匹配UNMATCHED＋三路16人工目标，无执行。
+- selection仅选route，gateway再规则并用自己提取input，不能夹带其他输入。
+
+## 4. 范围自审（验证者独查）
+
+```text
+assistant / persona layer        absent
+LLM router                       absent - no model call in any routing path
+BOSS / HNS connector             absent - the route vocabulary has no such value, and
+                                 POST /api/v0/actions refuses BOSS/HNS/SYSTEM/SHELL with 400
+new Room                         absent - the catalog is still the ten accepted rooms
+arbitrary shell                  absent - no shell execution was added
+new domain integration           absent
+```
+
+## 5. 产品实跑发现而非单元
+
+Web作者曾以通过测试报完成，真实browser相反，正T4用途。首次所有terminal页不能render：renderTerminal返回true却shell当handle，terminal.isPage静默no-op。修后又见导航render忽略目标保初页；Ask页再渲染shell ask-text/submit重复ID查不明；terminal同时处理shell submit与form事件，一点击双POST，可双建非幂等清单。
+
+四项全修，web-terminal-shell静态保护返回controller、切页、shell IDs无重；真实browser11/11。root修前修后都绿，单元未发现也不证明产品可用。
+
+## 6. 本地证据
+
+pre-assistant-closeout八案真实gateway/loopback Hub全过；live-smoke.mjs/json15 running Host检查是实现证据非独立验收；web-i18n-parity186/186同步。
+
+## 7. 如实限制
+
+- Hub保原apps/rooms/.runtime-rooms，迁.runtime会使旧数据看空，不做。
+- hash.hash-file本地文本经Hash Room哈文本，像binary则NOT_A_TEXT_FILE拒，非字节hash。
+- 当时Android无idempotencyKey，重试依gateway，记录后续非缺陷。第8节后已修，不覆盖历史。
+- Android不直接POST actions，T2列／读、T3 Ask，设备效果同。
+
+## 8. T4首轮拒、修、重验
+
+独立在adce593 **REJECT merge**且正确。核心完整机制：Android真实设备Action list永久不可读；gateway200有效apiVersion/schemaVersion/actions数组，由app流量logging relay捕；客户端object reader拆信封后又找不可能第二nested actions。自单元直接parseActions(rows)不练信封，所以绿套件旁死屏。
+
+| 发现 | 修复 |
+|---|---|
+| F1 Action/manual targets不可读，T2 parity未达 | parseActionList/parseTargetList读平信封数组，panels用，单元练信封并证明object reader不适数组 |
+| F2 health恒healthy，supervisor不见死Hub | healthy/degraded＋逐组件state/reason，杀Hub实证 |
+| F3两client不发key，retry双执行 | 每用户动作一key重试复用，动作变新key |
+| F4异请求同key静默首Action | key绑fingerprint，IDEMPOTENCY_KEY_REUSED拒，无执行 |
+| F5 cityTaskState任务完仍QUEUED | 跟真实task |
+
+未修：F6设计边界Web主机browser需loopback，Android证明不用；别LAN browser指自己loopback不能到Hub，页面如实loopback-only。正确解决须认证Hub proxy是另项。City无eligible node不可用本机未观察（总有node），Room不可用已真实观察且测试。
+
+首证据T4-FINDINGS、.runtime/evidence/mission-book/UPT-PRE-ASSISTANT/verifier探针／transcript保留。
+
+**第二轮85ecde4 ACCEPT merge**，四项非阻backlog未修、不声工作：Android drill-down设备不开；-NoRooms误degraded reason；key拒实际HTTP400非原称409，已修报告主张；Web仍loopback hubUrl。完整列表见[验证报告](../VERIFICATION_REPORT.md)第3节。
+
+**主机分离：** 工作簿偏两真实host，仅本机可用，Owner R13明确豁免：本阶段可同host验，但验证者真正独立、明确单host、REJECT新SHA修重验、branch与merged-main CI仍绿。首轮实现验收同物理host，仅Android单独硬件。
+
+STATUS: IMPLEMENTATION_REPORT

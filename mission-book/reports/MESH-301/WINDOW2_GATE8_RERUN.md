@@ -52,3 +52,6 @@ verification of my repair rather than the source of the table.
 
 Whichever you send, name which window it belongs to. Two windows merged as one is exactly the fabrication the
 declared-window discipline exists to prevent.
+
+
+[阅读译本 / Reading translation](./zh-CN/WINDOW2_GATE8_RERUN.md)

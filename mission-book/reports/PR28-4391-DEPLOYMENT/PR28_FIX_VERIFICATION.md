@@ -116,3 +116,5 @@ AFTER    coordination ONLINE, gatewayPid 22248, endpoint http://172.31.12.151:43
 STALE ROWS KEPT
          the two offline rows are historical and were left in place, as instructed ("暂时不动")
 ```
+
+语言配对 / Language pair: [原文 / Source](./PR28_FIX_VERIFICATION.md) · [译本 / Translation](./zh-CN/PR28_FIX_VERIFICATION.md)

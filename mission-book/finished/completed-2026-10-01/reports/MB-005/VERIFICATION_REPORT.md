@@ -340,3 +340,5 @@ building）并断言期望值 2，属性重新被真正检验（`.../01-knowledg
 - 现场工作记录（git-ignored）：`.runtime/evidence/mission-book/MB-005/run-001/WORKING_STATE.md`
 - Episode：`data-records/evolution/episodes/mission-book/MB-005/episode.json`（`MB-005:bc50edf4e6a626d8`）
 - 合并提交：`cfe34df1109dbe6a90348f1a671bae6ff1dc3074`
+
+语言配对 / Language pair: [原文 / Source](./VERIFICATION_REPORT.md) · [译本 / Translation](./en/VERIFICATION_REPORT.md)

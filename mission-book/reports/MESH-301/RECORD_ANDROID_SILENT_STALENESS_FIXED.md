@@ -92,3 +92,6 @@ had**, which is the kind of quiet inaccuracy this programme keeps finding. The f
 
 The verification run's own verdict is **FAILED**, and that is the correct reading: the fix is proven, and the
 convergence claim it was meant to support is not yet earned.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_ANDROID_SILENT_STALENESS_FIXED.md)

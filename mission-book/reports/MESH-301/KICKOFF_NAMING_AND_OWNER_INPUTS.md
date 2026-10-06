@@ -92,3 +92,5 @@ displayName = CITY_NODE_DISPLAY_NAME  >  第一个参数  >  identity（默认�
   因此按 §5.1 TEMPORARILY_UNCLAIMABLE / WAITING_OWNER_ACTIVATION 解释，不写成"池已终态"，
   也不为了保持主机忙而制造新任务（看板对此有明文要求，我遵循）。
 ```
+
+[阅读译本 / Reading translation](./en/KICKOFF_NAMING_AND_OWNER_INPUTS.md)

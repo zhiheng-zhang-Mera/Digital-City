@@ -171,3 +171,6 @@ merged_main_sha: b4bd602971abe83083cd72ab8247d9bd50371f57
 - theme/D9 parity digests
 - existing Web/Android service invocation
 - promotion/provenance continuity check
+
+
+[阅读译本 / Reading translation](./en/MB-009-theme-relocation.md)

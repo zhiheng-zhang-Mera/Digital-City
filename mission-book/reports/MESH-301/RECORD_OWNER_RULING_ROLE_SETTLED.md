@@ -60,3 +60,6 @@ need and that belong to neither: the canonical-`seq` bounded-convergence instrum
 instrument. Mech's §4.3 said it would prepare the same class of instrument independently; that is not
 duplication to be eliminated — Step 6 requires the reviewer to rebuild the scenario with *its own* instruments,
 so two independent instruments are the requirement, not a waste.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_OWNER_RULING_ROLE_SETTLED.md)

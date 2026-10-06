@@ -170,3 +170,6 @@ merged_main_sha: cfe34df1109dbe6a90348f1a671bae6ff1dc3074
 - pressure/unknown/anti-flap trials
 - bounded action-request receipts
 - status/history consumer evidence
+
+
+[阅读译本 / Reading translation](./en/MB-005-host-health.md)

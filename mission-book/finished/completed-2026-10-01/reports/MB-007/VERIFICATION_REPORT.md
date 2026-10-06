@@ -358,3 +358,7 @@ implementation (which was already on `main` at `cb8e0bd`), because the repair is
 finalization possible at all. The equivalent guarantee was met: the repair branch head
 `f25cdb4` — which carries the finalizer changes **and** the generated episode — was run through
 the required CI and is green, and the merge commit on `main` is green too.
+
+## Language reading link / 语言阅读链接
+
+[完整阅读译文 / Complete reading translation](./zh-CN/VERIFICATION_REPORT.md)

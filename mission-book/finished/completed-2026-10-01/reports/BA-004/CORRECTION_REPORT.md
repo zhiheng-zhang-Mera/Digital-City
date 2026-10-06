@@ -261,3 +261,7 @@ required device observation, so none was performed.
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/butler-assistant/BA-004-multi-assistant-handoff.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

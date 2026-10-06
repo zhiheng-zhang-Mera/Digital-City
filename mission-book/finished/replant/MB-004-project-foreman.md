@@ -170,3 +170,6 @@ merged_main_sha: 0eed05b58c126a70224cb4757ba12f76bbe4d4b7
 - worktree/ownership ledger
 - checkpoint/recovery receipts
 - review/verification/CI evidence
+
+
+[阅读译本 / Reading translation](./en/MB-004-project-foreman.md)

@@ -105,3 +105,6 @@ reading 2 requires a server-side mechanism and therefore a change to the City, w
 3. The Owner's reading of §5's open question, since it decides whether gate 9 is already met or needs the
    server-side liveness signal.
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_GATE5_MET_AND_STALENESS_CLASS_CLOSED.md)

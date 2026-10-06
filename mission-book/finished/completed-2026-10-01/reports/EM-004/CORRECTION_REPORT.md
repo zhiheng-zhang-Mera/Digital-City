@@ -237,3 +237,7 @@ about this task required device observation, so none was performed.
 CORRECTION_COMPLETE = true
 CONTROL_BOOK_UPDATED = mission-book/engineering-manager/EM-004-capability-probe-auth-registry.md
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

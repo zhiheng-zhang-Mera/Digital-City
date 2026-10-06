@@ -307,3 +307,6 @@ fleet-routing 28/28 PASS, root gateway+telemetry+web 11/11 PASS (47 PASS / 0 FAI
 - capability-by-capability comparison required
 - Assessment Report required for **all** verdicts
 - NO_VALUE negative result must remain traceable
+
+
+[阅读译本 / Reading translation](./en/MB-010-node-fabric.md)

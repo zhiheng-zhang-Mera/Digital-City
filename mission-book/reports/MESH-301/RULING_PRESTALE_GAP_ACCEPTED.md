@@ -59,3 +59,6 @@ surface breaching the 5 s window. Mech was right to defer it.
 
 Development is handed over at `09a5b89` with `development_complete: true` and `DEVELOPMENT_REPORT.md`
 published. The next move is Mech's, and it is now unblocked.
+
+
+[阅读译本 / Reading translation](./zh-CN/RULING_PRESTALE_GAP_ACCEPTED.md)

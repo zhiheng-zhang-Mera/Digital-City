@@ -93,3 +93,5 @@ Receipt: `.runtime/evidence/join-final-test/receipt.json` (git-ignored, local); 
 3. Merge/integration remains out of scope here: `mission-book/connection-onboarding/README.md` section 5 forbids
    the phase integration workbook until all three JOIN tasks carry opposite-host reviews, and JOIN-502 is still
    waiting for a review this host cannot give.
+
+语言配对 / Language pair: [原文 / Source](./REPAIR_D1_D2.md) · [译本 / Translation](./zh-CN/REPAIR_D1_D2.md)

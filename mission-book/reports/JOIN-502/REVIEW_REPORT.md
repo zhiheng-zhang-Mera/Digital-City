@@ -83,3 +83,5 @@ MERGE AUTHORITY      unchanged: README section 5 now permits the phase integrati
                      and merge authority for that phase is a separate act this review does not perform
 REVIEWER             Alien
 ```
+
+语言配对 / Language pair: [原文 / Source](./REVIEW_REPORT.md) · [译本 / Translation](./zh-CN/REVIEW_REPORT.md)

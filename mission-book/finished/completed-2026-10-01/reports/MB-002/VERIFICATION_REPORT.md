@@ -303,3 +303,7 @@ Customs admission 与 runtime enforcement、Skill Intake 的第二份拷贝都�
 - Episode：`data-records/evolution/episodes/mission-book/MB-002/episode.json`（`MB-002:f859fd8391837e33`）
 - 合并提交：`83ea44e02274f8d5bcbe866d339a5cd703839e9b`
 - 现场工作记录：`D:\A-Utopia\.runtime\evidence\mission-book\MB-002\run-001\WORKING_STATE.md`
+
+## Language reading link / 语言阅读链接
+
+[完整阅读译文 / Complete reading translation](./en/VERIFICATION_REPORT.md)

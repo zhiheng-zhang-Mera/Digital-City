@@ -129,3 +129,6 @@ merged_main_sha: 83ea44e02274f8d5bcbe866d339a5cd703839e9b
 - Boss provider/broker parity
 - Hns lifecycle/fallback parity
 - cross-client result/error/history evidence
+
+
+[阅读译本 / Reading translation](./en/MB-002-capability-fabric.md)

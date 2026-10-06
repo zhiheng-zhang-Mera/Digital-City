@@ -208,3 +208,7 @@ DEVELOPMENT_COMPLETE = false (CI blocked by an external account-billing conditio
 CORRECTION_ELIGIBLE  = false until CI is green
 MERGE_STATUS         = FORBIDDEN_UNTIL_PROJECT_MERGE
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

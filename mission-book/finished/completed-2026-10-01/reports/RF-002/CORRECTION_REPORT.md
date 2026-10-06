@@ -256,3 +256,7 @@ CORRECTION_HOST     = Mech   (different physical host — two-host gate satisfie
 CORRECTED_HEAD_SHA  = be86135e23f9d18bd45fbca623dceee2d593906e
 MERGE_STATUS        = FORBIDDEN_UNTIL_REMOTE_PROJECT_MERGE
 ```
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

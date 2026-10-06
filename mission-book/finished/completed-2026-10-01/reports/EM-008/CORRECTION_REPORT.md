@@ -132,3 +132,7 @@ The author's 8 tests are unchanged and all 8 pass. Evidence under
   `PROFILE_VERSION_CONFLICT`; the test was wrong, not the module.
 - No billing refusal was recorded as a code failure; every hosted run in this task that started executed
   real steps.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

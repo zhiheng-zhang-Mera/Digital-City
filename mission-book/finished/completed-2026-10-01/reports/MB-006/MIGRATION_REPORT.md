@@ -359,3 +359,5 @@ Independent-review hints only; no conclusion is suggested.
 - Hosted CI: implementation `36574888667` PASS, final branch `36575418378` PASS, claim-stage
   push `36572337586` PASS.
 - The migration host did **not** merge, and did **not** run `pnpm mission:finalize`.
+
+语言配对 / Language pair: [原文 / Source](./MIGRATION_REPORT.md) · [译本 / Translation](./zh-CN/MIGRATION_REPORT.md)

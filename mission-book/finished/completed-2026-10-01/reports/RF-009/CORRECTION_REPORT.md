@@ -141,3 +141,7 @@ reconnect reconciliation verifies the *refreshed* trust/capability/identity/pres
 caller supplies, and cannot independently prove that snapshot is current — that proof belongs to pairing
 (RF-002) and the transport path manager (RF-006), both of which are corrected components in this programme.
 Nothing was rewritten: the Development head and all previously reported heads are untouched.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

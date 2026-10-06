@@ -237,3 +237,6 @@ Branch `mission/MB-003-worker-gateway` @ `60afe9e` → `8262a41`.
 - provider/version/readiness snapshots
 - interrupt/failure receipts
 - existing Skill Intake regression
+
+
+[阅读译本 / Reading translation](./en/MB-003-worker-gateway.md)

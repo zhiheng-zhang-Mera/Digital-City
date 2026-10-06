@@ -87,3 +87,6 @@ The scan's first version crashed — `filter(open)` was correct but I then wrote
 `rows.filter(claimableDev)`, so the classifier was handed an array where it expected a row. Recorded because the
 classification above is only as good as the scan, and a scan whose output I had to read past an exception is
 worth saying out loud rather than presenting as a clean first run.
+
+
+[阅读译本 / Reading translation](./zh-CN/POST_COMPLETION_REENTRY.md)
