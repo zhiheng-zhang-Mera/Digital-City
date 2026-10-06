@@ -181,6 +181,24 @@
       "redaction_count": 0,
       "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
       "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "WBC-602",
+      "round_label": ".runtime/evidence/mission-book/WBC-602/independent-baseline-comparison.mjs",
+      "source": "D:/Utopia-WBC602-Review/.runtime/evidence/mission-book/WBC-602/independent-baseline-comparison.mjs",
+      "source_worktree": "D:/Utopia-WBC602-Review",
+      "source_branch": "refs/heads/review/WBC-602-Alien-codex",
+      "worktree_head_at_capture": "d99101fdac5169aad74ae84fb7c0c25be43ad7d9",
+      "historical_run_head": null,
+      "original_bytes": 3651,
+      "original_sha256": "3087f50d5dda5e8c5680ee5e0d283e28049f62c4879f241da6b2b17ad7db2336",
+      "published_bytes": 3640,
+      "published_sha256": "d8621d604c5cc20c49ca582ef4453d1d1532a51817a1f516b9aad1662a53f397",
+      "published_path": "mission-book/reports/WBC-602/intermediate-logs/2026-10-07/evidence/d8621d604c5cc20c-independent-baseline-comparison.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 2,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
     }
   ]
 }
