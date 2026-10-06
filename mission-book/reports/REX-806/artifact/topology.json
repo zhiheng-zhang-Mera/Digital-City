@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "id": "alien-reference-node",
+      "online": false,
+      "sharingEnabled": true
+    },
+    {
+      "id": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "online": true,
+      "sharingEnabled": true
+    },
+    {
+      "id": "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+      "online": false,
+      "sharingEnabled": true
+    },
+    {
+      "id": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "online": true,
+      "sharingEnabled": true
+    },
+    {
+      "id": "dev-f4e9a34189a0d480cb2acaff5cf145b5",
+      "online": false,
+      "sharingEnabled": true
+    }
+  ],
+  "controlSurfaces": [
+    "dev-be7832e35fc34b85966c3bb43a992e1d"
+  ],
+  "members": []
+}

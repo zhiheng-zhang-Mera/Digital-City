@@ -1,0 +1,37 @@
+{
+  "failures": {
+    "unmeasuredRuns": [],
+    "warmupRuns": [
+      {
+        "campaignId": "campaign-b0ebb3af-bf86-451a-b508-1aa9e115c8d7",
+        "index": 0,
+        "state": "WARMUP",
+        "rawPointer": "receipt:campaign-b0ebb3af-bf86-451a-b508-1aa9e115c8d7#runs[0]"
+      },
+      {
+        "campaignId": "campaign-96b56dc0-c90c-454c-8088-1118143806d8",
+        "index": 0,
+        "state": "WARMUP",
+        "rawPointer": "receipt:campaign-96b56dc0-c90c-454c-8088-1118143806d8#runs[0]"
+      }
+    ],
+    "campaignOutcomes": [
+      {
+        "campaignId": "campaign-97669c54-1a4f-48eb-bc56-d599da333101",
+        "state": "REFUSED",
+        "reason": "TOPOLOGY_NOT_READY",
+        "planned": 4,
+        "accounted": 0,
+        "rawPointer": "receipt:campaign-97669c54-1a4f-48eb-bc56-d599da333101"
+      },
+      {
+        "campaignId": "campaign-f2702036-e916-455e-a708-893375d8cb5f",
+        "state": "REFUSED",
+        "reason": "TOPOLOGY_NOT_READY",
+        "planned": 4,
+        "accounted": 0,
+        "rawPointer": "receipt:campaign-f2702036-e916-455e-a708-893375d8cb5f"
+      }
+    ]
+  }
+}
