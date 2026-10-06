@@ -1,0 +1,16 @@
+✔ versioned authenticated gateway rejects unsafe commands and persists history (230.9276ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (116.2518ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1390.2308ms)
+✔ an interrupted task is never falsified as success across a gateway restart (115.0669ms)
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (143.8462ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (124.2887ms)
+✔ slow/disconnected observation never gates real canonical task persistence (77.8543ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (140.2967ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2947.2277

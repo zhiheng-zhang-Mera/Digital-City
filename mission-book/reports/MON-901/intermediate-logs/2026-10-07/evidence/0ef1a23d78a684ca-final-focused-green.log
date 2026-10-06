@@ -1,0 +1,31 @@
+✔ document bytes flow through real readers and into temporary knowledge (436.5652ms)
+✔ evidence review is deterministic and tampering never gets rehashed (3.7757ms)
+✔ theme generation returns a reproducible PNG and validation (56.6448ms)
+✔ future promoted module stays pending and all five existing adapters still execute (20.0443ms)
+✔ malformed and oversized inputs have explicit refusals (23.1329ms)
+✔ Road rejects missing array elements instead of producing null serialized entries (2.7834ms)
+✔ Road preserves section order, deterministic IDs and explicit temporary unverified ownership (0.9468ms)
+✔ Road accepts empty documents and preserves empty heading and text without coercion (0.1537ms)
+✔ Road refuses malformed document boundaries and never accepts caller trust injection (0.2897ms)
+✔ Road output validation rejects permanence, trust escalation and reordered IDs (0.1822ms)
+✔ Bridge Road extraction preserves all six published document retrieval digests (385.7131ms)
+✔ versioned authenticated gateway rejects unsafe commands and persists history (285.174ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (125.3834ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1363.9665ms)
+✔ an interrupted task is never falsified as success across a gateway restart (163.6885ms)
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (129.2146ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (97.1413ms)
+✔ slow/disconnected observation never gates real canonical task persistence (75.5846ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (157.8255ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (106.0012ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (68.7905ms)
+✔ deleted historical prefix and tail cannot be reported as complete history (80.1807ms)
+✔ Gateway shares outstanding observation and retains stale last view on later source failure (324.4034ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4845.2429
