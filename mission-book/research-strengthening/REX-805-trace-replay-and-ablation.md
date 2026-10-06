@@ -3,17 +3,17 @@ workbook_id: REX-805
 phase: RESEARCH_STRENGTHENING
 sequence: 805
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: READY
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
 dependency_source_workbooks: ["REX-802","REX-803"]
-dependency_source_shas: []
+dependency_source_shas: ["833279cae237080cca88b1b6dbc9f217027ba68f","8798ba9dd37051626033ad72080b2fad3ff66149"]
 development_baseline_sha: null
 baseline_resolution_evidence: null
-baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
+baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED"]
 development_host: null
 development_branch: null

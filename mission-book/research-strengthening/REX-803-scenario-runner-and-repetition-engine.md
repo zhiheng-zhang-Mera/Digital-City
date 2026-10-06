@@ -3,7 +3,7 @@ workbook_id: REX-803
 phase: RESEARCH_STRENGTHENING
 sequence: 803
 execution_enabled: true
-status: "IN_PROGRESS"
+status: "COMPLETE"
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -22,8 +22,8 @@ development_ci: "MEASURED, PER RUN, from the Actions API on exact a695bb9fc5fe7c
 development_complete: true
 review_host: Alien
 review_head_sha: 8798ba9dd37051626033ad72080b2fad3ff66149
-review_ci: Exact8798ba9 push37423084327 / PR37423138551 / linkage37423138558 all terminal SUCCESS. PR37 repair71 focused PASS, critic8 PASS. Physical canonical execution independently observed; raw receipt and PARTIAL trace completeness review pending; no accepted marker.
-review_complete: false
+review_ci: "Exact8798ba9 push37423084327 / PR37423138551 / linkage37423138558 terminal SUCCESS; technical71 focused PASS and critic8 PASS; physical material38 independent checks PASS; Android111 tests PASS and assembleDebug SUCCESS. Trace metadata PARTIAL remains disclosed."
+review_complete: true
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L3_ADVANCED
@@ -46,11 +46,11 @@ capability_registry_action: CREATE
 capability_registry_refs: ["capability-registry/records/CAP-RESEARCH-CAMPAIGN-001.yaml"]
 physical_gate_history: "PARTIAL - two controlled campaigns were run on the live resident City on 2026-10-06 with the physical Android handset (OPPO PERM00) connected as the live control surface and the host reference node executing every repetition; the Alien host node was OFFLINE (last heartbeat 2026-10-05T11:15:06Z), so the Alien + Mech + Android topology the completion gate names was not available and is NOT claimed."
 physical_gate_reconnection_history: "TOPOLOGY_ONLINE_CAMPAIGN_NOT_RUN - Alien officially re-enrolled as MEMBER dev-8128a1ef25c5c4b7f66fc31b21705858 in Mech City031fdba6-e94c-4298-a095-6ff04a65481d; both physical host workers online and Android City ID matches. Resident Gateway candidate source NOT_OBSERVED; controlled campaign on review8798ba9 not executed. No accepted marker."
-physical_gate_status: "PHYSICAL_EXECUTION_OBSERVED_MATERIAL_REVIEW_PENDING - candidate8798ba9 campaign966cf439 has three independently observed canonical COMPLETED tasks on Mech/Alien/Mech with Android canonical surface. Author reports terminal accounting and immutable receipt; raw packet remains on Mech-local drive and trace completeness is PARTIAL. No accepted marker."
+physical_gate_status: "MET_AND_REVIEWED: campaign966cf439 on canonical Mech/Alien/Android topology; 3 measured COMPLETED runs, exact seeds and placements independently verified; complete published campaign collector epoch52 records plus31 canonical events and3 receipts. Global trace metadata PARTIAL; whole197 raw window not published. See FORMAL_ACCEPTANCE_Alien.md."
 review_branch: review/REX-803-Alien-20261006
 review_pr: https://github.com/zhiheng-zhang-Mera/utopia/pull/37
-review_verdict: TECHNICAL_REPAIR_VERIFIED_PHYSICAL_MATERIAL_REVIEW_PENDING
-review_report_ref: mission-book/reports/REX-803/REVIEW_REPORT.md
+review_verdict: "ACCEPTED_EXACT_HEAD_WITH_DISCLOSED_TRACE_METADATA_GAPS"
+review_report_ref: "mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md"
 ---
 
 # REX-803 — Controlled Scenario Runner + Repetition Engine

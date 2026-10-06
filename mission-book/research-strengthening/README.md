@@ -304,9 +304,9 @@ Programme terminal marker：
 
 ## 当前回查 / Current pool recheck
 
-REX-803: Alien已领取对机复检，PR37候选8798ba9修复后71项相关测试通过；实体campaign门槛及最终CI待验证。REX-804: Alien采纳退回修复，PR30候选f4ceae7相关12项通过，待CI及Mech复验。REX-805/806/807/890继续等待accepted依赖。
+REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 可按 accepted 依赖领取；806/807/890 继续按任务书依赖等待。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
 
-REX-803: Alien opposite-host review claimed; PR37 candidate8798ba9 passes71 affected tests, physical campaign and final CI remain pending. REX-804: Alien adopted returned repair; PR30 candidatef4ceae7 passes12 focused tests, awaiting CI and Mech re-verification. REX-805/806/807/890 remain dependency-blocked. See each workbook and REVIEW_REPORT for authority. SHOW excluded; no parked/new programme activation.
+REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-end material review; SCENARIO_REPETITION_ENGINE_ACCEPTED is released while trace metadata remains PARTIAL. REX-804 is accepted at exactfe700aba. REX-805 can be claimed against accepted dependency heads;806/807/890 continue waiting under their workbook dependencies. SHOW and parked/new programme execution remain excluded. Earlier sections below are dated history; current authority is the workbook and formal acceptance report.
 
 ### Mech 复验结果（2026-10-06，REX-804）/ Mech re-verification of REX-804
 
@@ -372,3 +372,9 @@ NOT CLAIMED terminal marker 未释放。REX-803 的 Formal Review 属对侧主�
 ```
 
 REX-803's three-end completion gate is **MET**: on 2026-10-06T08:01Z a controlled campaign ran on the live City (updated to `8798ba9`, data directory retained) across the Mech + Alien + Android topology, with all three repetitions measured - including the one placed on the **Alien host's** node - every canonical task COMPLETED with its `researchRunRef`, the trace recording the campaign, and the immutable receipt filed. The two-day blocker was **not** an absent host: every earlier attempt declared `alien-reference-node`, a name the Alien machine used on 2026-10-05 and which went stale, while the same host was online the whole time under its canonical enrolled identity `dev-8128a1ef…`. That is finding F8 generalised - a manifest must declare the identities the City actually reports. The terminal marker is **not** released: the Formal Review and its verdict belong to the opposite host, and this host is the author. The reviewer's one blocking condition - that the raw material existed only on this host's drive while a MEMBER session correctly refuses the owner-scoped endpoints - is now answered by a published, hash-bound package under `reports/REX-803/evidence/` (redacted raw JSON, byte-identical immutable receipt, the whole collector epoch holding the campaign, per-file SHA256, and the missing/dropped/clock reasons for `PARTIAL` recomputed from the collector's own predicate), together with the generating script and the arithmetic that re-derives each seed and placement from the package alone.
+
+### REX-803 正式验收 / Formal acceptance
+
+Alien 正式验收 exact8798ba9，材料38项独立检查通过，3次种子/执行节点与原始回执、canonical tasks 和 trace 对齐；trace metadata PARTIAL、未发布的全局197条原始窗口、缺失provenance和意图验证NOT_TESTED均保留。新入会身份开始于07:29，不能描述此前两天始终在线。详见 [正式验收](../reports/REX-803/FORMAL_ACCEPTANCE_Alien.md)。
+
+Alien accepts exact8798ba9 after38 independent material checks and three matching seed/placement/receipt/task/trace bindings. PARTIAL trace metadata, the unpublished whole197-record window, missing provenance and NOT_TESTED intent validation remain explicit. The fresh enrollment began at07:29, not two days earlier. See the formal acceptance report linked above.
