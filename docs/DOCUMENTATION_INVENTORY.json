@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1636,
-  "total_bytes": 11796001,
+  "total_bytes": 11804371,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9817,7 +9817,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 9747,
+      "bytes": 10438,
       "encoding_state": "UTF8",
       "chinese_characters": 202,
       "english_words": 154,
@@ -11086,10 +11086,10 @@
     },
     {
       "path": "mission-book/reports/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md",
-      "bytes": 4308,
+      "bytes": 6848,
       "encoding_state": "UTF8",
-      "chinese_characters": 468,
-      "english_words": 180,
+      "chinese_characters": 675,
+      "english_words": 215,
       "paired_path": "mission-book/reports/en/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -12346,10 +12346,10 @@
     },
     {
       "path": "mission-book/reports/MISSION_BOARD_RECOUNT_MECH.md",
-      "bytes": 4457,
+      "bytes": 6020,
       "encoding_state": "UTF8",
-      "chinese_characters": 422,
-      "english_words": 185,
+      "chinese_characters": 633,
+      "english_words": 217,
       "paired_path": "mission-book/reports/en/MISSION_BOARD_RECOUNT_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14029,19 +14029,19 @@
     },
     {
       "path": "mission-book/reports/REX-806/DELIVERABLE.md",
-      "bytes": 4463,
+      "bytes": 6526,
       "encoding_state": "UTF8",
-      "chinese_characters": 265,
-      "english_words": 40,
+      "chinese_characters": 587,
+      "english_words": 62,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md",
-      "bytes": 3764,
+      "bytes": 5277,
       "encoding_state": "UTF8",
-      "chinese_characters": 186,
-      "english_words": 61,
+      "chinese_characters": 385,
+      "english_words": 104,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
