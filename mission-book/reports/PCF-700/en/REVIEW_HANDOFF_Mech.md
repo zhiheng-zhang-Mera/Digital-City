@@ -2,16 +2,21 @@
 
 ```text
 TASK_ID            PCF-700
-REVIEW TARGET      d611cfe5f0272673706b9dc5c9f6b85ed40a9406
+REVIEW TARGET      a2a567325e6ce08629eefbe67cda6f8f2c16fd64
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit (= the current tip of pcf/series-mech)
 BASELINE           312b627b54af5bbf274fa25eca8f8383869c1c34
 AUTHOR HOST        Mech (COMPUTERNAME MEGA-REP, role Mech-DS)
 REVIEWER           the other physical host (section 3 forbids self-review; this file is NOT a review claim and
                    carries no verdict)
 DELIVERABLES       docs/zh-CN/pcf/ownership-map.md, docs/en/pcf/ownership-map.md,
-                   tests/pcf700-compatibility.test.mjs
+                   tests/pcf700-compatibility.test.mjs, scripts/check-bilingual.mjs
 REPORT             reports/PCF-700/DEVELOPMENT_REPORT.md
 ```
+
+> Why the target moved: the earlier delivery head `d611cfe5f0272673706b9dc5c9f6b85ed40a9406` failed hosted CI at step
+> `pnpm check:docs` (the repository gate `scripts/check-bilingual.mjs` read one directory level only and hit EISDIR on
+> the nested `docs/*/pcf/` the workbook requires). The repair head `a2a5673` carries the tree-aware fix of that gate,
+> so **review a2a5673**; the failed head and its root cause are kept in DEVELOPMENT_REPORT section 2.5.
 
 ## 1. Why this file exists
 
@@ -24,11 +29,11 @@ where the evidence is; the author writes no verdict here and does not turn this 
 
 ```text
 R1 resolve the exact head yourself: git ls-remote origin pcf/PCF-700-mech-ownership-and-reality-audit must equal
-   d611cfe5f0272673706b9dc5c9f6b85ed40a9406, and 312b627b54af5b must be an ancestor of it.
+   a2a567325e6ce08629eefbe67cda6f8f2c16fd64, and 312b627b54af5b must be an ancestor of it.
 R2 re-run the author suite: corepack pnpm install --frozen-lockfile AND
    corepack pnpm --dir city install --frozen-lockfile (both steps - a root node_modules junction does not install the
-   city workspace), then node --test tests/pcf700-compatibility.test.mjs. The author measured 7/7; the reviewer must
-   measure it too.
+   city workspace), then node --test tests/pcf700-compatibility.test.mjs and the repository gate pnpm check:docs. The
+   author measured 7/7 and PAIR_STATUS = SYNCHRONIZED in all three roots; the reviewer must measure it too.
 R3 falsify R2 instead of restating it: pick at least two compatibility counter-examples and make them fail on
    purpose before restoring them (for example, make the strict target resolve to a real online node and confirm C3's
    withheld assertion becomes FALSE), proving the suite is not vacuously green.

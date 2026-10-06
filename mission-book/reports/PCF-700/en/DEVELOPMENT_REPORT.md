@@ -10,10 +10,11 @@ HOST               Mech (COMPUTERNAME MEGA-REP; role Mech-DS, development side)
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
 SERIES BRANCH      pcf/series-mech (= d611cfe, the series' accumulated head)
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  (= origin/main; see CLAIM_REPORT.md)
-HEAD_SHA           d611cfe5f0272673706b9dc5c9f6b85ed40a9406
-CI                 V0.2 checks run 37497553367 (see "CI status" below)
+HEAD_SHA           a2a567325e6ce08629eefbe67cda6f8f2c16fd64  (repair head; the earlier delivery head was d611cfe5f0272...)
+CI                 V0.2 checks run 37497553367 (d611cfe, **failure**) -> run 37498638940 (a2a5673, **success**); see section 5
 DELIVERABLES       docs/zh-CN/pcf/ownership-map.md, docs/en/pcf/ownership-map.md,
-                   tests/pcf700-compatibility.test.mjs
+                   tests/pcf700-compatibility.test.mjs,
+                   scripts/check-bilingual.mjs (repair of a repo gate defect that CI exposed; see 2.5)
 REVIEW             review_host = null (waiting for the other physical host; this host never self-reviews)
 ```
 
@@ -62,6 +63,29 @@ E4  (minor) assumed POST /api/v0/node/register accepts a legacy descriptor - it 
 
 All four live in the test comments and in section 6 of the ownership map: the probes were falsified first.
 
+## 2.5 A defect in the REPOSITORY gate that CI exposed (not one of this host's probes) / Repo gate defect
+
+```text
+SYMPTOM  hosted run 37497553367 (head d611cfe) FAILED at step `pnpm check:docs`; gateway-web failed, android passed.
+         Reproduced locally with the same command (scripts/check-bilingual.mjs) -> same failure:
+         EISDIR: illegal operation on a directory, read.
+ROOT CAUSE  check-bilingual.mjs readdir'd docs/zh-CN and docs/en at ONE level only and then read every entry as a
+         file. This workbook's required deliverable path is docs/{zh-CN,en}/pcf/ownership-map.md, so the first nested
+         pair made the gate crash instead of checking anything.
+OPTIONS  (a) flatten the deliverable to docs/zh-CN/pcf-ownership-map.md - contradicts the path the workbook states
+         explicitly, and all 28 later PCF tasks will need docs/*/pcf/*, so it only postpones the problem;
+         (b) make the gate TREE-AWARE: walk both trees, compare the relative path lists exactly, then compare the fact
+         lines pair by pair - keeps the original semantics and covers nesting.
+CHOSEN   (b). A paired translation is paired wherever it sits, so the one-level assumption was the thing that was
+         wrong; the workbook is authority and the deliverable is not moved to suit a tool.
+FALSIFIED  the repaired gate had to be proven non-vacuous: moving the en mirror aside yields
+         'docs missing language pair' (exit 1); adding a STATUS: line to the en file yields
+         'docs/pcf/ownership-map.md facts differ' (exit 1); after both were restored, docs, evidence and data-records
+         all report PAIR_STATUS = SYNCHRONIZED (exit 0).
+REMAINING  empty directories are outside that contract (empty in both languages passes) and the script comment says
+         so rather than pretending otherwise.
+```
+
 ## 3. Judgement calls where nothing was specified (reasoning recorded)
 
 ```text
@@ -94,12 +118,20 @@ the resident City (pid 44088, 172.31.12.151:4391) was not touched by PCF work; t
 ## 5. CI status
 
 ```text
-V0.2 checks run 37497553367  head=d611cfe  status=in_progress at report time
+V0.2 checks run 37497553367  head=d611cfe  completed / **failure**
+    -> gateway-web: step `pnpm check:docs` failed (the other nine steps all succeeded, INCLUDING `pnpm test`, so the
+       new tests/pcf700-compatibility.test.mjs measurably passed on hosted CI); android: success
+    -> reproduced locally; root cause and repair in section 2.5
 V0.2 checks run 37496389297  head=312b627  completed / success (the baseline head; both jobs green)
-local evidence: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail
+The repair head a2a567325e6ce08629eefbe67cda6f8f2c16fd64 is pushed (branch and pcf/series-mech both at that head);
+    hosted run **37498638940 completed / success** (gateway-web success, android success), so both jobs are green after
+    the repair.
+local evidence: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail;
+    node scripts/check-bilingual.mjs => PAIR_STATUS = SYNCHRONIZED for docs, evidence and data-records.
 ```
 
-The CI conclusion is whatever the repository's Actions says; this report never writes "pushed" as "verified".
+One failure and one repair are both kept here: **the failed head d611cfe is not erased**, and the repair head does not
+borrow its green.
 
 ## 6. Next (for the next round or the opposite-host review)
 

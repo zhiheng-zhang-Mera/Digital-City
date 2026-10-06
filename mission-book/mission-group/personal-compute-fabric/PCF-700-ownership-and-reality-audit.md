@@ -18,8 +18,8 @@ development_baseline_sha: "312b627b54af5bbf274fa25eca8f8383869c1c34"
 anchor_state: RESOLVED_AT_CLAIM
 development_host: "Mech"
 development_branch: "pcf/PCF-700-mech-ownership-and-reality-audit"
-development_head_sha: "d611cfe5f0272673706b9dc5c9f6b85ed40a9406"
-development_ci: "V0.2 checks run 37497553367 on head d611cfe5f0272673706b9dc5c9f6b85ed40a9406 (hosted, repo zhiheng-zhang-Mera/utopia); local: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail. The series branch pcf/series-mech was fast-forwarded to this same head."
+development_head_sha: "a2a567325e6ce08629eefbe67cda6f8f2c16fd64"
+development_ci: "TWO heads, both kept. (1) FAILURE head d611cfe5f0272673706b9dc5c9f6b85ed40a9406: V0.2 checks run 37497553367 completed/failure - gateway-web failed at step `pnpm check:docs`, android success; the other nine gateway-web steps succeeded, including `pnpm test`, so the new tests/pcf700-compatibility.test.mjs measurably passed on hosted CI. Reproduced locally: scripts/check-bilingual.mjs read one directory level only and hit EISDIR on the nested docs/{zh-CN,en}/pcf/ that this workbook requires. (2) REPAIR head a2a567325e6ce08629eefbe67cda6f8f2c16fd64: V0.2 checks run 37498638940 completed/success, gateway-web success and android success. The repair makes the gate tree-aware (compare the relative path lists of both language trees exactly, then compare fact lines pairwise) and was falsified before being trusted: an absent en mirror yields 'docs missing language pair' and a differing STATUS line yields 'docs/pcf/ownership-map.md facts differ', both exit 1; restored, docs/evidence/data-records all report PAIR_STATUS = SYNCHRONIZED. Local: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail. Branch pcf/PCF-700-mech-ownership-and-reality-audit and series branch pcf/series-mech are both at the repair head."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -52,7 +52,7 @@ baseline_blocker: null
 - [x] 为每个拟复用点记录 declaration → caller → live API → user surface → exact evidence；特别区分 profile 切换、纯 HYBRID helper 与真正 dispatch/claim 的接线，不能因导出函数存在就认为已启用。
       → `docs/{zh-CN,en}/pcf/ownership-map.md` §1；三层接线分别判为 LIVE_WIRED / NOT_WIRED / LIVE_WIRED，`chooseHybridTarget` 由测试 C6 冻结为 NOT_WIRED。多记录四条本机探针自身的错误（§6）。
 - [x] 写 no-workbench 启动、legacy untargeted、strict-target 离线拒绝/等待、结果回原端、旧 descriptor 缺新字段仍有效的兼容反例。运行 `node --test tests/pcf700-compatibility.test.mjs`。
-      → C1–C7 全部落地，实测 7 tests / 7 pass / 0 fail（提交前重跑 1.06 s）；head `d611cfe`。
+      → C1–C7 全部落地，实测 7 tests / 7 pass / 0 fail（本机重跑 1.06 s），且在 hosted CI 上也通过（run 37497553367 的 `pnpm test` 步）；修复头 `a2a5673`，CI run 37498638940 两 job 全绿。
 - [x] 冻结 ARCHITECTURE 中类型/接口到实际代码的映射、公共文件单写者和拟增加的辅助状态；证明没有新 canonical Task/Action/device/credential DB。
       → §2：九个接口与八个类型**实测全部不存在**，`observeResources` / `admit` 是同名异物；§4：单写者清单 + 裸 City 启动后数据目录无 pcf 状态。
 - [ ] 明确每本下游的 component/exposure owner，检查 UI→backend 依赖无环；需要拆 primitive/product-wiring 时先修任务 DAG 和正式 scope，而非给 exposure gate 造例外。
@@ -60,7 +60,11 @@ baseline_blocker: null
 - [ ] 两主机独立核对样本调用链；未证明的 seam 标 UNKNOWN/NOT_WIRED，列入相应下游验收，不能清零。
       → **未完成**：必须由另一实体主机执行（§3 禁止自审）。本机已在 §3 明确标出 NOT_WIRED 的 seam 与原因，未用本机结果替代异机复检。
 
-### 2026-10-07 关键路径问题（上报，不自行开例外）
+### 2026-10-07 CI 暴露的仓库闸门缺陷与修复（记录判断逻辑）
+
+首个交付头 `d611cfe` 在 hosted CI 的 step `pnpm check:docs` 失败：仓库闸门 `scripts/check-bilingual.mjs` 只对 `docs/{zh-CN,en}` 做一层 readdir，遇到**工作书明文要求**的嵌套路径 `docs/{zh-CN,en}/pcf/ownership-map.md` 直接 EISDIR（本机按同一命令复现）。两个选项——(a) 把交付物挪成平铺以迁就工具，(b) 把闸门改成树感知——选 **(b)**：工作书是权威，配对翻译的性质与层级无关，错的是一层假设。修复保留原语义（两语言相对路径列表必须完全相等、逐对事实行必须相等），并**先证伪再采信**：移走 en 镜像 → `docs missing language pair`（退出 1）；在 en 加一行 `STATUS:` → `docs/pcf/ownership-map.md facts differ`（退出 1）；复位后三处 `PAIR_STATUS = SYNCHRONIZED`（退出 0）。修复头 `a2a5673` 的 CI run 37498638940 两 job 全绿。失败头与根因保留在 `reports/PCF-700/DEVELOPMENT_REPORT.md` §2.5，未被覆盖。
+
+
 
 PCF-701..728 **全部**（直接或间接）依赖 PCF-700；PCF-701 达到 READY 要求依赖任务 status=COMPLETE（一致性检查规则 4）。本任务 `review_host: null`，正式复检只能由另一实体主机完成。因此本系列当前**唯一关键路径是 PCF-700 的异机复检**，不是再领一本——这与 REX 系列上一轮卡住的成因同构。本机不自行复检、不为依赖门造例外；判断与选项已记入 `reports/PCF-700/DEVELOPMENT_REPORT.md` §3 J3。
 

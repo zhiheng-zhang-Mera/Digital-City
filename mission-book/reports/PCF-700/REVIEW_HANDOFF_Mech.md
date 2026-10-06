@@ -2,15 +2,19 @@
 
 ```text
 TASK_ID            PCF-700
-REVIEW TARGET      d611cfe5f0272673706b9dc5c9f6b85ed40a9406
+REVIEW TARGET      a2a567325e6ce08629eefbe67cda6f8f2c16fd64
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit（= pcf/series-mech 当前头）
 BASELINE           312b627b54af5bbf274fa25eca8f8383869c1c34
 AUTHOR HOST        Mech（COMPUTERNAME MEGA-REP，role Mech-DS）
 REVIEWER          另一实体主机（§3 禁止自审；本文件**不是**复检声明，也不构成裁决）
 DELIVERABLES       docs/zh-CN/pcf/ownership-map.md, docs/en/pcf/ownership-map.md,
-                   tests/pcf700-compatibility.test.mjs
+                   tests/pcf700-compatibility.test.mjs, scripts/check-bilingual.mjs
 REPORT             reports/PCF-700/DEVELOPMENT_REPORT.md
 ```
+
+> 复检目标说明：前一交付头 `d611cfe5f0272673706b9dc5c9f6b85ed40a9406` 在 hosted CI 上因 step `pnpm check:docs`
+> 失败（仓库闸门 `scripts/check-bilingual.mjs` 只读一层目录，遇到工作书要求的 `docs/*/pcf/` 嵌套直接 EISDIR）。
+> 修复头 `a2a5673` 含该闸门的树感知修复，**复检请以 a2a5673 为对象**；失败头与根因保留在 DEVELOPMENT_REPORT §2.5。
 
 ## 1. 本交接存在的原因 / Why this file exists
 
@@ -20,10 +24,11 @@ PCF 系列 701..728 **全部**（直接或间接）依赖 PCF-700，而 PCF-701 
 
 ```text
 R1 独立取得精确头：git ls-remote origin pcf/PCF-700-mech-ownership-and-reality-audit，
-   确认等于 d611cfe5f0272673706b9dc5c9f6b85ed40a9406；再确认 312b627b54af5b 是该头祖先。
+   确认等于 a2a567325e6ce08629eefbe67cda6f8f2c16fd64；再确认 312b627b54af5b 是该头祖先。
 R2 独立重跑作者套件：corepack pnpm install --frozen-lockfile && corepack pnpm --dir city install --frozen-lockfile
    （两步必须都做：根目录 node_modules 是 junction 时 city workspace 不会被装上），
-   然后 node --test tests/pcf700-compatibility.test.mjs。作者的实测是 7/7，复检方须自测。
+   然后 node --test tests/pcf700-compatibility.test.mjs，以及仓库闸门 pnpm check:docs。作者的实测是 7/7 与
+   三处 PAIR_STATUS = SYNCHRONIZED，复检方须自测。
 R3 证伪 R2 而不是复述：至少挑两条兼容反例自造输入使其失败再复位（例如让 strict target 命中真实在线节点，
    期望 C3 的 withheld 断言**变为不成立**），确认套件不是恒真。
 R4 独立制造样本调用链的**异机**证据（TWO_HOST_VERIFIED 档）：本机侧只做到单机 LIVE 证据。
