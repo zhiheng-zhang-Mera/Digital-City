@@ -146,18 +146,43 @@ seed reproducibility），作者自测不构成 review 证据；作者提出的�
 REX-803 的作者自测在修完自身缺陷后，把同一探针指向“City 启动期会碰到的每一个文件存储”，发现该失效形状**在 main 上仍然存活**：在应当是目录的位置放一个文件，会让 `createGateway` 直接抛错，City 连端口都不绑定。
 
 ```text
-实测（同一 harness，八次探针，main 213f9f9f → 修复分支 8c67bb2）
+SHAPE A  在应为目录的位置放一个文件（6 个 store，main 213f9f9f → 修复分支 8c67bb2）
 theme-packages (capability-bridge)  BRICKED EEXIST  →  STARTED        <- 第二个实例，已给可采纳修复
 research (REX-801 registry parent)  BRICKED ENOTDIR →  仍 BRICKED     <- 已单独报告并给可采纳修复
 research/experiments (REX-801)      BRICKED EEXIST  →  仍 BRICKED     <- 同上
-research/campaigns / monitor / research-trace / join-requests.json / execution-profile.json  STARTED → STARTED
+research/campaigns / monitor / research-trace                            STARTED → STARTED
+
+SHAPE B  在应为文件的位置放一个目录（3 个 store，两个分支结果相同）
+city.sqlite (canonical store)       BRICKED "unable to open database file"   <- F-1 新实例：此处拒绝启动是**正确**的，
+                                                                                缺的是可诊断的 typed 原因
+join-requests.json (join store)     STARTED，HTTP 200 且内存中已生成审批行，但**什么都没落盘**   <- F-2 有意的静默
+execution-profile.json (WBC-604)    change() 抛错，但内存 profile 已经切换   <- F-3 违反该模块自己声明的 rule 2
 ```
 
-完整记录（两个实例、成对前后测、两个可采纳修复分支、以及“已有测试在坏树上通过”的仪器教训）见
+v1 版本的表格声称有 8 个探针，实际只有 6 个（其中两行 `relative = null` 根本没埋雷，join 行的 `HTTP 400` 还是探针自身把字段名写成 `claimSecret` 造成的）。该仪器缺陷连同更正后的实测一并记录，不做静默清洗。
+
+完整记录（两个 bricking 实例、F-1/F-2/F-3 三种不同失效模式、成对前后测、两个可采纳修复分支、以及三条仪器教训）见
 [reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md)。
-两个模块均已合并进 main 且其任务已关闭，因此本机只发布测量、修复分支与探针，**不合并、不改 main、不触碰关闭任务的记录**。
+涉及的模块均已合并进 main 且其任务（REX-801、MB-008 legacy、WBC-604）已关闭，因此本机只发布测量、修复分支与探针，
+**不合并、不改 main、不触碰关闭任务的记录**。
 
 该缺陷同时是 REX 的论文素材（§7）：重复故障注入、before/after 对照、以及一条可复用的“失效形状扫描”方法学。
+
+### 当前可领取状态（Mech 复扫，2026-10-06）
+
+按领取规则重扫整个 mission-book（24 个真实 workbook，模板 XX-000 除外）后的结论：**Mech 当前可领取的开发任务为 0**。
+
+```text
+READY 且未被领取                                    0
+开发已完成、等待对侧主机 review                     3   (REX-803 / MON-902 / MON-903；review_host 均为 null)
+review 已被 Mech 领取、等待 Alien 修复              1   (REX-804，verdict = NOT PASSED)
+依赖未满足                                         5   (REX-805/806/807/890、MON-990)
+对侧主机已领取未开工                                1   (SHOW-401，dev=Alien)
+```
+
+REX-805 的 `dependencies` 明确要求 `REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED`，因此它不会因为 REX-801/802 已接受而解锁。
+Universe 的下一步全部落在对侧物理主机（Alien review / Alien repair）或离线的 Alien 节点上；本机不做投机性 union baseline，也不
+自行制造“可领取”工作。本轮的施工因此落在**不占任务、可复用的验证与缺陷发现**上，其结果即上文两项实测。
 
 ## 4. 双机异步施工
 
