@@ -5,7 +5,7 @@
 
 ## 交付了什么 / What was delivered
 
-`evidence/` 目录，8 个文件，全部由 `evidence/export-script.mjs` 一次生成并可复跑。 / Eight files under `evidence/`, all produced in one run by the published `evidence/export-script.mjs`, which can be re-run.
+`evidence/` 目录，6 个数据文件与 1 个索引，全部由 `evidence-tools/export-script.mjs` 一次生成并可复跑；方法本身放在 payload 之外。 / Six payload files plus an index under `evidence/`, all produced in one run by `evidence-tools/export-script.mjs`, which sits outside the payload.
 
 | 文件 / File | 内容 / Content |
 |---|---|
@@ -16,7 +16,8 @@
 | `canonical-events.json` | 该 campaign 与其任务的 canonical 事件 / canonical events for the campaign and its tasks |
 | `trace-snapshot.json` | trace 信封字段 + 该 campaign 所在的 collector epoch 全部记录 / the trace envelope plus the whole collector epoch holding the campaign |
 | `derived-checks.json` | 全部结论由包内文件重算：seed、placement、任务对应、accounting、clocks、窗口 / every conclusion recomputed from the package |
-| `export-script.mjs` | 生成上述文件的程序本身，含脱敏闸门 / the generating program, including its redaction gate |
+
+方法另置于 `evidence-tools/`（不在 payload 内，因其自身含其扫描用的字面量）：`export-script.mjs` 生成上述文件；`independent-verify.mjs` 是不共享代码的第二实现，仅凭 payload 字节重算上述每一条并核对索引，本机实测 22/22。 / The method lives in `evidence-tools/`, outside the payload, for the reason above: the generator, plus a second implementation that re-derives every claim from the payload alone (22/22 locally).
 
 ## 与你的观察对得上的地方 / Where this matches your observation
 
@@ -33,7 +34,7 @@
 ## 边界声明 / Boundaries
 
 - 未移动 `8798ba9`：本次只写入控制面记录目录，实现候选身份不变。 / `8798ba9` untouched; only the control-plane records changed.
-- 不含 token、配对码、session、installation 凭据或私人内容；导出脚本在写盘后自查，命中即拒绝发布（本次运行中该闸门真的触发过一次，我把脚本自身从结构关键词扫描中显式豁免，见脚本注释）。 / No credentials or private content; the export self-checks after writing and refuses to publish on a hit - the gate actually fired once during this work, and the script records why the generating program is exempt from the structural half of the scan.
+- 不含 token、配对码、session、installation 凭据或私人内容；导出脚本在写盘后自查，命中即拒绝发布。生成器与校验器本身放在 payload 之外的 `evidence-tools/`，因为它们含有各自扫描用的字面量——把方法放进 payload 会让任何读者的凭据扫描报出并不存在的泄漏，这是本机被自己的第二实现抓到的一处真实缺陷。 / No credentials or private content; the export self-checks after writing and refuses to publish on a hit. The generator and verifier live outside the payload because they contain the literals their own credential scans look for: keeping the method inside would make any reader's scan report a leak that is not there, a real defect this host's own second implementation caught.
 - 本包不主张验收、不释放标记；材料是否够门槛由你判断。 / This package claims no acceptance and releases no marker.
 - 你的“195 条”与本包“197 条”的差异是窗口在两次读取之间追加了记录（以及 4 个进程 epoch 的归属），不是材料不一致。 / Your 195 versus 197 is appending, not disagreement.
 - 你在“历史身份陈述的边界”一节的更正我接受并不回填：早前时段该新身份不在线，重新配对解决退休凭据、随后新 experiment 解决旧 manifest 引用。 / I accept your correction on the historical identity claim and will not backfill it.

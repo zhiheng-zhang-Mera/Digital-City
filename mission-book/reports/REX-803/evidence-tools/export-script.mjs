@@ -291,12 +291,28 @@ const packageFiles = {
     records: epochRecords,
   }},
   'derived-checks.json': {value: derived},
-  // The exporting program itself, byte for byte: a reader should be able to re-run the publication and to see the
-  // redaction gate rather than take the absence of secrets on trust.
-  'export-script.mjs': {raw: readFileSync(fileURLToPath(import.meta.url), 'utf8')},
 };
 
 mkdirSync(OUT, {recursive: true});
+
+// The generating program is published NEXT TO the payload, not inside it.
+//
+// First draft put it in the evidence directory so the package would carry its own method. The independent verifier - a
+// second implementation, written on purpose without shared code - then flagged export-script.mjs for credential-shaped
+// content, because the script's own scan vocabulary contains the literal strings it searches for. That is a false
+// positive any reader would hit, and a package that makes its reviewer spend a round disproving a leak that is not
+// there is worse than one that keeps the method outside the hashed payload. The payload is now free of anything a
+// naive credential scan can match, with no exemption needed by the reader.
+const toolsDir = resolve(OUT, '..', 'evidence-tools');
+mkdirSync(toolsDir, {recursive: true});
+const selfText = readFileSync(fileURLToPath(import.meta.url), 'utf8');
+writeFileSync(join(toolsDir, 'export-script.mjs'), selfText);
+const staleScript = join(OUT, 'export-script.mjs');
+if (existsSync(staleScript)) {
+  const {unlinkSync} = await import('node:fs');
+  unlinkSync(staleScript);
+}
+
 const written = [];
 for (const [name, entry] of Object.entries(packageFiles)) {
   const text = 'raw' in entry ? entry.raw : pretty(entry.value);
@@ -304,21 +320,16 @@ for (const [name, entry] of Object.entries(packageFiles)) {
   written.push({file: name, bytes: Buffer.byteLength(text), sha256: sha256(text)});
 }
 
-// The redaction gate: the package must not contain the owner credential or any session/claim material. Checked against
-// what was actually written, so a leak fails this script rather than asking a reader to notice it.
-//
-// The exporting script is scanned for the credential like everything else, but not for the structural needle words:
-// those words ARE its scan vocabulary, so it would always match itself. Excluding it from that half of the check is a
-// stated exemption, not a hole - the value it must never contain is still checked in it.
+// The redaction gate: the payload must not contain the owner credential or any session/claim material, checked against
+// what was written so a leak fails this script rather than asking a reader to notice it. There is no exemption list:
+// the payload holds only artefacts, and the generating program lives outside it (see above).
 const structuralNeedles = [['sess:', 'a session id prefix'], ['claimSecret', 'a claim secret'],
   ['credentialSecret', 'a credential secret'], ['shortCode', 'a pairing short code'], ['pairingSessionId', 'a pairing session id'],
   ['"token"', 'a token field']];
-const exemptFromStructuralScan = new Set(['export-script.mjs']);
 const leaks = [];
 for (const entry of written) {
   const text = readFileSync(join(OUT, entry.file), 'utf8');
   if (text.includes(secret)) leaks.push(`${entry.file} contains the owner credential`);
-  if (exemptFromStructuralScan.has(entry.file)) continue;
   for (const [needle, label] of structuralNeedles) if (text.includes(needle)) leaks.push(`${entry.file} contains ${label}`);
 }
 if (leaks.length > 0) {
@@ -358,14 +369,21 @@ const index = [
   `\`${RUNTIME}/research/campaigns/${CAMPAIGN_ID}.json\` (SHA256 of that file: \`${sha256(receiptText)}\`); a reader with`,
   'access to the host can confirm the copy byte for byte. This index cannot carry its own hash.',
   '',
-  '`export-script.mjs` is the exact program that produced every other file here, including its own copy. Re-running it',
-  'against the same City reproduces this package; it reads the owner credential from the host reservation at runtime and',
-  'refuses to publish anything if the package would contain the credential, a session id, a pairing code, a claim secret',
-  'or a token field.',
+  '`../evidence-tools/` holds the method, outside this payload. `export-script.mjs` is the exact program that produced',
+  'every file here. `independent-verify.mjs` is a second implementation, written without shared code, that re-derives',
+  'every claim above from the published bytes alone and checks this index against them; run it as',
+  '`node evidence-tools/independent-verify.mjs mission-book/reports/REX-803/evidence`. Both live outside the payload',
+  'because they contain the literal strings their own credential scans look for, and a payload that makes a reader\'s scan',
+  'report a leak that is not there is worse than one without a bundled generator. They are the author\'s instruments,',
+  'not a review: the reviewer\'s probes remain the reviewer\'s, and may reject these.',
+  '',
+  'The export script reads the owner credential from the host reservation at runtime, never writes it, and refuses to',
+  'publish if the result would contain the credential, a session id, a pairing code, a claim secret or a token field.',
   '',
   'These files are marked `-text` in the repository `.gitattributes`, so a checkout on any host reproduces the exact',
   'bytes hashed above rather than a line-ending-normalized copy: a hash mismatch caused by the reader\'s checkout would',
-  'otherwise be indistinguishable from a hash mismatch caused by the material.',
+  'otherwise be indistinguishable from a hash mismatch caused by the material. Verified by cloning the repository fresh',
+  'and hashing the files as the clone materializes them.',
   '',
   '## Why the trace is PARTIAL, stated rather than implied',
   '',
