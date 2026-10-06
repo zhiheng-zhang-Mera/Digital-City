@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.MemberManagementTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-06T04:52:16.708Z" hostname="MERA-ALIANWARE" time="0.013">
+  <properties/>
+  <testcase name="otherCityAndMalformedEnrollmentCannotAuthorizeOwner" classname="city.utopia.control.MemberManagementTest" time="0.004"/>
+  <testcase name="malformedPopulationCannotLookLikeEmptyHealthyList" classname="city.utopia.control.MemberManagementTest" time="0.001"/>
+  <testcase name="sessionSelfPinnedAndAuthorityNotInferredFromNames" classname="city.utopia.control.MemberManagementTest" time="0.006"/>
+  <testcase name="mismatchedOrUnknownScopeNeverInventsOwnerAuthority" classname="city.utopia.control.MemberManagementTest" time="0.0"/>
+  <testcase name="installationMustMatchBoundDeviceIdentity" classname="city.utopia.control.MemberManagementTest" time="0.0"/>
+  <testcase name="ownerActorIsCityHostWithoutClaimingPhysicalPhoneIdentity" classname="city.utopia.control.MemberManagementTest" time="0.0"/>
+  <testcase name="receiptOnlyForCanonicalRecipientAndPendingMessage" classname="city.utopia.control.MemberManagementTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
