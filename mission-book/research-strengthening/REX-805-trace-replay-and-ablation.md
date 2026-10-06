@@ -18,8 +18,12 @@ dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_R
 development_host: "Alien"
 development_branch: "rex/REX-805-alien-replay-ablation"
 development_head_sha: "0261a9ed1cec88df3ab4675623d422b37b33f270"
-development_ci: "PASS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: push37446455570, PR37446461188, linkage37446461192 all COMPLETED SUCCESS. Local full1413/1410PASS/3ENV_FAIL (resident City4389), focused18/18PASS, independent empty-limit repair review PASS. Physical original-replay-ablation gate NOT_RUN; development_complete remains false."
-development_complete: false
+development_ci: "PASS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: push37446455570, PR37446461188, linkage37446461192 all COMPLETED SUCCESS; local1413/1410PASS/3ENV_FAIL; focused18/18PASS and independent code re-review PASS. Physical predecessor4b39468 packet63/63 verified; final-head physical execution NOT_OBSERVED, formal review pending."
+development_complete: true
+development_physical_gate_basis: "MET_ON_PREDECESSOR_4b39468_WITH_FINAL_EMPTY_LIMIT_REGRESSION; final0261a9e physical execution NOT_OBSERVED; reviewer revalidation required"
+capability_registry_action: CREATE
+capability_registry_refs: ["CAP-RESEARCH-REPLAY-001"]
+capability_registry_sync_status: DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -35,7 +39,7 @@ backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
-development_report_ref: mission-book/reports/REX-805/DEVELOPMENT_CHECKPOINT.md
+development_report_ref: mission-book/reports/REX-805/DEVELOPMENT_HANDOFF.md
 development_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/38"
 report_path: mission-book/reports/REX-805
 terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED

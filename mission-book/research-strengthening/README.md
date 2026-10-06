@@ -445,3 +445,12 @@ RESULT      reports/REX-805/PHYSICAL_GATE_RESULT_Mech.md
 ```
 
 顺带更正 / a correction carried with it：合成源仪器曾报 `controlledInputDifferences:['limits']`，**真实记录的源没有这条差异**——该差异属于合成夹具，不是物理重放的属性。
+
+
+### REX-805 作者交付 / Author handover
+
+最新作者交付候选为 `0261a9ed1cec88df3ab4675623d422b37b33f270`，精确CI三项成功、独立代码复审通过。前驱4b39468的实体材料经作者63/63独立核验；最终修复针对无额外限制时的null/{}比较，真实非空限制路径的前驱材料仍是有界开发依据，不声称最终候选实体部署已观测。开发完成5/8、正式复检4/8、任务完成4/8；REX805仍IN_PROGRESS，正式review_host仍null、terminal未释放。见 [开发交付](../reports/REX-805/DEVELOPMENT_HANDOFF.md) 和 [材料索引](../reports/REX-805/PAPER_MATERIAL_INDEX.md)。
+
+The author hands over exact candidate `0261a9ed1cec88df3ab4675623d422b37b33f270`, with three successful exact-head CI runs and independent code re-review. The author independently verifies the predecessor4b39468 physical packet with63/63 checks. The final fix concerns null/{} comparison without extra bounds; the measured predecessor nonempty-bound path remains a bounded development basis, not observation of final-candidate physical deployment. Development is5/8, formal review4/8 and accepted tasks4/8. REX805 remains IN_PROGRESS with review_host null and no released terminal. See the [handover](../reports/REX-805/DEVELOPMENT_HANDOFF.md) and [material index](../reports/REX-805/PAPER_MATERIAL_INDEX.md).
+
+前段“limits差异属于合成夹具”的推论限于那份有maxFailures=3的实体源；作者另以真实HTTP无额外限制源复现并修复误报，不能将该推论推广到所有真实campaign。 / The earlier synthetic-fixture inference is limited to that physical source with maxFailures=3. The author separately reproduced and repaired the mismatch with a real HTTP source without extra bounds; the inference cannot extend to every real campaign.

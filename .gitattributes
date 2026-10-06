@@ -6,3 +6,5 @@
 # belongs to the checkout rather than to the material. These files are therefore stored and checked
 # out verbatim: the blob bytes are the bytes that were hashed.
 mission-book/reports/REX-803/evidence/** -text
+# REX-805 publishes the same exact-byte receipt/index contract across hosts.
+mission-book/reports/REX-805/evidence/** -text

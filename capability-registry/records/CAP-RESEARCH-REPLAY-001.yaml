@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-RESEARCH-REPLAY-001",
+  "name": {
+    "zh_CN": "有界研究回放与设备选择消融",
+    "en": "Bounded research Replay and worker-selection Ablation"
+  },
+  "source_workbooks": [
+    "REX-805"
+  ],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "services/dev-gateway/research/replay.mjs",
+      "services/dev-gateway/server.mjs",
+      "services/dev-gateway/scenario-runner.mjs",
+      "apps/web/research-replay.js"
+    ],
+    "symbols": [
+      "createReplayEngine",
+      "replayTarget",
+      "createResearchReplayView"
+    ],
+    "api_or_actions": [
+      "GET /api/v0/research/replays",
+      "POST /api/v0/research/replays",
+      "GET /api/v0/research/replays/<campaignId>"
+    ],
+    "last_verified_full_sha": "0261a9ed1cec88df3ab4675623d422b37b33f270"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "recorded source run and bounded supported mechanisms",
+      "source/new execution identities, control differences and placement",
+      "explicit unavailable conditions and nondeterminism"
+    ],
+    "user_controls": [
+      "select source run",
+      "start Replay or alternate-device Ablation",
+      "compare terminal receipts"
+    ],
+    "intentionally_hidden_information": [
+      "credentials and control tokens"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Research campaigns > Replay/Ablation",
+      "nesting": "L3_ADVANCED",
+      "discoverable": true,
+      "enabled_when": "ONLINE + City owner",
+      "evidence_ref": "mission-book/reports/REX-805/DEVELOPMENT_HANDOFF.md"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/rex805-gateway.test.mjs",
+      "utopia:tests/rex805-replay-engine.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:tests/rex805-web.test.mjs",
+      "mission-book/reports/REX-805/PHYSICAL_GATE_RESULT_Mech.md"
+    ],
+    "intent_validation_refs": [],
+    "review_refs": [
+      "mission-book/reports/REX-805/DEVELOPMENT_CHECKPOINT.md",
+      "mission-book/reports/REX-805/independent-material-checks-Alien.json"
+    ],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/0261a9ed1cec88df3ab4675623d422b37b33f270",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/38"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": true,
+    "registry_reconciliation_result": "DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING",
+    "paper_material_refs": [
+      "mission-book/reports/REX-805/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/REX-805/evidence/MATERIAL_INDEX.md"
+    ]
+  },
+  "known_gaps": [
+    "Formal opposite-host review and acceptance remain pending; product-main merge is not authorized.",
+    "Physical original/Replay/Ablation is independently verified at predecessor4b39468. Final0261a9e changes only absent-bound comparison and passes independent code/Gateway regression; physical deployment/execution at that final head is NOT_OBSERVED.",
+    "V1 supports stateless WAIT and exact alternate-device ablation only; other mechanisms and unsnapshotted file/fault conditions are refused.",
+    "Web reachability PARTIAL; native Android research controls remain for REX-807 and handset comparison rendering NOT_OBSERVED.",
+    "Intent validation NOT_TESTED; control-input replay is not external-provider determinism or causal performance. Source refs do not attest current-process software identity.",
+    "All seven Important defects and failed intermediate/measurement attempts remain in the development checkpoint and execution ledger."
+  ],
+  "last_reconciled_by_workbook": "REX-805"
+}
