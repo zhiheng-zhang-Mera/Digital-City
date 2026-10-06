@@ -1,0 +1,32 @@
+✔ the default profile is STANDARD_DEVICES and the future profiles are declared but not default (1.5922ms)
+✔ a port must be complete before it may be registered, and the missing piece is named (0.8998ms)
+✔ readiness refuses to be silent: only READY may omit a reason, and a bad state is typed (0.3184ms)
+✔ a registry refuses a second backend for one profile and names the owner (1.3355ms)
+✔ a dormant backend is registered but may never serve ordinary work (0.3425ms)
+✔ one backend may not silently change the profile it serves (0.1742ms)
+✔ an execution endpoint view states that it is a worker, never a control surface (0.2214ms)
+✔ review: malformed null port is a typed INVALID_BACKEND refusal (0.1263ms)
+✔ a City with no Workbench starts, serves and executes: the seam adds no startup dependency (254.5818ms)
+✔ the port and the live route reach the same claim decision on the same facts (129.4401ms)
+✔ an offline named device is withheld by the port exactly as the route withholds it (134.4241ms)
+✔ the City exposes which backend placed the work, and only STANDARD_DEVICES is ever enabled (67.2875ms)
+✔ STANDARD_DEVICES is the enabled long-term default and claims exactly the profile it wraps (1.5193ms)
+✔ fleet readiness distinguishes "no device at all" from "devices present, none accepting work" (1.6792ms)
+✔ an endpoint row is a truthful view: offline, capability-less and sharing-off are different facts (0.3396ms)
+✔ claim reproduces the frozen decision for every negative control the pre-seam route covered (1.1508ms)
+✔ report keeps the same transitions, the same refusals and the same event names (1.4609ms)
+✔ dispatch and control refuse honestly instead of pretending the endpoint is ready (0.8181ms)
+✔ a probe failure is reported as UNKNOWN rather than being allowed to crash a status read (0.1866ms)
+✔ the port refuses to be constructed without the facts it must not invent (0.3557ms)
+✔ review: dispatch cannot bypass strict target or handoff reservation (0.3033ms)
+✔ review: dispatch cannot transfer an already running task to a different free endpoint (0.2519ms)
+✔ review: claim readiness does not say ready when sharing is disabled or endpoint busy (0.2308ms)
+✔ review: endpoint readiness and dispatch honor injected canonical Core acceptance (0.214ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2894.4005
