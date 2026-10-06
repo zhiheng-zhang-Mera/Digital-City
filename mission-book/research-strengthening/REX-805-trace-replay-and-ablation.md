@@ -3,7 +3,7 @@ workbook_id: REX-805
 phase: RESEARCH_STRENGTHENING
 sequence: 805
 execution_enabled: true
-status: READY
+status: "IN_PROGRESS"
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -11,14 +11,14 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
 dependency_source_workbooks: ["REX-802","REX-803"]
 dependency_source_shas: ["833279cae237080cca88b1b6dbc9f217027ba68f","8798ba9dd37051626033ad72080b2fad3ff66149"]
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "8798ba9dd37051626033ad72080b2fad3ff66149"
+baseline_resolution_evidence: "CLAIM-TIME Alien2026-10-06: origin/main b06504f1f96984c960b2661b8ee3a7130796d379, REX802 accepted833279cae237080cca88b1b6dbc9f217027ba68f, required ancestor69a097b5394a9fece39dd11cc13f04c9b4d28bfe are all ancestors of REX803 accepted8798ba9dd37051626033ad72080b2fad3ff66149 (three git merge-base --is-ancestor exit0). Dependency union requires no new merge. Isolated worktree D:/Utopia-REX805-20261006 at exact8798ba9; frozen pnpm install PASS; baseline REX801 manifest5 +REX802 trace12 +REX803 runner12 =29/29 PASS before product edits. Earlier read used two nonexistent suite names and executed only runner12; not dependency smoke evidence."
 baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED"]
-development_host: null
-development_branch: null
+development_host: "Alien"
+development_branch: "rex/REX-805-alien-replay-ablation"
 development_head_sha: null
-development_ci: null
+development_ci: "NOT_RUN: no REX805 implementation head yet"
 development_complete: false
 review_host: null
 review_head_sha: null
