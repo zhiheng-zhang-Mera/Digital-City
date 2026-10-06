@@ -1,0 +1,18 @@
+✔ REX802 broken observation clock remains a contained failure (1.966ms)
+✔ REX802 rejects an oversized existing file before rotating or modifying it (7.3747ms)
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (1.8822ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.3304ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (0.4032ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (5.4361ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.3488ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (60.2225ms)
+✔ REX802 early capture waits for restored watermark before normalization (4.5212ms)
+✔ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (0.6743ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1034.2789

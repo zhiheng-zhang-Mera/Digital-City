@@ -1,0 +1,62 @@
+Error: CONTROLLED_COMMIT_FAILURE
+    at file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:3:360
+    at Store.atomic (file:///D:/Utopia-REX802/services/dev-gateway/store.mjs:45:62)
+    at app.store.atomic (file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:3:337)
+    at createCityTask (file:///D:/Utopia-REX802/services/dev-gateway/server.mjs:395:18)
+    at Server.<anonymous> (file:///D:/Utopia-REX802/services/dev-gateway/server.mjs:674:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+✖ REX802 rolled-back canonical events never enter the trace (128.1361ms)
+✖ REX802 member Web surface exposes explicit owner-required guidance (1524.1332ms)
+✔ REX802 records only supplied resource samples, preserves zero and declared source time (107.3654ms)
+✔ REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets (1253.7498ms)
+✔ REX802 failing collector cannot break real Gateway task/health and reports partial failure (125.4316ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 3
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5658.4358
+
+✖ failing tests:
+
+test at tests\rex802-gateway.test.mjs:3:1
+✖ REX802 rolled-back canonical events never enter the trace (128.1361ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:3:629)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex802-gateway.test.mjs:4:1
+✖ REX802 member Web surface exposes explicit owner-required guidance (1524.1332ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Only the City owner/. Input:
+  
+  'RESEARCH RECORDING\n' +
+    '\n' +
+    'Read-only observations from this City. Recording does not create or execute an experiment.\n' +
+    '\n' +
+    'Refresh\n' +
+    '\n' +
+    'Research records are unavailable. Refresh or reconnect.'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:4:920)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'RESEARCH RECORDING\n\nRead-only observations from this City. Recording does not create or execute an experiment.\n\nRefresh\n\nResearch records are unavailable. Refresh or reconnect.',
+    expected: /Only the City owner/,
+    operator: 'match',
+    diff: 'simple'
+  }

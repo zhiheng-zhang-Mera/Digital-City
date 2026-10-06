@@ -1,0 +1,31 @@
+✖ REX802 records only supplied resource samples, preserves zero and declared source time (127.3973ms)
+✔ REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets (1508.2249ms)
+✔ REX802 failing collector cannot break real Gateway task/health and reports partial failure (122.4816ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4060.9213
+
+✖ failing tests:
+
+test at tests\rex802-gateway.test.mjs:3:1
+✖ REX802 records only supplied resource samples, preserves zero and declared source time (127.3973ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(sample)
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:3:740)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
