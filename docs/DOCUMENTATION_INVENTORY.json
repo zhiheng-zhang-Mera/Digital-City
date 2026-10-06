@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1061,
-  "total_bytes": 8125123,
+  "total_bytes": 8134240,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -8422,10 +8422,10 @@
     },
     {
       "path": "mission-book/reports/REX-803/THREE_END_GATE_MEASUREMENT.md",
-      "bytes": 5533,
+      "bytes": 9156,
       "encoding_state": "UTF8",
       "chinese_characters": 25,
-      "english_words": 218,
+      "english_words": 544,
       "paired_path": "mission-book/reports/REX-803/zh-CN/THREE_END_GATE_MEASUREMENT.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8701,19 +8701,19 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/ALIEN_CONTINUATION_PACKET.md",
-      "bytes": 5504,
+      "bytes": 7701,
       "encoding_state": "UTF8",
       "chinese_characters": 8,
-      "english_words": 519,
+      "english_words": 720,
       "paired_path": "mission-book/reports/REX-PROGRAMME/zh-CN/ALIEN_CONTINUATION_PACKET.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md",
-      "bytes": 30061,
+      "bytes": 32647,
       "encoding_state": "UTF8",
       "chinese_characters": 8,
-      "english_words": 1665,
+      "english_words": 1829,
       "paired_path": "mission-book/reports/REX-PROGRAMME/zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9502,7 +9502,7 @@
     },
     {
       "path": "mission-book/workbench-compatibility-migration/README.md",
-      "bytes": 13521,
+      "bytes": 14232,
       "encoding_state": "UTF8",
       "chinese_characters": 1455,
       "english_words": 521,
