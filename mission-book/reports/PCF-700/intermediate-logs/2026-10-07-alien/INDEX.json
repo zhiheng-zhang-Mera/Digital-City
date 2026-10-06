@@ -91,6 +91,36 @@
       "file": "pcf700-review-packet.log",
       "bytes": 1377,
       "sha256": "6b963d984bdae2a0021cff35506abcbfbed7a29bbb889a03f9971c00e14a740a"
+    },
+    {
+      "file": "pcf700-isolated-dependencies.log",
+      "bytes": 1352,
+      "sha256": "4dc874bb1cf9e01df9d114470281d72140357f0a2a6c73e2813b651df485f2e8"
+    },
+    {
+      "file": "pcf700-live-sample-created.json",
+      "bytes": 636,
+      "sha256": "3e358d98d82a7eef45b05462ce791e04a1fa92d8380de1bd9836d7a51c49fdbc"
+    },
+    {
+      "file": "pcf700-live-sample-events.json",
+      "bytes": 3971,
+      "sha256": "b41d10b165a40a492e60b23aee4b6f67faefadd96e6afc1372feebbcba01f8a1"
+    },
+    {
+      "file": "pcf700-live-sample-nodes.json",
+      "bytes": 1784,
+      "sha256": "04970f86ca99abdbb0d4e91e35182043dfb1b8f5a072b3ccbdd8ad69cefc9cc9"
+    },
+    {
+      "file": "pcf700-live-sample-observed.json",
+      "bytes": 603,
+      "sha256": "557820f18e9339de41696e97be639b4c2ef2ebd825d1209615fd8c44aecaba1b"
+    },
+    {
+      "file": "pcf700-root-install.log",
+      "bytes": 700,
+      "sha256": "cb2afb6fc71506aced6389041c2373a75d5abce673070bdcf77c2f59731cf546"
     }
   ],
   "independent_python_fingerprints": [
@@ -100,5 +130,6 @@
     "services/dev-gateway/execution-profile.mjs",
     "contracts/node-descriptor-v1/node-descriptor.mjs"
   ],
-  "acceptance": "PENDING_TWO_HOST_LIVE_SAMPLE"
+  "acceptance": "AUDIT_COMPATIBILITY_ACCEPTED",
+  "live_sample_task": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1"
 }

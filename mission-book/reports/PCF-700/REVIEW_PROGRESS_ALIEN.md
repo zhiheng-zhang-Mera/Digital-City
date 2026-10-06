@@ -9,3 +9,7 @@
 - 待 Mech Owner 提供安全样本任务ID，核对真实跨机领取、执行、结果回原端。Awaiting an Owner-issued safe sample task to independently trace real cross-host claim/execution/result return. TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED remain unproven; no terminal marker released.
 
 [本轮日志及哈希 / Round logs and hashes](intermediate-logs/2026-10-07-alien/INDEX.json). Raw failures retained; no task acceptance or product-main merge. Worktrees are under D:/Utopia-tree/PCF-700-790. REX-806 review follows completion of this acceptance.
+
+## 后续裁决 / Subsequent ruling
+
+The earlier pending sample was resolved through permitted ordinary MEMBER task creation. See [formal review](REVIEW_REPORT.md); original pending observations are retained as history. 原待验项已由普通任务异机实测解决，正式裁决见复检报告。

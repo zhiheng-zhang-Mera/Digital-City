@@ -1,0 +1,143 @@
+{
+  "events": [
+    {
+      "id": "b31c8374-ca24-4163-9766-72ad9efc20c8",
+      "timestamp": "2026-10-06T21:51:35.033Z",
+      "type": "COMMAND_ACCEPTED",
+      "actor": "gateway",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {},
+      "seq": 618
+    },
+    {
+      "id": "fa6c6862-41e9-453e-96ca-0f78a4d83ee3",
+      "timestamp": "2026-10-06T21:51:35.036Z",
+      "type": "TASK_CREATED",
+      "actor": "gateway",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {},
+      "seq": 619
+    },
+    {
+      "id": "1cdabe75-8beb-4cc4-9bbb-151f0a429eb9",
+      "timestamp": "2026-10-06T21:51:35.564Z",
+      "type": "TASK_ASSIGNED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "ASSIGNED",
+        "progress": 0,
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "seq": 620
+    },
+    {
+      "id": "c5439185-e401-488d-ba74-a7b7446aa8c7",
+      "timestamp": "2026-10-06T21:51:35.641Z",
+      "type": "TASK_STARTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 0,
+        "lastCheckpoint": null
+      },
+      "seq": 621
+    },
+    {
+      "id": "48343cdd-cef9-4f78-acc8-e579afadfc59",
+      "timestamp": "2026-10-06T21:51:36.852Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 18,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 1
+        }
+      },
+      "seq": 622
+    },
+    {
+      "id": "37c560cd-3ef8-4fec-ba4b-afc1609a0e81",
+      "timestamp": "2026-10-06T21:51:38.131Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 36,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 2
+        }
+      },
+      "seq": 623
+    },
+    {
+      "id": "1e39fe13-04ad-4435-b9f1-4ed661e936a3",
+      "timestamp": "2026-10-06T21:51:39.417Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 54,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 3
+        }
+      },
+      "seq": 624
+    },
+    {
+      "id": "1d1770e2-ba07-43ab-8b7f-7da9ac5a014c",
+      "timestamp": "2026-10-06T21:51:40.694Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 72,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 4
+        }
+      },
+      "seq": 625
+    },
+    {
+      "id": "9299b142-85a6-496c-a7c4-edc2a24ed33e",
+      "timestamp": "2026-10-06T21:51:41.976Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 90,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 5
+        }
+      },
+      "seq": 626
+    },
+    {
+      "id": "c9a3c5a4-b9af-4a46-9a1c-bc7d632b0f43",
+      "timestamp": "2026-10-06T21:51:42.059Z",
+      "type": "TASK_COMPLETED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1",
+      "payload": {
+        "state": "COMPLETED",
+        "progress": 100,
+        "result": {
+          "waitedMs": 6000
+        }
+      },
+      "seq": 627
+    }
+  ]
+}

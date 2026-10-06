@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {
+      "id": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "devicePrincipalId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "displayName": "Mega-rep",
+      "metadata": {
+        "platform": "win32"
+      },
+      "agentVersion": "0.2.0",
+      "telemetry": {
+        "observedAt": "2026-10-06T21:51:59.447Z",
+        "cpu": {
+          "usagePercent": 19.197350043877538
+        },
+        "memory": {
+          "usedBytes": 15293333504,
+          "totalBytes": 34066345984
+        },
+        "disk": {
+          "usedBytes": 422200311808,
+          "freeBytes": 278813634560,
+          "totalBytes": 701013946368
+        },
+        "uptimeSeconds": 133475.14
+      },
+      "sharingEnabled": true,
+      "capabilities": [
+        "task.execute.safe",
+        "filesystem.temp"
+      ],
+      "online": true,
+      "lastHeartbeatAt": "2026-10-06T21:52:00.067Z"
+    },
+    {
+      "id": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "devicePrincipalId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "displayName": "Alien-MERA-ALIANWARE",
+      "metadata": {
+        "platform": "win32"
+      },
+      "agentVersion": "0.2.0",
+      "telemetry": {
+        "observedAt": "2026-10-06T21:51:59.020Z",
+        "cpu": {
+          "usagePercent": 12.785890857724503
+        },
+        "memory": {
+          "usedBytes": 15439167488,
+          "totalBytes": 34101420032
+        },
+        "disk": {
+          "usedBytes": 223709081600,
+          "freeBytes": 671645843456,
+          "totalBytes": 895354925056
+        },
+        "uptimeSeconds": 217168.093
+      },
+      "sharingEnabled": true,
+      "capabilities": [
+        "task.execute.safe",
+        "filesystem.temp"
+      ],
+      "online": true,
+      "lastHeartbeatAt": "2026-10-06T21:51:59.677Z"
+    }
+  ]
+}
