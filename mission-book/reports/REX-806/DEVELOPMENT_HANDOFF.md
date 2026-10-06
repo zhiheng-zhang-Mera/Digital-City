@@ -199,6 +199,19 @@ member=owner 每个路由的「存在与否」完全一致（存在但 owner-onl
 
 **边界（写明）**：它证明的是**能力是否存在**，不是 commit SHA——两个路由集相同的头在这里无法区分；**未认证**客户端也做不到（City 在匹配路由之前对所有路由一律 401，已实测）。 / It attests capability presence, not a SHA; an unauthenticated client cannot do it at all.
 
+**「City 能不能自己报版本」这个问题的答案是不行（已实测）**：本机枚举了 City 快照的全部键（`apiVersion/schemaVersion` 只是契约版本，`descriptor.descriptorVersion` 亦然），`health.components` 只报状态（`gateway/rooms/execution: READY`），成员上的 `agentVersion: "0.2.0"` 是**客户端 agent** 而不是 City 构建；**没有任何字段指明运行中的候选**。因此 `environment.json` 那句「由操作者观察」不是偷懒，而是这台 City 能给的最诚实表述；外部路由指纹是在此之上的**最强可得**佐证。 / The City exposes no field naming its running revision (measured: full snapshot key list, descriptor version is a contract version, member agentVersion is the client agent), so the exporter's wording is the honest maximum and the route fingerprint is the strongest attestation available on top of it.
+
+**同一轮顺手对包内非指标区块做了逐字段核对**（找同类「字段名读错」的沉默少报）： / A field-by-field audit of the package's non-metric blocks for the same mis-keying class:
+
+```text
+topology.nodes           5 条，id/online/sharingEnabled 均为真实值（含另一台主机的 alien-reference-node）  -> 正确
+topology.controlSurfaces 1 条，是真实 device ref（dev-be7832e3…）                                          -> 正确
+topology.members         **[] 而 City 当时有 6 个成员**                                                    -> 已知缺陷 3（本轮记录，未修）
+environment.json         endpoint/status/nodeRuntime/platform 均为真实值；候选一栏见上（City 无法自报）      -> 正确
+其余导出输入             receipts/tasks/events/experiments 的字段映射已由溯源交叉核对（8/8）与指针复算（8/8）覆盖
+=> 结论：**恰好一个字段读错**（members），其余非指标区块与城市记录一致
+```
+
 ## 本机明确不主张的 / Explicitly not claimed
 
 ```text

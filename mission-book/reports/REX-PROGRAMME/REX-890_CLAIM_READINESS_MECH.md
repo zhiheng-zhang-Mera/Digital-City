@@ -157,7 +157,9 @@ PASS  the independent verifier accepts the produced package  14/14 independent c
    （F-1：拒绝启动正确、原因不可诊断），其修复 `be3670b` 已就绪可采纳
 6  对侧**可以用自己持有的 MEMBER 会话**判定另一台 City 跑的是哪一代（`evidence-tools/DEPLOYMENT_FINGERPRINT_MECH.mjs`）：
    路由「存在但 owner-only」回 403、不存在回 404 —— 对 side 做双机 study 时，双方都能独立确认对方 City 的能力面，
-   不需要交换 owner 凭据（实测：本机对产出包的 City 得到 faults/artifacts=404，匹配 REX-805 头指纹）
+   不需要交换 owner 凭据（实测：本机对产出包的 City 得到 faults/artifacts=404，匹配 REX-805 头指纹）。
+   补充实测：**City 本身没有任何字段自报运行版本**（快照全键 + descriptor 的 descriptorVersion + health.components
+   都只是契约版本或状态；成员上的 agentVersion 是客户端 agent），因此路由指纹是目前**最强可得**的版本佐证
 ```
 
 **本机演练自身的缺陷也记录在案**：① 在驱动循环里调用 `record()`，同一条检查刷了几百行、把前面的阶段全埋了；
