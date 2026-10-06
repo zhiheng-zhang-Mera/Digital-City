@@ -75,7 +75,10 @@
       "mission-book/reports/REX-805/DEVELOPMENT_CHECKPOINT.md",
       "mission-book/reports/REX-805/independent-material-checks-Alien.json",
       "mission-book/reports/REX-805/independent-repaired-material-checks-Alien.json",
-      "mission-book/reports/REX-805/independent-live-repaired-tasks-Alien.json"
+      "mission-book/reports/REX-805/independent-live-repaired-tasks-Alien.json",
+      "mission-book/reports/REX-805/REVIEW_REPORT.md",
+      "mission-book/reports/REX-805/REVIEW_CLAIM_Mech.md",
+      "mission-book/reports/REX-805/RECORD_RECONCILIATION.md"
     ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/0261a9ed1cec88df3ab4675623d422b37b33f270",
@@ -85,7 +88,7 @@
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": true,
-    "registry_reconciliation_result": "DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING",
+    "registry_reconciliation_result": "ACCEPTED_BOUNDED_SCOPE",
     "paper_material_refs": [
       "mission-book/reports/REX-805/PAPER_MATERIAL_INDEX.md",
       "mission-book/reports/REX-805/evidence/MATERIAL_INDEX.md",
@@ -93,7 +96,7 @@
     ]
   },
   "known_gaps": [
-    "Formal opposite-host review and acceptance remain pending; product-main merge is not authorized.",
+    "Formal opposite-host review PASSED on exact0261a9e; product-main merge is not authorized. Handset rendering NOT_OBSERVED and intent NOT_TESTED remain unchanged.",
     "Historical predecessor-only physical binding superseded: Mech reran exact0261a9e, packet63/63 independently verified and new live canonical tasks match. Mech publishes remote PID/source binding; Alien did not independently audit remote process identity.",
     "V1 supports stateless WAIT and exact alternate-device ablation only; other mechanisms and unsnapshotted file/fault conditions are refused.",
     "Web reachability PARTIAL; native Android research controls remain for REX-807 and handset comparison rendering NOT_OBSERVED.",

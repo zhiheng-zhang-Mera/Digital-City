@@ -9,3 +9,4 @@ mission-book/reports/REX-803/evidence/** -text
 # REX-805 publishes the same exact-byte receipt/index contract across hosts.
 mission-book/reports/REX-805/evidence/** -text
 mission-book/reports/REX-805/evidence-repaired/** -text
+mission-book/reports/REX-805/encoding-preimage.bin -text
