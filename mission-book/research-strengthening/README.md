@@ -455,3 +455,31 @@ The author hands over exact candidate `0261a9ed1cec88df3ab4675623d422b37b33f270`
 前段“limits差异属于合成夹具”的推论限于那份有maxFailures=3的实体源；作者另以真实HTTP无额外限制源复现并修复误报，不能将该推论推广到所有真实campaign。 / The earlier synthetic-fixture inference is limited to that physical source with maxFailures=3. The author separately reproduced and repaired the mismatch with a real HTTP source without extra bounds; the inference cannot extend to every real campaign.
 
 作者追加：最终0261a9e实体重跑已获原始包63/63及普通MEMBER规范任务独立核验，前驱-only缺口由此替代；正式对侧复检仍待领取/裁决。 / Author update: final0261a9e physical repetition now has63/63 raw-packet checks and independently matched ordinary-MEMBER canonical tasks, superseding the predecessor-only gap. Formal opposite-host claim/verdict remains pending.
+
+### REX-805 正式复检：**通过**，标记已释放 / Formal review: PASSED, marker released
+
+```text
+WHEN        2026-10-06，对侧主机 Mech 独立复检（作者 Alien，另一台物理主机，§3 满足）
+HEAD        0261a9ed1cec88df3ab4675623d422b37b33f270
+CLAIM       领取先于任何裁决发布：reports/REX-805/REVIEW_CLAIM_Mech.md
+PROBES      本机自造 17 项，全部通过：13 项打常驻真实 City（跑的就是被审 head），4 项在被审 head 上进程内
+  live      P1 空 limit 集源全链路（作者 0261a9e 修的分支）**被独立复现**：limits={} → 重放
+              controlledInputsMatch=true、differences=[]；新 campaign/experiment/canonical task 均为新身份
+            P2 同一源重放两次，9 个描述性字段完全一致
+            P3 alternate-device 消融落第一个声明 worker，placementChanged 如实（源本就在该 worker 上 => false）
+            P4/P4b 策略外机制、以及带消融控制的 REPLAY，均按名拒绝 ABLATION_UNSUPPORTED
+            P5/P5b 未知源、越界 index 均按名拒绝
+  inproc    P6 记录拓扑不在线 -> 409 REPLAY_TOPOLOGY_NOT_READY：**不可用条件确实不能被重放**
+            P7 receipt store 不可用（目录位置是文件）时 **City 仍然启动并服务**，storeState=UNAVAILABLE
+              reason=ENOTDIR，重放被打字化拒绝而非崩溃（store-guard 家族性质成立）
+OBSERVATION store 不可用时 replay 的 POST 回 404 CAMPAIGN_UNKNOWN（源查找先于引擎的 REPLAY_STORE_UNAVAILABLE）；
+            同一响应链已披露 storeState 与 reason，可区分 => 表述精度问题，**不构成缺陷**
+OWN DEFECTS 第一轮 live 探针 8/13，五个失败**全是本机探针的缺陷**（等待谓词、过窄错误码、把
+            「消融必然改变放置」当假设）；修正后 13/13，过程保留
+VERDICT     PASSED on 0261a9e；未发现缺陷
+MARKER      TRACE_REPLAY_ABLATION_ACCEPTED **已释放**，范围如实标注：真机渲染半边 NOT_OBSERVED
+NOT CLAIMED 不行使任何产品 main 合并权；durationDeltaMs 不作因果性能结论
+REPORT      reports/REX-805/REVIEW_REPORT.md；探针 reports/REX-805/REVIEW_PROBES_{LIVE,INPROCESS}_Mech.mjs
+```
+
+由此 **REX-805 完成**（工作书 `status: COMPLETE`、`review_complete: true`），主任务板随之更新：Research Strengthening **5/8**，全城 **89/93**。下一步可按依赖续接 REX-806（其依赖 REX-803/804/805 现已全部 accepted）。
