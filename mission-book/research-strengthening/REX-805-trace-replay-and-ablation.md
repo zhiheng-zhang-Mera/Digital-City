@@ -18,9 +18,9 @@ dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_R
 development_host: "Alien"
 development_branch: "rex/REX-805-alien-replay-ablation"
 development_head_sha: "0261a9ed1cec88df3ab4675623d422b37b33f270"
-development_ci: "PASS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: push37446455570, PR37446461188, linkage37446461192 all COMPLETED SUCCESS; local1413/1410PASS/3ENV_FAIL; focused18/18PASS and independent code re-review PASS. Physical predecessor4b39468 packet63/63 verified; final-head physical execution NOT_OBSERVED, formal review pending."
+development_ci: "PASS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: push37446455570, PR37446461188, linkage37446461192 all COMPLETED SUCCESS; local1413/1410PASS/3ENV_FAIL; focused18/18PASS and independent code re-review PASS. Final0261a9e physical packet63/63 verified and live canonical tasks matched; predecessor packet retained, formal review pending."
 development_complete: true
-development_physical_gate_basis: "MET_ON_PREDECESSOR_4b39468_WITH_FINAL_EMPTY_LIMIT_REGRESSION; final0261a9e physical execution NOT_OBSERVED; reviewer revalidation required"
+development_physical_gate_basis: "MET_EXACT_HEAD_0261a9e: repaired physical packet63/63 verified + official MEMBER canonical tasks matched; publisher-bound remote PID/source; independent formal review pending"
 capability_registry_action: CREATE
 capability_registry_refs: ["CAP-RESEARCH-REPLAY-001"]
 capability_registry_sync_status: DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING

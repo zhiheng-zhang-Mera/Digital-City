@@ -16,3 +16,6 @@
 共享包有界保留。完整本地测试日志位于开发检查点给出的Alien路径，并未假装所有日志均已发布。原始材料以 `.gitattributes -text` 禁止换行转换；索引外读本和验证结果不能混入原始payload。 / Shared materials are bounded. Complete local test logs remain at the Alien paths stated in the checkpoint; publication of every log is not claimed. `.gitattributes -text` preserves raw bytes. Reading views and verification output belong outside the raw payload.
 
 正式复检、最终候选实体部署、手持渲染与用户意图观察没有因本索引而获得PASS。 / This index grants no PASS to formal review, final-candidate physical deployment, handset rendering or intent observations.
+
+
+追加 / Addition: [最终0261a9e原始实体包 / Final0261a9e physical packet](evidence-repaired/MATERIAL_INDEX.md)、[63/63独立核验 / Independent checks](independent-repaired-material-checks-Alien.json)、[官方MEMBER现场任务读取 / Official-MEMBER live task observation](independent-live-repaired-tasks-Alien.json)。此前 final physical NOT_OBSERVED 是历史状态，现材料绑定至精确最终候选；正式复检与手持渲染仍不因该绑定变成已验收。 / The earlier unobserved-final-physical state is historical; current materials bind the exact final candidate. This binding does not accept formal review or handset rendering.

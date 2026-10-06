@@ -1,0 +1,24 @@
+{
+  "observedAt": "2026-10-06T10:17:12.819Z",
+  "cityId": "031fdba6-e94c-4298-a095-6ff04a65481d",
+  "access": "OFFICIAL_MEMBER_DEVICE_SESSION",
+  "scope": "Canonical task existence/state/placement only; no independent remote PID-source attestation",
+  "tasks": [
+    {
+      "id": "Q-bb06cb49-8cf4-498a-999b-77dd399a3a33",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "researchRunRef": "campaign-cdf39b7f-f6ff-4ddf-b611-4139f64c57d5:0",
+      "createdAt": "2026-10-06T10:09:12.569Z",
+      "updatedAt": "2026-10-06T10:09:19.031Z"
+    },
+    {
+      "id": "Q-c2681877-d9a7-43b7-a127-1ead05e6edcb",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-481a1761-1b5d-440d-a5a0-1743599b512a:0",
+      "createdAt": "2026-10-06T10:11:13.388Z",
+      "updatedAt": "2026-10-06T10:11:19.998Z"
+    }
+  ]
+}

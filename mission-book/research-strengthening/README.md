@@ -454,3 +454,4 @@ The author hands over exact candidate `0261a9ed1cec88df3ab4675623d422b37b33f270`
 
 前段“limits差异属于合成夹具”的推论限于那份有maxFailures=3的实体源；作者另以真实HTTP无额外限制源复现并修复误报，不能将该推论推广到所有真实campaign。 / The earlier synthetic-fixture inference is limited to that physical source with maxFailures=3. The author separately reproduced and repaired the mismatch with a real HTTP source without extra bounds; the inference cannot extend to every real campaign.
 
+作者追加：最终0261a9e实体重跑已获原始包63/63及普通MEMBER规范任务独立核验，前驱-only缺口由此替代；正式对侧复检仍待领取/裁决。 / Author update: final0261a9e physical repetition now has63/63 raw-packet checks and independently matched ordinary-MEMBER canonical tasks, superseding the predecessor-only gap. Formal opposite-host claim/verdict remains pending.

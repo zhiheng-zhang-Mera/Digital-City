@@ -73,7 +73,9 @@
     "intent_validation_refs": [],
     "review_refs": [
       "mission-book/reports/REX-805/DEVELOPMENT_CHECKPOINT.md",
-      "mission-book/reports/REX-805/independent-material-checks-Alien.json"
+      "mission-book/reports/REX-805/independent-material-checks-Alien.json",
+      "mission-book/reports/REX-805/independent-repaired-material-checks-Alien.json",
+      "mission-book/reports/REX-805/independent-live-repaired-tasks-Alien.json"
     ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/0261a9ed1cec88df3ab4675623d422b37b33f270",
@@ -86,12 +88,13 @@
     "registry_reconciliation_result": "DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING",
     "paper_material_refs": [
       "mission-book/reports/REX-805/PAPER_MATERIAL_INDEX.md",
-      "mission-book/reports/REX-805/evidence/MATERIAL_INDEX.md"
+      "mission-book/reports/REX-805/evidence/MATERIAL_INDEX.md",
+      "mission-book/reports/REX-805/evidence-repaired/MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
     "Formal opposite-host review and acceptance remain pending; product-main merge is not authorized.",
-    "Physical original/Replay/Ablation is independently verified at predecessor4b39468. Final0261a9e changes only absent-bound comparison and passes independent code/Gateway regression; physical deployment/execution at that final head is NOT_OBSERVED.",
+    "Historical predecessor-only physical binding superseded: Mech reran exact0261a9e, packet63/63 independently verified and new live canonical tasks match. Mech publishes remote PID/source binding; Alien did not independently audit remote process identity.",
     "V1 supports stateless WAIT and exact alternate-device ablation only; other mechanisms and unsnapshotted file/fault conditions are refused.",
     "Web reachability PARTIAL; native Android research controls remain for REX-807 and handset comparison rendering NOT_OBSERVED.",
     "Intent validation NOT_TESTED; control-input replay is not external-provider determinism or causal performance. Source refs do not attest current-process software identity.",

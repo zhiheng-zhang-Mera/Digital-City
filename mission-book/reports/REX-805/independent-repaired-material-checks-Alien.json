@@ -1,0 +1,261 @@
+{
+  "scope": "Published physical packet only; no formal acceptance or independent remote-process attestation",
+  "published_candidate": "0261a9ed1cec88df3ab4675623d422b37b33f270",
+  "expected_candidate": "0261a9ed1cec88df3ab4675623d422b37b33f270",
+  "checks": [
+    {
+      "check": "ablation-comparison.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "ablation-comparison.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "ablation-receipt.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "ablation-receipt.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "canonical-tasks.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "canonical-tasks.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "deployment-and-topology.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "deployment-and-topology.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "experiment-registry.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "experiment-registry.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "replay-comparison.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "replay-comparison.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "replay-receipt.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "replay-receipt.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "RUN_LOG.txt: bytes",
+      "pass": true
+    },
+    {
+      "check": "RUN_LOG.txt: SHA256",
+      "pass": true
+    },
+    {
+      "check": "source-receipt.json: bytes",
+      "pass": true
+    },
+    {
+      "check": "source-receipt.json: SHA256",
+      "pass": true
+    },
+    {
+      "check": "source bytes equal accepted REX803 receipt",
+      "pass": true
+    },
+    {
+      "check": "independent canonical source digest",
+      "pass": true
+    },
+    {
+      "check": "independently derived seed",
+      "pass": true
+    },
+    {
+      "check": "original canonical task completed",
+      "pass": true
+    },
+    {
+      "check": "original canonical task placement",
+      "pass": true
+    },
+    {
+      "check": "replay: terminal measured run",
+      "pass": true
+    },
+    {
+      "check": "replay: fresh campaign",
+      "pass": true
+    },
+    {
+      "check": "replay: fresh experiment",
+      "pass": true
+    },
+    {
+      "check": "replay: selected seed and offset",
+      "pass": true
+    },
+    {
+      "check": "replay: source lineage",
+      "pass": true
+    },
+    {
+      "check": "replay: source digest",
+      "pass": true
+    },
+    {
+      "check": "replay: exact mechanism",
+      "pass": true
+    },
+    {
+      "check": "replay: original controls",
+      "pass": true
+    },
+    {
+      "check": "replay: worker placement",
+      "pass": true
+    },
+    {
+      "check": "replay: task binding",
+      "pass": true
+    },
+    {
+      "check": "replay: registered experiment",
+      "pass": true
+    },
+    {
+      "check": "replay: manifest controls independently match",
+      "pass": true
+    },
+    {
+      "check": "replay: registry corresponds to receipt",
+      "pass": true
+    },
+    {
+      "check": "replay: registry source references preserved",
+      "pass": true
+    },
+    {
+      "check": "replay: registry manifest identity",
+      "pass": true
+    },
+    {
+      "check": "replay: reported comparison",
+      "pass": true
+    },
+    {
+      "check": "replay: placement delta",
+      "pass": true
+    },
+    {
+      "check": "replay: duration delta",
+      "pass": true
+    },
+    {
+      "check": "replay: provenance remains unobserved",
+      "pass": true
+    },
+    {
+      "check": "ablation: terminal measured run",
+      "pass": true
+    },
+    {
+      "check": "ablation: fresh campaign",
+      "pass": true
+    },
+    {
+      "check": "ablation: fresh experiment",
+      "pass": true
+    },
+    {
+      "check": "ablation: selected seed and offset",
+      "pass": true
+    },
+    {
+      "check": "ablation: source lineage",
+      "pass": true
+    },
+    {
+      "check": "ablation: source digest",
+      "pass": true
+    },
+    {
+      "check": "ablation: exact mechanism",
+      "pass": true
+    },
+    {
+      "check": "ablation: original controls",
+      "pass": true
+    },
+    {
+      "check": "ablation: worker placement",
+      "pass": true
+    },
+    {
+      "check": "ablation: task binding",
+      "pass": true
+    },
+    {
+      "check": "ablation: registered experiment",
+      "pass": true
+    },
+    {
+      "check": "ablation: manifest controls independently match",
+      "pass": true
+    },
+    {
+      "check": "ablation: registry corresponds to receipt",
+      "pass": true
+    },
+    {
+      "check": "ablation: registry source references preserved",
+      "pass": true
+    },
+    {
+      "check": "ablation: registry manifest identity",
+      "pass": true
+    },
+    {
+      "check": "ablation: reported comparison",
+      "pass": true
+    },
+    {
+      "check": "ablation: placement delta",
+      "pass": true
+    },
+    {
+      "check": "ablation: duration delta",
+      "pass": true
+    },
+    {
+      "check": "ablation: provenance remains unobserved",
+      "pass": true
+    },
+    {
+      "check": "published deployment candidate matches requested exact head",
+      "pass": true
+    },
+    {
+      "check": "canonical City binding",
+      "pass": true
+    }
+  ],
+  "passed": 63,
+  "total": 63
+}

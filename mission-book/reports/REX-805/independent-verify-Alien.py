@@ -5,7 +5,7 @@ import json
 import re
 
 
-def verify(base):
+def verify(base, expected_candidate="4b3946868d4083285da8a8d99eac2642890b37c4"):
     results = []
     def check(name, value):
         results.append({"check": name, "pass": bool(value)})
@@ -72,12 +72,17 @@ def verify(base):
         check(prefix + ": duration delta", comparison["durationDeltaMs"] == run["durationMs"] - selected["durationMs"] and comparison["causalPerformanceClaim"] is False)
         check(prefix + ": provenance remains unobserved", lineage["currentProcessSoftwareSha"] is None and lineage["determinism"] == "CONTROL_INPUTS_ONLY")
     deployment = read("deployment-and-topology.json")
-    check("published deployment candidate is historical 4b39468", deployment["candidate"] == "4b3946868d4083285da8a8d99eac2642890b37c4")
+    check("published deployment candidate matches requested exact head", deployment["candidate"] == expected_candidate)
     check("canonical City binding", deployment["cityId"] == "031fdba6-e94c-4298-a095-6ff04a65481d")
-    return {"scope": "Published physical packet at historical candidate 4b39468; not final-head 0261a9e acceptance or runtime attestation", "checks": results, "passed": sum(row["pass"] for row in results), "total": len(results)}
+    return {"scope": "Published physical packet only; no formal acceptance or independent remote-process attestation", "published_candidate": deployment["candidate"], "expected_candidate": expected_candidate, "checks": results, "passed": sum(row["pass"] for row in results), "total": len(results)}
 
 
 if __name__ == "__main__":
-    result = verify(Path(__file__).parent / "evidence")
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--packet", choices=("evidence", "evidence-repaired"), default="evidence")
+    parser.add_argument("--candidate", default="4b3946868d4083285da8a8d99eac2642890b37c4")
+    args = parser.parse_args()
+    result = verify(Path(__file__).parent / args.packet, args.candidate)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     raise SystemExit(result["passed"] != result["total"])

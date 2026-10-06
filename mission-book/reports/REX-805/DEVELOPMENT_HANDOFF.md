@@ -35,3 +35,14 @@ At 2026-10-06T10:07:17.586Z, Alien independently read the formal City through an
 实体包部署绑定仍为4b39468，最终0261a9e实体执行尚未观测；phone comparison rendering 为 NOT_OBSERVED，intent validation 为 NOT_TESTED。当前进程软件来源的 lineage 字段仍为 null，源 manifest refs 不是当前进程证明。WAIT 是 v1 支持范围，其余机制/未快照文件和故障条件按明确错误拒绝；duration delta 不代表因果性能。Mech 材料中“limits差异仅属合成夹具”的宽泛推论须收窄：本次有 maxFailures=3 的实体源确实没有差异，但 Alien 已通过真实 HTTP 无额外限制的 campaign 复现并修复误报。两种观测适用条件不同，均保留。
 
 The packet remains bound to deployment 4b39468; final 0261a9e physical execution is unobserved. Phone comparison rendering is NOT_OBSERVED and intent validation is NOT_TESTED. Lineage current-process software identity remains null: source manifest references do not attest the current process. V1 supports WAIT; other mechanisms and unsnapshotted file/fault conditions are explicitly refused. Duration deltas do not establish causal performance. Mech's broad inference that the limits difference belongs only to a synthetic fixture is narrowed: this physical source with maxFailures=3 indeed has no mismatch, while Alien reproduced and repaired the mismatch using a real HTTP campaign without extra bounds. Both observations retain their distinct conditions.
+
+
+## 最终候选实体重跑已核验 / Final-candidate physical repetition verified
+
+前述“最终候选实体尚未观测”是交付时的历史状态，现由 Mech 的第二次实体材料及 Alien 核验替代。Mech发布 `0261a9ed1cec88df3ab4675623d422b37b33f270`→Gateway PID44088→同一正式City的部署绑定，原始包为 [evidence-repaired](evidence-repaired/MATERIAL_INDEX.md)，作者 [63/63独立核验](independent-repaired-material-checks-Alien.json) 全通过。新Replay仍落Alien、新Ablation仍落Mech，种子414121415一致，比较差异均为空；[普通MEMBER独立任务读取](independent-live-repaired-tasks-Alien.json)再次核对两条规范COMPLETED任务及researchRunRef/实际落点。
+
+The earlier unobserved-final-candidate statement is the historical handover snapshot, superseded by Mech's second physical packet and Alien verification. Mech publishes the deployment binding `0261a9ed1cec88df3ab4675623d422b37b33f270`→Gateway PID44088→the same formal City. The [repaired-head packet](evidence-repaired/MATERIAL_INDEX.md) passes all [63 independent checks](independent-repaired-material-checks-Alien.json). Replay again executes on Alien and Ablation on Mech, with seed414121415 and no comparison differences. An [independent ordinary-MEMBER task read](independent-live-repaired-tasks-Alien.json) reconfirms both canonical completed tasks, researchRunRef and actual placements.
+
+因此开发门槛现有精确最终候选的实体材料依据；正式复检仍独立领取，验收terminal未由作者释放，产品main合并权仍为false。PID到源码绑定由Mech发布，Alien没有独立远程进程审计；手持渲染、用户意图、per-record源码来源仍按既有缺口保留。
+
+The development gate now has physical materials bound to the exact final candidate. Formal review remains separately claimed; the author releases no acceptance terminal and product-main merge authority remains false. Mech publishes the PID-to-source binding; Alien has no independent remote-process audit. Handset rendering, intent research and per-record software provenance remain bounded by the existing gaps.
