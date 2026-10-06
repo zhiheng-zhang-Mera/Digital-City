@@ -328,7 +328,9 @@ Programme terminal marker：
 对侧据此自己写了修复候选 **`12e3d3bf868575a8e3c983733a3186cb59da27`**（分支 `repair/REX-806-alien-members-and-partial-provenance-20261007`，draft PR #39，含作者 `d790a2a` 与当时 main `312b627`；五条新测试改前红改后绿、集成 36/36、双语门同步；其托管 CI 37538019792 在交接时仍在跑，**未声称 PASS**），并按「修复方不能自审」把**异机复检这一步指派给 Mech**：独立检查该 exact 候选、重跑 CLI/界面证伪与**真实 Owner 导出**、从真实 City 记录核对规范成员与来源丢失标注，并给出**新的完整产物与校验和**（历史产物保留）。对侧的 MEMBER 会话无法导出 Owner 研究历史，这一步只能由本机做。
 ⇒ 本机（Mech-DS）承接该异机复检；REX-806 的验收与 REX-807/890 的依赖**仍待这一轮之后**。工作书 `review_complete` 仍为 false、`merge_authority` 仍为 false。
 
-**跨机复检进展（2026-10-07，Mech，裁决前）**：领取文件 `reports/REX-806/REVIEW_CLAIM_Mech.md`，实测进展 `reports/REX-806/CROSS_HOST_VERIFICATION_PROGRESS_Mech.md`。要点：本机按 commit 重测 exact-head CI 三项全绿（37538019792 / 37538063650 / 37538063656，均绑定 `12e3d3b`）；新 worktree 下 REX-806 四套件 **29/29**；自写探针复现 F1–F3 与 owner-only **10/10 PASS + 1 PENDING**（F4 的路由半需「注册表里真有 campaign」的城市，本机手写 receipt 未被注册，已用加/不加损坏文件的**差分**证明 422 是夹具限制而非缺陷）；并用**运行中的真实 City** 完成对侧指派的真实 Owner 导出：`artifactId=artifact-031fdba6…-18-campaigns`、campaigns=18/runs=24/measured=22、`completion_time_ms=6595 n=22`（与对侧独立复算一致），新产物 **11 文件 + checksums** 已发布到 `reports/REX-806/crosshost-artifact-2026-10-07/`（历史产物未覆盖），与真实 City 记录对账 **4/4**（成员逐个相等、完整性不虚报、10 个文件 sha256 重算无差异、指标在场）。**尚未裁决**：F4 路由半与 REX-803/805 回归未跑，`RESEARCH_ARTIFACT_EXPORT_ACCEPTED` 未释放。
+**REX-806 修复候选跨机复检裁决：ACCEPTED（2026-10-07，Mech 作为对侧实体主机）**：对象 `12e3d3b`（Alien 的 `5f3658f`/`897382c` 及其与既有 Mech 修复、与 main 的集成）；`RESEARCH_ARTIFACT_EXPORT_ACCEPTED` **由本裁决释放**，工作书 `status: COMPLETE`、`review_complete: true`、`review_head_sha: 12e3d3b`。本机重算的证据：exact-head CI 三项全绿（37538019792 / 37538063650 / 37538063656）；REX-806 四套件 **29/29**；REX-803/805 回归 **54/54**（50 非 web + 2 + 2 web）；边界探针 10/10 且唯一 PENDING 项已用**产品自己的 runner** 产生真实 receipt 后补齐（注册表列出两份 / 完整集 `NO_KNOWN_SOURCE_LOSS` / 损坏一份后 CSV 路由 `{PARTIAL, knownSourceLossCount:1}` 与 preview manifest PARTIAL，4/4）；**真实 Owner 导出**出 `artifact-031fdba6-…-18-campaigns`（campaigns=18 runs=24 measured=22、`completion_time_ms=6595 n=22`，与对侧独立复算一致），11 文件 + checksums 发布，并与真实 City 记录对账 4/4；历史产物保留（10/10 重算无差异）。**独立性记账**：Alien 审 Mech 那一半、Mech 审 Alien 这一半；不存在第三主机，未作任何超出该结构的声称。`merge_authority` 仍为 false（合并门仍归 Owner）。裁决、证据与本轮我方 7 处仪器错误见 `reports/REX-806/CROSS_HOST_VERIFICATION_Mech.md`。
+
+**跨机复检进展（2026-10-07，Mech，裁决前）**：领取文件 `reports/REX-806/REVIEW_CLAIM_Mech.md`，实测进展 `reports/REX-806/CROSS_HOST_VERIFICATION_PROGRESS_Mech.md`。要点：本机按 commit 重测 exact-head CI 三项全绿（37538019792 / 37538063650 / 37538063656，均绑定 `12e3d3b`）；新 worktree 下 REX-806 四套件 **29/29**；自写探针复现 F1–F3 与 owner-only **10/10 PASS + 1 PENDING**（F4 的路由半需「注册表里真有 campaign」的城市，本机手写 receipt 未被注册，已用加/不加损坏文件的**差分**证明 422 是夹具限制而非缺陷）；并用**运行中的真实 City** 完成对侧指派的真实 Owner 导出：`artifactId=artifact-031fdba6…-18-campaigns`、campaigns=18/runs=24/measured=22、`completion_time_ms=6595 n=22`（与对侧独立复算一致），新产物 **11 文件 + checksums** 已发布到 `reports/REX-806/crosshost-artifact-2026-10-07/`（历史产物未覆盖），与真实 City 记录对账 **4/4**（成员逐个相等、完整性不虚报、10 个文件 sha256 重算无差异、指标在场）。该 PENDING 项随后由 `rex806-f4-route-probe.mjs` 补齐（产品 runner 产生真实 receipt + 损坏其一 → 注册表列出两份、完整集 `NO_KNOWN_SOURCE_LOSS`、损坏后 CSV `{PARTIAL, knownSourceLossCount:1}` 与 preview PARTIAL，4/4），据此给出上方 ACCEPTED 裁决。
 
 **Owner Gate 复查（2026-10-07，Mech-DS 在 main `312b627b54af5bbf274fa25eca8f8383869c1c34` 上重算，不是复述）**：把「已验收头是否真的在 main 里」逐条用 `git merge-base --is-ancestor` 重测 —— REX-802 `833279ca` **True**、REX-803 `8798ba9d` **True**、REX-804 `fe700aba` **True**、REX-805 `0261a9ed` **True**；**合格子任务的合并确实已完成**，没有留在分支上的已验收头。仍未合并的两项**照旧记为待裁决而不是完成**：修复提交 `d790a2a`（导出失败路径，`ancestor_of_main=False`）与包内两处已推迟的内容项。~~**REX-806 的复检仍无人领取**~~ → **已由对侧领取并在 2026-10-07 给出 REQUIRES_REPAIR 结论**（见上），REX-807/890 因此仍 `WAITING_DEPENDENCIES`。
 
@@ -348,7 +350,7 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 5/8 · 开发 / Development 6/8 · 复检 / Review 5/8 · `IN_PROGRESS`
+总完成 / Complete 6/8 · 开发 / Development 6/8 · 复检 / Review 6/8 · `ACTIVE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
@@ -357,8 +359,8 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 | [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
 | [REX-804](REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
 | [REX-805](REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
-| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | IN_PROGRESS | YES | NO | YES |
-| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
+| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | READY | NO | NO | YES |
 | [REX-890](REX-890-reproducibility-study-and-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->

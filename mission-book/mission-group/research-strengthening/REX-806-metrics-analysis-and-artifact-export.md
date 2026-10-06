@@ -3,7 +3,7 @@ workbook_id: REX-806
 phase: RESEARCH_STRENGTHENING
 sequence: 806
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -23,10 +23,10 @@ development_complete: true
 development_physical_gate_basis: "NOT_APPLICABLE - this task's completion gate is not a physical topology; it requires that a complete artifact can be generated from a set of real campaigns and independently read and recomputed by the opposite host. Generation and publication are done (18 real campaigns, 24 runs, 22 measured, per-file SHA256, fresh-clone verified 10/10); the independent recomputation is the reviewer's step and is requested explicitly in reports/REX-806/DEVELOPMENT_HANDOFF.md."
 development_handoff: "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md"
 development_final_full_suite: "1445 tests / 1442 pass / 3 fail on d7aa5d7, the three being tests/host-city-launcher.test.mjs (this host's resident-City host reservation, the same three at every head this host measures). No load-sensitive failure appeared in this run on this head."
-review_host: "Alien"
-review_head_sha: "3950d478e627aaa615ef69e3ac65c30da37c5ea6"
-review_ci: "REQUIRES_REPAIR: original tests24/24 and historical package14/14 pass; CLI corruption crash, missing latest receipt silent shrink and member topology omission independently reproduced. Integrated Alien repair12e3d3b has36/36 local tests but requires Mech opposite-host review. See REVIEW_REPORT.md."
-review_complete: false
+review_host: "Mech"
+review_head_sha: "12e3d3bf868575a8e3cda983733a3186cb59da27"
+review_ci: "VERDICT ACCEPTED for the repair scope, decided by Mech as the opposite host for Alien's corrections. REVIEW TARGET 12e3d3bf868575a8e3cda983733a3186cb59da27 (draft PR39), which differs from development_head_sha 3950d47 because 3950d47 was reviewed by Alien and returned REQUIRES_REPAIR; the accepted entity is this repair head, and the workbook says so rather than blurring the two. Independence accounting, stated instead of implied: Alien reviewed the Mech-authored half (its findings F1/F2 describe d790a2a's behaviour) and Mech reviewed Alien's 5f3658f/897382c plus the integration, so each half has an opposite-host review; no third host exists and none is claimed. EXACT-HEAD CI re-measured by the reviewer with gh by commit: V0.2 push 37538019792 success, V0.2 PR 37538063650 success, City linkage PR 37538063656 success (the opposite host left the last two running at handoff). LOCAL, in a fresh worktree installed with the two-step frozen lockfile: REX-806 suites 29 pass / 0 fail; REX-803/805 regressions 54 pass / 0 fail (50 non-web + 2 + 2 web); boundary probe 10/10 PASS with its single PENDING item then closed by a second probe that produced REAL receipts with the product's own runner and corrupted one: the registry lists both, a complete set answers NO_KNOWN_SOURCE_LOSS, and after the corruption the CSV route answers {status:PARTIAL, knownSourceLossCount:1} while the preview manifest is PARTIAL too (4/4). REAL OWNER EXPORT from the running City (172.31.12.151:4391): artifact-031fdba6-e94c-4298-a095-6ff04a65481d-18-campaigns, campaigns=18 runs=24 measured=22, completion_time_ms=6595 at n=22 (matching Alien's independent Python recomputation), 11 files + checksums published under reports/REX-806/crosshost-artifact-2026-10-07/, and a 4/4 comparison against the City's real records (members equal the canonical deviceIds item by item, no source loss claimed for a complete set, all ten listed files re-hash identically, the metric is present). The historical artifact is retained unmodified (10/10 re-hash). Marker RESEARCH_ARTIFACT_EXPORT_ACCEPTED released by this verdict; merge_authority stays false. Verdict, evidence and the reviewer's own seven instrument errors: reports/REX-806/CROSS_HOST_VERIFICATION_Mech.md."
+review_complete: true
 research_evidence_applicability: APPLICABLE
 research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-SUPERVISION-ATTENTION","RS-G3-RULE-LIFECYCLE-DEBT","RS-G3-SEMANTIC-INTEGRATION","RS-G3-PASSIVE-EVIDENCE-PIPELINE","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC

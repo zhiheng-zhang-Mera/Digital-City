@@ -5,11 +5,11 @@
       "total": 11
     },
     "review": {
-      "complete": 6,
+      "complete": 7,
       "total": 11
     },
     "tasks": {
-      "complete": 6,
+      "complete": 7,
       "total": 11
     }
   },
@@ -20,11 +20,11 @@
       "total": 95
     },
     "review": {
-      "complete": 90,
+      "complete": 91,
       "total": 95
     },
     "tasks": {
-      "complete": 90,
+      "complete": 91,
       "total": 95
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
-      "review_complete": 5,
-      "status": "IN_PROGRESS",
-      "task_complete": 5,
+      "review_complete": 6,
+      "status": "ACTIVE",
+      "task_complete": 6,
       "tasks": [
         {
           "complete": true,
@@ -961,13 +961,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-806",
           "path": "mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
@@ -976,7 +976,7 @@
           "id": "REX-807",
           "path": "mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         },
         {
           "complete": false,
