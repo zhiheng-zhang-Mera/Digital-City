@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1642,
-  "total_bytes": 11915717,
+  "total_bytes": 11917600,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -11086,7 +11086,7 @@
     },
     {
       "path": "mission-book/reports/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md",
-      "bytes": 10420,
+      "bytes": 10197,
       "encoding_state": "UTF8",
       "chinese_characters": 685,
       "english_words": 223,
@@ -14038,19 +14038,19 @@
     },
     {
       "path": "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md",
-      "bytes": 18754,
+      "bytes": 20038,
       "encoding_state": "UTF8",
-      "chinese_characters": 1381,
-      "english_words": 463,
+      "chinese_characters": 1460,
+      "english_words": 477,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/PAPER_MATERIAL_INDEX.md",
-      "bytes": 7314,
+      "bytes": 7872,
       "encoding_state": "UTF8",
-      "chinese_characters": 728,
-      "english_words": 375,
+      "chinese_characters": 783,
+      "english_words": 413,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -14641,7 +14641,7 @@
     },
     {
       "path": "mission-book/reports/en/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md",
-      "bytes": 7893,
+      "bytes": 8157,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
       "english_words": 434,

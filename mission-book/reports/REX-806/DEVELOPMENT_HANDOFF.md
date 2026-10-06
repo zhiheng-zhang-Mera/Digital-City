@@ -146,7 +146,18 @@ R-2 一份回执被**删除** -> 城市窗口 total 随之下降（receipts=1, w
     单 campaign study，**没有任何可点名的东西**。这是 **store 的边界**而不是读取方的缺陷：目录式 store
     没有墓碑，删除不留痕。记录在此是为了让「包内自洽」永远不被当成「记录没有缺失」的证据；
     若要根治需要 store 侧保留单调计数/墓碑
+    追加修复（同轮）：**最新那份**回执被删是可以检测的——live campaign 记录在完成后仍留着最后一场的
+    campaignId，而它不在 receipts 列表里即说明最新回执丢了。修复 stack 在
+    `repair/REX-806-mech-exporter-missing-receipt-detection @ d790a2a`：给出
+    「the live campaign <id> (state …) has no receipt in this City's store - the newest receipt is missing,
+    so this artifact describes less than the City ran (an older loss is not detectable at all)」并退出码 1。
+    实测：删**最新**→ exit 1 + 点名（`evidence-tools/MISSING_RECEIPT_DETECTION_MECH.mjs` 的 A 段）；
+    删**较旧**（最新仍在）→ exit 0 且静默，即消息里写明的那条边界（同工具的 B 段）
 ```
+
+**验证（本分支四条路径全过）**：拒绝路径 exit=1；损坏回执 → 有产物 + exit 1 + 点名；**最新回执被删 → exit 1 + 点名**；
+端到端演练 **13/13**、产出包 **14/14**、且健康 City 上**没有误报**。该分支 stack 在 `4349f3d` 之上，因此**一次采纳即带走三条失败路径修复**（它取代 `4349f3d` 与 `44dec63`）。
+**托管 CI（exact head）**：push run 37466226644 @ `d790a2a` —— **gateway-web 与 android 均 SUCCESS attempt 1**。
 
 **验证（本分支三条路径全过）**：拒绝路径 exit=1；损坏回执 → 有产物 + exit 1 + 点名；端到端演练 **13/13**、产出包 **14/14**。
 **托管 CI（exact head）**：push run 37465078880 @ `4349f3d` —— **gateway-web 与 android 均 SUCCESS attempt 1**。

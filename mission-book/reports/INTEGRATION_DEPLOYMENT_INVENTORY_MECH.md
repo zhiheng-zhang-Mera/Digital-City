@@ -94,19 +94,18 @@ REX-806      rex/REX-806-mech-metrics-and-export @ 3950d47（开发完成）
 仍开放且已就绪  repair/mech-city-store-diagnostic-on-current-main @ be3670b（F-1 typed 诊断）
         parent = b06504f ⇒ 一个提交叠在 current main 上；其守卫探针在该 tip 上 3/3 通过
 
-可立即采纳  repair/REX-806-mech-exporter-unreadable-receipt @ 4349f3d（**取代**下面的 44dec63）
-        parent = 3950d47 ⇒ 采纳即 fast-forward；同时修好导出器**两条失败路径**：
-        ① 空 store 拒绝时不再于 libuv 断言中崩溃（exit 1）；② 一份回执损坏时不再整次导出无产物，
-        而是跳过并按文件名 + typed 原因点名、可读的照常导出、退出码 1
-        验证：拒绝路径 exit=1；损坏回执 → 产物 + exit 1 + 点名；端到端演练 13/13、产出包 14/14
-        托管 CI：push run 37465078880 @ 4349f3d —— gateway-web 与 android 均 SUCCESS attempt 1
-        （被取代的 repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63 只修①，保留作为历史）
+可立即采纳（推荐，取代下面两条）  repair/REX-806-mech-exporter-missing-receipt-detection @ d790a2a
+        parent = 4349f3d（即 stack 之上）⇒ 采纳即 fast-forward；**一次带走导出器三条失败路径修复**：
+        ① 空 store 拒绝不再于 libuv 断言中崩溃（exit 1）；② 回执损坏不再整次无产物（跳过 + 点名 + 可读照常 + exit 1）；
+        ③ **最新**回执被删可检测（live campaign 仍留 id）→ 点名 + exit 1；较旧的删除仍不可检测（消息里写明）
+        验证：拒绝 exit=1；损坏 → 产物 + exit 1 + 点名；最新删除 → exit 1 + 点名；旧删除 → 静默（边界）；
+        端到端演练 13/13、产出包 14/14、健康 City 无误报
+        托管 CI：push run 37466226644 @ d790a2a —— gateway-web 与 android 均 SUCCESS attempt 1
 
-可立即采纳（历史）  repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63（REX-806 导出 CLI 拒绝路径退出码）
-        parent = 3950d47 ⇒ 采纳即 fast-forward；**已被 4349f3d 包含**，除非只想修①否则应采纳前者
-        缺陷：CLI 在「没有可读回执」时打印了正确理由，却因 process.exit(1) 触发 libuv 断言，
-        退出码为 3221226505 (0xC0000409) 而非 1 —— 调用方无法区分「按设计拒绝」与「崩溃」
-        验证：拒绝路径 exit=1；正常路径端到端演练 13/13、产出包 14/14；本分支 REX-806 三套件 24/24
+可立即采纳（历史）  repair/REX-806-mech-exporter-unreadable-receipt @ 4349f3d（含 ①②）
+        parent = 3950d47 ⇒ 采纳即 fast-forward；已被 d790a2a 包含（除非只想修 ①②）
+
+可立即采纳（历史）  repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63（只修 ①）
 ```
 
 本清单不改变任何工作书字段，也未合并任何东西。 / This inventory changes no workbook field and merges nothing.
