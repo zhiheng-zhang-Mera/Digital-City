@@ -1,0 +1,42 @@
+{
+  "manifest.json": {
+    "bytes": 2199,
+    "sha256": "a6b1886ee786a58b77f8ab5f1a62c7023627cbbb2b2e77a27cf540ba7b8e3159"
+  },
+  "environment.json": {
+    "bytes": 245,
+    "sha256": "d2826a1a9fdd65db8ba8595e1490f9d1b88e845c5e2e8208221da050be6d2dd4"
+  },
+  "topology.json": {
+    "bytes": 986,
+    "sha256": "034b7d68ad9ab1c238ce8d57e720310dd4142c6fa33551fe986292fcd7ccf3ac"
+  },
+  "raw-pointers.json": {
+    "bytes": 44108,
+    "sha256": "d12f5a8cc0aa7d8bcc750e39fcbf90d6d8df5a0de42e7450cdb3a01cf8e7e91d"
+  },
+  "normalized-dataset.json": {
+    "bytes": 21464,
+    "sha256": "405d3ac0ba3439a119dd20be6d4088a8084b73652784fc772996813a25d89eaa"
+  },
+  "metrics.csv": {
+    "bytes": 6278,
+    "sha256": "ab9c91cce578c8f5ff2d35373331883aff01b2f74d990640dcf4f9d150131f0f"
+  },
+  "failures.json": {
+    "bytes": 1109,
+    "sha256": "44f85d00ed792db5bea666de4a27f209c70aae4177b3741de14a51ccac1d6cf5"
+  },
+  "exclusions.json": {
+    "bytes": 699,
+    "sha256": "781242f16661340a6c8b445d7d88465beb7d82bb40d1f40336890626593a4275"
+  },
+  "tables.json": {
+    "bytes": 5186,
+    "sha256": "88c19bc232a8a0ae3f2c50b478cbf8727f2b0d24289b186288e8a54261a07b4b"
+  },
+  "reproduction.json": {
+    "bytes": 901,
+    "sha256": "8c881756af283cb247ae8afc047f3300c721bbbc2d5c79ddba8ef2cf668e77ea"
+  }
+}

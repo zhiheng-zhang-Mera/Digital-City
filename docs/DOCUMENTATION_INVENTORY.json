@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1713,
-  "total_bytes": 12252879,
+  "markdown_count": 1715,
+  "total_bytes": 12265021,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9889,10 +9889,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 57719,
+      "bytes": 58940,
       "encoding_state": "UTF8",
-      "chinese_characters": 4519,
-      "english_words": 2372,
+      "chinese_characters": 4697,
+      "english_words": 2403,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13570,7 +13570,7 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 5255,
+      "bytes": 5256,
       "encoding_state": "UTF8",
       "chinese_characters": 258,
       "english_words": 267,
@@ -14541,6 +14541,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-806/CROSS_HOST_VERIFICATION_PROGRESS_Mech.md",
+      "bytes": 6096,
+      "encoding_state": "UTF8",
+      "chinese_characters": 340,
+      "english_words": 57,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/DELIVERABLE.md",
       "bytes": 7918,
       "encoding_state": "UTF8",
@@ -14569,7 +14578,7 @@
     },
     {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 971,
+      "bytes": 1106,
       "encoding_state": "UTF8",
       "chinese_characters": 63,
       "english_words": 38,
@@ -14584,6 +14593,15 @@
       "english_words": 95,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-806/REVIEW_CLAIM_Mech.md",
+      "bytes": 4689,
+      "encoding_state": "UTF8",
+      "chinese_characters": 64,
+      "english_words": 17,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/REVIEW_REPORT.md",

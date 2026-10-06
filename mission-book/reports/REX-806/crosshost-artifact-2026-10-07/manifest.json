@@ -1,0 +1,62 @@
+{
+  "artifactId": "artifact-031fdba6-e94c-4298-a095-6ff04a65481d-18-campaigns",
+  "cityId": "031fdba6-e94c-4298-a095-6ff04a65481d",
+  "generatedAt": "2026-10-06T22:43:48.810Z",
+  "campaignIds": [
+    "campaign-d8e9e1ce-ab47-47eb-ba5c-565567b1ac60",
+    "campaign-c12cba6c-be1a-41b3-b2c5-8ae6d0ec04b2",
+    "campaign-a2dda3f7-b0c4-49ee-987a-ae60a976d8ae",
+    "campaign-1e9348a2-c4ae-4180-8937-dbc38d0663f4",
+    "campaign-6d0cacfe-d1fe-4599-a1de-79ad49b3cdb4",
+    "campaign-ecbe335b-9be0-42df-908e-37ab34840c89",
+    "campaign-706ea45d-dcda-45e7-9af1-336059876fb0",
+    "campaign-528b7ca1-5e97-4471-8ab5-c1e8f990fead",
+    "campaign-481a1761-1b5d-440d-a5a0-1743599b512a",
+    "campaign-cdf39b7f-f6ff-4ddf-b611-4139f64c57d5",
+    "campaign-bad9f272-c7e6-4b0e-aa39-7752cf47a76f",
+    "campaign-4a1919b0-d99e-4085-ac50-4600bef555b1",
+    "campaign-9d21757d-58e2-4732-bc52-454c59d5706b",
+    "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+    "campaign-97669c54-1a4f-48eb-bc56-d599da333101",
+    "campaign-f2702036-e916-455e-a708-893375d8cb5f",
+    "campaign-b0ebb3af-bf86-451a-b508-1aa9e115c8d7",
+    "campaign-96b56dc0-c90c-454c-8088-1118143806d8"
+  ],
+  "runCount": 24,
+  "measuredRuns": 22,
+  "metricsReported": 4,
+  "metricsNotMeasured": 23,
+  "metricCatalogueSize": 27,
+  "supporting": {
+    "campaigns": 18,
+    "replays": 11,
+    "ablations": 4,
+    "comparisonsProvided": 0,
+    "accounting": {
+      "planned": 32,
+      "accounted": 24,
+      "measured": 22,
+      "failed": 0,
+      "timedOut": 0,
+      "excluded": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "interrupted": 0,
+      "undeliveredCampaigns": [
+        {
+          "campaignId": "campaign-97669c54-1a4f-48eb-bc56-d599da333101",
+          "state": "REFUSED",
+          "reason": "TOPOLOGY_NOT_READY",
+          "planned": 4
+        },
+        {
+          "campaignId": "campaign-f2702036-e916-455e-a708-893375d8cb5f",
+          "state": "REFUSED",
+          "reason": "TOPOLOGY_NOT_READY",
+          "planned": 4
+        }
+      ]
+    }
+  },
+  "narrative": "Statistics only. No claim is made here about autonomy, performance or causality; duration deltas do not establish performance and NOT_MEASURED is not zero."
+}
