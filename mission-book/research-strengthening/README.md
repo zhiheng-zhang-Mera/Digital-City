@@ -343,3 +343,29 @@ REVIEWER 仪器   本轮还发现并修好了**本人自己的**探针缺陷：P
 ```
 
 REX-804 is **ACCEPTED** at `fe700ab`: B1 (an unreadable fault receipt prevented City startup) and B4 (the same store-guard shape in the fault controller's unguarded `mkdir`, which made the branch unmergeable into current main) are both **closed**, and closed by the reviewer's own regression probes rather than by the author's suite - the B4 criterion being the exact probe that was red on the unguarded merge, re-run **inside the head that contains current main** (2/2 in 97 ms, where it was 1/1 and 34 201 ms), plus the pull_request run 37424951038 that is now terminal SUCCESS at the step that was red at 075ddc1. Three exact-head runs, read one at a time, all SUCCESS attempt 1. Marker **FAULT_INJECTION_RECOVERY_ACCEPTED released**, with scope stated rather than implied: Android native fault controls and physical/external-provider recovery remain NOT_RUN and DUPLICATE_EVENT recovery stays structurally NOT_MEASURED. This round also found and fixed **the reviewer's own** instrument defect - P6 handed "how fast is fast" to the host with a 150 ms fault window and a 350 ms sleep, failing under full-suite load with "DELAY_RESULT recorded that it was exercised (got 0)"; the same defect class the reviewer had classified in the author's fixture one round earlier, and exposed the same way by a green isolated run disagreeing with a loaded one. Fixed on `review/REX-804-mech-review @ 53d01a3` (1200 ms window, and the held report promise is awaited); both states are kept in the record.
+
+### REX-803 三端完成闸门：已在真实 City 上跑通 / REX-803 three-end completion gate: MET on the live City
+
+```text
+WHEN        2026-10-06T08:01Z，常驻 City（已更新到 8798ba9 并保留数据目录）
+BLOCKER     **不是对侧主机不在**，而是 manifest 里写了过期的身份：历次尝试都声明 alien-reference-node
+            （Alien 主机 2026-10-05 用过的名字，早已离线），而同一台主机全程以规范化入会身份
+            dev-8128a1ef25c5c4b7f66fc31b21705858（Alien-MERA-ALIANWARE）在线。
+            这是 F8 的推广：manifest 必须声明 City **实际报告**的身份，记住的名字会腐烂。
+CAMPAIGN    campaign-966cf439-7017-4bb0-88e8-981e59c18322，状态 COMPLETED (REPETITIONS_FINISHED)
+            拓扑 TWO_HOST_MESH：hosts/workers = [Mech dev-031fdba6…, Alien dev-8128a1ef…]，
+            controlSurface = Android PERM00 dev-be7832e35…
+  run 0     MEASURED  放置 dev-031fdba6…(Mech)   task Q-be723362-…
+  run 1     MEASURED  放置 dev-8128a1ef…(Alien)  task Q-f78eaee3-…   <- 由**对侧主机**执行并测得
+  run 2     MEASURED  放置 dev-031fdba6…(Mech)   task Q-697aab2c-…
+  summary   planned 3 / accounted 3 / measured 3 / timedOut 0 / failed 0 / terminalAccountingComplete true
+            三条放置均在运行前由 runSeed 预测并与实际一致
+MATERIAL    三个 canonical task 全部 COMPLETED 且带 researchRunRef；research trace 记录
+            RESEARCH_CAMPAIGN_STARTED @2026-10-06T08:00:39.601Z（storageState READY，completeness PARTIAL 如实标注）；
+            不可变回执 campaign-966cf439-…json 已落盘于 <runtime>/research/campaigns/
+EVIDENCE    D:/utopia-chat/evidence/REX-803/three-end-live-2026-10-06T08-01-01-831Z.json
+            完整记录：reports/REX-803/THREE_END_GATE_MEASUREMENT.md
+NOT CLAIMED terminal marker 未释放。REX-803 的 Formal Review 属对侧主机，作者不代为判定；本机只交付证据。
+```
+
+REX-803's three-end completion gate is **MET**: on 2026-10-06T08:01Z a controlled campaign ran on the live City (updated to `8798ba9`, data directory retained) across the Mech + Alien + Android topology, with all three repetitions measured - including the one placed on the **Alien host's** node - every canonical task COMPLETED with its `researchRunRef`, the trace recording the campaign, and the immutable receipt filed. The two-day blocker was **not** an absent host: every earlier attempt declared `alien-reference-node`, a name the Alien machine used on 2026-10-05 and which went stale, while the same host was online the whole time under its canonical enrolled identity `dev-8128a1ef…`. That is finding F8 generalised - a manifest must declare the identities the City actually reports. The terminal marker is **not** released: the Formal Review and its verdict belong to the opposite host, and this host is the author.

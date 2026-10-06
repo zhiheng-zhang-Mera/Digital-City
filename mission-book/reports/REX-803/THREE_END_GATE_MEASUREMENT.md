@@ -138,3 +138,78 @@ property" defect this programme has now recorded four times, and the committed p
 **This does not close the gate and is not recorded as if it did.** The gate still requires the Alien host's own node to
 be live in the City and a campaign to run on the three-end topology; what has changed is that nothing but one command
 and one short code now stands between the programme and that campaign.
+
+## THE GATE IS MET — measured on the live City, 2026-10-06T08:01Z
+
+The completion gate is *"at least one controlled campaign on the Alien + Mech + Android base topology with a full research
+trace"*. It has now run, and the thing that had blocked it for days was not the Alien host at all.
+
+### The blocker was a stale identity in the manifest, not an absent host
+
+```text
+City reports, live, before the run
+  dev-031fdba6e94c4298a0956ff04a65481d  Mega-rep                ONLINE   <- this host
+  dev-8128a1ef25c5c4b7f66fc31b21705858  Alien-MERA-ALIANWARE    ONLINE   <- THE ALIEN HOST, live all along
+  dev-be7832e35fc34b85966c3bb43a992e1d  Android PERM00          live control surface
+  alien-reference-node                  Alien-PC                OFFLINE  <- last heartbeat 2026-10-05T11:15:06Z
+```
+
+Every earlier attempt declared `alien-reference-node`, the identity the Alien host used on 2026-10-05, and the City
+correctly refused `TOPOLOGY_NOT_READY` because *that* identity was not live. Meanwhile the same host was online under
+its canonical enrolled identity `dev-8128a1ef25c5c4b7f66fc31b21705858`. This is finding F8 generalised: a manifest must
+declare the identities **the City actually reports**, and a remembered name rots. The gate read as "the other host never
+showed up" for two days while the other host was present the whole time.
+
+### The run
+
+```text
+City build       8798ba9dd37051626033ad72080b2fad3ff66149   (the REX-803 review candidate; the resident City was
+                                                            restarted onto it for this acceptance, data retained)
+experiment       rex803-three-end-live-8798ba9dd370   status VALIDATED
+manifest         topology TWO_HOST_MESH
+                 hosts/workers [dev-031fdba6…, dev-8128a1ef…]
+                 controlSurfaces [dev-be7832e35…]     softwareRefs exact 8798ba9…
+campaign         POST /api/v0/research/campaigns  ->  200  campaign-966cf439-7017-4bb0-88e8-981e59c18322
+seed             rex803-three-end-live-8798ba9dd370-acceptance   (placement predicted BEFORE the run from runSeed)
+```
+
+```text
+run 0  MEASURED  seed 397343796  assigned dev-031fdba6… (Mech)   task Q-be723362-5e83-4806-8d24-ffd0a60a16b2
+run 1  MEASURED  seed 414121415  assigned dev-8128a1ef… (Alien)  task Q-f78eaee3-2380-468e-969d-6012fba109b9
+run 2  MEASURED  seed 430899034  assigned dev-031fdba6… (Mech)   task Q-697aab2c-da4a-4e8b-9918-ab2174e47593
+
+summary  planned 3  accounted 3  measured 3  timedOut 0  failed 0  cancelled 0  skipped 0
+         terminalAccountingComplete true          state COMPLETED  reason REPETITIONS_FINISHED
+```
+
+**Run 1 executed on the Alien host's node and was MEASURED**, and the placement matched the rule predicted before the
+run - which is the property the two-worker rehearsal had found dead and this build repairs.
+
+### The material, verified rather than asserted
+
+```text
+canonical tasks   all three COMPLETED in the City, each carrying researchRunRef
+                  campaign-966cf439-7017-4bb0-88e8-981e59c18322:<index> and assignedNodeId as above
+research trace    RESEARCH_CAMPAIGN_STARTED recorded at 2026-10-06T08:00:39.601Z; 195 records; storageState READY;
+                  completeness PARTIAL, which is stated rather than rounded up
+immutable receipt campaign-966cf439-7017-4bb0-88e8-981e59c18322.json (3 693 bytes) filed under
+                  <runtime>/research/campaigns/, written once at completion
+evidence file     D:/utopia-chat/evidence/REX-803/three-end-live-2026-10-06T08-01-01-831Z.json
+                  (live topology, both identity checks, registration, campaign POST, the pre-run placement
+                  prediction, the terminal live state and the full receipt)
+```
+
+### What this does and does not settle
+
+```text
+SETTLES      the physical half of the completion gate: a controlled campaign ran on the Mech + Alien + Android
+             topology with every repetition measured and the material filed.
+DOES NOT     release the terminal marker. REX-803's Formal Review belongs to the opposite host, its verdict is theirs,
+             and this host is the author. The evidence is handed over; the acceptance decision is not made here.
+DOES NOT     claim a second host's hardware beyond what the City recorded: the Alien worker node heartbeated and
+             completed a canonical task, and nothing beyond that is asserted about that machine.
+```
+
+The resident City was restarted onto `8798ba9` for this acceptance and keeps its data directory, so the cityId, the
+store and every enrollment persisted. Restore is the documented pair: `scripts/stop-city.ps1` then
+`scripts/start-city.ps1 -BindAddress 172.31.12.151 -Port 4391` from the desired worktree.
