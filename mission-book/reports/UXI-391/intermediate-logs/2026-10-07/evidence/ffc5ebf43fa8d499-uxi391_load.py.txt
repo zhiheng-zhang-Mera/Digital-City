@@ -1,0 +1,47 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='VERIFICATION_MECH_LOAD_SEMANTICS.md'
+body='''# VERIFICATION — Mech：gate2五维load与partialtelemetry，以自身inputs核验
+
+{0}
+
+记录释义：Mech Review，精确tree如原块，gate2 code/tests五维load语义一致，PASS20/20。
+
+Dispatch要求非作者fixture，因此translation用 **我选边界**，pressure用 **我选数字**，pipeline用 **真实node**。
+
+## A. 自选translation边界，9/9
+
+{1}
+
+完整断言释义：cpu0%接受真实零非falsy丢弃；100%上界包含；101%、负数、string拒绝不clamp/coerce；memorytotal0拒绝非除零、used>total拒绝；仅gpu不产vector、不发明；真实形状精确cpu0.5/memory0.25、不填其他零。0/100重要，falsy会丢idle测量，包含上界区分saturated与impossible。
+
+## B. Partialvector pressure，6/6
+
+{2}
+
+完整释义：一observeddimension因minimum1为KNOWN，pressure0.9；未测memory/gpu/io/network具名不零填，标PARTIAL；saturated绑定cpu0.9、mean0.220不稀释；emptyUNKNOWN非idle，nullpressure、5/5missing；fleet确五dimensions。
+
+Binding非averaging是实质：cpu0.9另四0.05应pressure0.9非0.22，average会schedule饱和device。
+
+## C. 在线pipeline真实node，5/5及观察
+
+{3}
+
+完整释义：真实telemetry生成memory0.5715vector；至少一真实dimension、无node未发送项；每项来自真实report；fleetKNOWN/PARTIAL且具名unobserved；仅1/5、不称全五。Rawcpu usagePercent null。
+
+**Referencecpu间歇缺失**，loadFromTelemetry拒绝非coerce，降memory-only仍KNOWN因minimum1，erratum诚实行为由真实telemetry非fixture确认。
+
+**也是作者dualhost失败机制**：Bscript cpu finite OR memory finite断言在 **cpu null** 时仅memory便过，误以alternate已ready、太早decline。
+
+**自身首尝试纠正**：原断言livevector必须cpu/memory两者、失败，是我猜设计非承诺。Rawreading解释。现测真实保证，保留被取代版本不悄换。
+
+## 未覆盖
+
+Gate6原surface/UIresultreturn不覆盖；gate11POST_COMPLETION_REENTRY是step7未存在deliverable，pending非verified。
+
+## 证据
+
+mission-book/reports/UXI391/review-by-mech/load-semantics-by-mech.json，livevector/pressure/fivedimensions/全部assertions。
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body)

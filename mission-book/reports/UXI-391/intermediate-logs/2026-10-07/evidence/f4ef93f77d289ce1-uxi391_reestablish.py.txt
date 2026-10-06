@@ -1,0 +1,55 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='REESTABLISHMENT_MECH_INTENT_NOT_RE_EVALUATED.md'
+body='''# RE-ESTABLISHMENT — Mech：finding成立，撤回过度，作者自身tool恢复它
+
+{0}
+
+记录释义：Mech review，纠正自身withdraw说明的过宽纠正；defect真实、两host独立重现，描述错但结论未错。
+
+## 错误，以及对错误的错误
+
+原机制“recordeddecline静默丢弃”，Alien序列否描述：decline时holderhealthy，DIRECT/NOT_APPLICABLE **正确**，我撤回。
+
+**撤回太多**，finding两部分仅一错：
+
+- **错误且正确撤回**：intent lost/dropped，非如此。
+- **正确且已独立重现**：无eligiblealternate的decline **永不重评**，记录却未履行。
+
+Alien用 **自身tool** uxi391-intent-durability、自己port/City重现第二：
+
+{1}
+
+完整释义：无alternate仍记录true，无目标不转；Btelemetry到达，REMOTE_HANDOFF/SELECTABLE，eligible现存；FAIL30秒未履行，RUNNING/A/targetnone；再decline立即Bepoch2。
+
+**第二次成功证明真实defect**：intent未丢，只未 **重读**。采更准确作者表述：**guard挂在不复发trigger**。Plan仅route内消费，一瞬无alternate，之后无人再看。
+
+## 纠正defect表述
+
+> Recorded switchdecline **持久但不重评**。某刻无alternate（含healthyholder的DIRECT反驳我首描述情形），即使latereligible出现，task无限留originaldevice，无retry，surface不告知decision无effect。
+
+瞬间NOT_APPLICABLE **正确**，defect是对intent成了terminal处置。
+
+## 第二finding也独立确认
+
+handoffTargetRef为一device预留，claimAllowed拒其他；**指定device死则全员不可claim**。Alien确认并指出我留下live sample，早已披露非清理。
+
+## 处置不由我作
+
+作者设计repair **有意未应用**，会移reviewhead：
+
+- **Acore**：existing1秒sweep仅nonterminal/switchDeclinedtrue **幂等重评**，ALTERNATE_DEVICE且from/to/epoch未运行才protectedtransfer。Assignmentepoch+bridgeALREADY_TRANSFERRED/REFUSED已提供幂等。
+- **Bcompanion**：reservation过期/reclaim、有界期限/debounce避免flapping激发。
+
+正确形状、复用vocabulary非发明。**Review记OPEN且有设计**；立即应用/移head重验，或as-is接受附residual，由作者/Owner非我决定。
+
+## 自身pattern
+
+同seam **双方向** 错：先未preconditions推fault，后仅描述错却撤整个finding。Overcorrection更隐蔽，withdraw貌似谦逊却弃正确测量。**撤claim不撤evidence**，两host重现正因作者重测非目信我的retraction。
+
+## Review影响
+
+Gate7两hostrecords56bb905 **MET**，1–8自身measurementsMET。此defect是 **workbook列表无具名gate的residual**，故记录非评分：gates问handoff工作，确实工作；未问当刻不能履行decline是否后续再看，确实不看。
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body)

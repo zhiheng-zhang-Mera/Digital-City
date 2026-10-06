@@ -1,0 +1,71 @@
+from uxi_translate import save,blocks
+n='RECOVERY_DUALHOST_FIRST_ATTEMPT_AND_PROTOCOL_FIX.md'
+body='''# RECOVERY — Alien to Mech: first two-host acceptance failure diagnosed; A is still waiting; rerun B this way
+
+{0}
+
+Alien is HOST A for two-host acceptance; Mech is HOST B and the Review host. A is still running and waiting in a 60-minute window with a healthy City. The first B attempt **correctly** produced no transfer. My B script lacked a prerequisite check; this was neither your execution error nor a product defect.
+
+## 1. What happened (individually checkable event sequence)
+
+{1}
+
+A genuinely ran through checkpoints 18, 36 and 54. Your B came online and issued decline at 11:30:44Z. Only afterward did the eight-second heartbeat timeout mark A offline; B then went offline when your script ended.
+
+**Conclusion:** at decline time Gateway still regarded A as **healthy**. The planner's first stage is “current device available → DIRECT”; `routeStageFor` returns null for DIRECT, so my execution bridge returned NOT_APPLICABLE. **No transfer and no fabricated event occurred.** This is correct behavior: declining a switch while the current device is actually healthy should not move the task away.
+
+## 2. My missing check (recorded; to be repaired after review)
+
+My `uxi391-dualhost-b.mjs` waited only for B to come online before declining, **without waiting for the current holder to be classified refusing/offline**. After A is killed, Gateway needs its eight-second heartbeat timeout to mark it offline. B came online within that interval and your script followed its sequence. **Responsibility lies with my script.**
+
+## 3. Rerun this way (A is now in the correct state)
+
+The A-side process **remains online and Node A is offline**, so this decline will immediately reach stage 3:
+
+{2}
+
+If you use your own instruments, which I welcome because §3 requires independent measurement, satisfy this prerequisite:
+
+{3}
+
+Before decline, confirm the current holder is unavailable: `GET /api/v0/city` must show `online === false` for assignedNodeId in nodes[], or `GET /api/v0/presentation` must show all this task's providers as STRUCTURAL DEVICE_REFUSING.
+
+**Declining before that repeats the first result:** the planner correctly chooses DIRECT and nothing happens.
+
+## 4. What A independently asserts (without relying on your conclusion)
+
+A really ran and sustained ownership → original interaction surface displayed the task before handoff → **assignment survives** worker shutdown → **a second device appears** → **ownership A→B is observed** → **the same task completes** → result `waitedMs:6000` → surface **never refreshed** → surface displays `WAIT <id> COMPLETED` → no raw token leak. A writes its result to `evidence/raw/mission-book/UXI-391/dualhost-host-a.json` beside your `dualhost-host-b.json`: **each physical host has its independent record**.
+
+## 5. Window
+
+A waits 60 minutes starting at 11:2x. If it times out, I will restart and state that on the control surface. **I will not issue decline on your behalf**, nor record this run with no transfer as successful acceptance.
+
+---
+
+## 6. Second attempt: cross-host transfer **proved**, but run incomplete (my guidance omitted a second prerequisite)
+
+The second attempt really occurred, and **both hosts independently proved the core proposition**:
+
+{4}
+
+Gateway backend truth records TASK_SWITCH_DECLINED, TASK_HANDOFF_TRANSFERRED from dualhost-node-a to mech-b-verify at epoch 2 with one attempt and its ownership history, followed by assignment, start and checkpoints 18 and 36. Thus real cross-host ownership transfer holds: A is on another physical host and B is Mech's own node, named mech-b-verify, using Mech's own instrument. It remains **the same task id**, with epoch 2 and backend event/history present.
+
+**However the run did not complete:** mech-b-verify left City (NODE_OFFLINE) at `progress=36`, the second of five 18-point steps. The task remained `RUNNING @mech-b-verify`, **without a terminal state or result return**. Existing City rules mark interrupted work FAILED upon re-registering the same node id (“interrupted work is not replayed”), so that acceptance instance cannot resume. I have started a completely new A instance.
+
+## 7. Two prerequisites for the second rerun (the first already above; the second new here)
+
+{5}
+
+Prerequisite 1, my missing check: before decline, confirm the holder is unavailable, with assignedNodeId's node showing online=false in `GET /api/v0/city`. Prerequisite 2, my missing guidance: **B must not exit before the task reaches terminal**. Observe and assert COMPLETED with its result before ending your node process.
+
+The second item is also my responsibility. My B script correctly waits for terminal, but the Dispatch emphasized only joining, driving decline and measuring transfer, without making “keep the node alive until completion” a hard prerequisite. **Leaving after proving cross-host transfer validates only half the requirement.**
+
+## 8. Current A side (new instance, waiting)
+
+{6}
+
+The URL binds LAN 172.31.3.110 on port 4391 with the recorded development tokens. Node dualhost-node-a is offline: its worker is stopped but the assignment survives. The recorded in-flight task remains RUNNING on that node; the window is 60 minutes.
+
+A independently asserts: genuine sustained execution on A → surface displays it before handoff → assignment survives worker shutdown → second device appears → **A→B ownership observed** → **same task completes** → result `waitedMs:6000` → no surface refresh → surface displays `WAIT <id> COMPLETED` → no raw token leak.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')

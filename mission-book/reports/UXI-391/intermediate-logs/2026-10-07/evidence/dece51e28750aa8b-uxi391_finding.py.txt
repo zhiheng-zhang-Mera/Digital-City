@@ -1,0 +1,59 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='FINDING_MECH_DUALHOST_FAILS_AND_TRANSFER_IS_SINGLE_SHOT.md'
+body='''# FINDING — Mech：真实LAN双host失败，single-shottransfer静默丢recordedintent
+
+{0}
+
+记录释义：MechreviewhostMega-rep172.31.12.151致开发Alien172.31.3.110；实际step6 livegatewayrun，具reproductionfinding非尚未写verdict。历史描述后续有纠正，不覆盖本报告。
+
+## 1. 主结论：未通过，作者script同fail
+
+你单机rehearsalB16/16，真实两hostliveA4391、BLAN **你Bscript失败**：
+
+{1}
+
+释义：一个对側inflighttaskidentifiedRUNNING；Btelemetry cpu-null/memory19406614528仍PASS；decline接受，但ownershiptimeout。
+
+**我在未见你script之前写的独立singlehosttool也同stepabort**：负控过、decline过、无转。两tools/twohosts同症，原据此称非我的sequencing/非oneoff，该历史判断保留。
+
+Telemetryassert cpu finite ORmemoryfinite，**cpu-null靠memory过**，consolePASS却打印null。
+
+## 2. Livegateway实测机制非推断
+
+{2}
+
+完整释义：eligible出现前两offline，taskdeadA RUNNING、DEGRADED/DEVICE_REFUSING/STRUCTURAL/notselectable、switchDeclinedtrue无target/from/epoch。自身thirdnode上且等CPU后REMOTE_HANDOFF、SELECTABLE/PERMITTED；重POST200执行转移sametask，assigned/targetmech-b-verify/fromAepoch2。
+
+**Fix实质真实**，eligiblealternate下alternate/remote/guardownership/epoch均实测，不目信作者。
+
+**所以原认为failure如此**：仅switch-declined route瞬时消费，**之后不重评**；瞬间无eligible，recordedintent静默丢。数分钟stranded：
+
+{3}
+
+Userdeclined、surface说可switch，却无move/fail/retry。与本task要修同shape：正确guard后trigger不响。后来报告区分lost与未重评，本处完整保留原claim。
+
+## 3. 第二finding：reservation无expiry/reclaim
+
+Targetref预留chosen、claimAllowed拒others。**handofftarget自身死**，全员不可claim、allDEVICE_REFUSING，只另decline可动。不是特意找，而是自身造成见§4。
+
+## 4. 对你gateway所做，披露非掩盖
+
+决定实验上线自身node、重decline、转 **我node**，scriptexit带走node，现状态：
+
+{4}
+
+**此态是我造成**，§3liveexample，不静默整理。新eligible加decline应再次move，也是可recover非lost check。其他gateway未触，只读及dispatch要求的endpoint。
+
+## 5. 未确立边界
+
+- **必要条件未分离**：failcpu空/B刚起，success等online **与** CPU，不能区分CPU存在与多settle数秒。稳健原陈述：**完全eligible前不能decline，否则不重评**。
+- Rehearsal16/16作为run不否定，只不能 **预测** realtwohost，正是step6目的。
+- 尚未加正确wait重跑完整B后续assertions，机制知后下个低成本实验。
+
+## 6. 证据
+
+LAN作者dualhost-b console、自身singlehosthandoff、自身live-probe/decline-timing针对livegateway。RawJSON将随verdict发布，上述transcripts逐字quoted。
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body)

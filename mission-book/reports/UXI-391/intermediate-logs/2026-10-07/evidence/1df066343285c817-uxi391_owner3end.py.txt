@@ -1,0 +1,49 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='OWNER_INSTRUCTION_THREE_END_TEST.md'
+body='''# RECORD — Owner instruction: three-end physical test, Mech Windows + Alien Windows + physical Android
+
+{0}
+
+Full record translation: direct Owner instruction2026-10-03, after dual-host validation, now fulfilled by Alien10/10 and Mech's own participating node. Instruction recorded, scope/workload assessed, **not started**: UXI-391's review/step7closeout comes first.
+
+## 1. Original Owner requirements, item by item
+
+1. **Rename this host's node Alien-test**, already implemented, section3.
+2. After dual-host validation, test **three machines**: Mech Windows host, Alien Windows host, and **physical Android** controlled by Alien/connected through AndroidStudio.
+3. All three **actually run** tests/verification: Android can **intervene in the whole system and instruct both hosts**; either host can instruct another/report tasks to the centre; every device knows in realtime what others are doing.
+
+## 2. Existing state and gaps: measure first, do not rebuild what exists
+
+**Already present**, UXI301/390/391 outcomes:
+
+{1}
+
+Full translation: City Gateway is centre for registration/heartbeat/claim/report/taskstate/events/presentation. All three can beclients of one City, Web andAndroid already measured on physical device plus adb reverse/preseeded session. Other-device activity available through events TASK/NODE/HANDOFF, city nodeonline, presentation. Android/Web Activity already render timeline. Cross-host ownership transfer measured A→B, same taskid, increasing epoch, result returned to originalsurface.
+
+**Explicit gaps**, actual work needed:
+
+{2}
+
+Full translation: 1 realshared-City connectivity: Android currently adb reverse loopback, Mech LAN; mutual visibility needs Android directLAN or externally reachablegateway, plus pairing-token distribution. 2 targeted instruction: currently whoever can execute claims, no designatedhost instruction; minimal targeting, e.g.targetnoderef/gateway targeted dispatch/refusal, without bypassing planner. 3 Android instructionsource: currently only CANCEL backendwired; twohost instructions need entry/action wiring under frozenRS290 ALLOWED_ACTIONS, additions requirecontract-level decision. 4 realtime sharedchannel: WebSocketstream exists; Web/Android subscribe/show who executes whichtask, state/result, rather than separate snapshotpolling. 5 simultaneousthree-end consistent-observation evidence, sameeventseq/timestamp across threesurfaces.
+
+## 3. Local node rename implemented
+
+{3}
+
+Full translation: uxi391-node defaultid CITY_NODE_ID or Alien-test; dualhost-a defaultA DUALHOST_NODE_A or Alien-test. Displayname followsid unless CITY_NODE_DISPLAY_NAME/secondargument overrides.
+
+Subsequent localnodes therefore appear as **Alien-test**. Mech keeps its independently built names, previously mech-review-b etc.
+
+## 4. Suggested progression, requiring Owner confirmation
+
+This is **new capability**, outsideUXI391 remote-handoff closeout-repair boundaries, which forbid reopeningUI/majorcontract/newprotocol. **Do not insert intoUXI391**. Proposal:
+
+{4}
+
+Full translation: A Owner createsnewworkbook, suggestedMESH-3END/UXI-392, statingtargets/acceptance/boundaries; or B Owner authorisesAlien draft underMISSION_TEMPLATE+CONSTRUCTION_RULES, effectiveafterOwnerreview.
+
+**Owner choseB**: draft [MESH-301](../../../completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md), execution_enabledfalse/statusDRAFT_PENDING_OWNER_APPROVAL, waitingapproval. Under eitheroption, **firstfinishUXI391 closeout**: Mechverdict→repairconfirmation→step7merge+REMOTE_HANDOFF_CLOSEOUT_REPAIRED+POST_COMPLETION_REENTRY. Owner explicitly says afterdual-hostvalidation, andshared-City threeendconnectivity depends onUXI391 makinghandoff/resultreturn real.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')
