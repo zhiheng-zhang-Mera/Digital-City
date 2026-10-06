@@ -27,6 +27,33 @@ City linkage check   pull_request   37440891872   COMPLETED SUCCESS attempt 1
 
 该 head 上还有一条**更新的** push 运行正在进行（37441941363，`in_progress`）——它不改变上表，但说明分支可能再次移动；领取时会重新核对 tip 与声明头是否仍然相等。 / A newer push run for this head is in progress; the tip will be re-checked at claim time in case the branch moves again.
 
+## 独立复现作者的数字 / The author's numbers, reproduced independently
+
+领取之前先把作者记录的数字在本机独立测一遍——这是 reviewer 的第一件事，也不需要先领取（它是测量，不是裁决）。 / Before claiming, the author's recorded numbers were measured independently on this host: a measurement, not a verdict.
+
+```text
+作者记录 / author's record     Local full 1412 / 1409 PASS / 3 ENV_FAIL (resident City)
+本机实测 / measured here @4b39468
+  focused  tests/rex805-*.test.mjs（4 套件）        19 pass / 0 fail
+  full     pnpm test                              1412 tests / 1409 pass / 3 fail
+  3 项失败均为 tests/host-city-launcher.test.mjs（本机常驻 City 占用 host reservation），跑后 tracked state CLEAN
+=> 总数、通过数、失败数、以及失败的身份，逐项一致
+```
+
+**这不是复检结论**：正式的复检要在领取之后，用本机自己制造的探针做，而不是复跑作者的套件。这里确认的只是“作者记录的数字在本机能站住”。 / This is not the review verdict: the formal review comes after the claim and uses probes this host manufactures, not a re-run of the author's suite. What is confirmed here is only that the author's recorded numbers hold up on this host.
+
+## 当前可领取的工作 / What is currently claimable
+
+```text
+REX-805            开发未宣告完成（development_complete: false），不领取
+REX-806/807/890    WAITING_DEPENDENCIES
+SHOW-401           IN_PROGRESS，但已被 Owner 优先级裁定排除：
+                   CEX-790 工作书 owner_priority_override_2026_10_06 =「CEX-790 merge-readiness first,
+                   then MON directly; supersedes REX-before-MON. SHOW excluded.」
+其余 NOT_STARTED 工作书（CHK/DGX/PCF/RIV/URA/XX）不在活跃池，未激活
+=> 本机当前唯一的前进方向就是 REX-805 的复检，闸门一关即领
+```
+
 ## 为什么这件事值得单独记一笔 / Why this is recorded separately
 
 REX-805 的**集成**前置测量在同一轮完成，并且发现了一件对复检直接相关的事：该候选头对 main 是 **fast-forward**（main 是它的祖先，它比 main 多 15 个提交）。也就是说，这个候选头一旦被接受并被机械地“按分支名”合并，**整条 main 会被它替换**，而不是追加一个提交。复检时因此必须把“被审的确切头”钉在工作书记录的那个 SHA 上，而不是名字上——这正是 `reports/INTEGRATION_SOURCE_SWEEP_MECH.md` 记录的那一类陷阱，本案是它最锋利的形式。 / The integration preflight found that this candidate fast-forwards onto main, so a branch-name merge would replace main wholesale. The review must pin the exact accepted SHA, not the branch name.
