@@ -18,8 +18,8 @@ dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
 development_host: Alien
 development_branch: rex/REX-804-Alien-codex-faults
 development_head_sha: f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5
-development_ci: "37397799729 IN_PROGRESS at candidate f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5"
-development_complete: false
+development_ci: "37397799729 and 37397794253 COMPLETED SUCCESS at exact head f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5; gateway-web and android SUCCESS; linkage 37397800050 SUCCESS"
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null

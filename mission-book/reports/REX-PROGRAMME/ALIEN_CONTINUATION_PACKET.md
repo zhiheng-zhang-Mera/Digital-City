@@ -32,3 +32,7 @@ owner_required: false
 6. Switch to MON only once the Owner's research prerequisite is met; preserve existing MON902 claim and begin eligible role in task-code order.
 
 Evidence: REX803/CLAIM_COLLISION_ALIEN.md; REX804/{DEVELOPMENT_REPORT,PAPER_MATERIAL_INDEX,HANDOFF_PACKET}.md; CAP-RESEARCH-FAULTS-001 candidate registry. Current findings and initial test failures remain preserved. Host identity Mera-Alianware = Alien; local critic is not second physical host.
+
+## Later release update (overrides earlier pending-CI checkpoint)
+
+REX804 Development released at `f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5`: PR run 37397799729 and push run 37397794253 both COMPLETED SUCCESS at exact head. Gateway/Web and Android both SUCCESS; linkage 37397800050 SUCCESS. Mech Formal Review now eligible; Alien cannot self-review. REX803 still Mech-owned Development incomplete at final re-scan, so Alien review not yet eligible. REX805+ remain dependency-gated. Monitor remains held under Owner sequence. Task pool NOT terminal; no background timer was installed. Source recovery point, evidence and wake conditions are durable in Git.
