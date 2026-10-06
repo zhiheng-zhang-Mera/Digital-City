@@ -1,0 +1,8 @@
+import pathlib,re
+root=pathlib.Path('D:/Digital-City-REX-20261006/mission-book/finished/completed-2026-10-03/reports')
+for p in root.glob('UXI-*/en/*.md'):
+ if p.name=='README.md':continue
+ t=re.sub(r'```[^\n]*\n[\s\S]*?```|`[^`\n]*`|\]\([^\)]+\)','',p.read_text(encoding='utf8'))
+ print(p.name, ' '.join(sorted(set(re.findall(r'\b[A-Za-z]{12,}\b',t)))))
+for n in ['FINAL_VISUAL_PREVIEW_PACKAGE.md','POST_COMPLETION_REENTRY.md','DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED_SINGLE_SHOT.md']:
+ p=next(root.glob('UXI-*/en/'+n));print('\nFILE',n,'\n',re.sub(r'```[^\n]*\n[\s\S]*?```','[evidence preserved]',p.read_text(encoding='utf8')))

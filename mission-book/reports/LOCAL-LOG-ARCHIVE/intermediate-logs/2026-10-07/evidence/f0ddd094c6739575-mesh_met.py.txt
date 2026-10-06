@@ -1,0 +1,24 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('RECORD_GATE8_MET_THREE_SURFACE_TABLE.md',{
+'# RECORD — MESH-301 gate 8: the complete three-surface table is in, with ZERO failures':'# RECORD — MESH-301 gate 8：完整三界面表已交付，失败为零',
+'## 1. The table':'## 1. 表格',
+'**Three control surfaces on three physical machines, one canonical City, converging on canonical server `seq`\ninside a 5000 ms window, with every clock offset declared and measured in the same run — and not one breach of\nthe window.** The worst single observation in the whole table is 135 ms against a 5000 ms bound, and it belongs\nto the device on wifi.':'**三台物理机器上的三个控制界面、一个 canonical City，在 5000 ms 窗口内收敛于 canonical server `seq`；所有时钟偏移均已声明并在同轮实测，没有一次窗口超限。** 全表最坏单次观察为 135 ms，门槛为 5000 ms，来自 Wi-Fi 设备。',
+'## 2. The residue, item by item, because `INCOMPLETE` must not be waved through':'## 2. 逐项列出余量，不可草率放过 `INCOMPLETE`',
+'Six events are unmeasured. None is a convergence breach, and each has a name:':'六项事件未测量；无一构成收敛超限，每项均点名如下：',
+'The `gap 861..861` line is the whole point of the repair: in window 1 the identical loss appeared as\n**`MISSING x1`** and made the verdict `FAILED`. Here it appears as **`GAP_DECLARED x1`** — the surface naming\nits own hole. The event is still lost; what changed is that nothing about it is hidden.':'`gap 861..861` 正是修复重点：窗口 1 同类丢失显示为 **`MISSING x1`**，使 verdict 为 `FAILED`；这里显示 **`GAP_DECLARED x1`**，界面点名自身缺口。事件仍丢失，变化是此事不再被隐藏。',
+'The instrument returns `INCOMPLETE` rather than `CONVERGED` because it refuses to call a run converged while\nany event is unmeasured. That is the correct behaviour and it is left exactly as it is.':'仪器返回 `INCOMPLETE` 而非 `CONVERGED`，因为仍有任何事件未测量时，它拒绝宣称整轮收敛。这是正确行为，原样保留。',
+'## 3. Why this is gate 8, stated against the workbook\'s own words':'## 3. 对照工作书原文，说明为何满足 gate 8',
+'The gate reads: *三个在线 surface 对 canonical event seq 在 bounded window 内收敛.* The measurement is:':'gate 原文为：*三个在线 surface 对 canonical event seq 在 bounded window 内收敛。* 测量为：',
+'- three online surfaces (Alien Web, Mech-Win-Web, Android `PERM00`), plus an independent fourth observer\n  (the desktop probe), all attached to the same `cityId` at the same time;':'- 三个在线界面（Alien Web、Mech-Win-Web、Android `PERM00`），另加独立第四观察者（桌面 probe），同时连接同一 `cityId`；',
+'- convergence measured against canonical server `seq` and the server\'s own `timestamp`, never a device clock;':'- 基于 canonical server `seq` 和服务器自身 `timestamp` 测量收敛，从不使用设备时钟；',
+'- **2033 convergences, zero window breaches, zero silent misses**;':'- **2033 次收敛、窗口超限为零、静默遗漏为零**；',
+'- offline/reconnect behaviour exercised inside the same discipline (declared `stale`, declared `gap`,\n  `resync` to the server\'s own maximum on return).':'- 同一纪律下验证 offline/reconnect 行为（声明 `stale`、声明 `gap`、返回后 `resync` 至服务器自身最大值）。',
+'**Gate 8: MET**, on that evidence, with the instrument\'s verbatim verdict (`INCOMPLETE`, failures 0) and the\nsix-item residue published above rather than summarised away.':'依据上述证据，**gate 8：MET**；保留仪器原始 verdict（`INCOMPLETE`，失败 0）及已发布的六项余量，不以摘要消除它们。',
+'## 4. Mech\'s corroboration of the skew finding, and it is stronger than mine':'## 4. Mech 对偏移发现的佐证，比本端更强',
+'Mech measured the inter-host clock offset across four successive windows:':'Mech 在四个连续窗口测量主机间时钟偏移：',
+'A monotonic drift of 29 ms over four windows. So a declared skew is not merely "best measured fresh" — it is\n**measurably stale** if reused, and the drift is large enough to matter against a 5 s bound once a window gets\ntight. This is now a shared finding between the two hosts, reached independently, which is the strongest form\nit could take.':'四个窗口中单调漂移 29 ms。因此声明偏移不只是“最好重新测量”：复用会**可测地陈旧**，窗口紧张时，此漂移足以影响 5 秒门槛。这现是两主机独立得出的共同发现，具有最强佐证形式。',
+'## 5. Gate status':'## 5. gate 状态',
+'`DEVELOPMENT_REPORT.md` is published for the review. The next move is Mech\'s: freeze a review head, review it\nwith its own instruments, and report PASS or findings — and if findings, the repair relay runs from there.':'`DEVELOPMENT_REPORT.md` 已发布供复核。下一步由 Mech 冻结 review head，使用自己的仪器复核并报告 PASS 或发现；如有发现，则从该处开始修复接力。',
+})

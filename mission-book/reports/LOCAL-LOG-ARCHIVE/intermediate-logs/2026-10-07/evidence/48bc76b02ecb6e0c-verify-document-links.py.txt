@@ -1,0 +1,34 @@
+from pathlib import Path
+import hashlib,json,re,os,urllib.parse
+root=Path(r'\\?\D:\Digital-City-REX-20261006')
+index=json.loads((root/'docs/encoding-evidence/PREIMAGE_INDEX.json').read_text(encoding='utf-8-sig'))
+preimages=[]
+for rec in index['records']:
+ data=(root/rec['preimage_ref']).read_bytes()
+ preimages.append({'path':rec['preimage_ref'],'hash_matches':hashlib.sha256(data).hexdigest()==rec['original_sha256'],'bytes_match':len(data)==rec['original_bytes']})
+missing=[]; count=0; invalid=[]
+for p in root.rglob('*.md'):
+ rel=p.relative_to(root).as_posix()
+ if any(x in p.parts for x in ('.git','.runtime','node_modules')):continue
+ try:text=p.read_text(encoding='utf-8-sig')
+ except UnicodeError:invalid.append(rel);continue
+ text=re.sub(r'(?ms)^\s*(```|~~~).*?^\s*\1\s*$', '', text)
+ for match in re.finditer(r'!?\[[^\]\n]*\]\(',text):
+  start=match.end();depth=1;j=start
+  while j<len(text) and depth:
+   if text[j]=='(' and (j==0 or text[j-1]!='\\'):depth+=1
+   if text[j]==')' and (j==0 or text[j-1]!='\\'):depth-=1
+   j+=1
+  if depth:continue
+  target=text[start:j-1].strip()
+  if target.startswith('<') and '>' in target:target=target[1:target.index('>')]
+  else:target=re.split(r'\s+[\"\']',target)[0]
+  if not target or target.startswith('#') or re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:',target):continue
+  target=urllib.parse.unquote(target.split('#',1)[0].split('?',1)[0])
+  if not target or any(c in target for c in ('{','}','<','>')):continue
+  resolved=Path(os.path.normpath(str(p.parent/target)));count+=1
+  if not resolved.exists():missing.append({'source':rel,'target':target})
+result={'local_links_checked':count,'missing':missing,'invalid_utf8':invalid,'preimages':preimages}
+(root/'.runtime/document-link-check-current.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps(result,ensure_ascii=False,indent=2))
+raise SystemExit(bool(missing or invalid or any(not x['hash_matches'] or not x['bytes_match'] for x in preimages)))

@@ -1,0 +1,20 @@
+import pathlib,re,subprocess,os
+root=pathlib.Path('\\\\?\\D:\\Digital-City-REX-20261006')
+pairs=[('mission-book/logs/city-live-test/README.md','en'),('mission-book/logs/city-live-test/register/JOIN-LIVE-2026-10-03-01.md','en'),('mission-book/connection-onboarding/README.md','en'),('mission-book/showcase-material-extraction/README.md','zh-CN'),('mission-book/README.md','en'),('mission-book/finished/README.md','en'),('mission-book/finished/completed-2026-10-04/README.md','zh-CN'),('mission-book/finished/completed-2026-10-06/README.md','zh-CN')]
+strip=lambda s:re.sub(r'<!-- (DOCUMENT_NAVIGATION|SERIES_DASHBOARD|MISSION_PROGRESS|ACTIVE_WORKBOOKS):START -->[\s\S]*?<!-- \1:END -->','',s)
+links=0
+for rel,lang in pairs:
+ src=root/rel;current=src.read_text(encoding='utf8');head=subprocess.check_output(['git','show','HEAD:'+rel],cwd='D:/Digital-City-REX-20261006').decode('utf8').replace('\r\n','\n');assert current.startswith(head),rel
+ dst=src.parent/lang/src.name;t=dst.read_text(encoding='utf8');assert not t.startswith('---');a=strip(current);b=strip(t)
+ fences=lambda s:re.findall(r'```[^\n]*\n[\s\S]*?```',s)
+ assert fences(a)==fences(b),(rel,'fences');assert len(re.findall(r'^#+ ',b,re.M))==len(re.findall(r'^#+ ',a,re.M))+1,(rel,'headings')
+ for sha in re.findall(r'\b[0-9a-f]{40,64}\b',a):assert sha in b,(rel,sha)
+ for link in re.findall(r'\]\(([^)]+)\)',b):
+  if not link.startswith(('http:','https:','#')):assert pathlib.Path(os.path.normpath(str(dst.parent/link.split('#')[0]))).exists(),(rel,link);links+=1
+ assert current.count(f'[阅读译本 / Reading translation](./{lang}/{src.name})')==1,(rel,'language link')
+print('VERIFIED 8/8 new reading bodies; source prefixes, fences, SHA, headings, no FM, unique language links;',links,'local links')
+src=root/'mission-book/research-strengthening/README.md';dest=src.parent/'en/README.md';t=dest.read_text(encoding='utf8');s=src.read_text(encoding='utf8')
+for id in ['4b39468','0d8bdce','67/67','1423','1426']:assert id in t,id
+for link in re.findall(r'\]\(([^)]+)\)',t):
+ if not link.startswith(('http:','https:','#')):assert pathlib.Path(os.path.normpath(str(dest.parent/link.split('#')[0]))).exists(),link
+print('VERIFIED research candidate 805 facts and reading links')

@@ -1,0 +1,62 @@
+from pathlib import Path
+import subprocess,json,os,re,urllib.parse
+root=Path(chr(92)*2+'?'+chr(92)+str(Path.cwd())); mappings={}
+completed=['workbench-compatibility-migration','capability-entry-closeout','city-work-monitor-dashboard','connection-onboarding','mesh-3end']
+front=['city-self-health-check','deliberative-governance-expansion-migration','personal-compute-fabric','research-strengthening','review-independence-v2','showcase-material-extraction','suspend','utopia-runtime-architecture']
+for name in completed:mappings['mission-book/'+name]='mission-book/finished/completed-2026-10-06/'+name
+for name in front:mappings['mission-book/'+name]='mission-book/mission-group/'+name
+files=subprocess.check_output(['git','ls-files','-z']).decode().split('\0'); files=[f for f in files if f]
+# No file reads under future-plans.
+texts={}; before_fields={}
+for f in files:
+ if f.startswith('mission-book/future-plans/') or not f.endswith(('.md','.json','.yaml','.yml','.py','.mjs','.txt')):continue
+ if '/evidence/' in f or '/evidence-repaired/' in f or '/artifact/' in f:continue
+ try:texts[f]=(root/f).read_text(encoding='utf-8')
+ except UnicodeError:continue
+ if f.endswith('.md') and texts[f].startswith('---'):
+  before_fields[f]=dict(re.findall(r'^(status|execution_enabled|development_host|review_host|development_complete|review_complete):\s*(.*)$',texts[f].split('\n---',1)[0],re.M))
+def remap(s):
+ for old,new in mappings.items():
+  if s==old or s.startswith(old+'/'):return new+s[len(old):]
+ return s
+def patch_links(text,oldfile,newfile):
+ # balanced Markdown destination parser supports district names with parentheses.
+ out=[];pos=0
+ while True:
+  start=text.find('](',pos)
+  if start<0:out.append(text[pos:]);break
+  end=start+2;depth=1
+  while end<len(text) and depth:
+   if text[end]=='(':depth+=1
+   elif text[end]==')':depth-=1
+   end+=1
+  if depth:out.append(text[pos:]);break
+  value=text[start+2:end-1];newvalue=value
+  if value and not re.match(r'[A-Za-z][\w+.-]*:',value) and not value.startswith('#'):
+   bare=value.strip('<>');pathpart,sep,fragment=bare.partition('#'); decoded=urllib.parse.unquote(pathpart)
+   target=os.path.normpath(os.path.join(os.path.dirname(oldfile),decoded)).replace('\\','/')
+   newtarget=remap(target)
+   if target!='.' and (newtarget!=target or newfile!=oldfile):
+    newvalue=os.path.relpath(newtarget,os.path.dirname(newfile)).replace('\\','/').replace(' ','%20')+(sep+fragment if sep else '')
+    if value.startswith('<'):newvalue='<'+newvalue+'>'
+  out.append(text[pos:start+2]+newvalue+')');pos=end
+ return ''.join(out)
+for old,new in mappings.items():
+ src=(root/old).resolve();dst=(root/new).resolve();assert src.is_relative_to(root) and dst.is_relative_to(root);assert src.is_dir() and not dst.exists(),(src,dst)
+ dst.parent.mkdir(parents=True,exist_ok=True);src.rename(dst)
+for f,t in texts.items():
+ nf=remap(f)
+ if f.endswith('.md'):t=patch_links(t,f,nf)
+ # Repository-relative provenance/config references, not short ambiguous directory names.
+ for old,new in mappings.items():t=t.replace(old+'/',new+'/')
+ if f=='mission-book/PROGRESS_MANIFEST.json':
+  d=json.loads(t)
+  for p in d['programmes']:
+   p['task_globs']=[remap('mission-book/'+x)[len('mission-book/'):] for x in p['task_globs']]
+   p['readme']=remap('mission-book/'+p['readme'])[len('mission-book/'):]
+   if p['key'] in {'wbc','cex','mon'}:p['active_pool']=False
+  t=json.dumps(d,ensure_ascii=False,indent=2)+'\n'
+ if t!=texts[f]:(root/nf).write_text(t,encoding='utf-8',newline='\n')
+Path('.runtime/migration-map.json').write_text(json.dumps(mappings,indent=2)+'\n')
+Path('.runtime/workbook-before.json').write_text(json.dumps(before_fields,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print('Moved',len(mappings),'series directories; future-plans was never read.')

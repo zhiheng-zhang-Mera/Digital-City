@@ -1,0 +1,203 @@
+from uxi_translate import save,blocks
+n='FINAL_VISUAL_PREVIEW_PACKAGE.md'
+save('UXI-390',n,'''# UXI-390 — Minimal FINAL_VISUAL_ACCEPTANCE package, Step 5 delivery
+
+{0}
+
+The package is delivered to Owner for UXI-390 two-host final product acceptance and closeout, when Development Step 5 completes and Owner's visual gate opens. Implementation branch and full head are preserved above.
+
+> Everything to inspect is in one place. Owner need only say **“looks good” or “does not look good, plus one reason.”** No CSS, component list or technical detail is required.
+
+## 1. What to inspect: actual physical-device/browser captures, not mockups
+
+Images are in the Utopia implementation repository at evidence/raw/mission-book/UXI-390/owner-package/, branch uxi/UXI-390-final-product-acceptance, head 149a4c1. Local directory: D:/utopia-uxi390/evidence/raw/mission-book/UXI-390/owner-package/.
+
+| # | File | Surface | First 16 SHA256 digits |
+|---|---|---|---|
+| 1 | 01-web-home.png | Paired ONLINE Web Home: assistant slot, runtime nodes, recent activity | f14ec4c14494437b |
+| 2 | 02-web-ask.png | Web Ask/Do after actual input and request submission | c65d6b7579ee11db |
+| 3 | 03-web-tools-rooms.png | Web Tools/Rooms: Gateway reports Room Hub available, ten rooms | 75912f2581649110 |
+| 4 | 04-web-room-open.png | **Actually opened** embedded Room Hub Room 01 Knowledge Room | eb79628af96f79a4 |
+| 5 | 05-web-provider-state.png | **Provider-switch state** for a real in-flight task after device dropout | e9d3f34208770585 |
+| 6 | android-home.png | Physical Android Home | d58d2e7d347e7aae |
+| 7 | android-ask.png | Physical Android Ask/Do, Chinese UI | 520850a6aaf04baa |
+| 8 | android-tools.png | Physical Android Rooms/local tools | 89604fc5a0e1333b |
+
+Each image is bound through capture-receipt.json or capture-receipt-android.json to capture time, implementation head, port, byte count, SHA256 and **text visible at capture time**. These are verifiable images, not merely trusted images.
+
+## 2. What was actually driven: more than a screenshot wall
+
+{1}
+
+The Web run uses a real Gateway, reference node, Room Hub on port 4320 and Edge driven by Playwright at 1440×900. It pairs ONLINE, opens Home, enters and submits a real Ask request, opens Tools/Rooms, clicks Open for Room 01, then kills the executor and creates a real task. Physical Android BICIPVNB5HS85H9T runs an actually installed city.utopia.control with real Gateway and node; the script writes the App's own connection configuration, uses adb reverse, and genuinely taps bottom-bar Home, Ask and Rooms.
+
+Three **anti-vacuity assertions** reject packaging if false; all passed:
+
+1. **A Room actually opens:** Close Room appears and panel text changes. The first script left the Room below the fold, producing byte-identical overview/open images. The duplicate-image check failed; packaging followed only after repair.
+2. **Provider state contains a real in-flight task:** kill the executor, create through the real control path, and require the task card.
+3. **Images cannot be byte-identical:** the five Web and three Android SHA256 values are all different.
+
+## 3. Owner judges only two things
+
+1. **Looks good or does not look good:** visual direction, density, and whether it still resembles an engineering console.
+2. If not, **one reason**, such as too dark, text too small or Room too empty. The agent translates natural language into design changes and continues the automatic loop; Owner need not provide a technical plan.
+
+## 4. A fact directly relevant to the ruling
+
+Image 5 says **“The current service is responding slowly. Use another available one?”** However, **“Choose another service · nothing available to switch to”** is grey and unselectable.
+
+This renders Owner's option 1 ruling and confirms the historical rationale: City has no five-dimensional load vector, so unmeasured load cannot qualify as an alternate by design. **The switch prompt appears but no target is available.** UI reports reality rather than inventing a selection. This historical premise is retained as recorded; later errata remain authoritative for its correction.
+
+## 5. What remains after delivery
+
+{2}
+
+1. Hosted CI run 36998342105 at latest implementation head 149a4c1 must be green; this was in progress.
+2. After it is green, Alien sets development_complete=true and releases Review. §3 requires Mech.
+3. Mech performs independent visual criticism and Review.
+4. Owner performs FINAL_VISUAL_ACCEPTANCE using this package.
+5. Step 7 merges main, verifies main CI and issues UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED.
+
+**The package claims no gate passed.** Remote handoff is explicitly **NOT MET** under Owner's ruling. Owner's visual gate also remains **NOT MET** until judged.
+'''.format(*blocks('UXI-390',n)),'en')
+n='OWNER_INSTRUCTION_THREE_END_TEST.md'
+save('UXI-391',n,'''# RECORD — Owner instruction: three-end physical testing, Mech Windows + Alien Windows + physical Android
+
+{0}
+
+This direct Owner instruction was recorded on 2026-10-03, after two-host validation, now fulfilled by Alien's 10/10 and Mech's own participating node. The instruction is recorded and its scope/workload assessed, but **work has not started**: UXI-391 Review and Step 7 closeout come first.
+
+## 1. Original Owner requirements, item by item
+
+1. **Rename this host's node Alien-test**, already implemented in §3.
+2. After two-host validation, test **three machines**: Mech Windows, Alien Windows and **physical Android**, controlled by Alien and connected through Android Studio.
+3. All three **actually run tests/verification**. Android must **intervene in the whole system and instruct both hosts**; either host may instruct another or report tasks to the centre; each device knows in real time what the others are doing.
+
+## 2. Existing state and gaps: measure first, without rebuilding existing capabilities
+
+**Already present**, through UXI-301/390/391:
+
+{1}
+
+City's Gateway is the centre for node registration, heartbeat, claiming and reporting, task state, events and presentation feed. All three endpoints can be **clients of one City**: Web and Android are already measured, including a physical phone, adb reverse and a preconfigured session. Other devices' activity is available through /api/v0/events, including TASK_*/NODE_*/HANDOFF events, /api/v0/city for node presence, and /api/v0/presentation. Android and Web Activity pages already render the event timeline. Cross-host ownership transfer has been measured: A→B, same task id, incremented epoch, result returning to the original surface.
+
+**Explicit gaps requiring actual work:**
+
+{2}
+
+1. **Real connectivity to one shared City:** Android currently uses adb reverse/loopback while Mech uses LAN. Mutual three-end visibility needs Android directly connected to the LAN City, or an externally reachable Gateway, plus pairing-token distribution.
+2. **Targeted commands:** tasks currently use “whoever can do it claims it,” without directing a command to a particular host. Add minimal targeting, such as target node ref with Gateway-side directed dispatch/refusal reasons, without bypassing planner semantics.
+3. **Android as command source:** currently only CANCEL is wired to the backend on the physical phone. Commands to both hosts need action/entry wiring under the frozen RS-290 ALLOWED_ACTIONS contract; additional actions require a contract-level decision.
+4. **Real-time synchronization:** the WebSocket event stream exists. Android and Web must subscribe to one channel and show who executes which task, its state and its result, rather than each polling its own snapshot.
+5. **Consistent simultaneous three-end observation:** evidence must show the same event sequence/time stamp consistently across three surfaces.
+
+## 3. Local node rename implemented
+
+{3}
+
+scripts/uxi391-node.mjs defaults its id to CITY_NODE_ID or Alien-test. scripts/uxi391-dualhost-a.mjs defaults Node A to DUALHOST_NODE_A or Alien-test. Display name follows id unless overridden by CITY_NODE_DISPLAY_NAME or the second argument. Subsequent local nodes therefore display **Alien-test**. Mech retains its independently chosen names, previously mech-review-b and others.
+
+## 4. Suggested progression, requiring Owner confirmation
+
+This is **new capability**, outside UXI-391's remote-handoff closeout-repair boundaries, which forbid reopening UI, major contracts or new protocols. **Do not insert it into UXI-391.** The proposal is:
+
+{4}
+
+A: Owner creates a new workbook under mission-book, suggested id MESH-3END / UXI-392, specifying three-end objectives, acceptance and boundaries. Or B: Owner authorizes me to draft it under MISSION_TEMPLATE and CONSTRUCTION_RULES, effective after Owner Review.
+
+**Owner chose B:** the draft [MESH-301](../../../completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md) has execution_enabled:false and status:DRAFT_PENDING_OWNER_APPROVAL, awaiting approval. Either option must **first complete UXI-391 closeout**: Mech verdict → repair confirmation → Step 7 merge, REMOTE_HANDOFF_CLOSEOUT_REPAIRED and POST_COMPLETION_REENTRY. Owner explicitly said after two-host validation; shared-City three-end connectivity depends on UXI-391 making handoff and result return real.
+'''.format(*blocks('UXI-391',n)),'en')
+n='POST_COMPLETION_REENTRY.md'
+save('UXI-391',n,'''# POST_COMPLETION_REENTRY — UXI-391 mandatory automatic reentry scan after terminal state
+
+{0}
+
+Terminal marker is REMOTE_HANDOFF_CLOSEOUT_REPAIRED. Utopia main is `ec12fd0831f31fd81aef9cd9dfb0c959d010f63b`, with run 37088960085 succeeding on both android and gateway-web bound to that SHA. Digital-City main SHA is the commit containing this record when written. The scan rereads origin/main's workbook list and frontmatter rather than reusing pre-construction conclusions.
+
+## 1. Three scan sets and results
+
+{1}
+
+1. Workbooks with merge_authority:true and non-terminal status: only UXI-391 itself, this task now terminal; no others.
+2. Filenames containing MERGE_WORKBOOK: four, BUTLER_ASSISTANT, ENGINEERING_MANAGER, GENERAL_AI_GATEWAY and REMOTE_FABRIC. All are under finished/completed-2026-10-01/** and **must never be reopened**.
+3. The current programme's integration/merge/closeout workbooks: UXI-391, now terminal, and MESH-301 under mission-book/mesh-3end/, drafted by Alien for Owner's three-end physical-test instruction. With execution_enabled:false and DRAFT_PENDING_OWNER_APPROVAL, MESH-301 is **not currently claimable**.
+
+## 2. Typed classification fields
+
+{2}
+
+The scan covers three categories. The source states candidate total five while listing UXI-391, four historical MERGE_WORKBOOKs and MESH-301; this historical number is preserved, not silently corrected. eligible_now=0; temporarily_unclaimable=1, MESH-301, unlocked by Owner approving the draft. structurally_ineligible=0: no stable mechanism excludes Alien, so §5.2 does not apply. external_blocked=0: §5.3 does not apply; the Owner gate follows the existing §5.1 line 110 precedent. There is no next claimed workbook, and next_claim_host is a dash. Wake when Owner approves MESH-301 with execution_enabled:true and status:READY, or any new workbook appears. Events take priority; 20 minutes is fallback only. The no-claim pool classification is **5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY**.
+
+**Why not POOL_TERMINAL:** the pool has a real, Owner-instructed follow-up, MESH-301; only execution approval is missing. Calling the pool terminal would be the window-dressing forbidden by §5.4.
+
+## 3. Three explicit terminal declarations required by the workbook
+
+{3}
+
+1. **UXI-390's stage acceptance is not revoked:** UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED remains valid. This task repairs closeout on top of it, without reopening UI Civilization, RS-201..290 or UXI-301.
+2. **The originally deferred remote-handoff seam is now genuinely CLOSED:** single-host two-Node sequence SWITCH_OFFERED → ALTERNATE_DEVICE/REMOTE_HANDOFF → A→B ownership transfer → same task id terminal on the new holder → result on the original surface, with both Web and physical Android driven. Two-physical-host acceptance records Alien 10/10 and Mech 13/13, using Mech's own instrument over real LAN. Mech REVIEW_COMPLETE PASS at 0a41efe measures gates 1–8 MET independently.
+3. **Real five-dimensional load support remains partial observation.** This task does not claim full five-dimensional telemetry. Observed cpu/memory are reported honestly; gpu/io/network stay unobserved without zero-filling. Binding is the maximum observed dimension, with min_observed_dimensions=1.
+
+## 4. Nonblocking automatic-reentry residual, recorded honestly
+
+Primary D:/A-Utopia produced **empty files** matching the files being authored three times: SchedulerPanel.kt twice and uxi391-handoff-e2e.mjs once. Cause is unknown. Each was found and removed during **pre-merge checks**. This Step 7 check found **zero dirty entries**, so merging was not blocked; DEVELOPMENT_REPORT records it.
+
+## 5. Next responsibilities
+
+{4}
+
+Owner approves or modifies the MESH-301 draft and decides its two forks: expanding the frozen contract action set, and Mech's role as Review host or tested endpoint. After approval, Alien atomically claims under §2 and starts; beforehand it maintains §5.1 fallback rescans with event priority. Mech has no pending work: UXI-391 Review is signed and cited in the terminal declaration.
+'''.format(*blocks('UXI-391',n)),'en')
+n='DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED_SINGLE_SHOT.md'
+save('UXI-391',n,'''# DISPATCH — Alien to Mech: required repairs applied at new head 0a41efe; confirm there
+
+{0}
+
+Alien Development addresses Mech Review's required two-host/single-shot repairs. Full new head `0a41efe50e1e6c7a8dde77edaeb3158636717b91` replaces claimed 269aa96. New-head CI is 37088320091; its status is separately reported below/on the control plane.
+
+## 1. Independent reproduction before repair, rather than one-sided trust
+
+uxi391-intent-durability records decline without an eligible alternate, brings eligible B online, and observes whether the intent is fulfilled within 30 seconds.
+
+{1}
+
+Before repair, decline is recorded without transfer. Once B is online, presentation shows REMOTE_HANDOFF and SELECTABLE, but the recorded intent remains unfulfilled for 30 seconds: RUNNING, assigned A, no target. A second decline immediately transfers at epoch 2. Intent was never lost, only never reevaluated. The same script after repair passes: B's arrival automatically fulfills the old intent **without a second decline**.
+
+## 2. Repairs within UXI-391 boundaries; planner remains pure
+
+{2}
+
+Repair A replaces single-shot plan consumption with idempotent reevaluation in the existing one-second sweep, limited to non-terminal switchDeclined tasks to avoid pointless whole-pool work. Guarded transfer requires ALTERNATE_DEVICE and an unexecuted from/to pair. Epoch increment and bridge ALREADY_TRANSFERRED provide idempotence. A transient REFUSED during sweep is not emitted every second; the endpoint still emits its result honestly.
+
+Repair B bounds reservation expiry/reclaim: once the target stays offline beyond a 15-second grace period, release the reservation and emit TASK_HANDOFF_RESERVATION_RELEASED, allowing other devices to reclaim instead of leaving the task unclaimable. My tests found that clearing fields alone was insufficient: the memory guard still held the dead device and rejected others. Release now **also releases the guard claim** through handoff.releaseReservation; only the current holder may release.
+
+## 3. Added product scenario 3, PASS
+
+{3}
+
+Assertions: transfer to and reserve B; B dies and reservation is released, target absent and QUEUED; the release is a distinct event alongside transfer; **a third device, neg-node-c, completes the stranded task**; still one task and one completion.
+
+An instrument gap was also fixed: **actually stop the preceding City between scenarios**. Previously scenario 2's Gateway kept listening, scenario 3 could not bind, new nodes joined the old City, and waiting for RUNNING timed out.
+
+## 4. Both two-host prerequisites are now fixed in scripts
+
+{4}
+
+B waits until the current holder is judged unavailable **before decline**. The first failure omitted this check, correctly producing DIRECT and no action. The receiving node **must stay alive until terminal**, then may exit.
+
+## 5. Regression: local green, new-head CI separately reported
+
+{5}
+
+Root suite: 1030 total, 1028 pass, two failures, the same document-reader failures Mech reproduced on unchanged baseline 1a5bc0e. Handoff E2E passes. Product negative controls pass all three scenarios, including reservation reclaim. Intent durability now passes where it previously failed.
+
+## 6. Separate non-code behavior change, disclosed first
+
+Owner renames the **local node Alien-test**. Node and dualhost-a defaults changed, with CITY_NODE_ID/DUALHOST_NODE_A overrides. Mech need not rename its nodes.
+
+## 7. Requested reviewer actions
+
+1. **Confirm repairs at 0a41efe**; if the measurements still hold, make it the reviewed head, following the existing pattern.
+2. If reevaluation semantics remain incomplete, for example requiring a more explicit trigger than a one-second sweep, say so and I will repair. The finding has been implemented, but **the formal verdict on this new head is your field**.
+3. Owner instructed **three-end physical testing after two-host validation**, with Mech Windows, Alien Windows and physical Android. Android instructs both hosts; any host instructs another or reports to the centre; all share real-time state. This is **new capability**, recorded in OWNER_INSTRUCTION_THREE_END_TEST, not inserted into UXI-391. It begins after closeout.
+'''.format(*blocks('UXI-391',n)),'en')

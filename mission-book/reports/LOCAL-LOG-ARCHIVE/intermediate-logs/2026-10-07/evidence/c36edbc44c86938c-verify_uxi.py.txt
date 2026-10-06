@@ -1,0 +1,13 @@
+import pathlib,re,json,subprocess,os
+root=pathlib.Path('\\\\?\\D:\\Digital-City-REX-20261006');paths=json.loads((root/'.runtime/foundation-coverage-missing.json').read_text(encoding='utf8'))['groups']['church_UXI'];done=[];missing=[];links=0
+for rel in paths:
+ src=root/rel;ds=[src.parent/l/src.name for l in ['en','zh-CN'] if (src.parent/l/src.name).exists()]
+ if not ds:missing.append(rel);continue
+ current=src.read_text(encoding='utf8');head=subprocess.check_output(['git','show','HEAD:'+rel],cwd='D:/Digital-City-REX-20261006').decode('utf8').replace('\r\n','\n');assert current.startswith(head),rel
+ for d in ds:
+  body=d.read_text(encoding='utf8');assert not body.startswith('---');codes=lambda s:re.findall(r'```[^\n]*\n[\s\S]*?```',s);assert codes(current)==codes(body),(rel,'codes')
+  for sha in re.findall(r'\b[0-9a-f]{40,64}\b',current):assert sha in body,(rel,sha)
+  for link in re.findall(r'\]\(([^)]+)\)',body):
+   if not link.startswith(('http:','https:','#')):assert pathlib.Path(os.path.normpath(str(d.parent/link.split('#')[0]))).exists(),(rel,link);links+=1
+ done.append(rel)
+print('VERIFIED',len(done),'of',len(paths),'source prefixes, code blocks, SHAs, no FM;',links,'links; REMAINING',len(missing))

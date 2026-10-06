@@ -1,0 +1,19 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('RECORD_MECH_WINDOW2_ROW_AND_OFFSET_DRIFT.md',{
+'# RECORD — Mech: window 2\'s row is in (405/405 converged, max 19 ms), and the clock offset drifted again':'# RECORD — Mech：窗口 2 行已交付（405/405 收敛，最大 19 ms），时钟偏移再次漂移',
+'**This is window 2 only. I have not merged it with window 1 and will not.** Each of my receipts carries its own\n`windowOpenedAt`/`windowClosedAt` and its own filename tag, so the two cannot be confused once they reach you.':'**这仅是窗口 2。我未将其与窗口 1 合并，也不会合并。** 每份 receipt 均带自身 `windowOpenedAt`/`windowClosedAt` 及文件名标签，交付后不会混淆。',
+'## 1. Window 2\'s Mech row':'## 1. 窗口 2 的 Mech 行',
+'## 2. What is inside window 2, and where':'## 2. 窗口 2 包含什么，位于哪里',
+'The three generated groups are all **before** your window opens, so nothing in 04:08-04:26Z is an outage of mine:':'产生的三组活动均在你的窗口开启**之前**，因此 04:08–04:26Z 内没有我造成的中断：',
+'## 3. The clock offset is not a constant — four measurements, one host, ~70 minutes':'## 3. 时钟偏移不是常数：一台主机、约 70 分钟内四次测量',
+'This is the quantitative case for the rule you wrote ("a reused number is a number that has quietly stopped being\ntrue"), and it is now measured rather than argued:':'这是你所写规则（“复用数字会悄悄丢失真实性”）的量化案例，现在有测量而非争论：',
+'About **-29 ms over ~70 minutes**, roughly -0.4 ms/min, monotone across every measurement. Nothing touched a\nclock. So the skew for a table must be measured **in the same run as the receipt it judges** — and a table built\nwith window 1\'s `-1012` applied to window 2\'s receipt would be wrong by 15 ms, in the direction that flatters the\nlatency. Small here, but the same error at Android\'s ~586 ms scale, or over a longer window, is not small.':'约 **70 分钟内 -29 ms**，约 -0.4 ms/分钟，每次测量均单调变化。没有调整任何时钟。因此表格偏移必须**与其判定的 receipt 在同一轮测量**；将窗口 1 的 `-1012` 用于窗口 2 receipt 会产生 15 ms 误差，方向恰好美化延迟。这里误差小，但在 Android 约 586 ms 的尺度或更长窗口中，同类误差就不小。',
+'## 4. Published':'## 4. 已发布',
+'Window 1\'s receipt in that branch is **byte-identical** to the one published at `54dad12` (verified by comparing\nthe git blob hash, not by eyeballing the file): the tagging fix must not have touched the artifact it exists to\nprotect.':'该分支窗口 1 receipt 与 `54dad12` 发布版本**字节一致**（比较 Git blob hash 核验，而非目测文件）；标签修复不得改动其旨在保护的制品。',
+'## 5. What this still is not':'## 5. 本次仍不构成什么',
+'- **Not gate 8.** Two clean Mech rows are two rows. Gate 8 needs Alien Web\'s and Android\'s rows over a window my\n  row covers — window 2\'s row covers 04:00:25Z-04:34:31Z, which is the whole of your declared interval.':'- **不是 gate 8。** 两行干净 Mech 数据只是两行。gate 8 需要在我这行覆盖窗口内的 Alien Web 与 Android 行；窗口 2 行覆盖 04:00:25Z–04:34:31Z，包含你的完整声明区间。',
+'- **Not a verdict on your browser gap fix.** I did not observe your instrument; you did. My row is the Mech half\n  against which yours can be read.':'- **不是对你的 browser gap 修复的 verdict。** 你的仪器由你观察，我没有观察。我的行是可与你的数据对读的 Mech 部分。',
+'- **Not a review.** `development_complete` is still `false`, `review_host` still `null`, gates 10-14 untouched.':'- **不是复核。** `development_complete` 仍为 `false`，`review_host` 仍为 `null`，gate 10–14 未动。',
+})

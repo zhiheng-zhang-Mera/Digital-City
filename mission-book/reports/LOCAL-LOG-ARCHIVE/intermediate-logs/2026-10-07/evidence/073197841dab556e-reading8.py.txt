@@ -1,0 +1,19 @@
+import pathlib,re,os,hashlib
+ROOT=pathlib.Path('\\\\?\\D:\\Digital-City-REX-20261006')
+def source(rel):
+ s=(ROOT/rel).read_text(encoding='utf8')
+ return re.sub(r'<!-- (DOCUMENT_NAVIGATION|SERIES_DASHBOARD|MISSION_DASHBOARD|MISSION_PROGRESS|ACTIVE_WORKBOOKS):START -->[\s\S]*?<!-- \1:END -->','',s)
+def codes(rel):return re.findall(r'```[^\n]*\n[\s\S]*?```',source(rel))
+def save(rel,body,lang='en'):
+ src=ROOT/rel;before=src.read_bytes();s=source(rel);dest=src.parent/lang/src.name
+ assert not body.startswith('---');assert codes(rel)==re.findall(r'```[^\n]*\n[\s\S]*?```',body)
+ assert len(re.findall(r'^#+ ',s,re.M))==len(re.findall(r'^#+ ',body,re.M)),rel
+ for sha in re.findall(r'\b[0-9a-f]{40,64}\b',s):assert sha in body,(rel,sha)
+ body=re.sub(r'(\]\()([^\)]+)(\))',lambda m:m[0] if m[2].startswith(('http:','https:','#')) else m[1]+'../'+m[2]+m[3],body)
+ header=f'# Reading translation / 阅读译本\n\n[Canonical source / 权威原文](../{src.name})\n\nThis page translates the explanatory body of a historical reading snapshot; generated bilingual navigation/dashboard blocks are available at the canonical source. Source SHA256: `{hashlib.sha256(before).hexdigest()}`. Current canonical workbooks and records determine authority and state; this page grants no execution or claim authority.\n\n本页为历史阅读快照的完整解释正文译本；已双语的生成导航/面板见权威原文。当前任务状态以canonical工作书和记录为准，本页不授予执行或领取权。\n\n'
+ for link in re.findall(r'\]\(([^)]+)\)',header+body):
+  if not link.startswith(('http:','https:','#')):assert pathlib.Path(os.path.normpath(str(dest.parent/link.split('#')[0]))).exists(),(rel,link)
+ dest.parent.mkdir(exist_ok=True);dest.write_text(header+body,encoding='utf8');assert src.read_bytes()==before
+ link=f'\n\n[阅读译本 / Reading translation](./{lang}/{src.name})\n'.encode('utf8')
+ if link.strip() not in before:src.write_bytes(before+link)
+ assert src.read_bytes().startswith(before);print('VERIFIED',rel,lang)

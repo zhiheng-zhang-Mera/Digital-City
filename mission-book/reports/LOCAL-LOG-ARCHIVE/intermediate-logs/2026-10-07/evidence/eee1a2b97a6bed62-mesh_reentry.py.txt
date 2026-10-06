@@ -1,0 +1,14 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('POST_COMPLETION_REENTRY.md',{
+'# POST-COMPLETION RE-ENTRY — MESH-301':'# POST-COMPLETION RE-ENTRY — MESH-301 完成后重新入池',
+'## 1. The scan':'## 1. 扫描',
+'## 2. The classification, per CONSTRUCTION_RULES §5':'## 2. 按 CONSTRUCTION_RULES §5 分类',
+'**Why not §5.4 `POOL_TERMINAL`.** It is only permitted when *all* relevant tasks are at their true terminal\nstate, and the rule explicitly forbids writing "project complete" over parked, temporarily idle, structurally\nineligible or externally blocked work. Two workbooks carry Owner gates that are `FINAL_VISUAL_*` rather than\n`SATISFIED`, and `XX-000` is a disabled placeholder. Calling that a terminal pool would be exactly the\nsubstitution the rule names.':'**为何不是 §5.4 `POOL_TERMINAL`。** 只有*所有*相关任务都达到真实终态时才允许此分类；规则明确禁止将搁置、暂时空闲、结构性不合格或外部阻塞的工作写成“项目完成”。两本工作书仍有 `FINAL_VISUAL_*` 而非 `SATISFIED` 的 Owner gate，`XX-000` 是禁用占位任务。将其称为池终态，正是规则禁止的替代。',
+'**Why not §5.2 `STRUCTURALLY_INELIGIBLE`.** Nothing is barred from this host. The remaining work is not\nhost-ineligible; it is Owner-dependent, and this host could claim it tomorrow if the Owner opened it.':'**为何不是 §5.2 `STRUCTURALLY_INELIGIBLE`。** 没有任务对本主机禁止。余项不是主机不合格，而是依赖 Owner；Owner 开放后本主机即可领取。',
+'**Why not §5.1 `TEMPORARILY_UNCLAIMABLE`.** It is the closest in behaviour, and it is the correct *operational*\nposture — low-cost waiting with a bounded fallback rescan — but its stated condition is that "there are still\nunfinished tasks" whose completion by the other host or by a gate event could unlock work. The unfinished items\nhere are not unfinished work; they are Owner decisions. §5.3 names that case, so §5.3 is the classification and\n§5.1\'s waiting discipline is the action taken.':'**为何不是 §5.1 `TEMPORARILY_UNCLAIMABLE`。** 行为最接近此项，且其*运行姿态*正确：低成本等待，带有界兜底重扫。但其条件是“仍有未完成任务”，可由另一主机完成或 gate 事件解锁。这里余项并非未完成施工，而是 Owner 决定。§5.3 明确描述此情形，因此采用 §5.3 分类，同时执行 §5.1 的等待纪律。',
+'## 3. What this host does now':'## 3. 本主机当前行动',
+'## 4. Honest note about this scan':'## 4. 本次扫描的诚实记录',
+'The scan\'s first version crashed — `filter(open)` was correct but I then wrote `claimableDev(rows)` instead of\n`rows.filter(claimableDev)`, so the classifier was handed an array where it expected a row. Recorded because the\nclassification above is only as good as the scan, and a scan whose output I had to read past an exception is\nworth saying out loud rather than presenting as a clean first run.':'首版扫描崩溃：`filter(open)` 正确，但随后写成 `claimableDev(rows)` 而非 `rows.filter(claimableDev)`，分类器本应接收一行，却收到数组。记录此事，因为上述分类质量取决于扫描；需忽略异常才能读取输出的扫描，应明确披露，不能呈现为首次干净运行。',
+})

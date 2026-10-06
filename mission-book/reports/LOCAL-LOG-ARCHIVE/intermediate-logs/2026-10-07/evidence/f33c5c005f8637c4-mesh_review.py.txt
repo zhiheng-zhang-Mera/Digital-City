@@ -1,0 +1,131 @@
+import sys,re
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import BASE,save
+n='REVIEW_REPORT.md';s=(BASE/n).read_text(encoding='utf8');b=re.findall(r'```[^\n]*\n[\s\S]*?```',s)
+body='''# MESH-301 — 正式审查
+
+{0}
+
+记录释义：reviewer 是 endpoint A 的 Mech，与开发主机为不同物理主机；review head、该 head 的成功 CI、事前登记方法如原证据所列。初始裁定为 gates 1-9、11 MET，gate 10 因唯一必修 D-R1 PAUSED，12-14 未开始；后续修复验收见末节，不删除旧裁定。
+
+## 1. 第 7 节 — 精确 head 核对
+
+以下每一行都是领取时的测量，不是引用 development report。
+
+{1}
+
+释义：development_complete 为 true；工作书 SHA 与 ls-remote 实测远端分支 tip 相同，不依赖可能陈旧的本地 ref；领取前 review_host 为 null，未覆盖任何记录；领取在工作书中，开发 Alien、review Mech，主机分离。
+
+**head 必须对应代码，不只是 commit。** 两项独立检查：审查未实际运行的 SHA 就等于没有审查。
+
+{2}
+
+完整释义：(1) Receipt lineage：`git diff --name-only 28b1b0e 09a5b89` 只有九文件，均在 `evidence/raw/mission-book/MESH-301/alien-side/`。因此在 28b1b0e 生成的 gate-8 receipts 对应产品代码与冻结 head 字节一致，head 只加证据。这使 window-2 表无需重跑即可用于此 head。(2) 在线 assets：canonical City 提供的 app.js、index.html、terminal.js 与 head 对应文件逐字节一致，hash 见原块；测试的三浏览器及 strict-target Run 控件均为被审 revision。(3) 运行 gateway：无法从外部 hash 长期进程，因此以行为判断。在线 City 返回 controlSurfaces 并发出 CLIENT_CONNECTED/DISCONNECTED，而 4271cbf 的父版本 server.mjs 均无这些功能，因此运行代码包含 4271cbf；该 commit 是最后修改 server.mjs 的 commit，其 blob 与 head 一致。运行 gateway 因此包含 head server.mjs。限制必须明确：这是行为身份，不是字节身份。
+
+## 2. 逐 gate 核验
+
+{3}
+
+表完整释义：gate 1 三真实控制 endpoint 同时连接一 canonical City；2 Alien、Mech 是两不同真实 workers；3 Android 不伪装 worker；4 Android 分别严格定向两者，各一次，结论有界；5 Alien、Mech 互相严格定向；6 离线、未知、畸形、重复负控诚实失败；7 非定向无回归；8 三界面 canonical seq 有界收敛；9 Android 离线重连后收敛，据自身 receipt；上述均 MET。10 Formal Review PASS 初始 PAUSED，需一必修；11 精确 review-head CI MET；12-14 merge、merged-main CI、terminal marker、re-entry 未开始且不声称满足。
+
+**Gate 1。** 本次 review 三次采样的 canonical City controlSurfaces 列出 PERM00、Mech-Win-Web；City 连接事件显示 Alien Web（web-e622eirv）在线 03:59:59.657Z → 04:27:24.315Z，Mech-Win-Web（web-mech-z20yxrrj）在线 04:00:27.306Z → 04:34:32.181Z，覆盖声明的 gate-8 区间；PERM00 由自身 receipt 覆盖。三者 clientRef、clientLabel 均非空，可归属而非匿名 stream clients。**此 gate 应如何举证本身也是发现：见 D-R1，不能用事件流重建 presence。**
+
+**Gate 2/3。** Alien-Win、Mech-Win 均 win32、online:true，heartbeat 距采样不足 4 秒，devicePrincipalId 不同，均有 cpu、memory、disk、uptimeSeconds telemetry。节点列表无 android 命名身份，android-named nodes: 0。Android 仅为控制界面，符合设计审计要求。
+
+**Gate 4。** Android 侧运行的两严格定向指令进入 canonical truth，均由指定设备执行：Q-fa5c5669… → Alien-Win，03:15:26.912Z 创建，COMPLETED、assigned Alien-Win；Q-cfc3912a… → Mech-Win，03:15:59.663Z 创建，COMPLETED、assigned Mech-Win。Android receipts 覆盖两窗口。**结论有界，这一边界关键**：canonical truth 没有 requester（开发记录 D-R2；我自行核验 Action/task keys），因此独立确立的是每设备严格定向指令被接受、持久化、仅指定设备执行并以结果 digest 完成；由 Android 发出这一点依赖 Android receipt。可间接检验 receipt 出处且检验通过：最小 raw clock offset 约 601 ms，是设备自身 skew，不可能是 City 主机脚本（offset 约 0）。所以它是设备侧 receipt，而非冒用设备名称的主机脚本。
+
+**Gate 5。** 严格定向列表中有双方向 canonical seq chains：Alien 侧 → Mech-Win，Q-6958c120…、seq 16-76，包括 TASK_TARGET_WAITING OFFLINE → TASK_TARGET_READY → TASK_ASSIGNED Mech-Win；Mech 侧 → Alien-Win，我自身 Q-0e068bea…、seq 359-382，且在 review head 再次通过产品 #run-target + #run 运行 Q-22aa3d23…、seq 1310-1316。
+
+**Gate 6。** 冻结 head 使用我自己的工具与值重跑：control suite **11/11**，unknown → TARGET_DEVICE_UNKNOWN，malformed → TARGET_DEVICE_MALFORMED，控制界面标签当设备被 unknown 拒绝且无 task，完全相同 retry replay 相同 task/action，同一 key 不可复用于另一设备，http 400 IDEMPOTENCY_KEY_REUSED 且无 task。away-target control **10/10**，主动移走本主机 worker：创建 task 并 WAIT，TASK_TARGET_WAITING targetState=OFFLINE reason=TARGET_DEVICE_OFFLINE，健康另一节点 15 秒不领取；返回后 TASK_TARGET_READY seq 1303 先于向 Mech-Win 的 TASK_ASSIGNED seq 1304。
+
+**Gate 7。** canonical truth 有 172 CHECKPOINT_DEMO tasks，**170 COMPLETED、2 FAILED**。两失败是诚实基础设施结果而非回归：“执行中 Gateway 重启；创建新任务以安全重试”和“Node 重新注册；被中断工作不 replay”。无非定向任务分配给两个真实 workers 之外的节点；我 review 运行另建三非定向 tasks 均完成。
+
+**Gate 8。** 用自己的 invocation 从 raw receipts 重建两个窗口，而非阅读发布表：
+
+{4}
+
+释义：window 1 FAILED，1 failure、CONVERGED 1434；失败就是开发记录的 seq 505，在线 Alien Web 未观察到。Window 2 INCOMPLETE，0 failures、CONVERGED 2033，GAP_DECLARED 4、LATE 0。
+
+我也在 review head 重跑新 Mech 界面窗口：CONVERGED，29/29 seqs、0 failures，最坏 13 ms，界限 5000 ms，同次测得 clock offset -1034 ms。
+
+我还在实际测量后 **撤回了自身早先 gate-8 异议**：merged timeline 过滤到声明区间 04:08:00Z-04:26:00Z，得到 **376 entries、四 observers 全部零 GAP_DECLARED/MISSING/LATE**；残留在测试区间外。完整记录见 RECORD_MECH_CORRECTION_GATE8_DEFERRAL_WITHDRAWN.md。
+
+**Gate 9。** 据 Android 自身 receipt：stale 03:32:26.587Z，reconnected 03:32:34.141Z，声明 gap 436..470，resync 至服务器自身 max seq 471。即界面显示 stale、标明缺口、重新收敛 City truth 而非自身状态。我无法独立重现：能读取设备 receipt，不能重跑其 radio。
+
+**Gate 11。** 37097103737 精确运行于 09a5b89。工作书 development_ci 引用的三 runs 在 28b1b0e、5611e4b 等，均非本 head，这正说明精确 head 检查不是形式。我也在冻结 head 自行运行任务两 suites：**13/13 pass、exit 0**。
+
+## 3. 必修 D-R1：CLIENT_DISCONNECTED 是 client 级事实，却按 socket 级发出
+
+**由 review 发现，以自身 client 在本任务新增代码中重现。** Gateway 注释说明设计意图：“Android client 以 PERM00 在线”成为拥有自身 seq 的 canonical fact，所有界面收敛于此，而非各自从 socket 状态私下推断。实现未兑现：
+
+{5}
+
+用我自身两个同 clientRef、都打开的 sockets 重现：
+
+{6}
+
+释义：A 打开为一 entry；B 打开变两 entries，同界面重复列出。关闭 A、B 仍开，列表剩一正确，但发出 CONNECTED、CONNECTED、DISCONNECTED，宣称 client 已离开；B 仍在线。B 最后关闭才归零，最后 socket cleanup 正确。
+
+**后果发生于生产，而非实验室。** Android 重连时保持多个 socket，canonical truth 因而出现虚假的 client 级断线：
+
+{7}
+
+释义：seq 471 是新 socket CONNECTED；seq 473 是被替换旧 socket 延迟关闭的 DISCONNECTED。PERM00 此后没有 CONNECTED，却在自身 receipt 持续观察到 04:27:30Z，controlSurfaces 仍以 connectedAt 03:32:33.531Z 列出。
+
+第三方从 City 事件流重建在线界面——工作书要求设备收敛的 canonical truth——会断定 Android 在 03:32:35 离开且未返回。**我自身 gate-1 分析正如此，对整个 gate-8 窗口报告 android:false。** 这是产品造成的假阴性，故上述 gate 1 用 controlSurfaces 而非 events 举证。
+
+为何这是必修而非备注：
+
+{8}
+
+完整释义：canonical fact 为假，而整个任务建立在 canonical truth 上；Owner requirement 3 要求每设备知道其他设备在做什么，在线界面显示 OFFLINE 是用户可见错误而非内部细节；缺陷在本任务第 2/4 步新增控制界面身份代码内，属于“三控制 endpoint 指向一 canonical City 的最小连接配置”允许范围；修复小且下文精确定义，成本是一 commit 而非一整轮。
+
+**最小修复，明确规定以防过度建设**：map 仍按 socket keyed，但通过统计每 clientRef sockets 使 EVENTS 变 client 级；仅 ref 首 socket 打开时 CLIENT_CONNECTED，仅 **最后** socket 关闭时 CLIENT_DISCONNECTED；snapshot 按 clientRef 去重，每界面一 entry，connectedAt 为最早在线 socket。不新增字段、route，不改变 strict-target 契约。
+
+## 4. 非阻塞发现：记录以免之后重复发现
+
+{9}
+
+完整释义：N-1 Alien-Host 对最小 raw -1 ms 声明 skew 0，window 2 的 40 seqs、window 1 的 41 seqs 在 latency 列呈 -1 ms，这不是 latency；不改变裁定。可声明 -1 或让 merge 拒绝负 latency。N-2 server.mjs、pairing.mjs 硬编码 displayName Utopia · Alien，使 Mech 常驻 City 也这样自称；cityId 不同且才是真身份，因此无功能损坏，但人类并排比较 snapshots 会被误导。N-3 Action 失败两种 envelope：TARGET 拒绝是 http 200、Action status REFUSED；idempotency key 复用是 http 400、顶层 error/errorCode 且无 Action。可以辩护，但 client 必须处理两者，曾误导我首次 control run。N-4 Action 和 City task 均无 requester，canonical truth 无法归属指令发起界面，故 gate 4 有 §2 所述边界。
+
+## 5. 无论裁定如何，我未独立确立的内容
+
+{10}
+
+完整释义：未证明是 Android app 而非设备上其他程序写了 Android receipts，§2 gate 4 clock-offset 论据是目前最强证据而非证明；gate 9 来自设备 receipt 而非重新实测；运行 gateway 与 head 仅行为身份，无字节身份；Alien 内部工具只从发布 receipts 重跑，非我构建；pre-stale boundary 政策仍待 Owner 解读。
+
+## 6. 证据
+
+{11}
+
+释义：review 分支包含工具、receipts、D-R1 reproduction。review-analysis 分析 gates 1/2/3/4/5/6/7 canonical truth；duplicate-socket-probe 重现 D-R1；step52 通过产品控件 Mech Web → Alien-Win；offline-target 是 away-target control；negative-controls 为独立负控 suite；observe-window 是界面观察窗口、每窗口一 receipt。本 head 的 review-by-mech 17 evidence files 均可解析。路径与文件名以原块为准。
+
+## 7. 后续步骤
+
+在 D-R1 修复并验证前，gate 10 保持 PAUSED。修复 head 仅复验三件事（§8 最小修复，不进行表演式重新 review）：D-R1 reproduction；以五工具重跑确认新 SHA gates 1-9 仍成立；新 SHA 自身绿色 hosted CI。三者满足才 gate 10 PASS、review_complete true，推进 12-14。
+
+## 8. 补充：主动攻击 Android staleness 修复，而非只读说明
+
+冻结记录要求 reviewer 专项攻击，因为“以省略方式撒谎的界面正是工作书禁止的”。已攻击，修复成立：
+
+{12}
+
+完整释义：声明 gap 436..470；canonical truth 正好 35 events；界面这 35 个全未观察到，只看到 433、434、435 后跳到 471、472、473，因此两边界准确，既未夸大（外部无缺失）也未少报（内部无隐藏）。Promptness：gap 前最后事件 seq 436 在 03:32:25.925Z，stale 在 03:32:26.588Z，相隔 0.66 秒，没有将长期静默事后改名为 gap。Re-convergence：03:32:34.235Z resync maxSeq=471，重读服务器自身最大值，随后首观察 seq 也是 471，非从自身 last-seen 恢复。Single surrender：dropSocket() 是唯一释放 socket 处，按正确顺序 socket=null、socketOnline=false、wasDown=true、stale，再 cancel()；注释记录旧缺陷先置空字段，onFailure guard 比较 null 丢 callback，导致静默 stale；receipt 证明 callback 现存活。Gap self-declaration：seq > lastObservedSeq+1 时记录精确 gap，436..470 因此产生，window1 MISSING x8 变 window2 GAP_DECLARED。Generation binding：仅 generationAtFetch==openGeneration 标记 resync，防止 socket 重开前开始的 refresh 把旧 snapshot 标为重收敛；通过读取 head Kotlin 验证，不目信注释。
+
+记录与代码注释的一处不一致，因为之后容易被抹平：注释说“实测 8 such seqs straddling the stale record”，receipt gap 却为 **35 seqs**。可分别来自不同测量，且本处以 receipt 为准，因此列为备注而非缺陷。
+
+**仍进行了修正，且开发主机解释比我的备注更好。** ed0bf64 注释分开两数字：界面自报 hole 为 436..470，即 **35 events**；其中 **8** 个受影响 seqs 落在声明 offline interval 外、位于 stale 前，因此 R1 修复前呈 silent MISSING。两数字从未冲突，原句把不同量混在一起，正如本节所述；修复后的注释明确各自含义。
+
+## 9. 补充：D-R1 已修复，以三种方式验证
+
+于 29f26910e411945134b16fd0a8f601b4dbdd7f45 修复并带到最终 head ed0bf64，准确按规定且无额外改动：map 仍按 socket keyed，逐 ref 在线 socket 数判断 presence，数量从零上升才 CLIENT_CONNECTED，降为零才 CLIENT_DISCONNECTED，snapshot 按 clientRef 去重。
+
+**Heads 已核对。** 修复后因 docs-only commit 修改 Android 注释（上述 8 与 35 混淆）移动一次到 ed0bf64。29f2691 与 ed0bf64 的 services/dev-gateway/server.mjs **字节一致**，按 blob hash 比较而非 diff 摘要，因此验证的是同产品行为。修复 head 相对被审 head 仅三路径不同：services/dev-gateway/server.mjs、tests/mesh301-surface-identity.test.mjs 和 Android 注释。
+
+{13}
+
+完整释义：(1) 在线 City：gateway 在修复 commit 后重启，CITY_STARTED seq1430、05:18:52.651Z，所以修复真正在线，避免长期进程继续测试旧代码。未改 reviewer duplicate-socket probe：A 打开 entries1，B 打开仍1（旧2）；关A但B开，entries1、B在线且不发 DISCONNECTED（旧会发）；关B后0。相同 probe 不再错误宣告离开，也不从列表丢 client。(2) 实际 guard：开发把 reproduction 纳入永久测试并声称旧 server 会失败，我在两 revisions 实跑：09a5b89 两 tests、0pass/2fail，错误分别为同 client 第二 socket 不应增加第二行、匿名界面是一 presence 且诚实标 null；29f2691 与最终 ed0bf64 均2/2pass。这是展示过失败模式的真实 regression guard。(3) 同五工具在修复 head 重跑 gates1-9，无重新解释：negative11/11PASS；away-target10/10PASS，创建时OFFLINE、WAITING1467→READY1469→ASSIGNED Mech-Win1470；Mech Web→Alien-Win8/8PASS，产品控件发起、无offset上界9ms；canonical truth29严格定向tasks均各自目标执行且COMPLETED，158非定向156完成、2诚实typed失败，无节点超出两真实workers；界面窗口CONVERGED27/27、最坏9ms对5000ms界限。Gate11 run37099671088 精确ed0bf64 COMPLETED SUCCESS。
+
+**Gate 10：PASS。Gates 1-11：MET。head ed0bf64 的 review_complete:true。** 工作书 development_head_sha 同 commit 更新为相同 SHA，因为 review 通过工作书未命名的 head 正是 §7 规则要防止的不匹配；这是因本 review 发现导致 head 变动而修改的事实字段，特此记录而非静默修改。
+'''.format(*b)
+save(n,body)

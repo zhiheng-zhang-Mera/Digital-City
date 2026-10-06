@@ -1,0 +1,39 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('RECORD_GATE12_RECHECK_AT_CURRENT_HEAD.md',{
+'# RECORD — MESH-301: gate-12 preconditions re-verified at the CURRENT head `ed0bf64`':'# RECORD — MESH-301：在当前 head `ed0bf64` 重新核验 gate-12 前提',
+'## Re-verified, at `ed0bf64`':'## 在 `ed0bf64` 重新核验',
+'The repair is **confined**, exactly as the repair record claimed: the strict-target contract, the Android\ntargeting UI, the web surface and the convergence instrument are all untouched relative to the head Mech\nalready reviewed.':'修复范围**受限**，与修复记录所述完全一致：相对于 Mech 已复核的 head，strict-target contract、Android 定向 UI、Web 界面与收敛仪器均未改动。',
+'## Live City':'## 正在运行的 City',
+'Still running the D-R1 repair, so the reproduction tool Mech supplied reads the repaired product rather than a\nstale process — which is the operational note Mech itself added to the relay, and the reason the City was\nrestarted rather than left alone.':'City 仍运行 D-R1 修复，因此 Mech 提供的复现工具读取的是修复后的产品，而非陈旧进程。这正是 Mech 自己添加到接力中的运行说明，也是重启 City 而非维持原进程的原因。',
+'## Waiting on':'## 等待项',
+'Mech\'s three closing checks on `ed0bf64`: the D-R1 reproduction (its own probe already returns "the hypothesis\nis NOT confirmed" against the repair), gates 1–9 re-run with the same five instruments, and green hosted CI\n(`37099671088` SUCCESS on exactly this sha). Then gate 10 becomes PASS, `review_complete` becomes true, and\ngates 12–14 proceed.':'等待 Mech 对 `ed0bf64` 的三项收口检查：D-R1 复现（它自己的 probe 对修复已返回“该假设未被证实”），使用同样五种仪器重跑 gate 1–9，以及绿色 hosted CI（`37099671088` 在精确此 SHA 上 SUCCESS）。随后 gate 10 才成为 PASS，`review_complete` 才成为 true，再继续 gate 12–14。',
+})
+translate('RECORD_OWNER_EXTENDED_CREDENTIAL_WINDOW.md',{
+'# RECORD — Owner extended the credential window to 4 hours':"[REDACTED]",
+'## The decision, and why it was asked for':'## 决定及提出请求的原因',
+'Asked because the arithmetic did not work: MESH-301 steps 4–7 still need Android connected as a control\nclient, the Mech-host control surface exercised in the reverse direction, three real surface receipts, an\nindependent Formal Review on the other host, exact-head CI, a merge and merged-main CI. Forty minutes was not\nenough for any of that, and the alternative on the table was to let the window lapse and rotate onto a new port\nand a new credential pair.':"[REDACTED]",
+'**The Owner chose to extend rather than rotate.** The reason this was worth asking instead of deciding:\nrotation is not free — the Mech host\'s node is *online right now* and mid-flight, so rotating would have\nsevered a working two-node City and required the Owner to relay a second pair out of band. Extending costs\nnothing but is the Owner\'s call to make, because the window\'s length is the Owner\'s ruling, not mine.':'**Owner 选择延长而非轮换。** 需要提出请求而不自行决定的原因是：轮换有成本，Mech 主机节点*当前在线*且运行中；轮换会切断正在工作的双节点 City，并要求 Owner 在带外再次转达凭据对。延长没有额外成本，但决定权属于 Owner，因为窗口长度由 Owner 裁决，不由我决定。',
+'## What did NOT change':'## 未改变的事项',
+'- **No credential value changed**, so nothing needs to be relayed again. Mech\'s node keeps running on the pair\n  it already has.':'- **凭据值未改变**，无需再次转达。Mech 节点继续使用已经持有的凭据对运行。',
+'- **Nothing about the credential is written here**, same as before: only the rule and the window. The window is\n  a fact about time; the value stays out of the report, out of screenshots and out of Git.':"[REDACTED]",
+'- **The window is still an operational window, not an enforced one.** The gateway\'s bearer [REDACTED] has no\n  TTL of its own (only pairing sessions do, and the node path does not use them). The honest way to end a\n  window remains to stop honouring the credential — rotate the process onto a new port and a new pair — not to\n  pretend an expiry happened. When `06:46:50Z` is reached, that rotation is what will happen, and the new\n  measured address will supersede rather than edit this record.':"[REDACTED]",
+})
+translate('WINDOW2_GATE8_RERUN.md',{
+'# WINDOW 2 — MESH-301 gate 8: re-run with the browser gap fix, and Mech\'s row':'# WINDOW 2 — MESH-301 gate 8：带 browser gap 修复与 Mech 行重跑',
+'## Why a second window, and why it is not "re-running until it passes"':'## 为什么需要第二窗口，以及为何不是“重跑直到通过”',
+'Window 1 produced a real table and returned `FAILED` on exactly one finding:':'窗口 1 生成了真实表格，并因恰好一项发现返回 `FAILED`：',
+'That seq was lost between the network dying and the browser socket\'s `close` firing, and the browser surface had\nno counterpart to the Android gap self-declaration — so it is now repaired\n(`mesh301-web-surface.mjs`, branch `28b1b0e`). **A repaired instrument must be re-run, otherwise the fix is a\nclaim rather than a measurement.** That is the whole reason for this window, and it is stated here in advance so\nthe re-run cannot be mistaken for a pass-hunt.':'该 seq 在网络中断和浏览器 socket `close` 触发之间丢失；浏览器界面当时没有对应 Android gap 自声明的机制，因此现已修复（`mesh301-web-surface.mjs`，分支 `28b1b0e`）。**修复后的仪器必须重跑，否则修复只是声明而非测量。** 这就是本窗口的全部原因；提前明确记录，避免将重跑误认成寻找 PASS。',
+'Everything else about the window is the same discipline as before:':'窗口其他方面遵循与此前相同的纪律：',
+'- the window is **declared before it opens**, so a missed window costs one message instead of a fabricated table;':'- 窗口**在开启前声明**，错过窗口只需再发消息，而非伪造表格；',
+'- tasks are issued every ~20 s across the whole window, so the table cannot converge vacuously;':'- 整个窗口内约每 20 秒发出任务，避免表格空洞收敛；',
+'- **every surface\'s clock offset is measured in the same run as the receipts it judges** — the previous round\n  established that a declared skew drifts (`592 ms` → `586 ms`), so a reused number is a number that has quietly\n  stopped being true;':'- **每个界面的时钟偏移必须与其判定的 receipt 在同一轮运行中测量**。前一轮证实已声明偏移会漂移（`592 ms` → `586 ms`）；复用数字会悄悄丢失真实性；',
+'- the verdict will be published **exactly as the instrument returns it**, including `FAILED`.':'- 将**原样发布仪器返回的 verdict**，包括 `FAILED`。',
+'## What Mech can supply, and the cheapest form of it':'## Mech 可提供什么，以及成本最低的形式',
+'Either window\'s receipt is acceptable. The preferred form is the probe, because it is scriptable, it names\nitself, and it keeps a browser out of the measurement:':'任一窗口的 receipt 均可接受。首选 probe，因为可脚本执行、声明自身名称，并避免将浏览器引入测量：',
+'If the browser surface is easier, leaving `Mech-Win-Web` open and untouched for the window is equally valid —\nits own instrumentation already writes the same receipt vocabulary.':'如果浏览器界面更方便，在窗口内保持 `Mech-Win-Web` 打开且不操作也同样有效；其自身仪器已经写入相同 receipt 词汇。',
+'## What window 1 still needs from Mech regardless':'## 无论如何，窗口 1 仍需 Mech 提供什么',
+'Window 1 **already holds a valid three-surface overlap** — `Mech-Win-Web` was connected inside it and observed\nlive at `03:45:53Z`. So the table from window 1 is complete except for one row: **your receipt for that\nwindow**. Its exact open/close seqs and timestamps are what your own closing record says it would publish. If\nthat receipt exists, sending it closes gate 8 without any re-run at all, and this second window becomes\nverification of my repair rather than the source of the table.':'窗口 1 **已经有有效三界面重叠**：`Mech-Win-Web` 在窗口内连接，且在 `03:45:53Z` 被实测在线。因此窗口 1 表格只缺一行：**你在该窗口的 receipt**。你自己的收尾记录承诺发布其精确开关 seq 与时间戳。如果该 receipt 存在，发送它即可关闭 gate 8，无需重跑；第二窗口就用于验证我的修复，而非作为表格来源。',
+'Whichever you send, name which window it belongs to. Two windows merged as one is exactly the fabrication the\ndeclared-window discipline exists to prevent.':'无论发送哪一份，都须点名其所属窗口。把两个窗口合成一个，正是声明窗口纪律要防止的伪造。',
+})

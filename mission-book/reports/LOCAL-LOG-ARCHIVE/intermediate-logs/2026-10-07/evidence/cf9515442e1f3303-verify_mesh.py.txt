@@ -1,0 +1,12 @@
+import pathlib,re,subprocess
+root=pathlib.Path('D:/Digital-City-REX-20261006');base=root/'mission-book/reports/MESH-301';files=list((base/'zh-CN').glob('*.md'))+list((base/'en').glob('*.md'));links=0
+for t in files:
+ p=base/t.name;s=p.read_text(encoding='utf8');old=subprocess.check_output(['git','show','HEAD:'+p.relative_to(root).as_posix()],cwd=root).decode('utf8').replace('\r\n','\n');assert s.startswith(old),p
+ translated=t.read_text(encoding='utf8');assert not translated.startswith('---')
+ codes=lambda x:re.findall(r'```[^\n]*\n[\s\S]*?```',x)
+ assert codes(old)==codes(translated),(p,'code')
+ for sha in re.findall(r'\b[0-9a-f]{40,64}\b',old):assert sha in translated
+ for l in re.findall(r'\]\(([^)]+)\)',translated):
+  if l.startswith(('http:','https:','#')):continue
+  assert (t.parent/l.split('#')[0]).resolve().exists(),(t,l);links+=1
+print('VERIFIED',len(files),'MESH originals unchanged; evidence code blocks, SHA, no FM and',links,'local links')

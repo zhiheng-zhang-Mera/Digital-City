@@ -1,0 +1,28 @@
+import pathlib,re,os
+ROOT=pathlib.Path('\\\\?\\D:\\Digital-City-REX-20261006')
+BASE=ROOT/'mission-book/reports/MESH-301'
+def save(name,body,lang='zh-CN'):
+    src=BASE/name;before=src.read_bytes();text=before.decode('utf8');dest=BASE/lang/name
+    assert not body.startswith('---')
+    body=re.sub(r'(\]\()([^\)]+)(\))',lambda m:m[0] if m[2].startswith(('http:','https:','#')) else m[1]+'../'+m[2]+m[3],body)
+    header=f'# Reading translation / 阅读译本\n\n[Canonical source / 权威原文](../{name})。本页完整翻译历史报告正文；原文及当前工作书 frontmatter 为权威，历史状态不替代当前状态。证据代码块逐字保留；阅读本不执行任务。\n\n'
+    dest.parent.mkdir(exist_ok=True);dest.write_text(header+body,encoding='utf8')
+    cur=src.read_bytes();assert cur==before
+    link=f'\n\n[阅读译本 / Reading translation](./{lang}/{name})\n'.encode('utf8')
+    if link.strip() not in cur:src.write_bytes(cur+link)
+    assert src.read_bytes().startswith(before)
+    codes=lambda s:re.findall(r'```[^\n]*\n[\s\S]*?```',s)
+    assert codes(text.replace('\r\n','\n'))==codes(body),(name,'codes')
+    assert len(re.findall(r'^#+ ',text,re.M))==len(re.findall(r'^#+ ',body,re.M)),(name,'headings')
+    for sha in re.findall(r'\b[0-9a-f]{40,64}\b',text):assert sha in body
+    for link in re.findall(r'\]\(([^)]+)\)',header+body):
+        if not link.startswith(('http:','https:','#')):assert pathlib.Path(os.path.normpath(str(dest.parent/link.split('#')[0]))).exists(),(name,link)
+    print('VERIFIED',name)
+def translate(name,mapping,lang='zh-CN'):
+    s=(BASE/name).read_text(encoding='utf8');s=re.sub(r'\n+\[阅读译本 / Reading translation\]\([^\n]+\)\n?','\n',s);blocks=[]
+    def protect(m):blocks.append(m[0]);return 'PRESERVED_BLOCK_'+str(len(blocks)-1)
+    s=re.sub(r'```[^\n]*\n[\s\S]*?```',protect,s)
+    for a,b in sorted(mapping.items(),key=lambda x:len(x[0]),reverse=True):
+        assert a in s,(name,a);s=s.replace(a,b)
+    for i,block in enumerate(blocks):s=s.replace('PRESERVED_BLOCK_'+str(i),block)
+    save(name,s,lang)
