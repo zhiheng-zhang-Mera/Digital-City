@@ -79,7 +79,7 @@
     "review_refs": [
       "mission-book/reports/REX-803/REVIEW_REPORT.md",
       "mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md",
-      "mission-book/reports/REX-803/evidence/independent-material-checks-Alien.json"
+      "mission-book/reports/REX-803/independent-material-checks-Alien.json"
     ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/8798ba9dd37051626033ad72080b2fad3ff66149",
