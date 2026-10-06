@@ -18,8 +18,8 @@ baseline_blocker: null
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-806:RESEARCH_ARTIFACT_EXPORT_ACCEPTED"]
 development_host: "Mech"
 development_branch: "rex/REX-807-mech-research-control-surface"
-development_head_sha: null
-development_ci: null
+development_head_sha: "b06e978fb1c6578305ba485445992d3a1d82913f"
+development_ci: "HEAD b06e978fb1c6578305ba485445992d3a1d82913f: V0.2 checks run 37546655667 completed/FAILURE on the first attempt - gateway-web failed on exactly one test and it was NOT this increment's: tests/rex803-campaign-web.test.mjs 'REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason' (16.8s). Classification, with the evidence rather than an assumption: this commit is purely additive (git show --stat = two new files, +292 lines, no existing file modified); the failing name belongs to a pre-existing browser-driven suite; the SAME head re-ran green on both jobs; that suite passes standalone locally 2/2 twice; and the same test name failed earlier in this session inside a local full-suite parallel run at 38s, so its load sensitivity predates and is independent of this run. Recorded as a load-sensitive web-suite flake and kept as red-then-green rather than written up as a pass. Local evidence on this head: tests/rex807-surface.test.mjs 7/7; adjacent web suites (terminal shell 15, i18n, scheduler adapter) green; seven source mutations each turn the REX-807 suite red with byte-identical restoration."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -85,6 +85,22 @@ Formal Reviewer 用普通用户路径寻找隐藏入口、假按钮、过度折�
 ## 完成门槛
 
 直接控制、知情、危险操作隔离、技术详情折叠均满足全局 Capability Exposure Gate。
+
+## 2026-10-07 增量 1（组件范围：分层视图模型 + 守卫，**尚未接线**）
+
+```text
+现状实测（baseline 12e3d3b）：apps/web/research.js 是扁平技术面板（manifest JSON textarea + 仅验证/登记 +
+原样 JSON 打印）—— 能用，但要读标识符与完整配置；没有分层、没有用户语言摘要、raw id 直接进主标签。
+增量 1 交付 apps/web/research-surface.js（**纯视图模型**）把四个暴露等级变成**数据**：
+  DIRECT_CONTROL（创建/开始/停止/重放/导出，默认展开）· ADVANCED_CONTROL（故障注入在折叠的危险区且**必须确认**，
+  确认语要求输入 campaign id）· OBSERVABLE（运行/进度/指标/排除项，用户语言）· INTERNAL_ONLY（不进 UI）。
+两条规则写进模型而不是指望渲染层：**重要的不许藏**（存储不可用/坏记录/排除项/未测量指标/未结清运行都成为
+visible alert 并带原因）；**标识符折叠但不删除**（完整 manifest/运行记录进 collapsed 技术层；本视图未归位的
+payload 字段列为 unmapped 并写明，网关新增字段因此可见而不是消失）。
+测试 tests/rex807-surface.test.mjs 7 项，逐条对应工作书「必须验证」；**7 处源码突变全部被抓住**并按字节还原。
+未完成：**尚未接线**（research.js 仍渲染旧面板）、Advanced/Technical 交互细节、Android 观察面。
+详细记录见 reports/REX-807/DEVELOPMENT_REPORT.md。
+```
 
 
 ---

@@ -1,0 +1,90 @@
+# REX-807 开发报告（增量 1）/ Development report, increment 1
+
+```text
+TASK_ID            REX-807 Research Control Surface + Progressive Disclosure
+ROLE               Development（增量 1：组件范围；**尚未接线**）
+HOST               Mech（COMPUTERNAME MEGA-REP，role Mech-DS）
+BRANCH             rex/REX-807-mech-research-control-surface
+BASELINE           12e3d3bf868575a8e3cda983733a3186cb59da27（= origin/main；依赖并集实测 = main）
+HEAD_SHA           b06e978fb1c6578305ba485445992d3a1d82913f
+CI                 V0.2 checks run（见下；结论以仓库 Actions 为准）
+DELIVERABLES       apps/web/research-surface.js（新增，纯视图模型）
+                   tests/rex807-surface.test.mjs（新增，7 项）
+```
+
+## 1. 先测再写：缺口是什么
+
+```text
+实测（baseline 12e3d3b）：apps/web/research.js 是**扁平技术面板** —— 一个 manifest JSON textarea、
+「仅验证 / 登记」两个按钮、把结果原样 `JSON.stringify` 打印。Research 功能**能用**，但要靠读标识符与完整配置，
+没有任何分层、没有用户语言摘要、raw id 直接出现在主标签里。
+因此本任务的缺口不是「再加功能」，而是**把已有的东西分成层**：
+  DIRECT_CONTROL    创建/开始/停止/重放/导出 —— 主操作区，默认展开
+  ADVANCED_CONTROL  故障注入 —— Danger Zone，默认折叠且**必须确认**
+  OBSERVABLE        当前运行/进度/指标/排除项 —— 用户语言，默认展开
+  INTERNAL_ONLY     采集器内部缓冲 —— **不进 UI**
+```
+
+## 2. 交付：把「分层」变成数据而不是约定
+
+`apps/web/research-surface.js`（纯函数，无 DOM，可在 node 下测试）：
+
+```text
+· researchView(payload, {locale, primarySurfaces}) 产出 entry / alerts / sections / defaultOpen / confirmationRequired。
+· 标识符**折叠而不删除**：完整 manifest 与运行记录进 collapsed 的 Technical details；主标签是**人话摘要**
+  （`summariseExperiment` 用 question 作摘要，id 只作引用）。
+· **重要的东西不许被藏起来**：存储不可用、读不出的记录、排除项、未测量指标、以及**未结清的运行**，
+  各自变成 `visible: true` 的 alert 并**带上原因**（不是空列表、不是只给数字）。
+· **未知字段不许静默消失**：payload 里本视图还没归位的字段会列进 `unmappedFields` 并在技术层写明，
+  这样网关新增字段会**变得可见**，而不是被吞掉。
+· 故障注入落在 `advanced-faults`：collapsed + requiresConfirmation + **具体的确认语**（要求输入 campaign id）。
+· 运行/停止按钮按状态给：有运行在跑就不给 Start、给 Stop。
+```
+
+`tests/rex807-surface.test.mjs`：工作书「必须验证」逐条对应的 7 项守卫 —— S1 主标签不得泄漏 UUID 且技术层默认折叠、
+S2 危险区必须确认且默认不展开、S3 错误/排除/不完整指标可见并带原因、S4 未归位字段被报告、S5 入口是次级且主面干净
+（`assertPrimarySurfacesClean` 对 `home/ask/devices` 通过、对含 `research` 的主面**抛错**）、S6 INTERNAL_ONLY 不暴露控件、
+S7 zh-CN 真实翻译而非英文回退。
+
+## 3. 证伪（7 处突变，全部被抓住）
+
+```text
+N1 用 id 当主摘要 → S1 红        N2 技术层默认展开 → S1/S5 红     N3 故障注入无需确认 → S2 红
+N4 丢弃未归位字段 → S4 红        N5 主面守卫失效 → S5 红          N6 不提示未结清运行 → S3 红
+N7 zh-CN 回退英文 → S7 红
+每处按字节还原（sha256 一致），还原后 7/7。相邻 Web 套件（terminal shell 15、i18n、scheduler adapter）保持绿。
+```
+
+## 4. 未完成（下一增量）
+
+```text
+· **尚未接线**：research.js 仍渲染旧的扁平面板。下一增量用本视图模型重建该面板（分层区、折叠技术层、
+  危险区确认交互），并在真实浏览器路径上验证（不是只测纯函数）。
+· Advanced/Technical Details 的交互细节（confirm 输入校验、折叠状态记忆）与 **Android 观察面**
+  （至少 run/status/关键 attention）未做。
+· 工作书要求的「Review 用普通用户路径寻找隐藏入口、假按钮、过度折叠、信息不足与视觉过载」属复检方动作；
+  本机只提供组件证据与守卫。
+```
+
+## 5. CI：一次假红与它的归因（保留红，不预写绿）
+
+```text
+首个交付头 b06e978 的 V0.2 checks 37546655667：gateway-web **failure**、android success。
+唯一失败的是既有套件 tests/rex803-campaign-web.test.mjs 的
+「REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason」(16.8s)，
+**不是**本增量新增的测试。归因证据链（五条）：
+  1. 本提交**纯增量**：`git show --stat` = 2 个新文件 / +292 行，**未修改任何既有文件**；
+  2. 失败条目的名字属于既有 web 套件（浏览器驱动）；
+  3. **同一头重跑两个 job 全绿**（completed / success）—— 同一 commit 先红后绿；
+  4. 该套件在本机单独跑 2/2、再跑 2/2 全绿；
+  5. 同一测试名此前已在**本机全量并行**运行中失败过（当时 38s），即它的负载敏感性**早于且独立于**这次 CI。
+⇒ 归类为**负载敏感的 web 套件抖动**，与本增量无关；本报告不把它写成「CI 通过」，而是把红与随后的绿都留着。
+（与 REX-801 套件那次同类；那次我修的是 Windows `rm()` 竞态，这次的红不是拆除竞态而是浏览器时序，故只记录不擅改既有套件。）
+```
+
+## 6. 边界（未越过）
+
+```text
+不采购/不付费、不装系统服务、不改运行 profile、不启用远端执行；未新增任何网关路由（只读既有 payload）；
+未改动 REX-806/PCF 的已验收资产；merge_authority 保持 false（本任务未验收）。
+```
