@@ -5,8 +5,11 @@ WORKBOOK            mission-book/research-strengthening/REX-803-scenario-runner-
 DEVELOPMENT HOST    Mech (COMPUTERNAME MEGA-REP), role Mech-DS
 BRANCH              rex/REX-803-mech-scenario-runner
 BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef   (main at claim time; dependency union already inside)
-DEV HEAD            57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1
-CI (exact head)     37399258359 / 37399254235  (V0.2 checks: gateway-web + android); linkage 37399258414 success
+DEV HEAD            a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df
+                    (four heads: the seed repair D-7, the physical campaign evidence, and this hardening pass D-8/D-9)
+CI (exact head)     MEASURED PER RUN on a695bb9f: push 37407868473 attempt 1 SUCCESS, pull_request 37407871700 attempt 1
+                    SUCCESS, linkage 37407871716 attempt 1 SUCCESS. No run on this head failed. Local: 41 tests pass
+                    (REX-803 + REX-801 + REX-802).
                     earlier green heads: 85a79eca4fe0f4ad8882148725249e016434873e, e284b712c53e5b7f44acdb878afd6a23c7953735
 PR                  zhiheng-zhang-Mera/utopia#31  (development, open)
 PHYSICAL CAMPAIGN   two controlled campaigns on the LIVE resident City with the physical Android handset as the
@@ -82,6 +85,59 @@ D-7  THE CAMPAIGN SEED WAS THE WHOLE MANIFEST. REX-801's registry record exposes
      the seed SHAPE and, separately, that two campaigns of the same registered manifest derive the SAME seed, which is
      the property that was supposed to be tested. The registry's field naming (a serialisation called `digest`) is left
      as it is and raised as finding F9 for REX-801/REX-806.
+D-8  AN UNUSABLE RECEIPT STORE BROKE THE CAMPAIGN LIST ROUTE (finding R-1). `receipts()` called readdirSync unguarded,
+     so a single file sitting where `<runtime>/research/campaigns` belongs made `GET /api/v0/research/campaigns` throw
+     ENOTDIR - the operator watching a RUNNING campaign lost sight of it even though the campaign itself was fine.
+     CAUGHT BY  this task's own adversarial pass, written for this round because the opposite-host review is still
+     outstanding. It is the third appearance of one failure shape in this programme: the REX-804 review blocked on a
+     sibling module whose unreadable receipt stopped the City from starting, and MON-903's own pass found the same shape
+     one round later. REPAIRED: the store is DEGRADED AND REPORTED - `receipts()` returns an empty list with
+     `storeState: UNAVAILABLE` and a reason, `persist()` records `stateStoreFailure` instead of throwing, and the route
+     publishes both. Two regression probes: one drives a campaign to completion with the receipt directory blocked and
+     asserts the list route still answers and the measured outcome is still reported.
+D-9  AN OUTSIDE CANCELLATION WAS CLASSIFIED AS A FAILURE (finding R-2). When an operator cancelled the run's canonical
+     task through the canonical route, the run was recorded `FAILED` with the reason "the canonical task ended
+     CANCELLED" - the reason was honest but the CLASS was wrong, and it mis-attributed the cause to the work.
+     CAUGHT BY  the same adversarial pass. REPAIRED: an outside cancellation is `CANCELLED` with the reason "the
+     canonical task was cancelled outside the campaign", so a reader can tell it from a campaign-stop cancellation, and
+     `summary.failed` no longer counts it. A probe asserts the class, the reason and the accounting.
+```
+
+## 3Z. Adversarial self-test of this task's own deliverable (2026-10-06, before review)
+
+With the opposite-host review still outstanding, this host ran an adversarial pass over the campaign surface - the same
+reviewer's-eye method used on MON-903 in the previous round. Four probes were run; two properties held and two were
+defects (D-8/R-1 and D-9/R-2), both repaired with regression guards.
+
+```text
+HELD   a 10,000-repetition campaign stopped immediately accounts for EVERY planned run exactly once
+       (planned 10000 = accounted 10000; all 10000 explained as CANCELLED, none double counted, no missing rows)
+HELD   canonical truth is untouched by a store failure: with the receipt directory blocked the task still reached
+       COMPLETED and the campaign still reported its measured outcome
+DEFECT R-1 (D-8) a blocked receipt store made the LIST route throw        -> degraded and reported, City-level guard
+DEFECT R-2 (D-9) an outside cancellation was recorded as FAILED           -> classified CANCELLED with its reason
+```
+
+The pass is recorded because it is not a review: it raises the floor for the opposite-host reviewer, and it is how this
+task's own defects were found rather than found by them.
+
+### 3Y. A record defect caught in this host's own hand, before it was committed
+
+```text
+OBSERVATION   the first draft of this task's development_ci field (workbook) and CI line (this report) stated that the
+              push run on a695bb9f had FAILED and passed on rerun, citing run ids that this host had NOT read from the
+              Actions API. It had been written from the pattern of the PREVIOUS task (MON-903), where exactly that
+              happened, rather than from a measurement of this head.
+MEASUREMENT   the Actions API shows three runs on a695bb9f, ALL attempt 1, ALL success: push 37407868473,
+              pull_request 37407871700, linkage 37407871716. No run on this head failed.
+CLASSIFICATION  RECORD DEFECT (unmeasured CI claim) - the same class this host recorded against MON-902 one round
+              earlier and against which the mission-book tooling README explicitly warns ("the checker cannot tell
+              whether a CI claim is true"). It was caught by writing the record LAST, from a per-run read, and it never
+              left this host.
+GUARD         the discipline that caught it is now the stated rule: a CI field is composed from an API read of each
+              run (event, attempt, headSha, conclusion); a pattern from another task is never a measurement. The record
+              consistency checker cannot enforce this - it has no network access by design - so the guard is the
+              procedure plus this recorded near-miss.
 ```
 
 ## 3A. Physical campaign on the live City (2026-10-06)

@@ -84,6 +84,9 @@ reflect the reference node agent's polling cadence. No comparison, speed-up or e
 | Campaign seed (physical run 1) | The campaign seed was `experimentId@<the entire manifest as JSON>` | PRODUCT DEFECT D-7, found ONLY by running on real hardware | Repaired; the route test now asserts the seed's shape and equality across two campaigns of the same manifest |
 | Android topology identity | The declared-control-surface naming gate cannot be satisfied by the identity the City actually reports for a natively enrolled handset | FINDING F8, reality drift (contract vs runtime) | Recorded with the Kotlin line and the observed ref; not repaired here |
 | Owner-facing form after a run | The form still showed the operator's last typed digits (warmup 0) while the campaign ran warmup 1 | FINDING F10 (LOW), honesty nit | Recorded for REX-807; totals stated the truth, so nothing was hidden |
+| Adversarial self-test of this task | A blocked receipt store made the campaign LIST route throw ENOTDIR (R-1), so an operator lost sight of a running campaign; a canonical task cancelled from outside the campaign was classified FAILED (R-2) | PRODUCT DEFECTS, found by this task's own adversarial pass | Repaired (store degraded and reported; outside cancellation classified CANCELLED with its reason) with two regression probes in `tests/rex803-adversarial-guards.test.mjs` |
+| This host's own record hand | A first draft of the CI field claimed a push-run failure with unread run ids, copied from the previous task's pattern rather than measured | RECORD DEFECT (unmeasured CI claim) — the exact class recorded against MON-902 one round earlier | Caught by composing the record last, from a per-run API read; never committed. Recorded as DEVELOPMENT_REPORT section 3Y |
+| One failure shape, three appearances | An unusable research receipt store has now broken, in this programme: the City's startup (REX-804 B1, found by review), the monitor decision log's read path (MON-903 M-1, found by self-test), and the campaign list route (REX-803 R-1, found by self-test) | Repeated DEFECT SHAPE across sibling modules written by the same host | All three repaired to one pattern: degrade, report a typed reason, keep serving, guard with a probe |
 
 ## Claim collision (control-plane observation)
 
@@ -131,9 +134,13 @@ surface for campaigns deliberately absent, owned by REX-807. `merge_authority: f
 ## Latest exact-source outcome (supersedes earlier snapshots in this file)
 
 ```text
-IMPLEMENTATION  57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1
-CI              V0.2 checks 37399258359 (push) and 37399254235 (pull); City linkage 37399258414 success
+IMPLEMENTATION  a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df
+CI              measured per run on that head: push 37407868473 attempt 1 SUCCESS, pull_request 37407871700 attempt 1
+                SUCCESS, linkage 37407871716 attempt 1 SUCCESS - no run failed on this head
 PHYSICAL        two controlled campaigns on the live City with the Android handset connected as the control surface
+SELF-TEST       adversarial pass before review: two defects found and repaired (R-1 store degradation, R-2 outside
+                cancellation classification), two properties held (accounting at 10,000 planned runs; canonical truth
+                untouched by a store failure)
 REVIEW          PENDING (Alien) — not performed, not claimed
 MARKER          SCENARIO_REPETITION_ENGINE_ACCEPTED NOT released
 ```

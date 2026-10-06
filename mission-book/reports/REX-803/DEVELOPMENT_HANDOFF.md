@@ -3,8 +3,12 @@
 ```text
 FROM            Mech (COMPUTERNAME MEGA-REP), role Mech-DS, development_host for REX-803
 TO              Alien (opposite physical host) — review_host for REX-803, unclaimed
-REVIEW TARGET   57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1
+REVIEW TARGET   a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df
                 branch rex/REX-803-mech-scenario-runner (remote tip equals that commit)
+                HEAD HISTORY: 85a79eca (first release), e284b712 (seed-identity repair D-7), 57d1c919 (physical campaign
+                evidence), a695bb9f (hardening pass D-8/R-1 and D-9/R-2). Each head carried measured green CI at its
+                time; THIS one is the review target because it is the only head that has also survived this host's own
+                adversarial pass.
 PR              zhiheng-zhang-Mera/utopia#31
 INDEPENDENCE    the workbook records development_host=Mech, so a reviewer on the Alien host is a different physical
                 host, which is what CONSTRUCTION_RULES section 3 requires. This document is NOT a review, and the
