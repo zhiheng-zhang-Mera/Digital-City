@@ -214,3 +214,9 @@ capability-registry/
 ```
 
 CEX final audit 完成时，Registry reconciliation 是 completion gate，不是可选文档整理。
+
+## 当前合并状态 / Current merge status
+
+CEX-790 已按 Owner 明确授权合入 Utopia main；PR33 merge SHA `b06504f1f96984c960b2661b8ee3a7130796d379`，原审核提交4688274为祖先。合并前所有检查通过；合并后CI仍待终态，不能据此宣布部署完成。
+
+CEX-790 was merged into Utopia main under explicit Owner authorization; PR33 merge SHA `b06504f1f96984c960b2661b8ee3a7130796d379` includes audited head4688274. All premerge checks passed; postmerge CI is pending. This does not claim runtime deployment. See [merge record](../reports/CEX-790/MAIN_MERGE_REPORT.md).

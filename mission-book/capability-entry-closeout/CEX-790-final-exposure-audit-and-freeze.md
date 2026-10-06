@@ -29,7 +29,7 @@ capability_registry_action: BACKFILL
 capability_registry_refs: ["../../capability-registry/CAPABILITY_INDEX.yaml"]
 capability_registry_sync_status: RECONCILED
 owner_gate: NONE
-merge_authority: false
+merge_authority: true
 report_path: mission-book/reports/CEX-790
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
@@ -55,10 +55,13 @@ terminal_marker_release_basis: 'Released under the same owner ruling, after the 
 integration_branch: "integration/CEX-790-Alien-20261006"
 integration_head_sha: "4688274255464383d577841a37e85a556d92c678"
 integration_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/33"
-integration_status: READY_TO_MERGE
-integration_ci: "Exact head 4688274255464383d577841a37e85a556d92c678: push 37412522043 and PR 37412526500 COMPLETED SUCCESS; gateway-web/android all SUCCESS; linkage 37412526523 SUCCESS; PR33 MERGEABLE and mergeStateStatus CLEAN. No main merge performed."
+integration_status: MERGED_MAIN_CI_PENDING
+integration_ci: Premerge exact4688274 all terminal SUCCESS; PR33 MERGED at b06504f1f96984c960b2661b8ee3a7130796d379. Merged-main runs37422119640/37422119627 pending; no postmerge PASS claim.
 integration_report: "mission-book/reports/CEX-790/ALIEN_INTEGRATION_REPORT.md"
 owner_priority_override_2026_10_06: "CEX-790 merge-readiness first, then MON directly; supersedes REX-before-MON. SHOW excluded."
+integration_merge_sha: b06504f1f96984c960b2661b8ee3a7130796d379
+integration_merged_at: 2026-10-06T06:08:22Z
+merge_authorization: Owner explicit instruction 2026-10-06: inspect actual Utopia and merge CEX-790 into main.
 ---
 
 # CEX-790 — Backend → Web/Android 最终入口审计与冻结
