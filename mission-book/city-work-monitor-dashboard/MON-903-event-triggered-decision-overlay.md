@@ -19,8 +19,8 @@ development_head_sha: "78bdd9dc873ebc257aedecf421068a1387dbec82"
 development_ci: "V0.2 checks on exact 78bdd9dc873ebc257aedecf421068a1387dbec82: pull_request run 37406286660 COMPLETED SUCCESS, City linkage check run 37406286695 COMPLETED SUCCESS, and push run 37406282033 COMPLETED SUCCESS - the push run is recorded explicitly because it FAILED on its first attempt and passed on rerun. The single failure was tests/pairing-search-web.test.mjs 'BLE_BOOTSTRAP search selects a peer and hands the code to its origin without a cross-origin POST' at 31.3s (its LAN sibling in the same file took 1.8s), i.e. a load-sensitive browser timeout in a file this task does not touch. CLASSIFICATION: environment/load flake, with the evidence being that the identical head passed the PR run, passed the same file 6/6 in isolation locally, passed the full local suite (1368 tests, 1363 pass, the 5 failures being the inherited environment ones), and passed the rerun of the very job that failed. HEAD HISTORY on this task: 1d1593df9f3370711df7fbb735fb2ccb393e7494 was green (V0.2 checks 37401385199, linkage 37401385211-era success) and the head moved to repair two defects this task found in its own adversarial pass (M-1 unusable decision store prevented City startup; M-2 closed overlay blamed the caller's trigger), both regression-probed on this head. CORRECTION (2026-10-06, record-only, no head or CI fact changed): the phrase 'the 5 failures being the inherited environment ones' is wrong. Only the 3 host-city-launcher failures are environmental (the resident City holds the host reservation); the 2 CORRUPT_INPUT failures in capability-adapters and city-roads were this host's missing `city` dependency install, measured by toggling that one variable on one worktree at one head (absent -> 9 pass / 2 fail; present -> 11 pass / 0 fail). With the documented two-step install the suite is 1356/1359. See the correction section of mission-book/reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md."
 development_complete: true
 review_host: "Alien"
-review_head_sha: "78bdd9dc873ebc257aedecf421068a1387dbec82"
-review_ci: null
+review_head_sha: "db6bfb211064e55c15c5d60ae475272abfaaf7f1"
+review_ci: "PENDING exact-head push 37415280676 / PR 37415286400 / linkage 37415286330"
 review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor / Task Inspector / Autonomy & Approval
@@ -49,7 +49,9 @@ report_path: mission-book/reports/MON-903
 dependency_source_workbooks: ["MON-901"]
 baseline_blocker: null
 review_branch: "review/MON-903-Alien-20261006"
-review_status: "CLAIMED_INDEPENDENT_REVIEW"
+review_status: "REPAIRED_AWAITING_EXACT_HEAD_CI"
+review_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/35"
+review_report: "mission-book/reports/MON-903/INDEPENDENT_REVIEW_Alien.md"
 ---
 
 # MON-903 — Event-Triggered Decision Overlay
