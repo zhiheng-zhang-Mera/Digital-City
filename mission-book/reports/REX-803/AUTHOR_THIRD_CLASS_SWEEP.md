@@ -100,6 +100,17 @@ The full-suite figure is measured with both installs run as `ci.yml` prescribes 
 install), the correction this host published after finding that two long-reported "environment failures" were its own
 missing dependency install.
 
+### The remedy for that instrument class already exists and this host has verified it
+
+The opposite host changed the root test script on their MON-903 branch to
+`node --test --test-concurrency=2 tests/*.test.mjs`, and claimed it bounds browser-suite concurrency without dropping
+checks. This host verified the claim rather than reading it: the same head yields **1386 tests / 1383 pass** with the
+bound and **1386 tests / 1383 pass** without it, so nothing is skipped, and the failing test above is exactly the class
+the bound is aimed at. That change is on `review/MON-903-Alien-20261006` and is not in `main`; when it lands, this
+module's CI should be re-measured and this failure class will most likely stop appearing. Recorded here because the
+third instance of an instrument flake is the point at which it stops being bad luck and starts being a missing
+mitigation.
+
 ## 5. What this pass deliberately does not do
 
 ```text
