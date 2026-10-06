@@ -10,7 +10,7 @@ implementation:
   paths: [services/dev-gateway/research/faults.mjs, services/dev-gateway/server.mjs, apps/web/research-faults.js]
   symbols: [createFaultController, renderFaults]
   api_or_actions: [GET /api/v0/research/faults, POST /api/v0/research/faults, POST /api/v0/research/faults/:id/stop, GET /api/v0/research/faults/:id]
-  last_verified_full_sha: f4ceae734d1d32a7d8950cd5872264135e6073ac
+  last_verified_full_sha: fe700aba957990f93b22fd63d594ddfff7b4e243
 status:
   implementation_status: COMPLETE
   backend_wiring_status: VERIFIED
@@ -30,12 +30,12 @@ surfaces:
     enabled_when: ONLINE and City Owner
     evidence_ref: utopia:evidence/raw/mission-book/REX-804/danger-zone.png
 evidence:
-  backend_wiring_refs: [utopia:tests/rex804-gateway.test.mjs]
+  backend_wiring_refs: [utopia:tests/rex804-gateway.test.mjs, utopia:tests/rex804-unavailable-store.test.mjs]
   reachability_refs: [utopia:tests/rex804-web.test.mjs]
   implementation_refs: [utopia:evidence/raw/mission-book/REX-804/development-receipt.json]
   intent_validation_refs: []
 research_observations:
   registry_reconciliation_result: CANDIDATE_PENDING_FORMAL_REVIEW
   paper_material_refs: [mission-book/reports/REX-804/PAPER_MATERIAL_INDEX.md]
-known_gaps: [terminal CI pending, Mech physical-host review pending, Android controls pending, physical-host and external-provider recovery not measured]
+known_gaps: [ Mech physical-host review pending, Android controls pending, physical-host and external-provider recovery not measured]
 last_reconciled_by_workbook: REX-804
