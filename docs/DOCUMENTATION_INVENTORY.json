@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1721,
-  "total_bytes": 12322420,
+  "markdown_count": 1722,
+  "total_bytes": 12325298,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -14586,6 +14586,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/REX-806/FOLLOWUP_FINDINGS_ALIEN.md",
+      "bytes": 2819,
+      "encoding_state": "UTF8",
+      "chinese_characters": 72,
+      "english_words": 303,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/MERGE_RECORD_Mech_2026_10_07.md",
       "bytes": 3343,
       "encoding_state": "UTF8",
@@ -14605,7 +14614,7 @@
     },
     {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 1244,
+      "bytes": 1303,
       "encoding_state": "UTF8",
       "chinese_characters": 63,
       "english_words": 38,

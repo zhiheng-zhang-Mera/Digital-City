@@ -1,0 +1,44 @@
+✔ REX806 S1: the owner can read the artifact export and its preview (139.9986ms)
+✔ REX806 S2: a member session cannot read the artifact export (129.5447ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (79.7684ms)
+✔ REX806 S4: the preview is bounded and says so (77.8863ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (69.0186ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (107.6467ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (91.1473ms)
+✔ REX806 S8: a 51-receipt City labels its bounded download as partial (133.1384ms)
+✔ REX806 verifier accepts justified unavailable completion after canonical task loss (982.4528ms)
+✔ REX806 verifier accepts the published six-decimal failure rate precision (978.0172ms)
+✔ REX806 verifier accepts justified unavailable rates for an all-refused study (976.4412ms)
+✔ REX806 V1: the verifier passes an untampered artifact (954.2505ms)
+✔ REX806 V2: a tampered metric value is caught (961.6149ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (948.2275ms)
+✔ REX806 V4: a missing section is caught (943.1597ms)
+✔ REX806 V5: a changed dataset timestamp is caught (962.7216ms)
+✔ REX806 V6: a fabricated intervention count is caught (961.1943ms)
+✔ REX806 missing canonical tasks remain counted rather than being filtered from convergence (2.0925ms)
+✔ REX806 A1: the artifact carries every section the workbook names (1.9877ms)
+✔ REX806 A2: every named metric appears, with a value and provenance or NOT_MEASURED and a reason (0.4538ms)
+✔ REX806 A3: an unobserved intervention window is NOT_MEASURED, never 0 (0.3411ms)
+✔ REX806 A4: an export with no real campaign is refused (0.3991ms)
+✔ REX806 A5: the evaluator refuses a value with no provenance and NOT_MEASURED with no reason (0.4754ms)
+✔ REX806 A6: every dataset row carries a raw pointer and a seed-placement verdict (0.2406ms)
+✔ REX806 A7: checksums cover the exact bytes and change when a byte changes (0.974ms)
+✔ REX806 A8: the paper-ready table leads with G3/G4 and keeps their NOT_MEASURED reasons visible (0.4077ms)
+✔ REX806 A9: the artifact separates statistics from narrative and refuses the autonomy inference (0.3865ms)
+✔ REX806 A10: richer campaign data does not conjure Owner-side metrics (0.3595ms)
+✔ REX806 A11: warmup runs are classified separately from failures (0.2437ms)
+✔ REX806 A12: a refused campaign stays visible as undelivered planned runs (0.3006ms)
+✔ REX806 A13: an ablation placement is judged against its policy, and the seed comparison is kept separately (0.2604ms)
+✔ REX806 CLI retains canonical deviceId members in the downloaded topology (1059.8077ms)
+✔ REX806 CLI partial download itself names an unreadable receipt without requiring terminal output (1037.6906ms)
+✔ REX806 CLI partial download itself names the latest missing receipt (1027.3759ms)
+✔ REX806 CLI exposes a known truncated receipt window as partial (1040.4727ms)
+✔ REX806 CLI survives an unreadable detail after a readable listing (1033.5068ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10525.1516
