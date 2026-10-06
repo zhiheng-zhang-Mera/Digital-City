@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1710,
-  "total_bytes": 12226545,
+  "markdown_count": 1713,
+  "total_bytes": 12251270,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9277,10 +9277,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
-      "bytes": 5019,
+      "bytes": 8716,
       "encoding_state": "UTF8",
-      "chinese_characters": 276,
-      "english_words": 74,
+      "chinese_characters": 758,
+      "english_words": 128,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-701-live-resource-telemetry.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9529,10 +9529,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "bytes": 22918,
+      "bytes": 24725,
       "encoding_state": "UTF8",
-      "chinese_characters": 2565,
-      "english_words": 1219,
+      "chinese_characters": 2818,
+      "english_words": 1316,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9871,10 +9871,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "bytes": 20907,
+      "bytes": 22612,
       "encoding_state": "UTF8",
       "chinese_characters": 132,
-      "english_words": 2170,
+      "english_words": 2379,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13479,6 +13479,33 @@
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/PCF-701/DEVELOPMENT_REPORT.md",
+      "bytes": 8078,
+      "encoding_state": "UTF8",
+      "chinese_characters": 625,
+      "english_words": 74,
+      "paired_path": "mission-book/reports/PCF-701/en/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/PCF-701/README.md",
+      "bytes": 705,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 30,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/PCF-701/en/DEVELOPMENT_REPORT.md",
+      "bytes": 8739,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 431,
+      "paired_path": "mission-book/reports/PCF-701/DEVELOPMENT_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/reports/POOL_RECHECK_Alien_2026-10-06.md",
       "bytes": 2240,
       "encoding_state": "UTF8",
@@ -13543,10 +13570,10 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 5261,
+      "bytes": 5255,
       "encoding_state": "UTF8",
       "chinese_characters": 258,
-      "english_words": 266,
+      "english_words": 267,
       "paired_path": "mission-book/reports/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },
