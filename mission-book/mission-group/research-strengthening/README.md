@@ -313,7 +313,7 @@ Programme terminal marker：
 
 ## 当前回查 / Current pool recheck
 
-REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 已于 exact0261a9e 由本机复检通过并释放标记。**REX-806 开发已完成**（工作书 `development_complete: true`、head `3950d47`、托管 CI 与全量套件均已过、包 10/10 clone 校验、自查 8/8 + 11/11），**唯一未完成的一半是对侧实体主机的独立读取/重算**——§3 禁止自审，本机不能代做；该复检一旦通过，`RESEARCH_ARTIFACT_EXPORT_ACCEPTED` 释放，REX-807 与 REX-890 的依赖随即可满足。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
+REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 已于 exact0261a9e 由本机复检通过并释放标记。**REX-806 开发已完成**（工作书 `development_complete: true`、head `3950d47`、托管 CI 与全量套件均已过、包 10/10 clone 校验、自查 8/8 + 11/11），**唯一未完成的一半是对侧实体主机的独立读取/重算**——§3 禁止自审，本机不能代做；该复检一旦通过，`RESEARCH_ARTIFACT_EXPORT_ACCEPTED` 释放，REX-807 与 REX-890 的依赖随即可满足。REX-807 的**领取就绪预检**（依赖闸门、claim-time union 会解析成什么、七个暴露层现在分别落在哪个头、以及开工时的工作量）见 [reports/REX-PROGRAMME/REX-807_CLAIM_READINESS_MECH.md](../../reports/REX-PROGRAMME/REX-807_CLAIM_READINESS_MECH.md)。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
 
 REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-end material review; SCENARIO_REPETITION_ENGINE_ACCEPTED is released while trace metadata remains PARTIAL. REX-804 is accepted at exactfe700aba. REX-805 can be claimed against accepted dependency heads;806/807/890 continue waiting under their workbook dependencies. SHOW and parked/new programme execution remain excluded. Earlier sections below are dated history; current authority is the workbook and formal acceptance report.
 
