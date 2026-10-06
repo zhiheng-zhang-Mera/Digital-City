@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 18,
+      "complete": 17,
       "total": 23
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 88,
+      "complete": 87,
       "total": 93
     },
     "review": {
@@ -907,7 +907,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 4,
+      "development_complete": 3,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
@@ -944,7 +944,7 @@
         },
         {
           "complete": false,
-          "development_complete": true,
+          "development_complete": false,
           "execution_enabled": true,
           "id": "REX-804",
           "path": "research-strengthening/REX-804-fault-injection-and-recovery-probes.md",

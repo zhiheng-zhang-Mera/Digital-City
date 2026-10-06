@@ -9,15 +9,15 @@ implementation:
   discovery_refs: [refs/heads/rex/REX-804-Alien-codex-faults]
   paths: [services/dev-gateway/research/faults.mjs, services/dev-gateway/server.mjs, apps/web/research-faults.js]
   symbols: [createFaultController, renderFaults]
-  api_or_actions: [GET /api/v0/research/faults, POST /api/v0/research/faults, POST /api/v0/research/faults/:id/stop]
-  last_verified_full_sha: f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5
+  api_or_actions: [GET /api/v0/research/faults, POST /api/v0/research/faults, POST /api/v0/research/faults/:id/stop, GET /api/v0/research/faults/:id]
+  last_verified_full_sha: f4ceae734d1d32a7d8950cd5872264135e6073ac
 status:
-  implementation_status: CANDIDATE
-  backend_wiring_status: LOCALLY_VERIFIED
-  user_reachability_status: WEB_VERIFIED_ANDROID_PENDING
-  intent_validation_status: PENDING_FORMAL_REVIEW
+  implementation_status: COMPLETE
+  backend_wiring_status: VERIFIED
+  user_reachability_status: PARTIAL
+  intent_validation_status: NOT_TESTED
 exposure:
-  class: ADVANCED_CONTROL
+  class: DIRECT_CONTROL
   user_visible_information: [target, impact, duration, receipt, missing measurements, recovery]
   user_controls: [select target and fault, explicit confirmation, inject, emergency stop, refresh history]
   intentionally_hidden_information: [credentials, raw secrets]

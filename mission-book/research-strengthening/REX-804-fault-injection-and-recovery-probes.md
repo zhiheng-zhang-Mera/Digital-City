@@ -17,9 +17,9 @@ baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
 development_host: Alien
 development_branch: rex/REX-804-Alien-codex-faults
-development_head_sha: f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5
-development_ci: "37397799729 and 37397794253 COMPLETED SUCCESS at exact head f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5; gateway-web and android SUCCESS; linkage 37397800050 SUCCESS"
-development_complete: true
+development_head_sha: f4ceae734d1d32a7d8950cd5872264135e6073ac
+development_ci: Repair source19a420c independently adopted; focused12 PASS; new exact f4ceae7 hosted CI PENDING. Original review verdict on f76ccf5 retained; new target requires Mech re-verification.
+development_complete: false
 review_host: "Mech"
 review_head_sha: "f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5"
 review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-06): the review target is the development head itself, f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5, resolved from refs/heads/rex/REX-804-Alien-codex-faults (remote tip equals that commit, exit 0). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as CONSTRUCTION_RULES section 3 requires. Run independence checks: required ancestor 69a097b5394a9fece39dd11cc13f04c9b4d28bfe reachable from the reviewed head (git merge-base --is-ancestor exit 0) and the declared dependency REX-802 833279cae237080cca88b1b6dbc9f217027ba68f reachable (exit 0), both measured rather than assumed. Claim-time exact-head check runs re-read independently from the GitHub API for that SHA: gateway-web success (x2), android success (x2), reciprocal-contract success, all terminal. || VERDICT NOT PASSED on f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5. Nine independent reviewer probes (utopia:tests/rex804-mech-review-probes.test.mjs, branch review/REX-804-mech-review at 737c3e1602b87b18395c69757127a3b500fc54e4) reproduced the author's focused 10 PASS and additionally verified: two concurrent node-scoped faults with no cross-talk, a dead timer on an emergency-stopped fault, timer-driven expiry persisted to disk, a delayed report released by the fault's own expiry and reaching canonical truth, the owner-only boundary against an enrolled member, and restart disabling a live fault. BLOCKING FINDING B1: one unreadable fault receipt prevented the City from starting at all (createGateway threw an untyped SyntaxError), which contradicts the completion gate's requirement that normal mode with no fault active must be unaffected and the pattern already settled by the experiment registry and trace collector, which report broken records instead of failing. B2 (the failed construction leaves the opened SQLite store locked), B3 (a shapeless receipt is adopted under an undefined key and never reported), F1 (DUPLICATE_EVENT has no canonical operation to restore, so its recovery metric is structurally NOT_MEASURED), F2 (the candidate capability record uses status values outside the registry vocabulary and omits GET /api/v0/research/faults/:id) and F3 (PROVIDER_UNAVAILABLE is injected at the claim seam, not at an external provider) are recorded. A MINIMUM REPAIR (guarded receipt reading with a published `broken` list) plus its regression guards is proposed on the review branch and is NOT an accepted head: the terminal marker stays unreleased and re-verification on a repaired head with exact-head CI is required. See REVIEW_REPORT.md."
@@ -36,6 +36,8 @@ owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/REX-804
 terminal_marker: FAULT_INJECTION_RECOVERY_ACCEPTED
+repair_head_sha: f4ceae734d1d32a7d8950cd5872264135e6073ac
+repair_report_ref: mission-book/reports/REX-804/AUTHOR_REPAIR_Alien.md
 ---
 
 # REX-804 — Fault Injection + Recovery Probes
