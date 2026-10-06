@@ -68,4 +68,15 @@ REX-805 的**集成**前置测量在同一轮完成，并且发现了一件对�
 4  在有设备/工具链的真实条件下测量重放与实体对比；无法测量的部分如实标注 NOT_RUN，不当作通过
 ```
 
+**仪器已就绪 / the instrument is ready：** 第 3 步里最难的「replay 链路」已经打通并证明可用——见
+`REPLAY_FIXTURE_FEASIBILITY_MECH.md`（在同无执行者的 City 上，用真实回执 + 只补过的 run 跑通了
+`POST /research/replays` 与 `GET /research/replays/:id` 的比较，比较字段 14 项）。那一步同时查明引擎对源的
+**逐条前置条件**（放置必须等于 `replayTarget(context, seed)`、被记录拓扑必须当前在线等），复检可直接把这些
+当作断言，而不必重新发现。 / The hardest probe of step 3 is already proven workable, and the engine's exact source
+preconditions are measured and can be used directly as assertions.
+
+**外部缝仍在 / the external seam remains：** REX-805 `development_complete=false`、`review_host=null`，作者自
+`a524e1c` 后无新提交。本机继续按「记录真实外部缝、不空等」行事：领取要等交付，期间只做能在交付前完成的事。
+/ The review stays unclaimed until the author hands over.
+
 本文件不改变任何工作书字段。 / This file changes no workbook field.
