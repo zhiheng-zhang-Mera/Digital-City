@@ -46,9 +46,24 @@ PROBES        24/24（13 模块 + 5 接口 + 6 校验器），先证伪再信任
 
 **本机提供了一个独立的第二实现**（`scripts/verify-research-artifact.mjs`，**不 import 导出器**，因为调用导出器的校验器只能证明导出器与自己一致）：它自己解析 metrics.csv、从 dataset 重算四项指标、核对每一条 NOT_MEASURED 的原因与每一条有值项的 provenance、核对放置判定与 accounting 恒等式、并重算校验和。本机对已发布包实测 **14/14 通过**，另有 6 项探针证明它**会失败**（改指标值、清空原因、删章节、改时间戳、伪造干预计数为 0，各自变红）。 / A second implementation is provided and deliberately does not import the exporter. It passes 14/14 on the published package, and six probes prove it fails on tampered packages.
 
+**取包与跑校验器的准确步骤**（校验器在**实现仓库**，包在**控制面仓库**，两者不是同一棵树——本机第一版手交把包路径写成实现仓库里的相对路径，照抄会得到 `ENOENT: scandir`；这是本机自己的一处文档缺陷，已改正并实测）： / The verifier lives in the implementation repo and the package in the control-plane repo, so the two commands are separate:
+
 ```powershell
-node scripts/verify-research-artifact.mjs mission-book/reports/REX-806/artifact
+# 1) 实现仓库（utopia）取得被复核的精确头 / exact head under review
+git fetch origin rex/REX-806-mech-metrics-and-export
+git checkout --detach 3950d478e627aaa615ef69e3ac65c30da37c5ea6   # 校验器自 cd4f603 起才存在
+
+# 2) 控制面仓库（Digital-City）取包 / the package ships here
+#    Windows 上需要 core.longpaths=true，否则 checkout 会在深层中文路径处中止
+git -c core.longpaths=true clone --depth 1 https://github.com/zhiheng-zhang-Mera/Digital-City.git city-clone
+
+# 3) 在实现仓库根目录运行，参数指向上面那份 clone / run from the implementation checkout
+node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-806/artifact
 ```
+
+本机对该命令的逐条实测：步骤 1 的 fetch 成功且 `3950d47` 可达；步骤 2 从**GitHub 远端**（不是本机路径）clone 成功；步骤 3 对 clone 出来的包 `14/14 independent checks pass`。因为被测对象是**远端 clone** 而不是作者工作副本，这同时证明包在 checkout 后字节未变，也证明文档里这三条命令就是可执行的那三条。 / Measured step by step: the fetch resolves, the clone comes from the public remote rather than a local path, and the verifier returns 14/14 on the cloned package.
+
+本机原先写错的那一条命令（`node scripts/verify-research-artifact.mjs mission-book/reports/REX-806/artifact`，从实现仓库根目录运行）实测以 `ENOENT: scandir D:\utopia-rex806\mission-book\...` 退出 1。缺陷本身很小，但它正好说明为什么「让复检变便宜」的交付物必须自己先跑一遍：**一条照抄就会报错的入口命令，会把复检者挡在门口，或者更糟——让他以为自己手里的包是坏的。** / The original command fails with ENOENT, which is precisely why a deliverable meant to make review cheap has to be run by its author first.
 
 **但本机那次运行不是复检证据**——请对侧主机自己跑一遍，或自己另写一份。提供它的唯一目的是让「独立重算」从一下午变成五秒钟，从而真的被执行，而不是被放过。 / This host's run of it is NOT review evidence: run it yourself, or write your own.
 
