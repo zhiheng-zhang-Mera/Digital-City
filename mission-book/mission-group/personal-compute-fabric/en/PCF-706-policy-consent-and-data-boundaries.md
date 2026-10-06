@@ -11,3 +11,9 @@ Revalidate at dispatch, artifact transfer, execution start and result publicatio
 Run `node --test tests/pcf706-policy.test.mjs`: expired/revoked/wrong-task consent fails; origin-device-only data cannot leave for another private PC; LAN membership is not trust; declared metadata cannot grant privilege; zero/unknown budgets cannot trigger paid execution; concurrent spending cannot exceed allowance; logs contain no secrets.
 
 Consent/revoke/sharing controls are not released until 715 provides live UI wiring; 714 returns refusals to the origin. Domain profiles may grow without embedding clinical, investment or other specialized decision logic.
+
+## 2026-10-07 specification revision 2
+
+Sharing, task offload, credential use, cross-device data scope and provider spend are distinct gates;725/726/727/728 must not infer one from another. Preserve strict targets and user scope. Observe provider concurrency/refusals honestly; another host is not permission to bypass account limits.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

@@ -2,7 +2,7 @@
 workbook_id: PCF-710
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -50,3 +50,9 @@ report_path: null
 `node --test tests/pcf710-executor.test.mjs`：缺reservation、过期consent、未知executor、非法参数、越界文件、子进程存活、无限日志、取消竞态、超时、错误exit及能力不足。双主机各执行真实样本，证明结果/取消/回执；不要求Linux、不访问Boss旧仓、不自动安装未知依赖。
 
 完成边界是executor/adapter，常驻启动归712/716，资源控制UI归715；需要新权限或插件先按Owner gate。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+新增基础依赖通过708进入725/726。CPU参考执行器仍是本书最低组件验收，不把Codex厂商逻辑塞进底核。真实工程连接器由727消费本书adapter；dispatch返回accepted不等于进程已启动。证明进程/host/boot/attempt、受控结束、非零退出、取消及文件产物；产品Codex验收不得被CPU demo替代。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

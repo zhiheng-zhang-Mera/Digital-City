@@ -2,7 +2,7 @@
 workbook_id: PCF-712
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -50,3 +50,9 @@ report_path: null
 `node --test tests/pcf712-supervision.test.mjs`：写前/写中/写后崩溃、重复事件、旧worker仍活着、旧epoch晚到、启动双supervisor、存储不可写、事件流中断、空池等待。只允许一个有效canonical写者；无法确认权威时fail-closed。验证restart不泄漏reservation、不重复提交结果。
 
 真实常驻循环不依赖Owner打开聊天页；本书不做无人值守安装（716），不做双控制器HA（722），不自动启动Hns/Codex新工程。Supervisor健康与recovery问题归715可见。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+迁入06：只监督已经获准并被canonical接纳的 execution attempt，可通过727启动其对应工程worker；仍禁止自主新建工程目标、选择下一项目或开启未批准Hns/Codex任务。FR保留Git/CI业务观察和Review→Repair。重复wake、进程仍活、注册重启、租约丢失、旧epoch回执必须不产生重复生效；失去授权先停止新执行并明确未知副作用。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

@@ -6,7 +6,7 @@
 
 | Series | Purpose | State |
 |---|---|---|
-| [PCF](mission-group/personal-compute-fabric/README.md) | 增强个人异构计算织网：25 份规划工作书（19 核心 + 6 可选），支持追加子任务与版本化复杂扩展 | PARKED |
+| [PCF](mission-group/personal-compute-fabric/README.md) | 增强个人异构计算织网：29 份规划工作书（23 核心 + 6 可选），支持追加子任务与版本化复杂扩展 | PARKED |
 | [DGX](mission-group/deliberative-governance-expansion-migration/README.md) | 复杂请求拆分、隔离执行、结构化汇合、冲突/仲裁治理 | PARKED |
 | [RIV](mission-group/review-independence-v2/README.md) | Review Pool v2、多维独立性、fresh-context、安全迁移 | PARKED |
 | [URA](mission-group/utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector 运行时分层与逻辑解耦 | PARKED |
@@ -23,3 +23,7 @@
 - 需要进入 active pool 时，必须显式修改 `PROGRESS_MANIFEST.json` 并同步主页，而不是偷偷变成任务。
 
 本索引用来把未来设计从主 Mission Book 施工面隔离出去，同时避免设计遗失。
+
+## PCF design revision2 — 2026-10-07
+
+29 planned workbooks (23 core,6 optional),0 activated. Execution-only prerequisite slices from URA/DGX/FR now have one PCF owner; source and destination README panels record all seven transfers. No active task denominator or current claims change.

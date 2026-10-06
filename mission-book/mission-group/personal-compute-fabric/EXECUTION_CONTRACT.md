@@ -46,3 +46,9 @@ City：`mission-book/reports/PCF-NNN/{zh-CN,en}/` 仅保存 bounded Development/
 每书 `spec_revision` 单调递增。已领取任务的基线与验收边界不被后台修改；新增目标进入 revision proposal 或新 child workbook。没有 merge 授权的组件不能合入 main；最终整合从届时最新 main 建立，保留其它已接受工作，合并前刷新，合并后复核 merged-main CI。
 
 English mirrors are read-only documentation without frontmatter. Dynamic state lives only in the canonical root workbook, avoiding duplicate workbook IDs and doubled statistics.
+
+## Revision2 transferred prerequisites and live acceptance
+
+Read [migration history](MIGRATION_HISTORY.md) before executing any revised workbook.725/726 are foundation components;727 is the connector-backed engineering adapter;728 is the caller/session bridge. Parent relationships do not add dependency edges or inherit authority. Existing contracts and domain ownership must be reused.
+
+The product chain is accepted only with real two-physical-host execution evidence and return consumption by the originating agent. Keep component, live-provider, user-surface and originating-session gates separate. Unsupported or missing stages remain NOT_RUN/UNSUPPORTED, never PASS. New scope is still PARKED with null anchors; no current active or completed workbook is reopened.

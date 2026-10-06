@@ -43,3 +43,7 @@ CORE_V1 的 scope 在正式激活 receipt 中冻结。新增 child 默认 NEXT_R
 可选 GPU/Linux/Android-edge/HA/adaptive 模块分别激活、分别验收；硬件缺失不算已完成，也不阻止核心收口。PARKED、NOT_RUN、UNSUPPORTED、BLOCKED 与 PASS 必须区分。
 
 PCF-790 / PCF-990 当前仅为保留编号和 release 设计。只有对应冻结范围的组件都 accepted、证据可解析、真实 seam 已明确后，才创建 final integration workbook；从当时最新 main 施工，遵守现有 merge lock。
+
+## 2026-10-07 design revision2 reservation
+
+PCF-725..728 are now allocated, still execution_enabled=false. Next unused range begins at729. The Owner requested design strengthening and requirement migration only. The four additions belong to planned CORE_V1 revision2 because no PCF runtime release has been activated/frozen. This does not inherit budget, credentials, execution or merge authority. At activation, reconcile all transitive prerequisites and source-to-PCF mappings; do not require completion of entire DGX/URA/FR/RIV. All original activation transaction and strict-target/independent-review guards remain in force.

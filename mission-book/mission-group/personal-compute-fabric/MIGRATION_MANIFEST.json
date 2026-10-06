@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "scope_revision": 2,
+  "date": "2026-10-07",
+  "mode": "REQUIREMENT_SLICE_TRANSFER_NOT_CODE_MOVE",
+  "source_snapshot_commit": "0e43d6072ac9f9188d7e7ea051414dd70fb64193",
+  "execution_enabled": false,
+  "execution_baseline_sha": null,
+  "dependency_source_shas": [],
+  "source_sha_is_provenance_only": true,
+  "transfers": [
+    {
+      "id": "PCF-MIG-20261007-01",
+      "source_workbook": "URA-002",
+      "source_path": "mission-book/mission-group/utopia-runtime-architecture/URA-002-runtime-taxonomy-and-app-contract.md",
+      "source_section": "App Contract: execution-provider manifest projection",
+      "source_preimage_sha256": "9ae43d3e0e446535009cc814744c5b0494c6cfea98928f1a936b9e1ed220355a",
+      "destination_workbooks": [
+        "PCF-725"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "执行 provider 的版本、能力、权限、平台、命令、存储命名空间与兼容合同",
+      "requirement_en": "Versioned execution-provider capability, permission, platform, command and namespace manifest",
+      "retained_scope_zh": "全城 App taxonomy、App lifecycle 及非执行业务合同",
+      "retained_scope_en": "Citywide App taxonomy, App lifecycle and non-execution business contracts",
+      "source_readme": "mission-book/mission-group/utopia-runtime-architecture/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "id": "PCF-MIG-20261007-02",
+      "source_workbook": "URA-003",
+      "source_path": "mission-book/mission-group/utopia-runtime-architecture/URA-003-dependency-lifecycle-failure-boundaries.md",
+      "source_section": "Must define: execution-only lifecycle/failure boundaries",
+      "source_preimage_sha256": "60ba5c4f1553ff80999c648e8a006fff0696dc4846d8d1efb2d4c08112164177",
+      "destination_workbooks": [
+        "PCF-725"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "执行器的启动/退出、依赖失效、隔离、停用和回退边界",
+      "requirement_en": "Executor startup/shutdown, dependency failure, isolation, disable and rollback boundaries",
+      "retained_scope_zh": "全城依赖方向、非执行 App/service 解耦与分类",
+      "retained_scope_en": "Citywide dependency direction and non-execution App/service boundaries",
+      "source_readme": "mission-book/mission-group/utopia-runtime-architecture/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "id": "PCF-MIG-20261007-03",
+      "source_workbook": "DGX-002",
+      "source_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
+      "source_section": "TaskCapsule / ResultEnvelope: execution exchange substrate",
+      "source_preimage_sha256": "2921f1fc32d6078145963a8a9dd6e91eb428087f1bcb1e75c073815bd3b6e0ff",
+      "destination_workbooks": [
+        "PCF-726"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "有界执行上下文与结构化结果/证据封装的通用底层",
+      "requirement_en": "Bounded execution context and structured result/evidence exchange substrate",
+      "retained_scope_zh": "Constitution、语义拆题、ProblemGraph、领域证据规则、辩护和仲裁",
+      "retained_scope_en": "Constitution, semantic decomposition, ProblemGraph, domain evidence rules, defence and adjudication",
+      "source_readme": "mission-book/mission-group/deliberative-governance-expansion-migration/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "id": "PCF-MIG-20261007-04",
+      "source_workbook": "FR-001",
+      "source_path": "mission-book/future-plans/FR-001-Persistent-Foreman-Runtime.md",
+      "source_section": "Stage B: Hns / Codex real connector acceptance",
+      "source_preimage_sha256": "740bc52f829a7eda0706190efc35db7dc3a7bccd4345b6734c1177c23452efb0",
+      "destination_workbooks": [
+        "PCF-727"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "真实工程连接器 launch/bind/submit/events/control/result/health 验收",
+      "requirement_en": "Real engineering connector launch/bind/submit/events/control/result/health acceptance",
+      "retained_scope_zh": "工程目标规划、Review→Repair、升级梯与合并决策",
+      "retained_scope_en": "Engineering goal planning, Review-to-Repair, escalation and merge decisions",
+      "source_readme": "mission-book/future-plans/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "id": "PCF-MIG-20261007-05",
+      "source_workbook": "FR-001",
+      "source_path": "mission-book/future-plans/FR-001-Persistent-Foreman-Runtime.md",
+      "source_section": "Goal 9 + Stage A consume result + Stage B task injection",
+      "source_preimage_sha256": "740bc52f829a7eda0706190efc35db7dc3a7bccd4345b6734c1177c23452efb0",
+      "destination_workbooks": [
+        "PCF-728"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "发起 Agent/会话提交远端子任务并消费结构化回执的调用桥",
+      "requirement_en": "Originating agent/session bridge for remote submission and structured result consumption",
+      "retained_scope_zh": "业务汇总决策和无需人工转述的完整 Foreman 控制环",
+      "retained_scope_en": "Business synthesis decisions and the complete autonomous Foreman control loop",
+      "source_readme": "mission-book/future-plans/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "id": "PCF-MIG-20261007-06",
+      "source_workbook": "FR-001",
+      "source_path": "mission-book/future-plans/FR-001-Persistent-Foreman-Runtime.md",
+      "source_section": "Stage A: executor liveness and execution reconciliation only",
+      "source_preimage_sha256": "740bc52f829a7eda0706190efc35db7dc3a7bccd4345b6734c1177c23452efb0",
+      "destination_workbooks": [
+        "PCF-712"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "执行侧常驻监督、唤醒、回执消费与 canonical 状态协调",
+      "requirement_en": "Execution-side supervision, wakeup, receipt consumption and canonical reconciliation",
+      "retained_scope_zh": "Git/Mission Book/CI 目标观察、下一工程选择、Review→Repair",
+      "retained_scope_en": "Git/Mission Book/CI goal observation, next-job selection and Review-to-Repair",
+      "source_readme": "mission-book/future-plans/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "id": "PCF-MIG-20261007-07",
+      "source_workbook": "FR-001",
+      "source_path": "mission-book/future-plans/FR-001-Persistent-Foreman-Runtime.md",
+      "source_section": "Stage E: execution supply, resource placement and admission only",
+      "source_preimage_sha256": "740bc52f829a7eda0706190efc35db7dc3a7bccd4345b6734c1177c23452efb0",
+      "destination_workbooks": [
+        "PCF-702",
+        "PCF-704"
+      ],
+      "source_status": "MIGRATED_OUT_SUBSCOPE_REMAINDER_RETAINED",
+      "destination_status": "MIGRATED_IN_PARKED_NOT_IMPLEMENTED",
+      "requirement_zh": "执行资源供给、可解释放置、原子准入与资源预留",
+      "requirement_en": "Execution supply, explainable placement, atomic admission and reservations",
+      "retained_scope_zh": "工程优先级、review 角色/资格需求和可选平台业务拓扑",
+      "retained_scope_en": "Engineering priority, review role/qualification demands and optional-platform business topology",
+      "source_readme": "mission-book/future-plans/README.md",
+      "destination_readme": "mission-book/mission-group/personal-compute-fabric/README.md"
+    }
+  ]
+}

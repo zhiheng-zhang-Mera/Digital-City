@@ -14,7 +14,7 @@ dependency_source_shas: []
 development_baseline_sha: null
 baseline_resolution_evidence: null
 anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
-dependencies: ["URA-001", "URA-002"]
+dependencies: ["URA-001", "URA-002", "PCF-725"]
 development_host: null
 development_branch: null
 development_head_sha: null
@@ -48,6 +48,9 @@ decision_trace_refs: []
 owner_gate: OWNER_ACTIVATION_REQUIRED
 merge_authority: false
 report_path: null
+spec_revision: 2
+migrated_scope_refs: ["PCF-MIG-20261007-02"]
+migrated_scope_ownership: DESTINATION_PCF_ONLY
 ---
 
 > **PARKED / NOT ACTIVATED.**
@@ -94,3 +97,15 @@ monorepo/single-repo 内仍可以通过 package/module boundary、contract tests
 ---
 
 语言读本 / Reading translation: [English](en/URA-003-dependency-lifecycle-failure-boundaries.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.
+
+## 2026-10-07 子项迁出 / Requirement transfer
+
+以下迁出项不再由本书实现或重复验收；本书只消费PCF版本化合同和证据，未列出的原目标、约束与完成门槛继续保留。源文字描述相同概念时仅作领域扩展/消费要求，不构成第二个实现owner。迁出不是完成，也不激活本书。
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-02 | URA-003 — 执行器的启动/退出、依赖失效、隔离、停用和回退边界 | PCF-725 | 全城依赖方向、非执行 App/service 解耦与分类 |
+
+[PCF迁入与完整映射](../personal-compute-fabric/MIGRATION_HISTORY.md)
+
+URA仍定义全城App/service合同与分类；其中执行provider的manifest、lifecycle/failure foundation复用PCF-725，只写App级扩展与映射测试。PCF不反向依赖URA，不能把本系列整体freeze设为PCF前置。

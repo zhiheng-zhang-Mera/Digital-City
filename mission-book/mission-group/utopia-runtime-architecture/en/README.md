@@ -73,6 +73,17 @@ classify first
 
 The current default is: **a single Utopia repository remains acceptable**. A physical repository split is a future option preserved in suspend, rather than the default goal of this series.
 
+## 2026-10-07 迁出面板 / Outgoing requirement history
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-01 | URA-002 — Versioned execution-provider capability, permission, platform, command and namespace manifest | PCF-725 | Citywide App taxonomy, App lifecycle and non-execution business contracts |
+| PCF-MIG-20261007-02 | URA-003 — Executor startup/shutdown, dependency failure, isolation, disable and rollback boundaries | PCF-725 | Citywide dependency direction and non-execution App/service boundaries |
+
+迁出仅限表中子项，父项目保留其余目标；PCF未启用。 / Only named subscopes move; parent goals remain and PCF is not activated.
+
+[PCF incoming history](../../personal-compute-fabric/MIGRATION_HISTORY.md)
+
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information
 

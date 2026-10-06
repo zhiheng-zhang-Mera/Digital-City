@@ -11,3 +11,9 @@ Authorized interaction handoff uses existing assistant/attention rules without c
 Run `node --test tests/pcf714-origin.test.mjs` for disconnect/reconnect, duplicate/reordered events, rebinding, expired access, result/cancel races and concurrent attention responses. Unauthorized surfaces receive neither results nor protected metadata.
 
 On physical Alien Web, Mech Web and Android, initiate lawful cross-worker tasks, retrieve results on the origin and demonstrate cancellation/failure. Android remains a control client. Bind screenshots and backend traces to the same task/attempt rather than accepting mock dashboards.
+
+## 2026-10-07 specification revision 2
+
+Measure origin-surface visibility separately from originating-agent consumption.714 owns user-surface continuity;728 owns caller/session delivery over the same canonical result. Do not make728 a reverse component prerequisite;724 owns combined acceptance. Check authorized session ownership across restart, pages and device switches rather than using hostname as session identity.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

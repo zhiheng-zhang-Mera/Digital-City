@@ -11,3 +11,9 @@ Increment fencing epochs on holder changes and validate them at start/report/res
 Run `node --test tests/pcf712-supervision.test.mjs` for crashes before/during/after writes, duplicate events, surviving old workers, late epochs, duplicate supervisors, unwritable storage, broken event streams and idle pools. Only one canonical writer is valid; uncertain authority fails closed. Restart must not leak reservations or duplicate result commits.
 
 The loop runs without an Owner chat page. 716 owns unattended installation, 722 controller HA. This task does not automatically launch new Hns/Codex engineering work. 715 exposes supervisor health and recovery uncertainty.
+
+## 2026-10-07 specification revision 2
+
+Transfer06 permits supervision and launch through727 only for already authorized canonically admitted execution attempts. It does not authorize new engineering goals, project selection or unapproved Hns/Codex jobs. FR retains Git/CI business observation and Review-to-Repair. Duplicate wakeups, live old processes, re-registration, lost leases and old-epoch receipts must not duplicate effects; revoke new execution and report unknown effects honestly.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

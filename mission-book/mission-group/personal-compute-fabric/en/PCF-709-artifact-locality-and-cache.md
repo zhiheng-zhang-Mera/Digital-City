@@ -11,3 +11,9 @@ Bound cache bytes/items, pins, leases, eviction and invalidation. Shared content
 Run `node --test tests/pcf709-artifacts.test.mjs` for same-digest/different-permission, corruption/truncation, changing sources, traversal, full disks, pinned eviction, retries, mid-transfer revocation and cleanup failure. Physically transfer between hosts and verify bytes/checksums, not copied fixture claims.
 
 Expose replica/transfer/quota/deletion status in advanced task/device details without sensitive names/content in public traces. New storage providers need separate authorization; cloud is not mandatory.
+
+## 2026-10-07 specification revision 2
+
+Engineering inputs require repo+commit and an explicit dirty patch/content manifest; shared writable folders or unverified git pull do not establish consistency. Digest returned patches/commits/artifacts and verify before authorized integration. Test disconnect, disk exhaustion, malicious paths and oversized output; never copy credentials with repository artifacts.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

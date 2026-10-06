@@ -2,7 +2,7 @@
 workbook_id: PCF-708
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -12,7 +12,7 @@ baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: []
 required_ancestor_shas: []
-dependency_source_workbooks: ["PCF-700"]
+dependency_source_workbooks: ["PCF-700", "PCF-725", "PCF-726"]
 dependency_source_shas: []
 development_baseline_sha: null
 anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
@@ -50,3 +50,9 @@ report_path: null
 `node --test tests/pcf708-workload.test.mjs`：旧task往返保持identity和语义；providerRef/handoffTargetRef不被当strict target；空/负/无限资源、过去deadline、未知enum、伪control-worker能力、超大payload均正确处理。
 
 交付consumer兼容表、版本升级/降级fixture、隐私脱敏规则及用户可理解的任务类别文案（最终接线715）。可增加workload class，但不得加入行业业务数据为核心必填项。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+基础执行provider schema迁入725，执行胶囊/结果schema迁入726；本书消费它们并拥有 WorkloadEnvelope/QoS 映射。增加 caller kind、originating session ref、parent job、input base revision、write scope、result-consumer contract 和 provider-ready requirements。schema/identity复用现有任务，不复制独立job truth。CPU/build/test/agent workload均需声明支持程度。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

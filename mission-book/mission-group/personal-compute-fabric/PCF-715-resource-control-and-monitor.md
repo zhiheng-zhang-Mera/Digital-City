@@ -2,7 +2,7 @@
 workbook_id: PCF-715
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -50,3 +50,9 @@ report_path: null
 `node --test tests/pcf715-surface.test.mjs` + 实际Web浏览器/Android验收：控件→请求→接受/拒绝→进度/结果→刷新；失效权限、旧页面缓存、数据缺字段、序列gap、无后端、键盘/小屏收纳、错误指标。不得推导未实测的导航步数或填延迟0。
 
 本书签收已接线的基础telemetry/placement/admission宿主；后续705/712/713/716等字段/控制只有在对应backend accepted并集成时才开放，归790组合验收，不反向阻塞基础宿主。每项能力登记exposure与证据owner，中英文案同步。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+修正共享文案语义：在线、允许接任务、executor可用、正在执行、结果已回传、原Agent已消费分别显示，禁止仅sharingEnabled=true就宣传“正在贡献算力”。详情列执行主机/尝试/真实支持负载/忙闲/已测资源，UNKNOWN不是0。确认两个PC都在工作时绑定真实执行区间；不显示合并GPU/RAM或托管模型提速等未经实现的能力。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

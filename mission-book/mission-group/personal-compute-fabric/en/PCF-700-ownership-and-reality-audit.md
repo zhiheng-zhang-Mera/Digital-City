@@ -9,3 +9,9 @@ Trace each declaration through its caller, live API, user surface and exact evid
 Freeze type/interface mappings and shared-file ownership. Show that no second canonical task, action, identity or credential database is proposed. Resolve component/exposure owners and reject cyclic UI dependencies; split primitive and product wiring in the DAG when necessary rather than bypassing the exposure gate. Both hosts independently inspect sample paths. Unknown/unwired seams remain explicit downstream acceptance obligations.
 
 Evidence-based audit subtasks may be added, but do not move whole directories or reopen frozen WBC. Deduplicate proposed capability IDs; the audit does not itself invent verified product capabilities. Acceptance covers the audit/compatibility contract only, not the future combined product.
+
+## 2026-10-07 specification revision 2
+
+Audit existing EM connectors/Foreman, RF, GAI, WBC and originating-agent tools. Separate DECLARED, COMPONENT_TESTED, LIVE_WIRED, TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED. Earlier discussion asserting a missing Codex connector is not code evidence. Never duplicate an existing component based on that assertion. Trace the sharing toggle through claim, real process and result consumption; verify transfers01–07 and ownership.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

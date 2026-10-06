@@ -9,6 +9,10 @@ control_repo: zhiheng-zhang-Mera/Digital-City
 owner_gate: PROMOTION_REQUIRED
 merge_authority: false
 depends_on_current_active_pool: true
+spec_revision: 2
+migrated_scope_refs: ["PCF-MIG-20261007-04", "PCF-MIG-20261007-05", "PCF-MIG-20261007-06", "PCF-MIG-20261007-07"]
+migrated_scope_ownership: DESTINATION_PCF_ONLY
+migrated_prerequisite_workbooks: ["PCF-727", "PCF-728", "PCF-712", "PCF-702", "PCF-704"]
 ---
 
 # FR-001 — Persistent Foreman Runtime / Owner 控制环退出计划
@@ -98,21 +102,9 @@ repeat
 
 必须能够在没有 Owner 打开聊天窗口的情况下持续工作。
 
-### Stage B — Hns / Codex real connector acceptance
+### Stage B — 已迁出：PCF-727 / Migrated out
 
-把现有 Engineering Manager 的 connector/contracts 从“组件与测试完成”推进到真实日常路径：
-
-- launch;
-- session binding;
-- task injection;
-- progress/checkpoint reading;
-- restart/resume;
-- result extraction;
-- failure classification;
-- safe cancellation;
-- exact task / branch / head attribution.
-
-至少先完成 Hns + Codex，Claude Code / WorkBuddy 等之后再扩。
+真实 Hns/Codex connector 的 launch、session binding、task injection、progress/checkpoint、restart/resume、result、failure、cancel及exact task/branch/head归属要求，改由 [PCF-727](../mission-group/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md) 实现和验收。FR 不复制实现；消费时仍要求 Hns 与 Codex 各自真实证据，不能以其中一个的通过代替另一个。调用端回流归PCF-728。
 
 ### Stage C — Review / Repair autonomous loop
 
@@ -282,3 +274,18 @@ PROMOTION   = OWNER REQUIRED
 ```
 
 语言配对 / Language pair: [English reading](./en/FR-001-Persistent-Foreman-Runtime.md)
+
+## 2026-10-07 子项迁出 / Requirement transfer
+
+以下迁出项不再由本书实现或重复验收；本书只消费PCF版本化合同和证据，未列出的原目标、约束与完成门槛继续保留。源文字描述相同概念时仅作领域扩展/消费要求，不构成第二个实现owner。迁出不是完成，也不激活本书。
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-04 | FR-001 — 真实工程连接器 launch/bind/submit/events/control/result/health 验收 | PCF-727 | 工程目标规划、Review→Repair、升级梯与合并决策 |
+| PCF-MIG-20261007-05 | FR-001 — 发起 Agent/会话提交远端子任务并消费结构化回执的调用桥 | PCF-728 | 业务汇总决策和无需人工转述的完整 Foreman 控制环 |
+| PCF-MIG-20261007-06 | FR-001 — 执行侧常驻监督、唤醒、回执消费与 canonical 状态协调 | PCF-712 | Git/Mission Book/CI 目标观察、下一工程选择、Review→Repair |
+| PCF-MIG-20261007-07 | FR-001 — 执行资源供给、可解释放置、原子准入与资源预留 | PCF-702, PCF-704 | 工程优先级、review 角色/资格需求和可选平台业务拓扑 |
+
+[PCF迁入与完整映射](../mission-group/personal-compute-fabric/MIGRATION_HISTORY.md)
+
+Stage A现在只拥有工程目标/事件观察和业务决策；执行侧wake/launch/reconcile/receipt归PCF-712/727/728。Stage E现在只描述工程需求/资格和可选平台拓扑，供给与placement/admission归PCF-702/704。Android现阶段仍仅control surface，可选Linux/cloud/Android执行不因该示意图获授权。Review→Repair、技术升级梯、Owner filter、项目选择与合并决策全部留在FR。

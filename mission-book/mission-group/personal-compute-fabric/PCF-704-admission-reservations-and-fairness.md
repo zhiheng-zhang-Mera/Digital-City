@@ -2,7 +2,7 @@
 workbook_id: PCF-704
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -54,3 +54,9 @@ report_path: null
 `node --test tests/pcf704-admission.test.mjs`：两个并发请求抢最后一份资源只有一个成功；重复admit不重复扣账；失败/取消/过期无泄漏；旧版本拒绝；容量不足不部分占死；持续小任务下大任务按声明策略获得机会或明确拒绝；queue full显式披露。
 
 真实双机施加有界竞争，比较观测、reservation与实际执行占用。逻辑配额不宣称OS隔离；隔离证明归710。UI展示queue理由/配额/等待与拒绝，集中交715。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+迁入07中的worker供给/资源准入部分，FR不再另建资源池。区分 Utopia 已预留工作与主机外部实际负载；未测到外部Codex/游戏不等于主机空闲。至少保留一个foreground预算，unknown硬资源不得猜满足；queued/leased/running/draining分开。多slot只在有真实执行器与资源证据后启用，不凭profile名字解锁。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

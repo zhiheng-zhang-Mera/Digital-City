@@ -139,3 +139,13 @@ Do not require or retain participants' hidden chain-of-thought as an interoperab
 ## Completion gate
 
 Versioned Constitution, decomposition contract, ProblemGraph/TaskCapsule/ResultEnvelope schemas, invariant tests, authority boundary and failure semantics.
+
+## 2026-10-07 authoritative subscope transfer
+
+The listed execution-only requirements are MIGRATED OUT, not completed. Their sole implementation/acceptance owner is the destination PCF workbook; this source consumes its versioned contract/evidence. Remaining original domain requirements and gates are retained. Any earlier prose naming the same objects is a domain extension or consumption requirement, not duplicate ownership. No activation is granted.
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-03 | DGX-002 — Bounded execution context and structured result/evidence exchange substrate | PCF-726 | Constitution, semantic decomposition, ProblemGraph, domain evidence rules, defence and adjudication |
+
+TaskCapsule/ResultEnvelope become thin domain extensions overPCF-726. DGX retains semantic meaning, domain evidence, independence/recusal and governance verdicts. The generic execution envelope and bounded/correlated result substrate have one PCF owner. PCF must not depend on DGX.

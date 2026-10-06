@@ -2,7 +2,7 @@
 workbook_id: PCF-714
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -50,3 +50,9 @@ report_path: null
 `node --test tests/pcf714-origin.test.mjs`：origin断线/重连、乱序重复、设备重新绑定、授权过期、异步result与cancel、同时回应attention；未授权端拿不到结果/元数据。
 
 实机矩阵：Alien Web、Mech Web、Android各发起一次跨worker合法任务，在原端取回结果并验证一次取消/失败；Android本身仍为control client。文档截图与backend trace绑定同一task/attempt，不用伪数据面板验收。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+将“原端可见”与“原Agent已消费”分开计量。本书拥有用户surface连续性，728拥有caller/session回注，两者引用同一canonical结果。不让728反向成为本书组件开发前置；真实组合验收在724。session重启/多页面/切设备要校验当前授权归属，不能以主机名代替会话身份。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

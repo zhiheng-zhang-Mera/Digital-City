@@ -2,7 +2,7 @@
 workbook_id: PCF-702
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -54,3 +54,9 @@ report_path: null
 `node --test tests/pcf702-placement.test.mjs`：最快节点无授权仍拒绝；strict target 离线不改投；缺 VRAM 不当0也不当充足；同输入同版本同选择；相同 freeSlots 不代表相同性能；大量候选有界；更旧 proposal 被版本检查拒绝。对两真实 worker 保存可重算决策与观察快照，不以单测证明性能提升。
 
 UI 的 What/Why/候选拒绝原因进入715 task inspector；元数据不得泄漏敏感输入。复杂策略增补需要独立 baseline/ablation，学习型策略归723。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+迁入07中的执行供给/placement 子项，FR只提供工程优先级与资格需求。过滤真实 executor readiness、当前授权与输入位置，不凭“设备在线”选择 Codex。默认保持既有 local-first；跨机帮忙需明确本次或限定范围授权，不为追求更快自动改预算。记录两主机分别可承担的并行子任务，不把“整项搬到Mech”描述为双机协同。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。
