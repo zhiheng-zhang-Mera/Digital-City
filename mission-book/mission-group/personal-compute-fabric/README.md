@@ -175,10 +175,10 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/1 · 开发 / Development 1/1 · 复检 / Review 0/1 · `IN_PROGRESS`
+总完成 / Complete 1/1 · 开发 / Development 1/1 · 复检 / Review 1/1 · `COMPLETE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [PCF-700](PCF-700-ownership-and-reality-audit.md) | IN_PROGRESS | YES | NO | YES |
+| [PCF-700](PCF-700-ownership-and-reality-audit.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->

@@ -1,0 +1,42 @@
+✖ PCF-700 C3: a task whose strict target is absent is withheld from other nodes, never silently re-routed (138.6436ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1224.5462
+
+✖ failing tests:
+
+test at tests\pcf700-compatibility.test.mjs:67:1
+✖ PCF-700 C3: a task whose strict target is absent is withheld from other nodes, never silently re-routed (138.6436ms)
+  AssertionError [ERR_ASSERTION]: an online node must not be handed a task that belongs to another device
+  + actual - expected
+  
+  + {
+  +   assignedNodeId: 'worker-a',
+  +   createdAt: '2026-10-06T21:48:23.107Z',
+  +   domain: 'system',
+  +   id: 'Q-pcf700-targeted',
+  +   state: 'ASSIGNED',
+  +   targetDeviceRef: 'worker-a',
+  +   type: 'WAIT',
+  +   updatedAt: '2026-10-06T21:48:23.114Z'
+  + }
+  - null
+  
+      at file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF700-Alien-Review/tests/pcf700-compatibility.test.mjs:75:12
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withCity (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF700-Alien-Review/tests/pcf700-compatibility.test.mjs:34:16)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF700-Alien-Review/tests/pcf700-compatibility.test.mjs:68:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'Q-pcf700-targeted', type: 'WAIT', domain: 'system', state: 'ASSIGNED', targetDeviceRef: 'worker-a', createdAt: '2026-10-06T21:48:23.107Z', updatedAt: '2026-10-06T21:48:23.114Z', assignedNodeId: 'worker-a' },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

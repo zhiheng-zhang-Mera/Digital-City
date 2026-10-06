@@ -1,0 +1,32 @@
+✖ PCF-700 D4: no runtime module refers to the fabric yet, so the audit really is still an audit (332.6482ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1315.9767
+
+✖ failing tests:
+
+test at tests\pcf700-dependency-direction.test.mjs:74:1
+✖ PCF-700 D4: no runtime module refers to the fabric yet, so the audit really is still an audit (332.6482ms)
+  AssertionError [ERR_ASSERTION]: this workbook creates no runtime module; a reference here means the audit silently became an implementation
+  + actual - expected
+  
+  + [
+  +   'services/pcf700-alien-review-probe.mjs'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF700-Alien-Review/tests/pcf700-dependency-direction.test.mjs:77:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'services/pcf700-alien-review-probe.mjs' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

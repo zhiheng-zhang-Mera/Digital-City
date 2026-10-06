@@ -1,0 +1,32 @@
+[
+  {
+    "id": "C2",
+    "exit": 1,
+    "expected": "FAIL"
+  },
+  {
+    "id": "C3",
+    "exit": 1,
+    "expected": "FAIL"
+  },
+  {
+    "id": "D1",
+    "exit": 1,
+    "expected": "FAIL"
+  },
+  {
+    "id": "D2",
+    "exit": 1,
+    "expected": "FAIL"
+  },
+  {
+    "id": "D3",
+    "exit": 1,
+    "expected": "FAIL"
+  },
+  {
+    "id": "D4",
+    "exit": 1,
+    "expected": "FAIL"
+  }
+]

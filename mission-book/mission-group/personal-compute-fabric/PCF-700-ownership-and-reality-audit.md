@@ -5,7 +5,7 @@ release_train: CORE_V1
 spec_revision: 2
 parent_workbook_id: null
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 activation_state: ACTIVATED_OWNER_2026_10_07
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -21,10 +21,10 @@ development_branch: "pcf/PCF-700-mech-ownership-and-reality-audit"
 development_head_sha: "659ff6aa98bc5675862b1170ed0cf5e1b78dba5f"
 development_ci: "FOUR heads, every one kept. (1) FAILURE head d611cfe5f0272673706b9dc5c9f6b85ed40a9406: V0.2 checks run 37497553367 completed/failure - gateway-web failed at step `pnpm check:docs`, android success; the other nine gateway-web steps succeeded, including `pnpm test`, so the new tests/pcf700-compatibility.test.mjs measurably passed on hosted CI. Reproduced locally: scripts/check-bilingual.mjs read one directory level only and hit EISDIR on the nested docs/{zh-CN,en}/pcf/ that this workbook requires. (2) REPAIR head a2a567325e6ce08629eefbe67cda6f8f2c16fd64: V0.2 checks run 37498638940 completed/success, gateway-web success and android success. The repair makes the gate tree-aware (compare the relative path lists of both language trees exactly, then compare fact lines pairwise) and was falsified before being trusted: an absent en mirror yields 'docs missing language pair' and a differing STATUS line yields 'docs/pcf/ownership-map.md facts differ', both exit 1; restored, docs/evidence/data-records all report PAIR_STATUS = SYNCHRONIZED. (3) INCREMENT-2 head f75b2a6c2fa28d183a09795c70823c775123e1ac: V0.2 checks run 37500280971 completed/success, both jobs and every step green, including `pnpm test` (now also running tests/pcf700-dependency-direction.test.mjs) and `pnpm check:docs`. (4) INCREMENT-3 head 0899da833e39caa924bdc77bf1020ba5fa572b03: V0.2 checks run 37501463875 completed/success, gateway-web success and android success. Local evidence for the two increments: 11/11 across the two PCF suites (7 compatibility + 4 dependency-direction, all four falsified before being trusted) and PAIR_STATUS = SYNCHRONIZED in docs, evidence and data-records. Branch pcf/PCF-700-mech-ownership-and-reality-audit and series branch pcf/series-mech are both at this head. (5) INCREMENT-4 head 659ff6aa98bc5675862b1170ed0cf5e1b78dba5f: adds scripts/pcf700-review-packet.mjs (one command, eight recomputations of the published record, itself falsified three ways) and the City-side readiness record reports/PCF-700/REVIEW_READINESS_MECH.md; CI run 37502818037 completed/success (gateway-web and android both green)."
 development_complete: true
-review_host: null
-review_head_sha: null
-review_ci: null
-review_complete: false
+review_host: "Alien"
+review_head_sha: "659ff6aa98bc5675862b1170ed0cf5e1b78dba5f"
+review_ci: "Exact candidate hosted CI 37502818037 SUCCESS; Alien independent 11/11 tests, 6 falsifications, 8/8 audit, 5 Python fingerprints; real cross-host ordinary WAIT Q-2e77523f-6a0c-487a-8bf2-af4aa7b3a6c1 COMPLETED and origin result consumed via MEMBER API. See REVIEW_REPORT.md for bounded scope."
+review_complete: true
 user_exposure_class: UNASSESSED
 backend_wiring: UNASSESSED
 capability_ids: []
