@@ -57,25 +57,32 @@ report_path: null
 
 ## 目标
 
-对 DGX v1 做跨域、跨角色、必要时跨主机的独立验收，并冻结制度合同。
+对 DGX v2 做跨域、跨角色、必要时跨主机的独立验收，并冻结制度合同。
 
 ## 必测场景
 
-1. Engineering：独立开发/验证/冲突/终审；
+1. Engineering：复杂请求拆分成 Problem DAG，独立开发/验证/冲突/终审；
 2. Research：多角色 objection/rebuttal/evidence adjudication；
-3. Health-style professional query：允许使用可用的 evidence/reviewer seam，但不得冒充未实现 clinical simulator；
+3. Health-style professional query：允许使用可用 evidence/reviewer seam，但不得冒充未实现 clinical simulator；
 4. 无冲突 fast path；
 5. 双方都错 / MORE_EVIDENCE_REQUIRED；
 6. Owner-only escalation；
-7. Governance/Monitor unavailable 时 unrelated task 不冻结；
-8. Process Capsule 不隐藏 active risk，也不过载 Owner。
+7. 同一 Shared Fact Snapshot 下的隔离执行与结构化 ResultEnvelope 汇合；
+8. DGX-003 independence profile 的 eligibility/fallback；
+9. DGX-005 fresh-context Pass A → Pass B reconciliation；
+10. Governance/Monitor unavailable 时 unrelated task 不冻结；
+11. Problem Graph 与 canonical task truth 冲突时能诚实 reconciliation；
+12. Process Capsule 不隐藏 active risk，也不过载 Owner；
+13. **Engineering current opposite-host Formal Review floor 未被任何 DGX adapter 降级。**
 
 ## Freeze 条件
 
 所有前置工作书均完成 Development + independent Review + exact-head evidence；Capability/ownership map 与 runtime reality reconciliation 一致。
 
+若届时 Review Independence v2 尚未独立验收，Engineering Formal Review 继续使用当时 canonical 规则；DGX freeze 不得替它预先放宽门槛。
+
 候选 terminal marker：
 
-`DELIBERATIVE_GOVERNANCE_V1_CROSS_DOMAIN_ACCEPTED`
+`DELIBERATIVE_GOVERNANCE_V2_CROSS_DOMAIN_ACCEPTED`
 
-该 marker 只表示治理协议被验证，不表示所有领域专业模型都已实现。
+该 marker 只表示治理/拆分/仲裁协议被验证，不表示所有领域专业模型都已实现，也不表示 Review Pool v2 已生效。
