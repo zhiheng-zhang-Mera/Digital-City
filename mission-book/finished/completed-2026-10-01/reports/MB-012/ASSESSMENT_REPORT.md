@@ -434,3 +434,5 @@ alone - the probes, tamper cases and dry-runs this section reports, never a migr
 - `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots
+
+语言配对 / Language pair: [原文 / Source](./ASSESSMENT_REPORT.md) · [译本 / Translation](./zh-CN/ASSESSMENT_REPORT.md)

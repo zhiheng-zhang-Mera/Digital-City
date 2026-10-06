@@ -528,3 +528,5 @@ Scope: MB-003's closeout only. This is not a general relaxation of two-host sepa
 
 **Final state: `VERIFICATION_COMPLETE`.** Mech's original environment blocker is preserved in this
 report as history, and the correction it prompted (§8.2) is preserved with it.
+
+语言配对 / Language pair: [原文 / Source](./VERIFICATION_REPORT.md) · [译本 / Translation](./zh-CN/VERIFICATION_REPORT.md)

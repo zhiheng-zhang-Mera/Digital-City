@@ -145,3 +145,6 @@ Mech-Win-Web surface   exercised at step 5.2; not left connected (a surface that
 resident City          up on 172.31.12.151:4391, visible console window, desktop shortcut re-launches it
 local worker           online in the resident City as well
 ```
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_OFFLINE_TARGET_CONTROL_AND_SUPERVISOR_V2.md)

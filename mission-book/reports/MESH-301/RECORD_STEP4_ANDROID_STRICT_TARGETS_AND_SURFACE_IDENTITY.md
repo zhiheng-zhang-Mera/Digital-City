@@ -122,3 +122,6 @@ negative** — which is the same class of instrument defect recorded in the step
   event and export the log. That is the next piece of work, and it is the last one before the development
   report can be handed to Mech.
 - **No CI on this head yet, no merge, no Formal Review, no terminal marker.**
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_STEP4_ANDROID_STRICT_TARGETS_AND_SURFACE_IDENTITY.md)

@@ -241,3 +241,6 @@ guessing.
 Meanwhile, and without needing an answer: the Mech host stays online as endpoint A (`Mech-Win` worker,
 `Mech-Win-Web` on demand, resident City and desktop shortcut up), and I will keep verifying the aliasing between
 "a client connected" and "a named endpoint connected" so that gate 1 is claimed from named surfaces only.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_STEP52_MECH_TO_ALIEN_AND_MERGE_SKEW_DEFECT.md)

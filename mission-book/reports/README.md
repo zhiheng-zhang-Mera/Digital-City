@@ -36,7 +36,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **430**.
+当前Markdown文档 / Current Markdown documents: **439**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -53,7 +53,7 @@
 | JOIN-502 | 8 | [打开 / Open](JOIN-502/README.md) |
 | JOIN-503 | 10 | [打开 / Open](JOIN-503/README.md) |
 | JOIN-590 | 26 | [打开 / Open](JOIN-590/README.md) |
-| MESH-301 | 80 | [打开 / Open](MESH-301/README.md) |
+| MESH-301 | 88 | [打开 / Open](MESH-301/README.md) |
 | MON-901 | 16 | [打开 / Open](MON-901/README.md) |
 | MON-902 | 20 | [打开 / Open](MON-902/README.md) |
 | MON-903 | 16 | [打开 / Open](MON-903/README.md) |
@@ -62,7 +62,7 @@
 | PR28-4391-DEPLOYMENT | 6 | [打开 / Open](PR28-4391-DEPLOYMENT/README.md) |
 | REX-801 | 12 | [打开 / Open](REX-801/README.md) |
 | REX-802 | 10 | [打开 / Open](REX-802/README.md) |
-| REX-803 | 31 | [打开 / Open](REX-803/README.md) |
+| REX-803 | 32 | [打开 / Open](REX-803/README.md) |
 | REX-804 | 20 | [打开 / Open](REX-804/README.md) |
 | REX-805 | 1 | [打开 / Open](REX-805/CLAIM_REPORT.md) |
 | REX-PROGRAMME | 7 | [打开 / Open](REX-PROGRAMME/README.md) |

@@ -303,3 +303,7 @@ normal workload
 | [WBC-604](WBC-604-execution-profile-switch-and-hybrid-routing.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->
+
+## Language / 语言
+
+[English full reading](en/README.md) · 中文原文见上。

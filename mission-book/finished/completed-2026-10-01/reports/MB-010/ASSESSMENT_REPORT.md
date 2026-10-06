@@ -363,3 +363,5 @@ provenance alone - the tests, dry-runs and probes this section reports, not a mi
 - `.runtime/evidence/mission-book/MB-010-011-012/precise-claims-probe.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/utopia-admission-enforcement.json`
 - `.runtime/evidence/mission-book/MB-010-011-012/real-device-node.json` plus the two device screenshots
+
+语言配对 / Language pair: [原文 / Source](./ASSESSMENT_REPORT.md) · [译本 / Translation](./zh-CN/ASSESSMENT_REPORT.md)

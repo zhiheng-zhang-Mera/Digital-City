@@ -368,3 +368,7 @@ This report was written, then lost to a `git reset --hard` used to pick up concu
 (host `Alien` claimed MB-007 in the meantime), and rewritten from the recorded mission events, the
 commit messages and the evidence files. The note is kept because a Verifier should know the document's
 provenance, and because the same mistake was made once before on MB-002.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/MIGRATION_REPORT.md)

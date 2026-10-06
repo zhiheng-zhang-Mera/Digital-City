@@ -145,3 +145,6 @@ stated in a document ("the token must not enter the report") is not a control; a
 3. Alien verifies the City lists exactly two nodes — `Alien-Win`, `Mech-Win` — with distinct
    `devicePrincipalId`s, and only then proceeds to the three control surfaces, the Android control-client
    identity, strict target routing, and the bounded-convergence checks.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_STEP2_CITY_UP_AND_ALIEN_WIN_ONLINE.md)

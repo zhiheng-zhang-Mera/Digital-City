@@ -70,3 +70,7 @@ Nothing is Alien-claimable. The wake conditions Alien is watching, in the Owner'
 Alien will keep rescanning on the ~20-minute interval. RS-290 is closed and owes nothing: frozen at merge
 `1a5bc0e`, main CI `36964619541` green on both jobs, merged tree byte-identical to the reviewed head
 `2f81296`.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/WAKE_CONDITION_ALIEN_RECORD.md)

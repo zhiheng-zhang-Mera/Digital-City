@@ -1,0 +1,191 @@
+# MB-005 — 主机健康站厂商中立纯迁移 — 迁移报告
+
+[English authoritative source / 英文权威原稿](../MIGRATION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+> MIGRATION_COMPLETE，仅迁移，未合main。主机Mech，领取2026-09-29T12:33:27Z，City89d506e7a791b9c90006d2a4f19dd4d73c4c897a已推无冲突。分支mission/MB-005-host-health，基线utopia main c7ef3cd1c6be0155332d03afc3607dfdbf49c205，实现5fbbec666f61b2ff82f06a85630c2fb538ca7631，最终545d38fa6cc7023826c5a3a4a09cb2e37265eb06含事件收尾。CI36571598704实现、36571983546最终，两者gateway-web／android成功。
+
+## 1. 供体／冻结基线
+
+zhiheng-zhang-Mera/dsh-health-scheduler 985e2b7389330db4b32ea2946e3657746c64b47b，是零运行依赖ESM TypeScript，仅不可移植面src/dsh/**是本任务要移除的DeepSeek／Cordis绑定。精确SHA放git忽略证据区。零运行依赖允许编译执行，故非转抄预期：checkout安装typescript5.7.2，供体tsc生成31个lib/**/*.js，普通Node运行，作为6节可执行金oracle。供体自身155/155通过，已知良好非假定。
+
+## 2. 落地边界
+
+目标city/02-engineering/03-host-health-station/host-health-station，City owner02/03 Runtime Health Scheduling Service。
+
+### 2.1 路径决定
+
+Mission仅指定建筑路径，manifest要求city/<district>/<building>/<module>，同MB002落实为03-host-health-station建筑内host-health-station模块，保所有权不变量、未改City归属。
+
+### 2.2 来源目标账本
+
+转写供体编译lib并对src，常量／顺序／原因／容忍为供体字节非重新推导。
+
+| 供体 | 目标 |
+|---|---|
+|src/types/{metrics,provider,window,decision,config,index}.ts|types.mjs|
+|src/core/bands.ts|bands.mjs|
+|src/core/normalize.ts|normalize.mjs|
+|src/core/rolling.ts|rolling.mjs|
+|src/core/trend.ts|trend.mjs|
+|src/core/pressure.ts|pressure.mjs|
+|src/core/policy.ts|policy.mjs|
+|src/core/maintenance.ts|maintenance.mjs|
+|src/core/safe-point.ts|safe-point.mjs|
+|src/core/config.ts|config.mjs|
+|src/core/presets.ts及presets/*.json|presets.mjs|
+|src/core/scheduler.ts|scheduler.mjs|
+|src/audit/decision-log.ts|audit.mjs|
+|src/providers/*.ts八文件|providers.mjs|
+|src/adapters/types.ts|adapters.mjs|
+|src/dsh/report.ts及plugin.ts三纯renderer|report.mjs|
+|plugin.ts SETTINGS_NAMESPACE／configSchema／watch回调|settings.mjs|
+|plugin.ts registerBuiltInProviders|wiring.mjs|
+|src/index.ts|index.mjs|
+
+每symbol、adapt、分类、供体bug在DONOR.json。brief未预期report／settings／wiring／adapters四文件，因为非绑定逻辑藏在Cordis插件体；要求绑定移除、行为保留，故独立迁出非丢弃。DEFERRED为空，未借插件借口留行为。
+
+## 3. 保留与明确未迁
+
+### 3.1 保留
+
+43规范指标含单位／极性／物理硬界／描述，所有provider单词汇；极性端点band ramp与span===0；未满足sustain分数0而非先高后滤；滚动存储负责band时长的身份契约；1e-9相对硬界容忍和ratio>1钳制；滚动／趋势含无band泄漏；六维pressure WORST_WEIGHT0.5混合、uptime ramp、coverage重归一、缺遥测unknown绝非零；moderate35／high65／critical85；policy sustain／hysteresis／debounce／dwell／cooldown防抖；maintenance／safe point／defer；有界追加决策日志、provider契约／registry、总scheduler。autoResume语义、拒绝词汇、注入时钟／providers／adapters确定性均保，使差分可能。
+
+### 3.2 未迁及原因
+
+| 未迁 | 原因 |
+|---|---|
+|src/dsh/context.ts|仅Cordis类型绑定。|
+|index.ts name／inject／apply／applyHealthScheduler|插件loader，City不向harness注册。|
+|面向模型工具定义描述|harness面非健康判断。|
+|package.json／lock／tsconfig／cordis.patch.yml／plugin manifest／presets schema／scripts/**|npm/Cordis包，City普通mjs无构建／新依赖，city运行器发现。|
+|lib/**|构建输出。|
+|实际restart／reboot|Mission排除属MB006，供体从未实现，见7。|
+
+## 4. 接口／契约
+
+index重导引擎与接缝，承重入口完整为：createScheduler(options)／HealthScheduler；resolveConfig／tryResolveConfig／deepMerge／ConfigError；PRESETS／preset／PRESET_SCALES／PRESET_DOCUMENTS／DEFAULT_METRIC_CONFIG（三预设JSON逐字内嵌，断言与构建相同）；CANONICAL_METRICS／METRICS／metricDescriptor／isCanonicalMetric，ACTION_LEVEL／PRESSURE_LEVEL_RANK，DECISION_LADDER／PRESSURE_DIMENSIONS；normalizeSample、RollingStore、TrendAnalyzer、PressureEngine／dimensionOf／UPTIME_RAMP_START_MS／UPTIME_RAMP_FULL_MS、LEVEL_BOUNDS／levelOf／scoreMetric／scoreWithSustain、PolicyEngine／initialPolicyState、computeMaintenancePicture／maintenanceAllowsRequest／clock helpers、SafePointRegistry／foldReadiness、DecisionLog／LOG_SCHEMA_VERSION；ProviderRegistry、HardwareProvider／MemoryProvider／RuntimeProvider／EMPTY_RUNTIME_FEED、StatsFileSource／extractMetrics／parseNameValueLines／runCommandProbe／mergeBags、defaultEnvironment／readProcessFacade、buildBuiltInProviders／registerBuiltInProviders；UnavailableRestartAdapter／UnavailableWorkerControlAdapter／outcomeForAction，两adapter拒绝而非行动。供体发布列表仅缺3.2四plugin成员，差分断言。
+
+## 5. 现有消费面，无新UI
+
+无UI／dashboard／HTTP路由，未触server。门要求现有面读真实状态历史；7驱动真实gateway和reference node，通过Web Devices本来渲染的GET/api/v0/city读telemetry（reference-node/telemetry.mjs从node:os产生），映射规范词汇，真实序列驱动引擎并输出状态／pressure／coverage／维分数／动作请求。
+
+判断记录：映射在证据driver而非模块，属于consumer，本模块provider契约正为此；gateway专用映射会新产品面非迁移。只映真正测量指标，其他缺失unknown非发明零。disk刻意不映，供体无该规范指标，发明为新能力。
+
+## 6. 测试
+
+### 6.1 模块83全过
+
+host-health-station.test.mjs82与differential.test.mjs1，由city执行。
+
+### 6.2 对编译供体差分
+
+最强证据是执行比较非转表，同场景同时钟驱动两端：
+
+```text
+differential: 110 scenarios compared, 110 agreed, 0 disagreed; 916 ticks,
+3433 per-metric entries, 89 decisions, 8 restart requests, 41 decisions
+carrying a refusal reason
+differential actions: PAUSE_NEW_WORK=67 REQUEST_APP_RESTART=1
+                     REQUEST_SYSTEM_REBOOT=7 THROTTLE=14
+```
+
+70人工场景：正常、无遥测、仅一维、provider沉默、持续热／内存、短于60秒spike／精确门、恢复、每band指标边扫、4h RSS泄漏、延迟ramp、worker风暴、冻结UI、8→400h uptime、完整ladder、debounce、各restart门、urgent override、缺能力、cooldown、10maintenance时间、跨3天wrap窗口；加40固定mulberry32种子随机，七providers。
+
+逐tick比pressure／level、coverage，各维score／level／weight／effectiveweight／summary，各指标value／score／level／rule／sustainedMs／trendApplied，加各自原语重算band／bandkey／rawscore／gatedscore；drivers、trends、maintenance、safe-pointfold、capabilities、provider行、daily、warnings、全决策流、全部adapter调用含restart完整对象。仅unknownDimensions／warnings顺序归一，三指标中间值因快照未公开各自重算，文件头文档化。
+
+额外供体六非plugin套件124测试仅改import，移植上124/124原样过。
+
+### 6.3 本地CI门
+
+根pnpm58/58，city212/212，rooms67/67，docs三对SYNCHRONIZED，promotion10，Android CI temurin21见11。实测无模块city129非173，173属独立MB002分支，均c7ef3cd，不可混；供体155。
+
+### 6.4 真实失败与修复
+
+main潜伏脆弱：三根测试硬编码district[0]／[2]和unbridged1，adapter用district[0]且catalog6／AVAILABLE5。新增建筑后三者失败。fixture现相对清点，用at(-1)、变更前baseline、capabilityID后缀新增断言。测试属性qualifiedidentity、未桥BRIDGE_PENDING、五adapter仍执行不变，不再因后任务新地区建筑破，这是每未来地区任务都会踩的泛用缺陷。
+
+旧未跟踪差分草稿作者误期待createHostHealthStation、snapshot.metrics数组，时钟未advanceMs，已用工作harness取代。首真实差分sustainedMs／rule不同只因时钟接线不对称，共享时钟后精确一致。记录供验证者重查，两不同时钟差分不证明。
+
+## 7. 数据／错误／恢复
+
+模块绝不执行重启，独立审计无process.kill／taskkill／execSync／spawnSync／shutdown／reboot原语，reboot仅REQUEST_SYSTEM_REBOOT词汇。止于有界请求，两adapter拒绝，两端同请求无效果。
+
+唯一child_process import为providers execFile，无shell只读probe，metric不能shell注入。仅caller配helperCommand可达，默认null，import不spawn，测试synthetic；node:os经可注入facade。
+
+真实GETcity遥测12样本：
+
+```text
+  state HEALTHY · action NO_ACTION · restart_pressure 12 · coverage 0.6
+  cpu_usage 0.1818 · ram_used_ratio 0.5748 · ram_available_bytes 14485180416
+  ram_total_bytes 34066345984 · uptime_seconds 603783
+  unknownDimensions: runtime, worker, computer_use_ui      (UNKNOWN, never zero)
+  restart requests: 0 (correct for a healthy host)
+  ```
+
+原收据保持HEALTHY／NO_ACTION、pressure12、coverage0.6、CPU／RAM／uptime精确值、runtime／worker／computer_use_ui未知、零restart。六维仅三可测，60%覆盖压力不能误作全信心，是供体coverage如实目的。
+
+拒绝为供体词汇coded值非边界抛错，理由字符串保留。无秘密／凭据／无界dump。
+
+## 8. 限制
+
+### 8.1 真实供体bug刻意重现
+
+bands.ts bandKeyOf永不为lower-is-worse返回warn，rampEndpoints best>worst，首value<=best吞范围、第二不可达，对编译oracle复现：
+
+```text
+bandKeyOf('recovery_rate', 0.6, {warn: 0.8, critical: 0.3})   -> 'recovery_rate:critical'  (should be ':warn')
+bandKeyOf('ram_available_bytes', 1 GiB, {warn: 4 GiB, critical: 512 MiB}) -> ':critical'
+bandKeyOf('cpu_temp_c', 88, {warn: 80, critical: 95})         -> 'cpu_temp_c:warn'         (unaffected)
+```
+
+两lower-is-worse指标band钟warn开始，未回warn就不重置，warn→critical已满足sustain。决定原样移植、具名测试。MIGRATION_ONLY不能改语义，静默修会差分坏且改变门何时开，是行为改。建议Cityowner supersedingMission或明确fix，虽两行必须有意。
+
+### 8.2 请求source仍供体
+
+source:dsh-health-scheduler改名仅美观却破逐字段差分，DONOR knownDifferences标记。若偏好utopia.host-health-station需验证者／后Mission明确契约改。
+
+### 8.3 manifest不防未声明目录
+
+checkManifestAgainstTree只查声明模块，未标未声明模块目录。报告早稿声称会失败已纠正，模块明确注册。新增保护范围外建议独立修，现模块可存在但清点隐形。
+
+### 8.4 Android／跨设备
+
+门要求两主机真实遥测正常／缺失／持续压力debounce，属验证者。本机仅JDK25／26无法CI temurin21，沿MB002限制，无Android源码改。
+
+## 9. 证据指针
+
+原始git忽略：
+
+```text
+.runtime/evidence/mission-book/MB-005/
+├─ donor-health/                    frozen donor + its compiled lib/ oracle
+└─ run-1/
+   ├─ consumption-driver.mjs        real-telemetry consumption driver
+   ├─ consumption/consumption.json  12 live samples + checks
+   └─ tests/
+      ├─ host-health-station-tests.txt   83/83
+      ├─ city-tests.txt                  212/212
+      └─ root-tests.txt                  58/58
+```
+
+原树列供体及编译oracle、真实driver、12样本、83模块／212city／58root日志。分支结构化：
+
+```text
+data-records/evolution/inbox/mission-book/MB-005/events.jsonl
+```
+
+全MIGRATION／Mech事件：MISSION_CLAIMED、ATTEMPT_STARTED两次（侦察／oracle）、OWNER_INTERVENTION供体bug、TEST_FAIL／REPAIR_APPLIED清点修复、TEST_PASS、RUNTIME_PASS、CI_RESULT。无大日志复制City。
+
+## 10. HEAD／CI
+
+分支mission/MB-005-host-health，实现5fbbec666f61b2ff82f06a85630c2fb538ca7631，CI36571598704 V0.2checks。未合main，验证者全门CI后合并。
+
+## 11. 已确定CI
+
+```text
+run 36571598704   head 5fbbec666f61b2ff82f06a85630c2fb538ca7631   gateway-web success / android success
+run 36571983546   head 545d38fa6cc7023826c5a3a4a09cb2e37265eb06   gateway-web success / android success
+```
+
+第二运行覆盖最终HEAD，正是验证者审查合并版本。Android CI temurin21为8.4本机无法复现环境。mission-book/MB-005-host-health.md migration_ci同事实，为运行真值。

@@ -148,3 +148,6 @@ exact sha.
   app on the device or by a script on the development host? Canonical truth cannot answer it.
 - **Not a review.** No head released, `development_complete` still `false`, `review_host` still `null`. Gates
   10-14 are untouched, and this record does not move them.
+
+
+[阅读译本 / Reading translation](./zh-CN/RECORD_MECH_GATE8_WINDOW_RESULT_AND_EVIDENCE_PUBLISHED.md)

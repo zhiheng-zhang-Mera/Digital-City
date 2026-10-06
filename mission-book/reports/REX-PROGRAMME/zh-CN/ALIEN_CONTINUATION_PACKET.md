@@ -92,3 +92,26 @@ on the joining host   CITY_URL=http://<city-host>:4310 node scripts/join-worker.
 这不关闭 REX-803 完成门槛，也不记录为已关闭：仍需 node 在线并运行三端 topology campaign。但现在只差一个命令和一个短码。
 
 原文追加段末仍保留一条重复唤醒片段：REX-804 有新 head、任一开放修复分支有采纳决策，或新 Owner 指令为 Mech 开放工作。
+
+## REX-803物理门已满足 — 判定属于对侧
+
+Owner指示的验收运行在2026-10-06T08:01Z进行。常驻City保留数据目录并更新8798ba9（REX803评审候选），Mech＋Alien＋Android拓扑执行受控campaign。
+
+```text
+campaign-966cf439-7017-4bb0-88e8-981e59c18322   COMPLETED (REPETITIONS_FINISHED)
+  run 0  MEASURED  dev-031fdba6…(Mech)   run 1  MEASURED  dev-8128a1ef…(Alien)   run 2  MEASURED  dev-031fdba6…(Mech)
+  planned 3 / accounted 3 / measured 3 / timedOut 0 / failed 0 / terminalAccountingComplete true
+material: three COMPLETED canonical tasks with researchRunRef, the trace's RESEARCH_CAMPAIGN_STARTED at
+2026-10-06T08:00:39.601Z, and the immutable receipt filed under <runtime>/research/campaigns/
+evidence: D:/utopia-chat/evidence/REX-803/three-end-live-2026-10-06T08-01-01-831Z.json
+```
+
+原块保留campaign、三次Mech／Alien／Mech MEASURED分配、计划／记账／测量全3、零timeout／failed、完整terminalaccounting，以及三canonicalCOMPLETED、trace开始时间、不可变receipt与本地证据。
+
+原稿称“两天阻碍是过期身份而非缺席主机”：每次声明2026-10-05旧名alien-reference-node，City正确拒绝旧名不live，同时称dev-8128a1ef25c5c4b7f66fc31b21705858（Alien-MERA-ALIANWARE）“始终在线”。这里保留作者此历史原句判断，但其时间泛化不能当已验证事实，正式验收边界如下。manifest必须声明City实际报告身份，记忆名会过期，这是F8泛化。
+
+原稿该检查点说剩下仅对側在选择head上的FormalReview和通过时SCENARIO_REPETITION_ENGINE_ACCEPTED。Mech为作者未释放marker、未给verdict；以上材料交审查非作者验收。后续正式决定见下，不改这个早期作者边界。
+
+## 后续已发布正式验收与历史边界
+
+依据[REX-803/FORMAL_ACCEPTANCE_Alien.md](../../REX-803/FORMAL_ACCEPTANCE_Alien.md)，Alien正式接受8798ba9dd37051626033ad72080b2fad3ff66149并释放SCENARIO_REPETITION_ENGINE_ACCEPTED。新Alien enrollment建立于2026-10-06T07:29:19.058Z，不能把其写为此前两天始终在线，早期离线／退休身份保留。195tracecount来自早期作者报告，Alien MEMBER不能读Ownertrace，不能声称独立读取。独立材料审查只覆盖发布campaignepoch52记录、31canonicalevents、3measuredreceipts；197全窗为作者envelope声明，trace仍PARTIAL，缺项不补零或猜值。候选由receipt／manifest／Owner更新绑定，非远程PID源码audit；APKbuild非手机新安装，捕获skew非跨host同步／网络benchmark。Web PARTIAL、intent NOT_TESTED、Android原生campaign UI属REX807。正式接受有界物理campaign和技术复检，非productmainmerge、全traceFULL或意图研究完成。

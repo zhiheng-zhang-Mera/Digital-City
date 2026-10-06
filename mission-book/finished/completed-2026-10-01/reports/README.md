@@ -126,7 +126,7 @@ VERIFICATION_COMPLETE = true|false
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **314**.
+当前Markdown文档 / Current Markdown documents: **327**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -161,18 +161,18 @@ VERIFICATION_COMPLETE = true|false
 | GAI-007 | 6 | [打开 / Open](GAI-007/README.md) |
 | GAI-008 | 6 | [打开 / Open](GAI-008/README.md) |
 | GAI-009 | 6 | [打开 / Open](GAI-009/README.md) |
-| MB-001 | 3 | [打开 / Open](MB-001/README.md) |
+| MB-001 | 6 | [打开 / Open](MB-001/README.md) |
 | MB-002 | 5 | [打开 / Open](MB-002/README.md) |
-| MB-003 | 4 | [打开 / Open](MB-003/README.md) |
-| MB-004 | 4 | [打开 / Open](MB-004/README.md) |
-| MB-005 | 4 | [打开 / Open](MB-005/README.md) |
+| MB-003 | 6 | [打开 / Open](MB-003/README.md) |
+| MB-004 | 5 | [打开 / Open](MB-004/README.md) |
+| MB-005 | 5 | [打开 / Open](MB-005/README.md) |
 | MB-006 | 6 | [打开 / Open](MB-006/README.md) |
 | MB-007 | 6 | [打开 / Open](MB-007/README.md) |
 | MB-008 | 6 | [打开 / Open](MB-008/README.md) |
 | MB-009 | 5 | [打开 / Open](MB-009/README.md) |
-| MB-010 | 1 | [打开 / Open](MB-010/ASSESSMENT_REPORT.md) |
-| MB-011 | 1 | [打开 / Open](MB-011/ASSESSMENT_REPORT.md) |
-| MB-012 | 1 | [打开 / Open](MB-012/ASSESSMENT_REPORT.md) |
+| MB-010 | 3 | [打开 / Open](MB-010/README.md) |
+| MB-011 | 3 | [打开 / Open](MB-011/README.md) |
+| MB-012 | 3 | [打开 / Open](MB-012/README.md) |
 | RF-001 | 6 | [打开 / Open](RF-001/README.md) |
 | RF-002 | 6 | [打开 / Open](RF-002/README.md) |
 | RF-003 | 6 | [打开 / Open](RF-003/README.md) |

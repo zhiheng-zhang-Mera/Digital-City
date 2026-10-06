@@ -164,3 +164,7 @@ fresh/unbound installation on one Windows host
 10. terminal marker `CONNECTION_ONBOARDING_MERGED_MAIN_PHYSICAL_ACCEPTED`。
 
 完成后整个 `connection-onboarding/` programme 才可移入 finished。
+
+## Language / 语言
+
+[English full reading](en/JOIN-590-merged-main-physical-acceptance-and-closeout.md) · 中文原文见上。

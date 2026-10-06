@@ -552,4 +552,4 @@ Stated plainly so the acceptance decision rests on the real boundary:
    (§6.2.5), and the census-relative repair that MB-001 needed is still absent from `main`'s
    other suites as a general fix — it exists only where this Mission's diff touched it.
 
-
+语言配对 / Language pair: [原文 / Source](./VERIFICATION_REPORT.md) · [译本 / Translation](./zh-CN/VERIFICATION_REPORT.md)

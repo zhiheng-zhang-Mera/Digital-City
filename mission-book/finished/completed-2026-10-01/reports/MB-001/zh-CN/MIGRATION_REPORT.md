@@ -1,0 +1,114 @@
+# 迁移报告 — MB-001
+
+[English authoritative source / 英文权威原稿](../MIGRATION_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION = MB-001
+ROLE = MIGRATION
+HOST = Alien
+CLAIM_COMMIT = cc45ea203801d2c34c40924f55b4fa92b9b9768e
+DONOR_BASELINE = zhiheng-zhang-Mera/Codex-Boss @ 8df428eaa437a409368401e95194e40266b83080
+IMPLEMENTATION_BRANCH = mission/MB-001-core-os
+IMPLEMENTATION_HEAD = 8a7fe21e1ad860bbc06866344f97abda6fb9e165
+IMPLEMENTATION_CI = 36566575068 PASS (gateway-web + android)
+MIGRATION_HEAD = a71bf9080294390a3e2c1482bb53930519d1b3b3
+MIGRATION_CI = 36566973111 PASS (gateway-web + android)
+MIGRATION_COMPLETE = true
+```
+
+implementationSHA含迁移本身；migrationHEAD加两个仅events.jsonl的CI_RESULT／MIGRATION_COMPLETE收尾提交。两SHA均必需CI绿，非未验证树。按任务簿施工顺序写，包含问题／选择／理由，4／5不是装饰，本任务难处主要决定不迁什么。
+
+## 1. 落地边界
+
+| 集群 | 冻结供体源码 | 目标city/00-foundation/01-city-core/下 | 测试 |
+|---|---|---|---|
+|A owner主权／rootauthority／trust／保护契约|src/shared/root-authority/contracts.ts、protected-surface.ts、electron/root-authority/protected-surface-guard.ts仅决定组合|root-authority/|18|
+|B 全局taskidentity／lifecycle／durable|src/shared/candidate-gate.ts§35|task-lifecycle/|11|
+|C 跨域orchestration／routing／Cityscope协调|fleet.ts、capability-router.ts、node-capabilities.ts、adaptive-routing.ts均src/shared|fleet-routing/|28|
+|D continuation／recovery／audit|decision-ledger.ts、candidate-gate§36、recovery§33.1–2|audit-ledger/|42|
+
+30文件288509字节、99测试，TS→普通ESMJS无新依赖。每DONOR列路径／adapt／差异／向量／四类分类。
+
+保留行为完整向量见DONOR：
+
+- root-authority：CODEOWNERS子集前导／内部斜杠rootanchor，裸pattern任意深basename，尾slash目录与下级，*段内、**跨段、?一字；默认不区分大小写，每路径一规则证据；非string为escape；normalizeRepoPath绝对／UNC／盘符／..逃逸undefined；rename两端、delete如write；escape DENY、protected REQUIRE_OWNER、其他ALLOW，理由最多5escape／10hit。逐字供体分类转写差分约93000生成（40kregex、40knormalize、8kassessment、5kparse），0偏差。
+- task-lifecycle：§35 RUNNING→IMPLEMENTED→VERIFYING→REVIEWING→CANDIDATE→ACCEPTED、精确边表、前移到下一声明状态不可跳；REPAIR仅后一步；ACCEPTED拒全事件；拒理由命名全生命周期；非ACCEPTED awaiting_release_permission true；created_at epoch；candidateIdFor sorted-NUL-SHA256，固定cand-6f6181a33382dced。
+- fleet-routing：10k／30kms封闭边界三heartbeat结果、joinorder firstfit、capability门、三dropout无关／完成assignment不动；eligibleCandidates排除／blocked，neverassume自检，utility钳制公式／4位舍入。
+- audit-ledger：question2000、候选10×200、chosen2000、evidence50×2000、rollback2000、policy200，边界接受+1拒；不可变append／重复ID拒；summary含rollbacks；§36七check完整理由；NOT_RUN阻碍、unchecked删除失败关闭、词法Owneroverride阈值、四themecheck；§33.1–2失败分类／plan／预算耗尽终态。
+
+明确未迁：
+
+- electron/state-core/**闭合10文件durable层，database经createRequire(process.cwd())到node:sqlite，driver独立决定，B仅identity／lifecycle非persistence。
+- autonomous-evolution-trust与trustplane值import acceptance→desktopblackbox／hash，是供体自身认证judge非portableprimitive。
+- evidence-ledger／coordination-ledger为D耦合，前者execution-planner／requirements-graph，后者tenx/knowledge，迁移会拖第二领域。
+- electron/root-authority组合外全closure25文件；guard→native-tools→child_process经git／processgateway，command-runner循环。
+- root-policy／secret-scan政策扫描底、操作分类、runmode、executionprofile、RootIdentity、authority-planes、promotionstate／gate。
+- planHnsFallback／recordHnsUsage／HNS_ROLES／MAX_CONSECUTIVE_HNS_CALLS是命名外部执行器预算非recovery原语；HNS_FALLBACK级与plan.hns_allowed保留，为§33.2顺序。
+- Bossprovider／council耦合TaskStatus queued/running/waiting/paused/cancelled/completed/failed、BossTask、UserTaskState，session-lifecycle属provider/account。
+
+契约为普通可序列化值纯函数，无fs／网络／Electron／clock／env／隐I/O，时间ID参数、随机／时钟注入。模块不造不能验证容器，factory复制数组但畸形非数组原传，验证唯一门。
+
+真实消费server是Web／Android任务控制。POSTnode/claim不重派“节点接工作”，调用fleetacceptsWork，Utopia政策数据REQUIRED_TASK_CAPABILITIES=['task.execute.safe','filesystem.temp']，claimNodeFor映gateway活性到Core状态。gatewaytest真loopbackHTTP证明一致拒绝，无新UI。
+
+## 2. 测试运行
+
+99模块。CI等价根60、rooms67、city229、promotion10、docs三对同步。Android本机testDebugUnitTest／assembleDebug BUILD SUCCESSFUL，APK10488900字节。消费gateway具名node-claim owned CityCore加原gateway不变绿。五失败TEST_FAIL MB-001:1464839cde7ea8b6：四旧测试位置／全count假设因合法foundation改变，第五自己auditfactory新测试提交前抓。REPAIR_APPLIED MB-001:653e5fe245c095fb见D8，限制6。
+
+## 3. 狗粮／演进
+
+分支inbox data-records/evolution/inbox/mission-book/MB-001/events.jsonl，7事件未本机合main：
+
+| ID | 类型 | 结果 |
+|---|---|---|
+|MB-001:246c0bfe93cb1d17|MISSION_CLAIMED|INFO|
+|MB-001:cac627e4f2073968|ATTEMPT_STARTED|INFO|
+|MB-001:231528cdcc26ea2f|CHANGE_APPLIED|INFO|
+|MB-001:1464839cde7ea8b6|TEST_FAIL|FAIL|
+|MB-001:653e5fe245c095fb|REPAIR_APPLIED|REPAIRED|
+|MB-001:c7599ac438f7d2e4|TEST_PASS|PASS|
+|MB-001:0a756cb77839c3b6|RUNTIME_PASS|PASS|
+
+原稿此节称托管确定后同host追加CI_RESULT，上方MIGRATION_HEAD为追加前；保留原阶段叙述不改。未发布raw候选，跨host仅分支报告， bulky留本地。git忽略DONOR-SURVEY-REPORT.md位.runtime/evidence/mission-book/MB-001/run-001/donor-survey/，73KB逐文件耦合调查加四只读脚本；.runtime/mb001-android-build.log。
+
+## 4. 施工问题、选择、理由
+
+每项任务未指定，先选后理由代价。
+
+**D1 — 300文件多少CoreOS？** 每命名cluster一模块，仅可证独立纯core，其余DONOR延后。四行为组按模块如实，完整传递闭包证明runtime leaves，C三无import、Aclassifier零import。代价persistence／trustjudge不迁，明确非藏。
+
+**D2 — manifest要求RoomPack晋升，Mission无Room。** 注册PROMOTED、mission孵化ID mb-001-<module>-lab及机器mission块，双架构说明两身份。虚称room为假来源，未注册livecode更糟；ID不会误Room，test拒无匹配mission及逐字段DONOR。增加第二身份文档，过程记录非产品能力。
+
+**D3 — 架构§5禁server，MB001验证需消费。** newerOwner任务簿对本任务优先，gateway等价重接，双语§5精确说明要求时可services消费，协议语义绝冻结。任务明确Services/Tasks合法，无消费Core只是库。wave旧冻结限定，但ControlProtocol／APIv0shape／taskstates／events／payload／Android契约不变、测试断言。
+
+**D4 — 仅一cluster可不发明消费。** fleet进gateway，其余三落地一致性但未消费。gateway QUEUED／ASSIGNED／RUNNING／COMPLETED／FAILED／CANCELLED与§35 RUNNING／IMPLEMENTED／VERIFYING／REVIEWING／CANDIDATE／ACCEPTED不同，映射是发明；eventjournal无问题／候选／选择／证据／结果／回滚或candidate概念，转ledger发明未作决定；无Ownerapproval／protected面，规则14边界非新feature。代价三无consumer明确，验证首攻。
+
+**D5 — 新地区把四kernel广告不可用能力。** foundationkind:infrastructure经manifest验证，registry跳地区。domain待桥正确但kernel错误，会改两客户端清单、假产品面。代价新字段和两行filter，五adapter不影响断言。
+
+**D6 — Boss保护路径是政策。** 不内置Utopia保护，compileProtectedSurface caller选manifest，DONOR_ROOT_PROTECTED_MANIFEST冻结惰性无读，无option保护无项测试。禁新authority／governance，选择路径Owner非迁移。机制无政策、adopter自供，DONOR声明。
+
+**D7 — candidate跨两cluster。** §35 lifecycle→B、§36Guard→D，按taskcluster非供体文件；两原语不同。代价一源两目标各引用说明。
+
+**D8 — 合法manifest五失败。** 移除失效偶然假设不放宽：district位置→ID；全unavailable／catalogcount限测试refs；补readFileimport；auditfactory不再string展开字符数组，把非法变合法的缺陷修。保每test意图，顺序／无其他未桥偶然。无删／skip／弱化／阈值变，事件供验证者查非信。
+
+**D9 — 环境。** pnpm PATH无，corepack11.19.0同CI可用。mission:event -- --mission转字面--失败，实际无额外--；过程docs有错形故记录。
+
+**D10 — 流通供体指标不一致。** PRE_CITY_FREEZE_MANIFEST在23e1541为258testfiles／3274tests，冻结8df428e直接301／3793it。不同commit都可真，仅引用冻结、指出而非选好数。survey也纠正不存在electron/root-authority/contracts.ts／src/shared/state-*.ts路径。
+
+## 5. 验证者先读
+
+仅独立提示非暗示结论：Core各DONOR的全部DEFERRED／UTOPIA_EXTENSION（原稿称三模块无，另列tasklifecycle三query、fleet一composition、audit两便利，保原叙述）；manifesttest清点／孵化契约；server import／REQUIRED_TASK_CAPABILITIES／claimNodeFor／claimroute与gatewaytest消费；registry基础设施排除；双架构D2／3／5；三capability／manifesttests D8无弱化。
+
+## 6. 限制
+
+1. A／B／D无productconsumer，若要求四皆消费则任务未完成。
+2. root机制无政策，无Utopia保护manifest。
+3. B仅identity／lifecycle，durable未迁，sqlite待决。
+4. evidence／coordinationledger未迁，D窄于供体。
+5. Android本机绿但Gradle全UP-TO-DATE，source未改，是不受影响而非变更输入freshcompile。
+6. 托管MIGRATION_CI记，migrationhost按规定未合main。
+
+## 7. 验证交接
+
+必须不同host，Alien已参与不可领验证。utopia mission/MB-001-core-os HEADa71bf9080294390a3e2c1482bb53930519d1b3b3。三push实现CI36566575068、最终36566973111、领取36564561252均PASS。本机未合、未mission:finalize。

@@ -1,0 +1,102 @@
+# Reading translation / 阅读译本
+
+[Canonical source / 权威原文](../RECORD_STEP2_CITY_UP_AND_ALIEN_WIN_ONLINE.md)。本页完整翻译历史报告正文；原文及当前工作书 frontmatter 为权威，历史状态不替代当前状态。证据代码块逐字保留；阅读本不执行任务。
+
+# RECORD — MESH-301 第 2 步：canonical City 已启动，本主机以 `Alien-Win` 在线
+
+```text
+FROM = Alien (development host of MESH-301; endpoint B-adjacent worker node + owner of the Android control client)
+TO   = Owner, Mech
+RE   = MESH-301 step 2 (one canonical City shared by three control surfaces) — first executable step
+STATE = canonical City RUNNING; Alien worker node ONLINE; Mech endpoint NOT YET JOINED (needs the token relay)
+```
+
+本文件、任何截图及 Git 中均不出现 token 值。这是工作书的硬约束，此处从写法上遵守：下文只指出需要 **哪种** 凭据，绝不写出凭据 **是什么**。
+
+## 1. 当前可测量的事实
+
+```text
+canonical City endpoint   http://172.31.3.110:4391     (claim-time LAN measurement of THIS host, not a constant)
+cityId                    22e1216b-f124-4d4a-be4a-4a280558c027
+process start             2026-10-03T02:46:50Z  (2026-10-03 12:46:50 +10:00)
+health                    GET /api/v0/health -> 200, status=healthy
+node count                1
+  id                = Alien-Win
+  devicePrincipalId = Alien-Win
+  displayName       = Alien-Win
+  online            = true
+  capabilities      = ["task.execute.safe","filesystem.temp"]
+```
+
+该节点满足 `id == devicePrincipalId == displayName`，正是 MESH-301 所需结构：**稳定物理身份**（`id`、`devicePrincipalId`）为 `Alien-Win`，只有 `displayName` 是可变标签。节点从本任务分支启动，因此命名规则由代码实际执行，而非记录自称。这就是 Mech 针对早期 kickoff 记录测到的缺陷，现已在 `mesh/MESH-301-three-end` 关闭。
+
+## 2. MESH-301 未规定之处的决策（问题 / 选择 / 判断逻辑）
+
+工作书固定拓扑与约束，但未规定下列操作细节。每项选择都以保持三端性质 **可测试**、秘密 **不进入记录** 为依据。
+
+### D1 — node 凭据必须与 control 凭据不同；按约定派生
+
+- **问题**：`CITY_TOKEN === CITY_NODE_TOKEN` 时 gateway 拒绝启动，但 Owner 只指定一个值。node 因而需要另一个不同秘密，且未规定如何形成。
+- **选择**：node 凭据 = Owner 值加 `-node` 后缀；control 凭据 = Owner 值原样。
+- **判断逻辑**：在 Owner 会查找它的位置（控制界面）完整保留 Owner 值；派生值是其纯函数，Owner 只需转交一对值，而非两个无关秘密；这里只记录派生 **规则** 而非值，确保记录无泄漏。另一选择是向 Owner 要第二个值，会无收益地耗费凭据一小时有效期内的一轮沟通。
+
+### D2 — 谁测量 endpoint 地址，何时测量
+
+- **问题**：另外两台机器必须知道 City URL，但 MESH-301 禁止硬编码地址，两主机位于同一 LAN 的不同子网。
+- **选择**：由运行 City 的主机在领取/启动时测量地址；本记录将其发布为 **带时间戳的测量**，而非常量。
+- **判断逻辑**：这正是工作书要求的领取时路由测量。公布带出处的测量值，使 Mech 能发现不匹配，而非静默无法到达过期地址。地址变化时由新记录取代本记录，而非编辑本记录。
+
+### D3 — 产品无 bearer-token TTL 时如何遵守 Owner 的“一小时有效”
+
+- **问题**：gateway 凭据是进程级秘密，**无到期机制**；只有 pairing **sessions** 有 TTL（`POST /api/v0/pairing/session`，默认 300 000 ms）。Owner 仍指定一小时有效。
+- **选择**：将一小时视为 **操作窗口**（并非强制执行）：`2026-10-03T02:46:50Z` → `2026-10-03T03:46:50Z`；到期后通过 **在新端口用新凭据启动新 City** 轮换。不为运行中的 City 打补丁增加到期机制。
+- **判断逻辑**：仅由环境变量承载的 bearer 凭据，不能仅靠政策诚实地“过期”；真实到期就是停止接受它并建立新的凭据。在 gateway 增加 TTL 会为了调度偏好修改产品，违反 §9（不得制造工作）。轮换代价是一次重启，收益是秘密不会超出 Owner 窗口。
+- **可行性检查**：node agent 使用 `Bearer <node credential>` 访问 `/api/v0/node/*`，**完全不使用** pairing-session 流程（由 `agents/reference-node/agent.mjs` 测量）。因此 Mech 不需要 pairing session、QR payload 或短码；需要 URL 和 node 凭据。
+
+### D4 — 将 City 绑定 LAN 地址，而非 loopback
+
+- **问题**：仅绑定 loopback 的 City 能满足本主机，却会使三端结论成为虚假陈述。
+- **选择**：绑定主机 LAN 地址，在同一端口提供控制界面。
+- **判断逻辑**：双端前序任务 UXI-391 以真实双主机传输验收；需避免的失败模式是悄然只在 loopback 重跑。绑定 LAN 后，Mech 自身一次请求就能证伪“Mech 确实在此 City”。
+
+## 3. 需要交接 Mech 的操作发现：409
+
+控制界面读取（`GET /api/v0/nodes`）会以 **409 `Protocol mismatch: apiVersion=0 and schemaVersion=0 required`** 拒绝缺少协议 headers 的请求；凭据错误则为 **401**。任何三个控制界面的每次读取都必须发送：
+
+```text
+Authorization:          Bearer <control credential>
+x-city-api-version:     0
+x-city-schema-version:  0
+```
+
+记录这一点是因为它会产生 **假阴性**：省略版本 headers 的 probe 看起来像“City 不响应 nodes route”，而非“probe 格式错误”。我自己的两次 probe 都因此失败，直到从 `services/dev-gateway/server.mjs:68` 读取 header 集合。Mech 可达性检查必须发送全部三项，否则会错误断定端口关闭。
+
+## 4. Mech 所需内容及其中风险
+
+```text
+CITY_URL           = http://172.31.3.110:4391
+CITY_NODE_TOKEN    = <the node credential — Owner relays it privately, never through the repo>
+CITY_NODE_ID       = Mech-Win          <-- MUST be set explicitly, see the hazard
+node script        = scripts/uxi391-node.mjs   (branch mesh/MESH-301-three-end @ e908f82)
+```
+
+- **风险**：`scripts/mesh-node-identity.mjs` 中机器侧默认身份为 **`Alien-Win`**。主机启动 launcher 时若不自报名称，就会注册为 `Alien-Win`；City 会报告两个拥有相同 `devicePrincipalId` 的节点，静默破坏本任务要证明的稳定物理身份。Mech 必须传入 `CITY_NODE_ID=Mech-Win`（或 `--id Mech-Win`）。
+- **保留 `Alien-Win` 默认值的判断逻辑**：Owner 规则明确规定本机器默认名称，launcher 是逐机器使用。改为“无默认值、必须命名”或许更安全，却违反 Owner 明示规则和已通过的单元测试。因此通过 **指令和验证** 处理风险：City 必须准确显示一个 `Mech-Win`、一个 `Alien-Win`；不修改命名契约。若 Mech 更倾向 fail-closed 默认值，应提出设计变更，而非由我在运行途中单方面修改。
+
+## 5. 本记录不声称的结论
+
+- 不声称三端连通。本记录时 City 仅有 **一个** 节点；单节点 City 不是三端 mesh，不会被描述成三端 mesh。
+- 不声称 Android 是 worker node。按照 MESH-301，它是 **控制客户端**，设计上就不在节点列表中。
+- 不声称 Mech 已加入。Mech 自身记录说它在 **自己的** 4641 端口启动 City；这证明 Mech launcher 可用，不证明 Mech 加入 **这个** City。仅在 Mech 在此注册之后，三端才共享一个 canonical City。
+
+## 6. 唯一阻塞进展的未完成项
+
+**向 Mech 交付 node 凭据。** MESH-301 禁止 token 进入报告、截图或 Git。Owner 裁定由 Owner 私下转交。在 Mech 获得它之前，第 2 步无法完成；不会用 loopback 替身替代 Mech endpoint。
+
+**过程说明：记录这一点，因为实际控制才是关键。** §2/D1 初稿在解释派生规则的句子中逐字引用了 Owner control 值。对 staged 文件进行该字面值的机械扫描，在 commit 推送前发现问题；将值替换为“value”并 amend commit。没有秘密到达 remote。教训正是本任务反复展示的：文档中的规则（“token 不得进入报告”）不是控制；能以失败结果阻止推进的扫描才是控制。
+
+## 7. 后续步骤
+
+1. Owner 向 Mech 私下转交凭据对（control 值 + node 值）。
+2. Mech 用 headers 正确的 probe（§3）验证可达性，然后用 `CITY_NODE_ID=Mech-Win` 加入。
+3. Alien 验证 City 准确列出两个节点 `Alien-Win`、`Mech-Win`，且 `devicePrincipalId` 不同；之后才推进三控制界面、Android 控制客户端身份、严格目标路由及有界收敛检查。

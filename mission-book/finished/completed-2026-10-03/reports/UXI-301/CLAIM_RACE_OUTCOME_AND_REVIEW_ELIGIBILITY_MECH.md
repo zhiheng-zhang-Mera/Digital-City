@@ -71,3 +71,6 @@ usefully now and §9 discourages work that re-decides something not yet due. I a
 the point I noticed it, so that it surfaces with the full §3 analysis at hand rather than as a surprise
 when development completes. The precedent is the RS-290 repair: raising a disposition question *before*
 it became the only blocker is what kept that task moving.
+
+
+[阅读译本 / Reading translation](./zh-CN/CLAIM_RACE_OUTCOME_AND_REVIEW_ELIGIBILITY_MECH.md)

@@ -79,3 +79,6 @@ not static mocks only").
 - **Not a criticism of Mech's measurement discipline.** Its four failed attempts are recorded in detail and
   its probe does reach `ALTERNATE_DEVICE`. What is falsified is one inherited **premise** — that only one
   task type exists — which the attempts took as given.
+
+
+[阅读译本 / Reading translation](./zh-CN/HANDOFF_SEAM_PREMISE_PROBE_RESULT_ALIEN.md)
