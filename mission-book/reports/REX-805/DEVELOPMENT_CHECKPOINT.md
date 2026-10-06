@@ -19,3 +19,10 @@ The exact earlier a574e009 full suite has three host-city-launcher ENV failures 
 未来 Mech Owner 联机验收须明确更新至上述修复候选或包含它的版本；此前“Mech已经更新”绑定8798ba9，不能作为本候选部署证据。建议使用已验收 campaign-966cf439-7017-4bb0-88e8-981e59c18322 的 run1（种子414121415，原 Alien 落点），执行 replay 后 alternate-device ablation，并导出原始/新 receipt、registry 与规范任务。Alien 和手机仅 MEMBER，不能伪造 Owner 请求。
 
 Future Mech Owner physical acceptance must explicitly update to this repaired candidate or a containing version. The earlier update confirmation binds8798ba9 and cannot attest this deployment. Suggested source is accepted campaign-966cf439-7017-4bb0-88e8-981e59c18322 run1 (seed414121415, original Alien placement), followed by replay and alternate-device ablation, exporting source/new receipts, registry and canonical tasks. Alien and phone are MEMBER only and cannot impersonate Owner requests.
+
+
+## 精确候选核验更新 / Exact candidate verification update
+
+已逐项读取 Actions API，headSha均为 `4b3946868d4083285da8a8d99eac2642890b37c4`：push37440884928、PR37440891856、City linkage37440891872 均 COMPLETED SUCCESS，两个 V0.2 检查的 Android 与 Gateway/Web jobs均成功。本地精确版本完整套件1412项，1409通过、3失败；3项均为 host-city-launcher 测试要求空闲本机reservation，而正式MEMBER City仍占4389，未停服或隐去失败。运行后 tracked工作树干净、远端branch与PR head均匹配。仍没有实体 replay/ablation 验收或产品main合并。
+
+Actions API checks individually bind the exact candidate above: push37440884928, PR37440891856 and City linkage37440891872 are all COMPLETED SUCCESS; both V0.2 Android and Gateway/Web jobs succeed. Exact local full suite has1412 tests,1409 pass and3 fail. All three host-city-launcher tests require an empty local reservation while the formally connected MEMBER City occupies4389; the service was preserved and failures disclosed. Tracked worktree is clean after execution and remote branch/PR head match. Physical replay/ablation acceptance and product-main integration are still absent.

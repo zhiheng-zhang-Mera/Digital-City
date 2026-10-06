@@ -18,7 +18,7 @@ dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_R
 development_host: "Alien"
 development_branch: "rex/REX-805-alien-replay-ablation"
 development_head_sha: "4b3946868d4083285da8a8d99eac2642890b37c4"
-development_ci: "PENDING exact repaired head 4b3946868d4083285da8a8d99eac2642890b37c4; PR38. Focused17/17 PASS; independent code re-review passes six Important repairs. Full suite/hosted CI and opposite-host physical acceptance pending; earlier a574 full1407 had3 resident-City ENV failures."
+development_ci: "PASS exact head 4b3946868d4083285da8a8d99eac2642890b37c4: push37440884928, PR37440891856, linkage37440891872 all COMPLETED SUCCESS. Local full1412/1409PASS/3ENV_FAIL (resident City4389); independent code re-review six Important fixes PASS. Opposite-host physical acceptance pending; development_complete remains false."
 development_complete: false
 review_host: null
 review_head_sha: null
