@@ -15,8 +15,9 @@ AFFECTS         services/dev-gateway/research/registry.mjs      (REX-801, COMPLE
                 services/dev-gateway/execution-profile.mjs      (WBC-604, COMPLETE; half-switch on store failure; F-3)
 SEVERITY        HIGH - a City built from current main does not start at all (two instances), plus two silent/contradictory
                 store failures in merged main
-STATUS          every instance REPORTED with a measured reproduction; an adoptable repair branch exists for the two
-                bricking instances; F-1/F-2/F-3 are reported and NOT repaired by this host
+STATUS          every instance REPORTED with a measured reproduction and a falsified probe; three adoptable repair
+                branches exist (research registry, capability-bridge theme artifacts, WBC-604 profile store); F-1 and F-2
+                are reported and NOT repaired by this host
 ```
 
 ## What happens
@@ -170,9 +171,38 @@ own tests never used. F-2 is a *deliberate* silence that this programme's patter
 F-1 is the family shape landing on the one store where bricking is correct, and it sharpens the family rule rather than
 extending the list of things to repair.
 
-All three are reported, none is repaired here. `city.sqlite` lives in `services/dev-gateway/store.mjs` and the other two
-in `join.mjs` and `execution-profile.mjs` — core modules and a closed WBC task — so the same policy as the two store
-guards applies: publish the measurement and the shape, let whoever owns the module adopt it.
+### F-3's repair, adopted pattern (third adoptable branch)
+
+F-3 is the one of the three whose fix is both unambiguous and tiny — the module's own documented rule says what the
+behaviour should be — so it carries an adoptable branch too:
+
+```text
+BRANCH      repair/WBC-604-mech-profile-persist-first @ 1f2f08ca4d947ef55c08b9aac946f424f4a28587
+            (parent = main 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef)
+CHANGE      services/dev-gateway/execution-profile.mjs
+              persist() takes the profile to write as an argument and is called BEFORE the live assignment, so a store
+              that refuses the write leaves the running profile where it was
+              a refused write raises a typed ProfileChangeError(PROFILE_STORE_UNAVAILABLE), keeping the errno and path in
+              `detail` for a log; the route used to surface `error.code` verbatim, so an owner saw EPERM and a path
+            tests/wbc604-store-failure.test.mjs  (NEW, 3 probes)
+PROBE       falsified on the unguarded tree, which reports the half-switch itself:
+              "the running profile is UNCHANGED"  actual 'WORKER_POOL'  expected 'STANDARD_DEVICES'
+            a positive control proves the reorder did not break persistence (a working store still records the NEW
+            profile and a fresh controller still adopts it), and one probe states its own limit instead of overclaiming -
+            the route's store branch is only reachable when a non-default backend is READY, which a bare City cannot
+            offer, so the controller probe is the authority for the typed code and the route probe proves only the
+            forwarding and the absence of a leak on the refusal it can actually reach
+LOCAL       3/3 new probes; the three existing WBC-604 suites green (19 tests across the four files); full suite
+            1348/1353 with the same 5 inherited environment failures as at baseline 213f9f9f
+CI          V0.2 checks push run 37412629328 COMPLETED SUCCESS (attempt 1) on 1f2f08ca4d947ef55c08b9aac946f424f4a28587,
+            jobs android and gateway-web both success; read per-run from the Actions API and matched on headSha
+NOT DONE    WBC-604 is COMPLETE and this host did NOT reopen it, did NOT merge, and did NOT touch main
+```
+
+F-1 and F-2 are reported and **not** repaired here: `city.sqlite` lives in `services/dev-gateway/store.mjs`, and the
+join store's silence is a documented design decision in `join.mjs:74-77` rather than a coding error, so both belong to
+whoever owns those modules. The policy is the same one the two store guards were published under: measure, publish the
+shape, let the owner adopt.
 
 ## The second repair, same pattern
 

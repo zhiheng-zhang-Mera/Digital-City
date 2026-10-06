@@ -157,12 +157,14 @@ city.sqlite (canonical store)       BRICKED "unable to open database file"   <- 
                                                                                 缺的是可诊断的 typed 原因
 join-requests.json (join store)     STARTED，HTTP 200 且内存中已生成审批行，但**什么都没落盘**   <- F-2 有意的静默
 execution-profile.json (WBC-604)    change() 抛错，但内存 profile 已经切换   <- F-3 违反该模块自己声明的 rule 2
+                                                                                （已给第三个可采纳修复分支）
 ```
 
 v1 版本的表格声称有 8 个探针，实际只有 6 个（其中两行 `relative = null` 根本没埋雷，join 行的 `HTTP 400` 还是探针自身把字段名写成 `claimSecret` 造成的）。该仪器缺陷连同更正后的实测一并记录，不做静默清洗。
 
-完整记录（两个 bricking 实例、F-1/F-2/F-3 三种不同失效模式、成对前后测、两个可采纳修复分支、以及三条仪器教训）见
-[reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md)。
+完整记录（两个 bricking 实例、F-1/F-2/F-3 三种不同失效模式、成对前后测、三个可采纳修复分支、以及三条仪器教训）见
+[reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md)
+（扫描 harness 作为可复现证据一并提交为 `reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`）。
 涉及的模块均已合并进 main 且其任务（REX-801、MB-008 legacy、WBC-604）已关闭，因此本机只发布测量、修复分支与探针，
 **不合并、不改 main、不触碰关闭任务的记录**。
 
@@ -174,15 +176,20 @@ v1 版本的表格声称有 8 个探针，实际只有 6 个（其中两行 `rel
 
 ```text
 READY 且未被领取                                    0
-开发已完成、等待对侧主机 review                     3   (REX-803 / MON-902 / MON-903；review_host 均为 null)
-review 已被 Mech 领取、等待 Alien 修复              1   (REX-804，verdict = NOT PASSED)
+开发已完成、等待对侧主机 review                     2   (REX-803 / MON-903；作者均为 Mech，§3 禁止自审)
+review 已被领取、等待判定                           2   (MON-902 → Alien 已领取；REX-804 → Mech 已给 NOT PASSED)
 依赖未满足                                         5   (REX-805/806/807/890、MON-990)
 对侧主机已领取未开工                                1   (SHOW-401，dev=Alien)
 ```
 
 REX-805 的 `dependencies` 明确要求 `REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED`，因此它不会因为 REX-801/802 已接受而解锁。
-Universe 的下一步全部落在对侧物理主机（Alien review / Alien repair）或离线的 Alien 节点上；本机不做投机性 union baseline，也不
-自行制造“可领取”工作。本轮的施工因此落在**不占任务、可复用的验证与缺陷发现**上，其结果即上文两项实测。
+本机可做的下一步全部落在对侧物理主机（Alien review / Alien repair）或离线的 Alien 节点上；本机不做投机性 union baseline，
+也不自行制造“可领取”工作。本轮的施工因此落在**不占任务、可复用的验证与缺陷发现**上，其结果即上文两项实测。
+
+对侧主机于 2026-10-06 15:12–15:18 重新上线（Alien-codex），完成了 CEX-790 current-main 集成（PR #33，MERGEABLE，
+CI 绿），并在其中**采纳了本机发布的两个 store-guard 修复分支**（附来源标注）；同时领取了 MON-902 review。
+该集成报告另记录了一条 Owner 指令：优先 CEX-790 并使其可合并，随后直接做 MON，取代此前的 REX-before-MON 排序，
+SHOW 仍然排除。该指令直接授权的是 Alien 的集成与后续 MON 工作；本机据此复扫任务池，结论不变（Mech 可领取为 0）。
 
 ## 4. 双机异步施工
 
