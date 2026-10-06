@@ -1,0 +1,37 @@
+# 历史分支审计与mech/knowledge-room-k0处理
+
+## 1. 收到指令
+
+原Owner中文指令原样保留：“以主机 Mech 的身份，对 utopia 的各个分支进行 main 合并，保留工作历史，如果出现 Github CI 测试报错，解决到全绿并记录到 city 和 utopia 的存档处。”依长期规则每问题选择判断留记，本报告说明指令前提与repo事实不一致及如何解决。
+
+## 2. 前提已不成立
+
+两repo先fetch prune，audit main8104f8289a76d15ff0197c953730edcef42cab5e，34remote全合，main CI36692675561 success且无运行中CI。MB010/011/012 provenance6e9781c/f22273c/e0d9470、d0dea7b force-record、UPT foundation8104f82都已有绿。唯一未合local-only从未push mech/knowledge-room-k0，所以无剩remote可集成。
+
+## 3. 唯一分支已被替代，非未完进展
+
+25文件3034insert全apps/knowledge-room，ACCEPTANCE_K0记外部变化0、从没接hub；18tests store6/search4/import-export4/http4全过。功能title/body搜索、tag过滤、全bundle export/replace import。main apps/rooms/rooms/knowledge client/room.server已有同功能并接hub Web Android。分支首9208903在2026-09-29 10:58:11，main67b27bf在12:02:56，早分支约一小时后被Room Pack替代，是并行早尝试非未合进展。
+
+## 4. 选择判断
+
+字面合将双live（未wire与wire）反INCUBATION_POLICY§5不漂双实现；加3034死代码不进root/rooms/city CI，四test不在任workflow、18不再跑；与BUTLER_ASSISTANT_PARALLEL_DEVELOPMENT及BUTLER_MERGE FORBIDDEN/BA全部dev+correction后才建merge书冲突。§7.3要求不丢有效行为，此处只是加重复。最佳解escape处理未指明选项，这是真产品拓扑和明确规则冲突，所以Owner裁而非单方/字面执行。
+
+## 5. Owner决定
+
+选A push origin保历史、City记superseded不merge；范围legacy only，不碰BA lock。权威记录明确deliberately not merged，未覆盖City规则，BUTLER_MERGE继续FORBIDDEN。
+
+## 6. 已执行
+
+push origin分支精确db7cfc5ef4b631c00149fe3657cc85b90d6f4356，无rewrite/squash/rebase。main82ed36933fb4c5b00e44768d9e1aedec1d525d9c只增legacy evidence说明。前只有单机有丢失风险，现origin完整四commit9208903 bootstrap/61a464d CRUD/0ae5707 acceptance/db7cfc5 record，落实保历史。
+
+## 7. CI
+
+branch36700716264/main此前36692675561/归档后36700956282 success。branch workflow按旧V0 pnpm test/docs及Android，但不cover apps/knowledge-room。无CI失败，故修到全绿条款没触发，原称双方first attempt绿保留。
+
+## 8. 归档后验证
+
+main精确82ed369，变化一evidence文件，product/runtime0，CI36700956282 android/gateway-web success；原独立MAIN_CI块保留。
+
+## 9. 剩余及未主张
+
+不称K0无价值，18pass完整自足产品保来源，未来Owner可集成删除。不称legacy全部永尽，只audit该CODE-SHA的heads/remotes，未来分歧新audit。不碰BA lock/BA001..009/frozen8104f8289a76d15ff0197c953730edcef42cab5e及MISSION_INDEX四非阻塞PreAssistant项。

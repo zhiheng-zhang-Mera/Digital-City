@@ -1,0 +1,95 @@
+# RF-008 开发报告——类型化 RPC／EVENT／STREAM 与可靠命令
+
+{{CODE0}}
+
+## 1. 交付物
+
+contracts/remote-typed-dataplane-v1/包含dataplane.mjs：COMMAND/EVENT/STREAM信封、命令与尝试身份、幂等结果缓存、如实状态、期限、订阅／重放、流生命周期／背压；另index、7测试、根tests/remote-typed-dataplane.test.mjs。
+
+| 验收要求 | 测试与证明 |
+|---|---|
+| 同幂等副作用重试不重效果 | `a retried idempotent command does not repeat the effect, and a new command id is a new action`，replayed:true、executed:false、external_effect_repeated:false，缓存replayed_result_ref |
+| 新command ID即新动作，即便参数相同 | 同测试new_user_action:true，同ID另动作COMMAND_ID_REUSED_WITH_DIFFERENT_ACTION |
+| 投递／接受／运行／完成可区分 | `delivery, acceptance, running and completion are observably distinct, and ack is never success`，ACCEPTED→QUEUED→RUNNING→WAITING_CONFIRMATION→SUCCEEDED，delivery_ack_is_execution_success:false |
+| 事件订阅／流重连取消不误作RPC | `event subscriptions reconnect and replay…`，is_rpc:false、reconnectable:true、reconnects；流测试affects_commands:false |
+| 期限防陈旧交互命令晚执行 | `a deadline stops a stale interactive command from executing later`，dispatch DEADLINE_EXPIRED，sweepExpired TIMEOUT，executed_after_deadline:[] |
+| 重复／乱序／重放确定处理 | 测试2/5吸收重复attempt，重复event applied:false，乱序event／stream拒绝 |
+| 任务／会话分离、终态如实 | `the data plane is strict, frozen, and keeps task truth outside the transport session`，task_truth_in_transport:false、owns_task_ownership:false，两plane无共享态 |
+| RPC/COMMAND、EVENT、STREAM设置／数据／控制独立版本信封 | `RPC, EVENT and STREAM are separate versioned envelopes with opaque domain payloads`，ENVELOPE_KINDS、版本1、未知kind拒 |
+| 领域信封不透明，RF非规范 | 同测试domain_payload_canonical_source:DOMAIN、rf_envelope_is_canonical:false，载荷体拒 |
+| 相关字段稳定，attempt与命令分离 | 测试2：command_id/attempt_id/origin_ref/target_ref/capability_id/capability_version/task_ref/action_ref/deadline_at |
+| 类型化错误防假成功 | 测试3，投递ack转成功FALSE_SUCCESS_REFUSED；REFUSED/FAILED/TIMEOUT带retryable |
+| 流背压／取消独立一次RPC | 测试6无信用PAUSED/NO_CREDIT，信用恢复，CANCELLED命令仍ACCEPTED |
+| 事件订阅ID、排序、因果重放 | 测试5caused_by/correlation_ref/resume_from_sequence/next_sequence |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 原因）
+
+**D1——任务。** 新扫描无本机修复、Mech无Correction；Alien持BA-004/005/006/008、EM-004/005/008/009、GAI-003…007、RF-004…007。前GAI-007排General AI，选RF-008，RF-006路径／RF-007票据交它，GAI-007事件相关也依它。
+
+**D2——单消息还是三语义。** 独立版本COMMAND、EVENT、STREAM_SETUP及STREAM_DATA/CONTROL，无共享sendMessage。工作簿首排通用sendMessage，坍缩后边界无法答是通知还是调用；未知kind拒非强转。
+
+**D3——命令与尝试。** command_id是用户动作，attempt_id传输尝试；同命令新尝试重试new_user_action:false，同对重复信封，新命令始终新动作。稳定命令避免传输重试成新用户动作；相同参数新ID也新动作，身份由ID非载荷，双向测试。
+
+**D4——安全重试。** 副作用命令须idempotency_key否则IDEMPOTENCY_KEY_REQUIRED，成功结果键缓存，后尝试重放replayed:true/external_effect_repeated:false。派发时强制使无无保护副作用准入路径。
+
+**D5——成功资格。** 仅applyResult执行结果能终态成功；transitionCommand成功FALSE_SUCCESS_REFUSED，投递确认只ACCEPTED→QUEUED并明确非成功。排HTTP/transport200作任务成功，单命名执行结果函数使规则可强制。
+
+**D6——期限。** 派发已过期限DEADLINE_EXPIRED不存；已排队过期扫TIMEOUT、executed_after_deadline:[]。派发失败关闭，扫过期是已接受命令诚实处理。
+
+**D7——排序。** 各topic事件连续，不连续EVENT_OUT_OF_ORDER携期望与resume提示；流帧也连续。拒创建缺口，replayFrom连续检查是验证而非恢复；head以后resume无缺失，不虚构洞。
+
+**D8——背压。** 流信用无则暂停，accepted:false/backpressure:true/NO_CREDIT，不丢帧不阻塞。明确暂停可观测，streamCredit恢复；取消仅流，affects_commands:false。
+
+**D9——领域状态。** 只domain与domain_envelope_ref，投影声明rf_envelope_is_canonical:false、来源DOMAIN、task_truth_in_transport:false、owns_task_ownership:false、owns_domain_state:false，拒载荷体。BA/GAI/EM保持规范，RF仅引用；否定及separation给明确合并契约而非假定。
+
+**D10——无schema.json。** 同其他组件。
+
+## 3. 精确文件
+
+| 文件 | 变更 |
+|---|---|
+| contracts/remote-typed-dataplane-v1/dataplane.mjs | 新信封、可靠命令、期限、事件／订阅、流 |
+| contracts/remote-typed-dataplane-v1/index.mjs | 新公开接口 |
+| contracts/remote-typed-dataplane-v1/tests/conformance.test.mjs | 新7测试 |
+| tests/remote-typed-dataplane.test.mjs | 新根入口101→108 |
+
+无City/Core、清单、文档变更，合并增量。
+
+## 4. 测试汇总与修复
+
+7项首次五失败，原文概述三真缺陷、两期望，下列包括额外过程缺陷，保留。
+
+1. sendStreamData背压分支声明前读at，零信用ReferenceError非背压；提升时刻定义。
+2. 命令投影无信封kind/version，违版本区分；加envelope_kind/version。
+3. 编写时套件domain:'RF'缺括号语法错全文件不能导入，立即修。
+4. 全检查发现根入口漏，pnpm test仅101、新套件未纳；加tests/remote-typed-dataplane.test.mjs后108/108。记录而非静默修，正是全检查用途。
+5. 乱序帧断言在零信用先背压，移加信用后；事件计数还算已移除事件，修。
+
+## 5. 本地检查与CI
+
+| 检查 | 原结果 |
+|---|---|
+| node --test tests/*.test.mjs | 108全过0败（101＋7） |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4验证10记录 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIR_STATUS=SYNCHRONIZED |
+| 761685b28fabdc0cb2d2dfe9f47e170d4fe82752 的CI 36744638449 | success |
+
+## 6. 同级接口
+
+- RF-006/007：capability_id/version来自票据，经路径会话；迁移不改command_id，非真实重试不强新attempt。
+- GAI-007/006远端／会话流：GAI recordEvent由EVENT驱动，remote-dispatch ID为action_ref，单动作不能两命令ID。
+- BA-008租约：目标副作用applyResult成功前取租约；idempotency_key与action_key为同保护两侧，合并协调。
+- EM-007/009：工程远端段是COMMAND，重启恢复重建订阅非重放命令，超时与作业终态协调。
+- RF-009：订阅为重连接口，resume序列重放，可达变更不复活超时命令。
+- RF-010：default_stream_window/max_stream_window/max_deadline_ms为部署政策。
+- Owner问题不变：演进动态记组件阶段与否。
+
+## 7. Correction待项
+
+1. 对抗：缓存写后首命令终态前副作用重试；两不同command ID同幂等键（现都可执行，缓存仅同命令重试查询）；两并发订阅重放（读取推进指针）；负bytes流帧；重复派发延期限（现新attempt保原期限，确认）。
+2. 确认D5仅applyResult成功、D8背压暂停不丢。
+3. 不同命令同键可能保护不成立，或需IDEMPOTENCY_KEY_ALREADY_APPLIED拒绝，明确确认。
+
+{{CODE1}}

@@ -1,0 +1,13 @@
+# 验证：Mech 在正确修复head预核第7步，以及过时绑定的实际代价
+
+## 合并机械上干净，可快进
+
+Alien曾只读在149a4c1预核第7步，真正携必需修复head是6a82e35，因此在那里重新验证不继承旧结果。原命令merge-base exit0表示main为祖先可fast-forward；merge-tree exit0无冲突标记，结果与6a82e35的tree都为faf7647d3abdc61a3e028426c833e728090c090a。相等说明第7步不新增自身内容、不解决冲突，只移动main到修复head。46文件变化、4476插入、5删除。
+
+## 过时development_head_sha的实测代价
+
+字段仍149a4c1，按记录合并会取该树。两head差只有SchedulerPanel.kt的C-1/C-2修复及tests/uxi390-cross-surface-wording.test.mjs防漂移guard。按1a5bc0e..6a82e35文件名核，两者都在第7步要带入的树内。故风险不是抽象记账：合并旧head会无措辞修复无guard，但记录旁有review_complete:true与PASS，评审关闭的树实际没合并。merge_authority=true且快进常没人重读head，所以发correction dispatch而非仅笔记。
+
+## 范围
+
+只读，未合并、未移动main、未碰branch或开发host字段。修正归作者；本文让执行第7步者知道干净及依赖正确head。原机器块含FROM Mech/只读状态，不是本译本的新操作。

@@ -1,0 +1,56 @@
+# BA-006 纠正报告：权威任务图与所有权／执行者分离
+
+{{CODE0}}
+
+原始元数据保留任务、计划、阶段、主机、控制工作簿、领取、基线、开发与纠正提交及 CI、最终 16 项测试、禁止组件合并、精确推送 head 托管 CI 绿色后的完成声明。
+
+## 1. 托管 CI
+
+{{CODE1}}
+
+纠正后的 head 在 GitHub 托管 runner 上执行真实工作流步骤；套件 12 项中有 4 项在 Development head 上失败。这里保留首轮历史观察，与顶部后续最终状态并列，不替换其数值。
+
+## 2. 独立审查方法
+
+用 `git archive` 导出 Development head，并将全部四个任务 blob 与 Git 对象核对，目录为 `D:\A-Utopia\.runtime\evidence\mission-book\BA-006\frozen-0627955\`。独立对抗审查者只获得冻结导出，并被要求先读工作簿；本次 Correction 首轮关闭时其探针仍在运行，因此下方缺陷来自本主机自己的审查与探针。**其后来返回的任何额外发现必须视为此任务下一步行动**（见第 5 节）；工作簿仅对这里实际修复验证的机制标记完成。
+
+## 3. 发现并修复的缺陷
+
+| # | 机制 | 根因 | 修复 | 回归 |
+|---|---|---|---|---|
+| 1 | **canonical 允许列表使用原型链成员关系。** `toString`、`constructor`、`valueOf`、`__proto__` 通过“不属于 canonical 契约”防护；逐字段构建器随后丢弃夹带键，所以是契约／验证绕过而非状态破坏 | `if (!(key in spec))` | 对 `Reflect.ownKeys` 使用 `Object.hasOwn(spec, key)`，canonical 记录要求普通原型 | 是 |
+| 2 | **handoff 权威扫描可被非枚举自有属性绕过。** `findAuthorityFields` 用 `Object.entries`，看不到 `Object.defineProperty(handoff, 'grants', {enumerable: false})`，携带权威的交接仍满足 `HANDOFF_TRANSFERS_NO_AUTHORITY`；这项检查本应保证所有权移动而权威不移动 | 仅遍历可枚举项 | 使用 `Reflect.ownKeys`，符号键本身也报告 | 是 |
+| 3 | **循环 handoff 使同一扫描崩溃**，抛无类型 `RangeError: Maximum call stack size exceeded`，无法分类自引用包 | 递归无访问集合 | 共用访问集合，结构循环不是权威 | 是 |
+| 4 | **共用 freezer 无访问集合递归**，任何抵达 projection 的循环调用者值都导致崩溃 | 递归无访问集合 | freezer 跟踪访问对象 | 纵深防护 |
+| 5 | **时间只验形状。** `2026-13-45T99:99:99Z`、`2026-02-30T00:00:00Z` 通过 `isIsoInstant` 并存作 `created_at`／`updated_at`，审计及版本顺序可含不可能时间 | 仅正则 | 时钟及全部调用者时间必须通过分量往返验证 | 是 |
+| 6 | **拒绝 patch 后残留部分写入。** `updateTask` 先应用 `state`、`checkpoint_ref` 再验 `watchers`；会话形状 watcher 抛 `SESSION_IS_NOT_OWNER` 时状态已经变化，任务显示 RUNNING 而版本／因果日志仍 PENDING | 验证与变更交织 | 整个 patch 先验证，再应用 | 是 |
+
+## 4. 本地测试汇总
+
+{{CODE2}}
+
+首轮修复模块 12/12，Development head 8/12、失败 4 项，差异是 Alien 回归；根／rooms／city／promotion-history／双语全部 exit 0。
+
+证据位于 `D:\A-Utopia\.runtime\evidence\mission-book\BA-006\`：`frozen-0627955/` 是字节核对导出，`pre-fix-check/` 是修复套件对未修模块的四次失败，`patch-task-graph.mjs` 是锚保护修复轮次，另有 `author-after-patch.log`、`prefix-test.log`、`postfix-test.log`、`gate-*.log`、`ci-*.log`。
+
+## 5. 第二轮：独立审查发现与剩余边界
+
+独立对抗审查在首轮之后返回，针对冻结 Development head 报告十二种机制，作者 8 项套件一项也未捕获。六项已在第 3 节修复，其余六项在第二轮修复，每项都有在 Development head 上失败的回归。
+
+| id | 机制 | 根因 | 修复 |
+|---|---|---|---|
+| 7 | **释放的执行者可凭自己权威恢复副作用。** 暂停 lease 仍当“live”，take-over 仅对不同设备生效；已释放执行者可经 `changeExecutor` 重发自身 lease 后提交结果，绕过 `revalidateLease`，不需 `LEASE_REVALIDATED` | `live = lease && !lease.superseded` 忽略 `suspended`，`LEASE_SUSPENDED` 只约束 `submitExecutorResult` | 暂停 lease 非 live；`changeExecutor` 以 `LEASE_SUSPENDED` 拒绝，直到重新验证成功 |
+| 8 | **EXCLUSIVE 副作用可无 lease／action key 报完成。** 可直接创建终态任务，`updateTask` 的受保护路径拒绝取决于 `executor_ref` 真值，从未有执行者的 exclusive 任务可由普通 owner patch 完成 | 防护读取执行者而非副作用 | exclusive 任务不能创建为终态，每次 exclusive 副作用终态转移必须经 `submitExecutorResult` |
+| 9 | **`bindForeground`、`releaseDevice` 验 `at` 前改变状态**，被拒调用仍重新绑定／释放设备 | 验证前变更 | 两端口先验时间 |
+| 10 | **设备释放改写已结束任务**，`releaseDevice` 写入 `LEASE_SUSPENDED_BY_DEVICE_RELEASE`，改变终态任务版本与因果日志 | 释放遍历无终态防护 | 跳过终态任务 |
+| 11 | **`handoff.checkpoint_ref` 无类型规则摄取**，循环值在 owner／版本已写后永久使所有 projection 抛无类型 `RangeError` | 未验证引用复制到记录 | 所有权移动前把 checkpoint 验为文本 |
+| 12 | **`workspace_refs` 未验证存储**，非数组令每次 projection 抛 `TypeError`，字符串静默成为子字符串成员关系 | 无类型规则 | workspace 集合必须为非空文本数组 |
+
+### 已记录边界与契约问题（未修复及理由）
+
+1. **`TASK_GRAPH_CODES` 声明但从不抛 `LEASE_REQUIRED`**，其他码都有抛出位置；无 lease 执行以 `STALE_LEASE`／`NOT_THE_EXECUTOR` 报告，未重命名。
+2. **`revalidateLease` 把记录自己的版本传给 `assertMutable`**，并发检查为空。其他变更要求调用者指定 `expected_version`，作者此端口签名没有该参数，要求它属于契约变更。
+3. **变更权威由调用者自行声明。** `updateTask` 接受角色 `OWNER` 和任意非空 `actor_ref`，不比对 `record.owner_ref`；`changeExecutor` 同样。模块是无 principal 概念的纯库，工作簿未规定谁认证 actor，因此是契约问题而非修复。
+4. **`side_effect` 由调用者声明，默认 `NONE`**，所以 action-key／幂等要求可退出：调用者自己分类任务，工作簿未规定由谁分类。
+5. **projection 的 `stale` 根据调用者自己的 `cached_version` 计算**，设备总能报告自己 fresh；图无法核验设备缓存。
+6. **ASSISTANT／WORKSPACE 可见性在 `bindForeground` 自行声明**，无 owner 绑定。handoff 可省 `from`，此时因果日志把前 owner 记为 actor，工作簿未裁定这种归因；重放 `handoff_id` 也会重复 `OWNERSHIP_TRANSFERRED`。`authority_transferred: false` 是常量，当扫描拒绝所有携权威包后结构上确实成立。

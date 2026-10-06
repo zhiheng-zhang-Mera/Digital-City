@@ -1,0 +1,7 @@
+Completed programmes no longer expand on the Mission Book desk. Their registered WBC, CEX, MON, Connection Onboarding and MESH folders now live under mission-book/finished/completed-2026-10-06, with one completed-archive entry on the desk. Historical archives remain in finished.
+
+Eight remaining series folders move to mission-book/mission-group, whose bilingual README provides foreground navigation. Parked and preserve-only programmes retain their states; SHOW remains excluded. No task is started, claimed or reviewed. Workbook frontmatter and exact accepted versions remain authoritative and unchanged.
+
+Update the membership manifest, repository-relative references, relative Markdown links, archive explanations and generated dashboards. Completed programmes leave active_pool but remain in overall historical totals. Readers discover the relocated workbooks, explicitly skip future-plans, and carry prior future-plans inventory metadata forward without reading it. Future planning files are not checked, moved or edited.
+
+Validation: 144 metadata snapshots retain state/ownership/completion flags; independent review additionally compares all 71 moved canonical workbook frontmatters. Local link audit passes 4798 links outside the excluded planning area. Record checks report zero errors. Sixteen record guard cases, preservation regression and relocated discovery/planning-exclusion regression pass. Exact-head CI must succeed before merging. Raw evidence remains unchanged.

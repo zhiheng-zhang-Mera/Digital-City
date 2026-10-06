@@ -1,0 +1,156 @@
+[
+  {
+    "source": "mission-book\\review-independence-v2\\README.md",
+    "target": "mission-book\\review-independence-v2\\en\\README.md",
+    "prefix_bytes": 2208,
+    "prefix_sha256": "1f9f9f50b8c436bffcdefb121f6f303c47dab59a4821d1dbc7821c32689c7bef",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\review-independence-v2\\RIV-001-current-review-reality-audit.md",
+    "target": "mission-book\\review-independence-v2\\en\\RIV-001-current-review-reality-audit.md",
+    "prefix_bytes": 2703,
+    "prefix_sha256": "c38e3c7e53de798aa30da1700fe2870ae9503dcaac7756529e38a5722d3f08cf",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\review-independence-v2\\RIV-002-independence-profile-and-assurance-classes.md",
+    "target": "mission-book\\review-independence-v2\\en\\RIV-002-independence-profile-and-assurance-classes.md",
+    "prefix_bytes": 2769,
+    "prefix_sha256": "fae7a4838f7e96b147ce1fcc625b404b45c556522d025fc6b36911d9ebb3f88d",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\review-independence-v2\\RIV-003-fresh-context-two-pass-review.md",
+    "target": "mission-book\\review-independence-v2\\en\\RIV-003-fresh-context-two-pass-review.md",
+    "prefix_bytes": 2849,
+    "prefix_sha256": "eda2ff57e14a35d9558b6de4eb32836a05968d621106718134ccae95c4b3ed34",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\review-independence-v2\\RIV-004-capability-based-reviewer-selection.md",
+    "target": "mission-book\\review-independence-v2\\en\\RIV-004-capability-based-reviewer-selection.md",
+    "prefix_bytes": 2645,
+    "prefix_sha256": "2ff854901e95e7bc084c0a50fb14c9c2c4e7437fec79f4777f1462a48c048ead",
+    "blocks": 2
+  },
+  {
+    "source": "mission-book\\review-independence-v2\\RIV-990-controlled-acceptance-and-migration-decision.md",
+    "target": "mission-book\\review-independence-v2\\en\\RIV-990-controlled-acceptance-and-migration-decision.md",
+    "prefix_bytes": 2990,
+    "prefix_sha256": "931a916ec6b76c7e0c78dbc570417635259aee294b15c360fc7b30bfe1100e1b",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\utopia-runtime-architecture\\README.md",
+    "target": "mission-book\\utopia-runtime-architecture\\en\\README.md",
+    "prefix_bytes": 2720,
+    "prefix_sha256": "adcf6a4275159457f5a9b4df242f62a1c840cbb87c1f72d6d8d0713bd51a33ee",
+    "blocks": 3
+  },
+  {
+    "source": "mission-book\\utopia-runtime-architecture\\URA-001-current-runtime-topology-audit.md",
+    "target": "mission-book\\utopia-runtime-architecture\\en\\URA-001-current-runtime-topology-audit.md",
+    "prefix_bytes": 2412,
+    "prefix_sha256": "9dca54a04b49307c4b2d72b0c9940924fce2b9fa64926aa5a5af7762b90c7725",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\utopia-runtime-architecture\\URA-002-runtime-taxonomy-and-app-contract.md",
+    "target": "mission-book\\utopia-runtime-architecture\\en\\URA-002-runtime-taxonomy-and-app-contract.md",
+    "prefix_bytes": 2587,
+    "prefix_sha256": "e2806ae54a3cf7c3e24995ce1d88f756a695e3f3f9ebae59670d11ee9c6d39fa",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\utopia-runtime-architecture\\URA-003-dependency-lifecycle-failure-boundaries.md",
+    "target": "mission-book\\utopia-runtime-architecture\\en\\URA-003-dependency-lifecycle-failure-boundaries.md",
+    "prefix_bytes": 2665,
+    "prefix_sha256": "b2a73f6028d657548526890a9a4999d675126ac0be3b7311a11aba2d936b7518",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\utopia-runtime-architecture\\URA-004-surface-integration-and-registry-mapping.md",
+    "target": "mission-book\\utopia-runtime-architecture\\en\\URA-004-surface-integration-and-registry-mapping.md",
+    "prefix_bytes": 2654,
+    "prefix_sha256": "060e4d811bfcde20aa3240951e9c1e59cded9b2e1e90ce31c062230115a4dd9d",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\utopia-runtime-architecture\\URA-990-soft-reclassification-acceptance-and-freeze.md",
+    "target": "mission-book\\utopia-runtime-architecture\\en\\URA-990-soft-reclassification-acceptance-and-freeze.md",
+    "prefix_bytes": 2574,
+    "prefix_sha256": "d8f402425fd17f53d20c0fe9bc7ed85d60d298487e8b3cc08791bdd6f154c3d0",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\suspend\\README.md",
+    "target": "mission-book\\suspend\\en\\README.md",
+    "prefix_bytes": 1687,
+    "prefix_sha256": "155778f0fc4f47e6427d1333a333e6d7eff91a92355ef3a672f9030674ca2fa2",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\suspend\\SUSPEND-001-city-room-vs-utopia-incubator.md",
+    "target": "mission-book\\suspend\\en\\SUSPEND-001-city-room-vs-utopia-incubator.md",
+    "prefix_bytes": 1308,
+    "prefix_sha256": "ccc6aba75fc0c3a4dbe40fc7211f26d58c949c8e5687f6542fbb1d86cca52be8",
+    "blocks": 2
+  },
+  {
+    "source": "mission-book\\suspend\\SUSPEND-002-physical-repository-split.md",
+    "target": "mission-book\\suspend\\en\\SUSPEND-002-physical-repository-split.md",
+    "prefix_bytes": 1341,
+    "prefix_sha256": "a014d050804924fcb1c20f1dc87e323ea9e010ac5f21cfa048306d2e5cc37256",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\suspend\\SUSPEND-003-same-host-formal-review-substitution.md",
+    "target": "mission-book\\suspend\\en\\SUSPEND-003-same-host-formal-review-substitution.md",
+    "prefix_bytes": 1381,
+    "prefix_sha256": "ae9765779f59e8450b21046fcf91bd4fe7c44727e2e21f8d506736ccff942ada",
+    "blocks": 1
+  },
+  {
+    "source": "mission-book\\city-self-health-check\\CHK-101-small-operational-reconciliation.md",
+    "target": "mission-book\\city-self-health-check\\en\\CHK-101-small-operational-reconciliation.md",
+    "prefix_bytes": 4100,
+    "prefix_sha256": "908a5b18b4ab5e1e1c9d67aeccfb9ebbadb35189fa9ce68824f6cf1bda5686fa",
+    "blocks": 3
+  },
+  {
+    "source": "mission-book\\city-self-health-check\\CHK-201-full-capability-architecture-census.md",
+    "target": "mission-book\\city-self-health-check\\en\\CHK-201-full-capability-architecture-census.md",
+    "prefix_bytes": 4178,
+    "prefix_sha256": "59ac0055500b9e50215aab800275634b216f9060b82021690a09017b9fc1d8b1",
+    "blocks": 4
+  },
+  {
+    "source": "mission-book\\city-self-health-check\\CHK-301-quarterly-architecture-self-review.md",
+    "target": "mission-book\\city-self-health-check\\en\\CHK-301-quarterly-architecture-self-review.md",
+    "prefix_bytes": 4477,
+    "prefix_sha256": "876785cfc2bc507cfecf9364a404d7fd2d1e6e68a36b0c1d724f08032d0e7e2f",
+    "blocks": 5
+  },
+  {
+    "source": "mission-book\\city-self-health-check\\CHK-401-evolution-candidate-triage-routing.md",
+    "target": "mission-book\\city-self-health-check\\en\\CHK-401-evolution-candidate-triage-routing.md",
+    "prefix_bytes": 3388,
+    "prefix_sha256": "4e44739f0e7fec7cf3455ca82c1b549c161fdc862483d77d26f049fda3184246",
+    "blocks": 2
+  },
+  {
+    "source": "mission-book\\city-self-health-check\\CHK-990-self-check-framework-acceptance-freeze.md",
+    "target": "mission-book\\city-self-health-check\\en\\CHK-990-self-check-framework-acceptance-freeze.md",
+    "prefix_bytes": 2907,
+    "prefix_sha256": "e662f42f912ed275a186ba88078f43fbe33c24f6bae06054940f3ae05a5958ef",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\city-self-health-check\\README.md",
+    "target": "mission-book\\city-self-health-check\\en\\README.md",
+    "prefix_bytes": 3886,
+    "prefix_sha256": "84bd3749118c97a15e71388ac96632f5649ee11c30087a6b6fd9e9174cd37745",
+    "blocks": 6
+  }
+]

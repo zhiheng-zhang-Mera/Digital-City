@@ -1,0 +1,93 @@
+# RF-002 开发报告——统一配对与信任生命周期
+
+{{CODE0}}
+
+## 1. 交付物
+
+新增模块city/00-foundation/02-city-node-network/pairing-trust/位于RF-001为City地图Device Node Fabric声明的建筑。
+
+| 文件 | 用途 |
+|---|---|
+| contracts.mjs | 入口、阶段、合法转换表、信任角色／状态、文档验证、设备预览、规范形式、摘要、泄露扫描 |
+| pairing.mjs | 配对权限：会话状态机、单次确认、过期清理、轮换／撤销／丢失／隔离／重配、重连重验、审计 |
+| index.mjs | 公开接口 |
+| PROVENANCE.json | 项目任务来源（无donor）与边界 |
+| tests/pairing-trust.test.mjs | 38测试 |
+
+共享变更：CITY_IMPLEMENTATION_MANIFEST.json声明02-city-node-network与pairing-trust，孵化身份两变三；city/tests/manifest.test.mjs增加普查，分别以DONOR.json证明迁移、PROVENANCE.json证明项目任务；city/docs/{en,zh-CN}/ARCHITECTURE.md增加第三身份、RF-002节、建筑树；tests/capability-registry.test.mjs替脆弱绝对普查数D8。
+
+未触apps/web、apps/android、services、agents、contracts、platform；无运行时行为变更，无分支合并Utopia main。
+
+## 2. 必需验收覆盖
+
+| 要求 | 测试 |
+|---|---|
+| 本地／蓝牙／远端邀请进同状态 | `every join entry point feeds the same pairing state machine`；`a Bluetooth bootstrap and a remote invite end in the same TRUSTED record` |
+| 双方稳定指纹确认 | `both sides present stable fingerprints, and the confirmation is bound to them`；预览与交换指纹不同拒绝 |
+| 重用／过期配对拒绝 | nonce重放拒、token跨会话单用、错token拒、过deadline不推进、按时钟过期、精确清理超期会话 |
+| 撤销不能旧凭据重连 | revoked拒、lost丢全部信任、quarantined拒 |
+| 角色变更明确审计 | `a trust role change is explicit, auditable and transfers no capability` |
+| MAC不替密码身份 | MAC可警告但不阻／授权；缺失／随机MAC不碍配对；MAC不能转信任 |
+| 日志证明转换不泄私钥 | 审计转换无密钥；泄漏扫描确能发现植入泄露 |
+
+额外负面／安全覆盖：全合法转换表及终态终结，reject/cancel/fail独立结果，各阶段拒绝，畸形会话／信任两测试21拒例，错执行者／指纹／凭据、未知设备／信任、单设备重复信任、不可提升scope、trust/device ID／角色／凭据形状、ID生成纯度，以及扫描必须发现植入泄露的非空洞检验。
+
+## 3. 决策日志（问题 → 选项 → 选择 → 原因）
+
+**D1——BA-002 Correction后任务。** 全球扫描无可行动本机修复、无对侧Correction（Mech取RF-001 Correction并正GAI-001开发），进入未领取开发。RF-002与前Butler不同，继续各项目最终E2E依赖RF基础，直接接RF-001身份模型，此主机能判断接口非猜测。
+
+**D2——一模块还是各入口一模块。** 单模块，多加入方法一信任协议，所有入口ENTRY_POINTS数据被一状态机消费。各传输一模块只会靠约定维持。
+
+**D3——位置。** pairing-trust与device-identity相邻，同City建筑分配身份与信任，配对无法脱离绑定身份理解。PROVENANCE记录选择及拒绝独立建筑。
+
+**D4——确认token与存储。** 调用者nonce，权限仅存sha256(nonce)作confirmation_token_ref，日志可发布、不泄私钥；存token会构造上违验收。消费摘要集合在权限对象非会话，因此跨会话单次。
+
+**D5——bootstrap防重放。** challenge为nonce摘要，已用于开启的nonce拒challenge_replayed，覆盖观察者整握手重放而非仅会话重用。nonce自身不进权限，seen-set仅摘要。
+
+**D6——转换表而非各操作guard。** 明确PAIRING_TRANSITIONS，每阶段通过唯一transition，不能跳人类预览是数据属性、可枚举测试，而非五函数各约定。
+
+**D7——首阶段可拒吗。** 初PAIRING_SESSION不能拒，发现设备后人须先交换密钥才能拒。编写各阶段可拒测试发现，应任何阶段能拒，因此首目标加REJECTED；是验收解释驱动设计变更非bug修。
+
+**D8——脆弱普查再现。** capability-registry绝对kernelBuildings===2，新建筑实际3使失败，是计数非规则。与MB-002/MB-005/RF-001/002第三次同潜伏类，明确建筑名与非空洞断言替计数。RF-001独立同修，合并文本冲突但等价，可取其一。
+
+**D9——取消原因。** 初cancelPairing硬编码CANCELLED，reject/fail记调用者。distinct outcomes测试发现“用户退出”与“传输死亡”不同，只有调用者知道，现给则记。
+
+**D10——拒绝不变更。** 初字段赋值后检查边，终态拒前已写responder_fingerprint/preview/token_ref。现先assertTransition、后内容，拒写无操作与同级契约一致，并断言。
+
+**D11——撤销后重配明确旗标。** 初already trusted跳REVOKED，使丢设备可静默重配取消撤销。凡已有记录须replaceExisting:true，旧记录历史保留；记录重配语义变更。
+
+**D12——快照持久化。** 未实现，权限内存，耐久存储／reload范围外，PROVENANCE边界。
+
+**D13——演进记录。** 未用，理由同BA-001 D11/BA-002 C5/EM-001 D13/RF-001 D8，evolution仅MB ID与MIGRATION/VERIFICATION；RF不验证，扩触冻结contracts。本报告与工作簿frontmatter构建记录。
+
+## 4. 测试汇总
+
+| 检查 | 原结果 |
+|---|---|
+| node --test city/.../pairing-trust/tests/pairing-trust.test.mjs | 38过0败 |
+| node --test tests/*.test.mjs | 101过0败 |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1840过0败，1802基线＋38 |
+| node scripts/verify-promotion-history.mjs | 82ed36933fb4本地Git验证10 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIRED |
+| 3c0eb4fe91534e5ec68bf16f5f02ed6a3f413fd7 的CI 36717914252 | gateway-web/android成功 |
+
+FAILURE_REPAIR_SUMMARY：写套件发现四模块问题均修模块非绕测试：首阶段拒边D7、取消原因D9、拒前变更D10、撤后静默重配D11。另测试错期望每阶段单日志，实际SESSION_STATE加命名事件合法，排序断言过滤而非只期望之一。
+
+## 5. 同级接口
+
+- RF-003/004/005拥有发现、蓝牙、远端会合，产入口调startSession，不能第二状态机；此模块不发现。
+- RF-006安全路径：本绑定指纹／立信任，不加密，不满足不变量4。
+- RF-009在线／重连：checkReconnect答信任仍存且凭据相符，非在线状态／会话。
+- RF-010政策／API：capabilitiesFromTrustRole始终无能力，使信任不变权限。
+- RF-001拥有device_id/installation_id，本消费设备ID／凭据指纹，不生成。
+- EM-006/007/GAI-007远端执行：成功配对非能力授权，仍须能力／政策。
+- 合并：本与RF-001各声明建筑、扩项目孵化manifest测试、双语架构、修普查。取并集：一建筑两模块、一孵化扩展、一fixture修，而非整取一侧。
+
+## 6. Correction／Owner待项
+
+1. 对抗：跨authority重复session ID确认；不同编码nonce n1与n1后空字符为不同字符串摘要，确认；trust session_id指从未TRUSTED会话；合法入口却未实际使用；replaceExisting加不同trust ID是否单设备留下两TRUSTED。
+2. 轮换凭据自动重配还是须明确重配是Owner政策，本区分credential_rotated拒绝不猜。
+3. 演进问题继续待Owner，四项目、三报告同理由。
+
+{{CODE1}}

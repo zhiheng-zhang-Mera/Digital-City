@@ -1,0 +1,154 @@
+# MB-009 — Theme Engine 11→00/05 物理归属迁移 — 迁移报告
+
+> 状态 MIGRATION_COMPLETE，仅迁移阶段，未合并 main。迁移主机 Mech，领取 2026-09-29T14:45:00Z。City 领取提交 268ab59411ee54893cdd1f648e5155008e2b2a6a 已推 Digital-City main，无写冲突。实现分支 mission/MB-009-theme-relocation，基线 zhiheng-zhang-Mera/utopia main c7ef3cd1c6be0155332d03afc3607dfdbf49c205，实现迁移提交 65f9aa740a937e52542e1ecf60babf742f4cf9ba，来源提交 277f576e9eb35670d77edd0aa98c192d56a7a961，最终 HEAD d338152b0c7ef2ef7e94d78901454ea91f200156。迁移 CI36580730966（V0.2 checks）在 277f576e… PASS，gateway-web／android success。
+
+## 1. 供体／冻结基线
+
+| 来源 | 说明 |
+|---|---|
+| Utopia main city/11-entertainment/01-entertainment-centre/theme-engine | 已 PROMOTED，移动对象。 |
+| DS-Hns eeb57ca5c2c56bdf2e58c1216c610b4b9fbc973b | 历史供体，不变。 |
+| 已接受 D9 theme-builder 晋升历史 | 必须保持可追溯。 |
+
+这是路径、引用、消费者边界迁移，不添加且不得添加主题行为。全局主题应用仍 NO。
+
+## 2. 落地边界（来源 → 目标）
+
+来源 city/11-entertainment/01-entertainment-centre/theme-engine，目标 city/00-foundation/05-control-centre/theme-engine。与 MB002／004／005 不同，目标精确，无需解释。manifest.mjs 强制 module.path===city/<district>/<building>/<module>，此路径已符合地区00-foundation、建筑05-control-centre、模块theme-engine。故重构 manifest 而非重新解释。
+
+19 文件 git mv，Git 记重命名、代码字节一致；没有复制，移动途中没有编辑。
+
+### 2.1 引用账本
+
+| 引用 | 操作 | 理由 |
+|---|---|---|
+| CITY_IMPLEMENTATION_MANIFEST.json | 重构，00-foundation／05-control-centre 拥有 theme-engine，记 relocatedFrom／relocatedByMission，不再声明11-entertainment。 | 活所有权 registry 须当前所有者。无模块地区不声明，验证建筑至少一模块、测试精确集合。 |
+| city/tests/manifest.test.mjs | 更新地区／模块路径清点，注释旧地区消失。 | manifest 保护。 |
+| services/capability-bridge/registry.mjs | presentation.theme.lab 引新路径。 | 活能力接线，旧引用导致 BRIDGE_PENDING。 |
+| services/capability-bridge/adapters.mjs | 两 moduleAt 前缀更新。 | 按路径加载。 |
+| scripts/d9-donor-oracle.mjs | 固定 fixture 路径更新。 | oracle 从模块读预期。 |
+| theme-engine/DONOR.json | 更新 cityPath／district／building，加 relocatedFrom／relocatedAtMission／relocationNote。 | 同时记录现位置及晋升历史不变。 |
+| theme-engine/tests/theme-engine.test.mjs、theme-package.test.mjs | 模块头与 donor.cityPath 断言新路径。 | 自引用来源断言。 |
+| apps/rooms/promotions/theme-{engine,package,builder}-lab.json | targetCityPath 刻意不变，加 relocatedTo／relocatedByMission／relocationNote。 | 见2.2。 |
+| scripts/verify-promotion-history.mjs | 感知迁移，仍查 promotedAtCommit 原路径、HEAD 当前路径，拒无权威 relocatedTo。 | 移动前后如实链，不弱化。 |
+| apps/rooms/hub/manifest.mjs | 刻意不变。 | 见2.2。 |
+
+### 2.2 来源决定（真实判断并记录）
+
+历史验证器要求 targetCityPath 在 promotedAtCommit 存在；单调历史只能要求过去仍可检查的路径，也要求同路径 HEAD 存在。冲突为：改新路径使历史记录虚假且历史检查失败，不改则 HEAD 失败。
+
+选项：改 targetCityPath 拒绝，历史没落在那里且不能满足过去检查；删除 HEAD 检查拒绝，会削弱唯一活保证，违反规则11；选择分离“当时落地”与“现在位置”。
+
+记录可携 relocatedTo 加 relocatedByMission。仍查原路径在晋升提交，随后查 HEAD 当前路径，拒无权威或 city/ 外 relocatedTo；无迁移记录仍要求 HEAD 原路径，新字段不能丢踪模块。
+
+hub/manifest.mjs 同理不变，targetCityPath 是晋升落地记录，旁边不可变晋升须一致。改会互相矛盾。当前位置由活 City manifest／DONOR.json 提供。
+
+已负测试：虚假 relocatedTo 报 `… does not exist at HEAD (relocated from city/11-entertainment/…)`；无 relocatedByMission 报 `relocatedTo is set without relocatedByMission, so the move has no recorded authority`。恢复记录即绿，非盲信。
+
+## 3. 保留行为／明确未迁移
+
+### 3.1 字节保留
+
+git mv 移整个 contract/、color/、raster/、planning/、build/、design/、assets/pipeline/、assets/procedural/、validation/、DONOR.json、四测试，含140KB D9 oracle fixture。只改2.1自引用路径，两个测试仅来源断言，无任何语义变化。
+
+### 3.2 未迁移／未添加
+
+| 未做 | 理由 |
+|---|---|
+| 全局主题应用 | Mission 当前NO，禁止制造可用性，活构建仍false（6.2）。 |
+| 新编辑器／资产生成器／Android UI | 禁止。 |
+| 11娱乐语音／avatar／VR／AR／媒体能力 | 非模块，范围外。 |
+| 供体来源波次变更 | 晋升历史不变，仅当前位置。 |
+
+## 4. 接口／契约
+
+公开面不变，仅路径。消费者仍同接缝：能力桥 presentation.theme.lab 的 generate／build，registry 解析新模块引用；GET /api/v0/capabilities、POST /api/v0/capabilities/presentation.theme.lab/invoke 不变；模块入口 contract/contract.mjs、contract/surface.mjs、color/color.mjs、raster/png.mjs、planning/planner.mjs、design/designer.mjs、build/builder.mjs、validation/validator.mjs、asset pipeline／factory 均同名同相对导出，内部 import 无需改。
+
+## 5. 现有消费面，无新 UI
+
+未添加 UI／路由／dashboard／产品面。6.2 驱动真实 gateway，其 registry／调用路由／adapter 按 Web Services 与 Android Services 面板相同方式解析迁移模块。apps/web/**、apps/android/**、gateway 源未触及，仅桥 registry／adapter 路径常量为接线而非界面。
+
+## 6. 测试
+
+### 6.1 门
+
+| 门 | 结果 |
+|---|---|
+| node city/test-all.mjs | 129 通过／0失败。 |
+| pnpm test | 58/58。 |
+| Rooms | 67/67。 |
+| pnpm check:docs | SYNCHRONIZED。 |
+| 晋升历史 | 10记录验证。 |
+| scripts/d9-donor-oracle.mjs | PASS。 |
+| 必需CI36580730966 | gateway-web／android PASS。 |
+
+### 6.2 运行 gateway 真实消费
+
+驱动启动真实 createGateway 并如客户端 HTTP 通信，无直接模块 import、无新面：
+
+{{CODE0}}
+
+原块逐项证明新路径能力 AVAILABLE／PROMOTED、generate COMPLETED 有PNG且66tokens、build验证通过且两调用相同packageDigest、两全局应用标记仍false，并保留精确摘要。收据 `.runtime/evidence/mission-book/MB-009/run-1/consumption/relocation.json`。
+
+### 6.3 D9 一致性与供体 oracle
+
+{{CODE1}}
+
+oracle 对 git忽略 `.runtime/donors/d9` 供体重新推导晋升模块，13文件（7 NEW_D9+6 REUSE_PROMOTED）Git blob哈希对固定 tests/fixtures/d9-donor-oracle.json，加4意图／3像素向量。移动后通过是最强可用语义不变声明，同源码满足同固定oracle。
+
+### 6.4 施工真实失败与修复
+
+- 能力BRIDGE_PENDING：移动未改registry，旧引用消失，桥正确拒绝。改引用后AVAILABLE（6.2）。这是迁移应揭露失败，经运行门而非仅阅读捕获。
+- CI36580351793 在verify-promotion-history失败，验证器正确发现HEAD旧路径消失。以2.2来源决定解决，未弱化。
+- 六本地根失败来自两根因，旧registry与按旧地区键控fixture；均记录供验证者确认当前接线，不能假定。
+- 自身驱动bug：早版跨入MB004拥有、独立未合并分支的02-engineering/01-project-foreman，本树没有。删除检查而非绕过，借另一Mission模块会让证据依赖未落地工作，驱动注释说明。
+
+## 7. 数据／错误／恢复记录
+
+- 迁移施工产生一个真实错误：旧registry引起BRIDGE_PENDING，上述有原因／修复。桥有类型拒绝OPERATION_BLOCKED、OUTPUT_PATH_FORBIDDEN、PROTECTED_SURFACE、INVALID_THEME_PROMPT、BUILD_STORAGE_UNAVAILABLE未变。
+- 无恢复／中断路径受影响，模块无持久状态，桥调用历史与中断语义不变，属MB002。
+- git mv使历史为重命名，两路径可恢复字节；140KB D9 fixture随移动且仍通过oracle。
+- 无秘密／凭据／无界终端dump记录。
+
+## 8. 已知限制
+
+### 8.1 hub manifest刻意旧路径
+
+它记录孵化房晋升当时落地，旁边不可变记录须一致（2.2）。是历史索引非活指针，活City manifest／DONOR.json新位置。如City希望hub现位置，需明确改变字段意义并同时更新晋升记录的独立决定。
+
+### 8.2 不再声明11-entertainment
+
+仅有此模块，移动后无带模块建筑，验证至少一个故清点移除。Digital-City CITY_MANIFEST.yaml仍描述11娱乐无晋升领域模块，在本树现在确实成立，是规划声明非实现。
+
+### 8.3 本地基线不同分支
+
+本city129，不是173／212／586，后者各属MB002／005／004独立模块分支，均从c7ef3cd构建。跨分支数不具可比性，不能当同数引用。
+
+### 8.4 Android与第二主机
+
+本主机仅JDK25／26，CI temurin21，无法本地构建Android。验证要求现有Web／Android Theme Generate持续工作且对D9摘要／行为等价。Android CI通过，设备级pilot仍验证主机工作，无Android源码改。
+
+## 9. Utopia证据指针
+
+原始git忽略证据：
+
+{{CODE2}}
+
+该目录列D9供体、gateway消费驱动、四检查摘要收据、根58／city129／rooms67、晋升10记录与oracle closure PASS报告。
+
+mission分支结构化证据：
+
+{{CODE3}}
+
+记录事件均MIGRATION／Mech：MISSION_CLAIMED、CHANGE_APPLIED、TEST_PASS、CI_RESULT、MIGRATION_COMPLETE。
+
+## 10. 分支HEAD／CI状态
+
+分支mission/MB-009-theme-relocation；迁移提交65f9aa740a937e52542e1ecf60babf742f4cf9ba；来源提交277f576e9eb35670d77edd0aa98c192d56a7a961；最终HEAD d338152b0c7ef2ef7e94d78901454ea91f200156；CI36580730966在277f576e… PASS gateway-web／android。未合并main，合并为验证主机在全部CI和自身门绿后操作。
+
+### 10.1 验证者应专项检查
+
+1. 字节身份：git show --stat确认rename，疑惑可两路径diff。
+2. 能力不止描述而可调用：运行 .runtime/evidence/mission-book/MB-009/run-1/consumption-driver.mjs，断言AVAILABLE、generatePNG、build稳定packageDigest及globalThemeApply===false。
+3. 认可2.2来源决定，targetCityPath仍历史，HEAD跟relocatedTo；按2.2负测非信绿。
+4. 未偷偷加入全局应用，收据globalApply:false／globalThemeApply:false，确认所有代码路径未新增。

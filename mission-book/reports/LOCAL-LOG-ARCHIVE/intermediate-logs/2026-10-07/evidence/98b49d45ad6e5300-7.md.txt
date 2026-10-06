@@ -1,0 +1,31 @@
+# EM-007开发报告：远程Sub-worker执行与自动返回/控制
+
+## 1. 交付物
+
+engineering-return-control-v1含RF execution port facade/double、surface解析、bridge、staged context、index、7suite/root test。验收：dispatch需批准RemoteFallbackProposal和trusted eligible capability host；原job/owner/truth保、remote仅executor；八state/stage/progress/events/logs/attention/result/artifact自动回current surface非executor；任authorized设备控制幂等；stale/late/duplicate协调；正常不需remote desktop/去host，assertNoRemoteHostInteraction及公开flags证。
+
+## 2. 决策日志
+
+D1无repair/Mech修资格，Alien正修EM003，选不同于GAI的EM programme第三hard invariant。D2注入EngineeringRemoteExecutionPort，不own trust/transport/identity、adapts public RF，书只Engineering facade非第二fabric。
+
+D3返回带origin/delivered device及requires_remote_host_interaction false，assert注意力须到interaction surface，显命名使错误可探。D4优先current、再最近operated authorized online，每return重解析，用户换设备仍控而execution不移。D5初test两current静按ref决，是输入错，现INVALID_REQUEST列claimants并改test，不静选择控制落点。
+
+D6授权set任设备pause/resume/cancel/respond，其余UNAUTHORIZED_INTERACTION_DEVICE，command_id一次，ack回surface。D7origin非executor/未知channel拒INVALID_ENVELOPE；seq<=last STALE_EVENT，同seq/channel不再apply，duplicate job dispatch拒DUPLICATE_EXECUTION，防retry/reconnect二执行。
+
+D8硬件行动typed PHYSICAL_ACTION_REQUIRED attention、fabricated_success false回surface，遵rule10诚实。D9staged reference/sha256、bounded entries、cleanup默认AFTER_RESULT允许AFTER_CANCEL，opaque_bulk_transfer false，语义文件/context非opaque bulk。D10无schema同组件。
+
+## 3. 测试汇总
+
+7全过：批准资格owner拒与成功；八channels origin/无remote操作及坏envelope；surface随用户而execution不动、unauthorized不变surface、两current拒；stale/duplicate/duplicate-dispatch；控制幂等授权验证；硬件typed blocker；staging digest与port权属。D5是开发finding，改善模块非弯test。
+
+## 4. 本地CI
+
+108/108=101+7，promotion10@82ed36933fb4，rooms/city0fail，docs同步，CI36730656520@3bd9f556616dbaccfd00cb4620144fdcc669baf1 success。
+
+## 5. 接缝
+
+EM006批准proposal且owner等job，本模块强制。EM005 fanout投影，此处从executor取event回surface；EM003 envelopes家族+互补duplicate/stale；EM009crash typed state不沉默；RF006/009拥有transport path presence注实port；GAI007同interaction≠execution词汇合并共用；Web/Android按status.interaction_device_ref接全部return，不直接address executor。
+
+## 6. 开放项
+
+敌对测试伪claim却return给executor、不同command ID二控、stale推进seq。确认两current拒及fallback顺序、AFTER_RESULT默认/64entry、evolution-feed。原devcomplete/Alien修资格/禁止到Engineering merge保留。

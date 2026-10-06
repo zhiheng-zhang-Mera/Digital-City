@@ -1,0 +1,31 @@
+# EM-006开发报告：本地优先Sub-worker放置门禁
+
+## 1. 交付物
+
+engineering-placement-v1含测量契约、本地评估、fallback proposal/approval、能力rank/local-attempt/speed guard、公开保证、8suite/root test。验收依次：健康本地先用/remote有local attempt；快/闲remote不够fallback；需测量block和明确批准；先减本地concurrency；资格后按capability非speed排序；受保护前台用户优先。
+
+## 2. 决策日志
+
+D1无repair、异hostCorrection（Alien修RF003），选未领dev，依不同于BA的programme tie-break及第二hard invariant选EM006。D2测量record而非描述/“busy”，含observed_at/source，每decision回evidence，未测观点不能出proposal，缺/nonsense如free memory0/max<1为LOCAL_UNAVAILABLE非假定空闲。
+
+D3顺序protected前台LOCAL_BLOCKED、不可测capacity LOCAL_UNAVAILABLE、压力先single worker LOCAL_THROTTLED且fallback false、headroom再减、LOCAL_ALLOWED。busy但可跑不是外移理由。
+
+D4三个guard：非BLOCKED/UNAVAILABLE拒REMOTE_FALLBACK_NOT_JUSTIFIED；须标eligible；speed/idle/priority rank字段直接SPEED_IS_NOT_A_REASON，不静忽略让caller误信使用。按capability fit和host ref，ranked_by_speed false。
+
+D5proposal固定requires_user_approval true，批准非空approvedBy/instant，记录approved_by CURRENT_JOB local_attempted_first owner_preserved。外移执行不移logical owner，同EM001/003。D6assertLocalFirstAttempted须LOCAL attempt并报告先throttle否，确保行为非proposal形。D7纯输入无OS probing/import，host adapter供，异host无机器可测。D8无schema，与branch一致。
+
+## 3. 测试汇总
+
+8过：健康有evidence；CPU/full pool/memory压力先减且throttled proposal拒；protected GPU且workers跑阻止，但fullscreen alone不阻；坏percentage/bool/字段/instant/政策不可测拒；快闲remote不触fallback，已正当fallback仍拒speed_rank/idle_percent；reason/批准要求，FASTER和approval false拒；资格后cap-fit deterministic ref；local attempt及throttle report。
+
+## 4. 本地与CI
+
+109/109（101+8），82ed36933fb4 promotion10，rooms/city0fail，docs同步，CI36727765139在2894e8da9d95f54dbb568d8acc510b91bdeae4fb success。
+
+## 5. 接缝
+
+EM002 measurements由host，worker running/max取runtime真实count；EM004 candidate refs registry已验证非claim；EM007接approved placement并维护owner/results return；EM010 concurrency本地预算应honour throttle非吞吐最大；RF009/EM007实presence输入此处不发现；Web/Android prompt由measured_evidence，说明本地主机阻塞原因非他机更快。
+
+## 6. 开放项
+
+攻击throttled/unmeasured决策到remote、未列字段偷rank、造local attempt。确认cpu92/memory90/reduce1属platform或Owner政策；protected GPU无worker是否block（当前仅跑时）；evolution-feed开放。原dev true、Alien修资格、禁止到Engineering merge保留。

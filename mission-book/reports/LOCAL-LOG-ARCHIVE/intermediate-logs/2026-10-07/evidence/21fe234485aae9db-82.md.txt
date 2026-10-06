@@ -1,0 +1,186 @@
+# Verification Report — MB-009
+
+{{CODE0}}
+
+Claim2026-09-29T16:02:49Z,City4ac89ca4b22cdbb03e5eb275464f6d1137e4c0ce. Migration Mech,verification Alien,different hosts rule5. Rule9: §1/events recorded before opening Migration Report;§2 reconciliation. §5 records a cross-Mission merge conflict and resolution requiring Owner visibility.
+
+## 0. Why MB-009
+
+Selection was repeated against City main `0764924` immediately before claiming, as rule 3 requires. All enabled missions were migration-complete. The unverified set was ordered by SEQUENCE: MB-003 was BLOCKED_OWNER_DECISION; MB-006/007/008 were closed to Alien under rules 5/13; this host had just completed MB-004/005. MB-009 was the lowest eligible sequence and the last open mission for Alien.
+
+## 1. Independent review
+
+This section was recorded before reading the Migration Report, using only frozen donors, target code, diff, tests and runtime state.
+
+### 1.1 Scope
+
+Branch `mission/MB-009-theme-relocation` at `d338152b0c7ef2ef7e94d78901454ea91f200156`, merge-base `c7ef3cd1c6be0155332d03afc3607dfdbf49c205`. A physical move from `city/11-entertainment/01-entertainment-centre/theme-engine` to `city/00-foundation/05-control-centre/theme-engine`: 29 files, 63 insertions/26 deletions, mostly pure zero-line moves.
+
+### 1.2 Code/diff findings
+
+- F1: the move is pure. Sixteen of 19 module files have exactly the same blobs as origin/main, compared by hash.
+- F2: the other three differ only in references. DONOR.json updates cityPath/district/building and adds relocatedFrom/relocatedAtMission/relocationNote. Two tests change only path assertions and header comments. No behavior changes.
+- F3: the provenance verifier itself changes, the most important review point. It adds guards rather than relaxing them: historical targetCityPath at promotedAtCommit stays unchanged; HEAD follows relocatedTo. Missing authority, paths outside city/ and nonexistent paths are refused. Without a relocation record, the historical path is still required at HEAD.
+- F4: repository-wide search found no tests covering these guards. This host proves them by execution.
+- F5: all three theme promotion records carry relocation, authority and explanation while retaining historical targetCityPath.
+- F6: hub normalizePromotionRecord discards relocation fields, so its in-memory view records only where a promotion landed.
+
+### 1.3 Other references
+
+Registry's theme moduleRef, both adapter moduleAt prefixes, the D9 oracle fixture, manifest and census are consistently updated, with no omissions.
+
+### 1.4 Initial verdict
+
+PASS-with-required-evidence. The move is clean and provable; runtime equivalence evidence and F4 test coverage are missing. Both are addressed in section 3.
+
+## 2. Reconciliation
+
+### 2.1 Confirmed
+
+| Report claim | Independent result |
+|---|---|
+| Byte-level move, section 3.1 | Confirmed: 16/19 blobs identical. |
+| Provenance decision and negative examples, section 2.2 | Actual verifier reproduced both named failures. |
+| City 129/129, root 58/58, promotion 10 records, synchronized docs | All reproduced. |
+| D9 closure PASS, seven new/six reused/four intent/three pixel | Reproduced verbatim. |
+| BRIDGE_PENDING, promotion-history CI failure, six root failures | Consistent with the diff. |
+| AVAILABLE at the new 00/05 path, globalApply false | Independently reproduced by this host, section 3.4. |
+
+### 2.2 Differences
+
+| ID | Difference | Verdict |
+|---|---|---|
+| D1 | Report says moved files changed only self-reference strings, but DONOR.json also adds three fields. | Substantively correct about no behavior change; wording understates the edits. |
+| D2 | Report gives rooms 67/67. | R1 raises it to 69/69; outdated rather than wrong. |
+| D3 | Report omits missing relocation-guard coverage. | R1 supplies it. |
+| D4 | Report deliberately retains the hub manifest and explains why. | Matches F6 and the historical-only design; not a defect. Impact recorded in section 7. |
+
+### 2.3 Boundary
+
+No global apply was added: runtime false, pinned by a test. No new editor, asset generator, Android UI or entertainment voice/avatar/VR/AR/media capabilities were introduced. This agrees with the report's section 3.2.
+
+## 3. Secondary repair and verification
+
+### 3.1 R1 — Relocation guard tests
+
+Added `apps/rooms/tests/promotion-relocation.test.mjs`, two cases pinning the data contract: every relocatedTo must have relocatedByMission; the path must be under city/; the historical targetCityPath must remain and differ from the new path; the new path must exist and the old one must be gone. Exactly three theme records must carry the mechanism so it cannot silently become dead code. Rooms rises from 67 to 69.
+
+### 3.2 R2 — Execute the actual guards
+
+The real verify-promotion-history.mjs was driven by altering one record per case and restoring it:
+
+| Case | Result |
+|---|---|
+| Delivered baseline | Exit 0. |
+| Missing relocatedByMission | Exit 1: relocatedTo is set without relocatedByMission, so the move has no recorded authority. |
+| Path outside city/ | Exit 1: relocatedTo must live under city/. |
+| Nonexistent path | Exit 1: … does not exist at HEAD (relocated from …). |
+| Entire relocation record deleted | Exit 1: city/11-entertainment/… does not exist at HEAD. The historical path is still required without a record. |
+
+The record was restored byte-exactly: git hash-object equals the HEAD blob, and the worktree is clean. The deletion case is crucial: the new fields cannot be used to lose a module.
+
+### 3.3 R3 — Same invocation on two trees
+
+A temporary pre-move origin/main worktree and the branch each ran the same theme generate invocation:
+
+{{CODE1}}
+
+The digest is identical, as are all 11 result keys, globalApply:false and validation.ok:true. This is direct runtime equivalence evidence, not an inference from byte identity.
+
+### 3.4 R4 — Real Web/Android Theme Generate path
+
+Added `scripts/mb009-theme-relocation-pilot.mjs` and restarted the shared gateway. Restart is mandatory because registry module references are process-local constants; an old process serves the old table. The pilot uses the actual client API:
+
+{{CODE2}}
+
+The same pilot on merged main returned exactly the same resultDigest, proving section 5's merge ruling did not change behavior.
+
+### 3.5 Acceptance matrix
+
+Branch 881f0bc including R1: city 129/129, root 58/58, rooms 69/69, promotion 10 records, docs SYNCHRONIZED, D9 oracle PASS. Merged main b4bd602: root 62/62, rooms 69/69, city 893 cases/892 pass/0 fail/one skipped. The skip is a named EPERM symlink environment limitation. Promotion 10 records, synchronized docs and D9 oracle all pass.
+
+## 4. Verified episode
+
+Implementation CI used by mission:finalize: 36596238433 on `881f0bcbef203448058a87137ce80cf7bad49a5f`. Episode path `data-records/evolution/episodes/mission-book/MB-009/episode.json`, ID `MB-009:e1f0526f2c07fb41`, inbox SHA-256 `c0b09aafac551ce8f82c22913fc2845d2d76087ea672c92b5e9a4eecba9af2e3`. Data-only closeout `40660e7479931b2218d28a8400a69f20c4a97b81`. Episode status VERIFIED: 13 events, four findings, one repair and two RUNTIME_PASS events.
+
+### 4.1 Event stream (13)
+
+| Role | Host | Types | Outcome |
+|---|---|---|---|
+| MIGRATION | Mech | MISSION_CLAIMED/ATTEMPT_STARTED/CHANGE_APPLIED/OWNER_INTERVENTION | INFO |
+| MIGRATION | Mech | TEST_FAIL/REPAIR_APPLIED | FAIL/REPAIRED |
+| MIGRATION | Mech | TEST_PASS ×2/RUNTIME_PASS | PASS |
+| MIGRATION | Mech | CI_RESULT/MIGRATION_COMPLETE | PASS |
+| VERIFICATION | Alien | MISSION_CLAIMED/ATTEMPT_STARTED | INFO |
+| VERIFICATION | Alien | VERIFIER_FINDING ×4 | INFO |
+| VERIFICATION | Alien | RUNTIME_PASS ×2 | PASS |
+| VERIFICATION | Alien | REPAIR_APPLIED R1 | REPAIRED |
+| VERIFICATION | Alien | CI_RESULT/VERIFICATION_COMPLETE | PASS |
+
+## 5. ⚠ Cross-Mission merge conflict and ruling
+
+### 5.1 Facts
+
+Merging main, already containing MB-001/002/004/005/006, with MB-009 produced three conflicts; the third was semantic:
+
+1. Manifest auto-merge created two foundation districts. Branch base c7ef3cd1 had none, so MB-009 created one; main already had MB-001's. Git retained both, yielding an invalid duplicate ID. They were combined into one, preserving metadata and ordering buildings by ascending ID.
+2. Registry retains MB-002's fabric-backed ADAPTER_PROVIDERS and points the theme reference at its relocated path.
+3. The move directly conflicts with MB-001's invariant. Foundation is infrastructure and its modules were excluded from the resolution index. MB-009's mandatory City-map path therefore produced:
+
+{{CODE3}}
+
+This breaks both MB-009's existing callable Theme Generate gate and main's accepted five-service surface.
+
+### 5.2 Reasoning
+
+Two City statements conflict: MB-001 says foundation is the runtime kernel and its modules are not capabilities; the City map says 00/05 owns presentation/theming. The problem is district-level kind granularity: foundation now contains kernel buildings and one genuine adapter-bridged capability building.
+
+Rejected options: changing the district kind exposes unavailable kernel capabilities and breaks MB-001; moving theme elsewhere violates Mission ownership; deleting or relaxing MB-001 tests is forbidden by rule 11.
+
+### 5.3 Ruling
+
+Refine kind to the building level, inheriting the district by default:
+
+| File | Change |
+|---|---|
+| city/manifest.mjs | Validate building.kind with DISTRICT_KINDS; export buildingKind(district, building) as the sole decision point and declaredBuildings(manifest). |
+| CITY_IMPLEMENTATION_MANIFEST.json | Declare 00-foundation/05-control-centre kind:domain. |
+| registry.mjs | Resolution index covers every declared module so explicit bridges resolve. Enumeration still excludes infrastructure buildings and capabilityProvider:false. |
+| capability-registry.test.mjs | Assert kernel properties per building's effective kind; add assertions that control-centre differs from its district and theme is AVAILABLE. |
+
+This is not relaxation: all previous inputs behave identically because no building previously declared kind; kernel city-core/fabric assertions are retained and additional root-cause/restoration assertions strengthen them; no City ownership or product capability is added. It repairs a regression, rather than merely making a failure green.
+
+Measured after merge: seven descriptors, five AVAILABLE, presentation.theme.lab AVAILABLE, theme-engine visible in Web/Android's callable list and successfully generating, section 3.4.
+
+### 5.4 Owner visibility
+
+The ruling changes shared files and tests introduced by MB-001, so the Owner should know even though it is strictly conservative. Options: accept building-level kind as a City mechanism (recommended, satisfying both statements); or, if foundation should not contain capability buildings, the Owner should repartition ownership and create a superseding Mission. The verifier must not make that ownership decision.
+
+## 6. Final gates
+
+| Gate | Status | Evidence |
+|---|---|---|
+| Move digest/behavior equivalence | PASS | Same digests in sections 3.3/3.4, D9 PASS. |
+| Existing Web/Android Theme Generate | PASS | Real gateway COMPLETED, merged capability AVAILABLE. |
+| No global apply added | PASS | Runtime false, pinned test. |
+| Promotion/provenance chain | PASS | Three historical targets plus relocation authority, 10 records, executed guards and R1. |
+| Different hosts | PASS | Mech/Alien. |
+| Review before report | PASS | Section 1 before 2, event proof. |
+| Same-Mission repair | PASS | R1 one test; R2/R3 probes, one committed pilot. The historical report states the verifier changed no production files. |
+| No skipped/deleted/weakened tests | PASS | Section 3.1; kernel assertions increase. |
+| Required CI | PASS | 36596238433 and final 36596639671, both jobs success. |
+| Verifier merged main | PASS | b4bd602971abe83083cd72ab8247d9bd50371f57. |
+| Episode/two CI, rule 16 | PASS | Section 4 and both CI runs. |
+
+## 7. Carry-forward observations
+
+1. Building kind is a new mechanism to formalize in City docs. Only control-centre uses it; manifest validates and registry decides. Owner confirmation requested in section 5.4.
+2. Hub view lacks current location. normalizePromotionRecord drops relocation fields, consistent with historical-only intent. Consumers linking current modules need manifest or DONOR.json.
+3. Promotion verification reads Git HEAD, not worktree. Before committing a merge it reports a missing HEAD path. Not a defect, but potentially misleading; suggest an output hint.
+4. Shell subprocesses must use powershell.exe, not pwsh absent from PATH. MB-005's pilot silently failed once; its report was corrected. MB-009 used powershell.exe from the start.
+5. Restart the shared gateway after changing registry/adapter constants, or the old in-memory table remains served. The first section 3.4 attempt was DEGRADED for this reason; document it in real-product-path instructions.
+6. No Android emulator was run. Android source is untouched; CI android succeeds.
+
+## 8. Evidence pointers
+
+Migration report `mission-book/reports/MB-009/MIGRATION_REPORT.md`; utopia branch `mission/MB-009-theme-relocation`; [implementation CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/36596238433), [final CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/36596639671); pilot `scripts/mb009-theme-relocation-pilot.mjs`; git-ignored `.runtime/evidence/mission-book/MB-009/run-001/relocation-guard-probe.json` and `theme-generate-probe.json`; test `apps/rooms/tests/promotion-relocation.test.mjs`; episode `data-records/evolution/episodes/mission-book/MB-009/episode.json`, ID `MB-009:e1f0526f2c07fb41`; merge `b4bd602971abe83083cd72ab8247d9bd50371f57`.

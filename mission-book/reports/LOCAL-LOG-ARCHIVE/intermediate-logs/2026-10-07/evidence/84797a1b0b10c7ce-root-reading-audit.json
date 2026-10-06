@@ -1,0 +1,65 @@
+[
+  {
+    "source": "mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md",
+    "reading": "mission-book\\connection-onboarding\\en\\JOIN-590-merged-main-physical-acceptance-and-closeout.md",
+    "code_blocks": 1,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/workbench-compatibility-migration/README.md",
+    "reading": "mission-book\\workbench-compatibility-migration\\en\\README.md",
+    "code_blocks": 8,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "预设硬件布局/README.md",
+    "reading": "预设硬件布局\\en\\README.md",
+    "code_blocks": 0,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/finished/replant/MISSION_INDEX-LEGACY.md",
+    "reading": "mission-book\\finished\\replant\\zh-CN\\MISSION_INDEX-LEGACY.md",
+    "code_blocks": 5,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+    "reading": "mission-book\\finished\\completed-2026-10-01\\past-rules\\en\\MISSION_INDEX-v1.md",
+    "code_blocks": 1,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/past-rules/MISSION_INDEX-v1.md",
+    "reading": "mission-book\\finished\\completed-2026-10-01\\past-rules\\zh-CN\\MISSION_INDEX-v1.md",
+    "code_blocks": 1,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/response-9-30.md",
+    "reading": "mission-book\\finished\\completed-2026-10-01\\en\\response-9-30.md",
+    "code_blocks": 3,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
+    "reading": "mission-book\\showcase-material-extraction\\en\\SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
+    "code_blocks": 20,
+    "missing_blocks": [],
+    "frontmatter": false
+  },
+  {
+    "source": "mission-book/reports/MON-990/android-parity/README.md",
+    "reading": "mission-book\\reports\\MON-990\\android-parity\\zh-CN\\README.md",
+    "code_blocks": 3,
+    "missing_blocks": [],
+    "frontmatter": false
+  }
+]

@@ -1,0 +1,40 @@
+[WARN] DEV_COMPLETE_WITHOUT_HEAD  RS-201  development_complete is true but development_head_sha is '44a0e4f'
+[WARN] DEV_COMPLETE_WITHOUT_HEAD  RS-202  development_complete is true but development_head_sha is 'b3a9ad0'
+[WARN] DEV_COMPLETE_WITHOUT_HEAD  RS-203  development_complete is true but development_head_sha is 'ec9e507'
+[WARN] DEV_COMPLETE_WITHOUT_HEAD  RS-290  development_complete is true but development_head_sha is '2f81296'
+[WARN] DEV_COMPLETE_WITHOUT_HEAD  UXI-301  development_complete is true but development_head_sha is '1c516b6'
+[WARN] REPORT_PATH_MISSING  RS-201  report_path mission-book/reports/RS-201/ does not exist
+[WARN] REPORT_PATH_MISSING  RS-202  report_path mission-book/reports/RS-202/ does not exist
+[WARN] REPORT_PATH_MISSING  RS-203  report_path mission-book/reports/RS-203/ does not exist
+[WARN] REPORT_PATH_MISSING  RS-290  report_path mission-book/reports/RS-290/ does not exist
+[WARN] REPORT_PATH_MISSING  UI-000  report_path mission-book/reports/UI-000/ does not exist
+[WARN] REPORT_PATH_MISSING  UI-101  report_path mission-book/reports/UI-101/ does not exist
+[WARN] REPORT_PATH_MISSING  UI-102  report_path mission-book/reports/UI-102/ does not exist
+[WARN] REPORT_PATH_MISSING  UI-103  report_path mission-book/reports/UI-103/ does not exist
+[WARN] REPORT_PATH_MISSING  UI-190  report_path mission-book/reports/UI-190/ does not exist
+[WARN] REPORT_PATH_MISSING  UXI-301  report_path mission-book/reports/UXI-301/ does not exist
+[WARN] REPORT_PATH_MISSING  UXI-390  report_path mission-book/reports/UXI-390/ does not exist
+[WARN] REPORT_PATH_MISSING  UXI-391  report_path mission-book/reports/UXI-391 does not exist
+[WARN] REVIEW_CLAIMED_WITHOUT_HEAD  RS-203  review_host is set but review_head_sha is not an exact 40-character SHA
+[WARN] REVIEW_COMPLETE_WITHOUT_HEAD  RS-203  review_complete is true but review_head_sha is '44b52e2'
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  JOIN-590  review_head_sha ec3b6f996240ca71505b3b67af12cc222d1b283a differs from development_head_sha b91677d1478950feb79742f618d0c981773d5bb7 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  MON-902  review_head_sha f4988248a3316806fc2e3fa9e62864ed129fe7b3 differs from development_head_sha 3a88e23f91924576178973ef46c620b20ffa2aaf (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  MON-903  review_head_sha 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224 differs from development_head_sha 78bdd9dc873ebc257aedecf421068a1387dbec82 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  REX-801  review_head_sha 7e96a4d28f4cb701d7a0951bace69857c3228f32 differs from development_head_sha 8f8c521fc299d622093776615b653457d8833f96 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  REX-803  review_head_sha 8798ba9dd37051626033ad72080b2fad3ff66149 differs from development_head_sha a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  UI-000  review_head_sha 6edd10379b4dbe22caa89fb45287c836f91151bf differs from development_head_sha 01b4b87a8dc80ad40775816b61487483388c4277 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  UI-101  review_head_sha 2c6e787c3a08166378c0f645a1ee200ce6885414 differs from development_head_sha 56c819000548d9496ecb9fd2459f19d1ad9fcec1 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  UI-102  review_head_sha ed4a663a4724c228d971809efcf42f113a9d7ca3 differs from development_head_sha 61598be960a7137225d029fe08ccd678cdb6d506 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  UI-103  review_head_sha dcde3afe958577a470ee6a0e6f08e819c9d0d19f differs from development_head_sha 399a1c118fa0016e7f30ce8f0e3ba01917b39db1 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  UI-190  review_head_sha 11bb3f6fc76aecbb1ae41f2e258cccf7beaa429b differs from development_head_sha 10cdd75604836ad0b903f4dd749e80e16bdf32b6 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  UXI-390  review_head_sha 6a82e35a2c5c40db426f815056bac6fda4c6806d differs from development_head_sha 149a4c14b596b92f04fab6269eca1dcb7727303f (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  WBC-601  review_head_sha f66db60998343bf99243621cfcfa2363a4566db8 differs from development_head_sha d65dbd3af2d8903aca13726f74110e1f2f6b9b65 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_HEAD_DIFFERS_FROM_DEV_HEAD  WBC-602  review_head_sha d99101fdac5169aad74ae84fb7c0c25be43ad7d9 differs from development_head_sha c312a60b4d73f02597bde1f106372b253067fe33 (legitimate for a repair head; the workbook must say which head was reviewed)
+[WARN] REVIEW_REPORT_MISSING  CEX-790  review_complete is true but mission-book/reports/CEX-790 has no REVIEW_REPORT.md
+[WARN] REVIEW_REPORT_MISSING  WBC-604  review_complete is true but mission-book/reports/WBC-604 has no REVIEW_REPORT.md
+[EXCUSED] REVIEW_WAIVED_BY_RECORDED_AUTHORITY  CEX-790  review_complete is true without a review_host; the workbook records the waiver in owner_ruling_2026_10_05
+[EXCUSED] REVIEW_WAIVED_BY_RECORDED_AUTHORITY  CEX-790  review_complete is true without an exact review_head_sha; the workbook records the waiver in owner_ruling_2026_10_05
+[EXCUSED] REVIEW_WAIVED_BY_RECORDED_AUTHORITY  WBC-604  review_complete is true without a review_host; the workbook records the waiver in review_waiver_authority
+[EXCUSED] REVIEW_WAIVED_BY_RECORDED_AUTHORITY  WBC-604  review_complete is true without an exact review_head_sha; the workbook records the waiver in review_waiver_authority
+
+checked 143 workbooks (89 current schema, 54 legacy records skipped by name): 0 error(s), 34 warning(s), 4 excused

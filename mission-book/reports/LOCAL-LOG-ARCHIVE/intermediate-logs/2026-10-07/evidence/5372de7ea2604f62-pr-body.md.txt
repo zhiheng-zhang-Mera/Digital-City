@@ -1,0 +1,5 @@
+Restore the corrupted Research Strengthening README from the verified UTF-8 version at 2d81528, retaining the later valid REX806 development handover. Keep the damaged bytes as an indexed, exact-byte encoding preimage. Refresh the bilingual reader and generated navigation.
+
+Add a bilingual non-parked programme desk at the top of Mission Book: fifteen registered programmes and FR001 future planning. Links provide navigation only; no workbook, execution flag, claim, review, manifest membership or activation is changed. Parked programmes remain in their separate index; SHOW remains excluded from execution.
+
+Validation: verified restored source body against Git history, no mojibake signatures, modified-document local links resolve, record checks zero errors, sixteen guard cases pass, preservation regression passes, and dependency/main-board/navigation checks. Exact-head CI must pass before merge.

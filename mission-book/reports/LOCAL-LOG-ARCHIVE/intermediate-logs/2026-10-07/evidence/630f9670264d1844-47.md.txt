@@ -1,0 +1,106 @@
+# GAI-009 开发报告——Utopia Ask/Do、Action 与 Web／Android 集成
+
+{{CODE0}}
+
+**任务池说明：** 这是 BA/RF/GAI/EM 池最后未领取开发阶段。当时41组件中36项完成且CI绿，5项已实现、本地验证但CI阻塞：BA-007、BA-009、EM-012、EM-013、GAI-009。以下是当时记录，不能解释为后续当前状态。
+
+## 0. 阻塞（相同外部条件连续第五轮）
+
+运行36753891511两作业均拒绝启动。
+
+{{CODE1}}
+
+与BA-009（36750981300）、EM-012（36751919772）、BA-007（36752540378）、EM-013（36753243377）相同，作业2–4秒结束、零步骤。Alien的GAI-004推送也同样失败，而阻塞前EM-011、RF-010成功。
+
+## 1. 交付物
+
+contracts/general-ai-utopia-surface-v1/内ask-do-facade.mjs实现Ask/Do路由、GENERAL_AI Action、渲染、部分输出、设备／API提案与批准、准入门禁执行、共享注意事项投影、两设备控制、结果门禁、高级来源、旧路由拒绝；另index.mjs、7测试、根tests/general-ai-utopia-surface.test.mjs。
+
+以下验收均仅本地验证。
+
+| 验收要求 | 测试与证明 |
+|---|---|
+| 确定本地命令路径保持原样 | `deterministic local commands route exactly as before`：同结果形状、deterministic_unchanged:true，不咨询GAI、不建Action |
+| 普通AI请求生成GENERAL_AI Action | `an ordinary AI request produces a GENERAL_AI Action with provenance as advanced state`：action_kind:GENERAL_AI、规范history引用 |
+| 当前设备Web默认可见路径 | 同测试web_first_default_path:true，execution_device_ref等于interaction_device_ref |
+| 远端提案／确认不导航用户离开 | `device-switch and API proposals never navigate the user away…`：user_navigated_away:false、auto_selected:false，确认才移动执行设备 |
+| 远端结果回起源／共享Action界面 | 同测试remote_result_returns_to_originating_action:true、returned_to_interaction_device |
+| API明确确认，执行前显示预算 | `an API proposal requires explicit confirmation and shows the budget outcome before execution`：budget_shown_before_execution:true，无同意／超预算无执行 |
+| Web／Android授权控制同Action | `cancel and control work from Web and Android for the same Action, with one shared history`，入侵者NOT_AUTHORIZED_TO_CONTROL |
+| 高级／调试保留真实提供商／通道／设备／后端ID与错误 | 测试2保留provider_ref/model_ref/backend_run_ref/protocol_ref，秘密形状键SECRET_MATERIAL_REFUSED |
+| 后端不可用／需注意／失败不称成功 | `no path claims success while the backend is unavailable, and legacy routes are refused`：FALSE_SUCCESS_REFUSED、backend_unavailable:true、success_claimed_while_not_succeeded:false |
+| 使用GAI-001契约扩展facade，确定路由后Ask/Do | 测试1ACTION_KINDS、固定顺序 |
+| 渲染Web优先、两切换提案、预算、ATTENTION_REQUIRED、部分、取消、最终结果 | 测试2–5与7，命名界面区段、SURFACE_SECTIONS断言 |
+| 注意事项投影共享规范状态，不设GAI数据库 | `attention is projected into canonical shared state, never a GAI-only store`：ATTENTION_FROM_SHARED_STATE_ONLY、gai_only_store:false |
+| 两终端规范Action／历史事实相同 | 测试6canonical_action_truth_shared:true、per_device_history_copy:false，全部事件一个history_ref |
+| 不暴露Boss/Hns路由 | 测试7对BOSS/HNS/CODEX_BOSS为LEGACY_ROUTE_NOT_EXPOSED |
+| Tasks/Services/Rooms事实保持分离，仅facade | 测试7tasks_services_rooms_truths_separate:true |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 原因）
+
+**D1——领取任务。** 新扫描无本机修复、Mech无合资格Correction；Alien持BA-004…008、EM-004…011、GAI-003…008、RF-004…010，GAI-004/RF-006进行中。池最后未领取开发，按禁止闲置规则领取：五分支CI阻塞，有可领取阶段主机不得闲置。
+
+**D2——产品中位置。** 现facade新增GENERAL_AI Action种类，固定确定／本地优先，未匹配且AI意图才GAI路由，明确engineering分支。工作簿要求不建平行AI应用壳，在确定路由后扩展Ask/Do。测试确定路径字节相同且完全不咨询路由器，比“先调用”更强。
+
+**D3——来源细节。** ask返回Action引用、provider_choice_requested_from_user:false，真实ID在advanced()。要求不强迫用户先选后端类，又把细节作为高级来源可见；测试前后两半。
+
+**D4——留当前设备。** 切设备与API提案渲染确认，auto_selected:false/api_triggered_automatically:false；确认仅移execution_device_ref。每结果user_navigated_away:false，远端结果回起源Action。遵守两验收，与GAI-007/EM-013同不变量。
+
+**D5——API执行。** executeApi须已有提案，否则CONFIRMATION_REQUIRED，再委托准入端口；拒绝executed:false并带同意／预算裁决，通道不执行；提案执行前显示预算。复用GAI-004避免第二套同意实现。
+
+**D6——注意事项。** registerGaiAttentionStore始终拒绝；projectAttention须共享端口，每投影from_shared_state:true、gai_only_store:false，交互设备收到。禁止GAI通知库／设备在线状态服务。
+
+**D7——一历史两控制者。** 每Action单history_ref、一个列表，per_device_history_copy:false、second_history_store:false。授权设备为交互设备加明确批准执行设备；其他NOT_AUTHORIZED_TO_CONTROL并命名授权集。将跨Web/Android同事实与“在授权时”具象化。
+
+**D8——如实成功。** 部分输出非终态，结果须终态；SUCCEEDED须已接受结果引用，Action UNAVAILABLE/WAITING_CONFIRMATION时拒绝，backend_unavailable:true；失败带类型化错误、success_source:null。显式驱动需注意案例，UI最易误呈为进度。
+
+**D9——旧路由。** exposeLegacyRoute对BOSS/HNS/CODEX_BOSS始终拒绝，legacy_routes_exposed:false。要求语义GENERAL_AI与既有／未来ENGINEERING边界；始终拒绝入口让禁止可测试而非仅缺失。
+
+**D10——无schema.json。** 与其他组件一致。
+
+## 3. 精确文件
+
+| 文件 | 变更 |
+|---|---|
+| contracts/general-ai-utopia-surface-v1/ask-do-facade.mjs | 新增Ask/Do、Action、提案、准入、注意事项、控制、结果、来源 |
+| contracts/general-ai-utopia-surface-v1/index.mjs | 新公开接口 |
+| contracts/general-ai-utopia-surface-v1/tests/conformance.test.mjs | 新7一致性测试 |
+| tests/general-ai-utopia-surface.test.mjs | 新根入口，101→108 |
+
+未改City/Core、清单、文档，合并增量。
+
+## 4. 测试汇总、失败与修复
+
+7项首次三失败，**全部测试侧，本任务未发现模块缺陷**，直接声明不包装。
+
+1. 恒真断言 `… === 'CONFIRMATION_REQUIRED' || true` 什么都没验证，换无API提案Action不能执行的真实案例。
+2. 缺共享注意事项端口案例也缺路由端口，先触发路由拒绝。现孤立facade有路由但无attention，才测声称内容。
+3. 历史计数误以四事件，实际三，批准设备切换自身非事件。修正且具体断言控制事件存在，不只计数。
+
+## 5. 本地检查与CI
+
+| 检查 | 原报告结果 |
+|---|---|
+| node --test tests/*.test.mjs | 108项全通过，0失败（101＋7） |
+| node --test apps/rooms/tests/*.test.mjs | 69通过，0失败 |
+| node city/test-all.mjs | 1801通过，0失败 |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4验证10记录 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIR_STATUS=SYNCHRONIZED |
+| 8dfdf9edcf6f525797de964650b383a916271371 的CI 36753891511 | **BLOCKED**，计费导致未启动 |
+
+## 6. 同级集成接口
+
+- GAI-001..008：facade消费它们，005分流给路由，004准入给同意／预算，006对话给部分／结果语义，007远端给切设备，008韧性给如实降级。合并接端口不重实现。
+- City共享任务核心／Attention：Action与历史是facade引用，不复制任务图／注意事项。
+- EM-013工程控制：同交互／执行分离、仅终态已接受结果才成功；两界面应共享提案／确认形状。
+- BA-007/009设置／职责策略：主动性与权限由它们来，facade渲染不得放宽。
+- Owner/运维阻塞：恢复Actions计费后五任务才能验证development_complete，才能领取Correction。
+- Owner问题不变：演进动态是否记录组件阶段。
+
+## 7. Correction待处理项
+
+1. 对抗：同批准提案executeApi两次（现可能都执行，提案未消费，疑重复效果缺口）；CANCELLED的RESUME（终态守卫豁免现允许，确认）；action_ref属另一facade注意投影；执行设备后不可用却无再提案；advanced provenance error_ref嵌套token秘密应捕获。
+2. 确认D4仅批准移动、D8需注意时成功拒绝。
+3. CI能运行前不能领取Correction，development_complete为false。
+
+{{CODE2}}

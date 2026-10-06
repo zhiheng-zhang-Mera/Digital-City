@@ -1,0 +1,31 @@
+# BA-004开发报告：多助手切换与明确任务交接
+
+## 1. 交付物
+
+assistant-handoff-v1含package validation/authority guard、recipient recompute、canonical store port/double/coordinator/foreground switch、index、7suite/root。验收A→B前台不影响A在线后台owner，无transfer立即switch零handoff；true transfer机器package/re-eval/ack/单owner；拒/过期保旧owner；owner变不restart executor，只有明确move才改。
+
+## 2. 决策日志
+
+D1无repair或异hostCorrection（Alien修GAI002），dev tier依异于EM选择BA004 invariant11。D2switch和handoff分函数返回tasks_touched0/ownership false/is_a_handoff false/handoff required，caller不读impl可分。
+
+D3绝不携authority，递归拒grants/permissions/capabilities/lease/execution_lease/action_key/authority/policy/scopes/access_token，HANDOFF_TRANSFERS_NO_AUTHORITY；recipient按policy intersection recompute、transferred_grants空，拒字段防接收端真grant难分。
+
+D4仅recipient接受（非者NOT_THE_RECIPIENT），proposal不改owner，true责任transfer需checkpoint。D5初test以为能力缺应proposal失败，实际proposal算can_take_over false/missing而accept拒，recipient自己答，提前拒会遮缺能力；改test双阶段断言。D6consult可accepted但ownershipfalse/CONSULTATION_TRANSFERS_NOTHING/零write，建议不转owner。
+
+D7canonical store injected，handoff_writes_task_truth_directly false，double记录setOwner/recordCheckpoint及仅明确异executor时setExecutor，共享truth非Butler。D8同handoff ID重propose DUPLICATE_HANDOFF no-op/answered accept no-op，terminal TASK_TERMINAL、非proposer owner INVALID_HANDOFF，防二transfer/复活。D9无schema同BA002/003/EM/GAI。
+
+## 3. 测试汇总
+
+7过：switch zero write且outgoing在线；三authority形（top grant/nested capability/lease）拒且intersection无transfer；ack takeover恰owner/checkpoint、executor不动，非recipient/超cap拒；明确executor move多setExecutor；reject/expiry零write；consult零transfer；kind/version/同assistant/instant/array/unknown/duplicate/未知terminal foreign task/checkpoint/store严格性。D5纠test非放规则。
+
+## 4. 本地CI
+
+108/108=101+7，promotion10@82ed36933fb4，rooms/city0fail、docs同步，CI36726727943@a29062fba3e88abee1830c4f1ecbd6c55e6d1c79 success。
+
+## 5. 接缝
+
+BA003 switch两个半合一report binding及tasks0；BA002recipient自行fetch/revalidate且权来自policy非package；BA006 store seam owner/executor分；BA008 lease_ref只是待再验引用不lease实体，重连先验；BA009 effective permission=User/OwnerPolicy∩AssistantPolicy∩DeviceCapability∩TaskActionGrant；Web/Android switch后从canonical读owner不假定移。
+
+## 6. 开放项
+
+偷未列名authority、fresh ID replay二transfer、switch写store；确认D5 proposal计算accept执行；executor_ref是否允许同package move或需独操作（当前允许）；evolution-feed。devcomplete true、AlienCorrection eligible、禁止直到Butler merge原块保留。

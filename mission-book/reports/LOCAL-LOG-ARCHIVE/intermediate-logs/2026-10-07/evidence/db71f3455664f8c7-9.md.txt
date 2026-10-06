@@ -1,0 +1,75 @@
+# GAI-003 开发报告：Web 通道与持久 profile 会话
+
+{{CODE0}}
+
+原始元数据保留任务／主机／领取／控制版本／仓库／基线／分支／SHA／CI、本地测试、完成与禁止合并状态；真实提供方验收延期到计划集成，本机未配置提供方。
+
+## 1. 交付物
+
+`contracts/general-ai-web-channel-v1/` 含 `web-channel.mjs`（适配器端口、确定性替身、通道状态词汇、会话 open／observe／cancel／close／persist／restore、持久状态防护、真实提供方验收标记）、`index.mjs`、8 项套件与根 `tests/general-ai-web-channel.test.mjs`。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 默认执行通道 WEB | Web 默认且执行绑定 profile handle，`DEFAULT_CHANNEL = 'WEB'`、`channel: 'WEB'` |
+| 平台允许时持久登录／profile 跨许可重启／重开存活 | handle 仍解析则重启存活、会话引用重开；无法解析报 `AUTH_REQUIRED`，不静默新登录 |
+| 诚实报告有类型通道状态 | 不可执行状态类型化拒绝，六种不同码；下次接触重读状态，不复用 stale READY |
+| 执行绑 profile 引用而非临时窗口 | 首项加原始 cookies／storage／tokens 不进入 City 持久状态 |
+| partial 不作 final | 运行中 `final: null`、`partial_is_final: false` |
+| 对话／thread 捕获和重开钩子 | 第二项持久化恢复 `conversation_refs`，另有 `conversations()` |
+| 实际执行真实提供方或记录延期 | 真实提供方验收须记录而不可伪造 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取哪项任务。** 上轮无领取结束，本轮重扫：无自己修复、无 Mech 可领取 Correction；原文说明剩余 RF-003 为 Mech 自己开发而由 Alien 纠正。在 Development 层选择 GAI-003：与上次 BA-005 不同计划，GAI Gateway 最落后（2/9）且另一主机未在该池工作。
+
+**D2：会话身份在哪里。** 选项：每执行临时浏览器窗口、内存窗口 handle、通过中性 `SecureHandleStorePort` 解析的持久 profile handle。选择第三项。工作簿禁止绑定临时窗口，要求经中性 store 解析持久 handle，因此 `open` 解析 handle、记录引用，永不记录值。
+
+**D3：允许持久化什么。** 仅 `provider_ref`、`account_ref`、`profile_handle_ref`、`conversation_refs`、`state`、`opened_at`；persist 与 restore 的递归防护都拒 `cookies`、`storage_state`、`local_storage`、`tokens`、`password`、`credentials`、`profile_bytes`，返回 `RAW_COOKIE_IN_CITY_STATE`。要求不把原始 cookie 复制进 City 状态；恢复也扫描，防手工或恶意记录夹带浏览器状态。
+
+**D4：诚实通道状态。** 七状态 `READY`、`AUTH_REQUIRED`、`RATE_LIMITED`、`PAGE_CHANGED`、`BUSY_GENERATING`、`DOWN`、`UNKNOWN` 在执行开始前映射六拒绝码，每次 touch 从适配器重读。工作簿命名这些状态；重读防提供方退出后复用 stale READY。`PAGE_CHANGED` 有意拒绝不重试：页面变化意味着适配器需更新，静默重试会隐藏故障。
+
+**D5：partial 与 final。** 运行中 `observe` 返回 `partials`、`final: null`，仅 `complete` 后返回 final，明确 `partial_is_final: false`。同 BA-002／EM-003 的假成功纪律；聊天界面把部分回答作最终结果是最具破坏性的失败之一。
+
+**D6：重启语义。** `restore` 重解析 profile handle；成功时重开对话引用并报告适配器当前状态；无法解析则 `restored: false, state: 'AUTH_REQUIRED', reason: 'PROFILE_HANDLE_UNRESOLVED'`。重启存活以提供方／平台允许为条件；平台不允许时诚实要求用户认证，不静默建新会话。
+
+**D7：提供方特定知识。** 模块无页面选择器、提供方名、鼠标逻辑；这些知识留在适配器以下。公开端口 `reimplements_remote_mouse_logic: false`、`uses_generic_computer_use_primitives: true`，按工作簿通过接口重用已接受通用 browser／DOM primitives。
+
+**D8：真实提供方证明。** `realProviderAcceptanceStatus` 仅有显式证据引用才返回 `PERFORMED`，否则 `REAL_PROVIDER_ACCEPTANCE_DEFERRED_TO_PROGRAMME_INTEGRATION`、`fabricated: false`。本机未配置提供方，**没有执行真实提供方**，此延期记于本报告及 frontmatter。工作簿允许按契约与确定性测试完成组件，真实证明留给计划集成，且禁止说成已完成。
+
+**D9：无 `schema.json`。** 与其他组件分支一致。
+
+## 3. 测试汇总
+
+8 项全部通过：默认通道与 handle 绑定执行；六状态类型拒绝与 stale READY 重读；partial／final 分离、thread 捕获、已完成拒绝；幂等 cancel、未知执行／会话拒绝、无效请求防护；重启恢复重开对话；未解析 profile 恢复报 AUTH_REQUIRED；persist／restore 两端持久状态防护及构造拒绝；真实提供方延期诚实性。
+
+## 4. 本地检查与 CI
+
+| 检查 | 结果 |
+|---|---|
+| `corepack pnpm test` | 109 项，109 通过，0 失败（101＋8） |
+| `node scripts/verify-promotion-history.mjs` | OK，82ed36933fb4 上 10 条 |
+| `node --test apps/rooms/tests/*.test.mjs` | 0 失败 |
+| `node city/test-all.mjs` | 0 失败 |
+| `corepack pnpm check:docs` | PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI 36729727681，e55da499193b644280fd34eee63749d9c9e9c8a4 | success |
+
+## 5. 交给兄弟任务的集成接缝
+
+- GAI-001：合并时会话／结果形状绑 `GeneralAIRequest`／`ResultEnvelope`／`PartialResult`，通道状态映射契约 provider health。
+- GAI-002：这里解析的 profile／credential handle 是注册表持久化的引用；双方都用中性 store、不存值。
+- GAI-004：Web 默认，API 升级仍必须由用户明确决定，遵循 GAI-001 路由策略；本模块有意从不回退 API。
+- GAI-005：`health()` 是 Web 决策的 readiness 输入。
+- GAI-006：`observe`／`cancel` 是流／取消钩子；真实流式实现应遵循同样 partial／final 纪律。
+- GAU／EM 计划：这是通道而非传输，跨设备执行仍归 RF。
+- 计划集成：达到 `GENERAL_AI_GATEWAY_MERGED_MAIN_CI_GREEN` 前必须完成延期的真实提供方验收。
+
+## 6. Correction 主机／Owner 开放项
+
+1. 尝试把 partial 读成 final、复用 stale READY、绕持久防护夹带浏览器状态、恢复平台已不允许的会话。
+2. 确认 D6 无法解析 handle 报 AUTH_REQUIRED 的重启行为。
+3. 确认 PAGE_CHANGED 是否可自动恢复，目前视为适配器缺陷。
+4. evolution-feed 仍待 Owner。
+
+{{CODE1}}
+
+原始结论保留开发完成、真实验收延期且非伪造、仅 Alien 纠正，以及 GAI Gateway 项目合并前禁止合并。

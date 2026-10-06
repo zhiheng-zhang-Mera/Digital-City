@@ -1,0 +1,44 @@
+[
+  {
+    "source": "mission-book\\reports\\INTEGRATION_SOURCE_SWEEP_MECH.md",
+    "target": "mission-book\\reports\\en\\INTEGRATION_SOURCE_SWEEP_MECH.md",
+    "prefix_bytes": 8280,
+    "prefix_sha256": "d738200597feb8a6d5faf198207bebba83eb259cd95507152fc60c684a9f27dc",
+    "blocks": 6
+  },
+  {
+    "source": "mission-book\\reports\\MISSION_BOARD_RECOUNT_MECH.md",
+    "target": "mission-book\\reports\\en\\MISSION_BOARD_RECOUNT_MECH.md",
+    "prefix_bytes": 4308,
+    "prefix_sha256": "c67d791397eaaa50579b3ea1995519776b03348453250ad2731412f04d1d77da",
+    "blocks": 2
+  },
+  {
+    "source": "mission-book\\reports\\RELAY_RATE_PROBE_HOST_SPEED_MECH.md",
+    "target": "mission-book\\reports\\en\\RELAY_RATE_PROBE_HOST_SPEED_MECH.md",
+    "prefix_bytes": 4981,
+    "prefix_sha256": "ed7d186984b3b46f73b7522cbd073d17a9146eff5692791df65990f345c07eec",
+    "blocks": 3
+  },
+  {
+    "source": "mission-book\\reports\\REX-803\\MATERIAL_HANDOFF_MECH.md",
+    "target": "mission-book\\reports\\REX-803\\en\\MATERIAL_HANDOFF_MECH.md",
+    "prefix_bytes": 6120,
+    "prefix_sha256": "e0d1aaa4a94a37324bae4b1b85a96e421e066adf9d2edfb3f60f1319d8e3c2bf",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\reports\\REX-803\\FORMAL_ACCEPTANCE_Alien.md",
+    "target": "mission-book\\reports\\REX-803\\en\\FORMAL_ACCEPTANCE_Alien.md",
+    "prefix_bytes": 7974,
+    "prefix_sha256": "1ea1714b7a66a95ad5e629c733b4162b2af29fe5724ba0695244da4d61472526",
+    "blocks": 0
+  },
+  {
+    "source": "mission-book\\reports\\REX-PROGRAMME\\INTEGRATION_PREFLIGHT.md",
+    "target": "mission-book\\reports\\REX-PROGRAMME\\en\\INTEGRATION_PREFLIGHT.md",
+    "prefix_bytes": 16621,
+    "prefix_sha256": "b6332e7123399c71fa174f9253919dd477898a4fcd35217f92706f973d749073",
+    "blocks": 10
+  }
+]

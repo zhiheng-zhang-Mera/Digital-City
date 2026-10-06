@@ -1,0 +1,1198 @@
+[
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "translation": "mission-book/capability-entry-closeout/zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/showcase-material-extraction/CORE_MESSAGES.md",
+    "translation": "mission-book/showcase-material-extraction/zh-CN/CORE_MESSAGES.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/showcase-material-extraction/DELIVERABLE_MANIFEST.md",
+    "translation": "mission-book/showcase-material-extraction/zh-CN/DELIVERABLE_MANIFEST.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/showcase-material-extraction/RESULTS.md",
+    "translation": "mission-book/showcase-material-extraction/zh-CN/RESULTS.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-701/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/CEX-701/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-701/CONTEXT_LIFECYCLE.md",
+    "translation": "mission-book/reports/CEX-701/zh-CN/CONTEXT_LIFECYCLE.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-701/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/CEX-701/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-701/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/CEX-701/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-701/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/CEX-701/zh-CN/REVIEW_REPORT.md",
+    "blocks": 9,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-702/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/CEX-702/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-702/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/CEX-702/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-702/DEVELOPMENT_LOG.md",
+    "translation": "mission-book/reports/CEX-702/zh-CN/DEVELOPMENT_LOG.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-702/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/CEX-702/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-702/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/CEX-702/zh-CN/REVIEW_REPORT.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-703/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/CEX-703/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-703/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/CEX-703/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-703/NATIVE_LAYOUT_FINDING.md",
+    "translation": "mission-book/reports/CEX-703/zh-CN/NATIVE_LAYOUT_FINDING.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/CEX-703/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-703/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/CEX-703/zh-CN/REVIEW_REPORT.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-704/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/CEX-704/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-704/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/CEX-704/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-704/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/CEX-704/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-704/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/CEX-704/zh-CN/REVIEW_REPORT.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-705/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/CEX-705/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-705/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/CEX-705/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-705/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/CEX-705/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-705/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/CEX-705/zh-CN/REVIEW_REPORT.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-790/ALIEN_INTEGRATION_REPORT.md",
+    "translation": "mission-book/reports/CEX-790/zh-CN/ALIEN_INTEGRATION_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-790/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/CEX-790/zh-CN/CLAIM_RECORD.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-790/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/CEX-790/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-790/INDEPENDENT_VERIFICATION_Mech.md",
+    "translation": "mission-book/reports/CEX-790/zh-CN/INDEPENDENT_VERIFICATION_Mech.md",
+    "blocks": 10,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-790/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/CEX-790/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/CEX-PROGRAMME/PAPER_MATERIAL_SYNTHESIS.md",
+    "translation": "mission-book/reports/CEX-PROGRAMME/zh-CN/PAPER_MATERIAL_SYNTHESIS.md",
+    "blocks": 11,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/JOIN-590/PHYSICAL_REACCEPTANCE_Alien-codex.md",
+    "translation": "mission-book/reports/JOIN-590/zh-CN/PHYSICAL_REACCEPTANCE_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/JOIN-590/PHYSICAL_WINDOW2_Alien-codex.md",
+    "translation": "mission-book/reports/JOIN-590/zh-CN/PHYSICAL_WINDOW2_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/JOIN-590/PHYSICAL_WINDOW3_Alien-codex.md",
+    "translation": "mission-book/reports/JOIN-590/zh-CN/PHYSICAL_WINDOW3_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/JOIN-590/REVIEW_REPORT_Alien-codex.md",
+    "translation": "mission-book/reports/JOIN-590/zh-CN/REVIEW_REPORT_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/JOIN-590/REVIEW_REQUEST.md",
+    "translation": "mission-book/reports/JOIN-590/zh-CN/REVIEW_REQUEST.md",
+    "blocks": 4,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/DEVELOPMENT_LOG.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/DEVELOPMENT_LOG.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/ELIGIBILITY_SCAN_20261005T103433_Alien-codex.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/ELIGIBILITY_SCAN_20261005T103433_Alien-codex.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/OWNER_ACTIVATION.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/OWNER_ACTIVATION.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-901/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/MON-901/zh-CN/REVIEW_REPORT.md",
+    "blocks": 8,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/AUTHOR_ACCEPTANCE_OF_REVIEW.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/AUTHOR_ACCEPTANCE_OF_REVIEW.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/CI_FIELD_SYNTAX_REPAIR.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/CI_FIELD_SYNTAX_REPAIR.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/CLAIM_RECORD.md",
+    "blocks": 4,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 11,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/INDEPENDENT_REVIEW_Alien.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/INDEPENDENT_REVIEW_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 8,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/REVIEW_CLAIM_Alien.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/REVIEW_CLAIM_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-902/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/MON-902/zh-CN/REVIEW_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/AUTHOR_SECOND_ADVERSARIAL_PASS.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/AUTHOR_SECOND_ADVERSARIAL_PASS.md",
+    "blocks": 11,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/CLAIM_RECORD.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 9,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/INDEPENDENT_REVIEW_Alien.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/INDEPENDENT_REVIEW_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/REVIEW_CLAIM_Alien.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/REVIEW_CLAIM_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-903/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/MON-903/zh-CN/REVIEW_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/DEVELOPMENT_PROGRESS_Alien.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/DEVELOPMENT_PROGRESS_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/PREPARATION_PLAN_Alien.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/PREPARATION_PLAN_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/REVIEW_CLAIM_Mech.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/REVIEW_CLAIM_Mech.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/REVIEW_HANDOFF_Mech.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/MON-990/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/MON-990/zh-CN/REVIEW_REPORT.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-801/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/REX-801/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/REX-801/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-801/REVIEW_CLAIM_Alien-codex.md",
+    "translation": "mission-book/reports/REX-801/zh-CN/REVIEW_CLAIM_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-801/REVIEW_FINDINGS_Alien-codex.md",
+    "translation": "mission-book/reports/REX-801/zh-CN/REVIEW_FINDINGS_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-801/REVIEW_REPORT_Alien-codex.md",
+    "translation": "mission-book/reports/REX-801/zh-CN/REVIEW_REPORT_Alien-codex.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-802/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/REX-802/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-802/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/REX-802/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-802/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/REX-802/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-802/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/REX-802/zh-CN/REVIEW_REPORT.md",
+    "blocks": 12,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/AUTHOR_THIRD_CLASS_SWEEP.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/AUTHOR_THIRD_CLASS_SWEEP.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/AUTHOR_TWO_WORKER_REHEARSAL.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/AUTHOR_TWO_WORKER_REHEARSAL.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/BASELINE.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/BASELINE.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/CLAIM_COLLISION_ALIEN.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/CLAIM_COLLISION_ALIEN.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/CLAIM_COLLISION_MECH.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/CLAIM_COLLISION_MECH.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/CLAIM_RECORD.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/DEVELOPMENT_HANDOFF.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 10,
+    "missing_literal_blocks": [
+      8
+    ]
+  },
+  {
+    "source": "mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/REVIEW_CLAIM_Alien.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/REVIEW_CLAIM_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/REVIEW_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-803/THREE_END_GATE_MEASUREMENT.md",
+    "translation": "mission-book/reports/REX-803/zh-CN/THREE_END_GATE_MEASUREMENT.md",
+    "blocks": 9,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/AUTHOR_REPAIR_Alien.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/BASELINE.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/BASELINE.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/HANDOFF_PACKET.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/HANDOFF_PACKET.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/REVERIFICATION_REPORT.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/REVERIFICATION_REPORT.md",
+    "blocks": 15,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/REVIEW_CLAIM_Mech.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/REVIEW_CLAIM_Mech.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-804/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/REX-804/zh-CN/REVIEW_REPORT.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-PROGRAMME/ALIEN_CONTINUATION_PACKET.md",
+    "translation": "mission-book/reports/REX-PROGRAMME/zh-CN/ALIEN_CONTINUATION_PACKET.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md",
+    "translation": "mission-book/reports/REX-PROGRAMME/zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md",
+    "blocks": 19,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/WBC-601/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 10,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-601/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/WBC-601/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 4,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-601/REVIEW_CLAIM.md",
+    "translation": "mission-book/reports/WBC-601/zh-CN/REVIEW_CLAIM.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-601/REVIEW_FINDINGS.md",
+    "translation": "mission-book/reports/WBC-601/zh-CN/REVIEW_FINDINGS.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-601/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/WBC-601/zh-CN/REVIEW_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-602/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/WBC-602/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-602/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/WBC-602/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 4,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-602/REVIEW_CLAIM.md",
+    "translation": "mission-book/reports/WBC-602/zh-CN/REVIEW_CLAIM.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-602/REVIEW_FINDINGS.md",
+    "translation": "mission-book/reports/WBC-602/zh-CN/REVIEW_FINDINGS.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-602/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/WBC-602/zh-CN/REVIEW_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-603/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/WBC-603/zh-CN/CLAIM_RECORD.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-603/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/WBC-603/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-603/NEXT_ACTION_SCAN.md",
+    "translation": "mission-book/reports/WBC-603/zh-CN/NEXT_ACTION_SCAN.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-603/PAPER_MATERIAL_INDEX.md",
+    "translation": "mission-book/reports/WBC-603/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-603/REVIEW_REPORT.md",
+    "translation": "mission-book/reports/WBC-603/zh-CN/REVIEW_REPORT.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-604/CLAIM_RECORD.md",
+    "translation": "mission-book/reports/WBC-604/zh-CN/CLAIM_RECORD.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/WBC-604/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/reports/WBC-604/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/reports/JOIN-590/evidence/README.md",
+    "translation": "mission-book/reports/JOIN-590/evidence/zh-CN/README.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/zh-CN/ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UI-102/E2E_CONNECTED_ATTEMPT_FAILED.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UI-102/zh-CN/E2E_CONNECTED_ATTEMPT_FAILED.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md",
+    "translation": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md",
+    "blocks": 4,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-001-butler-zone-personalization.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-001-butler-zone-personalization.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-002-shared-brain-runtime.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-002-shared-brain-runtime.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-003-device-embodiment-binding.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-003-device-embodiment-binding.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-004-multi-assistant-handoff.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-004-multi-assistant-handoff.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-005-digital-me-context-gateway.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-005-digital-me-context-gateway.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-006-shared-task-coordination.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-006-shared-task-coordination.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-007-settings-interaction-surface.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-007-settings-interaction-surface.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-008-embodiment-event-bus.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-008-embodiment-event-bus.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/butler-assistant/BA-009-duty-permission-policy.md",
+    "translation": "mission-book/finished/completed-2026-10-01/butler-assistant/zh-CN/BA-009-duty-permission-policy.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-001-core-contracts-boundaries.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-001-core-contracts-boundaries.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-002-connector-adapter-process-runtime.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-002-connector-adapter-process-runtime.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-003-job-result-artifact-protocol.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-003-job-result-artifact-protocol.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-004-capability-probe-auth-registry.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-004-capability-probe-auth-registry.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-005-attention-recent-device-alerts.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-005-attention-recent-device-alerts.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-006-local-first-subworker-placement.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-006-local-first-subworker-placement.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-007-remote-subworker-return-control.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-007-remote-subworker-return-control.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-008-credential-profile-session.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-008-credential-profile-session.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-009-runtime-health-restart-recovery.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-009-runtime-health-restart-recovery.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-010-foreman-scheduler-dag-worker-pool.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-010-foreman-scheduler-dag-worker-pool.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-011-deepseek-codex-reference-connectors.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-011-deepseek-codex-reference-connectors.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-012-connector-sdk-claude-workbuddy.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-012-connector-sdk-claude-workbuddy.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/engineering-manager/EM-013-utopia-task-surface-integration.md",
+    "translation": "mission-book/finished/completed-2026-10-01/engineering-manager/zh-CN/EM-013-utopia-task-surface-integration.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-001-core-contracts-action-vocabulary.md",
+    "translation": "mission-book/finished/completed-2026-10-01/general-ai-gateway/zh-CN/GAI-001-core-contracts-action-vocabulary.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-002-provider-model-account-registry.md",
+    "translation": "mission-book/finished/completed-2026-10-01/general-ai-gateway/zh-CN/GAI-002-provider-model-account-registry.md",
+    "blocks": 0,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/ASSESSMENT_REPORT_TEMPLATE.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/zh-CN/ASSESSMENT_REPORT_TEMPLATE.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/DEVELOPMENT_CI_RECOVERY_2026-10-01.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/zh-CN/DEVELOPMENT_CI_RECOVERY_2026-10-01.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/LEGACY-BRANCH-AUDIT-2026-09-30.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/zh-CN/LEGACY-BRANCH-AUDIT-2026-09-30.md",
+    "blocks": 7,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/MIGRATION_REPORT_TEMPLATE.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/zh-CN/MIGRATION_REPORT_TEMPLATE.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/VERIFICATION_REPORT_TEMPLATE.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/zh-CN/VERIFICATION_REPORT_TEMPLATE.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-001/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-001/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-001/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-001/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-002/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-002/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-003/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-003/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-004/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-004/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-005/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-005/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-005/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-005/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-006/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-006/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-007/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-007/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-009/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/BA-009/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-002/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-002/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 4,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-003/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-003/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-004/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-004/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-005/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-005/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-005/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-005/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-006/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-006/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-006/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-006/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-007/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-007/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-012/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/EM-012/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-002/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-002/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-003/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-003/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 5,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-003/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-003/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-004/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-004/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-005/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-005/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-005/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-005/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-006/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-006/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-007/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-007/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-008/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-008/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-008/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/GAI-008/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-003/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-003/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-004/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-004/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 3,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-004/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-004/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-005/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-005/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-006/CORRECTION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-006/zh-CN/CORRECTION_REPORT.md",
+    "blocks": 6,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-007/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-007/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-010/DEVELOPMENT_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/RF-010/zh-CN/DEVELOPMENT_REPORT.md",
+    "blocks": 2,
+    "missing_literal_blocks": []
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/UPT-PRE-ASSISTANT/VERIFICATION_REPORT.md",
+    "translation": "mission-book/finished/completed-2026-10-01/reports/UPT-PRE-ASSISTANT/zh-CN/VERIFICATION_REPORT.md",
+    "blocks": 1,
+    "missing_literal_blocks": []
+  }
+]

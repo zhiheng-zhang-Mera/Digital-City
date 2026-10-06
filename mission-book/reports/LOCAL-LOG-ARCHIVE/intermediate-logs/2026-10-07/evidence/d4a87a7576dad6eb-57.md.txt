@@ -1,0 +1,63 @@
+# GAI-009 修正报告——Utopia Ask/Do 与 Action 界面的 General AI
+
+{{CODE0}}
+
+## 1. 托管CI
+
+{{CODE1}}
+
+开发运行即工作簿原BLOCKED_GITHUB_ACCOUNT_BILLING，Owner清计费后成功，才可Correction，见历史DEVELOPMENT_CI_RECOVERY引用。第二／三轮发现更多过度主张所以三次推；被取代heads各绿，只有最终head是本结果。
+
+## 2. 独立方法
+
+git archive冻结 `D:\A-Utopia\.runtime\evidence\mission-book\GAI-009\frozen-8dfdf9e\`，每blob hash-object与rev-parse HEAD:path一致后审。独立对抗审查者仅冻结，先工作簿，重点假成功／假共享：标题承诺“仅终态接受成功”“Action事实共享”。13探针probe-01..13*.mjs、ALL-PROBES-OUTPUT、FINDINGS，实质缺陷、高置信。自首轮复现执行／来源／时刻，独立不重叠驱二三轮；作者编码项列边界。
+
+## 3. 13机制修复
+
+共同类别1自有键／原型、2opt-in／字面、3调用者限制、4权限主体、5拒前变更、6时刻、7验证未读、8硬编码、9递归克隆、10丢重读、11可变幂等、12访问器TOCTOU、13审计执行者、14无数据主张。
+
+| # | 机制 | 类别 | 修复 | 回归 |
+|---|---|---|---|---|
+| 1 | 无执行端口或抛错仍API admitted executed:true | 8 | 实际配置运行端口才true，缺／崩溃BACKEND_NOT_READY/executed:false | 有 |
+| 2 | 提案confirmed:false却报执行，同意未支撑确认 | 10、14 | 准入同意确认应用，confirmed_by_consent_ref/applied_at | 同测试 |
+| 3 | 已确认执行设备静默改交互设备 | 10、4 | execution_device_ref/executed_on_device_ref保确认设备，UI当前 | 同测试 |
+| 4 | 终态重写、取消恢复，晚结果FAILED/CANCELLED转成功 | 14、5 | 首终态Action事实，ACTION_TRUTH_IS_SHARED，终态不RESUME | 有 |
+| 5 | 枚举键扫描漏不可枚举／symbol秘密，类实例来源接受 | 1 | 全自有／symbol、循环安全，来源仅普通记录 | 有 |
+| 6 | 未验政策／时钟／冻结器，web_first:'yes'、形状时刻、不可克隆入存、路由崩溃原样 | 3、6、9、8 | 政策布尔/键/列表/policy_ref，真实ISO往返共atFrom，循环安全，全端口崩溃类型化拒 | 有 |
+| 7 | 取消非吸收，可设备提案／确认、API提案、注意、API执行继续甚至取消后跑API | 5、4 | requireLiveAction保护全部推进接口拒终态 | 有两测试 |
+| 8 | 批准API提案未消费，二次准入执行 | 11 | 单次，第二ACTION_TRUTH_IS_SHARED且无准入／执行调用 | 有 |
+| 9 | 共享attention空／拒仍from_shared_state:true/gai_only_store:false，读取答前改Action | 8、5、9 | 普通答复非projected:false，崩溃类型拒，接受后才改，主张跟答复 | 有 |
+| 10 | 共享注意未解但RESUME RUNNING后可成功，守卫只看状态名 | 8、2 | attention账非空拒，backend_attention_required，符合自身文档 | 有 |
+| 11 | deterministic_first/web_first验证报告却不读，默认Web硬true | 7、8 | false跳local matcher进入GAI，web_first_default_path从政策推 | 有 |
+| 12 | ASK_ACCEPTED/CONTROL_*历史无执行设备，审计不知谁 | 13 | 两事件族记设备 | 有 |
+| 13 | 二轮重审发现确认没guard，能RUNNING移设备复活终态 | 5 | confirmation同终态guard | 有取消确认测试 |
+
+## 4. 本地汇总
+
+{{CODE2}}
+
+作者7项原样全过。证据根 `D:\A-Utopia\.runtime\evidence\mission-book\GAI-009\`含frozen、pre-fix-baseline 7/11、gate-root/rooms/city/promotion/bilingual.log、ci-watch-4e65e26.txt；锚点脚本patch-ask-do-facade.mjs、-2、fix-regressions/import/plain-provenance；revert-ref-sequence；regressions.block、regressions2、regressions3；独立13探针、FINDINGS与合并输出。
+
+## 5. 边界（有意不修）
+
+| 边界 | 理由 |
+|---|---|
+| 各facade生成action:gai:n/history:gai:n会碰撞 | 作者:91固定形状，:301故意另facade的second.action_ref经本facade解析并期望冻结Action而非UNKNOWN。模块序列修17/18过但破:301，revert-ref-sequence撤回。真实发现交集成Owner，同进程两facade同规范引用。 |
+| confirmDeviceSwitch无acting device，审查5 | 作者:133确认无by_device_ref。存在执行者的ask/control记，确认契约无actor，不发明。 |
+| budget_shown_before_execution:true字面，审查6 | 作者:157及提案承诺显示，缺checkBudget裁决null仍旗标承诺；条件化变编码契约，记为作者契约过度主张非本修。 |
+| SECRET_KEY_SHAPE漏authorization/cookie，审查3 | 作者只access_token，扩词汇归共享Core安全政策header名单，记录Owner。 |
+| advanced可终态后来源 | 来源是发生记录provider/model/backend ID非状态／结果，首结果不变；作者:108/:357事后记录，推进拒，事后证据不拒。 |
+| partial_refs/history/journal无界 | 未定保留，访问冻结副本、日志诊断，新保留接口非修。 |
+| DETERMINISTIC_MUST_STAY_LOCAL/BUDGET_MUST_PRECEDE_EXECUTION不抛，UNAVAILABLE/UNKNOWN不可达 | 覆盖证据非行为；原ACTION_TRUTH_IS_SHARED现#4/#8抛。 |
+| 准入／执行／路由／attention端口Core拥有 | 本不拥有不能验证，只查普通答／崩溃类型化；无答不称规范状态#9。 |
+
+## 6. 审查完整性
+
+审查者称冻结测试启动后变，这是预期：Correction追加回归产修前基线。评判模块各探针哈希验证稳定。其超集13测试运行同7过基线，全部十一回归后本7过11败。
+
+## 7. 披露
+
+- 三轮：首六自探针；第二六独立不重叠（取消、可重API、假共享、未解注意成功、装饰政策、无actor历史）；第三一重读自己guard同类孔。
+- 自错记录：二轮回归期望WAITING_CONFIRMATION拒detail，新attentionguard先执行；调整模块保作者原拒路，新guard罩RESUME案例。ref序列破:301撤，不削作者断言。
+- 两脚本TERMINAL_STATES/helper及时刻点数量锚错写前中止，修计数重跑。所有回归用字节保留append-regressions，因本会话之前两次PowerShell文本往返曾损套件。
+- 计费拒非代码失败；每实际启动运行真实步骤，最终head两job真实成功。

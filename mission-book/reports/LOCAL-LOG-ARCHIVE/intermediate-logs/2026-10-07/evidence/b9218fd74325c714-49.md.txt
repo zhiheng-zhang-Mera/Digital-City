@@ -1,0 +1,94 @@
+# BA-008 开发报告——具身事件总线、执行租约与重连安全
+
+{{CODE0}}
+
+## 1. 交付物
+
+contracts/assistant-embodiment-bus-v1/包含embodiment-bus.mjs：规范事件信封、版本／过期／撤销／重新分配的独占租约、受保护副作用提交、断连协调、受众感知输出；另index.mjs、7测试、根tests/assistant-embodiment-bus.test.mjs。
+
+| 验收要求 | 测试与证明 |
+|---|---|
+| 两设备矛盾命令不能执行两不兼容独占副作用 | `contradictory commands from two devices cannot produce two exclusive side effects`，EXCLUSIVE_LEASE_HELD命名持有人，输者不可提交，valid_exclusive_leases:1 |
+| 同独占范围至多一有效执行租约 | 同测试及过期／重新分配后validExclusiveLeaseCount断言 |
+| 相同幂等／动作key重试重放不重复外部副作用 | `retries and replays with the same action key never duplicate the external side effect`，二次executed:false/duplicate:true，日志仅一SIDE_EFFECT_COMMITTED，设备命令重放吸收，同命令异key拒绝 |
+| 过期／撤销／再分配权威且事件／任务可观测 | `lease expiry, revocation and reassignment are authoritative and observable`，EXPIRED停止权限／范围阻塞，REVOKED为LEASE事件且幂等，再分配版本检查替代 |
+| 断连／重启后陈旧本地不能未经重验恢复副作用 | `after a disconnect nothing resumes on a stale local lease`，挂起，commit/publish/claim REVALIDATION_REQUIRED，协调重验或撤销、丢陈旧意图、stale_local_work_resumed:false |
+| 输出尊重可用、前台绑定、受众／隐私、任务因果 | `output routing respects availability, foreground and privacy without broadcasting` |
+| Assistant/device/audience/task/causal/action规范相关，RF信封非规范 | `embodiment events are the canonical Assistant model and transport stays non-canonical` |
+| 冲突命令按权威任务序列／版本而非本地计划 | retries测试STALE_EVENT携authoritative_task_version，noteAuthoritativeTaskVersion只前进 |
+| 陈旧重放拒绝或幂等 | 同测试 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 原因）
+
+**D1——任务。** 新扫描无本机修复、Mech无合资格Correction；Alien持BA-004/005/006、EM-004/005/008/009、GAI-003/004/005/006、RF-004/005/006。前GAI-006排General AI，选BA-008：接BA-006执行租约层，RF-009重连与GAI-007远端执行须依本契约协调。
+
+**D2——任务事实。** 总线不推断版本，由任务图拥有的noteAuthoritativeTaskVersion注入，每事件／租约携编写版本，旧版STALE_EVENT。工作簿要求针对权威状态非实时本地计划；外部提供事实使其结构化，注入自身拒倒退，困惑调用者不能回卷权限。
+
+**D3——一租约模型还是两。** 各动作范围单独占租约，不论设备；lease_version跨续期／再分配递增，明确ACTIVE/SUSPENDED/REVOKED/EXPIRED/SUPERSEDED。验收至多一，排双设备同时独占，范围键单租约构造上防止，直接测计数非仅信拒绝。
+
+**D4——再分配（套件发现缺陷）。** 初版释放前acquireLease后继，对待转移自身租约EXCLUSIVE_LEASE_HELD，转权限操作死锁。现先supersede再获取，抛错恢复旧状态，失败不部分完成。
+
+**D5——续期（套件发现缺陷）。** expires_at=now()+ttl，时钟早于获取会静默缩短。现早于acquired_at则INVALID_LEASE，不悄悄修时钟。明确较小ttl续期可以合法缩短，是调用者选择，测试新窗口不假定增长。
+
+**D6——协调须撤销（套件发现）。** 初版仅使权威缺失ACTIVE失效，断连挂起且权威已不列者永远挂起、后协调可再激活。现任何未列或不同任务版本REVOKED，分别REVOKE_ON_RECONCILE／REVOKE_ON_VERSION_MISMATCH；挂起仅仍列、版本匹配、未过期才重验。
+
+**D7——重连可恢复什么。** 仅本次协调重验租约意图或只读意图；副作用意图旧版／未重验则类型化丢弃，始终stale_local_work_resumed:false，有丢弃ready_to_resume:false。按工作簿取权威、失效／重验、协调本地后才能恢复；负面数据使可测，调用者不能当形式。
+
+**D8——事件是副作用吗。** 不，publish与commitSideEffect分开，只有后者external_side_effect:true，受持有人与action key保护。事件接受不等于外部动作，混淆隐藏重复；测试事件false且单提交日志。
+
+**D9——路由隐私。** 受众成员门禁，先查可用，前台仅获准设备间偏好，去重、绝不广播broadcast:false。初套件期望受众外前台收共享响应，模块隐私安全地扣留；修期望，另受众内案例证FOREGROUND。私响应仅受众内，拒绝区分PRIVACY_WITHHELD/NOT_IN_AUDIENCE。
+
+**D10——传输中立。** 事件可transport_ref，每项transport_envelope_is_canonical:false、canonical_state_source:ASSISTANT_EMBODIMENT_BUS。无传输所有权、无导入，Assistant领域语义总线，跨设备交RF。
+
+**D11——无schema.json。** 与其他组件一致。
+
+## 3. 精确文件
+
+| 文件 | 变更 |
+|---|---|
+| contracts/assistant-embodiment-bus-v1/embodiment-bus.mjs | 新事件、租约、副作用、断连／协调、路由 |
+| contracts/assistant-embodiment-bus-v1/index.mjs | 新公开接口 |
+| contracts/assistant-embodiment-bus-v1/tests/conformance.test.mjs | 新7测试 |
+| tests/assistant-embodiment-bus.test.mjs | 新根入口，101→108 |
+
+无City/Core、清单、文档变更，合并增量。
+
+## 4. 测试汇总、失败与修复
+
+7项首次六失败，三真模块缺陷、三期望修正。
+
+1. 再分配对自身EXCLUSIVE_LEASE_HELD，先释放且失败回滚，D4。
+2. 早于获取时钟续期会缩短，类型化拒绝，D5。
+3. 权威不列挂起租约困中间态，未列／异版本全部撤销，D6。
+4. 续期测试较小ttl却期望更晚，新窗口权威，改断言实际，D5。
+5. 本该成功publish却用failure包，修正并另断言接受当前版。
+6. 受众外前台期望共享响应，模块正确隐私扣留；修期望并加受众内FOREGROUND，D9。另acquire(bus,{action_scope})从共用辅助继承action key，ACTION_KEY_REQUIRED案例须明确action_key:null才真测缺失。
+
+## 5. 本地检查与CI
+
+| 检查 | 原报告结果 |
+|---|---|
+| node --test tests/*.test.mjs | 108项全过0失败，101＋7 |
+| node --test apps/rooms/tests/*.test.mjs | 69过0失败 |
+| node city/test-all.mjs | 1801过0失败 |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4验证10记录 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIR_STATUS=SYNCHRONIZED |
+| f06cf316c87e710bf65092dbc96d76497eae3a79 的CI 36741617086 | success |
+
+## 6. 同级集成接口
+
+- BA-006权威任务图：拥有任务事实与租约记录，总线拥有动作范围执行权限；合并lease_ref/lease_epoch与lease_ref/lease_version成为同概念，executor_ref映holder_ref/device_ref；noteAuthoritativeTaskVersion注其版本。
+- BA-003绑定／BA-007交互：source_device_ref、audience、前台偏好为总线绑定视图，持久绑定归BA-003。
+- BA-004交接：变逻辑所有权非执行权限，不静默转／重启租约；本总线应证明执行者继续。
+- GAI-007／EM-007远端：独占远端副作用走acquireLease＋commitSideEffect，防双设备动作。
+- RF-009在线／重连：onDisconnect＋reconcile是协调部分，RF给可达性，总线给权限，双方均不可独自恢复。
+- RF-008流／RPC：部分／结果作为总线事件携transport_ref，RF信封非规范，每事件声明。
+- Owner问题不变：演进动态是否记组件阶段。
+
+## 7. Correction待项
+
+1. 对抗：两设备acquireLease竞态经reassignLease交错；publish无command_ref有action_key（现无幂等记录，确认）；权威task_versions缺租约引用条目（现“无意见”即重验，为最大风险）；同设备不同audience标志候选routeOutput。
+2. 确认D7任何丢弃ready_to_resume:false，D9前台也需受众成员。
+3. 缺版本条目可能应失败关闭REVOKE_ON_MISSING_VERSION而非宽容，明确确认。
+
+{{CODE1}}

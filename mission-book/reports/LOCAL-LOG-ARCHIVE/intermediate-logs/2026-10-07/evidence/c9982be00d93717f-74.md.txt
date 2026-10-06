@@ -1,0 +1,87 @@
+# EM-007 纠正报告 — 远程子工作者执行与自动返回／控制
+
+{{CODE0}}
+
+## 1. 托管 CI
+
+{{CODE1}}
+
+纠正提交在 GitHub 托管运行器实际执行 `V0.2 checks`，本任务运行没有账单拒绝。
+
+## 2. 独立审查方法
+
+开发提交以 `git archive` 导出到 `D:\A-Utopia\.runtime\evidence\mission-book\EM-007\frozen-3bd9f55\`。审查前四个分支 blob 均对 Git 对象验证：
+
+{{CODE2}}
+
+独立对抗审查者先读工作簿、仅审查冻结导出，返回 17 探针及 `probes/FINDINGS.md`，复现 13 机制，结论 MATERIAL_DEFECTS_FOUND，置信度 0.95。自身 `probes-alien/probe-alien-em007.mjs` 独立覆盖 12 机制。两集合按机制合并，以下每项修复都有在开发提交失败的回归。
+
+审查完整性两说明：审查者运行期间发现冻结测试文件变化，自己 12:30 将 Alien 回归追加到 worktree 副本，审查者据此报告当时 node --test 为 20 测试／7 通过／13 失败。冻结模块字节全程未触及，审查者确认哈希不变。冻结导出目录现在刻意带纠正套件，以作为修复前基线。
+
+## 3. 发现并修复的缺陷
+
+16 机制按所破坏不变量分组。“类别”指本项目纠正共享分类：1 自身键／原型，2 可选启用或仅字面保护，3 调用者控制限制，4 权限未绑定主体，5 拒绝前已变更状态，6 时间／边界未验证，7 验证未读，8 硬编码声称，9 递归／克隆失败，10 丢弃／重读字段，11 可变键幂等，12 accessor TOCTOU。
+
+| # | 机制 | 类别 | 修复 | 回归 |
+|---|---|---|---|---|
+| 1 | 调用者任意指定设备可成为返回界面。applyRemoteEvent 原样采用 interactionSurface.interaction_device_ref，状态／注意／结果／制品可送至 device-stranger 或 device:attacker，未查 authorised_device_refs。probe-04／07 还显示无界面任务八通道送至执行器，断言仍 normal_operation_remote_free:true。 | 4 | 界面须来自模块 WeakSet 标记的 resolveInteractionSurface，为同所有者，设备须由界面自身授权；否则 UNAUTHORIZED_INTERACTION_DEVICE／OWNER_CHANGE_FORBIDDEN。 | 有 |
+| 2 | 被拒重放仍移动交付目标。过期／重复拒绝前已赋 job.interaction_device_ref，后续返回位置改变。 | 5 | 先准入验证，仅实际应用事件才采用界面；下个应用事件携带移动。 | 有 |
+| 3 | 其他所有者设备被解析为本所有者界面，未对比设备 owner_ref。 | 4 | 设备按所有者划界，可不声明，但不得声明另一所有者。 | 有 |
+| 4 | 桥自身从不拒重复派发；DUPLICATE_EXECUTION 仅存在 port double。其他合规 port 第二派发替换活记录、last_sequence 归零并重新应用事件。审查 probe-02、自身 P5 宽松 port 均复现。 | 2、8 | 已知任务第二派发在任何 port 调用前拒绝，保留活账本和序列空间。 | 有 |
+| 5 | 执行端明确拒绝被报告成功。丢弃 port.dispatch／control 答案，即使 accepted:false、EXECUTOR_GONE 也返回 applied:true 并记录 control_applied。 | 8 | dispatched:false／accepted:false 变有类型拒绝：派发 DUPLICATE_EXECUTION、控制 CONTROL_ALREADY_APPLIED，不记应用。 | 有 |
+| 6 | 物理动作阻断什么也没阻断：无任务状态变化、status 不展示、PHYSICAL_ACTION_CANNOT_SUCCEED 不抛，后来 RESULT SUCCEEDED 仍成功，正是禁止的虚构成功。 | 8（含 7） | 阻断设可观测 blocking_state，经 status 展示，阻断时 RESULT SUCCEEDED 被以 PHYSICAL_ACTION_CANNOT_SUCCEED 拒绝。 | 有 |
+| 7 | 注意回复从未到原工作者。RESPOND 裸转发 port.control，无 attentionId／response 参数，缺 attentionId 也应用。 | 7、8 | applyControl 接受两字段，经原先死方法 port.respond 交付，拒绝畸形回复。 | 有 |
+| 8 | 缺 commandId 吞掉后续所有命令。首次无键存 undefined，后续无 ID PAUSE／CANCEL 均 applied:false、idempotent:true，不到执行器。 | 2、11 | 控制必须非空 commandId，否则不能区分不同命令与重试。 | 有 |
+| 9 | 不可传载荷消耗序列并丢事件。structuredClone 抛无类型 DataCloneError 前已推进 last_sequence，无账本／返回，同序重发 STALE_EVENT。 | 5、9 | 任何序列／账本变化前克隆载荷，失败 INVALID_ENVELOPE。 | 有 |
+| 10 | 上下文暂存宣称却未落实边界。max_entries:64、每项 bounded:true 硬编码，200 项（审查 1000）也可；cleanup 未验证，接受 FOREVER。 | 8、3 | 数量受公布常量限制，清理策略必须已知。 | 有 |
+| 11 | 执行器引用与能力列表未验证。缺 executionDeviceRef 可匹配无设备主机，未定义执行器也派发；字符串 required_capabilities 到 port 以无类型 TypeError 崩溃。 | 6、9 | 两者预先验证，INVALID_REQUEST。 | 有 |
+| 12 | 时间点未验证，isIsoInstant 仅形状，2026-13-45T99:99:99Z true（Date.parse NaN），且无调用者；at 原样记录 not-an-instant、数字、倒退时间。 | 6、7 | 导出辅助函数要求有限解析，每记录时间需分量往返；null 仍表示未提供时间。 | 有 |
+| 13 | 批准门读取提案原型。isPlainObject 接受任何非数组对象，Object.create({status:'APPROVED', job_ref, owner_ref})、类实例无需自身批准即可派发，违反先批准后远程派发。 | 1、12 | 规范记录必须普通对象，原型 Object.prototype 或 null。 | 有 |
+| 14 | 所有者变更保护为可选启用。proposal.owner_ref !== undefined && … 使未指定所有者跳过，仍 owner_preserved:true。 | 2 | fallback proposal 必须指定批准所针对所有者，且为任务所有者。 | 有 |
+| 15 | assertNoRemoteHostInteraction 比较可变当前界面，合法运行中移动后倒推早期 ATTENTION 为远程；送至 null 却算正常远程无交互。 | 8 | 断言绑定执行主机与真实交付目标；注意必须送至某处且非执行器。 | 有 |
+| 16 | Accessor TOCTOU：event.origin_device_ref／channel／sequence、设备 device_ref、暂存 digest／cleanup 验证后重读，getter 可先合法执行器后投影外来设备／未知通道。 | 12 | 各字段只读一次到局部／快照，验证值就是使用值。 | 有 |
+
+## 4. 审查发现映射
+
+| 审查 | 处置 |
+|---|---|
+| D1 未查界面，断言比较自己覆盖字段 | 修复 #1、#15。 |
+| D2 重复派发仅 port double | 修复 #4。 |
+| D3 可选所有者保护／硬编码 owner_preserved:true | 修复 #14、#3；该 true 仍为构造事实，job.owner_ref 只记录一次且无重赋路径，不是未检查字段的声称。 |
+| D4 过期拒绝前写界面 | 修复 #2。 |
+| D5 丢弃 port 答案 | 修复 #5。 |
+| D6 硬编码 max_entries／bounded | 修复 #10。 |
+| D7 isIsoInstant 不用且仅形状，at 原样 | 修复 #12。 |
+| D8 RESPOND 不到 respond | 修复 #7。 |
+| D9 原型批准／信封重读 | 修复 #13、#16。 |
+| D10 commandId 未验证 | 修复 #8。 |
+| D11 物理阻断无作用 | 修复 #6。 |
+| D12 声明六 port 方法仅引用三 | 边界，§5。 |
+| D13 accessor 字段（SUSPECTED） | 修复 #16。 |
+| DUPLICATE_EVENT 不可达 | 覆盖问题，§5。 |
+| conformance.test.mjs:122 stale_or_duplicate === 2 | 覆盖问题，§5。 |
+| conformance.test.mjs:139-142 commandId 幂等却不强制键 | 修复 #8，不违作者断言，作者始终给键。 |
+
+## 5. 有意边界（未静默修复）
+
+| 边界 | 理由 |
+|---|---|
+| 声明六 port 方法中原只引用三，subscribe／collectArtifacts 仍不用；respond 已 #7 使用，listEligibleRemoteHosts／dispatch／control 一直使用。 | 摄入由调用者通过 applyRemoteEvent 驱动，使纯模块九通道可测试。连接订阅泵会发明工作簿未分配给桥的调度器／摄入循环，增加产品界面而非修缺陷。运行协调者驱动 port，桥拥有规范投影。 |
+| 界面必须来自 resolveInteractionSurface，手工或重新序列化对象 UNAUTHORIZED_INTERACTION_DEVICE。 | 已记录判断：拒绝普通对象对派发时授权列表检查的替代方案，因为不能区分真实授权与调用者声称；工作簿必需的运行中移动本来来自 resolver。代价是跨进程／JSON 边界后需重新解析，这是调用者契约收紧，不是用户行为损失。 |
+| proposal.owner_ref 现在必需（#14）。 | 作者 helper conformance.test.mjs:30 始终提供，无断言矛盾。继续可选并把缺失当无变更会留下无法对任务所有者检查的批准，正违反首条验收门。 |
+| DUPLICATE_EVENT 分支不可达：sequence <= last_sequence 已 STALE_EVENT，ledger.some(sequence && channel) 无法触发重复。 | 审查者证伪自身重复应用假设，报告为覆盖。删除改变发出原因词汇，保留惰性；可达重复风险是二次派发重开序列，已 #4 修复。 |
+| status().stale_or_duplicate 统计 result 无决定读取的账本行，作者 :122 编码。 | 统计确实由 result 派生，字段被聚合读取而非策略输入，作者断言该聚合，保留。 |
+| 设备身份、信任、传输、在线状态仍属于 port。 | 工作簿排除独立节点信任／传输／presence／物理身份；port 契约 owns_node_trust／owns_transport／owns_device_identity:false。 |
+
+## 6. 本地测试总结
+
+{{CODE3}}
+
+作者 7 测试不变且全通过。`D:\A-Utopia\.runtime\evidence\mission-book\EM-007\` 中证据：字节验证导出 frozen-3bd9f55/，纠正套件对开发提交的 prefix-test.log，gate-EM-007.log，独立审查 probes/FINDINGS.md、17 探针、RUN-LOG.md，以及 Alien 自身可达性探针 probes-alien/probe-alien-em007.mjs。
+
+## 7. 披露
+
+- 首次全门 root-tests／city-test-all 失败，因为新纠正 worktree 未安装依赖，city 提示 `YAML_PARSER_UNAVAILABLE: Cannot find package 'yaml'`。与同级纠正一致，在根和 city/ 执行 pnpm install --frozen-lockfile 后五门均退出 0。记录为环境接缝而非代码结果，本地检查永不替代托管 CI。
+- 自身一个断言错误，在测试而非模块修正：最初断言 isIsoInstant('2026-02-30T00:00:00Z') 为 false。导出 helper 为形状加可解析，日历往返在决定级验证器，故将断言移至实际拒绝的记录路径。
+- 自身回归发现 12 机制，独立审查 13，11 重合，额外为拒绝前写界面和 accessor 重读，以及 DUPLICATE_EVENT 覆盖问题。审查还报告 §5 两项作者编码契约，刻意未作为 bug“修复”。
+- 没有把账单拒绝记为代码失败，每个已启动托管运行均执行真实步骤。

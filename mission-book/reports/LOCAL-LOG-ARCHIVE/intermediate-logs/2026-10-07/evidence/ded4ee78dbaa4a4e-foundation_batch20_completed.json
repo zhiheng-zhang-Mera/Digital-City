@@ -1,0 +1,611 @@
+[
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\DEVELOPMENT_CI_RECOVERY_2026-10-01.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\zh-CN\\DEVELOPMENT_CI_RECOVERY_2026-10-01.md",
+    "original_sha256": "46e011210506b5afb35a4df60f1fa76fd090e8180b9d60aa896dd4d78e54a957",
+    "original_bytes": 5583,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-004\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-004\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "1b975cfaac5208e5a80199e4008f19391bb2a49dcd5724661f7d4c78c898ebbc",
+    "original_bytes": 7801,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\LEGACY-BRANCH-AUDIT-2026-09-30.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\zh-CN\\LEGACY-BRANCH-AUDIT-2026-09-30.md",
+    "original_sha256": "d4035792a29d8e29418b48a872639d9771c61b8a36c60aa25a6ecc90fd6a38fe",
+    "original_bytes": 7843,
+    "exact_code_blocks": 7
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-006\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-006\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "ed4aa0756a502da68b71771162b414c94b9319f07baab991f16478a477ce1dab",
+    "original_bytes": 9188,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-004\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-004\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "c073eb725b9a2d2b76843b1740d56cfc8d64dafb334779dfd9d5e2e3ef24b245",
+    "original_bytes": 9454,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-006\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-006\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "6197a68602d0ff1b73bd0f0da5da28ce6c4844500345ff745c36213da0cc2705",
+    "original_bytes": 9647,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-007\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-007\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "855f617bd3eb45269f97babb29509b332f7ebb8bd788c22d8961459c8d07658c",
+    "original_bytes": 9706,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-004\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-004\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "72b39ff475230d827ef55fa62ec61c12e518918a446ec543c8cd3ca1d105a299",
+    "original_bytes": 9784,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-003\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-003\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "abd39f2691e8528440b016e58dfa15dd585f3789a418a69daf06dee46147e774",
+    "original_bytes": 9796,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-005\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-005\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "a47d78093dac268e69a0a2e6f43f3ef68c0441431130eb8ed207486ee4a449d0",
+    "original_bytes": 9816,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-007\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-007\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "a04ba2ace10fdb7f2eb18952e45a76d2c0fea5d1a9462b68539a04643b2cbd86",
+    "original_bytes": 9943,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-008\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-008\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "5259dfc7e0b6aef41fe851dfff2b8d5a28857b623246325b0abcfaf635b33bd5",
+    "original_bytes": 10120,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-004\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-004\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "5eca4b77fed828151825587e22c33905dfe07744de24b88811164389046e577f",
+    "original_bytes": 10434,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-003\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-003\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "45b9988cdf91fd9494512fa3b0e3923a0f5cf6c81893bbe097725cbe0a45a554",
+    "original_bytes": 10504,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-005\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-005\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "272352464a677659e16b13816520d3072850cba6cbb27fa9eda4fa9689f29f46",
+    "original_bytes": 10544,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\UPT-PRE-ASSISTANT\\VERIFICATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\UPT-PRE-ASSISTANT\\zh-CN\\VERIFICATION_REPORT.md",
+    "original_sha256": "34c18af9e67305690ba4cdf47b21e2abf3ade38af01db7b2baa52354c82ed133",
+    "original_bytes": 10845,
+    "exact_code_blocks": 1
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-006\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-006\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "934d14e0a4422c3dcd9b1091442f11fef3077b594ceac833300f142df75000c3",
+    "original_bytes": 10850,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-006\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-006\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "8daa8ecf900bba4b38b68ab9b668e59fc3b204952ab0848f9b31cbf4b501dcdc",
+    "original_bytes": 11179,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-005\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-005\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "4c01fb7908ef3a0254128c4a5aba92f90560cd3e2d5a88b06f73998387226e9c",
+    "original_bytes": 11203,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-003\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-003\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "31af4c7f068b509fdcbf727936200d2efbb28304c2977847ff2aab392d42a666",
+    "original_bytes": 11308,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-002\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-002\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "e7ab639f89ec3328004d1a74e64a588c63ba95f1883e4582a64f0585f2e6209b",
+    "original_bytes": 11356,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-006\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-006\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "4f8d75260d82d5f57156bccf73b467832be3924a60ae8d97f8aeaa7a2c85a693",
+    "original_bytes": 11938,
+    "exact_code_blocks": 6
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-004\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-004\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "2b9d58968bc80295ed31fc5732926c11d23819cc896105ceff665162deb7ae4f",
+    "original_bytes": 12411,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-009\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-009\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "f556909d7c3e4886c2b1a2bc562a81f0c5923cf590f8fa9de7f53c3e3561ea92",
+    "original_bytes": 12596,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-007\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-007\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "492d0d0493c52993e48013c1d6204c4d8c5a49b28f7c48743a139ce00bbe61a7",
+    "original_bytes": 12621,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-001\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-001\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "c25cc7f9f4808867f7c089301979cddc41d613ea414bba3adffa71ee769df81d",
+    "original_bytes": 12853,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-007\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-007\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "0cd85167de4a003edfff94670eab93657e546f9aa04ba3af636c33d5d3a46062",
+    "original_bytes": 13018,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-002\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-002\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "5d8b0995a23cbe37472c2ca9cb6a5e79b2e6ba79983681876f32ca173a885e2f",
+    "original_bytes": 13138,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-005\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-005\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "5c29c0d023f3b82350458545a0e31e92eb77791ad7dd9614c5a62816403bd4a7",
+    "original_bytes": 13337,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-008\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-008\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "f382e35e7e4358c12db4a717bb6b1e855d8f9291cd34309f22d853de052c9905",
+    "original_bytes": 13365,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-001\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-001\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "d1a9e5a686407cd6257898bd030f0a99e059e8f1f0b93778bd4bb73b9c2f27cc",
+    "original_bytes": 13424,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-010\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-010\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "ef43cfc420d35de58f1087970561c56709c1246c73409563b1c404f5153f6433",
+    "original_bytes": 13493,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-003\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-003\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "321a8cf5edef8e80f7715ab499384de12d17bd5271a129c567503544887d6632",
+    "original_bytes": 13499,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-012\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-012\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "99dd3f01698c70eb904006bd53b4456dae4244342f59ce2869fb1a4b2bf3843b",
+    "original_bytes": 13502,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-007\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-007\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "262600ba3c48908931a5abe265389b2373b65ca8d939c01ba4e42cce65ab0b18",
+    "original_bytes": 13560,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-001\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-001\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "f22c0a1b796e048d192ce31e77b7186dbf1c10e050e464b1fcac31eb2dc6177a",
+    "original_bytes": 13760,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-008\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-008\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "039710501529829509da346aee485d619094ddc5c40a872a60c7b5333743a4cf",
+    "original_bytes": 13788,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-009\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-009\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "c84a51b79cea9da704da0c6e7b6c6aa10445299c9eaf5581bda4122e6bc51f7a",
+    "original_bytes": 13788,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-012\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-012\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "64125d666a1ba4857f8a1f7659dd2af96c943e68462b4defce42bc5caf87d0bf",
+    "original_bytes": 13816,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-009\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-009\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "dc9a074d2bb1d283c1c42849b4a5ff410e0c7547ebb4fea09975b5738d51c71e",
+    "original_bytes": 13827,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-011\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-011\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "aedf4aaa1e2b309aa46f4f61a38f11be4163df6c29382ea483b811448a0f79b9",
+    "original_bytes": 13862,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-002\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-002\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "76657c29b9df46756dbcd02135a102f139db25cd34b93cb855e7652c87b3b589",
+    "original_bytes": 13876,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-001\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-001\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "ea9efae18cc81d656e3dea8e2d33d67337739f642a8ce3d8f9ac5ba19fb78f06",
+    "original_bytes": 13909,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-009\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-009\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "d5f6b08587b73cc09e62c73444cbc5eb934efbf7e9d611f0cce2799fbe959319",
+    "original_bytes": 14135,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-011\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-011\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "2da26a9c5ad4b1a712335cb2367edcca46beaec0212707a2ccca703345b31089",
+    "original_bytes": 14186,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-006\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-006\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "e8e9a30e3c420ee5689f3003ff844f40bd1d69ccf21b1def4273af50406df27d",
+    "original_bytes": 14312,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-009\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-009\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "15e82db7edd8d64dbcaf6795eed7b657ac7ce76b93b4d35cbbf6e83c1355870c",
+    "original_bytes": 14424,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-005\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-005\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "f4e2aa4b39bf0e86a93e7e1e3cdaf15d2a889814af6cd2ee9a58d60519a81ecc",
+    "original_bytes": 14516,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-008\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-008\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "5fb0f19ba314e79567323087a26e5d4103369e8c9aba3b4d9f3f21f6a64db5d6",
+    "original_bytes": 14532,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-013\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-013\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "4842c9018afb403955aad16e39ef10cfafc36e7ff18c386e61e4407e7f065e9b",
+    "original_bytes": 14604,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-001\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-001\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "3254a54844f62f3cedbef97a88a777d66f72ec8da57c6c43c694383f804cccd9",
+    "original_bytes": 14609,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-008\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-008\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "41d800eb45ada1a465111a7e21af3bc6fe4a9902517bb700914beaeab2ae7eb9",
+    "original_bytes": 14638,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-009\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-009\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "3cc85dd877b75579daeff74b1a6c3a7daeb773454338a1fa26f2c724758ce6e9",
+    "original_bytes": 14693,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-004\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-004\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "3426f1a5b2a131c98d8aec276509739dd39703382938b2502b41d5d46f56ce5e",
+    "original_bytes": 14708,
+    "exact_code_blocks": 6
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-002\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-002\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "b24efa5c62cd942660c2f80377fbfed8842da57a90e9c40d5e89737d54a65fab",
+    "original_bytes": 15001,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-006\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-006\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "e6fbf7bf99b220e2dd0bfab9133523211c5fd6e6c93afe088d57687bdc6e63bd",
+    "original_bytes": 15049,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-009\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-009\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "b7bf4d1a59e514ad170c1228b68b049d0db9c77333c86ffedebefcdd3d016d85",
+    "original_bytes": 15180,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-007\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-007\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "7380d117f839c7006c34fb22d43cd965c941246dde7245a6cd99cbfcaead5944",
+    "original_bytes": 15303,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-002\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-002\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "8740b7c04b8caef0c8e6191bc04ce5750395d193898b42ac06547f48e283ff7d",
+    "original_bytes": 15352,
+    "exact_code_blocks": 6
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-010\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-010\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "40ea0b812fd936de6027c7bc2d92e4df5d235d2f3ef8062a64b74d9b20dae0df",
+    "original_bytes": 15448,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-009\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-009\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "3c8aee20a7b01f7f179f9737ca858e5888f63e8c464d5b8a5e2f398b619c2fa6",
+    "original_bytes": 15584,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-002\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-002\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "0563deed82588a2b910fa25cedfe55d61d1f4c4bde0179e4df5c66f56845a0c7",
+    "original_bytes": 15589,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-010\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-010\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "2b9e51e9a8c8fb7dd54350f4f3a3bd0e21d474a4946bc6a7c65f2d4ea12496e8",
+    "original_bytes": 15618,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-007\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\GAI-007\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "29ade58098d7e574b73bbad96e103134838b11630f57b32e13f78b6ecdf93514",
+    "original_bytes": 15668,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\UPT-PRE-ASSISTANT\\IMPLEMENTATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\UPT-PRE-ASSISTANT\\zh-CN\\IMPLEMENTATION_REPORT.md",
+    "original_sha256": "0b639d4b4e56a96a47e913f36bda2633b33df9c41877efe75339b66dfcb00caa",
+    "original_bytes": 15695,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-008\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-008\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "5a41cbda48d979c01c9e88aa066ddfccb61d94eb374dc93e2d830cf0a239f41c",
+    "original_bytes": 15757,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-008\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-008\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "aa769e2a855e57b7e3c481f1c85512ea9123bbb04942351a05cf38f053c11ba7",
+    "original_bytes": 15834,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-013\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-013\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "48ce497f03e4222f32600f6a3ca505f154deca11cc4b025b308e5e36d0670247",
+    "original_bytes": 15979,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-006\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-006\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "f1ec41e4bcfb1328cb5b9d2c6171a242a313ecc55c85d341c241a78ad49c6daa",
+    "original_bytes": 16061,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-008\\MIGRATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-008\\zh-CN\\MIGRATION_REPORT.md",
+    "original_sha256": "eea6b17181bdef187f8a31d1631dc2486e0a9c192c11417262d1bbd8be23d2db",
+    "original_bytes": 16073,
+    "exact_code_blocks": 1
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-008\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-008\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "e67938d0954ce118eed127d7715233603ad76f113b6bfa8e266e24eb8dd9f960",
+    "original_bytes": 16873,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-002\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-002\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "82b28d47892d0b6b4ea5b8096efe7cbcd7eba5a98314e6d8ed121742c1b3be59",
+    "original_bytes": 16930,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-004\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-004\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "9f4cf9526178be60ecb1231aff65c2e381ba3e02aa8c905ba71145da50c49ca7",
+    "original_bytes": 17036,
+    "exact_code_blocks": 5
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-007\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-007\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "afa7705de3386c245ef059e23c9c293774f301ffb5fa51cf7de586762bc8daa3",
+    "original_bytes": 17055,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-010\\DEVELOPMENT_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\EM-010\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "original_sha256": "7996449d38f6a24c93c994f57aece7d03818896d6b2520364c014470371202ec",
+    "original_bytes": 17375,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-003\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-003\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "0d215b042e3be0aadaa8c061af8cbc0e80a56718fc57322008ba49977b1f319a",
+    "original_bytes": 17473,
+    "exact_code_blocks": 5
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-004\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\BA-004\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "57ee44b26deffa6b0130bd85805d37bfcc10a560983b678779609f9b47bcb07d",
+    "original_bytes": 17643,
+    "exact_code_blocks": 7
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-007\\MIGRATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-007\\zh-CN\\MIGRATION_REPORT.md",
+    "original_sha256": "434228c7c52a5ae053c8ab7bc23312c14ed051e3004c7d6928d2a57bffdfce59",
+    "original_bytes": 17861,
+    "exact_code_blocks": 1
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-009\\MIGRATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-009\\zh-CN\\MIGRATION_REPORT.md",
+    "original_sha256": "b7c1f9eece163727d261d9d7f5530d3c857ee69ead826a0f5fe4f8793362baaf",
+    "original_bytes": 18018,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-006\\VERIFICATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-006\\zh-CN\\VERIFICATION_REPORT.md",
+    "original_sha256": "431614720a149ff5cc677fb7d3bf2186cab5e32339b5a405a35c4b3aa6c9c881",
+    "original_bytes": 18663,
+    "exact_code_blocks": 1
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-002\\VERIFICATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-002\\en\\VERIFICATION_REPORT.md",
+    "original_sha256": "4cde2c0f42ea725d734a42f4598b6c04c2f7d0944fa51023eddf3035faedef10",
+    "original_bytes": 19107,
+    "exact_code_blocks": 1
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-009\\VERIFICATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-009\\en\\VERIFICATION_REPORT.md",
+    "original_sha256": "c9bb9428354884eb8bda3f08ae9c6cc5b4dccb363bed7a2ce655d4ba5c7c67f9",
+    "original_bytes": 19212,
+    "exact_code_blocks": 4
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-001\\CORRECTION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\RF-001\\zh-CN\\CORRECTION_REPORT.md",
+    "original_sha256": "d728b64baba4853cbbaa284ae7514e43d1b7ed5873b72b3836ea1da4e4397d84",
+    "original_bytes": 20103,
+    "exact_code_blocks": 10
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-007\\VERIFICATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-007\\zh-CN\\VERIFICATION_REPORT.md",
+    "original_sha256": "fe44366426a95da89df5b21d4da08726cd1d08bbec7d3f003f6a1560c06e606a",
+    "original_bytes": 21327,
+    "exact_code_blocks": 3
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-005\\MIGRATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-005\\zh-CN\\MIGRATION_REPORT.md",
+    "original_sha256": "9533201ef96fdbb5cd8b3ffbf551ea4449053a63a205a16d0bc795ce99cccf8c",
+    "original_bytes": 21496,
+    "exact_code_blocks": 6
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-004\\MIGRATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-004\\zh-CN\\MIGRATION_REPORT.md",
+    "original_sha256": "1162987de238bc5ef167c8677d184f3d6406509224c5f2aad7127dacd55af991",
+    "original_bytes": 21720,
+    "exact_code_blocks": 2
+  },
+  {
+    "source": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-001\\MIGRATION_REPORT.md",
+    "translation": "D:\\Digital-City-REX-20261006\\mission-book\\finished\\completed-2026-10-01\\reports\\MB-001\\zh-CN\\MIGRATION_REPORT.md",
+    "original_sha256": "c4259e76a35685ab94d520f853593eb56af5cdedec3364e3fbb2705a55910dd7",
+    "original_bytes": 21892,
+    "exact_code_blocks": 1
+  }
+]

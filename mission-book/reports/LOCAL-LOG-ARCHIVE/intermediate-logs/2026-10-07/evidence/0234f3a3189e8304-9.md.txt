@@ -1,0 +1,31 @@
+# GAI-003开发报告：Web通道与持久profile会话
+
+## 1. 交付物
+
+general-ai-web-channel-v1含adapter/deterministic double、状态、session开/观察/取消/关闭/持久恢复guard、真实provider marker、index/8suite/root。验收默认WEB/profile handle非临时窗；允许restart/reopen时会话refs存，handle不resolve AUTH_REQUIRED非新登录；typed state及时重读；raw cookies/storage/token不City；运行partial非final；conversation capture/reopen；真provider或明确defer。
+
+## 2. 决策日志
+
+D1前轮无claim新扫无repair/MechCorrection，原叙述将唯一Alien-developed RF003又称Mech开发Alien修，保持其书写不改事实；选不同于BA005的最慢GAI池2/9且异host未占。D2持久handle由neutral SecureHandleStorePort resolve，不临时window/内存window，open只记ref非值。
+
+D3仅provider/account/profile handle/conversation/state/opened_at，递归persist/restore拒cookies/storage_state/local_storage/tokens/password/credentials/profile_bytes RAW_COOKIE_IN_CITY_STATE，防手工hostile恢复。D4READY/AUTH_REQUIRED/RATE_LIMITED/PAGE_CHANGED/BUSY_GENERATING/DOWN/UNKNOWN七态对应六typed拒，每touch重读不复用stale READY；PAGE_CHANGED需更新adapter不静retry。
+
+D5运行partials/final null，complete后才final且partial_is_final false，避免chat关键false-success。D6restore再resolve handle，成功reopen refs和实state；不resolve restoredfalse AUTH_REQUIRED PROFILE_HANDLE_UNRESOLVED，平台不允需user认证非新session。D7无selector/provider名/mouse，below adapter、reimplements_mouse false、generic CU true。
+
+D8PERFORMED须明确evidence，否则DEFERRED_TO_PROGRAMME_INTEGRATION/fabricatedfalse。host无配置，未真实provider，frontmatter如实defer，组件contract可完但集成必须证明。D9无schema同类。
+
+## 3. 测试汇总
+
+8过：default/handle、六state拒及staleREADY、partial/final/thread/already finished、幂等cancel未知execution/session/坏request、restart refs、unresolved认证、persist/restore guard及constructor、real-provider诚实defer。
+
+## 4. 本地CI
+
+109/109=101+8，promotion10@82ed36933fb4，rooms/city0fail docs同步，CI36729727681@e55da499193b644280fd34eee63749d9c9e9c8a4 success。
+
+## 5. 接缝
+
+GAI001映Request/Result/Partial及provider health；GAI002共neutral handles不值；GAI004 API escalation显user决定，此模块不fallback；GAI005health用于Web readiness；GAI006observe/cancel真stream同partial纪律；GAU/EM是channel非transport、跨device归RF；programme须真provider before GENERAL_AI_GATEWAY_MERGED_MAIN_CI_GREEN。
+
+## 6. 开放项
+
+攻击partial伪final/staleREADY/raw状态/不允restore；确认unresolved AUTH_REQUIRED、PAGE_CHANGED可否自动recover（当前adapter defect）；evolution-feed。dev true、real provider deferred、Alien修资格、禁止到General AI merge不改。

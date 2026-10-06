@@ -1,0 +1,3 @@
+Alien-codex records the verified old-to-new Utopia integration and branch archive index. PR10 and PR11 merged-main checks succeeded. All31 historical heads have remote archive tags;25 included or historical-only branches were conditionally removed only after SHA verification. Remaining6 tool branches await PR12 integration. Original worktrees remain.
+
+The report records actual legacy tool defects, conflict union choices, red/green validation, and the distinction between local technical review and future mission opposite-host Formal Review. It also records that new mission claims have not yet started; latest main and task frontmatter will be checked at claim time.

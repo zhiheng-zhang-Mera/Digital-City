@@ -1,0 +1,35 @@
+# RF-004修正报告：蓝牙引导与IP交接
+
+## 1. 独立评审
+
+评前字节校验frozen-3bcd495三文件match，两review，第十次隔离，原复现重放及paired regression验修。
+
+## 2. 确认缺陷修复
+
+评审11主机7去重10，作者5/5一直过，所有缺陷路径suite未进。C1 critical Set按object identity且不要求text nonce，一ad可多bootstrap/IP handoff；现Set前非空文本。C2 high expires_at缺/不可解析/未来绕拒；现真instant有界window。C3 high default clock null或坏跳expiry；typed拒。C4 high handoff不重验，120秒bootstrap十年后交接；record留expiry并recheck到EXPIRED。C5 medium receive未验IP，5000接受/字符串摊字符a成authenticated地址；现array cap shape。C6 medium继承identity允许，现bare own object。C7 medium mac/ble_name/trusted/__proto__/constructor未知静接，现Reflect.ownKeys allowlist。C8 medium ttl单边/MAX_SAFE_INTEGER无类型RangeError，现ceiling/typed computed instant。C9 medium日期shape不calendar导致crash，现往返。C10 low nonce不记不可审计、handoff echo坏at，现retain及验clock。
+
+核心C1/C2/C4让本应短pointer窗口caller控/未验/坏clock跳/交接不再查，无expiry或远未来ad永久authenticated encrypted IP依据。
+
+## 3. 评审核对
+
+D1 getter nonce object在Set前被text拒。D9/D6/D7/D8对应C10/C6/C5/C7。D10 double advertisements引用改构造copy，其__scans live部分边界。D11两instance都bootstrap1为instance-scoped ref，未知ref拒，非单instance defect但集成需知。阴性：无mutation-before-refusal，拒在nonce/record前且counter不进；RangeError只create非receive。
+
+## 4. 不修边界
+
+__scans test-inspection live array，suite读，冻结改double形无验收价值；MAX_BOOTSTRAP_TTL_MS10分钟是选择，书没ceiling作者默认120s，导出待裁；ref实例计数按已承诺determinism，content-bind会改public；无Android/CU纯module。
+
+## 5. 测试CI
+
+作者5/5不变，扩5→9，阴性配邻（未来拒/窗内受、过期交拒/窗内一次、字符串候选拒/干净保）。root110 rooms69 city1801/7skip、3bcd495 promotion10、同步；CI36743616282在1bd7b13 gateway-web/android success。
+
+## 6. 未指明决定
+
+真expires且距advertised最多10分钟，pointer无界/无窗使replay永久，无clock也执行bound。坏clocktyped拒避免未知当未过期。handoff重验且retain，真正关键瞬时使宣EXPIRED可达。严格allowlist，九sibling未知字段同类，transport扩展不入canonical。nonce保记录，下游不能audit只是半保证。
+
+## 7. 自身错误
+
+首patch无操作anchor不匹配写前中止，安全未触；作者5/5提醒没落修，删no-op再跑，绿test也可能失败patch。probe错/不精确两行：invented candidate handoff误label、expired control先于string候选触，transcript纠正。没找到getter D1和allowlist前D8，nonce被check与可被check不同。
+
+## 8. 结果
+
+十机制修、paired regression/原replay，四边界有理由、两review claims协调，作者suite没削弱。历史COMPLETE/control指针原样，不新验收。

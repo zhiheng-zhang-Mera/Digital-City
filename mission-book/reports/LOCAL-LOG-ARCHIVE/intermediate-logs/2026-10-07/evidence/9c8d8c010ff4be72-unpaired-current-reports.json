@@ -1,0 +1,286 @@
+[
+  {
+    "path": "mission-book/reports/CONTROL_PLANE_DUPLICATE_KEYS_MECH.md",
+    "bytes": 6431
+  },
+  {
+    "path": "mission-book/reports/CONTROL_PLANE_ENCODING_MECH_FOUR_WORKBOOKS_DOUBLE_ENCODED.md",
+    "bytes": 5053
+  },
+  {
+    "path": "mission-book/reports/CONTROL_PLANE_FRONTMATTER_SWEEP_MECH.md",
+    "bytes": 4094
+  },
+  {
+    "path": "mission-book/reports/LAUNCHER_AND_SHAREABLE_INVITE.md",
+    "bytes": 9774
+  },
+  {
+    "path": "mission-book/reports/POOL_RECHECK_Alien_2026-10-06.md",
+    "bytes": 2253
+  },
+  {
+    "path": "mission-book/reports/ZERO_CLAIM_MECH_2026-10-05.md",
+    "bytes": 7472
+  },
+  {
+    "path": "mission-book/reports/CEX-790/MAIN_MERGE_REPORT.md",
+    "bytes": 1384
+  },
+  {
+    "path": "mission-book/reports/CITY-ROLE-20261005/DEVELOPMENT_LOG.md",
+    "bytes": 6060
+  },
+  {
+    "path": "mission-book/reports/CITY-ROLE-20261005/SHORT_CODE_REMOTE_CHECK.md",
+    "bytes": 2180
+  },
+  {
+    "path": "mission-book/reports/HOST-START-MODES/DEVELOPMENT_REPORT.md",
+    "bytes": 30450
+  },
+  {
+    "path": "mission-book/reports/JOIN-501/DEVELOPMENT_REPORT.md",
+    "bytes": 17799
+  },
+  {
+    "path": "mission-book/reports/JOIN-501/REVIEW_REPORT.md",
+    "bytes": 10083
+  },
+  {
+    "path": "mission-book/reports/JOIN-502/DEVELOPMENT_REPORT.md",
+    "bytes": 15735
+  },
+  {
+    "path": "mission-book/reports/JOIN-502/EVIDENCE_LIVE_LAN_ACCEPTANCE.md",
+    "bytes": 5179
+  },
+  {
+    "path": "mission-book/reports/JOIN-502/REVIEW_REPORT.md",
+    "bytes": 7993
+  },
+  {
+    "path": "mission-book/reports/JOIN-503/DEVELOPMENT_REPORT.md",
+    "bytes": 11575
+  },
+  {
+    "path": "mission-book/reports/JOIN-503/RECHECK_REPORT.md",
+    "bytes": 5074
+  },
+  {
+    "path": "mission-book/reports/JOIN-503/REPAIR_D1_D2.md",
+    "bytes": 7018
+  },
+  {
+    "path": "mission-book/reports/JOIN-503/REVIEW_REPORT.md",
+    "bytes": 9467
+  },
+  {
+    "path": "mission-book/reports/JOIN-590/DEVELOPMENT_REPORT.md",
+    "bytes": 34970
+  },
+  {
+    "path": "mission-book/reports/JOIN-590/PAPER_MATERIAL_INDEX.md",
+    "bytes": 11510
+  },
+  {
+    "path": "mission-book/reports/JOIN-590/REPAIR_REPORT_Alien-codex.md",
+    "bytes": 13287
+  },
+  {
+    "path": "mission-book/reports/MESH-301/DEVELOPMENT_REPORT.md",
+    "bytes": 10012
+  },
+  {
+    "path": "mission-book/reports/MESH-301/FREEZE_REVIEW_HEAD.md",
+    "bytes": 3369
+  },
+  {
+    "path": "mission-book/reports/MESH-301/KICKOFF_NAMING_AND_OWNER_INPUTS.md",
+    "bytes": 5984
+  },
+  {
+    "path": "mission-book/reports/MESH-301/POST_COMPLETION_REENTRY.md",
+    "bytes": 6081
+  },
+  {
+    "path": "mission-book/reports/MESH-301/PREREGISTRATION_MECH_FORMAL_REVIEW.md",
+    "bytes": 6853
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_ANDROID_SILENT_STALENESS_FIXED.md",
+    "bytes": 5297
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_GATE12_RECHECK_AT_CURRENT_HEAD.md",
+    "bytes": 2126
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_GATE5_MET_AND_STALENESS_CLASS_CLOSED.md",
+    "bytes": 6373
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_GATE8_FOUR_OBSERVER_TABLE.md",
+    "bytes": 4560
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_GATE8_MET_THREE_SURFACE_TABLE.md",
+    "bytes": 4687
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_GATE8_WINDOW_RUN_AND_TABLE.md",
+    "bytes": 5393
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_CORRECTION_GATE8_DEFERRAL_WITHDRAWN.md",
+    "bytes": 5540
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_ENDPOINT_A_WORKING_AND_BASELINE.md",
+    "bytes": 4460
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_FORMAL_REVIEW_DELIVERED_REPAIR_REQUIRED.md",
+    "bytes": 5589
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_FREEZE_REGISTERED_AND_DR1_RELAY.md",
+    "bytes": 5958
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_GATE8_WINDOW_OPEN.md",
+    "bytes": 4080
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_GATE8_WINDOW_RESULT_AND_EVIDENCE_PUBLISHED.md",
+    "bytes": 10121
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_INDEPENDENT_GATE8_TABLE_REBUILD.md",
+    "bytes": 6423
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_INSTRUMENT_DEFECTS_REPAIRED.md",
+    "bytes": 3927
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_JOINED_AND_ROLE_CONFLICT.md",
+    "bytes": 6762
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_JOINED_AS_MECH_WIN.md",
+    "bytes": 5394
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_OFFLINE_TARGET_CONTROL_AND_SUPERVISOR_V2.md",
+    "bytes": 8986
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_REQUESTER_NOT_IN_CANONICAL_TRUTH.md",
+    "bytes": 6202
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_RESIDENT_CITY_AND_SHORTCUT.md",
+    "bytes": 5039
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_STEP52_MECH_TO_ALIEN_AND_MERGE_SKEW_DEFECT.md",
+    "bytes": 16009
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_THREE_SURFACE_SCENARIO_REBUILD.md",
+    "bytes": 4658
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_WEB_SURFACE_RECEIPT_AND_CLOCK_OFFSET.md",
+    "bytes": 5388
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_WINDOW1_RECEIPT_PUBLISHED_AND_WINDOW2_OBSERVING.md",
+    "bytes": 4776
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_WINDOW2_ROW_AND_OFFSET_DRIFT.md",
+    "bytes": 4012
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_MECH_WIN_JOINED_THE_CANONICAL_CITY.md",
+    "bytes": 5141
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_OWNER_EXTENDED_CREDENTIAL_WINDOW.md",
+    "bytes": 2261
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_OWNER_RULING_ROLE_SETTLED.md",
+    "bytes": 3897
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_STEP2_CITY_UP_AND_ALIEN_WIN_ONLINE.md",
+    "bytes": 9816
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_STEP3_STRICT_TARGET_INTENT.md",
+    "bytes": 9385
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_STEP4_ANDROID_STRICT_TARGETS_AND_SURFACE_IDENTITY.md",
+    "bytes": 7981
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_STEP5_CONVERGENCE_AND_CLOCK_SKEW.md",
+    "bytes": 6589
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_STEP5_CROSS_HOST_STRICT_TARGET_AND_NEGATIVE_CONTROLS.md",
+    "bytes": 8175
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RECORD_STEP5_WEB_STRICT_TARGET_AND_ANDROID_SILENT_STALENESS.md",
+    "bytes": 5658
+  },
+  {
+    "path": "mission-book/reports/MESH-301/REPAIR_DR1_CLIENT_DISCONNECTED.md",
+    "bytes": 6847
+  },
+  {
+    "path": "mission-book/reports/MESH-301/REVIEW_REPORT.md",
+    "bytes": 23280
+  },
+  {
+    "path": "mission-book/reports/MESH-301/RULING_PRESTALE_GAP_ACCEPTED.md",
+    "bytes": 3659
+  },
+  {
+    "path": "mission-book/reports/MESH-301/WINDOW2_GATE8_RERUN.md",
+    "bytes": 2858
+  },
+  {
+    "path": "mission-book/reports/MESH-301/WINDOW_GATE8_THREE_SURFACE_OBSERVATION.md",
+    "bytes": 3622
+  },
+  {
+    "path": "mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md",
+    "bytes": 4439
+  },
+  {
+    "path": "mission-book/reports/PR28-4391-DEPLOYMENT/DEPLOYMENT_RECORD.md",
+    "bytes": 6345
+  },
+  {
+    "path": "mission-book/reports/PR28-4391-DEPLOYMENT/PR28_FIX_VERIFICATION.md",
+    "bytes": 7281
+  },
+  {
+    "path": "mission-book/reports/REX-803/RESIDENT_CITY_RECHECK_Alien.md",
+    "bytes": 7106
+  },
+  {
+    "path": "mission-book/reports/REX-804/ACCEPTED_RECORD_SYNC_Alien.md",
+    "bytes": 1707
+  },
+  {
+    "path": "mission-book/reports/UTOPIA-BRANCH-INTEGRATION-20261004/DECISIONS.md",
+    "bytes": 4966
+  }
+]

@@ -1,0 +1,78 @@
+# EM-010 修正报告——Foreman队列／DAG／资源调度／worker池
+
+{{CODE0}}
+
+## 1. 托管CI
+
+{{CODE1}}
+
+首轮head后来被第4节修正取代。
+
+## 2. 独立方法
+
+git archive导出 `D:\A-Utopia\.runtime\evidence\mission-book\EM-010\frozen-5209b94\`，审前四blob验证Git对象。
+
+{{CODE2}}
+
+独立仅冻结、先工作簿；重点依赖满足、范围单writer、压力不假失败完成工作、单worker同路径、终态／副作用不重、按能力、队列重启存活。19探针、FINDINGS、17实质机制高置信，每探针模块SHA256不变。自并行按机制合并，各修有开发head失败回归。
+
+十二机制重叠，六非重叠列第4节：交接槽泄露、取消不绑定、depends_on静默决定、效果记忆重启丢、不可见饥饿、不可表示声明clone错误。原文数字均保留。审查也佐证正确覆盖第6节，价值与缺陷同等。
+
+## 3. 第一轮——11机制
+
+共同类别1自有键／原型、2opt-in字面、3调用者限制、4权限主体、5拒前变更、6时刻、7验证未读、8硬编码、9递归clone、10丢／重读、11可变幂等、12访问器TOCTOU。
+
+| # | 机制 | 类别 | 修复 | 回归 |
+|---|---|---|---|---|
+| 1 | completeAttempt仅防成功后成功，晚FAILED将成功变失败，晚成功复活FAILED/CANCELLED，假完成失败清单 | 5、10 | 终态TERMINAL_RESULT_IMMUTABLE，原duplicate-result code检查仍先 | 有 |
+| 2 | 已替代attempt仍可完成，未比node.attempt_ref | 4 | 仅当前attempt，INVALID_TRANSITION | 同#1 |
+| 3 | 成功node收到stall/crash变READY且偷活worker槽 | 5、10 | 终态拒信号 | 有 |
+| 4 | schedule重准REASSIGNMENT_EXHAUSTED，dispatch不查预算，可max+1无界 | 3、10 | schedule保blocked，dispatch预算用完拒 | 有 |
+| 5 | RUNNING node可第二dispatch双尝试 | 4、5 | INVALID_TRANSITION | 有 |
+| 6 | 指定worker_ref绕能力／就绪／容量，可未注册却宣按能力 | 2、4、8 | 命名同选出规则 | 有 |
+| 7 | max_concurrent NaN/0/负未验，busy重注册running归0超订 | 3、8 | 正整数，忙者不重注册 | 有 |
+| 8 | 政策max_workers NaN/Infinity、pressure阈NaN/>1、ticks NaN、min>max、attempt NaN，关容量／暂停／迟滞／预算 | 3 | 正整数界顺序、scale ticks、attempt、阈(0,1]、placement、已知键全验证 | 有 |
+| 9 | exclusive_writes:'true'静默非独占，非文本action_key丢去重，scope/capability/job任意、attempt0、Object.keys漏隐藏、非数组对象均可 | 1、2、11 | 全声明类型、自有键、普通node | 有 |
+| 10 | resumeFrom先清queue再迭代，坏项原TypeError后queue丢 | 5、9 | 全snapshot先验证 | 有 |
+| 11 | 自引snapshot冻结爆栈 | 9 | WeakSet | 同#10 |
+
+另时刻：ISO仅形状、clock同弱、at十二处原样；辅助、时钟、全部十二点现真实时刻，回归“uninterpretable instant”。
+
+## 4. 第二轮不重叠
+
+| # | 机制 | 类别 | 修复 | 回归 |
+|---|---|---|---|---|
+| 12 | reassignment旧attempt仍RUNNING不减槽，单池卡；选后继失败前node已变 | 5、8 | 旧REASSIGNED释放槽，先选后继，无后继回滚拒 | 有 |
+| 13 | 取消RUNNING不释放attempt/槽，已取消持不属尝试池少 | 5、10 | INTERRUPTED、释放槽、清worker ref | 有 |
+| 14 | depends_on字符串/Set当[]，依赖未完先READY运行 | 2、10 | 非列表INVALID_GRAPH | 有 |
+| 15 | snapshot省completedEffects、resume不恢，重启外效果再执行 | 10、11 | snapshot效果记忆，resume合并，效果跨graph，清前验证 | 有 |
+| 16 | 无worker可staff依赖就绪从runnable过滤却不blocked，消失、blocked_reasons空 | 8、10 | unstaffable及必要能力 | 有 |
+| 17 | acceptance函数/job_ref symbol clone原DataCloneError，可永久不可读 | 9 | submit全字段类型，类型拒保持可读 | 有 |
+
+## 5. 本地汇总
+
+{{CODE3}}
+
+作者7原样全过。证据根 `D:\A-Utopia\.runtime\evidence\mission-book\EM-010\`含frozen字节验证、prefix-test修正套件对开发、gate-EM-010、patch-foreman与-2锚保护（任何不符写前中止）、独立FINDINGS、19探针与日志。
+
+## 6. 边界
+
+| 边界 | 理由 |
+|---|---|
+| exclusive真却无scope不冲突，scope无exclusive不串行，审#8 | 工作簿同受保护文件／scope，未声明无资源，作者每node opt-in；记录作者开放项。修真值非布尔／非文本scope静默降级；默认独占属工作簿政策。 |
+| max_workers限scheduler非直接dispatch，审#7 | schedule/effectiveWorkers队列界；dispatch是明确单node准入，依赖、终态、预算、冲突、能力、worker容量自身保护，作者编码。 |
+| scope重叠字符串前缀 | kind:path声明，不正规..／case／symlink，不声称；文件系统解析后重叠归执行层。 |
+| scale_down_immediately验证仅回显 | 压力下无条件降，固定声明非输入；验证防真值孔，调用者不应关立即降。 |
+| completed_work_falsely_failed/failed_by_pressure空字面 | #1/#3后构造为真，此前晚失败能破；现机制支撑。 |
+| NO_WORKER_AVAILABLE/ACCEPTANCE_EVIDENCE_REQUIRED不抛，PENDING不用 | 其他代码状态拒，覆盖证据无可达行为后果。 |
+
+## 7. 审查可靠覆盖
+
+DAG未知／自／两三节点循环分别拒；仅启动依赖非完成，FAILED/CANCELLED阻非满足；5000链不爆栈，声明顺序准入。依赖、暂停、写冲突、终态、GRAPH_ALREADY_LOADED拒不变；ACCEPTANCE_NOT_RUN保尝试／槽，证据来才成功；调用者重key action_key拒。十九探针中两无缺陷。
+
+## 8. 披露
+
+- 首轮PowerShell字符串往返改编码UTF8不可读，git checkout --还原原净，整轮锚保护Node重做，各锚恰一、全匹配才写。脚本也两次因时刻点12非11／锚数错干净退出，结果不变，记录不藏。
+- 冻结测试增长：追加Alien回归到worktree副本，冻结镜像用于修前。模块全程hash不变。
+- 自两回归错改测试非模块：resume后completeAttempt（resume刻意丢attempt refs），resume后重载graph（已恢复，须replace:true）。
+- 新Correction门禁根／city pnpm install --frozen-lockfile；计费拒不算代码失败，启动运行皆真实步骤。

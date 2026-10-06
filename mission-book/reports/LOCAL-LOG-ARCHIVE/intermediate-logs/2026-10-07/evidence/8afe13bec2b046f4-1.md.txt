@@ -1,0 +1,29 @@
+# 开发CI恢复记录：剩余五项Engineering/Assistant任务，2026-10-01
+
+主机Alien（Correction），记录GitHub账号billing阻塞已解决的外部接缝，便于审计五任务修正资格。
+
+## 核实事实：读GitHub而非推断
+
+每个记录Development head仍为推送branch tip，原BLOCKED_GITHUB_ACCOUNT_BILLING run后来success，gh run view jobs证实真实执行：BA-007分支assistant/BA-007-settings-interaction-surface，head8fa4686bb7acb2b57a34a00fe517f6ecaad9769f，run36752540378；BA-009 duty-permission-policy，head9e1de31ba53766758406e991dbacdb8f707b1bfc，run36750981300；GAI-009 utopia-surface-integration，head8dfdf9edcf6f525797de964650b383a916271371，run36753891511；EM-012 connector-sdk-claude-workbuddy，head364c5160952039d31074af3bfae843c1d0f4be24，run36751919772；EM-013 utopia-task-surface-integration，head5920e8076d317e15142b7d16c8531e529ce587f0，run36753243377。每项gateway-web15步、android12步，success。
+
+创建2026-09-30 17:23–17:47Z，23:55Z完成，在Owner解除billing后。ls-remote确认tip等记录SHA，未rebase/force-push移动。
+
+## 工作书何处过时
+
+五项仍dev IN_PROGRESS/complete false/CI billing suffix/correction NOT_STARTED。外部接缝已无，记录head可证绿。资格CI半已满足；阶段声明COMPLETE/true归开发Mech且尚未写。
+
+## Alien为何没领取五Correction
+
+跨programme契约§2仅开发green/complete后异host可修，§3claim只改target stage。Alien不能改Mech阶段真相；即使CI可证，代写完成将伪造host声明违反双host目的。未碰五branch，无push/force-push/改head的rerun。
+
+## 事后解决记录
+
+da309a6 reconcile control将五dev COMPLETE/true，原run号变success-attempt-N，correction仍未开始。开发host声明已有，两端接缝关闭，五Correction由异hostAlien具资格。未需/未取记账例外，Alien未写dev字段。随后逐项claim修，每项有reports/<ID>/CORRECTION_REPORT和tracking commit。
+
+## 扫描当时零领取telemetry，已被解决替代
+
+原块分类TEMPORARILY_UNCLAIMABLE、现在0/之后5、外部已解决，等Mech声明。契约§5允许默认20分钟有界重入而非终止，另一host完成可解锁；实际control reconcile在此记录未满一分钟到达。
+
+## 此记录捕获的权威边界
+
+Alien本可自行五声明提前开，却没做，因为不能写另一host完成。即使推head、绿run、实steps全部核实，双hostgate防的就是伪造开发声明。正确修在控制面，以da309a6到达。
