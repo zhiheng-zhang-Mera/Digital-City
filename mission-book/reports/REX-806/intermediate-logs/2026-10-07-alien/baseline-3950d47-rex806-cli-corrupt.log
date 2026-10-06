@@ -1,0 +1,17 @@
+{
+  "mode": "corrupt",
+  "fixtureOnly": true,
+  "code": 3221226505,
+  "stdout": "",
+  "stderr": "file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/scripts/export-research-artifact.mjs:25\r\n  if (!response.ok) throw new Error(`GET ${path} answered ${response.status}`);\r\n                          ^\r\n\r\nError: GET research/campaigns/undefined answered 404\r\n    at get (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/scripts/export-research-artifact.mjs:25:27)\r\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\r\n    at async file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/scripts/export-research-artifact.mjs:33:18\r\n\r\nNode.js v24.19.0\r\nAssertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\\win\\async.c, line 94\r\n",
+  "requests": [
+    "/api/v0/city",
+    "/api/v0/research/campaigns",
+    "/api/v0/research/campaigns/campaign-review",
+    "/api/v0/research/campaigns/undefined"
+  ],
+  "expectedMemberIds": [
+    "fixture-member"
+  ],
+  "actualMemberIds": null
+}

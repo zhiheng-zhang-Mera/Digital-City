@@ -23,9 +23,9 @@ development_complete: true
 development_physical_gate_basis: "NOT_APPLICABLE - this task's completion gate is not a physical topology; it requires that a complete artifact can be generated from a set of real campaigns and independently read and recomputed by the opposite host. Generation and publication are done (18 real campaigns, 24 runs, 22 measured, per-file SHA256, fresh-clone verified 10/10); the independent recomputation is the reviewer's step and is requested explicitly in reports/REX-806/DEVELOPMENT_HANDOFF.md."
 development_handoff: "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md"
 development_final_full_suite: "1445 tests / 1442 pass / 3 fail on d7aa5d7, the three being tests/host-city-launcher.test.mjs (this host's resident-City host reservation, the same three at every head this host measures). No load-sensitive failure appeared in this run on this head."
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Alien"
+review_head_sha: "3950d478e627aaa615ef69e3ac65c30da37c5ea6"
+review_ci: "REQUIRES_REPAIR: original tests24/24 and historical package14/14 pass; CLI corruption crash, missing latest receipt silent shrink and member topology omission independently reproduced. Integrated Alien repair12e3d3b has36/36 local tests but requires Mech opposite-host review. See REVIEW_REPORT.md."
 review_complete: false
 research_evidence_applicability: APPLICABLE
 research_watchlist_hits: ["RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-SUPERVISION-ATTENTION","RS-G3-RULE-LIFECYCLE-DEBT","RS-G3-SEMANTIC-INTEGRATION","RS-G3-PASSIVE-EVIDENCE-PIPELINE","RS-G4-AUTONOMY-SURVIVAL","RS-G4-CAPABILITY-STATE","RS-G4-REALITY-DRIFT"]

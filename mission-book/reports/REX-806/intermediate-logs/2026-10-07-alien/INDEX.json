@@ -1,0 +1,203 @@
+{
+  "original_head": "3950d478e627aaa615ef69e3ac65c30da37c5ea6",
+  "adopted_author_repair": "d790a2a5040493c7863c5d36a455dc1cbbf9c355",
+  "integrated_repair_head": "12e3d3bf868575a8e3cda983733a3186cb59da27",
+  "review_status": "REQUIRES_OPPOSITE_HOST_REVIEW_OF_ALIEN_REPAIRS",
+  "records": [
+    {
+      "file": "repair-rex806-all-repair-green.log",
+      "bytes": 2634,
+      "sha256": "32a22b9cfc343c80fbb64f1effda335dcb8ee888f6f2077446340b6d9a35b72e"
+    },
+    {
+      "file": "repair-rex806-baseline-tests.log",
+      "bytes": 2153,
+      "sha256": "dcf5671d7d966a717f53d9b89e361b52a3816f4a4f159ef5832cf70b82cc0900"
+    },
+    {
+      "file": "repair-rex806-cli-corrupt.json",
+      "bytes": 1150,
+      "sha256": "cbf91d88dba2665528fed0c8738e742291bc0fa0ce8054cac215e734c260de4b"
+    },
+    {
+      "file": "repair-rex806-cli-corrupt.log",
+      "bytes": 1113,
+      "sha256": "62c0c63aa9b01b8d6b2df8f1d2d0f55cc27778e379bc47a02eff5729ba501e27"
+    },
+    {
+      "file": "repair-rex806-cli-empty.json",
+      "bytes": 345,
+      "sha256": "343c0a5c9804a8c2fec1881a301b914d3a006b7f663b4c79b38779164168ba08"
+    },
+    {
+      "file": "repair-rex806-cli-empty.log",
+      "bytes": 361,
+      "sha256": "204f0b6a11d968c9535038f0086fd5b471f04dee2a09488126d8e372e6767da3"
+    },
+    {
+      "file": "repair-rex806-cli-green.log",
+      "bytes": 2444,
+      "sha256": "560240e1388fbc244c42a7c3973e44414cda51fb89ef720b2b5261ddee9979d0"
+    },
+    {
+      "file": "repair-rex806-cli-healthy.json",
+      "bytes": 982,
+      "sha256": "b9a71ae18fe1df69ebeb96cbea18bc495fa99d00b0d379f6cbfba6e0d0ae8030"
+    },
+    {
+      "file": "repair-rex806-cli-healthy.log",
+      "bytes": 1000,
+      "sha256": "a021d09566bba1d14f793d57f6af514b9a17a5192120efc3cb56045ad435f733"
+    },
+    {
+      "file": "repair-rex806-cli-missing.json",
+      "bytes": 1194,
+      "sha256": "12d0001034b659ce8553322dcb2503a34030e13a342f2ff78ffd334cd8f77303"
+    },
+    {
+      "file": "repair-rex806-cli-missing.log",
+      "bytes": 1000,
+      "sha256": "a288c40b28d5def693998019a4ea8ce21e9ea3e4c0bf3d054b21289ad74910db"
+    },
+    {
+      "file": "repair-rex806-cli-probe.mjs.txt",
+      "bytes": 2826,
+      "sha256": "c3ee2d1f108b37c32f1274c0a88bef39d48b4815d3fa63f2663494ecaf692fd2"
+    },
+    {
+      "file": "repair-rex806-cli-red.log",
+      "bytes": 2802,
+      "sha256": "1cbe21976b87a23f9637ac5549b6e2f487a7111889a66ee23d02566dcefa5a33"
+    },
+    {
+      "file": "repair-rex806-dependent-regressions.log",
+      "bytes": 877,
+      "sha256": "5b59358138b0b0280c278f92778832feae4379ae977576357f609311f073dde4"
+    },
+    {
+      "file": "repair-rex806-historical-package-after-fix.log",
+      "bytes": 1422,
+      "sha256": "8f02c4fd4946519ecebdbeb24084afe01005eb8b790a74d5ffda8a85b2c05ce6"
+    },
+    {
+      "file": "repair-rex806-install-city.log",
+      "bytes": 668,
+      "sha256": "3a4eb0c979315fac790c92362e54ae91b5659b1b49a86d42e560af141a2552d2"
+    },
+    {
+      "file": "repair-rex806-install-root.log",
+      "bytes": 700,
+      "sha256": "e41af51c652cbec22a0f6e727ab2abfbde31dbe0ea611c36c565d1740850195a"
+    },
+    {
+      "file": "repair-rex806-integrated-regressions.log",
+      "bytes": 3384,
+      "sha256": "57edfeb1ae39d59976a6d0f21d2f037663c3e41a59c456a50fe71bd68c324689"
+    },
+    {
+      "file": "repair-rex806-python-independent.json",
+      "bytes": 163,
+      "sha256": "0179804077e3d3d956551d861dae523f6ec5a75d22a5e3eb4952f8ac05cbddca"
+    },
+    {
+      "file": "repair-rex806-repair-cli-corrupt.log",
+      "bytes": 1168,
+      "sha256": "8ff4a082e280f595b20688f45e360d962b119d1f89d474f4576e076636db17b3"
+    },
+    {
+      "file": "repair-rex806-repair-cli-empty.log",
+      "bytes": 361,
+      "sha256": "204f0b6a11d968c9535038f0086fd5b471f04dee2a09488126d8e372e6767da3"
+    },
+    {
+      "file": "repair-rex806-repair-cli-healthy.log",
+      "bytes": 1000,
+      "sha256": "a021d09566bba1d14f793d57f6af514b9a17a5192120efc3cb56045ad435f733"
+    },
+    {
+      "file": "repair-rex806-repair-cli-missing.log",
+      "bytes": 1212,
+      "sha256": "2e270eefc03216934f14a7173b5b70b23e352e3c5c149495d70b87df93ffaf44"
+    },
+    {
+      "file": "repair-rex806-surface-red.log",
+      "bytes": 2628,
+      "sha256": "6c4c6a614bc7b8a6b635816ca7a97241827ae40b72adb2d9aac71b511b05925c"
+    },
+    {
+      "file": "repair-rex806-verifier.log",
+      "bytes": 1422,
+      "sha256": "8f02c4fd4946519ecebdbeb24084afe01005eb8b790a74d5ffda8a85b2c05ce6"
+    },
+    {
+      "file": "baseline-3950d47-rex806-baseline-tests.log",
+      "bytes": 2153,
+      "sha256": "dcf5671d7d966a717f53d9b89e361b52a3816f4a4f159ef5832cf70b82cc0900"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-corrupt.json",
+      "bytes": 1095,
+      "sha256": "16e9615730d4cb3d8d6fca4783ee2d681c89fe903705e14279a17e31da708b40"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-corrupt.log",
+      "bytes": 1113,
+      "sha256": "62c0c63aa9b01b8d6b2df8f1d2d0f55cc27778e379bc47a02eff5729ba501e27"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-empty.json",
+      "bytes": 345,
+      "sha256": "343c0a5c9804a8c2fec1881a301b914d3a006b7f663b4c79b38779164168ba08"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-empty.log",
+      "bytes": 361,
+      "sha256": "204f0b6a11d968c9535038f0086fd5b471f04dee2a09488126d8e372e6767da3"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-healthy.json",
+      "bytes": 982,
+      "sha256": "b9a71ae18fe1df69ebeb96cbea18bc495fa99d00b0d379f6cbfba6e0d0ae8030"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-healthy.log",
+      "bytes": 1000,
+      "sha256": "a021d09566bba1d14f793d57f6af514b9a17a5192120efc3cb56045ad435f733"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-missing.json",
+      "bytes": 982,
+      "sha256": "04649c34881460919ebd6e26da42dcd747c8d2c9e4010e84f7ddfc566307d534"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-missing.log",
+      "bytes": 1000,
+      "sha256": "a288c40b28d5def693998019a4ea8ce21e9ea3e4c0bf3d054b21289ad74910db"
+    },
+    {
+      "file": "baseline-3950d47-rex806-cli-probe.mjs.txt",
+      "bytes": 2826,
+      "sha256": "c3ee2d1f108b37c32f1274c0a88bef39d48b4815d3fa63f2663494ecaf692fd2"
+    },
+    {
+      "file": "baseline-3950d47-rex806-install-city.log",
+      "bytes": 668,
+      "sha256": "3a4eb0c979315fac790c92362e54ae91b5659b1b49a86d42e560af141a2552d2"
+    },
+    {
+      "file": "baseline-3950d47-rex806-install-root.log",
+      "bytes": 700,
+      "sha256": "e41af51c652cbec22a0f6e727ab2abfbde31dbe0ea611c36c565d1740850195a"
+    },
+    {
+      "file": "baseline-3950d47-rex806-python-independent.json",
+      "bytes": 163,
+      "sha256": "0179804077e3d3d956551d861dae523f6ec5a75d22a5e3eb4952f8ac05cbddca"
+    },
+    {
+      "file": "baseline-3950d47-rex806-verifier.log",
+      "bytes": 1422,
+      "sha256": "8f02c4fd4946519ecebdbeb24084afe01005eb8b790a74d5ffda8a85b2c05ce6"
+    }
+  ]
+}

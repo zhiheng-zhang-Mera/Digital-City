@@ -1,0 +1,44 @@
+✔ REX803 campaigns: every repetition is a real canonical task, and the receipt accounts for all of them (447.7583ms)
+✔ REX803 campaigns: the surface is owner-only, and every refusal is typed (259.0879ms)
+✔ REX803 campaigns: the topology gate is measured against live refs, and its refusal states what was missing (83.3037ms)
+✔ REX803 campaigns: stopping cancels the canonical task the run had already created (221.8863ms)
+✔ REX805 real canonical original/replay/ablation preserve selected seed and change target policy only (662.6302ms)
+✔ REX805 replay API is Owner-only and lists truthful bounded mechanism support (105.3279ms)
+✔ REX805 an unbounded HTTP campaign remains comparable after runner normalizes absent limits (395.04ms)
+✔ REX806 S1: the owner can read the artifact export and its preview (177.4142ms)
+✔ REX806 S2: a member session cannot read the artifact export (162.8467ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (94.2454ms)
+✔ REX806 S4: the preview is bounded and says so (94.976ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (83.9238ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (135.168ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (94.4148ms)
+✔ REX806 V1: the verifier passes an untampered artifact (956.5419ms)
+✔ REX806 V2: a tampered metric value is caught (961.0888ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (952.6841ms)
+✔ REX806 V4: a missing section is caught (961.4129ms)
+✔ REX806 V5: a changed dataset timestamp is caught (961.4126ms)
+✔ REX806 V6: a fabricated intervention count is caught (960.8458ms)
+✔ REX806 A1: the artifact carries every section the workbook names (3.7072ms)
+✔ REX806 A2: every named metric appears, with a value and provenance or NOT_MEASURED and a reason (0.5236ms)
+✔ REX806 A3: an unobserved intervention window is NOT_MEASURED, never 0 (0.3335ms)
+✔ REX806 A4: an export with no real campaign is refused (0.3873ms)
+✔ REX806 A5: the evaluator refuses a value with no provenance and NOT_MEASURED with no reason (0.572ms)
+✔ REX806 A6: every dataset row carries a raw pointer and a seed-placement verdict (0.2199ms)
+✔ REX806 A7: checksums cover the exact bytes and change when a byte changes (0.975ms)
+✔ REX806 A8: the paper-ready table leads with G3/G4 and keeps their NOT_MEASURED reasons visible (0.3092ms)
+✔ REX806 A9: the artifact separates statistics from narrative and refuses the autonomy inference (0.3529ms)
+✔ REX806 A10: richer campaign data does not conjure Owner-side metrics (0.518ms)
+✔ REX806 A11: warmup runs are classified separately from failures (0.2475ms)
+✔ REX806 A12: a refused campaign stays visible as undelivered planned runs (0.2708ms)
+✔ REX806 A13: an ablation placement is judged against its policy, and the seed comparison is kept separately (0.22ms)
+✔ REX806 CLI retains canonical deviceId members in the downloaded topology (1055.4917ms)
+✔ REX806 CLI partial download itself names an unreadable receipt without requiring terminal output (1032.435ms)
+✔ REX806 CLI partial download itself names the latest missing receipt (1035.9859ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9413.6324
