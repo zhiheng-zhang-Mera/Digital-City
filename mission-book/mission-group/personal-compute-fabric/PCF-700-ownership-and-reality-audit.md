@@ -18,7 +18,7 @@ development_baseline_sha: "312b627b54af5bbf274fa25eca8f8383869c1c34"
 anchor_state: RESOLVED_AT_CLAIM
 development_host: "Mech"
 development_branch: "pcf/PCF-700-mech-ownership-and-reality-audit"
-development_head_sha: "a2a567325e6ce08629eefbe67cda6f8f2c16fd64"
+development_head_sha: "f75b2a6c2fa28d183a09795c70823c775123e1ac"
 development_ci: "TWO heads, both kept. (1) FAILURE head d611cfe5f0272673706b9dc5c9f6b85ed40a9406: V0.2 checks run 37497553367 completed/failure - gateway-web failed at step `pnpm check:docs`, android success; the other nine gateway-web steps succeeded, including `pnpm test`, so the new tests/pcf700-compatibility.test.mjs measurably passed on hosted CI. Reproduced locally: scripts/check-bilingual.mjs read one directory level only and hit EISDIR on the nested docs/{zh-CN,en}/pcf/ that this workbook requires. (2) REPAIR head a2a567325e6ce08629eefbe67cda6f8f2c16fd64: V0.2 checks run 37498638940 completed/success, gateway-web success and android success. The repair makes the gate tree-aware (compare the relative path lists of both language trees exactly, then compare fact lines pairwise) and was falsified before being trusted: an absent en mirror yields 'docs missing language pair' and a differing STATUS line yields 'docs/pcf/ownership-map.md facts differ', both exit 1; restored, docs/evidence/data-records all report PAIR_STATUS = SYNCHRONIZED. Local: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail. Branch pcf/PCF-700-mech-ownership-and-reality-audit and series branch pcf/series-mech are both at the repair head."
 development_complete: false
 review_host: null
@@ -55,16 +55,26 @@ baseline_blocker: null
       → C1–C7 全部落地，实测 7 tests / 7 pass / 0 fail（本机重跑 1.06 s），且在 hosted CI 上也通过（run 37497553367 的 `pnpm test` 步）；修复头 `a2a5673`，CI run 37498638940 两 job 全绿。
 - [x] 冻结 ARCHITECTURE 中类型/接口到实际代码的映射、公共文件单写者和拟增加的辅助状态；证明没有新 canonical Task/Action/device/credential DB。
       → §2：九个接口与八个类型**实测全部不存在**，`observeResources` / `admit` 是同名异物；§4：单写者清单 + 裸 City 启动后数据目录无 pcf 状态。
-- [ ] 明确每本下游的 component/exposure owner，检查 UI→backend 依赖无环；需要拆 primitive/product-wiring 时先修任务 DAG 和正式 scope，而非给 exposure gate 造例外。
-      → 本轮只做到 owner 逐本列出 + 模块边界层无环（§5）；**逐文件依赖矩阵与机器可读单写者清单未完成**，列为下一增量。
+- [x] 明确每本下游的 component/exposure owner，检查 UI→backend 依赖无环；需要拆 primitive/product-wiring 时先修任务 DAG 和正式 scope，而非给 exposure gate 造例外。
+      → `docs/{zh-CN,en}/pcf/ui-backend-matrix.md`：81 个前端文件、14 个含 `/api/v0` 字面量、网关 49 条路由，**未解析端点数 = 0**；**后端 import 前端模块 = 0**（静态服务路径与 tests/scripts 驱动器分开统计）。守 `tests/pcf700-dependency-direction.test.mjs` D1/D2（4/4，已逐条证伪）。owner 逐本列出见 ownership-map §5。
 - [ ] 两主机独立核对样本调用链；未证明的 seam 标 UNKNOWN/NOT_WIRED，列入相应下游验收，不能清零。
-      → **未完成**：必须由另一实体主机执行（§3 禁止自审）。本机已在 §3 明确标出 NOT_WIRED 的 seam 与原因，未用本机结果替代异机复检。
+      → **未完成**：必须由另一实体主机执行（§3 禁止自审）。本轮已把未证明项写足：`reuse-tiers.md` §5 逐条写明 TWO_HOST_VERIFIED 与 ORIGIN_AGENT_CONSUMED **两档全空**及各自归属工作书；本机未用自身结果替代异机复检。
 
 ### 2026-10-07 CI 暴露的仓库闸门缺陷与修复（记录判断逻辑）
 
 首个交付头 `d611cfe` 在 hosted CI 的 step `pnpm check:docs` 失败：仓库闸门 `scripts/check-bilingual.mjs` 只对 `docs/{zh-CN,en}` 做一层 readdir，遇到**工作书明文要求**的嵌套路径 `docs/{zh-CN,en}/pcf/ownership-map.md` 直接 EISDIR（本机按同一命令复现）。两个选项——(a) 把交付物挪成平铺以迁就工具，(b) 把闸门改成树感知——选 **(b)**：工作书是权威，配对翻译的性质与层级无关，错的是一层假设。修复保留原语义（两语言相对路径列表必须完全相等、逐对事实行必须相等），并**先证伪再采信**：移走 en 镜像 → `docs missing language pair`（退出 1）；在 en 加一行 `STATUS:` → `docs/pcf/ownership-map.md facts differ`（退出 1）；复位后三处 `PAIR_STATUS = SYNCHRONIZED`（退出 0）。修复头 `a2a5673` 的 CI run 37498638940 两 job 全绿。失败头与根因保留在 `reports/PCF-700/DEVELOPMENT_REPORT.md` §2.5，未被覆盖。
 
+### 2026-10-07 增量 2：五档核对、UI→后端矩阵、单写者（实测，head `f75b2a6`）
 
+规格修订 2 要求的三项本轮完成，全部**量出来**而不是声明出来（`scripts/pcf700-reuse-audit.mjs`，机器可读记录 `data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json`）：
+
+- **五档核对**（`reuse-tiers.md`）：49 个合同目录中只有 **4 个 LIVE_WIRED**（`execution-backend-v1`、`node-descriptor-v1`、`remote-local-discovery-v1`、`rs-presentation-contract-v1`）；**EM 13 个与 GAI 9 个全部只有测试引用、零产线引用**；`rs-cross-device-return-v1` 只有测试 ⇒ 结果回端目前靠 `handoff.mjs` + presentation，**没有任何产线路径证明那条专门的合同**。`TWO_HOST_VERIFIED` 与 `ORIGIN_AGENT_CONSUMED` **两档全空**并逐条写明归属。
+- **复用边界表**（`reuse-tiers.md` §4）：identity/transport 由 City 规范库 + pairing/capability registry 供，provider/审批由 GAI 供，工程规划与 Review→Repair 由 EM/Foreman 供；PCF **不重造**任何一套。
+- **UI→后端矩阵 + 单写者**（`ui-backend-matrix.md`）：方向三段分类（模块导入 0 / 静态服务路径 1 / 工具与测试驱动器 17），端点未解析 0，单写者指纹（bytes/lines/SHA256）公开供异机重算。
+
+**仪器自身的两个 bug 记录在案**：第一版方向探针用一条宽松正则报了 19 条「后端 import 前端」，全部假阳性（服务路径与驱动器）；修好后只认 `import ... from '...'`，又被**副作用导入**（`import '../apps/web/app.js';`）绕过——后者是靠**故意证伪守卫**发现的。两条都写进 `reuse-tiers.md` §6 与 `ui-backend-matrix.md`。
+
+### 2026-10-07 关键路径问题（上报，不自行开例外）
 
 PCF-701..728 **全部**（直接或间接）依赖 PCF-700；PCF-701 达到 READY 要求依赖任务 status=COMPLETE（一致性检查规则 4）。本任务 `review_host: null`，正式复检只能由另一实体主机完成。因此本系列当前**唯一关键路径是 PCF-700 的异机复检**，不是再领一本——这与 REX 系列上一轮卡住的成因同构。本机不自行复检、不为依赖门造例外；判断与选项已记入 `reports/PCF-700/DEVELOPMENT_REPORT.md` §3 J3。
 

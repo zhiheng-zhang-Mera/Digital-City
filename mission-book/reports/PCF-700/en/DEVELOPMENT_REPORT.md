@@ -8,12 +8,14 @@ IMPLEMENTATION     zhiheng-zhang-Mera/utopia
 CONTROL REPO       zhiheng-zhang-Mera/Digital-City
 HOST               Mech (COMPUTERNAME MEGA-REP; role Mech-DS, development side)
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
-SERIES BRANCH      pcf/series-mech (= d611cfe, the series' accumulated head)
+SERIES BRANCH      pcf/series-mech (= f75b2a6, the series' accumulated head)
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  (= origin/main; see CLAIM_REPORT.md)
-HEAD_SHA           a2a567325e6ce08629eefbe67cda6f8f2c16fd64  (repair head; the earlier delivery head was d611cfe5f0272...)
-CI                 V0.2 checks run 37497553367 (d611cfe, **failure**) -> run 37498638940 (a2a5673, **success**); see section 5
-DELIVERABLES       docs/zh-CN/pcf/ownership-map.md, docs/en/pcf/ownership-map.md,
-                   tests/pcf700-compatibility.test.mjs,
+HEAD_SHA           f75b2a6c2fa28d183a09795c70823c775123e1ac  (increment 2; earlier heads a2a5673..., d611cfe...)
+CI                 run 37497553367 (d611cfe, **failure**) -> run 37498638940 (a2a5673, **success**)
+                   -> the run on f75b2a6 is in section 7 (the repository's Actions is authoritative)
+DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md, reuse-tiers.md, ui-backend-matrix.md,
+                   tests/pcf700-compatibility.test.mjs, tests/pcf700-dependency-direction.test.mjs,
+                   scripts/pcf700-reuse-audit.mjs, data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
                    scripts/check-bilingual.mjs (repair of a repo gate defect that CI exposed; see 2.5)
 REVIEW             review_host = null (waiting for the other physical host; this host never self-reviews)
 ```
@@ -133,15 +135,50 @@ local evidence: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 p
 One failure and one repair are both kept here: **the failed head d611cfe is not erased**, and the repair head does not
 borrow its green.
 
-## 6. Next (for the next round or the opposite-host review)
+## 6. Increment 2 (head `f75b2a6`): measuring "accepted components" into tiers instead of assuming services
+
+**Delivered**: `docs/{zh-CN,en}/pcf/reuse-tiers.md`, `docs/{zh-CN,en}/pcf/ui-backend-matrix.md`,
+`scripts/pcf700-reuse-audit.mjs`, `data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json`,
+`tests/pcf700-dependency-direction.test.mjs` (D1-D4, 4/4).
+
+```text
+Five-tier check (49 contract directories)
+  Only 4 are LIVE_WIRED: execution-backend-v1, node-descriptor-v1 (WBC), remote-local-discovery-v1 and
+    rs-presentation-contract-v1 (RF). The other 30 EM/GAI/RF contracts are referenced by TESTS ONLY, zero production
+    references.
+  EM's 13 directories carry 379 export statements and GAI's 9 carry 264, yet the gateway imports none of them
+    => they are TESTED COMPONENTS, not live services the fabric may lean on.
+  rs-cross-device-return-v1 (cross-device return) is TESTS ONLY => a result reaches the origin today through the
+    handoff.mjs + presentation combination, and that dedicated contract is proven by NO production path - exactly the
+    seam PCF-714 must attach to, recorded as an explicit gap.
+  TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED are BOTH EMPTY (this host does not sign for the other), each with the
+    workbook that owns it.
+UI -> backend direction
+  81 front-end files, 14 carrying an /api/v0 literal, 49 gateway routes, **unresolved endpoints = 0** (asserted by D2)
+  **backend modules importing front-end modules = 0** (asserted by D1); one static serve path (static.mjs treats
+  apps/web as the static root, which is the correct direction) and 17 tool/test drivers, counted in three categories
+  instead of being smoothed into one sentence about "no cycle".
+Single writers
+  bytes/lines/SHA256 for server.mjs, store.mjs, targeting.mjs, execution-profile.mjs and node-descriptor.mjs are
+  published so the opposite host recomputes them rather than trusting them.
+```
+
+**Increment 2's own instrument errors (recorded)**: the first direction probe used one loose regex and reported 19
+"backend imports front-end", ALL false positives (serve paths and test/script drivers); the repair matched only
+`import ... from '...'` and was then bypassed by a SIDE-EFFECT import `import '../apps/web/app.js';` (a real
+dependency), which was found by deliberately falsifying the guard. All four guards were falsified by
+"create counter-example -> red -> restore -> green" (probe files were created and deleted in the same step, leaving the
+tree clean). The probe script is excluded from its own subject so it cannot inflate its own counts.
+
+## 7. Next (for the next round or the opposite-host review)
 
 ```text
 a opposite-host independent review: walk sample call chains on both hosts for the TWO_HOST_VERIFIED tier;
   this host does not substitute for that step
-b the five-tier check of specification revision 2 (EM connector/Foreman, RF, GAI, WBC, origin tooling) - so far only
-  the existence of the contract directories has been measured
-c the per-file UI->backend dependency matrix and a machine-readable single-writer list
-d the "accepted EM/RF/GAI components vs the PCF reuse boundary" table
+b TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED are BOTH EMPTY right now (reuse-tiers.md section 5 names the owner of
+  each)
+c a URL carried by a Gradle-generated Android BuildConfig is not in the static matrix (next increment)
+d (DONE in increment 2) the five-tier check, the reuse-boundary table, the UI->backend matrix and the single-writer list
 ```
 
 Section 7 of `ownership-map.md` says the same thing: `UNKNOWN` is a conclusion there, not a blank.

@@ -8,12 +8,14 @@ IMPLEMENTATION     zhiheng-zhang-Mera/utopia
 CONTROL REPO       zhiheng-zhang-Mera/Digital-City
 HOST               Mech（COMPUTERNAME MEGA-REP；role Mech-DS，development side）
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
-SERIES BRANCH      pcf/series-mech（= d611cfe，本系列累计头）
+SERIES BRANCH      pcf/series-mech（= f75b2a6，本系列累计头）
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  （= origin/main，见 CLAIM_REPORT.md）
-HEAD_SHA           a2a567325e6ce08629eefbe67cda6f8f2c16fd64  （修复头；前一交付头 d611cfe5f0272…）
-CI                 run 37497553367（d611cfe，**失败**）→ run 37498638940（a2a5673，**success**）；见 §5
-DELIVERABLES       docs/zh-CN/pcf/ownership-map.md, docs/en/pcf/ownership-map.md,
-                   tests/pcf700-compatibility.test.mjs,
+HEAD_SHA           f75b2a6c2fa28d183a09795c70823c775123e1ac  （增量 2；前序头 a2a5673…、d611cfe…）
+CI                 run 37497553367（d611cfe，**失败**）→ run 37498638940（a2a5673，**success**）
+                   → f75b2a6 的 run 见 §7（结论以仓库 Actions 为准）
+DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md、reuse-tiers.md、ui-backend-matrix.md,
+                   tests/pcf700-compatibility.test.mjs、tests/pcf700-dependency-direction.test.mjs,
+                   scripts/pcf700-reuse-audit.mjs、data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
                    scripts/check-bilingual.mjs（CI 暴露的仓库闸门缺陷修复，见 §2.5）
 REVIEW             review_host = null（等待另一实体主机，本机不自审）
 ```
@@ -114,13 +116,37 @@ V0.2 checks run 37496389297  head=312b627  completed / success（基线头，两
 
 一次失败与一次修复都在这里留痕：**失败头 d611cfe 的记录不删除**，修复头不冒充它的绿色。
 
-## 6. 下一步（交给下一轮或异机复检）/ Next
+## 6. 增量 2（head `f75b2a6`）：把「已接受组件」量成档位，而不是当成可用服务
+
+**交付**：`docs/{zh-CN,en}/pcf/reuse-tiers.md`、`docs/{zh-CN,en}/pcf/ui-backend-matrix.md`、`scripts/pcf700-reuse-audit.mjs`、`data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json`、`tests/pcf700-dependency-direction.test.mjs`（D1–D4，4/4）。
+
+```text
+五档核对（49 个合同目录）
+  LIVE_WIRED 只有 4 个：execution-backend-v1、node-descriptor-v1（WBC）、remote-local-discovery-v1、
+    rs-presentation-contract-v1（RF）。其余 30 个 EM/GAI/RF 合同**只有测试引用，零产线引用**。
+  EM 13 个目录共 379 条 export、GAI 9 个目录共 264 条 export，但网关一条都不 import
+    ⇒ 它们是「已测组件」，不是 PCF 可依赖的活服务。
+  rs-cross-device-return-v1（跨设备回端）**只有测试** ⇒ 结果回原端目前靠 handoff.mjs + presentation 的组合，
+    这条专门的合同**没有任何产线路径证明** —— 正是 PCF-714 要接的缝，列为显式缺口。
+  TWO_HOST_VERIFIED 与 ORIGIN_AGENT_CONSUMED **两档全空**（本机不替异机签名），逐条写明归属工作书。
+UI→后端方向
+  81 个前端文件、14 个含 /api/v0 字面量；网关 49 条路由；**未解析端点 = 0**（D2 断言）
+  **后端模块 import 前端模块 = 0**（D1 断言）；静态服务路径 1 处（static.mjs 把 apps/web 当静态根，方向正确）、
+  工具/测试驱动器 17 处，三类分开统计而不是混成一句「无环」。
+单写者
+  server.mjs / store.mjs / targeting.mjs / execution-profile.mjs / node-descriptor.mjs 的 bytes/lines/SHA256
+  公开，异机可重算而不是采信。
+```
+
+**增量 2 的仪器错误（记录）**：第一版方向探针用一条宽松正则，报出 19 条「后端 import 前端」，**全部假阳性**（服务路径与 tests/scripts 驱动器）；修好后只认 `import ... from '...'`，又被**副作用导入** `import '../apps/web/app.js';`（真实依赖）绕过——后者靠**故意证伪守卫**发现。D1–D4 四条守卫都已用「制造反例 → 变红 → 复位 → 变绿」证伪过（probe 文件均即建即删，树保持干净）。探针脚本被排除在自身统计之外，避免自我放大。
+
+## 7. 下一步（交给下一轮或异机复检）/ Next
 
 ```text
 a 异机（另一实体主机）独立复检：样本调用链两主机走一遍、TWO_HOST_VERIFIED 档位；本机不替代这一步
-b 规格修订 2 的五档核对（EM 连接器/Foreman、RF、GAI、WBC、原端工具）—— 目前只测到合同目录存在
-c UI→backend 逐文件依赖矩阵与机器可读的单写者清单
-d 「已验收 EM/RF/GAI 组件与 PCF 复用边界」表
+b TWO_HOST_VERIFIED 与 ORIGIN_AGENT_CONSUMED 两档目前**全空**（reuse-tiers.md §5 逐条写明归属）
+c Android 侧 Gradle BuildConfig 生成的 URL 未纳入静态矩阵（下一增量）
+d （已在增量 2 完成）五档核对、复用边界表、UI→后端矩阵与单写者清单
 ```
 
 `ownership-map.md` 第 7 节与本节同源：`UNKNOWN` 是结论，不是空白。

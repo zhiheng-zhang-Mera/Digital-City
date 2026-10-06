@@ -2,21 +2,24 @@
 
 ```text
 TASK_ID            PCF-700
-REVIEW TARGET      a2a567325e6ce08629eefbe67cda6f8f2c16fd64
+REVIEW TARGET      f75b2a6c2fa28d183a09795c70823c775123e1ac
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit (= the current tip of pcf/series-mech)
 BASELINE           312b627b54af5bbf274fa25eca8f8383869c1c34
 AUTHOR HOST        Mech (COMPUTERNAME MEGA-REP, role Mech-DS)
 REVIEWER           the other physical host (section 3 forbids self-review; this file is NOT a review claim and
                    carries no verdict)
-DELIVERABLES       docs/zh-CN/pcf/ownership-map.md, docs/en/pcf/ownership-map.md,
-                   tests/pcf700-compatibility.test.mjs, scripts/check-bilingual.mjs
+DELIVERABLES       docs/{zh-CN,en}/pcf/{ownership-map,reuse-tiers,ui-backend-matrix}.md,
+                   tests/pcf700-{compatibility,dependency-direction}.test.mjs,
+                   scripts/pcf700-reuse-audit.mjs, data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
+                   scripts/check-bilingual.mjs
 REPORT             reports/PCF-700/DEVELOPMENT_REPORT.md
 ```
 
 > Why the target moved: the earlier delivery head `d611cfe5f0272673706b9dc5c9f6b85ed40a9406` failed hosted CI at step
 > `pnpm check:docs` (the repository gate `scripts/check-bilingual.mjs` read one directory level only and hit EISDIR on
-> the nested `docs/*/pcf/` the workbook requires). The repair head `a2a5673` carries the tree-aware fix of that gate,
-> so **review a2a5673**; the failed head and its root cause are kept in DEVELOPMENT_REPORT section 2.5.
+> the nested `docs/*/pcf/` the workbook requires). The repair head `a2a5673` turned both jobs green, and the current
+> head `f75b2a6` is increment 2 (the five-tier check, the UI->backend matrix and the single-writer list).
+> **Review `f75b2a6`**; the failed head and its root cause are kept in DEVELOPMENT_REPORT section 2.5.
 
 ## 1. Why this file exists
 
@@ -29,15 +32,21 @@ where the evidence is; the author writes no verdict here and does not turn this 
 
 ```text
 R1 resolve the exact head yourself: git ls-remote origin pcf/PCF-700-mech-ownership-and-reality-audit must equal
-   a2a567325e6ce08629eefbe67cda6f8f2c16fd64, and 312b627b54af5b must be an ancestor of it.
+   f75b2a6c2fa28d183a09795c70823c775123e1ac, and 312b627b54af5b must be an ancestor of it.
 R2 re-run the author suite: corepack pnpm install --frozen-lockfile AND
    corepack pnpm --dir city install --frozen-lockfile (both steps - a root node_modules junction does not install the
-   city workspace), then node --test tests/pcf700-compatibility.test.mjs and the repository gate pnpm check:docs. The
-   author measured 7/7 and PAIR_STATUS = SYNCHRONIZED in all three roots; the reviewer must measure it too.
+   city workspace), then node --test tests/pcf700-compatibility.test.mjs,
+   node --test tests/pcf700-dependency-direction.test.mjs and the repository gate pnpm check:docs. The author measured
+   7/7, 4/4 and PAIR_STATUS = SYNCHRONIZED in all three roots; the reviewer must measure it too.
+R2b recompute the single-writer fingerprints YOURSELF: run node scripts/pcf700-reuse-audit.mjs and compare the
+   bytes/lines/SHA256 against data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json; a mismatch is evidence drift, not a
+   typo.
 R3 falsify R2 instead of restating it: pick at least two compatibility counter-examples and make them fail on
    purpose before restoring them (for example, make the strict target resolve to a real online node and confirm C3's
-   withheld assertion becomes FALSE), proving the suite is not vacuously green.
-R4 independently manufacture the TWO-HOST_VERIFIED tier for a sample call chain; this host only produced single-host
+   withheld assertion becomes FALSE), and falsify D1-D4 the same way (for example, write
+   `import '../apps/web/app.js';` into a backend file and D1 must go red - the author's first probe missed exactly that
+   SIDE-EFFECT import).
+R4 independently manufacture the TWO_HOST_VERIFIED tier for a sample call chain; this host only produced single-host
    LIVE evidence.
 R5 check the three wiring-layer verdicts in the ownership map against your own measurement, especially the
    NOT_WIRED verdict for `chooseHybridTarget`: grep the call sites in your own checkout rather than trusting the
@@ -58,15 +67,24 @@ S4  does a bare City really create no pcf-named state (C1)? Attack: start on a f
     recursively for any pcf trace.
 S5  is the descriptor contract tolerant of legacy records while the live register route requires capabilities (C5)?
     Attack: drive a real legacy record through both paths.
+S6  do EM/GAI really have ZERO production references (the load-bearing claim of the tier table)? Attack: find any
+    non-test reference to `contracts/engineering-*` or `contracts/general-ai-*` under services/, city/ or apps/ and
+    the "tested components only" conclusion falls.
+S7  is "unresolved UI endpoints = 0" real? Attack: write a literal naming an `/api/v0/...` the gateway does not serve
+    into any apps/web or apps/android file and D2 must go red (the author falsified it exactly that way).
+S8  is `rs-cross-device-return-v1` really TESTS ONLY? Attack: find a production reference and the "no production path
+    proves the return seam" conclusion falls.
 ```
 
-## 4. Unfinished work the author declared (the reviewer should neither call it a defect nor let it pass)
+## 4. What the author declares done and not done (neither a defect to be called out nor a pass to be granted)
 
 ```text
-the five-tier check of specification revision 2 (EM connector/Foreman, RF, GAI, WBC, origin tooling);
-the per-file UI->backend dependency matrix and a machine-readable single-writer list;
-the "accepted EM/RF/GAI components vs the PCF reuse boundary" table.
-All three appear in ownership-map.md section 7 and DEVELOPMENT_REPORT.md section 6: UNFINISHED, not passed.
+DONE (increment 2, re-runnable): reuse-tiers.md (five tiers + reuse boundary), ui-backend-matrix.md (matrix +
+  single writers), data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json (machine-readable),
+  tests/pcf700-dependency-direction.test.mjs (D1-D4).
+NOT DONE: the two-host independent walk of sample call chains (**the reviewer must perform it**); the
+  TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED tiers are BOTH EMPTY and each is named in reuse-tiers.md section 5; the
+  URL a Gradle-generated Android BuildConfig carries is not in the static matrix.
 ```
 
 ## 5. Boundaries
