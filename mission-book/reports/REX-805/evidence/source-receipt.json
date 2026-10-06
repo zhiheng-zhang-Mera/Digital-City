@@ -1,0 +1,146 @@
+{
+  "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+  "scenarioId": "WAIT",
+  "state": "COMPLETED",
+  "reason": "REPETITIONS_FINISHED",
+  "seedPolicy": "derived:seed(campaign,index)",
+  "campaignSeed": "rex803-three-end-live-8798ba9dd370-acceptance",
+  "repetitions": 3,
+  "warmup": 0,
+  "timeout": 30000,
+  "limits": {
+    "maxFailures": 3
+  },
+  "totalRuns": 3,
+  "runs": [
+    {
+      "index": 0,
+      "state": "MEASURED",
+      "reason": null,
+      "seed": 397343796,
+      "warmup": false,
+      "measured": true,
+      "durationMs": 7370,
+      "result": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+        "state": "COMPLETED",
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+        "result": {
+          "waitedMs": 6000
+        }
+      }
+    },
+    {
+      "index": 1,
+      "state": "MEASURED",
+      "reason": null,
+      "seed": 414121415,
+      "warmup": false,
+      "measured": true,
+      "durationMs": 6615,
+      "result": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+        "state": "COMPLETED",
+        "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+        "result": {
+          "waitedMs": 6000
+        }
+      }
+    },
+    {
+      "index": 2,
+      "state": "MEASURED",
+      "reason": null,
+      "seed": 430899034,
+      "warmup": false,
+      "measured": true,
+      "durationMs": 6481,
+      "result": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+        "state": "COMPLETED",
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+        "result": {
+          "waitedMs": 6000
+        }
+      }
+    }
+  ],
+  "startedAt": 1791273639594,
+  "finishedAt": 1791273660167,
+  "context": {
+    "experimentId": "rex803-three-end-live-8798ba9dd370",
+    "manifestIdentity": "a2e15ba960c314783b1a0501bb3bd767",
+    "manifest": {
+      "topology": "TWO_HOST_MESH",
+      "hosts": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "workers": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "controlSurfaces": [
+        "dev-be7832e35fc34b85966c3bb43a992e1d"
+      ],
+      "repetitions": 3,
+      "seedPolicy": "PER_REPETITION",
+      "baseSeed": 20261006,
+      "stopConditions": [
+        {
+          "kind": "MAX_REPETITIONS",
+          "value": 3
+        },
+        {
+          "kind": "MAX_FAILURES",
+          "value": 3
+        }
+      ],
+      "acceptance": {
+        "primary": "Every repetition is measured on a declared worker or carries a typed reason",
+        "minimumSuccessfulRuns": 1,
+        "notes": []
+      },
+      "softwareRefs": [
+        {
+          "component": "utopia",
+          "identity": "8798ba9dd37051626033ad72080b2fad3ff66149",
+          "commitSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+          "exact": true
+        }
+      ]
+    },
+    "targetDeviceRef": null
+  },
+  "resumedFrom": null,
+  "resumedAt": null,
+  "resumeCount": 0,
+  "abandonedFrom": null,
+  "readiness": {
+    "state": "READY",
+    "missing": [],
+    "workers": [
+      "dev-031fdba6e94c4298a0956ff04a65481d",
+      "dev-8128a1ef25c5c4b7f66fc31b21705858"
+    ],
+    "surfaces": [
+      "dev-031fdba6e94c4298a0956ff04a65481d",
+      "dev-be7832e35fc34b85966c3bb43a992e1d",
+      "dev-8128a1ef25c5c4b7f66fc31b21705858"
+    ],
+    "identitySemantics": "CANONICAL_LIVE_REFS"
+  },
+  "summary": {
+    "planned": 3,
+    "accounted": 3,
+    "warmup": 0,
+    "measured": 3,
+    "timedOut": 0,
+    "failed": 0,
+    "excluded": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "interrupted": 0,
+    "terminalAccountingComplete": true
+  }
+}
