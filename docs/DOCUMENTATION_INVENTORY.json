@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1716,
-  "total_bytes": 12277137,
+  "markdown_count": 1717,
+  "total_bytes": 12282431,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9889,10 +9889,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 61160,
+      "bytes": 62203,
       "encoding_state": "UTF8",
-      "chinese_characters": 5014,
-      "english_words": 2469,
+      "chinese_characters": 5143,
+      "english_words": 2510,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9961,7 +9961,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 13995,
+      "bytes": 15064,
       "encoding_state": "UTF8",
       "chinese_characters": 202,
       "english_words": 154,
@@ -14577,6 +14577,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/REX-806/MERGE_RECORD_Mech_2026_10_07.md",
+      "bytes": 3113,
+      "encoding_state": "UTF8",
+      "chinese_characters": 51,
+      "english_words": 10,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/PAPER_MATERIAL_INDEX.md",
       "bytes": 8574,
       "encoding_state": "UTF8",
@@ -14587,7 +14596,7 @@
     },
     {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 1175,
+      "bytes": 1244,
       "encoding_state": "UTF8",
       "chinese_characters": 63,
       "english_words": 38,
