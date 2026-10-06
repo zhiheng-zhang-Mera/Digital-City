@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1700,
-  "total_bytes": 12173238,
+  "markdown_count": 1702,
+  "total_bytes": 12185087,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9520,10 +9520,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "bytes": 19372,
+      "bytes": 20360,
       "encoding_state": "UTF8",
-      "chinese_characters": 2116,
-      "english_words": 1051,
+      "chinese_characters": 2249,
+      "english_words": 1109,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9853,10 +9853,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "bytes": 17678,
+      "bytes": 18397,
       "encoding_state": "UTF8",
       "chinese_characters": 132,
-      "english_words": 1816,
+      "english_words": 1900,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13299,6 +13299,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/PCF-700/AUTHOR_HOLD_Mech.md",
+      "bytes": 4841,
+      "encoding_state": "UTF8",
+      "chinese_characters": 159,
+      "english_words": 18,
+      "paired_path": "mission-book/reports/PCF-700/en/AUTHOR_HOLD_Mech.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/reports/PCF-700/CLAIM_REPORT.md",
       "bytes": 4105,
       "encoding_state": "UTF8",
@@ -13318,7 +13327,7 @@
     },
     {
       "path": "mission-book/reports/PCF-700/README.md",
-      "bytes": 894,
+      "bytes": 939,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 31,
@@ -13362,6 +13371,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/PCF-700/en/AUTHOR_HOLD_Mech.md",
+      "bytes": 5211,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 99,
+      "paired_path": "mission-book/reports/PCF-700/AUTHOR_HOLD_Mech.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/reports/PCF-700/en/DEVELOPMENT_REPORT.md",
       "bytes": 15982,
       "encoding_state": "UTF8",
@@ -13372,7 +13390,7 @@
     },
     {
       "path": "mission-book/reports/PCF-700/en/README.md",
-      "bytes": 714,
+      "bytes": 759,
       "encoding_state": "UTF8",
       "chinese_characters": 59,
       "english_words": 28,
