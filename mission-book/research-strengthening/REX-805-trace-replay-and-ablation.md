@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED"]
 development_host: "Alien"
 development_branch: "rex/REX-805-alien-replay-ablation"
-development_head_sha: "4b3946868d4083285da8a8d99eac2642890b37c4"
-development_ci: "PASS exact head 4b3946868d4083285da8a8d99eac2642890b37c4: push37440884928, PR37440891856, linkage37440891872 all COMPLETED SUCCESS. Local full1412/1409PASS/3ENV_FAIL (resident City4389); independent code re-review six Important fixes PASS. Opposite-host physical acceptance pending; development_complete remains false."
+development_head_sha: "0261a9ed1cec88df3ab4675623d422b37b33f270"
+development_ci: "IN_PROGRESS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: empty-limit comparison repair, real Gateway RED 2PASS/1FAIL then focused18/18PASS; exact-head full suite and CI pending. Previous 4b39468 CI successes retained in checkpoint. Physical gate NOT_RUN; development_complete false."
 development_complete: false
 review_host: null
 review_head_sha: null

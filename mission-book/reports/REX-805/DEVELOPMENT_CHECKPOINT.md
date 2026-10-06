@@ -26,3 +26,14 @@ Future Mech Owner physical acceptance must explicitly update to this repaired ca
 已逐项读取 Actions API，headSha均为 `4b3946868d4083285da8a8d99eac2642890b37c4`：push37440884928、PR37440891856、City linkage37440891872 均 COMPLETED SUCCESS，两个 V0.2 检查的 Android 与 Gateway/Web jobs均成功。本地精确版本完整套件1412项，1409通过、3失败；3项均为 host-city-launcher 测试要求空闲本机reservation，而正式MEMBER City仍占4389，未停服或隐去失败。运行后 tracked工作树干净、远端branch与PR head均匹配。仍没有实体 replay/ablation 验收或产品main合并。
 
 Actions API checks individually bind the exact candidate above: push37440884928, PR37440891856 and City linkage37440891872 are all COMPLETED SUCCESS; both V0.2 Android and Gateway/Web jobs succeed. Exact local full suite has1412 tests,1409 pass and3 fail. All three host-city-launcher tests require an empty local reservation while the formally connected MEMBER City occupies4389; the service was preserved and failures disclosed. Tracked worktree is clean after execution and remote branch/PR head match. Physical replay/ablation acceptance and product-main integration are still absent.
+
+
+## 空限制比较修复候选 / Empty-limit comparison candidate
+
+候选更新为 `0261a9ed1cec88df3ab4675623d422b37b33f270`。Mech 的独立探针发现无额外限制时出现 limits 差异，Alien 用真实 HTTP campaign→Replay 复现（Gateway2通过1失败）；runner把null存为{}，comparison此前按形状误报。现比较同义空集合，实际新增或改变的限制仍报告差异，核心/Gateway/种子18/18通过。精确新版本完整套件、CI及独立复审进行中，不借旧候选成功结果宣称新候选通过；实体门槛仍NOT_RUN。
+
+The candidate is now `0261a9ed1cec88df3ab4675623d422b37b33f270`. Mech's probe exposed a limits mismatch for campaigns without extra bounds; Alien reproduced it through a real HTTP campaign→Replay (Gateway2 passes,1 failure). The runner persists null as {}, which comparison incorrectly treated as a different control. Equivalent empty sets now match, while added or changed bounds still differ; core/Gateway/seed18/18 pass. Exact new-head full suite, CI and independent re-review are in progress. Previous candidate successes do not validate the new head. The physical gate remains NOT_RUN.
+
+本轮候选4b39468的本地Android编译已执行：Java17、testDebugUnitTest assembleDebug BUILD SUCCESS，21suites/111tests/0failures/0errors，APK SHA256 `3b40b8d365a17893e01bdf88b190829f8de609bce3859ef10a7acadf4ca9ed0e`。随后空限制修复只改Gateway/测试/执行账本，未改Android来源；APK构建不证明手机新安装或实体Replay。
+
+The local Android build initiated at candidate4b39468 completed with Java17: testDebugUnitTest assembleDebug BUILD SUCCESS,21 suites/111 tests/0 failures/0 errors, with the APK hash above. The subsequent empty-limit repair changes only Gateway, tests and the execution ledger, with no Android source change. Building the APK does not establish a fresh phone installation or physical Replay acceptance.
