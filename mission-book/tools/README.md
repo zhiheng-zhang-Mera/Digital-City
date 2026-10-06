@@ -20,6 +20,22 @@ python mission-book/tools/check_record_consistency.py
 python mission-book/tools/test_check_record_consistency.py
 ```
 
+## Where they run automatically
+
+`.github/workflows/sync-mission-progress.yml` runs on any change under `mission-book/`:
+
+```text
+1  the checker's own tests                 python mission-book/tools/test_check_record_consistency.py
+2  the record-consistency gate             python mission-book/tools/check_record_consistency.py     (exit 1 on ERROR)
+3  dependency propagation (PR: --check; main: reconcile)
+4  progress regeneration, and on main the synchronized commit
+```
+
+Steps 1 and 2 run FIRST and are pure readers, so a record that contradicts itself fails the run before anything is
+regenerated or committed - regeneration must never be allowed to paper over a finding a human should read. The auto-commit
+step on `main` adds `mission-book` only, and `__pycache__/` is ignored at the repository root so the tool tests cannot
+leak bytecode into a commit.
+
 ## What the consistency checker is for
 
 The Mission Book records the same state three times: the main board, each programme board, and each workbook's own

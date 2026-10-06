@@ -10,6 +10,8 @@ on:
       - "mission-book/MISSION_PROGRESS.json"
       - "mission-book/tools/sync_mission_progress.py"
       - "mission-book/tools/sync_dependency_state.py"
+      - "mission-book/tools/check_record_consistency.py"
+      - "mission-book/tools/test_check_record_consistency.py"
   push:
     branches: [main]
     paths:
@@ -17,6 +19,8 @@ on:
       - "mission-book/PROGRESS_MANIFEST.json"
       - "mission-book/tools/sync_mission_progress.py"
       - "mission-book/tools/sync_dependency_state.py"
+      - "mission-book/tools/check_record_consistency.py"
+      - "mission-book/tools/test_check_record_consistency.py"
 
 permissions:
   contents: write
@@ -36,6 +40,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
+
+      # THE RECORD GATES RUN FIRST, BEFORE ANYTHING IS REGENERATED OR COMMITTED. A record that contradicts itself must
+      # not be "fixed" by regeneration: the point of the checker is that a human reads the finding. Both steps are pure
+      # readers, so a failure here leaves the repository exactly as it was pushed.
+      - name: Record-consistency checker tests
+        run: python mission-book/tools/test_check_record_consistency.py
+
+      - name: Mission Book records must be self-consistent
+        run: python mission-book/tools/check_record_consistency.py
 
       - name: Check dependency propagation on PR
         if: github.event_name == 'pull_request'
