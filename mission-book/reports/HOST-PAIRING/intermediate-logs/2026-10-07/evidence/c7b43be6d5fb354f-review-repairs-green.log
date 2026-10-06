@@ -1,0 +1,69 @@
+✔ REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code (4890.1661ms)
+✔ REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session (5676.8089ms)
+✔ REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session (9241.1226ms)
+✔ REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE (12046.293ms)
+✔ P1-P5 discovery, request, approval and exchange hold the workbook boundaries (363.5719ms)
+    OBSERVED: /pairing/info bad-version -> 200; /pairing/session bad-version -> 409
+✔ P6 REGRESSION PROBE the version check on the legacy public pairing routes (42.0082ms)
+✔ the old inline implementation throws on empty output, which is the regression (1.9388ms)
+✔ empty output is read as "already gone", not as an unparseable error (0.4821ms)
+✔ "null" from ConvertTo-Json is also treated as already gone (0.1424ms)
+✔ a live, matching process verifies through CIM (0.1613ms)
+✔ a live process running something else is a FATAL mismatch, as it was before (0.1649ms)
+✔ a quoting-safe array result is handled as well as a single object (0.1737ms)
+✔ a missing CommandLine field is not mistaken for a match (0.2298ms)
+✔ when CIM is unusable, tasklist still catches a plainly wrong process (0.2438ms)
+✔ tasklist reporting no match is already-gone rather than unavailable (0.216ms)
+✔ both probes failing is unavailable, and is not fatal (0.3007ms)
+✔ unparseable-but-non-empty CIM output falls through to the weaker probe instead of claiming absence (0.1715ms)
+✔ a UTF-8 BOM on the output does not break parsing (0.1293ms)
+✔ every returned status is one of the declared statuses (0.1816ms)
+✔ a non-numeric PID is fatal and never reaches a command line (0.0994ms)
+✔ the CIM and tasklist filters refuse a non-numeric PID outright (0.2922ms)
+✔ only positively verified identity permits stopping a PID (0.1229ms)
+✔ the redesigned-shell fixture really is the zero-sized-label shape (1.907ms)
+✔ a bare first-match label lookup selects a zero-bounds node, which is the original defect (0.26ms)
+✔ no sized nav label exists on the shipped shell, so a size filter ALONE would leave nothing to tap (0.6692ms)
+✔ the active tab has no clickable node, so clickable ordinal alone is unstable (0.3833ms)
+✔ targets are paired to labels in document order, giving a page-independent index (0.2603ms)
+✔ resolveRoute reaches Home from the Devices page via the paired target (0.2248ms)
+✔ the nav band excludes page content that happens to be clickable (0.2821ms)
+✔ a sized heading is not mistaken for a nav target (0.9049ms)
+✔ resolveRoute prefers a sized label inside the band, preserving the earlier shell (0.3883ms)
+✔ the two shells are distinguished rather than one being assumed (0.3418ms)
+✔ an unresolvable tree returns null rather than a zero-bounds node (0.1323ms)
+✔ the task pilot creates its evidence directory before writing into it (0.3428ms)
+✖ task pilot imports a usable sized nodeByLabel selector (1.4435ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 34
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33186.5964
+
+✖ failing tests:
+
+test at tests\ui-route.test.mjs:137:2
+✖ task pilot imports a usable sized nodeByLabel selector (1.4435ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '6',
+  +   '7'
+  -   6,
+  -   7
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-History-Audit/tests/ui-route.test.mjs:137:300)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '6', '7' ],
+    expected: [ 6, 7 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

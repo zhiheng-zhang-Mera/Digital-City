@@ -1,0 +1,13 @@
+✔ real joined devices retain names, appear beside the host and may register only their own worker (279.5277ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (219.506ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (396.8638ms)
+✔ joining only demotes the local host, saves its admission name and leaves remote City intact (217.954ms)
+✔ failed pairing and busy local work do not demote or write a new membership (94.5181ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2264.6406

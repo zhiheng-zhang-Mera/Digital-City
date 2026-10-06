@@ -1,0 +1,3 @@
+Pairing lockout previously directed every City to “refresh on Alien”, including custom City names. Replace that fixed host name with City-host invitation guidance; pairing status, attempts, expiry and trust checks are unchanged.
+
+Validation: actual Gateway regression reproduced the old text before the fix;24 pairing/lifecycle/review tests passed. Final regression uses canonical PATCH City rename (Luna), five wrong codes,429 lockout and explicit renewed-session exchange200. No cross-region or primary-agent migration claim.

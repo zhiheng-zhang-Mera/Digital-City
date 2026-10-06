@@ -1,0 +1,29 @@
+✖ joining only demotes the local host, saves its admission name and leaves remote City intact (2593.0787ms)
+✔ failed pairing and busy local work do not demote or write a new membership (92.6042ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3987.1619
+
+✖ failing tests:
+
+test at tests\host-member-role.test.mjs:3:1
+✖ joining only demotes the local host, saves its admission name and leaves remote City intact (2593.0787ms)
+  AssertionError [ERR_ASSERTION]: {"ticketId":"8003bd1c-8626-45c8-aeaf-82a5a7b01d97","state":"FAILED","cityId":"47b488d4-7f5f-4971-92b8-7c39f5041371","error":"the City refused the enrollment: device_id"}
+  
+  'FAILED' !== 'JOINED'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-City-Naming-Host/tests/host-member-role.test.mjs:5:295)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'FAILED',
+    expected: 'JOINED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

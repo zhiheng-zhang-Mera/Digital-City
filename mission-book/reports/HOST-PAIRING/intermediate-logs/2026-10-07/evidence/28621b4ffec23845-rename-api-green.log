@@ -1,0 +1,9 @@
+✔ custom City lockout never directs users to an unrelated Alien host; explicit renewal remains usable (212.9999ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2496.7292

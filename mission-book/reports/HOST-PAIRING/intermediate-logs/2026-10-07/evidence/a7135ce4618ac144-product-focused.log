@@ -1,0 +1,25 @@
+✔ each member sees itself first and all City devices by admission name, with real message receipt (3392.3572ms)
+✔ real joined devices retain names, appear beside the host and may register only their own worker (286.3996ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (250.7854ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (459.1565ms)
+✔ joining only demotes the local host, saves its admission name and leaves remote City intact (208.6515ms)
+✔ failed pairing and busy local work do not demote or write a new membership (86.0784ms)
+✔ JOIN-502 surface: a nearby City is offered without being trusted, and joining waits for an approval (6128.9085ms)
+✔ JOIN-502 surface: a refused browse still offers the fallbacks, and a rejected ask leaves the device untrusted (5550.7367ms)
+✔ locale contract: supported tokens, fallback and first-run detection (2.1779ms)
+✔ both language packs cover every message key with matching placeholders (3.2032ms)
+✔ every fixed Web UI string is present in the language packs (0.6766ms)
+✔ protocol tokens and City Control state names are never translated (7.9121ms)
+✔ web assets only use message keys that exist in the packs (2.6197ms)
+✔ badge state and display label stay separate in every locale (1.9051ms)
+✔ applyTranslations and setLocale update the document without touching storage contracts (0.4443ms)
+✔ translation fills placeholders and time formatting follows the locale (22.4038ms)
+✔ Web Settings language switch, persistence and protocol stability (real browser) (2320.7576ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16076.939

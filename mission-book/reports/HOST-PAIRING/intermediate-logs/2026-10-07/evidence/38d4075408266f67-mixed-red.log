@@ -1,0 +1,47 @@
+✔ startup preflight recognizes old absolute Windows paths and refuses duplicate Cities (4.4104ms)
+✔ an interrupted Windows inventory is an explicit blocking error, never an empty host (0.8237ms)
+✔ a relative Gateway path with an inconclusive identity probe blocks startup (0.3798ms)
+✔ a cold Windows inventory timeout retries one complete scan before declaring the host empty (0.9372ms)
+✔ a persistent inventory timeout refuses after exactly two attempts (0.3444ms)
+✔ a non-timeout inventory error refuses without retrying (0.3095ms)
+✖ mixed timeout and non-timeout failures cannot hide a blocking inventory error (0.939ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 985.2283
+
+✖ failing tests:
+
+test at tests\host-preflight.test.mjs:25:1
+✖ mixed timeout and non-timeout failures cannot hide a blocking inventory error (0.939ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  Error: Could not confirm existing host Gateways; no City may be started: timeout
+      at async TestContext.<anonymous> (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:25:229)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: Error: Could not confirm existing host Gateways; no City may be started: timeout
+        at findRunningCities (file:///D:/Utopia-Host-Retry/services/dev-gateway/host-preflight.mjs:21:24)
+        at async waitForActual (node:assert:646:5)
+        ... 3 lines matching cause stack trace ...
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+      [cause]: Error: timeout
+          at runImpl (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:25:350)
+          at findRunningCities (file:///D:/Utopia-Host-Retry/services/dev-gateway/host-preflight.mjs:14:5)
+          at async waitForActual (node:assert:646:5)
+          at async strict.rejects (node:assert:769:25)
+          at async TestContext.<anonymous> (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:25:229)
+          at async Test.run (node:internal/test_runner/test:1389:7)
+          at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+    },
+    operator: 'rejects',
+    diff: 'simple'
+  }

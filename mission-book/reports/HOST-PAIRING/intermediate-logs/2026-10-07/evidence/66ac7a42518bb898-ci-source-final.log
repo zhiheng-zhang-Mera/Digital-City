@@ -1,0 +1,662 @@
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 1 minute ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+* android (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  * Post Run gradle/actions/setup-gradle@v4
+  * Post Run actions/setup-java@v4
+  * Post Run actions/checkout@v4
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 1 minute ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 1 minute ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 1 minute ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 2 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 2 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 2 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 3 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 3 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 3 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 3 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 4 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  * Run pnpm test
+  * Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 4 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  ✓ Run pnpm test
+  ✓ Run node scripts/verify-promotion-history.mjs
+  * Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+Refreshing run status every 15 seconds. Press Ctrl+C to quit.
+
+* codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 4 minutes ago
+
+JOBS
+* gateway-web (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  ✓ Run pnpm test
+  ✓ Run node scripts/verify-promotion-history.mjs
+  ✓ Run node --test apps/rooms/tests/*.test.mjs
+  * Run node city/test-all.mjs
+  * Run pnpm check:docs
+  * Post Run pnpm/action-setup@v4
+  * Post Run actions/setup-node@v4
+  * Post Run actions/checkout@v4
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+
+✓ codex/city-members-host-roles V0.2 checks zhiheng-zhang-Mera/utopia#11 · 37200078026
+Triggered via push about 4 minutes ago
+
+JOBS
+✓ gateway-web in 4m55s (ID 111429786116)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-node@v4
+  ✓ Run pnpm/action-setup@v4
+  ✓ Run pnpm install --frozen-lockfile
+  ✓ Run pnpm --dir city install --frozen-lockfile
+  ✓ Run pnpm test
+  ✓ Run node scripts/verify-promotion-history.mjs
+  ✓ Run node --test apps/rooms/tests/*.test.mjs
+  ✓ Run node city/test-all.mjs
+  ✓ Run pnpm check:docs
+  ✓ Post Run pnpm/action-setup@v4
+  ✓ Post Run actions/setup-node@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+✓ android in 1m8s (ID 111429786215)
+  ✓ Set up job
+  ✓ Run actions/checkout@v4
+  ✓ Run actions/setup-java@v4
+  ✓ Run android-actions/setup-android@v3
+  ✓ Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'
+  ✓ Run gradle/actions/setup-gradle@v4
+  ✓ Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain
+  ✓ Run actions/upload-artifact@v4
+  ✓ Post Run gradle/actions/setup-gradle@v4
+  ✓ Post Run actions/setup-java@v4
+  ✓ Post Run actions/checkout@v4
+  ✓ Complete job
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, actions/upload-artifact@v4, android-actions/setup-android@v3, gradle/actions/setup-gradle@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android: .github#4
+
+! setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+android: .github#14
+
+- "The ubuntu-latest label will migrate to Ubuntu 26 beginning October 19, 2026. For more information, see https://github.com/actions/runner-images/issues/14748"
+android: .github#1
+

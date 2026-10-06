@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.TechnicalFoldingTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-06T07:32:38.935Z" hostname="MERA-ALIANWARE" time="0.009">
+  <properties/>
+  <testcase name="the list row folds its own identifiers" classname="city.utopia.control.TechnicalFoldingTest" time="0.002"/>
+  <testcase name="a sparse action still folds its identifiers and states what is missing" classname="city.utopia.control.TechnicalFoldingTest" time="0.004"/>
+  <testcase name="a fully populated action keeps every internal value reachable" classname="city.utopia.control.TechnicalFoldingTest" time="0.001"/>
+  <testcase name="a selectable target folds its coordinates including availability" classname="city.utopia.control.TechnicalFoldingTest" time="0.001"/>
+  <testcase name="the gateway's own status label wins over the local fallback" classname="city.utopia.control.TechnicalFoldingTest" time="0.0"/>
+  <testcase name="an ask result folds its routing facts" classname="city.utopia.control.TechnicalFoldingTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

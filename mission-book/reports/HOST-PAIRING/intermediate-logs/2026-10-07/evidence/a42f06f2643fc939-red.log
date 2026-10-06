@@ -1,0 +1,51 @@
+✔ startup preflight recognizes old absolute Windows paths and refuses duplicate Cities (4.321ms)
+✔ an interrupted Windows inventory is an explicit blocking error, never an empty host (0.5926ms)
+✔ a relative Gateway path with an inconclusive identity probe blocks startup (0.3095ms)
+✖ a cold Windows inventory timeout retries one complete scan before declaring the host empty (0.3939ms)
+✖ a persistent inventory timeout refuses after exactly two attempts (0.8982ms)
+✔ a non-timeout inventory error refuses without retrying (0.3009ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1007.1451
+
+✖ failing tests:
+
+test at tests\host-preflight.test.mjs:21:1
+✖ a cold Windows inventory timeout retries one complete scan before declaring the host empty (0.3939ms)
+  Error: Could not confirm existing host Gateways; no City may be started: cold inventory timeout
+      at findRunningCities (file:///D:/Utopia-Host-Retry/services/dev-gateway/host-preflight.mjs:13:40)
+      at async TestContext.<anonymous> (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:21:259)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'HOST_SCAN_TIMEOUT',
+    cause: Error: cold inventory timeout
+        at runImpl (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:21:368)
+        at findRunningCities (file:///D:/Utopia-Host-Retry/services/dev-gateway/host-preflight.mjs:11:4)
+        at TestContext.<anonymous> (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:21:265)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+      killed: true
+    }
+  }
+
+test at tests\host-preflight.test.mjs:22:1
+✖ a persistent inventory timeout refuses after exactly two attempts (0.8982ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 2
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-Host-Retry/tests/host-preflight.test.mjs:22:456)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
