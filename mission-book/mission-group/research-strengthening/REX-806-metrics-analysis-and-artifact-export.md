@@ -37,7 +37,8 @@ user_exposure_nesting: L3_ADVANCED
 backend_wiring: TO_BE_VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
-merge_authority: false
+merge_authority: true
+owner_gate_ruling_2026_10_07_qualification: "QUALIFIED BY THE EXISTING OWNER GATE, no new authority invented. The owner's ruling recorded in this workbook's other field defines qualified as \"its own review is complete and its marker is released\". Measured at this moment: review_complete=true, review_host=Mech, review_head_sha=12e3d3bf868575a8e3cda983733a3186cb59da27, terminal_marker=RESEARCH_ARTIFACT_EXPORT_ACCEPTED released by that review. Therefore merge_authority moves false -> true for REX-806 exactly as it did for REX-801..805 once they were accepted, and REX-807/890 keep false until their own reviews complete. This grants PERMISSION, not an action: the merge itself is a separate, recorded integration step, and no product merge has been performed at the time of writing. Recorded by Mech-DS."
 report_path: mission-book/reports/REX-806
 terminal_marker: RESEARCH_ARTIFACT_EXPORT_ACCEPTED
 owner_gate_ruling_2026_10_07: "OWNER GATE OPEN for the REX series (owner instruction this session): QUALIFIED sub-tasks may merge, i.e. those whose own review is complete and whose marker is released. merge_authority is set true on REX-801..805 (all accepted and now in main) and stays false on REX-806/807/890 until their reviews complete - acceptance, the opposite-host review and the markers are unchanged, and section 3 still forbids self-review. Recorded by Mech-DS."
