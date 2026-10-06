@@ -52,6 +52,13 @@ terminal_marker: CAPABILITY_ENTRY_BASELINE_AUDITED
 owner_ruling_2026_10_05: 'OWNER RULING, 2026-10-05: resolve the CEX-705 conflict by any means, then open CEX-790; the owner only wants the final result - acceptance such that the whole CEX programme can be merged. RECORDED CONSEQUENCE, written by the agent because it is a judgement the owner made and not one the agent may make silently: this ruling WAIVES the opposite-host Formal Review for this closeout, which CONSTRUCTION_RULES section 3 would otherwise require, because CEX-790 development_host is Mech and this host cannot review its own development. The waiver rests on section 0 (an explicit, newer owner ruling outranks this file); it is NOT a review verdict, and no reviewer evidence is claimed for it. Everything else about CEX-790 stands as measured in reports/CEX-790/.'
 review_basis: 'The owner ruling of 2026-10-05 (owner_ruling_2026_10_05) directs that the whole CEX programme must end mergeable and thereby WAIVES the opposite-host Formal Review for this closeout, which section 3 would otherwise require because this workbook development_host is Mech and this host cannot review its own development. review_complete is set on that authority and NOT on any reviewer evidence: no second host produced a verdict, and none is claimed.'
 terminal_marker_release_basis: 'Released under the same owner ruling, after the capability-registry reconciliation, the rebuilt entry inventory and the audit report were all completed and recorded in reports/CEX-790/. The closure is a control-plane closure: the owner waived the opposite-host review rather than a review having been performed.'
+integration_branch: "integration/CEX-790-Alien-20261006"
+integration_head_sha: "4688274255464383d577841a37e85a556d92c678"
+integration_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/33"
+integration_status: "WAITING_EXACT_HEAD_CI"
+integration_ci: "Push 37412522043 and PR 37412526500 IN_PROGRESS; linkage 37412526523 SUCCESS. No main merge performed."
+integration_report: "mission-book/reports/CEX-790/ALIEN_INTEGRATION_REPORT.md"
+owner_priority_override_2026_10_06: "CEX-790 merge-readiness first, then MON directly; supersedes REX-before-MON. SHOW excluded."
 ---
 
 # CEX-790 — Backend → Web/Android 最终入口审计与冻结
