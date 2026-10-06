@@ -52,6 +52,31 @@ hunk 2  server 的单一 return / the single return
 
 判定依据是**互相不引用**：fault controller 的构造参数里没有 campaign（`services/dev-gateway/research/faults.mjs` 全文无 `campaigns`），campaign 段也没有引用 `faults`，因此两处并集与顺序无关，无需协调共享状态。 / Neither side references the other - the fault controller takes no campaign and the campaign block touches no fault store - so the union is order-independent with no shared state to reconcile.
 
+## 扩展到第三个产物：REX-805 候选 / Extended to the third product: the REX-805 candidate
+
+REX-805 的候选头 `4b39468`（`rex/REX-805-alien-replay-ablation`，PR #38，作者对侧主机，**尚未验收**）现在也纳入前置测量，理由与 803/804 相同：等接受之后再第一次集成，等于把冲突留到最不方便的时候。 / The REX-805 candidate is now measured too, for the same reason: discovering the conflict after acceptance is discovering it at the worst moment.
+
+```text
+4b39468 -> main b06504f 单独 / alone                  FAST-FORWARD，无冲突
+         main 是候选头的祖先（它比 main 多 15 个提交），所以“合并 REX-805 分支”根本不是一次合并，
+         而是把 main 直接移到候选头上
+4b39468 -> 已接受并集 803+804 @ 704c518               一处冲突，services/dev-gateway/server.mjs
+         与之前同一个 union 位点：已接受并集保留 fault controller，候选头加入 replay engine
+         两者互不引用 => 并集 = 三者都要（campaign surface + fault controller + replay engine）
+```
+
+**那个 fast-forward 正是“集成来源必须是工作书接受的那个提交”这条规则最锋利的例子**：按分支名集成在这里不是“多带一个提交”，而是**整条 main 被候选头替换**。 / The fast-forward is the sharpest illustration of the accepted-head rule: integrating by branch name here would not carry one extra commit, it would replace main with the candidate.
+
+分支 / branch：`integration/REX-805-candidate-mech-preflight` @ `0d8bdce`（并集，再叠加已发布的 REX-804 证据修复）。候选头不是已接受身份，本分支是**前置测量**，不是集成，也不改变任何工作书字段。 / A preflight measurement, not an integration; the candidate is not an accepted identity and no workbook field changes.
+
+```text
+focused   tests/rex803-*. + tests/rex804-*. + tests/rex805-*.     67 pass / 0 fail（17 个套件）
+full      pnpm test                                              1423 pass / 3 fail / 1426，跑后 CLEAN
+          3 项均为 tests/host-city-launcher.test.mjs（本机常驻 City 占用 host reservation）
+```
+
+**一个当场被抓住的“分支名 ≠ 内容”实例（记录下来）/ a branch-name-versus-content incident, caught in the act：** 测量 (a) 之所以“无冲突”，是因为它是一次 **fast-forward**——而 fast-forward 会把我那条刚建好的测量分支**直接移到候选头上**。随后我差点把这条分支以 preflight 的名义推送出去：那样 origin 上就会有一条叫 `integration/REX-805-candidate-mech-preflight` 的分支，内容其实是**作者的候选头**，我自己的并集一行都没有。推送后核对 SHA 才发现（origin 上 4b39468 ≠ 期望的 0d8bdce），已改名重推并验证。 / The (a) measurement was "clean" because it fast-forwarded, which silently moved my own branch onto the candidate; I nearly published that branch under the preflight name, so origin would have carried a preflight-named branch containing only the author's candidate. Caught by comparing the pushed SHA with the expected one.
+
 hunk 2 有一个现成的警告在文件里：该 return 上方注释写着“第一次机械尝试在这里留下两个 return，把 `researchTrace` 悄悄藏在了前一个后面”。并集必须保持**单个 return**，把两边的能力都枚举出来。 / The file's own comment above the return records that a previous mechanical attempt left two returns and silently hid `researchTrace`; the union keeps one return enumerating both sides.
 
 ## 测量结果 / Result

@@ -406,6 +406,8 @@ integration/REX-accepted-heads-mech-preflight @ 704c518   （父提交 = 两个�
 
 > **“把任务分支合进来”不是一条集成规则。** 集成来源必须是工作书记录的那个被验收的确切提交——32 本工作书扫描中 1 项 tip 超前于已验收头（JOIN-590，多出的那个提交正是删除证据的提交）、3 项 tip 落后（MON-902/MON-903/REX-803）、1 项已验收头不在任何 ref 上（UI-000）。见 `reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。 / The task branch is not the integration source: 1 accepted task's tip is ahead of its accepted head, 3 are behind, 1 accepted head is on no ref.
 
+**REX-805 候选头现已纳入同一测量**（`4b39468`，尚未验收）：它对 main 是 **fast-forward**（main 是它的祖先，它比 main 多 15 个提交），对已接受并集 803+804 则有 server.mjs 一处 union 冲突，已按三家并集解出。`integration/REX-805-candidate-mech-preflight @ 0d8bdce`：定向 67/67，全量 1423/1426（3 项 host-city-launcher），跑后 CLEAN。**那个 fast-forward 正是“集成来源必须是接受身份”这条规则最锋利的例子：按分支名走不是多带一个提交，而是整条 main 被候选头替换。** / The REX-805 candidate is now measured too: a fast-forward onto main, one union conflict against the accepted 803+804 union, resolved as a three-way union; 67/67 focused and 1423/1426 full, clean after. The fast-forward is why the accepted-head rule matters most here.
+
 另外，首次全量运行还出现过一个第 4 红项 `tests/relay-s1-tunnel.test.mjs:420`，**已查明是 main 自身的漂移探针**（1000 ms 窗口内第 21 个请求才 429，而探针顺序发 30 个请求；主机一忙窗口就追不上），重跑即消失、并集未改动该测试与该限流器一行。 / A fourth failure in the first full run was classified as main's own host-speed-dependent probe: it vanished on the repeat and the union touches neither the test nor the limiter.
 
 ### 顺带发现：REX-804 的测试重写了它所认证的证据 / Surfaced: REX-804's test rewrites the evidence it certifies
