@@ -1,0 +1,114 @@
+# PCF-701 开发报告（增量 1）/ Development report, increment 1
+
+```text
+TASK_ID            PCF-701 实时资源观测与 freshness / Live resource telemetry, presence and freshness
+ROLE               Development（增量 1，开发未收口）
+HOST               Mech（COMPUTERNAME MEGA-REP，role Mech-DS）
+BRANCH             pcf/PCF-701-mech-live-resource-telemetry（系列分支 pcf/series-mech 同步该头）
+BASELINE           659ff6aa98bc5675862b1170ed0cf5e1b78dba5f（= PCF-700 已验收头，也是系列累计头）
+HEAD_SHA           e3c7256069796aac9e67c38042a1da03dbe26c7b（增量 1 修复头；前一交付头 20b55b6855fed1…）
+CI                 run 37538196436（20b55b6，**失败一次：REX-801 套件拆除竞态，非本任务缺陷**，同头重跑全绿）
+                   → run 37540047630（e3c7256，**success**，gateway-web 与 android 全绿）
+DELIVERABLES       contracts/personal-compute-fabric-v1/observations.mjs（新增）
+                   services/personal-compute-fabric/telemetry.mjs（新增）
+                   tests/pcf701-telemetry.test.mjs（新增，13 项）
+                   + PCF-700 的四条相位守卫在**本分支**上被改写为边界守卫（见 §2.3）
+```
+
+## 1. 交付物的语义（工作书要求 vs 已实现）
+
+```text
+observeResources(sample, context) -> ResourceObservation：**纯函数**，没有 I/O、定时器或环境时钟，
+  因此同一组输入永远得到同一个结果，录制可回放（T13 断言）。
+不许凭空造数：missing / NaN / 负数 / 单位不符 / 越界一律**不是 0**，而是带原因的存在性
+  （UNKNOWN / UNSUPPORTED）+ value=null；可选适配器缺席 = UNSUPPORTED，与「读到了 0」严格区分（T1/T6）。
+顺序：每个维度带 sequence，旧包不能覆盖新值（T2）。
+epoch：bootId 不同一律拒绝，不与本 boot 混合（T3）。
+时钟：ageOf 手工单调化 —— 回拨既不能让旧数据保持新鲜，也不能把已记录的老化撤销；回拨期间**即使被接受**的
+  观测也只能是 STALE（T4/T5）。未来时间戳的样本记录但不称新鲜。
+越权面：契约只认声明的维度；进程名/窗口标题/个人文件等维度记为 UNSUPPORTED 且 value=null，绝不落库（T12）。
+collector：有界环（最旧被逐出，丢弃数按原因可见）、限频（节流时不调用采样器、返回上一次观测）、
+  每次尝试有 deadline（超时返回全 UNKNOWN 而不是 0，且**不冻结调用方**：T7 用永不 resolve 的适配器验证）、
+  采样失败显式上报、overhead 用注入的单调时钟测量（T9/T10/T11）。
+```
+
+## 2. 证据与自查（含本轮发现的自身问题）
+
+### 2.1 逐条证伪：六处源码突变，六处变红
+
+```text
+M1 接受负值（去掉 NEGATIVE 分支）→ T1 红      M2 去掉顺序检查 → T2 红
+M3 混合 boot epoch → T3 红                    M4 回拨后仍允许 FRESH → T4 红
+M5 超时路径填 0 而不是 UNKNOWN → T7/T8 红     M6 环满不再计数 → T9 红
+每次突变后源码按字节还原（sha256 比对一致），复位后 13/13 绿。
+```
+
+### 2.2 突变暴露的**装饰性断言**（已修，记录在此）
+
+M4 第一次**没有变红**：T4 原本只用「未来时间戳」的样本验证回拨，而那条样本在**更早的规则**就被 CLOCK_ROLLBACK
+拒绝，`freshnessOf` 里的回拨分支从未被执行 —— 断言看似覆盖、实则空转。修法：T4 增加**被接受的回拨路径**
+（样本相对回拨后的 now 仅 5ms 旧、TTL 内，只有回拨标志能阻止它被报成 FRESH），改后再跑 M4 即变红。
+这条按工程书要求记录为「探针自身的缺陷」，而不是悄悄补测试。
+
+### 2.3 PCF-700 的相位守卫被**改写为边界守卫**（不是删除）
+
+PCF-701 激活了 fabric 的第一个运行期模块，于是 PCF-700 里三条**相位性**断言不再成立：
+
+```text
+D4（tests/pcf700-dependency-direction.test.mjs）原为「没有任何运行期模块引用 fabric」→
+   改为「fabric 引用只允许出现在声明路径下，且除 fabric 自身/其测试/其工具外无人 import 它」。
+审计脚本 scripts/pcf700-reuse-audit.mjs 现在**同时**报告「全部运行期引用」与「声明路径之外的引用」；
+复检包 C6 检查后者为 0，C7 由「候选目录未创建」改为「fabric 只存在于声明路径下且声明模块在场」。
+**被验收头 659ff6a 保留原文**；本分支承载后继版本。改写的理由与前后语义都写在测试文件头部注释里。
+证伪：临时在 services/dev-gateway 下放一个 import fabric 的文件 → D4 变红（3 pass/1 fail）、复检包 C6 变红
+（6/8）；删除并重生成记录后恢复 4/4 与 8/8。
+```
+
+### 2.4 仪器修复：walker 抗目录抖动
+
+PCF-700 的兼容套件在同一 `node --test` 进程池里 mkdtemp 并删除 `.scratch-pcf700-*`；守卫与审计脚本的 walker
+若在 readdir 与递归之间撞上被删目录会抛 ENOENT，曾表现为一次**极快且令人困惑的 D2 失败**（而文件其实完好）。
+walker 现在对 ENOENT 跳过而不是失败。连续三次并行跑三套 PCF 套件均 **24/24**。
+
+### 2.5 机读记录的差异（相对 PCF-700 的已验收副本）
+
+`data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json` 已重生成（中英同字节），与 PCF-700 验收副本的差异**只有**：
+新增字段 `pcfRuntimeReferencesOutsideDeclaredPaths`（本头为 `[]`），以及 `pcfRuntimeReferences` 现在包含
+`services/personal-compute-fabric/telemetry.mjs`；合同目录计数随之变化。其余字段不变。PCF-700 的验收副本仍留在
+`659ff6a` 上，未被改写。
+
+### 2.6 CI 一次假红与修复（跨系列测试卫生问题，实测而非猜测）
+
+`20b55b6` 的 hosted run 37538196436 **只失败一个**测试：`two equal host references are one physical host, not a
+TWO_HOST_MESH`（位于对侧的 `tests/rex801-alien-independent-review.test.mjs`）。取回原始 job 日志后可见**断言其实已经通过**，
+失败来自 finally 块：
+
+```text
+[Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\RUNNER~1\AppData\Local\Temp\rex801-review-J6CeIU']
+```
+
+即 Windows runner 上 `rm()` 与刚关闭的网关文件刷写竞速。证据链：同一头**重跑两个 job 全绿**；该套件在两个头上单独跑均 3/3；
+本机全量套件里它也是通过的。因此这是**测试拆除竞态**，不是产品行为、更不是 PCF-701 的缺陷。
+
+处理：把该文件里的三处 `rm()` 加上 `maxRetries/retryDelay` —— 与本仓库其它 helper 已有的写法一致（PCF-700 自己的
+scratch-City helper 就是这么写的）。这是**测试脚手架修复，不改 REX-801 的验收**：对侧已验收头保留原文，本分支承载后继。
+修复后该套件连续 3 次 3/3，PCF 三套仍 24/24。修复提交 `e3c7256`（本报告头）。
+
+
+
+```text
+子步骤 1 部分：CPU/内存/磁盘/队列的观测、来源/单位/bootId/seq/observedAt/receivedAt/TTL 已实现；
+   GPU/VRAM、网络质量、电池/温度的**可选 adapter 未实现**（当前只能声明 UNSUPPORTED）。
+子步骤 2 部分：presence 与 freshness、观测/估计/用户声明的分离已实现；**total/free/reserved/in-use 未区分**，
+   网络**按路径测量**（RTT/带宽，禁止用「局域网在线」冒充）与退避策略未实现。
+子步骤 3 完成：有界缓冲、限频、丢弃计数、overhead 测量、以及「不采集未授权进程名/窗口内容/个人文件」。
+异机验收部分（真实两主机至少采集 CPU/RAM 并记录自身开销）属复检方执行（EXECUTION_CONTRACT §14）；
+本机本轮只做到单机组件证据。
+```
+
+## 4. 边界（未越过）
+
+```text
+不采购/不付费、不装系统服务、不改运行 profile、不启用远端执行；未把 fabric 接入网关（D4 边界守卫在守）；
+UI 一律未接线（资源/freshness 属 Advanced device detail，风险投影归 715）；merge_authority 保持 false。
+```

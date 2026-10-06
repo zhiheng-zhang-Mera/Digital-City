@@ -18,7 +18,8 @@ development_baseline_sha: "659ff6aa98bc5675862b1170ed0cf5e1b78dba5f"
 anchor_state: RESOLVED_AT_CLAIM
 development_host: "Mech"
 development_branch: "pcf/PCF-701-mech-live-resource-telemetry"
-development_head_sha: null
+development_head_sha: "e3c7256069796aac9e67c38042a1da03dbe26c7b"
+development_ci: "TWO heads, both kept. (1) 20b55b6855fed15af0c84a6eaa8e277595fcdd12: V0.2 checks run 37538196436 completed/failure - exactly one test failed, and it was NOT this task's: tests/rex801-alien-independent-review.test.mjs 'two equal host references are one physical host, not a TWO_HOST_MESH', whose assertion had already passed and whose finally block threw [Error: ENOTEMPTY: directory not empty, rmdir 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rex801-review-J6CeIU'] - the Windows runner's rm() racing the just-closed gateway's file flush. The same head re-ran green on both jobs and that suite passes 3/3 standalone at both heads. (2) e3c7256069796aac9e67c38042a1da03dbe26c7b: V0.2 checks run 37540047630 completed/success (gateway-web and android green). The repair adds maxRetries/retryDelay to that suite's three rm() calls - the hygiene this repository already uses elsewhere - and changes no acceptance: the opposite host's accepted head keeps the original text. Local evidence: tests/pcf701-telemetry.test.mjs 13/13; all three PCF suites 24/24 three consecutive parallel runs; six source mutations each turn the suite red and each was restored byte-identically; the review packet is 8/8 on this head."
 development_ci: null
 development_complete: false
 review_host: null
@@ -48,8 +49,19 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 ## 增强子任务
 
 - [ ] 实测 CPU、内存、磁盘及可观察队列/占用；保留来源、单位、bootId/seq、observedAt/receivedAt/TTL。GPU/VRAM、网络质量、电池/温度由可选 adapter 提供，缺席不阻塞基本采集。
+      → **部分完成（增量 1，head `20b55b6`）**：九个维度的声明/单位/范围、来源、bootId、seq、observedAt/receivedAt/TTL 已实现并有反例守卫；**可选 adapter 本体未实现**（当前只能声明 `UNSUPPORTED`，这正是工作书允许的「缺席不阻塞基本采集」），故本条保持未勾选。
 - [ ] 区分 total/free/reserved/in-use，presence 与 freshness；观测、估计和用户声明分开。网络测量必须按路径，禁止用“局域网在线”冒充 RTT/带宽；探测有预算、期限和退避。
-- [ ] 实现有界缓冲、限频、丢弃计数和 overhead measurement；不采集未经授权的进程名称、窗口内容或个人文件。
+      → **部分完成**：presence 与 freshness 已分离并可断言；`PRESENCE` 明确区分 OBSERVED/ESTIMATED/DECLARED/UNKNOWN/UNSUPPORTED；探测有 deadline 与预算（超时不冻结调用方）。**total/free/reserved/in-use 未区分，按路径的网络测量与退避未实现**，故本条保持未勾选。
+- [x] 实现有界缓冲、限频、丢弃计数和 overhead measurement；不采集未经授权的进程名称、窗口内容或个人文件。
+      → `services/personal-compute-fabric/telemetry.mjs` + T9/T10/T11/T12：环满逐出最旧且丢弃数按原因可见、节流不探测、overhead 由注入的单调时钟测量、越权维度记为 `UNSUPPORTED` 且 `value=null`（测试断言绝不落库）。
+
+### 2026-10-07 增量 1 记录（含自身问题与守卫改写）
+
+- **证伪**：六处源码突变（接受负值 / 删顺序检查 / 混 boot epoch / 回拨后仍 FRESH / 超时填 0 / 环满不计数）**各自使套件变红**，源码按字节还原；复位后 13/13。
+- **自己的装饰性断言（已修）**：M4 第一次没变红——T4 只用「未来时间戳」样本，而那条更早被 CLOCK_ROLLBACK 拒绝，`freshnessOf` 的回拨分支从未执行；补上**被接受的回拨路径**后 M4 才变红。
+- **PCF-700 的相位守卫改写为边界守卫**（不是删除）：D4 改为「fabric 引用只允许在声明路径下，且除自身/测试/工具外无人 import」；审计脚本同时报告「全部引用」与「声明路径之外引用」；复检包 C6 检查后者为 0、C7 改为「只存在于声明路径下且模块在场」。**被验收头 `659ff6a` 保留原文**；本分支承载后继，理由写在测试文件头部注释。
+- **仪器修复**：walker 抗目录抖动（PCF-700 兼容套件在同一进程池里增删 `.scratch-pcf700-*`，曾使 D2 出现一次极快失败）；连续三次并行跑三套 PCF 套件均 24/24。
+- **机读记录差异**：`data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json` 已重生成，与 PCF-700 验收副本的差异仅为新增 `pcfRuntimeReferencesOutsideDeclaredPaths`（当前 `[]`）、`pcfRuntimeReferences` 增加本服务的 telemetry.mjs、以及合同目录计数；其余不变。
 
 ## 独立验收
 
