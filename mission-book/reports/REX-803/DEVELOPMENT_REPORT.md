@@ -121,6 +121,13 @@ DEFECT R-2 (D-9) an outside cancellation was recorded as FAILED           -> cla
 The pass is recorded because it is not a review: it raises the floor for the opposite-host reviewer, and it is how this
 task's own defects were found rather than found by them.
 
+**Cross-task consequence of the same sweep.** After repairing R-1 in this module, the same probe was pointed at every
+other research store in the running City, and it found the shape STILL LIVE IN MERGED MAIN: the REX-801 experiment
+registry turned one stray file at `<runtime>/research` or `<runtime>/research/experiments` into a City that will not
+start. REX-801 is closed and merged, so this host did not touch its code on this task's branch; the measurement, an
+adoptable repair (`repair/REX-801-mech-store-guard`) and the pattern analysis are recorded in
+[../REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md).
+
 ### 3Y. A record defect caught in this host's own hand, before it was committed
 
 ```text
