@@ -11,6 +11,31 @@
 > 过程数据规则：[PROCESS_DATA_POLICY.md](./PROCESS_DATA_POLICY.md)  
 > 研究信号优先级：[RESEARCH_SIGNAL_WATCHLIST.yaml](./RESEARCH_SIGNAL_WATCHLIST.yaml)
 
+## 未挂起系列主台 / Non-parked programme desk
+
+本区集中展示已登记系列及未挂起的未来规划。**本次仅整理入口，暂不启动、领取或复检任务。** 当前工作书状态与执行开关保留；已完成系列只供查阅，未来规划不纳入活跃统计。挂起/停放系列仍见 [停放索引](./PARKED_PROGRAMMES.md)。
+
+This desk lists registered programmes and non-parked future planning. **This change organizes navigation only; do not start, claim or review tasks.** Existing workbook states and execution flags remain unchanged. Completed programmes are references; future planning stays outside active totals. Suspended/parked programmes remain in the [parked index](./PARKED_PROGRAMMES.md).
+
+| 系列 / Programme | 记录状态 / Recorded state | 当前安排 / Instruction |
+|---|---|---|
+| [Replant / MB-001~012](./finished/replant/) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Butler Assistant](./finished/completed-2026-10-01/MISSION_INDEX.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Remote Fabric](./finished/completed-2026-10-01/MISSION_INDEX.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [General AI Gateway](./finished/completed-2026-10-01/MISSION_INDEX.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Engineering Manager](./finished/completed-2026-10-01/MISSION_INDEX.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Rescheduling vNext](./finished/completed-2026-10-03/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [UI Civilization](./finished/completed-2026-10-03/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [UI × Scheduler Integration](./finished/completed-2026-10-03/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [MESH 三端互联](./finished/completed-2026-10-04/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Connection Onboarding](./finished/completed-2026-10-06/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Workbench Compatibility](./workbench-compatibility-migration/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Capability Entry Closeout](./capability-entry-closeout/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [Research Strengthening](./research-strengthening/README.md) | IN_PROGRESS | 仅导航，暂不领取 / Navigation only, do not claim |
+| [City Work Monitor](./city-work-monitor-dashboard/README.md) | COMPLETE | 已完成，历史查阅 / Complete, historical reference |
+| [SHOW-401 展示素材](./showcase-material-extraction/README.md) | IN_PROGRESS | 仅导航，不执行 / Navigation only, excluded from execution |
+| [FR-001 — Persistent Foreman Runtime](./future-plans/FR-001-Persistent-Foreman-Runtime.md) | FUTURE / NOT ACTIVATED | 仅规划，暂不启动 / Planning only, do not start |
+
 <!-- MISSION_PROGRESS:START -->
 ## 全城项目总进度 / Citywide progress (generated)
 

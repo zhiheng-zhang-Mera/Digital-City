@@ -19,6 +19,10 @@ This page translates the explanatory body of a historical reading snapshot; gene
 > Process-data rules: [PROCESS_DATA_POLICY.md](.././PROCESS_DATA_POLICY.md).
 > Research signal priorities: [RESEARCH_SIGNAL_WATCHLIST.yaml](.././RESEARCH_SIGNAL_WATCHLIST.yaml).
 
+## Non-parked programme desk
+
+The current [main desk](../README.md#未挂起系列主台--non-parked-programme-desk) consolidates registered programmes and non-parked future planning. This navigation change does not authorize starting, claiming or reviewing work; existing states and execution flags remain unchanged. Parked programmes stay in their separate index.
+
 ## Parked expansion and migration series
 
 See the complete [parked programme index](.././PARKED_PROGRAMMES.md).

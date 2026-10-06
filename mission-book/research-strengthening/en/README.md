@@ -266,7 +266,7 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 5/8 · 开发 / Development 5/8 · 复检 / Review 5/8 · `IN_PROGRESS`
+总完成 / Complete 5/8 · 开发 / Development 6/8 · 复检 / Review 5/8 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
@@ -275,7 +275,7 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 | [REX-803](../REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
 | [REX-804](../REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
 | [REX-805](../REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
-| [REX-806](../REX-806-metrics-analysis-and-artifact-export.md) | IN_PROGRESS | NO | NO | YES |
+| [REX-806](../REX-806-metrics-analysis-and-artifact-export.md) | IN_PROGRESS | YES | NO | YES |
 | [REX-807](../REX-807-research-control-surface-and-progressive-disclosure.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-890](../REX-890-reproducibility-study-and-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 
@@ -550,3 +550,14 @@ Accepted dependencies are REX-803 `8798ba9dd37051626033ad72080b2fad3ff66149`, RE
 
 REX-806 Development and Review remain incomplete in this snapshot; no development CI or acceptance marker is inferred from the claim. REX-805 handset comparison-page rendering remains **NOT_OBSERVED**, as the reconciliation record requires.
 <!-- READING_REX805_ACCEPTED_REX806_CLAIM_0425630:END -->
+
+
+### REX-806 development handover (2026-10-06)
+
+The later handover binds branch `rex/REX-806-mech-metrics-and-export` at `d7aa5d7`, based on accepted dependency union `e18c5c5` (REX-803 `8798ba9`, REX-804 `fe700ab`, REX-805 `0261a9e`). Push CI `37451114057` at `94a7d24` and `37452319948` at `d7aa5d7` both succeeded on attempt 1. The local suite reports 1445 tests, 1442 passes and three resident host-city-launcher failures, with no load-sensitive failure in that run.
+
+Eighteen probes passed (13 module and five interface probes). Two earlier interface-instrument errors—an unregistered experiment and a receipt filename outside the runner's `campaign-<uuid>.json` pattern—were corrected before the 18/18 result. The three artifact interfaces (`GET /research/artifacts[?format=csv]` and `/research/artifacts/preview?limit=N`) reject member sessions with 403 `RESEARCH_OWNER_REQUIRED`; absent sources yield 422 `ARTIFACT_NO_SOURCE`.
+
+The published artifact contains 18 real campaigns, 24 runs and 22 measured runs. Four metrics have values; 23 remain `NOT_MEASURED` with reasons. Per-file SHA256 checks passed 10/10 in a fresh clone. The [handover](../../reports/REX-806/DEVELOPMENT_HANDOFF.md) identifies the minimum independent recomputation set. The acceptance marker `RESEARCH_ARTIFACT_EXPORT_ACCEPTED` remains unreleased; product-main merge is not authorized.
+
+An independent reviewer must confirm that `intervention_count` is unknown rather than zero because City records do not express Owner actions. False `placementMatchesSeedAlone` values should occur only on `replayMode=ABLATION` rows, whose policy intentionally overrides seed placement. This repair starts no review or new task.
