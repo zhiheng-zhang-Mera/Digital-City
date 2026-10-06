@@ -8,8 +8,13 @@ BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef
                     DEPENDENCY_SHA_UNION_AT_CLAIM resolved literally: the accepted MON-901 head
                     7eb38f1b930dfe6cc13dab0e17dedee467b1254b is an ancestor of main, so the union IS main
 DEPENDENCY SMOKE    node --test tests/mon901-observation.test.mjs -> 8 pass / 0 fail, before any product change
-DEV HEAD            1d1593df9f3370711df7fbb735fb2ccb393e7494
-CI (exact head)     V0.2 checks 37401385199 COMPLETED SUCCESS on that head (gateway-web, android, docs/promotion)
+DEV HEAD            78bdd9dc873ebc257aedecf421068a1387dbec82
+                    (head moved once after the first green CI: this task's own adversarial pass found D-7/M-1 and D-8/M-2
+                     and both are repaired on this head)
+CI (exact head)     V0.2 checks pull_request 37406286660 SUCCESS, City linkage 37406286695 SUCCESS, and push 37406282033
+                    SUCCESS on RERUN after failing once on a load-sensitive browser timeout (D-9). All three read from
+                    the Actions API and matched on headSha. Local full suite at this head: 1368 tests, 1363 pass, the 5
+                    failures being the inherited environment ones.
 PR                  zhiheng-zhang-Mera/utopia#32
 REVIEW HOST         Alien — OUTSTANDING, not performed by this host
 TERMINAL MARKER     none declared by this workbook; the workbook's completion gate is a nine-item list
@@ -79,7 +84,47 @@ D-5  INSTRUMENT NOTE. `relay-s1-tunnel.test.mjs` failed once inside the full-sui
 D-6  A BROKEN RECEIPT IS REPORTED, NOT FATAL - deliberately carried over from the REX-804 finding: this module reads
      its own receipts with a guard, publishes `broken`, and keeps serving. The probe asserts it, so the defect the
      opposite-host review found in a sibling module cannot reappear here.
+D-7  AN UNUSABLE RECEIPT STORE PREVENTED THE CITY FROM STARTING (finding M-1). `createDecisionOverlay` called mkdirSync
+     unguarded, so a single file sitting where `<runtime>/monitor/decisions` was supposed to be made `createGateway`
+     throw with EEXIST and the City never bound its port. This is the SAME class as the REX-804 review's blocking
+     finding B1 - a research-side storage problem turning into a City that will not boot - and this task's own
+     adversarial pass found it in its own code one round after reviewing a sibling for it.
+     CAUGHT BY  an adversarial self-test written for this round (a file at the store path), then pinned at the City
+     level: the gateway must start and `/api/v0/monitor/decisions` must report `persistence: UNAVAILABLE` with a reason.
+     REPAIRED: the store is created defensively; when it is unusable the overlay records decisions IN MEMORY, marks each
+     one with `receiptFailure: DECISION_STORE_UNAVAILABLE`, serves them by id from the window, and reports the degraded
+     state in `snapshot()` and `metrics()`. Two regression probes cover it (overlay level and City level).
+D-8  A CLOSED OVERLAY BLAMED THE CALLER'S TRIGGER (finding M-2). Submitting after `close()` raised
+     `DECISION_TRIGGER_INVALID`, which says the trigger was malformed when in fact the overlay was shutting down.
+     CAUGHT BY  the same adversarial pass. REPAIRED: a distinct `DECISION_OVERLAY_CLOSED` with status 409, and a probe
+     that asserts the code.
+D-9  A LOAD-SENSITIVE BROWSER TEST FAILED THE PUSH CI ONCE (environment flake, not a product defect). On the hardened
+     head the push run failed on `tests/pairing-search-web.test.mjs` -> "BLE_BOOTSTRAP search selects a peer and hands
+     the code to its origin without a cross-origin POST" after 31.3s (its LAN sibling in the same file took 1.8s) while
+     the PR run of the SAME head passed.
+     EVIDENCE THAT IT IS THE ENVIRONMENT, not the change: the identical file passes 6/6 in isolation locally; the full
+     local suite at that head is 1368 tests / 1363 pass with only the five inherited environment failures; the file is
+     untouched by this task's diff (services/dev-gateway/decision.mjs and tests/mon903-decision.test.mjs only); and the
+     rerun of the very job that failed COMPLETED SUCCESS on the identical head.
+     RECORDED rather than cleaned away, and the workbook's CI field says so explicitly.
 ```
+
+## 3A. Adversarial self-test of this task's own deliverable (2026-10-06, before review)
+
+Because the opposite-host review is still outstanding, this host ran its own adversarial pass over the parts of MON-903 a
+reviewer would attack first. Five probes were run; three properties held and two were defects, both now repaired:
+
+```text
+HELD   a throwing canonical task reader is recorded as typed failures (DECISION_OBSERVE_FAILED, DECISION_RUN_FAILED,
+       DECISION_UNHANDLED_REJECTION) and produces NO fabricated decision
+HELD   retention bounds the receipt DIRECTORY as well as the window (6 decisions, limit 3 -> 3 files, truncated flag)
+HELD   receipts survive a restart with identity intact, and remain readable by id
+DEFECT M-1 (D-7) an unusable receipt store prevented City startup           -> repaired, two regression probes
+DEFECT M-2 (D-8) a closed overlay reported the caller's trigger as invalid   -> repaired, one regression probe
+```
+
+The pass is recorded because a self-test is not a review: it raises the floor for the reviewer and it is exactly how the
+REX-804 defect class was found in this module rather than by the opposite host.
 
 ## 4. Test evidence on the exact head
 

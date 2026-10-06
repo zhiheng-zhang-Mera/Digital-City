@@ -2,7 +2,7 @@
 
 Developer Mech (COMPUTERNAME `MEGA-REP`, role Mech-DS). Baseline `213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef` (the
 dependency union resolved literally: accepted MON-901 head `7eb38f1b930dfe6cc13dab0e17dedee467b1254b` is an ancestor of
-main). Exact implementation `1d1593df9f3370711df7fbb735fb2ccb393e7494`; branch `mon/MON-903-mech-decision-overlay`;
+main). Exact implementation `78bdd9dc873ebc257aedecf421068a1387dbec82`; branch `mon/MON-903-mech-decision-overlay`;
 PR zhiheng-zhang-Mera/utopia#32. Opposite-host Formal Review PENDING (review_host Alien).
 
 ## Research object of this task
@@ -62,6 +62,18 @@ seams, not models.
 | Test harness | The unit helper deleted the receipt directory while a saturated queue was draining (`ENOTEMPTY`) | MEASUREMENT_DEFECT D-4 (harness) | Repaired; the product was right |
 | Full-suite run | `relay-s1-tunnel` burst-rate assertion failed once under full load and passes 12/12 in isolation | ENVIRONMENT / LOAD FLAKE D-5 | Recorded, not hidden; it did not recur |
 | Inherited environment | `capability-adapters`, `city-roads` (`CORRUPT_INPUT`); `host-city-launcher` ×3 (host reservation held by the resident City) | ENVIRONMENT / PRE-EXISTING | Identical at the baseline 213f9f9f |
+| Adversarial self-test of this task | An unusable receipt store made `createGateway` throw, so the City never started (M-1); a closed overlay blamed the caller's trigger code (M-2) | PRODUCT DEFECTS, found by this task's own adversarial pass one round after reviewing a SIBLING module (REX-804) for the same class | Repaired with three regression probes (overlay level, City level, refusal code); the store now degrades to in-memory recording with a stated reason |
+| Hosted CI on the hardened head | The push run failed once on `tests/pairing-search-web.test.mjs` (BLE bootstrap, 31.3s timeout) while the PR run of the same head passed | ENVIRONMENT / LOAD-SENSITIVE FLAKE D-9 | The same file passes 6/6 in isolation and inside the full local suite (1368 tests / 1363 pass), the file is untouched by the diff, and the rerun of the failed job succeeded on the identical head |
+| Instrument flake frequency on this host | Two browser/time-sensitive failures across three tasks in one day (relay burst, BLE bootstrap), both passing in isolation and on rerun | MEASUREMENT/ENVIRONMENT, worth reporting as instrument reliability rather than as product quality | Recorded per task; no threshold or test was weakened to make either pass |
+
+### Cross-task observation (worth a paragraph in the paper)
+
+The same defect class - *a research-side storage problem turning into a City that will not boot* - was found in REX-804 by
+the opposite-host review (finding B1) and then, one round later, in MON-903 by this task's own adversarial pass, written
+by the same author who had just reviewed the sibling. That is evidence for a claim the programme cares about: a defect
+class identified in one module does not automatically propagate to a sibling module written by the same host, but a
+*deliberate adversarial pass over the same failure shape* does find it. The pass is cheap (five probes) and found two
+defects; the reviewer's independent instruments remain a separate and still-unmet requirement.
 
 ## Research evidence applicability
 
