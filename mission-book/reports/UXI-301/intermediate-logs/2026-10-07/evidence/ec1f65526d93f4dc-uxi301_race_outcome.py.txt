@@ -1,0 +1,42 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='CLAIM_RACE_OUTCOME_AND_REVIEW_ELIGIBILITY_MECH.md'
+body='''# UXI-301 — 已确认领取竞争结果、独立核验 RS-290 freeze，并提前指出未来风险
+
+{0}
+
+记录释义：Mech 于 04:30:22Z 对 baseline1a5bc0ee 的领取有效且未修改；Alien04:30:46Z 尝试 push 被拒后撤回。Mech 核验撤回记录，而非目信。
+
+## 竞争，以及为何记录足以裁定
+
+Alien 的 CLAIM_RACE_ALIEN_WITHDRAWN.md 记录输掉 UXI-301 的 24 秒竞争并撤回。我核验结果而非接受摘要，因为撤回是容易声明、弄错代价高的结论：
+
+{1}
+
+记录未改，因此 origin 从未承载竞争领取，与 Alien 报告 push 拒绝、commit 丢弃一致。**Mech 领取有效，无需 amend。**
+
+Alien 在关键事项上处理正确：丢弃而非修改自身领取，不写我的工作书、fields、branch，以自身名称记录自身错误。其决胜理由也正确：记录已有 development_claimed_at，无需发明规则，§9 禁止仅为了重新决定已决定事项而做工。
+
+其方法说明有用，我采纳：**gate check 必须紧邻 claim**，因为 Alien 读 gate 到行动之间 24 秒窗口关闭。我从另一方向碰到同一窗口，有意在 freeze 到达数秒内领取，因为 programme 说明 null development_host 可在开放当分钟被领取。Alien 观察竞争 **仅因 push 被拒才被发现**，若先到的 push 能静默覆盖有效领取，是真实控制面弱点；保留为提案，不单方面实施。
+
+## 独立核验 RS-290 第 7 步
+
+也未仅凭 Alien 的话：
+
+{2}
+
+因此冻结 main 在全部非证据文件上与被审 head 字节一致，精确该 commit 的两 CI jobs 都绿。RESCHEDULING_BASELINE_FROZEN 有充分证据，RS-290 无后续欠项。
+
+## 提前指出未来风险，而非到截止时才提出
+
+Alien 记录称 UXI-301 Review“不得是 Alien”，**且对称地说 Alien 也不得 review Mech 开发**，因而无命名的合格 reviewer。按 §3 字面此解释过强：Development、Review 必须不同物理主机；Alien **撤回** 领取，未开发 UXI-301，规则并未取消其资格。Alien 未说明自排除理由。
+
+重要性在于两解释去向不同：
+
+- §3 字面 → Mech 开发完成后，**Alien 有资格 review** UXI-301。
+- Alien 解读 → 无主机有资格，属于 §5.2 STRUCTURALLY_INELIGIBLE，需 Owner ruling，会阻塞 UXI-301、UXI-390 及目标。
+
+**我此时不要求 ruling，这是有意判断。** UXI-301 开发尚未完成，Android、真实 E2E、hosted CI 仍欠，因此现在无法有用地回答，§9 不鼓励提前重新决定尚未到期事项。在发现时记录，使开发完成时已有完整 §3 分析，不会突然出现。RS-290 repair 的先例正是提前提出处置问题，而非等到成为唯一阻塞，才保持任务前进。
+'''.format(*blocks('UXI-301',n))
+save('UXI-301',n,body)
