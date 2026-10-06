@@ -28,14 +28,14 @@ Workbook frontmatter determines state, claims, dependencies and acceptance. Navi
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计 / Overall: 总任务 / Tasks 89/94 · 开发 / Development 90/94 · 复检 / Review 89/94**
-**当前未收口池 / Active pool: 总任务 / Tasks 5/10 · 开发 / Development 6/10 · 复检 / Review 5/10**
+**全城合计 / Overall: 总任务 / Tasks 89/94 · 开发 / Development 91/94 · 复检 / Review 89/94**
+**当前未收口池 / Active pool: 总任务 / Tasks 5/10 · 开发 / Development 7/10 · 复检 / Review 5/10**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|
 | [Research Strengthening](./mission-group/research-strengthening/README.md) | **5/8** | **6/8** | **5/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./mission-group/showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
-| [Personal Compute Fabric](./mission-group/personal-compute-fabric/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
+| [Personal Compute Fabric](./mission-group/personal-compute-fabric/README.md) | **0/1** | **1/1** | **0/1** | IN_PROGRESS |
 
 机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
 <!-- MISSION_PROGRESS:END -->
@@ -51,7 +51,7 @@ Workbook frontmatter determines state, claims, dependencies and acceptance. Navi
 | [REX-807](./mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
-| [PCF-700](./mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md) | Personal Compute Fabric | IN_PROGRESS | — | — |
+| [PCF-700](./mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md) | Personal Compute Fabric | IN_PROGRESS | ✅ | — |
 
 冲突以工作书为准 / Workbook frontmatter prevails on disagreement; treat the difference as homepage sync drift.
 <!-- ACTIVE_WORKBOOKS:END -->

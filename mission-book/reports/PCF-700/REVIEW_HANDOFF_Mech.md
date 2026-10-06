@@ -2,11 +2,13 @@
 
 ```text
 TASK_ID            PCF-700
-REVIEW TARGET      f75b2a6c2fa28d183a09795c70823c775123e1ac
+REVIEW TARGET      0899da833e39caa924bdc77bf1020ba5fa572b03
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit（= pcf/series-mech 当前头）
 BASELINE           312b627b54af5bbf274fa25eca8f8383869c1c34
 AUTHOR HOST        Mech（COMPUTERNAME MEGA-REP，role Mech-DS）
 REVIEWER          另一实体主机（§3 禁止自审；本文件**不是**复检声明，也不构成裁决）
+DEVELOPMENT        开发侧已收口（development_complete: true）；等异机 Formal Review
+CI                 run 37501463875 completed / success（head 0899da8，gateway-web 与 android 全绿）
 DELIVERABLES       docs/{zh-CN,en}/pcf/{ownership-map,reuse-tiers,ui-backend-matrix}.md,
                    tests/pcf700-{compatibility,dependency-direction}.test.mjs,
                    scripts/pcf700-reuse-audit.mjs、data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -16,8 +18,9 @@ REPORT             reports/PCF-700/DEVELOPMENT_REPORT.md
 
 > 复检目标说明：前一交付头 `d611cfe5f0272673706b9dc5c9f6b85ed40a9406` 在 hosted CI 上因 step `pnpm check:docs`
 > 失败（仓库闸门 `scripts/check-bilingual.mjs` 只读一层目录，遇到工作书要求的 `docs/*/pcf/` 嵌套直接 EISDIR）；
-> 修复头 `a2a5673` 让两个 job 全绿；当前头 `f75b2a6` 是增量 2（五档核对 + UI→后端矩阵 + 单写者清单）。
-> **复检请以 `f75b2a6` 为对象**；失败头与根因保留在 DEVELOPMENT_REPORT §2.5。
+> 修复头 `a2a5673` 让两个 job 全绿；`f75b2a6` 是增量 2（五档核对 + UI→后端矩阵 + 单写者清单）；当前头 `0899da8`
+> 关闭 BuildConfig 项（实测**不适用**）并收口开发侧。**复检请以 `0899da8` 为对象**；失败头与根因保留在
+> DEVELOPMENT_REPORT §2.5。
 
 ## 1. 本交接存在的原因 / Why this file exists
 
@@ -27,7 +30,7 @@ PCF 系列 701..728 **全部**（直接或间接）依赖 PCF-700，而 PCF-701 
 
 ```text
 R1 独立取得精确头：git ls-remote origin pcf/PCF-700-mech-ownership-and-reality-audit，
-   确认等于 f75b2a6c2fa28d183a09795c70823c775123e1ac；再确认 312b627b54af5b 是该头祖先。
+   确认等于 0899da833e39caa924bdc77bf1020ba5fa572b03；再确认 312b627b54af5b 是该头祖先。
 R2 独立重跑作者套件：corepack pnpm install --frozen-lockfile && corepack pnpm --dir city install --frozen-lockfile
    （两步必须都做：根目录 node_modules 是 junction 时 city workspace 不会被装上），
    然后 node --test tests/pcf700-compatibility.test.mjs、node --test tests/pcf700-dependency-direction.test.mjs，

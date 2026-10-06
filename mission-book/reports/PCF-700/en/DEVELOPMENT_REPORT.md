@@ -10,9 +10,12 @@ HOST               Mech (COMPUTERNAME MEGA-REP; role Mech-DS, development side)
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
 SERIES BRANCH      pcf/series-mech (= f75b2a6, the series' accumulated head)
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  (= origin/main; see CLAIM_REPORT.md)
-HEAD_SHA           f75b2a6c2fa28d183a09795c70823c775123e1ac  (increment 2; earlier heads a2a5673..., d611cfe...)
+HEAD_SHA           0899da833e39caa924bdc77bf1020ba5fa572b03  (increment 3 / development closure; earlier heads f75b2a6, a2a5673, d611cfe)
 CI                 run 37497553367 (d611cfe, **failure**) -> run 37498638940 (a2a5673, **success**)
-                   -> run 37500280971 (f75b2a6, **success**, both jobs green including `pnpm test` and `pnpm check:docs`)
+                   -> run 37500280971 (f75b2a6, **success**) -> run 37501463875 (0899da8, **success**, both jobs green)
+DEVELOPMENT        development_complete: true - sub-steps 1-4 are delivered with their evidence and the DEVELOPMENT half
+                   of sub-step 5 is done (every unproven item is labelled and attributed); its EXECUTION half belongs to
+                   the reviewer (EXECUTION_CONTRACT section 14 requires the other physical host)
 DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md, reuse-tiers.md, ui-backend-matrix.md,
                    tests/pcf700-compatibility.test.mjs, tests/pcf700-dependency-direction.test.mjs,
                    scripts/pcf700-reuse-audit.mjs, data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -177,12 +180,15 @@ compatibility + 4 dependency-direction) and PAIR_STATUS = SYNCHRONIZED in all th
 ## 7. Next (for the next round or the opposite-host review)
 
 ```text
-a opposite-host independent review: walk sample call chains on both hosts for the TWO_HOST_VERIFIED tier;
-  this host does not substitute for that step
-b TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED are BOTH EMPTY right now (reuse-tiers.md section 5 names the owner of
-  each)
-c a URL carried by a Gradle-generated Android BuildConfig is not in the static matrix (next increment)
-d (DONE in increment 2) the five-tier check, the reuse-boundary table, the UI->backend matrix and the single-writer list
+The development side is closed (development_complete: true): sub-steps 1-4, the development half of sub-step 5, and all
+three items of specification revision 2 are delivered.
+a the opposite physical host's Formal Review: walk a sample call chain on both hosts (TWO_HOST_VERIFIED) and, per
+  EXECUTION_CONTRACT section 14, manufacture counter-examples independently and bind exact-head CI - this is the PCF
+  series' single critical path and this host does not substitute for it
+b TWO_HOST_VERIFIED and ORIGIN_AGENT_CONSUMED are BOTH EMPTY (reuse-tiers.md section 5 names the owner of each)
+c the BuildConfig question: MEASURED AND NOT APPLICABLE (no BuildConfig or buildConfigField reference exists) - CLOSED,
+  not unfinished
+d (DONE) the five-tier check, the reuse-boundary table, the UI->backend matrix and the single-writer list
 ```
 
 Section 7 of `ownership-map.md` says the same thing: `UNKNOWN` is a conclusion there, not a blank.

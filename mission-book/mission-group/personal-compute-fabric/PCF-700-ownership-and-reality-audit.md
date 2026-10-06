@@ -18,9 +18,9 @@ development_baseline_sha: "312b627b54af5bbf274fa25eca8f8383869c1c34"
 anchor_state: RESOLVED_AT_CLAIM
 development_host: "Mech"
 development_branch: "pcf/PCF-700-mech-ownership-and-reality-audit"
-development_head_sha: "f75b2a6c2fa28d183a09795c70823c775123e1ac"
-development_ci: "TWO heads, both kept. (1) FAILURE head d611cfe5f0272673706b9dc5c9f6b85ed40a9406: V0.2 checks run 37497553367 completed/failure - gateway-web failed at step `pnpm check:docs`, android success; the other nine gateway-web steps succeeded, including `pnpm test`, so the new tests/pcf700-compatibility.test.mjs measurably passed on hosted CI. Reproduced locally: scripts/check-bilingual.mjs read one directory level only and hit EISDIR on the nested docs/{zh-CN,en}/pcf/ that this workbook requires. (2) REPAIR head a2a567325e6ce08629eefbe67cda6f8f2c16fd64: V0.2 checks run 37498638940 completed/success, gateway-web success and android success. The repair makes the gate tree-aware (compare the relative path lists of both language trees exactly, then compare fact lines pairwise) and was falsified before being trusted: an absent en mirror yields 'docs missing language pair' and a differing STATUS line yields 'docs/pcf/ownership-map.md facts differ', both exit 1; restored, docs/evidence/data-records all report PAIR_STATUS = SYNCHRONIZED. Local: node --test tests/pcf700-compatibility.test.mjs => 7 tests / 7 pass / 0 fail. Branch pcf/PCF-700-mech-ownership-and-reality-audit and series branch pcf/series-mech are both at the repair head. (3) INCREMENT-2 head f75b2a6c2fa28d183a09795c70823c775123e1ac: V0.2 checks run 37500280971 completed/success, gateway-web success and android success, every step green including `pnpm test` (which now also runs tests/pcf700-dependency-direction.test.mjs) and `pnpm check:docs`; local 11/11 across the two PCF suites (7 compatibility + 4 dependency-direction, each of the four falsified before being trusted)."
-development_complete: false
+development_head_sha: "0899da833e39caa924bdc77bf1020ba5fa572b03"
+development_ci: "FOUR heads, every one kept. (1) FAILURE head d611cfe5f0272673706b9dc5c9f6b85ed40a9406: V0.2 checks run 37497553367 completed/failure - gateway-web failed at step `pnpm check:docs`, android success; the other nine gateway-web steps succeeded, including `pnpm test`, so the new tests/pcf700-compatibility.test.mjs measurably passed on hosted CI. Reproduced locally: scripts/check-bilingual.mjs read one directory level only and hit EISDIR on the nested docs/{zh-CN,en}/pcf/ that this workbook requires. (2) REPAIR head a2a567325e6ce08629eefbe67cda6f8f2c16fd64: V0.2 checks run 37498638940 completed/success, gateway-web success and android success. The repair makes the gate tree-aware (compare the relative path lists of both language trees exactly, then compare fact lines pairwise) and was falsified before being trusted: an absent en mirror yields 'docs missing language pair' and a differing STATUS line yields 'docs/pcf/ownership-map.md facts differ', both exit 1; restored, docs/evidence/data-records all report PAIR_STATUS = SYNCHRONIZED. (3) INCREMENT-2 head f75b2a6c2fa28d183a09795c70823c775123e1ac: V0.2 checks run 37500280971 completed/success, both jobs and every step green, including `pnpm test` (now also running tests/pcf700-dependency-direction.test.mjs) and `pnpm check:docs`. (4) INCREMENT-3 head 0899da833e39caa924bdc77bf1020ba5fa572b03: V0.2 checks run 37501463875 completed/success, gateway-web success and android success. Local evidence for the two increments: 11/11 across the two PCF suites (7 compatibility + 4 dependency-direction, all four falsified before being trusted) and PAIR_STATUS = SYNCHRONIZED in docs, evidence and data-records. Branch pcf/PCF-700-mech-ownership-and-reality-audit and series branch pcf/series-mech are both at this head."
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -58,7 +58,19 @@ baseline_blocker: null
 - [x] 明确每本下游的 component/exposure owner，检查 UI→backend 依赖无环；需要拆 primitive/product-wiring 时先修任务 DAG 和正式 scope，而非给 exposure gate 造例外。
       → `docs/{zh-CN,en}/pcf/ui-backend-matrix.md`：81 个前端文件、14 个含 `/api/v0` 字面量、网关 49 条路由，**未解析端点数 = 0**；**后端 import 前端模块 = 0**（静态服务路径与 tests/scripts 驱动器分开统计）。守 `tests/pcf700-dependency-direction.test.mjs` D1/D2（4/4，已逐条证伪）。owner 逐本列出见 ownership-map §5。
 - [ ] 两主机独立核对样本调用链；未证明的 seam 标 UNKNOWN/NOT_WIRED，列入相应下游验收，不能清零。
-      → **未完成**：必须由另一实体主机执行（§3 禁止自审）。本轮已把未证明项写足：`reuse-tiers.md` §5 逐条写明 TWO_HOST_VERIFIED 与 ORIGIN_AGENT_CONSUMED **两档全空**及各自归属工作书；本机未用自身结果替代异机复检。
+      → **开发侧已交付、执行侧归复检方**：`EXECUTION_CONTRACT.md` §14 明确「由**另一实体主机**独立构造反例、运行 exact-head 验证」，因此这一条由 Formal Review 执行，本机不代做也不算完成。本机已完成另一半：`reuse-tiers.md` §5 逐条写明 `TWO_HOST_VERIFIED` 与 `ORIGIN_AGENT_CONSUMED` **两档全空**、各自归属哪本工作书，且所有未证明 seam 一律标 `NOT_MEASURED_HERE`/`NOT_WIRED`，没有清零。
+      ⇒ 因此 `development_complete: true`，`review_complete` 仍为 false：开发侧（子步骤 1–4 + 本条的开发半）已全部交付，任务在等异机复检。
+
+### 2026-10-07 开发侧收口说明（为什么 development_complete 现在是 true，而任务仍未完成）
+
+```text
+子步骤 1  ✓ ownership-map.md（五段表 + 三层接线）        子步骤 2  ✓ 兼容反例 C1–C7（7/7，hosted CI 亦跑）
+子步骤 3  ✓ 接口/类型缺失实测 + 单写者 + 无新 canonical DB  子步骤 4  ✓ UI→后端矩阵 D1–D4（4/4，逐条证伪）
+子步骤 5  开发半 ✓（未证明项全部标出并归类）/ 复检半 = 另一实体主机（EXECUTION_CONTRACT §14）
+规格修订 2 三项：五档核对 ✓、复用边界表 ✓、UI→后端矩阵与单写者 ✓
+BuildConfig 项：实测**不适用**（仓库无任何 BuildConfig / buildConfigField 引用）⇒ 关闭
+总完成仍为 0/1：**总任务完成以复检完成为准**，本机不自审、不代签。
+```
 
 ### 2026-10-07 CI 暴露的仓库闸门缺陷与修复（记录判断逻辑）
 

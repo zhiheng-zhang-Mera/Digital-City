@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 6,
+      "complete": 7,
       "total": 10
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 90,
+      "complete": 91,
       "total": 94
     },
     "review": {
@@ -1063,7 +1063,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 0,
+      "development_complete": 1,
       "key": "pcf",
       "name": "Personal Compute Fabric",
       "readme": "mission-group/personal-compute-fabric/README.md",
@@ -1073,7 +1073,7 @@
       "tasks": [
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "PCF-700",
           "path": "mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",

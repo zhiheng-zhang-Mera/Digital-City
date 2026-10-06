@@ -10,9 +10,11 @@ HOST               Mech（COMPUTERNAME MEGA-REP；role Mech-DS，development sid
 BRANCH             pcf/PCF-700-mech-ownership-and-reality-audit
 SERIES BRANCH      pcf/series-mech（= f75b2a6，本系列累计头）
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  （= origin/main，见 CLAIM_REPORT.md）
-HEAD_SHA           f75b2a6c2fa28d183a09795c70823c775123e1ac  （增量 2；前序头 a2a5673…、d611cfe…）
+HEAD_SHA           0899da833e39caa924bdc77bf1020ba5fa572b03  （增量 3/开发侧收口；前序头 f75b2a6、a2a5673、d611cfe）
 CI                 run 37497553367（d611cfe，**失败**）→ run 37498638940（a2a5673，**success**）
-                   → run 37500280971（f75b2a6，**success**，两 job 全绿，含 `pnpm test` 与 `pnpm check:docs`）
+                   → run 37500280971（f75b2a6，**success**）→ run 37501463875（0899da8，**success**，两 job 全绿）
+DEVELOPMENT        开发侧完成（development_complete: true）：子步骤 1–4 全部交付并附证据；子步骤 5 的**开发半**
+                   已完成（未证明项全部标出并归类），**执行半属复检方**（EXECUTION_CONTRACT §14 要求另一实体主机）
 DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md、reuse-tiers.md、ui-backend-matrix.md,
                    tests/pcf700-compatibility.test.mjs、tests/pcf700-dependency-direction.test.mjs,
                    scripts/pcf700-reuse-audit.mjs、data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -145,10 +147,12 @@ UI→后端方向
 ## 7. 下一步（交给下一轮或异机复检）/ Next
 
 ```text
-a 异机（另一实体主机）独立复检：样本调用链两主机走一遍、TWO_HOST_VERIFIED 档位；本机不替代这一步
+开发侧已收口（development_complete: true）：子步骤 1–4 + 子步骤 5 的开发半 + 规格修订 2 的三项全部交付。
+a 异机（另一实体主机）Formal Review：样本调用链两主机走一遍（TWO_HOST_VERIFIED），并按 EXECUTION_CONTRACT §14
+  独立构造反例、绑定 exact-head CI —— 这是 PCF 系列当前的唯一关键路径，本机不代做
 b TWO_HOST_VERIFIED 与 ORIGIN_AGENT_CONSUMED 两档目前**全空**（reuse-tiers.md §5 逐条写明归属）
-c Android 侧 Gradle BuildConfig 生成的 URL 未纳入静态矩阵（下一增量）
-d （已在增量 2 完成）五档核对、复用边界表、UI→后端矩阵与单写者清单
+c BuildConfig 项：实测**不适用**（仓库无任何 BuildConfig / buildConfigField 引用）⇒ 关闭，不是未完成
+d （已完成）五档核对、复用边界表、UI→后端矩阵与单写者清单
 ```
 
 `ownership-map.md` 第 7 节与本节同源：`UNKNOWN` 是结论，不是空白。

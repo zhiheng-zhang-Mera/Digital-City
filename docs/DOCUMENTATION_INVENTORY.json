@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1665,
-  "total_bytes": 12095651,
+  "total_bytes": 12098900,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9259,10 +9259,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
-      "bytes": 11986,
+      "bytes": 13334,
       "encoding_state": "UTF8",
-      "chinese_characters": 1210,
-      "english_words": 242,
+      "chinese_characters": 1289,
+      "english_words": 250,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9520,10 +9520,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "bytes": 18120,
+      "bytes": 18121,
       "encoding_state": "UTF8",
       "chinese_characters": 1952,
-      "english_words": 984,
+      "english_words": 985,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9853,10 +9853,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "bytes": 16658,
+      "bytes": 16659,
       "encoding_state": "UTF8",
       "chinese_characters": 132,
-      "english_words": 1696,
+      "english_words": 1697,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13174,7 +13174,7 @@
     },
     {
       "path": "mission-book/reports/PCF-700/DEVELOPMENT_REPORT.md",
-      "bytes": 12192,
+      "bytes": 12792,
       "encoding_state": "UTF8",
       "chinese_characters": 386,
       "english_words": 87,
@@ -13192,16 +13192,16 @@
     },
     {
       "path": "mission-book/reports/PCF-700/REVIEW_HANDOFF_Mech.md",
-      "bytes": 6277,
+      "bytes": 6558,
       "encoding_state": "UTF8",
-      "chinese_characters": 256,
-      "english_words": 44,
+      "chinese_characters": 270,
+      "english_words": 45,
       "paired_path": "mission-book/reports/PCF-700/en/REVIEW_HANDOFF_Mech.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/reports/PCF-700/en/DEVELOPMENT_REPORT.md",
-      "bytes": 13279,
+      "bytes": 13974,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
       "english_words": 313,
@@ -13219,10 +13219,10 @@
     },
     {
       "path": "mission-book/reports/PCF-700/en/REVIEW_HANDOFF_Mech.md",
-      "bytes": 6546,
+      "bytes": 6869,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 178,
+      "english_words": 190,
       "paired_path": "mission-book/reports/PCF-700/REVIEW_HANDOFF_Mech.md",
       "language_presence": "PAIR_PRESENT"
     },
