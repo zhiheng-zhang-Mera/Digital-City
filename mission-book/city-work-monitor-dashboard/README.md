@@ -241,7 +241,7 @@ DASHBOARD_BECOMES_SECOND_TASK_TRUTH
 | [MON-901](./MON-901-observation-model-and-jev-projection.md) | Observation model + JEV sidecar projection | COMPLETE |
 | [MON-902](./MON-902-overview-graph-and-node-path-inspector.md) | Overview graph + node/path progressive disclosure | COMPLETE（reviewer 已在对侧修复 head 上验收，marker MON902_OVERVIEW_GRAPH_REVIEW_ACCEPTED） |
 | [MON-903](./MON-903-event-triggered-decision-overlay.md) | Event-triggered Decision overlay + escalation provenance | IN_PROGRESS (development complete, review pending) |
-| [MON-990](./MON-990-cross-device-monitor-acceptance-and-freeze.md) | Cross-device acceptance + reality reconciliation + freeze | WAITING_MON_902_903 |
+| [MON-990](./MON-990-cross-device-monitor-acceptance-and-freeze.md) | Cross-device acceptance + reality reconciliation + freeze | IN_PROGRESS（开发完成，Formal Review 已由 Mech 执行：11/12 通过、marker 因 Android 半边 NOT_RUN 而未释放） |
 
 MON-902 与 MON-903 在 MON-901 accepted 后可由不同主机并行。
 
@@ -302,8 +302,33 @@ ADOPTED       对侧已采纳并已验收：MON-903 workbook status = COMPLETE�
               capability registry = FORMAL_REVIEW_RECONCILED，review head = 3cd32c60（本机四项发现在其中）。
               本机复核 reviewer 的 CI 改动 --test-concurrency=2：本机 merge 分支 1386 tests / 1383 pass，
               reviewer head 3cd32c6 同为 1386 / 1383 —— 没有丢检查项。
-MON-990       已因 MON-903 验收而解锁，由 **Alien** 在 accepted exact dependency union 上领取并开工
-              （development_host = Alien，development_baseline_sha = 665d6c3c）。作者 Mech 可领取开发任务为 0。
+MON-990       已因 MON-903 验收而解锁，由 Alien 在 accepted exact dependency union 上领取并完成开发
+              （development_host = Alien，development_baseline_sha = 665d6c3c，development head fb042d9，PR #36）；
+              **Formal Review 由 Mech（对侧物理主机）于 2026-10-06 领取并执行完毕**，详见下方 MON-990 状态块。
+```
+
+### MON-990 当前实测状态（Mech 作为 reviewer，2026-10-06）
+
+```text
+DEVELOPMENT   Alien COMPLETE on exact fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40（branch mon/MON-990-Alien-20261006，PR #36）
+REVIEW        Mech 领取并执行完毕。11 个独立探针（review/MON-990-Mech-20261006 @ 14b2c7b）全部通过，
+              覆盖 workbook 12 项必验中的 11 项：overview ↔ canonical 状态、node 元数据不被臆造、无原因边标记
+              MISSING 且不臆造出处、回执 pre/post 状态与 canonical 实况一致、200 任务折叠视图中 FAILED 节点仍可见、
+              observer 抛错时 canonical 工作继续、卡住的 resolver 只阻塞自身任务且超时被归因、Registry 与运行期对账、
+              刷新不重排且过滤只改边、Web 诊断路径到精确证据**实测 3 次交互**、回执仅为建议不改任务。
+VERDICT       PASS on the 11 checks；**未发现缺陷**。
+MARKER        CITY_WORK_MONITOR_V1_ACCEPTED **未释放**：第 9 项「Web + 当前 Android surface parity」的 Android 半边
+              NOT_RUN，原因是实测而非推断——adb 无已连接设备；且本机唯一安装的 JDK 为 26，Android Gradle Plugin
+              拒绝它（构建以 "What went wrong: 26" 失败）。结构对账（同一路由、同一 riskReasons 字段、
+              MonitorProjection.kt:40 的 R4 不变式）作为**支持性**证据记录，明确不作为替代。
+              review_complete 因此保持 false —— 这不是驳回（作者无可返修），而是拒绝把作者的真机证据当作
+              reviewer 的证据，这一点在领取记录里就写明过。补救方式已写明：在 review 主机接入设备、或安装 AGP
+              接受的 JDK；或由 Owner 裁定该项接受作者的真机捕获（属 Owner 决定，非 reviewer 决定）。
+CI            被审 head 三次 run 逐次 API 复核均 SUCCESS attempt 1（push 37420061997 / PR 37420065177 /
+              linkage 37420065178）；reviewer 自己的探针分支首次 head 7fffe3f **CI 失败**（run 37422163771），
+              原因经分类为 **reviewer 仪器缺陷**（R1 等待面板外壳而非 data-loaded=true，与 MON-902 自身浏览器
+              探针同一形状），修复于 14b2c7b（run 37422910108 SUCCESS attempt 1）；两次 run 均保留。
+REPORT        mission-book/reports/MON-990/REVIEW_REPORT.md
 ```
 
 MON-903 的 review 必须独立验证：触发分类是否有遗漏或错收、no-barrier 是否真的成立、是否存在任何让决策改变状态的路径、

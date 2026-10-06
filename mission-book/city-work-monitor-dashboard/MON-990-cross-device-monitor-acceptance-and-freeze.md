@@ -20,7 +20,9 @@ development_ci: "SUCCESS exact fb042d9: push37420061997 / PR37420065177 / linkag
 development_complete: true
 review_host: "Mech"
 review_head_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
-review_ci: null
+review_ci: "REVIEWER (Mech) re-read the reviewed head's three runs one at a time from the Actions API and matched on headSha fb042d9: push 37420061997, PR 37420065177, linkage 37420065178, all COMPLETED SUCCESS attempt 1. Reviewer's own probe branch review/MON-990-Mech-20261006: first head 7fffe3f FAILED CI run 37422163771 on a REVIEWER INSTRUMENT defect (R1 waited for the panel shell instead of data-loaded=true), fixed at 14b2c7b with run 37422910108 SUCCESS attempt 1; both runs retained."
+review_status: "PASS_ON_11_OF_12_CHECKS_MARKER_WITHHELD_ANDROID_NOT_RUN"
+review_report: "mission-book/reports/MON-990/REVIEW_REPORT.md"
 review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor
