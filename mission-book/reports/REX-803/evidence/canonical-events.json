@@ -1,0 +1,438 @@
+{
+  "source": "GET /api/v0/events?after=0 -> events, filtered to this campaign and its tasks",
+  "count": 31,
+  "events": [
+    {
+      "id": "6ed01998-5060-4d3c-ba8e-3a80ef7f6b4e",
+      "timestamp": "2026-10-06T08:00:39.601Z",
+      "type": "RESEARCH_CAMPAIGN_STARTED",
+      "actor": "user",
+      "taskId": null,
+      "payload": {
+        "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+        "experimentId": "rex803-three-end-live-8798ba9dd370",
+        "scenarioId": "WAIT",
+        "repetitions": 3,
+        "resumed": false
+      },
+      "seq": 385
+    },
+    {
+      "id": "52d9ecda-c1a4-4b8c-96a2-db81f814707c",
+      "timestamp": "2026-10-06T08:00:39.609Z",
+      "type": "COMMAND_ACCEPTED",
+      "actor": "gateway",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {},
+      "seq": 386
+    },
+    {
+      "id": "79548780-2789-4e6d-9141-bd0510322361",
+      "timestamp": "2026-10-06T08:00:39.610Z",
+      "type": "TASK_CREATED",
+      "actor": "gateway",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {},
+      "seq": 387
+    },
+    {
+      "id": "227f1a51-40ca-4c26-a013-c0522c781276",
+      "timestamp": "2026-10-06T08:00:40.484Z",
+      "type": "TASK_ASSIGNED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "ASSIGNED",
+        "progress": 0,
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "seq": 388
+    },
+    {
+      "id": "c4badc31-51ec-4bfa-9fac-4159dd4c0c81",
+      "timestamp": "2026-10-06T08:00:40.559Z",
+      "type": "TASK_STARTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 0,
+        "lastCheckpoint": null
+      },
+      "seq": 389
+    },
+    {
+      "id": "2efa2a3c-5da2-46d0-b437-1cfa6eef26d0",
+      "timestamp": "2026-10-06T08:00:41.770Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 18,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 1
+        }
+      },
+      "seq": 390
+    },
+    {
+      "id": "2cec23f3-5b3a-44f8-be71-aa21c4879136",
+      "timestamp": "2026-10-06T08:00:43.042Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 36,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 2
+        }
+      },
+      "seq": 391
+    },
+    {
+      "id": "e6f0b514-8a31-49c1-b906-15a15c9e3c40",
+      "timestamp": "2026-10-06T08:00:44.303Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 54,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 3
+        }
+      },
+      "seq": 392
+    },
+    {
+      "id": "5bbe2443-8bd6-4c2f-a23b-084629501824",
+      "timestamp": "2026-10-06T08:00:45.565Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 72,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 4
+        }
+      },
+      "seq": 393
+    },
+    {
+      "id": "fc0c4cff-2e8c-4c54-b55d-b24bf5153303",
+      "timestamp": "2026-10-06T08:00:46.838Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 90,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 5
+        }
+      },
+      "seq": 394
+    },
+    {
+      "id": "62546802-3e62-476b-93ea-21fdbce2bec7",
+      "timestamp": "2026-10-06T08:00:46.917Z",
+      "type": "TASK_COMPLETED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "payload": {
+        "state": "COMPLETED",
+        "progress": 100,
+        "result": {
+          "waitedMs": 6000
+        }
+      },
+      "seq": 395
+    },
+    {
+      "id": "c37ef9c9-b727-47b6-80ea-a4ab6ad6a6e1",
+      "timestamp": "2026-10-06T08:00:46.989Z",
+      "type": "COMMAND_ACCEPTED",
+      "actor": "gateway",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {},
+      "seq": 396
+    },
+    {
+      "id": "0cab4a14-9f38-4aa0-a75f-f7cdad4eee6b",
+      "timestamp": "2026-10-06T08:00:46.989Z",
+      "type": "TASK_CREATED",
+      "actor": "gateway",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {},
+      "seq": 397
+    },
+    {
+      "id": "7258b72e-fa04-4dea-a1b7-18d9c14ddb45",
+      "timestamp": "2026-10-06T08:00:47.362Z",
+      "type": "TASK_ASSIGNED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "ASSIGNED",
+        "progress": 0,
+        "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      },
+      "seq": 398
+    },
+    {
+      "id": "ee089ec6-c484-40f0-86a2-aff39cdbc874",
+      "timestamp": "2026-10-06T08:00:47.418Z",
+      "type": "TASK_STARTED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 0,
+        "lastCheckpoint": null
+      },
+      "seq": 399
+    },
+    {
+      "id": "0f3a15f3-4c7f-47e7-b577-879752d52c79",
+      "timestamp": "2026-10-06T08:00:48.643Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 18,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 1
+        }
+      },
+      "seq": 400
+    },
+    {
+      "id": "95c9119c-da1b-49db-ac69-919ca47b5510",
+      "timestamp": "2026-10-06T08:00:49.847Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 36,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 2
+        }
+      },
+      "seq": 401
+    },
+    {
+      "id": "ca2b6d34-8431-41a3-a2b0-bbc534e979e6",
+      "timestamp": "2026-10-06T08:00:51.068Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 54,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 3
+        }
+      },
+      "seq": 402
+    },
+    {
+      "id": "5d309e2d-97a5-4949-baf8-ef276b0ead2c",
+      "timestamp": "2026-10-06T08:00:52.294Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 72,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 4
+        }
+      },
+      "seq": 403
+    },
+    {
+      "id": "a8f08346-ddc4-4889-b4ba-5ccc0cbbdc5a",
+      "timestamp": "2026-10-06T08:00:53.512Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 90,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 5
+        }
+      },
+      "seq": 404
+    },
+    {
+      "id": "7ed69217-cada-453f-a74a-9c8af5c26dda",
+      "timestamp": "2026-10-06T08:00:53.592Z",
+      "type": "TASK_COMPLETED",
+      "actor": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "taskId": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "payload": {
+        "state": "COMPLETED",
+        "progress": 100,
+        "result": {
+          "waitedMs": 6000
+        }
+      },
+      "seq": 405
+    },
+    {
+      "id": "0be3587d-c637-4e93-9702-e62809c7ef47",
+      "timestamp": "2026-10-06T08:00:53.665Z",
+      "type": "COMMAND_ACCEPTED",
+      "actor": "gateway",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {},
+      "seq": 406
+    },
+    {
+      "id": "0c738c4a-c33f-49ce-a399-4677c98b7b0d",
+      "timestamp": "2026-10-06T08:00:53.666Z",
+      "type": "TASK_CREATED",
+      "actor": "gateway",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {},
+      "seq": 407
+    },
+    {
+      "id": "16d80395-5461-474f-bb67-b628044bf733",
+      "timestamp": "2026-10-06T08:00:53.695Z",
+      "type": "TASK_ASSIGNED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "ASSIGNED",
+        "progress": 0,
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "seq": 408
+    },
+    {
+      "id": "7ba5a9f7-5536-4c7e-a223-ddc20e7bf78d",
+      "timestamp": "2026-10-06T08:00:53.766Z",
+      "type": "TASK_STARTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 0,
+        "lastCheckpoint": null
+      },
+      "seq": 409
+    },
+    {
+      "id": "694f1a2b-120f-4cd6-957d-8affcaa86d5c",
+      "timestamp": "2026-10-06T08:00:54.984Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 18,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 1
+        }
+      },
+      "seq": 410
+    },
+    {
+      "id": "5c2b4dc2-7db0-4c69-9ca3-767d0c72eba8",
+      "timestamp": "2026-10-06T08:00:56.230Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 36,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 2
+        }
+      },
+      "seq": 411
+    },
+    {
+      "id": "a4b38ebb-c320-436d-a4af-39698edf66c8",
+      "timestamp": "2026-10-06T08:00:57.493Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 54,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 3
+        }
+      },
+      "seq": 412
+    },
+    {
+      "id": "4f534ed9-3fcb-431a-990f-323cc66c13df",
+      "timestamp": "2026-10-06T08:00:58.770Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 72,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 4
+        }
+      },
+      "seq": 413
+    },
+    {
+      "id": "614a1fa6-673a-49dd-bfdc-f4acab60e62e",
+      "timestamp": "2026-10-06T08:01:00.020Z",
+      "type": "TASK_CHECKPOINTED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "RUNNING",
+        "progress": 90,
+        "lastCheckpoint": {
+          "step": "wait",
+          "tick": 5
+        }
+      },
+      "seq": 414
+    },
+    {
+      "id": "e30269fc-cc92-4228-a220-5ad3215a06d1",
+      "timestamp": "2026-10-06T08:01:00.087Z",
+      "type": "TASK_COMPLETED",
+      "actor": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "taskId": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "payload": {
+        "state": "COMPLETED",
+        "progress": 100,
+        "result": {
+          "waitedMs": 6000
+        }
+      },
+      "seq": 415
+    }
+  ]
+}

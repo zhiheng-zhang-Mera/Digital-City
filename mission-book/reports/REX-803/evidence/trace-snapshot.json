@@ -1,0 +1,3617 @@
+{
+  "source": "GET /api/v0/research/trace (owner credential), narrowed to the epoch holding this campaign",
+  "envelope": {
+    "schemaVersion": 1,
+    "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+    "recording": true,
+    "storageState": "READY",
+    "completeness": "PARTIAL",
+    "counterScope": "CURRENT_COLLECTOR_EPOCH_AND_RETAINED_WINDOW",
+    "droppedRecords": 0,
+    "retentionTruncated": false,
+    "failures": [],
+    "experimentRunRef": null,
+    "experimentRunReason": "NOT_OBSERVABLE: recording run is not an experiment execution run",
+    "recordedTypes": [
+      "CITY_STARTED",
+      "RESOURCE_OBSERVATION",
+      "NODE_ONLINE",
+      "DEVICE_ENROLLED",
+      "DEVICE_SESSION_ISSUED",
+      "CLIENT_CONNECTED",
+      "RESEARCH_EXPERIMENT_REGISTERED",
+      "RESEARCH_CAMPAIGN_STARTED",
+      "COMMAND_ACCEPTED",
+      "TASK_CREATED",
+      "TASK_ASSIGNED",
+      "TASK_STARTED",
+      "TASK_CHECKPOINTED",
+      "TASK_COMPLETED",
+      "RESEARCH_RUN_RECEIPT",
+      "CLIENT_DISCONNECTED",
+      "JOIN_REQUEST_CREATED",
+      "JOIN_REQUEST_APPROVED",
+      "JOIN_REQUEST_CONSUMED",
+      "NODE_OFFLINE"
+    ],
+    "metricsAvailability": {
+      "latencyMs": {
+        "available": true,
+        "reason": null
+      },
+      "backoffMs": {
+        "available": false,
+        "reason": "NOT_OBSERVABLE: no retained measurement"
+      },
+      "cpuPercent": {
+        "available": true,
+        "reason": null
+      },
+      "memoryBytes": {
+        "available": true,
+        "reason": null
+      },
+      "autonomousSpanMs": {
+        "available": false,
+        "reason": "NOT_OBSERVABLE: no retained measurement"
+      },
+      "taskTransitionCount": {
+        "available": false,
+        "reason": "NOT_OBSERVABLE: no retained measurement"
+      }
+    },
+    "wholeTraceRecordCount": 197,
+    "epochsInWholeTrace": [
+      {
+        "runId": "trace-d2b8f040-f618-47bf-badc-05f8dc4e3f46",
+        "records": 55
+      },
+      {
+        "runId": "trace-0dd5f8c9-eb46-4a4e-8a77-29373bbe371c",
+        "records": 76
+      },
+      {
+        "runId": "trace-9f58bbc8-7764-4895-b27e-48dd98d0eca6",
+        "records": 14
+      },
+      {
+        "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+        "records": 52
+      }
+    ]
+  },
+  "publishedEpoch": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+  "publishedEpochRecordCount": 52,
+  "records": [
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "429cce4805a8ad70489cf1bf68c66941734ba621c238e13b8ce0ad97a179f6e5",
+      "eventId": "cec86e4d-e1ac-42e4-8c26-4eca555b6e2f",
+      "type": "CITY_STARTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 371,
+      "timestamp": "2026-10-06T07:56:56.555Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:56.557Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83374655913900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {},
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "618f1df7619a8dc3b162166037cabf667afd43fcb685fc76e59ad774cf1938d4",
+      "eventId": "resource-6aa341d2-9d6b-45ff-9a50-eee77a84e00d",
+      "type": "RESOURCE_OBSERVATION",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": null,
+      "timestamp": "2026-10-06T07:56:56.573Z",
+      "clocks": {
+        "source": "EXTERNAL_DECLARED_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:56.589Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83374687985400",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "nodeRef": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": 13374861312,
+          "reason": null
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "b77a5e1d4b949e015c4f06911c28e1996302da0a2b216736f44781e982e0c25b",
+      "eventId": "7c2f731f-ba6d-48ff-89cb-2a5907c27398",
+      "type": "NODE_ONLINE",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 372,
+      "timestamp": "2026-10-06T07:56:56.590Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:56.591Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83374689405300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "nodeRef": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "5c2ff813ebe78713006fced4a98039ef33b647f553de80340a185c8eead84931",
+      "eventId": "92bed750-d1b7-4a47-9113-449205271e43",
+      "type": "CLIENT_CONNECTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 373,
+      "timestamp": "2026-10-06T07:56:56.796Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:56.800Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83374898942500",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {},
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "361bc4f5da8668febfa725de48fc30a447e65d1508054420d616233bf4834b16",
+      "eventId": "86563f32-4096-4c67-b660-8cafe5e535d4",
+      "type": "NODE_ONLINE",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 374,
+      "timestamp": "2026-10-06T07:56:57.529Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:57.531Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83375629705400",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "nodeRef": "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "9eeb5847ca5337acac727f04756ef3b2dc9324e81b0e63f67febe43f14d5d32c",
+      "eventId": "4421196e-2bc3-446f-b982-5cd078a32985",
+      "type": "CLIENT_CONNECTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 375,
+      "timestamp": "2026-10-06T07:56:58.752Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:58.754Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83376852553600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {},
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "37258c87a3db27c2a7d5645f83a796c3c14c0b2771b755dac4fb5cfa3b777385",
+      "eventId": "786a402b-5fed-4899-a508-ae9cb102eb43",
+      "type": "CLIENT_CONNECTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 376,
+      "timestamp": "2026-10-06T07:56:59.002Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:56:59.003Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83377102087400",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {},
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "c738a0a7d751e10df88263a5a46215fb5728a107a2dee68a3f2af33ddb365d83",
+      "eventId": "e3f95024-6c16-490d-9d47-3947157c379c",
+      "type": "JOIN_REQUEST_CREATED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 377,
+      "timestamp": "2026-10-06T07:58:44.494Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:58:44.495Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83482594188300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "cc966cc0-184a-4f11-a0e6-6701b08477c3"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "85251428f18285f9cf7094970357699be434a11d6e838c6ce995147d4ab85291",
+      "eventId": "ca9b1090-6e79-467c-b31d-7723a7873bcf",
+      "type": "JOIN_REQUEST_APPROVED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 378,
+      "timestamp": "2026-10-06T07:59:07.756Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:07.761Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83505859860200",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "cc966cc0-184a-4f11-a0e6-6701b08477c3"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "371272d74770ded0b259f04bc7bc151ebe42f2303aec2de0c288a26d858d3951",
+      "eventId": "6aa46582-3a08-4715-bdd0-2862020cf2bd",
+      "type": "JOIN_REQUEST_CONSUMED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 379,
+      "timestamp": "2026-10-06T07:59:08.638Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:08.643Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83506741449800",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "cc966cc0-184a-4f11-a0e6-6701b08477c3"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "ecac4dda5c5d734fff667655e9007a46e7d2c0bba1aad512fa9826903ae0f681",
+      "eventId": "921396de-7085-483d-afa3-e23eca818edc",
+      "type": "DEVICE_ENROLLED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 380,
+      "timestamp": "2026-10-06T07:59:08.647Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:08.649Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83506747291700",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "deviceRef": "dev-f4e9a34189a0d480cb2acaff5cf145b5"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "6ee9150420966f757641b10b9641dfc12ccbac250e06c1ef0a72d2c9dddc804c",
+      "eventId": "4e450883-6cd2-4786-9eba-a309033b0d43",
+      "type": "DEVICE_SESSION_ISSUED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 381,
+      "timestamp": "2026-10-06T07:59:08.650Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:08.652Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83506750981600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "deviceRef": "dev-f4e9a34189a0d480cb2acaff5cf145b5"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "4e356ab76b1b594d7e73ee55af478906118addd63b95019f0750085b790bb5eb",
+      "eventId": "resource-2a1ab040-50e7-42e8-a4af-b7297934b95b",
+      "type": "RESOURCE_OBSERVATION",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": null,
+      "timestamp": "2026-10-06T07:59:08.657Z",
+      "clocks": {
+        "source": "EXTERNAL_DECLARED_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:08.710Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83506808501800",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "nodeRef": "dev-f4e9a34189a0d480cb2acaff5cf145b5"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": 13374148608,
+          "reason": null
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "11d9c5019f33ba6b474a3e784c394111bfc3ab1278c51ce30d9c9a5188fcd2f2",
+      "eventId": "c071f16f-5894-4486-98a3-bdcbb2d41307",
+      "type": "NODE_ONLINE",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 382,
+      "timestamp": "2026-10-06T07:59:08.710Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:08.713Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83506811537800",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "nodeRef": "dev-f4e9a34189a0d480cb2acaff5cf145b5"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "0d0fc1304201174c311484656cc7925aebf473aa72b7d2f7f9b71715317f38d8",
+      "eventId": "09d8b378-92d0-4e1c-8b26-09723ea15c5c",
+      "type": "NODE_OFFLINE",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 383,
+      "timestamp": "2026-10-06T07:59:34.094Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T07:59:34.096Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83532194545200",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "nodeRef": "dev-f4e9a34189a0d480cb2acaff5cf145b5"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "83c74c5191aad95ba3a3fb1384d3b4510ad7a4d451f3d59b4809cc7fb05d79e7",
+      "eventId": "dbfada96-871f-4fa0-ac63-8961feb7be42",
+      "type": "RESEARCH_EXPERIMENT_REGISTERED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 384,
+      "timestamp": "2026-10-06T08:00:39.527Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:39.529Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83597628809400",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {},
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "faf9a31cfa459950b704cddf28ac91edb35a690c0de35d47d239e8bc93179859",
+      "eventId": "6ed01998-5060-4d3c-ba8e-3a80ef7f6b4e",
+      "type": "RESEARCH_CAMPAIGN_STARTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 385,
+      "timestamp": "2026-10-06T08:00:39.601Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:39.604Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83597703175800",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {},
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "c8d1c68285a8c11e727f7c299dcb4da3e075ee502c8aeaaaf5ebf41f2cd0081f",
+      "eventId": "52d9ecda-c1a4-4b8c-96a2-db81f814707c",
+      "type": "COMMAND_ACCEPTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 386,
+      "timestamp": "2026-10-06T08:00:39.609Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:39.612Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83597711404300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "21472a7400f9ca2645e618ad37d856d2ef0f787386338a3f9a8736605facd240",
+      "eventId": "79548780-2789-4e6d-9141-bd0510322361",
+      "type": "TASK_CREATED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 387,
+      "timestamp": "2026-10-06T08:00:39.610Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:39.612Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83597711718300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "86b8150a1d9816ee742e676d20ce8ea0bb8c97a682554e5d4b84fd5e84fc2b5a",
+      "eventId": "227f1a51-40ca-4c26-a013-c0522c781276",
+      "type": "TASK_ASSIGNED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 388,
+      "timestamp": "2026-10-06T08:00:40.484Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:40.486Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83598585836300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "144a7a72febd60bcd9a94ca78fff3be0efe464673c1ca2ddb4fe3296c0eddcbc",
+      "eventId": "c4badc31-51ec-4bfa-9fac-4159dd4c0c81",
+      "type": "TASK_STARTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 389,
+      "timestamp": "2026-10-06T08:00:40.559Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:40.562Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83598661066300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "e383ea62ca5b947cbb65b3b32235fe0e04af58fe36e70e9feb6e36b3030cf57a",
+      "eventId": "2efa2a3c-5da2-46d0-b437-1cfa6eef26d0",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 390,
+      "timestamp": "2026-10-06T08:00:41.770Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:41.772Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83599871616900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "f99911052766ee08b35aaf8c5bdc170db34cb2654dba88e9f3d6ffca638ac73d",
+      "eventId": "2cec23f3-5b3a-44f8-be71-aa21c4879136",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 391,
+      "timestamp": "2026-10-06T08:00:43.042Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:43.044Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83601142874900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "ca5fde12a0d33b2b4db294e051c837977efa034eb3196b517686ee107e1afd23",
+      "eventId": "e6f0b514-8a31-49c1-b906-15a15c9e3c40",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 392,
+      "timestamp": "2026-10-06T08:00:44.303Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:44.308Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83602407456500",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "7c79a8273d04e72e5b0260569a6b2b20b1c7a969cb726f2357c084e74d6aedcb",
+      "eventId": "5bbe2443-8bd6-4c2f-a23b-084629501824",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 393,
+      "timestamp": "2026-10-06T08:00:45.565Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:45.570Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83603668938100",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "bccaf974a994957d484e0b99abcefca06c24ef9425a0212a7e1217097b54ed4b",
+      "eventId": "fc0c4cff-2e8c-4c54-b55d-b24bf5153303",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 394,
+      "timestamp": "2026-10-06T08:00:46.838Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:46.845Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83604943892900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "5fe2e8ac2593b0c2597df4bd83dfa688b6c15438674289b7a8f50d0b919af6de",
+      "eventId": "62546802-3e62-476b-93ea-21fdbce2bec7",
+      "type": "TASK_COMPLETED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 395,
+      "timestamp": "2026-10-06T08:00:46.917Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:46.921Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83605020816900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "bc1a71ed4d91f6716e8370e87af388e0d3256a53c8521db4f9fe09d7953175be",
+      "eventId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:0",
+      "type": "RESEARCH_RUN_RECEIPT",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": null,
+      "timestamp": "2026-10-06T08:00:46.976Z",
+      "clocks": {
+        "source": "HOST_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:46.976Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83605075147900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+        "deviceRef": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "dimensions": {
+        "experimentRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:0",
+        "experimentRef": "rex803-three-end-live-8798ba9dd370"
+      },
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": 7370,
+          "reason": null
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "ba77105078540999dd7a44bb8eed0ba8a0c02723aa25cc9297d869b6b35f5dad",
+      "eventId": "c37ef9c9-b727-47b6-80ea-a4ab6ad6a6e1",
+      "type": "COMMAND_ACCEPTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 396,
+      "timestamp": "2026-10-06T08:00:46.989Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:46.994Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83605093274800",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "fe994553fdcca2c6564483c690fa565e5bb09854b85a64ba9e4432968a8af0ee",
+      "eventId": "0cab4a14-9f38-4aa0-a75f-f7cdad4eee6b",
+      "type": "TASK_CREATED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 397,
+      "timestamp": "2026-10-06T08:00:46.989Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:46.994Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83605093618600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "37407fcba10d221047e81ac6667a99c6abde678a775c00e6d4f5437d55d5d5c3",
+      "eventId": "7258b72e-fa04-4dea-a1b7-18d9c14ddb45",
+      "type": "TASK_ASSIGNED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 398,
+      "timestamp": "2026-10-06T08:00:47.362Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:47.364Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83605463025300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "4191f0172e67dbb25551c50cf293eb6bcb2da7f3cb0b6554c726e839a8c92129",
+      "eventId": "ee089ec6-c484-40f0-86a2-aff39cdbc874",
+      "type": "TASK_STARTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 399,
+      "timestamp": "2026-10-06T08:00:47.418Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:47.421Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83605519980700",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "74faa4b5d42e37d525526e12c2b15d889872a338d527c7cb914f5f6f5867b23a",
+      "eventId": "0f3a15f3-4c7f-47e7-b577-879752d52c79",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 400,
+      "timestamp": "2026-10-06T08:00:48.643Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:48.644Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83606743730500",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "82c2ae0cacc035f1f62d52a97de82ff0b43aa58e851c4839809bf32878f362da",
+      "eventId": "95c9119c-da1b-49db-ac69-919ca47b5510",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 401,
+      "timestamp": "2026-10-06T08:00:49.847Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:49.851Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83607950356300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "19f0a6cc56939c8636b865f58c46e70ecf6b7d90bb79fd6acf44d6d0c7e4a0b0",
+      "eventId": "ca2b6d34-8431-41a3-a2b0-bbc534e979e6",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 402,
+      "timestamp": "2026-10-06T08:00:51.068Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:51.073Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83609172354600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "e7372dbc7496f3e7b0b9c3ab9d2aaf9feaa7397e14f87ce81a6415bdefb80909",
+      "eventId": "5d309e2d-97a5-4949-baf8-ef276b0ead2c",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 403,
+      "timestamp": "2026-10-06T08:00:52.294Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:52.298Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83610397766700",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "1b63fe6a0ef7a7375d157236105e4af93a5a5db00e5ebdc4a8e201463d440b48",
+      "eventId": "a8f08346-ddc4-4889-b4ba-5ccc0cbbdc5a",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 404,
+      "timestamp": "2026-10-06T08:00:53.512Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.517Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611616025300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "5b54d848b64f80a59a777f3c7d8b355a25efc0db8f55bb3b5131669befe6f2f1",
+      "eventId": "7ed69217-cada-453f-a74a-9c8af5c26dda",
+      "type": "TASK_COMPLETED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 405,
+      "timestamp": "2026-10-06T08:00:53.592Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.598Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611697569200",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "0f31035b6b85e3b9504d237c8b1f69819ceaf60dd64f0b9b0f3cf3bdbe9b14c5",
+      "eventId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+      "type": "RESEARCH_RUN_RECEIPT",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": null,
+      "timestamp": "2026-10-06T08:00:53.608Z",
+      "clocks": {
+        "source": "HOST_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.608Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611707444200",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+        "deviceRef": "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      },
+      "dimensions": {
+        "experimentRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+        "experimentRef": "rex803-three-end-live-8798ba9dd370"
+      },
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": 6615,
+          "reason": null
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "7f709d348953e6dc0e8b0760b39b14bc004d5b01c5941df5262596dbb0bd2e26",
+      "eventId": "0be3587d-c637-4e93-9702-e62809c7ef47",
+      "type": "COMMAND_ACCEPTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 406,
+      "timestamp": "2026-10-06T08:00:53.665Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.672Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611771023200",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "ed4cc081cc28c88b7d83c324d9f1de916d27076d79533d9c26d8a7556172aae6",
+      "eventId": "0c738c4a-c33f-49ce-a399-4677c98b7b0d",
+      "type": "TASK_CREATED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 407,
+      "timestamp": "2026-10-06T08:00:53.666Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.672Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611771332600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "4cbb8d34b026298fe327bd04b78c034721c1334016639d8b2b4e21f8f28bbd50",
+      "eventId": "16d80395-5461-474f-bb67-b628044bf733",
+      "type": "TASK_ASSIGNED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 408,
+      "timestamp": "2026-10-06T08:00:53.695Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.698Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611797551900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "7ce8c4306177c6cc98a1004757f442de8859e0adff716da8b353d4ca0c601277",
+      "eventId": "7ba5a9f7-5536-4c7e-a223-ddc20e7bf78d",
+      "type": "TASK_STARTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 409,
+      "timestamp": "2026-10-06T08:00:53.766Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:53.769Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83611867969200",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "201db0028064534a5ef612e65979876f265d3fc91f9533b3bd14f42f47304f6f",
+      "eventId": "694f1a2b-120f-4cd6-957d-8affcaa86d5c",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 410,
+      "timestamp": "2026-10-06T08:00:54.984Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:54.990Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83613089580900",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "ec8988f777cb3f9347bc12eac96ddbc7f466baef1aab462f8c62df0bd7017523",
+      "eventId": "5c2b4dc2-7db0-4c69-9ca3-767d0c72eba8",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 411,
+      "timestamp": "2026-10-06T08:00:56.230Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:56.235Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83614334535300",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "401c5b6631371c3405f79cd69f69795f4ac95468a0cc839d9ad28db6783e5adf",
+      "eventId": "a4b38ebb-c320-436d-a4af-39698edf66c8",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 412,
+      "timestamp": "2026-10-06T08:00:57.493Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:57.499Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83615597691700",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "16e7795507e3de57f866b9ef691ac53bfba8ebbd969561fcc2948d2298961a50",
+      "eventId": "4f534ed9-3fcb-431a-990f-323cc66c13df",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 413,
+      "timestamp": "2026-10-06T08:00:58.770Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:00:58.774Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83616873182700",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "98a6528f8815e3aad2196ed4ba2b862c1f0b6005c89726234892ff09777cf0ab",
+      "eventId": "614a1fa6-673a-49dd-bfdc-f4acab60e62e",
+      "type": "TASK_CHECKPOINTED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 414,
+      "timestamp": "2026-10-06T08:01:00.020Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:01:00.025Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83618124080100",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "ff561fb01c79e94414391bcee0084e8105b3ceea78d9b4ddfe7dfe7d32f4bc73",
+      "eventId": "e30269fc-cc92-4228-a220-5ad3215a06d1",
+      "type": "TASK_COMPLETED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 415,
+      "timestamp": "2026-10-06T08:01:00.087Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:01:00.092Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83618191060600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "302fa91f3434cebed35c08977b0f9e6d516a8bd7b180888906f02abb4f395ed9",
+      "eventId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:2",
+      "type": "RESEARCH_RUN_RECEIPT",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": null,
+      "timestamp": "2026-10-06T08:01:00.151Z",
+      "clocks": {
+        "source": "HOST_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:01:00.151Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83618250041400",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+        "deviceRef": "dev-031fdba6e94c4298a0956ff04a65481d"
+      },
+      "dimensions": {
+        "experimentRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:2",
+        "experimentRef": "rex803-three-end-live-8798ba9dd370"
+      },
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": 6481,
+          "reason": null
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "43de270baecdf31f60abbfefdd24f7f7b7c919cc29574f1f4d0e38061cc78f59",
+      "eventId": "41c74dac-5753-4f0f-8c64-263d87ba8651",
+      "type": "DEVICE_SESSION_ISSUED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 416,
+      "timestamp": "2026-10-06T08:01:56.570Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:01:56.572Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83674670649500",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "deviceRef": "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    },
+    {
+      "schemaVersion": 1,
+      "transformRef": "research-trace-normalize-v1",
+      "sourceDigest": "209c74090f21fe2921e1e3a563b5740f6af540e7a9bb9baf21faa98fd6d02ce0",
+      "eventId": "4c75103c-2604-46f8-8ae7-7dc084d02caa",
+      "type": "DEVICE_SESSION_ISSUED",
+      "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+      "sourceSeq": 417,
+      "timestamp": "2026-10-06T08:02:30.578Z",
+      "clocks": {
+        "source": "CANONICAL_EVENT_WALL_UTC",
+        "sourceSemantics": "event occurrence as declared by source",
+        "capturedAt": "2026-10-06T08:02:30.579Z",
+        "captureSource": "HOST_WALL_UTC",
+        "monotonicNs": "83708677743600",
+        "monotonicSource": "PROCESS_HRTIME",
+        "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+      },
+      "canonicalRefs": {
+        "deviceRef": "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      },
+      "dimensions": {},
+      "provenance": {
+        "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+        "softwareSha": null,
+        "configRef": null,
+        "implementationSha": null,
+        "reviewSha": null,
+        "ciRunId": null,
+        "evidenceSha": null
+      },
+      "metrics": {
+        "latencyMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "backoffMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "cpuPercent": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "memoryBytes": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "autonomousSpanMs": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        },
+        "taskTransitionCount": {
+          "value": null,
+          "reason": "NOT_OBSERVABLE: measurement not provided"
+        }
+      },
+      "missingFields": [
+        "experimentRef",
+        "experimentRunRef",
+        "providerRef",
+        "modelRef",
+        "channelRef",
+        "softwareSha",
+        "configRef"
+      ],
+      "annotations": []
+    }
+  ]
+}

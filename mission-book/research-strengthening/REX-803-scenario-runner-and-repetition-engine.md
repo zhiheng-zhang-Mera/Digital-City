@@ -36,7 +36,7 @@ terminal_marker: SCENARIO_REPETITION_ENGINE_ACCEPTED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 state_identity_evidence: CAPTURED
-research_evidence_refs: ["mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md"]
+research_evidence_refs: ["mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md", "mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md"]
 state_identity_evidence_refs: ["mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md"]
 research_watchlist_hits: ["RS-G3-IDENTITY-PROVENANCE","RS-G3-DYNAMIC-LIVENESS","RS-G3-OWNER-INTERVENTION-TAXONOMY","RS-G3-PASSIVE-EVIDENCE-PIPELINE","RS-G4-REALITY-DRIFT"]
 highest_research_grade_observed: G4_RARE_SYSTEMIC

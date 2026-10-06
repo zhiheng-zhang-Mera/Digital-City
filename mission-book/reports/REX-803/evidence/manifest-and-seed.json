@@ -1,0 +1,70 @@
+{
+  "candidateSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+  "cityId": "031fdba6-e94c-4298-a095-6ff04a65481d",
+  "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+  "declaredBeforeTheRun": {
+    "experimentId": "rex803-three-end-live-8798ba9dd370",
+    "manifestIdentity": "a2e15ba960c314783b1a0501bb3bd767",
+    "manifest": {
+      "topology": "TWO_HOST_MESH",
+      "hosts": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "workers": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "controlSurfaces": [
+        "dev-be7832e35fc34b85966c3bb43a992e1d"
+      ],
+      "repetitions": 3,
+      "seedPolicy": "PER_REPETITION",
+      "baseSeed": 20261006,
+      "stopConditions": [
+        {
+          "kind": "MAX_REPETITIONS",
+          "value": 3
+        },
+        {
+          "kind": "MAX_FAILURES",
+          "value": 3
+        }
+      ],
+      "acceptance": {
+        "primary": "Every repetition is measured on a declared worker or carries a typed reason",
+        "minimumSuccessfulRuns": 1,
+        "notes": []
+      },
+      "softwareRefs": [
+        {
+          "component": "utopia",
+          "identity": "8798ba9dd37051626033ad72080b2fad3ff66149",
+          "commitSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+          "exact": true
+        }
+      ]
+    },
+    "campaignSeed": "rex803-three-end-live-8798ba9dd370-acceptance",
+    "seedPolicy": "derived:seed(campaign,index)",
+    "repetitions": 3,
+    "warmup": 0,
+    "timeoutMs": 30000,
+    "targetDeviceRef": null,
+    "readiness": {
+      "state": "READY",
+      "missing": [],
+      "workers": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "surfaces": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-be7832e35fc34b85966c3bb43a992e1d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "identitySemantics": "CANONICAL_LIVE_REFS"
+    }
+  },
+  "note": "These were recorded when the campaign was created, before any run. The seed rule and the placement rule they imply are re-derived in derived-checks.json from the seed function and placement line quoted from the candidate."
+}

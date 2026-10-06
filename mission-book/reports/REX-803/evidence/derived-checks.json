@@ -1,0 +1,287 @@
+{
+  "whatThisIs": "Every line below is recomputed from the files in this package; nothing here is copied from a claim.",
+  "candidateShaDeclaredByReceipt": "8798ba9dd37051626033ad72080b2fad3ff66149",
+  "candidateShaBoundByThisPackage": "8798ba9dd37051626033ad72080b2fad3ff66149",
+  "candidateShaAgrees": true,
+  "cityIdDeclaredByCity": "031fdba6-e94c-4298-a095-6ff04a65481d",
+  "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+  "seedFunctionSource": "FNV-1a 32-bit over `${campaignSeed}:${index}`, from services/dev-gateway/scenario-runner.mjs:83 at the candidate",
+  "placementRuleSource": "target = context.targetDeviceRef ?? (workers.length > 0 ? workers[seed % workers.length] : null)",
+  "declaredWorkers": [
+    "dev-031fdba6e94c4298a0956ff04a65481d",
+    "dev-8128a1ef25c5c4b7f66fc31b21705858"
+  ],
+  "perRun": [
+    {
+      "index": 0,
+      "recordedSeed": 397343796,
+      "recomputedSeed": 397343796,
+      "seedMatches": true,
+      "predictedWorker": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "observedWorker": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "placementMatches": true,
+      "state": "MEASURED",
+      "measured": true,
+      "runState": "COMPLETED",
+      "taskStateInCity": "COMPLETED",
+      "taskRef": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "researchRunRefInCity": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:0",
+      "researchRunRefMatches": true,
+      "durationMs": 7370
+    },
+    {
+      "index": 1,
+      "recordedSeed": 414121415,
+      "recomputedSeed": 414121415,
+      "seedMatches": true,
+      "predictedWorker": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "observedWorker": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "placementMatches": true,
+      "state": "MEASURED",
+      "measured": true,
+      "runState": "COMPLETED",
+      "taskStateInCity": "COMPLETED",
+      "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "researchRunRefInCity": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+      "researchRunRefMatches": true,
+      "durationMs": 6615
+    },
+    {
+      "index": 2,
+      "recordedSeed": 430899034,
+      "recomputedSeed": 430899034,
+      "seedMatches": true,
+      "predictedWorker": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "observedWorker": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "placementMatches": true,
+      "state": "MEASURED",
+      "measured": true,
+      "runState": "COMPLETED",
+      "taskStateInCity": "COMPLETED",
+      "taskRef": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "researchRunRefInCity": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:2",
+      "researchRunRefMatches": true,
+      "durationMs": 6481
+    }
+  ],
+  "accountingFromReceipt": {
+    "planned": 3,
+    "accounted": 3,
+    "warmup": 0,
+    "measured": 3,
+    "timedOut": 0,
+    "failed": 0,
+    "excluded": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "interrupted": 0,
+    "terminalAccountingComplete": true
+  },
+  "accountingConsistent": true,
+  "everyRunMeasuredAndCompleted": true,
+  "everyPlacementPredicted": true,
+  "everySeedReproduced": true,
+  "everyCityTaskCarriesItsRunRef": true,
+  "distinctWorkersUsed": [
+    "dev-031fdba6e94c4298a0956ff04a65481d",
+    "dev-8128a1ef25c5c4b7f66fc31b21705858"
+  ],
+  "twoEndsExercised": true,
+  "traceCompleteness": {
+    "declared": "PARTIAL",
+    "predicateSource": "services/research-trace/index.mjs:24 at the candidate: partial = storageState !== READY || droppedRecords > 0 || retentionTruncated || failures.length > 0 || any record with annotations.length > 0 or missingFields.length > 0",
+    "disjuncts": {
+      "storageNotReady": false,
+      "droppedRecords": false,
+      "retentionTruncated": false,
+      "failuresRecorded": false,
+      "anyRecordWithAnnotations": false,
+      "anyRecordWithMissingFields": true
+    },
+    "disjunctsHolding": [
+      "anyRecordWithMissingFields"
+    ],
+    "recordsExamined": 197,
+    "recordsWithMissingFields": 197,
+    "recordsWithAnnotations": 0,
+    "missingFieldCounts": {
+      "experimentRef": 186,
+      "experimentRunRef": 186,
+      "providerRef": 197,
+      "modelRef": 197,
+      "channelRef": 197,
+      "softwareSha": 197,
+      "configRef": 197
+    },
+    "cause": "Solely the per-record missing-field declaration: the normalizer names the fields it could not populate. storageState is READY, nothing was dropped, retention is not truncated and no failure was recorded."
+  },
+  "retentionBoundary": {
+    "limitsSource": "services/research-trace/index.mjs:5 defaults, not overridden by the live Gateway (server.mjs:107 passes only directory, sourceStreamRef, storage, softwareRefs)",
+    "recordLimit": 256,
+    "byteLimit": 2097152,
+    "queueLimit": 64,
+    "recordsHeldInWholeTrace": 197,
+    "recordsBeforeEviction": 59,
+    "epochsHeld": [
+      {
+        "runId": "trace-d2b8f040-f618-47bf-badc-05f8dc4e3f46",
+        "records": 55
+      },
+      {
+        "runId": "trace-0dd5f8c9-eb46-4a4e-8a77-29373bbe371c",
+        "records": 76
+      },
+      {
+        "runId": "trace-9f58bbc8-7764-4895-b27e-48dd98d0eca6",
+        "records": 14
+      },
+      {
+        "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+        "records": 52
+      }
+    ],
+    "storageFiles": [
+      {
+        "name": "trace.jsonl",
+        "bytes": 427642
+      }
+    ],
+    "storageBytes": 427642,
+    "byteBudgetUsedPercent": 20.4,
+    "retentionTruncatedDeclared": false,
+    "note": "The window is a bounded ring: the collector evicts the oldest record and sets retentionTruncated=true once it holds more than recordLimit, and the file storage rotates on byteLimit. Neither has happened yet, so the campaign records in this package are intact rather than surviving by luck - but they are inside a window that will evict."
+  },
+  "traceEpoch": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+  "traceEpochRecordCount": 52,
+  "traceCampaignStartedRecord": {
+    "schemaVersion": 1,
+    "transformRef": "research-trace-normalize-v1",
+    "sourceDigest": "faf9a31cfa459950b704cddf28ac91edb35a690c0de35d47d239e8bc93179859",
+    "eventId": "6ed01998-5060-4d3c-ba8e-3a80ef7f6b4e",
+    "type": "RESEARCH_CAMPAIGN_STARTED",
+    "runId": "trace-90320718-ee11-4f00-ac34-0b8918f16820",
+    "sourceSeq": 385,
+    "timestamp": "2026-10-06T08:00:39.601Z",
+    "clocks": {
+      "source": "CANONICAL_EVENT_WALL_UTC",
+      "sourceSemantics": "event occurrence as declared by source",
+      "capturedAt": "2026-10-06T08:00:39.604Z",
+      "captureSource": "HOST_WALL_UTC",
+      "monotonicNs": "83597703175800",
+      "monotonicSource": "PROCESS_HRTIME",
+      "epoch": "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+    },
+    "canonicalRefs": {},
+    "dimensions": {},
+    "provenance": {
+      "refSemantics": "DECLARED_EXACT_IDENTITY; external verification required",
+      "softwareSha": null,
+      "configRef": null,
+      "implementationSha": null,
+      "reviewSha": null,
+      "ciRunId": null,
+      "evidenceSha": null
+    },
+    "metrics": {
+      "latencyMs": {
+        "value": null,
+        "reason": "NOT_OBSERVABLE: measurement not provided"
+      },
+      "backoffMs": {
+        "value": null,
+        "reason": "NOT_OBSERVABLE: measurement not provided"
+      },
+      "cpuPercent": {
+        "value": null,
+        "reason": "NOT_OBSERVABLE: measurement not provided"
+      },
+      "memoryBytes": {
+        "value": null,
+        "reason": "NOT_OBSERVABLE: measurement not provided"
+      },
+      "autonomousSpanMs": {
+        "value": null,
+        "reason": "NOT_OBSERVABLE: measurement not provided"
+      },
+      "taskTransitionCount": {
+        "value": null,
+        "reason": "NOT_OBSERVABLE: measurement not provided"
+      }
+    },
+    "missingFields": [
+      "experimentRef",
+      "experimentRunRef",
+      "providerRef",
+      "modelRef",
+      "channelRef",
+      "softwareSha",
+      "configRef"
+    ],
+    "annotations": []
+  },
+  "clocks": {
+    "declaredSourceClock": [
+      "CANONICAL_EVENT_WALL_UTC",
+      "EXTERNAL_DECLARED_WALL_UTC",
+      "HOST_WALL_UTC"
+    ],
+    "declaredSourceSemantics": [
+      "event occurrence as declared by source"
+    ],
+    "captureSource": [
+      "HOST_WALL_UTC"
+    ],
+    "monotonicSource": [
+      "PROCESS_HRTIME"
+    ],
+    "epochs": [
+      "epoch-4dcb9fe9-7126-40aa-8f5d-6cc4c4279f04"
+    ],
+    "recordsWithBothTimestamps": 52,
+    "captureSkewMs": {
+      "min": 0,
+      "median": 3,
+      "max": 53
+    },
+    "recordsCapturedBeforeOccurrence": 0,
+    "note": "Each record carries the source clock the occurrence was declared on (with its semantics), the host clock that captured it, and a monotonic reading. The skew above is capturedAt minus timestamp over the published epoch; a negative skew would be a capture that claims to predate the occurrence it captured."
+  },
+  "campaignWindow": {
+    "receiptStartedAt": 1791273639594,
+    "receiptFinishedAt": 1791273660167,
+    "receiptWindowIso": [
+      "2026-10-06T08:00:39.594Z",
+      "2026-10-06T08:01:00.167Z"
+    ],
+    "firstTaskCreatedAt": "2026-10-06T08:00:39.609Z",
+    "lastTaskUpdatedAt": "2026-10-06T08:01:00.087Z",
+    "campaignStartedEventAt": "2026-10-06T08:00:39.601Z",
+    "tasksInsideReceiptWindow": true,
+    "startEventInsideReceiptWindow": true
+  },
+  "apiReceiptAgreesWithDiskReceipt": true,
+  "apiReceiptSummary": {
+    "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+    "scenarioId": "WAIT",
+    "state": "COMPLETED",
+    "reason": "REPETITIONS_FINISHED",
+    "startedAt": 1791273639594,
+    "finishedAt": 1791273660167,
+    "summary": {
+      "planned": 3,
+      "accounted": 3,
+      "warmup": 0,
+      "measured": 3,
+      "timedOut": 0,
+      "failed": 0,
+      "excluded": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "interrupted": 0,
+      "terminalAccountingComplete": true
+    },
+    "experimentRef": "rex803-three-end-live-8798ba9dd370"
+  },
+  "canonicalTaskCount": 3,
+  "canonicalEventCount": 31
+}
