@@ -161,8 +161,14 @@ PASS  the independent verifier accepts the produced package  14/14 independent c
    补充实测：**City 本身没有任何字段自报运行版本**（快照全键 + descriptor 的 descriptorVersion + health.components
    都只是契约版本或状态；成员上的 agentVersion 是客户端 agent），因此路由指纹是目前**最强可得**的版本佐证
 7  在 worktree 里用**目录 junction** 共享 `node_modules` 是可以的（本机多个验证 worktree 都这么做），
-   但**删除时必须用 `cmd /c rmdir <link>`**：PowerShell 的 `Remove-Item -Recurse` 会**顺着链接删掉目标的真实
-   node_modules**。本机本轮按此清理，并实测目标 `node_modules` 完好（`ws` 仍可解析）
+   但**安全顺序必须是这样**：先 `cmd /c rmdir <link>` 断开链接，**再** `git worktree remove`。
+   **本机本轮真的踩坏了**：先跑 `git worktree remove --force`，git 顺着 junction 删掉了**目标真实
+   `node_modules` 里的文件**（随后以 `Directory not empty` 失败）；现场表现是 6 个顶层条目 / 30 个 `.pnpm`
+   条目（完整安装应为 9 / 40），REX-806 面探针因此报 `ERR_MODULE_NOT_FOUND: bonjour-service`，
+   套件从 24/24 变成 20 测 19 过。修复：删掉受损目录并用文档里的两步安装重装
+   （`corepack pnpm install --frozen-lockfile` + `corepack pnpm --dir city install --frozen-lockfile`），
+   实测 `bonjour-service` 与 `ws` 均可加载、三个 REX-806 套件恢复 **24/24**。
+   注意：**PowerShell 的 `Remove-Item -Recurse` 同样会顺着链接删掉目标**——两个命令都要避开链接本身
 ```
 
 **本机演练自身的缺陷也记录在案**：① 在驱动循环里调用 `record()`，同一条检查刷了几百行、把前面的阶段全埋了；

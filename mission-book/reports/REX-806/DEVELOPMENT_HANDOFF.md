@@ -87,6 +87,19 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 
 结论：复检者按文档照抄即可跑通，且在**今天的 main** 上仍然成立（不是只在当时的提交上成立）。 / The documented path works as written, at today's main and not only at the commit of the day.
 
+### 六件检查器在交付头上的合并快照（2026-10-06）/ All checkers green at the delivered head
+
+```text
+REX-806 三个套件（utopia 3950d47）     24 测 / 24 过 / 0 失败
+包内 Python 第三实现                    27/27
+放置按城市复算                          6/6
+指针按城市复算                          8/8
+部署指纹                                faults=404 artifacts=404（匹配 REX-805 头 0261a9e 的指纹）
+复现性（冻结两输入重导）                11/11 字节相同（含 checksums.json）
+```
+
+**环境事故（已修复，记录不掩盖）**：本轮首次汇总时套件变成 20 测 19 过，报 `ERR_MODULE_NOT_FOUND: bonjour-service`。根因是本机清理一个验证 worktree 时**先**跑了 `git worktree remove --force`，而该 worktree 的 `node_modules` 是**目录 junction**——git 顺着链接删掉了目标 `D:\utopia-rex806\node_modules` 里的**真实文件**（随后以 `Directory not empty` 失败）。修复：删掉受损目录并按文档两步重装（实测 9 个顶层 / 40 个 `.pnpm` 条目，`bonjour-service` 与 `ws` 均可加载），套件恢复 24/24。**教训已写进 REX-890 预检的宿主机陷阱清单：安全顺序是 `cmd /c rmdir <link>` 先断开链接，再 `git worktree remove`。** / An environment incident, repaired: a `git worktree remove --force` followed a directory junction into the shared node_modules and deleted real files; recorded with the safe order.
+
 ## 重算时的一个陷阱，用第三种实现量出来的 / A recomputation trap, measured by a third implementation
 
 本机另写了一份**Python** 第三实现（`reports/REX-806/evidence-tools/THIRD_RECOMPUTE_PYTHON_MECH.py`，12 项检查，只读包内字节、不碰 City）。它与那两个 JS 实现互相独立，因此能查出「两份 JS 一致、但都错」的那一类问题。结果：**对已发布包 12/12 通过**；把某一行 `taskUpdatedAt` 挪动 1 秒的负对照会让它红 2 项。 / A third, Python implementation was written against the same bytes (12 checks, no City access). It passes 12/12 on the published package, and a +1 s perturbation of one row turns two checks red.
