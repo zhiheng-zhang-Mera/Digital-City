@@ -14,3 +14,5 @@ docs/encoding-evidence/*.bin -text
 mission-book/reports/REX-805/encoding-preimage.bin -text
 # REX-806's artifact publishes per-file SHA256 for the opposite host to recompute against.
 mission-book/reports/REX-806/artifact/** -text
+# 中间日志按发布字节保存 / Preserve published intermediate-material bytes.
+mission-book/reports/*/intermediate-logs/** -text

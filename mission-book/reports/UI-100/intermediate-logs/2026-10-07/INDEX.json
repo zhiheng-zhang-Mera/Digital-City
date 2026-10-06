@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task": "UI-100",
+  "records": [
+    {
+      "task": "UI-100",
+      "round_label": ".runtime/foundation-ui1003-audit.json",
+      "source": "D:/Digital-City-REX-20261006/.runtime/foundation-ui1003-audit.json",
+      "source_worktree": "D:/Digital-City-REX-20261006",
+      "source_branch": "refs/heads/docs/bilingual-city-navigation-20261006",
+      "worktree_head_at_capture": "fe156fe514de416419515d7326e0ad2d52866b45",
+      "historical_run_head": null,
+      "original_bytes": 7754,
+      "original_sha256": "bf386a3893892e15c00b55078e86db1889ef14c2c7fb4a7c0d80a2dce96ce4e2",
+      "published_bytes": 7754,
+      "published_sha256": "bf386a3893892e15c00b55078e86db1889ef14c2c7fb4a7c0d80a2dce96ce4e2",
+      "published_path": "mission-book/reports/UI-100/intermediate-logs/2026-10-07/evidence/bf386a3893892e15-foundation-ui1003-audit.json",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    }
+  ]
+}
