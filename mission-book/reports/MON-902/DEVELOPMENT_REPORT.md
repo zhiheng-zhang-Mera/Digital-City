@@ -8,8 +8,9 @@ CONTROL REPO       zhiheng-zhang-Mera/Digital-City
 BRANCH             mon/MON-902-mech-overview-graph
 ANCHOR MODE        DEPENDENCY_SHA_UNION_AT_CLAIM
 BASELINE (UNION)   7eb38f1b930dfe6cc13dab0e17dedee467b1254b   (= MON-901 accepted head; contains main d3262ce2)
-DEVELOPMENT HEAD   fd70d00837a8309db718ee56fab7738a8b947530   (see section 8: the head moved once to repair a CI
-                                                              failure this task's own probe caused)
+DEVELOPMENT HEAD   3a88e23f91924576178973ef46c620b20ffa2aaf   (the head moved three times: browser UI evidence, the
+                                                              flake repair in section 8, and the latest-main
+                                                              integration that makes the branch conflict-free)
 PULL REQUEST       zhiheng-zhang-Mera/utopia#27
 WORKTREE           D:/utopia-mon902
 DEVELOPMENT HOST   Mech (MEGA-REP)

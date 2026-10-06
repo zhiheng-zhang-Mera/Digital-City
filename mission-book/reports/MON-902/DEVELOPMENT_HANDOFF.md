@@ -3,7 +3,7 @@
 ```text
 FROM            Mech (COMPUTERNAME MEGA-REP), role Mech-DS, development_host for MON-902
 TO              Alien (opposite physical host) — review_host for MON-902, unclaimed
-REVIEW TARGET   fd70d00837a8309db718ee56fab7738a8b947530
+REVIEW TARGET   3a88e23f91924576178973ef46c620b20ffa2aaf
                 branch mon/MON-902-mech-overview-graph (remote tip equals that commit)
 PR              zhiheng-zhang-Mera/utopia#27
 INDEPENDENCE    the workbook records development_host=Mech, so a reviewer on the Alien host is a different physical
@@ -12,15 +12,21 @@ INDEPENDENCE    the workbook records development_host=Mech, so a reviewer on the
 MERGE AUTHORITY false; do not merge this branch on the strength of this document
 ```
 
-## 1. Head history, and why the head moved
+## 0. Read this first: the target is now integration-clean
+
+The head moved a THIRD time, and for a good reason: the two earlier heads could not be merged into main without a
+conflict, which would have made the review turn into an integration exercise. `origin/main` was therefore merged into the
+branch and the five conflicting surfaces were resolved as **unions** — every programme's nav entry, locale keys and
+routes kept on both sides. Section 3 records the method and the verification. The branch's diff against main is now
+exactly MON-902's work (13 files, +1220/-3), so a reviewer reads MON-902 and nothing else.
 
 ```text
-6bb19f3e842774eff98cccf30fb01a8784953f22   first product head; push CI 37290149947 success
-5460697cfde5d807f022698a0411b040634a458b   added the browser-rendered UI evidence (tests/web.test.mjs)
-                                          PR CI 37290746745 success + linkage 37290746628 success
-                                          PUSH CI 37290743026 FAILURE (gateway-web)   <-- see section 2
-fd70d00837a8309db718ee56fab7738a8b947530   repairs that failure (data-loaded marker + deterministic wait)
-                                          THIS is the review target
+head history
+6bb19f3e842774eff98cccf30fb01a8784953f22   first product head                       push 37290149947 success
+5460697cfde5d807f022698a0411b040634a458b   + browser UI evidence                    PR 37290746745 success
+                                                                                    PUSH 37290743026 FAILURE (section 2)
+fd70d00837a8309db718ee56fab7738a8b947530   flake repair (section 2)                 push 37403423102 SUCCESS
+3a88e23f91924576178973ef46c620b20ffa2aaf   latest-main integration (section 3)      THIS IS THE REVIEW TARGET
 ```
 
 The workbook previously over-claimed that both runs on `5460697c` were green. That claim has been corrected in place
@@ -45,22 +51,32 @@ REGRESSION    the repaired probe cannot pass while the page is still loading, so
               mon901-observation 33/33.
 ```
 
-## 3. Latest-main integration still owed (measured, not assumed)
+## 3. Latest-main integration, PERFORMED (was: owed)
 
 ```text
-reviewed head           fd70d00837a8309db718ee56fab7738a8b947530
-origin/main at hand-off  213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef
-behind main              48 commits        ahead of merge-base 32 commits
-merge-base               7eb38f1b930dfe6cc13dab0e17dedee467b1254b   (= the accepted MON-901 head)
-files BOTH sides touch   apps/web/app.js, apps/web/i18n/en.js, apps/web/i18n/zh-CN.js, apps/web/index.html,
-                         services/dev-gateway/server.mjs, package-lock.json, city/package-lock.json
+integration commit      3a88e23f91924576178973ef46c620b20ffa2aaf   (a MERGE commit, so fd70d008 keeps its recorded CI)
+origin/main merged      213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef
+before                  48 commits behind, 5 files conflicting, PR #27 mergeable=CONFLICTING
+after                   diff vs main = 13 files, +1220/-3 (MON-902's work only)
+CONFLICT RESOLUTIONS (all unions, never one side)
+  apps/web/index.html        MON-902's `City monitor` button kept beside every other programme's nav entry
+  apps/web/i18n/en.js        MON-902's 89 monitor keys appended; both packs now hold 527 keys with zero duplicates
+  apps/web/i18n/zh-CN.js     and zero parity gap between them
+  apps/web/app.js            monitor import, state, loadMonitor/renderMonitor, the Monitor page dispatch, the go()
+                             reset and the three monitor click handlers re-applied onto main's wiring
+  services/dev-gateway/*.mjs monitor-graph import + route re-applied onto main's routes
+  package-lock.json (both)   merged automatically (MON-902 added no dependency)
+VERIFICATION AFTER THE UNION
+  62 tests pass   Mon902 graph + panel, MON-901 observation, REX-801 manifest, REX-802 gateway + trace,
+                  WBC-604 profile route + fail-safe
+  2/2 browser     tests/web.test.mjs in a real Chromium
+  surface check   all twelve nav pages present (including Monitor, Research, ResearchTrace) and the monitor,
+                  research-experiment, execution-profile and trace routes present in server.mjs
+INSTRUMENT NOTE   the first attempt at the locale union used a PowerShell Get-Content/Set-Content round trip, which on
+                  this host (Windows PowerShell 5.1, non-UTF-8 console codepage) corrupted the Chinese pack; the file was
+                  restored from git and the union redone with a Node helper. Recorded rather than hidden: it is the same
+                  instrument class the mission-book warns about for non-ASCII files.
 ```
-
-A merge of this branch into current main therefore needs a UNION for those seven files, and the union is where the review's
-attention is most valuable: `apps/web/app.js` and `index.html` now carry nav entries and page wiring from several
-programmes (MON-902's `City monitor`, MON-903's `Decision provenance`, REX-801/802's research pages), so an integration
-that keeps only one side would silently delete another programme's surface. The author did NOT rebase the branch: the
-review target is the exact head above, and rebasing would invalidate the evidence already recorded for it.
 
 ## 4. What to review, in the workbook's own words
 
@@ -97,12 +113,14 @@ Physical rendering   the browser evidence is headless Chromium on this host, not
 ## 6. Exact-head CI of the review target (author-measured; the reviewer must re-measure)
 
 ```text
-push run 37403423102   V0.2 checks   COMPLETED SUCCESS   gateway-web pass (5m24s), android pass (1m24s)
-PR #27 check view      reports the same head fd70d00837a8309db718ee56fab7738a8b947530 with both jobs passing
-PR #27 mergeable       CONFLICTING - this is the latest-main integration obligation (section 3), not a CI failure
+push run 37404641090   V0.2 checks          COMPLETED SUCCESS
+pull run 37404644103   V0.2 checks          COMPLETED SUCCESS
+linkage  37404644095   City linkage check   COMPLETED SUCCESS
+                       all three matched on headSha 3a88e23f91924576178973ef46c620b20ffa2aaf
+PR #27                 mergeable should now read MERGEABLE (it read CONFLICTING before the integration in section 3)
 EARLIER HEADS          6bb19f3e... push 37290149947 success
                        5460697c... PR 37290746745 success + linkage 37290746628 success, PUSH 37290743026 FAILURE
                        (the measurement defect in section 2, preserved deliberately)
-LOCAL at the target    33/33 for mon902-monitor-graph + mon902-monitor-panel + mon901-observation;
-                       tests/web.test.mjs 2/2 in two consecutive runs
+                       fd70d008... push 37403423102 success (flake repair)
+LOCAL at the target    62 tests across MON-902 + MON-901 + REX-801 + REX-802 + WBC-604 suites; browser 2/2
 ```
