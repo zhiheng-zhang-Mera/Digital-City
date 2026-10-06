@@ -3,7 +3,7 @@ workbook_id: REX-803
 phase: RESEARCH_STRENGTHENING
 sequence: 803
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -11,12 +11,12 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
 dependency_source_workbooks: ["REX-801","REX-802"]
 dependency_source_shas: ["7e96a4d28f4cb701d7a0951bace69857c3228f32","833279cae237080cca88b1b6dbc9f217027ba68f"]
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: 1a26d7499d3de39b19c3136c3032e8ccd9343428
+baseline_resolution_evidence: mission-book/reports/REX-803/BASELINE.md
 baseline_blocker: null
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: rex/REX-803-Alien-codex-scenario
 development_head_sha: null
 development_ci: null
 development_complete: false
