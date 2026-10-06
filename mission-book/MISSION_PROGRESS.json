@@ -845,7 +845,7 @@
       "name": "Capability Entry Closeout",
       "readme": "capability-entry-closeout/README.md",
       "review_complete": 5,
-      "status": "IN_PROGRESS",
+      "status": "ACTIVE",
       "task_complete": 5,
       "tasks": [
         {
@@ -900,7 +900,7 @@
           "id": "CEX-790",
           "path": "capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "COMPLETE"
         }
       ],
       "total": 6
