@@ -130,3 +130,8 @@ records:
     exposure_class: INTERNAL_ONLY
     reconciliation: FORMAL_REVIEW_RECONCILED
     last_verified_full_sha: "f3510862cc348a99004ca5bd5d151a7b56279724"
+  - capability_id: CAP-RESEARCH-FAULTS-001
+    record_ref: records/CAP-RESEARCH-FAULTS-001.yaml
+    exposure_class: ADVANCED_CONTROL
+    reconciliation: CANDIDATE_PENDING_FORMAL_REVIEW
+    last_verified_full_sha: "9b68d4f7054bb911c484340532cc3b5ae9ed47ac"

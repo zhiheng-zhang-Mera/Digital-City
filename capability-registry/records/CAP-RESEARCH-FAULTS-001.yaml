@@ -1,0 +1,41 @@
+schema_version: 1
+capability_id: CAP-RESEARCH-FAULTS-001
+name:
+  zh_CN: 有界研究故障与恢复探测
+  en: Bounded research faults and recovery probes
+source_workbooks: [REX-804]
+implementation:
+  repo: zhiheng-zhang-Mera/utopia
+  discovery_refs: [refs/heads/rex/REX-804-Alien-codex-faults]
+  paths: [services/dev-gateway/research/faults.mjs, services/dev-gateway/server.mjs, apps/web/research-faults.js]
+  symbols: [createFaultController, renderFaults]
+  api_or_actions: [GET /api/v0/research/faults, POST /api/v0/research/faults, POST /api/v0/research/faults/:id/stop]
+  last_verified_full_sha: 9b68d4f7054bb911c484340532cc3b5ae9ed47ac
+status:
+  implementation_status: CANDIDATE
+  backend_wiring_status: LOCALLY_VERIFIED
+  user_reachability_status: WEB_VERIFIED_ANDROID_PENDING
+  intent_validation_status: PENDING_FORMAL_REVIEW
+exposure:
+  class: ADVANCED_CONTROL
+  user_visible_information: [target, impact, duration, receipt, missing measurements, recovery]
+  user_controls: [select target and fault, explicit confirmation, inject, emergency stop, refresh history]
+  intentionally_hidden_information: [credentials, raw secrets]
+  internal_only_exemption_reason: null
+surfaces:
+  - platform: WEB
+    location: Research > Advanced / Danger Zone
+    nesting: L3_ADVANCED
+    discoverable: true
+    enabled_when: ONLINE and City Owner
+    evidence_ref: utopia:evidence/raw/mission-book/REX-804/danger-zone.png
+evidence:
+  backend_wiring_refs: [utopia:tests/rex804-gateway.test.mjs]
+  reachability_refs: [utopia:tests/rex804-web.test.mjs]
+  implementation_refs: [utopia:evidence/raw/mission-book/REX-804/development-receipt.json]
+  intent_validation_refs: []
+research_observations:
+  registry_reconciliation_result: CANDIDATE_PENDING_FORMAL_REVIEW
+  paper_material_refs: [mission-book/reports/REX-804/PAPER_MATERIAL_INDEX.md]
+known_gaps: [terminal CI pending, Mech physical-host review pending, Android controls pending, physical-host and external-provider recovery not measured]
+last_reconciled_by_workbook: REX-804

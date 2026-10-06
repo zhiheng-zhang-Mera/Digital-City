@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
 development_host: Alien
 development_branch: rex/REX-804-Alien-codex-faults
-development_head_sha: null
-development_ci: null
+development_head_sha: 9b68d4f7054bb911c484340532cc3b5ae9ed47ac
+development_ci: "37397118298 IN_PROGRESS at candidate 9b68d4f7054bb911c484340532cc3b5ae9ed47ac"
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -27,7 +27,7 @@ review_complete: false
 user_exposure_class: ADVANCED_CONTROL
 user_exposure_surface: RESEARCH_DANGER_ZONE
 user_exposure_nesting: L3_ADVANCED
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: "WEB_LOCALLY_VERIFIED; pending independent Review and Android parity"
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
