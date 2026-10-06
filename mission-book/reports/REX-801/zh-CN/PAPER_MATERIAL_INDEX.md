@@ -18,7 +18,7 @@ research_evidence_refs          = see §6
 ```text
 control_repo   zhiheng-zhang-Mera/Digital-City @ main
 implementation zhiheng-zhang-Mera/utopia
-workbook       mission-book/research-strengthening/REX-801-experiment-manifest-and-registry.md
+workbook       mission-book/mission-group/research-strengthening/REX-801-experiment-manifest-and-registry.md
 report         mission-book/reports/REX-801/DEVELOPMENT_REPORT.md
 branch         rex/REX-801-experiment-manifest-registry
 baseline_sha   0e9bea3ce739b979e582a428af8fb233045a5e75

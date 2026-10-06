@@ -31,7 +31,7 @@ APPLICABLE、长程上下文CAPTURED、研究引用§6；§14B.1信号与实发�
 ```text
 control_repo        zhiheng-zhang-Mera/Digital-City @ main
 implementation_repo zhiheng-zhang-Mera/utopia
-workbook            mission-book/workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md
+workbook            mission-book/finished/completed-2026-10-06/workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md
 report              mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md
 branch              wbc/WBC-601-execution-backend-contract
 baseline_sha        612c344f9f2b06a67b2645b4662d97750dd7c44e

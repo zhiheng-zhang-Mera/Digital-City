@@ -1,6 +1,6 @@
 > 中文阅读译本 / Reading translation。此文件没有工作书元数据，也不赋予 authority。以下规则与状态属于历史归档；[canonical source](../JOIN-502-nearby-pc-discovery-and-owner-approval.md) 的原始 frontmatter 是唯一元数据来源。
 
-> Normative-body source: Git `88d71359a7d82d1d41fd0198d048e80b92d27936`, `mission-book/connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md`. Current canonical frontmatter remains authority; damaged bytes are retained, not guessed. Reading links relocated only.
+> Normative-body source: Git `88d71359a7d82d1d41fd0198d048e80b92d27936`, `mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md`. Current canonical frontmatter remains authority; damaged bytes are retained, not guessed. Reading links relocated only.
 
 
 

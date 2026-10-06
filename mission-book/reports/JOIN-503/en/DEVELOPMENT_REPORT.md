@@ -2,8 +2,8 @@
 
 Reading translation / 阅读译本：Complete reading translation of the historical source, not a second authoritative workbook or acceptance record. Original evidence blocks and unfinished boundaries are retained.
 
-> Workbook: mission-book/connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md
-> Programme: mission-book/connection-onboarding/README.md
+> Workbook: mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md
+> Programme: mission-book/finished/completed-2026-10-06/connection-onboarding/README.md
 > Standing rules: mission-book/CONSTRUCTION_RULES.md, mission-book/ASYNC_RELIEF_CONSTRUCTION.md
 > Role: Development, host Alien
 > Branch: join/JOIN-503-device-enrollment-and-tokenless-reconnect

@@ -3,7 +3,7 @@
 > 阅读译本 / Reading translation：仅供阅读，不是第二份权威工作书或状态；保留所有历史失败、门缺口及原证据，元数据仅代码围栏引用。
 
 ```text
-WORKBOOK            mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
+WORKBOOK            mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
 TASK                JOIN-590  (Connection Onboarding merged-main physical acceptance and closeout)
 EXECUTED BY         Mech (COMPUTERNAME MEGA-REP), role Mech-DS  - development host
 TESTED EXACT SHA    322162e900672ccfda12f2590d3562eb81bc128e

@@ -60,6 +60,6 @@ Mech的D-1是作者修改的缺陷，不是设计分歧。POST /api/v0/device/in
 
 1. 审查者复验修复头。PASS必须指明artifact，结论属于Mech对77f7f2a的复验及自身精确头CI，当前CI绿色。本机不会为自己的修复记录review_complete:true或terminal marker。
 2. 第9节双物理主机验收仍延期，与审查运行前记录一致。Owner凭据只在本机对本机City使用；当时Mech不可达，其City不响应任何被探测endpoint且主机不响应ping。作为本次运行事实记录，没有绕过。
-3. 合并/整合仍超出本范围。mission-book/connection-onboarding/README.md第5节禁止三个JOIN都有异机审查之前创建阶段整合工作簿；JOIN-502仍等待本机不能提供的审查。
+3. 合并/整合仍超出本范围。mission-book/finished/completed-2026-10-06/connection-onboarding/README.md第5节禁止三个JOIN都有异机审查之前创建阶段整合工作簿；JOIN-502仍等待本机不能提供的审查。
 
 语言配对 / Language pair: [原文 / Source](../REPAIR_D1_D2.md)

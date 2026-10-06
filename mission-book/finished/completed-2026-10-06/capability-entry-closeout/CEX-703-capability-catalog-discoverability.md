@@ -1,0 +1,152 @@
+---
+workbook_id: CEX-703
+phase: CAPABILITY_ENTRY_CLOSEOUT
+sequence: 703
+execution_enabled: true
+status: COMPLETE
+implementation_repo: zhiheng-zhang-Mera/utopia
+baseline_policy: IMMUTABLE_EXACT_SHA
+baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
+baseline_candidate_refs: ["refs/heads/main"]
+required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
+dependency_source_workbooks: []
+dependency_source_shas: []
+development_baseline_sha: "0e9bea3ce739b979e582a428af8fb233045a5e75"
+baseline_resolution_evidence: "mission-book/reports/CEX-703/CLAIM_RECORD.md"
+baseline_blocker: null
+dependencies: ["ASK_TARGETS_CONTRACT_PRESENT"]
+development_host: Alien-codex
+development_branch: cex/CEX-703-Alien-codex-capability-catalog
+development_head_sha: "478d486096512eea3266350efe070323a232a120"
+development_ci: "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37222683667"
+development_complete: true
+capability_ids: [CAP-ASK-001]
+capability_registry_action: BACKFILL
+capability_registry_refs: ["capability-registry/records/CAP-ASK-001.yaml"]
+capability_registry_sync_status: RECONCILED
+research_evidence_applicability: APPLICABLE
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"]
+review_host: "Mech"
+review_head_sha: "478d486096512eea3266350efe070323a232a120"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-05): the review target is the development head itself, 478d486096512eea3266350efe070323a232a120, resolved from refs/heads/cex/CEX-703-Alien-codex-capability-catalog (remote tip equals that commit). INDEPENDENCE, proven rather than asserted: this workbook records development_host=Alien-codex, so the reviewer host (Mech, COMPUTERNAME MEGA-REP) is a different physical host from the author, as section 3 requires. DEPENDENCY, verified rather than assumed: this workbook declares the dependency ASK_TARGETS_CONTRACT_PRESENT and required_ancestor_shas [69a097b5394a9fece39dd11cc13f04c9b4d28bfe]; the reviewer confirmed the ancestor is reachable from the reviewed head (git merge-base --is-ancestor exit 0) and that the ask/targets contract is present AT that ancestor in three places - the gateway route in services/dev-gateway/server.mjs, apps/web/terminal.js and apps/android/.../CityClient.kt - so the dependency is a contract that exists in the accepted line rather than a claim resting on this branch. Claim-time exact-head CI measured before any verdict: V0.2 checks push run 37222683667 completed/success on the reviewed head; PR pull run 37222688854 completed/success on the same head; City linkage check run 37222688771 completed/success (reciprocal-contract). || VERDICT PASS on the reviewed head. Exact-head CI re-measured by the reviewer: V0.2 checks push run 37222683667 completed/success on 478d486096512eea3266350efe070323a232a120 (jobs android success, gateway-web success); PR15 pull run 37222688854 completed/success on the same head; City linkage check run 37222688771 completed/success (reciprocal-contract). Reviewer instruments: seven independent probes written for this review (utopia tests/cex703-mech-review-probes.test.mjs, branch review/CEX-703-mech-review at 006ec9f) 7/7 pass, six of them driving a real browser against a real gateway, and they decide every check the workbook names - a fresh user reaches the catalog in exactly two interactions with ZERO Ask submissions, the rendered rows equal the backend rows in order and in both directions, every unavailable target is disabled and carries the backend own reason, choosing a card executes nothing and the submission carries a canonical selection naming the chosen target, a synthetic response renders exactly itself so there is no second handwritten catalog, and a City task target creates nothing before the existing confirmation step. Author suite rerun unmodified 3/3. Android executed here: :app:testDebugUnitTest 80/80 across 14 suites. No pre-existing test file is touched, so there is no relaxed assertion needing compensation. Findings, none blocking: F1 MEDIUM (the Android availability chip reads availability and side-effect but ignores mutating, so checklist, bookmarks and knowledge.add-entry - all mutating with no declared side effect - are labelled SAFE whenever the Room Hub answers, contradicted three lines below by the card own warning that the target writes local product data, and diverging from the Web which flags mutating by name; authority is not lost because the mutation still passes through the existing confirmation); F2 LOW (an empty catalog renders on the Web as a bare heading with no reason, while Android renders an explicit empty state for the same payload); F3 INFORMATIONAL (the mandatory before-this-change step count is declared NOT_OBSERVABLE, but the baseline commit shows the exact sequence - the Web fetched targets only after an Ask returned UNMATCHED and the Android surface additionally required a click, so the counts are derivable even though unmeasurable, and the workbook never defines a step); F4 INFORMATIONAL (the receipt records unavailableCount 5 of 16 while this review fixture observes 10 of 16, classified as an ENVIRONMENT difference because the five extra rows are ROOM targets answering room hub not reachable on loopback - the very difference that makes F1 reachable). Fourteen template fields were absent and are backfilled by this review, with the exposure values transcribed from the author own CAP-ASK-001 record. Android online catalog remains NOT_RUN and intent validation NOT_TESTED; no usability or performance claim is made. Terminal marker CAPABILITY_CATALOG_DISCOVERABLE released by this review. See reports/CEX-703/REVIEW_REPORT.md."
+review_complete: true
+owner_gate: NONE
+merge_authority: false
+report_path: mission-book/reports/CEX-703
+user_exposure_class: DIRECT_CONTROL
+user_exposure_surface: CAPABILITY_CATALOG
+user_exposure_nesting: L2_CONTEXTUAL
+backend_wiring: VERIFIED
+ui_exemption_reason: null
+research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-INDEPENDENT-REVIEW-BOUNDARY","RS-G4-CAPABILITY-STATE","RS-G3-USER-REACHABLE-TERMINAL"]
+highest_research_grade_observed: G4_RARE_SYSTEMIC
+research_capture_level: MAXIMUM_BOUNDED
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md"]
+monitor_observability_evidence: NOT_APPLICABLE
+monitor_observability_refs: []
+decision_trace_evidence: NOT_APPLICABLE
+decision_trace_refs: []
+terminal_marker: CAPABILITY_CATALOG_DISCOVERABLE
+merged_main_sha: "6d019c1094a2084927b8b3fe316009644f856086"
+merged_main_ci: "required CI on the merge/integration head; the JOIN-590 closeout integration head e111eb2787e7464385b4b59e62e954ac1f5f678e was verified locally at 1329/1332 with only the three known resident-City host-city-launcher failures, and the same head was pushed to main for hosted CI."
+merged_main_via: "PR #15"
+merge_authority_note: "Owner instruction 2026-10-05: update the mission-book statuses and perform the Utopia merges for the workbooks that pass (complete development + completed opposite-host review + exact-head CI green), then wait for CI. Merged by Mech (Mech-DS) under that instruction; the workbooks themselves declare merge_authority: false, so the authority for these merges is the owner ruling, recorded here rather than by editing the declaration."
+---
+
+# CEX-703 — “Utopia 能做什么”能力目录与发现入口
+
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)  
+> 论文素材：[PAPER_EVIDENCE_PROTOCOL.md](PAPER_EVIDENCE_PROTOCOL.md)
+
+## 目标
+
+`GET /api/v0/ask/targets` 已经提供真实可执行 target 列表，但当前 Web/Android 只有 Ask unmatched 后才暴露。
+
+本任务要让用户**无需先失败一次**就能发现现有能力。
+
+## 最低产品入口
+
+Web 与 Android 的 Ask/Do 页面都应有：
+
+```text
+不知道能做什么？
+[ 查看全部能力 ]
+```
+
+打开真实 backend target catalog。
+
+允许按现有 metadata 做轻量分类：
+
+- Rooms；
+- Capabilities；
+- City Tasks；
+- read/write；
+- side-effect；
+- unavailable reason。
+
+## 规则
+
+- catalog 必须来自 backend contract，不能手写第二份；
+- unavailable capability 可以显示，但必须不可误触并解释原因；
+- mutating / side-effect target 必须保留 confirmation 语义；
+- 不把 FUTURE_EXPOSURE_BACKLOG 中未成熟能力塞进目录；
+- 搜索/收藏/command palette 属 future enhancement，本任务不扩 scope。
+
+## Formal Review
+
+至少检查：
+
+- fresh startup 用户能 1–2 步看到目录；
+- catalog 与 `/ask/targets` 数量/identity 对齐；
+- target unavailable truth；
+- Ask manual selection 与 catalog 选择不会分叉语义；
+- Web/Android 一致；
+- 后端新增一个 target 时前端无需手工改列表即可出现。
+
+## 论文素材强制点
+
+记录：
+
+- 修复前“必须先 Ask 失败”的步数；
+- 修复后 discoverability 步数；
+- target count；
+- category counts；
+- unavailable count；
+- stale hard-coded catalog 若被发现；
+- automatic catalog propagation evidence；
+- usability/runtime errors。
+
+## 完成门槛
+
+- Web direct catalog；
+- Android direct catalog；
+- backend-driven；
+- no fake future capabilities；
+- opposite-host Review / exact-head CI；
+- PAPER_MATERIAL_INDEX；
+- terminal marker `CAPABILITY_CATALOG_DISCOVERABLE`。
+
+## 复核结论（Mech，对侧物理主机）
+
+Formal Review PASS，详见 `mission-book/reports/CEX-703/REVIEW_REPORT.md`。七项独立探针（其中六项驱动真实浏览器
+对真实网关）逐条判定本工作书要求的六项检查：新用户在**恰好两次交互**、且**零次 Ask 提交**下进入目录；渲染行与
+后端行**双向逐一对应且同序**；不可用目标全部渲染为不可点击并携带后端自身原因；选择卡片不执行任何动作、提交时带上
+指名所选目标的 canonical `selection`；把响应替换为合成目标后只渲染该目标，证明不存在第二份手写目录；City task
+目标在既有确认步骤之前不产生任何副作用。作者测试套件未经修改地重跑。一项 MEDIUM、一项 LOW、两项 informational，
+均不阻塞。F1（MEDIUM）Android 可用性标签读取 available 与 sideEffect 却**忽略 mutating**，于是
+checklist / bookmarks / knowledge.add-entry（mutating 为真、未声明 side-effect）在 Room Hub 应答时被标为 `SAFE`，
+而同一张卡片下方三行正警告"会写入本地产品数据"，且 Web 按名标出 mutating —— 两界面在同一目标上给出相反的风险
+表述（权限未丢失，变异仍走既有确认）。F2（LOW）空目录在 Web 上只渲染一个标题、不给任何原因，而 Android 对同一
+载荷渲染显式空状态。F3（informational）改造前步数被记为 NOT_OBSERVABLE，而基线提交显示确切序列（Web 需先提交 Ask
+得到 UNMATCHED 才出现目标列表，Android 还需再点一次），故计数可推得但不可测；工作书本身未定义"步"。F4
+（informational）收据记 `unavailableCount: 5/16`，而本次夹具观测到 10/16，归类为**环境差异**（多出的五行 ROOM
+目标回答 room hub not reachable on loopback）——正是该差异使 F1 由潜在变为可达。十四项模板字段缺失，已由本次复核
+依作者自身 `CAP-ASK-001` 记录回填。Android 在线目录仍为 NOT_RUN，intent validation 仍为 NOT_TESTED。
+
+
+
+---
+
+[English reading translation / 完整英文阅读说明](en/CEX-703-capability-catalog-discoverability.md)

@@ -98,3 +98,10 @@ A record can be perfectly consistent and still wrong; the reviewer's independent
 ## Exact-byte evidence preservation
 
 Navigation generation and `--check` also verify every encoding preimage against its declared byte count and SHA256. The regression exercises CRLF-to-LF conversion, same-length corruption and missing files, and confirms the checker changes neither evidence nor the declared hash. `.bin` preimages and indexed REX-803/805 payloads use `.gitattributes -text`. The navigation writer excludes raw `evidence` and `evidence-repaired` directories under reports; their translated indexes live outside the payload. Presence labels still do not certify full translation.
+
+
+## 前台与归档发现 / Foreground and archive discovery
+
+任务发现覆盖 `mission-book/mission-group` 与 `mission-book/finished`，路径由 manifest 声明；归档不会删除总体统计。`future-plans` 不读取、不校验，文档清单沿用此前已保存的规划条目。迁移回归检查运行 `python mission-book/tools/test_mission_layout.py`。
+
+Workbook discovery includes `mission-book/mission-group` and `mission-book/finished`, with manifest-defined paths; archiving retains overall totals. `future-plans` is neither read nor validated; the documentation inventory carries its previously saved planning entries forward. Run the relocation regression with `python mission-book/tools/test_mission_layout.py`.

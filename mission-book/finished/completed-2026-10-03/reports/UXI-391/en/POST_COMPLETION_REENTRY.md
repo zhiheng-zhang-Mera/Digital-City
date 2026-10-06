@@ -24,13 +24,13 @@ Terminal marker is REMOTE_HANDOFF_CLOSEOUT_REPAIRED. Utopia main is `ec12fd0831f
       全部位于 finished/completed-2026-10-01/**，按规则【绝不重开】。
 (3) 当前 programme 声明的 integration / merge / closeout 工作书
     → UXI-391（本任务，终态）；
-      MESH-301（mission-book/mesh-3end/，Owner 指示三端实机测试，Alien 起草）：
+      MESH-301（mission-book/finished/completed-2026-10-06/mesh-3end/，Owner 指示三端实机测试，Alien 起草）：
       execution_enabled: false、status: DRAFT_PENDING_OWNER_APPROVAL → **当前不可领取**。
 ```
 
 1. Workbooks with merge_authority:true and non-terminal status: only UXI-391 itself, this task now terminal; no others.
 2. Filenames containing MERGE_WORKBOOK: four, BUTLER_ASSISTANT, ENGINEERING_MANAGER, GENERAL_AI_GATEWAY and REMOTE_FABRIC. All are under finished/completed-2026-10-01/** and **must never be reopened**.
-3. The current programme's integration/merge/closeout workbooks: UXI-391, now terminal, and MESH-301 under mission-book/mesh-3end/, drafted by Alien for Owner's three-end physical-test instruction. With execution_enabled:false and DRAFT_PENDING_OWNER_APPROVAL, MESH-301 is **not currently claimable**.
+3. The current programme's integration/merge/closeout workbooks: UXI-391, now terminal, and MESH-301 under mission-book/finished/completed-2026-10-06/mesh-3end/, drafted by Alien for Owner's three-end physical-test instruction. With execution_enabled:false and DRAFT_PENDING_OWNER_APPROVAL, MESH-301 is **not currently claimable**.
 
 ## 2. Typed classification fields
 

@@ -3,7 +3,7 @@
 [English source / 英文原文](../DEVELOPMENT_REPORT.md)。阅读译本保留历史状态，current workbook/report 仍为 authority。证据 block 内容不变；英文源§4 漏代码围栏关闭，阅读副本仅补围栏以恢复§5–7 标题显示，不改原文件。
 
 ```text
-WORKBOOK            mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md
+WORKBOOK            mission-book/mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md
 DEVELOPMENT HOST    Mech (COMPUTERNAME MEGA-REP), role Mech-DS
 BRANCH              rex/REX-803-mech-scenario-runner
 BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef   (main at claim time; dependency union already inside)

@@ -1,7 +1,7 @@
 # JOIN-502 — Development report
 
 > **Workbook:** [JOIN-502-nearby-pc-discovery-and-owner-approval.md](../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
-> **Programme:** [connection-onboarding/README.md](../../connection-onboarding/README.md)  
+> **Programme:** [connection-onboarding/README.md](../../finished/completed-2026-10-06/connection-onboarding/README.md)  
 > **Development host:** Mech (this host) — review is deliberately left to a different physical host  
 > **Branch / head:** `join/JOIN-502-nearby-discovery-approval` @ `86deda9c2990c78d683a8c3515d251022df9d040`  
 > **Baseline:** Utopia `main` `13109b4c206feb3c1a9107b369715e84af65eaf1`  

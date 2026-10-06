@@ -15,9 +15,9 @@ authority:
 bootstrap:
   legacy_backfill_status: RECONCILED_AT_FINAL_AUDIT
   seed_sources:
-    - mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md
+    - mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md
   final_bootstrap_gate:
-    - mission-book/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md
+    - mission-book/finished/completed-2026-10-06/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md
   policy: >-
     Existing capabilities may remain LEGACY_BACKFILL_PENDING until verified.
     Any workbook that touches one must backfill/reconcile that capability record.

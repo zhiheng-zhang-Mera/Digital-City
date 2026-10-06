@@ -1420,7 +1420,7 @@ branch/tag 只用于 discovery；不得作为 capability verification identity�
 
 现有历史能力入口矩阵：
 
-`mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
+`mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
 
 是 Registry 的 bootstrap evidence source，不是永久第二套 registry。
 

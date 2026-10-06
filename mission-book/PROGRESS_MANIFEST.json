@@ -88,7 +88,7 @@
       "name": "Connection Onboarding",
       "task_globs": [
         "finished/completed-2026-10-04/connection-onboarding-components/JOIN-*.md",
-        "connection-onboarding/JOIN-*.md"
+        "finished/completed-2026-10-06/connection-onboarding/JOIN-*.md"
       ],
       "active_pool": false,
       "readme": "finished/completed-2026-10-06/README.md"
@@ -97,46 +97,46 @@
       "key": "wbc",
       "name": "Workbench Compatibility",
       "task_globs": [
-        "workbench-compatibility-migration/WBC-*.md"
+        "finished/completed-2026-10-06/workbench-compatibility-migration/WBC-*.md"
       ],
-      "active_pool": true,
-      "readme": "workbench-compatibility-migration/README.md"
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-06/workbench-compatibility-migration/README.md"
     },
     {
       "key": "cex",
       "name": "Capability Entry Closeout",
       "task_globs": [
-        "capability-entry-closeout/CEX-*.md"
+        "finished/completed-2026-10-06/capability-entry-closeout/CEX-*.md"
       ],
-      "active_pool": true,
-      "readme": "capability-entry-closeout/README.md"
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-06/capability-entry-closeout/README.md"
     },
     {
       "key": "rex",
       "name": "Research Strengthening",
       "task_globs": [
-        "research-strengthening/REX-*.md"
+        "mission-group/research-strengthening/REX-*.md"
       ],
       "active_pool": true,
-      "readme": "research-strengthening/README.md"
+      "readme": "mission-group/research-strengthening/README.md"
     },
     {
       "key": "mon",
       "name": "City Work Monitor",
       "task_globs": [
-        "city-work-monitor-dashboard/MON-*.md"
+        "finished/completed-2026-10-06/city-work-monitor-dashboard/MON-*.md"
       ],
-      "active_pool": true,
-      "readme": "city-work-monitor-dashboard/README.md"
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-06/city-work-monitor-dashboard/README.md"
     },
     {
       "key": "show",
       "name": "SHOW-401 展示素材",
       "task_globs": [
-        "showcase-material-extraction/SHOW-*.md"
+        "mission-group/showcase-material-extraction/SHOW-*.md"
       ],
       "active_pool": true,
-      "readme": "showcase-material-extraction/README.md"
+      "readme": "mission-group/showcase-material-extraction/README.md"
     }
   ]
 }

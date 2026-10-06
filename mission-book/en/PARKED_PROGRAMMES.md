@@ -6,12 +6,12 @@
 
 | Series | Purpose | State |
 |---|---|---|
-| [PCF](../personal-compute-fabric/README.md) | Enhanced personal heterogeneous compute fabric: 25 planning workbooks (19 core + 6 optional), supporting added subtasks and versioned complex extensions | PARKED |
-| [DGX](../deliberative-governance-expansion-migration/README.md) | Complex-request decomposition, isolated execution, structured convergence, conflict/arbitration governance | PARKED |
-| [RIV](../review-independence-v2/README.md) | Review Pool v2, multidimensional independence, fresh context, safe migration | PARKED |
-| [URA](../utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector runtime layering and logical decoupling | PARKED |
-| [CHK](../city-self-health-check/README.md) | Periodic health checks, self-awareness/diagnosis, quarterly self-evolution candidate review | PARKED |
-| [Suspend](../suspend/README.md) | Conflicting designs/assumptions currently unsuitable for canonicalization but requiring preservation | PRESERVE_ONLY |
+| [PCF](../mission-group/personal-compute-fabric/README.md) | Enhanced personal heterogeneous compute fabric: 25 planning workbooks (19 core + 6 optional), supporting added subtasks and versioned complex extensions | PARKED |
+| [DGX](../mission-group/deliberative-governance-expansion-migration/README.md) | Complex-request decomposition, isolated execution, structured convergence, conflict/arbitration governance | PARKED |
+| [RIV](../mission-group/review-independence-v2/README.md) | Review Pool v2, multidimensional independence, fresh context, safe migration | PARKED |
+| [URA](../mission-group/utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector runtime layering and logical decoupling | PARKED |
+| [CHK](../mission-group/city-self-health-check/README.md) | Periodic health checks, self-awareness/diagnosis, quarterly self-evolution candidate review | PARKED |
+| [Suspend](../mission-group/suspend/README.md) | Conflicting designs/assumptions currently unsuitable for canonicalization but requiring preservation | PRESERVE_ONLY |
 
 ## Shared rules
 

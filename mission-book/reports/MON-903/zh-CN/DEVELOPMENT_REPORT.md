@@ -3,7 +3,7 @@
 > 阅读译本 / Reading translation：仅供阅读，不是第二份权威工作书或状态；所有历史失败、旧头证据及后续纠正保留，元数据仅代码围栏引用。
 
 ```text
-WORKBOOK            mission-book/city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md
+WORKBOOK            mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md
 DEVELOPMENT HOST    Mech (COMPUTERNAME MEGA-REP), role Mech-DS
 BRANCH              mon/MON-903-mech-decision-overlay
 BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef

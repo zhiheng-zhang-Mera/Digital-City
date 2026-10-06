@@ -161,7 +161,7 @@ capability_registry_action
 
 现有：
 
-`mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
+`mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
 
 是本 Registry 的 **bootstrap evidence source**，不是永久第二套 canonical registry。
 

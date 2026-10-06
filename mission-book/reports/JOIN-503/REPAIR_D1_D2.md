@@ -90,7 +90,7 @@ Receipt: `.runtime/evidence/join-final-test/receipt.json` (git-ignored, local); 
    ran. The Owner-supplied node credential was exercised on this host against a City on this host; Mech's host was
    **not reachable** during this run (its City did not answer on any probed endpoint and the host did not respond
    to ping), which is recorded as a fact about the run rather than worked around.
-3. Merge/integration remains out of scope here: `mission-book/connection-onboarding/README.md` section 5 forbids
+3. Merge/integration remains out of scope here: `mission-book/finished/completed-2026-10-06/connection-onboarding/README.md` section 5 forbids
    the phase integration workbook until all three JOIN tasks carry opposite-host reviews, and JOIN-502 is still
    waiting for a review this host cannot give.
 

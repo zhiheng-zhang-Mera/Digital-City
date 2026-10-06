@@ -1,7 +1,7 @@
 # MESH-301 — DEVELOPMENT REPORT
 
 ```text
-workbook      mission-book/mesh-3end/MESH-301-三端实机互联与相互指挥.md
+workbook      mission-book/finished/completed-2026-10-06/mesh-3end/MESH-301-三端实机互联与相互指挥.md
 task          three real endpoints on one canonical City, mutually commandable
 development   Alien host (development host, per Owner ruling 2026-10-03)
 review        Mech host (endpoint A + formal reviewer; a DIFFERENT physical machine)

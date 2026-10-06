@@ -883,7 +883,7 @@ Verified Registry records include implementation repo, paths/symbols, source wor
 
 ### 14C.6 Legacy bootstrap
 
-`mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md` is Registry bootstrap evidence, not a permanent second registry. CEX continues existing exposure-debt work; CEX-790 backfills/aligns final verified inventory into `capability-registry/`. Old unbackfilled capabilities may remain `LEGACY_BACKFILL_PENDING`. Any later workbook touching one must also complete its Registry backfill/reconciliation. Never fill the Registry quickly by copying historical tables lacking exact-head verification.
+`mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md` is Registry bootstrap evidence, not a permanent second registry. CEX continues existing exposure-debt work; CEX-790 backfills/aligns final verified inventory into `capability-registry/`. Old unbackfilled capabilities may remain `LEGACY_BACKFILL_PENDING`. Any later workbook touching one must also complete its Registry backfill/reconciliation. Never fill the Registry quickly by copying historical tables lacking exact-head verification.
 
 ### 14C.7 Data boundaries
 

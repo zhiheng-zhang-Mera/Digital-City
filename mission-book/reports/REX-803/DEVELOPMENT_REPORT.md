@@ -1,7 +1,7 @@
 # REX-803 development report — Mech
 
 ```text
-WORKBOOK            mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md
+WORKBOOK            mission-book/mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md
 DEVELOPMENT HOST    Mech (COMPUTERNAME MEGA-REP), role Mech-DS
 BRANCH              rex/REX-803-mech-scenario-runner
 BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef   (main at claim time; dependency union already inside)

@@ -1,7 +1,7 @@
 # JOIN-501 — Pairing Session Lifecycle + Persistent Display — DEVELOPMENT REPORT
 
-> Workbook: `mission-book/connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md`  
-> Programme: `mission-book/connection-onboarding/README.md`  
+> Workbook: `mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md`  
+> Programme: `mission-book/finished/completed-2026-10-06/connection-onboarding/README.md`  
 > Standing rules: `mission-book/CONSTRUCTION_RULES.md`, `mission-book/ASYNC_RELIEF_CONSTRUCTION.md`  
 > Role: **Development**, host **Alien**  
 > Implementation repo: `zhiheng-zhang-Mera/utopia`  

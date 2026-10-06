@@ -3,7 +3,7 @@
 阅读译本 / Reading translation：完整历史阅读译本，不构成第二份权威任务或验收记录，原状态及延期边界保留。
 
 > 工作簿：[JOIN-502-nearby-pc-discovery-and-owner-approval.md](../../../finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
-> Programme：[connection-onboarding/README.md](../../../connection-onboarding/README.md)
+> Programme：[connection-onboarding/README.md](../../../finished/completed-2026-10-06/connection-onboarding/README.md)
 > 开发主机Mech，本机；审查明确留不同物理主机。
 > 分支/头：join/JOIN-502-nearby-discovery-approval @`86deda9c2990c78d683a8c3515d251022df9d040`。
 > Utopia main基线：`13109b4c206feb3c1a9107b369715e84af65eaf1`。

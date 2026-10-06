@@ -2,8 +2,8 @@
 
 Reading translation / 阅读译本：Complete historical reading translation, not a second authoritative record. Original code evidence and unfinished acceptance boundaries are retained.
 
-> Workbook: mission-book/connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md
-> Programme: mission-book/connection-onboarding/README.md
+> Workbook: mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-501-pairing-session-lifecycle-and-display.md
+> Programme: mission-book/finished/completed-2026-10-06/connection-onboarding/README.md
 > Standing rules: mission-book/CONSTRUCTION_RULES.md, mission-book/ASYNC_RELIEF_CONSTRUCTION.md
 > Role: Development, host Alien
 > Implementation repository: zhiheng-zhang-Mera/utopia

@@ -37,7 +37,7 @@ This set is not exhaustive: publisher-wide authorship/ethics, conference open-sc
 |---|---|
 | Digital-City README.md | blob `6ea30208846c57de8eabcf50c69a64fe2ecd24b1` |
 | Digital-City mission-book/PROCESS_DATA_POLICY.md | blob `9bdfd747416a7373ec64592be83cef2dcb836d6e` |
-| Digital-City mission-book/research-strengthening/README.md | blob `3e993f90c4212ebd4859a8928b2dfbf6747d63f9` |
+| Digital-City mission-book/mission-group/research-strengthening/README.md | blob `3e993f90c4212ebd4859a8928b2dfbf6747d63f9` |
 | Essay-Book PUBLICATION-PIPELINE.md | blob `bece467c005a0f9c3b40d4bbf7a680691b611c9b` |
 
 These identify inspected document contents, not immutable promises about later main. Resolve fresh full commit/file identities at activation. / blob 记录本次读到的内容，正式启用仍需检查最新上游与变更差异。

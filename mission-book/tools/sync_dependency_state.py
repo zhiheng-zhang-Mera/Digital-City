@@ -108,6 +108,8 @@ def planned_changes() -> tuple[list[tuple[pathlib.Path, str]], list[str]]:
     records: dict[str, tuple[pathlib.Path, str, dict[str, Any]]] = {}
     errors: list[str] = []
     for path in MISSION.rglob("*.md"):
+        if "future-plans" in path.relative_to(MISSION).parts:
+            continue
         try:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:

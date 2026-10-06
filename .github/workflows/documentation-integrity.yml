@@ -26,6 +26,8 @@ jobs:
         run: python mission-book/tools/test_check_record_consistency.py
       - name: Check evidence-preservation regression
         run: python mission-book/tools/test_documentation_preservation.py
+      - name: Check relocated workbook discovery and planning exclusion
+        run: python mission-book/tools/test_mission_layout.py
       - name: Check workbook records
         run: python mission-book/tools/check_record_consistency.py
       - name: Check accepted dependencies

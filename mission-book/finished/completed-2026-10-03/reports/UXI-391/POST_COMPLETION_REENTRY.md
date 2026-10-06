@@ -18,7 +18,7 @@ digital_city_main_sha         = <本记录所在提交>（写入时即本文件�
       全部位于 finished/completed-2026-10-01/**，按规则【绝不重开】。
 (3) 当前 programme 声明的 integration / merge / closeout 工作书
     → UXI-391（本任务，终态）；
-      MESH-301（mission-book/mesh-3end/，Owner 指示三端实机测试，Alien 起草）：
+      MESH-301（mission-book/finished/completed-2026-10-06/mesh-3end/，Owner 指示三端实机测试，Alien 起草）：
       execution_enabled: false、status: DRAFT_PENDING_OWNER_APPROVAL → **当前不可领取**。
 ```
 

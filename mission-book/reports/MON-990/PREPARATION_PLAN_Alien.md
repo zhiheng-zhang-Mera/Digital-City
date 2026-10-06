@@ -8,7 +8,7 @@ Architecture: the Gateway owns task/event truth and graph/decision projections. 
 
 Tech stack: Node24 Gateway, existing Web controllers, Kotlin/Compose, OkHttp, JUnit, Playwright, physical OPPO PERM00 via `D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe`.
 
-Spec: `mission-book/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md`.
+Spec: `mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md`.
 
 Constraints: no second task truth; no action applied by overlay; no global monitor barrier; preserve accepted heads as ancestors; feature branch only; no main merge; retained evidence binds source SHA separately from runtime identity. Opposite-host Formal Review remains required for Alien-authored closeout.
 

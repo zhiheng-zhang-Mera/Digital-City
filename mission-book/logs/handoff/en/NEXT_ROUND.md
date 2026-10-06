@@ -42,7 +42,7 @@ Main included JOIN-501 session lifecycle,502 join/approval,503 enrollment/tokenl
 
 ```text
 main = 51ec0c7   （已推送）
-mission-book/connection-onboarding/JOIN-501/502/503  三个工作书 review_complete: true，终态已记录
+mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-501/502/503  三个工作书 review_complete: true，终态已记录
 mission-book/reports/JOIN-50x/                       开发/复核/复检报告
 mission-book/logs/city-live-test/                    联机测试日志目录（Owner 要求建在云端）
 mission-book/logs/integration/                       ★ 集成台账

@@ -1,7 +1,7 @@
 # MON-902 — Development Report
 
 ```text
-WORKBOOK           mission-book/city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md
+WORKBOOK           mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md
 ROLE               Development (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS)
 IMPLEMENTATION     zhiheng-zhang-Mera/utopia
 CONTROL REPO       zhiheng-zhang-Mera/Digital-City

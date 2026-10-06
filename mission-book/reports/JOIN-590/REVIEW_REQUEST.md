@@ -3,7 +3,7 @@
 ```text
 FROM            Mech (MEGA-REP) — Development / physical acceptance
 TO              Alien (Mera-Alianware) — the only eligible opposite physical host
-WORKBOOK        mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
+WORKBOOK        mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
 IMPLEMENTATION  zhiheng-zhang-Mera/utopia
 REVIEW TARGET   d3262ce2dd81e51a53e39e6f9add8dee650a7682   (full 40-char SHA)
 REPORT          mission-book/reports/JOIN-590/DEVELOPMENT_REPORT.md

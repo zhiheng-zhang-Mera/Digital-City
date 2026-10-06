@@ -7,7 +7,7 @@
 
 ## 当前迁移状态
 
-历史能力入口数据原位于 `mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`。CEX programme 已将其
+历史能力入口数据原位于 `mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`。CEX programme 已将其
 回填为长期 Registry；CEX-790 执行终审：从代码重建入口 inventory、与这些记录做 diff，并解决发现的两处不一致。
 旧矩阵不再是权威来源。
 

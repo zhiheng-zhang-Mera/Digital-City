@@ -3,7 +3,7 @@
 > 阅读译本 / Reading translation：仅供阅读，不是第二份权威工作书或状态记录；历史、失败及未知边界保留，元数据和证据仅以代码围栏引用。
 
 ```text
-WORKBOOK           mission-book/city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md
+WORKBOOK           mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md
 ROLE               Development (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS)
 IMPLEMENTATION     zhiheng-zhang-Mera/utopia
 CONTROL REPO       zhiheng-zhang-Mera/Digital-City
