@@ -1,0 +1,142 @@
+{
+  "campaignId": "campaign-481a1761-1b5d-440d-a5a0-1743599b512a",
+  "scenarioId": "WAIT",
+  "state": "COMPLETED",
+  "reason": "REPETITIONS_FINISHED",
+  "seedPolicy": "derived:seed(campaign,index+offset)",
+  "campaignSeed": "rex803-three-end-live-8798ba9dd370-acceptance",
+  "seedIndexOffset": 1,
+  "repetitions": 1,
+  "warmup": 0,
+  "timeout": 30000,
+  "limits": {
+    "maxFailures": 3
+  },
+  "totalRuns": 1,
+  "runs": [
+    {
+      "index": 0,
+      "state": "MEASURED",
+      "reason": null,
+      "seed": 414121415,
+      "warmup": false,
+      "measured": true,
+      "durationMs": 6626,
+      "result": {
+        "taskRef": "Q-c2681877-d9a7-43b7-a127-1ead05e6edcb",
+        "state": "COMPLETED",
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+        "result": {
+          "waitedMs": 6000
+        }
+      }
+    }
+  ],
+  "startedAt": 1791281473379,
+  "finishedAt": 1791281480014,
+  "context": {
+    "experimentId": "replay-db5f006c-aa4f-4612-b361-5721732f01f7",
+    "manifestIdentity": "3140ab73e580bd8dc1aa5b2ec09228c8",
+    "manifest": {
+      "topology": "TWO_HOST_MESH",
+      "hosts": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "workers": [
+        "dev-031fdba6e94c4298a0956ff04a65481d",
+        "dev-8128a1ef25c5c4b7f66fc31b21705858"
+      ],
+      "controlSurfaces": [
+        "dev-be7832e35fc34b85966c3bb43a992e1d"
+      ],
+      "repetitions": 1,
+      "seedPolicy": "PER_REPETITION",
+      "baseSeed": 20261006,
+      "stopConditions": [
+        {
+          "kind": "MAX_REPETITIONS",
+          "value": 1
+        },
+        {
+          "kind": "MAX_FAILURES",
+          "value": 3
+        }
+      ],
+      "acceptance": {
+        "primary": "Every repetition is measured on a declared worker or carries a typed reason",
+        "minimumSuccessfulRuns": 1,
+        "notes": []
+      },
+      "softwareRefs": [
+        {
+          "component": "utopia",
+          "identity": "8798ba9dd37051626033ad72080b2fad3ff66149",
+          "commitSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+          "exact": true
+        }
+      ]
+    },
+    "targetDeviceRef": null,
+    "replay": {
+      "schemaVersion": 1,
+      "mode": "ABLATION",
+      "disabledMechanisms": [
+        "alternate-device"
+      ],
+      "requestedDisabledMechanisms": [
+        "alternate-device"
+      ],
+      "inheritedDisabledMechanisms": [],
+      "sourceCampaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+      "sourceRunIndex": 1,
+      "sourceRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+      "sourceExperimentId": "rex803-three-end-live-8798ba9dd370",
+      "sourceReceiptDigest": "1390b60885d52bf1284b7b57f0a94a3db67d39ecedfb271a94d9c119035ed67a",
+      "sourceDigestKind": "CANONICAL_PARSED_RECEIPT_SHA256",
+      "sourceSeed": 414121415,
+      "declaredRunCountAdjustment": {
+        "repetitions": 1,
+        "minSuccessfulRuns": null
+      },
+      "determinism": "CONTROL_INPUTS_ONLY",
+      "nondeterministicConditions": [
+        "LIVE_RESOURCE_AVAILABILITY",
+        "WALL_CLOCK",
+        "EXTERNAL_PROVIDER_STATE_NOT_SNAPSHOTTED"
+      ],
+      "currentProcessSoftwareSha": null,
+      "currentProcessSoftwareReason": "NOT_OBSERVED: source manifest refs do not attest the current process",
+      "exactPolicy": "alternate-device@1:SEEDED_WORKER_SELECTION_OFF_PIN_FIRST_DECLARED_WORKER"
+    }
+  },
+  "resumedFrom": null,
+  "resumedAt": null,
+  "resumeCount": 0,
+  "abandonedFrom": null,
+  "readiness": {
+    "state": "READY",
+    "missing": [],
+    "workers": [
+      "dev-031fdba6e94c4298a0956ff04a65481d",
+      "dev-8128a1ef25c5c4b7f66fc31b21705858"
+    ],
+    "surfaces": [
+      "dev-be7832e35fc34b85966c3bb43a992e1d"
+    ],
+    "identitySemantics": "CANONICAL_LIVE_REFS"
+  },
+  "summary": {
+    "planned": 1,
+    "accounted": 1,
+    "warmup": 0,
+    "measured": 1,
+    "timedOut": 0,
+    "failed": 0,
+    "excluded": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "interrupted": 0,
+    "terminalAccountingComplete": true
+  }
+}

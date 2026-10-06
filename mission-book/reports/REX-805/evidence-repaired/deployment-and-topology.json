@@ -1,0 +1,26 @@
+{
+  "candidate": "0261a9ed1cec88df3ab4675623d422b37b33f270",
+  "cityId": "031fdba6-e94c-4298-a095-6ff04a65481d",
+  "exportedAt": "2026-10-06T10:13:14.436Z",
+  "workersOnlineNow": [
+    "dev-031fdba6e94c4298a0956ff04a65481d",
+    "dev-8128a1ef25c5c4b7f66fc31b21705858"
+  ],
+  "surfacesNow": [
+    {
+      "ref": "dev-be7832e35fc34b85966c3bb43a992e1d",
+      "label": "Android · PERM00"
+    }
+  ],
+  "sourceControls": {
+    "campaignId": "campaign-966cf439-7017-4bb0-88e8-981e59c18322",
+    "runIndex": 1,
+    "seed": 414121415,
+    "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+    "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+    "timeout": 30000,
+    "limits": {
+      "maxFailures": 3
+    }
+  }
+}

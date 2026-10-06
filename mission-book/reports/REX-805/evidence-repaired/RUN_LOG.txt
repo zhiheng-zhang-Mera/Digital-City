@@ -1,0 +1,8 @@
+deployment  candidate=0261a9ed1cec88df3ab4675623d422b37b33f270 city=031fdba6-e94c-4298-a095-6ff04a65481d at 2026-10-06T10:09:12.554Z
+topology    workers=["dev-031fdba6e94c4298a0956ff04a65481d","dev-8128a1ef25c5c4b7f66fc31b21705858"] surfaces=["dev-be7832e35fc34b85966c3bb43a992e1d"]
+REPLAY   start status=200 {"apiVersion":0,"schemaVersion":0,"started":{"campaignId":"campaign-cdf39b7f-f6ff-4ddf-b611-4139f64c57d5","state":"RUNNING","totalRuns":1,"campaignSeed":"rex803-three-end-live-8798ba9dd370-acceptance","replay":{"schemaVersion":1,"mode":"REPLAY","disabledMechan
+REPLAY   terminal state=COMPLETED reason=REPETITIONS_FINISHED run0={"state":"MEASURED","seed":414121415,"taskRef":"Q-bb06cb49-8cf4-498a-999b-77dd399a3a33","assigned":"dev-8128a1ef25c5c4b7f66fc31b21705858"}
+REPLAY   comparison status=200 {"mode":"REPLAY","disabled":[],"controlledInputsMatch":true,"controlledInputDifferences":[],"expectedTarget":"dev-8128a1ef25c5c4b7f66fc31b21705858","placementChanged":false,"determinism":"CONTROL_INPUTS_ONLY"}
+ABLATION start status=200 {"apiVersion":0,"schemaVersion":0,"started":{"campaignId":"campaign-481a1761-1b5d-440d-a5a0-1743599b512a","state":"RUNNING","totalRuns":1,"campaignSeed":"rex803-three-end-live-8798ba9dd370-acceptance","replay":{"schemaVersion":1,"mode":"ABLATION","disabledMech
+ABLATION terminal state=COMPLETED reason=REPETITIONS_FINISHED run0={"state":"MEASURED","seed":414121415,"taskRef":"Q-c2681877-d9a7-43b7-a127-1ead05e6edcb","assigned":"dev-031fdba6e94c4298a0956ff04a65481d"}
+ABLATION comparison status=200 {"mode":"ABLATION","disabled":["alternate-device"],"controlledInputsMatch":true,"controlledInputDifferences":[],"expectedTarget":"dev-031fdba6e94c4298a0956ff04a65481d","placementChanged":true,"determinism":"CONTROL_INPUTS_ONLY"}
