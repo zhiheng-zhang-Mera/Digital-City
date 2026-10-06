@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1213,
-  "total_bytes": 8865380,
+  "markdown_count": 1214,
+  "total_bytes": 8871902,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9619,10 +9619,10 @@
     },
     {
       "path": "mission-book/reports/REX-803/RESIDENT_CITY_RECHECK_Alien.md",
-      "bytes": 7057,
+      "bytes": 8478,
       "encoding_state": "UTF8",
-      "chinese_characters": 607,
-      "english_words": 489,
+      "chinese_characters": 702,
+      "english_words": 579,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -9637,10 +9637,10 @@
     },
     {
       "path": "mission-book/reports/REX-803/REVIEW_REPORT.md",
-      "bytes": 3122,
+      "bytes": 4486,
       "encoding_state": "UTF8",
-      "chinese_characters": 229,
-      "english_words": 223,
+      "chinese_characters": 328,
+      "english_words": 291,
       "paired_path": "mission-book/reports/REX-803/zh-CN/REVIEW_REPORT.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10348,12 +10348,21 @@
     },
     {
       "path": "mission-book/reports/WBC-604/README.md",
-      "bytes": 672,
+      "bytes": 735,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 29,
       "paired_path": "mission-book/reports/WBC-604/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/WBC-604/STORE_GUARD_RECHECK_Alien.md",
+      "bytes": 3306,
+      "encoding_state": "UTF8",
+      "chinese_characters": 269,
+      "english_words": 214,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/WBC-604/zh-CN/CLAIM_RECORD.md",
@@ -10474,7 +10483,7 @@
     },
     {
       "path": "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
-      "bytes": 6335,
+      "bytes": 6703,
       "encoding_state": "UTF8",
       "chinese_characters": 70,
       "english_words": 64,

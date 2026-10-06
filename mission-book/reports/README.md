@@ -36,7 +36,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **360**.
+当前Markdown文档 / Current Markdown documents: **361**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -69,7 +69,7 @@
 | WBC-601 | 12 | [打开 / Open](WBC-601/README.md) |
 | WBC-602 | 12 | [打开 / Open](WBC-602/README.md) |
 | WBC-603 | 12 | [打开 / Open](WBC-603/README.md) |
-| WBC-604 | 6 | [打开 / Open](WBC-604/README.md) |
+| WBC-604 | 7 | [打开 / Open](WBC-604/README.md) |
 | zh-CN | 4 | [打开 / Open](zh-CN/README.md) |
 
 ### 本目录说明 / Local documents
