@@ -84,7 +84,8 @@
     "review_refs": [
       "utopia:tests/mon901-mech-review-probes.test.mjs",
       "mission-book/reports/MON-901/REVIEW_REPORT.md",
-      "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md (pending; not acceptance)"
+      "mission-book/reports/MON-990/REVIEW_REPORT.md",
+      "mission-book/reports/MON-990/android-parity/README.md"
     ]
   },
   "research_observations": {
@@ -92,13 +93,14 @@
       "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md",
       "mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"
     ],
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW"
+    "registry_reconciliation_result": "CLOSEOUT_REVIEW_ACCEPTED_WITH_DISCLOSED_RENDERED_HANDSET_SEAM"
   },
   "known_gaps": [
     "Opposite physical-host Formal Review PASSED on 7eb38f1b930dfe6cc13dab0e17dedee467b1254b (Mech, MEGA-REP); finding F1 LOW (completeness.continuous is a constant contradicting the computed historyGap) recorded and left unrepaired",
     "Graph/inspector UI belongs to MON-902; decisions MON-903",
     "Owner/review/CI/escalation absent-source NOT_OBSERVABLE",
-    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
+    "Historical component-stage statement, superseded by MON-990 acceptance: MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
+    "MON-990 opposite-host Mech accepts exact fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40 with 118 Android unit tests and reviewed-head live-payload projection parity. Handset-rendered parity remains NOT_OBSERVED on Mech; only Alien author capture supports that surface. Intent study remains NOT_TESTED; no product-main merge is claimed."
   ],
   "last_reconciled_by_workbook": "MON-990"
 }

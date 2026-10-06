@@ -111,7 +111,8 @@
     "intent_validation_refs": [],
     "review_refs": [
       "mission-book/reports/MON-903/REVIEW_REPORT.md",
-      "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md (pending; not acceptance)"
+      "mission-book/reports/MON-990/REVIEW_REPORT.md",
+      "mission-book/reports/MON-990/android-parity/README.md"
     ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/1d1593df9f3370711df7fbb735fb2ccb393e7494",
@@ -121,21 +122,22 @@
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW",
+    "registry_reconciliation_result": "CLOSEOUT_REVIEW_ACCEPTED_WITH_DISCLOSED_RENDERED_HANDSET_SEAM",
     "paper_material_refs": [
       "mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md",
       "mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"
     ]
   },
   "known_gaps": [
-    "Only the Web surface exists. No Android surface is claimed; the programme assigns cross-device monitor acceptance to MON-990.",
+    "Historical component-stage statement, superseded by MON-990 acceptance: Only the Web surface exists. No Android surface is claimed; the programme assigns cross-device monitor acceptance to MON-990.",
     "The decision window is surfaced as its own Advanced page because the City monitor page that will host it belongs to MON-902, which is developed but not yet merged. The projection already carries the decisions, so folding the panel in is a presentation change.",
     "No resolver (fast model or critic) is configured in this City, so every uncertain case escalates to the owner with RESOLVER_NOT_CONFIGURED. That is the honest production behaviour, not a completed model integration.",
     "The workbook's own vocabulary names BLOCKED, READY_FOR_REVIEW and MERGE_READY, none of which any canonical event expresses directly; BLOCKED is mapped to TASK_TARGET_WAITING and the other two must be submitted explicitly.",
     "rework_required is true because three defects were found and repaired during development, including a decision layer whose model stage could never run and a schemaVersion collision that broke the wire envelope.",
     "wrong-auto-decision and confidence-versus-review-outcome are NOT_OBSERVABLE from this overlay: both need an independent judge.",
-    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
-    "Android is read-only; owner-trigger submission remains Web. Historical Owner-needed receipts do not imply a current approval queue."
+    "Historical component-stage statement, superseded by MON-990 acceptance: MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
+    "Android is read-only; owner-trigger submission remains Web. Historical Owner-needed receipts do not imply a current approval queue.",
+    "MON-990 opposite-host Mech accepts exact fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40 with 118 Android unit tests and reviewed-head live-payload projection parity. Handset-rendered parity remains NOT_OBSERVED on Mech; only Alien author capture supports that surface. Intent study remains NOT_TESTED; no product-main merge is claimed."
   ],
   "last_reconciled_by_workbook": "MON-990"
 }

@@ -4,6 +4,9 @@
 >
 > Owner 已于 2026-10-05 明确指示“启用monitor工作书”。`execution_enabled=true`；MON-901 可领取，后续工作书仍须等待其依赖的 accepted exact SHA。详见 reports/MON-901/OWNER_ACTIVATION.md。
 >
+> **部署落差（2026-10-06 实测，记录而非主张）/ deployment gap, measured not asserted：** 本系列 4/4 已验收，但产品**尚未进入 Utopia `main`**——`services/dev-gateway/monitor-graph.mjs`、`monitor.mjs` 与 `apps/web/monitor-*.js` 在 main 上都不存在，只有 MON-901 的 observation sidecar 进过。Owner 的优先级裁定写着「CEX-790 merge-readiness first, then MON directly」，CEX 已合入，MON 尚未。集成前置测量已完成：一次合并覆盖整条系列（MON-990 头已含 902/903/901），**纯增量、0 文件删除、仅 1 处 union 冲突**（Android 打字化拒绝路径集合），定向 80/80、全量 1431/1434。是否开启 MON 合并窗口属 Owner 决定。详见 [../reports/MON_INTEGRATION_PREFLIGHT_MECH.md](../reports/MON_INTEGRATION_PREFLIGHT_MECH.md)。 / The programme is 4/4 accepted but its product is not in main; the Owner's override puts MON next; the integration preflight is done (one merge, additive, one union conflict, 80/80 focused). Opening a MON merge window is an Owner decision.
+
+>
 > 常驻施工规则：[../CONSTRUCTION_RULES.md](../CONSTRUCTION_RULES.md)  
 > 过程数据规则：[../PROCESS_DATA_POLICY.md](../PROCESS_DATA_POLICY.md)  
 > 研究信号：[../RESEARCH_SIGNAL_WATCHLIST.yaml](../RESEARCH_SIGNAL_WATCHLIST.yaml)  
