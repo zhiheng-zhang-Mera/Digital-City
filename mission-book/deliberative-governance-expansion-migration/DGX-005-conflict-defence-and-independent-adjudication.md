@@ -53,11 +53,11 @@ report_path: null
 > **PARKED / NOT ACTIVATED.** 本工作书当前只冻结设计边界；不得 claim、不得施工、不得据此创建 Utopia 产品分支。  
 > **Anchor policy:** 所有 baseline / dependency exact SHA 当前故意留空。只有 Owner 显式激活后，才按当时最新 canonical truth 解析 full SHA 并原子写入。
 
-# DGX-005 — Conflict / Defence / Independent Adjudication
+# DGX-005 — Conflict / Defence / Fresh-context Independent Adjudication
 
 ## 目标
 
-实现 material conflict 的结构化发现、双方辩护与第三方独立仲裁。
+实现 material conflict 的结构化发现、双方辩护与第三方独立仲裁，并降低仲裁者被前序叙事锚定的风险。
 
 ## Conflict taxonomy
 
@@ -78,14 +78,56 @@ confidence_if_available
 
 允许撤回、部分接受、合并；禁止强迫 Agent 为原方案死撑。
 
+## Fresh-context two-pass adjudication
+
+### Pass A — independent reconstruction
+
+仲裁者先获得：
+
+- accepted requirement / question；
+- Shared Fact Snapshot；
+- canonical evidence；
+- conflict statement 的中性版本。
+
+**暂不提供各方长篇 defence/rebuttal。**
+
+仲裁者独立重建：
+
+- material facts；
+- missing evidence；
+- candidate interpretations；
+- provisional objections；
+- needs-more-evidence 条件。
+
+### Pass B — reconciliation
+
+之后再开放各方 defence/rebuttal，与 Pass A 对账，形成 final verdict。
+
+必须记录：
+
+```text
+pass_a_findings
+new_information_from_defence
+changed_findings
+unchanged_findings
+final_verdict
+evidence_refs
+```
+
+不记录隐藏 chain-of-thought。
+
 ## Adjudicator independence
 
-仲裁者不得参与争议部分原始实现；优先 evidence，不按声望/票数直接裁决。
+仲裁者不得参与争议部分原始实现；优先 evidence，不按声望/票数直接裁决。其 independence profile 由 DGX-003 声明与验证。
 
 最低 verdict：
 
 `A_ACCEPTED / B_ACCEPTED / MERGED / BOTH_REJECTED / MORE_EVIDENCE_REQUIRED / OWNER_REQUIRED`。
 
+## 边界
+
+该 two-pass protocol 是 **governance adjudication** 的独立性机制，不自动替代 Engineering Formal Review。任何正式代码/产品 Review 仍受当前领域规则约束。
+
 ## 完成门槛
 
-冲突不会静默覆盖；仲裁 provenance 可追踪；缺证据时不得伪造确定结论。
+冲突不会静默覆盖；仲裁 provenance 可追踪；能证明 Pass A 与 Pass B 的信息边界；缺证据时不得伪造确定结论。
