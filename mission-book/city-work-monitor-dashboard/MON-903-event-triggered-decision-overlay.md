@@ -10,11 +10,11 @@ baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: []
 dependency_source_shas: ["7eb38f1b930dfe6cc13dab0e17dedee467b1254b"]
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-06): baseline_anchor_mode=DEPENDENCY_SHA_UNION_AT_CLAIM resolved literally. The single declared dependency MON-901 accepted head (7eb38f1b930dfe6cc13dab0e17dedee467b1254b) was verified to be an ANCESTOR of refs/heads/main (git merge-base --is-ancestor exit 0), and main resolved to 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef, so the dependency union is the eligible base itself and no merge had to be constructed. The workbook declares no required_ancestor_shas. Dependency smoke run BEFORE any MON-903 product change: node --test tests/mon901-observation.test.mjs -> 8 pass / 0 fail at that exact commit (a fresh worktree has no node_modules, so npm ci was run first as an environment step, not as part of the measurement). Development worktree D:/utopia-mon903 on branch mon/MON-903-mech-decision-overlay. Claim record: mission-book/reports/MON-903/CLAIM_RECORD.md, which also records why this task was claimed now (the research series had no eligible next task for this host) and that the control repository was re-fetched immediately before the claim so no other host's claim could be overwritten."
 dependencies: ["MON-901"]
-development_host: null
-development_branch: null
+development_host: "Mech"
+development_branch: "mon/MON-903-mech-decision-overlay"
 development_head_sha: null
 development_ci: null
 development_complete: false
