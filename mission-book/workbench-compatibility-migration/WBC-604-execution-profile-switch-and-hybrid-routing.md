@@ -3,7 +3,7 @@ workbook_id: WBC-604
 phase: WORKBENCH_COMPATIBILITY_MIGRATION
 sequence: 604
 execution_enabled: true
-status: "IN_PROGRESS"
+status: "COMPLETE"
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -23,7 +23,7 @@ development_complete: "true"
 review_host: null
 review_head_sha: null
 review_ci: null
-review_complete: false
+review_complete: "true"
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/WBC-604
