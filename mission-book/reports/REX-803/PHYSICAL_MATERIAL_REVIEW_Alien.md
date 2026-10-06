@@ -8,7 +8,7 @@
 
 Observed2026-10-06T08:02:32.979Z; City031fdba6-e94c-4298-a095-6ff04a65481d.
 
-| Run | Canonical task | Assigned worker | State / result |
+| Run / 轮次 | Canonical task / 任务 | Assigned worker / 执行节点 | State / result / 状态与结果 |
 |---|---|---|---|
 | 0 | Q-be723362-5e83-4806-8d24-ffd0a60a16b2 | dev-031fdba6e94c4298a0956ff04a65481d | COMPLETED / waitedMs6000 |
 | 1 | Q-f78eaee3-2380-468e-969d-6012fba109b9 | dev-8128a1ef25c5c4b7f66fc31b21705858 | COMPLETED / waitedMs6000 |
@@ -16,7 +16,7 @@ Observed2026-10-06T08:02:32.979Z; City031fdba6-e94c-4298-a095-6ff04a65481d.
 
 Each carries researchRunRef `campaign-966cf439-7017-4bb0-88e8-981e59c18322:<index>`. Canonical RESEARCH_CAMPAIGN_STARTED timestamp2026-10-06T08:00:39.601Z names experiment `rex803-three-end-live-8798ba9dd370`, scenarioWAIT, repetitions3. Android canonical surface is dev-be7832e35fc34b85966c3bb43a992e1d.
 
-每项均带上述researchRunRef；canonical开始事件明确experiment、WAIT与3次重复。此处是Alien独立读取的事实，不把作者表格自动变为复检证据。 / The references and event fields above were read independently rather than adopted solely from the author's table.
+每项均带上述researchRunRef；canonical开始事件时间2026-10-06T08:00:39.601Z，明确experiment rex803-three-end-live-8798ba9dd370、WAIT与3次重复。Android canonical surface为dev-be7832e35fc34b85966c3bb43a992e1d。此处是Alien独立读取的事实，不把作者表格自动变为复检证据。 / The references and event fields above were read independently rather than adopted solely from the author's table.
 
 ## 尚须交付的可复检材料 / Required reviewable material
 
