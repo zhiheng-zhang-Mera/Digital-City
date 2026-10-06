@@ -1,0 +1,17 @@
+✔ locale contract: supported tokens, fallback and first-run detection (1.4222ms)
+✔ both language packs cover every message key with matching placeholders (3.703ms)
+✔ every fixed Web UI string is present in the language packs (0.6268ms)
+✔ protocol tokens and City Control state names are never translated (7.3244ms)
+✔ web assets only use message keys that exist in the packs (2.147ms)
+✔ badge state and display label stay separate in every locale (1.2799ms)
+✔ applyTranslations and setLocale update the document without touching storage contracts (0.3535ms)
+✔ translation fills placeholders and time formatting follows the locale (17.5448ms)
+✔ Web Settings language switch, persistence and protocol stability (real browser) (2325.8304ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4025.4419

@@ -1,0 +1,920 @@
+{
+  "mission-book/MISSION_TEMPLATE.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/capability-entry-closeout/CEX-703-capability-catalog-discoverability.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/capability-entry-closeout/CEX-705-android-member-device-management-parity.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md": {
+    "execution_enabled": "true",
+    "status": "'COMPLETE'",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "null",
+    "review_complete": "true"
+  },
+  "mission-book/city-self-health-check/CHK-101-small-operational-reconciliation.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/city-self-health-check/CHK-201-full-capability-architecture-census.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/city-self-health-check/CHK-301-quarterly-architecture-self-review.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md": {
+    "execution_enabled": "true",
+    "status": "\"COMPLETE\"",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "\"Alien\"",
+    "review_complete": "true"
+  },
+  "mission-book/city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "\"Alien\"",
+    "review_complete": "true"
+  },
+  "mission-book/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md": {
+    "execution_enabled": "true",
+    "status": "\"COMPLETE\"",
+    "development_host": "\"Alien\"",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "Alien-codex",
+    "review_complete": "true"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/finished/completed-2026-10-01/MISSION_TEMPLATE-legacy.md": {
+    "execution_enabled": "false"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-001-butler-zone-personalization.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-002-shared-brain-runtime.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-003-device-embodiment-binding.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-004-multi-assistant-handoff.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-005-digital-me-context-gateway.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-006-shared-task-coordination.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-007-settings-interaction-surface.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-008-embodiment-event-bus.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/butler-assistant/BA-009-duty-permission-policy.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-001-core-contracts-boundaries.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-002-connector-adapter-process-runtime.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-003-job-result-artifact-protocol.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-004-capability-probe-auth-registry.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-005-attention-recent-device-alerts.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-006-local-first-subworker-placement.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-007-remote-subworker-return-control.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-008-credential-profile-session.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-009-runtime-health-restart-recovery.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-010-foreman-scheduler-dag-worker-pool.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-011-deepseek-codex-reference-connectors.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-012-connector-sdk-claude-workbuddy.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/engineering-manager/EM-013-utopia-task-surface-integration.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-001-core-contracts-action-vocabulary.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-002-provider-model-account-registry.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-003-web-channel-persistent-session.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-004-api-channel-consent-budget.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-005-triage-jev-routing.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-006-conversation-input-stream-cancel.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-007-device-aware-remote-execution.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-008-health-resilience-degradation.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/general-ai-gateway/GAI-009-utopia-surface-integration.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/past-rules/MISSION_TEMPLATE-v1.md": {
+    "execution_enabled": "false"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-001-node-identity-installation-lifecycle.md": {
+    "development_complete": "true",
+    "development_host": "Alien"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-002-unified-pairing-trust-lifecycle.md": {
+    "development_complete": "true",
+    "development_host": "Alien"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-003-local-discovery-lan-direct.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-004-bluetooth-bootstrap-ip-handoff.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-005-remote-invite-rendezvous.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-006-secure-transport-path-manager.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-007-versioned-capability-registry.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-008-typed-rpc-event-stream-commands.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-009-presence-offline-reconnect-audit.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-01/remote/RF-010-fabric-policy-public-api.md": {
+    "development_complete": "true",
+    "development_host": "Mech"
+  },
+  "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-201-动态AI池与可用性选择.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-202-多设备并发感知与再调度.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-203-跨设备执行回传与降级恢复.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Mech",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/rescheduling-vnext/RS-290-调度契约回归与基线冻结.md": {
+    "execution_enabled": "true",
+    "status": "RESCHEDULING_BASELINE_FROZEN",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-civilization/UI-000-视觉方向候选与审美门禁.md": {
+    "execution_enabled": "true",
+    "status": "REVISION_REVIEW_COMPLETE_PASS_WITH_REPAIRS",
+    "development_host": "Mech",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-civilization/UI-101-Web产品壳与信息架构.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-civilization/UI-102-Android产品壳与信息架构.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Mech",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-civilization/UI-103-Rooms统一视觉与嵌入体验.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Mech",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-civilization/UI-190-跨端视觉审查与UI基线冻结.md": {
+    "execution_enabled": "true",
+    "status": "UI_BASELINE_FROZEN",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-integration/UXI-301-调度状态接入非工程化UI.md": {
+    "execution_enabled": "true",
+    "status": "REVIEW_COMPLETE",
+    "development_host": "Mech",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-integration/UXI-390-双机最终产品验收与收口.md": {
+    "execution_enabled": "true",
+    "status": "FINAL_PRODUCT_ACCEPTED",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-03/ui-integration/UXI-391-Remote-Handoff收尾修复与合并回接.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md": {
+    "execution_enabled": "false",
+    "status": "COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md": {
+    "execution_enabled": "false",
+    "status": "COMPLETE",
+    "development_host": "Mech",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md": {
+    "execution_enabled": "false",
+    "status": "COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md": {
+    "execution_enabled": "false",
+    "status": "COMPLETE",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "Mech",
+    "review_complete": "true"
+  },
+  "mission-book/finished/replant/MB-001-core-os.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-002-capability-fabric.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-003-worker-gateway.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-004-project-foreman.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-005-host-health.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-006-restart-recovery.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-007-research-institute.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-008-computer-use.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-009-theme-relocation.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-010-node-fabric.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-011-customs.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/finished/replant/MB-012-runtime-compliance.md": {
+    "execution_enabled": "true"
+  },
+  "mission-book/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-701-live-resource-telemetry.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-702-explainable-placement.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-705-recovery-and-safe-replacement.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-707-research-trace-and-replay-adapter.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-711-checkpoint-and-resume-contract.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-713-interference-and-slo-protection.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-714-origin-surface-continuity.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-715-resource-control-and-monitor.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-716-unattended-deployment-and-rollback.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-717-model-residency-and-serving.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-718-linux-worker-onboarding.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-719-android-edge-companion.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-720-accelerator-power-and-thermal.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-721-controlled-systems-study.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-722-controller-continuity-and-ha.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-723-adaptive-placement-research.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/research-strengthening/REX-801-experiment-manifest-and-registry.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "Alien-codex",
+    "review_complete": "true"
+  },
+  "mission-book/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md": {
+    "execution_enabled": "true",
+    "status": "\"COMPLETE\"",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "Alien",
+    "review_complete": "true"
+  },
+  "mission-book/research-strengthening/REX-804-fault-injection-and-recovery-probes.md": {
+    "execution_enabled": "true",
+    "status": "\"COMPLETE\"",
+    "development_host": "Alien",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md": {
+    "execution_enabled": "true",
+    "status": "\"COMPLETE\"",
+    "development_host": "\"Alien\"",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md": {
+    "execution_enabled": "true",
+    "status": "IN_PROGRESS",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md": {
+    "execution_enabled": "true",
+    "status": "WAITING_DEPENDENCIES",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/research-strengthening/REX-890-reproducibility-study-and-freeze.md": {
+    "execution_enabled": "true",
+    "status": "WAITING_DEPENDENCIES",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/review-independence-v2/RIV-001-current-review-reality-audit.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/review-independence-v2/RIV-002-independence-profile-and-assurance-classes.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/review-independence-v2/RIV-003-fresh-context-two-pass-review.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/review-independence-v2/RIV-004-capability-based-reviewer-selection.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/review-independence-v2/RIV-990-controlled-acceptance-and-migration-decision.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md": {
+    "execution_enabled": "true",
+    "status": "IN_PROGRESS",
+    "development_host": "Alien",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/utopia-runtime-architecture/URA-001-current-runtime-topology-audit.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/utopia-runtime-architecture/URA-002-runtime-taxonomy-and-app-contract.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/utopia-runtime-architecture/URA-003-dependency-lifecycle-failure-boundaries.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/utopia-runtime-architecture/URA-004-surface-integration-and-registry-mapping.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/utopia-runtime-architecture/URA-990-soft-reclassification-acceptance-and-freeze.md": {
+    "execution_enabled": "false",
+    "status": "NOT_STARTED",
+    "development_host": "null",
+    "development_complete": "false",
+    "review_host": "null",
+    "review_complete": "false"
+  },
+  "mission-book/workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "Alien-codex",
+    "review_complete": "true"
+  },
+  "mission-book/workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "Alien-codex",
+    "review_complete": "true"
+  },
+  "mission-book/workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md": {
+    "execution_enabled": "true",
+    "status": "COMPLETE",
+    "development_host": "Alien-codex",
+    "development_complete": "true",
+    "review_host": "\"Mech\"",
+    "review_complete": "true"
+  },
+  "mission-book/workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md": {
+    "execution_enabled": "true",
+    "status": "\"COMPLETE\"",
+    "development_host": "\"Mech\"",
+    "development_complete": "true",
+    "review_host": "null",
+    "review_complete": "true"
+  }
+}

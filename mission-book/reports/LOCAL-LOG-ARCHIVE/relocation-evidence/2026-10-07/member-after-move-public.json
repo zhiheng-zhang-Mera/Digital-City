@@ -1,0 +1,119 @@
+{
+  "observedAt": "2026-10-06T21:32:05.705Z",
+  "cityId": "031fdba6-e94c-4298-a095-6ff04a65481d",
+  "nodes": [
+    {
+      "id": "alien-reference-node"
+    },
+    {
+      "id": "dev-031fdba6e94c4298a0956ff04a65481d"
+    },
+    {
+      "id": "dev-e1d87b2a0ec5457e822b91d81e40dc67"
+    },
+    {
+      "id": "dev-8128a1ef25c5c4b7f66fc31b21705858"
+    },
+    {
+      "id": "dev-f4e9a34189a0d480cb2acaff5cf145b5"
+    }
+  ],
+  "recentResearchTasks": [
+    {
+      "id": "Q-422d18b5-45ed-40f5-81eb-e1cd95b4890d",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "researchRunRef": "campaign-4a1919b0-d99e-4085-ac50-4600bef555b1:0",
+      "createdAt": "2026-10-06T09:58:53.659Z",
+      "updatedAt": "2026-10-06T09:58:59.817Z"
+    },
+    {
+      "id": "Q-474aca57-43cf-4231-a279-d85911cd2d56",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-bad9f272-c7e6-4b0e-aa39-7752cf47a76f:0",
+      "createdAt": "2026-10-06T10:00:54.698Z",
+      "updatedAt": "2026-10-06T10:01:00.888Z"
+    },
+    {
+      "id": "Q-bb06cb49-8cf4-498a-999b-77dd399a3a33",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "researchRunRef": "campaign-cdf39b7f-f6ff-4ddf-b611-4139f64c57d5:0",
+      "createdAt": "2026-10-06T10:09:12.569Z",
+      "updatedAt": "2026-10-06T10:09:19.031Z"
+    },
+    {
+      "id": "Q-c2681877-d9a7-43b7-a127-1ead05e6edcb",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-481a1761-1b5d-440d-a5a0-1743599b512a:0",
+      "createdAt": "2026-10-06T10:11:13.388Z",
+      "updatedAt": "2026-10-06T10:11:19.998Z"
+    },
+    {
+      "id": "Q-89d61a16-1b7c-4d56-9b20-a42eaa5267ae",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-528b7ca1-5e97-4471-8ab5-c1e8f990fead:0",
+      "createdAt": "2026-10-06T10:21:14.941Z",
+      "updatedAt": "2026-10-06T10:21:21.667Z"
+    },
+    {
+      "id": "Q-7233d1f9-82a7-4646-b8ae-b8ca3d07dca0",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-706ea45d-dcda-45e7-9af1-336059876fb0:0",
+      "createdAt": "2026-10-06T10:22:46.098Z",
+      "updatedAt": "2026-10-06T10:22:53.024Z"
+    },
+    {
+      "id": "Q-a115f20d-b389-4255-ac83-40f60c85d8b9",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-ecbe335b-9be0-42df-908e-37ab34840c89:0",
+      "createdAt": "2026-10-06T10:24:17.314Z",
+      "updatedAt": "2026-10-06T10:24:23.500Z"
+    },
+    {
+      "id": "Q-e50911c7-af66-4cc3-bcb9-7adae09d5d82",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-6d0cacfe-d1fe-4599-a1de-79ad49b3cdb4:0",
+      "createdAt": "2026-10-06T10:25:48.392Z",
+      "updatedAt": "2026-10-06T10:25:54.978Z"
+    },
+    {
+      "id": "Q-fd39db10-dac7-4f0c-925e-ad6aaa648737",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-1e9348a2-c4ae-4180-8937-dbc38d0663f4:0",
+      "createdAt": "2026-10-06T10:27:52.680Z",
+      "updatedAt": "2026-10-06T10:27:58.949Z"
+    },
+    {
+      "id": "Q-4bac3d54-74d1-4834-a9ca-2a10cc597e6f",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-a2dda3f7-b0c4-49ee-987a-ae60a976d8ae:0",
+      "createdAt": "2026-10-06T10:27:59.777Z",
+      "updatedAt": "2026-10-06T10:28:06.065Z"
+    },
+    {
+      "id": "Q-8c8f9109-d447-4fb6-af68-745ab5e74f45",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-c12cba6c-be1a-41b3-b2c5-8ae6d0ec04b2:0",
+      "createdAt": "2026-10-06T10:28:06.872Z",
+      "updatedAt": "2026-10-06T10:28:13.161Z"
+    },
+    {
+      "id": "Q-bc0fed07-5d6d-4e55-b7ec-de37a77dbe31",
+      "state": "COMPLETED",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "researchRunRef": "campaign-d8e9e1ce-ab47-47eb-ba5c-565567b1ac60:0",
+      "createdAt": "2026-10-06T10:28:13.966Z",
+      "updatedAt": "2026-10-06T10:28:20.293Z"
+    }
+  ]
+}

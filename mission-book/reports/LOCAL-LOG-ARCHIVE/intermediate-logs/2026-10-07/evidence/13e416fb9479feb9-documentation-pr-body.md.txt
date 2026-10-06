@@ -1,0 +1,9 @@
+Digital-City explanations now have full Chinese/English reading versions across the root, twelve districts, Mission Book rules/programmes/workbooks/reports, historical material, capability-registry guides and future-development guides. Large-directory READMEs provide area navigation and quick task dashboards generated from canonical workbook metadata. Existing references and evidence locations remain available.
+
+The change preserves authority boundaries: readers do not register as workbooks; parked programmes remain inactive and SHOW is not executed. Accepted source SHAs, CI failures, NOT_OBSERVED/NOT_TESTED scope and historical corrections remain explicit. Raw REX803 and both REX805 physical packets receive no generated files or translated payload edits.
+
+Seven encoding preimages retain their exact original bytes and indexed SHA256/length. Six old Git blobs had normalized line endings despite correct local preimages; this change restores the verified original bytes, applies -text attributes and adds a regression guard against newline conversion, alteration or missing originals. The newly corrupted REX805 body is restored from verified Git commit8da6b91 while retaining Mech's formal acceptance metadata; damaged bytes and repair provenance remain published. Unrecoverable historical text is labelled rather than inferred.
+
+Validation includes record/dependency/main-board/navigation checks, 16 record guard cases, preservation corruption regression, strict UTF8 and balanced local-link audit. Clean-runner CI must succeed at this PR's final exact head before merging. Prior failed CI runs are retained. Documentation checks do not establish product runtime or intent acceptance.
+
+REX805 is formally accepted at0261a9e; its handset-rendered comparison remains NOT_OBSERVED on both hosts, intent NOT_TESTED, and product-main merge is not authorized. REX806 is claimed by Mech; REX807/890 remain dependency-blocked.

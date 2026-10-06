@@ -1,0 +1,15 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {runSeed} from '../../services/dev-gateway/scenario-runner.mjs';
+const module=await import('../../services/dev-gateway/research/replay.mjs').catch(error=>{if(error.code==='ERR_MODULE_NOT_FOUND')return {};throw error;});
+const copy=value=>JSON.parse(JSON.stringify(value));
+const fixture=()=>{
+ assert.equal(typeof module.createReplayEngine,'function','REX805 replay engine must exist');
+ const manifest={experimentId:'original-fixture',question:'placement',workers:['worker-a','worker-b'],hosts:['worker-a','worker-b'],controlSurfaces:['android'],repetitions:3,seedPolicy:'PER_REPETITION',baseSeed:7,softwareRefs:['utopia@'+'0'.repeat(40)],variables:{independent:['scenario'],dependent:['placement'],controls:['input']},stopConditions:[{kind:'MAX_REPETITIONS',value:3}]};
+ const record={experimentId:manifest.experimentId,status:'VALIDATED',manifest,digest:'identity-original'};
+ const source={campaignId:'campaign-original',scenarioId:'WAIT',state:'COMPLETED',campaignSeed:'original',seedIndexOffset:0,warmup:0,timeout:1000,limits:{maxFailures:2},context:{experimentId:manifest.experimentId,manifestIdentity:record.digest,manifest:copy(manifest),targetDeviceRef:null},runs:[{index:1,seed:runSeed('original',1),state:'MEASURED',measured:true,warmup:false,result:{taskRef:'task-original',assignedNodeId:'worker-b'},durationMs:6000}]};
+ const receipts=new Map([[source.campaignId,source]]),records=new Map([[record.experimentId,record]]);let count=0;
+ const deps={receipt:id=>copy(receipts.get(id)),experiment:id=>copy(records.get(id)),identity:r=>r.digest,context:(r,targetDeviceRef=null)=>({experimentId:r.experimentId,manifestIdentity:r.digest,manifest:copy(r.manifest),targetDeviceRef}),register:manifest=>{const r={experimentId:manifest.experimentId,status:'VALIDATED',manifest:copy(manifest),digest:'new-identity'};records.set(r.experimentId,r);return {record:copy(r),persisted:true};},start:options=>{const campaignId='campaign-new-'+(++count);const run={index:0,seed:runSeed(options.seed,options.seedIndexOffset),state:'MEASURED',measured:true,warmup:false,result:{assignedNodeId:module.replayTarget(options.context,runSeed(options.seed,options.seedIndexOffset)),taskRef:'new-task-'+count},durationMs:6100};receipts.set(campaignId,{...copy(options),campaignSeed:options.seed,totalRuns:1,campaignId,state:'COMPLETED',runs:[run]});return {campaignId};}};
+ return {source,records,receipts,deps,engine:module.createReplayEngine(deps)};
+};
+const f=fixture();f.source.limits={};const engine=module.createReplayEngine({...f.deps,limits:(_m,requested)=>Object.keys(requested??{}).length?requested:null});const s=engine.start({sourceCampaignId:'campaign-original',sourceRunIndex:1,mode:'REPLAY'});const r=f.receipts.get(s.campaignId);for(const value of [null,{}, {maxFailures:1}, {wallClockMs:123}, {minSuccessfulRuns:1}]){r.limits=value;const c=engine.compare(s.campaignId);console.log(JSON.stringify({limits:value,match:c.controlledInputsMatch,differences:c.controlledInputDifferences}));}

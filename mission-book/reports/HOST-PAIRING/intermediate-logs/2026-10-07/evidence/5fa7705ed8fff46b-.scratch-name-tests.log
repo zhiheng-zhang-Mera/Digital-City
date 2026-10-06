@@ -1,0 +1,12 @@
+✔ custom City name is canonical across snapshot, pairing, discovery descriptor and restart (146.746ms)
+✔ startup preflight recognizes old absolute Windows paths and refuses duplicate Cities (4.3523ms)
+✔ JOIN-502 surface: a nearby City is offered without being trusted, and joining waits for an approval (5985.744ms)
+✔ JOIN-502 surface: a refused browse still offers the fallbacks, and a rejected ask leaves the device untrusted (5486.7607ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14707.9487

@@ -1,0 +1,16 @@
+import subprocess,sys,pathlib,json,xml.etree.ElementTree as E,re
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T']
+R=pathlib.Path('D:/Utopia-JOIN590-Review/.runtime/evidence/JOIN590-device')
+def run(*args):return subprocess.check_output(A+list(args))
+if len(sys.argv)>1:
+ resumed=run('shell','dumpsys','activity','activities').decode(errors='replace')
+ assert any('mResumedActivity' in line and 'city.utopia.control.join590review/' in line for line in resumed.splitlines()), 'Isolated test app is not foreground; input refused'
+ run('shell','input',*sys.argv[1:])
+run('shell','uiautomator','dump','/sdcard/join590-review.xml')
+root=E.fromstring(run('exec-out','cat','/sdcard/join590-review.xml'))
+rows=[]
+for n in root.iter('node'):
+ if n.get('password')=='true':n.set('text','[REDACTED]')
+ if n.get('text') or n.get('content-desc') or n.get('class')=='android.widget.EditText':rows.append({k:n.get(k) for k in ['text','content-desc','class','bounds','clickable','enabled']})
+(R/'latest-ui.xml').write_bytes(E.tostring(root))
+print(json.dumps(rows,ensure_ascii=True))

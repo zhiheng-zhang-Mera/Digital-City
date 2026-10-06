@@ -1,0 +1,113 @@
+# EM-001 修正报告——核心契约与工程所有权边界
+
+{{CODE0}}
+
+## 1. 独立审查方法
+
+开发head efa127b被fetch到独立工作树直接攻击。作者交接第6.1节列出未枚举路径中的提供商身份／外部语义、嵌套字符串、数组、provider_ref溢出、外部路由名大小写和原型污染键。以此起步，再问“同一禁止概念还可怎样写”。ownership.mjs全部扫描都比较键名，因此有效攻击不是嵌套包装，而是**拼写**。
+
+## 2. 独立发现
+
+共同根因是边界检查针对原始键字符串，攻击者只要不精确拼写禁止名就能削弱边界。原文概述称四项均修复，下文还列第五项，全部保留。
+
+### 缺陷1（高）——秘密扫描漏掉全部复数与camelCase拼写
+
+位置是ownership.mjs的findSecretFields，envelopes.mjs的boundaryScans调用，应用到**全部**规范信封与拥有状态。SECRET_KEY_PATTERN要求秘密词后为键结尾或分隔符，尾部复数s可绕过。
+
+| 字段 | 修前 | 修后 |
+|---|---|---|
+| token、secret、password、api_key、apiKey、credential | 捕获 | 捕获 |
+| credentials、secrets、tokens、passwords | 漏过 | 捕获 |
+| apiKeys、api_keys、privateKeys | 漏过 | 捕获 |
+| sessionKeys、refreshTokens、accessTokens、clientSecrets | 漏过 | 捕获 |
+
+契约要求规范记录仅句柄／引用，但连接器／作业信封可带credentials对象或apiKeys数组原始值，阻止它的扫描却报干净。顶层拥有状态允许表偶然以“不属Engineering状态”拒这些名字，所以开发套件未见；该表只保顶层，通用递归扫描才保全部信封嵌套位置。
+
+### 缺陷2（高）——camelCase外部规范状态漏过
+
+findForeignCanonicalFields以FOREIGN_CANONICAL_FIELDS.includes(key)精确匹配snake_case。修前接受：
+
+{{CODE1}}
+
+精确task_graph拒，taskGraph却接受。禁止第二City任务库的边界仅由字段拼写维系。
+
+### 缺陷3（中）——没有全面拒绝保留原型键
+
+嵌套__proto__被拥有状态与信封扫描接受；仅顶层偶然不在允许表而拒。本契约无动态键赋值，单独不能利用，但验证信封将来被消费方展开／复制时可变原型写。作为纵深保护修，与同会话BA-001修法一致。
+
+### 缺陷4（中）——提供商与墓碑模式只容一分隔符
+
+PROVIDER_PRODUCT_PATTERN的ds[-_ ]?hns与FORBIDDEN_DONOR_PATTERN的codex[-_ ]?boss不识别codex双空格boss或ds--hns与标准名同身份。现允许连续分隔符。
+
+### 缺陷5（低）——undefined与null共用摘要
+
+canonicalJson把undefined键输出为null，{a:undefined}与{a:null}同摘要／幂等身份，违背“相同key不同意图拒绝”。仅进程内调用能构造前者，JSON往返丢undefined，故低严重性但真实歧义。现过滤undefined键，与BA-001规范化文档一致，缺失与明确null可区分。
+
+### 修复
+
+normalizeFieldName拆camelCase词，非字母数字连续段归一分隔并小写。秘密扫描额外容尾复数s，但仍允许*_ref、*_refs、*_handle、*_handles、*_id；credential_ref合法，credentials不合法。外部规范名字正规化比较。新findReservedKeyPaths接拥有状态和信封共享boundaryScans，每接口一瓶颈而非逐调用重复。发布schema的x-ownership-boundary写正规化、保留键、摘要规则，测试绑定声明与运行时模式。
+
+## 3. 攻击后发现可靠（无需修复）
+
+| 攻击 | 结果 |
+|---|---|
+| 路由HNS/ds-hns/Codex/CLAUDE/CITY_TASK/city_task/Room/GENERAL_AI | 全拒 |
+| engineering、Engineering、ENGINEERING后空格／换行 | 全拒，精确匹配 |
+| codex-boss、Codex_Boss、CODEX BOSS、codexboss、CODEX-BOSS | 全捕 |
+| 字符串值含提供商名的拥有状态 | 接受，理由如下 |
+| 作业身份、控制转换、终态复活、重复结果 | 按文档 |
+| 注意投影一可操作、至多3近期、首确认胜 | 按文档 |
+
+**有意非发现：** 任意字符串值如workspace.path='/x/hns-worker'中产品名须接受。模式含裸hns，对值应用会拒普通路径、文字、ID中三字母。实际规则是不要求产品名、不得变路由／任务身份，在有意义的路由及唯一允许提供商字段ConnectorDescriptor.provider_ref强制，不对用户数据子串扫描。记录“不检查”的判断供审计。
+
+## 4. 工作簿未规定决策
+
+**C1——逐调用修拼写还是统一正规化。** 共享扫描内改，使所有已有调用自动强化。缺陷在扫描器，信封只有一个boundaryScans瓶颈，不能按类型复制。
+
+**C2——复数是否过激。** 刻意窄：先引用后缀豁免，仅秘密词汇且剥尾s后整词匹配才生效。credentials_ref仍引用，credentials不是；测试两方向防静默回退。
+
+**C3——schema范围。** 是，与BA-001 C3同理，自己的D12主张schema／运行一致，运行规则未陈述会使假。
+
+**C4——演进动态。** 未写，与BA-001 D11、EM-001 D13、RF-001 D8一致；演进schema仅迁移^MB-[0-9]{3}$，角色MIGRATION|VERIFICATION，EM不验证，扩会触冻结contracts表面。
+
+## 5. 修复与回归
+
+| 文件 | 变更 |
+|---|---|
+| contracts/engineering-manager-v1/ownership.mjs | 名正规化、isSecretFieldName、正规外部集、保留路径、重复分隔符模式、拥有状态保留扫描 |
+| contracts/engineering-manager-v1/envelopes.mjs | 共享boundaryScans增加保留键 |
+| contracts/engineering-manager-v1/canonical.mjs | 正规形态过滤undefined键 |
+| contracts/engineering-manager-v1/schema.json | x-ownership-boundary声明规则 |
+| contracts/engineering-manager-v1/tests/conformance.test.mjs | 新8回归 |
+
+八回归逐项：复数／camelCase秘密拒绝；camelCase／分隔外部状态拒绝；拥有状态各深度原型键拒绝；信封线上原型键拒绝；任意分隔codex-boss引用捕获；任意分隔提供商名捕获；缺失与null不同摘要；schema陈述运行正规化／保留键规则。
+
+各负例都断言合法邻例继续过：credential_ref、api_key_handle、context_refs:['ctx:1']、ENGINEERING、普通文字。保护不能全拒过关，正规化不能静默扩大假阳性。
+
+## 6. 测试汇总
+
+| 检查 | 原结果 |
+|---|---|
+| 公共API恶意探针 | 修后上述攻击全拒 |
+| node --test contracts/engineering-manager-v1/tests/conformance.test.mjs | 30过0败，22开发＋8新 |
+| node --test tests/*.test.mjs | 131过0败 |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | efa127b38e52本地Git验证10记录 |
+| node scripts/check-bilingual.mjs | docs/evidence/data-records PAIRED |
+| 2616dbe16d38dc82b0f15589b25a18d1e193108a 的CI 36715532681 | gateway-web/android成功 |
+
+FAILURE_REPAIR_SUMMARY：修后无失败，22开发测试原样全过，证明强化未削弱。如BA-001，五缺陷来自独立探针而非失败测试，正是Correction增值。
+
+## 7. 跨任务接口（记录未解决）
+
+- EM-002/004/011/012连接器：复数／camelCase秘密或外部规范状态载荷现拒，是意图强化但行为改变。credentials_ref不受影响，credentials须句柄。
+- EM-003/009持久重放：明确undefined字段可能变重放身份，线上无undefined，仅进程内，记录不假定无害。
+- EM-005信封同扫描，自动继承保留键拒绝。
+
+## 8. Owner待项
+
+1. 正规匹配刻意比“拒权限字段”更严格，也拒camelCase外部规范状态；未来同级合法需要正规后撞名字段，应改外部列表而非正规规则。
+2. 演进问题仍待Owner：扩事件schema，或声明mission-book报告即BA/RF/GAI/EM完整构建记录。
+
+{{CODE2}}

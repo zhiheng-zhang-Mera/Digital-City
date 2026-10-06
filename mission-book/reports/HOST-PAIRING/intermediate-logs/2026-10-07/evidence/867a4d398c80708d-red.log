@@ -1,0 +1,29 @@
+✖ custom City lockout never directs users to an unrelated Alien host; explicit renewal remains usable (180.3072ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1245.065
+
+✖ failing tests:
+
+test at tests\pairing-city-neutral.test.mjs:2:1
+✖ custom City lockout never directs users to an unrelated Alien host; explicit renewal remains usable (180.3072ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Alien/i. Input:
+  
+  'Pairing session locked after failed attempts; refresh on Alien'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-Pairing-City-Neutral/tests/pairing-city-neutral.test.mjs:9:128)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Pairing session locked after failed attempts; refresh on Alien',
+    expected: /Alien/i,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }

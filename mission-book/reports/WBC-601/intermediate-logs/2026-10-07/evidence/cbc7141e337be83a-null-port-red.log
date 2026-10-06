@@ -1,0 +1,49 @@
+✔ the default profile is STANDARD_DEVICES and the future profiles are declared but not default (1.5164ms)
+✔ a port must be complete before it may be registered, and the missing piece is named (0.9194ms)
+✔ readiness refuses to be silent: only READY may omit a reason, and a bad state is typed (0.3309ms)
+✔ a registry refuses a second backend for one profile and names the owner (1.4507ms)
+✔ a dormant backend is registered but may never serve ordinary work (0.3542ms)
+✔ one backend may not silently change the profile it serves (0.1948ms)
+✔ an execution endpoint view states that it is a worker, never a control surface (0.2399ms)
+✖ review: malformed null port is a typed INVALID_BACKEND refusal (0.6444ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 954.167
+
+✖ failing tests:
+
+test at contracts\execution-backend-v1\tests\conformance.test.mjs:149:1
+✖ review: malformed null port is a typed INVALID_BACKEND refusal (0.6444ms)
+  AssertionError [ERR_ASSERTION]: The validation function is expected to return "true". Received false
+  
+  Caught error:
+  
+  TypeError: Cannot read properties of null (reading 'backendId')
+      at TestContext.<anonymous> (file:///D:/Utopia-WBC601-Review/contracts/execution-backend-v1/tests/conformance.test.mjs:149:83)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: TypeError: Cannot read properties of null (reading 'backendId')
+        at assertExecutionBackendPort (file:///D:/Utopia-WBC601-Review/contracts/execution-backend-v1/execution-backend.mjs:180:24)
+        at file:///D:/Utopia-WBC601-Review/contracts/execution-backend-v1/tests/conformance.test.mjs:149:94
+        at getActual (node:assert:611:5)
+        at strict.throws (node:assert:759:24)
+        at TestContext.<anonymous> (file:///D:/Utopia-WBC601-Review/contracts/execution-backend-v1/tests/conformance.test.mjs:149:83)
+        at Test.runInAsyncScope (node:async_hooks:227:14)
+        at Test.run (node:internal/test_runner/test:1382:25)
+        at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+        at Test.postRun (node:internal/test_runner/test:1522:19)
+        at Test.run (node:internal/test_runner/test:1447:12),
+    operator: 'throws',
+    diff: 'simple'
+  }

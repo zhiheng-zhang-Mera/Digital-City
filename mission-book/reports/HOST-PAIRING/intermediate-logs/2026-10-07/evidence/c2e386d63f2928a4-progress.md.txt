@@ -1,0 +1,7 @@
+# Execution ledger
+Implementation be6227ec49d4dbcd83a595d7b265766af2083421 pushed and installed.
+Tasks 1–4 implemented. Independent review fixes validated; latest scoped regression 15/15.
+Native PRIMARY→MEMBER transition and ordinary restart tested in fixtures.
+Actual primary identity retained, self-first UI and sharing off/on PASS; singleton PID24728 reuse PASS.
+CI pending run37200078026; physical two hosts and cross-region NOT_RUN.
+Final evidence archive Digital-City PR7.

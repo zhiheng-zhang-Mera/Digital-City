@@ -1,0 +1,19 @@
+✔ theme artifact store degrades on an uncreatable root and refuses typed instead of throwing (4.4893ms)
+✔ a store that breaks after startup is recorded, and losing it cannot erase a finished build (3.2483ms)
+✔ a file at the theme-packages path leaves the City serving and the theme lab typed-failed (2099.4286ms)
+✔ degrading the artifact store blocks only the theme lab, never the capability registry (92.4686ms)
+✔ a store that breaks while the City runs is reported in health, not only after a restart (3577.6282ms)
+✔ CEX790 current audit includes reversed routes, owner controls, catalogs and branch-scoped YAML candidates (3139.3469ms)
+✔ CEX790 Web reports validated but unfiled registration and degraded store (2146.8117ms)
+✔ Web Research discovers imports validates registers and inspects canonical experiments without running (2072.304ms)
+✔ a failed list refresh cannot hide a successful canonical registration (1895.9211ms)
+✔ REX801 store guard: a file where research (the registry parent) belongs cannot stop the City (155.1502ms)
+✔ REX801 store guard: a file where research/experiments (the registry itself) belongs cannot stop the City (94.8854ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10006.1755

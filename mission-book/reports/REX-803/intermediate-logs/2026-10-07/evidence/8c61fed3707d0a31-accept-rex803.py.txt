@@ -1,0 +1,53 @@
+from pathlib import Path
+import json, sys
+sys.path.insert(0, str(Path('mission-book/tools').resolve()))
+from sync_dependency_state import set_field
+p=Path('mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md')
+t=p.read_text(encoding='utf-8')
+fields={
+ 'status':'COMPLETE','review_complete':True,
+ 'review_verdict':'ACCEPTED_EXACT_HEAD_WITH_DISCLOSED_TRACE_METADATA_GAPS',
+ 'review_ci':'Exact8798ba9 push37423084327 / PR37423138551 / linkage37423138558 terminal SUCCESS; technical71 focused PASS and critic8 PASS; physical material38 independent checks PASS; Android111 tests PASS and assembleDebug SUCCESS. Trace metadata PARTIAL remains disclosed.',
+ 'physical_gate_status':'MET_AND_REVIEWED: campaign966cf439 on canonical Mech/Alien/Android topology; 3 measured COMPLETED runs, exact seeds and placements independently verified; complete published campaign collector epoch52 records plus31 canonical events and3 receipts. Global trace metadata PARTIAL; whole197 raw window not published. See FORMAL_ACCEPTANCE_Alien.md.',
+ 'review_report_ref':'mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md',
+}
+for k,v in fields.items(): t=set_field(t,k,json.dumps(v,ensure_ascii=False) if isinstance(v,str) else v)
+p.write_text(t,encoding='utf-8',newline='\n')
+p=Path('capability-registry/records/CAP-RESEARCH-CAMPAIGN-001.yaml')
+d=json.loads(p.read_text(encoding='utf-8'))
+d['implementation']['last_verified_full_sha']='8798ba9dd37051626033ad72080b2fad3ff66149'
+d['evidence']['review_refs']=['mission-book/reports/REX-803/REVIEW_REPORT.md','mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md','mission-book/reports/REX-803/evidence/independent-material-checks-Alien.json']
+d['evidence']['implementation_refs']=['https://github.com/zhiheng-zhang-Mera/utopia/tree/8798ba9dd37051626033ad72080b2fad3ff66149','https://github.com/zhiheng-zhang-Mera/utopia/pull/37']
+d['research_observations']['rework_required']=False
+d['research_observations']['registry_reconciliation_result']='ACCEPTED_EXACT_HEAD'
+d['research_observations']['paper_material_refs'].append('mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md')
+d['known_gaps']=[
+ 'Web reachability remains PARTIAL; Android native campaign UI is deliberately deferred to REX-807. Physical Android was a canonical enrolled surface, not a new native campaign UI.',
+ 'Intent validation remains NOT_TESTED: opposite-host implementation and physical-material review does not constitute owner intent research.',
+ 'Earlier Mech-only physical campaigns remain PARTIAL history. The new three-end campaign966cf439 satisfied the gate after fresh Alien enrollment at2026-10-06T07:29:19.058Z; no retroactive online-throughout claim.',
+ 'The experiment manifest contract has no warmup field; receipt records actual warmup. The accepted physical campaign used warmup0.',
+ 'F8 native Android canonical-reference readiness mismatch was repaired and checked on8798ba9; this closes that defect without completing Android campaign UI.',
+ 'REX-801 digest is canonical serialization rather than a hash; campaign route hashes locally (F9).',
+ 'First seed-identity repair D-7 and intermediate failing heads are retained in historical reports; current candidate accepted after review, not erased history.',
+ 'Trace metadata completeness is PARTIAL. Published raw material covers52 campaign epoch records; whole retained197-record raw window was not published. Software/config/provider/model metadata and per-record provenance remain missing, not fabricated.'
+]
+p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
+p=Path('mission-book/research-strengthening/README.md')
+t=p.read_text(encoding='utf-8')
+start=t.index('## 当前回查 / Current pool recheck')
+end=t.index('### Mech 复验结果',start)
+t=t[:start]+'''## 当前回查 / Current pool recheck
+
+REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 可按 accepted 依赖领取；806/807/890 继续按任务书依赖等待。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
+
+REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-end material review; SCENARIO_REPETITION_ENGINE_ACCEPTED is released while trace metadata remains PARTIAL. REX-804 is accepted at exactfe700aba. REX-805 can be claimed against accepted dependency heads;806/807/890 continue waiting under their workbook dependencies. SHOW and parked/new programme execution remain excluded. Earlier sections below are dated history; current authority is the workbook and formal acceptance report.
+
+''' +t[end:]
+t+='''
+### REX-803 正式验收 / Formal acceptance
+
+Alien 正式验收 exact8798ba9，材料38项独立检查通过，3次种子/执行节点与原始回执、canonical tasks 和 trace 对齐；trace metadata PARTIAL、未发布的全局197条原始窗口、缺失provenance和意图验证NOT_TESTED均保留。新入会身份开始于07:29，不能描述此前两天始终在线。详见 [正式验收](../reports/REX-803/FORMAL_ACCEPTANCE_Alien.md)。
+
+Alien accepts exact8798ba9 after38 independent material checks and three matching seed/placement/receipt/task/trace bindings. PARTIAL trace metadata, the unpublished whole197-record window, missing provenance and NOT_TESTED intent validation remain explicit. The fresh enrollment began at07:29, not two days earlier. See the formal acceptance report linked above.
+'''
+p.write_text(t,encoding='utf-8',newline='\n')

@@ -1,0 +1,27 @@
+✔ the role vocabulary is the one the workbook names, and the legacy default is narrow (2.3195ms)
+✔ an old node record with no new fields still yields a usable descriptor, and says the role was defaulted (0.6162ms)
+✔ the current Alien/Mech/Android role truth is expressible without registering Android as a worker (0.5921ms)
+✔ a control surface can never be promoted to a worker by any field it carries (0.4125ms)
+✔ a missing measurement is UNKNOWN, never zero and never unavailable (0.3601ms)
+✔ real telemetry projects into the descriptor with its own timestamp, without inventing fields (0.2087ms)
+✔ a task requirement is never satisfied or failed by telemetry nobody collected (1.1295ms)
+✔ availability is told, not derived, and serialization/restart keeps the descriptor stable (0.505ms)
+✔ descriptor validation refuses the shapes that would make a descriptor unusable (0.3817ms)
+✔ a node registered with the old payload still registers, claims and completes, and gains a descriptor (189.247ms)
+✔ the descriptor is computed at read time, so a sharing change and fresh telemetry are reflected at once (153.9949ms)
+✔ an unknown node has no descriptor, and a control surface is never among the node descriptors (79.3757ms)
+✔ strict target still outranks every generic descriptor fact (130.6898ms)
+✔ WBC602 review: explicit malformed roles cannot manufacture an execution identity (1.4616ms)
+✔ WBC602 review: absent GPU/network observations are unknown, not hardware absence (0.3627ms)
+✔ WBC602 review: platform mismatch and measured zero accelerators are distinguished from unknown (0.4465ms)
+✔ WBC602 review: malformed requirement arrays yield typed contract refusals (0.1892ms)
+✔ WBC602 review: busy endpoint cannot advertise accepting work (155.539ms)
+✔ WBC602 review: explicitly declared multiple worker roles survive real registration and restart (121.3919ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3107.9346

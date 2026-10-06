@@ -1,0 +1,8 @@
+{
+  "app": true,
+  "online": true,
+  "shortCodeVisible": true,
+  "qrVisible": true,
+  "apk_sha256": "1b481632f7dd763b6e95b53d6180288223820e536f015a4a97be6cccd6ae17d1",
+  "fixture": "App-private fixture connection seeded for final smoke; prior main campaign used manual native connection UI"
+}

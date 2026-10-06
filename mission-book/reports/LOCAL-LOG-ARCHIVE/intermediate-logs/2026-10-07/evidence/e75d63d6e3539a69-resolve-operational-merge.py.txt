@@ -1,0 +1,10 @@
+from pathlib import Path
+import re
+for name in ['mission-book/README.md','mission-book/reports/REX-803/THREE_END_GATE_MEASUREMENT.md','mission-book/reports/REX-PROGRAMME/ALIEN_CONTINUATION_PACKET.md']:
+ p=Path(name);t=p.read_text(encoding='utf-8')
+ def resolve(m):
+  ours,theirs=m.group(1),m.group(2)
+  return theirs if name=='mission-book/README.md' else ours+'\n'+theirs
+ t=re.sub(r'^<<<<<<< HEAD\n(.*?)^=======\n(.*?)^>>>>>>> origin/main\n',resolve,t,flags=re.S|re.M)
+ assert not re.search(r'^(<<<<<<<|=======|>>>>>>>)',t,re.M),name
+ p.write_text(t,encoding='utf-8',newline='\n')

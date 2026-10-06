@@ -1,0 +1,58 @@
+✖ REX802 broken observation clock remains a contained failure (2.1432ms)
+✖ REX802 rejects an oversized existing file before rotating or modifying it (8.8042ms)
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (2.2651ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.2781ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (0.3432ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (5.6925ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.2916ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (67.1485ms)
+✔ REX802 early capture waits for restored watermark before normalization (4.5838ms)
+✔ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (0.6946ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1046.8486
+
+✖ failing tests:
+
+test at tests\rex802-trace.test.mjs:4:1
+✖ REX802 broken observation clock remains a contained failure (2.1432ms)
+  AssertionError [ERR_ASSERTION]: Got unwanted exception.
+  Actual message: "PRIVATE_CLOCK"
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:4:241)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: Error: PRIVATE_CLOCK
+        at clock (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:4:133)
+        at failure (file:///D:/Utopia-REX802/services/research-trace/index.mjs:11:125)
+        at Object.record (file:///D:/Utopia-REX802/services/research-trace/index.mjs:23:16)
+        at file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:4:268
+        at getActual (node:assert:611:5)
+        at strict.doesNotThrow (node:assert:779:32)
+        at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:4:241)
+        at async Test.run (node:internal/test_runner/test:1389:7)
+        at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3),
+    expected: undefined,
+    operator: 'doesNotThrow',
+    diff: 'simple'
+  }
+
+test at tests\rex802-trace.test.mjs:5:1
+✖ REX802 rejects an oversized existing file before rotating or modifying it (8.8042ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:5:268)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'TRACE_STORAGE_OVERSIZE' },
+    operator: 'rejects',
+    diff: 'simple'
+  }

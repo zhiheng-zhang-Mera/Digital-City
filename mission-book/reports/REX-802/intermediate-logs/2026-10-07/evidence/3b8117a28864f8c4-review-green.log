@@ -1,0 +1,33 @@
+✔ REX802 a delayed response cannot remove offline guidance or replace another page (941.706ms)
+Error: CONTROLLED_COMMIT_FAILURE
+    at file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:4:360
+    at Store.atomic (file:///D:/Utopia-REX802/services/dev-gateway/store.mjs:45:62)
+    at app.store.atomic (file:///D:/Utopia-REX802/tests/rex802-gateway.test.mjs:4:337)
+    at atomicWithTrace (file:///D:/Utopia-REX802/services/dev-gateway/server.mjs:160:93)
+    at createCityTask (file:///D:/Utopia-REX802/services/dev-gateway/server.mjs:397:12)
+    at Server.<anonymous> (file:///D:/Utopia-REX802/services/dev-gateway/server.mjs:676:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+✔ REX802 rolled-back canonical events never enter the trace (83.3266ms)
+✔ REX802 member Web surface exposes explicit owner-required guidance (1050.7155ms)
+✔ REX802 records only supplied resource samples, preserves zero and declared source time (99.0296ms)
+✔ REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets (1218.1168ms)
+✔ REX802 failing collector cannot break real Gateway task/health and reports partial failure (109.5232ms)
+✔ REX802 broken observation clock remains a contained failure (2.183ms)
+✔ REX802 rejects an oversized existing file before rotating or modifying it (10.4614ms)
+✔ REX802 rotation remains explicit after restart and restores bounded previous records (21.3948ms)
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (1.5946ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.5282ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (0.4685ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (7.5596ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.6956ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (57.0494ms)
+✔ REX802 early capture waits for restored watermark before normalization (4.1332ms)
+✔ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (0.6895ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6066.4707

@@ -1,0 +1,39 @@
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (2.8384ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.2901ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (0.9662ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (10.2487ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.4986ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (68.0853ms)
+✖ REX802 early capture waits for restored watermark before normalization (5.9436ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1031.2316
+
+✖ failing tests:
+
+test at tests\rex802-trace.test.mjs:10:1
+✖ REX802 early capture waits for restored watermark before normalization (5.9436ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'event-3',
+      'event-1',
+  -   'event-3'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:10:464)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'event-3', 'event-1' ],
+    expected: [ 'event-1', 'event-3' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

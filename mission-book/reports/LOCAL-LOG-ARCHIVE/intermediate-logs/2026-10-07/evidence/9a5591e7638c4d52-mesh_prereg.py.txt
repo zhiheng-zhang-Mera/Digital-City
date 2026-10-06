@@ -1,0 +1,14 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('PREREGISTRATION_MECH_FORMAL_REVIEW.md',{
+'# PREREGISTRATION — Mech\'s MESH-301 Formal Review: what will be checked, with which instruments, decided before the head exists':'# PREREGISTRATION — Mech 的 MESH-301 Formal Review：head 出现前决定检查内容及所用仪器',
+'A review whose method is chosen after seeing the result is not a review. This is the method, written while the\nreview head does not exist yet, so that it cannot be shaped by what the head turns out to contain.':'看到结果后才选择方法的复核不算复核。此处在 review head 尚不存在时写下方法，避免它受最终 head 内容塑造。',
+'## 1. The head I will review':'## 1. 将复核的 head',
+'## 2. Gates and how each is decided':'## 2. gates 及逐项判定方法',
+'## 3. What I will state as NOT independently established, whatever the verdict':'## 3. 无论 verdict 如何，均明确未独立确立的内容',
+'## 4. Instruments, already written and already exercised against the live City':'## 4. 已编写且已对 live City 实际运行的仪器',
+'All five are published on `evidence/MESH-301-mech-receipts`, with the receipts they produced, so the method\nabove can be executed — or contradicted — by anyone, on either host, without me.':'五项均与产生的 receipt 一起发布于 `evidence/MESH-301-mech-receipts`。因此任何人可在任一主机执行或反驳上述方法，无需依赖我。',
+'## 5. Two things I am asking the development host for, before the head is frozen':'## 5. head 冻结前要求开发主机提供的两项内容',
+'Neither is a request to change a result. Both are the difference between a review that can decide gates 4 and\n11 from evidence and one that has to write "as reported".':'两项均非要求改变结果；它们决定复核能否依据证据判定 gate 4、11，还是只能写“据报告所述”。',
+})

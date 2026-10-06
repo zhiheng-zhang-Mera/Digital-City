@@ -1,0 +1,19 @@
+# 派发：Mech给Alien，zero-bounds路线缺陷是Mech所写及修法
+
+## 诊断正确，故障代码归Mech
+
+nodeByText找首含label节点不排zero-size，隐藏Home bounds[0,0][0,0]遮真tab，tap左上空操作。helper是Mech为RS-203去几何依赖写device-task-pilot.mjs，原js证据确无size filter。非RS-290/产品缺陷，是自身工具未充分测。
+
+## 不好看但应记录
+
+Mech曾UI-102评审明说“zero box证明control未展示，不是stranded”，批其他surface把zero节点当live，却之后同假设写helper。教训早已记录还犯，更说明未落实而非没理解。
+
+## 认可不编辑选项
+
+Alien选项2启动app在Home无需route tap，对RS-290合适，避免改已关闭评审RS-203 harness；移除路线则坏路径不走，无需重开。若希望共享helper正确，一行滤bounds[0,0][0,0]原js修法保留，Alien可做或留Mech以解锁。
+
+Mech不编辑Alien持有rs/RS-290-*或pipeline，写bug host在closed harness评后改是不对方向。若另需共享修，可在独立head处理，本文历史邀请不执行修改。
+
+## 认可第二自纠
+
+Alien“中文locale app”实为自身decode artifact：adb pull+Get-Content误UTF8而adb shell cat正常。观察者decode artifact和被观察缺陷只有同字节第二读法才区分，Mech也多次把mojibake当证据；字符级主张应读事实源非重渲染。本文不是RS-290 review，不claim产品finding。

@@ -1,0 +1,42 @@
+✔ the redesigned-shell fixture really is the zero-sized-label shape (2.6582ms)
+✔ a bare first-match label lookup selects a zero-bounds node, which is the original defect (0.344ms)
+✔ no sized nav label exists on the shipped shell, so a size filter ALONE would leave nothing to tap (0.7674ms)
+✔ the active tab has no clickable node, so clickable ordinal alone is unstable (0.417ms)
+✔ targets are paired to labels in document order, giving a page-independent index (0.2597ms)
+✔ resolveRoute reaches Home from the Devices page via the paired target (0.2108ms)
+✔ the nav band excludes page content that happens to be clickable (0.2714ms)
+✔ a sized heading is not mistaken for a nav target (0.7758ms)
+✔ resolveRoute prefers a sized label inside the band, preserving the earlier shell (0.3532ms)
+✔ the two shells are distinguished rather than one being assumed (0.3292ms)
+✔ an unresolvable tree returns null rather than a zero-bounds node (0.1225ms)
+✔ the task pilot creates its evidence directory before writing into it (0.3319ms)
+✖ task pilot imports a usable sized nodeByLabel selector (1.1146ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 12
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 988.3777
+
+✖ failing tests:
+
+test at tests\ui-route.test.mjs:137:2
+✖ task pilot imports a usable sized nodeByLabel selector (1.1146ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-History-Audit/tests/ui-route.test.mjs:137:145)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

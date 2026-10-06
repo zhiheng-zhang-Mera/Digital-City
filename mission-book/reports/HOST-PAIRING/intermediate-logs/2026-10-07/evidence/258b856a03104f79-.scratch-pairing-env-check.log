@@ -1,0 +1,19 @@
+✔ document bytes flow through real readers and into temporary knowledge (451.7528ms)
+✔ evidence review is deterministic and tampering never gets rehashed (3.6596ms)
+✔ theme generation returns a reproducible PNG and validation (61.8551ms)
+✔ future promoted module stays pending and all five existing adapters still execute (20.0791ms)
+✔ malformed and oversized inputs have explicit refusals (23.8034ms)
+✔ Road rejects missing array elements instead of producing null serialized entries (2.2128ms)
+✔ Road preserves section order, deterministic IDs and explicit temporary unverified ownership (0.8362ms)
+✔ Road accepts empty documents and preserves empty heading and text without coercion (0.1793ms)
+✔ Road refuses malformed document boundaries and never accepts caller trust injection (0.2995ms)
+✔ Road output validation rejects permanence, trust escalation and reordered IDs (0.1855ms)
+✔ Bridge Road extraction preserves all six published document retrieval digests (412.5048ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2431.7797

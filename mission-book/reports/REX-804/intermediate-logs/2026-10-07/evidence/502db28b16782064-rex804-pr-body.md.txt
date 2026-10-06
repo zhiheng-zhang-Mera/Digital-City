@@ -1,0 +1,7 @@
+REX-804 adds four bounded node faults through Research → Advanced / Danger Zone: heartbeat refusal, execution-claim unavailability, delayed reports and duplicate research observations. Owner confirmation, explicit target, <=30s duration, expiry and emergency stop keep effects local; canonical tasks remain authoritative.
+
+Validation: 10 focused controller/Gateway/Web tests pass; local full suite before fixture-only repair 1360 pass, 0 fail with test concurrency 4; Rooms 69 pass; City 1969 pass and 15 explicitly skipped; bilingual checks and promotion history pass. Final exact-head push CI 37397794253 and PR CI 37397799729 both COMPLETED SUCCESS (Gateway/Web + Android), linkage 37397800050 SUCCESS.
+
+Initial default-concurrency relay timing failure and hosted liveness fixture failure remain preserved. The test-only repair maintains real heartbeat and waits for canonical offline state; no product safety gate changed. Final head: f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5. Source parent: 9b68d4f7054bb911c484340532cc3b5ae9ed47ac. Controlled local numeric/trace artifact preserved.
+
+Mech Formal Review must supply an unused probe and reconcile Registry/runtime. Android control parity remains an explicit REX-807 seam. Development complete; formal Review and programme acceptance pending. No merge authority.

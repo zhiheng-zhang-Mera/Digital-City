@@ -1,0 +1,1354 @@
+[
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md",
+    "target": "../zh-CN/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md",
+    "target": "../en/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md",
+    "target": "../zh-CN/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md",
+    "target": "../en/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md",
+    "target": "../zh-CN/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md",
+    "target": "../en/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md",
+    "target": "../zh-CN/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md",
+    "target": "../en/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md",
+    "target": "../zh-CN/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md",
+    "target": "../en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md",
+    "target": "../zh-CN/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md",
+    "target": "../en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md",
+    "target": "../zh-CN/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md",
+    "target": "../en/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md",
+    "target": "../zh-CN/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/en/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md",
+    "target": "../en/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md",
+    "target": "../zh-CN/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md",
+    "target": "../en/ASYNC_DISPATCH_TRANSIENT_QUIESCENCE_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md",
+    "target": "../zh-CN/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md",
+    "target": "../en/CAPABILITY_EXPOSURE_GAP_USER_REACHABLE_VERTICAL_SLICES_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md",
+    "target": "../zh-CN/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md",
+    "target": "../en/CITY_WORK_MONITOR_OBSERVATION_DECISION_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md",
+    "target": "../zh-CN/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md",
+    "target": "../en/CONTROL_PLANE_STATE_RECONCILIATION_LAG_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md",
+    "target": "../zh-CN/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md",
+    "target": "../en/LONG_HORIZON_AGENT_CONTEXT_LIFECYCLE_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md",
+    "target": "../zh-CN/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md",
+    "target": "../en/LONG_HORIZON_AGENT_STATE_IDENTITY_PROVENANCE_FRESHNESS_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md",
+    "target": "../zh-CN/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md",
+    "target": "../en/MULTI_DEVICE_AI_CONCURRENCY_LATENCY_2026-10-01.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md",
+    "target": "../zh-CN/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md"
+  },
+  {
+    "source": "06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/01-研究院(Research-Institute)-&-研究机制实验平台(Research-Mechanism-Experimentation-Platform)/paper-materials/zh-CN/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md",
+    "target": "../en/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md"
+  },
+  {
+    "source": "07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/01-量化实验室(Quant-Lab)-&-量化研究回测平台(Quantitative-Research-Backtest-Platform)/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/01-触觉手套(Haptic-Glove)-&-低延迟具身交互设备(Low-Latency-Embodied-Interaction-Device)/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/01-计算机使用运行时(Computer-Use-Runtime)-&-通用计算机交互执行服务(Generic-Computer-Interaction-Execution-Service)/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/02-自主环境探索器(Autonomous-Environment-Explorer)-&-视觉世界模型自动化(Visual-World-Model-Automation)/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/01-娱乐中心(Entertainment-Centre)-&-媒体沉浸交互平台(Media-Immersive-Interaction-Platform)/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "capability-registry/records/README.md",
+    "target": "../CAPABILITY_RECORD_TEMPLATE.yaml"
+  },
+  {
+    "source": "capability-registry/records/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "capability-registry/records/README.md",
+    "target": "../CAPABILITY_RECORD_TEMPLATE.yaml"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../capability-registry/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../02-工务区(Engineering-Works-District)-&-工程运维域(Engineering-Operations-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../03-居民区(Residential-District)-&-数字身份代理域(Digital-Identity-Agent-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../04-法律隐私区(Legal-Privacy-District)-&-法律隐私治理域(Legal-Privacy-Governance-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../05-医疗健康区(Health-District)-&-健康数据服务域(Health-Data-Service-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../06-研究院区(Research-District)-&-研究实验域(Research-Experimentation-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../07-金融区(Finance-District)-&-金融量化域(Financial-Quantitative-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../08-设备边缘区(Device-Edge-District)-&-设备边缘计算域(Device-Edge-Computing-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../09-规划知识区(Planning-Knowledge-District)-&-规划知识管理域(Planning-Knowledge-Management-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../10-自动化区(Automation-District)-&-自动化执行域(Automation-Execution-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../11-娱乐区(Entertainment-District)-&-媒体沉浸交互域(Media-Immersive-Interaction-Domain)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/01-海关安检(Customs-Security)-&-扩展准入检查(Extension-Admission-Checks)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../01-市政治安区(Civic-Government-Safety-District)-&-治理安全域(Governance-Security-Domain)/02-公安监管(Public-Security)-&-运行时合规执行(Runtime-Compliance-Enforcement)/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../PROJECT_REVIEW.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../COMPOSITE_UNIONS.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../CITY_CAPABILITY_GAP_REVIEW.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../IMPLEMENTATION_STATUS.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../capability-registry/"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../CITY_MANIFEST.yaml"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../CITY_PROTOCOL.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../DISTRICT_TEMPLATE.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../BUILDING_TEMPLATE.md"
+  },
+  {
+    "source": "docs/en/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../zh-CN/CITY_OVERVIEW_ARCHITECTURE.md"
+  },
+  {
+    "source": "docs/zh-CN/BUILDING_TEMPLATE.md",
+    "target": "../../BUILDING_TEMPLATE.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_CAPABILITY_GAP_REVIEW.md",
+    "target": "../../CITY_CAPABILITY_GAP_REVIEW.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../en/CITY_OVERVIEW_ARCHITECTURE.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../capability-registry/README.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../README.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../mission-book/UTOPIA_LIVE_STATUS.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../PROJECT_REVIEW.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../COMPOSITE_UNIONS.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../CITY_CAPABILITY_GAP_REVIEW.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../IMPLEMENTATION_STATUS.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../CITY_MANIFEST.yaml"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../CITY_PROTOCOL.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../DISTRICT_TEMPLATE.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_OVERVIEW_ARCHITECTURE.md",
+    "target": "../../BUILDING_TEMPLATE.md"
+  },
+  {
+    "source": "docs/zh-CN/CITY_PROTOCOL.md",
+    "target": "../../CITY_PROTOCOL.md"
+  },
+  {
+    "source": "docs/zh-CN/COMPOSITE_UNIONS.md",
+    "target": "../../COMPOSITE_UNIONS.md"
+  },
+  {
+    "source": "docs/zh-CN/DISTRICT_TEMPLATE.md",
+    "target": "../../DISTRICT_TEMPLATE.md"
+  },
+  {
+    "source": "docs/zh-CN/IMPLEMENTATION_STATUS.md",
+    "target": "../../IMPLEMENTATION_STATUS.md"
+  },
+  {
+    "source": "docs/zh-CN/PROJECT_REVIEW.md",
+    "target": "../../PROJECT_REVIEW.md"
+  },
+  {
+    "source": "future-development/Boss-Legacy-Capability-Gaps/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "future-development/DS-Hns-Legacy-Capability-Gaps/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/README.md",
+    "target": "../../mission-book/PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "future-development/paper-factory/README.md",
+    "target": "../../mission-book/research-strengthening/README.md"
+  },
+  {
+    "source": "future-development/paper-factory/README.md",
+    "target": "../../mission-book/RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "future-development/paper-factory/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/contracts/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/contracts/README.md",
+    "target": "../../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/policies/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/policies/README.md",
+    "target": "../../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/venues/JOURNALS.md",
+    "target": "../policies/SOURCES.md"
+  },
+  {
+    "source": "future-development/paper-factory/venues/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "future-development/paper-factory/venues/README.md",
+    "target": "../../README.md"
+  },
+  {
+    "source": "mission-book/CONSTRUCTION_RULES.md",
+    "target": "../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/README.md",
+    "target": "../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md",
+    "target": "../../capability-registry/"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-703-capability-catalog-discoverability.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-705-android-member-device-management-parity.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
+    "target": "../../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/README.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/README.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/README.md",
+    "target": "../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/README.md",
+    "target": "../../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/README.md",
+    "target": "../reports/CEX-790/MAIN_MERGE_REPORT.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CAPABILITY_ENTRY_MATRIX.md",
+    "target": "../CAPABILITY_ENTRY_MATRIX.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CAPABILITY_ENTRY_MATRIX.md",
+    "target": "../../../capability-registry/"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../CEX-701-device-recovery-rebind-and-clone-surface.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-702-scheduler-choice-and-alternate-device-entry.md",
+    "target": "../CEX-702-scheduler-choice-and-alternate-device-entry.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-702-scheduler-choice-and-alternate-device-entry.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-703-capability-catalog-discoverability.md",
+    "target": "../CEX-703-capability-catalog-discoverability.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-703-capability-catalog-discoverability.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-704-android-onboarding-owner-actions-parity.md",
+    "target": "../CEX-704-android-onboarding-owner-actions-parity.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-704-android-onboarding-owner-actions-parity.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-705-android-member-device-management-parity.md",
+    "target": "../CEX-705-android-member-device-management-parity.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-705-android-member-device-management-parity.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-790-final-exposure-audit-and-freeze.md",
+    "target": "../CEX-790-final-exposure-audit-and-freeze.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-790-final-exposure-audit-and-freeze.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/CEX-790-final-exposure-audit-and-freeze.md",
+    "target": "../../../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/FUTURE_EXPOSURE_BACKLOG.md",
+    "target": "../FUTURE_EXPOSURE_BACKLOG.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/PAPER_EVIDENCE_PROTOCOL.md",
+    "target": "../PAPER_EVIDENCE_PROTOCOL.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../../../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../CEX-701-device-recovery-rebind-and-clone-surface.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../CEX-702-scheduler-choice-and-alternate-device-entry.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../CEX-703-capability-catalog-discoverability.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../CEX-704-android-onboarding-owner-actions-parity.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../CEX-705-android-member-device-management-parity.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../CEX-790-final-exposure-audit-and-freeze.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/en/README.md",
+    "target": "../../reports/CEX-790/MAIN_MERGE_REPORT.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../CEX-701-device-recovery-rebind-and-clone-surface.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../en/CEX-701-device-recovery-rebind-and-clone-surface.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/capability-entry-closeout/zh-CN/CEX-701-device-recovery-rebind-and-clone-surface.md",
+    "target": "../PAPER_EVIDENCE_PROTOCOL.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/README.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/README.md",
+    "target": "../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/README.md",
+    "target": "../RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/README.md",
+    "target": "../research-strengthening/README.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/MON-901-observation-model-and-jev-projection.md",
+    "target": "../MON-901-observation-model-and-jev-projection.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/MON-901-observation-model-and-jev-projection.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/MON-902-overview-graph-and-node-path-inspector.md",
+    "target": "../MON-902-overview-graph-and-node-path-inspector.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/MON-903-event-triggered-decision-overlay.md",
+    "target": "../MON-903-event-triggered-decision-overlay.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/MON-990-cross-device-monitor-acceptance-and-freeze.md",
+    "target": "../MON-990-cross-device-monitor-acceptance-and-freeze.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../../RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../../research-strengthening/README.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../MON-901-observation-model-and-jev-projection.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../MON-902-overview-graph-and-node-path-inspector.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../MON-903-event-triggered-decision-overlay.md"
+  },
+  {
+    "source": "mission-book/city-work-monitor-dashboard/en/README.md",
+    "target": "../MON-990-cross-device-monitor-acceptance-and-freeze.md"
+  },
+  {
+    "source": "mission-book/en/ASYNC_RELIEF_CONSTRUCTION.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/en/ASYNC_RELIEF_CONSTRUCTION.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/en/ASYNC_RELIEF_CONSTRUCTION.md",
+    "target": "../future-plans/FR-001-Persistent-Foreman-Runtime.md"
+  },
+  {
+    "source": "mission-book/en/CONSTRUCTION_RULES.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/en/CONSTRUCTION_RULES.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/en/CONSTRUCTION_RULES.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/en/CONSTRUCTION_RULES.md",
+    "target": "../../capability-registry/README.md"
+  },
+  {
+    "source": "mission-book/en/CONSTRUCTION_RULES.md",
+    "target": "../RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "mission-book/en/CONSTRUCTION_RULES.md",
+    "target": "../RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "mission-book/en/MISSION_TEMPLATE.md",
+    "target": "../MISSION_TEMPLATE.md"
+  },
+  {
+    "source": "mission-book/en/MISSION_TEMPLATE.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../PARKED_PROGRAMMES.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../personal-compute-fabric/README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../deliberative-governance-expansion-migration/README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../review-independence-v2/README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../utopia-runtime-architecture/README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../city-self-health-check/README.md"
+  },
+  {
+    "source": "mission-book/en/PARKED_PROGRAMMES.md",
+    "target": "../suspend/README.md"
+  },
+  {
+    "source": "mission-book/en/PROCESS_DATA_POLICY.md",
+    "target": "../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/en/PROCESS_DATA_POLICY.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/finished/README.md",
+    "target": "../workbench-compatibility-migration/README.md"
+  },
+  {
+    "source": "mission-book/finished/README.md",
+    "target": "../capability-entry-closeout/README.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/BA-005/zh-CN/CORRECTION_REPORT.md",
+    "target": "../CORRECTION_REPORT.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-002/zh-CN/CORRECTION_REPORT.md",
+    "target": "../CORRECTION_REPORT.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/EM-005/zh-CN/CORRECTION_REPORT.md",
+    "target": "../CORRECTION_REPORT.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/GAI-003/zh-CN/CORRECTION_REPORT.md",
+    "target": "../CORRECTION_REPORT.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-01/reports/RF-005/zh-CN/CORRECTION_REPORT.md",
+    "target": "../CORRECTION_REPORT.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UI-102/zh-CN/E2E_CONNECTED_ATTEMPT_FAILED.md",
+    "target": "../E2E_CONNECTED_ATTEMPT_FAILED.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md",
+    "target": "../CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md",
+    "target": "../DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md",
+    "target": "../DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md",
+    "target": "../VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md",
+    "target": "../VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/UXI-390/zh-CN/VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md",
+    "target": "../VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md",
+    "target": "../DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md",
+    "target": "../DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md",
+    "target": "../DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md",
+    "target": "../DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md",
+    "target": "../DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md",
+    "target": "../DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md",
+    "target": "../DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/reports/zh-CN/ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md",
+    "target": "../ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/rescheduling-vnext/README.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/ui-civilization/README.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../completed-2026-10-04/connection-onboarding-components/"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../../connection-onboarding/README.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md"
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-06/README.md",
+    "target": "../completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md"
+  },
+  {
+    "source": "mission-book/mesh-3end/README.md",
+    "target": "../finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-701/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-701/zh-CN/CONTEXT_LIFECYCLE.md",
+    "target": "../CONTEXT_LIFECYCLE.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-701/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "target": "../DEVELOPMENT_HANDOFF.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-701/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-701/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-702/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-702/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "target": "../DEVELOPMENT_HANDOFF.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-702/zh-CN/DEVELOPMENT_LOG.md",
+    "target": "../DEVELOPMENT_LOG.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-702/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-702/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-703/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-703/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "target": "../DEVELOPMENT_HANDOFF.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-703/zh-CN/NATIVE_LAYOUT_FINDING.md",
+    "target": "../NATIVE_LAYOUT_FINDING.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-703/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-703/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-704/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-704/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "target": "../DEVELOPMENT_HANDOFF.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-704/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-704/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-705/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-705/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "target": "../DEVELOPMENT_HANDOFF.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-705/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-705/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/ALIEN_INTEGRATION_REPORT.md",
+    "target": "../ALIEN_INTEGRATION_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/DEVELOPMENT_REPORT.md",
+    "target": "../../CEX-PROGRAMME/zh-CN/PAPER_MATERIAL_SYNTHESIS.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/DEVELOPMENT_REPORT.md",
+    "target": "../DEVELOPMENT_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/INDEPENDENT_VERIFICATION_Mech.md",
+    "target": "../INDEPENDENT_VERIFICATION_Mech.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../../CEX-PROGRAMME/zh-CN/PAPER_MATERIAL_SYNTHESIS.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-790/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/CEX-PROGRAMME/zh-CN/PAPER_MATERIAL_SYNTHESIS.md",
+    "target": "../PAPER_MATERIAL_SYNTHESIS.md"
+  },
+  {
+    "source": "mission-book/reports/MON-901/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/MON-901/zh-CN/DEVELOPMENT_HANDOFF.md",
+    "target": "../DEVELOPMENT_HANDOFF.md"
+  },
+  {
+    "source": "mission-book/reports/MON-901/zh-CN/DEVELOPMENT_LOG.md",
+    "target": "../DEVELOPMENT_LOG.md"
+  },
+  {
+    "source": "mission-book/reports/MON-901/zh-CN/OWNER_ACTIVATION.md",
+    "target": "../OWNER_ACTIVATION.md"
+  },
+  {
+    "source": "mission-book/reports/MON-901/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "./REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/MON-901/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/MON-902/zh-CN/REVIEW_CLAIM_Alien.md",
+    "target": "../REVIEW_CLAIM_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/MON-902/zh-CN/REVIEW_REPORT.md",
+    "target": "./INDEPENDENT_REVIEW_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/MON-902/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/MON-903/zh-CN/REVIEW_CLAIM_Alien.md",
+    "target": "../REVIEW_CLAIM_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/MON-903/zh-CN/REVIEW_REPORT.md",
+    "target": "./INDEPENDENT_REVIEW_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/MON-903/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/MON-990/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/MON-990/zh-CN/DEVELOPMENT_PROGRESS_Alien.md",
+    "target": "../DEVELOPMENT_PROGRESS_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/BASELINE.md",
+    "target": "../BASELINE.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/CLAIM_COLLISION_ALIEN.md",
+    "target": "../CLAIM_COLLISION_ALIEN.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/CLAIM_COLLISION_MECH.md",
+    "target": "../CLAIM_COLLISION_MECH.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/CLAIM_COLLISION_MECH.md",
+    "target": "../CLAIM_COLLISION_ALIEN.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/CLAIM_RECORD.md",
+    "target": "../CLAIM_RECORD.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/REVIEW_CLAIM_Alien.md",
+    "target": "../REVIEW_CLAIM_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/REX-803/zh-CN/THREE_END_GATE_MEASUREMENT.md",
+    "target": "../THREE_END_GATE_MEASUREMENT.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md",
+    "target": "../AUTHOR_REPAIR_Alien.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/DEVELOPMENT_REPORT.md",
+    "target": "../DEVELOPMENT_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/HANDOFF_PACKET.md",
+    "target": "../HANDOFF_PACKET.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/PAPER_MATERIAL_INDEX.md",
+    "target": "../PAPER_MATERIAL_INDEX.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/REVERIFICATION_REPORT.md",
+    "target": "../REVERIFICATION_REPORT.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/REVIEW_CLAIM_Mech.md",
+    "target": "../REVIEW_CLAIM_Mech.md"
+  },
+  {
+    "source": "mission-book/reports/REX-804/zh-CN/REVIEW_REPORT.md",
+    "target": "../REVIEW_REPORT.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/README.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/README.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/README.md",
+    "target": "../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/README.md",
+    "target": "../RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "mission-book/research-strengthening/README.md",
+    "target": "../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-801-experiment-manifest-and-registry.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../../RESEARCH_SIGNAL_WATCHLIST.yaml"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-801-experiment-manifest-and-registry.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-802-trace-provenance-and-metrics-foundation.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-803-scenario-runner-and-repetition-engine.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-804-fault-injection-and-recovery-probes.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-805-trace-replay-and-ablation.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-806-metrics-analysis-and-artifact-export.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-807-research-control-surface-and-progressive-disclosure.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../REX-890-reproducibility-study-and-freeze.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/README.md",
+    "target": "../../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/RESEARCH_CONTROL_SURFACE.md",
+    "target": "../RESEARCH_CONTROL_SURFACE.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/RESEARCH_EVIDENCE_PROTOCOL.md",
+    "target": "../RESEARCH_EVIDENCE_PROTOCOL.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-801-experiment-manifest-and-registry.md",
+    "target": "../REX-801-experiment-manifest-and-registry.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-801-experiment-manifest-and-registry.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-802-trace-provenance-and-metrics-foundation.md",
+    "target": "../REX-802-trace-provenance-and-metrics-foundation.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-802-trace-provenance-and-metrics-foundation.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-803-scenario-runner-and-repetition-engine.md",
+    "target": "../REX-803-scenario-runner-and-repetition-engine.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-803-scenario-runner-and-repetition-engine.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
+    "target": "../REX-805-trace-replay-and-ablation.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
+    "target": "../REX-806-metrics-analysis-and-artifact-export.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
+    "target": "../REX-807-research-control-surface-and-progressive-disclosure.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
+    "target": "../REX-890-reproducibility-study-and-freeze.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
+    "target": "../../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
+    "target": "../../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/tools/README.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/tools/README.zh-CN.md",
+    "target": "../README.md"
+  },
+  {
+    "source": "mission-book/workbench-compatibility-migration/README.md",
+    "target": "../CONSTRUCTION_RULES.md"
+  },
+  {
+    "source": "mission-book/workbench-compatibility-migration/README.md",
+    "target": "../ASYNC_RELIEF_CONSTRUCTION.md"
+  },
+  {
+    "source": "mission-book/workbench-compatibility-migration/README.md",
+    "target": "../PROCESS_DATA_POLICY.md"
+  },
+  {
+    "source": "mission-book/workbench-compatibility-migration/README.md",
+    "target": "../finished/completed-2026-10-04/mesh-3end/MESH-301-三端实机互联与相互指挥.md"
+  }
+]

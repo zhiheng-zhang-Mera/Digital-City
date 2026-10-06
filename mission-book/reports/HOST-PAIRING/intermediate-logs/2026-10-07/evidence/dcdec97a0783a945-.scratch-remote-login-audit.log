@@ -1,0 +1,32 @@
+✔ short code preserves identity pinning, reports lockout, and never sends a code to the wrong City (280.6991ms)
+✔ code handoff carries only a selected City, six digits and the existing transport in a fragment (0.5009ms)
+✔ S1: a peer that cannot be dialled registers over an OUTBOUND socket, and the City names its ref (126.8822ms)
+✔ S1: admission reuses the City’s OWN credentials - a session ref comes from the registry, and a bad one is refused (118.05ms)
+✔ S3: a real join completes over the pipe - the CITY runs the payload, the owner approves, the claim is spent once (102.4792ms)
+✔ S3: without approval the pipe grants nothing - the City is not joined just because a path exists (74.9081ms)
+✔ S2/S3: the relay refuses to be an open proxy - no path outside the list, and no widening by method (107.8082ms)
+✔ S3: a City refusal travels back as its OWN status, so the surface can say why instead of "unreachable" (67.0592ms)
+✔ S2: the dialling peer also SERVES the City - a payload the City PUSHES runs on the City it was dialled to (70.862ms)
+✔ N2: the whole cross-network join runs over the pipe - capability, ask, decision, credential (133.3606ms)
+✔ N2: a rejection is reported AS a rejection and never retried; the flow stops there (145.6394ms)
+✔ N2: a pipe that answers for ANOTHER City is refused before an ask is created (67.8286ms)
+✔ N2: the reach decision sends the same link to navigation and the far network to the pipe (0.338ms)
+✔ S1: a pipe that never stops is rate-limited, and the version check still applies to the handshake (1035.4667ms)
+✔ one invite renders as code, deep link, web link and QR payload without creating trust records (3.3244ms)
+✔ expired, cancelled and already-used invites fail with one indistinguishable generic error (1.9362ms)
+✔ guessing is rate-limited and never reveals whether a device exists (0.6781ms)
+✔ entering an invite reaches pairing preview but cannot invoke capabilities before confirmation (0.6598ms)
+✔ an invite is a one-time rendezvous, and after trust it can no longer reconnect anything (1.4717ms)
+✔ the rendezvous service stays independent of the eventual data path (1.1481ms)
+✔ invite policy values are bounded, so a locator cannot be eternal (0.5457ms)
+✔ a hostile link is a bad link, never a crash (0.2729ms)
+✔ a consumed invite keeps its outcome, and an impossible instant is typed (0.4153ms)
+✔ enumeration is throttled even without a client reference, and an unparseable instant is refused (0.7494ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4053.2996

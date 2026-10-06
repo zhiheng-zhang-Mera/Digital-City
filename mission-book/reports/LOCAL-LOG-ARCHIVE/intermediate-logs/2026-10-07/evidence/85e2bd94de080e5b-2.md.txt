@@ -1,0 +1,33 @@
+# RF-004开发报告：蓝牙引导与IP交接
+
+## 1. 交付物
+
+contracts/remote-bluetooth-bootstrap-v1含bootstrap.mjs（BLE port/double、payload、receive/handoff/scan、公开limits）、index、5测试及root测试。验收：蓝牙是DISCOVERY_BLUETOOTH入口且收敛单pairing；payload只pointer，无trust，声称trust拒BLUETOOTH_IS_NOT_TRUST，每payload/返回grants_trust false；MAC不做权威，MAC形device_id拒，身份仅密码学；IP交接需trust并新路fingerprint再核；过期/重放拒且无partial；scan/payload有界严格。对应原测试名称表保留机器证据，不改变历史验收。
+
+## 2. 决策日志
+
+D1无owned repair或Mech可领Correction，唯一Alien开发EM-003已由Alien修，故开发tier；选RF004因跨device substrate关键路径，同RF003/001。
+
+D2选小invite pointer而非trust断言或全credential：device ID、fingerprint ref、single-use nonce、最多8IP、TTL；receive只返pairing入口非trust。多join单trust/MAC仅局部可选证据；声称trust直接拒非sanitize，免caller据radio赋权。
+
+D3在IP handoff验证，需device已TRUSTED且新path呈匹配fingerprint，返verified_over_new_path true/bluetooth_carried_trust false。bootstrap短弱可观察，工作实际path才核身份，新路FINGERPRINT_MISMATCH就是防的失败。
+
+D4每bootstrap authority nonce单use，同ad拒BOOTSTRAP_REPLAYED，不同nonce不同邀请。观察广播若可重用会被relay；接收验TTL，过期无entrypoint，零partial。
+
+D5 MAX_SCAN_ROUNDS16、MAX_IP_CANDIDATES8及payload有界，bridge/adapter均拒UNBOUNDED_SCAN_REFUSED，防radio sweep无界。D6同RF003以contract module放置，City manifest/census/docs编辑留已负责两sibling。D7无schema.json，与同类组件一致。
+
+## 3. 测试汇总
+
+5全过：pointer/trust-claim拒/port flags；MAC不权威及坏identity；expiry/replay/fresh nonce；handoff测试untrusted/quarantined/错device、双方错fingerprint、未advertised address、duplicate及成功验证；bounded scan及candidate count/address/空nonce/坏instant/缺adapter/未知ref严格性。
+
+## 4. 本地检查和CI
+
+pnpm106/106（101baseline+5），promotion82ed36933fb4核10，rooms/city0fail，docs SYNCHRONIZED，CI36731611702在3bcd4957f340441d15d0f780e980c6c56a0c6aa0 success。历史值非本次运行。
+
+## 5. 集成接缝
+
+RF002 receive给startSession入口及需绑定fingerprint，不造session/trust。RF003 LAN/BLE候选合并为同抽象，同device收敛。RF001只消费验证dev-32hex数据不mint身份。RF006接IP_DIRECT authenticated/encrypted结果，选址fallback归path manager。RF009 handoff非presence，副效应前仍revalidate。真实Windows/Android BLE adapter实现三method port，上层不变。
+
+## 6. Correction/Owner开放项
+
+敌对测试handoff后重复bootstrap、同device其他installation trust、重复single-round绕bound。确认identity在handoff非bootstrap语义、IP候选每地址还是每device再核；evolution-feed仍开放。开发完成true、Alien异host修资格true、未merge且直到REMOTE_PROJECT_MERGE禁止，原块保留。

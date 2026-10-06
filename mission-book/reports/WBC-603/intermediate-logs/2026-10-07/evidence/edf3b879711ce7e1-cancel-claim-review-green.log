@@ -1,0 +1,19 @@
+✔ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (171.6198ms)
+✔ crash and restart use canonical interruption refusal rather than duplicate execution (144.24ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (1.2493ms)
+✔ executor failure after progress remains canonical FAILED and drain permits held completion (189.6193ms)
+✔ cancel aborts held executor and late result never replaces terminal state (128.3791ms)
+✔ delayed old-task cancel cannot abort a later task or admit work while control pending (16.0182ms)
+✔ stop during unresolved claim refuses busy and preserves assignment for subsequent stop (14.7487ms)
+✔ pool registers dormant without adapter or I/O and refuses direct or registry work (3.5585ms)
+✔ explicit pool narrows canonical endpoints by membership, role and descriptor readiness (1.0355ms)
+✔ enabled pool with missing canonical adapter fails typed unavailable (0.1906ms)
+✔ pool control must not cancel work held by an unrelated standard endpoint (0.2316ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1896.2913

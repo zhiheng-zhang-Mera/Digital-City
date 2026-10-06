@@ -1,0 +1,29 @@
+import {chromium} from 'playwright';
+import {writeFile} from 'node:fs/promises';
+let input='';for await(const chunk of process.stdin)input+=chunk;
+const {host,token}=JSON.parse(input);
+const id='Q-87818c40-a204-46d6-96e6-7da0077085fa';
+const sha='4150752ac4f326d3d74dd939e31d6abfa3d8055df4a00d7614f7c360353bf71a';
+if(host!=='http://172.31.12.151:4391')throw new Error('Unexpected proof origin');
+const browser=await chromium.launch({channel:'msedge',headless:true});
+try{
+ const page=await browser.newPage();
+ await page.goto(host,{waitUntil:'domcontentloaded'});
+ if(new URL(page.url()).origin!==host)throw new Error('Unexpected browser origin');
+ await page.evaluate(({token})=>{sessionStorage.setItem('city-token',token);localStorage.setItem('utopia.clientLabel','Alien-codex JOIN590 review');},{token});
+ await page.reload({waitUntil:'domcontentloaded'});
+ await page.locator(`[data-task="${id}"]`).first().waitFor({timeout:20000});
+ await page.locator(`[data-task="${id}"]`).first().click();
+ const detail=page.locator('#detail');await detail.waitFor();
+ const text=await detail.innerText();
+ const canonical=await page.evaluate(async({token,id})=>{
+  const h={Authorization:'Bearer '+token,'X-City-Api-Version':'0','X-City-Schema-Version':'0'};
+  const r=await fetch('/api/v0/tasks/'+id,{headers:h});const task=await r.json();
+  const e=await(await fetch('/api/v0/events',{headers:h})).json();
+  return {status:r.status,id:task.id,state:task.state,assignedNodeId:task.assignedNodeId,result:task.result,events:e.events.filter(e=>e.taskId===id).map(e=>({seq:e.seq,type:e.type,taskId:e.taskId}))};
+ },{token,id});
+ const proof={origin:new URL(page.url()).origin,browserTaskIdVisible:text.includes(id),browserResultHashVisible:text.includes(sha),browserResultStateVisible:/COMPLETED|完成/.test(text),canonical};
+ await writeFile('.runtime/evidence/JOIN590-device/round6-web-task-proof.json',JSON.stringify(proof,null,2));
+ await detail.screenshot({path:'.runtime/evidence/JOIN590-device/round6-web-task.png'});
+ console.log(JSON.stringify(proof));
+}finally{await browser.close();}

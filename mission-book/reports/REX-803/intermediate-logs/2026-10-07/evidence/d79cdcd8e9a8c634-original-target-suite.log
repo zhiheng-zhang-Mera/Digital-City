@@ -1,0 +1,168 @@
+✔ Alien independently constructs all workbook negative cases and restart seed consistency (189.9172ms)
+✔ a manifest with only a movable branch must not pass exact software provenance validation (79.8259ms)
+✔ two equal host references are one physical host, not a TWO_HOST_MESH (76.6164ms)
+✔ an experiment can be listed, validated, registered, inspected, seeded — without ever being run (296.4806ms)
+✔ the research routes require the control credential: a worker cannot certify the experiment it runs (100.2294ms)
+✔ an invalid manifest is refused with every issue at once, and the rejection is stored as evidence (101.4378ms)
+✔ manifests survive a gateway restart, and a broken file is reported instead of silently dropped (148.3364ms)
+✔ the registry itself refuses task-domain keys and never offers an update (3.0337ms)
+✔ Web Research discovers imports validates registers and inspects canonical experiments without running (2543.5291ms)
+✔ a failed list refresh cannot hide a successful canonical registration (2354.2807ms)
+✔ REX802 a delayed response cannot remove offline guidance or replace another page (1110.4257ms)
+✔ REX802 rolled-back canonical events never enter the trace (79.2798ms)
+✔ REX802 member Web surface exposes explicit owner-required guidance (1589.6258ms)
+✔ REX802 records only supplied resource samples, preserves zero and declared source time (112.4216ms)
+✔ REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets (1575.9954ms)
+✔ REX802 failing collector cannot break real Gateway task/health and reports partial failure (96.9647ms)
+Error: CONTROLLED_COMMIT_FAILURE
+    at file:///D:/Utopia-REX803-Review/tests/rex802-gateway.test.mjs:4:360
+    at Store.atomic (file:///D:/Utopia-REX803-Review/services/dev-gateway/store.mjs:59:62)
+    at app.store.atomic (file:///D:/Utopia-REX803-Review/tests/rex802-gateway.test.mjs:4:337)
+    at atomicWithTrace (file:///D:/Utopia-REX803-Review/services/dev-gateway/server.mjs:187:93)
+    at createCityTask (file:///D:/Utopia-REX803-Review/services/dev-gateway/server.mjs:462:12)
+    at Server.<anonymous> (file:///D:/Utopia-REX803-Review/services/dev-gateway/server.mjs:996:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+✔ REX802 external resource clocks cannot change canonical sequence time ordering (6.4672ms)
+✔ REX802 broken observation clock remains a contained failure (0.8678ms)
+✔ REX802 rejects an oversized existing file before rotating or modifying it (10.4605ms)
+✔ REX802 rotation remains explicit after restart and restores bounded previous records (22.558ms)
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (1.2093ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.4443ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (0.4224ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (5.6946ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (2.0415ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (65.3262ms)
+✔ REX802 early capture waits for restored watermark before normalization (7.2421ms)
+✔ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (1.6135ms)
+✔ REX803 adversarial R-1: a blocked receipt store degrades the campaign surface instead of failing it (324.0799ms)
+✔ REX803 adversarial R-2: a canonical task cancelled from outside the campaign is CANCELLED, not FAILED (199.7461ms)
+✔ REX803 campaigns: every repetition is a real canonical task, and the receipt accounts for all of them (557.992ms)
+✔ REX803 campaigns: the surface is owner-only, and every refusal is typed (254.1071ms)
+✔ REX803 campaigns: the topology gate is measured against live refs, and its refusal states what was missing (108.9058ms)
+✔ REX803 campaigns: stopping cancels the canonical task the run had already created (205.0994ms)
+✔ REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason (3909.3459ms)
+✔ REX803 web: a member is told the campaign surface is the owner's, and is offered no controls (1186.4158ms)
+✔ REX803 seeds: a run seed is a pure function of the campaign seed and the index (1.0968ms)
+✔ REX803 campaign: N repetitions yield exactly N measured outcomes, and warmup is run but never measured (72.631ms)
+✔ REX803 campaign: a timeout and a failure are absences WITH reasons, never silent gaps (93.0947ms)
+✔ REX803 campaign: stopping cancels the runs that never happened, each with the operator reason (42.9315ms)
+✔ REX803 campaign: an unfinished campaign is refused unless resuming is asked for explicitly (94.0593ms)
+✔ REX803 campaign: unknown scenarios, bad repetitions, a busy runner and an unready topology are typed refusals (29.2288ms)
+✔ REX803 stop: the cleanups a run registered are fired, so a stop reaches the work and not only the bookkeeping (79.9487ms)
+✔ REX803 timeout: a run that never answers is torn down, and its cleanup failure is stated rather than hidden (109.8488ms)
+✔ REX803 restart: a campaign left RUNNING by a dead process is recovered as INTERRUPTED, named, and optionally resumed (16.8393ms)
+✔ REX803 resume: abandoning an unfinished campaign is an explicit act, and it is recorded on the replacement (45.4741ms)
+✔ REX803 limits: declared stop conditions end the campaign early, and every unrun repetition is SKIPPED with that reason (187.5193ms)
+✔ REX803 receipts: a finished campaign is filed once and the next campaign cannot overwrite it (46.121ms)
+✖ REX803 L6: the receipt list is ordered by AGE, not by a random identifier in the filename (11.2222ms)
+✖ REX803 L1b: the receipt list says how many campaigns exist beyond the bound (6.5979ms)
+✖ REX803 L7: a runner that has been closed refuses new work instead of starting a campaign (4.8781ms)
+✔ REX803 positive control: a normal campaign still plans, measures and files exactly once (69.5667ms)
+✖ REX803 rehearsal: with TWO workers every repetition is TARGETED by its derived seed, not left to claim order (495.7617ms)
+✖ REX803 rehearsal: the observed assignment equals the declared rule, and both workers are used (460.2919ms)
+ℹ tests 54
+ℹ suites 0
+ℹ pass 49
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15610.8789
+
+✖ failing tests:
+
+test at tests\rex803-third-class-sweep.test.mjs:29:1
+✖ REX803 L6: the receipt list is ordered by AGE, not by a random identifier in the filename (11.2222ms)
+  AssertionError [ERR_ASSERTION]: the bounded list must be the NEWEST campaigns; ordering by a random identifier in the file name returns an arbitrary sample
+  + actual - expected
+  
+    [
+  +   'campaign-dddddddd-0000-0000-0000-000000000000',
+  +   'campaign-eeeeeeee-0000-0000-0000-000000000000',
+  +   'campaign-ffffffff-0000-0000-0000-000000000000'
+  -   'campaign-aaaaaaaa-0000-0000-0000-000000000000',
+  -   'campaign-bbbbbbbb-0000-0000-0000-000000000000',
+  -   'campaign-cccccccc-0000-0000-0000-000000000000'
+    ]
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX803-Review/tests/rex803-third-class-sweep.test.mjs:47:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'campaign-dddddddd-0000-0000-0000-000000000000', 'campaign-eeeeeeee-0000-0000-0000-000000000000', 'campaign-ffffffff-0000-0000-0000-000000000000' ],
+    expected: [ 'campaign-aaaaaaaa-0000-0000-0000-000000000000', 'campaign-bbbbbbbb-0000-0000-0000-000000000000', 'campaign-cccccccc-0000-0000-0000-000000000000' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex803-third-class-sweep.test.mjs:52:1
+✖ REX803 L1b: the receipt list says how many campaigns exist beyond the bound (6.5979ms)
+  AssertionError [ERR_ASSERTION]: 7 campaigns exist and 3 were returned with nothing stating that the list was truncated
+      at TestContext.<anonymous> (file:///D:/Utopia-REX803-Review/tests/rex803-third-class-sweep.test.mjs:69:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\rex803-third-class-sweep.test.mjs:78:1
+✖ REX803 L7: a runner that has been closed refuses new work instead of starting a campaign (4.8781ms)
+  AssertionError [ERR_ASSERTION]: close() was called and start() still accepted a campaign: {"campaignId":"campaign-4da63396-82da-435e-a390-0952259a098e","state":"RUNNING","totalRuns":1,"campaignSeed":"WAIT-1791267026561"}
+      at TestContext.<anonymous> (file:///D:/Utopia-REX803-Review/tests/rex803-third-class-sweep.test.mjs:89:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\rex803-two-worker-rehearsal.test.mjs:128:1
+✖ REX803 rehearsal: with TWO workers every repetition is TARGETED by its derived seed, not left to claim order (495.7617ms)
+  AssertionError [ERR_ASSERTION]: 6 of 6 campaign task(s) were created with no targetDeviceRef, so the derived-seed placement rule never ran and the receipt's assignment is claim order, not the declared rule
+  
+  6 !== 0
+  
+      at file:///D:/Utopia-REX803-Review/tests/rex803-two-worker-rehearsal.test.mjs:137:12
+      at rehearse (file:///D:/Utopia-REX803-Review/tests/rex803-two-worker-rehearsal.test.mjs:120:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///D:/Utopia-REX803-Review/tests/rex803-two-worker-rehearsal.test.mjs:129:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 6,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex803-two-worker-rehearsal.test.mjs:148:1
+✖ REX803 rehearsal: the observed assignment equals the declared rule, and both workers are used (460.2919ms)
+  AssertionError [ERR_ASSERTION]: run 1 (seed 2220486659) landed on rehearsal-alpha, but the declared rule selects rehearsal-beta
+  + actual - expected
+  
+  + 'rehearsal-alpha'
+  - 'rehearsal-beta'
+               ^
+  
+      at file:///D:/Utopia-REX803-Review/tests/rex803-two-worker-rehearsal.test.mjs:157:14
+      at rehearse (file:///D:/Utopia-REX803-Review/tests/rex803-two-worker-rehearsal.test.mjs:120:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///D:/Utopia-REX803-Review/tests/rex803-two-worker-rehearsal.test.mjs:149:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'rehearsal-alpha',
+    expected: 'rehearsal-beta',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,42 @@
+✔ REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code (5389.6884ms)
+✔ REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session (3922.7428ms)
+✔ REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session (9294.5211ms)
+✔ REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE (12369.2967ms)
+✔ P1-P5 discovery, request, approval and exchange hold the workbook boundaries (343.1003ms)
+    OBSERVED: /pairing/info bad-version -> 200; /pairing/session bad-version -> 409
+✔ P6 REGRESSION PROBE the version check on the legacy public pairing routes (80.0362ms)
+✔ the old inline implementation throws on empty output, which is the regression (2.1699ms)
+✔ empty output is read as "already gone", not as an unparseable error (0.5808ms)
+✔ "null" from ConvertTo-Json is also treated as already gone (0.1511ms)
+✔ a live, matching process verifies through CIM (0.1746ms)
+✔ a live process running something else is a FATAL mismatch, as it was before (0.1779ms)
+✔ a quoting-safe array result is handled as well as a single object (0.1394ms)
+✔ a missing CommandLine field is not mistaken for a match (0.2117ms)
+✔ when CIM is unusable, tasklist still catches a plainly wrong process (0.2718ms)
+✔ tasklist reporting no match is already-gone rather than unavailable (0.2208ms)
+✔ both probes failing is unavailable, and is not fatal (0.3003ms)
+✔ unparseable-but-non-empty CIM output falls through to the weaker probe instead of claiming absence (0.1621ms)
+✔ a UTF-8 BOM on the output does not break parsing (0.1254ms)
+✔ every returned status is one of the declared statuses (0.2013ms)
+✔ a non-numeric PID is fatal and never reaches a command line (0.1014ms)
+✔ the CIM and tasklist filters refuse a non-numeric PID outright (0.2054ms)
+✔ the redesigned-shell fixture really is the zero-sized-label shape (1.8517ms)
+✔ a bare first-match label lookup selects a zero-bounds node, which is the original defect (0.3223ms)
+✔ no sized nav label exists on the shipped shell, so a size filter ALONE would leave nothing to tap (0.6978ms)
+✔ the active tab has no clickable node, so clickable ordinal alone is unstable (0.3959ms)
+✔ targets are paired to labels in document order, giving a page-independent index (0.3242ms)
+✔ resolveRoute reaches Home from the Devices page via the paired target (0.2158ms)
+✔ the nav band excludes page content that happens to be clickable (0.2679ms)
+✔ a sized heading is not mistaken for a nav target (0.8936ms)
+✔ resolveRoute prefers a sized label inside the band, preserving the earlier shell (0.3885ms)
+✔ the two shells are distinguished rather than one being assumed (0.3371ms)
+✔ an unresolvable tree returns null rather than a zero-bounds node (0.1236ms)
+✔ the task pilot creates its evidence directory before writing into it (0.3252ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 32333.844

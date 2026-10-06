@@ -1,0 +1,29 @@
+✔ a well-formed manifest validates, and carries no invented defaults (2.9869ms)
+✔ a missing field is reported, never defaulted (1.4026ms)
+✔ an impossible topology is refused, in each of the ways it can be impossible (1.027ms)
+✔ an unknown capability is refused against the supplied vocabulary, and nothing is assumed (0.3286ms)
+✔ conflicting and duplicated variables are refused (0.2602ms)
+✔ software identity must be exact: a short SHA or a branch name is refused by name (0.6289ms)
+✔ stop conditions and artifact policy are explicit, and an unknown kind is refused (0.3602ms)
+✔ the seed sequence is deterministic, total and independent of the host (0.8342ms)
+✔ a manifest may not carry task-domain keys: this is not a second task database (0.3785ms)
+✔ versioned authenticated gateway rejects unsafe commands and persists history (246.2768ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (130.3661ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1388.5052ms)
+✔ an interrupted task is never falsified as success across a gateway restart (159.1625ms)
+✔ Alien independently constructs all workbook negative cases and restart seed consistency (608.6715ms)
+✔ a manifest with only a movable branch must not pass exact software provenance validation (73.6519ms)
+✔ two equal host references are one physical host, not a TWO_HOST_MESH (75.0095ms)
+✔ an experiment can be listed, validated, registered, inspected, seeded — without ever being run (244.876ms)
+✔ the research routes require the control credential: a worker cannot certify the experiment it runs (84.2325ms)
+✔ an invalid manifest is refused with every issue at once, and the rejection is stored as evidence (104.0844ms)
+✔ manifests survive a gateway restart, and a broken file is reported instead of silently dropped (130.7182ms)
+✔ the registry itself refuses task-domain keys and never offers an update (3.1645ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4370.7912

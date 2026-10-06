@@ -1,0 +1,7 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (123.3614ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (93.6529ms)
+✔ slow/disconnected observation never gates real canonical task persistence (71.1767ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (134.7727ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (88.9455ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (63.1535ms)
+✖ deleted historical prefix and tail cannot be reported as complete history (75.191ms)

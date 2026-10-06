@@ -1,0 +1,75 @@
+# EM-004 开发报告：连接器能力／探针／认证／实例注册表
+
+{{CODE0}}
+
+原始元数据保留任务、阶段、Mech、领取与控制版本、仓库、基线、分支／SHA、CI、108项检查及开发完成／禁止组件合并状态。
+
+## 1. 交付物
+
+`contracts/engineering-registry-v1/` 包含 `registry.mjs`（记录、探针事实、能力匹配、探针隔离注册表）、`index.mjs`（公共接口与保证）、7项 `tests/conformance.test.mjs` 和根 `tests/engineering-registry.test.mjs`。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 同类连接器两实例保持独立 | 共descriptor、不同instance ref；重复instance和未声明kind拒绝 |
+| stale探针可见且不静默健康 | stale使readiness／capability UNKNOWN、usable:false，从usableOnly列表排除 |
+| 不仅凭live进程推断auth READY | running＋attachable但auth MISSING为usable:false／AUTH_NOT_READY；六非READY状态全拒 |
+| 执行前能力不匹配类型化拒绝 | 显式UNSUPPORTED为missing，未验证为unknown，都CAPABILITY_MISMATCH |
+| 一个探针抛错／超时不破坏注册表 | 五混合条目记录失败、成功应用、失败不重写事实 |
+| 注册表无raw凭据 | 拒secret形字段；快照只报handle存在，不报值 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取任务。** 新扫描无自己修复、无另一主机可领取Correction（EM-002由Alien领取，EM-003和GAI-002也属Alien），进入未领取Development。EM池最大、另一主机未在其中，且不同于上次GAI，符合平局偏好，选择EM-004。
+
+**D2：descriptor与instance。** `ConnectorDescriptor` 是kind，带runtime、display name、capability manifest；`ConnectorInstance` 是安装／运行／account实例，各有probe／process／auth／health，分独立记录，同kind可多实例。工作簿明确命名此分离，同worker两设备才能有不同auth／freshness。未声明kind的instance拒 `UNKNOWN_CONNECTOR_KIND`。
+
+**D3：四事实分离。** `processReadiness`、`auth.status`、`health`、`capabilityOf` 独立计算，usability需全部满足并返回阻断列表而非单布尔。防止live进程推断认证正是本任务目的，单ready旗标会重现错误；running且attachable但auth MISSING仍拒AUTH_NOT_READY。
+
+**D4：stale probe意味什么。** 返回readiness UNKNOWN、capability UNKNOWN、usable:false，不保留最后观察状态作当前值。freshness并列返回使操作员知为何unknown；边界含等号，observed_at＋ttl仍FRESH，一毫秒后不是。
+
+**D5：缺能力与未验证。** 显式UNSUPPORTED是missing；缺事实或UNKNOWN是unknown，均CAPABILITY_MISMATCH但判断区别。工作簿未知默认unknown／unsupported、不假定真；调度需区分“不能做”与“没人验证能做”。首测试把两者混同，模块正确，已修测试并记录区别为有意而非偶然。
+
+**D6：探针隔离。** probeAll各probe独立防护，逐条记录instance_ref／ok／code／detail，失败从不重写instance。仅真实执行失败PROBE_FAILED／PROBE_TIMEOUT进failure log；未注册instance／非函数等调用者错误只进outcomes，不算probe failure。要求一个失败不破注册表，区分日志诚实保留两类别。
+
+**D7：无secret存储。** auth带status、可选handle_ref；secret扫描拒任意嵌套凭据形字段名，快照仅capability_handle_present。工作簿不许raw凭据，handle值归中性store，与EM-008／GAI-002接缝相同。
+
+**D8：匹配不选择。** matchRequirements／eligibleInstances报告逐实例判断和候选，不排序不选；调度优先级和远程放置明确不在范围，公开chooses_remote_host:false。
+
+**D9：无schema.json。** 运行时／发现语义在代码验，与BA-002 D2、BA-003 D2、EM-003 D10、GAI-002 D9一致。
+
+## 3. 测试汇总
+
+7项全过：descriptor／instance分离、重复／未声明kind拒；freshness含边界FRESH、ttl后STALE、不可解析时间UNKNOWN，stale能力／readiness未知、排除usable列表；六非READY认证独立，health／process阻断独立且区分attachability；能力显式unsupported／unverified、类型拒、stale转未验证；throw／timeout／success／unknown-instance／non-function隔离且不改事实；raw凭据拒、仅handle存在快照；记录严格性含version、未知capability fact、错误support level、未知field、device ref形状、process state、health、不完整probe及eligibility报告。
+
+原稿记录自己测试发现并在模块修复的开发问题而非绕过：`.map(structuredClone)`把数组index当structuredClone options，真实bug改为箭头包装；D5／D6两测试预期确认模块行为正确后修正。保留原稿“两项开发缺陷”叙述及其列项，不重新裁定计数。
+
+## 4. 本地检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 108项、108过、0败（101＋7） |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4上10条 |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败 |
+| corepack pnpm check:docs | PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI 36723706236，6e72536f40a310a3d1c36688ef0e4fe1352f1b72 | success |
+
+## 5. 兄弟任务集成接缝
+
+- EM-001：合并时绑ConnectorRegistryPort／CapabilityManifest／AuthStatus，listInstances／capabilities／authStatus／health直接映射。
+- EM-002：updateProbe承接runtime探针；restart／safe-mode放process.state，不放auth／health。
+- EM-005：usability().blockers诚实输入“此worker需要你”。
+- EM-006／007：matchRequirements给fit，不rank／select；远程资格还需RF-009 presence，此处不读。
+- EM-008：handle_ref是唯一凭据handle，解析留中性store。
+- GAI-002：两注册表共typed absence、unknown默认、handle-only、freshness，合并时共同审查词汇一致。
+
+## 6. Correction主机／Owner开放项
+
+1. 尝试stale或从未观察auth使instance可用、descriptor夹带instance不能兑现能力、一个失败probe阻止另一个应用。
+2. 确认D5 unsupported→missing／unverified→unknown调度词汇。
+3. 确认health可从probe推导或独立观察；模块保独立。
+4. evolution-feed仍待Owner。
+
+{{CODE1}}
+
+原始结论保留开发完成、仅Alien纠正、Engineering Manager项目合并前禁止合并。

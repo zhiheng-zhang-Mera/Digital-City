@@ -1,0 +1,4 @@
+import subprocess,pathlib,xml.etree.ElementTree as E,json
+R=pathlib.Path('.runtime/evidence/JOIN590-device');A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T'];raw=subprocess.check_output(A+['exec-out','run-as','city.utopia.control.join590review','cat','shared_prefs/city-connection.xml']);nodes={n.get('name'):n.text if n.tag=='string' else n.get('value') for n in E.fromstring(raw)}
+# Local retired observation was parsed from boolean .text incorrectly. Correct via preserved UI, avoid claiming current Mech storage equals Alien storage.
+p=R/'local-native-revocation.json';proof=json.loads(p.read_text());proof.pop('retired',None);proof['retiredUiObserved']=True;proof['booleanParsingCorrection']='Android boolean values reside in value attributes; original retired=false was a harness parsing error';p.write_text(json.dumps(proof,indent=2))

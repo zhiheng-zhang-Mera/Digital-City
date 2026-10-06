@@ -1,0 +1,32 @@
+✖ CEX701 owner sees canonical clone findings and explicitly recovers unbound installation without deleting other devices (13299.4241ms)
+✖ CEX701 session sees only own installation and actionable owner guidance; rebind and cross-revoke stay forbidden (13280.0604ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28164.1774
+
+✖ failing tests:
+
+test at tests\cex701-recovery-ui.test.mjs:3:1
+✖ CEX701 owner sees canonical clone findings and explicitly recovers unbound installation without deleting other devices (13299.4241ms)
+  locator.waitFor: Timeout 12000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('#clone-warnings') to be visible[22m
+  
+      at TestContext.<anonymous> (D:\Utopia-CEX701\tests\cex701-recovery-ui.test.mjs:3:1018) {
+    name: 'TimeoutError'
+  }
+
+test at tests\cex701-recovery-ui.test.mjs:4:1
+✖ CEX701 session sees only own installation and actionable owner guidance; rebind and cross-revoke stay forbidden (13280.0604ms)
+  locator.waitFor: Timeout 12000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('#recovery-owner-guidance') to be visible[22m
+  
+      at TestContext.<anonymous> (D:\Utopia-CEX701\tests\cex701-recovery-ui.test.mjs:4:859) {
+    name: 'TimeoutError'
+  }

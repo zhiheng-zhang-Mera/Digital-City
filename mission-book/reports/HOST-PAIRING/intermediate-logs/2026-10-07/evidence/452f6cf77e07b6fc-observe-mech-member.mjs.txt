@@ -1,0 +1,11 @@
+import {readDeviceFile,openDeviceSession} from '../apps/client/device-enrollment.mjs';
+import {resolve} from 'node:path';
+const record=readDeviceFile(resolve(process.env.LOCALAPPDATA,'Utopia/client/device-enrollment.json'));
+if(record?.cityId!=='031fdba6-e94c-4298-a095-6ff04a65481d')throw new Error('EXPECTED_CITY_REQUIRED');
+const session=await openDeviceSession(record);
+const headers={Authorization:'Bearer '+session.credential,'X-City-Api-Version':'0','X-City-Schema-Version':'0'};
+const results=await Promise.all(['city','nodes','tasks'].map(async p=>{const r=await fetch(record.endpoint+'/api/v0/'+p,{headers,signal:AbortSignal.timeout(10000)});if(!r.ok)throw new Error(p+':'+r.status);return r.json()}));
+const [city,nodes,tasks]=results;
+if(city.cityId!==record.cityId)throw new Error('LIVE_CITY_MISMATCH');
+const recent=(tasks.tasks??[]).filter(t=>t.researchRunRef||t.researchCampaignId||t.experimentRunRef).slice(-12).map(t=>({id:t.id,state:t.state,assignedNodeId:t.assignedNodeId,researchRunRef:t.researchRunRef,createdAt:t.createdAt,updatedAt:t.updatedAt}));
+console.log(JSON.stringify({observedAt:new Date().toISOString(),cityId:city.cityId,sessionRole:session.session?.role,nodes:(nodes.nodes??[]).map(n=>({id:n.id,status:n.status,state:n.state})),recentResearchTasks:recent},null,2));

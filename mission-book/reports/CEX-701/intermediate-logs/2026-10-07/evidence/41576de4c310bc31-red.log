@@ -1,0 +1,50 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+Checking the license for package Android SDK Build-Tools 35 in D:\Tools\UtopiaAndroidSdk\licenses
+License for package Android SDK Build-Tools 35 accepted.
+Preparing "Install Android SDK Build-Tools 35 v.35.0.0".
+"Install Android SDK Build-Tools 35 v.35.0.0" ready.
+Installing Android SDK Build-Tools 35 in D:\Tools\UtopiaAndroidSdk\build-tools\35.0.0
+"Install Android SDK Build-Tools 35 v.35.0.0" complete.
+"Install Android SDK Build-Tools 35 v.35.0.0" finished.
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeDebugResources
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebug
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugKotlin
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:24:31 'val isZoomSupported: Boolean' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:24:59 'val zoomRatios: (Mutable)List<Int!>!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:25:51 'val maxZoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:27:48 'var zoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:28:36 'var zoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:31:62 'val isZoomSupported: Boolean' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:34:36 'var focusMode: String!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/CityDiscovery.kt:31:94 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/CityDiscovery.kt:33:382 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/Devices.kt:39:66 Java type mismatch: inferred type is 'Nothing?', but 'String' was expected.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/Devices.kt:44:58 Java type mismatch: inferred type is 'Nothing?', but 'String' was expected.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/MainActivity.kt:143:389 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Any?'.
+w: file:///D:/Utopia-CEX701/apps/android/app/src/main/java/city/utopia/control/MainActivity.kt:143:495 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Any?'.
+
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:processDebugJavaRes
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
+
+> Task :app:compileDebugUnitTestKotlin FAILED
+20 actionable tasks: 20 executed

@@ -1,0 +1,11 @@
+✔ CEX702 ordinary Web choice records a single decline, hands off and returns actual result to same surface (2235.7762ms)
+✔ CEX702 strict target and no alternate have explicit canonical refusal without conflicting mutation (279.9026ms)
+✔ CEX702 backend rejects stale decisions and withdrawn/offline alternates using current City truth (203.7124ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4023.6416

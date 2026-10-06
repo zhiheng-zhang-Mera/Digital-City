@@ -1,0 +1,16 @@
+[
+  {
+    "source": "mission-book\\finished\\replant\\ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+    "target": "mission-book\\finished\\replant\\zh-CN\\ENGINEERING_BOOK-2026-09-30-PRE-ASSISTANT-UPT-CLOSEOUT.md",
+    "source_prefix_sha256": "ca570aa816ec24ef80335eb020659ef5adeaf965bff2749a616abeee1c02a23d",
+    "source_prefix_bytes": 17660,
+    "exact_blocks": 18
+  },
+  {
+    "source": "mission-book\\finished\\replant\\README-LEGACY-MIGRATION-CONTROL.md",
+    "target": "mission-book\\finished\\replant\\en\\README-LEGACY-MIGRATION-CONTROL.md",
+    "source_prefix_sha256": "b62a203285ae34aad028e17ded3c2fec08978d364f02841263f0b0740dfb0745",
+    "source_prefix_bytes": 42353,
+    "exact_blocks": 13
+  }
+]

@@ -1,0 +1,20 @@
+import pathlib,re,os,hashlib,json,subprocess
+ROOT=pathlib.Path('\\\\?\\D:\\Digital-City-REX-20261006')
+def save(series,name,body,lang='zh-CN'):
+ src=ROOT/'mission-book/finished/completed-2026-10-03/reports'/series/name;before=src.read_bytes();s=before.decode('utf8').replace('\r\n','\n');dest=src.parent/lang/name
+ assert not body.startswith('---')
+ header=f'# Reading translation / 阅读译本\n\n[Canonical historical source / 历史权威原文](../{name})。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。\n\n'
+ body=re.sub(r'(\]\()([^\)]+)(\))',lambda m:m[0] if m[2].startswith(('http:','https:','#')) else m[1]+'../'+m[2]+m[3],body)
+ codes=lambda t:re.findall(r'```[^\n]*\n[\s\S]*?```',t)
+ assert codes(s)==codes(body),(name,'fences')
+ assert len(re.findall(r'^#+ ',s,re.M))==len(re.findall(r'^#+ ',body,re.M)),(name,'headings')
+ for sha in re.findall(r'\b[0-9a-f]{40,64}\b',s):assert sha in body,(name,sha)
+ for link in re.findall(r'\]\(([^)]+)\)',header+body):
+  if not link.startswith(('http:','https:','#')):assert pathlib.Path(os.path.normpath(str(dest.parent/link.split('#')[0]))).exists(),(name,link)
+ dest.parent.mkdir(exist_ok=True);dest.write_text(header+body,encoding='utf8');assert src.read_bytes()==before
+ link=f'\n\n[阅读译本 / Reading translation](./{lang}/{name})\n'.encode('utf8')
+ if link.strip() not in before:src.write_bytes(before+link)
+ assert src.read_bytes().startswith(before)
+ print('VERIFIED',series,name)
+def blocks(series,name):
+ return re.findall(r'```[^\n]*\n[\s\S]*?```',(ROOT/'mission-book/finished/completed-2026-10-03/reports'/series/name).read_text(encoding='utf8'))

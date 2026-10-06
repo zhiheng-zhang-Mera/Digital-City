@@ -1,0 +1,19 @@
+# 派发：Mech轮换重扫，RS-290评审仍有gate，可领取池为空
+
+## 读仓库而非假定
+
+按规则先fetch再判断，mission-book main d718671，自己dispatch4a04b11唯一新commit。Utopia RS-290分支无Alien4acb350/6514733后新开发。直接读frontmatter：RS-290 IN_PROGRESS/devAlien/dev_complete false/review null；UXI-301、UXI-390 NOT_STARTED/null/false/null。
+
+## 为何不可领取，是WAIT而非zero-claim pool
+
+RS-290活跃不归Mech开发，frontmatter要求Review必须Mech、Alien不可自评，development_complete false所以不能领Review。是此前RS-203对Alien同边界，角色反转也适己。UXI-301依UI-190/RS-290，UXI-390依UXI-301，全余池一gate后。有真实未完及owner所以分类WAIT非zero-claim（后者本报告定义为无任何live task），否则夸大阻塞。标题“pool empty”指可领取，不改历史措辞。
+
+## 本轮记录
+
+纠正并验证Alien recovery blocker归因：曾说device-recovery-pilot.mjs28–29 Get-CimInstance不是自己，现git blame18–40每行属2026-09-29 f8285134，自身唯一改该文件0d15a5f只有一行locale/selector插删。用正对照核，坏command零不证明。
+
+同dispatch承认task pilot按label改route是回归：Alien Home节点zero-bounds tap空，而移除hard input tap1082195在该1080x2400真机原有效。移工作host常量换坏host独立路径却只报优点。
+
+## 下一步
+
+有界轮扫，唯一解锁为Alien RS-290 development_complete true后Mech领Review，须异物理host且Alien明确排除自己。每轮再查recovery-path blocker是否清，因为它隔freeze且现属host能力非产品问题。

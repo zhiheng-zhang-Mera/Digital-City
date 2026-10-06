@@ -1,0 +1,77 @@
+Starting a Gradle Daemon, 1 busy Daemon could not be reused, use --status for details
+WARNING: The following problems were found when resolving the SDK location:
+Where: ANDROID_SDK_ROOT environment variable. Problem: Directory does not exist
+
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:mergeDebugResources
+> Task :app:extractDeepLinksDebug
+> Task :app:parseDebugLocalResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:javaPreCompileDebug
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:mergeDebugShaders
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets
+> Task :app:compressDebugAssets
+> Task :app:desugarDebugFileDependencies
+> Task :app:mergeDebugJniLibFolders
+> Task :app:checkDebugDuplicateClasses
+> Task :app:mergeDebugNativeLibs
+> Task :app:mergeLibDexDebug
+
+> Task :app:stripDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libandroidx.graphics.path.so. Run with --info option to learn more.
+
+> Task :app:validateSigningDebug
+> Task :app:writeDebugAppMetadata
+> Task :app:writeDebugSigningConfigVersions
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+> Task :app:mergeExtDexDebug
+
+> Task :app:compileDebugKotlin
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:24:31 'val isZoomSupported: Boolean' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:24:59 'val zoomRatios: (Mutable)List<Int!>!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:25:51 'val maxZoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:27:48 'var zoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:28:36 'var zoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:31:62 'val isZoomSupported: Boolean' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:34:36 'var focusMode: String!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/CityDiscovery.kt:31:94 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/CityDiscovery.kt:33:382 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/Devices.kt:39:66 Java type mismatch: inferred type is 'Nothing?', but 'String' was expected.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/Devices.kt:44:58 Java type mismatch: inferred type is 'Nothing?', but 'String' was expected.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/MainActivity.kt:170:389 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Any?'.
+w: file:///D:/Utopia-MON903/apps/android/app/src/main/java/city/utopia/control/MainActivity.kt:170:495 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Any?'.
+
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:processDebugJavaRes
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics
+> Task :app:mergeProjectDexDebug
+> Task :app:mergeDebugJavaResource
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect
+> Task :app:assembleDebug
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:testDebugUnitTest
+
+BUILD SUCCESSFUL in 1m 4s
+41 actionable tasks: 41 executed

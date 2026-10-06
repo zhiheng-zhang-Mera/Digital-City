@@ -1,0 +1,5 @@
+Device recovery had no normal Web entry and Android offered no actionable recovery guidance. Settings now shows typed clone warnings, explicit owner device selection and approval, and canonical rebind/revoke results. Android provides installation status, recovery guidance and a credential-free owner Web link. Credential changes clear owner confirmation and fence stale responses.
+
+Validation: Web17/17; Android84/84 and debug APK build; OPPO PERM00 offline Settings entry and installed APK hash verified. Exact source a24c04401308b11548626239e8ca1f9b4276bbdf CI37206760171 passed. Independent technical review: no remaining blocker.
+
+CEX-701 opposite physical-host Formal Review remains pending. No merge authority; connected Android recovery not exercised locally. Failed test/instrument/environment evidence retained in Digital-City report index.

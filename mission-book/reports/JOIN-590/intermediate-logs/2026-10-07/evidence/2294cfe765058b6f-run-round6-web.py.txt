@@ -1,0 +1,6 @@
+from pathlib import Path
+s=Path('.runtime/round3-web.mjs').read_text().replace('Q-24ebb6d9-ea60-47bc-944b-e7e4da530819','Q-87818c40-a204-46d6-96e6-7da0077085fa').replace('1d75256ecf08d63f10f8fe9832a7a2f2212cf78d6b55498d7e0a909e4b6eec1b','4150752ac4f326d3d74dd939e31d6abfa3d8055df4a00d7614f7c360353bf71a').replace('round3-web-task','round6-web-task')
+Path('.runtime/round6-web.mjs').write_text(s)
+import subprocess,xml.etree.ElementTree as E,json
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T'];p={n.get('name'):n.text for n in E.fromstring(subprocess.check_output(A+['exec-out','run-as','city.utopia.control.join590review','cat','shared_prefs/city-connection.xml']))};assert p['host']=='http://172.31.12.151:4391' and p['token'].startswith('sess:')
+res=subprocess.run(['node','.runtime/round6-web.mjs'],input=json.dumps({'host':p['host'],'token':p['token']}),text=True,capture_output=True);print(res.stdout);print(res.stderr);assert res.returncode==0

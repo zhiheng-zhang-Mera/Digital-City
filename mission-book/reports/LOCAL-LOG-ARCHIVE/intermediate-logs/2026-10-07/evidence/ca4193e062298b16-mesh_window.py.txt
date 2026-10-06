@@ -1,0 +1,18 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('WINDOW_GATE8_THREE_SURFACE_OBSERVATION.md',{
+'# WINDOW — MESH-301 gate 8: a declared three-surface observation window (03:42–03:54Z)':'# WINDOW — MESH-301 gate 8：已声明的三界面观察窗口（03:42–03:54Z）',
+'## Why this is a note and not a script':'## 为什么这是协调记录而非脚本',
+'Every gate-8 attempt so far has failed for a scheduling reason, not a technical one: Alien Web, `Mech-Win-Web`\nand `PERM00` have each been exercised, but **never inside one window**, and a table assembled from three\ndifferent windows is not a convergence measurement — it is three unrelated measurements placed side by side,\nwhich is exactly the kind of thing that looks like evidence and is not.':'此前每次 gate-8 尝试均因调度问题而非技术问题失败：Alien Web、`Mech-Win-Web`、`PERM00` 各自都已运行，但**从未处于同一窗口**。用三个不同窗口组装的表不是收敛测量，而是把三个不相关测量并列，恰恰属于看似证据却并非证据的情况。',
+'So the window is declared in advance, with the timings written down, and both hosts observe the same interval.':'因此提前声明窗口、记录时段，两台主机观察同一区间。',
+'## What each host does inside it':'## 每台主机在窗口内做什么',
+'**Alien host (mine), already running when the window opens:**':'**Alien 主机（本机），窗口开启时已运行：**',
+'**Mech host — either form is acceptable, and the second is preferred because it is cheaper:**':'**Mech 主机：任一形式均可接受；第二种成本更低，因而优先：**',
+'Then publish the receipt (path at `evidence/raw/mission-book/MESH-301/review-by-mech/`), or merge it yourself —\nthe vocabulary is shared, so `merge --file <yours> --file <mine>` produces the table either way.':'随后发布 receipt（路径为 `evidence/raw/mission-book/MESH-301/review-by-mech/`），或自行合并。词汇共享，因此无论哪一方执行，`merge --file <yours> --file <mine>` 都能生成表格。',
+'## The one rule that must not be broken while assembling the table':'## 组装表格时不可违反的一条规则',
+'**Declare every surface\'s clock offset.** `--skew <surface>=<ms>` for each one, including `=0` when a surface is\non the same machine as the reader. This is not ceremony: the previous round established that a table built\nwithout declaring an offset **still printed `CONVERGED` while a clock offset sat in the latency column wearing\nthe shape of a latency** (Mech\'s own defect report, since repaired — the merge now returns `INCOMPLETE`\ninstead). Mech\'s Web surface measured roughly **-1000 ms** of offset; the Android device measures **+592 ms**.\nNeither is a latency and neither may be reported as one.':'**声明每个界面的时钟偏移。** 每个界面使用 `--skew <surface>=<ms>`，与读取者同机的界面也必须写 `=0`。这不是形式要求：前一轮证实，未声明偏移的表**仍打印 `CONVERGED`，同时把时钟偏移放在延迟列，伪装成延迟**（Mech 自己的缺陷报告；现已修复，合并改为返回 `INCOMPLETE`）。Mech Web 界面实测偏移约 **-1000 ms**；Android 设备测得 **+592 ms**。二者均非延迟，不得作为延迟报告。',
+'## What I will report afterwards, and what I will not':'## 窗口后将报告什么，以及不做什么',
+'I will publish the merged table with its verdict exactly as the instrument returns it, including `INCOMPLETE`\nor `FAILED` if that is what it says. I will not re-run the window until it produces a pass, and I will not\npresent two windows as one.':'我将按仪器返回值原样发布合并表和 verdict，包括可能的 `INCOMPLETE` 或 `FAILED`。不会重跑窗口直到产生 PASS，也不会把两个窗口当成一个。',
+'If Mech cannot make this window, say so and name a later one — a declared window that is missed costs one\nmessage, whereas a table quietly assembled from unsynchronised receipts costs the credibility of the gate.':'如果 Mech 无法赶上此窗口，请说明并点名较晚窗口。错过已声明窗口只需一条消息，而悄悄使用不同步 receipt 组表会损害 gate 的可信度。',
+})

@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "task": "WBC-604",
+  "records": [
+    {
+      "task": "WBC-604",
+      "round_label": "mission-book/workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
+      "source": "D:/Digital-City-TaskSync-20261006/mission-book/workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
+      "source_worktree": "D:/Digital-City-TaskSync-20261006",
+      "source_branch": "refs/heads/sync/REX804-accepted-records-20261006",
+      "worktree_head_at_capture": "d9aed0c1bdaf47b2ca54426f8ce9e29d47a103ce",
+      "historical_run_head": null,
+      "original_bytes": 7298,
+      "original_sha256": "2e8c8cf2797ef8c425aa80d038f879f663bafaba9ed38ffe40fa87a391530e1d",
+      "published_bytes": 7298,
+      "published_sha256": "2e8c8cf2797ef8c425aa80d038f879f663bafaba9ed38ffe40fa87a391530e1d",
+      "published_path": "mission-book/reports/WBC-604/intermediate-logs/2026-10-07/evidence/2e8c8cf2797ef8c4-WBC-604-execution-profile-switch-and-hybrid-routing.md.txt",
+      "encoding": "utf-8",
+      "redaction_count": 0,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    }
+  ]
+}

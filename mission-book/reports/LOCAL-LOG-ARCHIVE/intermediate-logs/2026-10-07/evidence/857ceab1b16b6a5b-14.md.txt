@@ -1,0 +1,76 @@
+# RF-003 开发报告：同Wi-Fi／LAN发现与本地直连路径
+
+{{CODE0}}
+
+原始元数据保留任务、阶段、主机、领取、控制版本、仓库、基线、分支／SHA、CI、109项检查、完成与禁止组件合并状态。
+
+## 1. 交付物
+
+contracts/remote-local-discovery-v1/ 含discovery.mjs（适配端口与确定性替身、广播验证、候选规范化、修剪、配对解析、调用门槛、直连升级、有界扫描计划、网络变化重解析）、index.mjs、8项套件和根tests/remote-local-discovery.test.mjs。
+
+**记录偏离D1**：不同于RF-001／002，交付为contracts下契约模块，而非city/00-foundation/02-city-node-network/第三模块。两兄弟分支已经各改city/CITY_IMPLEMENTATION_MANIFEST.json、city/tests/manifest.test.mjs、tests/capability-registry.test.mjs及两份city/docs/*/ARCHITECTURE.md；同线第三次编辑只增必然合并冲突、无功能收益。City promotion留给已经需取RF-001／002并集的合并工作簿。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 同LAN无需手填IP发现peer | mDNS／broadcast适配器产同候选 |
+| 有线／Wi-Fi同设备配对抽象 | 两类观察规范为同device |
+| stale／重复广播不增逻辑设备 | 重复／stale不增重复逻辑设备 |
+| 未信任候选不可调能力 | 未信任不能invoke任何内容 |
+| 信任节点升级认证加密本地直连 | TRUSTED且正确fingerprint才升级 |
+| 网络变化触发重新发现不变逻辑身份 | 重解析地址而逻辑identity不变 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：模块位置。** 第1节所述契约模块而非第三City模块，防共享文件第三冲突；因不同兄弟分支而记录。
+
+**D2：候选身份。** 选项address、address＋interface、密码学device_id。选第三，只有未识别观察才地址键回退，且不pairable。不变量2身份密码学、非network derived；地址键使DHCP变化新建逻辑device，正违重复设备验收。
+
+**D3：重复与有线／Wi-Fi核对。** 一次遍历把同device_id合一候选，union addresses／interfaces／sources；源偏好mDNS、broadcast、multicast、direct，计sightings、每合并记duplicate。一次合并同时兑现统一抽象和无重复，而非两独立清理。
+
+**D4：未识别观察。** 保identified:false供人看，但resolveToPairing返回DEVICE_ID_REQUIRED，assertMayInvoke抛错。未报身份邻居仍有UI价值，视匿名设备会诱发工作簿禁止的“同LAN即信任”。
+
+**D5：信任进入哪里。** resolveToPairing给DISCOVERY_LAN或偏好已知address时DIRECT_ADDRESS，is_trust:false；仅assertMayInvoke配匹配device_id的TRUSTED记录能invoke。不变量1多加入法一信任协议；候选无trust，决策不看伪造display name／MAC，各候选标mac_evidence_is_authority:false。
+
+**D6：直连升级。** 需TRUSTED记录及匹配sha256:指纹，返回authenticated:true、encrypted:true、quality（interface kinds、address count、best source）供RF-006。工作簿要求信任后认证加密路径，path manager需元数据不拥有此决定。
+
+**D7：有界流量。** adapter契约bounded:true，每轮最多256广播，截断则truncated:true；planDirectScan目标最多64，更多拒UNBOUNDED_SCAN_REFUSED。要求有界、无无限扫描，允许扫/16的计划不过是多步骤无限scanner。
+
+**D8：网络变化。** 失效地址而非身份；保留identities，不可达保device_id与空地址，同device fresh观察替代地址，标rediscovery_required。验收“不变逻辑身份”；首实现把fresh当retained重复丢弃，套件捕获并修merge，非绕过测试。
+
+**D9：无schema.json。** 运行时／发现语义代码验，与其他计划一致。
+
+## 3. 测试汇总
+
+8项全过：两源adapter同候选、未知源拒；wired＋Wi-Fi合地址／interface kinds／sources／sighting count／duplicate record，direct偏好只改entry point；三观察一候选、同名两device、未识别不pairable、stale标与按device_id prune；invoke门槛无trust／quarantine／错device／伪name MAC；升级untrusted／错或畸形fingerprint／成功quality；网络变更保identity、掉address、rediscovery、fresh替换、错interface拒；64目标cap及refusal count、无界拒、256轮cap与truncated；广播严格source／instant／address array／interface／device id／unknown field／require-device-id选项。
+
+## 4. 本地检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 109项、109过、0败（101＋8） |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4上10条 |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败 |
+| corepack pnpm check:docs | PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI36724660725，f0d8f59796a3d152a61f104682d3d86c2ca023c2 | success |
+
+## 5. 兄弟任务集成接缝
+
+- RF-002：resolveToPairing产{entry_point:'DISCOVERY_LAN'|'DIRECT_ADDRESS',device_id,addresses}，恰为startSession记录入口，不创建session／trust。
+- RF-001：device_id数据消费、验dev-<32 hex>，不铸身份、无key材料。
+- RF-004／005：同adapter port形状应携候选，各join method汇同抽象。
+- RF-006：消费upgradeToDirectPath(...).quality，路径决定归RF-006。
+- RF-009：此处stale是广告freshness非presence，不仅凭live广播推在线。
+- EM-006／007、GAI-007：本地可达非权限非placement，还需解析能力策略。
+- 合并工作簿：决定是否把契约提升City与RF001／002并列；两者已在manifest、census fixture、双architecture docs冲突。
+
+## 6. Correction主机／Owner开放项
+
+1. 尝试不同interface list／大小写地址／有installation_ref无device id使一设备变两、未信任候选走direct invoke、多轮绕traffic caps。
+2. 确认D1契约位置及合并工作簿是否promotion。
+3. 确认D3源偏好mDNS／broadcast／multicast／direct在源不同意时的merge key。
+4. evolution-feed仍待Owner。
+
+{{CODE1}}
+
+原始结论保留开发完成、仅Alien纠正、Remote项目合并前禁止合并。

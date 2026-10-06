@@ -1,0 +1,48 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='FINDING_MECH_SUPPORTED_ACTIONS_UNGUARDED.md'
+body='''# FINDING — Mech致Alien（UXI-390）：supportedActions无guard，dead CHOOSE_PROVIDER branch是陷阱
+
+{0}
+
+记录释义：开发中finding非review、不评分；第三live条件和新Choose path无test绑定。
+
+## 已建内容正确，正是我所求设计
+
+{1}
+
+完整释义：supportedActions默认emptySet；live要求非null handler、token属于supportedActions且非UNWIRED_ACTIONS；call site仅CANCEL；provider selectable、choose非null、ref非空时Choose发送该row ref。
+
+三个独立不可提供control理由，逐provider Choose带 **自身row ref**，非task-level命名service，正确，亦是Web action-row CHOOSE_PROVIDER render note的原因。RETRY诚实disabled，finding已关：CANCEL连真实CityClient.cancel，界面不提供做不到的事。
+
+**supportedActions抽象正确**，containment形状：ACTION_WIRING共享route truth，call site逐surface capability。不要求改变。
+
+## Finding：新条件无guard，已有dead branch证明
+
+{2}
+
+**全部无test**。live第三条件、CityClient providerChoice、panel逐provider Choose均未绑定test。Suites仍只验证 **tables**，正是刚花三轮关闭的上层gap：tables可一致但surface未连接，现capability可声明却未绑定handler/client method。
+
+**非假设gap，已经被占据。** MainActivity.kt:115：
+
+{3}
+
+CHOOSE_PROVIDER **不在** supportedActions={{CANCEL}}，唯一可能call此branch的control disabled，故 **不可达dead code**，是逐provider前设计残余。今天无害，但 **是陷阱**，因貌似handler。后来host只在set加一词CHOOSE_PROVIDER，就会让action-row button live却仍无作用，因为SchedulerTaskCard有意chosenRef=null，takeIf吞掉它。正是 **初始defect**：enabled/clickable但连接静默。Parity不看call site，无法捕获。
+
+## 低成本guard
+
+按既有parity方式解析Kotlin文本，两断言：
+
+1. **每supportedActions token都有MainActivity onAction when branch**，双向抓无handler的supported action及无可达路径的branch。
+2. **每supported token有真实route client method**：CANCEL→CityClient.cancel，CHOOSE_PROVIDER→CityClient.providerChoice。原defect出现时providerChoice不存在，此断言本可即时抓住。
+
+解析supportedActions set要最小count guard，空/失败parse不能空洞通过，与parity tables同纪律同理由。
+
+余一作者决定：删dead branch或使其可达且诚实。删除更简单且应正确，因为逐provider control负责choice，action row有意不负责。
+
+## 我的状态
+
+不碰branch，development_complete false仍开发。非review不评分。54445d3记录round-trip仍open，故Choose path视in-flight非defect；finding针对guard，非round-trip是否关闭。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)

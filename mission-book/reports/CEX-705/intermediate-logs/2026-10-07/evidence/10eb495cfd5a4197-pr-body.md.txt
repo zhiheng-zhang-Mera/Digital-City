@@ -1,0 +1,3 @@
+Android now exposes canonical City members with the enrolled device pinned as 本机, scoped installation management, City rename, own-node sharing and explicit message receipts. Owner control is distinguished from the physical phone; malformed identity/scope data refuses authority.
+
+Validation: 87 Android unit tests and APK build; 8 focused Gateway/member/enrollment tests; OPPO hash-bound smoke shows self first, admission-named peer and native receipt advancing server state to RECEIVED. Controlled same-host peer; native rename/revoke/sharing/outbound-send physical coverage and opposite-host Formal Review remain pending. No primary-agent appointment or migration implemented.

@@ -1,0 +1,17 @@
+✔ Alien: model OWNER_REQUIRED is an escalation, not auto-resolution (12.7065ms)
+✔ Alien: canonical observation cannot enqueue decisions after bounded close (2.3272ms)
+✔ Alien: retention restart preserves the newest decisions, not UUID lexical order (20.6205ms)
+✔ Alien: queue overflow retains canonical evidence and reports failed receipt persistence (1745.3834ms)
+✔ Alien: canonical present-but-ineligible target is escalated, not described as recovering offline (11.3784ms)
+✔ Alien: a timeout remains measurable when the critic subsequently resolves (20.824ms)
+✔ Alien Gateway: an online ineligible strict target produces an Owner decision with real event evidence (127.2997ms)
+✔ Alien browser: polling preserves opened provenance and successful retry clears an old error (871.0691ms)
+✔ Alien browser: unavailable decision persistence is visible even before any write failure (836.7027ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6691.3611

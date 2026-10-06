@@ -1,0 +1,89 @@
+✔ the old inline implementation throws on empty output, which is the regression (1.9599ms)
+✔ empty output is read as "already gone", not as an unparseable error (0.4818ms)
+✔ "null" from ConvertTo-Json is also treated as already gone (0.1483ms)
+✔ a live, matching process verifies through CIM (0.1681ms)
+✔ a live process running something else is a FATAL mismatch, as it was before (0.1546ms)
+✔ a quoting-safe array result is handled as well as a single object (0.1376ms)
+✔ a missing CommandLine field is not mistaken for a match (0.239ms)
+✖ when CIM is unusable, tasklist still catches a plainly wrong process (0.889ms)
+✔ tasklist reporting no match is already-gone rather than unavailable (0.2158ms)
+✖ both probes failing is unavailable, and is not fatal (0.3181ms)
+✔ unparseable-but-non-empty CIM output falls through to the weaker probe instead of claiming absence (0.1744ms)
+✔ a UTF-8 BOM on the output does not break parsing (0.1326ms)
+✔ every returned status is one of the declared statuses (0.2296ms)
+✔ a non-numeric PID is fatal and never reaches a command line (0.1222ms)
+✔ the CIM and tasklist filters refuse a non-numeric PID outright (0.2056ms)
+✖ only positively verified identity permits stopping a PID (0.1612ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 13
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 976.0327
+
+✖ failing tests:
+
+test at tests\process-identity.test.mjs:71:1
+✖ when CIM is unusable, tasklist still catches a plainly wrong process (0.889ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-History-Audit/tests/process-identity.test.mjs:81:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\process-identity.test.mjs:94:1
+✖ both probes failing is unavailable, and is not fatal (0.3181ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-History-Audit/tests/process-identity.test.mjs:101:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\process-identity.test.mjs:148:2
+✖ only positively verified identity permits stopping a PID (0.1612ms)
+  AssertionError [ERR_ASSERTION]: mismatch
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-History-Audit/tests/process-identity.test.mjs:148:157)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

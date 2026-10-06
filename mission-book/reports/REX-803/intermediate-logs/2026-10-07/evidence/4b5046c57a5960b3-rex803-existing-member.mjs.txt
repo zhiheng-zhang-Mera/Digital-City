@@ -1,0 +1,11 @@
+import {readDeviceFile} from '../apps/client/device-enrollment.mjs';
+import {startMemberAgent} from '../services/dev-gateway/member-runtime.mjs';
+import {resolve} from 'node:path';
+const record=readDeviceFile(resolve(process.env.LOCALAPPDATA,'Utopia/client/device-enrollment.json'));
+if(!record||record.cityId!=='031fdba6-e94c-4298-a095-6ff04a65481d')throw new Error('CONFIG_IDENTITY_MISMATCH');
+const member=await startMemberAgent({record,workspace:resolve('.runtime/rex803-physical-workspace')});
+console.log(JSON.stringify({state:'MEMBER_STARTED',cityId:record.cityId,deviceId:record.deviceId,host:'MERA-ALIANWARE',sourceSha:'8798ba9dd37051626033ad72080b2fad3ff66149'}));
+let stopping=false;
+async function stop(){if(stopping)return;stopping=true;await member.stop();console.log('MEMBER_STOPPED');process.exit(0)}
+process.on('SIGINT',stop);process.on('SIGTERM',stop);
+setTimeout(stop,300000);

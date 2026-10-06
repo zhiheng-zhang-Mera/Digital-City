@@ -1,0 +1,3 @@
+The original REX-803 target accepted arbitrary receipt ordering, reopened after shutdown and never used the manifest worker set for seeded placement. This review adopts the author proposals after independently reproducing five failures, then fixes malformed recovery state, destructive readiness refusal, mismatched resume context, cross-run late cleanup, contradictory measurement records and frozen-clock shutdown.
+
+Validation: 71 affected dependency/integration tests pass; independent technical review8 probes pass. Red/green evidence and bilingual docs are retained. The Alien + Mech + Android physical campaign gate is still unobserved, so this PR does not release SCENARIO_REPETITION_ENGINE_ACCEPTED. Current main b06504f is included; no main merge authority for this task.

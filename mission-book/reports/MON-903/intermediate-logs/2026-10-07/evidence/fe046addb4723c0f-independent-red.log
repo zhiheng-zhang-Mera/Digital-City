@@ -1,0 +1,111 @@
+✖ Alien: model OWNER_REQUIRED is an escalation, not auto-resolution (13.8053ms)
+✖ Alien: canonical observation cannot enqueue decisions after bounded close (26.2368ms)
+✖ Alien: retention restart preserves the newest decisions, not UUID lexical order (32.7327ms)
+✖ Alien: queue overflow retains canonical evidence and reports failed receipt persistence (1767.915ms)
+✖ Alien browser: polling preserves opened provenance and successful retry clears an old error (4.5103ms)
+✖ Alien browser: unavailable decision persistence is visible even before any write failure (1.9304ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 0
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3178.023
+
+✖ failing tests:
+
+test at tests\mon903-alien-review.test.mjs:11:1
+✖ Alien: model OWNER_REQUIRED is an escalation, not auto-resolution (13.8053ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at fixture.fastModel.action (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:13:51)
+      at async fixture (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:10:200)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\mon903-alien-review.test.mjs:15:1
+✖ Alien: canonical observation cannot enqueue decisions after bounded close (26.2368ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   decisionId: 'decision-6768f0ae-62c2-4405-a9ca-d3af0033db6a',
+  +   queueDepth: 1,
+  +   queued: true
+  + }
+  - null
+  
+      at file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:16:31
+      at async fixture (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:10:200)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { decisionId: 'decision-6768f0ae-62c2-4405-a9ca-d3af0033db6a', queued: true, queueDepth: 1 },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\mon903-alien-review.test.mjs:18:1
+✖ Alien: retention restart preserves the newest decisions, not UUID lexical order (32.7327ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(overlay.snapshot().decisions.some(r=>r.decisionId===decisionId))
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:24:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\mon903-alien-review.test.mjs:27:1
+✖ Alien: queue overflow retains canonical evidence and reports failed receipt persistence (1767.915ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'event-16'
+  
+      at file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:31:9
+      at async fixture (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:10:200)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'event-16',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\mon903-alien-review.test.mjs:35:1
+✖ Alien browser: polling preserves opened provenance and successful retry clears an old error (4.5103ms)
+  Error: Separate control and node tokens are required
+      at createGateway (file:///D:/Utopia-MON903/services/dev-gateway/server.mjs:103:51)
+      at browserFixture (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:33:129)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\mon903-alien-review.test.mjs:44:1
+✖ Alien browser: unavailable decision persistence is visible even before any write failure (1.9304ms)
+  Error: Separate control and node tokens are required
+      at createGateway (file:///D:/Utopia-MON903/services/dev-gateway/server.mjs:103:51)
+      at browserFixture (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:33:129)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

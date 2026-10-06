@@ -1,0 +1,67 @@
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:generateDebugResValues
+> Task :app:checkDebugAarMetadata
+> Task :app:mapDebugSourceSetPaths
+> Task :app:generateDebugResources
+> Task :app:packageDebugResources
+> Task :app:createDebugCompatibleScreenManifests
+> Task :app:parseDebugLocalResources
+> Task :app:extractDeepLinksDebug
+> Task :app:mergeDebugResources
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:javaPreCompileDebug
+> Task :app:javaPreCompileDebugUnitTest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugKotlin
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:24:31 'val isZoomSupported: Boolean' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:24:59 'val zoomRatios: (Mutable)List<Int!>!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:25:51 'val maxZoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:27:48 'var zoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:28:36 'var zoom: Int' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:31:62 'val isZoomSupported: Boolean' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/AutoZoomCaptureActivity.kt:34:36 'var focusMode: String!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/CityDiscovery.kt:31:94 'fun resolveService(p0: NsdServiceInfo!, p1: NsdManager.ResolveListener!): Unit' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/CityDiscovery.kt:33:382 'var host: InetAddress!' is deprecated. Deprecated in Java.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/Devices.kt:39:66 Java type mismatch: inferred type is 'Nothing?', but 'String' was expected.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/Devices.kt:44:58 Java type mismatch: inferred type is 'Nothing?', but 'String' was expected.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/MainActivity.kt:143:389 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Any?'.
+w: file:///D:/Utopia-CEX702/apps/android/app/src/main/java/city/utopia/control/MainActivity.kt:143:495 Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type 'Any?'.
+
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:processDebugJavaRes
+> Task :app:bundleDebugClassesToRuntimeJar
+> Task :app:bundleDebugClassesToCompileJar
+
+> Task :app:compileDebugUnitTestKotlin FAILED
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:9:14 Unresolved reference 'SchedulerChoice'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:10:14 Unresolved reference 'SchedulerChoice'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:11:15 Unresolved reference 'SchedulerChoice'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:11:151 Unresolved reference 'allowed'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:14:16 Unresolved reference 'SchedulerChoice'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:15:23 Unresolved reference 'allowed'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:16:52 Unresolved reference 'revision'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:17:15 Unresolved reference 'SchedulerChoice'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:18:23 Unresolved reference 'allowed'.
+e: file:///D:/Utopia-CEX702/apps/android/app/src/test/java/city/utopia/control/SchedulerChoiceTest.kt:19:46 Unresolved reference 'reason'.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugUnitTestKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 6s
+20 actionable tasks: 20 executed

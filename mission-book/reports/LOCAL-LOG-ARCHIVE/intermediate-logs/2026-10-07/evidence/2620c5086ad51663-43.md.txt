@@ -1,0 +1,85 @@
+# GAI-001 开发报告——核心契约与 Action 词汇
+
+{{CODE0}}
+
+## 1. 交付物
+
+| 文件 | 用途 |
+|---|---|
+| `contracts/general-ai-gateway-v1/contracts.mjs` | 路由／状态／通道词汇、类型化错误、原始秘密扫描、全部规范信封严格验证、状态转换与幂等规则 |
+| `contracts/general-ai-gateway-v1/routing.mjs` | 可执行P0–P6路由策略、仅建议的JEV分流、升级／设备切换同意规则、项目端口与确定替身、历史产品依赖扫描 |
+| `contracts/general-ai-gateway-v1/index.mjs` | 公开接口与发布保证 |
+| `contracts/general-ai-gateway-v1/tests/conformance.test.mjs` | 23项一致性测试 |
+| `services/dev-gateway/actions.mjs` | 用户级路由预留GENERAL_AI，带类型化引用并如实UNAVAILABLE |
+| 根 `tests/general-ai-gateway.test.mjs` | pnpm test 注册入口 |
+
+| 验收要求 | 实现 |
+|---|---|
+| 旧Action路由向后兼容 | LEGACY_ACTION_ROUTES不变；测试断言gateway词汇与契约完全相等，ROOM/CAPABILITY/CITY_TASK仍验证 |
+| GENERAL_AI后端／来源引用稳定类型化 | backendRef.kind='GENERAL_AI'，providerRef/modelRef/accountRef/conversationId类型化，ResultEnvelope.provenance要求source＋channel |
+| 拒绝畸形／未知路由、状态、版本，不猜测 | validateActionRoute、assertContractVersion、nextActionStatus、严格信封验证，拒绝未知键 |
+| 幂等键复用于不同请求拒绝 | fingerprintGeneralAiRequest＋checkIdempotentReuse，键顺序无关指纹 |
+| 部分输出不能使Action终结 | nextActionStatus源PARTIAL则PARTIAL_RESULT_CANNOT_COMPLETE，终态不可再变 |
+| 模式不含原始凭据／cookie／token字节 | findRawSecretFields扫描全部信封，仅允许credential_ref等句柄引用 |
+| 仓库／运行时无Boss依赖 | scanForForbiddenProductDependency，遍历真实树并反证扫描器测试 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 原因）
+
+**D1——领取哪个任务。** 选项为等待Correction、再领BA/RF/EM、进入未触及General AI Gateway。选GAI-001；新扫描无本机修复或合资格对侧Correction（RF-001由Mech完成，BA-002/EM-001归Alien），进入未领取开发层。General AI唯一双方零领取项目，早暴露跨项目接口符合契约偏好；GAI-001是其基础。
+
+**D2——交付位置。** 选contracts/general-ai-gateway-v1、预留City建筑city/00-foundation/06-general-ai-gateway、两者。选契约目录并在现gateway预留路由；项目README称建筑仅实现就绪后promote，而GAI-001是无通道实现的契约／词汇。RF-001选City因为它确有运行时语义；无运行时契约应与其他版本契约同处。记录第5节接口，让合并或首通道任务明确迁移而非漂移。
+
+**D3——触及实时gateway词汇。** 选仅契约不变ACTION_ROUTES、加入GENERAL_AI并如实响应、加入后落入City任务分支。选第二项；第一项未满足用户级路由预留，第三项把通用AI说成City任务是假事实。路由携类型化null引用，UNAVAILABLE与GENERAL_AI_NOT_ATTACHED；labelFor加分支避免UI误标。既有行为不变，测试把gateway词汇固定到契约。
+
+**D4——重复EM-001验证辅助函数。** 选导入或独立实现，选独立。组件须从冻结基线独立可集成；EM-001是另一项目未合并同级，导入会产生合并时不能存在的跨项目构建依赖。形状也实质不同，GAI以请求指纹比较幂等而非范围账本。记录供合并明确统一。
+
+**D5——可重复检查无Boss依赖。** 一次grep不是后续会话／合并可重跑证据，选运行时扫描＋真实仓库遍历测试，并在同测试**反证**扫描器。三次迭代均记录，因其改变规则含义。
+
+1. **词语扫描：** 误报检测器自己的词汇与普通注释。禁止词语会使规则不可审计，也误报工作簿明确允许的来源文字，故拒绝。
+2. **链接扫描：** 改为依赖形状：import/require、依赖块、主机引用、进程／端点调用、submodule/symlink/workspace。仍误报两个真实DONOR.json，只在文字字段描述历史donor，无意义假阳性。
+3. **JSON感知链接扫描（交付版）：** JSON解析，仅依赖块与workspaces算边；源码用链接规则，不扫描markdown。因此无需排除列表，保持诚实。产品token在规则与夹具中运行时组合，避免自报；测试证明仍捕获原文列出的链接形状：import、两种依赖块、workspace路径、spawn、主机引用、submodule（原文称六种，列项原样保留）。
+
+结果：真实树零发现，反证集中每个阳性恰报告预期规则。
+
+**D6——路由策略写成代码。** 选仅报告描述P0–P6或类型化决策函数，选后者。GAI-002..009都须遵循困难产品规则：Web默认，Web失败不静默升API，API须明确同意，预算批准不是同意，其他设备只提议，交互设备不随执行迁移。一次编码和测试才能经受后八任务，报告同时保留文字与代码。
+
+**D7——独立AWAIT_BUDGET_DECISION。** 初稿复用AWAIT_USER_CONSENT却理由API_CONSENT_GIVEN，自相矛盾。选择独立结果；等用户同意与用户已同意后等预算策略不同，注意事项种类USER_CONFIRMATION和BUDGET_APPROVAL也不同；合并会将预算等待渲染为同意问题。
+
+**D8——UNAVAILABLE归属。** 可选终态、进行中、第三类，选第三：本次尝试终结，新key新Action可重试。刻意不入ACTION_TERMINAL_STATUSES避免与成功／失败混淆，也不入ACTION_IN_FLIGHT_STATUSES，部分结果不能宣称它。三分微妙，记录防后续通道误读。
+
+**D9——JEV包装。** asAdvisoryAssessment给每评估advisory:true、grantedAuthority:false、executedAnything:false；assessWithJevTriage将缺端口、null答复、抛错转降级而非异常。遵循不变量2/3，JEV仅分类，失败回确定／人工路由而非阻塞终端。高置信HIGH风险建议测试仍仅提案，绝不执行。
+
+**D10——PROCESS_DATA_POLICY演进收件箱。** 不使用，与BA-001 D11、EM-001 D13、RF-001 D8一致；本报告是构建记录。
+
+## 3. 测试汇总
+
+23项全通过：词汇预留与旧路由保留；禁用／未知路由拒绝；gateway与契约相等；类型化引用规范请求；未知版本／通道／状态／畸形拒绝；五种信封原始秘密拒绝、句柄允许；provider/model/attention/usage/proposal严格性；部分不能完成、终态最终；部分与结果状态类别；幂等重放／不同请求复用拒绝及键顺序无关；确定本地短路；Web默认与JEV降级；Web失败不静默API、同意必需；同意后预算且预算不等同意；设备提案且交互设备不动；升级收据需用户引用；同意／预算／拒绝注意事项投影；建议型JEV及失败降级；端口一致性与确定远端替身；真实仓库历史依赖扫描与反证；公开保证和错误词汇。
+
+## 4. 本地检查与 CI
+
+| 检查 | 原报告结果 |
+|---|---|
+| corepack pnpm test | 124项，124通过，0失败（101基线＋23新） |
+| node scripts/verify-promotion-history.mjs | OK，82ed36933fb4验证10记录 |
+| node --test apps/rooms/tests/*.test.mjs | 0失败 |
+| node city/test-all.mjs | 0失败，基线同样跳过7项 |
+| corepack pnpm check:docs | docs/evidence/data-records PAIR_STATUS=SYNCHRONIZED |
+| 57915d05906f17d244bc48bbe07dc37ea5e0a89e 的CI 36716761318 | gateway-web与android成功 |
+
+## 5. 交给同级任务的接口
+
+- GAI-002..004通道／提供商／账户／对话：依GeneralAiGatewayPort解析backendRef的providerRef/modelRef/accountRef/conversationId，以真实通道替代GENERAL_AI_NOT_ATTACHED UNAVAILABLE，actions.mjs其他无需变。
+- GAI-005分流／路由：调用decideRoute，实现JevTriagePort；输出必须经asAdvisoryAssessment，避免成为权限。
+- GAI-006流／取消：validatePartialResult＋nextActionStatus是唯一合法状态路径，取消是终态转换。
+- GAI-007设备感知执行：RemoteExecutionPort、DeviceSwitchProposal、applyDeviceSwitch；RF拥有传输／信任，此替身仅有界测试。
+- GAI-008健康／韧性：PROVIDER_HEALTH、AUTH_STATUSES、ACTION_RETRYABLE_STATUS；UNAVAILABLE新动作key可重试。
+- 项目合并工作簿：决定契约最终位置D2；记录路由预留未接通，通道落地前合并main对GENERAL_AI类型化UNAVAILABLE；如愿可明确统一EM-001验证辅助函数D4。
+
+## 6. Correction主机／Owner待处理项
+
+1. 对抗尝试绕路由：Web失败未经同意到API、预算决定充同意、JEV评估变权限、无确认引用切设备；通过扫描未覆盖信封字段夹带原始凭据字节。
+2. 确认D2，contracts契约层、City仍预留，或指示City promotion。
+3. 确认通道存在前Web／Android是否应看见GENERAL_AI，目前如实但用户可见地答类型化UNAVAILABLE。
+4. 确认GAI组件是否需要演进／过程数据记录D10。
+
+{{CODE1}}

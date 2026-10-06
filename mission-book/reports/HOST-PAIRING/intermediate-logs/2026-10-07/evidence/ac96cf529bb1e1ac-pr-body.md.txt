@@ -1,0 +1,7 @@
+Historical pilot and reviewer tools were not present in main. This merges their exact historical commits while preserving the current recovery observation sequence. Review found and repaired an absent selector export, unsafe process identity fallback, and a reconnect probe that never closed a socket. Unverified identities now refuse process stops; the reconnect test observes real closure and a new connection.
+
+Validation: original focused33/33; process and route repair29/29. JOIN501 A1-A4 passed with real reconnect instrumentation. One new test initially assumed numeric ADB coordinates; corrected to the existing string contract, with the failed output retained. Exact-head full CI pending. Local technical review does not replace cross-host mission Formal Review.
+
+Role: Alien-codex. Historical branch/SHA/tag index is recorded in Digital-City mission-book/reports/UTOPIA-BRANCH-INTEGRATION-20261004. No physical pilots executed by this integration.
+
+Also merges UXI301 correction66fa20118f1a7dbb269cf05d8b0a6580219afce3, preserving historical FAIL/ERROR artifacts and replacing the false handoff premise. This historical instrument was syntax checked but not run. Final focused35/35 PASS at0a5e9ba53772a1b01897c2edf34de3840de7c629; final exact-head CI pending.

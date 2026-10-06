@@ -1,0 +1,32 @@
+✔ pool registers dormant without adapter or I/O and refuses direct or registry work (3.3743ms)
+✔ explicit pool narrows canonical endpoints by membership, role and descriptor readiness (1.2339ms)
+✔ enabled pool with missing canonical adapter fails typed unavailable (0.1953ms)
+✖ pool control must not cancel work held by an unrelated standard endpoint (0.6098ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 995.7353
+
+✖ failing tests:
+
+test at tests\wbc603-worker-pool.test.mjs:22:1
+✖ pool control must not cancel work held by an unrelated standard endpoint (0.6098ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/Utopia-WBC603/tests/wbc603-worker-pool.test.mjs:25:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'NOT_TASK_HOLDER' },
+    operator: 'throws',
+    diff: 'simple'
+  }

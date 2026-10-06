@@ -1,0 +1,32 @@
+✔ REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code (4948.912ms)
+✔ REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session (5772.6836ms)
+✔ REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session (9295.311ms)
+✔ REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE (12163.1853ms)
+✔ custom City lockout never directs users to an unrelated Alien host; explicit renewal remains usable (242.3727ms)
+✔ IDLE: no session exists until create() is called, and a read never changes that (1.9237ms)
+✔ generate once: exactly one ACTIVE session with the City payload kept verbatim (1.1869ms)
+✔ ACTIVE is FINAL against re-generation: a second create() cannot rotate the code (0.8436ms)
+✔ ordinary reads keep the SAME id, code and payload (0.357ms)
+✔ CONSUMED: the City reporting a different canonical session ends ACTIVE as USED, not as a mystery (0.2841ms)
+✔ EXPIRED: the countdown tick ends the session, names it EXPIRED, and creates nothing (0.1686ms)
+✔ a second EXPLICIT generate after expiry produces a new, different session (0.224ms)
+✔ a malformed session response creates nothing (a half-session is not rendered) (0.2765ms)
+✔ reload persistence: the SAME valid session is restored, with its original expiry (0.337ms)
+✔ a stored session that expired while the page was away comes back EXPIRED, never as a new code (0.2613ms)
+✔ a corrupt or foreign storage record is dropped rather than half-rendered (0.2411ms)
+✔ an explicit user clear names its reason and still creates nothing (0.1426ms)
+✔ clearOnSessionChanged is a no-op while the City still reports our own session (0.1447ms)
+✔ when the City session vanished AND ours is past expiry, the reason reported is EXPIRED (0.1057ms)
+✔ a new session after a terminal state is a full fresh display, and generate stays offered only when idle (0.1322ms)
+✔ short code preserves identity pinning, reports lockout, and never sends a code to the wrong City (256.6429ms)
+✔ code handoff carries only a selected City, six digits and the existing transport in a fragment (0.5145ms)
+✔ pairing sessions exchange once, expire and reject secret/code guesses without exposing credentials (307.1971ms)
+✔ descriptor validation rejects invalid input and conflicts, discovery TXT excludes secrets (0.7892ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 33524.5603

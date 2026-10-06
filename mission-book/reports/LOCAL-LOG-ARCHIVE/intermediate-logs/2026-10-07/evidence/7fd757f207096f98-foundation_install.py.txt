@@ -1,0 +1,17 @@
+from pathlib import Path
+import json,re,hashlib,sys
+root=Path("D:/Digital-City-REX-20261006")
+a=json.loads(Path("D:/foundation_batch20.json").read_text())
+for number in map(int,sys.argv[1:]):
+ src=root/a[number-1]; raw=src.read_bytes(); s=raw.decode("utf-8"); blocks=re.findall(r"```[^\r\n]*\r?\n.*?```",s,re.S)
+ body=Path(f"D:/foundation_full/{number}.md").read_text(encoding="utf-8")
+ for i,b in enumerate(blocks): body=body.replace(f"{{{{CODE{i}}}}}",b)
+ assert all(b in body for b in blocks)
+ dst=src.parent/"zh-CN"/src.name;assert not dst.exists();dst.parent.mkdir(exist_ok=True)
+ head,rest=body.split("\n",1)
+ intro=f"\n\n[English authoritative source / 英文权威原稿](../{src.name})\n\n本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.\n"
+ dst.write_bytes((head+intro+rest).encode("utf-8"))
+ src.write_bytes(raw+(f"\n## Language reading link / 语言阅读链接\n\n[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/{src.name})\n").encode("utf-8"))
+ assert src.read_bytes()[:len(raw)]==raw
+ audit=Path("D:/foundation_batch20_completed.json");data=json.loads(audit.read_text(encoding="utf-8"));data.append(dict(source=str(src),translation=str(dst),original_sha256=hashlib.sha256(raw).hexdigest(),original_bytes=len(raw),exact_code_blocks=len(blocks)));audit.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding="utf-8")
+ print(f"PASS {number}: original prefix unchanged, {len(blocks)} exact code blocks")

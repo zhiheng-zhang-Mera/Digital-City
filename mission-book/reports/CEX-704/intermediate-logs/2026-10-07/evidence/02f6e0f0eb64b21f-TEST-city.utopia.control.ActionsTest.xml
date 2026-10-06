@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.ActionsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-10-04T16:12:38.849Z" hostname="MERA-ALIANWARE" time="0.015">
+  <properties/>
+  <testcase name="targetListIsReadFromTheFlatEnvelopeItself" classname="city.utopia.control.ActionsTest" time="0.006"/>
+  <testcase name="actionListParsingKeepsGatewayOrder" classname="city.utopia.control.ActionsTest" time="0.001"/>
+  <testcase name="routeVocabularyIsExactlyTheThreeAllowedValues" classname="city.utopia.control.ActionsTest" time="0.0"/>
+  <testcase name="fullRecordCarriesProvenanceAndBackendIds" classname="city.utopia.control.ActionsTest" time="0.002"/>
+  <testcase name="arrayMembersAreNeverReadWithTheObjectReader" classname="city.utopia.control.ActionsTest" time="0.002"/>
+  <testcase name="statusVocabularyIsExhaustiveAndFollowsTheContract" classname="city.utopia.control.ActionsTest" time="0.001"/>
+  <testcase name="canonicalActionKeepsGatewayTruth" classname="city.utopia.control.ActionsTest" time="0.0"/>
+  <testcase name="unknownStatusIsShownVerbatimInsteadOfGuessed" classname="city.utopia.control.ActionsTest" time="0.0"/>
+  <testcase name="actionListIsReadFromTheFlatEnvelopeItself" classname="city.utopia.control.ActionsTest" time="0.001"/>
+  <testcase name="failedActionFallsBackToErrorMessageAndKeepsBackendCode" classname="city.utopia.control.ActionsTest" time="0.0"/>
+  <testcase name="actionListIsEmptyRatherThanUnreadableWhenTheGatewayHasNoActions" classname="city.utopia.control.ActionsTest" time="0.001"/>
+  <testcase name="unavailableIsATruthfulStateNotSuccess" classname="city.utopia.control.ActionsTest" time="0.0"/>
+  <testcase name="refusedIsNeverReportedAsFailedOrSucceeded" classname="city.utopia.control.ActionsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

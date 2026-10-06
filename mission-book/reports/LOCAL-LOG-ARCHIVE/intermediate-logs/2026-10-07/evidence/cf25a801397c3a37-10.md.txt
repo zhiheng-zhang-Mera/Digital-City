@@ -1,0 +1,31 @@
+# BA-005开发报告：Digital-Me背景网关与记忆/受众边界
+
+## 1. 交付物
+
+digital-me-gateway-v1含canonical read port/double、record、audience矩阵、policy query、write拒、assistant private/device ephemeral、index/8suite/root。验收同Digital-Me分assistant scopes；拒scope typed且projection null、四轴区分无partial；persona/relationship不改canonical、byte snapshot/write/poison守；private跨audience需授权；stale不current、ephemeral不durable；缺失来源隔离最少数据。
+
+## 2. 决策日志
+
+D1无repair/异hostCorrection（Alien修RF003），BA异EM tie-break、invariant16–18。D2只读DigitalMeReadPort listRecords/resolveValue，gateway不copy canonical，禁止direct DB/bulk可测，double无需DB。
+
+D3初fixture把value加record被strict拒，值归port以value_ref键，record仅ref，唯一resolveValue；caller请求且policy allow_values才可值，最少data是shape非flag。D4拒grantedfalse/code/detail/projection null/provenance，UNKNOWN_ASSISTANT/SCOPE/AUDIENCE/PURPOSE、SCOPE/PURPOSE/AUDIENCE_DENIED分；serialized无withheld facts/values。
+
+D5矩阵谁可hold与另disclosure规则：record audience不同request则除明确授权扣留；AUDIENCE_NOT_PERMITTED意味着永不，DISCLOSURE_NOT_AUTHORIZED意味着可授权。自身test误期待matrix实际disclosure更精确，改并测两者。D6无write，DIGITAL_ME_WRITE_FORBIDDEN，canonical携assistant/authority递归拒，private persona relationship stored_in_digital_me false。
+
+D7ephemeral不durable projection，报告DEVICE_EPHEMERAL_NOT_DURABLE，rebuild空/durablefalse/mergedfalse不能恢复前session。D8超过TTL移stale不facts，记忆非current，同BA002/003/GAI002/EM004。D9grant/refusal都assistant/purpose/audience/scopes/policy/decided_at，可审计拒。D10无schema。
+
+## 3. 测试汇总
+
+8全过：same port perassistant；四拒轴无leak；canonical快照/write/poison/scan；private shared两reason；crossassistant isolation；leastdata allow_values；stale/ephemeral；grant/refuse provenance及strict/constructor。D3 fixture值和D5 reason两自错，改test未放规则，历史隔离claim按原开发报告保留。
+
+## 4. 本地CI
+
+109/109=101+8，promotion10@82ed36933fb4，rooms/city0fail、docs同步，CI36728731544@4fec952d414cee8cd67245f901c71a75cee93b30 success。
+
+## 5. 接缝
+
+BA002 core memory/projectContext消费授权projection非直Digital-Me；BA003 deviceRef临时归session非durable；BA004 audience同词，recipient不继outgoing授权projection；BA006/007 settings只policy/refusal reason非raw；GAI004/EM008共neutral handle加audience层。
+
+## 6. 开放项
+
+非facts通道如includes/error/stale泄漏、无allow_values取值、临时变durable；确认两reason审计词、includeValues是否perpurpose policy非percall；evolution-feed。dev true、Alien修、禁止到Butler merge原块保留。

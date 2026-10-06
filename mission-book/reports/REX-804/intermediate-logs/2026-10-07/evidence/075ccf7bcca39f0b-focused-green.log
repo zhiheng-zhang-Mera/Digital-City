@@ -1,0 +1,18 @@
+✔ fault confirmation, live canonical target and bounded duration required (2.4951ms)
+✔ heartbeat loss refuses only targeted heartbeats, stop and expiry restore requests (22.1388ms)
+✔ provider unavailable refuses targeted claim and records measured recovery after stop (5.2119ms)
+✔ delayed report releases immediately on emergency stop without blocking unrelated requests (14.9208ms)
+✔ duplicate event affects observation only and is absent after emergency stop (3.9565ms)
+✔ restart disables persisted activation and never resumes fault silently (4.6374ms)
+✔ unexercised or stopped fault cannot receive unrelated future detection or recovery measurements (3.1687ms)
+✔ expired fault persistence failure cannot turn normal canonical observation into an error (3.2788ms)
+✔ four fault classes change real Gateway boundaries and emergency stop restores canonical requests (1405.293ms)
+✔ Research Danger Zone requires explicit confirmation and offers real emergency stop (1625.0366ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3157.3069

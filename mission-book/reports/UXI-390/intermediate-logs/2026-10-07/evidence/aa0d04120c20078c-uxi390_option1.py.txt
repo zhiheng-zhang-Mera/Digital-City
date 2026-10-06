@@ -1,0 +1,74 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='RECORD_ALIEN_UXI390_OWNER_RULING_OPTION1.md'
+body='''# RECORD — Owner裁定UXI-390 remote-handoff延期：OPTION1，以及workbook正文修复
+
+{0}
+
+记录释义：Alien开发，合并gate audit的Owner决定及要求同回复更新README；已记录ruling、按测量重写tracking、恢复UXI390 body。OPTION1保留延期、理由纠正、gate明确NOT MET，依据两具名报告如原块。
+
+## 1. 裁定：实质原样
+
+作为contract级单问题提交Owner，audit/dispatch已缩为两选项，Owner选择：
+
+> **选项1** 保留延期，理由改“City无五维load vector，未测load有意无alternate资格”，gate3 handoff明确 **NOT MET**；**同时更新mission-book README tracking**。
+
+Option2发布真实load vector、界面switch-decline **未选择**。按本质提交为新product能力，非本task repair：跨冻结ALLOWED_ACTIONS（精确CANCEL/RETRY/KEEP_WAITING/CHOOSE_PROVIDER/CONFIRM，无decline token）、无surface call的gateway route、两surfaces。
+
+## 2. 改变与不改变
+
+易双向过度解读，故明示。
+
+**改变**：开放Owner决定不再在task路径，handoff现为 **Owner接受的延后** 非open question，冻结RS290contract未动。
+
+**不变**：deferral **不变PASS**，**任何NOT MET都未变MET**：
+
+{1}
+
+完整释义：gate3NOT MET Owner延期，6NOT MET待Ownervisual，7NOT MET按设计step7merge，8NOT MET不能早于6/7，development_complete false但有 **新理由** 见§3；全部未变。
+
+## 3. Complete仍false：与deferral无关
+
+读恢复可读的workbook步骤发现仍欠 **开发主机step5** 最小Owner包：Web Home/Ask/Tools、Android Home/Ask/Tools、一Room、一provider switch或remote-handoff state，使Owner只判断外观。
+
+属Alien未交，是 **本host下一步**。§3第4步visual critic属Review，Alien不得critic自身产出。
+
+## 4. 行动前§7核对
+
+非事后、非记忆：重读origin/main c028e4a，之后无别hostpush；列四remote heads（main和9/30、10/1三docs branches）；扫描全部workbooks status/development_complete/review_complete。Ruling应用于实测pool。零claim分类另记ZERO_CLAIM_ALIEN_ROUND197_SECTION_5_1.md；理由§5.1第110行Owner gate解除是unlock event，同Mech UI190 reasoning。
+
+## 5. Owner所求README
+
+按测量重写非记忆编辑。漂移且 **实际错误**：仍显示UI文明化ACTIVE1/5、rescheduling LOCKED0/4、wiring LOCKED0/2、Alien在UI000revision、Mech可领取UI000 C″ review、baselinee7c498f，数小时前都已取代。
+
+新board按每FM读取：UI5/5·5/5，RS4/4·4/4，wiring1/2·1/2，host真实状态/wakes、本ruling、zero-claim分类、encoding defects，三workbooks有意不动。
+
+## 6. 同commit修workbook body
+
+Mech四workbook double-encoding报告将此评为 **本phase高severity**：review所据completion gate在repo不可读；正确拒绝修，留Owner或逐file作者。
+
+**本file作者Alien**，实测非假定：Owner2a319ce无损坏，Alienclaim1199229出现并持续所有后commit。
+
+**逐字恢复**2a319ce body，不动其他。
+
+**为何是精确restore而非编造reconstruction**：两测量同目录：
+
+{2}
+
+完整释义：encoding probe53/53lines均原line仅multi-byte破坏，83chars毁，encoding damage不可隐藏合法edit；拒绝反向CP936encode/UTF8decode，得到59replacement chars，会发明59punctuation。
+
+首测量才授权restore：仅destroyedbytes差异，无edit被丢。任一line失败就不会restore。
+
+写后核验noBOM、零mojibake/零replacement，最终完成门槛/施工步骤heading可读；FM除本轮三新keys字节不变。
+
+**UI102/RS290/UXI301同defect有意保留**：closed，RS290frozen、UXI301exactbytesreviewed，reencode是record alteration；README具名留Owner。
+
+## 7. 后续
+
+1. **Alien开发**：最小step5包后declare complete/releasesReview。
+2. **MechReview**：独立visualcritic与UXI390review，具名head、§3绝不Alien。
+3. **Owner**：对包FINAL_VISUAL_ACCEPTANCE。
+4. **然后**：step7mainmerge/mainCI/UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)

@@ -1,0 +1,51 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='VERIFICATION_MECH_ANDROID_FAILURE_RECOVERY.md'
+body='''# VERIFICATION — Mech：被审head独立测量Android设备失败与恢复
+
+{0}
+
+记录释义：Mech Review主机、原块完整tree；utopia36 AVD720x1600/320dpi即360dp，installed APK hash如原块。开头历史记录PASS6/6，下方实际结果7/7均原样保留。
+
+## 为什么存在本报告
+
+自身verdict边界曾说“**未独立重驱Android device failure/recovery40f9665**，仅作者证据，唯一具名acceptance无自身测量”。书写时真，现不再真，纠正而非留过期disclaimer。
+
+## 方法
+
+先启动executor、**kill**、再建work，保证waiting不drain，之后 **恢复**。每phase真实device UI-tree dump，均截图，run前APK hash对被审build核验。
+
+## 结果PASS7/7
+
+{1}
+
+完整释义：先executor在线；loss被City见、无online node；restored重注册online；两phase均22tokens无泄漏；两phase panel header；failed/recovered不同，surface跟随loss非冻结；device card自身诚实报告loss非healthy。
+
+**首run漏读的card正是决定性性质**。Panel占viewport，scroll后failed-phase第二dump：
+
+{2}
+
+OFFLINE·Cached badge（离线、缓存），CPU从online19–21%变Unavailable，Last seen持续增加，retained memory明确 **cached** 非live。区分已知与猜测的degradation；recovered回ONLINE、live CPU、Last seen0s。Card两端实测非从panel推断。
+
+**Failed phase**设备逐字copy：两task cards为Running in a reduced state（降级运行）、The current service is responding slowly. Use another available one?（当前service慢，换可用者？）、Some of what this depends on is not fully known right now.（部分依赖尚不完全已知）、Not available·This device isn't taking new work（不可用、设备不接新work）、Cancel、Choose another service、SCHEDULING DETAIL/展开。City link仍ONLINE **正确**，gateway活，死的是executor，panel区分两事实非合并。
+
+**Recovered phase**逐字：Nothing is waiting to run.（无待运行任务）；card Alien-PC/ONLINE/Platform:win32·Agent0.2.0/CPU21.0%/Memory24.2GB/31.7GB/Last seen1s ago。Live telemetry非陈旧badge，恢复为测量非缓存声明。
+
+## 确立与未确立
+
+**确立**：Android以用户语言诚实反映executor loss/restoration，两phase无contract-token leak、render不同，跟随现实非render-time冻结，正是workbook性质。
+
+**初版caveat已关闭**：原说panel占viewport未capture card offline badge，后scroll捕获如上，Alien同card观察现获 **自身测量支持** 而非仅无反驳。
+
+**仍未确立、不声称**：emulator与Alien物理设备render相同。360dp emulator读数与作者一致是corroboration，非device-independence证明。
+
+## 方法说明：差点丢掉结果
+
+新card check PASS但detail **只打印前220chars**，全为panel，表面似wrong region pass。回stored JSON打印完整scrolled dump才接受，card来源如上。与此前发现未应用mutation同核验习惯，truncated detail会复发，故记录。
+
+## 证据
+
+mission-book/reports/UXI-390/mech-review/android-failure-recovery.json，两phase全文、每phase22-token search与six results；加android-failure-panel-360dp.png、android-recovered-panel-360dp.png。原记录six results与结果7/7文本不擅改。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)

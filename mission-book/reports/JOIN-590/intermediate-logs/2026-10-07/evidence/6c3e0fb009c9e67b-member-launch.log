@@ -1,0 +1,18 @@
+file:///D:/Utopia-JOIN590-Review/apps/client/device-enrollment.mjs:158
+    throw Object.assign(new Error(body?.detail ?? body?.error ?? `session refused (${response.status})`), {
+                        ^
+
+Error: installation ins-e7f0f7cd90d276ebf8985062ab1a88e1 is retired
+    at openDeviceSession (file:///D:/Utopia-JOIN590-Review/apps/client/device-enrollment.mjs:158:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async credentialProvider (file:///D:/Utopia-JOIN590-Review/services/dev-gateway/member-runtime.mjs:5:110)
+    at async api (file:///D:/Utopia-JOIN590-Review/agents/reference-node/agent.mjs:8:67)
+    at async startAgent (file:///D:/Utopia-JOIN590-Review/agents/reference-node/agent.mjs:19:6)
+    at async main (file:///D:/Utopia-JOIN590-Review/services/dev-gateway/main.mjs:46:11)
+    at async file:///D:/Utopia-JOIN590-Review/services/dev-gateway/main.mjs:89:1 {
+  code: 'INSTALLATION_RETIRED',
+  retryable: false,
+  status: 403
+}
+
+Node.js v24.19.0

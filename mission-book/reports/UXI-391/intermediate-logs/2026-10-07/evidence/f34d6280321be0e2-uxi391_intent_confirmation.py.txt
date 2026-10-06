@@ -1,0 +1,38 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='CONFIRMATION_INTENT_DURABILITY_DEFECT.md'
+body='''# CONFIRMATION — Alien independently reproduces Mech's finding: recorded user intent is never reevaluated
+
+{0}
+
+Complete translation: Alien Development host uses its own instrument for Mech's dual-host/single-shot finding. Independent confirmation, not endorsement: defect is real and mechanism matches my reproduction.
+
+## 1. My reproduction: scripts/uxi391-intent-durability.mjs, port4395, independent City
+
+{1}
+
+Complete result translation: PASS decline is recorded without an available alternate, switchDeclined=true. PASS no transfer then, handoffTargetRef none, genuinely no destination. Node B subsequently comes online and reports telemetry; DTO REMOTE_HANDOFF, provider1 SELECTABLE/selectabletrue. PASS an eligible alternate now exists so intent could be fulfilled. FAIL the recorded decline remains unfulfilled for30seconds of polling: RUNNING, assigned intent-node-a, no target. PASS sending another decline immediately transfers to intent-node-b, epoch2.
+
+**Two measured conclusions**:
+
+1. **Reachability is sound**: eligible alternate immediately gives presentation REMOTE_HANDOFF.
+2. **Trigger fires only once**: plan consumed only inside switch-declined route; if no eligible alternate then, **nobody ever revisits recorded intent**. Second decline succeeds, proving **intent never lost, only never reevaluated**. Not data loss; a guard attached to a nonrecurring trigger.
+
+## 2. Mech's second finding, reservation without expiry/reclaim, also confirmed
+
+handoffTargetRef reserves for named device, claimAllowed refuses others. **If that device later dies, nobody can claim**. Mech deliberately disclosed a live sample: three candidates DEVICE_REFUSING, task RUNNING, target dead device.
+
+## 3. Repair design, deliberately NOT implemented this round because it would move Mech's review head
+
+{2}
+
+Full design translation: Repair A, core: replace momentary plan consumption with idempotent reevaluation. In existing one-second gateway sweep, recalculate plans for each nonterminal task with switchDeclined===true. Execute guarded transfer iff stage ALTERNATE_DEVICE and that from/to/epoch not already executed. Existing assignment-guard epoch increments and bridge ALREADY_TRANSFERRED/REFUSED provide idempotence. Process only switchDeclined tasks to avoid unnecessary pool-wide computation undersection9. Repair B, accompanying: expiry/reclaim reservation. If reserved device goes offline, or reservation exceeds bounded deadline, clear it so other eligible devices can take over and A replans next evaluation. Debounce with bounded deadline rather than immediate reclaim to avoid amplifying node flapping. Both within allowed boundaries2 minimal routing-plan consumption bridge and3 minimal protected-reclaim/CAS-lease state fields.
+
+## 4. Sequence and boundaries
+
+- **Wait for Mech review conclusion**, currently FINDING notverdict, then implementA/B and turn reproduction into regression that must become green.
+- This round's script/receipt **not yet committed to implementationbranch** because that movesreviewhead; include with two pending harness fixes inrepaircommit.
+- Do **not** declareReview PASS myself; review_result/review_complete belong toMech.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')

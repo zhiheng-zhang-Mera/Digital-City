@@ -1,0 +1,63 @@
+✔ agent construction has no I/O; drain prevents new claim; canary uses canonical state and result (192.6404ms)
+✖ crash and restart use canonical interruption refusal rather than duplicate execution (95.5657ms)
+✔ unknown protocol and unavailable adapter are typed refusals without a startup loop (1.278ms)
+✖ executor failure after progress remains canonical FAILED and drain permits held completion (132.7181ms)
+✖ cancel aborts held executor and late result never replaces terminal state (159.4748ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 2
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1687.2968
+
+✖ failing tests:
+
+test at tests\wbc603-headless-agent.test.mjs:9:1
+✖ crash and restart use canonical interruption refusal rather than duplicate execution (95.5657ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:10:524
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async fixture (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:4:658)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\wbc603-headless-agent.test.mjs:16:1
+✖ executor failure after progress remains canonical FAILED and drain permits held completion (132.7181ms)
+  Error: Invalid progress
+      at request (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:4:396)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async call (file:///D:/Utopia-WBC603/services/headless-node-agent/agent.mjs:15:14)
+      at async Object.runOne (file:///D:/Utopia-WBC603/services/headless-node-agent/agent.mjs:46:31)
+      at async file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:18:15
+      at async fixture (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:4:658)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'GATEWAY_REFUSAL',
+    status: 400
+  }
+
+test at tests\wbc603-headless-agent.test.mjs:22:1
+✖ cancel aborts held executor and late result never replaces terminal state (159.4748ms)
+  Error: Invalid task transition
+      at request (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:4:396)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async call (file:///D:/Utopia-WBC603/services/headless-node-agent/agent.mjs:15:14)
+      at async file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:26:18
+      at async fixture (file:///D:/Utopia-WBC603/tests/wbc603-headless-agent.test.mjs:4:658)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'GATEWAY_REFUSAL',
+    status: 409
+  }

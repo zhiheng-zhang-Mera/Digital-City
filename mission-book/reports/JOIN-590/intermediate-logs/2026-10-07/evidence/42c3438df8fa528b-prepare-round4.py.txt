@@ -1,0 +1,10 @@
+import subprocess,pathlib,hashlib,xml.etree.ElementTree as E,json
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T'];R=pathlib.Path('D:/Utopia-JOIN590-Review/.runtime/evidence/JOIN590-device')
+def adb(*x):return subprocess.check_output(A+list(x))
+backup=R/'private-review-round3.tar'
+if not backup.exists():backup.write_bytes(adb('exec-out','run-as','city.utopia.control.join590review','tar','-cf','-','shared_prefs','files'))
+apk=pathlib.Path('apps/android/app/build/outputs/apk/debug/app-debug.apk')
+print(json.dumps({'apkSha256':hashlib.sha256(apk.read_bytes()).hexdigest(),'applicationId':'city.utopia.control.join590review'}))
+print(adb('install','-r',str(apk)).decode())
+print(adb('shell','pm','clear','city.utopia.control.join590review').decode())
+print(adb('shell','am','start','-n','city.utopia.control.join590review/city.utopia.control.MainActivity').decode())

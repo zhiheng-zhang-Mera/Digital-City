@@ -1,0 +1,3 @@
+Expose a read-only Research trace page in Web Advanced and Android More. The bounded collector observes committed canonical event references and supplied CPU/memory samples, reports unavailable measurements honestly, restores bounded history after restart, and contains storage failures without blocking City task execution.
+
+Validation: exact-source V0.2 checks run 37211053490 succeeded on 833279cae237080cca88b1b6dbc9f217027ba68f; 18 focused tests, 53 prior integration regressions, Android 83 unit tests/build, and OPPO offline entry. Technical review defects were reproduced and repaired. Native online rendering and opposite physical-host Formal Review remain pending. Mission Book merge_authority is false.

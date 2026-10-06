@@ -1,0 +1,103 @@
+# BA-006 开发报告 — 权威任务图与所有权／执行器分离
+
+{{CODE0}}
+
+以上历史元数据记录 BA-006 的开发主机、领取与基线版本、实现分支和提交、CI 与本地检查结果。组件分支未执行合并；本译文不重新确认这些历史结果。
+
+## 1. 交付物
+
+`contracts/assistant-task-graph-v1/` 包含 `task-graph.mjs`（权威任务图、角色、租约、投影和公布的代码）、`index.mjs`、8 项测试套件，以及根测试入口 `tests/assistant-task-graph.test.mjs`。
+
+验收要求与测试的对应关系如下：
+
+| 必需验收 | 测试 |
+|---|---|
+| 同一助理在两台设备上看到一个权威任务，而非重复副本 | `one authoritative task is shared by every embodiment — never duplicated per device`：两台设备获得相同 `task_id`、`task_version`、`owner_ref`；对同一 ID 再次调用 `createTask` 被以 `DUPLICATE_TASK` 拒绝；过期缓存版本被标记 `stale: true`。 |
+| 设备或前台会话关闭不会使全局任务失去归属 | `device release suspends the lease, never orphans a task and never moves ownership`：`orphaned_tasks: []`，所有者、执行器、状态和任务数量不变，设备范围任务保留。 |
+| 前台切换不改变所有者、协调者或执行器，除非提交明确交接／执行器变更 | `foreground switching never changes owner, coordinator or executor`：`tasks_touched: []`、`role_changes: []`，版本相同。 |
+| 助理交接可更新逻辑所有权／协调者而不重启执行器 | `ownership moves only through an explicit accepted handoff, and never restarts the executor`：`executor_restarted: false`、`authority_transferred: false`。 |
+| 执行器变更必须明确，不能产生两个同时有效的执行器 | `an exclusive side effect can never have two simultaneous valid executors`：租约存续时返回 `EXECUTOR_ALREADY_BOUND`；接管必须指定精确租约，并以新 epoch 取代旧租约；`concurrent_valid_executors: 1`。 |
+| 冲突更新采用有类型的版本／状态检查并保留因果审计轨迹 | `mutations are versioned and typed, and conflicting updates keep a causal audit trail`：`TASK_VERSION_CONFLICT` 携带 `current_version`／`current_state`；被拒绝的更新不留下部分状态；获接受的变更追加 `{seq, kind, from_version, to_version, actor_ref, caused_by}`。 |
+| 各角色保持区分，任务真值位于设备会话之外 | `ownership is logical, execution is physical — sessions and devices are never the owner`：`SESSION_IS_NOT_OWNER`、`DEVICE_IS_NOT_OWNER`、`EXECUTOR_IS_NOT_A_DEVICE`、`SESSION_IS_NOT_EXECUTOR`。 |
+
+工作簿七项必需不变量的架构契约对应如下：
+
+- **不变量 1（一个身份，多个化身）：** 投影是同一个图的派生视图；两台设备看到相同任务，按设备复制任务被以 `DUPLICATE_TASK` 拒绝。
+- **不变量 2（一个权威状态，多个上下文投影）：** `projectFor` 是唯一读取界面；它带有 `local_copy_is_cache: true` 和修订标记，并相对缓存版本报告 `stale`。
+- **不变量 3（前台绑定不是所有权）：** `bindForeground` 不修改任务，并报告 `ownership_changed: false`、`executor_changed: false`、`tasks_touched: []`。
+- **不变量 4（所有权不是执行）：** 所有者与执行器是独立字段，各有独立、明确的操作；独占副作用需要租约和动作键。
+- **不变量 5（交接从不转移权限）：** 若交接包任意位置携带类似权限的字段，递归扫描会以 `HANDOFF_TRANSFERS_NO_AUTHORITY` 拒绝，并在结果中声明 `authority_transferred: false`。
+- **不变量 6（本地状态是缓存而非权威）：** 释放设备会暂停有效租约；执行器恢复前必须调用 `revalidateLease`，暂停租约的结果提交被以 `LEASE_SUSPENDED` 拒绝。
+- **不变量 7（知识不是披露权限）：** 不在 BA-006 范围内，受众范围由 BA-005 网关处理；本任务只将 `audience_scope` 作为不透明数据随交接传递，不作披露决定。
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1 — 领取哪个任务。** 重新扫描全部 41 个工作簿后，没有自己负责的修复，也没有 Mech 可领取的纠正阶段。唯一由 Alien 开发且仍开放的任务 EM-003 已由 Alien 纠正；此后 Alien 已领取 BA-004 的纠正。因此适用开发层级，平局规则“优先选择与该主机上次领取不同的项目”使选择避开 RF-005，因为 Mech 上次领取的是 Remote Fabric 的 RF-004。在 BA／GAI／EM 中选择 BA-006，是因为权威任务图是 BA-008（化身事件总线、执行租约、重连安全）以及跨项目集成任务 EM-013（共享任务核心）和 GAI-009（Ask／Do 界面）的基础。先领取它可使后续任务使用同一个已确定的任务真值契约，而非各自发明。
+
+**D2 — 图自行拥有状态，还是纯 reducer？** 选项为：（a）对调用者持有状态操作的纯函数；（b）注入时钟与持久化的权威存储。选择（b），注入时钟 `createTaskGraph({ now })`，无环境隐式状态，遵循 BA-004／BA-005 已有模块形态。理由是本任务要实现“任务真值位于设备会话之外”；能够实例化两次且状态可证明独立的存储（测试套件对此断言）能如实展示任务真值不是设备本地变量。持久化仍是接缝（原稿此处标记 D7）。
+
+**D3 — 设备或会话能否拥有任务？** 选择不能，并在创建时用有类型的拒绝落实：形如 `session:`／`foreground:`／`ui:` 的所有者触发 `SESSION_IS_NOT_OWNER`，设备形式的所有者触发 `DEVICE_IS_NOT_OWNER`；所有者必须是逻辑身份 `assistant:<id>`。理由是工作簿明确把“假定显示任务的设备就是所有者”排除在范围外。执行器则必须采用设备形式，否则触发 `EXECUTOR_IS_NOT_A_DEVICE`，因为执行发生于物理端。这是在类型检查中对“所有权不是执行”最明确的表达。
+
+**D4 — 如何转移所有权？** 只允许 `transferOwnership`：它需要已接受的 BA-004 交接，指定当前这个任务及精确版本，由权威所有者发出，不携带权限字段，接收方为逻辑助理身份。工作簿要求“用 BA-004 明确转移所有权，而非在前台切换时重写所有权”。较弱输入各有不同拒绝代码：`HANDOFF_NOT_ACCEPTED`、`CONSULTATION_TRANSFERS_NOTHING`、`HANDOFF_TASK_MISMATCH`、`HANDOFF_STALE_VERSION`、`HANDOFF_TRANSFERS_NO_AUTHORITY`，使调用者不能把“发送了某个东西”误认为“转移了所有权”。BA-004 位于另一组件分支，因此这里消费经过验证的数据包，而不导入其模块；原稿将共享形态接缝的记录位置写为 §5。
+
+**D5 — `expected_version` 是否可选？** 不可选。每次变更都必须提供它；缺失或过期时返回携带 `current_version` 与 `current_state` 的 `TASK_VERSION_CONFLICT`。工作簿禁止破坏性更新采用最后写入者胜出。强制版本要求可消除静默覆盖并发真值的路径。通用补丁还会以 `EXPLICIT_OPERATION_REQUIRED` 拒绝所有权、执行器、租约和动作键字段，避免从旁路重写状态。
+
+**D6 — 如何防止两个同时有效的执行器？** 对独占副作用，每个任务仅有一个有效租约。租约存续时第二个执行器被以 `EXECUTOR_ALREADY_BOUND` 拒绝；转移执行必须明确接管，并指定精确当前租约，随后取代旧租约并递增 `lease_epoch`。只有当前租约持有者能提交结果，已消费动作键的重复提交被以 `DUPLICATE_ACTION_KEY` 拒绝。工作簿将租约和幂等键列为处理“外部可见或改变状态的副作用”的机制；epoch 使已被替代工作者的迟到结果成为有类型的拒绝，而非重复副作用。另一方案允许两个执行器后续再协调，会允许重复副作用，违背本任务目的。
+
+**D7 — 独占工作的终态从何而来？** 当任务已有执行器且具有独占副作用时，`updateTask` 拒绝写入终态，返回 `EXPLICIT_OPERATION_REQUIRED`；完成必须经 `submitExecutorResult` 提交。否则协调者可能在持租约执行器仍运行时将任务标为 SUCCEEDED，造成虚假成功。
+
+**D8 — DEVICE 范围与关闭。** 范围决定可见性，绝不决定所有权：GLOBAL 在所有设备可见，DEVICE 仅在对应设备可见，ASSISTANT／WORKSPACE 经设备前台绑定可见。释放设备移除绑定，但保留设备范围任务并暂停有效租约。工作簿同时要求“设备范围任务引用不使 UI 会话成为所有者”和“设备关闭不使全局任务失去归属”；将范围与所有权保持独立满足两者。暂停租约（不变量 6）如实表达“执行器操作之前必须重新验证”。
+
+**D9 — 无 `schema.json`。** 与其他所有组件分支一致。
+
+## 3. 精确文件清单
+
+| 文件 | 变更 |
+|---|---|
+| `contracts/assistant-task-graph-v1/task-graph.mjs` | 新增：图、角色、租约、投影、代码。 |
+| `contracts/assistant-task-graph-v1/index.mjs` | 新增：公开界面。 |
+| `contracts/assistant-task-graph-v1/tests/conformance.test.mjs` | 新增：8 项一致性测试。 |
+| `tests/assistant-task-graph.test.mjs` | 新增：根运行器入口（106 → 109 项测试）。 |
+
+该分支没有修改 City／Core 文件、manifest 或文档，所以合并仍为增量添加。
+
+## 4. 测试总结、失败与修复
+
+共有 8 项测试。每项测试的名称、断言和预期都在运行前写好；模块随后未满足三个预期，每一项都是模块正确而预期错误：
+
+1. `an unbound device sees no scoped projection`：实际上 GLOBAL 任务可从每个化身读取，`projection_count: 1`、`foreground_assistant_ref: null`。改为断言全局可读；设备范围隔离断言仍保留在确实成立的位置，即 DEVICE 任务不投影至其他设备。
+2. 原先预期被替代执行器的迟到结果为 `STALE_LEASE`，实际为 `NOT_THE_EXECUTOR`，因为接管已替换 `executor_ref`。修正预期，并新增真正的 `STALE_LEASE` 情形：当前执行器提交较旧租约 epoch。这样同时覆盖两种拒绝，而非掩盖其中一种。
+3. `the released device keeps no live binding` 混淆绑定与范围可见性。释放后设备仍看到 GLOBAL 任务和自身设备范围任务，但 `foreground_assistant_ref: null`。改为准确断言这一区别。
+
+CI 前发现并修复一个真实实现缺陷：`task_version` 初始设为 `1`，随后创建审计条目再次递增，导致每次首次变更与版本 `2`／`NaN` 冲突。改为从 `0` 开始，使 `TASK_CREATED` 建立版本 1，也符合审计轨迹 `from_version: 0 → to_version: 1` 的真实含义。
+
+## 5. 本地检查与 CI
+
+| 检查 | 结果 |
+|---|---|
+| `node --test tests/*.test.mjs` | 109 项测试，109 通过，0 失败（101 基线 + 8 新增）。 |
+| `node --test apps/rooms/tests/*.test.mjs` | 69 通过，0 失败。 |
+| `node city/test-all.mjs` | 1801 通过，0 失败。 |
+| `node scripts/verify-promotion-history.mjs` | OK，在 82ed36933fb4 验证 10 条记录。 |
+| `node scripts/check-bilingual.mjs` | PAIR_STATUS = SYNCHRONIZED（docs、evidence、data-records）。 |
+| 提交 062795534d97c818d3cce37430d0cab6d185309c 上的 GitHub CI 36732856266 | success。 |
+
+## 6. 交给同级任务的集成接缝
+
+- **BA-004（交接）：** `transferOwnership` 消费 BA-004 定义的已接受交接包。合并时应共享一个验证器，使 BA-004 接受的交接与 BA-006 要求一致。目前 BA-006 重新验证其依赖的子集：kind、state、任务引用／版本、发送者等于所有者、接收方形态及递归权限字段扫描。
+- **BA-003（化身绑定）：** `bindForeground`／`releaseDevice` 仅建模图需要的设备绑定信息，即设备到前台助理及工作区引用。持久绑定生命周期属于 BA-003；本模块绑定表应替换为它的投影。
+- **BA-008（化身事件总线、执行租约、重连安全）：** 此处的 `lease_ref`、`lease_epoch`、`suspended`、`superseded_lease_refs`、`revalidateLease` 是 BA-008 重连安全在任务图侧的一半。BA-008 应用自己的重连检测驱动 `revalidateLease`，而非再发明一套租约概念。
+- **BA-007（设置／交互界面）：** UI 应渲染 `projectFor` 读取界面。`role_of_device` 告知设备其角色是 EXECUTOR／WATCHER／REQUESTER／OBSERVER，不允许由显示内容推断所有权。
+- **GAI-004／GAI-006（预算、同意、已取消运行）：** 取消必须来自所有者的带版本 `updateTask`，或持租约执行器的 `submitExecutorResult`，绝不能是设备本地标记。
+- **EM-013（共享任务核心与 Utopia 控制界面）：** 任务核心应实现本图契约，至少持久保存 `task_id`／`task_version`／`causal_log` 三元组。持久化、重启恢复和超出进程内版本检查的多写入者冲突解决仍属于 EM-013；这里明确未解决这些问题。
+- **所有者问题（不变）：** 演进信息流是否应记录组件阶段事件。
+
+## 7. 交给纠正主机的开放项
+
+1. 对抗审查应尝试：将交接的 `to`／`from` 嵌入数组或额外键，以便让权限字段绕过扫描；由同一执行器接管以维持两份租约；`releaseDevice` 后重放暂停前结果；以及将 `projectFor` 的 `cached_version` 用作新鲜度判定 oracle。
+2. 确认 D4 中 BA-004 交接的精确验证子集是预期接缝，并确认 D7：持租约独占工作的终态只经 `submitExecutorResult`。
+3. 确认 D8 中设备释放后保留 DEVICE 范围任务是预期解读，而不是取消这些任务。
+
+{{CODE1}}
+
+以上原始结论记录开发完成、纠正应由 Alien 而非 Mech 执行，以及项目合并前禁止合并的历史边界。

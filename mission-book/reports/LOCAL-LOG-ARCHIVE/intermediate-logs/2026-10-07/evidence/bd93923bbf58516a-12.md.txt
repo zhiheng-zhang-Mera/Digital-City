@@ -1,0 +1,21 @@
+# 派发：2026-10-02 UI-190评审完成后Mech可领取为零
+
+## 各任务原因
+
+UI-190 REVIEW_COMPLETE/dc=true/rc=true，Mech评审完claim release。剩下不是Review：第7步Owner FINAL_VISUAL_PREVIEW，再第8步main合并及UI_BASELINE_FROZEN。RS-201/202 NOT_STARTED依UI-190，但书第8步“自动解锁RS-201/202”指freeze不是review完，所以锁。RS-203依201/202、RS-290依201..203、UXI-301依UI-190/RS-290、UXI-390依UXI-301均锁。
+
+## 为何§5.1非§5.3
+
+Owner gate貌似external block，5.3行为不poll而5.1有界重扫，须精确。5.1 line110明确Owner gate解除在可解锁事件列（原中文代码块照留并可读英文对应：another host completes development/review, CI finishes, Owner gate lifts, phase freezes, provider/device recovers）。所以属WAITING_ELIGIBILITY。低成本等待不busy-poll，约20分钟有界扫，事件立即扫。原pool incomplete/claimable0/potential later保留。
+
+## Mech没做什么
+
+不merge：UI-190虽merge_authority true，书第8步在第7Owner gate后。critic过且FINAL_VISUAL_PREVIEW_PACKAGE给Owner，单方merge将跳明确保留人工gate、提前冻baseline，不为显忙越界。不再领UI-190，bounded REVIEW_REPORT及visual package交付，Review完成。
+
+## 留下状态
+
+原机器块精确dev10cdd75604836ad0b903f4dd749e80e16bdf32b6、review11bb3f6fc76aecbb1ae41f2e258cccf7beaa429b（加repair）、CI36895816630成功双job、PASS_WITH_REVIEW_REPAIR；freeze未宣，RS201/202未解锁；开放Owner gate、main merge/CI、freeze声明。
+
+## 诚实评审自述
+
+两个instrument导致假阳性和被反驳假设，一finding误读降采样截图后公开须撤回。三项都book及REVIEW_REPORT§5记未丢。确认item3由第二轮不同instrument发现，说明不重复首轮probe只凑轮数。译本保留历史状态不推当前完成。

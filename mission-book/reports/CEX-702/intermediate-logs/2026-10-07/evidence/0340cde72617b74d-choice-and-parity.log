@@ -1,0 +1,20 @@
+✔ UXI-301 android: the Kotlin term table equals the contract EXACTLY, in both directions (1.6354ms)
+✔ UXI-301 android: the Kotlin state and action tables equal the contract (0.2995ms)
+✔ UXI-301 android: Kotlin severity agrees with the contract class wherever the class carries meaning (0.2422ms)
+✔ UXI-301 android: the parity guard would actually fail on drift (0.2394ms)
+✔ UXI-390: Android action wiring equals the web surface wiring map (0.7312ms)
+✔ CEX702 ordinary Web choice records a single decline, hands off and returns actual result to same surface (2160.7249ms)
+✔ CEX702 strict target and no alternate have explicit canonical refusal without conflicting mutation (263.8638ms)
+✔ CEX702 backend rejects stale decisions and withdrawn/offline alternates using current City truth (207.4326ms)
+✔ UXI-390: every supported action is bound to a handler branch AND a client method (2.6205ms)
+✔ UXI-390: no handler branch is unreachable dead code that looks like a handler (1.039ms)
+✔ UXI-390: the per-provider Choose control sends THAT row ref, and cannot send a blank one (0.348ms)
+✔ UXI-390: CHOOSE_PROVIDER is NOT an action-row action - that is the trap Mech named (0.2629ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4864.818

@@ -1,0 +1,126 @@
+from uxi_translate import save,blocks
+n='DEVELOPMENT_REPORT.md'
+body='''# DEVELOPMENT REPORT — UXI-391 (in progress: Steps 1–4 complete; Steps 5–7 pending)
+
+{0}
+
+Metadata translation: Alien performs Development, which this task permits on one host. The baseline is the claim-time Utopia main, with no drift. This implementation head had no exact-head CI yet; Step 5 requires hosted CI success at the exact head before development_complete.
+
+## Step 1 — Claim-time reconciliation (complete)
+
+Digital-City main was `9a19221`; Utopia main was `d0507b0`, equal to the workbook value. There was no drift and no integration refresh was needed. Main CI `37020640107` succeeded. `66fa201` was **not** on main (`merge-base --is-ancestor` returned false; its diff contained 27 files, +285/−1207), so the instructions required avoiding a whole-commit cherry-pick.
+
+## Step 2 — Correcting the premise and cleaning up the five dimensions (erratum complete; regression tests pending)
+
+- `ERRATUM_WRONG_PREMISE_CORRECTED.md` records the correction append-only, without rewriting any historical record.
+- The comment in `services/dev-gateway/presentation.mjs` claiming “an AUTOMATIC handoff is unreachable in this City, which has no switch-decline flow” was corrected in place to identify the actual blocker.
+- Partial-load semantics were **unchanged**, because they were already correct: `loadFromTelemetry` reports only measured dimensions, keeps missing values missing, uses `min_observed_dimensions = 1`, and takes the maximum observed dimension as the binding pressure.
+- **Still pending at this point:** regression tests proving missing ≠ 0, binding by a saturated dimension, and usability of partial measurements.
+
+## Step 3 — Repeatable E2E with two Nodes on one host (complete, 21/21 PASS)
+
+`scripts/uxi391-handoff-e2e.mjs` uses the isolated runtime `.runtime-uxi391-e2e`, a separate port, and a temporary data directory. Its sequence follows the workbook strictly: start only A → create **one and the same** target WAIT → assert RUNNING/assigned=A for **1.5 sustained seconds** (progress=18, not a fabricated millisecond hold) → stop A's agent while keeping Gateway and the interaction surface alive → assert that **the assignment survives dropout**, a prerequisite for a routing decision → start B only afterward → assert B has telemetry → assert **no second task** exists → invoke the real `switch-declined` flow → reach ALTERNATE_DEVICE in the planner and REMOTE_HANDOFF in presentation → **actually transfer A→B through the execution bridge** → complete the same task id on B → obtain `{{"waitedMs":6000}}` from real execution → observe only one task and one terminal completion across the City, with no duplicate execution → read the backend event `TASK_HANDOFF_TRANSFERRED` with `handoffEpoch:2` and history `handoff:uxi391-node-a->uxi391-node-b@epoch2`.
+
+**Every anti-vacuity condition is asserted, not assumed:** A really ran the target; A really stopped; B came online after the assignment existed; ownership actually changed from A to B; the completed task retained its original id; and the harness read the result from the backend rather than printing a result itself.
+
+## Step 4 — Minimal ownership-transfer implementation (complete)
+
+Three minimal changes stay within the permitted scope: the handoff harness, the minimum bridge consuming the routing plan, and minimal state fields.
+
+{1}
+
+Complete translation of those implementation rules:
+
+1. `candidateFromNode` now explicitly carries enablement. City currently has no per-node disable state, so missing means ENABLED. The comment requires reading that field once City can express disablement; the adjacent regression test must fail if an explicitly disabled candidate is treated as enabled.
+2. `routeStageFor` was refactored into `routePlanFor`, returning stage, chosenDeviceRef, and the complete plan; `routeStageFor` becomes a thin reader. New `routeInputsFor` supplies orchestration, giving each decision one source and preventing a third reconstruction of the logic.
+3. New `services/dev-gateway/handoff.mjs` consumes the plan and uses city-core's existing assignment guard to perform transfer. Only the current holder may transfer, and an incremented epoch makes a late retry by the old holder cease to be idempotent. The switch-declined endpoint records user intent and then invokes it. The node/claim endpoint restricts claims by handoffTargetRef/guard holder, so a recovered A **cannot** reclaim the transferred task. Every failed transfer is REFUSED without state changes; COMPLETED is never fabricated. `planRoute` remains pure (`executed:false`); execution belongs to orchestration.
+
+Presentation adds the rule “pending transfer means REMOTE_HANDOFF,” using `handoffTargetRef` from the task record. UI neither recalculates the plan nor selects a device. Otherwise this state would exist only for the instant between recording intent and executing transfer, preventing the user from seeing what City just did.
+
+## Steps 5–7 — Pending
+
+{2}
+
+Step 5 requires regressions for the protocol facts of five task types; stable WAIT ownership; partial load; missing ≠ 0; saturated-dimension binding; target ownership A→B; no duplicate execution or terminal completion; switch offer, decline, alternate and handoff terms; result return; Web/Android scheduler parity; and the root suite. Hosted CI at the exact head must then succeed. Step 6 releases independent review to Mech (§3 forbids the same host from both developing and reviewing) and requires real Alien/Mech handoff acceptance across two hosts. Step 7 merges main, obtains main CI, records `REMOTE_HANDOFF_CLOSEOUT_REPAIRED`, and writes `POST_COMPLETION_REENTRY.md`.
+
+## Methodology record for this round (three false negatives came from instruments, not the product)
+
+1. A diagnostic script read `/tasks/:id` as `{{task:{{...}}}}`, but the task object is at the top level, falsely reporting “the task was never RUNNING.”
+2. The E2E read presentation state as `entry.state`/`entry.routeStageRef`, but it is actually at `entry.dto.state`, falsely reporting FAIL after Gateway already reported REMOTE_HANDOFF.
+3. A diagnostic script independently reconstructed alternates but omitted enablement, making **the same mistake** as the product. Its planRoute line still showed USER_DISABLED. This reinforced the root-cause category: **a field was not passed through**.
+
+---
+
+## Addendum: Step 5 completed in this round
+
+{3}
+
+Both android and gateway-web CI jobs succeeded bound to this head. New regressions in `tests/uxi391-remote-handoff-closeout.test.mjs` passed 10/10, alongside updates to existing tests:
+
+{4}
+
+The full checks cover the five requestable task types and rejection of an unknown type; missing load dimensions ≠ 0, one measured dimension sufficing, and wholly unobserved load yielding LOAD_UNKNOWN; pressure=0.95 when only one of five dimensions is saturated at 0.95, with no averaging or dilution into idle; telemetry reporting measured values only and null for unmeasurable dimensions, with capacity not counted as io load; transfer only in ALTERNATE_DEVICE, with duplicate requests, same-device requests, stale holders and missing endpoints all REFUSED without state changes; claims restricted to the reserved device and no reclaim by the recovered old holder; REMOTE_HANDOFF while transfer is pending and no residual state after termination; and consistent term/route judgments for the same candidate, the core defect class here.
+
+`eligibilityFor`'s enablement parameter was also corrected: previously it **only** used the default `'ENABLED'` and never read the candidate's own field. These are the **second and third occurrences of the same defect class** as `candidateFromNode`/`routeStageFor`. Both paths now read the same input.
+
+**CI history retains a failure honestly:** intermediate head `2e6b71a` failed run `37072814473` because UXI-301's shape assertion still expected the old shape without enablement. The next commit updated that assertion and added a stronger guard requiring rejection of explicitly disabled candidates. Both jobs at `b92e64c` passed; the failure is not hidden.
+
+**Local root suite:** 1030 cases, 1028 passes, two failures. Mech had already reproduced those two document-reader cases on unchanged baseline `1a5bc0e`; they do not occur in CI.
+
+**Steps 6–7 remain pending:** Mech independent review and real two-host acceptance including UI result return → main merge and main CI → `REMOTE_HANDOFF_CLOSEOUT_REPAIRED` and `POST_COMPLETION_REENTRY.md`.
+
+---
+
+## Addendum: UI result return completed (correcting the earlier outstanding item)
+
+UI result return in the Step 6 list is **no longer outstanding**; two-host acceptance itself remains outstanding.
+
+{5}
+
+Both CI jobs succeeded at that head; E2E passed 30/30. E2E now drives a **real Web surface**, paired and displaying the target id **before** Node A dies. Throughout handoff, it **does not repoint to B or refresh**; a page-set marker is checked afterward so a silent refresh cannot evade detection. It stays ONLINE. After transfer, **the same page** displays `TASK REGISTRY WAIT <original task id> COMPLETED` on its task page, with **no raw scheduler token** in rendered text and no page errors.
+
+Still neither performed nor claimed: **two-host acceptance** (this E2E still uses one physical host) and **Android surface continuity across handoff** (Web has been driven).
+
+---
+
+## Addendum: Step 6 two-host acceptance is executable (scripts and real LAN rehearsal)
+
+{6}
+
+Both CI jobs succeeded. A's rehearsal passed 10/10; B's passed 16/16, including no second transfer on a duplicate request and no recovery of a reserved slot by the old holder.
+
+**Measure before reporting:** I initially inferred that Mech could not connect from firewall profile `DefaultInboundAction=NotConfigured`. Measuring the rules instead showed existing **node.exe inbound Allow rules for TCP/UDP on any port**, disproving that inference. Stopping at the inference would have reported a nonexistent prerequisite blocker.
+
+**Still not performed:** running both halves on this host **does not equal** acceptance across two physical hosts. Android continuity across handoff was still not driven at this point.
+
+---
+
+## Addendum: Android surface driven across handoff (correcting the earlier Android item)
+
+{7}
+
+CI succeeded and `scripts/uxi391-android-handoff.ps1` passed 9/9. The App points to this run's Gateway without restarting or repointing to B. Its panel displays the in-flight run in user language. After A→B transfer, **the same App instance** shows completion in Home; a scan of 16 tokens finds **zero leaks**.
+
+**Three script rework causes, all retained in its header:**
+
+1. **Tap navigation proportionally, not by node:** all five label nodes have bounds `[0,0][0,0]` and are not clickable. The actual targets are the five approximately 216px bottom-bar slots.
+2. **In-flight evidence need not race worker shutdown:** a `uiautomator dump` takes seconds while WAIT holds for only six seconds. That race cannot be won and **need not** be won: after A dies, the assignment survives and the task remains RUNNING.
+3. **Panel and result occupy different surfaces:** Devices removes a task immediately upon completion, so asserting the result on that panel would fail even after successful transfer.
+
+**Still owed:** acceptance across two **physical hosts**, requiring Mech.
+
+---
+
+## Addendum: A recurring risk blocking Step 7 was recorded and cleared
+
+The pre-merge check found an **untracked zero-byte** `scripts/uxi391-handoff-e2e.mjs` in primary checkout `D:\\A-Utopia`, created at 08:28 with the empty-file SHA-256 value. It **would block merging** because this branch adds exactly that path; Git would reject it with `untracked working tree files would be overwritten by merge`.
+
+{8}
+
+This was the third occurrence of the same phenomenon: all files were zero bytes and named after the file I was then writing. The first two involved `apps/android/app/src/main/java/city/utopia/control/SchedulerPanel.kt`; this occurrence involved the handoff script. All appeared in the primary checkout, the session working directory, rather than the actual construction worktree. The cause is unestablished and is not guessed.
+
+**Disposition:** prove it is an **empty file**, not somebody's work, before deleting it. After deletion, the primary checkout had **zero dirty entries**. The fixed **Step 7 prerequisite** is therefore to assert a clean `D:\\A-Utopia` working tree before merging (`git status --porcelain` empty). Otherwise an untracked-file conflict will reject the merge. This is an **operational prerequisite**, not a style requirement.
+
+**Measured merge preview at the time:** versus `origin/main`, the branch had `17 files changed, +1700/-20`; main was an ancestor, allowing fast-forward. It added seven scripts, one test, five evidence files, and `services/dev-gateway/handoff.mjs`, and modified `presentation.mjs`, `server.mjs`, and `gateway-presentation.test.mjs`.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')

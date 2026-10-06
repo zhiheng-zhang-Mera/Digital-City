@@ -1,0 +1,18 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('RECORD_GATE8_FOUR_OBSERVER_TABLE.md',{
+'# RECORD — MESH-301 gate 8: the four-observer table, and exactly what still stands between it and a pass':'# RECORD — MESH-301 gate 8：四观察者表，以及距离 PASS 仍缺的确切事项',
+'## 1. Window 1 — the complete table, four observers on three physical machines':'## 1. 窗口 1：完整表，三台物理机器上的四个观察者',
+'Everything the gate asks for is present in this one table: **three control surfaces (Alien Web, Mech-Win-Web,\nAndroid `PERM00`) plus an independent desktop probe, on three physical machines, converging on canonical\nserver `seq` inside a 5000 ms window, with every clock offset declared and measured in the same run.** Mech\'s\nrow converged **342/342** with a worst case of 17 ms by its own account.':'此表具备 gate 要求的全部条件：**三台物理机器上的三个控制界面（Alien Web、Mech-Win-Web、Android `PERM00`）加一个独立桌面 probe，在 5000 ms 窗口内收敛于 canonical server `seq`；每项时钟偏移都已声明并在同一轮实测。** 按 Mech 自己的记录，其行收敛 **342/342**，最坏 17 ms。',
+'**And the verdict is FAILED**, on one seq out of 1434, because the instrument will not round a silent miss down\nto nothing. That is the correct reading and it is why this record does not claim the gate.':'**verdict 仍为 FAILED**：1434 项中一项 seq 失败，因为仪器不会将静默遗漏约去。这是正确解释，也是本记录不宣称 gate 已满足的原因。',
+'## 2. Window 2 — the fix re-run, and what it proved':'## 2. 窗口 2：修复后重跑及其证明',
+'A repaired instrument that is not re-run leaves the repair as a **claim**. So window 2 (04:08–04:26Z, 54 tasks,\nMech\'s surface also inside it) re-ran my three observers with the browser gap fix in place:':'仪器修复后若不重跑，修复仍只是**声明**。因此窗口 2（04:08–04:26Z、54 个任务，Mech 界面也在其中）在 browser gap 修复生效后重跑我的三个观察者：',
+'`seq 861` — the exact shape of loss that made window 1 `FAILED` — is now `GAP_DECLARED`: the surface names the\nhole instead of leaving it silent. **`MISSING x1` became `GAP_DECLARED x1` and the verdict moved from FAILED to\nINCOMPLETE.** That is the whole difference between the two runs, and it is the fix working.':'`seq 861` 与窗口 1 导致 `FAILED` 的丢失类型完全相同，现在变为 `GAP_DECLARED`：界面点名缺口，而非静默遗漏。**`MISSING x1` 变成 `GAP_DECLARED x1`，verdict 从 FAILED 变成 INCOMPLETE。** 这就是两轮的全部区别，说明修复起作用。',
+'## 3. What still stands between this and gate 8':'## 3. 距离 gate 8 仍缺什么',
+'One thing only: **Mech\'s row for window 2.** Mech\'s published receipt\n(`evidence/raw/mission-book/MESH-301/review-by-mech/mech-web-gate8-window.jsonl`) covers **window 1**\n(`seq 515..857`, 343 events, `serverMaxSeq=857`) — it ends where window 1 ended, so it cannot serve window 2.\nMech\'s record says its surface has been observing since `04:00:24Z`, which would cover window 2, but that\nstream is not the file published so far.':'仅一项：**Mech 的窗口 2 行。** Mech 已发布 receipt（`evidence/raw/mission-book/MESH-301/review-by-mech/mech-web-gate8-window.jsonl`）覆盖**窗口 1**（`seq 515..857`、343 个事件、`serverMaxSeq=857`），在窗口 1 结束处停止，不能用于窗口 2。Mech 记录称其界面从 `04:00:24Z` 起观察，可覆盖窗口 2；但该事件流尚不是已经发布的文件。',
+'So the outstanding item is not measurement work, it is one file:':'因此待补的是一个文件，而非测量工作：',
+'If that comes back with no failures, gate 8 is met on a clean run with all three surfaces inside one declared\nwindow. If it does not, the finding is the finding.':'如果返回无失败，则 gate 8 在同一声明窗口内全部三界面的干净运行上满足；若仍失败，必须如实保留发现。',
+'## 4. Gate status':'## 4. gate 状态',
+'The instrument has now produced, in one window, exactly the thing the gate describes — and then refused to\npass it because one surface had lost one event in silence. Both facts belong in the record together: the\nmeasurement is strong, and the bar has not been cleared.':'仪器现在在一个窗口中生成了 gate 所描述的测量，却因一个界面静默丢失一个事件而拒绝 PASS。这两项事实须一起记录：测量充分，但门槛尚未通过。',
+})

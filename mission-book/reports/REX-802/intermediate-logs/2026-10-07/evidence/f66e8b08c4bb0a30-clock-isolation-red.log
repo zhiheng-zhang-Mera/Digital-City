@@ -1,0 +1,39 @@
+✖ REX802 external resource clocks cannot change canonical sequence time ordering (7.9877ms)
+✔ REX802 broken observation clock remains a contained failure (0.5424ms)
+✔ REX802 rejects an oversized existing file before rotating or modifying it (8.1694ms)
+✔ REX802 rotation remains explicit after restart and restores bounded previous records (12.9088ms)
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (0.8285ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.2527ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (0.2419ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (4.61ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.2156ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (66.6645ms)
+✔ REX802 early capture waits for restored watermark before normalization (4.4774ms)
+✔ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (0.5839ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1067.5401
+
+✖ failing tests:
+
+test at tests\rex802-trace.test.mjs:4:1
+✖ REX802 external resource clocks cannot change canonical sequence time ordering (7.9877ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!collector.snapshot().records.at(-1).annotations.includes('SOURCE_TIMESTAMP_REGRESSED'))
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:4:498)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

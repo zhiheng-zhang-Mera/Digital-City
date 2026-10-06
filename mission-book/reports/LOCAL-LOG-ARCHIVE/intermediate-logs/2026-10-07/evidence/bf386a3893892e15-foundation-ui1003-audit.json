@@ -1,0 +1,142 @@
+[
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\WAKE_CONDITION_ALIEN_RECORD.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\zh-CN\\WAKE_CONDITION_ALIEN_RECORD.md",
+    "source_prefix_sha256": "cbab43a674f5140bee1e6ad2622d27bf02f361f5bfeca7f1a5cfeb12f503827e",
+    "source_prefix_bytes": 4692,
+    "exact_blocks": 1
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\HANDOFF_MECH_TO_ALIEN_DEVELOPMENT_COMPLETE.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\zh-CN\\HANDOFF_MECH_TO_ALIEN_DEVELOPMENT_COMPLETE.md",
+    "source_prefix_sha256": "4f1c69117213610c477a1b08d0fee2891a0dfcbb316634fd6d081250a88da7de",
+    "source_prefix_bytes": 5889,
+    "exact_blocks": 2
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\HANDOFF_MECH_TO_ALIEN_HEAD_MOVE.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\en\\HANDOFF_MECH_TO_ALIEN_HEAD_MOVE.md",
+    "source_prefix_sha256": "5aea2dfacc53cd05e54f9c2b8ef8ee862598048e88968626cd7e3a91ad736375",
+    "source_prefix_bytes": 4485,
+    "exact_blocks": 2
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\HANDOFF_MECH_TO_ALIEN_DELTA_AFTER_REVIEW_COMPLETE.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\zh-CN\\HANDOFF_MECH_TO_ALIEN_DELTA_AFTER_REVIEW_COMPLETE.md",
+    "source_prefix_sha256": "1f4ebfc0716a9f1fb35933e668e65d6832ada54e361113aeb49f9293ccc2f9f8",
+    "source_prefix_bytes": 7148,
+    "exact_blocks": 2
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\NARROW_WIDTH_DEFECT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\zh-CN\\NARROW_WIDTH_DEFECT.md",
+    "source_prefix_sha256": "19ea79fb930dc39ce6737dbd2b611776b8b55b47d1aed53bbb2a8031c6c1bfbd",
+    "source_prefix_bytes": 9224,
+    "exact_blocks": 5
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-101\\DEVELOPMENT_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-101\\en\\DEVELOPMENT_REPORT.md",
+    "source_prefix_sha256": "de4c5910ebd9aff5c7c457497233602f8ba446c277d6ce5f8ad2322d065204d6",
+    "source_prefix_bytes": 6581,
+    "exact_blocks": 2
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-101\\REVIEW_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-101\\en\\REVIEW_REPORT.md",
+    "source_prefix_sha256": "cadd731e906c803425ea86c03b78cc94d5fd2f013a44f8fee6b815d3f00bd165",
+    "source_prefix_bytes": 7148,
+    "exact_blocks": 8
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-103\\REVIEW_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-103\\en\\REVIEW_REPORT.md",
+    "source_prefix_sha256": "2354cafb5aecc71d7f27dd294cca38022badc73396972fcb214546b4266c59ea",
+    "source_prefix_bytes": 3866,
+    "exact_blocks": 1
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-103\\DEVELOPMENT_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-103\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "source_prefix_sha256": "d8586cff529375a834139b588b8cb824e697dac1fecfea67c083153a0a23d130",
+    "source_prefix_bytes": 7751,
+    "exact_blocks": 7
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\E2E_VERIFICATION_NOTES.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\zh-CN\\E2E_VERIFICATION_NOTES.md",
+    "source_prefix_sha256": "a88bffa2a5f79d2c149fa4703c3a4579f4de3940b4a56ae1b81aefa3013aa3c8",
+    "source_prefix_bytes": 6754,
+    "exact_blocks": 7
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\DEVELOPMENT_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "source_prefix_sha256": "a93903c190334a113d84303b49c0d0f19c1fd416fe2723e78df85fc6fb2f088d",
+    "source_prefix_bytes": 10241,
+    "exact_blocks": 5
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\REVIEW_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\en\\REVIEW_REPORT.md",
+    "source_prefix_sha256": "135c4ebdc0d192f5c74e42b590ec931ac325da096b19cc6588ed7e4ae52d1e77",
+    "source_prefix_bytes": 4431,
+    "exact_blocks": 1
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\HANDOFF_MECH_TO_ALIEN_POST_REVIEW_DELTA.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\en\\HANDOFF_MECH_TO_ALIEN_POST_REVIEW_DELTA.md",
+    "source_prefix_sha256": "6b51acb180aaf8fe9302c5bf8c6e94503d019cecd5aead09fcfd44dfdc440a02",
+    "source_prefix_bytes": 8523,
+    "exact_blocks": 4
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\en\\HANDOFF_MECH_TO_ALIEN_REVIEW_FINDINGS.md",
+    "source_prefix_sha256": "a3dbde0594428b57202b04dc410eff28cb92de4ee3f148e9a44b3c7aa4a76454",
+    "source_prefix_bytes": 8808,
+    "exact_blocks": 4
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\OWNER_STYLE_RULING.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\en\\OWNER_STYLE_RULING.md",
+    "source_prefix_sha256": "8ace5710416d91ecd9389cc8884869a11be65ce08e4510f15f8f24a8f968473d",
+    "source_prefix_bytes": 8000,
+    "exact_blocks": 3
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-190\\FINAL_VISUAL_PREVIEW_PACKAGE.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-190\\en\\FINAL_VISUAL_PREVIEW_PACKAGE.md",
+    "source_prefix_sha256": "f0782e0f574d6befdcdc63dfd8a62a8734b604f608e8ef21199341538baa9da8",
+    "source_prefix_bytes": 6378,
+    "exact_blocks": 3
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\REVISION_REVIEW_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\en\\REVISION_REVIEW_REPORT.md",
+    "source_prefix_sha256": "2b51858f9247719f9d304c11747ceeebd63113b497f5ee68a5e99f0811f6595b",
+    "source_prefix_bytes": 10173,
+    "exact_blocks": 7
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-190\\REVIEW_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-190\\en\\REVIEW_REPORT.md",
+    "source_prefix_sha256": "5e2e6dad31f22c42dd7245182a90d264051b24b7aa1e66431cfe9aa05b3d4822",
+    "source_prefix_bytes": 11813,
+    "exact_blocks": 2
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\DEVELOPMENT_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\zh-CN\\DEVELOPMENT_REPORT.md",
+    "source_prefix_sha256": "dea4e330ae4de4a15df3007d44bd168b48ab12e4da317b98410de1d17d8c10c6",
+    "source_prefix_bytes": 27571,
+    "exact_blocks": 8
+  },
+  {
+    "source": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\REVIEW_REPORT.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-000\\en\\REVIEW_REPORT.md",
+    "source_prefix_sha256": "a44b1aecbb9d8e63ccc55c6151e161a3f8db3677fd91582d8cf68a2990c83514",
+    "source_prefix_bytes": 17737,
+    "exact_blocks": 6
+  }
+]

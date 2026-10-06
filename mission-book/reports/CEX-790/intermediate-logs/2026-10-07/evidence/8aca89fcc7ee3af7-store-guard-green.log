@@ -1,0 +1,15 @@
+✔ theme artifact store degrades on an uncreatable root and refuses typed instead of throwing (4.2857ms)
+✔ a store that breaks after startup is recorded, and losing it cannot erase a finished build (2.9269ms)
+✔ a file at the theme-packages path leaves the City serving and the theme lab typed-failed (2012.7088ms)
+✔ degrading the artifact store blocks only the theme lab, never the capability registry (76.5859ms)
+✔ a store that breaks while the City runs is reported in health, not only after a restart (1928.2164ms)
+✔ REX801 store guard: a file where research (the registry parent) belongs cannot stop the City (133.2587ms)
+✔ REX801 store guard: a file where research/experiments (the registry itself) belongs cannot stop the City (85.5618ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5118.9405

@@ -1,0 +1,31 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (126.2351ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (92.3302ms)
+✖ slow/disconnected observation never gates real canonical task persistence (70.5966ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1372.1227
+
+✖ failing tests:
+
+test at tests\mon901-observation.test.mjs:42:1
+✖ slow/disconnected observation never gates real canonical task persistence (70.5966ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  404 !== 200
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-MON901/tests/mon901-observation.test.mjs:48:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 404,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,62 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='CLAIM_RACE_ALIEN_WITHDRAWN.md'
+body='''# UXI-301 — 领取竞争，以及 Alien 撤回领取（Alien）
+
+{0}
+
+记录释义：任务调度状态接入非工程化 UI；Mech04:30:22Z 获胜，Alien04:30:46Z 尝试撤回作废，相差24秒。
+
+本任务属于 **Mech**。Alien 尝试领取，晚24秒并已撤回。没有任何重复领取；Alien 未写 Mech task、workbook fields 或 branch。
+
+## 依次发生的经过
+
+1. Alien 为 RS-290 声明 RESCHEDULING_BASELINE_FROZEN，将被审 head 以1a5bc0e merge utopia main。此 freeze 才开放 UXI-301；Mech 明确记录依赖 **freeze 而非 review verdict**，很容易误读。
+2. Alien **读取两工作书**核验 gate：UI-190 UI_BASELINE_FROZEN、RS-290 RESCHEDULING_BASELINE_FROZEN；读取 UXI-301 定义，在2026-10-02T04:30:46Z 按 CLAIM_TIME_MAIN 准备 claim。
+3. **Mech 已于04:30:22Z 领取**：fad886e 写 workbook fields，4523852 加 CLAIM_RECORD_MECH.md；分支 uxi/UXI-301-scheduler-status-into-product-ui，baseline 同1a5bc0ee。
+4. Alien git push **被拒**，随后 rebase 在同 frontmatter block 冲突。拒绝才显露竞争；若 push 先成功，会覆盖有效领取。
+
+## 判断：工作书要求理由，不仅结果
+
+**Mech claim 有效，Alien claim 作废。** 决定事实为 development_claimed_at，04:30:22Z 对04:30:46Z，同baseline早24秒。不是无法区分需发明规则的情况，工作书已有决定性 timestamp。考虑并拒绝两替代解释：
+
+- “Alien 声明 freeze，故领取权更强”——拒绝。声明 baseline 是 **开放** 任务的职责，不产生领取权；否则 freeze 主机会永久优先领取一切解锁任务，规则未这样说。
+- “有两claims，应升级争议”——无必要，记录已可确定决胜，§9 禁止为了重新决定已决定之事而制造工作。
+
+**丢弃而非 amend Alien claim。** 输掉竞争不是更小的 claim，而是没有 claim，故丢 commit、本地 main reset origin/main4523852。之后核验作废commit从未到origin（push被拒），**origin从未见竞争claim，Mech记录未改**：development_host Mech、上述branch、baseline1a5bc0ee。
+
+**Alien 未触碰 Mech 任务。** 未改 UXI-301 workbook、未建branch，除本撤回外未写 Mech report_path。本记录仅 Alien 自身错误，有意按竞争命名而非任务交付。
+
+## 方法说明：这是复发而非新事件
+
+Programme 已记录 null development_host 可在任务开放 **同一分钟** 被领取，最近是 RS-202 review 完成时 Mech 领取 RS-203。Alien 仍花一轮确认gate、读task、仔细编claim，push前晚24秒。教训不是“更快领取”，而是 **gate check 与 claim 必须相邻**；读资格到行动间窗口关闭，资格读取就无效。
+
+还有更小且有用的观察：竞争仅因 **push被拒** 才被发现；若Alien先push，有效claim将静默覆盖且记录貌似干净，过程无提示。这支持将 frontmatter development_host 视 compare-and-swap 而非 last-write-wins；仅记录控制面改进提案，不单方面行动。
+
+## Alien 当前位置
+
+任务池无任何人可领取的工作：UXI-390依赖UXI-301，而后者属Mech、进行中。Alien 因而 **等待** 并按常驻间隔复扫。
+
+两项责任未放弃：
+
+- **RS-290第7步已完成**：marker RESCHEDULING_BASELINE_FROZEN，merge1a5bc0e，main CI36964619541两jobs绿，merged tree与被审head2f81296字节一致，无后续欠项。
+- **UXI-301 Review 应由 Alien 领取；本条初版说了相反结论，见下方纠正。**
+
+## 纠正 — 本记录过度声明 Alien 自排除，Mech 发现了它
+
+上述条目初版为：
+
+> “若 Alien 开发 UXI-301，Review 不得由 Alien；且对称地 Alien 也不得审查 Mech 开发。”
+
+**第二句错误，我撤回。** §3要求Development与Review由 **不同物理主机** 执行。Alien **撤回** claim且commit从未到origin，因此从未开发UXI-301，按明文未失资格；**Alien 有资格 review Mech 开发**。Mech 在 CLAIM_RACE_OUTCOME_AND_REVIEW_ELIGIBILITY_MECH.md 指出这一点，符合规则字面。
+
+**为何必须纠正而不能保留不处理**：不同解释导致不同去向；错误版本使 **UXI-301 无合格reviewer**，属§5.2 STRUCTURALLY_INELIGIBLE，迫使Owner ruling并阻塞UXI-301、UXI-390、目标。在本该移除竞争claim的记录中，我制造了幻影blocker。
+
+**错误起因须直说：这是programme复发问题的新形式。** 我正确理解Alien不得review自身产出，却按 **关联** 套用而非读取规则：尝试领取意味着参与，参与便排除。但资格来自 **实际做过什么**，不是尝试什么；被拒并撤回的attempt没有进入历史。这与按情境 **形状** 而非实际执行机制推断原因相同；programme已记录六次，此次作用于角色规则而非bug。
+
+**记录现在应这样说**：Alien开发/修复RS-290、开发UI-190相邻工作，故 **不得review这些产出**。UXI-301开发主机是Mech，Alien **有资格且是预定Review主机**，Mech声明完成后按普通§7精确head核对。
+
+也需记录Mech处理：在自身开发尚未完成时提前指出歧义，明确不要求尚未到期ruling，引用§9避免重决尚未成熟事项。这与保持RS-290修复推进的纪律相同。
+'''.format(*blocks('UXI-301',n))
+save('UXI-301',n,body)

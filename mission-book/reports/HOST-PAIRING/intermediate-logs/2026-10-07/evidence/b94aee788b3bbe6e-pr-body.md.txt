@@ -1,0 +1,7 @@
+成功入网此前只打开控制端，未将本机注册为 City 计算成员；列表漏掉成员并使用 Alien 默认名。现在按入网身份汇总成员并置顶“本机”，提供双向持久消息与接收确认、成员自己的算力共享开关和实际指定成员计算。
+
+每台主机默认 PRIMARY；用户成功加入其他 City 后，仅退休本机 Gateway/Rooms/旧代理并持久选择 MEMBER，保留原数据库；目标主城继续运行。角色和名称由运行身份与入网决定。原生安装密钥不进入 Web；会话续期、撤销、已有身份冒用防护与 HTTP/relay 一致检查已验证。
+
+验证提交 be6227ec49d4dbcd83a595d7b265766af2083421：push CI37200078026、PR CI37200080957均成功。Gateway/Web1207/1207；Rooms69/69；City1970通过、14跳过、0失败；Android测试构建、文档检查通过。Windows原生CLI主城转成员及普通重启4/4通过；实际安装保留CityID，中文本机置顶及共享开关关闭/恢复PASS，重复启动复用同PID。独立审查修复完成。
+
+依赖PR #10。原失败与完整最终记录归档 [Digital-City PR7](https://github.com/zhiheng-zhang-Mera/Digital-City/pull/7)，目录 mission-book/reports/UTOPIA-MEMBERS-20261004/。双物理主机与跨地区实测 NOT_RUN。

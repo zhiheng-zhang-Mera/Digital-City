@@ -1,0 +1,14 @@
+✔ startup preflight recognizes old absolute Windows paths and refuses duplicate Cities (4.6935ms)
+✔ an interrupted Windows inventory is an explicit blocking error, never an empty host (0.6622ms)
+✔ a relative Gateway path with an inconclusive identity probe blocks startup (0.3133ms)
+✔ a cold Windows inventory timeout retries one complete scan before declaring the host empty (0.8142ms)
+✔ a persistent inventory timeout refuses after exactly two attempts (0.3331ms)
+✔ a non-timeout inventory error refuses without retrying (0.2895ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 970.1879

@@ -1,0 +1,30 @@
+# BA-006修正报告：权威任务图与所有者/执行者分离
+
+## 1. Hosted CI
+
+开发0627955/Mech run36732856266于2026-09-30T14:55:58Z成功，首修a82b152/Alien run36803134421成功，真实runner steps。首suite12项中4在开发head失败。顶部后续bf6c6485ff76d18cf2b0f2f0e4ba59cdea5a3730/run36803893254及16tests保持原时间层，不合并改写。
+
+## 2. 独立评审
+
+git archive开发head，四blob比Git对象，frozen-0627955路径。独立敌对review只指冻结export且先读书，首次close时probe仍在跑，下面首缺陷是主机自身证实；任何再报finding必须是任务next action，完成只指这里修验机制，见第二轮。
+
+## 3. 首轮六缺陷
+
+1 canonical allowlist用in原型链，toString/constructor/valueOf/__proto__过，builder之后丢字段，属验证绕过非状态损坏；改Object.hasOwn/Reflect.ownKeys及plain prototype，回归。
+2 handoff authority Object.entries漏不可枚举grants，携权还声HANDOFF_TRANSFERS_NO_AUTHORITY；改ownKeys、symbol键本身报告，回归。
+3 循环handoff无visited无类型RangeError，现shared visited，结构cycle不是authority，回归。
+4 shared freezer无visited，caller cycle到projection崩，现跟踪visited，纵深防御。
+5 shape日期接2026-13-45T99:99:99Z/2026-02-30存created/updated，破审计时序；clock/caller都组件往返，回归。
+6 updateTask先写state/checkpoint后验watcher，session watcher抛SESSION_IS_NOT_OWNER后状态RUNNING但version/log仍PENDING；整patch先验再写，回归。
+
+## 4. 本地汇总
+
+首修12/12，开发12中8pass4fail，root/rooms/city/promotion/bilingual exit0。证据目录含byte frozen/pre-fix4fail、anchor-guard patch-task-graph、author-after、prefix/postfix/gate/ci logs。
+
+## 5. 第二轮发现及残余
+
+独立review首后回12机制，作者8项没抓，六已修，其他六第二轮每回归开发失败：7 suspended lease还当live，同device changeExecutor可重发lease再result绕revalidate；现suspended非live，LEASE_SUSPENDED直到revalidate成功。8 EXCLUSIVE可direct terminal、无executor普通owner patch也terminal，现不可terminal创建且必须submitExecutorResult。9 bindForeground/releaseDevice先改后验at，现先验。10 release向completed加suspended audit改version/log，现skip终态。11 checkpoint_ref无type cycle poison且owner/version已改，现文本先验再transfer。12 workspace_refs无type导致非array读TypeError/字符串substring membership，现非空文本array。
+
+### 未修边界/契约问题
+
+LEASE_REQUIRED声明未throw，现STALE_LEASE/NOT_THE_EXECUTOR不改名。revalidateLease用record自身version校并发空效，签名无expected_version，新增是contract change。mutation role OWNER和任非空actor未比owner，changeExecutor同，纯library无principal、书未说谁auth，留问题。side_effect caller自宣默认NONE，可opt-out action/idempotency，谁分类未定。stale由caller cached_version，graph不能验证cache。ASSISTANT/WORKSPACE在bindForeground自宣无owner bind；handoff可无from则audit归前owner，未定；replay handoff_id重复OWNERSHIP_TRANSFERRED；authority_transferred false在scan拒携权后结构真，不改语义。

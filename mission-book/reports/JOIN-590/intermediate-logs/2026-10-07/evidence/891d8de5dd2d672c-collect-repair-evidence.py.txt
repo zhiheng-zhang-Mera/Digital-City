@@ -1,0 +1,17 @@
+import pathlib,subprocess,tarfile,hashlib,json,datetime,xml.etree.ElementTree as E
+root=pathlib.Path('D:/Utopia-JOIN590-Review');private=root/'.runtime/evidence/JOIN590-device';out=root/'evidence/raw/mission-book/JOIN590-repair';out.mkdir(parents=True,exist_ok=True)
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T']
+with tarfile.open(private/'private-original.tar') as t:
+ original=t.extractfile('shared_prefs/city-connection.xml').read()
+current=subprocess.check_output(A+['exec-out','run-as','city.utopia.control','cat','shared_prefs/city-connection.xml'])
+original_unchanged=original==current
+for source,name in [(private/'round4-request.xml','round4-request.xml'),(private/'latest-ui.xml','round4-timeout.xml'),(root/'.runtime/join590-repair-focused.log','focused-tests.log'),(root/'.runtime/join590-repair-root-tests.log','root-tests-with-live-host.log'),(root/'.runtime/join590-launcher-safety.log','launcher-refusal-after-fix.log')]:
+ out.joinpath(name).write_bytes(source.read_bytes())
+tests=[]
+for p in (root/'apps/android/app/build/test-results/testDebugUnitTest').glob('TEST-*.xml'):
+ e=E.parse(p).getroot();tests.append({k:e.get(k) for k in ['name','tests','failures','errors']})
+out.joinpath('android-unit-summary.json').write_text(json.dumps(tests,indent=2),encoding='utf-8')
+receipt={'capturedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'reviewSourceSha':'b91677d1478950feb79742f618d0c981773d5bb7','correctionSoftwareSha':'ec3b6f996240ca71505b3b67af12cc222d1b283a','author':'Alien-codex','physicalApplicationId':'city.utopia.control.join590review','applicationIdHarnessDifference':True,'apkSha256':hashlib.sha256((root/'apps/android/app/build/outputs/apk/debug/app-debug.apk').read_bytes()).hexdigest(),'originalAppPreferencesByteUnchanged':original_unchanged,'round4Request':'join-c301d67807','round4Result':'APPROVAL_TIMEOUT_NO_OBSERVED_APPROVAL','physicalDurableEnrollment':'NOT_RUN','physicalRetirement':'NOT_RUN','androidUnitTests':sum(int(x['tests']) for x in tests),'androidUnitFailures':sum(int(x['failures'])+int(x['errors']) for x in tests),'focusedGatewayTests':28,'focusedGatewayFailures':0,'fullSuite':{'pass':1245,'fail':3,'total':1248,'liveHostInterferenceObserved':True},'hostRecovery':{'role':'PRIMARY','cityId':'e1d87b2a-0ec5-457e-822b-91d81e40dc67','gatewayPid':40720},'acceptance':'INCOMPLETE','artifacts':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
+out.joinpath('receipt.json').write_text(json.dumps(receipt,indent=2),encoding='utf-8')
+out.joinpath('.gitattributes').write_text('* -text\n',encoding='utf-8')
+print(json.dumps({'originalUnchanged':original_unchanged,'apkSha256':receipt['apkSha256'],'tests':receipt['androidUnitTests'],'failures':receipt['androidUnitFailures']}))

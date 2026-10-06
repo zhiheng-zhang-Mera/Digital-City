@@ -1,0 +1,29 @@
+✔ CEX701 owner sees canonical clone findings and explicitly recovers unbound installation without deleting other devices (3087.9559ms)
+✖ CEX701 session sees only own installation and actionable owner guidance; rebind and cross-revoke stay forbidden (1466.0291ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7044.4616
+
+✖ failing tests:
+
+test at tests\cex701-recovery-ui.test.mjs:4:1
+✖ CEX701 session sees only own installation and actionable owner guidance; rebind and cross-revoke stay forbidden (1466.0291ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX701/tests/cex701-recovery-ui.test.mjs:4:1269)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,31 @@
+✔ UXI-301 android: the Kotlin term table equals the contract EXACTLY, in both directions (1.5185ms)
+✔ UXI-301 android: the Kotlin state and action tables equal the contract (0.2715ms)
+✔ UXI-301 android: Kotlin severity agrees with the contract class wherever the class carries meaning (0.2294ms)
+✔ UXI-301 android: the parity guard would actually fail on drift (0.2096ms)
+✔ UXI-390: Android action wiring equals the web surface wiring map (0.6692ms)
+✔ CEX702 ordinary Web choice records a single decline, hands off and returns actual result to same surface (2194.595ms)
+✔ CEX702 strict target and no alternate have explicit canonical refusal without conflicting mutation (283.1699ms)
+✔ CEX702 backend rejects stale decisions and withdrawn/offline alternates using current City truth (223.9123ms)
+✔ CEX702 legacy decline does not authorize a stale explicit alternate replay (141.8367ms)
+✔ UXI-390 C-1: the Advanced disclosure is named with the Web pack's own words on Android (1.0364ms)
+✔ UXI-390 C-2: a disabled control states its reason in the Web pack's own words (1.2885ms)
+✔ UXI-301 panel: a state renders in user language, not as a token (2.7471ms)
+✔ UXI-301 panel: NO raw scheduler vocabulary appears in the default HTML (1.1888ms)
+✔ UXI-301 panel: an unavailable provider is visible with its reason and is NOT a control (0.4499ms)
+✔ UXI-301 panel: a submitting action carries its token for wiring and its LABEL in user language (0.456ms)
+✔ UXI-301 panel: the provider choice lives on the ROW and names a candidate the feed offered (0.4783ms)
+✔ UXI-301 panel: with nothing available to switch to, the instruction says so (0.2727ms)
+✔ UXI-301 panel: a decision is asked for only when the feed requires one (0.277ms)
+✔ UXI-301 panel: technical detail appears ONLY behind the explicit Advanced disclosure (0.2889ms)
+✔ UXI-301 panel: an unreported feed never looks like a healthy or idle one (0.313ms)
+✔ UXI-301 panel: all text is escaped, including ids from the feed (0.2333ms)
+✔ UXI-301 panel: the panel renders in zh-CN as well as en (0.2877ms)
+✔ UXI-301 panel: every copy key the panel uses exists in both locale packs (1.3939ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5011.1111

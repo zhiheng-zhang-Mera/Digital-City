@@ -1,0 +1,42 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (134.3696ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (92.4749ms)
+✔ slow/disconnected observation never gates real canonical task persistence (77.7452ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (107.1353ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (91.0926ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (68.9315ms)
+✔ deleted historical prefix and tail cannot be reported as complete history (79.9243ms)
+✔ Gateway shares outstanding observation and retains stale last view on later source failure (71.6659ms)
+✔ Alien: model OWNER_REQUIRED is an escalation, not auto-resolution (12.8511ms)
+✔ Alien: canonical observation cannot enqueue decisions after bounded close (2.2613ms)
+✔ Alien: retention restart preserves the newest decisions, not UUID lexical order (26.0796ms)
+✔ Alien: queue overflow retains canonical evidence and reports failed receipt persistence (1722.2021ms)
+✔ Alien: canonical present-but-ineligible target is escalated, not described as recovering offline (16.0898ms)
+✔ Alien: a timeout remains measurable when the critic subsequently resolves (36.7613ms)
+✔ Alien browser: polling preserves opened provenance and successful retry clears an old error (921.3833ms)
+✔ Alien browser: unavailable decision persistence is visible even before any write failure (994.9464ms)
+✔ MON903 route: a canonical failure becomes a decision receipt with canonical provenance, and the task itself is untouched (162.6198ms)
+✔ MON903 route: ordinary City activity produces no decisions at all (197.2786ms)
+✔ MON903 route: reading is authenticated, asking for a decision is the owner's, and refusals are typed (143.9561ms)
+✔ MON903 route: an explicitly submitted owner-boundary trigger is recorded as owner-required and applied by nobody (103.8836ms)
+✔ MON903 route: a decision for one task never blocks another task, and the projection carries both (209.9359ms)
+✔ MON903 triggers: only the named canonical events enter the decision path, and ordinary reports do not (23.6152ms)
+✔ MON903 ladder: a deterministic rule resolves first and the model is never consulted for it (18.9472ms)
+✔ MON903 owner boundary: scope, merge, review and owner-candidate triggers escalate WITHOUT any resolver being asked (6.9378ms)
+✔ MON903 fallback: a hanging, throwing or free-text resolver becomes a bounded fallback, never an authority (148.8219ms)
+✔ MON903 queues: decisions are per-task, parallel across tasks, bounded per task, and never a global barrier (588.5809ms)
+✔ MON903 receipts: bounded contract, provenance, measured post-state, and no applied action anywhere (16.153ms)
+✔ MON903 store: an unusable receipt store degrades the overlay and never prevents the City from starting (finding M-1) (11.912ms)
+✔ MON903 store: the City itself starts and serves decisions when the decision store is unusable (finding M-1, City level) (153.1192ms)
+✔ MON903 isolation: a reader that throws, a broken receipt file and a failing receipt write cannot break the caller (21.3525ms)
+✔ MON903 close: a closed overlay refuses a trigger with its OWN code, not by blaming the trigger (2.5302ms)
+✔ MON903 rules: the deterministic layer answers each kind from canonical facts, and invents no default (0.3466ms)
+✔ MON903 web: the owner sees the decision the City recorded, its provenance, and that nobody applied it (11520.2676ms)
+✔ MON903 web: an enrolled member may read what the City decided, and is told who can ask for one (1475.506ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19202.7621

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.RelayPairingIdentityTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-06T05:30:57.532Z" hostname="MERA-ALIANWARE" time="0.003">
+  <properties/>
+  <testcase name="a claim is long, unique and hex" classname="city.utopia.control.RelayPairingIdentityTest" time="0.003"/>
+  <testcase name="a real identity is returned unchanged" classname="city.utopia.control.RelayPairingIdentityTest" time="0.0"/>
+  <testcase name="the literal text null from a string payload is not treated as absent" classname="city.utopia.control.RelayPairingIdentityTest" time="0.0"/>
+  <testcase name="a JSON null is absent, never the text null" classname="city.utopia.control.RelayPairingIdentityTest" time="0.0"/>
+  <testcase name="a missing field is absent and an empty string is absent" classname="city.utopia.control.RelayPairingIdentityTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

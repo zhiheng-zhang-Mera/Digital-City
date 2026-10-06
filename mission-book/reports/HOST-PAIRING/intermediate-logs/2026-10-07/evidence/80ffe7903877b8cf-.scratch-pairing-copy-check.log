@@ -1,0 +1,19 @@
+✔ JOIN-502 surface: a nearby City is offered without being trusted, and joining waits for an approval (5557.1022ms)
+✔ JOIN-502 surface: a refused browse still offers the fallbacks, and a rejected ask leaves the device untrusted (6041.5177ms)
+✔ locale contract: supported tokens, fallback and first-run detection (2.5957ms)
+✔ both language packs cover every message key with matching placeholders (2.2778ms)
+✔ every fixed Web UI string is present in the language packs (1.2357ms)
+✔ protocol tokens and City Control state names are never translated (12.5095ms)
+✔ web assets only use message keys that exist in the packs (3.4649ms)
+✔ badge state and display label stay separate in every locale (4.1491ms)
+✔ applyTranslations and setLocale update the document without touching storage contracts (1.5219ms)
+✔ translation fills placeholders and time formatting follows the locale (32.8671ms)
+✔ Web Settings language switch, persistence and protocol stability (real browser) (2636.984ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13051.2724

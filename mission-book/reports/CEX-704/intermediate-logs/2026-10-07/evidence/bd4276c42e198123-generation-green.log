@@ -1,0 +1,48 @@
+✔ CEX704 guarded native generation keeps active session fixed and requires fresh terminal state (181.0309ms)
+✔ REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code (5746.2454ms)
+✔ REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session (5673.3752ms)
+✔ REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session (9235.7821ms)
+✔ REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE (11967.0103ms)
+✔ JOIN-502: a join request grants nothing until an already trusted device approves it (256.9144ms)
+✔ JOIN-502: the browse is authenticated, and a nearby City never makes this City mint a pairing code (790.7735ms)
+✔ JOIN-502: a duplicate or replayed request is bounded, not a second approval card (126.854ms)
+✔ JOIN-502: a rejected request stays rejected, and re-asking after a rejection is refused (162.9043ms)
+✔ JOIN-502: an expired request cannot be approved back into life, and expiry does not need a request to happen (104.9392ms)
+✔ JOIN-502: the request list is BOUNDED, and a decision survives a City restart (255.0174ms)
+✔ JOIN-502: the state machine refuses what it cannot honour, instead of guessing (5.382ms)
+✔ JOIN-502: an approval reaches OTHER surfaces as a canonical event, not only the owner that made it (87.7279ms)
+✔ JOIN-502: decisions are canonical events, and their payloads carry no secret (119.361ms)
+✔ JOIN-503 (1)(2): one join enrolls an installation, and a RESTART reconnects with nothing typed (197.6723ms)
+✔ JOIN-503 (3): an EXPIRED session is replaced by an internal re-auth, with no user-visible token prompt (169.8666ms)
+✔ JOIN-503 (4)(5): REVOKE denies reconnect, and a revoked installation cannot mint new membership (249.2137ms)
+✔ JOIN-503 (6): a REINSTALL mints new identities and is unbound until an explicit rebind (198.5828ms)
+✔ JOIN-503 (7): the secret-exposure sweep - no durable secret in the snapshot, events, records or a URL (155.3338ms)
+✔ JOIN-503: a broken or foreign device file is refused rather than half-used (6.4525ms)
+✔ JOIN-503 (8): the engineering manual fallback still exists and is not the default path (110.3286ms)
+✔ JOIN-503: an invite of either shape is understood, and junk is refused instead of guessed at (0.5615ms)
+✔ JOIN-503: enrollment events are emitted on a CLONE, which is the population-level half of detection (99.8129ms)
+✔ IDLE: no session exists until create() is called, and a read never changes that (2.1473ms)
+✔ generate once: exactly one ACTIVE session with the City payload kept verbatim (1.345ms)
+✔ ACTIVE is FINAL against re-generation: a second create() cannot rotate the code (1.0002ms)
+✔ ordinary reads keep the SAME id, code and payload (0.2571ms)
+✔ CONSUMED: the City reporting a different canonical session ends ACTIVE as USED, not as a mystery (0.2477ms)
+✔ EXPIRED: the countdown tick ends the session, names it EXPIRED, and creates nothing (0.1632ms)
+✔ a second EXPLICIT generate after expiry produces a new, different session (0.2635ms)
+✔ a malformed session response creates nothing (a half-session is not rendered) (0.2394ms)
+✔ reload persistence: the SAME valid session is restored, with its original expiry (0.3359ms)
+✔ a stored session that expired while the page was away comes back EXPIRED, never as a new code (0.2486ms)
+✔ a corrupt or foreign storage record is dropped rather than half-rendered (0.2355ms)
+✔ an explicit user clear names its reason and still creates nothing (0.1394ms)
+✔ clearOnSessionChanged is a no-op while the City still reports our own session (0.1532ms)
+✔ when the City session vanished AND ours is past expiry, the reason reported is EXPIRED (0.1042ms)
+✔ a new session after a terminal state is a full fresh display, and generate stays offered only when idle (0.127ms)
+✔ pairing sessions exchange once, expire and reject secret/code guesses without exposing credentials (279.4582ms)
+✔ descriptor validation rejects invalid input and conflicts, discovery TXT excludes secrets (0.7022ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 34822.4526

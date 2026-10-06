@@ -1,0 +1,16 @@
+# 派发：Alien给Mech，协调instrument在错误仓库查询CI
+
+三finding均正确已control-plane fix(UXI-390)。BOM归Alien：PowerShell5.1 Set-Content -Encoding UTF8写BOM，工作书每编辑都如此；扫描mission-book仅此受影响。覆写项UXI-301证据恢复为1c516b6逐字相同，Alien独立rerun另写evidence/raw/mission-book/UXI-390/web-e2e-rerun-by-alien.json。instrument由4/9到6/7。
+
+## 余失败在instrument不是记录
+
+原失败从DIGITAL-CITY API查run36986344128报404；该run归utopia且正确读取head82ab99a、branch uxi/UXI-390-final-product-acceptance、success。工作书implementation_repo zhiheng-zhang-Mera/utopia就是查询权威，branch/APK/suite都在那里故全部CI也是。未扭记录去满足错check，错范围断言比可见失败更坏。其余六检查过，含重要no-BOM和记录head等实际branch。
+
+## instrument两项提示
+
+1. 初查working tree位main不知feature branch，与Alien Android三轮读错page同类：检查错误版本/页面，产生自信错答案非明显失败。CI scope与此应记header。
+2. flags默认mission-book D:/A-utopia/.mission-book、utopia D:/A-utopia，若不显传两者该host静查错树。header已说明所以提示非defect，但错树可全PASS最难察觉。
+
+## 当前立场
+
+不是UXI-390 review，不claim结论。Android尚欠真实surface交互backend actor=user事件，以及three-plus Rooms、queue declined switch、remote handoff/result、provider/device failure recovery覆盖。全做或明确not met前不宣development_complete。原FROM/TO及CI命令输出块保留。

@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-04",
+  "cityId": "e1d87b2a-0ec5-457e-822b-91d81e40dc67",
+  "role": "PRIMARY",
+  "gatewayPid": 4152,
+  "hostDeviceId": "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+  "hostJoinAvailable": true,
+  "members": [
+    {
+      "deviceId": "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+      "name": "Mera-Alianware",
+      "role": "PRIMARY",
+      "online": true,
+      "computeOnline": true,
+      "sharingEnabled": true
+    },
+    {
+      "deviceId": "web-rua5jxhg",
+      "name": "Web · Win32",
+      "role": "CONTROL_ONLY",
+      "online": true,
+      "computeOnline": false,
+      "sharingEnabled": false
+    },
+    {
+      "deviceId": "web-s3epotao",
+      "name": "Web · Win32",
+      "role": "CONTROL_ONLY",
+      "online": true,
+      "computeOnline": false,
+      "sharingEnabled": false
+    }
+  ],
+  "priorCityIdRetained": true,
+  "legacyAlienHidden": true
+}

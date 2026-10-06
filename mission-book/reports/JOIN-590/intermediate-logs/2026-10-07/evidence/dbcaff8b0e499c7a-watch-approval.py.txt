@@ -1,0 +1,35 @@
+import subprocess,time,pathlib,json,xml.etree.ElementTree as E,urllib.request,datetime
+A=['D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe','-s','BICIPVNB5HS85H9T']
+R=pathlib.Path('D:/Utopia-JOIN590-Review/.runtime/evidence/JOIN590-device')
+def adb(*x):return subprocess.check_output(A+list(x),stderr=subprocess.DEVNULL)
+deadline=time.monotonic()+125
+print('Observing handset saved connection for this approval window',flush=True)
+while time.monotonic()<deadline:
+ try:
+  data=E.fromstring(adb('exec-out','run-as','city.utopia.control.join590review','cat','shared_prefs/city-connection.xml'))
+  prefs={n.get('name'):n.text for n in data}
+ except Exception:prefs={}
+ token=[REDACTED] or ''
+ if token:
+  [REDACTED],'host':prefs.get('host'),'cityId':prefs.get('cityId'),'credentialPresent':True,'isMemberSession':token.startswith('sess:'),'durableFieldNames':[k for k in prefs if k in ['installationId','instanceId','credentialId','credentialSecret']]}
+  for path in ['city','device/installations']:
+   try:
+    q=urllib.request.Request(prefs['host']+'/api/v0/'+path,headers={'Authorization':"[REDACTED]"+token,'X-City-Api-Version':'0','X-City-Schema-Version':'0'})
+    with urllib.request.urlopen(q,timeout=5) as resp:
+     val=json.load(resp)
+     proof[path]={'status':resp.status,'cityId':val.get('cityId')}
+     if path=='device/installations':proof[path]['installationCount']=len(val.get('installations',[]))
+   except Exception as ex:proof[path]={'unavailable':str(ex)}
+  (R/'round2-saved-connection.json').write_text(json.dumps(proof,indent=2),encoding='utf-8')
+  print(json.dumps(proof),flush=True)
+  break
+ time.sleep(5)
+else:print('No saved credential observed during bounded watch',flush=True)
+adb('shell','uiautomator','dump','/sdcard/join590-review.xml')
+tree=E.fromstring(adb('exec-out','cat','/sdcard/join590-review.xml'))
+texts=[]
+for n in tree.iter('node'):
+ if n.get('password')=='true':n.set('text','[REDACTED]')
+ if n.get('text'):texts.append(n.get('text'))
+(R/'round2-final-ui.xml').write_bytes(E.tostring(tree))
+print(json.dumps({'uiTexts':texts},ensure_ascii=True),flush=True)

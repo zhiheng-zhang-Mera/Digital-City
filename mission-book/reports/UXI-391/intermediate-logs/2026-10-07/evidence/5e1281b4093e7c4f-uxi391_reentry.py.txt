@@ -1,0 +1,41 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='POST_COMPLETION_REENTRY.md'
+body='''# POST_COMPLETION_REENTRY — UXI-391 mandatory automatic reentry scan after terminal state
+
+{0}
+
+Full translation: terminalmarker REMOTE_HANDOFF_CLOSEOUT_REPAIRED; exactmainSHA/greenbothjobsCI boundabove; Digital-CitySHA isthisrecord's commit. Scan rereadsorigin/main workbooklist/frontmatter, never carriespre-start conclusions.
+
+## 1. Three scan sets and results
+
+{1}
+
+Full translation: 1 merge_authoritytrue/nonterminal onlyUXI391 itself, nowterminal, noothers. 2 FourMERGE_WORKBOOK filenames BUTLER_ASSISTANT/ENGINEERING_MANAGER/GENERAL_AI_GATEWAY/REMOTE_FABRIC allfinished10-01, **never reopen**. 3 Programme integration/merge/closeout UXI391terminal andMESH301Owner-instructed Alien-drafted: execution_enabledfalse/DRAFT_PENDING_OWNER_APPROVAL, **notclaimablenow**.
+
+## 2. Typed classification fields
+
+{2}
+
+Full translation: scannedthreecategories, originalrecord statescandidatetotal5 while listingUXI391/fourhistoricMERGE_WORKBOOK/MESH301; the historicalnumber isretained, not silently corrected. Eligible0, temporarilyunclaimable1MESH301unlocksOwnerapproval, structurallyineligible0nostablemechanismexcludingAlien/section5.2inapplicable, externalblocked0section5.3inapplicable/Ownergateclassifiedsection5.1line110. Nextclaimnone/hostdash. WakeOwnerapproval execution_enabledtrue/statusREADY oranynewworkbook; eventfirst,20minutesfallback. No-claim classification5.1TEMPORARILY_UNCLAIMABLE/WAITING_ELIGIBILITY.
+
+**Why notPOOL_TERMINAL**: poolhas **realOwner-instructed follow-upMESH301**, merelyexecutionunapproved. Callingterminalwouldbe section5.4forbiddenwindow-dressing.
+
+## 3. Three explicit terminal declarations required by workbook
+
+{3}
+
+Full translation: 1 UXI390acceptance **notrevoked**, originalmarker remainsvalid; closeoutrepairaboveit, noreopenUIcivilisation/RS201..290/UXI301. 2 Originaldeferredhandoff **genuinelyCLOSED**: singl ehosttwonodes switch→alternate/remote→A/Bownership→sametaskterminalnewholder→resultoriginalsurface, bothWeb/physicalAndroiddriven; twophysicalhostsAlien10/10/Mech13/13owninstrumentrealLAN; MechREVIEW_COMPLETEPASS0a41efe gates1–8ownmeasurementsMET. 3 Realfive-dimensionalload remains **partialobservation**, notfulltelemetry: observedcpu/memoryhonest, gpu/io/networkunobserved/notzero; bindingmaxobserveddimension, min_observed_dimensions1.
+
+## 4. Nonblocking automatic-reentry residual, recorded honestly
+
+MainD:/A-Utopiathriceproduced **emptyfiles** matchingcurrentlyauthoredscripts: twiceSchedulerPanel.kt, onceuxi391-handoff-e2e.mjs. Causeunknown; eachfound/removed **pre-mergecheck**. Thisstep7check **zero dirtyitems**, mergeunblocked; checkrecordedDEVELOPMENT_REPORT.
+
+## 5. Next responsibilities
+
+{4}
+
+Full translation: Ownerapprove/modifyMESH301draft andruletwoforks, whetherexpandfrozenactionset andwhetherMechreviewerortestedendpoint. Alienatomicclaimsection2afterapproval, beforethen5.1fallbackrescan/eventfirst. Mechnopendingwork, UXI391reviewsignedandcitedterminaldeclaration.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')

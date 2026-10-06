@@ -1,0 +1,44 @@
+✔ a well-formed manifest validates, and carries no invented defaults (3.4645ms)
+✔ a missing field is reported, never defaulted (1.3672ms)
+✔ an impossible topology is refused, in each of the ways it can be impossible (1.1849ms)
+✔ an unknown capability is refused against the supplied vocabulary, and nothing is assumed (0.3383ms)
+✔ conflicting and duplicated variables are refused (0.26ms)
+✔ software identity must be exact: a short SHA or a branch name is refused by name (0.6351ms)
+✔ stop conditions and artifact policy are explicit, and an unknown kind is refused (0.3538ms)
+✔ the seed sequence is deterministic, total and independent of the host (0.8289ms)
+✔ a manifest may not carry task-domain keys: this is not a second task database (0.3844ms)
+✔ Alien independently constructs all workbook negative cases and restart seed consistency (209.5948ms)
+✖ a manifest with only a movable branch must not pass exact software provenance validation (73.8968ms)
+✔ an experiment can be listed, validated, registered, inspected, seeded — without ever being run (252.9496ms)
+✔ the research routes require the control credential: a worker cannot certify the experiment it runs (82.6928ms)
+✔ an invalid manifest is refused with every issue at once, and the rejection is stored as evidence (99.9141ms)
+✔ manifests survive a gateway restart, and a broken file is reported instead of silently dropped (127.3013ms)
+✔ the registry itself refuses task-domain keys and never offers an update (3.8359ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3457.8212
+
+✖ failing tests:
+
+test at tests\rex801-alien-independent-review.test.mjs:15:1
+✖ a manifest with only a movable branch must not pass exact software provenance validation (73.8968ms)
+  AssertionError [ERR_ASSERTION]: Movable branch is not exact software/config provenance
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-REX801-Review/tests/rex801-alien-independent-review.test.mjs:17:329)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

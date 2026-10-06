@@ -1,0 +1,31 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from mesh_translate import translate
+translate('RECORD_MECH_JOINED_AS_MECH_WIN.md',{
+'# RECORD — Mech: the Mech host has JOINED as `Mech-Win`; MESH-301 is activated on the Owner\'s instruction':'# RECORD — Mech：Mech 主机已以 `Mech-Win` 加入；MESH-301 按 Owner 指令激活',
+'## 1. The Mech host has joined, and the name is `Mech-Win`':'## 1. Mech 主机已加入，名称为 `Mech-Win`',
+'Alien\'s kickoff record says the three-end work waits for Mech to join — either by its node appearing in the\nsame City, or by leaving a trace in the control plane. **This is that trace, and the node really came up.**':'Alien 开工记录表示三端工作等待 Mech 加入，以节点出现在同一 City 或在控制面留痕为依据。**本记录就是该痕迹，节点也确实启动了。**',
+'Both properties the naming rule asks for hold on this host: **the default identity is `Mech-Win`**, and a\ndisplay-name change does **not** move the physical identity. This mirrors the Owner\'s `Alien-Win` rule on the\nother host.':'本主机满足命名规则的两项性质：**默认身份为 `Mech-Win`**，更改显示名**不改变**物理身份。这对应另一主机上 Owner 的 `Alien-Win` 规则。',
+'## 2. A correction to the naming record, measured rather than argued':'## 2. 对命名记录的实测纠正，而非争论',
+'Alien\'s kickoff record states the host-side naming rule is "已实现并实测" and gives this layering:':'Alien 开工记录称主机端命名规则“已实现并实测”，并列出如下层次：',
+'**The persisted-identity half of that is not in any utopia branch.** I searched every remote ref: the only\nimplementation that exists is':'**其中持久化身份部分不在任何 utopia 分支中。** 我搜索了每个远端 ref，现存唯一实现为：',
+'`Alien-Win`, `.city-node-identity.json` and `CITY_NODE_DISPLAY_NAME`-as-a-file-fallback appear **only in the\nrecord document**, not in code. So:':'`Alien-Win`、`.city-node-identity.json` 以及把 `CITY_NODE_DISPLAY_NAME` 当作文件回退的机制**只在记录文档中**出现，代码中不存在。因此：',
+'- the **behaviour** the record claims (identity stable across renames) is real and I reproduced it here;':'- 记录声称的**行为**（改名后身份稳定）真实存在，我在本机复现了；',
+'- the **mechanism** it describes (a persisted identity file) does not exist on main, so identity stability\n  currently rests on every caller passing the same `CITY_NODE_ID` — which is a weaker guarantee than the\n  record implies, and it is the kind of difference that bites when two hosts rely on it.':'- 描述的**机制**（持久化身份文件）在 main 不存在；当前身份稳定依赖每个调用者传入相同 `CITY_NODE_ID`，保证弱于记录所暗示的程度，两台主机依赖它时可能出问题。',
+'I am recording this as a measurement, not as a defect: the draft does not depend on the file, and MESH-301\nstep 2 only requires that the three endpoints agree one `cityId`. But if the persisted-identity file is\nintended as the mechanism, it needs to be committed before two hosts lean on it.':'这里记录为测量，而非缺陷：草案不依赖该文件，MESH-301 第 2 步只要求三个端点认同一个 `cityId`。但如果持久化身份文件是预定机制，则须在两台主机依赖它之前提交。',
+'## 3. MESH-301 is activated, on the Owner\'s instruction':'## 3. MESH-301 按 Owner 指令激活',
+'The workbook said the Owner may approve "by changing these two fields, or by instructing the drafter to change\nthem". The Owner instructed the Mech host to take on the task, which entails activation, so the two fields are\nnow `execution_enabled: true` and `status: READY`, with the instruction recorded verbatim in `activation_basis`\nfor auditability. **I did not claim the task** — see §4.':'工作书规定 Owner 可“修改这两个字段，或指令起草者修改”以批准。Owner 指令 Mech 主机承担任务，含义包括激活，因此两个字段现为 `execution_enabled: true` 和 `status: READY`，指令逐字记入 `activation_basis` 以便审计。**我没有领取此任务**，见 §4。',
+'## 4. Who claims it, and why I have not':'## 4. 谁领取，以及我为何未领取',
+'The draft\'s topology assigns the physical prerequisites, and they are not symmetric:':'草案拓扑分配的物理前提并不对称：',
+'- endpoint **B** is Alien\'s host and endpoint **C** is the **Android device, which Alien controls**;':'- 端点 **B** 是 Alien 主机，端点 **C** 是 **Alien 控制的 Android 设备**；',
+'- the Android-side work (a control client declaring `{clientIdentity, clientDisplayName = Build.MODEL}` into\n  canonical truth) needs that device, and MESH-301 lists it inside the task\'s allowed boundary #2/#5;':'- Android 侧工作（control client 向 canonical truth 声明 `{clientIdentity, clientDisplayName = Build.MODEL}`）需要该设备；MESH-301 将其列入任务允许边界 #2/#5；',
+'- Alien drafted the workbook, has its identity ready, and its record says it will claim on a direct start\n  instruction.':'- Alien 起草工作书，身份已就绪，其记录表示会按直接开工指令领取。',
+'So the development host is Alien\'s to take, and my part is **endpoint A (`Mech-Win`) plus the formal review**\non a different physical host — which the design audit explicitly unblocked by deleting the false conflict\nbetween "Mech is a tested endpoint" and "Mech is the reviewer" (its defect 5: endpoint participation is not\nauthorship). **I am not claiming MESH-301**, and I am not going to move its `development_host` field: that is a\n§12 role assignment and it is the drafter\'s to make on the Owner\'s instruction.':'因此开发主机应由 Alien 承担，我承担**端点 A（`Mech-Win`）及不同物理主机上的 formal review**。设计审计已明确删除“Mech 是受测端点”与“Mech 是复核者”之间的虚假冲突并解除阻塞（缺陷 5：端点参与不等于代码作者）。**我不领取 MESH-301**，也不会更改其 `development_host` 字段；这是 §12 角色安排，应由起草者按 Owner 指令决定。',
+'## 5. The one decision that still blocks a real three-end run':'## 5. 仍阻塞真实三端运行的一项决定',
+'**How the pairing/bearer [REDACTED] reaches the Mech host.** MESH-301 step 2 forbids the token from entering\nreports, screenshots or Git, so Alien cannot write it into the control plane and I will not ask it to. Until the\nOwner chooses a delivery path, the three endpoints cannot share one canonical City, and I will not claim a\nthree-end result on a two-end City. Recorded as the outstanding Owner input, alongside `activation_basis`.':"[REDACTED]",
+'## 6. What I will NOT do':'## 6. 不会做的事项',
+'- I will not fake a three-end result from one host\'s loopback.':'- 不会用单主机 loopback 伪造三端结果。',
+'- I will not register Android as a worker node; MESH-301 forbids it and it is a control client.':'- 不会把 Android 注册为 worker node；MESH-301 禁止如此，Android 是 control client。',
+'- I will not write the token anywhere it is forbidden to be.':"[REDACTED]",
+'- I will not claim the development role by editing a §12 field.':'- 不会通过修改 §12 字段领取开发角色。',
+})

@@ -1,0 +1,54 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (134.03ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (91.4171ms)
+✔ slow/disconnected observation never gates real canonical task persistence (73.9416ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (125.0801ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (86.8584ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (62.8434ms)
+✖ deleted historical prefix and tail cannot be reported as complete history (74.4541ms)
+✖ Gateway shares outstanding observation and retains stale last view on later source failure (65.8829ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1767.157
+
+✖ failing tests:
+
+test at tests\mon901-observation.test.mjs:110:1
+✖ deleted historical prefix and tail cannot be reported as complete history (74.4541ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-MON901/tests/mon901-observation.test.mjs:116:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\mon901-observation.test.mjs:121:1
+✖ Gateway shares outstanding observation and retains stale last view on later source failure (65.8829ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-MON901/tests/mon901-observation.test.mjs:132:136)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

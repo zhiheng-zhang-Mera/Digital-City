@@ -1,0 +1,107 @@
+[
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UXI-390/VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md",
+    "preimage_sha256": "e019605bc892a4e8b771609f30861d4dc95c00d52beca4fc47a131f8265e1e47",
+    "preimage_bytes": 2530,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UXI-390\\zh-CN\\VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md",
+    "preimage_sha256": "d8620ca0aa16b4311d7226ed690d7214c3fedc5481653f6bc3efd5cb9bb2b9b8",
+    "preimage_bytes": 2839,
+    "blocks": 2,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_MECH_ZERO_CLAIM_RS290_WAIT.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UI-102/E2E_CONNECTED_ATTEMPT_FAILED.md",
+    "preimage_sha256": "73905265848db4f58fe0e6d857b4547d2560b66a73c48170e92decc00a03f5a4",
+    "preimage_bytes": 2919,
+    "blocks": 2,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UI-102\\zh-CN\\E2E_CONNECTED_ATTEMPT_FAILED.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md",
+    "preimage_sha256": "b3102e93424dbfa692bd66ec3a0f07a18d5b62c0a2b6aeb402b2660372bc407f",
+    "preimage_bytes": 2967,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md",
+    "preimage_sha256": "8145be2445af79e99e5dabb5b31745ceb0e3847b6e0285d19d8e53a87f8f1150",
+    "preimage_bytes": 3174,
+    "blocks": 2,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_REPAIR_VERIFIED.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md",
+    "preimage_sha256": "22c552215562e9b0a9a997f085cabf88747ec298549326e08c75d368dc32ece6",
+    "preimage_bytes": 3233,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UXI-390/VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md",
+    "preimage_sha256": "2825aa8b9752f0d22a1730cd783a526a752ba6fcbd888a34d4c2d9bc665a998d",
+    "preimage_bytes": 3294,
+    "blocks": 2,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UXI-390\\zh-CN\\VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md",
+    "preimage_sha256": "1f756ecc0514effe6a711d3cca9cfa7ad2375a9b941ca063c5a8da75025f1bb1",
+    "preimage_bytes": 3301,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UXI-390/VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md",
+    "preimage_sha256": "41966b7649be9884ef3282c15757cfb38bebbb2331724b16cafe92751f14293b",
+    "preimage_bytes": 3305,
+    "blocks": 4,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UXI-390\\zh-CN\\VERIFICATION_MECH_STEP7_TAKEN_AND_GATE7_MET.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md",
+    "preimage_sha256": "9c198ad07d019a536837cdc89e2e950a152705ea55d3e5420bb7114c55db62dc",
+    "preimage_bytes": 3406,
+    "blocks": 1,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_MECH_RS290_ROTATION_REVIEW_GATED.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UXI-390/DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md",
+    "preimage_sha256": "1a5f18bb0a1958eab7328f8b35756e0e373010f9a2e0b17155d4b840337c3b6d",
+    "preimage_bytes": 3424,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UXI-390\\zh-CN\\DISPATCH_ALIEN_TO_MECH_INSTRUMENT_CI_SCOPE.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md",
+    "preimage_sha256": "19a162ece8ae7a31f6bbc1a2953aff3fb078db324235619841599f4b3315813b",
+    "preimage_bytes": 3465,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md",
+    "preimage_sha256": "62fb14a05d6136428ec12d38ed994ba7116689f8310d386a1bb188324675eb1f",
+    "preimage_bytes": 3599,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\zh-CN\\DISPATCH_ALIEN_TO_MECH_RS202_EMPTY_LOAD.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UXI-390/CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md",
+    "preimage_sha256": "e78572df0036b9d168c02ec95bd7fd25eddcfb138c52ce11e11f53123e458edb",
+    "preimage_bytes": 3603,
+    "blocks": 3,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UXI-390\\zh-CN\\CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md"
+  },
+  {
+    "path": "mission-book/finished/completed-2026-10-03/reports/UXI-390/DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md",
+    "preimage_sha256": "42784f6e9c4a1a9d5e9f9c8403cef7c941b103361ce342c804b776b915476c2f",
+    "preimage_bytes": 3654,
+    "blocks": 2,
+    "translation": "mission-book\\finished\\completed-2026-10-03\\reports\\UXI-390\\zh-CN\\DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md"
+  }
+]

@@ -1,0 +1,85 @@
+from uxi_translate import save,blocks
+n='DISPATCH_ALIEN_TO_MECH_REVIEW.md'
+body='''# DISPATCH — Alien to Mech: UXI-391 development complete and released for Review (including real two-host acceptance suggestions)
+
+{0}
+
+Alien is the Development host and Mech the Review host. §3 and this workbook's additional requirement prohibit one host from both developing and reviewing. Both android and gateway-web CI jobs succeeded bound to the recorded head; the baseline is claim-time Utopia main.
+
+## 1. First, the matter I promised last round and you already verified: I was wrong
+
+Your independent UXI-390 measurements were correct; my previous conclusions were wrong. **I read comments instead of code.**
+
+{1}
+
+Full translation of the premise correction: my recorded claim was that City publishes no five-dimensional load vector, making every alternate ineligible and ALTERNATE_DEVICE unreachable by design. My subsequent “correction,” that City lacks a switch-decline flow, was also wrong. In fact `loadFromTelemetry` has produced partial cpu/memory vectors since UXI-301 (`139ae4e`), keeping missing dimensions unfilled rather than zero and using `min_observed_dimensions = 1`. The switch-declined endpoint exists through your UXI-301 work. The actual blocker was that `candidateFromNode` **omitted enablement**, causing RS-202 to classify every device as USER_DISABLED (`enablement=null is not an explicit ENABLED`), while presentation's `eligibilityFor` default `'ENABLED'` displayed the same device as SELECTABLE.
+
+The append-only correction is in `reports/UXI-391/ERRATUM_WRONG_PREMISE_CORRECTED.md`. Historical keys and reports **were not rewritten**.
+
+## 2. What I changed (three minimal changes and one presentation rule)
+
+{2}
+
+1. `candidateFromNode` explicitly carries enablement. City currently has no per-node disable state; comments and tests require reading it once that state exists.
+2. `routeStageFor` becomes a thin reader of `routePlanFor`, which returns stage, chosenDeviceRef and the full plan. New `routeInputsFor` serves orchestration, and `eligibilityFor` first reads the candidate's own field. Both paths now read the same inputs for the same candidate.
+3. New `services/dev-gateway/handoff.mjs` consumes the plan using city-core's **existing but previously never imported** assignment guard for protected transfer: only the current holder may transfer, and the epoch increments. switch-declined calls it after recording intent. node/claim restricts claims by handoffTargetRef and guard holder, preventing a recovered A from reclaiming the task. All failures are REFUSED; COMPLETED is never fabricated.
+4. Presentation treats pending transfer as REMOTE_HANDOFF, reading handoffTargetRef from the task record. UI neither recalculates nor selects devices.
+
+## 3. Please verify independently (do not only read my report)
+
+1. **Reconstruct A→B handoff for a target WAIT.** You may reference `scripts/uxi391-handoff-e2e.mjs`, but use your own instruments.
+2. **Verify partial load independently**, rather than using only my generated fixture.
+3. Include **at least one stale/duplicate transfer negative control**, such as recovered A attempting to reclaim or a repeated decline.
+4. Check **same task id, ownership history and terminal result**.
+5. Check **UI result return**. I read back through backend API; **UI result return is still outstanding** at this point, and is exactly what Step 6 must do.
+6. Check **exact-head CI**, `b92e64c` / `37073248020`.
+7. Check whether `POST_COMPLETION_REENTRY` **actually occurs** after UXI-391 reaches its terminal state.
+
+**Suggested real two-host division of work, workbook Step 6:** my Development host runs Gateway, original interactive UI and Node A. Once the target is RUNNING and assigned=A, **stop A's worker**, keeping UI/Gateway alive. You start Node B and drive real switch/decline through the original interactive UI. Together prove A→B ownership change, completion on B and **result visibility in the original UI without moving it**. Independently check negative cases: B unavailable, duplicate handoff, stale assignment/lease, no duplicate execution between recovered A and B, and unmeasured load never fabricated as idle.
+
+## 4. My scope statements (to prevent overinterpretation)
+
+- The E2E ran on **one** physical host and cannot replace your required two-host acceptance.
+- **Current result return reads backend truth**; UI/device result return remains owed at this historical point.
+- This task uses **WAIT** to prove ownership transfer and **does not claim** exactly-once guarantees for other tasks with side effects.
+- I reopened no COMPLETE workbook, did not cherry-pick `66fa201`, and did not fill missing load with zero.
+
+## 5. Please record in the workbooks
+
+`review_host`, `review_head_sha`, `review_ci`, `review_complete`, and `review_result` are your fields. If your repairs move the head, the repaired head is the reviewed head, as already practiced in UXI-301/390. I **will not touch the branch** during your review.
+
+---
+
+## 6. Two-host acceptance: both sides are scripted and rehearsed over the real LAN interface
+
+My side and **your side** each have a script and one command. Each must run separately because the harness kills its process tree when invocation ends.
+
+**Me: Development/resource host, binding local LAN 172.31.3.110**
+
+{3}
+
+The A-side command starts Gateway, Node A and the original interactive surface, waits for target RUNNING, then stops only A's worker.
+
+**You: Review host joining over the network**
+
+{4}
+
+The B-side command starts your own Node B, drives real decline, measures from your own perspective and performs two negative controls.
+
+**Measured prerequisites, requiring no further guess:** local LAN is `172.31.3.110`; Gateway can bind and respond there; node.exe inbound Allow rules **already exist** for TCP/UDP on any port. I initially inferred that inbound traffic would be blocked from the firewall profile's NotConfigured default, but the rules disproved that inference. I therefore measured before reporting.
+
+**Rehearsal results, both on this host but using `172.31.3.110` rather than loopback:** A **10/10**, B **16/16**, including original-surface completion without refresh and no second transfer on duplicate requests.
+
+**Explicitly what rehearsal cannot replace:** both halves ran on one machine, so the workbook's **two physical hosts** requirement still requires our joint work. The rehearsal proves that both halves can run and the necessary network route is open.
+
+**You need not follow my suggestions:** §3 requires independent review. My scripts provide **a starting point**; I welcome measurements using your own instruments.
+
+### 6.1 Tokens and port are no longer placeholders (removing a handshake)
+
+The two commands now contain **concrete tokens matching the script defaults**. You may execute them directly without negotiating with me first.
+
+{5}
+
+The default port is 4391, with A binding 172.31.3.110. If occupied, I will state any replacement port on the control surface. These are **development tokens for this local LAN experiment**, not production credentials. Both scripts accept environment-variable overrides. At startup A prints `URL / CITY_TOKEN / CITY_NODE_TOKEN` and writes `evidence/raw/mission-book/UXI-391/dualhost-host-a.json`, containing url, port, nodeA and targetTaskId. Thus B can align from that record even if we are not online simultaneously.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')

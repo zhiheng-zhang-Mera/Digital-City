@@ -1,0 +1,5 @@
+The standard-device execution seam wraps accepted claim/report behavior. Opposite physical host Alien-codex (MERA-ALIANWARE) reviewed Mech's original d65dbd3af2d8903aca13726f74110e1f2f6b9b65 and found dispatch ownership/strict-target/handoff bypasses, misleading readiness and null-port refusal. Corrections keep dispatch on queued eligible/reserved targets, align readiness with Core, and retain typed contract failures.
+
+Validation: reviewer24/24 focused tests; independent baseline612c344f9f2b06a67b2645b4662d97750dd7c44e vs corrected real Gateway HTTP10 traces equivalent. Exact final f66db60998343bf99243621cfcfa2363a4566db8 CI37208400707 SUCCESS; technical critic20/20 no remaining blocker. Accepted main0e9bea3ce739b979e582a428af8fb233045a5e75 integrated.
+
+Formal review and registry reconciliation are documented in Digital-City WBC-601 reports. No distributed hardware/performance claim from controlled fixtures. Merge authority remains false; reviewer does not merge this PR. Original negative and invalid-instrument evidence retained.

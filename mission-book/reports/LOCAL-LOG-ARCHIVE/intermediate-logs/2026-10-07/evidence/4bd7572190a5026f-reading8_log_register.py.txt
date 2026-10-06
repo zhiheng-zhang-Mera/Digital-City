@@ -1,0 +1,52 @@
+from reading8 import save,codes
+r='mission-book/logs/city-live-test/register/JOIN-LIVE-2026-10-03-01.md'
+save(r,'''# RUN JOIN-LIVE-2026-10-03-01 — Registration and verdict
+
+{0}
+
+Record translation: date 2026-10-03; initiating Windows host Alien; second Windows host Mech did not join within the window. City endpoint and identity are preserved above. Runtime is join/JOIN-503-edenrollment-repair at full `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f`, including JOIN-503 Development and D-1/D-2 review repairs, with CI 37120646153 SUCCESS at exactly that head. Source checkout is D:\\A-Utopia-live, the resident City's worktree; primary D:\\A-Utopia remains on main. Owner supplied control/node tokens, configured without recording their values. The five-minute window yielded **NOT_RUN**, with no second physical host.
+
+## 1. Conclusion
+
+**This round formed no two-host topology, so it is ineligible for a final live-test verdict and is recorded NOT_RUN.** Mech did not join within five minutes, and no new City came online. This is **neither PASS nor FAIL**.
+
+Meanwhile Alien performed a complete unilateral self-test of this runtime: 38 checks, 38 passes. This is **reference only**; one host cannot replace a two-host verdict (`deferred != passed`).
+
+## 2. Measurements within the window (independently checkable)
+
+Every 15 seconds, the listener read controlSurfaces/nodes/events from City's canonical snapshot, and probed pairing/info without credentials on two common ports of eight known LAN neighbors. This is how City is discovered before obtaining a token.
+
+{1}
+
+**Zero changes in the window:** no control surface joined, no node registered, and no new City came online.
+
+An **instrument defect discovered and repaired by this host** must be recorded. Version 1 treated any external City on the LAN as “Mech arrived,” falsely identifying an **already-online historical City** at `http://172.31.12.151:4391`, cityId `be70d952-338c-424c-bb09-4ae1741e35c0`. The listener now compares cityIds against the window's initial baseline; only a **new** City counts as arrival. The table shows the corrected run. That historical City's public routes are reachable, but Owner's supplied token does not work there and host 172.31.12.151 does not respond to this host's ping. It neither represents Mech joining this round nor provides a usable peer here.
+
+## 3. Unilateral self-test (reference, not a verdict)
+
+All 38 checks against the running City passed, covering the code's core boundaries:
+
+- **JOIN-501:** entering Pairing makes zero create calls; one click makes exactly one; internal navigation and full-page reload preserve the same code; ACTIVE cannot change code via the button; after another endpoint consumes the displayed code, the Owner page **automatically** becomes USED; reuse of the consumed one-time secret returns 410.
+- **JOIN-503:** one pairing exchange completes enrollment (`ins-…`); browser receives only `sess:`; long-term credentials persist without session credentials on disk; reconnect needs no manual input; City identifies the session's installation; revocation applies on the next request (401), and the revoked installation returns INSTALLATION_RETIRED with retryable:false.
+- **Review D-1/D-2 repairs:** a session's roster read has scope:OWN_INSTALLATION, only its own row, and empty cloneFindings; a control token retains scope:CITY. Session cross-installation revocation returns `403 SESSION_CANNOT_REVOKE_OTHER`, while the victim remains BOUND and usable.
+
+Raw local receipt: `.runtime/evidence/join-final-test/receipt.json`, Git-ignored. This directory stores only verdicts and bounded observations.
+
+## 4. Unfinished work / next steps
+
+1. **The two-physical-host sequence remains unexecuted**, JOIN-503 workbook §9. Rerun after Mech joins, then record PASS/FAIL.
+2. **JOIN-502 Review** still waits for a **non-Mech** host: Mech developed it, and §3 forbids self-review.
+3. City stays resident at `http://172.31.3.110:4391`, awaiting another window. Create a new `join-live-<date>-<nn>` registration for the next run; do not rewrite history.
+
+## 5. Facts after the window: Mech completed JOIN-503 re-verification with PASS
+
+Mech had still not joined at the window's end, as §2 shows. Subsequently the control plane received Mech's re-verification commit `9a63f8c`, issuing a final code verdict **independently of this round**:
+
+{2}
+
+Full translation: reviewed head `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f` is the actual City runtime here. Verdict PASS, D-1/D-2 CLOSED, review_complete:true; Mech records DEVICE_ENROLLMENT_RECONNECT_ACCEPTED. CI 37120646153 succeeds exactly at 77f7f2a. This is an independent reimplementation rather than cherry-pick: ancestry check a3b9ab3→77f7f2a fails, so review uses its own evidence—Mech guard, author guard and original suite, 14/14. Review accepts the author's tighter cloneFindings as within the defect boundary, not expanded scope. D-4, §9 two-physical-host acceptance, remains DEFERRED (`a deferred != passed`).
+
+**This does not affect this round's verdict:** NOT_RUN describes absence of a two-host topology in this round. Re-verification PASS is an independent **code-level** conclusion. The dimensions differ, so the round's verdict is not rewritten. It leaves **one next step**: actually run §9's two-host sequence.
+
+Pool update: JOIN-501 and JOIN-503 both have review_complete:true and recorded terminal markers. Stage integration, README §5, stays locked because **JOIN-502 still lacks non-author Review**; all merge_authority fields remain false.
+'''.format(*codes(r)))

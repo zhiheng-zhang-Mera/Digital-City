@@ -1,0 +1,32 @@
+from pathlib import Path
+import subprocess,json,os,re,urllib.parse
+root=Path(chr(92)*2+'?'+chr(92)+str(Path.cwd())); mapping=json.loads(Path('.runtime/migration-map.json').read_text()); before=json.loads(Path('.runtime/workbook-before.json').read_text(encoding='utf-8'))
+for old,fields in before.items():
+ new=old
+ for a,b in mapping.items():
+  if new.startswith(a+'/'):new=b+new[len(a):];break
+ t=(root/new).read_text(encoding='utf-8'); after=dict(re.findall(r'^(status|execution_enabled|development_host|review_host|development_complete|review_complete):\s*(.*)$',t.split('\n---',1)[0],re.M));assert fields==after,(old,fields,after)
+print('Workbook state/ownership/completion flags unchanged:',len(before))
+tracked=subprocess.check_output(['git','ls-files','-z']).decode().split('\0'); missing=[];count=0
+# Walk workspace excluding the explicit future-plans area and runtime/git.
+for p in root.rglob('*.md'):
+ rel=p.relative_to(root).as_posix()
+ if rel.startswith('mission-book/future-plans/') or '.runtime' in p.parts or '.git' in p.parts:continue
+ t=p.read_text(encoding='utf-8');t=re.sub(r'```.*?```','',t,flags=re.S);pos=0
+ while True:
+  start=t.find('](',pos)
+  if start<0:break
+  end=start+2;depth=1
+  while end<len(t) and depth:
+   if t[end]=='(':depth+=1
+   elif t[end]==')':depth-=1
+   end+=1
+  if depth:break
+  v=t[start+2:end-1];pos=end
+  if not v or re.match(r'[A-Za-z][\w+.-]*:',v) or v.startswith('#'):continue
+  target=urllib.parse.unquote(v.strip('<>').split('#')[0]);dest=Path(os.path.normpath(str(p.parent/target)));count+=1
+  if not dest.exists():missing.append((rel,v))
+Path('.runtime/migration-link-audit.json').write_text(json.dumps({'checked':count,'missing':missing},ensure_ascii=False,indent=2),encoding='utf-8');print('Local links:',count,'missing:',len(missing));print(json.dumps(missing[:12],ensure_ascii=False))
+assert not missing
+assert not subprocess.check_output(['git','diff','--name-only','--','mission-book/future-plans']).strip()
+print('future-plans excluded and no tracked diff.')

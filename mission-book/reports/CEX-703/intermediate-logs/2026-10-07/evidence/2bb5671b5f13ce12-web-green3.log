@@ -1,0 +1,16 @@
+✔ CEX703 fresh user opens live catalog without failed Ask and selection never executes (1482.7539ms)
+✔ CEX703 catalog action follows existing confirmation before any City task exists (1361.4829ms)
+✔ renderTerminal returns the terminal controller, not a boolean (1.8855ms)
+✔ every terminal page renders, and the page actually follows the shell (0.955ms)
+✔ the Ask / Do page does not duplicate any id owned by the shell (1.7694ms)
+✔ no id is duplicated anywhere in the shell document (0.3744ms)
+✔ the terminal module never attaches a second submit path to the shell bar (0.6526ms)
+✔ the shell bar is a real form so Enter submits it once, natively (0.2016ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5306.6237

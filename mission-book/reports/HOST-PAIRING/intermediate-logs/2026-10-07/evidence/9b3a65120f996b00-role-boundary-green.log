@@ -1,0 +1,19 @@
+✔ each member sees itself first and all City devices by admission name, with real message receipt (3600.1805ms)
+✔ real joined devices retain names, appear beside the host and may register only their own worker (343.7722ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (264.354ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (541.7846ms)
+✔ new admission cannot take the host or an existing member identity, even with a valid short code (237.043ms)
+✔ an active browser session refresh actually extends expiry while preserving its installation scope (157.6024ms)
+✔ local primary control surface can switch only its own computing resources (201.9334ms)
+✔ joining only demotes the local host, saves its admission name and leaves remote City intact (237.0599ms)
+✔ failed pairing and busy local work do not demote or write a new membership (111.5996ms)
+✔ native production transition retires only local Gateway and its worker, while remote host stays primary (475.7357ms)
+✔ selected MEMBER role survives coordinator crash without replacing the original City pointer (6.0579ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4957.2868

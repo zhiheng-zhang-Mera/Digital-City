@@ -1,0 +1,55 @@
+import sys,re,posixpath
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from translate_archived_workbooks import BASE,save
+COMMON={
+'纯迁移':'migration only',
+'## 目标':'## Goal',
+'## Donor / 冻结基线':'## Donor / Frozen baseline',
+'## City 归属与落地边界':'## City ownership and implementation boundary',
+'目标实现仓库':'Target implementation repository','目标路径':'Target path','依赖 Mission':'Dependency Mission',
+'- **Dependency Mission:** 无':'- **Dependency Mission:** none',
+'- 迁移报告必须记录最终实际落地路径；若发现路径设计本身与当前 City map 冲突，停止并标记阻塞，不得自行改 City ownership。':'- The migration report must record the actual final implementation path. If path design conflicts with the current City map, stop and mark blocked; do not change City ownership unilaterally.',
+'## 允许迁移的既有行为':'## Existing behavior permitted to migrate',
+'## 明确禁止 / 不属于本 Mission':'## Explicit exclusions / Outside this Mission',
+'## Migration 完成门槛':'## Migration completion gates',
+'- 从冻结 donor 基线建立可追溯的 source→target 映射。':'- Establish traceable source→target mapping from the frozen donor baseline.',
+'- donor 已有行为在目标边界内完成等价迁移/适配，未实现项不得被补成“新能力”。':'- Equivalently migrate/adapt existing donor behavior inside target boundary; do not fill unimplemented items with new capability.',
+'- 目标分支已 push；Migration 阶段**不合入 main**。':'- Target branch pushed; Migration does **not merge into main**.',
+'- 相关单元/契约/parity 测试完成，并保存真实失败与修复记录。':'- Relevant unit/contract/parity tests complete; retain actual failures and repair records.',
+'- 至少完成一次真实产品消费；UI/客户端要求仅复用当前存在的 Utopia 消费面。':'- At least one real product consumption; UI/client requirements reuse only existing Utopia consuming surfaces.',
+'- 数据、错误、恢复/中断（适用时）记录可追溯。':'- Traceable data/error/recovery/interruption records where applicable.',
+'- City Migration Report 已提交：':'- City Migration Report committed:',
+'- 更新本文件 `migration_complete: true`、branch/head/CI/report 字段。':'- Update this file migration_complete: true and branch/head/CI/report fields.',
+'## Verification 完成门槛':'## Verification completion gates',
+'- Verification 主机必须与 Migration 主机不同。':'- Verification host must differ from Migration host.',
+'- 先完成独立代码/运行审查并写下发现，再阅读 Migration 报告。':'- Complete independent code/runtime review and record findings before reading Migration report.',
+'- 必要维修只能发生在同一 Mission 分支，且不得扩大功能边界。':'- Necessary repair only on the same Mission branch, without expanding functionality.',
+'- 所有 required CI 与本 Mission 门禁全绿。':'- All required CI and Mission gates green.',
+'- 由 Verification 主机完成合并到目标实现仓库 `main`。':'- Verification host performs merge into target implementation repository main.',
+'- City Verification Report 已提交：':'- City Verification Report committed:',
+'- 更新本文件 `verification_complete: true`、最终 CI、merge SHA 与报告字段。':'- Update this file verification_complete: true, final CI, merge SHA and report fields.',
+'## Claim / 主机领取记录':'## Claim / Host claim record',
+'## 绑定执行条件（所有 Mission 强制）':'## Binding execution conditions (mandatory for every Mission)',
+' 仅为历史归档，不具运行时约束力。':' is historical archive only, with no runtime authority.',
+'（integration-first v2）':' (integration-first v2)',
+'（未被 9-30 覆盖的条款继续有效）':' (clauses not superseded by 9-30 remain effective)',
+'> 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若与 Owner 最新裁决冲突，以 `response-9-29.md` 为准。':'> Current Mission frontmatter and mission-specific gates remain effective; historical rule numbers in old Claims/Reports/body are interpreted in their original context only. If they conflict with the latest Owner ruling, response-9-29.md prevails.',
+'> 本 Mission 的当前 front matter 与 mission-specific gates 继续有效；若旧 Claim/Report/正文引用历史 rule 编号，仅按当时上下文解释。若冲突，以最新日期 Owner response 为准。':'> Current Mission frontmatter and mission-specific gates remain effective; historical rule numbers in old Claims/Reports/body are interpreted in their original context only. In conflict, latest-dated Owner response prevails.',
+}
+def replant(stem,mapping):
+    if (BASE/('replant/en/'+stem+'.md')).exists():return
+    rel='replant/'+stem+'.md';src=(BASE/rel).read_text(encoding='utf-8').split('---',2)[2]
+    out=src
+    blocks=[]
+    def protect(m):
+        blocks.append(m[0]);return 'PRESERVED_CODE_BLOCK_'+str(len(blocks)-1)
+    out=re.sub(r'```[^\n]*\n[\s\S]*?```',protect,out)
+    # Long exact replacements before shorter labels.
+    for a,b in sorted({**COMMON,**mapping}.items(),key=lambda x:len(x[0]),reverse=True):out=out.replace(a,b)
+    out=out.replace('**Dependency Mission:** 无','**Dependency Mission:** none')
+    remaining=[x for x in out.splitlines() if re.search('[\u4e00-\u9fff]',x)]
+    if remaining:raise ValueError((stem,remaining))
+    for i,block in enumerate(blocks):out=out.replace('PRESERVED_CODE_BLOCK_'+str(i),block)
+    # All current source links stay targeted at the same resource after en/ relocation.
+    out=re.sub(r'(\]\()([^\)]+)(\))',lambda m:m[0] if m[2].startswith(('http:','https:','#')) else m[1]+'../'+m[2]+m[3],out)
+    save(rel,out,lang='en')

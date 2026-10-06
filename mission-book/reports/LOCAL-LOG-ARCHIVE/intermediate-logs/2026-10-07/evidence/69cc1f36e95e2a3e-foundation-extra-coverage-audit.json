@@ -1,0 +1,16 @@
+[
+  {
+    "source": "mission-book/finished/completed-2026-10-01/CROSS_PROGRAMME_EXECUTION_CONTRACT.md",
+    "target": "mission-book\\finished\\completed-2026-10-01\\zh-CN\\CROSS_PROGRAMME_EXECUTION_CONTRACT.md",
+    "prefix_bytes": 11639,
+    "prefix_sha256": "4ff855b6a0df75e86d15acea56abc7500b8c886833dac4176b3b79c0e6be0302",
+    "blocks": 3
+  },
+  {
+    "source": "mission-book/finished/completed-2026-10-03/README.md",
+    "target": "mission-book\\finished\\completed-2026-10-03\\zh-CN\\README.md",
+    "prefix_bytes": 2228,
+    "prefix_sha256": "ba8137a3f97944235f7af8b3b1ba476cf2e460e85a552d1bace8eb98ff20f541",
+    "blocks": 0
+  }
+]

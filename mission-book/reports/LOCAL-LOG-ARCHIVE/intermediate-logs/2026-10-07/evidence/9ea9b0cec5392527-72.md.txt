@@ -1,0 +1,130 @@
+# RF-002 纠正报告 — 统一配对与信任生命周期
+
+{{CODE0}}
+
+## 1. 方法
+
+1. 独立复现：Mech 在独立 worktree 检出分支，任何修改前原样运行 Alien 模块套件，38/38 通过。
+2. 并行委托两次独立对抗审查，分别检查生命周期／状态机和文档／验证层；均不得修改 `city/`，探针写入 `.runtime/evidence/mission-book/RF-002/correction-001/`，证据绑定 `3c0eb4f`。
+3. 自己独立阅读并以 `probe-mine.mjs`、`probe-verify.mjs` 覆盖相同范围，因为受委托发现只是声称，不是事实。
+4. 修复前自己重新验证每项声称。两项委托高严重度声称未复现，在 §5 记录为被反驳而非已修复。
+5. 在同分支直接修复，各有回归测试；随后运行完整本地检查，再执行分支 CI。
+
+## 2. 发现并修复的缺陷
+
+### C1 — TRUSTED 会话被改为 EXPIRED（高）
+
+`expireIfDue` 直接写 `state = 'EXPIRED'`，绕过转换门。`PAIRING_TERMINAL_STATES` 没有 TRUSTED，但 `PAIRING_TRANSITIONS.TRUSTED` 为空。因此文档所称失败配对清理 `cleanupExpired()` 会重写成功配对，使信任记录指向不再 TRUSTED 的会话，并追加转换表禁止的转换。
+
+自身绑定 `3c0eb4f` 的观察为：`expireSession` 后 `state=EXPIRED`，`cleanupExpired` 返回 `expired=["pair-1212…"]`，转换轨迹为 `[… 'TRUSTED', 'EXPIRED']`。
+
+修复：从转换表推导终局性 `isFinalState`，用于 `expireIfDue`、`assertTransition`、`expireSession`、`cleanupExpired`、`inspectSessionDocument`。无出边状态为终局，因此成功配对永不被过期，离开它返回 `terminal_state`。没有增加第二套人工维护列表。
+
+### C2 — 有效重新配对为同一设备留下两个 TRUSTED 记录（高）
+
+`replaceExisting: true` 创建替代记录却不退役前驱，`[…trusts].find(device_id)` 返回最早记录。明确重新配对后两者都 TRUSTED，`checkReconnect` 接受已被取代凭据，撤销替代记录后仍能通过旧记录认证，构成撤销绕过。Alien 开放项已预料此问题，但测试仅覆盖已撤销前驱路径。
+
+观察：`listTrusts(device) = 2 (both TRUSTED)`；旧凭据 `allowed:true`，新凭据 `credential_unknown`；撤销新信任后旧信任仍认证。
+
+修复：替代记录将该设备所有先前未撤销记录设为 `REVOKED`，原因为 `REPAIRED`，保留历史并在 `superseded` 返回 ID。`resolveActiveTrust` 遇歧义报告 `trust_conflict`，不按插入顺序选择。修复后重新配对仅留一个有效信任，撤销它后两凭据均不能连接。
+
+### C3 — 人工预览未验证存储并与调用者共享（高）
+
+`presentDevicePreview` 仅检查指纹与两个布尔值。调用者提供 `mac_evidence.role = 'AUTHORITY'`、`authoritative: true`、`can_block_or_grant: true`、其他 `device_id`、未声明 `private_key` 的预览仍被接受存储；`PREVIEW_FIELDS`、`MAC_EVIDENCE_ROLE`、`MAC_AUTHORITY` 无处使用。对象按引用存储，除非调用者恰好传冻结对象，后续修改会无审计地重写权威记录。
+
+观察：伪造预览进入 `DEVICE_PREVIEW` 并存储伪造块；幂等路径非对象预览返回 `HUMAN_CONFIRM`，呈现成功。
+
+修复：按声明字段清单验证预览，必须携带 MAC 证据常量，`authoritative`／`can_block_or_grant` 为 false，设备为合法 `dev-<32 hex>` 或 null；存储前深拷贝并冻结；幂等路径拒绝 null／诱饵预览，不报告成功。
+
+### C4 — 确认 token 没有尝试预算（高）
+
+`requestConfirmation` 接受调用者选 nonce，其摘要公开在会话文档；`confirmPairing` 不计数，2000 次错误猜测后仍开放，后续正确猜测仍创建信任（`role: FULL_NODE`、`confirmed_by: 'attacker'`）。确认所需其他字段 `responder_fingerprint`、`device_id` 均在公开会话文档。
+
+自身观察为 `2000 wrong guesses accepted=0; session state=HUMAN_CONFIRM; trust minted=0`，随后正确猜测返回 FULL_NODE。
+
+修复：计数错误 token，达到 `MAX_CONFIRMATION_ATTEMPTS`（5）时会话进入 FAILED，原因为 `confirmation_attempts_exhausted`，抛出代码也说明此事。相同探针修复后结束于 FAILED，正确猜测被以 `terminal_state` 拒绝。
+
+### C5 — 被拒绝的 `startSession` 消耗 challenge（中）
+
+`seenChallenges.set(...)` 在 `expires_at: instantOf(nowMs + ttlMs)` 前运行，无法构造会话也会消耗 nonce，合法重试随后被以 `challenge_replayed` 拒绝。越界时间还会以裸 `RangeError` 逸出而非有类型拒绝。
+
+观察：`startSession(ttlMs = Number.MAX_SAFE_INTEGER)` 抛 `RangeError: Invalid time value`，会话数为零，正常重试却为 `challenge_replayed`。
+
+修复：记录 challenge 前先计算可拒绝的截止时间；越界时间抛 `PairingValidationError('instant')`。拒绝不留状态，重试成功。
+
+### C6 — 被信任设备不一定是展示的设备（中）
+
+`confirmPairing` 接受任意 `deviceId`，可为人工预览未见设备创建信任；`macMismatchObserved` 用 `Boolean()` 强制转换，使字符串 `'no'` 被记录为 true。
+
+修复：将 `preview.device_id` 绑定至确认设备，否则 `preview_mismatch`；MAC 不匹配标记必须是真布尔，否则 `malformed`。
+
+## 3. 已验证成立的声称（证据保留）
+
+- 阶段不能跳过：从 PAIRING_SESSION／EPHEMERAL_KEY_EXCHANGE 确认返回 `confirmation_not_available`，其他预览指纹返回 `fingerprint_mismatch`。
+- 终态真正终局：REJECTED／CANCELLED／FAILED／EXPIRED 后续操作均返回 `terminal_state`，文档字节不变且无信任。
+- 重放保护成立：复用 nonce 返回 `challenge_replayed`，第二会话复用已消费 token 返回 `confirmation_replayed`；失败确认不消耗 token、不创建信任。
+- 撤销信任终局：重连、轮换、角色更改、隔离、重复撤销均为 `trust_revoked`。
+- 入口不能伪造，六入口汇聚同协议，未知入口拒绝。
+- MAC 从不提供权限（`NOT_AUTHORITY`、`can_block_or_grant:false`、`trustFromMacEvidence().granted:false`），信任也不是能力（`capabilitiesFromTrustRole('FULL_NODE') → []`）。
+- 审计与会话文档无密钥材料，`auditLeakScan` 无报告。
+- 到期包含截止点，无差一；摘要不受键重排影响。
+
+编码问题已确定：`challengeFromNonce('n1')` 与 `('n1\u0000')` 产生不同 challenge 和会话，没有共享 challenge 或 token。两个方向均无害。
+
+## 4. 决策日志（问题 → 选择 → 理由）
+
+**D1 — 重新验证后才信任委托发现。** 选项为修复审查者全部报告，或逐项重验只修复可复现项。选后者，因为两项高严重度声称未复现（§5）。修复不存在缺陷会无故改变已验证行为，并使报告不可靠。
+
+**D2 — 声明 TRUSTED 终态，还是从表推导（C1）？** 选择 `isFinalState(state) = PAIRING_TRANSITIONS[state].length === 0`。将 TRUSTED 加入 `PAIRING_TERMINAL_STATES` 会创建可漂移第二列表，也改变该常量“会话可失败进入的状态”的含义。推导保留单一真值来源，同时修复错误告知信任会话不终局的 `inspectSessionDocument`。
+
+**D3 — 用 REVOKED／REPAIRED 取代旧信任，还是新增 SUPERSEDED（C2）？** 复用 REVOKED 及已声明 REPAIRED，无新状态、验证器变更，记录按作者意图保留历史，旧信任明确不可用。新状态只增加词汇、测试和合并关注，没有额外安全收益。
+
+**D4 — 解析两个有效记录，还是拒绝（C2）？** 选择 `trust_conflict`，提取 `resolveActiveTrust` 以人工构造记录群直接测试。取代修复后该状态不能经 API 到达，而“返回先到记录”正是隐藏绕过的静默行为。API 不可达保护也值得直接测试。
+
+**D5 — 按声明字段验证预览，还是冻结所有输入（C3）？** 两者都做，加写入时复制。仅冻结会锁定伪造 MAC 权限块，仅验证仍允许人工观看后调用者改写权威记录。
+
+**D6 — 尝试预算（C4）。** 错误 token 计数，5 次令会话失败。拒绝施加 token 熵下限，因为这属于调用者／策略决定，设备可合法展示简短本地确认码，且会扰动已有 fixture；作为 Owner 项记录。
+
+**D7 — 修复广度。** 修复六个已验证缺陷，其余以有类型开放项和证明探针记录（§6），不声称更广修复。其余发现真实，但需要 Owner 决定（token 熵）、跨层重构（验证器白名单与恶意输入完备拒绝）或独立保留策略；已执行路径上均非信任绕过。
+
+**D8 — 不新增演进事件。** 与开发报告 D13 不变；本报告即纠正记录。
+
+## 5. 未复现的委托声称（记录而非修复）
+
+1. “伪造 TRUSTED 会话验证 `ok:true`，`inspectSessionDocument` 报为受信任”：已反驳。`validatePairingSession(forged)` 为 `ok:false`，理由为 `fingerprint: a TRUSTED session must name the fingerprint it was bound to`；伪造信任记录也拒绝。审查者探针可能用了不同字节，不需修复。
+2. “预览文档共享可变，确认后修改重写权威文档”：部分反驳。`buildDevicePreview` 返回冻结对象，修改抛错，摘要不变。真实部分是调用者提供带未声明字段／伪造 MAC 权限的普通对象被未验证存储，已作为 C3 修复。
+
+两者记录是为防后续读者再次“修复”。
+
+## 6. Owner／未来任务开放项（真实、有证据、本次有意不修）
+
+1. **保留。** `cleanupExpired` 标记终局会话但不删除；审查者创建 5000 会话，全部保留。有界保留需要策略；重放 challenge 集必须保留或有独立 TTL，否则驱逐重新开放 nonce 重放。
+2. **恶意输入的完备拒绝。** 字段为 BigInt 或循环结构时，验证器错误路径抛 TypeError 而非 `ok:false`；自身复现 `Do not know how to serialize a BigInt`。需要安全错误路径和原型／继承键强化，这是跨层验证器改动，而非信任修复。
+3. **摘要不是承诺。** 未知字段及 NaN／Map 强制转换使不同文档可同摘要，属于同一验证严格性工作。
+4. **`findSecretMaterial` 广度。** 不识别 `privateKey`／`password`／`token` 字段名或按值助记词，自由文本 reason 中助记词不被 `auditLeakScan` 报告。自由文本由调用者提供是设计选择，允许记录内容的策略需 Owner 决定。
+5. **隔离是单向门。** 注释说“明确决定可逆”，但无操作。注释或 API 有误；行为不变并记录，不能在纠正中发明解除隔离契约。
+6. **token 熵下限（D6）与单调时间。** 注入时钟是刻意设计，过期 `nowMs` 属调用者责任；单调性断言应伴随策略决定。
+7. **合并工作簿。** 本分支与 RF001 均声明 `02-city-node-network` 建筑，均修改 `city/tests/manifest.test.mjs`、`tests/capability-registry.test.mjs` 及两份 `city/docs/*/ARCHITECTURE.md`。应取并集：两模块、一次孵化身份扩展、一次 fixture 修复。
+
+## 7. 与 DEVELOPMENT_REPORT 对照
+
+- 报告每个映射到测试的验收项均有相应测试，且在 Mech 通过。
+- 差异 1：D11 称已有记录的设备必须 `replaceExisting` 且旧记录保留历史。强制标记成立，但有效前驱的取代未实现；测试只覆盖已撤销前驱（C2）。
+- 差异 2：报告称终态终局、拒绝不改变会话。TRUSTED（C1）和被拒绝 `startSession`（C5）均不成立，因为 `expireIfDue`、`seenChallenges` 绕过报告所称通用排序。
+- 差异 3：报告将人工预览称为安全属性，但它未验证存储且未绑定受信任身份（C3、C6）。
+
+## 8. 本地检查与 CI
+
+| 检查 | 结果 |
+|---|---|
+| 模块 `pairing-trust.test.mjs` | 49 通过／0 失败（38 原有 + 11 回归） |
+| `corepack pnpm test` | 101 通过／0 失败 |
+| `node scripts/verify-promotion-history.mjs` | 在 3c0eb4fe9153 验证 10 记录 |
+| `node --test apps/rooms/tests/*.test.mjs` | 0 失败 |
+| `node city/test-all.mjs` | 0 失败 |
+| `corepack pnpm check:docs` | docs／evidence／data-records 为 PAIR_STATUS = SYNCHRONIZED |
+| be86135e23f9d18bd45fbca623dceee2d593906e 的 GitHub CI 36720364997 | gateway-web success、android success |
+
+{{CODE1}}
+
+原结论记录纠正完成、开发 Alien 与纠正 Mech 为不同物理主机满足双主机门，以及 Remote 项目合并前禁止组件合并。

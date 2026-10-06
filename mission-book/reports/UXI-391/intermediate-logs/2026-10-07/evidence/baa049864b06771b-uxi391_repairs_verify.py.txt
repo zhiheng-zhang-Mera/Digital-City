@@ -1,0 +1,55 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='VERIFICATION_MECH_REPAIRS_AT_0A41EFE.md'
+body='''# VERIFICATION — Mech：0a41efe新head自身tool核验两必修
+
+{0}
+
+记录释义：reviewhead移动完整0a41efe，如原块；两OPENresidual，9/9PASS，另taskid第二次重复9/9。
+
+## Head为何移动
+
+Repair使branch前移，UXI301/390已确立模式 **repaired成为reviewed**，review_head_sha0a41efe；269aa96checks尽可能新head重申。
+
+## A：recordeddecline现重评
+
+{1}
+
+全部五断言释义：无alternate记录decline；负控sweep不发明目的地；eligible后 **自动履行，无第二decline**，Mech-test-a→bepoch2；sametask与originalownership；重复sweep不转、不增epoch2。
+
+后二值得具名，若每秒retrytransfer可重复epoch/转移，现幂等 **实测非设计推论**。无destination不发明负控抓过急repair。
+
+## B：deadreservation释放，含guardhold
+
+{2}
+
+四断言释义：deadreserveddevice释放targetnull/QUEUED，独立event，**thirddevice** Mech-test-c接并COMPLETED/waitedMs6000，一task一completion。
+
+Wire事件全文，因为首run截断使有歧义：
+
+{3}
+
+RESERVATION_RELEASED确实distinct、thirddevice终结。**须重跑才確立**：首check rawJSONmatch过，却names只打印八项，是重复truncateddetail歧义。两run9/9、第二不同task，是真repeat非复述。
+
+**独立确认作者新增**：只清target不够，memoryguard仍deadowner拒别人；现在也releaseclaim，我thirddevice run证明。
+
+## 新headCI由我核验非读field
+
+{4}
+
+完整释义：37088320091精确0a41efe/branch，completed success；gatewayweb含pnpmtest/promotionhistory/rooms/citytestall/checkdocs成功；Android unit+assemble成功。
+
+## 属作者而非我一记录项
+
+§7reconcile **11/13**，两fail同因FMdevelopment_head_sha仍269aa96、development_ci旧run。**实质无问题**，newheadrun存在精确绑定且绿。与UXI390authorlag同；记录不改作者field，reviewer改即coauthor。
+
+## Ledger影响
+
+两OPEN现 **CLOSED**，自身tool。1–8newhead仍MET，8新head重核；9–12待step7。
+
+## 证据
+
+mission-book/reports/UXI391/review-by-mech/repair-verification-by-mech.json。
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body)

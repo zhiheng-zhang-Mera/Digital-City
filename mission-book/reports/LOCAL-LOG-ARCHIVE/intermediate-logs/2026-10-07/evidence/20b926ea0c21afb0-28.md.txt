@@ -1,0 +1,89 @@
+# BA-002 开发报告：Assistant Core共享脑运行时
+
+{{CODE0}}
+
+原始元数据保留任务、主机、claim、控制版本、repo／baseline／branch／SHA／CI、115项检查及完成／禁merge。
+
+## 1. 交付物
+
+新contracts/assistant-core-v1/：
+
+| 文件 | 目的 |
+|---|---|
+| core.mjs | authoritative durable state、embodiment sessions、typed promotion、ContextProjection、causal log、recovery |
+| profile-port.mjs | versioned AssistantProfilePort接BA001 Zone及确定double |
+| index.mjs | public |
+| tests/conformance.test.mjs | 14suite |
+| 根tests/assistant-core.test.mjs | pnpm test注册 |
+
+验收映射：
+
+- 权威持久边界（identity／profile引用、memory／relationship refs、task／commitment refs、checkpoints、causal／event log）→assistantStatus／readDurable／causalLog／snapshot／assertProfileReference。
+- embodiment／session特定ContextProjection→projectContext。
+- live token context／scratch reasoning／plan drafts／uncommitted inference／UI transient不shared→typed setTransientState、snapshot排除、promotion guard。
+- 多同时embodiments→connect／disconnect／status。
+- typed commit→promote配DURABLE_KINDS。
+- lifecycle不独立minds→restoreAssistantCore process restart、reloadFromSnapshot inprocess、epoch invalidation。
+
+## 2. 决策日志
+
+**D1：EM001后claim。** 等Correction、已占programme、第三programme Development三选，BA002。scan无repair／eligible opposite correction，Alien RF001仍inprogress；不同上次EM满足tie，BA002补最大architectural gap、依已熟seam。
+
+**D2：无schema.json。** BA001／EM001有schema，计划无明规则；可也发或runtime validators＋tests，选后者deliberate deviation。此定义runtime／session语义而非wire doc，唯一crossmodule ProfilePort是port contract，inmemory schema装饰且双维护。
+
+**D3：BA001跨分支。** frozen baseline无Zone且禁copy sibling。copy、invent profile、selfdeclare version port三选第三：resolveProfileReference(assistantId)→profile_ref／profile_revision，integration_status WAITING_FOR_BA001_BUTLER_ZONE_BINDING，double local。Core需continuity非contents，merge binding非rewrite；assertProfileReference拒extra防profile字段入authoritative core。
+
+**D4：local state表达。** untyped scratch bag或typed transient，选setTransientState kind∈TRANSIENT_ONLY_KINDS，防leak；durable kind走transient拒DURABLE_KIND_REQUIRES_PROMOTION，scratch走durable拒EPHEMERAL_STATE_CANNOT_BE_PROMOTED_AS_IS。
+
+**D5：promotion version非lastwrite。** expectedRevision必需integer，否则REVISION_CHECK_REQUIRED，wrong STALE_REVISION。验收version／causal非silent overwrite，optional会留洞。
+
+**D6：幂等与revision顺序。** commit后ack丢，stale revision重试：先idempotency，同record_id／replayed:true／revision不变，只有newkey查revision。否则committed未ack不能安全retry，正duplicate sideeffect风险。fingerprint stable key-order-independent，重排key仍replay。
+
+**D7：record identity。** selfreview globalcounter恢复collision，选<assistant_id>:record:<per-assistant sequence>。snapshot seed不重播旧counter，assistant＋自sequence跨restore稳定无撞。
+
+**D8：两恢复模式，push前发现design defect。** 初稿process restart无previous handles使EMBODIMENT_SESSION_EXPIRED不可达。只restart删epoch或同时model，选两。restoreAssistantCore新core，old未知EMBODIMENT_NOT_CONNECTED／attest UNKNOWN_EMBODIMENT；reload替durable、advanceepoch、留handles可证stale，EMBODIMENT_SESSION_EXPIRED／attest SESSION_EXPIRED／scope_stale:true。local cache非authority，两真恢复都强reconnect／refetch，不从scratch恢复sideeffects；作者拒自己初design故记。
+
+**D9：authority／user与rawsecret。** 两typed PROMOTION_AUTHORITY_FORBIDDEN／PROMOTION_SECRET_FORBIDDEN，初一；非assistant state与不可存任何处不同diagnosis。
+
+**D10：disclosure filter。** 只有明确requested scope且audience matrix可见才project，withheld SCOPE_NOT_REQUESTED／AUDIENCE_NOT_PERMITTED。knowing exists不authorize emitting，明reason证无silent leak／drop。DEVICE_EPHEMERAL永不可promote，EPHEMERAL_SCOPE_CANNOT_BE_PROMOTED。
+
+**D11：snapshot。** 仅durable／causal log，排handles／transient，projection core_epoch／scope_stale可见陈旧；含scratch会恢复未commit inference作truth。
+
+**D12：不实现范围。** 无device UI／foreground／permission lease／task ownership transfer，分别BA003／008／009，重复sibling不应；下记executor lease seam。
+
+**D13：evolution inbox。** 未用，同BA001 D11／EM001 D13，report为construction record。
+
+## 3. 测试汇总
+
+14全过：commit跨embodiment可见；两local context共一identity／profile ref；一disconnect assistant存活／handle消失；transient无shared／snapshot泄漏与typed guard；revision并发／retry无overwrite；幂等及keyreuse拒；user／authority／secret拒、profile-only；audience／scope disclosure与withheld；恢复一assistant／durable；process restart session拒；inprocess live过期到refetch；一过期不扰assistant；profile port double；invariant flags。
+
+## 4. 检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| corepack pnpm test | 115过0败（101＋14） |
+| node scripts/verify-promotion-history.mjs | 82ed36933fb4上10 OK |
+| node --test apps/rooms/tests/*.test.mjs | 0败 |
+| node city/test-all.mjs | 0败7跳同baseline |
+| corepack pnpm check:docs | docs／evidence／data-records SYNCHRONIZED |
+| CI36714457772，d3fbf6c40c695758c3d91ae89162da39a7003349 | gateway-web／android success |
+
+## 5. 接缝
+
+- BA001：Zone提供resolveProfileReference，flip integration_status、replace double，无profile field复制core。
+- BA003：connectEmbodiment／embodimentRef device session continuity，foreground election／每device单foreground在上层。
+- BA004：handoff通过promote commit checkpoint／decision scope＋audience，不copypermission，core本无。
+- BA005：MEMORY_SCOPES有USER_GLOBAL但无Digital-Me source绑定，BA005授权取后projectContext统一filter。
+- BA006：TASK_REFERENCE仅refs，canonical task truth外部。
+- BA008：attest／scope_stale／epoch是副作用恢复前revalidation hooks，lease不存。
+- BA009：core拒authority，有效permission外算。
+
+## 6. Correction／Owner开放项
+
+1. leak transient deep／prototype keys／array；scope内容不符／promotion audience escalation绕matrix；reload stale handle／snapshot旧epoch／reload后duplicate promotion攻恢复。
+2. 确认runtime semantics D2无schema。
+3. 确认BA component evolution／process record，D13。
+
+{{CODE1}}
+
+原始结论开发完成、仅Alien纠、Butler merge前禁。

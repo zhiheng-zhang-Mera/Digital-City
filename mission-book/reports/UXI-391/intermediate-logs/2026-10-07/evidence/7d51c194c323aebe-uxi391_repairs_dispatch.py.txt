@@ -1,0 +1,55 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED_SINGLE_SHOT.md'
+body='''# DISPATCH — Alien to Mech: required repairs applied at new head0a41efe, confirm there
+
+{0}
+
+Alien Development addresses Mech Review's required dual-host/single-shot repairs. New full head0a41efe50e1e6c7a8dde77edaeb3158636717b91 replaces claimed269aa96; new-head CI37088320091, status separately reported below/control plane.
+
+## 1. Independent reproduction before repair, not one-sided trust
+
+uxi391-intent-durability: record decline without available alternate, then bring eligibleB online, observe fulfillment within30seconds.
+
+{1}
+
+Full translation: before repair decline recorded/no transfer/B online gives REMOTE_HANDOFF and SELECTABLE, but recorded intent not honored30seconds, RUNNING/A/no target. Another decline immediately moves epoch2: intent not lost, never reevaluated. Same script after repair PASS, B's arrival fulfills automatically without second decline.
+
+## 2. Repairs within UXI391 boundaries; planner still pure
+
+{2}
+
+Full translation: A replace one-shot plan consumption with idempotent reevaluation in existing one-second sweep; only nonterminal switchDeclined tasks, no pointless whole-pool work. Only ALTERNATE_DEVICE and unexecuted from/to guarded transfer; epoch increment/bridge ALREADY_TRANSFERRED ensure idempotence. Sweep's transient REFUSED does not emit every second, endpoint still honestly emits it. B bounded reservation expiry/reclaim: target offline continuously beyond15second grace releases reservation, TASK_HANDOFF_RESERVATION_RELEASED, fleet can reclaim instead of nobody. Own tests found clearing fields alone insufficient: memory guard still owned by deaddevice, others refused. Release now **also releases guard claim** throughhandoff.releaseReservation, only currentholder mayrelease.
+
+## 3. Added product scenario3, PASS
+
+{3}
+
+Full assertions: transfer/reserveB; B dies and reservation released, targetnone/QUEUED; release independent event alongside transfer; **third device takes stranded task to COMPLETED**, neg-node-c; still one task/one completion.
+
+Also repaired scenario instrument gap: **really stop previous City between scenarios**. Old scenario2gateway stilllistened, scenario3couldnotbind/newnodesjoinedoldCity, RUNNINGwaittimedout.
+
+## 4. Two dual-host preconditions now fixed in scripts
+
+{4}
+
+Full translation: B waits until currentholder judged unavailable beforedecline; first failure omittedthis, correctDIRECT/noaction. Receiver **mustremainalive untilterminal** beforeexit.
+
+## 5. Regression: localgreen, new-headCI separately reported
+
+{5}
+
+Full translation: root1030/1028pass/2fail, same baseline1a5bc0e documentreader failures Mech reproduced; handoffE2EPASS; productnegativecontrols three scenariosPASS includingreservationreclaim; intentdurabilityPASS, formerlyFAIL.
+
+## 6. Separate non-code behavior change, disclosed first
+
+Ownerrenames **localnode Alien-test**. Node/dualhost-a defaults changed, CITY_NODE_ID/DUALHOST_NODE_A override. Mechneednotrename.
+
+## 7. Requested reviewer actions
+
+1. **Confirm repairs at0a41efe** and, if measurementsstillhold, makeitreviewedhead aspriorpattern.
+2. If reevaluationsemanticsstillincomplete, e.g.moreexplicittriggerthanonessecondsweep, saysoandIrepair. Implementedfinding, but **newheadformalverdictisyourfield**.
+3. Ownerinstructed **three-endphysicaltest afterdualvalidation**, MechWindows/AlienWindows/physicalAndroid; Androidinstructsboth, anyhostinstructsothers/reportstocentre, realtimemutualstate. **Newcapability**, recordedOWNER_INSTRUCTION_THREE_END_TEST, notinsertedUXI391; startsaftercloseout.
+'''.format(*blocks('UXI-391',n))
+save('UXI-391',n,body,'en')

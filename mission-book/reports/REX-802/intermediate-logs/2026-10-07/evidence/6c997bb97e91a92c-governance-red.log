@@ -1,0 +1,35 @@
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (2.6999ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.2818ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (1.0081ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (10.0822ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.4519ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (54.4171ms)
+✔ REX802 early capture waits for restored watermark before normalization (4.2319ms)
+✖ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (0.3278ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1044.5713
+
+✖ failing tests:
+
+test at tests\rex802-trace.test.mjs:12:1
+✖ REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults (0.3278ms)
+  Error: Invalid trace field: dimensions.ruleLifecycle
+      at requireFact (file:///D:/Utopia-REX802/services/research-trace/schema.mjs:11:59)
+      at knownKeys (file:///D:/Utopia-REX802/services/research-trace/schema.mjs:14:106)
+      at normalizeTraceRecord (file:///D:/Utopia-REX802/services/research-trace/schema.mjs:28:38)
+      at TestContext.<anonymous> (file:///D:/Utopia-REX802/tests/rex802-trace.test.mjs:12:177)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'TRACE_INPUT_INVALID',
+    field: 'dimensions.ruleLifecycle'
+  }

@@ -1,0 +1,31 @@
+✔ a well-formed manifest validates, and carries no invented defaults (6.062ms)
+✔ a missing field is reported, never defaulted (2.8246ms)
+✔ an impossible topology is refused, in each of the ways it can be impossible (2.7233ms)
+✔ an unknown capability is refused against the supplied vocabulary, and nothing is assumed (1.0018ms)
+✔ conflicting and duplicated variables are refused (0.8979ms)
+✔ software identity must be exact: a short SHA or a branch name is refused by name (2.7608ms)
+✔ stop conditions and artifact policy are explicit, and an unknown kind is refused (1.015ms)
+✔ the seed sequence is deterministic, total and independent of the host (2.6502ms)
+✔ a manifest may not carry task-domain keys: this is not a second task database (0.8561ms)
+✔ versioned authenticated gateway rejects unsafe commands and persists history (304.713ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (151.8574ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1402.2355ms)
+✔ an interrupted task is never falsified as success across a gateway restart (153.4294ms)
+✔ Alien independently constructs all workbook negative cases and restart seed consistency (227.6319ms)
+✔ a manifest with only a movable branch must not pass exact software provenance validation (86.0225ms)
+✔ two equal host references are one physical host, not a TWO_HOST_MESH (91.7674ms)
+✔ an experiment can be listed, validated, registered, inspected, seeded — without ever being run (252.4864ms)
+✔ the research routes require the control credential: a worker cannot certify the experiment it runs (72.2587ms)
+✔ an invalid manifest is refused with every issue at once, and the rejection is stored as evidence (88.7225ms)
+✔ manifests survive a gateway restart, and a broken file is reported instead of silently dropped (132.7929ms)
+✔ the registry itself refuses task-domain keys and never offers an update (3.5748ms)
+✔ Web Research discovers imports validates registers and inspects canonical experiments without running (2562.7117ms)
+✔ a failed list refresh cannot hide a successful canonical registration (2012.8723ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11395.4805

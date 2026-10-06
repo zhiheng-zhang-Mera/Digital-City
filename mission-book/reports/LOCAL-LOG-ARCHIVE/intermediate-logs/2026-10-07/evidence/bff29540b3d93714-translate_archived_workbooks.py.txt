@@ -1,0 +1,274 @@
+from pathlib import Path
+import re, hashlib, json
+ROOT=Path('\\\\?\\D:\\Digital-City-REX-20261006')
+BASE=ROOT/'mission-book/finished'
+def save(rel, body, lang='zh-CN'):
+    source=BASE/rel
+    before=source.read_bytes()
+    text=before.decode('utf-8-sig')
+    parts=re.split(r'^---\s*$',text,maxsplit=2,flags=re.M)
+    assert len(parts)==3
+    dest=source.parent/lang/source.name
+    dest.parent.mkdir(exist_ok=True)
+    header=('> 中文阅读译本 / Reading translation。此文件没有工作书元数据，也不赋予 authority。'
+            '以下规则与状态属于历史归档；[canonical source](../'+source.name+') 的原始 frontmatter 是唯一元数据来源。\n\n')
+    dest.write_text(header+body.strip()+'\n',encoding='utf-8')
+    link='./'+lang+'/'+source.name
+    current=source.read_bytes()
+    assert current==before
+    if (']('+link+')').encode() not in current:
+        with source.open('ab') as f:f.write(('\n\n[阅读译本 / Reading translation]('+link+')\n').encode())
+    assert source.read_bytes().startswith(before)
+    assert re.split(r'^---\s*$',source.read_bytes().decode('utf-8-sig'),maxsplit=2,flags=re.M)[:2]==parts[:2]
+    assert not re.match(r'^---',dest.read_text(encoding='utf-8'))
+    for sha in re.findall(r'[0-9a-f]{40}',parts[2]):assert sha in body,(rel,sha)
+    assert len(re.findall(r'^#{1,6} ',parts[2],re.M))==len(re.findall(r'^#{1,6} ',body,re.M)),rel
+    print('VERIFIED',rel)
+
+BA_COMMON='''## 强制分布式助手架构契约
+
+本任务必须保持以下全部项目不变量：
+
+1. **一个逻辑身份，多个设备化身。** 连接同一助手的多个设备是一个逻辑助手的投影，不是之后再同步的独立心智。
+2. **一份权威持久状态，多个上下文投影。** 共享/权威状态可包含已提交身份/profile 引用、持久助手↔用户关系状态、已提交 memory 引用、task graph、commitment、checkpoint、causal/event log。实时 token context、临时推理、暂存 plan draft、未提交 inference、device/UI transient state 仍只属于本地化身，除非通过带类型 commit/update 明确提升。
+3. **前台绑定不是任务所有权。** 每设备至多一个前台助手，但前台切换本身不转移、取消、暂停或重建 task ownership 或后台执行。
+4. **所有权不是执行。** task 可区分逻辑 owner/coordinator 与当前 executor。任何外部可见或改变状态的副作用，都必须由权威 task/version state、execution lease、idempotency/action key 共同守卫。
+5. **交接绝不隐式转移 authority。** handoff 可转移责任、checkpoint/evidence、引用，但绝不转移 permission 或 capability grant。接收助手/设备必须根据当前 policy 和 capability 重算有效权限。
+6. **本地状态是缓存，不是 authority。** disconnect/restart/reconnect 后，化身必须重新获取权威 task/binding state，并在恢复副作用前重新验证 lease。
+7. **知道信息不等于有披露 authority。** 某 scope/audience 已知信息并不自动允许在另一范围释放。context projection 在输出前必须执行 memory/audience/privacy scope 检查。
+
+这是验收约束，不是可选未来增强。
+
+## 项目门槛
+
+Pre-Assistant foundation gate 已 **OPEN**。Butler 项目共同 baseline 固定于 Utopia main：
+
+`82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
+
+当时本任务可立即领取。必须从该精确 baseline 创建分支，保持 BA-001..BA-009 可独立集成。
+
+## 开发阶段
+
+Development Host 必须：
+1. 在 City 领取此阶段；
+2. 从固定 Butler baseline 创建 `assistant/{stem}`；
+3. 仅实现此有界范围及上述强制架构契约；
+4. 增加正例与负例测试，包括与本任务有关的并发/恢复测试；
+5. 推送并运行相关 GitHub CI；
+6. 编写 DEVELOPMENT_REPORT.md，记录精确文件、测试、失败/修复、branch/head、CI；
+7. 仅在绿色时标记 development_complete。
+
+不得合入 Utopia main。
+
+## 修正阶段
+
+Correction Host 必须是另一物理宿主，独立检查已推送开发分支中相关 architecture、state consistency、concurrency、permission/privacy、lifecycle、recovery、stale state、duplicate side effect、false success 缺陷。
+
+Correction 是修复任务，不是被动验证。每个已发现范围内缺陷都必须直接在同一分支修复，并有 regression test。跨子项目问题必须在本任务 local contract/guard 修复，并记录供最终集成，不复制另一 BA 实现。
+
+推送修正后的 head，运行相关 GitHub CI，编写 CORRECTION_REPORT.md；仅在绿色时标记 correction_complete。
+
+## 两宿主门槛
+
+最终合并资格要求：
+- Development Host != Correction Host；
+- branch history/evidence 证明 Alien 和 Mech 均参与；
+- development_complete = true；
+- correction_complete = true。
+
+## 全局跨项目不闲置规则
+
+本任务参与 `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md` 定义的规范性全局 BA/RF/GAI/EM 池。
+
+- 当时 Alien 和 Mech 均可用，本任务可立即领取。
+- 普通 claim truth 只写入本工作书 frontmatter 和 reports，不通过 README/MISSION_INDEX 串行化领取。
+- Development 和 Correction 在本任务分支仍由对侧宿主分别执行。
+- 等待 hosted CI、长测试或外部条件时，保留 claim，释放物理宿主，在独立 worktree 领取另一个有资格的全局阶段。
+- RF/GAI/EM 同级实现缺失绝不阻塞有界 Butler 工作；使用稳定 interface/test double，记录 integration seam。
+- 只有新扫描四项目后发现既无可执行 owned repair、无合资格对侧 Correction、也无未领取 Development，宿主才停止领取。
+
+## 合并锁
+
+任何 worker 都不得将 `assistant/{stem}` 合入 Utopia main。只有每条 BA-001..BA-009 分支通过两阶段/两宿主门槛后，才能创建项目级 merge workbook。
+'''
+def save_ba(stem,unique):
+    save('completed-2026-10-01/butler-assistant/'+stem+'.md',unique+'\n\n'+BA_COMMON.format(stem=stem))
+
+EM_COMMON='''## 共享异步执行规则
+
+- 从精确冻结 Engineering Manager baseline 创建分支，不从同级 EM 分支创建。
+- Development 和 Correction 必须由不同物理宿主（Alien / Mech）执行。
+- Development 推送任务分支，不合入 Utopia main。
+- Correction 独立复检并直接修复同分支，也不合入 main。
+- worker 绝不能等待同级 EM 任务；缺实现时使用 programme README 中稳定 port 和确定性 test double。
+- worker 绝不能仅为本地测试通过而 merge/cherry-pick 同级 EM 分支。
+- 等待 hosted CI、长本地测试、external login、provider check 时，继续独立范围内 tests/docs/evidence 或另一合资格 task/worktree，不闲置。
+- 缺 Remote Fabric 或第三方 engineering software 不可用，只能阻塞真正外部验收步骤；记作 typed pending seam，不改写为成功，不停滞无关 EM 任务。
+- report 按精确 task ID 放在 `mission-book/reports/${MISSION_ID}/`。
+- DS-Hns 仅可按本项目描述的固定 donor 读取。复用实现成为带 provenance 的 Utopia-owned code；Utopia 不得取得对 DS-Hns repository 的 build/runtime dependency。
+- Codex-Boss 不在范围内，本项目绝不能 clone、fetch、open、read、query、import、link、submodule、symlink 或调用它。
+
+## 全局跨项目不闲置规则
+
+本任务参与 `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md` 定义的规范性全局 BA/RF/GAI/EM pool。
+
+- 当时 Alien 和 Mech 均可用，Development 可立即领取。
+- Development 绿色即有资格 Correction，必须由对侧物理宿主执行。
+- 普通 claim truth 只写本工作书 frontmatter/reports；README/MISSION_INDEX 是 dashboard，不是 lock。
+- hosted CI、长本地测试、provider check、Remote Fabric 等待绝不闲置设备。保留 claim，使用独立 worktree 领取另一合资格全局阶段。
+- 缺 Remote Fabric 或 optional provider software，用稳定 port/double 和明确 deferred integration seam 表示；组件工作不等待。
+- 只有新扫描 BA/RF/GAI/EM，确认无可执行 owned repair、无合资格对侧 Correction、无未领取 Development 后，宿主才停止领取。
+'''
+def save_em(stem,unique):
+    rel='completed-2026-10-01/engineering-manager/'+stem+'.md'
+    src=(BASE/rel).read_text(encoding='utf-8').split('---',2)[2]
+    blocks=re.findall(r'^```[^\n]*\n.*?^```[^\n]*$',src,re.M|re.S)
+    for i,b in enumerate(blocks):unique=unique.replace('{{CODE'+str(i)+'}}',b)
+    assert '{{CODE' not in unique
+    save(rel,unique+'\n\n'+EM_COMMON)
+
+GAI_COMMON='''## 共享执行规则
+
+- 从精确冻结 GAI baseline 创建分支，不从同级 GAI 分支创建。
+- Development 和 Correction 必须由不同物理宿主（Alien / Mech）执行。
+- Development 推送任务分支，不合入 Utopia main。
+- Correction 独立复检并直接修复同分支，也不合入 main。
+- worker 不得等待同级 GAI；缺实现时用 programme README 稳定 port 和确定性 test double。
+- worker 不得仅为本地测试通过而 merge/cherry-pick 同级 GAI 分支。
+- hosted CI 或 external check 运行时，继续独立范围内 tests/docs/evidence 或另一合资格 task/worktree，不闲置。
+- 缺 external provider / Remote Fabric 只阻塞真正需要它的验收步骤，不改写为成功，不停滞无关 GAI。
+- report 用精确 task ID 放于 `mission-book/reports/${MISSION_ID}/`。
+- 禁止 Boss access：不对 Codex-Boss clone/fetch/read/import/submodule/symlink/runtime call，不产生 build dependency。历史名称仅可作为 provenance 说明，执行行为必须归 Utopia 拥有并测试。
+
+## 全局跨项目不闲置规则
+
+本任务参与 `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md` 定义的规范性全局 BA/RF/GAI/EM pool。
+
+- 当时 Alien、Mech 均可用，Development 可立即领取。
+- Development 绿色后 Correction 立即合资格，必须由对侧物理宿主执行。
+- 普通 claim truth 只写本工作书 frontmatter/reports；README/MISSION_INDEX 不是 claim lock。
+- hosted CI、real-provider login、长测试、Remote Fabric 等待不闲置宿主。保留 claim，记录精确 seam，在独立 worktree 领取另一合资格全局阶段。
+- 缺 Remote Fabric 时，组件工作用稳定 RemoteExecutionPort double；真实跨设备证明属于项目集成。
+- 只有新全局扫描发现无可执行 owned repair、无合资格对侧 Correction、无未领取 Development 后，宿主才停止领取。
+'''
+def save_gai(stem,unique):
+    rel='completed-2026-10-01/general-ai-gateway/'+stem+'.md'
+    src=(BASE/rel).read_text(encoding='utf-8').split('---',2)[2]
+    for i,b in enumerate(re.findall(r'^```[^\n]*\n.*?^```[^\n]*$',src,re.M|re.S)):unique=unique.replace('{{CODE'+str(i)+'}}',b)
+    assert '{{CODE' not in unique
+    save(rel,unique+'\n\n'+GAI_COMMON)
+
+RF_COMMON='''## 强制 Remote Fabric 架构契约
+
+本任务必须保持全部项目不变量：
+
+1. **多加入方式，单一信任协议。** Same-Wi-Fi discovery、LAN、Bluetooth、direct IP、remote meeting-code invite、deep link、QR/web link 都只是 discovery/bootstrap 入口。全部成功 join 汇聚于同一版本化 pairing/trust 状态机。
+2. **逻辑身份基于密码学，不由网络派生。** 稳定 device_id 标识逻辑 device，installation_id 标识一次安装。IP、hostname、display name、MAC 只是 metadata，绝非 authorization identity。
+3. **MAC 仅是可选本地配对证据。** OS 暴露时，本地可见 hardware MAC 可一次显示供额外人工确认；randomization/unavailability 不阻塞 pairing，MAC 绝不成为 credential、remote identity、authorization source。
+4. **默认加密且认证。** local/remote transport 均须 authenticated encryption；discovery 不意味着 trust。
+5. **transport 可替换且对 caller 隐藏。** upper layer 调 Fabric API，不依赖 LAN/Bluetooth/WebRTC/QUIC/WebSocket/VPN/relay 细节。
+6. **按 capability 寻址，而非设备专有 API。** caller 解析 camera.capture@1、screen.stream@1 等版本化能力，不硬编码 phone_camera() 或同类设备专有 route。
+7. **RPC、EVENT、STREAM 语义分离。** command 带稳定 correlation ID，外部可见/改变状态的 retry 幂等。
+8. **session 不是 task authority。** Fabric 拥有 identity、discovery、trust、connectivity、routing、transport、presence、invocation delivery；不拥有 City task graph、Assistant durable state、planning、personality、orchestration policy。
+9. **offline/reconnect 诚实。** offline、timeout、refused、unavailable、unknown、completed 不合并。stale local state 无当前 authority/revalidation 不恢复副作用。
+10. **relay 默认不是 trusted plaintext infrastructure。** relay transport 必须能承载 end-to-end protected payload，不成为 user data/command semantic owner。
+11. **permission 保持交集。** Fabric enforcement 尊重当前 Owner/User policy、适用时 caller/assistant policy、target device capability、task/action grant。presence 或 valid network session 不制造 permission。
+12. **没有隐藏智能。** Fabric 可报告 reachability、capability、policy result；不能自主决定 task ownership、assistant switching、data disclosure 或由哪个 project 执行工作。
+
+这是验收约束，不是可选未来增强。
+
+## 项目门槛与冻结 baseline
+
+Pre-Assistant foundation 已合并且绿色。所有 RF branch 从同一 Utopia baseline 开始：
+
+`82ed36933fb4c5b00e44768d9e1aedec1d525d9c`
+
+使 RF-001..RF-010 独立可集成。**当时 Alien、Mech 均可用，先前 second-host hold 已取消。** RF 可立即从冻结 baseline 异步领取。
+
+## 开发阶段
+
+Development Host 必须：
+1. 在 City 领取阶段；
+2. 从精确冻结 Remote baseline 创建 `remote/{stem}`；
+3. 仅实现有界范围及上述强制 contract；
+4. 增正/负例及相关 concurrency/recovery/security test；
+5. 推送并运行相关 GitHub CI；
+6. 编写 DEVELOPMENT_REPORT.md，记录精确 file、test、failure/fix、branch/head、CI；
+7. 仅绿色时标记 development_complete。
+
+不得合入 Utopia main。
+
+## 修正阶段
+
+Correction Host 必须是另一物理宿主，独立检查已推送开发分支与本任务有关的 architecture、trust、spoofing、stale-state、replay、concurrency、permission、lifecycle/recovery、duplicate-side-effect、false-success 缺陷。
+
+Correction 是修复，不是被动验证。每已发现范围内缺陷直接在同分支修复并有 regression test。跨 RF 问题记录为 final-integration seam，不靠将另一 RF 实现合入本分支解决。
+
+推送修正 head，运行相关 GitHub CI，编写 CORRECTION_REPORT.md；仅绿色时标记 correction_complete。
+
+## 两宿主门槛
+
+最终合并资格要求：
+- Development Host != Correction Host；
+- branch history/evidence 证明 Alien、Mech 均参与；
+- development_complete = true；
+- correction_complete = true；
+- corrected head 已推送并记录。
+
+## 全局跨项目不闲置规则
+
+本任务参与 `mission-book/CROSS_PROGRAMME_EXECUTION_CONTRACT.md` 定义的规范性全局 BA/RF/GAI/EM pool。
+
+- 当时 Alien、Mech 均可用，RF Development 可立即领取。
+- claim truth 只写本工作书 frontmatter/reports；普通 claim 不改 README/MISSION_INDEX。
+- 本任务 Development 绿色后 Correction 立即合资格，由对侧物理宿主执行。
+- hosted CI、长测试、external network/provider 等待不闲置宿主；保留 claim，在独立 worktree 继续另一合资格全局阶段。
+- missing sibling RF 用稳定 contract/test double 表示；缺 BA/GAI/EM code 不阻塞有界 RF 工作。
+- 只有新扫描四项目后，无可执行 owned repair、无合资格对侧 Correction、无未领取 Development，宿主才停止领取。
+
+## 合并锁
+
+任何 worker 不得将 `remote/{stem}` 合入 Utopia main。只有**每条 RF-001..RF-010** 分支均通过两阶段/两宿主门槛后，才能创建 Remote Fabric project merge workbook。
+'''
+def save_rf(stem,unique):
+    save('completed-2026-10-01/remote/'+stem+'.md',unique+'\n\n'+RF_COMMON.format(stem=stem))
+
+PERSISTENT_INTRO='''> [Persistent construction rules](../../../../CONSTRUCTION_RULES.md) · [Process data policy](../../../../PROCESS_DATA_POLICY.md). This workbook defines task-specific scope/dependency/acceptance only; persistent rules govern ordinary claims, waiting/wake, CI, independent two-host work and merging.
+'''
+PERSISTENT_END='''## Binding persistent rules
+
+Inherit [CONSTRUCTION_RULES.md](../../../../CONSTRUCTION_RULES.md). In particular: Development and Review of one task use different physical hosts; waiting does not occupy a host; zero claims must be classified; WAITING_ELIGIBILITY prioritizes event wake with approximately 20-minute fallback rescans; external recovery requires reconciliation; CI/evidence bind exact head; no make-work or unilateral scope expansion.
+
+## Reports / evolution
+
+- City retains only bounded conclusions, SHAs, CI and exception summaries.
+- Record scheduling conflicts, handoff, fallback and busy/unavailable samples in Utopia evolution evidence under PROCESS_DATA_POLICY.
+'''
+UI_END=PERSISTENT_END.split('## Reports / evolution')[0]+'''## Reports / evolution
+
+- City writes only bounded DEVELOPMENT_REPORT / REVIEW_REPORT.
+- Raw screenshots, browser traces, Android physical-device evidence and failed retries remain in Utopia runtime/evidence; research-relevant structured events enter evolution under PROCESS_DATA_POLICY.
+'''
+UI_RULES='''### Mandatory UI rules
+
+- Ordinary user interfaces must depart from dashboard/admin/terminal/developer-console appearance.
+- Internal module names, IDs, routes, backendRef, provenance, schema/version and runtime paths collapse into Advanced information / Runtime details by default.
+- Do not substitute stacks of uniform rounded cards for information architecture.
+- Do not use ASCII/Unicode geometric symbols as the formal icon system.
+- Do not migrate Web/Rooms to React/Vite/shadcn; Android stays Compose Material 3.
+- Do not change existing Gateway / Action / Ask / Task / Room API / Scheduler semantics.
+- Hns may autonomously download/install/replace UI/UX, Compose, browser, screenshot-comparison, accessibility and Agent Skill plugins. Plugins belong to construction tooling by default; record source/ref in reports. Do not upload secrets or make unknown plugins production runtime dependencies.
+'''
+def save_1003(rel,title,unique,ui=False,recovered=False):
+    source='completed-2026-10-03/'+rel
+    prefix=''
+    if recovered:
+        import subprocess
+        original='mission-book/'+rel
+        old=subprocess.check_output(['git','show','2a319ce:'+original],cwd='D:/Digital-City-REX-20261006').decode('utf-8-sig').split('---',2)[2]
+        old=old.replace('](../CONSTRUCTION_RULES.md)','](../../../../CONSTRUCTION_RULES.md)').replace('](../PROCESS_DATA_POLICY.md)','](../../../../PROCESS_DATA_POLICY.md)')
+        # Link history and current metadata separately, without editing damaged canonical body.
+        zh='> 可读正文严格取自 Git 2a319ce，未猜测当前编码损坏文本。当前 source frontmatter 仍是 metadata authority；此副本不含任务元数据。\n\n'+old
+        save(source,zh,lang='zh-CN')
+        prefix='> Normative-body translation uses the readable Git 2a319ce version, not guessed recovery of the damaged current body. Current canonical-source frontmatter remains metadata authority; only reading links are updated for the archive location.\n\n'
+    save(source,'# '+title+'\n\n'+prefix+PERSISTENT_INTRO+'\n'+unique+'\n\n'+(UI_END if ui else PERSISTENT_END),lang='en')

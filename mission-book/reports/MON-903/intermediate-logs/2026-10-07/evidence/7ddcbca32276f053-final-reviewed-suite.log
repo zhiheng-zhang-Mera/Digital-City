@@ -1,0 +1,47 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (139.1474ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (455.6435ms)
+✔ slow/disconnected observation never gates real canonical task persistence (76.0206ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (102.9354ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (80.4526ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (68.8321ms)
+✔ deleted historical prefix and tail cannot be reported as complete history (76.7208ms)
+✔ Gateway shares outstanding observation and retains stale last view on later source failure (69.9675ms)
+✔ Alien: model OWNER_REQUIRED is an escalation, not auto-resolution (13.5469ms)
+✔ Alien: canonical observation cannot enqueue decisions after bounded close (2.153ms)
+✔ Alien: retention restart preserves the newest decisions, not UUID lexical order (12.4082ms)
+✔ Alien: queue overflow retains canonical evidence and reports failed receipt persistence (1773.6083ms)
+✔ Alien: canonical present-but-ineligible target is escalated, not described as recovering offline (16.0817ms)
+✔ Alien: a timeout remains measurable when the critic subsequently resolves (30.4623ms)
+✔ Alien Gateway: an online ineligible strict target produces an Owner decision with real event evidence (129.7315ms)
+✔ Alien browser: polling preserves opened provenance and successful retry clears an old error (928.219ms)
+✔ Alien browser: unavailable decision persistence is visible even before any write failure (1106.1753ms)
+✔ Alien browser: frequent City rendering cannot starve bounded decision polling (3652.7402ms)
+✔ MON903 route: a canonical failure becomes a decision receipt with canonical provenance, and the task itself is untouched (161.798ms)
+✔ MON903 route: ordinary City activity produces no decisions at all (197.7497ms)
+✔ MON903 route: reading is authenticated, asking for a decision is the owner's, and refusals are typed (166.5547ms)
+✔ MON903 route: an explicitly submitted owner-boundary trigger is recorded as owner-required and applied by nobody (99.459ms)
+✔ MON903 route: a decision for one task never blocks another task, and the projection carries both (234.6204ms)
+✔ MON903 triggers: only the named canonical events enter the decision path, and ordinary reports do not (28.3485ms)
+✔ MON903 ladder: a deterministic rule resolves first and the model is never consulted for it (30.0764ms)
+✔ MON903 owner boundary: scope, merge, review and owner-candidate triggers escalate WITHOUT any resolver being asked (15.7595ms)
+✔ MON903 fallback: a hanging, throwing or free-text resolver becomes a bounded fallback, never an authority (154.6937ms)
+✔ MON903 queues: decisions are per-task, parallel across tasks, bounded per task, and never a global barrier (596.6002ms)
+✔ MON903 receipts: bounded contract, provenance, measured post-state, and no applied action anywhere (16.1409ms)
+✔ MON903 store: an unusable receipt store degrades the overlay and never prevents the City from starting (finding M-1) (13.35ms)
+✔ MON903 store: the City itself starts and serves decisions when the decision store is unusable (finding M-1, City level) (182.5989ms)
+✔ MON903 isolation: a reader that throws, a broken receipt file and a failing receipt write cannot break the caller (21.0914ms)
+✔ MON903 close: a closed overlay refuses a trigger with its OWN code, not by blaming the trigger (2.7259ms)
+✔ MON903 rules: the deterministic layer answers each kind from canonical facts, and invents no default (0.4562ms)
+✔ MON903 web: the owner sees the decision the City recorded, its provenance, and that nobody applied it (6084.578ms)
+✔ MON903 web: an enrolled member may read what the City decided, and is told who can ask for one (1302.9233ms)
+✔ Services: an old invocation cannot mark a new editor busy or clear its newer invocation (1342.6276ms)
+✔ Windows history loads detail explicitly, retains it across snapshots and fences late selections (2386.9568ms)
+✔ Windows Services invokes real document, knowledge, skill, evidence and theme adapters (3873.945ms)
+ℹ tests 39
+ℹ suites 0
+ℹ pass 39
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14131.3307

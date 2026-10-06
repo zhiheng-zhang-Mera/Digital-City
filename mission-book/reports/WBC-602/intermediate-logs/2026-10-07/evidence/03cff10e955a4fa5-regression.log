@@ -1,0 +1,42 @@
+✔ the role vocabulary is the one the workbook names, and the legacy default is narrow (2.36ms)
+✔ an old node record with no new fields still yields a usable descriptor, and says the role was defaulted (0.6215ms)
+✔ the current Alien/Mech/Android role truth is expressible without registering Android as a worker (0.5252ms)
+✔ a control surface can never be promoted to a worker by any field it carries (0.4037ms)
+✔ a missing measurement is UNKNOWN, never zero and never unavailable (0.3585ms)
+✔ real telemetry projects into the descriptor with its own timestamp, without inventing fields (0.208ms)
+✔ a task requirement is never satisfied or failed by telemetry nobody collected (1.1131ms)
+✔ availability is told, not derived, and serialization/restart keeps the descriptor stable (0.5044ms)
+✔ descriptor validation refuses the shapes that would make a descriptor unusable (0.3851ms)
+✔ versioned authenticated gateway rejects unsafe commands and persists history (281.1652ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (139.5663ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1406.8683ms)
+✔ an interrupted task is never falsified as success across a gateway restart (143.5262ms)
+✔ targeting: an absent or empty target means untargeted, never an error (0.8775ms)
+✔ targeting: a malformed target is a typed refusal, not a silently ignored field (0.1862ms)
+✔ targeting: the claim rule is total - untargeted always allowed, strict only for the named device (0.1355ms)
+✔ targeting: KNOWN, ONLINE and ELIGIBLE are three questions, and only the last one is claimable (0.3042ms)
+✔ targeting: a withheld task names the device it is held for and the device that asked (0.7449ms)
+✔ targeting: waiting means strict, unfinished and unclaimed (0.1308ms)
+✔ MESH-301 step 3: a strict target routes to one device, waits when that device is away, and never reroutes (1781.6038ms)
+✔ CPU uses elapsed counters and unavailable disk remains null (3.0383ms)
+✔ disabled sampler never reads host counters (0.1812ms)
+✔ counter reset does not fabricate CPU load and cached sample keeps its timestamp (0.2888ms)
+✔ native filesystem volume measurement is finite and internally consistent (3.0949ms)
+✔ validator accepts unavailable sampler metrics but rejects invalid numeric measurements (0.7821ms)
+✔ a node registered with the old payload still registers, claims and completes, and gains a descriptor (198.7119ms)
+✔ the descriptor is computed at read time, so a sharing change and fresh telemetry are reflected at once (155.7336ms)
+✔ an unknown node has no descriptor, and a control surface is never among the node descriptors (78.0208ms)
+✔ strict target still outranks every generic descriptor fact (129.8866ms)
+✔ WBC602 review: absent GPU/network observations are unknown, not hardware absence (1.1808ms)
+✔ WBC602 review: platform mismatch and measured zero accelerators are distinguished from unknown (0.3829ms)
+✔ WBC602 review: malformed requirement arrays yield typed contract refusals (0.4412ms)
+✔ WBC602 review: busy endpoint cannot advertise accepting work (177.1608ms)
+✔ WBC602 review: explicitly declared multiple worker roles survive real registration and restart (122.4247ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5770.5634

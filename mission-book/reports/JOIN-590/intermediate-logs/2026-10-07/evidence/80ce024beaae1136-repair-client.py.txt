@@ -1,0 +1,50 @@
+from pathlib import Path
+p=Path('apps/android/app/src/main/java/city/utopia/control/CityClient.kt')
+s=p.read_text(encoding='utf-8')
+s=s.replace('private val token: [REDACTED],'token: [REDACTED]
+s=s.replace(' private val handler =', ''' @Volatile private var token = [REDACTED]
+ private val enrollmentStore = NativeEnrollmentStore(context)
+ private val enrollment = enrollmentStore.read(host,expectedCity)
+ @Volatile private var retired = enrollment != null && enrollmentStore.retired()
+ private var sessionReady = false
+ private val handler =''',1)
+s=s.replace('OkHttpClient.Builder().connectTimeout','OkHttpClient.Builder().followRedirects(false).followSslRedirects(false).connectTimeout')
+s=s.replace('private val clientLabel: String = Build.MODEL.ifBlank { "android-device" }','private val clientLabel: String = enrollment?.displayName ?: Build.MODEL.ifBlank { "android-device" }')
+s=s.replace(' private fun request(path: String, body: JSONObject? = null): JSONObject {',''' private fun renewSession() {
+  val record=enrollment ?: return
+  check(!retired) { "Device enrollment retired; ask the City owner to admit this device again" }
+  val req=Request.Builder().url(endpoint(host)+"/api/v0/device/session")
+   .header("X-City-Api-Version","0").header("X-City-Schema-Version","0")
+   .post(record.sessionBody().toString().toRequestBody("application/json".toMediaType())).build()
+  http.newCall(req).execute().use { response ->
+   val data=JSONObject(response.body?.string() ?: "{}")
+   if(!response.isSuccessful) {
+    if(response.code in listOf(403,404)) { retired=true;enrollmentStore.markRetired();token="";dropSocket("Device enrollment refused · join again with owner approval") }
+    error("Device session refused (HTTP ${response.code})")
+   }
+   check(data.optString("cityId")==expectedCity && compatible(data.optInt("apiVersion",-1),data.optInt("schemaVersion",-1))) { "City session identity or protocol conflict" }
+   val next=data.getString("credential");check(next.startsWith("sess:") && next.length>5) { "Member session required" }
+   enrollmentStore.saveSession(next);token=[REDACTED];sessionReady=true;log.event("deviceSessionRenewed")
+  }
+ }
+ private fun request(path: String, body: JSONObject? = null, allowRenew:Boolean=true): JSONObject {''')
+s=s.replace('   val raw = response.body?.string() ?: "{}"','''   if(response.code==401 && enrollment!=null && allowRenew && !retired) {
+    response.close();dropSocket("Renewing device session…");renewSession();return request(path,body,false)
+   }
+   val raw = response.body?.string() ?: "{}"''')
+s=s.replace('  if (closed || host.isBlank() || token.isBlank()) return','''  if (closed || host.isBlank()) return
+  if(retired) { publish("OFFLINE","Device enrollment retired · join again with owner approval");return }
+  if(token.isBlank() && enrollment==null)return''')
+s=s.replace('  try {\n   if (!socketOnline)', '  try {\n   if(enrollment!=null && !sessionReady)renewSession()\n   if (!socketOnline)',1)
+s=s.replace(' fun close() {',''' fun leaveCity(done:()->Unit) { submit {
+  val record=enrollment ?: return@submit
+  try {
+   request("device/installations/${java.net.URLEncoder.encode(record.installationId,"UTF-8")}/revoke",JSONObject().put("reason","left_by_device"))
+   retired=true;enrollmentStore.markRetired();token="";dropSocket("This device left the City")
+   handler.post { if(!closed)done() }
+  } catch(e:Exception) { publish("OFFLINE",e.message ?: "Could not leave City") }
+ } }
+ fun close() {''')
+p.write_text(s,encoding='utf-8')
+p=Path('apps/android/app/src/main/java/city/utopia/control/PairingPanel.kt');s=p.read_text(encoding='utf-8');s=s.replace('   OutlinedTextField(deviceName,{deviceName=it},enabled=!busy,label={Text("Device name / 入网名称")},singleLine=true,modifier=Modifier.fillMaxWidth())\n','');p.write_text(s,encoding='utf-8')
+p=Path('apps/android/app/src/main/java/city/utopia/control/MainActivity.kt');s=p.read_text(encoding='utf-8');s=s.replace('     item { OutlinedButton(onClick={ client?.close();','     item { if(NativeEnrollmentStore(this@MainActivity).read(host,prefs.getString("cityId",null))!=null) OutlinedButton(onClick={ client?.leaveCity { token="";settingsRevision++;page="Find" } }) { Text("Leave City / 退出城市（仅本机）") } }\n     item { OutlinedButton(onClick={ client?.close();');s=s.replace('prefs.edit().remove("cityId").putString("host", host)','NativeEnrollmentStore(this@MainActivity).clear(); prefs.edit().remove("cityId").putString("host", host)');p.write_text(s,encoding='utf-8')

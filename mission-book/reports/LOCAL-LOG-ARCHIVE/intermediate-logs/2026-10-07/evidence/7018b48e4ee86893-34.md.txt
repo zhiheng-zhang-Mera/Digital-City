@@ -1,0 +1,104 @@
+# EM-012 开发报告：连接器SDK与Claude Code／WorkBuddy扩展路径
+
+{{CODE0}}
+
+原始块保留任务、主机、claim／control／repo／baseline／branch／head、CI未启动阻断、本地108／69／1801、开发有意false和禁止合并。
+
+## 0. 阻断：同BA-009，连续第二轮
+
+Actions再次拒两job，run36751919772：
+
+{{CODE1}}
+
+相同account-level外部而非分支证据：3–4秒零step，同BA009 run36750981300三retry；Alien GAI004 runs36750532324／36750532665同失败；此前EM01136750007584、RF01036749030367正常。完成须green CI，故是已实现＋localverified＋CI unverifiable、保claim，精确缺证“Actions能启动job”。
+
+## 1. 交付物
+
+contracts/engineering-connector-sdk-v1/含connector-sdk.mjs（authoring helper、conformance harness、isolating wrapper、optional states、acceptance honesty、extension guide、registry）、index.mjs、7suite、根tests/engineering-connector-sdk.test.mjs。
+
+验收均本地验证：
+
+| 要求 | 测试 |
+|---|---|
+| 第三synthetic connector无core edit过harness | conformant:true、core_edits_required:0、11checks，tampered typed diagnosis失败 |
+| adapter exception／timeout隔离 | ADAPTER_FAULT／TIMEOUT／MALFORMED_RESULT、unrelated_affected空，健康仍select |
+| optional absence typed disabled／unavailable | UNAVAILABLE／DISABLED、fabricated_installation:false、startup_blocked:false |
+| 声称真实Claude／WorkBuddy需host evidence | 真HOST_RUNTIME accepted，partial／non-real REAL_PROVIDER_ACCEPTANCE_PENDING |
+| 加adapter不改ManagerPort／scheduler | core_edited:false、registry_logic_changed:false、port version／Foreman node count不变 |
+| SDK说明minimum methods／capability／auth／test | MINIMUM11、CAPABILITY_SEMANTICS／AUTH_SEMANTICS、8期望、5步骤 |
+| ConnectorPort helper／schema／validation／harness | defineConnector／harness／wrapper测1–3 |
+| interface可用时Claude／WorkBuddy module | 两SDK path conformant、缺失typed |
+| optional absence不阻startup／others | startup_blocked:false、unrelated_connectors_blocked空 |
+| future provider无core path | core_files_to_edit:0、registry_entries_required:1 |
+
+## 2. 决策日志
+
+**D1：claim。** scan无自己repair／Mech correction，Alien持BA004…008、EM004…011、GAI003…008、RF004…010，GAI004／RF006中；BA009后排Butler选EM012，泛化EM011刚证明contract、EM013消费SDK。**no-idle**规定BA009 CIblocked仍保claim，在另worktree继续另一合格stage，故领第二任务。
+
+**D2：SDK验什么。** defineConnector须全部11method，缺MISSING_METHOD精确列表且full minimum；authoring要可行动诊断，boolean invalid迫读core违SDK目的。
+
+**D3：conformance证明。** harness驱honest probe、canonical auth／capabilities、version、derived readiness、health attention、canonical-job attach、typed unsupported submit／control、running／terminal／unknown result、provenance events，逐check报告core_edits_required:0。synthetic通过证明无core改，故意tampered typed fail防rubber stamp。
+
+**D4：隔离。** wrapper exception／timeout／malformed记fault_ref＋kind、该adapter FAULTED，unrelated空、selection跳过、startup不block。auth failure不是isolation，是business state同EM008／GAI008、不disable；过期登录非crash，只需人。
+
+**D5：port result。** invoke返frozen clone，non-cloneable pass-through。suite发现cap list原array被caller改adapter state，boundary应snapshot，同pool。
+
+**D6：optional。** available:false typed UNAVAILABLE，disable后DISABLED，每port OPTIONAL_UNAVAILABLE带fabricated_installation:false／pending；enable显式。不存在不能伪造installation／behavior，须pending marker。
+
+**D7：acceptance诚实。** 无real:true＋submit与terminal refs genuine host evidence不claim，partial／nonreal pending，summary fabricated_acceptance_claimed:0。同EM011纪律，本处未实际执行真实产品。
+
+**D8：无core edit。** guide／registry／harness公开core_files_to_edit:0、foreman_core_edited:false、manager_port_version_unchanged:true、provider_specific_policy_in_core:false，符合加adapter不改core与outscope，负flags可查非diff暗示。
+
+**D9：无schema.json。** 同组件。
+
+## 3. 精确文件
+
+| 文件 | 改动 |
+|---|---|
+| contracts/engineering-connector-sdk-v1/connector-sdk.mjs | 新helper／harness／wrapper／optional／acceptance／guide／registry |
+| contracts/engineering-connector-sdk-v1/index.mjs | 新public |
+| contracts/engineering-connector-sdk-v1/tests/conformance.test.mjs | 新7 |
+| tests/engineering-connector-sdk.test.mjs | root新101→108 |
+
+无City／Core／manifest／doc，additive。
+
+## 4. 测试失败与修复
+
+7测首两败，一真实gap一test错：
+
+1. raw port result使capabilities().capabilities.push改handler array，caller可写adapter；D5 frozen clone修、non-cloneable仍pass-through。
+2. startup.unavailable.sort原地排序冻结array，同以前错误；现spread后sort。
+
+## 5. 检查与CI
+
+| 检查 | 结果 |
+|---|---|
+| node --test tests/*.test.mjs | 108全过0败（101＋7） |
+| node --test apps/rooms/tests/*.test.mjs | 69过0败 |
+| node city/test-all.mjs | 1801过0败 |
+| node scripts/verify-promotion-history.mjs | 82ed36933fb4上10 OK |
+| node scripts/check-bilingual.mjs | docs／evidence／data-records SYNCHRONIZED |
+| CI36751919772，364c5160952039d31074af3bfae843c1d0f4be24 | BLOCKED、account billing jobs未start |
+
+## 5b. 为何development_complete false
+
+同BA009，green CI是前置，本run未执行step。标complete会把外部失败改成功、两契约均禁止。push和localverified具备，剩能启动CI证据。
+
+## 6. 集成接缝
+
+- EM011：首两SDK consumer，merge应SDK definitions让harness覆盖，behavior不变。
+- EM002／004／006：wrap process／connector port、cap-based，不能第二instance registry。
+- EM010：加adapter不动schedule，guide／test断；通过此registry选adapter。
+- EM013：SDK future provider扩点，acceptance summary诚实optional状态。
+- Owner／ops：账单恢复前任何component含本项BA009不能verified development_complete。
+- Owner evolution问题未变。
+
+## 7. Correction开放项
+
+1. submit result含function，clone fallback raw可否；handler改传入对象（args不clone）；product不可用时clearFaults现不probe重新enable可能gap；同cap两adapter一optional unavailable应选usable已测；optional:true但available:true definition。
+2. 确认auth非isolation、genuine evidence才acceptance。
+3. CI可run前不能Correction，本阶段false。
+
+{{CODE2}}
+
+原始结论保留外部账单非code失败、开发false、green前Correction不合格、Engineering项目merge前禁。

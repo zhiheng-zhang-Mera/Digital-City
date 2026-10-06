@@ -1,0 +1,49 @@
+{
+  "documents": [
+    {
+      "source": "mission-book\\reports\\REX-805\\PHYSICAL_GATE_RESULT_Mech.md",
+      "target": "mission-book\\reports\\REX-805\\en\\PHYSICAL_GATE_RESULT_Mech.md",
+      "prefix_bytes": 5084,
+      "prefix_sha256": "4e7f71e216214357a8ddc17da948b684a6d4091889c9e149589abf75ab6d27e9",
+      "blocks": 3
+    },
+    {
+      "source": "mission-book\\reports\\REX-805\\evidence\\MATERIAL_INDEX.md",
+      "target": "mission-book\\reports\\REX-805\\zh-CN\\MATERIAL_INDEX.md",
+      "source_bytes": 5507,
+      "source_sha256": "b958998bf6811bb28f4479a0457f009f53e1618de480ef2409e4b90729baf60b",
+      "blocks": 3,
+      "source_untouched": true
+    },
+    {
+      "source": "mission-book\\reports\\REX-805\\evidence-repaired\\MATERIAL_INDEX.md",
+      "target": "mission-book\\reports\\REX-805\\zh-CN\\MATERIAL_INDEX-repaired.md",
+      "source_bytes": 5599,
+      "source_sha256": "e016030f94e2c6352bcbd20b65a0a68d2231e2555094426f8be13f7acd227102",
+      "blocks": 3,
+      "source_untouched": true
+    }
+  ],
+  "payload_sha256": {
+    "mission-book\\reports\\REX-805\\evidence\\ablation-comparison.json": "9d5372798dcd1727a1630efd6b698141ae600f2741556ce943c4714c750040bc",
+    "mission-book\\reports\\REX-805\\evidence\\ablation-receipt.json": "8c2d028cb517e464e6c0b1effcc2e9433b5ff1bcd9fc17e377817f5f844ff8f7",
+    "mission-book\\reports\\REX-805\\evidence\\canonical-tasks.json": "ff55630882c672765ea20bc171975e026c5a0106ab0d44e12696ba9aec8cf4a0",
+    "mission-book\\reports\\REX-805\\evidence\\deployment-and-topology.json": "27dcb9e961b81848cd235bc9c23fca8c8a6a26e906d9c28e30f7001b234e0a6b",
+    "mission-book\\reports\\REX-805\\evidence\\experiment-registry.json": "55c79bce7a550449948287919e283d24cdd0055df6783dd47866c8450277c057",
+    "mission-book\\reports\\REX-805\\evidence\\MATERIAL_INDEX.md": "b958998bf6811bb28f4479a0457f009f53e1618de480ef2409e4b90729baf60b",
+    "mission-book\\reports\\REX-805\\evidence\\replay-comparison.json": "2e1f002a58aec3fd9af004109d4878a6f70101fc27a2ca11ebfd85da379cb017",
+    "mission-book\\reports\\REX-805\\evidence\\replay-receipt.json": "cf7047dd5fc5a3216a1c5977ccd4daf2fa036c1e5cdc26dfaef4bfdc5c4404c0",
+    "mission-book\\reports\\REX-805\\evidence\\RUN_LOG.txt": "a677eb45b562d4d2ca7a21d2af6435d9e554fe26e0d584868c02f07b3e50bf60",
+    "mission-book\\reports\\REX-805\\evidence\\source-receipt.json": "34bf525779376299d010762fe54009a795239a7cfe16e9a16d1490a18d77c669",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\ablation-comparison.json": "177f137886e74cf6c5ae4abad23b0c0b1d90b826ff2bb61a35707582c5a7b84e",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\ablation-receipt.json": "732c0d12c8fceebb9693c2f2d38eef04539d8f0f35a687c27092213dfc7a2b60",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\canonical-tasks.json": "7e5a737dc37fe9b0c199b9d4fab646d9574c149a40aa73e825679943ea967a2d",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\deployment-and-topology.json": "e2631def2cdeeef31161b009043594f9414077316d9df9b9d0ee6a49fa2c18c5",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\experiment-registry.json": "98ceb88979ff3d0266453be7b1ff10da972cbbe564a53ad2f47be91601271d44",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\MATERIAL_INDEX.md": "e016030f94e2c6352bcbd20b65a0a68d2231e2555094426f8be13f7acd227102",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\replay-comparison.json": "c3148523f0f5191a82b7b75a055255fbca6fdbd9d27bccd81cbd86406c82b7c3",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\replay-receipt.json": "f74f725a564bbda21c15068f7e27319f42d28e74dcc2a974592893eef127f34f",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\RUN_LOG.txt": "a0b6fcb8bfa00c5f78c24e355b6878cf8b4d18502a0745f044ed98e797213a44",
+    "mission-book\\reports\\REX-805\\evidence-repaired\\source-receipt.json": "34bf525779376299d010762fe54009a795239a7cfe16e9a16d1490a18d77c669"
+  }
+}

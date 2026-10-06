@@ -1,0 +1,10 @@
+✔ REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets (1367.9887ms)
+✔ REX802 failing collector cannot break real Gateway task/health and reports partial failure (125.021ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3952.2941

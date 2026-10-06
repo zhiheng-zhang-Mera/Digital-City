@@ -5,11 +5,12 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **20**.
+当前Markdown文档 / Current Markdown documents: **21**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
 | android-parity | 2 | [打开 / Open](android-parity/README.md) |
+| intermediate-logs | 1 | [打开 / Open](intermediate-logs/2026-10-07/README.md) |
 | zh-CN | 9 | [打开 / Open](zh-CN/README.md) |
 
 ### 本目录说明 / Local documents

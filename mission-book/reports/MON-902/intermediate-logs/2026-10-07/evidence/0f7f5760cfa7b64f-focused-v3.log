@@ -1,0 +1,48 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (144.8981ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (105.699ms)
+✔ slow/disconnected observation never gates real canonical task persistence (72.6575ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (104.104ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (84.5978ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (69.5584ms)
+✔ deleted historical prefix and tail cannot be reported as complete history (79.5396ms)
+✔ Gateway shares outstanding observation and retains stale last view on later source failure (71.8638ms)
+✔ Alien: completed work does not imply an offline host is holding executable work or current retry/wait (11.4328ms)
+✔ Alien: missing coverage metadata cannot yield a calm graph (0.3301ms)
+✔ Alien: collapsed normal work stays collapsed in actual rendered overview, with stable visible order (2.3338ms)
+✔ Alien: a path preserves observed event provenance and explicitly unknown timing (0.4333ms)
+✔ Alien browser: offline invalidates a delayed monitor response (1895.4568ms)
+✔ Alien browser: an old credential response cannot replace the new scope or another page (1158.1726ms)
+✔ Alien browser: cluster expands, edge filter is reachable and evidence opens exact canonical reference (1770.9281ms)
+✔ MON-902 graph: every risk level is one of the declared vocabulary and never a boolean (12.8257ms)
+✔ MON-902 graph: a failed task and an offline device holding work are ACTIVE risks that reach the summary (0.9034ms)
+✔ MON-902 graph: an offline device with no work assigned is a WATCH, not an incident (0.2128ms)
+✔ MON-902 graph: absence of retries is NOT claimed from a truncated event window (0.5106ms)
+✔ MON-902 graph: repeated hand-off refusals for one task become one ACTIVE risk with its count (0.4063ms)
+✔ MON-902 graph: a task waiting on a device is a WATCH until that device reports ready (0.2304ms)
+✔ MON-902 graph: a monitor that cannot see must not look calm (0.4885ms)
+✔ MON-902 graph: a path pointing at an absent device is reported as a causality gap (0.2787ms)
+✔ MON-902 graph: the edge filter removes types from the picture and never invents others (0.2407ms)
+✔ MON-902 graph: a large city collapses unremarkable work but never collapses an active risk (1.6935ms)
+✔ MON-902 graph: the layout does not reshuffle because an event arrived (0.3306ms)
+✔ MON-902 graph: the interaction budget from overview to a risk is stated and small (0.1894ms)
+✔ MON-902 graph: owner-required state is reported as observable or explicitly not observable, never as none (0.2093ms)
+✔ MON-902 graph: an invalid view is refused rather than projected into a comfortable empty city (0.4453ms)
+✔ MON-902 panel: an active risk is visible on the overview without opening anything (2.4408ms)
+✔ MON-902 panel: raw projection vocabulary does not render outside the disclosure (11.374ms)
+✔ MON-902 panel: a calm banner is never printed over a city the projection cannot see (0.5588ms)
+✔ MON-902 panel: a collapsed cluster still reports the risk it contains (1.1715ms)
+✔ MON-902 panel: the node inspector answers what, why, who and what-next, and keeps the exact reference (1.0477ms)
+✔ MON-902 panel: a path with no stated cause is shown as unexplained, not as fine (0.4267ms)
+✔ MON-902 panel: a stale selection says so instead of rendering an empty panel (0.186ms)
+✔ MON-902 panel: ids and labels from the city are escaped in text and attribute positions (0.3004ms)
+✔ MON-902 panel: every word the surface uses exists in both locale packs, including every risk code (1.6496ms)
+✔ MON-902 panel: the shell exposes the page and fetches the real route (1.0864ms)
+✔ MON-902 panel: the page is wired to the real gateway projection route end to end (152.0144ms)
+ℹ tests 40
+ℹ suites 0
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8441.7006

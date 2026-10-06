@@ -1,0 +1,15 @@
+✔ REX802 pure normalization binds clocks/provenance and retains unknown metrics (3.0725ms)
+✔ REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero (0.3078ms)
+✔ REX802 recognizes missing, duplicate, reordered and stale timestamp observations (1.0486ms)
+✔ REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch (10.4084ms)
+✔ REX802 collector failures and queue bounds are explicit without throwing into callers (1.7005ms)
+✔ REX802 hung storage is bounded; queue drop and close do not block indefinitely (59.9147ms)
+✔ REX802 early capture waits for restored watermark before normalization (4.0949ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1044.8449

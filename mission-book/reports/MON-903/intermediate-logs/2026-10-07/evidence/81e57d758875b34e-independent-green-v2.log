@@ -1,0 +1,38 @@
+✔ Alien: model OWNER_REQUIRED is an escalation, not auto-resolution (12.8035ms)
+✔ Alien: canonical observation cannot enqueue decisions after bounded close (2.2484ms)
+✔ Alien: retention restart preserves the newest decisions, not UUID lexical order (14.019ms)
+✔ Alien: queue overflow retains canonical evidence and reports failed receipt persistence (1734.4128ms)
+✔ Alien: canonical present-but-ineligible target is escalated, not described as recovering offline (16.1436ms)
+✔ Alien: a timeout remains measurable when the critic subsequently resolves (30.8672ms)
+✖ Alien Gateway: an online ineligible strict target produces an Owner decision with real event evidence (76.3368ms)
+✔ Alien browser: polling preserves opened provenance and successful retry clears an old error (834.7993ms)
+✔ Alien browser: unavailable decision persistence is visible even before any write failure (795.5001ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6571.2171
+
+✖ failing tests:
+
+test at tests\mon903-alien-review.test.mjs:41:1
+✖ Alien Gateway: an online ineligible strict target produces an Owner decision with real event evidence (76.3368ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  400 !== 200
+  
+      at post (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:44:275)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async TestContext.<anonymous> (file:///D:/Utopia-MON903/tests/mon903-alien-review.test.mjs:46:14)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 400,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

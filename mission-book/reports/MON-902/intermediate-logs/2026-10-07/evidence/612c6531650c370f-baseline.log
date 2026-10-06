@@ -1,0 +1,41 @@
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (133.1834ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (97.5232ms)
+✔ slow/disconnected observation never gates real canonical task persistence (78.445ms)
+✔ real API claim/report projection follows persisted lifecycle and cannot execute commands (109.0222ms)
+✔ stalled HTTP monitor request and broken reader leave independent create/cancel requests working (92.7088ms)
+✔ invalid limits cannot create unbounded queries, single flight and unknown populations stay honest (70.0832ms)
+✔ deleted historical prefix and tail cannot be reported as complete history (84.3908ms)
+✔ Gateway shares outstanding observation and retains stale last view on later source failure (75.1273ms)
+✔ MON-902 graph: every risk level is one of the declared vocabulary and never a boolean (12.4513ms)
+✔ MON-902 graph: a failed task and an offline device holding work are ACTIVE risks that reach the summary (0.8334ms)
+✔ MON-902 graph: an offline device with no work assigned is a WATCH, not an incident (0.1831ms)
+✔ MON-902 graph: absence of retries is NOT claimed from a truncated event window (0.4536ms)
+✔ MON-902 graph: repeated hand-off refusals for one task become one ACTIVE risk with its count (0.3637ms)
+✔ MON-902 graph: a task waiting on a device is a WATCH until that device reports ready (0.2073ms)
+✔ MON-902 graph: a monitor that cannot see must not look calm (0.288ms)
+✔ MON-902 graph: a path pointing at an absent device is reported as a causality gap (0.2544ms)
+✔ MON-902 graph: the edge filter removes types from the picture and never invents others (0.2018ms)
+✔ MON-902 graph: a large city collapses unremarkable work but never collapses an active risk (1.5888ms)
+✔ MON-902 graph: the layout does not reshuffle because an event arrived (0.2804ms)
+✔ MON-902 graph: the interaction budget from overview to a risk is stated and small (0.1586ms)
+✔ MON-902 graph: owner-required state is reported as observable or explicitly not observable, never as none (0.1934ms)
+✔ MON-902 graph: an invalid view is refused rather than projected into a comfortable empty city (0.4172ms)
+✔ MON-902 panel: an active risk is visible on the overview without opening anything (2.096ms)
+✔ MON-902 panel: raw projection vocabulary does not render outside the disclosure (10.2039ms)
+✔ MON-902 panel: a calm banner is never printed over a city the projection cannot see (0.5093ms)
+✔ MON-902 panel: a collapsed cluster still reports the risk it contains (1.4132ms)
+✔ MON-902 panel: the node inspector answers what, why, who and what-next, and keeps the exact reference (0.6665ms)
+✔ MON-902 panel: a path with no stated cause is shown as unexplained, not as fine (0.3909ms)
+✔ MON-902 panel: a stale selection says so instead of rendering an empty panel (0.153ms)
+✔ MON-902 panel: ids and labels from the city are escaped in text and attribute positions (0.2383ms)
+✔ MON-902 panel: every word the surface uses exists in both locale packs, including every risk code (2.4665ms)
+✔ MON-902 panel: the shell exposes the page and fetches the real route (0.8945ms)
+✔ MON-902 panel: the page is wired to the real gateway projection route end to end (153.5312ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 33
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3040.1133

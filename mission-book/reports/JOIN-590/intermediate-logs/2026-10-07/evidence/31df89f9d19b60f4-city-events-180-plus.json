@@ -1,0 +1,86 @@
+﻿[
+    {
+        "seq":  180,
+        "type":  "CLIENT_DISCONNECTED",
+        "timestamp":  "2026-10-05T11:59:56.552Z",
+        "payload":  "{\"clientRef\":\"dev-5bbb22fa7ffa4c45915e86c9085347ef\",\"clientLabel\":\"Android Â· PERM00\"}"
+    },
+    {
+        "seq":  181,
+        "type":  "CLIENT_CONNECTED",
+        "timestamp":  "2026-10-05T12:00:06.102Z",
+        "payload":  "{\"clientRef\":\"dev-5bbb22fa7ffa4c45915e86c9085347ef\",\"clientLabel\":\"Android Â· PERM00\"}"
+    },
+    {
+        "seq":  182,
+        "type":  "CLIENT_DISCONNECTED",
+        "timestamp":  "2026-10-05T12:00:40.708Z",
+        "payload":  "{\"clientRef\":\"dev-5bbb22fa7ffa4c45915e86c9085347ef\",\"clientLabel\":\"Android Â· PERM00\"}"
+    },
+    {
+        "seq":  183,
+        "type":  "DEVICE_ENROLLED",
+        "timestamp":  "2026-10-05T12:01:53.486Z",
+        "payload":  "{\"deviceId\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"installationId\":\"ins-896a709c2156f48cb5b5b4a6972bf125\",\"displayName\":\"Android Â· PERM00\",\"unbound\":false}"
+    },
+    {
+        "seq":  184,
+        "type":  "DEVICE_SESSION_ISSUED",
+        "timestamp":  "2026-10-05T12:01:53.492Z",
+        "payload":  "{\"installationId\":\"ins-896a709c2156f48cb5b5b4a6972bf125\",\"deviceId\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"expiresAt\":\"2026-10-06T00:01:53.490Z\"}"
+    },
+    {
+        "seq":  185,
+        "type":  "DEVICE_SESSION_ISSUED",
+        "timestamp":  "2026-10-05T12:01:53.590Z",
+        "payload":  "{\"installationId\":\"ins-896a709c2156f48cb5b5b4a6972bf125\",\"deviceId\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"expiresAt\":\"2026-10-06T00:01:53.588Z\"}"
+    },
+    {
+        "seq":  186,
+        "type":  "CLIENT_CONNECTED",
+        "timestamp":  "2026-10-05T12:01:53.702Z",
+        "payload":  "{\"clientRef\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"clientLabel\":\"Android Â· PERM00\"}"
+    },
+    {
+        "seq":  187,
+        "type":  "CITY_STARTED",
+        "timestamp":  "2026-10-05T12:02:38.772Z",
+        "payload":  "{\"schemaVersion\":0}"
+    },
+    {
+        "seq":  188,
+        "type":  "NODE_ONLINE",
+        "timestamp":  "2026-10-05T12:02:38.805Z",
+        "payload":  "{\"nodeId\":\"dev-031fdba6e94c4298a0956ff04a65481d\"}"
+    },
+    {
+        "seq":  189,
+        "type":  "CLIENT_CONNECTED",
+        "timestamp":  "2026-10-05T12:02:39.496Z",
+        "payload":  "{\"clientRef\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"clientLabel\":\"Android Â· PERM00\"}"
+    },
+    {
+        "seq":  190,
+        "type":  "CLIENT_CONNECTED",
+        "timestamp":  "2026-10-05T12:02:40.810Z",
+        "payload":  "{\"clientRef\":\"web-clrg4f8k\",\"clientLabel\":\"Mech-rep\"}"
+    },
+    {
+        "seq":  191,
+        "type":  "DEVICE_REVOKED",
+        "timestamp":  "2026-10-05T12:03:09.660Z",
+        "payload":  "{\"installationId\":\"ins-896a709c2156f48cb5b5b4a6972bf125\",\"deviceId\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"reason\":\"left_by_device\",\"sessionsRevoked\":2}"
+    },
+    {
+        "seq":  192,
+        "type":  "MEMBER_REVOKED",
+        "timestamp":  "2026-10-05T12:03:09.661Z",
+        "payload":  "{\"deviceId\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\"}"
+    },
+    {
+        "seq":  193,
+        "type":  "CLIENT_DISCONNECTED",
+        "timestamp":  "2026-10-05T12:03:09.738Z",
+        "payload":  "{\"clientRef\":\"dev-8b20a1577f0540a29dbbdd43c8257cad\",\"clientLabel\":\"Android Â· PERM00\"}"
+    }
+]

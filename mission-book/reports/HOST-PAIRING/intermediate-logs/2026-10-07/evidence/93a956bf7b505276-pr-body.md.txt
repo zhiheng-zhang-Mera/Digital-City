@@ -1,0 +1,3 @@
+Merged-main CI37204279336 failed1241/1242 after the Windows CIM host inventory exceeded its30s budget. This retries one complete process+listener observation on timeout, bounded to two attempts. It still refuses to start a City on persistent or non-timeout failures; mixed failures prioritize the non-timeout refusal. No empty-host fallback or bypass.
+
+Validation: red/green cold success, persistent timeout, non-timeout and mixed-failure controls;7/7 focused PASS. Local technical review found the mixed-failure omission, now repaired. Exact-head full CI pending. Role Alien-codex; CEX701 claim remains owned while this in-scope integration defect is repaired.

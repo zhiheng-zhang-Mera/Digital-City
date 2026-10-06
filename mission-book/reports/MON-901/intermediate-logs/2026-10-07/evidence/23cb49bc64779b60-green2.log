@@ -1,0 +1,36 @@
+✔ versioned authenticated gateway rejects unsafe commands and persists history (237.4802ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (130.0178ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1365.4948ms)
+✔ an interrupted task is never falsified as success across a gateway restart (117.8609ms)
+✔ bounded canonical projection exposes active task, binding and exact event evidence without raw secrets (133.3992ms)
+✔ overflow and missing history remain visible; fresh snapshot reflects canonical state, not cached truth (92.3112ms)
+✔ slow/disconnected observation never gates real canonical task persistence (73.9526ms)
+✖ real API claim/report projection follows persisted lifecycle and cannot execute commands (102.9631ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2975.275
+
+✖ failing tests:
+
+test at tests\mon901-observation.test.mjs:56:1
+✖ real API claim/report projection follows persisted lifecycle and cannot execute commands (102.9631ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(projected.events.some(e=>e.type==='TASK_RUNNING'&&e.taskRef===task.id))
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-MON901/tests/mon901-observation.test.mjs:70:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

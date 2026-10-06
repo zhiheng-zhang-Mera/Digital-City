@@ -1,0 +1,148 @@
+from reading8 import save,codes
+r='mission-book/logs/city-live-test/README.md'
+save(r,'''# City live-test log
+
+> **Status: ACTIVE / log directory**
+>
+> This directory is the cloud registration and verdict ledger for **City live tests**. This host, Alien, registers each round and writes **bounded** receipts and verdicts here. **Raw** process data—logs, sqlite, original .jsonl files and backups—stays in the construction host's Git-ignored `.runtime/`, outside this directory.
+>
+> Governing rules: [CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md); process-data boundary: [PROCESS_DATA_POLICY.md](../../PROCESS_DATA_POLICY.md).
+
+## 1. Why this directory is in the cloud, rather than only on the construction host
+
+Owner directly instructed that **the live-test log directory must be created in GitHub's cloud**. Otherwise the fact that this machine ran a live test exists only on its disk and is invisible to the control plane. This directory records **control-plane facts**: which round, which participants, extent of execution, and verdict.
+
+Mission Book previously had no logs/ layer. This is a category **added under Owner instruction**, explicitly recorded here rather than silently placed in reports/. Reports contain a workbook's Development/Review conclusions; live testing is **cross-workbook and repeatable**, required by JOIN-501, JOIN-503 and subsequent MESH tasks. Their lifecycles differ.
+
+## 2. Verdict definitions (fixed beforehand to avoid selecting criteria afterward)
+
+{0}
+
+Full translation: RUN means one live test. Participants must include the initiating host and at least one second physical host. PASS requires every check passing and all participants present. FAIL means a check fails; receipts record observations, not conclusions. NOT_RUN means the designated second host did not join within the window. DEFERRED explicitly reserves the parts requiring a real second host for stage integration.
+
+**NOT_RUN is neither a pass nor a failure**: it means this round never formed a two-host topology. Results from two processes on one host **must not** masquerade as a two-host conclusion (`deferred != passed`).
+
+## 3. Credential discipline
+
+- Control tokens, node tokens and long-term device credentials **never enter this directory or any Git object**.
+- Registration says only “configured”; receipts report credential **presence and length**, never values.
+- Test City endpoint, cityId, SHA and CI run number are public facts and are recorded.
+
+## 4. Directory conventions
+
+{1}
+
+README.md defines verdicts and discipline; register/ contains each round's RUN_ID, participants, scope and verdict; receipts/ contains bounded observations for each PASS/FAIL/NOT_RUN check.
+
+## 5. Registered rounds
+
+| RUN_ID | Date | Initiator | Second host | Verdict |
+|---|---|---|---|---|
+| [JOIN-LIVE-2026-10-03-01](./register/JOIN-LIVE-2026-10-03-01.md) | 2026-10-03 | Alien | Mech | **NOT_RUN**: Mech did not join within five minutes; Alien's unilateral self-test passed 38/38. |
+'''.format(*codes(r)))
+r='mission-book/showcase-material-extraction/README.md'
+save(r,'''# 展示素材提取工程
+
+> **目的：** 为项目页面与 PhD 联系产出紧凑、以证据支持的 Utopia 展示包。
+>
+> **本工程属于 NON-PRODUCT，不得修改 Utopia 源码。**
+
+活跃工作书：
+
+- [SHOW-401 — Utopia 项目展示素材提取与双 Demo 制作](./SHOW-401-Utopia项目展示素材提取与双Demo制作.md)
+
+必须的最终产物：
+
+1. 一份**主 demo**：三个真实端点、定向执行、结果回流。
+2. 一份**技术 demo**：Windows workers 间对同一任务进行受保护的 remote handoff。
+3. 三张精选截图。
+4. 一张紧凑结果表。
+5. 一份简洁技术要点包，可复用于联系邮件、README、项目页面。
+6. 交付清单，将每项媒体绑定到来源运行、设备身份、任务 id 与已接受的运行基线。
+
+媒体二进制在 **Utopia 仓库之外**录制/导出。默认不把大型 MP4 提交到 Digital-City。Digital-City 保存工作书、清单、可选的安全精选截图、hash/路径、结果表与最终叙述。
+
+## 硬边界
+
+本工程将 zhiheng-zhang-Mera/utopia 视为**只读运行来源**。
+
+允许：
+
+- 运行已经验收的产品。
+- 检查当前 main SHA / CI。
+- 使用 Web/Android 产品 surface。
+- 使用 Android Studio 设备镜像。
+- 使用在线会议/屏幕分享软件。
+- 创建 demo 所需的临时运行任务、配对会话和本地运行数据。
+- 仅把 CMD/PowerShell 用作辅助启动、停止、查询机制。
+
+禁止：
+
+- 编辑 tracked Utopia 文件。
+- 创建 Utopia development branch。
+- commit、merge、cherry-pick、revert 或开启产品 PR。
+- 在本工程内修复缺陷。
+- 为使录制成功而改变测试或成功定义。
+- 把终端或进程列表输出当成产品正在运行的主要证据。
+
+若真实产品缺陷阻断计划场景，记录 blocker 并停止该场景。修改 Utopia 代码之前，必须另有 Owner 授权的产品工作书。
+''','zh-CN')
+r='mission-book/finished/completed-2026-10-04/README.md'
+save(r,'''# completed-2026-10-04
+
+于 2026-10-04 的 Mission Book 活跃面 reconciliation 中归档。
+
+## 作为已完成归档
+
+### MESH-301
+
+- 工作书：[mesh-3end/MESH-301-三端实机互联与相互指挥.md](./mesh-3end/MESH-301-三端实机互联与相互指挥.md)
+- 已接受实现头：`ed0bf6467b02ae8e77e9da5650bde2bde428cdab`
+- Utopia 合并 main SHA：`9f3e20e8ec99d591812430bee71d27e68c4ad498`
+- 终态标记：`THREE_END_MESH_E2E_ACCEPTED`
+
+### Connection Onboarding 组件工作书
+
+三个组件工作书均完成 Development 与对侧实体主机 Formal Review；各自精确已接受实现头均为当前 Utopia main 的祖先。
+
+- JOIN-501 → `e925ae1ef4dda6f51d89a1faa025d1b8666d8c58`
+- JOIN-502 → `86deda9c2990c78d683a8c3515d251022df9d040`
+- JOIN-503 → `77f7f2a7d5b06fb6a448a2dda51b7f2f4b9ab32f`
+
+归档工作书：
+
+- [JOIN-501](./connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md)
+- [JOIN-502](./connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md)
+- [JOIN-503](./connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md)
+
+**重要：** 组件完成本身不关闭 Connection Onboarding programme。历史复核明确将两实体主机验收列为 deferred，所以活跃面仅保留 merged-main 实机验收/收口工作书。
+
+这些文件是历史证据，不是领取面。新施工遵守 mission-book/CONSTRUCTION_RULES.md。
+''','zh-CN')
+r='mission-book/finished/completed-2026-10-06/README.md'
+save(r,'''# completed-2026-10-06 — Connection Onboarding
+
+> 已完成 Connection Onboarding programme 的归档台账。
+
+## 终态
+
+- Programme：**Connection Onboarding**。
+- Mission 进度：**4/4 完成**。
+- Development：**4/4**。
+- Formal Review / verification：**4/4**。
+- 状态：**COMPLETE**。
+- Utopia merged-main 实机收口：由 JOIN-590 记录。
+
+## 权威记录
+
+早期组件工作书已经归档于：
+
+- [JOIN-501 / JOIN-502 / JOIN-503 组件归档](../completed-2026-10-04/connection-onboarding-components/)
+
+最终 merged-main 实机验收工作书保留 canonical 历史路径，以免打断现有报告链接与 Git 引用：
+
+- [JOIN-590 — merged-main 实机验收与收口](../../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md)
+- [Connection Onboarding programme README](../../connection-onboarding/README.md)
+
+此归档台账是在 programme 移出活跃池后，Mission Book 主页使用的 finished-directory 记录。
+''','zh-CN')

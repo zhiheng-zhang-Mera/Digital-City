@@ -1,0 +1,36 @@
+import {createGateway} from '../../services/dev-gateway/server.mjs';
+import {mkdtemp,writeFile,mkdir,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';import {join} from 'node:path';
+const dir=await mkdtemp(join(tmpdir(),'rex804-evidence-'));
+const app=await createGateway({dir,port:0,token:[REDACTED],nodeToken:[REDACTED],roomsDisabled:true,heartbeatTimeout:100});
+const api=async(path,body,token=[REDACTED]>{const response=await fetch(app.url+'/api/v0/'+path,{method:body?'POST':'GET',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json','X-City-Api-Version':'0','X-City-Schema-Version':'0'},body:body?JSON.stringify(body):undefined});return {status:response.status,body:await response.json()};};
+const worker=(path,body)=>api('node/'+path,body,'probe-worker');
+const results=[];
+try {
+ await worker('register',{id:'controlled-worker',displayName:'Controlled worker',metadata:{platform:'reference'},capabilities:['task.execute.safe','filesystem.temp']});
+ for(const kind of ['HEARTBEAT_LOSS','PROVIDER_UNAVAILABLE','DELAY_RESULT','DUPLICATE_EVENT']){
+  await worker('heartbeat',{id:'controlled-worker'});
+  const start=await api('research/faults',{kind,nodeId:'controlled-worker',durationMs:2500,confirmation:'FAULT:'+kind+':controlled-worker'});
+  const row=start.body.fault;const begin=performance.now();let injected,recovered;
+  if(kind==='HEARTBEAT_LOSS'){
+   injected=await worker('heartbeat',{id:'controlled-worker'});await new Promise(r=>setTimeout(r,1100));
+   await api('research/faults/'+row.faultId+'/stop',{});recovered=await worker('heartbeat',{id:'controlled-worker'});
+  }else if(kind==='PROVIDER_UNAVAILABLE'){
+   injected=await worker('claim',{id:'controlled-worker'});await api('research/faults/'+row.faultId+'/stop',{});recovered=await worker('claim',{id:'controlled-worker'});
+  }else {
+   const task=(await api('tasks',{type:'WAIT'})).body;await worker('claim',{id:'controlled-worker'});
+   if(kind==='DELAY_RESULT'){
+    const pending=worker('report',{id:'controlled-worker',taskId:task.id,state:'RUNNING',progress:10});await new Promise(r=>setTimeout(r,30));await api('research/faults/'+row.faultId+'/stop',{});injected=await pending;recovered=injected;
+    await worker('report',{id:'controlled-worker',taskId:task.id,state:'COMPLETED',progress:100,result:{controlled:true}});
+   }else {
+    injected=await worker('report',{id:'controlled-worker',taskId:task.id,state:'RUNNING',progress:10});await worker('report',{id:'controlled-worker',taskId:task.id,state:'COMPLETED',progress:100,result:{controlled:true}});await api('research/faults/'+row.faultId+'/stop',{});recovered={status:200};
+   }
+  }
+  const receipt=(await api('research/faults/'+row.faultId)).body.fault;
+  results.push({kind,sourceSha:'9b68d4f7054bb911c484340532cc3b5ae9ed47ac',elapsedProbeMs:performance.now()-begin,injectedStatus:injected.status,restoredStatus:recovered.status,receipt});
+ }
+ await app.researchTrace.flush();
+ const result={task:'REX-804',physicalHost:'Mera-Alianware',topology:'LOCAL_CONTROLLED_GATEWAY',physicalReproduction:false,results,trace:app.researchTrace.snapshot()};
+ await mkdir('evidence/raw/mission-book/REX-804',{recursive:true});await writeFile('evidence/raw/mission-book/REX-804/controlled-probe.json',JSON.stringify(result,null,2));
+ console.log(JSON.stringify({faultClasses:results.length,injectedStatuses:results.map(r=>r.injectedStatus),receiptStates:results.map(r=>r.receipt.status),measurements:results.map(r=>({kind:r.kind,...r.receipt.metrics}))}));
+}finally{await app.close();await rm(dir,{recursive:true,force:true});}

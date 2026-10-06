@@ -1,0 +1,36 @@
+✔ the old inline implementation throws on empty output, which is the regression (2.0049ms)
+✔ empty output is read as "already gone", not as an unparseable error (0.5428ms)
+✔ "null" from ConvertTo-Json is also treated as already gone (0.1309ms)
+✔ a live, matching process verifies through CIM (0.1652ms)
+✔ a live process running something else is a FATAL mismatch, as it was before (0.1778ms)
+✔ a quoting-safe array result is handled as well as a single object (0.1357ms)
+✔ a missing CommandLine field is not mistaken for a match (0.2458ms)
+✔ when CIM is unusable, tasklist still catches a plainly wrong process (0.2377ms)
+✔ tasklist reporting no match is already-gone rather than unavailable (0.3355ms)
+✔ both probes failing is unavailable, and is not fatal (0.3702ms)
+✔ unparseable-but-non-empty CIM output falls through to the weaker probe instead of claiming absence (0.1653ms)
+✔ a UTF-8 BOM on the output does not break parsing (0.1456ms)
+✔ every returned status is one of the declared statuses (0.1856ms)
+✔ a non-numeric PID is fatal and never reaches a command line (0.1003ms)
+✔ the CIM and tasklist filters refuse a non-numeric PID outright (0.2422ms)
+✔ only positively verified identity permits stopping a PID (0.1202ms)
+✔ the redesigned-shell fixture really is the zero-sized-label shape (2.0388ms)
+✔ a bare first-match label lookup selects a zero-bounds node, which is the original defect (0.279ms)
+✔ no sized nav label exists on the shipped shell, so a size filter ALONE would leave nothing to tap (0.6634ms)
+✔ the active tab has no clickable node, so clickable ordinal alone is unstable (0.3922ms)
+✔ targets are paired to labels in document order, giving a page-independent index (0.2319ms)
+✔ resolveRoute reaches Home from the Devices page via the paired target (0.2186ms)
+✔ the nav band excludes page content that happens to be clickable (0.2726ms)
+✔ a sized heading is not mistaken for a nav target (0.7648ms)
+✔ resolveRoute prefers a sized label inside the band, preserving the earlier shell (0.3649ms)
+✔ the two shells are distinguished rather than one being assumed (0.3504ms)
+✔ an unresolvable tree returns null rather than a zero-bounds node (0.165ms)
+✔ the task pilot creates its evidence directory before writing into it (0.4013ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1890.9628

@@ -1,0 +1,42 @@
+{
+  "local_links_checked": 4624,
+  "missing": [],
+  "invalid_utf8": [],
+  "preimages": [
+    {
+      "path": "docs/encoding-evidence/BA-005-CORRECTION_REPORT.md.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    },
+    {
+      "path": "docs/encoding-evidence/EM-002-CORRECTION_REPORT.md.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    },
+    {
+      "path": "docs/encoding-evidence/EM-005-CORRECTION_REPORT.md.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    },
+    {
+      "path": "docs/encoding-evidence/GAI-003-CORRECTION_REPORT.md.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    },
+    {
+      "path": "docs/encoding-evidence/RF-005-CORRECTION_REPORT.md.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    },
+    {
+      "path": "docs/encoding-evidence/CONNECTION_ONBOARDING_INTEGRATION.md.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    },
+    {
+      "path": "mission-book/reports/REX-805/encoding-preimage.bin",
+      "hash_matches": true,
+      "bytes_match": true
+    }
+  ]
+}
