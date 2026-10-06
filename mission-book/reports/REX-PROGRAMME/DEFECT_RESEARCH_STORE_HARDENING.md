@@ -318,6 +318,22 @@ What this changes for a reader of this record: any "5 inherited environment fail
 rewriting published history to hide a classification error is worse than the error, and this section is the correction
 of record.
 
+The gap that produced the error is a documentation one, and it is fixed the same way as the code findings — measured,
+reported, published as an adoptable branch, not merged:
+
+```text
+BRANCH   repair/mech-readme-city-install-step @ b4dac610b09acf909a1758139ac8815517f2d014  (parent = main 213f9f9f)
+WHY      the README's install block showed only `pnpm install --frozen-lockfile`, while `pnpm test` also needs
+         `pnpm --dir city install --frozen-lockfile` (city/ is deliberately not a pnpm workspace and carries its own
+         lockfile; ci.yml line 20 runs both). A root-only install therefore makes two suites fail with CORRUPT_INPUT,
+         which reads like a product defect - exactly the trap this host fell into.
+CHANGE   README.md: the missing command, plus a bilingual note naming the symptom so the next reader recognises it
+CHECK    docs only; `node scripts/check-bilingual.mjs` reports every pair SYNCHRONIZED
+CI       V0.2 checks push run 37414436113 COMPLETED SUCCESS (attempt 1) on b4dac610b09acf909a1758139ac8815517f2d014,
+         jobs android and gateway-web both success; read per-run from the Actions API and matched on headSha
+```
+
+
 The pattern this belongs to is the one already stated three times above: **a measurement is only as good as the
 instrument's setup, and an instrument that has never been asked whether its setup was complete will report a confident,
 stable, wrong number.** The stable part is what made it convincing — the same two failures appeared in every run for
