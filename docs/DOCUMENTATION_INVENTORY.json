@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1717,
-  "total_bytes": 12282431,
+  "total_bytes": 12282752,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9889,10 +9889,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 62203,
+      "bytes": 62217,
       "encoding_state": "UTF8",
-      "chinese_characters": 5143,
-      "english_words": 2510,
+      "chinese_characters": 5144,
+      "english_words": 2512,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9961,7 +9961,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 15064,
+      "bytes": 15141,
       "encoding_state": "UTF8",
       "chinese_characters": 202,
       "english_words": 154,
@@ -14578,10 +14578,10 @@
     },
     {
       "path": "mission-book/reports/REX-806/MERGE_RECORD_Mech_2026_10_07.md",
-      "bytes": 3113,
+      "bytes": 3343,
       "encoding_state": "UTF8",
-      "chinese_characters": 51,
-      "english_words": 10,
+      "chinese_characters": 56,
+      "english_words": 8,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },

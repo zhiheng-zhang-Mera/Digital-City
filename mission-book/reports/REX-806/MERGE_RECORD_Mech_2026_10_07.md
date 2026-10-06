@@ -42,9 +42,11 @@ main 上的 CI    V0.2 checks run 37542958872（head 12e3d3b，event push）**co
       REX-806 的接受头 12e3d3b 作为其依赖 SHA 之一）。
 ```
 
-## 4. 保留的观察（若 linkage run 的第二项未完成，按事实记录）
+## 4. 合并后的两项 CI 都已落定（写作时后一项仍在跑，现已复查）
 
 ```text
-City linkage check run 37542958826 在写作时：reciprocal-contract job **success**，整个 run 仍 in_progress。
-本文件不预写它的最终结论；追踪面以仓库 Actions 为准，并在下一轮复查（若最终失败，按失败记录并定位，不改成 PASS）。
+V0.2 checks                 run 37542958872  head 12e3d3b  event push  **completed / success**（gateway-web + android）
+City linkage check          run 37542958826  head 12e3d3b  event push  **completed / success**（reciprocal-contract）
+                            —— 本文件第一次写作时该 run 仍 in_progress，只记了 reciprocal-contract job success；
+                            复查后其最终结论为 success，此处按事实补记，未把「进行中」预先写成 PASS。
 ```
