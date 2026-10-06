@@ -62,6 +62,24 @@ fault/recovery metrics      所提供的源里没有故障回执
     因此任何主机 checkout 后字节一致）
 ```
 
+## 溯源交叉核对：包里的数据集是否忠于城市原始记录 / Provenance cross-check
+
+随包发布的校验器（`scripts/verify-research-artifact.mjs`）从**包内自己的数据集**重算并核对校验和——它能抓出「包与自己不一致」，但抓不出「包与自己一致、却把城市记录抄错了」（一个被一致抄错的时间戳会通过它的全部检查）。因此另做了一次**从城市原始记录出发**的交叉核对（`PROVENANCE_CROSSCHECK_MECH.mjs`，需要产出该包那台 City 的 owner 凭据）：
+
+```text
+8/8 通过（对常驻 City 031fdba6… 实跑）
+  24 行数据集逐行与它指向的原始回执比对：seed / state / measured / assignedNodeId / taskRef 全部一致
+  24 条 canonical task 引用与城市比对：createdAt / updatedAt / state 全部一致（时间戳也一致）
+  completion_time_ms / failure_rate / duplicate_execution_count 从原始记录重算，与包内一致
+  accounting：城市 planned=32 accounted=24 undelivered=8，与包内一致
+  **两个从未交付任何 run 的 campaign 都被点名**（campaign-97669c54…、campaign-f2702036…，均 TOPOLOGY_NOT_READY）
+  覆盖范围完全一致：城市 24 个 run，包 24 行，无多无缺
+```
+
+**本工具自己的缺陷，记录而不掩盖：** 第一版按数据集行惰性加载回执，因此**从未加载那两个被拒 campaign**，报出 planned=24/undelivered=0，而包内写的是 planned=32/undelivered=8——正是本机在导出器里刚修过的那种「未交付项因为没人指向它就消失」盲点的**镜像**。改为加载城市持有的**全部**回执、并新增两条 accounting 断言后 8/8。
+
+**边界：** 本轮交叉核对**没有改变开发头**（无产品改动，`3950d47` 及其 CI 与 handover 全部继续有效），它只是关于这份包的一条证据。该工具需要产出 City 的 owner 凭据，因此对侧主机（作为 MEMBER）无法对这台 City 运行它；对侧可跑的是包内自带的独立校验器，或自己另写一份。
+
 ## 完成门槛与待办 / Completion gate and what remains
 
 工作书门槛：**可从一组真实 campaign 生成完整 artifact，并由另一实体主机独立读取/重算**。本机已完成生成侧与自查；对侧主机的独立重算属其复检职责。本机尚未跑全量套件与托管 CI，因此 `development_complete` 仍为 false，标记未释放。

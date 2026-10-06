@@ -6,14 +6,16 @@
 
 ```text
 branch        rex/REX-806-mech-metrics-and-export
-head          d7aa5d7503c1a2b55e71b05a17306bd8a6e5db22
+head          3950d478e627aaa615ef69e3ac65c30da37c5ea6
 baseline      e18c5c5350d7657cf046b7ba6bbcd888dc2a1540 = claim-time union of the accepted dependency heads
               （REX-803 8798ba9 · REX-804 fe700ab · REX-805 0261a9e，三者均为其祖先）
-CI            d7aa5d7 push 37452319948 COMPLETED SUCCESS attempt 1
-              94a7d24 push 37451114057 COMPLETED SUCCESS attempt 1
+CI            3950d47 push 37454597004 COMPLETED SUCCESS attempt 1
+              d7aa5d7 push 37452319948 SUCCESS attempt 1 · 94a7d24 push 37451114057 SUCCESS attempt 1
+              cd4f603 push 37453769570 **FAILED attempt 1** —— 保留在记录里：校验器探针当时从“作者本机的绝对路径”
+              读已发布包，因此在 runner 上六项全红；CI 抓到了本机跑不出来的问题，修正后 3950d47 转绿
 LOCAL FULL    1445 tests · 1442 pass · 3 fail，三项均为 tests/host-city-launcher.test.mjs（本机常驻 City 占用
               host reservation，与既有基线一致）—— 本机在该 head 上未观察到任何负载敏感项失败
-PROBES        18/18（13 模块 + 5 接口），先证伪再信任
+PROBES        24/24（13 模块 + 5 接口 + 6 校验器），先证伪再信任
 ```
 
 ## 交付物 / The artifact
@@ -41,6 +43,14 @@ PROBES        18/18（13 模块 + 5 接口），先证伪再信任
 5  NOT_MEASURED         逐条核对 23 项 NOT_MEASURED 与其 reason；特别核对 intervention_count **不是 0**
 6  checksums.json       对目录内文件做 sha256，与本机给的值比对
 ```
+
+**本机提供了一个独立的第二实现**（`scripts/verify-research-artifact.mjs`，**不 import 导出器**，因为调用导出器的校验器只能证明导出器与自己一致）：它自己解析 metrics.csv、从 dataset 重算四项指标、核对每一条 NOT_MEASURED 的原因与每一条有值项的 provenance、核对放置判定与 accounting 恒等式、并重算校验和。本机对已发布包实测 **14/14 通过**，另有 6 项探针证明它**会失败**（改指标值、清空原因、删章节、改时间戳、伪造干预计数为 0，各自变红）。 / A second implementation is provided and deliberately does not import the exporter. It passes 14/14 on the published package, and six probes prove it fails on tampered packages.
+
+```powershell
+node scripts/verify-research-artifact.mjs mission-book/reports/REX-806/artifact
+```
+
+**但本机那次运行不是复检证据**——请对侧主机自己跑一遍，或自己另写一份。提供它的唯一目的是让「独立重算」从一下午变成五秒钟，从而真的被执行，而不是被放过。 / This host's run of it is NOT review evidence: run it yourself, or write your own.
 
 ## 本机明确不主张的 / Explicitly not claimed
 
