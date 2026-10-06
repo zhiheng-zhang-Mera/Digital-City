@@ -54,6 +54,8 @@ REX-806                  head 3950d47 是 e18c5c5 的后代，因此它**自带�
 
 ## 已完成的集成测量 / Integration measurements already done
 
+> **MON 的同类反查（2026-10-06，Mech）**：MON 系列 4 本已到终态的工作书中，`MON-901` 的 dev/review 头**已在 main**；而 `MON-902`（dev `3a88e23` / review `f498824`）、`MON-903`（`78bdd9d` / `3cd32c6`）、`MON-990`（`fb042d9`）三者的标记**都已释放**但头**都不在 main**，与 REX 收尾前的情形相同。本轮 Owner 指令的执行范围是 **REX 系列收尾**，因此 MON 的合并**未在本轮执行**；若窗口覆盖 MON，本清单里 `40be3e1` 的测量与同一套验证流程可直接复用。 / The same reverse check for MON: MON-901 is in main; MON-902/903/990 have released markers but their heads are not. This round's instruction scoped the closeout to REX, so the MON merge was not performed.
+
 ```text
 MON          integration/MON-accepted-head-mech-preflight @ 40be3e1
              定向 mon9* 80/80（10 套件）· 全量 1431/1434（3 项 host-city-launcher）· 跑后 CLEAN
