@@ -115,11 +115,13 @@ VERIFIED    ① 拒绝路径：消息照常打印，退出码 1（原为 3221226
             ② 正常路径：端到端演练（全新 City / 两台 worker / 6 次重复 / 注入故障并恢复 / 本 CLI 导出 /
                独立校验器）**13/13**，产出的包 14/14 通过
             ③ 本分支上 REX-806 三个套件 24/24
-HOSTED CI   该分支 push run 37462091684：android **SUCCESS**；gateway-web **FAILED**，
+HOSTED CI   该分支 push run 37462091684：attempt 1 —— android **SUCCESS**、gateway-web **FAILED**，
             唯一失败为 tests/web-services.test.mjs:39 的 "late result stays in shared history..."（`'RUNNING' !== ''`）。
             归属已实测：diff **只动一个文件**（scripts/export-research-artifact.mjs），且**没有任何测试** import
             或 spawn 该 CLI；该测试在本分支与本机（交付头）本地均 2/2 通过；runner 上该套件跑了 308 s、
-            单条 web 测试 111 s ⇒ 属已记录过的**负载/时序敏感**失败，而非本修复引入
+            单条 web 测试 111 s ⇒ 属已记录过的**负载/时序敏感**失败，而非本修复引入。
+            **attempt 2（同一 SHA，`gh run rerun --failed`）gateway-web 与 android 全绿 SUCCESS** ——
+            同一个提交、同一套测试，先红后绿，因此这是一次抖动而不是回归；两个 attempt 都保留在记录里
 NOT CLAIMED 本机不行使产品 main 合并权；被交付头 3950d47 仍带该缺陷（材料包本身不受影响，
             受影响的是导出器**失败路径**的退出码）
 ```
