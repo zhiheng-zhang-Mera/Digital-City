@@ -141,6 +141,33 @@ Also: the FALSIFICATION SCRIPT itself had a bug - its final before/after compari
    source files, so adding two files made it report a restore failure that had not happened. Fixed and recorded.
 ```
 
+## 2.8 Increment 3 (head `4e97d50`): throughput, queue and occupancy - and the dead guard the falsification set exposed
+
+```text
+throughput   `measureThroughput` MOVES BYTES AND TIMES THEM; it never infers speed from latency (a 1 ms path can still
+             be slow). The transfer is injected, as a factory option or per call. A zero/negative transfer, a hung
+             transfer and a non-numeric answer are all FAILED measurements rather than a 0 B/s path, and a failed run
+             backs off like any other. Latency and throughput stay separate facts: measuring one never answers the other.
+queue        `createQueueAdapter` REQUIRES an explicit source and is unavailable without one, so `queue` reports
+             UNSUPPORTED instead of a fabricated 0 - and `queue: 0` would tell a placement decision the device is idle.
+occupancy    `createRuntimeOccupancyAdapter` reads the platform's event-loop delay histogram, so occupancy is a
+             MEASURED property of the runtime rather than a guessed queue length; a histogram that exists but has no
+             readable mean yet yields no value plus a reason, never 0 ms (which would claim perfect responsiveness).
+contract     `occupancy` joins the declared dimensions (milliseconds). Tests T20-T22: suite 22/22, PCF trio 33/33.
+```
+
+**The falsification set did real work here: thirteen mutations all caught, and two of them taught something**:
+
+```text
+* M12 deleted a second `bytesPerSecond <= 0` check and EVERY test stayed green, which proved that check was unreachable
+  defensive code. It was therefore REMOVED from the source and the mutation with it, rather than kept as a branch that
+  merely appears covered.
+* M13/M14 stayed green at first because the registry short-circuits an unavailable adapter before its sample() runs, so
+  the two refusal branches ("no source, so no count" and "no readable mean, so no 0 ms") were unreachable through the
+  registry. Both tests now ALSO call sample() directly, and both mutations now fail.
+* Every mutation restores its file byte-identically and the suite is 22/22 afterwards.
+```
+
 ## 3. Not finished (the workbook's sub-steps)
 
 ```text
