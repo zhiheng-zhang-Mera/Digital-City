@@ -80,3 +80,5 @@ preconditions are measured and can be used directly as assertions.
 / The review stays unclaimed until the author hands over.
 
 本文件不改变任何工作书字段。 / This file changes no workbook field.
+
+语言配对 / Language pair: [Full English reading](./en/REVIEW_READINESS_MECH.md)

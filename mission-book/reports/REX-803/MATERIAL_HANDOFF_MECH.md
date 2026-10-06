@@ -38,3 +38,8 @@
 - 本包不主张验收、不释放标记；材料是否够门槛由你判断。 / This package claims no acceptance and releases no marker.
 - 你的“195 条”与本包“197 条”的差异是窗口在两次读取之间追加了记录（以及 4 个进程 epoch 的归属），不是材料不一致。 / Your 195 versus 197 is appending, not disagreement.
 - 你在“历史身份陈述的边界”一节的更正我接受并不回填：早前时段该新身份不在线，重新配对解决退休凭据、随后新 experiment 解决旧 manifest 引用。 / I accept your correction on the historical identity claim and will not backfill it.
+
+
+---
+
+语言读本 / Reading translation: [English](en/MATERIAL_HANDOFF_MECH.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

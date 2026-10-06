@@ -2,7 +2,7 @@
 
 [Canonical historical source / 历史权威原文](../DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED_SINGLE_SHOT.md)。本页完整翻译归档历史解释正文；证据代码块原样保留。当前 canonical 工作书 frontmatter 与权威报告决定当前状态，历史读本不覆盖现值、不执行任务。
 
-# DISPATCH — Alien to Mech: required repairs applied at new head0a41efe, confirm there
+# DISPATCH — Alien to Mech: required repairs applied at new head 0a41efe; confirm there
 
 ```text
 FROM   = Alien（Development）
@@ -12,11 +12,11 @@ NEW HEAD = 0a41efe50e1e6c7a8dde77edaeb3158636717b91   （你认领的是 269aa96
 CI       = run 37088320091（新头，见控制面复核字段/下方状态）
 ```
 
-Alien Development addresses Mech Review's required dual-host/single-shot repairs. New full head0a41efe50e1e6c7a8dde77edaeb3158636717b91 replaces claimed269aa96; new-head CI37088320091, status separately reported below/control plane.
+Alien Development addresses Mech Review's required two-host/single-shot repairs. Full new head `0a41efe50e1e6c7a8dde77edaeb3158636717b91` replaces claimed 269aa96. New-head CI is 37088320091; its status is separately reported below/on the control plane.
 
-## 1. Independent reproduction before repair, not one-sided trust
+## 1. Independent reproduction before repair, rather than one-sided trust
 
-uxi391-intent-durability: record decline without available alternate, then bring eligibleB online, observe fulfillment within30seconds.
+uxi391-intent-durability records decline without an eligible alternate, brings eligible B online, and observes whether the intent is fulfilled within 30 seconds.
 
 ```text
 修复前：
@@ -26,9 +26,9 @@ uxi391-intent-durability: record decline without available alternate, then bring
 修复后：同一脚本 PASS —— B 一上线即被自动履行，无需第二次 decline。
 ```
 
-Full translation: before repair decline recorded/no transfer/B online gives REMOTE_HANDOFF and SELECTABLE, but recorded intent not honored30seconds, RUNNING/A/no target. Another decline immediately moves epoch2: intent not lost, never reevaluated. Same script after repair PASS, B's arrival fulfills automatically without second decline.
+Before repair, decline is recorded without transfer. Once B is online, presentation shows REMOTE_HANDOFF and SELECTABLE, but the recorded intent remains unfulfilled for 30 seconds: RUNNING, assigned A, no target. A second decline immediately transfers at epoch 2. Intent was never lost, only never reevaluated. The same script after repair passes: B's arrival automatically fulfills the old intent **without a second decline**.
 
-## 2. Repairs within UXI391 boundaries; planner still pure
+## 2. Repairs within UXI-391 boundaries; planner remains pure
 
 ```text
 修复 A（你的主 finding）：把计划的消费从"瞬时扳机"改为【在既有 1 秒清扫里幂等再评估】
@@ -44,9 +44,11 @@ Full translation: before repair decline recorded/no transfer/B online gives REMO
     （handoff.releaseReservation，仍遵守"只有当前持有者可释放"）。
 ```
 
-Full translation: A replace one-shot plan consumption with idempotent reevaluation in existing one-second sweep; only nonterminal switchDeclined tasks, no pointless whole-pool work. Only ALTERNATE_DEVICE and unexecuted from/to guarded transfer; epoch increment/bridge ALREADY_TRANSFERRED ensure idempotence. Sweep's transient REFUSED does not emit every second, endpoint still honestly emits it. B bounded reservation expiry/reclaim: target offline continuously beyond15second grace releases reservation, TASK_HANDOFF_RESERVATION_RELEASED, fleet can reclaim instead of nobody. Own tests found clearing fields alone insufficient: memory guard still owned by deaddevice, others refused. Release now **also releases guard claim** throughhandoff.releaseReservation, only currentholder mayrelease.
+Repair A replaces single-shot plan consumption with idempotent reevaluation in the existing one-second sweep, limited to non-terminal switchDeclined tasks to avoid pointless whole-pool work. Guarded transfer requires ALTERNATE_DEVICE and an unexecuted from/to pair. Epoch increment and bridge ALREADY_TRANSFERRED provide idempotence. A transient REFUSED during sweep is not emitted every second; the endpoint still emits its result honestly.
 
-## 3. Added product scenario3, PASS
+Repair B bounds reservation expiry/reclaim: once the target stays offline beyond a 15-second grace period, release the reservation and emit TASK_HANDOFF_RESERVATION_RELEASED, allowing other devices to reclaim instead of leaving the task unclaimable. My tests found that clearing fields alone was insufficient: the memory guard still held the dead device and rejected others. Release now **also releases the guard claim** through handoff.releaseReservation; only the current holder may release.
+
+## 3. Added product scenario 3, PASS
 
 ```text
 SCENARIO 3（新增，脚本 uxi391-negative-controls.mjs）：
@@ -57,11 +59,11 @@ SCENARIO 3（新增，脚本 uxi391-negative-controls.mjs）：
   [PASS] 仍是一任务一完成
 ```
 
-Full assertions: transfer/reserveB; B dies and reservation released, targetnone/QUEUED; release independent event alongside transfer; **third device takes stranded task to COMPLETED**, neg-node-c; still one task/one completion.
+Assertions: transfer to and reserve B; B dies and reservation is released, target absent and QUEUED; the release is a distinct event alongside transfer; **a third device, neg-node-c, completes the stranded task**; still one task and one completion.
 
-Also repaired scenario instrument gap: **really stop previous City between scenarios**. Old scenario2gateway stilllistened, scenario3couldnotbind/newnodesjoinedoldCity, RUNNINGwaittimedout.
+An instrument gap was also fixed: **actually stop the preceding City between scenarios**. Previously scenario 2's Gateway kept listening, scenario 3 could not bind, new nodes joined the old City, and waiting for RUNNING timed out.
 
-## 4. Two dual-host preconditions now fixed in scripts
+## 4. Both two-host prerequisites are now fixed in scripts
 
 ```text
 前置 1：uxi391-dualhost-b.mjs 现在会先等【当前持有设备被判为不可用】再发 decline
@@ -69,9 +71,9 @@ Also repaired scenario instrument gap: **really stop previous City between scena
 前置 2：脚本中写明接管节点【必须存活到任务抵达 terminal】才可退出
 ```
 
-Full translation: B waits until currentholder judged unavailable beforedecline; first failure omittedthis, correctDIRECT/noaction. Receiver **mustremainalive untilterminal** beforeexit.
+B waits until the current holder is judged unavailable **before decline**. The first failure omitted this check, correctly producing DIRECT and no action. The receiving node **must stay alive until terminal**, then may exit.
 
-## 5. Regression: localgreen, new-headCI separately reported
+## 5. Regression: local green, new-head CI separately reported
 
 ```text
 根套件     1030 项 / 1028 通过 / 2 失败   （那 2 项是你也已在基线 1a5bc0e 上复现过的文档读取器用例）
@@ -80,14 +82,14 @@ handoff E2E                PASS
 intent durability          PASS（修复前为 FAIL）
 ```
 
-Full translation: root1030/1028pass/2fail, same baseline1a5bc0e documentreader failures Mech reproduced; handoffE2EPASS; productnegativecontrols three scenariosPASS includingreservationreclaim; intentdurabilityPASS, formerlyFAIL.
+Root suite: 1030 total, 1028 pass, two failures, the same document-reader failures Mech reproduced on unchanged baseline 1a5bc0e. Handoff E2E passes. Product negative controls pass all three scenarios, including reservation reclaim. Intent durability now passes where it previously failed.
 
 ## 6. Separate non-code behavior change, disclosed first
 
-Ownerrenames **localnode Alien-test**. Node/dualhost-a defaults changed, CITY_NODE_ID/DUALHOST_NODE_A override. Mechneednotrename.
+Owner renames the **local node Alien-test**. Node and dualhost-a defaults changed, with CITY_NODE_ID/DUALHOST_NODE_A overrides. Mech need not rename its nodes.
 
 ## 7. Requested reviewer actions
 
-1. **Confirm repairs at0a41efe** and, if measurementsstillhold, makeitreviewedhead aspriorpattern.
-2. If reevaluationsemanticsstillincomplete, e.g.moreexplicittriggerthanonessecondsweep, saysoandIrepair. Implementedfinding, but **newheadformalverdictisyourfield**.
-3. Ownerinstructed **three-endphysicaltest afterdualvalidation**, MechWindows/AlienWindows/physicalAndroid; Androidinstructsboth, anyhostinstructsothers/reportstocentre, realtimemutualstate. **Newcapability**, recordedOWNER_INSTRUCTION_THREE_END_TEST, notinsertedUXI391; startsaftercloseout.
+1. **Confirm repairs at 0a41efe**; if the measurements still hold, make it the reviewed head, following the existing pattern.
+2. If reevaluation semantics remain incomplete, for example requiring a more explicit trigger than a one-second sweep, say so and I will repair. The finding has been implemented, but **the formal verdict on this new head is your field**.
+3. Owner instructed **three-end physical testing after two-host validation**, with Mech Windows, Alien Windows and physical Android. Android instructs both hosts; any host instructs another or reports to the centre; all share real-time state. This is **new capability**, recorded in OWNER_INSTRUCTION_THREE_END_TEST, not inserted into UXI-391. It begins after closeout.

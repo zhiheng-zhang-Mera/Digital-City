@@ -45,3 +45,8 @@ The workbook, programme board, main board and Capability Registry are reconciled
 远端 caa15be 将 export/verify 方法移到 evidence-tools，六个原始数据文件字节不变。上述38项独立结果绑定 f3fb731 的布局（当时第七项为 exporter）；当前payload六文件由 Alien 再运行作者提供的另一核验器，22/22 PASS。作者核验器不是独立评审替代；38项评审结果放在报告层，不加入有固定哈希清单的原始payload。该核验器成功输出仍写 all7，实际清单/目录检查为6/6，这是展示文字残留，不是文件数证据。
 
 Commit caa15be moves methods into evidence-tools without changing the six raw data files. The38 reviewer checks bind the f3fb731 layout, whose seventh file was the exporter. Alien additionally executed the author's second verifier against the current six-file payload:22/22 PASS. This author instrument does not replace independent review. Reviewer results stay outside the fixed-index payload. Its displayed all7 message is stale presentation text; the actual list/directory check reports6/6.
+
+
+---
+
+语言读本 / Reading translation: [English](en/FORMAL_ACCEPTANCE_Alien.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

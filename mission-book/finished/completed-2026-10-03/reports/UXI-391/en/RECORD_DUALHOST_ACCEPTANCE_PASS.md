@@ -12,7 +12,7 @@ HOST A      = Alien 主机，Gateway 绑定 LAN 172.31.3.110:4391
 HOST B      = Mech 主机，加入我方 Gateway，使用它自己的节点 id
 ```
 
-Record translation: step6 real Alien+Mech acceptance, Alien zero failures, independent Mech record in its review artifacts; 2026-10-03T01:38:34Z/local11:38. Alien Gateway LAN172.31.3.110:4391; Mech joins using its own node identity.
+Record translation: step6 real Alien+Mech acceptance, Alien zero failures, independent Mech record in its review artifacts; 2026-10-03T01:38:34Z/local 11:38. Alien Gateway LAN 172.31.3.110:4391; Mech joins using its own node identity.
 
 ## 1. Independent measurements on both hosts, not endorsements
 
@@ -32,9 +32,9 @@ Record translation: step6 real Alien+Mech acceptance, Alien zero failures, indep
 RESULT: PASS - the handoff completed across the two hosts
 ```
 
-Full assertions: A genuinely runs target RUNNING/assigned dualhost-node-a/progress18; original surface shows target before handoff in user language; assignment survives worker leaving; review host's second device appears; ownership moves A→mech-review-b; same task completes on other host; actual result waitedMs6000; original surface never reloads; it displays TASK REGISTRY WAIT id COMPLETED; no raw scheduler token leaks. PASS across hosts.
+Full assertions: A genuinely runs target RUNNING/assigned dualhost-node-a/progress 18; original surface shows target before handoff in user language; assignment survives worker leaving; review host's second device appears; ownership moves A→mech-review-b; same task completes on other host; actual result waitedMs 6000; original surface never reloads; it displays TASK REGISTRY WAIT id COMPLETED; no raw scheduler token leaks. PASS across hosts.
 
-**Mech HOST B** brings its **own two nodes**, mech-review-b/c. B takes over same task and finishes; backend handoffFromRef A, target B, epoch2, history handoff:A->B@epoch2. **Its own instrument**, not my prepared script, is section3's intended independence.
+**Mech HOST B** brings its **own two nodes**, mech-review-b/c. B takes over same task and finishes; backend handoffFromRef A, target B, epoch 2, history handoff:A->B@epoch 2. **Its own instrument**, not my prepared script, is section 3's intended independence.
 
 ## 2. Difference from first attempt: failures/abort retained
 
@@ -44,7 +44,7 @@ Full assertions: A genuinely runs target RUNNING/assigned dualhost-node-a/progre
 第三次（本次成功）：前置 1 满足、且接管节点保持存活到 COMPLETED → 全链闭合
 ```
 
-Full translation: first decline while A still healthy, planner correctly DIRECT/no transfer, B script missing precondition1. Second precondition1 satisfied, real transfer, but Mech node left at progress36, missing precondition2. Third success satisfies1 and keeps receiver alive until COMPLETED, closing full chain.
+Full translation: first decline while A still healthy, planner correctly DIRECT/no transfer, B script missing precondition 1. Second precondition 1 satisfied, real transfer, but Mech node left at progress 36, missing precondition 2. Third success satisfies 1 and keeps receiver alive until COMPLETED, closing full chain.
 
 ## 3. Pending repairs, deliberately not applied because they would move Mech's review head
 
@@ -65,12 +65,12 @@ Alien 侧运行日志：D:\utopia-uxi391\.dualhost-a.log（本机，非仓库证
 Mech 侧证据：见其复核产物（review_host = Mech，review_head_sha = 269aa96…）
 ```
 
-Alien receipt pending repair commit is implementation evidence/raw/mission-book/UXI-391/dualhost-host-a.json, exact SHA256 retained above; local .dualhost-a.log is **not repository evidence**; Mech artifacts bound to review_hostMech/review_head269aa96….
+Alien receipt pending repair commit is implementation evidence/raw/mission-book/UXI-391/dualhost-host-a.json, exact SHA256 retained above; local .dualhost-a.log is **not repository evidence**; Mech artifacts bound to review_host Mech/review_head 269aa96….
 
-Backend truth after acceptance: TASK_HANDOFF_TRANSFERRED→TASK_ASSIGNED→TASK_STARTED→TASK_CHECKPOINTED…→COMPLETED, result waitedMs6000; **one task, one terminal completion**, no duplicate execution/substitute task.
+Backend truth after acceptance: TASK_HANDOFF_TRANSFERRED→TASK_ASSIGNED→TASK_STARTED→TASK_CHECKPOINTED…→COMPLETED, result waitedMs 6000; **one task, one terminal completion**, no duplicate execution/substitute task.
 
 ## 5. Meaning and limits
 
-**Establishes** actual two-physical-host closure: switch→alternate/remote→A/B ownership→same task terminal on newholder→result originalsurface, with independent records on both sides.
+**Establishes** actual two-physical-host closure: switch→alternate/remote→A/B ownership→same task terminal on new holder→result original surface, with independent records on both sides.
 
-**Does not mean UXI391 complete**. Review result remains Mech's unwritten field; step7 mainmerge/mainCI/REMOTE_HANDOFF_CLOSEOUT_REPAIRED/POST_COMPLETION_REENTRY not executed.
+**Does not mean UXI-391 complete**. Review result remains Mech's unwritten field; step 7 main merge/main CI/REMOTE_HANDOFF_CLOSEOUT_REPAIRED/POST_COMPLETION_REENTRY not executed.

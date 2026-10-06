@@ -26,11 +26,11 @@ Android  真机 BICIPVNB5HS85H9T 上的 Home / Ask / Rooms
 绑定     capture-receipt.json 与 capture-receipt-android.json：逐图 SHA-256 + 拍摄当时可见文本
 ```
 
-Complete translation: Web Home; Ask-Do submits an actual request through a real input; Tools-Rooms reports ten rooms; one genuinely opened embedded Room Hub Room01 Knowledge Room; a provider-decision state produced by killing the executor then creating real work. Android Home/Ask/Rooms on physical BICIPVNB5HS85H9T. Binding is capture-receipt.json and capture-receipt-android.json, with per-image SHA256 and visible text at capture time.
+Complete translation: Web Home; Ask-Do submits an actual request through a real input; Tools-Rooms reports ten rooms; one genuinely opened embedded Room Hub Room 01 Knowledge Room; a provider-decision state produced by killing the executor then creating real work. Android Home/Ask/Rooms on physical BICIPVNB5HS85H9T. Binding is capture-receipt.json and capture-receipt-android.json, with per-image SHA256 and visible text at capture time.
 
 ## 2. What this closes and does not close
 
-**Closes** GATE_AUDIT_ALIEN_UXI390.md gate6, formerly Owner final visual gate NOT MET/waiting Owner: **now MET**.
+**Closes** GATE_AUDIT_ALIEN_UXI-390.md gate 6, formerly Owner final visual gate NOT MET/waiting Owner: **now MET**.
 
 **Does not close**, explicitly because visual PASS is easily confused with acceptance PASS:
 
@@ -41,7 +41,7 @@ gate 3 的 remote handoff 子项 : 仍明确 NOT MET —— 你先前选项 1 �
 终态标记                      : 不能早于合并与 main CI 绿
 ```
 
-Complete translation: gate3 remote-handoff sub-item remains NOT MET, Owner's previous option1 deferral unchanged. Independent Review is still owed by Mech; section3 forbids self-review and no host has claimed it. Step7 main merge/main CI waits for both technical and visual gates. Terminal marker cannot precede merge and green main CI.
+Complete translation: gate 3 remote-handoff sub-item remains NOT MET, Owner's previous option 1 deferral unchanged. Independent Review is still owed by Mech; section 3 forbids self-review and no host has claimed it. Step 7 main merge/main CI waits for both technical and visual gates. Terminal marker cannot precede merge and green main CI.
 
 ## 3. Discarded local files: measured before/after, not estimated
 
@@ -82,6 +82,6 @@ After cleanup both D:/A-Utopia and D:/utopia-uxi390 have **zero untracked/uncomm
 3. Owner     无待办：目视门已给出；剩余为 Mech 复核后的合并确认与终态标记
 ```
 
-Complete translation: 1 Mech claims/completes independent UXI-390 Review; step4 visual critic belongs to Review, head149a4c1 or repaired head if reviewer repairs move it. 2 Alien waits: step7 readiness measured, main ancestor and merge-tree no conflicts, but merge only after Review and visual gates open. 3 Owner has no pending action, visual gate given; after Mech Review remain merge confirmation/terminal marker.
+Complete translation: 1 Mech claims/completes independent UXI-390 Review; step4 visual critic belongs to Review, head149a4c1 or repaired head if reviewer repairs move it. 2 Alien waits: step 7 readiness measured, main ancestor and merge-tree no conflicts, but merge only after Review and visual gates open. 3 Owner has no pending action, visual gate given; after Mech Review remain merge confirmation/terminal marker.
 
 Alien remains 5.1 TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY; wake condition now **Mech Review completion**.

@@ -89,3 +89,5 @@ node REPLAY_FIXTURE_FEASIBILITY_MECH.mjs
 ## 外部缝 / The external seam
 
 REX-805 的 `development_complete` 仍为 **false**、`review_host` 仍为 **null**，对侧主机自 `a524e1c` 之后没有新提交。因此本机**仍未领取**复检（领取在作者交付之后），把这段时间用来把复检仪器准备好——这正是「只剩真实外部缝时，记录它并继续做能做的事，而不是空等」。 / The author's handover is the only remaining seam; the review is still unclaimed and this round built its instrument instead of idling.
+
+语言配对 / Language pair: [Full English reading](./en/REPLAY_FIXTURE_FEASIBILITY_MECH.md)

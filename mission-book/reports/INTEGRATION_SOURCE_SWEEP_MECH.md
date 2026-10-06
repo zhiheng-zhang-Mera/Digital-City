@@ -85,3 +85,8 @@ source head   6edd103（2026-10-01，"review(UI-000): delta re-verification - co
 > **“把任务分支合进来”不是一条集成规则。** 集成来源必须是工作书里记录的那个头；分支 tip 可能落后（漏掉验收过的修复），或与它分叉。
 
 31 项已验收任务里 **3 项 tip 落后**（MON-902/MON-903/REX-803）、**1 项来源头不在任何 ref 上**（UI-000）、**0 项会因按分支名集成而带进未评审提交**。这不是理论风险：REX-803 的第一版前置测量正是踩了这一条。 / Of 31 accepted tasks: 3 tips are behind, 1 source head is on no ref, and 0 would add unreviewed commits if integrated by branch name. The REX-803 preflight walked straight into the first of those.
+
+
+---
+
+语言读本 / Reading translation: [English](en/INTEGRATION_SOURCE_SWEEP_MECH.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.

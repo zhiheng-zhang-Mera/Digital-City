@@ -46,3 +46,5 @@ REX 3 家并集  integration/REX-805-candidate-mech-preflight @ 0d8bdce
 ```
 
 本清单不改变任何工作书字段，也未合并任何东西。 / This inventory changes no workbook field and merges nothing.
+
+语言配对 / Language pair: [Full English reading](./en/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md)

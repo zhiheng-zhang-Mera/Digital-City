@@ -17,7 +17,7 @@ The author Alien corrects its own UXI-390 remote-handoff conclusions and the res
 - development_uxi390_handoff_resolved_no_load_vector: **City reports no five-dimensional load vector, all alternates ineligible by design, ALTERNATE_DEVICE unreachable**.
 - development_uxi390_unknown_load_ineligible: alternate ineligible for unknown load but its reason-term SELECTABLE.
 - DISPATCH_ALIEN_HANDOFF_UNREACHABLE_BY_DESIGN and deferral reason CORRECTED: changed reason to **City has no switch-decline flow**.
-- Resulting Owner option1 premise: no published load vector.
+- Resulting Owner option 1 premise: no published load vector.
 
 ## 2. Measured truth driven by UXI-391 this round
 
@@ -47,7 +47,7 @@ The author Alien corrects its own UXI-390 remote-handoff conclusions and the res
    POST /api/v0/tasks/:id/switch-declined 存在（UXI-301 的成果），并把用户意图写进 task.switchDeclined。
 ```
 
-Complete translation: 1 loadFromTelemetry exists since UXI-301 producer139ae4e and always produces PARTIAL vector: cpu usagePercent/100, memory used/total; gpu/io/network unobserved, never zero-filled. min_observed_dimensions1. Thus “no vector” wrong; load not blocker, alternate measured memory0.748 satisfies minimum. 2 Actual blocker is wiring: candidateFromNode omits enablement. Presentation eligibilityFor defaults ENABLED so SELECTABLE; routing uses candidate?.enablement??null, RS202 rejects anything not explicit ENABLED as USER_DISABLED, reason enablement=null is not an explicit ENABLED. planRoute cannot find alternate, stage3 QUEUED, routeStageFor null. Two predicates/two answers observation was real, but wrongly attributed to load rather than enablement. 3 I quoted a stale comment, not the code path: “load defaults null/no vector” remained below actual load:loadFromTelemetry(node?.telemetry). I used lower comment to explain upper behavior. 4 Scenario was also wrong, directly motivating UXI391: occupied A then created another task for B, rather than same target WAIT held by A, stop A agent, start B afterward. 5 Even “no switch-decline flow” correction wrong: existing UXI301 POST switch-declined persists task.switchDeclined.
+Complete translation: 1 loadFromTelemetry exists since UXI-301 producer139ae4e and always produces PARTIAL vector: cpu usagePercent/100, memory used/total; gpu/io/network unobserved, never zero-filled. min_observed_dimensions 1. Thus “no vector” wrong; load not blocker, alternate measured memory0.748 satisfies minimum. 2 Actual blocker is wiring: candidateFromNode omits enablement. Presentation eligibilityFor defaults ENABLED so SELECTABLE; routing uses candidate?.enablement??null, RS202 rejects anything not explicit ENABLED as USER_DISABLED, reason enablement=null is not an explicit ENABLED. planRoute cannot find alternate, stage3 QUEUED, routeStageFor null. Two predicates/two answers observation was real, but wrongly attributed to load rather than enablement. 3 I quoted a stale comment, not the code path: “load defaults null/no vector” remained below actual load:loadFromTelemetry(node?.telemetry). I used lower comment to explain upper behavior. 4 Scenario was also wrong, directly motivating UXI-391: occupied A then created another task for B, rather than same target WAIT held by A, stop A agent, start B afterward. 5 Even “no switch-decline flow” correction wrong: existing UXI-301 POST switch-declined persists task.switchDeclined.
 
 ## 3. Conclusion
 
@@ -71,4 +71,4 @@ Complete translation: remote handoff was unreachable because of a wiring defect,
 
 ## 5. Owner ruling: no overreach
 
-UXI391 explicitly does not revoke UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED, so that conclusion is untouched. But **the deferral premise is experimentally overturned**: reason should be previously unreachable due to omitted enablement, now repaired. Whether to rewrite Owner ruling is Owner's decision; this report presents facts only.
+UXI-391 explicitly does not revoke UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED, so that conclusion is untouched. But **the deferral premise is experimentally overturned**: reason should be previously unreachable due to omitted enablement, now repaired. Whether to rewrite Owner ruling is Owner's decision; this report presents facts only.

@@ -86,3 +86,5 @@ full      pnpm test                                                            1
 - **没有合并进 main。** 本机没有 MON 的合并授权；把整条系列一次性并入是 Owner/合并窗口的决定。这份测量的价值在于：那个决定一旦做出，落地是机械的——**一处并集，其余自动合并，纯增量，无删除**。
 - **没有改动任何工作书字段。** 系列状态本来就是 COMPLETE / accepted。
 - **给 Owner 的问题（记录而不擅自决定）：** Owner 的裁定写「then MON directly」，而 MON 至今未进 main，且此前无人记录这一落差。是否现在开启 MON 合并窗口，是 Owner 决定；本记录把代价测清楚了：一次合并、一处并集、定向 80/80。
+
+语言配对 / Language pair: [Full English reading](./en/MON_INTEGRATION_PREFLIGHT_MECH.md)

@@ -12,7 +12,7 @@ STATUS = 独立确认，不是背书。缺陷成立，机制与我复现的一�
 
 Complete translation: Alien Development host uses its own instrument for Mech's dual-host/single-shot finding. Independent confirmation, not endorsement: defect is real and mechanism matches my reproduction.
 
-## 1. My reproduction: scripts/uxi391-intent-durability.mjs, port4395, independent City
+## 1. My reproduction: scripts/uxi391-intent-durability.mjs, port 4395, independent City
 
 ```text
 [PASS] 无可用 alternate 时 decline 仍被记录                 switchDeclined=true
@@ -25,7 +25,7 @@ Complete translation: Alien Development host uses its own instrument for Mech's 
 [PASS] 再发一次 decline 立刻搬走：handoffTargetRef=intent-node-b  epoch=2
 ```
 
-Complete result translation: PASS decline is recorded without an available alternate, switchDeclined=true. PASS no transfer then, handoffTargetRef none, genuinely no destination. Node B subsequently comes online and reports telemetry; DTO REMOTE_HANDOFF, provider1 SELECTABLE/selectabletrue. PASS an eligible alternate now exists so intent could be fulfilled. FAIL the recorded decline remains unfulfilled for30seconds of polling: RUNNING, assigned intent-node-a, no target. PASS sending another decline immediately transfers to intent-node-b, epoch2.
+Complete result translation: PASS decline is recorded without an available alternate, switchDeclined=true. PASS no transfer then, handoffTargetRef none, genuinely no destination. Node B subsequently comes online and reports telemetry; DTO REMOTE_HANDOFF, provider 1 SELECTABLE/selectable true. PASS an eligible alternate now exists so intent could be fulfilled. FAIL the recorded decline remains unfulfilled for 30 seconds of polling: RUNNING, assigned intent-node-a, no target. PASS sending another decline immediately transfers to intent-node-b, epoch 2.
 
 **Two measured conclusions**:
 
@@ -52,10 +52,10 @@ handoffTargetRef reserves for named device, claimAllowed refuses others. **If th
 两者都落在工作书「允许修改边界」内：#2 消费 routing plan 的最小桥接、#3 目标任务的受保护重新领取/CAS-lease 所需的最小状态字段。
 ```
 
-Full design translation: Repair A, core: replace momentary plan consumption with idempotent reevaluation. In existing one-second gateway sweep, recalculate plans for each nonterminal task with switchDeclined===true. Execute guarded transfer iff stage ALTERNATE_DEVICE and that from/to/epoch not already executed. Existing assignment-guard epoch increments and bridge ALREADY_TRANSFERRED/REFUSED provide idempotence. Process only switchDeclined tasks to avoid unnecessary pool-wide computation undersection9. Repair B, accompanying: expiry/reclaim reservation. If reserved device goes offline, or reservation exceeds bounded deadline, clear it so other eligible devices can take over and A replans next evaluation. Debounce with bounded deadline rather than immediate reclaim to avoid amplifying node flapping. Both within allowed boundaries2 minimal routing-plan consumption bridge and3 minimal protected-reclaim/CAS-lease state fields.
+Full design translation: Repair A, core: replace momentary plan consumption with idempotent reevaluation. In existing one-second gateway sweep, recalculate plans for each non-terminal task with switchDeclined===true. Execute guarded transfer iff stage ALTERNATE_DEVICE and that from/to/epoch not already executed. Existing assignment-guard epoch increments and bridge ALREADY_TRANSFERRED/REFUSED provide idempotence. Process only switchDeclined tasks to avoid unnecessary pool-wide computation under section 9. Repair B, accompanying: expiry/reclaim reservation. If reserved device goes offline, or reservation exceeds bounded deadline, clear it so other eligible devices can take over and A replans next evaluation. Debounce with bounded deadline rather than immediate reclaim to avoid amplifying node flapping. Both within allowed boundaries2 minimal routing-plan consumption bridge and3 minimal protected-reclaim/CAS-lease state fields.
 
 ## 4. Sequence and boundaries
 
-- **Wait for Mech review conclusion**, currently FINDING notverdict, then implementA/B and turn reproduction into regression that must become green.
-- This round's script/receipt **not yet committed to implementationbranch** because that movesreviewhead; include with two pending harness fixes inrepaircommit.
-- Do **not** declareReview PASS myself; review_result/review_complete belong toMech.
+- **Wait for Mech review conclusion**, currently FINDING not a verdict, then implement A/B and turn reproduction into regression that must become green.
+- This round's script/receipt **not yet committed to implementation branch** because that moves the review head; include with two pending harness fixes in the repair commit.
+- Do **not** declare Review PASS myself; review_result/review_complete belong to Mech.

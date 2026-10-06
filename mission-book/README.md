@@ -129,3 +129,6 @@ workbook declares CAP-* + registry action
 The governing rules are `CONSTRUCTION_RULES.md §14A–§14C`.
 
 A task with `CAPABILITY_REGISTRY_STALE` or `CAPABILITY_REGISTRY_REALITY_MISMATCH` is not formally closed even if implementation tests are green.
+
+
+[阅读译本 / Reading translation](./en/README.md)

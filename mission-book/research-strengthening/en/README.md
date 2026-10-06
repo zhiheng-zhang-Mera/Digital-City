@@ -420,3 +420,14 @@ Focused tests pass 48/48 and full tests give 1404 passes, three failures, 1407 t
 
 **“Full-suite green” and “clean tree after the full suite” are separate facts.** Test results are identical in both states; only the repaired state is clean afterward. This host has no REX merge authority (`merge_authority:false`) and no REX merge window. Repair and union branches are **verified proposals awaiting adoption**. Full records: [INTEGRATION_PREFLIGHT.md](../../reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md), [TEST_MUTATES_COMMITTED_EVIDENCE.md](../../reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md), and [INTEGRATION_SOURCE_SWEEP_MECH.md](../../reports/INTEGRATION_SOURCE_SWEEP_MECH.md).
 <!-- READING_ACCEPTED_PREFLIGHT_638955B:END -->
+
+
+<!-- READING_REX805_CANDIDATE_PREFLIGHT:START -->
+### REX-805 candidate preflight and coexistence with the accepted union
+
+Reading translation of the latest addition to the [canonical programme page](../README.md), source SHA256 `696699825dd142bca5221adc9c8727b38b05affa99942eb12a33a4ece9cb178a`. This measures a candidate, not acceptance; current workbook state remains authoritative. Earlier measurements and failures above remain historical.
+
+**REX-805 candidate head is now included in the same measurement:** `4b39468`, **not yet accepted**. Against main it is a **fast-forward**: main is its ancestor and the candidate adds 15 commits. Against the accepted REX-803+804 union it produces one union conflict in server.mjs, resolved as an explicit union of all three contributions. `integration/REX-805-candidate-mech-preflight @ 0d8bdce` passes 67/67 focused tests and gives 1423 passes out of 1426 full-suite tests, with the three host-city-launcher failures; tracked state is CLEAN afterward.
+
+**That fast-forward is the sharpest example of the rule requiring accepted identities as integration sources.** Integrating by branch name here would not merely add an extra commit: it would move the whole main branch onto the candidate head. A measured clean union does not accept REX-805 or grant merge authority.
+<!-- READING_REX805_CANDIDATE_PREFLIGHT:END -->
