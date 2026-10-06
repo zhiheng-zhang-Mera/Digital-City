@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.ScanZoomPolicyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-04T15:37:53.801Z" hostname="MERA-ALIANWARE" time="0.001">
+  <properties/>
+  <testcase name="returnsToWideViewToRecoverFromCropping" classname="city.utopia.control.ScanZoomPolicyTest" time="0.001"/>
+  <testcase name="neverExceedsTwoTimesOrAdvertisedIndex" classname="city.utopia.control.ScanZoomPolicyTest" time="0.0"/>
+  <testcase name="malformedCapabilitiesDoNotCauseCameraWrites" classname="city.utopia.control.ScanZoomPolicyTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

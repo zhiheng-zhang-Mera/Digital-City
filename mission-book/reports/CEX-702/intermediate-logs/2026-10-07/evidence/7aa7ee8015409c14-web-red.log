@@ -1,0 +1,37 @@
+✖ CEX702 ordinary Web choice records a single decline, hands off and returns actual result to same surface (174.1552ms)
+✖ CEX702 strict target and no alternate have explicit canonical refusal without conflicting mutation (141.3383ms)
+✖ CEX702 backend rejects stale decisions and withdrawn/offline alternates using current City truth (133.4645ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1751.9749
+
+✖ failing tests:
+
+test at tests\cex702-choice-ui.test.mjs:9:1
+✖ CEX702 ordinary Web choice records a single decline, hands off and returns actual result to same surface (174.1552ms)
+  TypeError: Cannot read properties of undefined (reading 'alternateDevice')
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX702/tests/cex702-choice-ui.test.mjs:9:231)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests\cex702-choice-ui.test.mjs:10:1
+✖ CEX702 strict target and no alternate have explicit canonical refusal without conflicting mutation (141.3383ms)
+  TypeError: Cannot read properties of undefined (reading 'alternateDevice')
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX702/tests/cex702-choice-ui.test.mjs:10:262)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\cex702-choice-ui.test.mjs:11:1
+✖ CEX702 backend rejects stale decisions and withdrawn/offline alternates using current City truth (133.4645ms)
+  TypeError: Cannot read properties of undefined (reading 'alternateDevice')
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX702/tests/cex702-choice-ui.test.mjs:11:201)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

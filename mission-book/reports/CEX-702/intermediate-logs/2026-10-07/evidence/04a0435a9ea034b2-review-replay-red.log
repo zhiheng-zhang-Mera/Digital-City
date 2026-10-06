@@ -1,0 +1,32 @@
+✔ CEX702 ordinary Web choice records a single decline, hands off and returns actual result to same surface (2221.111ms)
+✔ CEX702 strict target and no alternate have explicit canonical refusal without conflicting mutation (266.0991ms)
+✔ CEX702 backend rejects stale decisions and withdrawn/offline alternates using current City truth (207.3898ms)
+✖ CEX702 legacy decline does not authorize a stale explicit alternate replay (162.0169ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4167.0362
+
+✖ failing tests:
+
+test at tests\cex702-choice-ui.test.mjs:12:1
+✖ CEX702 legacy decline does not authorize a stale explicit alternate replay (162.0169ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 409
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-CEX702/tests/cex702-choice-ui.test.mjs:12:377)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
