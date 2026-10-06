@@ -51,3 +51,6 @@ source digest     1390b60885d52bf1284b7b57f0a94a3db67d39ecedfb271a94d9c119035ed6
 上述4b39468为交接时历史候选。现修复空限制集合误报并更新至 `0261a9ed1cec88df3ab4675623d422b37b33f270`；新精确版本CI/全量测试进行中，Mech部署应使用此修复或含此修复版本，并记录实际来源绑定。原始run、digest、预期落点和实体完成门槛不变。
 
 The4b39468 candidate above is the historical handoff snapshot. Repair of the empty-limit false mismatch advances the candidate to `0261a9ed1cec88df3ab4675623d422b37b33f270`; exact new-head CI/full-suite validation is in progress. Deploy this repair or a containing revision on Mech and record its actual source binding. The source run, digest, expected placement and physical completion gate are unchanged.
+
+
+新候选上述三次精确CI现已全部成功，独立空限制修复复审通过；实体门槛仍等待Mech Owner真实执行。 / All three exact-head CI runs above now succeed, and independent re-review passes the empty-limit repair. The physical gate still awaits real execution by the Mech Owner.
