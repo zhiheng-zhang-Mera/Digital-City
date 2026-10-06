@@ -301,3 +301,9 @@ Programme terminal marker：
 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE`
 
 该 marker 不代表所有论文问题已经回答，只代表 Utopia 已具备可靠地产生研究数据的基础设施。
+
+## 当前回查 / Current pool recheck
+
+REX-803: Alien已领取对机复检，PR37候选8798ba9修复后71项相关测试通过；实体campaign门槛及最终CI待验证。REX-804: Alien采纳退回修复，PR30候选f4ceae7相关12项通过，待CI及Mech复验。REX-805/806/807/890继续等待accepted依赖。
+
+REX-803: Alien opposite-host review claimed; PR37 candidate8798ba9 passes71 affected tests, physical campaign and final CI remain pending. REX-804: Alien adopted returned repair; PR30 candidatef4ceae7 passes12 focused tests, awaiting CI and Mech re-verification. REX-805/806/807/890 remain dependency-blocked. See each workbook and REVIEW_REPORT for authority. SHOW excluded; no parked/new programme activation.

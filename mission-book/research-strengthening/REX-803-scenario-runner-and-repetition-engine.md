@@ -21,8 +21,8 @@ development_head_sha: "a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df"
 development_ci: "MEASURED, PER RUN, from the Actions API on exact a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df: push run 37407868473 attempt 1 COMPLETED SUCCESS, pull_request run 37407871700 attempt 1 COMPLETED SUCCESS, pull_request linkage run 37407871716 attempt 1 COMPLETED SUCCESS. No run on this head failed. LOCAL at that head: 41 tests pass across the REX-803 suites plus REX-801 and REX-802. PROCESS NOTE, recorded because it nearly became the very defect this programme keeps finding: the first draft of this field claimed a push-run failure with rerun ids that had NOT been read from the API (it was written from the MON-902 pattern rather than from measurement). The draft was replaced by this measured text before it was committed; nothing unmeasured left this host. The lesson - a CI claim is written from a per-run API read, never from an expected shape - is recorded in reports/REX-803/DEVELOPMENT_REPORT.md. EARLIER HEADS: 85a79eca4fe0f4ad8882148725249e016434873e (V0.2 37398347907/37398374690, linkage 37398375378), e284b712c53e5b7f44acdb878afd6a23c7953735 (linkage 37399121438), 57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1 (V0.2 37399258359/37399254235, linkage 37399258414) - all measured green. The head moved four times because development continued: the seed-identity repair (D-7, found by the first physical campaign), the physical campaign evidence, and this hardening pass (D-8/R-1 unusable receipt store broke the list route; D-9/R-2 an outside cancellation was classified FAILED)."
 development_complete: true
 review_host: Alien
-review_head_sha: a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df
-review_ci: CLAIMED by Alien MERA-ALIANWARE, opposite development host Mech; original exact head a695bb9 retained as initial target. Independently remeasure CI and adopt published repairs only after verifying their probes. No verdict yet.
+review_head_sha: 8798ba9dd37051626033ad72080b2fad3ff66149
+review_ci: PENDING exact8798ba9 push37423084327 / PR37423138551; linkage37423138558 SUCCESS. Technical focused71 PASS; original a695bb9 reproduced failures and published repairs adopted. Physical Alien+Mech+Android campaign remains NOT_RUN; no terminal marker.
 review_complete: false
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
@@ -45,6 +45,10 @@ capability_ids: ["CAP-RESEARCH-CAMPAIGN-001"]
 capability_registry_action: CREATE
 capability_registry_refs: ["capability-registry/records/CAP-RESEARCH-CAMPAIGN-001.yaml"]
 physical_gate_status: "PARTIAL - two controlled campaigns were run on the live resident City on 2026-10-06 with the physical Android handset (OPPO PERM00) connected as the live control surface and the host reference node executing every repetition; the Alien host node was OFFLINE (last heartbeat 2026-10-05T11:15:06Z), so the Alien + Mech + Android topology the completion gate names was not available and is NOT claimed."
+review_branch: review/REX-803-Alien-20261006
+review_pr: https://github.com/zhiheng-zhang-Mera/utopia/pull/37
+review_verdict: TECHNICAL_REPAIR_VERIFIED_PHYSICAL_GATE_PENDING
+review_report_ref: mission-book/reports/REX-803/REVIEW_REPORT.md
 ---
 
 # REX-803 — Controlled Scenario Runner + Repetition Engine
