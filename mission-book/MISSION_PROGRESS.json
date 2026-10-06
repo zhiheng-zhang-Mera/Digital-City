@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 7,
+      "complete": 8,
       "total": 11
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 91,
+      "complete": 92,
       "total": 95
     },
     "review": {
@@ -912,7 +912,7 @@
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
       "review_complete": 6,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 6,
       "tasks": [
         {
@@ -976,7 +976,7 @@
           "id": "REX-807",
           "path": "mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
           "review_complete": false,
-          "status": "READY"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
@@ -1063,7 +1063,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 1,
+      "development_complete": 2,
       "key": "pcf",
       "name": "Personal Compute Fabric",
       "readme": "mission-group/personal-compute-fabric/README.md",
@@ -1082,7 +1082,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "PCF-701",
           "path": "mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
