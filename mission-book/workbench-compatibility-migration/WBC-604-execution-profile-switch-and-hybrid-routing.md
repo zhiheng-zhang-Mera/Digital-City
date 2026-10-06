@@ -28,6 +28,9 @@ owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/WBC-604
 terminal_marker: EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED
+merged_main_sha: "213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef"
+merged_main_via: "fast-forward push of the development branch onto main under the owner ruling that the whole WBC sub-series must be made mergeable; WBC-601 (d773c1e1), WBC-602 (52e66f37) and WBC-603 (3cd45f66) were already in main, so this completes the series."
+merged_main_ci: "V0.2 checks COMPLETED SUCCESS on 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef (push and pull_request runs), read from the Actions API and matched on headSha."
 ---
 
 # WBC-604 — Execution Profile Switch + HYBRID Routing 兼容切换

@@ -1,5 +1,9 @@
 # Workbench Compatibility Migration / 工作台兼容模式迁移工程
 
+> **WBC 系列已全部完成并进入 Utopia main**（WBC-601/602/603/604，最新合并 213f9f9f）。
+>
+> WBC-604：development COMPLETE、exact-head CI green、终端标记 `EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED` 已释放；“持久化了一个当前不可用的 profile”这一 fail-safe 缺陷是在编写 fail-safe 测试时发现并修复的。
+
 > **状态：READY / ACTIVE PROGRAMME**
 >
 > 本工程不是把 Utopia 现在的 Windows 双机运行模式替换成服务器/工作台模式。
