@@ -33,6 +33,9 @@
 
 ## 暂停中的扩建迁移系列
 
+完整导航见 [停放系列索引](./PARKED_PROGRAMMES.md)。
+
+- [PCF — Personal Compute Fabric / 增强个人异构计算织网](./personal-compute-fabric/README.md) — **PARKED / NOT ACTIVATED**。25 份规划工作书（19 核心 + 6 可选），中英双语；支持版本化加深已有任务及追加子任务。执行关闭、锚点留空，不进入当前统计、不改变 Utopia 运行。扩容与激活规则见系列目录。
 - [DGX — Deliberative Governance Expansion & Migration / 审议治理扩建迁移](./deliberative-governance-expansion-migration/README.md) — **PARKED / NOT ACTIVATED**。所有工作书 `execution_enabled=false`，baseline/dependency exact SHA 当前故意留空；仅在 Owner 显式激活后按当时 canonical truth 重新解析并原子锚定。本系列不计入当前活跃施工池，不得仅因目录存在而 claim。
 
 ## MESH-301 设计审计结果

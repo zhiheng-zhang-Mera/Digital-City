@@ -4,6 +4,7 @@
 
 | Series | Purpose | State |
 |---|---|---|
+| [PCF](./personal-compute-fabric/README.md) | 增强个人异构计算织网：25 份规划工作书（19 核心 + 6 可选），支持追加子任务与版本化复杂扩展 | PARKED |
 | [DGX](./deliberative-governance-expansion-migration/README.md) | 复杂请求拆分、隔离执行、结构化汇合、冲突/仲裁治理 | PARKED |
 | [RIV](./review-independence-v2/README.md) | Review Pool v2、多维独立性、fresh-context、安全迁移 | PARKED |
 | [URA](./utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector 运行时分层与逻辑解耦 | PARKED |
