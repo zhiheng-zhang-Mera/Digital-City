@@ -281,9 +281,29 @@ WIRING        GET/POST /api/v0/monitor/decisions 与 GET /api/v0/monitor/decisio
               MON-901 投影的 decision 字段由只读快照注入；Web 页面 Advanced > Decision provenance 由真实浏览器验证
 NOT DONE      无 Android 面（归 MON-990 跨设备验收）；本城未配置 resolver，因此所有不确定情形以
               RESOLVER_NOT_CONFIGURED 升级到 Owner（如实记录，不假装模型已接入）
-REVIEW        CLAIMED by Alien（对侧物理主机，对作者 Mech 而言为 opposite host）；review_head_sha = 78bdd9d，
-              review_complete false，terminal marker 未释放，merge_authority=false
-              领取记录 mission-book/reports/MON-903/REVIEW_CLAIM_Alien.md
+REVIEW        CLAIMED and now REPAIRED by Alien（对侧物理主机，对作者 Mech 而言为 opposite host）；
+              review_status = REPAIRED_AWAITING_EXACT_HEAD_CI，review_complete false，terminal marker 未释放，
+              merge_authority=false；review 报告与证据见 reports/MON-903/INDEPENDENT_REVIEW_Alien.md 与
+              PR #35（Alien 报告记录其 review head 已因 CI 反证而从 db6bfb2 前移到 9eb8275b）
+AUTHOR PASS 2 作者第二轮自测（**不是 review 证据**，不改变 head/workbook/claim）：对 MON-902 review 暴露的失效类别
+              做同族扫描，在本模块发现 4 项真实缺陷（有界失败日志不报丢弃条数、被队列上限拒绝的决策发布未测量的
+              decisionLatencyMs: 0、metrics() 在截断样本上发布头条比率而不披露、window 未说明它跨的是触发事件），
+              外加 1 项只在真实渲染时才暴露的 UI 缺陷。修复发布为 repair/MON-903-mech-honest-metrics @ 6ecc6f3
+              （两个提交：先探针后修复，红跑 1 pass / 5 fail 留档），CI push 37416035100 SUCCESS attempt 1。
+              报告：reports/MON-903/AUTHOR_SECOND_ADVERSARIAL_PASS.md
+              该报告同时记录：对侧 review 复现的 8+2 项缺陷与本轮发现的 4 项**几乎不相交**——类别驱动的扫描只能
+              找到它被给定的类别（本轮完全没有指向状态机/生命周期类缺陷，例如 UUID 排序导致删除任意回执、
+              observe 绕过 close、轮询被高频渲染饿死），这是该方法的结构性局限，不能替代 review。
+ADOPTABLE     作者把自身发现融入到 reviewer 的 head 之上，发布可直接采纳的合并分支
+              repair/MON-903-mech-honest-metrics-on-review-head @ 10a020c3（base = 5b71389），
+              CI push 37416962184 SUCCESS attempt 1，本机 1383/1386（3 项为本机常驻 City 占用）。
+ADOPTED       对侧已采纳并已验收：MON-903 workbook status = COMPLETE，review_complete = true，
+              review_status = ACCEPTED，terminal marker = MON903_DECISION_OVERLAY_REVIEW_ACCEPTED，
+              capability registry = FORMAL_REVIEW_RECONCILED，review head = 3cd32c60（本机四项发现在其中）。
+              本机复核 reviewer 的 CI 改动 --test-concurrency=2：本机 merge 分支 1386 tests / 1383 pass，
+              reviewer head 3cd32c6 同为 1386 / 1383 —— 没有丢检查项。
+MON-990       已因 MON-903 验收而解锁，由 **Alien** 在 accepted exact dependency union 上领取并开工
+              （development_host = Alien，development_baseline_sha = 665d6c3c）。作者 Mech 可领取开发任务为 0。
 ```
 
 MON-903 的 review 必须独立验证：触发分类是否有遗漏或错收、no-barrier 是否真的成立、是否存在任何让决策改变状态的路径、
