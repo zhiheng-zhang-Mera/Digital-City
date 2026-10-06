@@ -3,13 +3,13 @@ workbook_id: MON-990
 phase: CITY_WORK_MONITOR_CLOSEOUT
 sequence: 90
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: READY
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: []
-dependency_source_shas: []
+dependency_source_shas: ["f4988248a3316806fc2e3fa9e62864ed129fe7b3","3cd32c60d8e9beb9df961e6b7ff193a3f69ec224"]
 development_baseline_sha: null
 baseline_resolution_evidence: null
 dependencies: ["MON-902", "MON-903"]
@@ -47,7 +47,7 @@ owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-990
 dependency_source_workbooks: ["MON-902","MON-903"]
-baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
+baseline_blocker: null
 ---
 
 # MON-990 — Cross-Device Monitor Acceptance & Freeze

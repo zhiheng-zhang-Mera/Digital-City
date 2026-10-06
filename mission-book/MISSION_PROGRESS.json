@@ -5,11 +5,11 @@
       "total": 23
     },
     "review": {
-      "complete": 14,
+      "complete": 15,
       "total": 23
     },
     "tasks": {
-      "complete": 14,
+      "complete": 15,
       "total": 23
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 84,
+      "complete": 85,
       "total": 93
     },
     "tasks": {
-      "complete": 84,
+      "complete": 85,
       "total": 93
     }
   },
@@ -996,9 +996,9 @@
       "key": "mon",
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
-      "review_complete": 2,
-      "status": "IN_PROGRESS",
-      "task_complete": 2,
+      "review_complete": 3,
+      "status": "ACTIVE",
+      "task_complete": 3,
       "tasks": [
         {
           "complete": true,
@@ -1019,13 +1019,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-903",
           "path": "city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
@@ -1034,7 +1034,7 @@
           "id": "MON-990",
           "path": "city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         }
       ],
       "total": 4

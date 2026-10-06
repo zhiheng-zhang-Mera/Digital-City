@@ -27,3 +27,7 @@ Mech published ready-to-adopt review union 10a020c with four additional findings
 PR 37416651611 at 5b71389 also failed two visibility waits (pairing after reload and history initial ONLINE); both files pass 6/6 in isolation. File concurrency is now bounded at two with all checks/assertions retained, pending full and hosted results. Source b76adfeb94cbfbbe233a93c3d29261dfc00bfdfa; refreshed capture and final candidate 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224. No acceptance inferred from old head or isolated runs.
 
 Final exact-head CI: push 37417270815 / PR 37417276076 PENDING; linkage 37417276063 SUCCESS. Technical critic independently passes sibling + Alien probes 16/16, no important union blocker. Both historic product repairs and new metric honesty remain intact.
+
+## Final gate PASS
+
+Accepted exact head `3cd32c60d8e9beb9df961e6b7ff193a3f69ec224`: push 37417270815, PR 37417276076, linkage 37417276063 terminal SUCCESS. PR35 CLEAN/MERGEABLE. Independently checked remote tip matches and local worktree clean. Local bounded full suite 1386 PASS / 0 FAIL / 0 SKIP; latest source unchanged by evidence commit. Alien is opposite Mech author host. Registry CAP-MON-003 reconciled at exact accepted head. Marker MON903_DECISION_OVERLAY_REVIEW_ACCEPTED accepts this task stage only; native parity and programme freeze remain MON-990. No product main merge.

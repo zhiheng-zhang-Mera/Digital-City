@@ -3,7 +3,7 @@ workbook_id: MON-903
 phase: CITY_WORK_MONITOR
 sequence: 3
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -20,17 +20,17 @@ development_ci: "V0.2 checks on exact 78bdd9dc873ebc257aedecf421068a1387dbec82: 
 development_complete: true
 review_host: "Alien"
 review_head_sha: "3cd32c60d8e9beb9df961e6b7ff193a3f69ec224"
-review_ci: "PENDING final 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224: push 37417270815 / PR 37417276076; linkage 37417276063 SUCCESS. After independently verified Mech sibling findings (union 10a020c) and bounded full-suite concurrency. Prior 5b71389 PR 37416651611 failed two browser visibility timeouts; isolation 6/6 PASS; load suspicion is not a product acceptance. Earlier actual Services/Research product defects and failed CI retained. Latest affected union 46 PASS."
-review_complete: false
+review_ci: "Final exact 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224: push 37417270815 / PR 37417276076 / linkage 37417276063 COMPLETED SUCCESS. Local full bounded suite 1386 PASS; independent affected union 46 PASS; technical critique 16 PASS. Prior failed CI and red evidence retained."
+review_complete: true
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor / Task Inspector / Autonomy & Approval
 user_exposure_nesting: L2_CONTEXTUAL
-backend_wiring: "VERIFIED locally: tests/mon903-decision-route.test.mjs drives the real gateway (create task -> claim -> report FAILED) and asserts the decision receipt appears with the canonical event it cites as evidence; tests/mon903-decisions-web.test.mjs renders the surface in a real Chromium and reads the pre/post state, the evidence pointer and the explicit 'Applied by: nobody'. Hosted CI verification is pending."
+backend_wiring: "VERIFIED: real canonical Gateway failure, target wait, advisory receipt and browser provenance; no decision applies an action. Native parity remains MON-990."
 ui_exemption_reason: null
 capability_ids: ["CAP-MON-003"]
 capability_registry_action: CREATE
 capability_registry_refs: ["capability-registry/records/CAP-MON-003.yaml"]
-capability_registry_sync_status: CANDIDATE_RECONCILED_PENDING_FORMAL_REVIEW
+capability_registry_sync_status: FORMAL_REVIEW_RECONCILED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md"]
@@ -49,9 +49,10 @@ report_path: mission-book/reports/MON-903
 dependency_source_workbooks: ["MON-901"]
 baseline_blocker: null
 review_branch: "review/MON-903-Alien-20261006"
-review_status: "REPAIRED_AWAITING_EXACT_HEAD_CI"
+review_status: "ACCEPTED"
 review_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/35"
 review_report: "mission-book/reports/MON-903/INDEPENDENT_REVIEW_Alien.md"
+terminal_marker: MON903_DECISION_OVERLAY_REVIEW_ACCEPTED
 ---
 
 # MON-903 — Event-Triggered Decision Overlay
