@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 975,
-  "total_bytes": 7908259,
+  "total_bytes": 7924114,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -916,10 +916,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 6931,
+      "bytes": 6793,
       "encoding_state": "UTF8",
       "chinese_characters": 444,
-      "english_words": 462,
+      "english_words": 451,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -7864,10 +7864,10 @@
     },
     {
       "path": "mission-book/reports/REX-804/REVERIFICATION_REPORT.md",
-      "bytes": 7569,
+      "bytes": 13188,
       "encoding_state": "UTF8",
       "chinese_characters": 8,
-      "english_words": 431,
+      "english_words": 794,
       "paired_path": "mission-book/reports/REX-804/zh-CN/REVERIFICATION_REPORT.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -7972,10 +7972,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md",
-      "bytes": 25790,
+      "bytes": 30061,
       "encoding_state": "UTF8",
       "chinese_characters": 8,
-      "english_words": 1441,
+      "english_words": 1665,
       "paired_path": "mission-book/reports/REX-PROGRAMME/zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8314,10 +8314,10 @@
     },
     {
       "path": "mission-book/research-strengthening/README.md",
-      "bytes": 23971,
+      "bytes": 27546,
       "encoding_state": "UTF8",
-      "chinese_characters": 1922,
-      "english_words": 1012,
+      "chinese_characters": 1929,
+      "english_words": 1204,
       "paired_path": "mission-book/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8368,7 +8368,7 @@
     },
     {
       "path": "mission-book/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
-      "bytes": 8779,
+      "bytes": 9544,
       "encoding_state": "UTF8",
       "chinese_characters": 183,
       "english_words": 60,
@@ -8728,10 +8728,10 @@
     },
     {
       "path": "mission-book/workbench-compatibility-migration/README.md",
-      "bytes": 11758,
+      "bytes": 13521,
       "encoding_state": "UTF8",
-      "chinese_characters": 1345,
-      "english_words": 513,
+      "chinese_characters": 1455,
+      "english_words": 521,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },

@@ -106,6 +106,26 @@ install/start headless node agent
 | [WBC-603](./WBC-603-worker-pool-and-headless-node-agent-seam.md) | Worker Pool + Headless Node Agent Seam | COMPLETE | 建立 dormant Worker Pool backend / agent contract；无真实工作台依赖 |
 | [WBC-604](./WBC-604-execution-profile-switch-and-hybrid-routing.md) | Execution Profile Switch + Hybrid Routing | COMPLETE | 固化 STANDARD / WORKER_POOL / HYBRID 切换与 readiness/fallback 语义 |
 
+### WBC-604 遗留缺陷与已发布修复（Mech，2026-10-06）
+
+WBC-604 本身 COMPLETE，但其模块里有一处**仍未修复、且仍在 main 上存活**的缺陷，已跨过两次合并：
+
+```text
+DEFECT  services/dev-gateway/execution-profile.mjs 的 change() 先改运行态、后落盘（profile = requested 在
+        persist() 之前），因此存储写失败时产生「半切换」——调用方拿到异常，而 City 已经在跑一个从未持久化的
+        profile。这个半切换正是该模块自身 rule 2 明文禁止的（"a failed activation leaves the CURRENT profile
+        in place ... it never half-switches"），且路由把裸 EPERM 与绝对路径直接抛给 owner 控制面。
+实测    merged main b06504f 上的 sweep 单元探针：change() THREW EPERM; live profile STANDARD_DEVICES -> WORKER_POOL
+REPAIR  repair/WBC-604-mech-profile-persist-first-on-current-main @ ad1b3e8（**建在当前 main 之上**，不是旧 base）
+        修复后：F-3 探针与三个既有 WBC-604 套件 19/19；sweep 变为 change() THREW PROFILE_STORE_UNAVAILABLE 且
+        live profile STANDARD_DEVICES -> STANDARD_DEVICES；全量 1359/1362（3 项为本机常驻 City 占用）；
+        托管 push run 37425834472 SUCCESS attempt 1（android 与 gateway-web 均绿）
+PATTERN 家族记录：reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md 的 F-3
+NOT DONE 本机不合并（merge_authority=false）；是否采纳由 WBC-604 的记录持有人决定
+```
+
+该修复之所以重发到当前 main 之上，是因为上一轮 B4 发现确立的规则：**修复必须在合并结果上测量，而不是在比自己旧两次合并的 base 上**——对一个没人会运行的 commit 保持绿色不构成证据。
+
 > **状态语义：** `COMPLETE` 表示该 component workbook 已完成 Development、opposite-host Formal Review 与 exact-head required CI；不等于该 component 已单独合入 Utopia `main`。WBC-601/602 的 accepted heads 已进入 WBC-603 dependency-union，programme 仍受 §8 final integration merge lock 约束。
 
 WBC-601 与 WBC-602 可由两台主机并行 Development。WBC-603/604 的实际代码 baseline 使用 `DEPENDENCY_SHA_UNION_AT_CLAIM`：前置 workbook accepted 后读取 full SHA，先组成 exact union baseline，再施工；不得从缺少依赖代码的 main 直接开始。

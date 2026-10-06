@@ -318,14 +318,14 @@ REX-803: Alien opposite-host review claimed; PR37 candidate8798ba9 passes71 affe
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 2/8 · 开发 / Development 4/8 · 复检 / Review 2/8 · `IN_PROGRESS`
+总完成 / Complete 3/8 · 开发 / Development 4/8 · 复检 / Review 3/8 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
 | [REX-801](REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
 | [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
 | [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | IN_PROGRESS | YES | NO | YES |
-| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | IN_PROGRESS | YES | NO | YES |
+| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
 | [REX-805](REX-805-trace-replay-and-ablation.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | WAITING_DEPENDENCIES | NO | NO | YES |
@@ -354,3 +354,28 @@ REX-804 re-verification is complete; the verdict is in `reports/REX-804/REVERIFI
 REX-803 review8798ba9 exact CI全部SUCCESS，71相关测试与8独立critic探针通过；实体门槛仍NOT_RUN。常驻City实际回查确认Android/Gateway同City，Alien保存成员配置却被拒绝INSTALLATION_RETIRED，详见RESIDENT_CITY_RECHECK_Alien。REX-804 development候选fe700ab包含新main并修复Mech复验B4，19相关测试、push37424946247/PR37424951038/linkage37424951044均SUCCESS；development_complete=true，Mech对新候选的正式复验待完成。旧头075ddc1的B4 NOT_PASSED保持历史结论，不等同新头已验收。
 
 REX-803 review8798ba9 has all exact CI runs SUCCESS,71 affected tests and8 independent critic probes passing; the physical gate remains NOT_RUN. A live recheck confirms Android/Gateway identity agreement, but Alien's saved member configuration is rejected asINSTALLATION_RETIRED. REX-804 candidatefe700ab includes new main and repairs Mech's B4 finding;19 affected tests and all three exact CI runs succeed. Development is complete for Mech's formal re-verification. The NOT_PASSED verdict on previous075ddc1 remains historical; it does not accept the new head. Canonical workbooks remain authoritative.
+
+
+### REX-804 复验结论：已验收 / REX-804 re-verification: ACCEPTED
+
+```text
+ACCEPTED HEAD   fe700aba957990f93b22fd63d594ddfff7b4e243（含 current main b06504f 与原始评审靶点 f76ccf53 为祖先）
+B1  CLOSED      不可读故障回执阻止 City 启动 —— 本人 P8 回归守卫在三个 head 上均通过
+B4  CLOSED      同一 store-guard 形状出现在 fault controller 的无保护 mkdir —— 现已修复：构造期降级为
+                storeState/storeReason、list() 披露、对不可用存储注入返回 typed 503 FAULT_STORE_UNAVAILABLE、
+                普通任务不受影响。判据是在**含 current main 的 head 内部**重跑那条当初变红的探针：
+                tests/rex801-store-guard.test.mjs 2/2（97ms / 51ms，原为 1/1 且 34 201ms），
+                以及 pull_request run 37424951038 终态 SUCCESS —— 该 run 在 075ddc1 上正是红的。
+CI              push 37424946247 / PR 37424951038 / linkage 37424951044，逐次 API 复核，均 SUCCESS attempt 1
+MARKER          FAULT_INJECTION_RECOVERY_ACCEPTED 已在 fe700ab 上释放
+SCOPE           明确而非暗示：Android 原生故障控制面与真机/外部 provider 恢复仍为 NOT_RUN；
+                DUPLICATE_EVENT 的恢复指标结构性 NOT_MEASURED（回执带原因），本人 P6 断言的正是这个 null + 原因
+REVIEWER 仪器   本轮还发现并修好了**本人自己的**探针缺陷：P6 用 durationMs 150 配 350ms 睡眠，把「多快算快」
+                交给了宿主；满载下 DELAY_RESULT 计数为 0。这与本人在第一轮复验中给作者 fixture 做的分类是
+                同一个缺陷类，且同样由「隔离绿 / 满载红」暴露。修复于 review/REX-804-mech-review @ 53d01a3
+                （窗口 1200ms + 等待被持有的 report promise）；修后隔离 9/9 ×3、与三个重型浏览器套件并发
+                13/13、全量套件中 P6 亦绿。两次状态都入档，未用修正覆盖红的一次。
+报告            reports/REX-804/REVERIFICATION_REPORT.md
+```
+
+REX-804 is **ACCEPTED** at `fe700ab`: B1 (an unreadable fault receipt prevented City startup) and B4 (the same store-guard shape in the fault controller's unguarded `mkdir`, which made the branch unmergeable into current main) are both **closed**, and closed by the reviewer's own regression probes rather than by the author's suite - the B4 criterion being the exact probe that was red on the unguarded merge, re-run **inside the head that contains current main** (2/2 in 97 ms, where it was 1/1 and 34 201 ms), plus the pull_request run 37424951038 that is now terminal SUCCESS at the step that was red at 075ddc1. Three exact-head runs, read one at a time, all SUCCESS attempt 1. Marker **FAULT_INJECTION_RECOVERY_ACCEPTED released**, with scope stated rather than implied: Android native fault controls and physical/external-provider recovery remain NOT_RUN and DUPLICATE_EVENT recovery stays structurally NOT_MEASURED. This round also found and fixed **the reviewer's own** instrument defect - P6 handed "how fast is fast" to the host with a 150 ms fault window and a 350 ms sleep, failing under full-suite load with "DELAY_RESULT recorded that it was exercised (got 0)"; the same defect class the reviewer had classified in the author's fixture one round earlier, and exposed the same way by a green isolated run disagreeing with a loaded one. Fixed on `review/REX-804-mech-review @ 53d01a3` (1200 ms window, and the held report promise is awaited); both states are kept in the record.

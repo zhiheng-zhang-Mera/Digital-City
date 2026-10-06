@@ -5,11 +5,11 @@
       "total": 23
     },
     "review": {
-      "complete": 15,
+      "complete": 16,
       "total": 23
     },
     "tasks": {
-      "complete": 15,
+      "complete": 16,
       "total": 23
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 85,
+      "complete": 86,
       "total": 93
     },
     "tasks": {
-      "complete": 85,
+      "complete": 86,
       "total": 93
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
-      "review_complete": 2,
+      "review_complete": 3,
       "status": "IN_PROGRESS",
-      "task_complete": 2,
+      "task_complete": 3,
       "tasks": [
         {
           "complete": true,
@@ -943,13 +943,13 @@
           "status": "IN_PROGRESS"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-804",
           "path": "research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
