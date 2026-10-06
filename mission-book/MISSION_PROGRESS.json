@@ -1,16 +1,16 @@
 {
   "active_pool": {
     "development": {
-      "complete": 20,
-      "total": 23
+      "complete": 6,
+      "total": 9
     },
     "review": {
-      "complete": 19,
-      "total": 23
+      "complete": 5,
+      "total": 9
     },
     "tasks": {
-      "complete": 19,
-      "total": 23
+      "complete": 5,
+      "total": 9
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
@@ -753,15 +753,6 @@
         {
           "complete": true,
           "development_complete": true,
-          "execution_enabled": true,
-          "id": "JOIN-590",
-          "path": "connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md",
-          "review_complete": true,
-          "status": "COMPLETE"
-        },
-        {
-          "complete": true,
-          "development_complete": true,
           "execution_enabled": false,
           "id": "JOIN-501",
           "path": "finished/completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md",
@@ -785,16 +776,25 @@
           "path": "finished/completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md",
           "review_complete": true,
           "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "JOIN-590",
+          "path": "finished/completed-2026-10-06/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md",
+          "review_complete": true,
+          "status": "COMPLETE"
         }
       ],
       "total": 4
     },
     {
-      "active_pool": true,
+      "active_pool": false,
       "development_complete": 4,
       "key": "wbc",
       "name": "Workbench Compatibility",
-      "readme": "workbench-compatibility-migration/README.md",
+      "readme": "finished/completed-2026-10-06/workbench-compatibility-migration/README.md",
       "review_complete": 4,
       "status": "COMPLETE",
       "task_complete": 4,
@@ -804,7 +804,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "WBC-601",
-          "path": "workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md",
+          "path": "finished/completed-2026-10-06/workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -813,7 +813,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "WBC-602",
-          "path": "workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md",
+          "path": "finished/completed-2026-10-06/workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -822,7 +822,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "WBC-603",
-          "path": "workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md",
+          "path": "finished/completed-2026-10-06/workbench-compatibility-migration/WBC-603-worker-pool-and-headless-node-agent-seam.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -831,7 +831,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "WBC-604",
-          "path": "workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
+          "path": "finished/completed-2026-10-06/workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
           "review_complete": true,
           "status": "COMPLETE"
         }
@@ -839,11 +839,11 @@
       "total": 4
     },
     {
-      "active_pool": true,
+      "active_pool": false,
       "development_complete": 6,
       "key": "cex",
       "name": "Capability Entry Closeout",
-      "readme": "capability-entry-closeout/README.md",
+      "readme": "finished/completed-2026-10-06/capability-entry-closeout/README.md",
       "review_complete": 6,
       "status": "COMPLETE",
       "task_complete": 6,
@@ -853,7 +853,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-701",
-          "path": "capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
+          "path": "finished/completed-2026-10-06/capability-entry-closeout/CEX-701-device-recovery-rebind-and-clone-surface.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -862,7 +862,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-702",
-          "path": "capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md",
+          "path": "finished/completed-2026-10-06/capability-entry-closeout/CEX-702-scheduler-choice-and-alternate-device-entry.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -871,7 +871,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-703",
-          "path": "capability-entry-closeout/CEX-703-capability-catalog-discoverability.md",
+          "path": "finished/completed-2026-10-06/capability-entry-closeout/CEX-703-capability-catalog-discoverability.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -880,7 +880,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-704",
-          "path": "capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md",
+          "path": "finished/completed-2026-10-06/capability-entry-closeout/CEX-704-android-onboarding-owner-actions-parity.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -889,7 +889,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-705",
-          "path": "capability-entry-closeout/CEX-705-android-member-device-management-parity.md",
+          "path": "finished/completed-2026-10-06/capability-entry-closeout/CEX-705-android-member-device-management-parity.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -898,7 +898,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "CEX-790",
-          "path": "capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
+          "path": "finished/completed-2026-10-06/capability-entry-closeout/CEX-790-final-exposure-audit-and-freeze.md",
           "review_complete": true,
           "status": "COMPLETE"
         }
@@ -910,7 +910,7 @@
       "development_complete": 6,
       "key": "rex",
       "name": "Research Strengthening",
-      "readme": "research-strengthening/README.md",
+      "readme": "mission-group/research-strengthening/README.md",
       "review_complete": 5,
       "status": "IN_PROGRESS",
       "task_complete": 5,
@@ -920,7 +920,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-801",
-          "path": "research-strengthening/REX-801-experiment-manifest-and-registry.md",
+          "path": "mission-group/research-strengthening/REX-801-experiment-manifest-and-registry.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -929,7 +929,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-802",
-          "path": "research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
+          "path": "mission-group/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -938,7 +938,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-803",
-          "path": "research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
+          "path": "mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -947,7 +947,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-804",
-          "path": "research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
+          "path": "mission-group/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -956,7 +956,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-805",
-          "path": "research-strengthening/REX-805-trace-replay-and-ablation.md",
+          "path": "mission-group/research-strengthening/REX-805-trace-replay-and-ablation.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -965,7 +965,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-806",
-          "path": "research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+          "path": "mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
           "review_complete": false,
           "status": "IN_PROGRESS"
         },
@@ -974,7 +974,7 @@
           "development_complete": false,
           "execution_enabled": true,
           "id": "REX-807",
-          "path": "research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+          "path": "mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
           "review_complete": false,
           "status": "WAITING_DEPENDENCIES"
         },
@@ -983,7 +983,7 @@
           "development_complete": false,
           "execution_enabled": true,
           "id": "REX-890",
-          "path": "research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+          "path": "mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
           "review_complete": false,
           "status": "WAITING_DEPENDENCIES"
         }
@@ -991,11 +991,11 @@
       "total": 8
     },
     {
-      "active_pool": true,
+      "active_pool": false,
       "development_complete": 4,
       "key": "mon",
       "name": "City Work Monitor",
-      "readme": "city-work-monitor-dashboard/README.md",
+      "readme": "finished/completed-2026-10-06/city-work-monitor-dashboard/README.md",
       "review_complete": 4,
       "status": "COMPLETE",
       "task_complete": 4,
@@ -1005,7 +1005,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-901",
-          "path": "city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md",
+          "path": "finished/completed-2026-10-06/city-work-monitor-dashboard/MON-901-observation-model-and-jev-projection.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -1014,7 +1014,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-902",
-          "path": "city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md",
+          "path": "finished/completed-2026-10-06/city-work-monitor-dashboard/MON-902-overview-graph-and-node-path-inspector.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -1023,7 +1023,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-903",
-          "path": "city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md",
+          "path": "finished/completed-2026-10-06/city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -1032,7 +1032,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "MON-990",
-          "path": "city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",
+          "path": "finished/completed-2026-10-06/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",
           "review_complete": true,
           "status": "COMPLETE"
         }
@@ -1044,7 +1044,7 @@
       "development_complete": 0,
       "key": "show",
       "name": "SHOW-401 展示素材",
-      "readme": "showcase-material-extraction/README.md",
+      "readme": "mission-group/showcase-material-extraction/README.md",
       "review_complete": 0,
       "status": "IN_PROGRESS",
       "task_complete": 0,
@@ -1054,7 +1054,7 @@
           "development_complete": false,
           "execution_enabled": true,
           "id": "SHOW-401",
-          "path": "showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
+          "path": "mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
           "review_complete": false,
           "status": "IN_PROGRESS"
         }

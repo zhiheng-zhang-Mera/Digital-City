@@ -1,7 +1,7 @@
 # JOIN-590 — final physical acceptance / review receipt / 终验收据
 
 ```text
-WORKBOOK            mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
+WORKBOOK            mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
 TASK                JOIN-590  (Connection Onboarding merged-main physical acceptance and closeout)
 EXECUTED BY         Mech (COMPUTERNAME MEGA-REP), role Mech-DS  - development host
 TESTED EXACT SHA    322162e900672ccfda12f2590d3562eb81bc128e

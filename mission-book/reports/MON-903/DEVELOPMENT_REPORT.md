@@ -1,7 +1,7 @@
 # MON-903 development report — Mech
 
 ```text
-WORKBOOK            mission-book/city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md
+WORKBOOK            mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-903-event-triggered-decision-overlay.md
 DEVELOPMENT HOST    Mech (COMPUTERNAME MEGA-REP), role Mech-DS
 BRANCH              mon/MON-903-mech-decision-overlay
 BASELINE (claim)    213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef

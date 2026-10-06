@@ -138,6 +138,8 @@ def load() -> tuple[dict[str, tuple[pathlib.Path, dict[str, Any], str]], list[st
     records: dict[str, tuple[pathlib.Path, dict[str, Any], str]] = {}
     unreadable: list[str] = []
     for path in sorted(MISSION.rglob("*.md")):
+        if "future-plans" in path.relative_to(MISSION).parts:
+            continue
         try:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:

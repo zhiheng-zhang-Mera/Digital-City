@@ -2,7 +2,7 @@
 
 # JOIN-502 — Nearby PC Discovery + Owner Approval
 
-> Normative translation source: Git `88d71359a7d82d1d41fd0198d048e80b92d27936`, `mission-book/connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md`. Current canonical frontmatter remains metadata authority. Current §11 English handoff evidence is retained verbatim; damaged source body is not guessed. Reading links relocated for archive.
+> Normative translation source: Git `88d71359a7d82d1d41fd0198d048e80b92d27936`, `mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-502-nearby-pc-discovery-and-owner-approval.md`. Current canonical frontmatter remains metadata authority. Current §11 English handoff evidence is retained verbatim; damaged source body is not guessed. Reading links relocated for archive.
 
 > [Programme](../README.md) · [Persistent construction rules](../../../../CONSTRUCTION_RULES.md) · [Async relief](../../../../ASYNC_RELIEF_CONSTRUCTION.md).
 

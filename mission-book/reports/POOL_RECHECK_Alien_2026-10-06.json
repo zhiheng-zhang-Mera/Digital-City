@@ -9,7 +9,7 @@
       "development_complete": true,
       "reviewer": "Mech",
       "review_complete": false,
-      "path": "mission-book/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md"
+      "path": "mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md"
     },
     {
       "id": "REX-803",
@@ -18,7 +18,7 @@
       "development_complete": true,
       "reviewer": "Alien",
       "review_complete": false,
-      "path": "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md"
+      "path": "mission-book/mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md"
     },
     {
       "id": "REX-805",
@@ -27,7 +27,7 @@
       "development_complete": false,
       "reviewer": null,
       "review_complete": false,
-      "path": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md"
+      "path": "mission-book/mission-group/research-strengthening/REX-805-trace-replay-and-ablation.md"
     },
     {
       "id": "REX-806",
@@ -36,7 +36,7 @@
       "development_complete": false,
       "reviewer": null,
       "review_complete": false,
-      "path": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md"
+      "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md"
     },
     {
       "id": "REX-807",
@@ -45,7 +45,7 @@
       "development_complete": false,
       "reviewer": null,
       "review_complete": false,
-      "path": "mission-book/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md"
+      "path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md"
     },
     {
       "id": "REX-890",
@@ -54,7 +54,7 @@
       "development_complete": false,
       "reviewer": null,
       "review_complete": false,
-      "path": "mission-book/research-strengthening/REX-890-reproducibility-study-and-freeze.md"
+      "path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md"
     }
   ],
   "excluded_new_or_show": [

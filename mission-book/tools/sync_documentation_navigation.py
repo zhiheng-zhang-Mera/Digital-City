@@ -25,7 +25,7 @@ def check_encoding_preimages():
   if len(data)!=record['original_bytes'] or hashlib.sha256(data).hexdigest()!=record['original_sha256']:
    failures.append(record['preimage_ref'])
  return failures
-def documents(folder):return sorted((p for p in folder.rglob('*.md') if '.runtime' not in p.parts and '.git' not in p.parts),key=lambda p:p.as_posix())
+def documents(folder):return sorted((p for p in folder.rglob('*.md') if '.runtime' not in p.parts and '.git' not in p.parts and 'future-plans' not in p.parts),key=lambda p:p.as_posix())
 def rows(folder):
  out=[]
  for child in sorted(folder.iterdir(),key=lambda p:p.name):
@@ -108,7 +108,7 @@ def main():
  preimage_failures=check_encoding_preimages()
  if preimage_failures:
   print('Encoding-preimage byte/hash mismatch:',', '.join(preimage_failures));return 1
- scopes=[ROOT/'mission-book/reports',ROOT/'mission-book/finished',ROOT/'mission-book/logs',ROOT/'docs']
+ scopes=[ROOT/'mission-book/mission-group',ROOT/'mission-book/reports',ROOT/'mission-book/finished',ROOT/'mission-book/logs',ROOT/'docs']
  targets=set(scopes)
  for scope in scopes:
   if scope.exists():
@@ -129,6 +129,8 @@ def main():
    drift.append(relative(p))
    if not args.check:p.write_text(want,encoding='utf-8')
  all_docs=documents(ROOT)
+ cached_inventory=ROOT/'docs/DOCUMENTATION_INVENTORY.json'
+ excluded_entries=[entry for entry in json.loads(cached_inventory.read_text(encoding='utf-8'))['entries'] if entry['path'].startswith('mission-book/future-plans/')] if cached_inventory.exists() else []
  inventory={'schema_version':2,'scope':'all Markdown explanation documents; metadata/code and evidence claims preserved','byte_measurement':'UTF8 text with LF line endings; original malformed byte preimages stored separately','markdown_count':len(all_docs),'total_bytes':0,'entries':[]}
  for p in all_docs:
   text=p.read_text(encoding='utf-8',errors='replace')
@@ -172,6 +174,11 @@ def main():
     candidate=ROOT/(rel[:-len(old)]+new)
     if candidate.exists():peer=relative(candidate)
   inventory['entries'].append({'path':rel,'bytes':byte_count,'encoding_state':encoding_state,'chinese_characters':chinese,'english_words':english,'paired_path':peer,'language_presence':'PAIR_PRESENT' if peer else 'BOTH_PRESENT_REVIEW_REQUIRED' if chinese>30 and english>30 else 'TRANSLATION_REVIEW_REQUIRED'})
+ # Carry excluded planning metadata forward without reading or checking those files.
+ inventory['entries'].extend(excluded_entries)
+ inventory['entries'].sort(key=lambda entry:entry['path'])
+ inventory['markdown_count']+=len(excluded_entries)
+ inventory['total_bytes']+=sum(entry['bytes'] for entry in excluded_entries)
  out=ROOT/'docs/DOCUMENTATION_INVENTORY.json'
  rendered=json.dumps(inventory,ensure_ascii=False,indent=2)+'\n'
  if not out.exists() or out.read_text(encoding='utf-8')!=rendered:

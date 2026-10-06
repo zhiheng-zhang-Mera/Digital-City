@@ -35,7 +35,7 @@ Why APPLICABLE (the §14B.1 signal list matched against what actually happened i
 ```text
 control_repo        zhiheng-zhang-Mera/Digital-City @ main
 implementation_repo zhiheng-zhang-Mera/utopia
-workbook            mission-book/workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md
+workbook            mission-book/finished/completed-2026-10-06/workbench-compatibility-migration/WBC-601-execution-backend-contract-and-standard-default.md
 report              mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md
 branch              wbc/WBC-601-execution-backend-contract
 baseline_sha        612c344f9f2b06a67b2645b4662d97750dd7c44e

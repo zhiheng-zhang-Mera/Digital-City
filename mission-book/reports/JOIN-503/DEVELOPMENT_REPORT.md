@@ -1,7 +1,7 @@
 # JOIN-503 — Device Enrollment + Tokenless Routine Reconnect — DEVELOPMENT REPORT
 
-> Workbook: `mission-book/connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md`
-> Programme: `mission-book/connection-onboarding/README.md`
+> Workbook: `mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-503-device-enrollment-and-tokenless-reconnect.md`
+> Programme: `mission-book/finished/completed-2026-10-06/connection-onboarding/README.md`
 > Standing rules: `mission-book/CONSTRUCTION_RULES.md`, `mission-book/ASYNC_RELIEF_CONSTRUCTION.md`
 > Role: **Development**, host **Alien**
 > Branch: `join/JOIN-503-device-enrollment-and-tokenless-reconnect`

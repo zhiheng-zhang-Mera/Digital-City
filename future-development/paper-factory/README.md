@@ -56,7 +56,7 @@ City 仅存设计和紧凑索引；原始证据留原项目或受控存储；正
 
 Authoritative entry points / 上游入口:
 - [Process data policy](../../mission-book/PROCESS_DATA_POLICY.md)
-- [Research & Evaluation Fabric](../../mission-book/research-strengthening/README.md)
+- [Research & Evaluation Fabric](../../mission-book/mission-group/research-strengthening/README.md)
 - [Research signal watchlist](../../mission-book/RESEARCH_SIGNAL_WATCHLIST.yaml)
 - [Essay-Book publication routing](https://github.com/zhiheng-zhang-Mera/Essay-Book/blob/main/PUBLICATION-PIPELINE.md)
 

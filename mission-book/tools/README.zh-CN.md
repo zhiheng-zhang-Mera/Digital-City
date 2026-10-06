@@ -73,3 +73,10 @@ Mission Book在三处记录同一状态：主看板、programme看板，以及�
 ## 精确字节证据保留
 
 导航生成和 `--check` 也会按声明的字节数与 SHA256 核验每份编码原件。`test_documentation_preservation.py` 回归覆盖 CRLF→LF 转换、等长度损坏及文件缺失，并确认检查器既不修复证据，也不替换声明 hash。`.bin` 原件及 REX-803/805 索引 payload 使用 `.gitattributes -text`。导航写入器排除报告下的原始 `evidence` 与 `evidence-repaired` 目录；索引译本置于 payload 之外。语言存在标签仍不证明全文翻译完整。
+
+
+## 前台与归档发现 / Foreground and archive discovery
+
+任务发现覆盖 `mission-book/mission-group` 与 `mission-book/finished`，路径由 manifest 声明；归档不会删除总体统计。`future-plans` 不读取、不校验，文档清单沿用此前已保存的规划条目。迁移回归检查运行 `python mission-book/tools/test_mission_layout.py`。
+
+Workbook discovery includes `mission-book/mission-group` and `mission-book/finished`, with manifest-defined paths; archiving retains overall totals. `future-plans` is neither read nor validated; the documentation inventory carries its previously saved planning entries forward. Run the relocation regression with `python mission-book/tools/test_mission_layout.py`.

@@ -1,60 +1,58 @@
-# Mission Book — Finished / 已完成归档
+# Mission Book — Finished / 完成系列档案
 
-> 本目录是 Mission Book 已完成 programme 的统一历史入口。  
-> 主任务栏只展示未收口 programme；COMPLETE 项目仍保留在全城统计与 `MISSION_PROGRESS.json` 中，不因收起而丢失历史。
+本目录统一收纳已完成系列及历史任务。主台收起这些系列，但总体统计、正式判定、Owner 豁免和精确 SHA 仍保留。
 
-## 已完成 programme
+This archive collects completed programmes and historical workbooks. The main desk collapses these programmes; overall totals, formal verdicts, Owner waivers and exact SHAs remain retained.
 
-| Programme | 完成度 | 归档入口 |
-|---|---:|---|
-| Replant / MB-001~012 | 12/12 | [replant](./replant/README.md) |
-| Butler Assistant | 9/9 | [completed-2026-10-01](./completed-2026-10-01/MISSION_INDEX.md) |
-| Remote Fabric | 10/10 | [completed-2026-10-01](./completed-2026-10-01/MISSION_INDEX.md) |
-| General AI Gateway | 9/9 | [completed-2026-10-01](./completed-2026-10-01/MISSION_INDEX.md) |
-| Engineering Manager | 13/13 | [completed-2026-10-01](./completed-2026-10-01/MISSION_INDEX.md) |
-| Rescheduling vNext | 4/4 | [completed-2026-10-03](./completed-2026-10-03/README.md) |
-| UI Civilization | 5/5 | [completed-2026-10-03](./completed-2026-10-03/README.md) |
-| UI × Scheduler Integration | 3/3 | [completed-2026-10-03](./completed-2026-10-03/README.md) |
-| MESH 三端互联 | 1/1 | [completed-2026-10-04](./completed-2026-10-04/README.md) |
-| Connection Onboarding | 4/4 | [completed-2026-10-06](./completed-2026-10-06/README.md) |
-| Workbench Compatibility | 4/4 | [archive ledger 2026-10-06](#在册但未物理搬迁--registered-in-place-2026-10-06) |
-| Capability Entry Closeout | 6/6 | [archive ledger 2026-10-06](#在册但未物理搬迁--registered-in-place-2026-10-06) |
+## 已完成系列 / Completed programmes
 
-## 在册但未物理搬迁 / Registered in place (2026-10-06)
+| 系列 / Programme | 完成 / Complete |
+|---|---:|
+| [Replant / MB-001~012](replant/) | 12/12 |
+| [Butler Assistant](completed-2026-10-01/MISSION_INDEX.md) | 9/9 |
+| [Remote Fabric](completed-2026-10-01/MISSION_INDEX.md) | 10/10 |
+| [General AI Gateway](completed-2026-10-01/MISSION_INDEX.md) | 9/9 |
+| [Engineering Manager](completed-2026-10-01/MISSION_INDEX.md) | 13/13 |
+| [Rescheduling vNext](completed-2026-10-03/README.md) | 4/4 |
+| [UI Civilization](completed-2026-10-03/README.md) | 5/5 |
+| [UI × Scheduler Integration](completed-2026-10-03/README.md) | 3/3 |
+| [MESH 三端互联](completed-2026-10-04/README.md) | 1/1 |
+| [Connection Onboarding](completed-2026-10-06/README.md) | 4/4 |
+| [Workbench Compatibility](completed-2026-10-06/workbench-compatibility-migration/README.md) | 4/4 |
+| [Capability Entry Closeout](completed-2026-10-06/capability-entry-closeout/README.md) | 6/6 |
+| [City Work Monitor](completed-2026-10-06/city-work-monitor-dashboard/README.md) | 4/4 |
 
-下面两个 programme 在 2026-10-06 达到 COMPLETE，但按本目录的归档规则**不强制物理搬迁**：它们的 canonical 工作书、
-报告与 exact-SHA 证据被其他记录大量引用，移动路径会打断历史链接。因此在此登记，工作书保留原路径。
+## 本轮物理归档 / Physical archival in this round
 
-| Programme | 完成度 | canonical 位置 | 完成依据 |
-|---|---:|---|---|
-| Workbench Compatibility | 4/4 | [workbench-compatibility-migration](../workbench-compatibility-migration/README.md) | WBC-604 于 213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef 合入 main，并在 owner 指令下 waived 对侧复核（见 `review_waiver_authority`） |
-| Capability Entry Closeout | 6/6 | [capability-entry-closeout](../capability-entry-closeout/README.md) | CEX-790 收尾审计完成，其闭档同样由 owner 裁决 waived 对侧复核（见 `owner_ruling_2026_10_05`） |
+WBC、CEX、MON、Connection Onboarding 与 MESH 的在册系列目录现已移入 `finished/completed-2026-10-06/`；旧说明中的“保留原路径”是此前登记阶段，不能代表迁移后的目录状态。本轮同步相对链接与 manifest，不改变验收。
 
-这两个 programme 之前仍出现在主任务栏，是因为它们的收尾工作书写着 `review_complete: "true"`（带引号，被旧解析器读成字符串），
-使收尾任务在统计里始终"未复检"。工具解析器于 2026-10-06 修正后，主任务栏自动把它们移出未收口池 - 这次归档登记是那一次修正的
-配套动作，而不是新的事实变化。两者的 waived 复核性质已由新的记录一致性检查器以
-`REVIEW_WAIVED_BY_RECORDED_AUTHORITY` 明确标注（见 `mission-book/tools/README.md`）。
+The registered WBC, CEX, MON, Connection Onboarding and MESH directories now reside in `finished/completed-2026-10-06/`. Earlier statements about retaining original paths described the registration stage, not the relocated layout. Relative links and the manifest are updated without changing acceptance.
 
-## 归档规则
+## 保留的验收历史 / Retained acceptance history
 
-- Programme 只有在全部工作书完成复检/验证后才视为 `COMPLETE`。
-- `COMPLETE` programme 自动从 Mission Book 主任务栏隐藏，避免当前施工面被历史项目占满。
-- 历史工作书、验收记录和 exact-SHA 证据仍保留；收起只改变展示，不改变事实来源。
-- 若 programme 的 canonical 工作书因历史链接、报告引用或 Git 追踪需要保留在原路径，可通过本目录的 archive ledger 登记，而不强制物理搬迁。
+WBC-604 在 `213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef` 合入产品 main，Owner 豁免见 `review_waiver_authority`。CEX-790 的 Owner 裁决见 `owner_ruling_2026_10_05`。旧解析器曾将引号中的 `review_complete: "true"` 当作字符串；修正后两系列计入完成，检查器以 `REVIEW_WAIVED_BY_RECORDED_AUTHORITY` 记录豁免。本轮搬迁没有新增或替代复检。
+
+WBC-604 merged into product main at `213f9f9f7087ac4cbfe371a5e273a834cfd8f3ef`; its Owner waiver remains recorded in `review_waiver_authority`. CEX-790's ruling remains in `owner_ruling_2026_10_05`. The former parser treated quoted `review_complete: "true"` as a string; the correction counted both programmes as complete, with `REVIEW_WAIVED_BY_RECORDED_AUTHORITY` preserving their waivers. This relocation adds or replaces no review.
+
+## 归档规则 / Archive rules
+
+- 完成以原工作书的复检、验证或授权豁免为准。 / Completion follows canonical review, verification or authorized waiver records.
+- 完成系列只在档案展开，仍计入全城历史统计。 / Completed programmes expand in the archive and remain in citywide historical totals.
+- 目录迁移不激活任务、不授予领取或产品合并权。 / Relocation activates no tasks and grants no claim or product-merge authority.
 
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **816**.
+当前Markdown文档 / Current Markdown documents: **862**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
 | completed-2026-10-01 | 455 | [打开 / Open](completed-2026-10-01/README.md) |
 | completed-2026-10-03 | 309 | [打开 / Open](completed-2026-10-03/README.md) |
 | completed-2026-10-04 | 14 | [打开 / Open](completed-2026-10-04/README.md) |
-| completed-2026-10-06 | 2 | [打开 / Open](completed-2026-10-06/README.md) |
+| completed-2026-10-06 | 48 | [打开 / Open](completed-2026-10-06/README.md) |
 | en | 1 | [打开 / Open](en/README.md) |
 | replant | 33 | [打开 / Open](replant/README.md) |
 
@@ -63,6 +61,3 @@
 - [READING_TRANSLATION_PROVENANCE.md](READING_TRANSLATION_PROVENANCE.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
-
-
-[阅读译本 / Reading translation](./en/README.md)

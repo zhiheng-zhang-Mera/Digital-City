@@ -21,7 +21,7 @@ physical-host-only defects, restart timing, discovery latency and stale-state ob
 ```text
 control_repo    zhiheng-zhang-Mera/Digital-City @ main
 implementation  zhiheng-zhang-Mera/utopia
-workbook        mission-book/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
+workbook        mission-book/finished/completed-2026-10-06/connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md
 report          mission-book/reports/JOIN-590/DEVELOPMENT_REPORT.md
 branch          join/JOIN-590-merged-main-physical-acceptance
 baseline_sha    d3262ce2dd81e51a53e39e6f9add8dee650a7682

@@ -146,7 +146,7 @@ Neither may formally close.
 
 The existing:
 
-`mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
+`mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`
 
 is a **bootstrap evidence source**, not a permanent second canonical registry.
 

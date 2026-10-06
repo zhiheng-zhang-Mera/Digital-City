@@ -8,7 +8,7 @@
 
 架构：Gateway拥有task/event truth及graph/decision projections；Android只读adapter/Compose复用callback fence，观察HTTP与task command分worker；Web graph/decision controller独立，overview可发现decision provenance。缺model/provider/review明确unknown。
 
-技术Node24 Gateway、既有Web、Kotlin/Compose、OkHttp/JUnit/Playwright、OPPO实体用D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe。规格mission-book/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md。
+技术Node24 Gateway、既有Web、Kotlin/Compose、OkHttp/JUnit/Playwright、OPPO实体用D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe。规格mission-book/finished/completed-2026-10-06/city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md。
 
 约束：无第二task truth/overlay应用动作/global barrier；保accepted ancestor；仅feature branch无main merge；retained evidence单独绑定SHA/runtime identity。Alien author闭环须对侧Formal Review。
 

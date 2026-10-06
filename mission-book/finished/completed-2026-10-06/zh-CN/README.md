@@ -25,10 +25,10 @@ This page translates the explanatory body of a historical reading snapshot; gene
 
 - [JOIN-501 / JOIN-502 / JOIN-503 组件归档](../../completed-2026-10-04/connection-onboarding-components/)
 
-最终 merged-main 实机验收工作书保留 canonical 历史路径，以免打断现有报告链接与 Git 引用：
+最终 merged-main 实机验收工作书现已迁入本归档目录，以免打断现有报告链接与 Git 引用：
 
-- [JOIN-590 — merged-main 实机验收与收口](../../../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md)
-- [Connection Onboarding programme README](../../../connection-onboarding/README.md)
+- [JOIN-590 — merged-main 实机验收与收口](../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md)
+- [Connection Onboarding programme README](../connection-onboarding/README.md)
 
 此归档台账是在 programme 移出活跃池后，Mission Book 主页使用的 finished-directory 记录。
 
@@ -41,9 +41,9 @@ This page translates the explanatory body of a historical reading snapshot; gene
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [JOIN-590](../../../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | COMPLETE | YES | YES | YES |
 | [JOIN-501](../../completed-2026-10-04/connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md) | COMPLETE | YES | YES | NO |
 | [JOIN-502](../../completed-2026-10-04/connection-onboarding-components/JOIN-502-nearby-pc-discovery-and-owner-approval.md) | COMPLETE | YES | YES | NO |
 | [JOIN-503](../../completed-2026-10-04/connection-onboarding-components/JOIN-503-device-enrollment-and-tokenless-reconnect.md) | COMPLETE | YES | YES | NO |
+| [JOIN-590](../connection-onboarding/JOIN-590-merged-main-physical-acceptance-and-closeout.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->

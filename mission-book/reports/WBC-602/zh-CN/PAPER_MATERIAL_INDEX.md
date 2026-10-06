@@ -20,7 +20,7 @@ APPLICABLE、上下文及身份CAPTURED、引用§6。实际信号而非按任�
 ```text
 control_repo        zhiheng-zhang-Mera/Digital-City @ main
 implementation_repo zhiheng-zhang-Mera/utopia
-workbook            mission-book/workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md
+workbook            mission-book/finished/completed-2026-10-06/workbench-compatibility-migration/WBC-602-node-role-capability-resource-descriptor.md
 report              mission-book/reports/WBC-602/DEVELOPMENT_REPORT.md
 branch              wbc/WBC-602-node-descriptor
 baseline_sha        0e9bea3ce739b979e582a428af8fb233045a5e75

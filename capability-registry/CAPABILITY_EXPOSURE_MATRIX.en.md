@@ -7,7 +7,7 @@
 
 ## Current migration state
 
-Historical capability-entry data lived in `mission-book/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`. The CEX
+Historical capability-entry data lived in `mission-book/finished/completed-2026-10-06/capability-entry-closeout/CAPABILITY_ENTRY_MATRIX.md`. The CEX
 programme reconciled it into the durable Registry, and CEX-790 performed the final audit: it rebuilt the entry
 inventory from the code, diffed it against these records, and resolved the two mismatches it found. The legacy matrix
 is no longer a source of truth.
