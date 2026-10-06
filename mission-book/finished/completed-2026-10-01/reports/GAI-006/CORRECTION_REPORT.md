@@ -104,3 +104,7 @@ Nothing in this list is a known wrong behaviour left in place: each is either a 
 Nothing here depends on hardware, a provider account or another programme. The module's provider/model
 binding is a reference carried for the caller; real provider truth belongs to GAI-002 and the live provider
 adapter, which are corrected components in this programme.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

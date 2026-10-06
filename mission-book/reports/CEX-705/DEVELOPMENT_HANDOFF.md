@@ -18,3 +18,4 @@ Same exact product source/APK, fresh independent fixture City ff9a841b-41d9-4d3a
 
 Earlier NOT_RUN native action claims are superseded only for the actions observed in this follow-up; retained as chronology. This is saved temporary-session reuse, not physical Windows tokenless installation refresh. Same-host logical peer, simulated compute advertisement; not another physical Windows or Android computation. Private user connection restored and cmp exit0, original CEX701 APK restored, test reverse removed and own fixture stopped. Same-host development evidence remains insufficient for Formal Review; four dimensions remain COMPLETE/VERIFIED/PARTIAL/NOT_TESTED.
 
+语言配对 / Language pair: [English](./DEVELOPMENT_HANDOFF.md) · [中文](./zh-CN/DEVELOPMENT_HANDOFF.md)

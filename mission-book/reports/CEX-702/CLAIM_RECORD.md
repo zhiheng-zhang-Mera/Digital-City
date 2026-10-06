@@ -3,3 +3,5 @@
 Alien-codex/MERA-ALIANWARE development. Controlmain67d9433 freshly fetched immediately before mutation, task READY and unowned. Utopia cloud main0e9bea3ce739b979e582a428af8fb233045a5e75 freshly fetched; required ec12fd0831f31fd81aef9cd9dfb0c959d010f63b ancestor measured exit0; accepted UXI391 workbook terminal REMOTE_HANDOFF_CLOSEOUT_REPAIRED and main CI37205444427 completed success matching baseline read independently. WBC602 opposite-host correction remains owned while hosted CI runs; §4 permits independent CEX702 development.
 
 Isolated D:/Utopia-CEX702 / cex/CEX-702-Alien-codex-alternate-device from exact accepted main. Do not import unaccepted WBC or sibling CEX/REX implementations. Allocate CAP-SCHEDULER-CHOICE-001. Use canonical scheduler presentation and existing switch-declined route; provider choice/wait/cancel/alternate device distinct. Strict-target conflicts refused; generic CONFIRM remains honest-unwired. Record user steps and measured handoff timing only if actually observed, otherwise NOT_OBSERVABLE. Backend timing/choice truth must not be re-derived on clients.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

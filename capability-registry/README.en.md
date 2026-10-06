@@ -205,3 +205,38 @@ Natural development data is observational; causal conclusions require controlled
 and:
 
 > **Make one real user path work first, then widen it.**
+
+## 语言与入口导航 / Language and entry navigation
+
+- [完整中文说明 / Complete Chinese guide](./README.zh-CN.md)
+- [登记册入口 / Registry entry](./README.md)
+
+## 快速信息仪表盘与导航 / Quick dashboard and navigation
+
+目录数量实测于2026-10-06；状态是既有文档记录，不是新运行验收。 / Directory counts measured on 2026-10-06; status reflects existing documentation rather than new runtime acceptance.
+
+| 项目 / Item | 值 / Value |
+|---|---|
+| 直接子目录 / Direct subdirectories | 1 |
+| 递归Markdown文档 / Recursive Markdown documents | 6 |
+| 状态 / Status | ACTIVE / CITYWIDE / PERSISTENT (existing registry / 既有登记册) |
+| 语言 / Language | 同文中英或明确互链语言对 / Same-file bilingual explanations or linked language pairs |
+
+### 文档与资源导航 / Documents and resources
+
+| 入口 / Entry | 用途 / Purpose |
+|---|---|
+| [CAPABILITY_EXPOSURE_MATRIX.en.md](./CAPABILITY_EXPOSURE_MATRIX.en.md) | 说明文档 / Explanatory document |
+| [CAPABILITY_EXPOSURE_MATRIX.zh-CN.md](./CAPABILITY_EXPOSURE_MATRIX.zh-CN.md) | 说明文档 / Explanatory document |
+| [CAPABILITY_INDEX.yaml](./CAPABILITY_INDEX.yaml) | 既有结构化索引/模板，本次未修改 / Existing structured index/template, unchanged in this documentation work |
+| [CAPABILITY_RECORD_TEMPLATE.yaml](./CAPABILITY_RECORD_TEMPLATE.yaml) | 既有结构化索引/模板，本次未修改 / Existing structured index/template, unchanged in this documentation work |
+| [README.en.md](./README.en.md) | 说明文档 / Explanatory document |
+| [README.md](./README.md) | 说明文档 / Explanatory document |
+| [README.zh-CN.md](./README.zh-CN.md) | 说明文档 / Explanatory document |
+| [SURFACE_INDEX.yaml](./SURFACE_INDEX.yaml) | 既有结构化索引/模板，本次未修改 / Existing structured index/template, unchanged in this documentation work |
+
+### 子目录 / Subdirectories
+
+| 入口 / Entry | 递归Markdown数量 / Recursive Markdown count |
+|---|---|
+| [records](./records/README.md) | 1 |

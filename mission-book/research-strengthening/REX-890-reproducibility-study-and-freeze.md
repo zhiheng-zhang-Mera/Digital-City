@@ -92,3 +92,8 @@ Development host 先用 Research Fabric 运行一个代表性 multi-device study
 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE`
 
 随后才允许创建 programme final integration workbook。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-890-reproducibility-study-and-freeze.md)

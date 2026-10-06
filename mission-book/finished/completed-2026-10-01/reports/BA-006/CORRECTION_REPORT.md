@@ -98,3 +98,7 @@ twelve mechanisms against the author's 8-test suite (which catches none of them)
    attribution the workbook does not settle). A replayed `handoff_id` also duplicates
    `OWNERSHIP_TRANSFERRED`; `authority_transferred: false` is a constant that is structurally true once the
    authority scan refuses any authority-bearing package.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

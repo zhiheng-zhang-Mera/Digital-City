@@ -147,3 +147,5 @@ required by the workbook is at `mission-book/reports/CEX-PROGRAMME/PAPER_MATERIA
   (`CAP-CITY-MEMBERS-NATIVE-001`, a presentation-truth defect rather than an entry gap).
 * **The parity gap is not a defect.** The host role switch being browser-only is recorded as a gap because the workbook
   asks for parity to be stated, not because every platform must be equal.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

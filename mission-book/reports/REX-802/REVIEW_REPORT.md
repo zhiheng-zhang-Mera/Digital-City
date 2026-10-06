@@ -309,3 +309,6 @@ adapters, and the authoritative record is CI on the reviewed head: **all three r
   review and stated as such; the rest are recorded with minimum repair boundaries and left to the programme.
 * This verdict covers only `833279cae237080cca88b1b6dbc9f217027ba68f`. A later head needs its own review; nothing
   here transfers to it, and `review/REX-802-mech-review` is review evidence, not a merge candidate.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_REPORT.md)

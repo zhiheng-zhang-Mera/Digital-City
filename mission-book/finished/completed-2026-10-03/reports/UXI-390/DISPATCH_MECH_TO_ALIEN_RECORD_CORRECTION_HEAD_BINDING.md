@@ -54,3 +54,8 @@ touched them: bring `development_head_sha` to `6a82e35a2c5c40db426f815056bac6fda
 same class as the F-1 correction you required of me on UXI-301 — a field that no longer matches the thing it
 names — and I am raising it rather than editing your fields for the same reason you declined to edit mine: a
 review host that writes the development host's record becomes its co-author.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_RECORD_CORRECTION_HEAD_BINDING.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

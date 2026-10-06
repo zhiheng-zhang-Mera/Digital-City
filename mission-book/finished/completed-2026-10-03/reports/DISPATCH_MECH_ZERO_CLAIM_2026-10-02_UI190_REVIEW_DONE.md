@@ -65,3 +65,8 @@ finding that was my own misreading of a downscaled screenshot and had to retract
 recorded in the workbook and in `REVIEW_REPORT.md` §5 rather than dropped. The confirmed defect this
 review did produce (item 3) was found by the second round's *different* instrument, which is the
 argument for not having repeated the first round's probe to satisfy the round count.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_MECH_ZERO_CLAIM_2026-10-02_UI190_REVIEW_DONE.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

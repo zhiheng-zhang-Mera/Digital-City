@@ -1,0 +1,13 @@
+# CEX-705 已接受上游回填与原子开发领取
+
+> 阅读译本 / Reading translation：仅供阅读，不是第二份权威工作书／状态。保留历史事实与未观测边界，不新增验收。
+
+Alien-codex／MERA-ALIANWARE。新拉Digital-City2a7c19348726fd9da7096f6c01a4bd2c76c67b2d；CEX705无主WAITING_DEPENDENCIES，仅因City-members已接受SHA未记录。独立拉Utopia main0e9bea3ce739b979e582a428af8fb233045a5e75；GitHub PR11 MERGED，开发源be6227ec49d4dbcd83a595d7b265766af2083421，合并612c344f9f2b06a67b2645b4662d97750dd7c44e。独立读托管37203397283 COMPLETED SUCCESS，headSha612c344f9f2b06a67b2645b4662d97750dd7c44e；main祖先merge-base --is-ancestor exit0。已接受合并是必要不可变上游；分支标签／当前README不是证据。历史集成曾获用户授权且已合并，不是导入未接受同级来绕评审。
+
+以观察到的已接受合并612c344f9f2b06a67b2645b4662d97750dd7c44e回填dependency_source_shas、required_ancestor_shas，然后仅领取此工作书。基线锚精确main0e9bea3ce739b979e582a428af8fb233045a5e75。既有City-role测试11／11为受控证据，不是实体验收。新原生工作需自身对侧物理主机真机Formal Review；暂无终端标记。
+
+隔离D:/Utopia-CEX705分支cex/CEX-705-Alien-codex-native-members。分配CAP-CITY-MEMBERS-NATIVE-001。此前CEX704精确d05f5a455ff535e3e065b30ec9ec74bca2dbb521 CI37216216410仍运行；§4允许独立已接受main工作。不合入未接受CEX704／701。原生管理须区分owner／control与enrolled session，保留服务器权威。主要代理用户任命不属此对等任务；显示／改名不可成为权威迁移。
+
+池澄清：WBC603使用DEPENDENCY_SHA_UNION_AT_CLAIM，因此按§2A.3，即使main集成前，正式接受WBC601f66db60998343bf99243621cfcfa2363a4566db8与WBC602d99101fdac5169aad74ae84fb7c0c25be43ad7d9可形成测试过的不可变联合。此前所有WBC依赖都必须等main祖先的假设过宽。main锚定依赖仍需实际祖先。CEX704 CI期间优先当前用户可见City／成员对等；此处未领取WBC603。
+
+语言配对 / Language pair: [English](../CLAIM_RECORD.md) · [中文](./CLAIM_RECORD.md)

@@ -60,3 +60,8 @@ a mojibake dump as evidence more than once myself, and the rule that came out of
 character-level claims need the source of truth rather than a re-rendering of it.
 
 Nothing here is a review of RS-290, and I claim no defect in it.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_MECH_TO_ALIEN_RS290_ZERO_BOUNDS_MINE.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

@@ -22,3 +22,5 @@ required_ancestor_refs: Tested union05ff89553fdd8d3c13219a4598fc02f8c6182a65, ac
 freshness_revalidation_event: Exact hosted CI became terminal; fresh Digital-City fetch.
 identity_or_evidence_mismatch_type: null
 reconciliation_action: Mark development only; preserve Formal Review and physical limitations.
+
+语言配对 / Language pair: [English](./NEXT_ACTION_SCAN.md) · [中文](./zh-CN/NEXT_ACTION_SCAN.md)

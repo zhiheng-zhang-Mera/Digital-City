@@ -1,0 +1,95 @@
+# BA-004 开发报告：多 Assistant 切换与显式任务交接
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = BA-004 (Butler Assistant programme, task 4 of 9)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 76de149 (Digital-City main, "claim(BA-004): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T14:04:09Z
+CONTROL_REVISION_AT_CLAIM= b7e8eb3 (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = assistant/BA-004-multi-assistant-handoff
+IMPLEMENTATION_HEAD_SHA  = a29062fba3e88abee1830c4f1ecbd6c55e6d1c79
+BRANCH_CI                = 36726727943 — success
+LOCAL_CHECK_SUMMARY      = 108/108 tests pass, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据逐字保留任务、阶段、Mech 主机、领取、控制版本、仓库、基线、实现分支／SHA、CI、本地检查和完成／禁止组件合并状态。
+
+## 1. 交付物
+
+`contracts/assistant-handoff-v1/` 包含 `handoff.mjs`（交接包、验证与权威字段防护、接收方权威重算、canonical task-store 端口及替身、交接协调器、前台切换）、`index.mjs`、7 项测试与根 `tests/assistant-handoff.test.mjs`。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 手机前台 A→B 时，A 在线则不相关后台任务继续运行且仍归 A | 切换前台不触任务，`tasks_touched: 0`、零存储写入、离开前台的 assistant 仍在线 |
+| 不转移责任时立即切前台、零交接 | 同测试，`is_a_handoff: false`、`handoff_required_for_ownership_change: true` |
+| 真转移产生机器可读交接、重评估、确认接管与唯一权威 owner | 真转移需接受且只留一个权威 owner；交接携带责任而非权威 |
+| 拒绝／过期交接保持旧权威 owner | 拒绝或过期保持 owner 不变 |
+| owner 改变不单独导致执行者重启 | 真转移测试 `executor_moved: false`、执行者不变；另测显式执行者移动 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取哪项任务。** 新扫描没有自己的修复，也无另一主机合格 Correction（Alien 正纠正 GAI-002），因此进入未领取 Development。按不同于自己 EM 领取计划的平局规则选择 BA-004，且其负责不变量 11。
+
+**D2：一个操作还是两个？** 切换与交接分为不同函数及返回形状。`switchForegroundAssistant` 报 `tasks_touched: 0`、`task_ownership_changed: false`、`is_a_handoff: false`、`handoff_required_for_ownership_change: true`。工作簿前两条验收正是不混淆两者；报告直接说明操作种类，调用者和审查者不读实现也能区分。
+
+**D3：交接是否携带权威？** 永不。递归防护拒绝含 `grants`、`permissions`、`capabilities`、`lease`、`execution_lease`、`action_key`、`authority`、`policy`、`scopes`、`access_token` 的包，返回 `HANDOFF_TRANSFERS_NO_AUTHORITY`。接收者有效权威由策略重算交集，`transferred_grants: []`。理由是不变量 11，以及明确不在范围内的跨交接复制 permission／device grants、lease、action approval。拒绝字段本身重要，因为接收端无法区分携 grant 的交接与合法交接。
+
+**D4：接管何时成为权威？** 仅接收者自己接受时，否则 `NOT_THE_RECIPIENT`；提议不改变任何状态，仅 accept 时 `ownership_changed`。责任转移必须携 checkpoint，否则 `CHECKPOINT_REQUIRED`。这是接受确认后所有权才权威变化、拒绝／过期保持旧 owner 的要求。
+
+**D5：在哪里强制能力缺口？** 首个测试误断言接收者能力不足时提议应失败。选择提议阶段计算报告缺口（`can_take_over: false`、`missing_capabilities`），但在**接受阶段**拒绝。不能超过的是接收者自己的能力，回答者也是接收者；提议方先拒会剥夺回答机会且隐藏缺失能力。测试已改，两个阶段均断言。
+
+**D6：咨询。** 像交接一样接受，但不转移任何内容：`ownership_changed: false`、`CONSULTATION_TRANSFERS_NOTHING`、无存储写入。工作簿区别真正转移与建议；合并二者会让“让我看看”移动所有权。
+
+**D7：任务事实。** 协调器只经注入 `CanonicalTaskStorePort` 访问 canonical store，`handoff_writes_task_truth_directly: false`。替身记录全部写入，测试断言精确写集 `setOwner`、`recordCheckpoint`，只有交接显式命名另一执行者才 `setExecutor`。任务 canonical 事实归 Shared Task Core 而非 Butler；执行者验收要求不能仅因 owner 变化重启。
+
+**D8：重复与终态。** 同 `handoff_id` 重提是幂等无操作 `DUPLICATE_HANDOFF`；接受已回答交接无操作；终态任务拒 `TASK_TERMINAL`；提议者非 owner 拒 `INVALID_HANDOFF`。重试／重连不得产生第二次转移，晚到包不得复活终态 job。
+
+**D9：无 `schema.json`。** 与 BA-002／BA-003、EM／GAI 分支一致。
+
+## 3. 测试汇总
+
+7 项全通过：切换零触任务、零写入、原 assistant 仍在线；顶层 grant、嵌套 capabilities、lease 三种权威字段拒绝，接收者权威重算交集且无转移 grant；确认接管精确写 `setOwner`＋`recordCheckpoint`，执行者不动，拒非接收者接受和超能力转移；显式移动执行者增加 `setExecutor`；拒绝和过期零写入保持 owner；咨询无转移；包严格性覆盖 kind、version、同 assistant 交接、时间、数组类型、未知字段、重复 ID、未知／终态／他人任务、缺 checkpoint、缺 store port。
+
+## 4. 本地检查与 CI
+
+| 检查 | 结果 |
+|---|---|
+| `corepack pnpm test` | 108 项，108 通过，0 失败（101＋7） |
+| `node scripts/verify-promotion-history.mjs` | OK，82ed36933fb4 上 10 条 |
+| `node --test apps/rooms/tests/*.test.mjs` | 0 失败 |
+| `node city/test-all.mjs` | 0 失败 |
+| `corepack pnpm check:docs` | PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI 36726727943，a29062fba3e88abee1830c4f1ecbd6c55e6d1c79 | success |
+
+## 5. 交给兄弟任务的集成接缝
+
+- BA-003（具身／前台）：这里切换是其 `switchForeground` 面向任务的一半；合并后应同一调用，报告同时带绑定变化与 `tasks_touched: 0` 保证。
+- BA-002（Assistant Core）：接收 core 由接收者接受前获取／重验证；`recomputeRecipientAuthority` 从这里推导有效权限，绝不来自包。
+- BA-006（任务协调）：`CanonicalTaskStorePort` 是共享任务事实接缝；owner、executor 分字段，交接仅写所有权与 checkpoint。
+- BA-008（lease／重连）：`lease_ref` 仅为待接收者重验证的引用；包从不带 lease 本身，重连者行动前须重验证。
+- BA-009（职责／权限）：交集与不变量 19 相同，`User/OwnerPolicy ∩ AssistantPolicy ∩ DeviceCapability ∩ TaskActionGrant`。
+- Web／Android：切换后不能假定所有权移动，须读 canonical owner。
+
+## 6. Correction 主机／Owner 开放项
+
+1. 尝试未列字段夹带权威、新 ID 重放产生第二次转移、切换写任务 store。
+2. 确认 D5 提议计算缺口、接受执行防护的语义。
+3. 确认包中 `executor_ref` 是否为预期移动执行方法，或应总是独立操作；当前契约允许在同包。
+4. evolution-feed 仍待 Owner。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_BUTLER_PROJECT_MERGE
+```
+
+原始结论为开发完成、仅 Alien 可纠正、Butler 项目合并前禁止合并。

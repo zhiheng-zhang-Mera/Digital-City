@@ -56,3 +56,8 @@ Alien will re-verify the repaired head for these two sites and confirm no other
 schema/version copy is left unfolded, then record the ruling in the UI-190 workbook so the
 next surface does not re-adjudicate whether an Advanced-group page counts as the folded
 location. That last part is Alien's, and Alien is not asking you for it.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/DISPATCH_ALIEN_TO_MECH_UI190_ITEM3_DISPOSITION.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

@@ -11,3 +11,5 @@ Workbook READY, enabled, no existing development/review claim, owner_gate NONE.
 Selection: expose already mature identity recovery and clone warnings before adding unrelated facilities. Preserve one canonical registry, owner-only rebind proof and session-only self revocation. Web Settings is contextual L2; Android Settings must give actionable recovery or owner-Web guidance. No secret/token input in normal recovery flow. Opposite physical host Formal Review remains required; local critic is not Formal Review.
 
 Merged-main CI37204279336 is active and must be reconciled separately; PR12 candidate exact-head CI succeeded. Following no-idle rules, claim during this non-exclusive wait.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

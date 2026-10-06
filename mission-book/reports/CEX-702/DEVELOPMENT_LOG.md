@@ -13,3 +13,5 @@ Alien-codex · 2026-10-05. Baseline 0e9bea3ce739b979e582a428af8fb233045a5e75; pl
 - Research: worker output is functional evidence, not a throughput benchmark. Token/context-window counts, intervention timing and physical network performance NOT_OBSERVABLE unless measured separately. Local technical review requested; different-physical-host Formal Review pending.
 
 - Final source 3d233ff39d1e96b8a590b12f520f98c283356f25 pushed, PR19 open. Technical review reproduced legacy-decline false explicit replay, fixed with separately persisted accepted explicit revision; new red/green case retained. Final53/53; native82 unit/build. Hoisted native pending state above navigation and folded full task IDs. Candidate registry created; exact hosted CI pending, Formal Review pending.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_LOG.md) · [中文](./zh-CN/DEVELOPMENT_LOG.md)

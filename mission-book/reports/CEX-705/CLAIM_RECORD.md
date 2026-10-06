@@ -7,3 +7,5 @@ Backfilled dependency_source_shas and required_ancestor_shas with the observed a
 Isolated D:/Utopia-CEX705 branchcex/CEX-705-Alien-codex-native-members. CAP-CITY-MEMBERS-NATIVE-001 allocated. Prior CEX704 exactd05f5a455ff535e3e065b30ec9ec74bca2dbb521 CI37216216410 still running; §4 allows independent accepted-main work. No unaccepted CEX704/CEX701 implementation merge. Native management must distinguish owner/control vs enrolled session and retain server authority. Primary-agent user appointment is not part of this parity task; display/rename cannot become authority migration.
 
 Pool clarification: WBC603 uses DEPENDENCY_SHA_UNION_AT_CLAIM, so formally accepted WBC601f66db60998343bf99243621cfcfa2363a4566db8 and WBC602d99101fdac5169aad74ae84fb7c0c25be43ad7d9 can form a tested immutable union even before main integration, under §2A.3. Earlier assumptions that every WBC dependent must wait for main ancestry were overbroad. Main-anchored dependents still require actual ancestry. Prioritize current user-facing City/member parity while CEX704 CI runs; no WBC603 claim made here.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

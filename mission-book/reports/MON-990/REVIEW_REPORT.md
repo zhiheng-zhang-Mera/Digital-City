@@ -154,3 +154,5 @@ REMEDY                 attach an Android device over adb on the review host (or 
 ```
 
 No merge was performed, no main was touched, and the author's branch and PR #36 are retained exactly as they are.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

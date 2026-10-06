@@ -27,3 +27,30 @@ Archived workbooks:
 **Important:** component completion does not by itself close the Connection Onboarding programme. Historical review notes explicitly deferred two-physical-host acceptance, so the active surface keeps only the merged-main physical acceptance/closeout workbook.
 
 These files are historical evidence and are not claim surfaces. New construction follows `mission-book/CONSTRUCTION_RULES.md`.
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **5**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| connection-onboarding-components | 3 | [打开 / Open](connection-onboarding-components/JOIN-501-pairing-session-lifecycle-and-display.md) |
+| mesh-3end | 1 | [打开 / Open](mesh-3end/MESH-301-三端实机互联与相互指挥.md) |
+
+<!-- DOCUMENT_NAVIGATION:END -->
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 1/1 · 开发 / Development 1/1 · 复检 / Review 1/1 · `COMPLETE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [MESH-301](mesh-3end/MESH-301-三端实机互联与相互指挥.md) | COMPLETE | YES | YES | NO |
+
+<!-- SERIES_DASHBOARD:END -->

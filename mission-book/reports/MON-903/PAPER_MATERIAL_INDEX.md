@@ -111,3 +111,5 @@ programme's Monitor work assigns cross-device acceptance to MON-990. `merge_auth
 ## Opposite-host closeout
 
 Alien Formal Review accepted 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224 with final push/PR/linkage success. See REVIEW_REPORT.md and INDEPENDENT_REVIEW_Alien.md for retained failed evidence, 1386 full PASS and bounded-metric repairs. Above pending section describes the historical author stage; native physical acceptance remains MON-990.
+
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

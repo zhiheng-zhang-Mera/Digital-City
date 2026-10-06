@@ -128,3 +128,6 @@ NOT DONE BY THE REVIEWER   no merge, no rewrite of the author's branch or its hi
 
 `merge_authority` is false for this task and the reviewer holds none. The author's branch tip and the original reviewed
 head are untouched; the repair is published beside them.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVERIFICATION_REPORT.md)

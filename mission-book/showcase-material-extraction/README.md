@@ -41,3 +41,16 @@ Forbidden:
 - use terminal/process-list output as the primary evidence that the product is running.
 
 If a real product defect blocks the planned scene, record it as a blocker and stop that scene. A separate Owner-authorized product workbook is required before Utopia code may be changed.
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `IN_PROGRESS`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [SHOW-401](SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | IN_PROGRESS | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->

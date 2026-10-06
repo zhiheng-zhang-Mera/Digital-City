@@ -93,3 +93,7 @@ reviewer's `p1`–`p4`), `author-after-patch*.log`, `prefix-test.log`, `postfix-
 
 Nothing in this list is a known wrong behaviour left in place: each is either a deliberate contract
 question or unused vocabulary recorded for the Owner.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

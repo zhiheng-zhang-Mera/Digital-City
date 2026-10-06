@@ -13,3 +13,5 @@ Restart re-registration preserves existing interruption FAILED/no-replay behavio
 Exact closeout: hosted37219829411 COMPLETED SUCCESS on f3510862cc348a99004ca5bd5d151a7b56279724, Gateway and Android successful. Independently reread; development_complete=true. Status remains IN_PROGRESS, review_complete=false, merge_authority=false and terminal marker withheld. Prior CI snapshot retained as chronology.
 
 PR verification: all PR22 checks SUCCESS, exact pull-run37219861813 COMPLETED SUCCESS on f3510862cc348a99004ca5bd5d151a7b56279724; reciprocal-contract37219861825 SUCCESS. Independently observed after the earlier pending PR snapshot.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

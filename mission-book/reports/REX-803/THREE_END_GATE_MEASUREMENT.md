@@ -88,3 +88,6 @@ scheduling — it is one identity that has to be brought online, and the City na
 join `alien-reference-node`, not "wait for Alien". The experiment stays registered and validated, so the run is still a
 single POST once that identity appears.
 
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/THREE_END_GATE_MEASUREMENT.md)

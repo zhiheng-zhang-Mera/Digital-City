@@ -1,0 +1,24 @@
+# UI-102 / 文档导航
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **9**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| zh-CN | 1 | [打开 / Open](zh-CN/E2E_CONNECTED_ATTEMPT_FAILED.md) |
+
+### 本目录说明 / Local documents
+
+- [DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md)
+- [E2E_CONNECTED_ATTEMPT_FAILED.md](E2E_CONNECTED_ATTEMPT_FAILED.md)
+- [E2E_VERIFICATION_NOTES.md](E2E_VERIFICATION_NOTES.md)
+- [HANDOFF_MECH_TO_ALIEN_DELTA_AFTER_REVIEW_COMPLETE.md](HANDOFF_MECH_TO_ALIEN_DELTA_AFTER_REVIEW_COMPLETE.md)
+- [HANDOFF_MECH_TO_ALIEN_DEVELOPMENT_COMPLETE.md](HANDOFF_MECH_TO_ALIEN_DEVELOPMENT_COMPLETE.md)
+- [NARROW_WIDTH_DEFECT.md](NARROW_WIDTH_DEFECT.md)
+- [REVIEW_REPORT.md](REVIEW_REPORT.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->

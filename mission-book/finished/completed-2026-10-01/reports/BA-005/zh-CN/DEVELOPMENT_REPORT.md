@@ -1,0 +1,99 @@
+# BA-005 开发报告：Digital-Me 上下文网关与记忆／受众边界
+
+[English authoritative source / 英文权威原稿](../DEVELOPMENT_REPORT.md)
+
+本文件为历史报告的完整中文阅读译文；不产生新的阶段声明或重新验证结论。This is a complete reading translation of the historical report, not a new stage declaration or verification result.
+
+```text
+MISSION                  = BA-005 (Butler Assistant programme, task 5 of 9)
+STAGE                    = DEVELOPMENT
+DEVELOPMENT_HOST         = Mech
+CLAIM_COMMIT             = 0e7c7ef (Digital-City main, "claim(BA-005): Mech claims Development stage")
+CLAIMED_AT               = 2026-09-30T14:19:35Z
+CONTROL_REVISION_AT_CLAIM= c8eaadd (latest main when the claim was made)
+IMPLEMENTATION_REPO      = zhiheng-zhang-Mera/utopia
+MISSION_BASELINE         = 82ed36933fb4c5b00e44768d9e1aedec1d525d9c
+IMPLEMENTATION_BRANCH    = assistant/BA-005-digital-me-context-gateway
+IMPLEMENTATION_HEAD_SHA  = 4fec952d414cee8cd67245f901c71a75cee93b30
+BRANCH_CI                = 36728731544 — success
+LOCAL_CHECK_SUMMARY      = 109/109 tests pass, rooms 0 fail, city 0 fail, promotion-history OK, docs SYNCHRONIZED
+DEVELOPMENT_COMPLETE     = true
+MERGE                    = NOT PERFORMED (forbidden for component branches)
+```
+
+原始元数据保留任务／阶段／主机／领取、控制版本、仓库、基线、分支、SHA、CI、本地测试、完成及禁止组件合并状态。
+
+## 1. 交付物
+
+`contracts/digital-me-gateway-v1/` 含 `gateway.mjs`（canonical 读取端口及替身、记录契约、受众可见性矩阵、策略中介 `query`、只读写入拒绝、assistant 私有状态、设备临时状态重建）、`index.mjs`、8 项套件与根 `tests/digital-me-gateway.test.mjs`。
+
+| 必需验收项 | 测试 |
+|---|---|
+| 同一 Digital-Me 为不同 assistant 给不同授权 scope | 同名 scope 分化测试 |
+| 拒绝 scope 返回类型拒绝无部分泄漏 | `projection: null`、四个可区分拒绝轴 |
+| assistant profile／relationship 变化不改 canonical | 字节相同快照、拒写、拒污染记录 |
+| 私有／受众限制事实不能无 disclosure 授权跨受众呈现 | 私有事实跨受众 disclosure 测试 |
+| 设备临时上下文消失／重建不破坏持久记忆 | stale 报告且设备临时永不持久 |
+| scope 允许／拒绝、受众、缺失、陈旧、来源、跨 assistant 隔离 | 上述加私有记忆跨 assistant 不可见、默认最少数据、每 projection 带来源 |
+
+## 2. 决策日志（问题 → 选项 → 选择 → 理由）
+
+**D1：领取哪项任务。** 最新扫描无自己修复、无另一主机合格 Correction（Alien 正纠正 RF-003），用未领取 Development。按与自己 EM 领取不同计划的平局规则选择 BA-005，负责不变量 16–18。
+
+**D2：直接访问还是网关端口？** 只读 `DigitalMeReadPort` 提供 `listRecords`／`resolveValue`，网关不复制 canonical 状态。工作簿排除 assistant 直接数据库访问、禁止 bulk dump；端口使两者可检查，确定性替身允许无数据库隔离测试。
+
+**D3：值在哪里？** 首 fixture 在 canonical record 放 `value`，被严格契约拒绝。值应在端口以 `value_ref` 键控；record 只带引用，`resolveValue` 是唯一取值方法。这样默认最少数据成为形状性质而非 flag；只有调用者请求且策略 `allow_values` 允许，projection 才可携值，且只有端口能解析。
+
+**D4：拒绝形状？** `{granted: false, code, detail, projection: null, provenance}`，完全没有 projection 对象；区分 `UNKNOWN_ASSISTANT`、`UNKNOWN_SCOPE`、`UNKNOWN_AUDIENCE`、`UNKNOWN_PURPOSE`、`SCOPE_DENIED`、`PURPOSE_DENIED`、`AUDIENCE_DENIED`。部分填充 projection 正是泄漏路径，调用者需知修哪个轴；测试断言序列化拒绝无被扣留事实／值。
+
+**D5：知道与披露。** 受众矩阵决定谁可持有事实，另规则决定 disclosure。record 原受众与请求不同则扣留，除非 `disclosure_authorized === true`；理由区分矩阵 `AUDIENCE_NOT_PERMITTED` 与规则 `DISCLOSURE_NOT_AUTHORIZED`，遵循不变量 17。前者永不能持有，后者可经授权。测试时自己误期待矩阵理由，实际更精确阻断是 disclosure；已纠正并断言两理由。
+
+**D6：canonical 身份只读。** 网关无写路径，`write()` 抛 `DIGITAL_ME_WRITE_FORBIDDEN`；递归扫描拒含 assistant／authority 字段的 canonical record；`recordAssistantPrivateState` 返回 persona／relationship 状态带 `stored_in_digital_me: false`。遵循不变量 2／3／18：persona 属 assistant，绝不进入用户 canonical 身份。
+
+**D7：设备临时上下文。** `DEVICE_EPHEMERAL` 不进入持久 projection，报告 `DEVICE_EPHEMERAL_NOT_DURABLE`；`rebuildDeviceEphemeralContext` 从空开始，`durable: false`、`merged_into_durable_memory: false`。验收要求消失重建不破坏持久记忆，恢复旧 session 会违背要求。
+
+**D8：陈旧性。** TTL 过期事实排除 `facts` 并列 `stale`，不作 current 服务；同 BA-002／BA-003／GAI-002／EM-004 纪律，记得的事实不能等同当前事实。
+
+**D9：来源。** 每个 projection 与拒绝都带 `{assistant_ref, purpose, audience, scopes, policy_ref, decided_at}`；要求明确拒绝／不可用／陈旧行为及审计来源，不能事后解释的拒绝不可审计。
+
+**D10：无 `schema.json`。** 与其他计划分支一致。
+
+## 3. 测试汇总
+
+8 项全部通过：同端口各 assistant scope 分化；四拒绝轴无泄漏；canonical 不可变（快照相等、拒写、污染拒绝、禁字段扫描）；私有／共享 disclosure 两扣留理由；跨 assistant 私有记忆隔离；默认最少数据和 allow_values 门槛；stale 报告及设备临时重建；允许／拒绝来源、record／envelope 严格性及构造拒绝。
+
+记录两项开发发现：D3 fixture 在 record 放 value，D5 自己错误期待扣留理由；均是模块契约正确，纠正测试而未放宽规则。
+
+## 4. 本地检查与 CI
+
+| 检查 | 结果 |
+|---|---|
+| `corepack pnpm test` | 109 项、109 通过、0 失败（101＋8） |
+| `node scripts/verify-promotion-history.mjs` | OK，82ed36933fb4 上 10 条 |
+| `node --test apps/rooms/tests/*.test.mjs` | 0 失败 |
+| `node city/test-all.mjs` | 0 失败 |
+| `corepack pnpm check:docs` | PAIR_STATUS = SYNCHRONIZED |
+| GitHub CI 36728731544，4fec952d414cee8cd67245f901c71a75cee93b30 | success |
+
+## 5. 交给兄弟任务的集成接缝
+
+- BA-002：网关 ContextProjection 是 Core 已提交记忆引用的授权来源，Core `projectContext` 应消费网关而非读 Digital-Me。
+- BA-003：`deviceRef` 限定设备临时上下文；重建归设备 session，不归持久 assistant 状态。
+- BA-004：handoff audience scope 用同词汇；接收者不可继承原 assistant 被授权的 projection。
+- BA-006／BA-007：设置展示 `policy_ref` 与扣留原因，而非 raw record，用户可见为什么扣留。
+- GAI-004／EM-008：同样中性 handle 纪律；此网关在上层增加受众／披露维度。
+
+## 6. Correction 主机／Owner 开放项
+
+1. 尝试从非 facts 通道泄漏扣留事实（嵌套 includes、error details、stale），无 allow_values 取值，让临时记录持久。
+2. 确认 D5 `AUDIENCE_NOT_PERMITTED` 与 `DISCLOSURE_NOT_AUTHORIZED` 双理由审计词汇。
+3. 确认 includeValues 应是每 purpose 策略还是每调用 flag。
+4. evolution-feed 仍待 Owner。
+
+```text
+DEVELOPMENT_COMPLETE = true
+CORRECTION_ELIGIBLE  = true (must be performed by Alien, not Mech)
+MERGE_STATUS         = FORBIDDEN_UNTIL_BUTLER_PROJECT_MERGE
+```
+
+原始结论保留开发完成、仅 Alien 纠正、Butler 项目合并前禁止合并。

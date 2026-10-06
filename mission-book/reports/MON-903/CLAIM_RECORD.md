@@ -53,3 +53,5 @@ MON-903's own scope — an event-triggered decision overlay with a per-task queu
 decision receipt, timeout/fallback, user-visible provenance and no global barrier — is developed on the branch above.
 The terminal marker is NOT released by this claim, `merge_authority` stays false, and the opposite-host Formal Review
 remains outstanding.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

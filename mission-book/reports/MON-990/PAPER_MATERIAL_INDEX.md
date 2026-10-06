@@ -9,3 +9,5 @@ Product artifacts at that immutable head: `evidence/raw/mission-book/MON-990/ali
 Observed controlled material: same canonical City and FAILED task/event across physical PERM00 and Web; native risk2 taps/path3 taps, zero swipes, Web3 clicks; expanded risk retained, filter effective, disconnected native cache cleared. Two retained RULE receipts remain advisory/unapplied; measured0ms resolution and3ms queue apply only to this tiny fixture. Observer500 with independent task200/QUEUED demonstrates route isolation.
 
 Unobserved fields remain null/NOT_RUN: current end-to-end projection latency, actual Owner interruption, production provider/model performance, generalized false-safe/drift rates and blocking incident rate, production decision quality and replay/ablation outcomes. Historical canary and accepted dependency fixtures are explicitly separated in the synthesis. No inference of real-world generality or research novelty.
+
+语言配对 / Language pair: [English](./PAPER_MATERIAL_INDEX.md) · [中文](./zh-CN/PAPER_MATERIAL_INDEX.md)

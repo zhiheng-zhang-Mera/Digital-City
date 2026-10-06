@@ -199,3 +199,8 @@ F1（LOW）`completeness` 对网关能产生的一切记录恒为 PARTIAL，而�
 得出该守卫为死代码的结论，已按 INVALID_INSTRUMENT 记录（对已发布应用不成立）。全量回归失败项已在报告中逐项分类：
 三项为环境性、一项在基线同样失败、一项为负载敏感抖动、两项归因于复核方浏览器带来的套件组成负载。本轮未渲染任何
 实体设备界面、未观测 experiment/provider/model/autonomy，不作性能声明；Android 在线渲染仍为 NOT_RUN。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-802-trace-provenance-and-metrics-foundation.md)

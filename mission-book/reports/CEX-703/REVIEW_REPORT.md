@@ -165,3 +165,5 @@ workbook CEX-703
   LOW one; both are left to the programme. F4 is reconciled in the control plane by this review and stated as such.
 * This verdict covers only `478d486096512eea3266350efe070323a232a120`. A later head needs its own review, and
   `review/CEX-703-mech-review` is review evidence, not a merge candidate.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

@@ -19,3 +19,6 @@ Push37423677731 succeeded on075ddc1, but PR37423681875 failed. After merging mai
 最终候选 / Final candidate: `fe700aba957990f93b22fd63d594ddfff7b4e243`, [PR30](https://github.com/zhiheng-zhang-Mera/utopia/pull/30). Exact-head push37424946247、PR37424951038、linkage37424951044 均终态 SUCCESS；development_complete=true，仅表示开发交回复核。Mech 对旧 f76ccf5 的 NOT_PASSED 保留；新候选未正式验收，FAULT_INJECTION_RECOVERY_ACCEPTED 不释放，Android/外部 provider 实体恢复仍未测量。
 
 All three exact-head runs are terminal SUCCESS. Development is complete for re-review; Mech's NOT_PASSED verdict on original f76ccf5 remains historical. The new candidate is not formally accepted, the terminal marker stays withheld, and Android/external-provider physical recovery remains unmeasured.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/AUTHOR_REPAIR_Alien.md)

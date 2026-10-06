@@ -81,3 +81,5 @@ within a task, not across a chain).
 
 The later Formal Review of MON-902 must be performed by the other physical host (Alien), and `merge_authority` is
 `false`, so nothing here may be merged.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

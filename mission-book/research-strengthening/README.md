@@ -308,6 +308,31 @@ REX-803: Alien已领取对机复检，PR37候选8798ba9修复后71项相关测�
 
 REX-803: Alien opposite-host review claimed; PR37 candidate8798ba9 passes71 affected tests, physical campaign and final CI remain pending. REX-804: Alien adopted returned repair; PR30 candidatef4ceae7 passes12 focused tests, awaiting CI and Mech re-verification. REX-805/806/807/890 remain dependency-blocked. See each workbook and REVIEW_REPORT for authority. SHOW excluded; no parked/new programme activation.
 
+
+---
+
+[English translation / 完整英文说明](./en/README.md)
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 2/8 · 开发 / Development 4/8 · 复检 / Review 2/8 · `IN_PROGRESS`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [REX-801](REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
+| [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
+| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | IN_PROGRESS | YES | NO | YES |
+| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | IN_PROGRESS | YES | NO | YES |
+| [REX-805](REX-805-trace-replay-and-ablation.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [REX-890](REX-890-reproducibility-study-and-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->
+
 ### Mech 复验结果（2026-10-06，REX-804）/ Mech re-verification of REX-804
 
 REX-804 的复验已完成，结论写入 `reports/REX-804/REVERIFICATION_REPORT.md`：
@@ -320,3 +345,12 @@ REX-804 的复验已完成，结论写入 `reports/REX-804/REVERIFICATION_REPORT
 
 REX-804 re-verification is complete; the verdict is in `reports/REX-804/REVERIFICATION_REPORT.md`. **B1 is closed** (the author's `faults.mjs` is byte-identical to this reviewer's published repair; all nine reviewer probes pass on both repaired heads, including the P8 regression guard). The interim CI red at f4ceae73 is a **host-scheduling-dependent test**, not a product regression: the two commits after the adoption change tests and evidence only, the product diff between the heads is empty, and the suite passes 8/8 five times on each head here. **New blocking finding B4:** the branch is **not mergeable into current main** - the tip's PR run is red while its push run is green because a push tests the old base and a PR tests the merge with the new main; reproduced deterministically on the local merge of `origin/main b06504f` with `075ddc13`, where the adopted REX-801 store-guard probe goes 1 pass / 1 fail with `ENOTDIR ... mkdir '<runtime>/research/faults'` against 2/2 on main alone. Root cause is the unguarded `mkdirSync` at `services/dev-gateway/research/faults.mjs:9`, constructed during City startup - the **fifth instance of the store-guard class**, and the sharpest, because the read path in the same file was repaired for B1 while the mkdir on the same line was not. **Verdict on `075ddc13`: NOT PASSED for B4**, marker unreleased. Adoptable minimum repair `repair/REX-804-mech-fault-store-guard-on-current-main` @ adc075e (the merge result plus the guarded construction): after it the guard test is 2/2 in 91 ms and hosted push run 37424594316 is terminal SUCCESS attempt 1 on the merge.
 
+
+
+复验来源说明 / Re-verification provenance: 上述 Mech 结论针对历史 `075ddc13`，完整证据见 [REVERIFICATION_REPORT](../reports/REX-804/REVERIFICATION_REPORT.md)（[完整中文](../reports/REX-804/zh-CN/REVERIFICATION_REPORT.md)）；[英文阅读译本](./en/README.md)保留全部复验细节。后续 [AUTHOR_REPAIR](../reports/REX-804/AUTHOR_REPAIR_Alien.md)（[完整中文](../reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md)）是独立作者修复来源，不自行构成对侧宿主验收；[canonical 工作书](./REX-804-fault-injection-and-recovery-probes.md)仍是当前 authority。 / The Mech verdict above concerns historical `075ddc13`; the linked report and complete Chinese reading translation preserve its evidence, and the English reading page preserves all details. The later linked author repair is a separate provenance source and does not itself establish opposite-host acceptance; the canonical workbook remains current authority.
+
+### 当前候选交接更新 / Current candidate handoff update
+
+REX-803 review8798ba9 exact CI全部SUCCESS，71相关测试与8独立critic探针通过；实体门槛仍NOT_RUN。常驻City实际回查确认Android/Gateway同City，Alien保存成员配置却被拒绝INSTALLATION_RETIRED，详见RESIDENT_CITY_RECHECK_Alien。REX-804 development候选fe700ab包含新main并修复Mech复验B4，19相关测试、push37424946247/PR37424951038/linkage37424951044均SUCCESS；development_complete=true，Mech对新候选的正式复验待完成。旧头075ddc1的B4 NOT_PASSED保持历史结论，不等同新头已验收。
+
+REX-803 review8798ba9 has all exact CI runs SUCCESS,71 affected tests and8 independent critic probes passing; the physical gate remains NOT_RUN. A live recheck confirms Android/Gateway identity agreement, but Alien's saved member configuration is rejected asINSTALLATION_RETIRED. REX-804 candidatefe700ab includes new main and repairs Mech's B4 finding;19 affected tests and all three exact CI runs succeed. Development is complete for Mech's formal re-verification. The NOT_PASSED verdict on previous075ddc1 remains historical; it does not accept the new head. Canonical workbooks remain authoritative.

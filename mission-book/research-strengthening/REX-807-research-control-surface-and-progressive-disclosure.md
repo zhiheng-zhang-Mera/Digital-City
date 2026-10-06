@@ -83,3 +83,8 @@ Formal Reviewer 用普通用户路径寻找隐藏入口、假按钮、过度折�
 ## 完成门槛
 
 直接控制、知情、危险操作隔离、技术详情折叠均满足全局 Capability Exposure Gate。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-807-research-control-surface-and-progressive-disclosure.md)

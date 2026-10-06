@@ -44,3 +44,8 @@ fast-forward is exactly the operation nobody re-reads.
 Read-only. I did not merge, did not move `main`, did not touch the branch, and did not edit the development
 host's fields. The correction remains the author's, and this document exists so that whoever takes step 7 can
 see both that it is clean and what depends on taking the right head.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/VERIFICATION_MECH_STEP7_PREVERIFIED_AT_REPAIRED_HEAD.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

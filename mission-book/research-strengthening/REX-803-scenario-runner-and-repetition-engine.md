@@ -98,3 +98,8 @@ DIRECT_CONTROL：
 ## 完成门槛
 
 可在 Alien + Mech + Android 基础拓扑运行至少一组 controlled campaign，并留下完整 research trace/material。
+
+
+---
+
+[English reading translation / 完整英文阅读说明](./en/REX-803-scenario-runner-and-repetition-engine.md)

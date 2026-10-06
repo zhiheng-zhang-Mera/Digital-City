@@ -86,3 +86,6 @@ and is done.
 - wake conditions: the Alien reference node joining the City; a verdict landing on REX-803 or MON-903; a repaired
   REX-804 head; an adoption decision on either open repair branch; or a fresh Owner instruction that opens new work for
   Mech.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/ALIEN_CONTINUATION_PACKET.md)

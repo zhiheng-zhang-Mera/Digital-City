@@ -193,3 +193,5 @@ RECORD CORRECTIONS          2 claims of this host's own, corrected in §6
 RESIDUAL RISK               1 reproducibility finding (the yaml/city install step) that only bites a reviewer who
                             skips the documented second install; it does not affect CI
 ```
+
+语言配对 / Language pair: [English](./INDEPENDENT_VERIFICATION_Mech.md) · [中文](./zh-CN/INDEPENDENT_VERIFICATION_Mech.md)

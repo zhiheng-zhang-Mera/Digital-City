@@ -7,3 +7,6 @@ Development complete; opposite physical-host Formal Review pending. Review must 
 Task1/2 checked in source plan; Task3 CI/materials/candidate/technical-review handoff completed by this external exact-head report without changing the tested implementation solely to tick a checkbox. Terminal marker RESEARCH_TRACE_FOUNDATION_ACCEPTED intentionally not emitted until formal acceptance.
 
 PR17 opened; all push/PR checks on exact833279cae237080cca88b1b6dbc9f217027ba68f observed terminal success. Opposite-host Formal Review remains pending.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEVELOPMENT_HANDOFF.md)

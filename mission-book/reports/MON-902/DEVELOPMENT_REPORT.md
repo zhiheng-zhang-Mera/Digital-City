@@ -275,3 +275,5 @@ CLASSIFICATION  MEASUREMENT_DEFECT, repaired; the recorded over-claim is a RECOR
 LESSON        a CI field that says "both runs are green" must be written from a per-run read of both events, not from
                 one green run plus an assumption about the other one.
 ```
+
+语言配对 / Language pair: [English](./DEVELOPMENT_REPORT.md) · [中文](./zh-CN/DEVELOPMENT_REPORT.md)

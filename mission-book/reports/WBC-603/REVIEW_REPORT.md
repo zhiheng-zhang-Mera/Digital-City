@@ -132,3 +132,5 @@ transport failure / hang                       PROBE E: bounded typed timeout, n
 * F1 is **not** repaired by this review, and it is not a condition of the PASS: it is recorded with its minimum
   repair boundary and left to the programme's discretion.
 * This verdict covers only the reviewed head. A later head needs its own review; nothing here transfers to it.
+
+语言配对 / Language pair: [English](./REVIEW_REPORT.md) · [中文](./zh-CN/REVIEW_REPORT.md)

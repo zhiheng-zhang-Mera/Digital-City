@@ -5,3 +5,5 @@ Alien-codex/MERA-ALIANWARE. Fresh Digital-City main9077911d03aae7bac23a5cbc2bfcc
 CEX702 implementation3d233ff39d1e96b8a590b12f520f98c283356f25 remains owned while hosted Gateway job completes (Android success); rule§4 authorizes independent next workbook rather than idle waiting. Use isolated D:/Utopia-CEX704 branch cex/CEX-704-Alien-codex-native-owner-onboarding. Reuse canonical join approval and JOIN501 pairing lifecycle; no approval database or new trust path. Allocate CAP-ONBOARDING-OWNER-001, exact record after implementation. Real-device opposite-host Formal Review required; no owner gate/merge authority.
 
 User intent: smart searchable joining with chosen admission/device/City names; new local host PRIMARY, approved join demotes only local host. Native Owner onboarding control is a separate bounded repair; primary-agent user appointment remains pending and cannot be substituted by QR generation.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

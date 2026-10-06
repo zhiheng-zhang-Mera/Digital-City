@@ -127,3 +127,5 @@ L4  A suite that only feeds well-formed input cannot detect a false-safe output.
 L5  One order key, shared with the state vocabulary the contract already defines. A private copy of the
     state list is a second source of truth and will drift.
 ```
+
+语言配对 / Language pair: [English](./AUTHOR_ACCEPTANCE_OF_REVIEW.md) · [中文](./zh-CN/AUTHOR_ACCEPTANCE_OF_REVIEW.md)

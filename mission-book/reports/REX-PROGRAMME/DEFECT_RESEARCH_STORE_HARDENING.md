@@ -341,3 +341,6 @@ several rounds, which read as "environment" rather than as "not installed".
 
 
 
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEFECT_RESEARCH_STORE_HARDENING.md)

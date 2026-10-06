@@ -70,3 +70,5 @@ V6  The completion-gate question this task inherits: whether the marker may be r
 Findings, including anything the reviewer cannot reproduce, will be published in
 `mission-book/reports/MON-990/REVIEW_REPORT.md` against this exact target. The terminal marker is released only by that
 report, and only if the review passes.
+
+语言配对 / Language pair: [English](./REVIEW_CLAIM_Mech.md) · [中文](./zh-CN/REVIEW_CLAIM_Mech.md)

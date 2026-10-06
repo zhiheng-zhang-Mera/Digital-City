@@ -7,3 +7,5 @@ Under ConstructionRules §2A.3 DEPENDENCY_SHA_UNION_AT_CLAIM, created isolated D
 Claim only WBC603. Default dormant Worker Pool and explicit bounded headless agent seam; existing STANDARD_DEVICES startup/execution remains unchanged. No real Workbench, no second canonical queue, no new transport, no shared long-lived secrets, no HA or primary-agent migration. Allocate CAP-WORKER-POOL-AGENT-001; four dimensions will follow actual evidence. Opposite physical-host Formal Review required; merge_authority=false, no terminal marker.
 
 CEX705 exact candidate `de9185a4ef8d761053c88316ec9efeca037239fb` remains owned while hosted37218345150 runs; §4 permits independent work instead of idle waiting. No unaccepted CEX candidate sibling merge. Earlier overly broad assumption that WBC603 must wait for main ancestry is corrected: this workbook explicitly permits a smoke-tested accepted-head union. Main-anchored workbooks still require main ancestry.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

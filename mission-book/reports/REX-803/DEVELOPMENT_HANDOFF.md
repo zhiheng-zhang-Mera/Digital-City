@@ -145,3 +145,6 @@ recommendation unilaterally, because the collision record is explicit about what
 reviewer; one instruction from the reviewer is all it takes.
 
 
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEVELOPMENT_HANDOFF.md)

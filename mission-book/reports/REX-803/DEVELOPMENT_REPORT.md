@@ -290,3 +290,6 @@ F10 FINDING (LOW, from the physical run): after a campaign finishes, the owner-f
     Recorded for REX-807 (research control surface).
 MERGE AUTHORITY  false — this host does not merge REX-803. Terminal marker NOT released.
 ```
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/DEVELOPMENT_REPORT.md)

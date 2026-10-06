@@ -9,3 +9,5 @@ Independent opposite physical host must construct UNBOUND/rebind/wrong-proof/clo
 Capability candidate CAP-IDENTITY-001 at capability-registry/records/CAP-IDENTITY-001.yaml: Web runtime/backend observed, Android offline reachability partial, end-to-end intent acceptance pending. Fresh rules §14C reconciled before developer handoff.
 
 Observed failures retained in PAPER_MATERIAL_INDEX and ignored Utopia runtime; no public-performance or remote-login guarantee inferred. Research checkpoint CONTEXT_LIFECYCLE.md records observed compaction and exact-state refresh; metrics unavailable remain NOT_OBSERVABLE.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_HANDOFF.md) · [中文](./zh-CN/DEVELOPMENT_HANDOFF.md)

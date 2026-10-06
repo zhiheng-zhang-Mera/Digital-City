@@ -176,3 +176,5 @@ controlled fixtures. The audit's baseline is the dependency union, not `main`; n
 workbook grants merge authority. The terminal marker `CAPABILITY_ENTRY_BASELINE_AUDITED` is a review outcome and is
 **not** released by development: the workbook requires the reviewer to rebuild the inventory independently from the
 code and to diff the two, and this host cannot review its own work.
+
+语言配对 / Language pair: [English](./PAPER_MATERIAL_SYNTHESIS.md) · [中文](./zh-CN/PAPER_MATERIAL_SYNTHESIS.md)

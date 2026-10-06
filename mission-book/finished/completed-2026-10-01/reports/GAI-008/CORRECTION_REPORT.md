@@ -102,3 +102,7 @@ reviewer's 19 probes), `author-after-patch.log`, `prefix-test.log`, `postfix-tes
 7. **`classifyFailure` passes a negative `retry_after_ms` through** (the retry path clamps it with
    `Math.max`), and a provider `retry_after_ms` is not capped by `backoff_cap_ms` — the workbook does not
    settle whether a provider-supplied delay may exceed the local cap.
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/CORRECTION_REPORT.md)

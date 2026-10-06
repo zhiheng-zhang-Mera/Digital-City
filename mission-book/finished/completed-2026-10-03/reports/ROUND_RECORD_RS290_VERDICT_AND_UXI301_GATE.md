@@ -56,3 +56,8 @@ commits — see `CONTROL_PLANE_DUPLICATE_KEYS_MECH.md`. Recorded as `VERIFIED, N
 three of the four need their canonical value established from the commit record rather than guessed.
 It should be repaired before or alongside the phase freeze, so the frozen baseline does not carry
 ambiguous control-plane state.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/ROUND_RECORD_RS290_VERDICT_AND_UXI301_GATE.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

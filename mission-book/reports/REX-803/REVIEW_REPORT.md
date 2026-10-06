@@ -15,3 +15,10 @@ Final affected integration71 PASS, independent critic8 PASS with no remaining im
 实体门槛仍未满足：当前主机未运行接入同一City的reference node，作者此前记录Alien node offline；未独立观测Alien+Mech+Android完整campaign。两个逻辑workers同机演练不能替代实体两主机。物理门槛和最终CI满足前，review_complete=false，SCENARIO_REPETITION_ENGINE_ACCEPTED不释放。
 
 Physical gate remains unobserved: no local reference node currently joins the same live City, and author evidence records Alien offline. Two logical workers in one-host rehearsal do not satisfy two physical hosts. Until the physical campaign and final CI pass, review_complete remains false and SCENARIO_REPETITION_ENGINE_ACCEPTED is not released.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_REPORT.md)
+
+## 最新回查 / Latest recheck — 2026-10-06T07:00:04Z
+
+上文CI pending是阶段快照，现已更新：8798ba9 exact push37423084327 / PR37423138551 / linkage37423138558 均终态SUCCESS。实体门槛仍NOT_RUN；[实际常驻City只读回查](./RESIDENT_CITY_RECHECK_Alien.md)确认Android与Gateway同City，但Alien offline且本地配置City不同。 / The earlier CI-pending statement is a stage snapshot: all three exact8798ba9 runs are now terminal SUCCESS. The physical gate remains NOT_RUN; the resident-City read-only check confirms Android/Gateway identity agreement, while Alien is offline and its local configuration names another City.

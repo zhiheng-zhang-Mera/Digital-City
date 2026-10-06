@@ -262,3 +262,19 @@ normal workload
 ```
 
 如果未来仍需要修改大量 Assistant / Gateway / UI / task semantics 才能启用 Workbench，则本 programme 视为没有真正完成“兼容迁移”目标。
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 4/4 · 开发 / Development 4/4 · 复检 / Review 4/4 · `COMPLETE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [WBC-601](WBC-601-execution-backend-contract-and-standard-default.md) | COMPLETE | YES | YES | YES |
+| [WBC-602](WBC-602-node-role-capability-resource-descriptor.md) | COMPLETE | YES | YES | YES |
+| [WBC-603](WBC-603-worker-pool-and-headless-node-agent-seam.md) | COMPLETE | YES | YES | YES |
+| [WBC-604](WBC-604-execution-profile-switch-and-hybrid-routing.md) | COMPLETE | YES | YES | YES |
+
+<!-- SERIES_DASHBOARD:END -->

@@ -51,3 +51,8 @@ The Web E2E wrote its own evidence to `evidence/raw/mission-book/UXI-301/web-e2e
 worktree**, deliberately not committed: it is a tracked file on the branch and overwriting UXI-301's
 already-reviewed PASS record would be the clobbering hazard this task has hit before. The figures above are the
 run's own verdict lines, reproduced verbatim.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/VERIFICATION_MECH_MERGED_MAIN_REMEASURED.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

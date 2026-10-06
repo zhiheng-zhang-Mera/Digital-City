@@ -64,3 +64,8 @@ this into the code comment itself, unprompted, which is the correction landing i
 `mission-book/reports/UXI-390/mech-review/android-repair-confirmed.json` and
 `android-repair-confirmed-360dp.png`; the repair diff is `6a82e35`, the guard is
 `tests/uxi390-cross-surface-wording.test.mjs`.
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/CONFIRMATION_MECH_C1_C2_APPLIED_AND_CLOSED.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

@@ -9,3 +9,5 @@ Opposite physical host must independently check fresh discoverability/count/iden
 2026-10-05 superseding layout repair: source478d486096512eea3266350efe070323a232a120, 80 native units/build PASS, online OPPO title/reason/selection observations recorded in NATIVE_LAYOUT_FIX_RECEIPT.json. Prior online NOT_RUN statement remains chronological; now observed only the bounded layout and selection paths. Exact-head CI37222683667 pending; development_complete=false until final hosted results; opposite Formal Review and merge authorization remain pending.
 
 Final exact-head hosted CI37222683667 SUCCESS at478d486; PR37222688854 and reciprocal37222688771 SUCCESS. development_complete restored true; review_complete=false, merge_authority=false remain. Actual native layout red is retained. No self Formal Review.
+
+语言配对 / Language pair: [English](./DEVELOPMENT_HANDOFF.md) · [中文](./zh-CN/DEVELOPMENT_HANDOFF.md)

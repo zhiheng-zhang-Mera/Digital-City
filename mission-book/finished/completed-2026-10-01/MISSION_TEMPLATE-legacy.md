@@ -49,3 +49,6 @@ repair_reason: null
 > [`past-rules/`](./past-rules/) 仅为历史归档，不具运行时约束力。
 >
 > 本 Mission 的 mission-specific gates 与当前 front matter 继续有效；若与 Owner 最新裁决冲突，以最新日期 response 为准。
+
+
+[阅读译本 / Reading translation](./en/MISSION_TEMPLATE-legacy.md)

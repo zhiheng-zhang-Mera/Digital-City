@@ -11,10 +11,10 @@ START='<!-- DOCUMENT_NAVIGATION:START -->'
 END='<!-- DOCUMENT_NAVIGATION:END -->'
 
 def relative(p):return p.relative_to(ROOT).as_posix()
-def documents(folder):return sorted(p for p in folder.rglob('*.md') if '.runtime' not in p.parts and '.git' not in p.parts)
+def documents(folder):return sorted((p for p in folder.rglob('*.md') if '.runtime' not in p.parts and '.git' not in p.parts),key=lambda p:p.as_posix())
 def rows(folder):
  out=[]
- for child in sorted(folder.iterdir()):
+ for child in sorted(folder.iterdir(),key=lambda p:p.name):
   if not child.is_dir() or child.name.startswith('.'):continue
   docs=documents(child)
   if not docs:continue
@@ -33,7 +33,7 @@ def block(folder):
  for child,count,entry in rows(folder):
   link=entry.relative_to(folder).as_posix().replace(' ','%20')
   lines.append(f'| {child.name} | {count} | [打开 / Open]({link}) |')
- direct=[p for p in sorted(folder.glob('*.md')) if p.name!='README.md']
+ direct=[p for p in sorted(folder.glob('*.md'),key=lambda p:p.name) if p.name!='README.md']
  if direct:
   lines+=['','### 本目录说明 / Local documents','']
   lines += [f'- [{p.name}]({p.name.replace(" ","%20")})' for p in direct]
@@ -87,7 +87,7 @@ def main():
   print('Missing navigation files:',len(missing));return 1
  for p in missing:p.write_text(f'# {p.parent.name} / 文档导航\n',encoding='utf-8')
  drift=[]
- for folder in sorted(targets,key=str):
+ for folder in sorted(targets,key=relative):
   p=folder/'README.md';want=expected(folder)
   if p.read_text(encoding='utf-8')!=want:
    drift.append(relative(p))
@@ -97,9 +97,11 @@ def main():
    drift.append(relative(p))
    if not args.check:p.write_text(want,encoding='utf-8')
  all_docs=documents(ROOT)
- inventory={'schema_version':1,'scope':'all Markdown explanation documents; metadata/code and evidence claims preserved','markdown_count':len(all_docs),'total_bytes':sum(p.stat().st_size for p in all_docs),'entries':[]}
+ inventory={'schema_version':2,'scope':'all Markdown explanation documents; metadata/code and evidence claims preserved','byte_measurement':'UTF8 text with LF line endings; original malformed byte preimages stored separately','markdown_count':len(all_docs),'total_bytes':0,'entries':[]}
  for p in all_docs:
   text=p.read_text(encoding='utf-8',errors='replace')
+  byte_count=len(text.encode('utf-8'))
+  inventory['total_bytes']+=byte_count
   encoding_state='REPAIR_REQUIRED' if '\ufffd' in text else 'UTF8'
   prose=re.sub(r'^---\n.*?\n---\n','',text,flags=re.S)
   prose=re.sub(r'```.*?```','',prose,flags=re.S)
@@ -133,7 +135,7 @@ def main():
    if rel.endswith(old):
     candidate=ROOT/(rel[:-len(old)]+new)
     if candidate.exists():peer=relative(candidate)
-  inventory['entries'].append({'path':rel,'bytes':p.stat().st_size,'encoding_state':encoding_state,'chinese_characters':chinese,'english_words':english,'paired_path':peer,'language_presence':'PAIR_PRESENT' if peer else 'BOTH_PRESENT_REVIEW_REQUIRED' if chinese>30 and english>30 else 'TRANSLATION_REVIEW_REQUIRED'})
+  inventory['entries'].append({'path':rel,'bytes':byte_count,'encoding_state':encoding_state,'chinese_characters':chinese,'english_words':english,'paired_path':peer,'language_presence':'PAIR_PRESENT' if peer else 'BOTH_PRESENT_REVIEW_REQUIRED' if chinese>30 and english>30 else 'TRANSLATION_REVIEW_REQUIRED'})
  out=ROOT/'docs/DOCUMENTATION_INVENTORY.json'
  rendered=json.dumps(inventory,ensure_ascii=False,indent=2)+'\n'
  if not out.exists() or out.read_text(encoding='utf-8')!=rendered:

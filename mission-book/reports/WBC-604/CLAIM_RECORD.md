@@ -26,3 +26,5 @@ WBC-604's own scope is the three-profile contract (STANDARD_DEVICES / WORKER_POO
 with a stable control surface and safe persistence, HYBRID routing precedence, and the fail-safe/rollback behaviours
 listed in its workbook section "Fail-safe / rollback". Development happens on the branch above; the terminal marker
 `EXECUTION_PROFILE_SWITCH_COMPAT_ACCEPTED` is NOT released by this claim.
+
+语言配对 / Language pair: [English](./CLAIM_RECORD.md) · [中文](./zh-CN/CLAIM_RECORD.md)

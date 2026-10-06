@@ -55,3 +55,8 @@ Nothing here is a product defect and nothing is claimed as passing.
 2. `am start -W` prints `Status`/`TotalTime`; read it rather than assuming the launch worked.
 3. Keep the reliable channel: `uiautomator dump`, not `screencap` (this emulator returns an
    all-black framebuffer — recorded in E2E_VERIFICATION_NOTES.md).
+
+
+## 中文阅读译本 / Chinese reading translation
+
+[完整中文阅读译本](./zh-CN/E2E_CONNECTED_ATTEMPT_FAILED.md)逐节保留解释和历史限制，原代码证据不改写，不产生新的任务状态或验收。 / [Complete Chinese reading translation](./zh-CN/E2E_CONNECTED_ATTEMPT_FAILED.md) preserves the explanations and historical limits section by section, without rewriting code evidence or creating new task state or acceptance.

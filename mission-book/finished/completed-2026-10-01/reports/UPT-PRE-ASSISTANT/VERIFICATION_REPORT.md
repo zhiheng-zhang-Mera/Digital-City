@@ -172,3 +172,7 @@ The verifier's hosted-CI gap from round 1 is closed here: the branch CI on the a
 merged-main CI on the merge commit are both recorded, with both jobs green in each.
 
 STATUS: VERIFICATION_REPORT
+
+## Language reading link / 语言阅读链接
+
+[中文完整阅读译文 / Complete Chinese reading translation](./zh-CN/VERIFICATION_REPORT.md)

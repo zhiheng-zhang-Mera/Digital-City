@@ -5,3 +5,6 @@ Alien / MERA-ALIANWARE 领取 Mech 开发的 REX-803 对机 Formal Review。初�
 Alien / MERA-ALIANWARE claims opposite-host Formal Review of Mech-authored REX-803. Initial target a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df; original authorship and historical collision records remain intact. Verify original target and proposed fixes independently before adopting verified repairs into an explicit review branch. No review verdict, completion marker or physical three-surface acceptance is claimed.
 
 Scope: lifecycle/drain/start/stop/restart, canonical orphan cleanup, receipt ordering/window truth, seeded two-worker placement and deterministic repetition, authority isolation, declared versus actual topology, exact trace binding and physical gate. Published proposals07e8c3c and42acdc6 are evidence candidates, not accepted commits. Existing pools only; SHOW remains excluded and parked programmes remain disabled.
+
+
+[完整中文阅读译本 / Chinese reading translation](./zh-CN/REVIEW_CLAIM_Alien.md)
