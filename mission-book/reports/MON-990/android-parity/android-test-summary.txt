@@ -1,0 +1,36 @@
+﻿Android unit tests at the reviewed head fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40
+JAVA_HOME=C:\Users\15601\.gradle\jdks\eclipse_adoptium-17-amd64-windows.2   (Temurin-17.0.18+8)
+gradlew :app:testDebugUnitTest :app:assembleDebug   ->   BUILD SUCCESSFUL in 3m 51s (first run) / 5s (incremental)
+app-debug.apk 10680669 bytes
+
+city.utopia.control.ActionsTest                      tests=13   failures=0   errors=0
+city.utopia.control.AskTest                          tests=8    failures=0   errors=0
+city.utopia.control.CallbackFenceTest                tests=3    failures=0   errors=0
+city.utopia.control.CapabilityPolicyTest             tests=1    failures=0   errors=0
+city.utopia.control.CapabilityRequestExceptionTest   tests=4    failures=0   errors=0
+city.utopia.control.DeviceRecoveryTest               tests=4    failures=0   errors=0
+city.utopia.control.FlatEnvelopeTest                 tests=3    failures=0   errors=0
+city.utopia.control.MemberManagementTest             tests=7    failures=0   errors=0
+city.utopia.control.MonitorProjectionTest            tests=7    failures=0   errors=0
+city.utopia.control.NativeEnrollmentTest             tests=6    failures=0   errors=0
+city.utopia.control.OwnerOnboardingTest              tests=4    failures=0   errors=0
+city.utopia.control.PairingProtocolTest              tests=10   failures=0   errors=0
+city.utopia.control.ProtocolTest                     tests=2    failures=0   errors=0
+city.utopia.control.RelativeAgeTest                  tests=4    failures=0   errors=0
+city.utopia.control.RelayPairingIdentityTest         tests=5    failures=0   errors=0
+city.utopia.control.ResearchTraceTest                tests=3    failures=0   errors=0
+city.utopia.control.RoomsTest                        tests=5    failures=0   errors=0
+city.utopia.control.ScanZoomPolicyTest               tests=3    failures=0   errors=0
+city.utopia.control.SchedulerChoiceTest              tests=2    failures=0   errors=0
+city.utopia.control.SchedulerPresentationTest        tests=10   failures=0   errors=0
+city.utopia.control.TechnicalFoldingTest             tests=6    failures=0   errors=0
+city.utopia.control.ui.UiSizingTest                  tests=8    failures=0   errors=0
+
+TOTAL suites=22 tests=118 failures=0 errors=0
+
+The temp parity probe (ReviewedHeadContractParityTest.kt, published beside this file) is NOT part of this
+count: it was removed before this run so that 118 is the app's own suite. It passed 1/1 when run with
+  gradlew :app:testDebugUnitTest --tests city.utopia.control.ReviewedHeadContractParityTest -i
+against the captured payloads beside it, printing:
+  PARITY reviewed-head=fb042d9 cityId=f2fb48c9-5809-4276-8091-d49eae400bd1 health=COMPLETE nodes=31 visible=1 edges=0 clusters=2 receipts=1 -> Android projection ACCEPTED the server's own payloads
+

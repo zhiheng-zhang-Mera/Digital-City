@@ -3,7 +3,7 @@ workbook_id: MON-990
 phase: CITY_WORK_MONITOR_CLOSEOUT
 sequence: 90
 execution_enabled: true
-status: IN_PROGRESS
+status: "COMPLETE"
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -21,9 +21,11 @@ development_complete: true
 review_host: "Mech"
 review_head_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
 review_ci: "REVIEWER (Mech) re-read the reviewed head's three runs one at a time from the Actions API and matched on headSha fb042d9: push 37420061997, PR 37420065177, linkage 37420065178, all COMPLETED SUCCESS attempt 1. Reviewer's own probe branch review/MON-990-Mech-20261006: first head 7fffe3f FAILED CI run 37422163771 on a REVIEWER INSTRUMENT defect (R1 waited for the panel shell instead of data-loaded=true), fixed at 14b2c7b with run 37422910108 SUCCESS attempt 1; both runs retained."
-review_status: "PASS_ON_11_OF_12_CHECKS_MARKER_WITHHELD_ANDROID_NOT_RUN"
+review_status: "PASS_ON_ALL_12_CHECKS_ANDROID_HALF_MEASURED_RENDERED_HANDSET_NOT_OBSERVED_HERE"
 review_report: "mission-book/reports/MON-990/REVIEW_REPORT.md"
-review_complete: false
+review_complete: true
+terminal_marker: CITY_WORK_MONITOR_V1_ACCEPTED
+review_verdict: "PASSED on fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40 (Mech, opposite physical host; developer Alien). No defect found across the reviewer's eleven manufactured probes, and check 9's Android half is measured rather than NOT_RUN: with JAVA_HOME pointing at the Temurin 17.0.18 already installed on this host, gradlew :app:testDebugUnitTest :app:assembleDebug is BUILD SUCCESSFUL in 3m51s at the reviewed head, 118 Android unit tests pass with 0 failures (22 suites, including MonitorProjectionTest 7/7), app-debug.apk builds, and a probe that fed the head's OWN captured server payloads to the Android projection accepted them (cityId-matched graph with 31 nodes, 2 clusters, 1 receipt). CORRECTION, kept rather than overwritten: this review first reported the Android half as un-runnable because 'only JDK 26 is installed on this host' - that was a reviewer measurement error (it read the PATH default), not a host limitation. Marker CITY_WORK_MONITOR_V1_ACCEPTED RELEASED on this head. Scope, stated not implied: the handset-RENDERED half of check 9 is NOT_OBSERVED on this host (adb devices is empty; the handset is live in the City as a control surface but attached elsewhere), so the author's physical capture remains the only evidence for it; this release is a reviewer judgement recorded in section 9 of the review report, not a measurement. No merge authority exercised, no main touched."
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor
 user_exposure_nesting: L1_PRIMARY
