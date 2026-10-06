@@ -1,0 +1,25 @@
+✔ CEX701 owner sees canonical clone findings and explicitly recovers unbound installation without deleting other devices (3105.0553ms)
+✔ CEX701 session sees only own installation and actionable owner guidance; rebind and cross-revoke stay forbidden (1491.3907ms)
+✔ CEX701 recovery selection and owner confirmation do not survive credential changes (1565.623ms)
+✔ JOIN-503 (1)(2): one join enrolls an installation, and a RESTART reconnects with nothing typed (203.463ms)
+✔ JOIN-503 (3): an EXPIRED session is replaced by an internal re-auth, with no user-visible token prompt (157.8654ms)
+✔ JOIN-503 (4)(5): REVOKE denies reconnect, and a revoked installation cannot mint new membership (207.5937ms)
+✔ JOIN-503 (6): a REINSTALL mints new identities and is unbound until an explicit rebind (210.4414ms)
+✔ JOIN-503 (7): the secret-exposure sweep - no durable secret in the snapshot, events, records or a URL (109.9673ms)
+✔ JOIN-503: a broken or foreign device file is refused rather than half-used (7.1418ms)
+✔ JOIN-503 (8): the engineering manual fallback still exists and is not the default path (127.1244ms)
+✔ JOIN-503: an invite of either shape is understood, and junk is refused instead of guessed at (0.5778ms)
+✔ JOIN-503: enrollment events are emitted on a CLONE, which is the population-level half of detection (99.1329ms)
+✔ REVIEW JOIN-503 D-1/D-2: a session may act on ITSELF and on nothing else (284.6599ms)
+✔ D-1: an enrolled session may NOT revoke another installation, and the refusal really refuses (191.6745ms)
+✔ D-2: a session sees ONLY itself - not the roster, and not the City-wide clone scan (145.9167ms)
+✔ D-1/D-2: the owner keeps FULL authority, so the repair did not break the surface it protects (173.3371ms)
+✔ D-1/D-2: the two sibling guards the review compared against are still in place (156.9029ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8441.2203

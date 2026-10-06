@@ -1,0 +1,10 @@
+✔ CEX701 owner sees canonical clone findings and explicitly recovers unbound installation without deleting other devices (3133.79ms)
+✔ CEX701 session sees only own installation and actionable owner guidance; rebind and cross-revoke stay forbidden (1556.722ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7060.3853

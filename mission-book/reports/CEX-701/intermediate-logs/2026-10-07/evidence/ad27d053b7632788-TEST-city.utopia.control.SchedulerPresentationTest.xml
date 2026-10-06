@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.SchedulerPresentationTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-04T13:32:14.080Z" hostname="MERA-ALIANWARE" time="0.011">
+  <properties/>
+  <testcase name="every term carries its own name, real copy, and a class-consistent severity" classname="city.utopia.control.SchedulerPresentationTest" time="0.002"/>
+  <testcase name="an empty provider list is not an error and produces no providers" classname="city.utopia.control.SchedulerPresentationTest" time="0.0"/>
+  <testcase name="every state and every action has real copy, not its token" classname="city.utopia.control.SchedulerPresentationTest" time="0.0"/>
+  <testcase name="unknown state, term and action throw rather than rendering blank" classname="city.utopia.control.SchedulerPresentationTest" time="0.001"/>
+  <testcase name="a non-permitted provider is never selectable, even when the feed lies" classname="city.utopia.control.SchedulerPresentationTest" time="0.005"/>
+  <testcase name="the adapter carries the presentation version so the two surfaces can be compared" classname="city.utopia.control.SchedulerPresentationTest" time="0.0"/>
+  <testcase name="the decision flag and structural flag travel from the feed unchanged" classname="city.utopia.control.SchedulerPresentationTest" time="0.001"/>
+  <testcase name="severity cannot contradict the contract class, and STATE terms are bounded instead" classname="city.utopia.control.SchedulerPresentationTest" time="0.0"/>
+  <testcase name="raw vocabulary is reachable only through the explicit detail block" classname="city.utopia.control.SchedulerPresentationTest" time="0.001"/>
+  <testcase name="a failed run is the one state emphasised as blocked" classname="city.utopia.control.SchedulerPresentationTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
