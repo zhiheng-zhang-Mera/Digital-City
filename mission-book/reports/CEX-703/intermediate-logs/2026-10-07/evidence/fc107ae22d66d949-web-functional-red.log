@@ -1,0 +1,21 @@
+✖ CEX703 fresh user opens live catalog without failed Ask and selection never executes (7237.9302ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8732.0764
+
+✖ failing tests:
+
+test at tests\cex703-catalog-ui.test.mjs:2:1
+✖ CEX703 fresh user opens live catalog without failed Ask and selection never executes (7237.9302ms)
+  locator.click: Timeout 6000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('[data-terminal="catalog-open"]')[22m
+  
+      at TestContext.<anonymous> (D:\Utopia-CEX703\tests\cex703-catalog-ui.test.mjs:2:737) {
+    name: 'TimeoutError'
+  }

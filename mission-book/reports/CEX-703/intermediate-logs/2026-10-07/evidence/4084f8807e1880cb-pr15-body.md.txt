@@ -1,0 +1,5 @@
+Adds an ordinary catalog entry backed by the existing target endpoint; selecting an item prepares the existing request and preserves confirmation/idempotent retry behavior.
+
+Latest source: 478d486096512eea3266350efe070323a232a120. OPPO online follow-up discovered long unavailable reasons squeezing titles into vertical lines; repair uses full-width titles, short status and separately wrapped complete reasons. Observed disabled unavailable selection and enabled Document Intake selection preparing its example, with POST /ask and tasks both zero. Android 80 unit tests and build pass; raw UI/build hashes are recorded in Digital-City NATIVE_LAYOUT_FIX_RECEIPT.json. Original private configuration/application restored.
+
+Exact-head hosted CI is pending. Opposite physical-host Formal Review is NOT_RUN; merge_authority=false. All16 native card inspection and native mutating confirmation are NOT_RUN. Previous failed display evidence is retained. This PR does not authorize primary-agent migration.

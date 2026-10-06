@@ -1,0 +1,5 @@
+Users previously had to submit an unmatched Ask before seeing available targets. Web now has a direct Ask-bar/catalog entry and Android Ask can open the live backend catalog. Selection prepares an action without executing; unavailable targets remain disabled with their reason; existing side-effect confirmation and retry idempotency remain intact.
+
+Validation: Web9/9; Android80/80 and APK build; OPPO offline catalog entry observed disabled. Exact head a96da907a937eb043a59ddd00f48031ded749fa9 CI37207716885 success. Independent technical re-review no remaining blocker. Controlled backend added-target propagation tested.
+
+CEX-703 opposite physical-host Formal Review and native online catalog remain pending; no merge authority. Digital-City reports and CAP-ASK-001 candidate retain these limits.
