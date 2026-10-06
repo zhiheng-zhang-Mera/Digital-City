@@ -49,6 +49,13 @@
       "original_bytes": 9536,
       "preimage_ref": "mission-book/reports/REX-805/encoding-preimage.bin",
       "repair": "Keep formal acceptance frontmatter; restore only body from verified Git commit 8da6b91; see RECORD_RECONCILIATION.md"
+    },
+    {
+      "path": "mission-book/research-strengthening/README.md",
+      "preimage_ref": "docs/encoding-evidence/REX-PROGRAMME-README.md.bin",
+      "original_bytes": 56522,
+      "original_sha256": "a7f637586a488e8d969f5d66795449414a46930bb909c542db9bd94415615445",
+      "repair": "Restore verified README from 2d81528; retain valid new REX806 handover appended at 95ec09e; no guessed decoding."
     }
   ]
 }

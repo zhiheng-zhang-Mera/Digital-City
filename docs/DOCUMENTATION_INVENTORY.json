@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1633,
-  "total_bytes": 11761394,
+  "markdown_count": 1635,
+  "total_bytes": 11779826,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 9259,
+      "bytes": 12395,
       "encoding_state": "UTF8",
-      "chinese_characters": 919,
-      "english_words": 429,
+      "chinese_characters": 1139,
+      "english_words": 631,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -1591,10 +1591,10 @@
     },
     {
       "path": "mission-book/en/README.md",
-      "bytes": 7986,
+      "bytes": 8353,
       "encoding_state": "UTF8",
-      "chinese_characters": 78,
-      "english_words": 731,
+      "chinese_characters": 85,
+      "english_words": 775,
       "paired_path": "mission-book/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13344,13 +13344,31 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-806/DELIVERABLE.md",
+      "bytes": 4463,
+      "encoding_state": "UTF8",
+      "chinese_characters": 265,
+      "english_words": 40,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md",
+      "bytes": 3764,
+      "encoding_state": "UTF8",
+      "chinese_characters": 186,
+      "english_words": 61,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 656,
+      "bytes": 742,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
-      "english_words": 30,
+      "english_words": 32,
       "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/zh-CN/CLAIM_REPORT.md",
@@ -13993,10 +14011,10 @@
     },
     {
       "path": "mission-book/research-strengthening/README.md",
-      "bytes": 46008,
+      "bytes": 47661,
       "encoding_state": "UTF8",
-      "chinese_characters": 3225,
-      "english_words": 2029,
+      "chinese_characters": 3299,
+      "english_words": 2039,
       "paired_path": "mission-book/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14065,7 +14083,7 @@
     },
     {
       "path": "mission-book/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 6483,
+      "bytes": 9745,
       "encoding_state": "UTF8",
       "chinese_characters": 202,
       "english_words": 154,
@@ -14092,10 +14110,10 @@
     },
     {
       "path": "mission-book/research-strengthening/en/README.md",
-      "bytes": 53707,
+      "bytes": 55408,
       "encoding_state": "UTF8",
       "chinese_characters": 142,
-      "english_words": 4080,
+      "english_words": 4257,
       "paired_path": "mission-book/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
