@@ -304,9 +304,9 @@ Programme terminal marker：
 
 ## 当前回查 / Current pool recheck
 
-REX-803: Alien已领取对机复检，PR37候选8798ba9修复后71项相关测试通过；实体campaign门槛及最终CI待验证。REX-804: Alien采纳退回修复，PR30候选f4ceae7相关12项通过，待CI及Mech复验。REX-805/806/807/890继续等待accepted依赖。
+REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 可按 accepted 依赖领取；806/807/890 继续按任务书依赖等待。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
 
-REX-803: Alien opposite-host review claimed; PR37 candidate8798ba9 passes71 affected tests, physical campaign and final CI remain pending. REX-804: Alien adopted returned repair; PR30 candidatef4ceae7 passes12 focused tests, awaiting CI and Mech re-verification. REX-805/806/807/890 remain dependency-blocked. See each workbook and REVIEW_REPORT for authority. SHOW excluded; no parked/new programme activation.
+REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-end material review; SCENARIO_REPETITION_ENGINE_ACCEPTED is released while trace metadata remains PARTIAL. REX-804 is accepted at exactfe700aba. REX-805 can be claimed against accepted dependency heads;806/807/890 continue waiting under their workbook dependencies. SHOW and parked/new programme execution remain excluded. Earlier sections below are dated history; current authority is the workbook and formal acceptance report.
 
 
 ---
@@ -318,15 +318,15 @@ REX-803: Alien opposite-host review claimed; PR37 candidate8798ba9 passes71 affe
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 3/8 · 开发 / Development 4/8 · 复检 / Review 3/8 · `IN_PROGRESS`
+总完成 / Complete 4/8 · 开发 / Development 4/8 · 复检 / Review 4/8 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
 | [REX-801](REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
 | [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
-| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | IN_PROGRESS | YES | NO | YES |
+| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
 | [REX-804](REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
-| [REX-805](REX-805-trace-replay-and-ablation.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [REX-805](REX-805-trace-replay-and-ablation.md) | IN_PROGRESS | NO | NO | YES |
 | [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-890](REX-890-reproducibility-study-and-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
@@ -379,3 +379,75 @@ REVIEWER 仪器   本轮还发现并修好了**本人自己的**探针缺陷：P
 ```
 
 REX-804 is **ACCEPTED** at `fe700ab`: B1 (an unreadable fault receipt prevented City startup) and B4 (the same store-guard shape in the fault controller's unguarded `mkdir`, which made the branch unmergeable into current main) are both **closed**, and closed by the reviewer's own regression probes rather than by the author's suite - the B4 criterion being the exact probe that was red on the unguarded merge, re-run **inside the head that contains current main** (2/2 in 97 ms, where it was 1/1 and 34 201 ms), plus the pull_request run 37424951038 that is now terminal SUCCESS at the step that was red at 075ddc1. Three exact-head runs, read one at a time, all SUCCESS attempt 1. Marker **FAULT_INJECTION_RECOVERY_ACCEPTED released**, with scope stated rather than implied: Android native fault controls and physical/external-provider recovery remain NOT_RUN and DUPLICATE_EVENT recovery stays structurally NOT_MEASURED. This round also found and fixed **the reviewer's own** instrument defect - P6 handed "how fast is fast" to the host with a 150 ms fault window and a 350 ms sleep, failing under full-suite load with "DELAY_RESULT recorded that it was exercised (got 0)"; the same defect class the reviewer had classified in the author's fixture one round earlier, and exposed the same way by a green isolated run disagreeing with a loaded one. Fixed on `review/REX-804-mech-review @ 53d01a3` (1200 ms window, and the held report promise is awaited); both states are kept in the record.
+
+### REX-803 三端完成闸门：已在真实 City 上跑通 / REX-803 three-end completion gate: MET on the live City
+
+```text
+WHEN        2026-10-06T08:01Z，常驻 City（已更新到 8798ba9 并保留数据目录）
+BLOCKER     **不是对侧主机不在**，而是 manifest 里写了过期的身份：历次尝试都声明 alien-reference-node
+            （Alien 主机 2026-10-05 用过的名字，早已离线），而同一台主机全程以规范化入会身份
+            dev-8128a1ef25c5c4b7f66fc31b21705858（Alien-MERA-ALIANWARE）在线。
+            这是 F8 的推广：manifest 必须声明 City **实际报告**的身份，记住的名字会腐烂。
+CAMPAIGN    campaign-966cf439-7017-4bb0-88e8-981e59c18322，状态 COMPLETED (REPETITIONS_FINISHED)
+            拓扑 TWO_HOST_MESH：hosts/workers = [Mech dev-031fdba6…, Alien dev-8128a1ef…]，
+            controlSurface = Android PERM00 dev-be7832e35…
+  run 0     MEASURED  放置 dev-031fdba6…(Mech)   task Q-be723362-…
+  run 1     MEASURED  放置 dev-8128a1ef…(Alien)  task Q-f78eaee3-…   <- 由**对侧主机**执行并测得
+  run 2     MEASURED  放置 dev-031fdba6…(Mech)   task Q-697aab2c-…
+  summary   planned 3 / accounted 3 / measured 3 / timedOut 0 / failed 0 / terminalAccountingComplete true
+            三条放置均在运行前由 runSeed 预测并与实际一致
+MATERIAL    三个 canonical task 全部 COMPLETED 且带 researchRunRef；research trace 记录
+            RESEARCH_CAMPAIGN_STARTED @2026-10-06T08:00:39.601Z（storageState READY，completeness PARTIAL 如实标注）；
+            不可变回执 campaign-966cf439-…json 已落盘于 <runtime>/research/campaigns/
+EVIDENCE    已发布可跨主机复核的匿名材料包（6 个数据文件 + 索引，含逐字节 immutable receipt、trace epoch 快照、
+            PARTIAL 的 missing/dropped/clock 逐项说明与由包内文件重算的 derived checks；生成器与第二实现另置于
+            payload 之外的 evidence-tools/）：
+            reports/REX-803/evidence/MATERIAL_INDEX.md（+ MATERIAL_HANDOFF_MECH.md）
+            早前只在本机磁盘的原始 JSON 引用同样保留：D:/utopia-chat/evidence/REX-803/…
+            完整记录：reports/REX-803/THREE_END_GATE_MEASUREMENT.md
+NOT CLAIMED terminal marker 未释放。REX-803 的 Formal Review 属对侧主机，作者不代为判定；本机只交付证据。
+```
+
+REX-803's three-end completion gate is **MET**: on 2026-10-06T08:01Z a controlled campaign ran on the live City (updated to `8798ba9`, data directory retained) across the Mech + Alien + Android topology, with all three repetitions measured - including the one placed on the **Alien host's** node - every canonical task COMPLETED with its `researchRunRef`, the trace recording the campaign, and the immutable receipt filed. The two-day blocker was **not** an absent host: every earlier attempt declared `alien-reference-node`, a name the Alien machine used on 2026-10-05 and which went stale, while the same host was online the whole time under its canonical enrolled identity `dev-8128a1ef…`. That is finding F8 generalised - a manifest must declare the identities the City actually reports. The terminal marker is **not** released: the Formal Review and its verdict belong to the opposite host, and this host is the author. The reviewer's one blocking condition - that the raw material existed only on this host's drive while a MEMBER session correctly refuses the owner-scoped endpoints - is now answered by a published, hash-bound package under `reports/REX-803/evidence/` (redacted raw JSON, byte-identical immutable receipt, the whole collector epoch holding the campaign, per-file SHA256, and the missing/dropped/clock reasons for `PARTIAL` recomputed from the collector's own predicate), together with the generating script and the arithmetic that re-derives each seed and placement from the package alone.
+
+### REX-803 正式验收 / Formal acceptance
+
+Alien 正式验收 exact8798ba9，材料38项独立检查通过，3次种子/执行节点与原始回执、canonical tasks 和 trace 对齐；trace metadata PARTIAL、未发布的全局197条原始窗口、缺失provenance和意图验证NOT_TESTED均保留。新入会身份开始于07:29，不能描述此前两天始终在线。详见 [正式验收](../reports/REX-803/FORMAL_ACCEPTANCE_Alien.md)。
+
+Alien accepts exact8798ba9 after38 independent material checks and three matching seed/placement/receipt/task/trace bindings. PARTIAL trace metadata, the unpublished whole197-record window, missing provenance and NOT_TESTED intent validation remain explicit. The fresh enrollment began at07:29, not two days earlier. See the formal acceptance report linked above.
+
+### REX 集成前置测量：两个产物各自干净，合在一起不干净 / REX integration preflight: each product merges clean, together they do not
+
+REX-803 被接受**之后**才第一次尝试集成，会把冲突留到最不方便的时候。所以先测（§11 要求集成从当时最新 main 开始，本轮从 `b06504f` 出发）： / Integrating for the first time only after REX-803 is accepted would surface the conflict at the worst moment, so it was measured first, from the then-latest main `b06504f`：
+
+```text
+rex/REX-804-Alien-codex-faults  -> main 单独                CLEAN
+rex/REX-803-mech-scenario-runner -> main 单独               CLEAN
+两者同时 / both together                                    CONFLICT x2，均在 services/dev-gateway/server.mjs
+```
+
+两处冲突都是 §11 点名的 union/superset 情形（双方互不引用：fault controller 不含 campaign，campaign 段不含 faults），已按显式并集解出并测量： / Both conflicts are the union/superset case - neither side references the other - resolved as an explicit union and measured：
+
+```text
+integration/REX-803-804-mech-preflight @ cd43572
+  focused  tests/rex803-*. + rex804-*.         34 pass / 0 fail
+  full     pnpm test                          1390 pass / 3 fail（3 项为 host-city-launcher 常驻占用，N/N-3 基线）
+```
+
+规则（把 WBC 的 B4/F-3 规则推广到集成方向）/ the rule, generalising the WBC B4/F-3 rule to integration：
+
+> **一条 branch 单独能进 main，不构成“多条 branch 能一起进 main”的证据。** / A branch that merges cleanly on its own is not evidence that several merge cleanly together.
+
+### 顺带发现：REX-804 的测试重写了它所认证的证据 / Surfaced: REX-804's test rewrites the evidence it certifies
+
+跑并集全量套件时发现结束后 tracked tree 是脏的，追进去是**已接受**的 REX-804 里的一处缺陷：`tests/rex804-web.test.mjs:9` 把截图写进**已提交**的证据路径 `evidence/raw/mission-book/REX-804/danger-zone.png`（正是 `PAPER_MATERIAL_INDEX.md` 引用的那份证据）。未修复 head 上实测：测试 **1 pass / 0 fail**，而 `git status` 同时显示该证据被改写（141809 → 139403 字节，取决于跑它的人的浏览器/字体/DPI/视口）。**会在你验证它时改变的证据不是证据**，且跑绿的测试把 tree 留脏，破坏复核记录依赖的 “tracked state clean after testing”。 / The union's full suite left the tree dirty: accepted REX-804's web test captures its screenshot into a committed evidence path, so a green run rewrites reviewed evidence and leaves the tree dirty.
+
+修复复用同程序内**已有的正确先例**（REX-803 的同类测试本来就写 `.runtime/evidence/…`，`.gitignore` 第 2 行）：`repair/REX-804-mech-test-evidence-outside-repo @ 690d723`，行为断言一行未改。并入并集后在合并结果上测量： / The repair reuses the correct precedent already in this programme and changes no assertion. Measured on the merge result：
+
+```text
+integration/REX-803-804-mech-preflight-with-evidence-repair @ 0492dfd
+  focused  tests/rex803-*. + rex804-*.         34 pass / 0 fail，跑后 CLEAN
+  full     pnpm test                          1390 pass / 3 fail，跑后 CLEAN（修复前同样 1390/3，但结束时是脏的）
+```
+
+即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**。本机对 REX 无合并授权、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`。

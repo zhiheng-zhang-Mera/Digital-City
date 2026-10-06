@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1371,
-  "total_bytes": 10004924,
+  "markdown_count": 1379,
+  "total_bytes": 10070091,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -925,10 +925,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 6793,
+      "bytes": 6644,
       "encoding_state": "UTF8",
       "chinese_characters": 444,
-      "english_words": 451,
+      "english_words": 440,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -9978,6 +9978,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/MISSION_BOARD_RECOUNT_MECH.md",
+      "bytes": 4265,
+      "encoding_state": "UTF8",
+      "chinese_characters": 404,
+      "english_words": 174,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/MON-901/CLAIM_RECORD.md",
       "bytes": 860,
       "encoding_state": "UTF8",
@@ -10699,10 +10708,10 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 3973,
+      "bytes": 4097,
       "encoding_state": "UTF8",
-      "chinese_characters": 232,
-      "english_words": 203,
+      "chinese_characters": 234,
+      "english_words": 206,
       "paired_path": "mission-book/reports/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10977,6 +10986,24 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md",
+      "bytes": 7936,
+      "encoding_state": "UTF8",
+      "chinese_characters": 698,
+      "english_words": 602,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-803/MATERIAL_HANDOFF_MECH.md",
+      "bytes": 6080,
+      "encoding_state": "UTF8",
+      "chinese_characters": 676,
+      "english_words": 421,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md",
       "bytes": 14729,
       "encoding_state": "UTF8",
@@ -10986,11 +11013,20 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/reports/REX-803/README.md",
-      "bytes": 1263,
+      "path": "mission-book/reports/REX-803/PHYSICAL_MATERIAL_REVIEW_Alien.md",
+      "bytes": 5646,
       "encoding_state": "UTF8",
-      "chinese_characters": 61,
-      "english_words": 31,
+      "chinese_characters": 471,
+      "english_words": 317,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-803/README.md",
+      "bytes": 1513,
+      "encoding_state": "UTF8",
+      "chinese_characters": 63,
+      "english_words": 34,
       "paired_path": "mission-book/reports/REX-803/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -11023,12 +11059,21 @@
     },
     {
       "path": "mission-book/reports/REX-803/THREE_END_GATE_MEASUREMENT.md",
-      "bytes": 9156,
+      "bytes": 13862,
       "encoding_state": "UTF8",
       "chinese_characters": 25,
-      "english_words": 544,
+      "english_words": 754,
       "paired_path": "mission-book/reports/REX-803/zh-CN/THREE_END_GATE_MEASUREMENT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md",
+      "bytes": 10019,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 844,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-803/zh-CN/AUTHOR_THIRD_CLASS_SWEEP.md",
@@ -11203,7 +11248,7 @@
     },
     {
       "path": "mission-book/reports/REX-804/README.md",
-      "bytes": 1016,
+      "bytes": 1091,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 31,
@@ -11236,6 +11281,15 @@
       "english_words": 587,
       "paired_path": "mission-book/reports/REX-804/zh-CN/REVIEW_REPORT.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md",
+      "bytes": 5720,
+      "encoding_state": "UTF8",
+      "chinese_characters": 421,
+      "english_words": 279,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md",
@@ -11319,11 +11373,20 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-805/CLAIM_REPORT.md",
+      "bytes": 1634,
+      "encoding_state": "UTF8",
+      "chinese_characters": 91,
+      "english_words": 126,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-PROGRAMME/ALIEN_CONTINUATION_PACKET.md",
-      "bytes": 7701,
+      "bytes": 9443,
       "encoding_state": "UTF8",
       "chinese_characters": 8,
-      "english_words": 720,
+      "english_words": 859,
       "paired_path": "mission-book/reports/REX-PROGRAMME/zh-CN/ALIEN_CONTINUATION_PACKET.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -11337,8 +11400,17 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md",
+      "bytes": 7026,
+      "encoding_state": "UTF8",
+      "chinese_characters": 688,
+      "english_words": 376,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-PROGRAMME/README.md",
-      "bytes": 730,
+      "bytes": 785,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 30,
@@ -11851,10 +11923,10 @@
     },
     {
       "path": "mission-book/research-strengthening/README.md",
-      "bytes": 27546,
+      "bytes": 36279,
       "encoding_state": "UTF8",
-      "chinese_characters": 1929,
-      "english_words": 1204,
+      "chinese_characters": 2421,
+      "english_words": 1686,
       "paired_path": "mission-book/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -11896,7 +11968,7 @@
     },
     {
       "path": "mission-book/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
-      "bytes": 6703,
+      "bytes": 7226,
       "encoding_state": "UTF8",
       "chinese_characters": 70,
       "english_words": 64,
@@ -11914,7 +11986,7 @@
     },
     {
       "path": "mission-book/research-strengthening/REX-805-trace-replay-and-ablation.md",
-      "bytes": 4061,
+      "bytes": 4854,
       "encoding_state": "UTF8",
       "chinese_characters": 232,
       "english_words": 157,
@@ -11950,10 +12022,10 @@
     },
     {
       "path": "mission-book/research-strengthening/en/README.md",
-      "bytes": 23258,
+      "bytes": 23247,
       "encoding_state": "UTF8",
       "chinese_characters": 142,
-      "english_words": 1570,
+      "english_words": 1572,
       "paired_path": "mission-book/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },

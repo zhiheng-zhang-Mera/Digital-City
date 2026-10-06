@@ -26,7 +26,7 @@
       "POST /api/v0/research/campaigns/stop",
       "GET /api/v0/research/campaigns/<campaignId>"
     ],
-    "last_verified_full_sha": "57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1"
+    "last_verified_full_sha": "8798ba9dd37051626033ad72080b2fad3ff66149"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -76,28 +76,34 @@
       "utopia:evidence/raw/mission-book/REX-803/physical-campaign-live-surface.png"
     ],
     "intent_validation_refs": [],
-    "review_refs": [],
+    "review_refs": [
+      "mission-book/reports/REX-803/REVIEW_REPORT.md",
+      "mission-book/reports/REX-803/FORMAL_ACCEPTANCE_Alien.md",
+      "mission-book/reports/REX-803/independent-material-checks-Alien.json"
+    ],
     "implementation_refs": [
-      "https://github.com/zhiheng-zhang-Mera/utopia/tree/57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1",
-      "https://github.com/zhiheng-zhang-Mera/utopia/pull/31"
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/8798ba9dd37051626033ad72080b2fad3ff66149",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/37"
     ]
   },
   "research_observations": {
     "hidden_capability_detected": false,
-    "rework_required": true,
-    "registry_reconciliation_result": "CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW",
+    "rework_required": false,
+    "registry_reconciliation_result": "ACCEPTED_EXACT_HEAD",
     "paper_material_refs": [
-      "mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/REX-803/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md"
     ]
   },
   "known_gaps": [
-    "user_reachability_status is PARTIAL: the Web surface is reached and exercised both by a real browser test and by two controlled campaigns against the live resident City with a physical Android handset connected as the control surface, while no Android surface exists for campaigns. That gap is deliberate and belongs to REX-807 (research control surface / progressive disclosure).",
-    "intent_validation_status is NOT_TESTED: no opposite-host Formal Review has validated that the surface means what an owner expects it to mean.",
-    "The workbook completion gate (a controlled campaign on the Alien + Mech + Android topology) is not yet met: the Alien host node was offline throughout, so only Mech + Android was exercised (recorded as PARTIAL GATE and never claimed as the gate).",
-    "The experiment manifest contract has no warmup field, so a campaign that uses warmup measures something the description does not contain; the campaign receipt records the warmup actually used.",
-    "ANDROID_CONTROL_SURFACE is satisfied by a declared NAME rather than by a platform fact: a natively enrolled handset reports a device id as its client ref, so the Android topology cannot be declared with the identity the City observes (finding F8).",
-    "REX-801's registry field named `digest` holds a canonical serialisation rather than a hash; the campaign route hashes it locally, and the field naming is raised as finding F9.",
-    "rework_required is true because the first physical campaign forced a repair (D-7: the campaign seed contained the whole manifest) and the head moved twice after the first green CI."
+    "Web reachability remains PARTIAL; Android native campaign UI is deliberately deferred to REX-807. Physical Android was a canonical enrolled surface, not a new native campaign UI.",
+    "Intent validation remains NOT_TESTED: opposite-host implementation and physical-material review does not constitute owner intent research.",
+    "Earlier Mech-only physical campaigns remain PARTIAL history. The new three-end campaign966cf439 satisfied the gate after fresh Alien enrollment at2026-10-06T07:29:19.058Z; no retroactive online-throughout claim.",
+    "The experiment manifest contract has no warmup field; receipt records actual warmup. The accepted physical campaign used warmup0.",
+    "F8 native Android canonical-reference readiness mismatch was repaired and checked on8798ba9; this closes that defect without completing Android campaign UI.",
+    "REX-801 digest is canonical serialization rather than a hash; campaign route hashes locally (F9).",
+    "First seed-identity repair D-7 and intermediate failing heads are retained in historical reports; current candidate accepted after review, not erased history.",
+    "Trace metadata completeness is PARTIAL. Published raw material covers52 campaign epoch records; whole retained197-record raw window was not published. Software/config/provider/model metadata and per-record provenance remain missing, not fabricated."
   ],
   "last_reconciled_by_workbook": "REX-803"
 }

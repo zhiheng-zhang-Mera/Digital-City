@@ -5,7 +5,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **19**.
+当前Markdown文档 / Current Markdown documents: **20**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -22,5 +22,6 @@
 - [REVERIFICATION_REPORT.md](REVERIFICATION_REPORT.md)
 - [REVIEW_CLAIM_Mech.md](REVIEW_CLAIM_Mech.md)
 - [REVIEW_REPORT.md](REVIEW_REPORT.md)
+- [TEST_MUTATES_COMMITTED_EVIDENCE.md](TEST_MUTATES_COMMITTED_EVIDENCE.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

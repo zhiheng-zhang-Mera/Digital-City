@@ -5,11 +5,11 @@
       "total": 23
     },
     "review": {
-      "complete": 16,
+      "complete": 17,
       "total": 23
     },
     "tasks": {
-      "complete": 16,
+      "complete": 17,
       "total": 23
     }
   },
@@ -20,11 +20,11 @@
       "total": 93
     },
     "review": {
-      "complete": 86,
+      "complete": 87,
       "total": 93
     },
     "tasks": {
-      "complete": 86,
+      "complete": 87,
       "total": 93
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
-      "review_complete": 3,
+      "review_complete": 4,
       "status": "IN_PROGRESS",
-      "task_complete": 3,
+      "task_complete": 4,
       "tasks": [
         {
           "complete": true,
@@ -934,13 +934,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-803",
           "path": "research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": true,
@@ -958,7 +958,7 @@
           "id": "REX-805",
           "path": "research-strengthening/REX-805-trace-replay-and-ablation.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,

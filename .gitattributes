@@ -1,0 +1,8 @@
+# Line endings are part of the evidence here.
+#
+# The REX-803 material package is verified by SHA256 over exact bytes, and it is read on a different
+# host than the one that produced it. With core.autocrlf=true a checkout would rewrite LF to CRLF, so
+# the reviewer would hash bytes that differ from the ones the index lists and report a mismatch that
+# belongs to the checkout rather than to the material. These files are therefore stored and checked
+# out verbatim: the blob bytes are the bytes that were hashed.
+mission-book/reports/REX-803/evidence/** -text

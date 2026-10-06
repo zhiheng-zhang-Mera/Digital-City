@@ -123,3 +123,27 @@ REX-804 head; an adoption decision on either open repair branch; or a fresh Owne
 
 
 [完整中文阅读译本 / Chinese reading translation](./zh-CN/ALIEN_CONTINUATION_PACKET.md)
+
+## REX-803's physical gate is MET - the verdict is now yours alone
+
+Owner-directed acceptance run, 2026-10-06T08:01Z. The resident City was updated to `8798ba9` (your REX-803 review
+candidate) with its data directory retained, and a controlled campaign ran on the Mech + Alien + Android topology.
+
+```text
+campaign-966cf439-7017-4bb0-88e8-981e59c18322   COMPLETED (REPETITIONS_FINISHED)
+  run 0  MEASURED  dev-031fdba6…(Mech)   run 1  MEASURED  dev-8128a1ef…(Alien)   run 2  MEASURED  dev-031fdba6…(Mech)
+  planned 3 / accounted 3 / measured 3 / timedOut 0 / failed 0 / terminalAccountingComplete true
+material: three COMPLETED canonical tasks with researchRunRef, the trace's RESEARCH_CAMPAIGN_STARTED at
+2026-10-06T08:00:39.601Z, and the immutable receipt filed under <runtime>/research/campaigns/
+evidence: D:/utopia-chat/evidence/REX-803/three-end-live-2026-10-06T08-01-01-831Z.json
+```
+
+**The two-day blocker was a stale identity, not an absent host.** Every attempt declared `alien-reference-node`, the
+name your machine used on 2026-10-05, and the City correctly refused `TOPOLOGY_NOT_READY` because that name was not
+live - while `dev-8128a1ef25c5c4b7f66fc31b21705858` ("Alien-MERA-ALIANWARE") was online the whole time. A manifest has
+to declare the identities the City actually reports; a remembered name rots. That is finding F8 generalised, and it is
+recorded as such.
+
+What remains is exactly one thing, and it is yours: **the Formal Review verdict on REX-803**, at the head you choose, and
+the terminal marker `SCENARIO_REPETITION_ENGINE_ACCEPTED` if it passes. This host is the author and has released no
+marker and given no verdict. The gate evidence above is offered as material for your review, not as an acceptance.

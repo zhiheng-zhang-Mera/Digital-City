@@ -1,0 +1,17 @@
+# REX-805 领取与基线 / Claim and baseline
+
+Alien 于2026-10-06按已有任务池编号领取 REX-805；没有启用新系列、SHOW 或 main 合并权限。
+
+Alien claims the existing REX-805 workbook on2026-10-06 in task-code order. No new programme, SHOW or product-main merge authority is enabled.
+
+基线 `8798ba9dd37051626033ad72080b2fad3ff66149` 为已验收 REX-803，包含 REX-802 accepted `833279cae237080cca88b1b6dbc9f217027ba68f`、current main `b06504f1f96984c960b2661b8ee3a7130796d379` 和 required `69a097b5394a9fece39dd11cc13f04c9b4d28bfe`。三个 ancestry 命令均 exit0，dependency union 无需另构造 merge。
+
+The accepted REX-803 baseline above contains accepted REX-802, current main and the required ancestor; all three ancestry checks exit0, so the dependency union needs no additional merge.
+
+工作树 `D:/Utopia-REX805-20261006`，branch `rex/REX-805-alien-replay-ablation`。frozen install PASS；正确 suite 运行29/29 PASS：REX801 manifest5、REX802 trace12、REX803 runner12。首次命令误用两个不存在的 suite 名，只跑了 runner12；这一结果不作 dependency smoke。
+
+Isolated worktree and branch are named above. Frozen install succeeds and the correctly named dependency suites pass29/29 (5 manifest,12 trace,12 runner). An earlier command used two nonexistent suite names and ran only12 runner tests; that attempt is not dependency smoke evidence.
+
+实现、托管CI、独立review、实体 original→replay→ablation 比较均尚未完成。
+
+Implementation, hosted CI, independent review and the physical original→replay→ablation comparison remain unfinished.

@@ -260,15 +260,15 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 3/8 · 开发 / Development 4/8 · 复检 / Review 3/8 · `IN_PROGRESS`
+总完成 / Complete 4/8 · 开发 / Development 4/8 · 复检 / Review 4/8 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
 | [REX-801](../REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
 | [REX-802](../REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
-| [REX-803](../REX-803-scenario-runner-and-repetition-engine.md) | IN_PROGRESS | YES | NO | YES |
+| [REX-803](../REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
 | [REX-804](../REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
-| [REX-805](../REX-805-trace-replay-and-ablation.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [REX-805](../REX-805-trace-replay-and-ablation.md) | IN_PROGRESS | NO | NO | YES |
 | [REX-806](../REX-806-metrics-analysis-and-artifact-export.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-807](../REX-807-research-control-surface-and-progressive-disclosure.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 | [REX-890](../REX-890-reproducibility-study-and-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |

@@ -1,0 +1,71 @@
+{
+  "source": "GET /api/v0/city -> tasks, filtered to the tasks this campaign created",
+  "tasks": [
+    {
+      "id": "Q-be723362-5e83-4806-8d24-ffd0a60a16b2",
+      "type": "WAIT",
+      "domain": "system",
+      "state": "COMPLETED",
+      "createdAt": "2026-10-06T08:00:39.609Z",
+      "updatedAt": "2026-10-06T08:00:46.916Z",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "progress": 100,
+      "lastCheckpoint": {
+        "step": "wait",
+        "tick": 5
+      },
+      "result": {
+        "waitedMs": 6000
+      },
+      "error": null,
+      "researchRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:0",
+      "targetDeviceRef": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "targetIntentAt": "2026-10-06T08:00:39.609Z",
+      "targetStateAtCreation": "ELIGIBLE"
+    },
+    {
+      "id": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+      "type": "WAIT",
+      "domain": "system",
+      "state": "COMPLETED",
+      "createdAt": "2026-10-06T08:00:46.988Z",
+      "updatedAt": "2026-10-06T08:00:53.592Z",
+      "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "progress": 100,
+      "lastCheckpoint": {
+        "step": "wait",
+        "tick": 5
+      },
+      "result": {
+        "waitedMs": 6000
+      },
+      "error": null,
+      "researchRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+      "targetDeviceRef": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+      "targetIntentAt": "2026-10-06T08:00:46.988Z",
+      "targetStateAtCreation": "ELIGIBLE"
+    },
+    {
+      "id": "Q-697aab2c-da4a-4e8b-9918-ab2174e47593",
+      "type": "WAIT",
+      "domain": "system",
+      "state": "COMPLETED",
+      "createdAt": "2026-10-06T08:00:53.665Z",
+      "updatedAt": "2026-10-06T08:01:00.087Z",
+      "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "progress": 100,
+      "lastCheckpoint": {
+        "step": "wait",
+        "tick": 5
+      },
+      "result": {
+        "waitedMs": 6000
+      },
+      "error": null,
+      "researchRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:2",
+      "targetDeviceRef": "dev-031fdba6e94c4298a0956ff04a65481d",
+      "targetIntentAt": "2026-10-06T08:00:53.665Z",
+      "targetStateAtCreation": "ELIGIBLE"
+    }
+  ]
+}
