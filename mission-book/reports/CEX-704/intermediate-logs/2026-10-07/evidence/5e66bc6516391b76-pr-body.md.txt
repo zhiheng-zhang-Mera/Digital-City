@@ -1,0 +1,3 @@
+CEX-704 adds native connected-City pairing generation, QR/short-code/one-time invite sharing control and canonical admission approve/reject, preserving existing join paths. Guarded generation preserves ACTIVE sessions and refuses stale state. Pending/context and persisted material follow canonical lifecycle.
+
+Validation: 40 Gateway/admission/lifecycle tests; Android84 unit/build. OPPO observed generation/QR, controlled second-client consume, approve/reject, restart restoration and expiry; final whitelist APK generation/QR smoke passed. Actual system share blocked by automatic approval, optical QR scan and opposite physical-host campaign NOT_RUN. Source-bound receipt retains failures and limits; Formal Review and merge authority pending.
