@@ -967,7 +967,7 @@
           "id": "REX-806",
           "path": "research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         },
         {
           "complete": false,
