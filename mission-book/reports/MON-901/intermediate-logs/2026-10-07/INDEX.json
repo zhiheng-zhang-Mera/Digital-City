@@ -343,6 +343,24 @@
       "redaction_count": 0,
       "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
       "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "MON-901",
+      "round_label": ".runtime/evidence/mission-book/MON-901/canary.mjs",
+      "source": "D:/Utopia-MON901/.runtime/evidence/mission-book/MON-901/canary.mjs",
+      "source_worktree": "D:/Utopia-MON901",
+      "source_branch": "refs/heads/mon/MON-901-Alien-codex-observation",
+      "worktree_head_at_capture": "7eb38f1b930dfe6cc13dab0e17dedee467b1254b",
+      "historical_run_head": null,
+      "original_bytes": 1718,
+      "original_sha256": "1d3fcd9c3f484d1f5030f696bb116be8ec66b9e43a4c0cc2804b74f8610a4d33",
+      "published_bytes": 1707,
+      "published_sha256": "8eabbe40612f379de979039458f0406c012c226e81ffa63be7ee72d96b5b1de9",
+      "published_path": "mission-book/reports/MON-901/intermediate-logs/2026-10-07/evidence/8eabbe40612f379d-canary.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 2,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
     }
   ]
 }
