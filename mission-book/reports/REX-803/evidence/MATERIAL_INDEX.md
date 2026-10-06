@@ -13,7 +13,7 @@ city ID                                 031fdba6-e94c-4298-a095-6ff04a65481d
 campaign ID                             campaign-966cf439-7017-4bb0-88e8-981e59c18322
 scenario / state / reason               WAIT / COMPLETED / REPETITIONS_FINISHED
 city endpoint read from                 http://172.31.12.151:4391
-exported at                             2026-10-06T08:12:30.680Z
+exported at                             2026-10-06T08:13:57.040Z
 ```
 
 The two candidate SHA lines must agree; `derived-checks.json` records the comparison as `candidateShaAgrees`.
@@ -28,7 +28,7 @@ The two candidate SHA lines must agree; `derived-checks.json` records the compar
 | `canonical-events.json` | 12441 | `07cd4afb4ca3b07d2dc94fe7856bf2d9e10cc490dc34c25471e367688c0bd9b4` |
 | `trace-snapshot.json` | 116085 | `bcec4cff9fda3caf9e2312a5b6dd71100531216863a36a39cf133c0d30d3ca05` |
 | `derived-checks.json` | 9896 | `0a509495f632d9b1e679f51ab8122c63b9ba110dcc86eab3b79a5f52d123b8ec` |
-| `export-script.mjs` | 30462 | `8d8b578c0976d2473a2d023965bb0da90b45fa3ebd0d3875b8d01c448ba307ef` |
+| `export-script.mjs` | 30790 | `ed68865704868f96ea478d2908c3d4a5a86ad236f9f90326c1fb1513cfd4f6c4` |
 
 `campaign-receipt.json` is a byte-identical copy of the immutable receipt the City holds at
 `C:/ProgramData/Utopia/host/city/research/campaigns/campaign-966cf439-7017-4bb0-88e8-981e59c18322.json` (SHA256 of that file: `34bf525779376299d010762fe54009a795239a7cfe16e9a16d1490a18d77c669`); a reader with
@@ -38,6 +38,10 @@ access to the host can confirm the copy byte for byte. This index cannot carry i
 against the same City reproduces this package; it reads the owner credential from the host reservation at runtime and
 refuses to publish anything if the package would contain the credential, a session id, a pairing code, a claim secret
 or a token field.
+
+These files are marked `-text` in the repository `.gitattributes`, so a checkout on any host reproduces the exact
+bytes hashed above rather than a line-ending-normalized copy: a hash mismatch caused by the reader's checkout would
+otherwise be indistinguishable from a hash mismatch caused by the material.
 
 ## Why the trace is PARTIAL, stated rather than implied
 
