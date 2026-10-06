@@ -50,6 +50,27 @@ CityClient.kt 的打字化拒绝路径集合 / the widened typed-refusal path se
 
 这正是施工规则点名的失效形状：「merge/integration 基于旧 main 施工，最终覆盖或遗漏另一条已接受工作」。该行自己的注释就写着 UNION，说明作者也知道这里必须是并集。 / Keeping only the incoming side would silently drop the CEX and JOIN paths main gained later - the failure the construction rules name.
 
+## 在合并结果上复跑 reviewer 自己的探针 / The reviewer's own probes, re-run on the merge result
+
+程序自己的套件跑绿不等于「被复检过的行为在合并后仍然成立」——那正是 reviewer 探针存在的理由。因此把 MON-990 复检时本机**自己制造**的探针拿到合并结果上跑： / A programme's own suites passing does not show that the behaviour the review verified survived the merge, which is what the reviewer's probes exist for:
+
+```text
+tests/mon990-review-mech.test.mjs（11 个检查，真实路由 + 真实浏览器 + 投影契约）
+tests/mon990-cross-surface.test.mjs
+  在 integration/MON-accepted-head-mech-preflight @ 40be3e1 上        13 pass / 0 fail
+```
+
+即：**复检时验证过的行为，在 main+MÓN 的合并结果上依然成立**，而不只是「程序自己的测试还是绿的」。 / The behaviour the review verified still holds on the main+MON merge result, not merely "the author's tests are still green".
+
+**并集改了产品代码，就必须验证产品代码。** 上面那处并集动的是 `CityClient.kt`（Android 侧），所以合并结果上的 Android 构建与单测不能跳过——见下。 / The union edited product code, so product code must be verified:
+
+```text
+JAVA_HOME=<Temurin 17.0.18> gradlew :app:testDebugUnitTest :app:assembleDebug
+  => BUILD SUCCESSFUL in 54s；22 个套件 / 118 项 / 0 失败 0 错误；APK 构建成功
+```
+
+即并集里我改动的那行 Kotlin 编译通过、Android 侧全部单测通过——**集成方改过的产品代码，由集成方自己证明它仍然构建、仍然通过测试**。 / The line the union edited compiles and every Android unit test passes: whoever edits product code during an integration owes the proof that it still builds and still passes.
+
 ## 结果 / Result
 
 分支 / branch `integration/MON-accepted-head-mech-preflight` @ `40be3e1`：
