@@ -19,8 +19,9 @@
 //                    environment.json itself cannot state (it says the candidate was "observed by the operator")
 //   member vs owner  identical presence on every route: a member sees 403 for a present owner-only route and 404
 //                    for an absent one, so the opposite host can run this with the credential it holds
-//   side effects     the throwaway enrollment minted for the member probe was revoked (HTTP 200), so a run
-//                    against a live City leaves no member behind
+//   side effects     the enrollment minted for the member probe was revoked (HTTP 200); measured after the run,
+//                    the City's member list contains no device named fingerprint-* (its other member rows belong
+//                    to earlier sessions). Revocation ends the credential, which is what this tool needs.
 //
 // BOUNDARY, stated rather than implied: this attests CAPABILITY PRESENCE, not a commit SHA. Two heads serving the
 // same route set are indistinguishable here, and an UNAUTHENTICATED client cannot do it at all - the City answers

@@ -163,6 +163,24 @@ R-2 一份回执被**删除** -> 城市窗口 total 随之下降（receipts=1, w
 **托管 CI（exact head）**：push run 37465078880 @ `4349f3d` —— **gateway-web 与 android 均 SUCCESS attempt 1**。
 **未做且写明**：损失**尚未写进包内**（需要 artifact 模块新增 `unreadableReceipts` 段），因此只读包的人目前仍只看到能读到的那些 campaign。 / Verified on three paths; hosted CI green at the exact head; the loss is not yet carried inside the package, which is stated rather than implied.
 
+## 已知缺陷 3：`topology.members` 永远是空数组（字段名不匹配，未修，待记录持有人决定）/ Defect 3: topology.members is always empty
+
+本轮为「环境绑定」做外部指纹时顺手发现：包的 `topology.json` 里 `members` 是 **0**，而 City 在导出时持有 **6** 个成员。原因不是导出时没有成员，而是**字段名读错了**—— / Found while fingerprinting the environment: the package's topology lists 0 members while the City held 6.
+
+```text
+City 的成员条目字段（实测枚举全部键）: deviceId, installationId, nodeId, role, displayName, capabilities,
+                                        online, computeOnline, controlOnline, sharingEnabled, metadata, telemetry, ...
+导出器的映射（scripts/export-research-artifact.mjs）: member.ref ?? member.devicePrincipalId ?? null
+=> City 的条目里**既没有 ref 也没有 devicePrincipalId**，两个候选都取不到 -> 全部 null -> filter(Boolean) 清空
+=> 结果：topology.members 恒为 []，而 topology.nodes 正常（5 个）
+```
+
+**为什么重要**：这是「材料声称记录了某件事、实际什么都没记」的沉默少报（与 F-2 join 静默同类）。**本机自己的第三种实现也没抓到它**——那 27 项检查没有覆盖 `topology.members`；这条观察本身说明「包内自洽」不等于「包与城市一致」。 / A silent under-report of the family this record already documents; notably this host's own 27-check implementation does not cover it either.
+
+**一行修法（未发布）**：`member.deviceId ?? member.nodeId ?? member.ref ?? null`。
+
+**为什么本轮不发布**：这会改变**包的数据内容**（`topology.json` 不再是空的），不是只改失败路径。REX-806 正处于复检窗口，改动包的格式/内容会让复检对象漂移；因此记录在此，由记录持有人/复检者决定是随下一次导出修正，还是作为 REX-890 的一部分。**复检者请注意**：如果拿今天的 City 成员数（6）对比包内的 0，那是本条缺陷，不是包被篡改。 / Not shipped here on purpose: it changes package CONTENT, and the review target must not drift. A reviewer comparing today's 6 members with the package's 0 is looking at this defect, not at tampering.
+
 ## 环境绑定：由**外部指纹**佐证，而不是只靠操作者自述 / The environment binding, attested from outside
 
 `environment.json` 只能写「部署的候选由操作者观察」（exporter 读的是 City，不是进程树）。但**每个头服务的路由集不同**，因此可以从外面把「这台 City 到底跑的是哪一代」测出来：main 只有 experiments/trace/monitor/execution-profile；REX-805 头加上 campaigns 与 replays；REX-806 头再加上 faults 与 artifacts。 / environment.json can only say the candidate was observed by the operator; route presence can do better.

@@ -46,6 +46,11 @@ fault/recovery metrics      所提供的源里没有故障回执
 2  warmup run 被计入 failures。
 3  failure_rate 用 planned 作分母：两个被拒 campaign 的 8 条 plan 从未运行，却只进分母不进分子，
    于是材料报出一个平静的 0。现按 **accounted** runs 计并写明窗口，未交付的 plan 被点名、accounting 进 manifest。
+4  **`topology.members` 恒为空数组**（字段名不匹配）：City 的成员条目用 `deviceId`，而导出器读的是
+   `ref ?? devicePrincipalId`，两个都不存在 ⇒ 材料声称记录成员、实际一个都没记。**未修**：这属于包的
+   **数据内容**改动，而 REX-806 正在复检窗口，改动会让复检对象漂移；已记入 DEVELOPMENT_HANDOFF 的「已知缺陷 3」，
+   一行修法为 `member.deviceId ?? member.nodeId ?? member.ref ?? null`。本机自己的 27 项第三种实现也没有覆盖到它
+   ——**包内自洽不等于包与城市一致**。
 ```
 
 ## 复算 / Reproduction（供对侧主机独立重算）
