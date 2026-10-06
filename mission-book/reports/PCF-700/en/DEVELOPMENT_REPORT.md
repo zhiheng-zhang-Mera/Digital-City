@@ -12,7 +12,7 @@ SERIES BRANCH      pcf/series-mech (= f75b2a6, the series' accumulated head)
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  (= origin/main; see CLAIM_REPORT.md)
 HEAD_SHA           f75b2a6c2fa28d183a09795c70823c775123e1ac  (increment 2; earlier heads a2a5673..., d611cfe...)
 CI                 run 37497553367 (d611cfe, **failure**) -> run 37498638940 (a2a5673, **success**)
-                   -> the run on f75b2a6 is in section 7 (the repository's Actions is authoritative)
+                   -> run 37500280971 (f75b2a6, **success**, both jobs green including `pnpm test` and `pnpm check:docs`)
 DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md, reuse-tiers.md, ui-backend-matrix.md,
                    tests/pcf700-compatibility.test.mjs, tests/pcf700-dependency-direction.test.mjs,
                    scripts/pcf700-reuse-audit.mjs, data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -169,6 +169,10 @@ Single writers
 dependency), which was found by deliberately falsifying the guard. All four guards were falsified by
 "create counter-example -> red -> restore -> green" (probe files were created and deleted in the same step, leaving the
 tree clean). The probe script is excluded from its own subject so it cannot inflate its own counts.
+
+**Increment 2's CI**: hosted run **37500280971 completed / success** on `f75b2a6` (gateway-web success, android success;
+every step green, including `pnpm test` and `pnpm check:docs`). Locally: 11/11 across the two PCF suites (7
+compatibility + 4 dependency-direction) and PAIR_STATUS = SYNCHRONIZED in all three roots.
 
 ## 7. Next (for the next round or the opposite-host review)
 

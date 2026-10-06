@@ -12,7 +12,7 @@ SERIES BRANCH      pcf/series-mech（= f75b2a6，本系列累计头）
 BASELINE_SHA       312b627b54af5bbf274fa25eca8f8383869c1c34  （= origin/main，见 CLAIM_REPORT.md）
 HEAD_SHA           f75b2a6c2fa28d183a09795c70823c775123e1ac  （增量 2；前序头 a2a5673…、d611cfe…）
 CI                 run 37497553367（d611cfe，**失败**）→ run 37498638940（a2a5673，**success**）
-                   → f75b2a6 的 run 见 §7（结论以仓库 Actions 为准）
+                   → run 37500280971（f75b2a6，**success**，两 job 全绿，含 `pnpm test` 与 `pnpm check:docs`）
 DELIVERABLES       docs/{zh-CN,en}/pcf/ownership-map.md、reuse-tiers.md、ui-backend-matrix.md,
                    tests/pcf700-compatibility.test.mjs、tests/pcf700-dependency-direction.test.mjs,
                    scripts/pcf700-reuse-audit.mjs、data-records/{zh-CN,en}/pcf/reuse-wiring-audit.json,
@@ -139,6 +139,8 @@ UI→后端方向
 ```
 
 **增量 2 的仪器错误（记录）**：第一版方向探针用一条宽松正则，报出 19 条「后端 import 前端」，**全部假阳性**（服务路径与 tests/scripts 驱动器）；修好后只认 `import ... from '...'`，又被**副作用导入** `import '../apps/web/app.js';`（真实依赖）绕过——后者靠**故意证伪守卫**发现。D1–D4 四条守卫都已用「制造反例 → 变红 → 复位 → 变绿」证伪过（probe 文件均即建即删，树保持干净）。探针脚本被排除在自身统计之外，避免自我放大。
+
+**增量 2 的 CI**：`f75b2a6` 的 hosted run **37500280971 completed / success**（gateway-web success、android success，含 `pnpm test` 与 `pnpm check:docs` 在内的每一步全绿）。本机：两套 PCF 测试合计 11/11（7 兼容 + 4 依赖方向），check:docs 三处 PAIR_STATUS = SYNCHRONIZED。
 
 ## 7. 下一步（交给下一轮或异机复检）/ Next
 
