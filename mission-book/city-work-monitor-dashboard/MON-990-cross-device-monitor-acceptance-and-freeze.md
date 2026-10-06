@@ -34,7 +34,7 @@ ui_exemption_reason: null
 capability_ids: ["CAP-MON-001", "CAP-MON-002", "CAP-MON-003"]
 capability_registry_action: VERIFY_ONLY
 capability_registry_refs: ["capability-registry/records/CAP-MON-001.yaml","capability-registry/records/CAP-MON-002.yaml","capability-registry/records/CAP-MON-003.yaml"]
-capability_registry_sync_status: CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW
+capability_registry_sync_status: CLOSEOUT_REVIEW_ACCEPTED_WITH_DISCLOSED_RENDERED_HANDSET_SEAM
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: CAPTURED
 research_evidence_refs: ["mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"]

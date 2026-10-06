@@ -115,13 +115,14 @@
       "https://github.com/zhiheng-zhang-Mera/utopia/pull/34"
     ],
     "review_refs": [
-      "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md (pending; not acceptance)"
+      "mission-book/reports/MON-990/REVIEW_REPORT.md",
+      "mission-book/reports/MON-990/android-parity/README.md"
     ]
   },
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": true,
-    "registry_reconciliation_result": "CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW",
+    "registry_reconciliation_result": "CLOSEOUT_REVIEW_ACCEPTED_WITH_DISCLOSED_RENDERED_HANDSET_SEAM",
     "paper_material_refs": [
       "mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md",
       "mission-book/reports/MON-902/INDEPENDENT_REVIEW_Alien.md",
@@ -132,7 +133,8 @@
     "Owner-required state is only observable where a canonical task is WAITING_CONFIRMATION; Mission Book Owner gates are outside MON-901, so the graph answers NOT_OBSERVABLE with count null rather than claiming none, and the surface states this on every render.",
     "Repeated-path detection depends on the canonical refusal event vocabulary (TASK_HANDOFF_REFUSED, TASK_SWITCH_DECLINED) and on window continuity; it is bounded by the observation window.",
     "intent_validation_status NOT_TESTED: no ordinary-user session was run to confirm that the risk-first ordering and the wording are understood as intended.",
-    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
+    "Historical component-stage statement, superseded by MON-990 acceptance: MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI SUCCESS; opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
+    "MON-990 opposite-host Mech accepts exact fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40 with 118 Android unit tests and reviewed-head live-payload projection parity. Handset-rendered parity remains NOT_OBSERVED on Mech; only Alien author capture supports that surface. Intent study remains NOT_TESTED; no product-main merge is claimed."
   ],
   "last_reconciled_by_workbook": "MON-990"
 }
