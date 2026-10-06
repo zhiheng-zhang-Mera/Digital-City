@@ -64,7 +64,10 @@ report_path: null
 ```text
 domain
 task_decomposition_rules
+problem_node_types
+required_executor_roles
 required_reviewer_roles
+independence_floor
 evidence_rules
 validation_hooks
 conflict_types
@@ -75,9 +78,24 @@ release_requirements
 
 ## 首批 Profile
 
-- ENGINEERING：Foreman + fresh verifier + CI/exact SHA + independent review；
-- RESEARCH：Method/Evidence/Claim/Reproducibility + research adjudication；
-- HEALTH：先建立 contract/seam；不得把设计中的 PK/PD/DDI 能力伪装成已实现 clinical truth。
+### ENGINEERING
+
+复用 Foreman + CI/exact SHA + fresh verifier + Formal Review。
+
+**兼容性硬约束：**
+
+- 当前 Formal Review 继续要求不同实体主机；
+- 同机 fresh critic 仅可做诊断/预审；
+- DGX 的 independence profile 可以要求更严格，不能要求更宽松；
+- 如未来 Review Independence v2 被正式激活并验收，才允许以显式 migration 改写该 floor。
+
+### RESEARCH
+
+Method / Evidence / Claim / Reproducibility + research adjudication；Problem Graph 可表达并行证据检查、alternative hypothesis 与 replication task，但不能把论文兴趣变成产品 acceptance truth。
+
+### HEALTH
+
+先建立 contract/seam；不得把设计中的 PK/PD/DDI 能力伪装成已实现 clinical truth。高风险健康结论仍受专业 evidence/safety profile 限制。
 
 ## 迁移规则
 
@@ -85,4 +103,4 @@ KEEP-IN-PLACE 优先；通过 typed port/reference 连接。若需要 EXTRACT，
 
 ## 完成门槛
 
-至少 Engineering 与 Research 在不复制 canonical truth 的情况下完成 adapter conformance；Health 对未实现部分诚实标记 capability unavailable。
+至少 Engineering 与 Research 在不复制 canonical truth 的情况下完成 adapter conformance；Health 对未实现部分诚实标记 capability unavailable；现有领域 Review gate 不因 adapter 接入而被隐式降低。
