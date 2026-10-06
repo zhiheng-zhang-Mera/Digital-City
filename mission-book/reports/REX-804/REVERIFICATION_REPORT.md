@@ -128,3 +128,96 @@ NOT DONE BY THE REVIEWER   no merge, no rewrite of the author's branch or its hi
 
 `merge_authority` is false for this task and the reviewer holds none. The author's branch tip and the original reviewed
 head are untouched; the repair is published beside them.
+
+---
+
+# Second re-verification — PASSED on `fe700aba957990f93b22fd63d594ddfff7b4e243`
+
+```text
+RE-REVIEWED HEAD    fe700aba957990f93b22fd63d594ddfff7b4e243   (branch rex/REX-804-Alien-codex-faults, PR #30)
+ANCESTRY            the original reviewed head f76ccf53 AND current main b06504f are both ancestors (exit 0 each)
+AUTHOR REPAIR       reports/REX-804/AUTHOR_REPAIR_Alien.md - the author independently reproduced B4 before fixing it
+VERDICT             B1 CLOSED, B4 CLOSED, no blocking finding remains. PASSED.
+TERMINAL MARKER     FAULT_INJECTION_RECOVERY_ACCEPTED — RELEASED on this head
+MERGE AUTHORITY     none; this host did not and does not merge
+```
+
+## B4 is closed, measured on the head that contains current main
+
+The finding was that the branch could not be merged into current main, because the fault controller's unguarded
+`mkdirSync` replayed the store-guard defect and main already carried a probe that caught it. The head now has a
+latest-main integration as an ancestor, so the reviewer re-ran that exact probe **inside the head**:
+
+```text
+tests/rex801-store-guard.test.mjs on fe700ab (contains current main)   2 pass / 0 fail, 97 ms and 51 ms
+the same probe on the merge before the repair                          1 pass / 1 FAIL, 34 201 ms, ENOTDIR
+the same probe on main alone                                           2 pass / 0 fail
+CI on fe700ab, read one run at a time and matched on headSha:
+    push          37424946247  COMPLETED SUCCESS attempt 1   (android, gateway-web)
+    pull_request  37424951038  COMPLETED SUCCESS attempt 1   (android, gateway-web)
+    linkage       37424951044  COMPLETED SUCCESS attempt 1   (reciprocal-contract)
+```
+
+The **pull_request** run is the one that was red at `075ddc1`, because a PR run tests the merge with current main. It
+is now green at the same step, so the branch is mergeable in the only sense the reviewer can measure.
+
+The repair matches the family pattern rather than only silencing the symptom: `faults.mjs` construction catches its
+own failure into `storeState`/`storeReason`, `list()` discloses them, and a fault injection attempt against an
+unusable store is refused with a typed **503 `FAULT_STORE_UNAVAILABLE`** while normal tasks keep working. The Web
+Danger Zone shows the reason and disables injection. That is degrade-report-keep-serving, not a swallowed error.
+
+## Everything else the reviewer had recorded, re-measured on this head
+
+```text
+B1  an unreadable fault receipt prevented City startup      CLOSED (probe P8, and P1-P9 all pass)
+B3  a shapeless receipt adopted without identity            CLOSED (probe P9)
+F2  registry vocabulary and the missing receipt route        repaired by the author; the routes answer
+nine reviewer probes                                        9 pass / 0 fail
+REX-804's own four suites                                   12 pass / 0 fail
+full suite                                                  1379/1382, the 3 being this host's resident-City
+                                                            host reservation
+```
+
+## The reviewer's own instrument defect, found and fixed in this round
+
+The first full-suite run on this head failed **the reviewer's own probe**, not the product:
+
+```text
+"REX804 review P6 ... AssertionError: DELAY_RESULT recorded that it was exercised (got 0)"
+the same file in isolation: 9 pass / 0 fail
+```
+
+P6 started each fault class with `durationMs: 150` and slept 350 ms, so the exercise had to land inside 150 ms of host
+time; under full-suite load it did not. The window was never a product property - it was the instrument's assumption
+about the host. That is the **same defect class** this reviewer classified in the author's unit fixture during the
+first re-verification, now found in its own probe, and found the same way: a green isolated run disagreeing with a
+loaded one.
+
+Fixed on the review branch (`review/REX-804-mech-review @ 53d01a3`): the window is 1200 ms, and the delayed report's
+promise is kept and awaited after the sleep instead of being fired and forgotten. After the fix:
+
+```text
+isolation, three consecutive runs                      9 pass / 0 fail each
+beside three heavy browser suites (concurrent load)    13 pass / 0 fail
+full suite on fe700ab                                  1379/1382, P6 green
+```
+
+Both states are recorded rather than the red one being amended away. Across this review pair the count of
+timing-assumption defects is now two - one in the author's fixture, one in the reviewer's - which is the useful
+observation: **in this codebase a fault-injection test that does not inject a clock is testing the host.**
+
+## What remains unmeasured, and is not counted as a defect
+
+```text
+Android native fault controls                 NOT_RUN; the author's capability record keeps PARTIAL for them and
+                                              this reviewer did not exercise a device
+physical/external-provider recovery           NOT_RUN; PROVIDER_UNAVAILABLE is injected at the claim seam, not at a
+                                              real external provider, and neither host claims otherwise
+DUPLICATE_EVENT recovery metric               structurally NOT_MEASURED, with the reason on the receipt; the
+                                              reviewer's P6 asserts the null AND the reason rather than accepting a 0
+```
+
+These are stated as scope, not as passes. The marker released here is `FAULT_INJECTION_RECOVERY_ACCEPTED` for the
+fault-injection and recovery surface that was measured, and it does not assert anything about a physical Android fault
+surface or a real external provider.
+
