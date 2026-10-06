@@ -1,0 +1,7 @@
+# SDD ledger — plan: .runtime/MON-990/plan.md
+Task 1: complete — accepted dependency union 665d6c3c, 80 PASS.
+Pre-flight: parser DTO is the shared interface between native panel and client; City identity required, arrays bounded, Gateway risk semantics retained.
+Ruling: native monitor reads run separately from canonical command executor and never renew credentials — observer failures must not mutate live City connection.
+Task 2: in progress — native parser red probes first.
+Task 2: native DTO + UI source built; parser6 red->green. Critic malformed layout red->green, source3a64bf1. Dedicated reads and offline scope clearing wired; physical review app installed separately.
+Ruling: decision route adds canonical City ID so native parser can bind both sources. Optional debug review applicationId suffix preserves existing apps; ordinary build path unchanged.

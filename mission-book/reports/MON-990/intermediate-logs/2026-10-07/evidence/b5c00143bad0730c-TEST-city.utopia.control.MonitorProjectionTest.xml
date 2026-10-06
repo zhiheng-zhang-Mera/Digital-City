@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.MonitorProjectionTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-06T05:30:57.346Z" hostname="MERA-ALIANWARE" time="0.062">
+  <properties/>
+  <testcase name="exactEvidenceAndMissingEvidenceAreDistinct" classname="city.utopia.control.MonitorProjectionTest" time="0.047"/>
+  <testcase name="duplicateAndOversizedNodesAreRefused" classname="city.utopia.control.MonitorProjectionTest" time="0.004"/>
+  <testcase name="wrongCityAuthoritativeAndHiddenRiskAreRefused" classname="city.utopia.control.MonitorProjectionTest" time="0.002"/>
+  <testcase name="collapseKeepsRiskAndExpandsOnlySelectedCluster" classname="city.utopia.control.MonitorProjectionTest" time="0.003"/>
+  <testcase name="malformedPathsClustersAndDroppedNodesAreRefused" classname="city.utopia.control.MonitorProjectionTest" time="0.004"/>
+  <testcase name="decisionIdentityAndAdvisoryTruthAreRequired" classname="city.utopia.control.MonitorProjectionTest" time="0.001"/>
+  <testcase name="missingHealthAndPopulationStayUnknown" classname="city.utopia.control.MonitorProjectionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

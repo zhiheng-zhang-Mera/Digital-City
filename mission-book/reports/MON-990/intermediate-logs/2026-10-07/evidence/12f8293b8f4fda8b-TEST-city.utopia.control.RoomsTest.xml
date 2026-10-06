@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.RoomsTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-06T05:30:57.549Z" hostname="MERA-ALIANWARE" time="0.001">
+  <properties/>
+  <testcase name="roomAvailabilityIsOnlyFreshWhileOnline" classname="city.utopia.control.RoomsTest" time="0.0"/>
+  <testcase name="availableHubReportsItsCatalog" classname="city.utopia.control.RoomsTest" time="0.001"/>
+  <testcase name="unavailableWithoutReasonStaysPlain" classname="city.utopia.control.RoomsTest" time="0.0"/>
+  <testcase name="missingOptionalRoomFieldsDoNotInventValues" classname="city.utopia.control.RoomsTest" time="0.0"/>
+  <testcase name="unavailableHubIsATruthfulStateNotAnError" classname="city.utopia.control.RoomsTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
