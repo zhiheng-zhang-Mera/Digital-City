@@ -99,3 +99,25 @@ D-7 Defect found by the FIRST PHYSICAL CAMPAIGN and repaired on this head: see D
 The runner is deliberately NOT a scheduler, and the temptation for a reviewer is to test it as one. The properties worth
 attacking are the ones in section "What a campaign is" of the PR: that a run is real canonical work, that an absence is
 always explained, that a stop reaches the work, and that a resume continues rather than replays.
+
+## Addendum: a hardened branch exists, and the review target deliberately did NOT move
+
+After this handoff was written the author ran a third sweep over this module, using the state-machine/lifecycle classes
+the opposite host's MON-903 review had found in a sibling module — the classes his own earlier class-driven passes had
+never looked for. It found three defects in this module's receipt handling and close boundary
+(`reports/REX-803/AUTHOR_THIRD_CLASS_SWEEP.md`). The fix is published as
+
+```text
+repair/REX-803-mech-receipt-order-and-close @ 07e8c3cf31e9aefdb4d12c58e129da39935c8314
+   F-S6  receipts() sorted the FILE NAMES, i.e. random UUIDs, so the bounded "newest" list returned the three
+         OLDEST campaigns while the comment claimed "newest by name order"
+   F-S7  the bounded list stated nothing about the size of the history behind it
+   F-S8  close() drained the loop and start() then accepted and LAUNCHED a new campaign into a shutting-down process
+```
+
+**The recorded review target is unchanged at `a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df`.** The author deliberately did
+not harden the head: this task has already suffered one claim collision in this programme, and a reviewer who claims the
+target in this handoff must not find it moved underneath them. The reviewer may either adopt the branch into their own
+review head, or ask the author to harden `a695bb9` and re-record its exact-head CI — both are one command away, and the
+second option produces a new target rather than replacing this one silently.
+
