@@ -1027,6 +1027,24 @@
       "redaction_count": 1,
       "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
       "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
+    },
+    {
+      "task": "CEX-704",
+      "round_label": ".runtime/evidence/mission-book/CEX-704/physical-fixture.mjs",
+      "source": "D:/Utopia-CEX704/.runtime/evidence/mission-book/CEX-704/physical-fixture.mjs",
+      "source_worktree": "D:/Utopia-CEX704",
+      "source_branch": "refs/heads/cex/CEX-704-Alien-codex-native-owner-onboarding",
+      "worktree_head_at_capture": "d05f5a455ff535e3e065b30ec9ec74bca2dbb521",
+      "historical_run_head": null,
+      "original_bytes": 3161,
+      "original_sha256": "8d0c93d26f67d9d1ca8412f7435b6662d1fb520ec3e4a54ed747f7991cf8a3f6",
+      "published_bytes": 3126,
+      "published_sha256": "7652ff53b44737a2b0b0fa368b3a9abad64babeb8aa48a6685978ef7c7647b51",
+      "published_path": "mission-book/reports/CEX-704/intermediate-logs/2026-10-07/evidence/7652ff53b44737a2-physical-fixture.mjs.txt",
+      "encoding": "utf-8",
+      "redaction_count": 4,
+      "previous_cloud_state": "MISSING_FROM_BRANCH_TIPS",
+      "not_claimed": "Capture head and file names do not independently attest the version or success of the historical run."
     }
   ]
 }
