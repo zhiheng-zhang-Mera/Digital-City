@@ -30,3 +30,5 @@ Validation measured on Alien: initial full Gateway/Web 1350 pass / 0 fail before
 ## Integration state
 
 PR #33 is textually MERGEABLE at published head. Final exact-head CI remains the gate before reporting it ready to merge. The request is to make it mergeable; the workbook still has `merge_authority:false`, so this report does not silently execute a main merge. MON starts after that merge-readiness gate and does not wait for REX closure under the newer Owner instruction.
+
+Final gate live verification: at exact 4688274255464383d577841a37e85a556d92c678, push 37412522043 and PR 37412526500 completed SUCCESS (gateway-web and android both success); linkage 37412526523 SUCCESS. PR33 MERGEABLE, mergeStateStatus CLEAN, local/remote feature branch equal and worktree clean. CEX-790 is READY_TO_MERGE; no main merge performed. MON-902 review is now claimed after this gate.

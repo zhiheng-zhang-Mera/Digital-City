@@ -69,7 +69,7 @@ records:
     record_ref: records/CAP-CAPABILITY-BRIDGE-001.yaml
     exposure_class: DIRECT_CONTROL
     reconciliation: FINAL_AUDIT_BACKFILLED
-    last_verified_full_sha: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+    last_verified_full_sha: "4688274255464383d577841a37e85a556d92c678"
   - capability_id: CAP-CITY-MEMBERS-NATIVE-001
     record_ref: records/CAP-CITY-MEMBERS-NATIVE-001.yaml
     exposure_class: DIRECT_CONTROL
@@ -84,7 +84,7 @@ records:
     record_ref: records/CAP-EXPERIMENT-MANIFEST-001.yaml
     exposure_class: DIRECT_CONTROL
     reconciliation: VERIFIED_BOUNDED_WEB_MANIFEST_WORKFLOW
-    last_verified_full_sha: "7e96a4d28f4cb701d7a0951bace69857c3228f32"
+    last_verified_full_sha: "4688274255464383d577841a37e85a556d92c678"
   - capability_id: CAP-HOST-LIFECYCLE-001
     record_ref: records/CAP-HOST-LIFECYCLE-001.yaml
     exposure_class: BACKGROUND_DISCLOSED

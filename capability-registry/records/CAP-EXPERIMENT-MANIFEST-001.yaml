@@ -6,7 +6,8 @@
     "zh_CN": "实验清单登记与验证"
   },
   "source_workbooks": [
-    "REX-801"
+    "REX-801",
+    "CEX-790"
   ],
   "implementation": {
     "symbols": [
@@ -14,7 +15,7 @@
       "createExperimentRegistry",
       "renderResearch"
     ],
-    "last_verified_full_sha": "7e96a4d28f4cb701d7a0951bace69857c3228f32",
+    "last_verified_full_sha": "4688274255464383d577841a37e85a556d92c678",
     "repo": "zhiheng-zhang-Mera/utopia",
     "paths": [
       "contracts/experiment-manifest-v1/manifest.mjs",
@@ -24,6 +25,9 @@
     "api_or_actions": [
       "GET/POST /api/v0/research/experiments",
       "POST /api/v0/research/experiments/validate"
+    ],
+    "discovery_refs": [
+      "refs/heads/integration/CEX-790-Alien-20261006"
     ]
   },
   "status": {
@@ -63,10 +67,13 @@
   ],
   "evidence": {
     "implementation_refs": [
-      "https://github.com/zhiheng-zhang-Mera/utopia/pull/25"
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/25",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/33"
     ],
     "backend_wiring_refs": [
-      "utopia:tests/rex801-alien-independent-review.test.mjs"
+      "utopia:tests/rex801-alien-independent-review.test.mjs",
+      "utopia:tests/rex801-store-guard.test.mjs",
+      "utopia:tests/rex801-research-ui.test.mjs"
     ],
     "intent_validation_refs": [
       "mission-book/reports/REX-801/REVIEW_REPORT_Alien-codex.md",
@@ -80,13 +87,15 @@
     "rework_required": true,
     "registry_reconciliation_result": "VERIFIED_BOUNDED_WEB_MANIFEST_WORKFLOW",
     "paper_material_refs": [
-      "mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/REX-801/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/CEX-790/ALIEN_INTEGRATION_REPORT.md"
     ]
   },
   "known_gaps": [
     "Android Research surface NOT_RUN; REX807 further control surface",
     "No physical topology experiment executed",
-    "Original source8f8c521 and corrected source7e96a4d are separate evidence identities"
+    "Original source8f8c521 and corrected source7e96a4d are separate evidence identities",
+    "Current repaired source verified on PR33; main/installed runtime not yet updated. Existing physical-device/intent limitations remain."
   ],
-  "last_reconciled_by_workbook": "REX-801"
+  "last_reconciled_by_workbook": "CEX-790"
 }

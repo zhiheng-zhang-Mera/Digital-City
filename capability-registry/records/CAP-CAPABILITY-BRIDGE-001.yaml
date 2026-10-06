@@ -20,7 +20,8 @@
       "services/capability-bridge/invocation-store.mjs",
       "services/dev-gateway/server.mjs",
       "apps/web/services.js",
-      "apps/android/app/src/main/java/city/utopia/control/ServicesPanel.kt"
+      "apps/android/app/src/main/java/city/utopia/control/ServicesPanel.kt",
+      "services/capability-bridge/theme-artifacts.mjs"
     ],
     "symbols": [
       "createBridge",
@@ -34,7 +35,10 @@
       "GET /api/v0/capability-invocations",
       "GET /api/v0/capability-invocations/:id"
     ],
-    "last_verified_full_sha": "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+    "last_verified_full_sha": "4688274255464383d577841a37e85a556d92c678",
+    "discovery_refs": [
+      "refs/heads/integration/CEX-790-Alien-20261006"
+    ]
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -78,28 +82,32 @@
   ],
   "evidence": {
     "backend_wiring_refs": [
-      "utopia:evidence/raw/mission-book/CEX-790/capability-inventory.json"
+      "utopia:evidence/raw/mission-book/CEX-790/capability-inventory.json",
+      "utopia:tests/bridge-artifact-store-guard.test.mjs"
     ],
     "reachability_refs": [
       "utopia:evidence/raw/mission-book/CEX-790/CAPABILITY_ENTRY_INVENTORY.md"
     ],
     "intent_validation_refs": [],
     "implementation_refs": [
-      "https://github.com/zhiheng-zhang-Mera/utopia/tree/5c7d46dcbf1b01259b5edaf574b620714beb40b7"
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/5c7d46dcbf1b01259b5edaf574b620714beb40b7",
+      "https://github.com/zhiheng-zhang-Mera/utopia/pull/33"
     ]
   },
   "research_observations": {
     "hidden_capability_detected": true,
-    "rework_required": false,
+    "rework_required": true,
     "registry_reconciliation_result": "FINAL_AUDIT_BACKFILLED",
     "paper_material_refs": [
-      "mission-book/reports/CEX-790/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/CEX-790/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/CEX-790/ALIEN_INTEGRATION_REPORT.md"
     ]
   },
   "known_gaps": [
     "No end-to-end intent validation was performed by this backfill; the surfaces were inventoried, not exercised",
     "Android reachability PARTIAL: the Services panel exists but was not driven on a device by this audit",
-    "The audit that created this record read the code at the dependency union baseline, not at main"
+    "The audit that created this record read the code at the dependency union baseline, not at main",
+    "Current repaired source verified on PR33; main/installed runtime not yet updated. Existing physical-device/intent limitations remain."
   ],
   "last_reconciled_by_workbook": "CEX-790"
 }
