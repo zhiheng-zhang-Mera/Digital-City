@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1654,
-  "total_bytes": 12004350,
+  "markdown_count": 1656,
+  "total_bytes": 12018441,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9853,10 +9853,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 53421,
+      "bytes": 54634,
       "encoding_state": "UTF8",
-      "chinese_characters": 3817,
-      "english_words": 2259,
+      "chinese_characters": 3979,
+      "english_words": 2299,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9952,10 +9952,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 61656,
+      "bytes": 63051,
       "encoding_state": "UTF8",
       "chinese_characters": 201,
-      "english_words": 4863,
+      "english_words": 5016,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -11194,10 +11194,10 @@
     },
     {
       "path": "mission-book/reports/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md",
-      "bytes": 10197,
+      "bytes": 11546,
       "encoding_state": "UTF8",
-      "chinese_characters": 685,
-      "english_words": 223,
+      "chinese_characters": 694,
+      "english_words": 231,
       "paired_path": "mission-book/reports/en/INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14218,7 +14218,7 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/README.md",
-      "bytes": 1063,
+      "bytes": 1227,
       "encoding_state": "UTF8",
       "chinese_characters": 63,
       "english_words": 38,
@@ -14242,6 +14242,24 @@
       "english_words": 363,
       "paired_path": "mission-book/reports/REX-PROGRAMME/en/REX-890_CLAIM_READINESS_MECH.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/REX-PROGRAMME/REX_SERIES_MERGE_MECH_2026_10_06.md",
+      "bytes": 5362,
+      "encoding_state": "UTF8",
+      "chinese_characters": 361,
+      "english_words": 93,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-PROGRAMME/REX_SERIES_STATUS_RECONCILIATION_MECH.md",
+      "bytes": 4608,
+      "encoding_state": "UTF8",
+      "chinese_characters": 340,
+      "english_words": 83,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/UNION_COEXISTENCE_SMOKE_MECH.md",
