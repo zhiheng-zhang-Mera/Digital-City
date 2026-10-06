@@ -1,0 +1,52 @@
+{
+  "candidate": "1743d7622326814a07526c739dc7b780e971cf5a",
+  "base_accepted_head": "12e3d3bf868575a8e3cda983733a3186cb59da27",
+  "review_status": "PENDING_MECH_OPPOSITE_HOST_REVIEW",
+  "records": [
+    {
+      "file": "rex806-reviewer-findings-red.log",
+      "bytes": 6916,
+      "sha256": "45a6acf605e1d7f87b8105118fb28714faa3999dda9388a555db1fc1736d3f5c"
+    },
+    {
+      "file": "rex806-reviewer-findings-green.log",
+      "bytes": 3284,
+      "sha256": "694c5257a744b6ae304894dd7b4c8e7d5e173a3eb1f9a0ad97718db590d5f528"
+    },
+    {
+      "file": "rex806-window-detail-red.log",
+      "bytes": 2398,
+      "sha256": "672a2a637eae7b3428a3a4c12a3e4ba667058846433c1958a682d6304e6166ac"
+    },
+    {
+      "file": "rex806-semantic-checks.log",
+      "bytes": 808,
+      "sha256": "6678d223e56ef4faace694a03c6a20a6b05c049213a1e38b9133f5e28da8b912"
+    },
+    {
+      "file": "rex806-followup-integrated.log",
+      "bytes": 4037,
+      "sha256": "25538d7adc179cf2a59e98c8917a67a209eba23f1007f33e6eb3591f1419b1ff"
+    },
+    {
+      "file": "rex806-followup-historical.log",
+      "bytes": 1422,
+      "sha256": "8f02c4fd4946519ecebdbeb24084afe01005eb8b790a74d5ffda8a85b2c05ce6"
+    },
+    {
+      "file": "rex806-api-detail-race.log",
+      "bytes": 226,
+      "sha256": "0a27867be6b9a72be1472bc8dbad474165230061a13324e4d62443fc6eea5979"
+    },
+    {
+      "file": "rex806-followup-candidate44.log",
+      "bytes": 4140,
+      "sha256": "184b1c71c811f8b7891dd1e5c590e1808274c6e613347f6e274a1fd3ac3bfd7f"
+    },
+    {
+      "file": "rex806-crosshost-package-check.log",
+      "bytes": 1443,
+      "sha256": "acb9c47bb904b5f64ad778422fc12cf727b5bca049dfafeca84fe6f4655d05f7"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+✖ REX806 S8: a 51-receipt City labels its bounded download as partial (197.1377ms)
+✖ REX806 CLI survives an unreadable detail after a readable listing (1207.7589ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3072.673
+
+✖ failing tests:
+
+test at tests\rex806-artifact-surface.test.mjs:132:1
+✖ REX806 S8: a 51-receipt City labels its bounded download as partial (197.1377ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'PARTIAL'
+  
+      at file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-surface.test.mjs:140:12
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async withCity (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-surface.test.mjs:40:12)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-surface.test.mjs:133:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'PARTIAL',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex806-cli.test.mjs:50:1
+✖ REX806 CLI survives an unreadable detail after a readable listing (1207.7589ms)
+  Error: ENOENT: no such file or directory, open 'C:\Users\15601\AppData\Local\Temp\rex806-cli-review-WXSPpu\artifact\topology.json'
+      at async open (node:internal/fs/promises:697:25)
+      at async readFile (node:internal/fs/promises:1348:14)
+      at async exportFixture (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-cli.test.mjs:29:31)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-cli.test.mjs:51:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    errno: -4058,
+    code: 'ENOENT',
+    syscall: 'open',
+    path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\rex806-cli-review-WXSPpu\\artifact\\topology.json'
+  }

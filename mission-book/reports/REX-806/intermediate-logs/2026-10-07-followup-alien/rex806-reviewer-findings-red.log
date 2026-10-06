@@ -1,0 +1,130 @@
+✖ REX806 verifier accepts justified unavailable completion after canonical task loss (977.9972ms)
+✖ REX806 verifier accepts the published six-decimal failure rate precision (967.5674ms)
+✖ REX806 verifier accepts justified unavailable rates for an all-refused study (961.2242ms)
+✔ REX806 V1: the verifier passes an untampered artifact (960.8488ms)
+✔ REX806 V2: a tampered metric value is caught (959.0435ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (947.1329ms)
+✔ REX806 V4: a missing section is caught (951.59ms)
+✔ REX806 V5: a changed dataset timestamp is caught (959.0849ms)
+✔ REX806 V6: a fabricated intervention count is caught (968.552ms)
+✖ REX806 missing canonical tasks remain counted rather than being filtered from convergence (2.6269ms)
+✔ REX806 A1: the artifact carries every section the workbook names (1.3144ms)
+✔ REX806 A2: every named metric appears, with a value and provenance or NOT_MEASURED and a reason (0.4438ms)
+✔ REX806 A3: an unobserved intervention window is NOT_MEASURED, never 0 (0.3241ms)
+✔ REX806 A4: an export with no real campaign is refused (0.3854ms)
+✔ REX806 A5: the evaluator refuses a value with no provenance and NOT_MEASURED with no reason (0.473ms)
+✔ REX806 A6: every dataset row carries a raw pointer and a seed-placement verdict (0.238ms)
+✔ REX806 A7: checksums cover the exact bytes and change when a byte changes (0.9763ms)
+✔ REX806 A8: the paper-ready table leads with G3/G4 and keeps their NOT_MEASURED reasons visible (0.3547ms)
+✔ REX806 A9: the artifact separates statistics from narrative and refuses the autonomy inference (0.4367ms)
+✔ REX806 A10: richer campaign data does not conjure Owner-side metrics (0.3614ms)
+✔ REX806 A11: warmup runs are classified separately from failures (0.2171ms)
+✔ REX806 A12: a refused campaign stays visible as undelivered planned runs (0.302ms)
+✔ REX806 A13: an ablation placement is judged against its policy, and the seed comparison is kept separately (0.2742ms)
+✔ REX806 CLI retains canonical deviceId members in the downloaded topology (1048.1178ms)
+✔ REX806 CLI partial download itself names an unreadable receipt without requiring terminal output (1037.2035ms)
+✔ REX806 CLI partial download itself names the latest missing receipt (1029.9989ms)
+✖ REX806 CLI exposes a known truncated receipt window as partial (1012.7885ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 22
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9609.9745
+
+✖ failing tests:
+
+test at tests\rex806-artifact-verify.test.mjs:43:1
+✖ REX806 verifier accepts justified unavailable completion after canonical task loss (977.9972ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at fixture.tasks (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:44:35)
+      at fixture (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:37:18)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:44:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex806-artifact-verify.test.mjs:46:1
+✖ REX806 verifier accepts the published six-decimal failure rate precision (967.5674ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at fixture.receipts (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:48:35)
+      at fixture (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:37:18)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:48:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex806-artifact-verify.test.mjs:50:1
+✖ REX806 verifier accepts justified unavailable rates for an all-refused study (961.2242ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at fixture.receipts (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:52:35)
+      at fixture (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:37:18)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:52:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex806-artifact.test.mjs:21:1
+✖ REX806 missing canonical tasks remain counted rather than being filtered from convergence (2.6269ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact.test.mjs:24:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex806-cli.test.mjs:45:1
+✖ REX806 CLI exposes a known truncated receipt window as partial (1012.7885ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-cli.test.mjs:46:53)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

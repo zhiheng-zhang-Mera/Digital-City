@@ -1,0 +1,17 @@
+✔ REX806 verifier accepts justified unavailable completion after canonical task loss (969.0957ms)
+✔ REX806 verifier accepts the published six-decimal failure rate precision (954.547ms)
+✔ REX806 verifier accepts justified unavailable rates for an all-refused study (954.5011ms)
+✔ REX806 V1: the verifier passes an untampered artifact (971.2424ms)
+✔ REX806 V2: a tampered metric value is caught (969.7554ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (967.1756ms)
+✔ REX806 V4: a missing section is caught (957.1635ms)
+✔ REX806 V5: a changed dataset timestamp is caught (975.2482ms)
+✔ REX806 V6: a fabricated intervention count is caught (998.0375ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9703.9137
