@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1640,
-  "total_bytes": 11861513,
+  "total_bytes": 11862396,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -14038,7 +14038,7 @@
     },
     {
       "path": "mission-book/reports/REX-806/DEVELOPMENT_HANDOFF.md",
-      "bytes": 10497,
+      "bytes": 11199,
       "encoding_state": "UTF8",
       "chinese_characters": 1074,
       "english_words": 340,
@@ -14047,10 +14047,10 @@
     },
     {
       "path": "mission-book/reports/REX-806/PAPER_MATERIAL_INDEX.md",
-      "bytes": 4501,
+      "bytes": 4682,
       "encoding_state": "UTF8",
-      "chinese_characters": 402,
-      "english_words": 204,
+      "chinese_characters": 425,
+      "english_words": 217,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },

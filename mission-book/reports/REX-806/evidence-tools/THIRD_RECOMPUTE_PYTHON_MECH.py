@@ -11,15 +11,20 @@ nothing else, and no City access.
 Usage: python THIRD_RECOMPUTE_PYTHON_MECH.py   (REX806_ARTIFACT=<dir> to point it at another package)
 Writes: nothing. Exits non-zero on any disagreement.
 
-COVERAGE: 25 checks in two groups. (a) The four reported metrics are recomputed from the dataset and the
+COVERAGE: 27 checks in three groups. (a) The four reported metrics are recomputed from the dataset and the
 accounting. (b) Cross-file coherence, which neither the exporter's probes nor the JS verifier examines: the
 metric catalogue and values in tables.json against metrics.csv, the run mix and state counts in the dataset
-against the manifest, and failures.json against the manifest's undelivered campaigns. A package can be
-self-consistent per file and still have a table or a failure list describing a different run set.
+against the manifest, and failures.json against the manifest's undelivered campaigns. (c) Placement verdicts
+against the nodes they name, with the boundary below stated in the check itself.
 
-MEASURED: 25/25 on the published package; four scratch controls each turn the intended checks red - one task
-timestamp moved by +1 s, a measured table value changed, an unavailable paper-ready metric fabricated as 0, and
-a dataset row's state rewritten. The probe can fail.
+BOUNDARY: the placement expectation is NOT recomputed here. "Pins the first declared worker" is a property of
+the experiment's declaration order, which lives in the City's manifest and is not carried in the package, so no
+package-only check can re-derive expectedNodeIdByPolicy. What is checked is that each verdict agrees with the
+node it names, and that the seed-only divergence is confined to the ablation rows.
+
+MEASURED: 27/27 on the published package; five scratch controls each turn the intended checks red - one task
+timestamp moved by +1 s, a measured table value changed, an unavailable paper-ready metric fabricated as 0, a
+dataset row's state rewritten, and one placement verdict flipped. The probe can fail.
 
 FOUR OF ITS OWN PREMISES WERE WRONG, and they are kept where they happened because that is this programme's
 recurring error class - a probe that agrees with its own assumption:
@@ -244,6 +249,19 @@ check('undelivered planned runs equal planned - accounted',
       sum(e.get('planned', 0) for e in outcomes) == manifest['supporting']['accounting']['planned'] - manifest['supporting']['accounting']['accounted'],
       f"sum(planned)={sum(e.get('planned', 0) for e in outcomes)} vs planned-accounted="
       f"{manifest['supporting']['accounting']['planned'] - manifest['supporting']['accounting']['accounted']}")
+
+# 16 placement verdicts must be self-consistent with the node they name. BOUNDARY, stated rather than implied:
+#    this is NOT a recomputation of the policy itself. "The first declared worker" is a property of the
+#    experiment's declaration order, which lives in the City's manifest and is not carried in the package, so no
+#    package-only check can re-derive expectedNodeIdByPolicy. What the package can prove is that its own verdict
+#    matches the node it names, and that the seed-only divergence is confined to the ablation rows.
+lc_bad = [r['rawPointer'] for r in rows
+          if (r.get('assignedNodeId') == r.get('expectedNodeIdByPolicy')) != (r.get('placementMatchesPolicy') is True)]
+seed_wrong = sorted({r.get('replayMode') for r in rows if r.get('placementMatchesSeedAlone') is False})
+check('placement verdicts agree with the node each row names (NOT a policy recomputation - see comment)',
+      not lc_bad, f'{len(lc_bad)} inconsistent row(s)')
+check('the seed-only divergence is confined to ablation rows',
+      set(seed_wrong) <= {'ABLATION'}, f'replayModes with placementMatchesSeedAlone=false: {seed_wrong}')
 
 print(f'artifact: {manifest["artifactId"]}')
 for name, ok, detail in checks:

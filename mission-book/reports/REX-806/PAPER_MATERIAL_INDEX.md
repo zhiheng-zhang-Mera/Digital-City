@@ -11,7 +11,7 @@
 | [溯源交叉核对 / Provenance cross-check](PROVENANCE_CROSSCHECK_MECH.mjs) | 8/8：从城市原始回执出发逐行重算数据集与三项指标、点名两个未交付 campaign 与 accounting / Recomputed from the City's raw store, not from the package |
 | [可复现性 / Reproducibility](REPRODUCIBILITY_MECH.md) | 冻结 `generatedAt` 与事件流后**再导出 11/11 字节相同**（含 `checksums.json`）；朴素重导只差 3 处且已解释；负对照改 1 ms 即变红 / Frozen-input re-export is byte-identical; the naive delta is explained; a 1 ms perturbation turns the probe red |
 | [复现探针 / Probe](evidence-tools/REPRODUCIBILITY_PROBE_MECH.mjs) | 需要产出该 City 的 owner 凭据才能运行；对侧主机（MEMBER）不可运行 / Requires the producing City's owner credential; the opposite host as MEMBER cannot run it |
-| [第三种重算 / Third recomputation](evidence-tools/THIRD_RECOMPUTE_PYTHON_MECH.py) | **Python** 实现，只读包内字节、**25 项检查**（四项指标重算 + 跨文件一致性），25/25 通过、四个负对照各自变红；顺手量出三处容易被读成不一致的定义差异（`durationMs` 与任务时间戳差 7–63 ms、18 个 campaign 只有 16 个在 dataset 里、11 次 replay 含 4 次消融）/ Python, package-only, 25 checks (metric recomputation plus cross-file coherence), 25/25, falsified by four controls; it also measured three definitional differences that read like mismatches |
+| [第三种重算 / Third recomputation](evidence-tools/THIRD_RECOMPUTE_PYTHON_MECH.py) | **Python** 实现，只读包内字节、**27 项检查**（四项指标重算 + 跨文件一致性 + 放置判定自洽），27/27 通过、五个负对照各自变红；顺手量出三处容易被读成不一致的定义差异（`durationMs` 与任务时间戳差 7–63 ms、18 个 campaign 只有 16 个在 dataset 里、11 次 replay 含 4 次消融），并写明「策略本身无法只靠包重算」的边界 / Python, package-only, 27 checks (metric recomputation, cross-file coherence, placement self-consistency), 27/27, falsified by five controls; it also measured three definitional differences that read like mismatches and states the boundary that the policy itself is not package-recomputable |
 
 ## 边界 / Limits
 

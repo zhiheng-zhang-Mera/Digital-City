@@ -86,6 +86,12 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 · 不主张 Owner 侧指标（干预计数等）：城市记录不表达 Owner 行为，全部 NOT_MEASURED 并写明原因；
   按工作书要求，未知不得写成 0
 · 不主张 durationDeltaMs 的因果性能结论
+· **不主张「放置判定已被独立重算」**：包内 `placementMatchesPolicy` 是对「assignedNodeId 是否等于
+  expectedNodeIdByPolicy」的一致性命中，而 `expectedNodeIdByPolicy` 本身来自 City 的实验清单声明顺序
+  （例如 `POLICY_ALTERNATE_DEVICE_DISABLED_PINS_FIRST_DECLARED_WORKER` 里的「第一个声明 worker」），
+  **包里没有声明顺序**，因此任何只读包的校验器都无法重新推导它。包能证明的是：判定与它自己点名的节点一致
+  （27 项里的第 26 项），且 seed-only 偏离**只**出现在消融行上；要真正复核策略本身，必须在持有该 City
+  凭据的机器上读实验清单与 registry
 · 本机无产品 main 合并权
 ```
 
