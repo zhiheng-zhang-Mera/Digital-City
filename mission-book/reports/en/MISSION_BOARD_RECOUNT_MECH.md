@@ -39,3 +39,23 @@ This is precisely the instrument-error class repeatedly recorded in this program
 - It **does not claim** to have recounted the historical 64 workbooks. The denominator of 93 includes archived programmes, whose conversion rules reside in the generator. This host does not have the generator source and therefore makes no assertion.
 - This record authorizes no new repair and changes no workbook field; it is a read-only check.
 - If this table conflicts with a workbook, the workbook frontmatter prevails. This is the main board's own rule and the direction adopted for this check.
+
+## Records-integrity sweep
+
+On 2026-10-06 this host ran a read-only invariant sweep over the records plane while advancing the research series: the generated views are synchronized, the independent recount agrees 10/10, and a fresh clone reproduces every published byte-exact payload with zero mismatches (REX-803 evidence, REX-805 evidence and evidence-repaired, REX-806 artifact). The same round caught and fixed one stale record of my own: the deployment inventory still described REX-805 as an unaccepted candidate.
+
+## Re-swept after the relocation
+
+The opposite host then relocated 274 files (`8d675be`: active programmes into `mission-book/mission-group/`, completed ones into `mission-book/finished/completed-2026-10-06/`). A migration that rewrites that many paths is exactly when published evidence bytes get silently rewritten, so the same read-only check was re-run at `8367ac0`:
+
+```text
+fresh clone (git -c core.longpaths=true clone --depth 1), per-file SHA256 against the working copy:
+  REX-806/artifact          11 files (checksums.json included)  differences 0
+  REX-803/evidence           7 files (index included)           differences 0
+  REX-805/evidence          10 files (index included)           differences 0
+  REX-805/evidence-repaired 10 files (index included)           differences 0
+Additionally: the REX-806 package verifies against its own checksums.json inside the clone, 10/10.
+.gitattributes coverage still holds: artifact/** and the REX-803/805 evidence paths are text: unset.
+```
+
+A pre-existing condition worth recording, because it can make another host misjudge: on Windows a clone without `core.longpaths=true` (or a short target path) aborts checkout at `06-研究院区(Research-District)-&-研究实验域(...)/.../paper-materials/*.md` with `Filename too long` and `fatal: unable to checkout working tree` - the transfer succeeds and the checkout fails, so an incomplete tree can be misread as missing evidence. This host hit it on the first attempt and cloned cleanly with `-c core.longpaths=true`.

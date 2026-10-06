@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1638,
-  "total_bytes": 11815241,
+  "total_bytes": 11819277,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -12346,10 +12346,10 @@
     },
     {
       "path": "mission-book/reports/MISSION_BOARD_RECOUNT_MECH.md",
-      "bytes": 6020,
+      "bytes": 8010,
       "encoding_state": "UTF8",
-      "chinese_characters": 633,
-      "english_words": 217,
+      "chinese_characters": 804,
+      "english_words": 307,
       "paired_path": "mission-book/reports/en/MISSION_BOARD_RECOUNT_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14623,10 +14623,10 @@
     },
     {
       "path": "mission-book/reports/en/MISSION_BOARD_RECOUNT_MECH.md",
-      "bytes": 3576,
+      "bytes": 5622,
       "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 266,
+      "chinese_characters": 15,
+      "english_words": 440,
       "paired_path": "mission-book/reports/MISSION_BOARD_RECOUNT_MECH.md",
       "language_presence": "PAIR_PRESENT"
     },
