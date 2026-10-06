@@ -1,0 +1,481 @@
+{
+  "date": "2026-10-07",
+  "moved_linked_worktrees": [
+    {
+      "path": "D:\\Utopia-CEX701",
+      "repo": "utopia",
+      "head": "a24c04401308b11548626239e8ca1f9b4276bbdf",
+      "branch": "refs/heads/cex/CEX-701-Alien-codex-device-recovery",
+      "target": "D:\\Utopia-tree\\CEX-701-790\\Utopia-CEX701",
+      "series": "CEX-701-790",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-CEX702",
+      "repo": "utopia",
+      "head": "3d233ff39d1e96b8a590b12f520f98c283356f25",
+      "branch": "refs/heads/cex/CEX-702-Alien-codex-alternate-device",
+      "target": "D:\\Utopia-tree\\CEX-701-790\\Utopia-CEX702",
+      "series": "CEX-701-790",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-CEX703",
+      "repo": "utopia",
+      "head": "478d486096512eea3266350efe070323a232a120",
+      "branch": "refs/heads/cex/CEX-703-Alien-codex-capability-catalog",
+      "target": "D:\\Utopia-tree\\CEX-701-790\\Utopia-CEX703",
+      "series": "CEX-701-790",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-CEX704",
+      "repo": "utopia",
+      "head": "d05f5a455ff535e3e065b30ec9ec74bca2dbb521",
+      "branch": "refs/heads/cex/CEX-704-Alien-codex-native-owner-onboarding",
+      "target": "D:\\Utopia-tree\\CEX-701-790\\Utopia-CEX704",
+      "series": "CEX-701-790",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-CEX705",
+      "repo": "utopia",
+      "head": "de9185a4ef8d761053c88316ec9efeca037239fb",
+      "branch": "refs/heads/cex/CEX-705-Alien-codex-native-members",
+      "target": "D:\\Utopia-tree\\CEX-701-790\\Utopia-CEX705",
+      "series": "CEX-701-790",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-CEX790",
+      "repo": "utopia",
+      "head": "4688274255464383d577841a37e85a556d92c678",
+      "branch": "refs/heads/integration/CEX-790-Alien-20261006",
+      "target": "D:\\Utopia-tree\\CEX-701-790\\Utopia-CEX790",
+      "series": "CEX-701-790",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\DC-Alien",
+      "repo": "Digital-City",
+      "head": "480d5ae44ebb31005c798f354665e5ecdea03900",
+      "branch": "refs/heads/construction/alien-codex-dispatch-20261004",
+      "target": "D:\\Utopia-tree\\CITY-DOCUMENTATION\\DC-Alien",
+      "series": "CITY-DOCUMENTATION",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-DocsVerify-20261006",
+      "repo": "Digital-City",
+      "head": "2d815283b9cafea6b9c9b8b5d61583de5877d0dc",
+      "branch": null,
+      "target": "D:\\Utopia-tree\\CITY-DOCUMENTATION\\Digital-City-DocsVerify-20261006",
+      "series": "CITY-DOCUMENTATION",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-MissionGroup-20261006",
+      "repo": "Digital-City",
+      "head": "8d675be5e5d5fa3c3ecbd1f7b3b7e536e505d826",
+      "branch": null,
+      "target": "D:\\Utopia-tree\\CITY-DOCUMENTATION\\Digital-City-MissionGroup-20261006",
+      "series": "CITY-DOCUMENTATION",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-REX-20261006",
+      "repo": "Digital-City",
+      "head": "fe156fe514de416419515d7326e0ad2d52866b45",
+      "branch": "refs/heads/docs/bilingual-city-navigation-20261006",
+      "target": "D:\\Utopia-tree\\CITY-DOCUMENTATION\\Digital-City-REX-20261006",
+      "series": "CITY-DOCUMENTATION",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-ReadmeRepair-20261006",
+      "repo": "Digital-City",
+      "head": "d07259a2fc20aaf53d81b07c0bf75f2d5f12d3b8",
+      "branch": null,
+      "target": "D:\\Utopia-tree\\CITY-DOCUMENTATION\\Digital-City-ReadmeRepair-20261006",
+      "series": "CITY-DOCUMENTATION",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-TaskSync-20261006",
+      "repo": "Digital-City",
+      "head": "d9aed0c1bdaf47b2ca54426f8ce9e29d47a103ce",
+      "branch": "refs/heads/sync/REX804-accepted-records-20261006",
+      "target": "D:\\Utopia-tree\\CITY-DOCUMENTATION\\Digital-City-TaskSync-20261006",
+      "series": "CITY-DOCUMENTATION",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-Utopia-Evidence-20261004",
+      "repo": "Digital-City",
+      "head": "17c1b7f2ba5e19b727394265a3b5136753f09246",
+      "branch": "refs/heads/codex/utopia-pairing-host-city-paper-evidence",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Digital-City-Utopia-Evidence-20261004",
+      "series": "HOST-PAIRING",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Digital-City-Utopia-Members",
+      "repo": "Digital-City",
+      "head": "309bad89b77b11f50de818de348f223214d5e77a",
+      "branch": "refs/heads/research/utopia-members-role-log-v2",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Digital-City-Utopia-Members",
+      "series": "HOST-PAIRING",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-City-Naming-Host",
+      "repo": "utopia",
+      "head": "be6227ec49d4dbcd83a595d7b265766af2083421",
+      "branch": "refs/heads/codex/city-members-host-roles",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-City-Naming-Host",
+      "series": "HOST-PAIRING",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-History-Audit",
+      "repo": "utopia",
+      "head": "0a5e9ba53772a1b01897c2edf34de3840de7c629",
+      "branch": "refs/heads/integration/alien-codex-history-20261004",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-History-Audit",
+      "series": "HOST-PAIRING",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-Host-Retry",
+      "repo": "utopia",
+      "head": "3bab6bdc78c18467645f3fb88272dab7a86f8a0d",
+      "branch": "refs/heads/fix/Alien-codex-host-inventory-retry",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Host-Retry",
+      "series": "HOST-PAIRING",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-Pairing-City-Neutral",
+      "repo": "utopia",
+      "head": "a7d6f2a9b97e02d5fd10adf3a73eafb4a5f3ef6e",
+      "branch": "refs/heads/fix/Alien-codex-pairing-city-neutral-lockout",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Pairing-City-Neutral",
+      "series": "HOST-PAIRING",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true
+    },
+    {
+      "path": "D:\\Utopia-JOIN590-Review",
+      "repo": "utopia",
+      "head": "62e9bad92b70af3098da8ce421becf99d8c6d00c",
+      "branch": "refs/heads/review/JOIN-590-Alien-codex",
+      "target": "D:\\Utopia-tree\\JOIN-501-590\\Utopia-JOIN590-Review",
+      "series": "JOIN-501-590",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": true
+    },
+    {
+      "path": "D:\\Utopia-MON901",
+      "repo": "utopia",
+      "head": "7eb38f1b930dfe6cc13dab0e17dedee467b1254b",
+      "branch": "refs/heads/mon/MON-901-Alien-codex-observation",
+      "target": "D:\\Utopia-tree\\MON-901-990\\Utopia-MON901",
+      "series": "MON-901-990",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-MON902",
+      "repo": "utopia",
+      "head": "f4988248a3316806fc2e3fa9e62864ed129fe7b3",
+      "branch": "refs/heads/review/MON-902-Alien-20261006",
+      "target": "D:\\Utopia-tree\\MON-901-990\\Utopia-MON902",
+      "series": "MON-901-990",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-MON903",
+      "repo": "utopia",
+      "head": "3cd32c60d8e9beb9df961e6b7ff193a3f69ec224",
+      "branch": "refs/heads/review/MON-903-Alien-20261006",
+      "target": "D:\\Utopia-tree\\MON-901-990\\Utopia-MON903",
+      "series": "MON-901-990",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-MON990",
+      "repo": "utopia",
+      "head": "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40",
+      "branch": "refs/heads/mon/MON-990-Alien-20261006",
+      "target": "D:\\Utopia-tree\\MON-901-990\\Utopia-MON990",
+      "series": "MON-901-990",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-REX801-Review",
+      "repo": "utopia",
+      "head": "7e96a4d28f4cb701d7a0951bace69857c3228f32",
+      "branch": "refs/heads/review/REX-801-Alien-codex",
+      "target": "D:\\Utopia-tree\\REX-801-890\\Utopia-REX801-Review",
+      "series": "REX-801-890",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-REX802",
+      "repo": "utopia",
+      "head": "833279cae237080cca88b1b6dbc9f217027ba68f",
+      "branch": "refs/heads/rex/REX-802-Alien-codex-trace-foundation",
+      "target": "D:\\Utopia-tree\\REX-801-890\\Utopia-REX802",
+      "series": "REX-801-890",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-REX803",
+      "repo": "utopia",
+      "head": "cae38b22bfb6c1050221aa4aa3e51844e3ec6e47",
+      "branch": "refs/heads/rex/REX-803-Alien-codex-scenario",
+      "target": "D:\\Utopia-tree\\REX-801-890\\Utopia-REX803",
+      "series": "REX-801-890",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-REX803-Review",
+      "repo": "utopia",
+      "head": "8798ba9dd37051626033ad72080b2fad3ff66149",
+      "branch": "refs/heads/review/REX-803-Alien-20261006",
+      "target": "D:\\Utopia-tree\\REX-801-890\\Utopia-REX803-Review",
+      "series": "REX-801-890",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-REX804",
+      "repo": "utopia",
+      "head": "fe700aba957990f93b22fd63d594ddfff7b4e243",
+      "branch": "refs/heads/rex/REX-804-Alien-codex-faults",
+      "target": "D:\\Utopia-tree\\REX-801-890\\Utopia-REX804",
+      "series": "REX-801-890",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-REX805-20261006",
+      "repo": "utopia",
+      "head": "0261a9ed1cec88df3ab4675623d422b37b33f270",
+      "branch": "refs/heads/rex/REX-805-alien-replay-ablation",
+      "target": "D:\\Utopia-tree\\REX-801-890\\Utopia-REX805-20261006",
+      "series": "REX-801-890",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-WBC601-Baseline",
+      "repo": "utopia",
+      "head": "612c344f9f2b06a67b2645b4662d97750dd7c44e",
+      "branch": null,
+      "target": "D:\\Utopia-tree\\WBC-601-604\\Utopia-WBC601-Baseline",
+      "series": "WBC-601-604",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-WBC601-Review",
+      "repo": "utopia",
+      "head": "f66db60998343bf99243621cfcfa2363a4566db8",
+      "branch": "refs/heads/review/WBC-601-Alien-codex",
+      "target": "D:\\Utopia-tree\\WBC-601-604\\Utopia-WBC601-Review",
+      "series": "WBC-601-604",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-WBC602-Baseline",
+      "repo": "utopia",
+      "head": "0e9bea3ce739b979e582a428af8fb233045a5e75",
+      "branch": null,
+      "target": "D:\\Utopia-tree\\WBC-601-604\\Utopia-WBC602-Baseline",
+      "series": "WBC-601-604",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-WBC602-Review",
+      "repo": "utopia",
+      "head": "d99101fdac5169aad74ae84fb7c0c25be43ad7d9",
+      "branch": "refs/heads/review/WBC-602-Alien-codex",
+      "target": "D:\\Utopia-tree\\WBC-601-604\\Utopia-WBC602-Review",
+      "series": "WBC-601-604",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-WBC603",
+      "repo": "utopia",
+      "head": "f3510862cc348a99004ca5bd5d151a7b56279724",
+      "branch": "refs/heads/wbc/WBC-603-Alien-codex-worker-pool",
+      "target": "D:\\Utopia-tree\\WBC-601-604\\Utopia-WBC603",
+      "series": "WBC-601-604",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-WBC604-Recheck-20261006",
+      "repo": "utopia",
+      "head": "ad1b3e85918faf4d8ccc9ccda43e8eaaf7dc634c",
+      "branch": "refs/heads/review/WBC604-store-guard-Alien-20261006",
+      "target": "D:\\Utopia-tree\\WBC-601-604\\Utopia-WBC604-Recheck-20261006",
+      "series": "WBC-601-604",
+      "resident_runtime": false,
+      "status_preserved": true,
+      "head_preserved": true,
+      "old_empty_locked_directory": false
+    },
+    {
+      "path": "D:\\Utopia-Mech-Member-20261006",
+      "repo": "utopia",
+      "head": "b06504f1f96984c960b2661b8ee3a7130796d379",
+      "branch": "refs/heads/runtime/mech-member-20261006",
+      "target": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006",
+      "series": "HOST-PAIRING",
+      "resident_runtime": true,
+      "status_preserved": true,
+      "head_preserved": true
+    }
+  ],
+  "already_in_target": "D:\\Utopia-tree\\LOG-ARCHIVE\\Digital-City-Supplement-20261007",
+  "retained_primary_git_anchors": [
+    "D:/utopia",
+    "D:/AA-Digital-City",
+    "D:/Digital-City"
+  ],
+  "city_after": {
+    "state": "ONLINE",
+    "role": "MEMBER",
+    "cityId": "031fdba6-e94c-4298-a095-6ff04a65481d",
+    "deviceId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+    "dataDir": "D:\\utopia\\.runtime",
+    "gatewayPid": 48524
+  },
+  "evidence": [
+    {
+      "source": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006\\.runtime\\member-launch-after-move.err.log",
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-launch-after-move.err.log",
+      "bytes": 1079,
+      "sha256": "768c7dd4d3d81f1aed16b179c798a4dc4c8988e2cffd4324734f176ad8aeecb0"
+    },
+    {
+      "source": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006\\.runtime\\member-launch-after-move.log",
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-launch-after-move.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006\\.runtime\\member-launch-after-repair.err.log",
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-launch-after-repair.err.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006\\.runtime\\member-launch-after-repair.log",
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-launch-after-repair.log",
+      "bytes": 72,
+      "sha256": "137d4d548a5fb6f5141a0d86424c4ddb035148bd010a10de519bd6dfb774bfc3"
+    },
+    {
+      "source": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006\\.runtime\\member-launch-resident-ready.err.log",
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-launch-resident-ready.err.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "D:\\Utopia-tree\\HOST-PAIRING\\Utopia-Mech-Member-20261006\\.runtime\\member-launch-resident-ready.log",
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-launch-resident-ready.log",
+      "bytes": 40,
+      "sha256": "088721a1872ac0094144d95ec11d0d2e9ef34d500b57f33bb1c8aa1e0f7ba7cb"
+    },
+    {
+      "published_path": "mission-book/reports/LOCAL-LOG-ARCHIVE/relocation-evidence/2026-10-07/member-after-move-public.json",
+      "bytes": 4494,
+      "sha256": "94f666591670877edfd2d8791f2467fba7aa82fa3f7f957d8413b51ea2cceca4"
+    }
+  ],
+  "historical_orphan": {
+    "path": "C:/Users/15601/.codex/worktrees/4b36/A-Utopia",
+    "status": "PRE_EXISTING_BROKEN_GIT_POINTER; eligible intermediate materials supplemented; no fabricated Git association"
+  },
+  "scope": "No new task activation, acceptance change or product-main merge.",
+  "dependency_junctions_repaired": 1441
+}

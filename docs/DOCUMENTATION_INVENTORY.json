@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1698,
-  "total_bytes": 12167358,
+  "total_bytes": 12167773,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -11761,10 +11761,10 @@
     },
     {
       "path": "mission-book/reports/LOCAL-LOG-ARCHIVE/README.md",
-      "bytes": 2660,
+      "bytes": 3075,
       "encoding_state": "UTF8",
-      "chinese_characters": 286,
-      "english_words": 176,
+      "chinese_characters": 317,
+      "english_words": 209,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },

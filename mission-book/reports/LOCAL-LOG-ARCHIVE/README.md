@@ -27,3 +27,7 @@ Logs, XML and JSON with only normalized cloud copies gain exact-byte supplements
 | intermediate-logs | 1 | [打开 / Open](intermediate-logs/2026-10-07/README.md) |
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+## 工作树整理 / Worktree organization
+
+[迁移清单 / Relocation manifest](WORKTREE_RELOCATION_2026-10-07.json) records 36 preserved linked worktrees, Git anchors, dependency-link repair and the restored Mech MEMBER City. 本轮重启失败和恢复日志均保留在 relocation-evidence；不构成新的 campaign 验收。 Restart failure and recovery evidence is retained without new campaign acceptance.
