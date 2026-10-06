@@ -20,7 +20,7 @@ development_ci: "V0.2 checks on exact 78bdd9dc873ebc257aedecf421068a1387dbec82: 
 development_complete: true
 review_host: "Alien"
 review_head_sha: "3cd32c60d8e9beb9df961e6b7ff193a3f69ec224"
-review_ci: "PENDING final 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224 after independently verified Mech sibling findings (union 10a020c) and bounded full-suite concurrency. Prior 5b71389 PR 37416651611 failed two browser visibility timeouts; isolation 6/6 PASS; load suspicion is not a product acceptance. Earlier actual Services/Research product defects and failed CI retained. Latest affected union 46 PASS."
+review_ci: "PENDING final 3cd32c60d8e9beb9df961e6b7ff193a3f69ec224: push 37417270815 / PR 37417276076; linkage 37417276063 SUCCESS. After independently verified Mech sibling findings (union 10a020c) and bounded full-suite concurrency. Prior 5b71389 PR 37416651611 failed two browser visibility timeouts; isolation 6/6 PASS; load suspicion is not a product acceptance. Earlier actual Services/Research product defects and failed CI retained. Latest affected union 46 PASS."
 review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor / Task Inspector / Autonomy & Approval
