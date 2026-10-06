@@ -3,18 +3,18 @@ workbook_id: MON-990
 phase: CITY_WORK_MONITOR_CLOSEOUT
 sequence: 90
 execution_enabled: true
-status: READY
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: []
 dependency_source_shas: ["f4988248a3316806fc2e3fa9e62864ed129fe7b3","3cd32c60d8e9beb9df961e6b7ff193a3f69ec224"]
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "665d6c3c0fd216ca06ef1a18144a8743f12cc63b"
+baseline_resolution_evidence: "Claim-time Alien MERA-ALIANWARE: main213f9f9 plus accepted MON902 f4988248 and MON903 3cd32c60 constructed semantic union665d6c3c. Both exact accepted dependency heads verified ancestors; main unchanged after fresh fetch. Five conflict files retain both monitor controllers, routes and locales. Dependency union smoke before native changes: 80 PASS / 0 FAIL. Isolated D:/Utopia-MON990. No main merge authority."
 dependencies: ["MON-902", "MON-903"]
-development_host: null
-development_branch: null
+development_host: "Alien"
+development_branch: "mon/MON-990-Alien-20261006"
 development_head_sha: null
 development_ci: null
 development_complete: false

@@ -25,7 +25,7 @@
 | 项目 | 总任务完成 | 开发完成 | 复检完成 | 状态 |
 |---|---:|---:|---:|---|
 | [Research Strengthening](./research-strengthening/README.md) | **2/8** | **4/8** | **2/8** | IN_PROGRESS |
-| [City Work Monitor](./city-work-monitor-dashboard/README.md) | **3/4** | **3/4** | **3/4** | ACTIVE |
+| [City Work Monitor](./city-work-monitor-dashboard/README.md) | **3/4** | **3/4** | **3/4** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
 机器可读镜像：[MISSION_PROGRESS.json](./MISSION_PROGRESS.json)。
@@ -85,7 +85,7 @@
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
-| [MON-990](./city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md) | City Work Monitor | READY | — | — |
+| [MON-990](./city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md) | City Work Monitor | IN_PROGRESS | — | — |
 | [SHOW-401](./showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
 
 若此表与工作书冲突，以工作书 frontmatter 为准，并视为 homepage sync drift。

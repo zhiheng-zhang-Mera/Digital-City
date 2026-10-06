@@ -997,7 +997,7 @@
       "name": "City Work Monitor",
       "readme": "city-work-monitor-dashboard/README.md",
       "review_complete": 3,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 3,
       "tasks": [
         {
@@ -1034,7 +1034,7 @@
           "id": "MON-990",
           "path": "city-work-monitor-dashboard/MON-990-cross-device-monitor-acceptance-and-freeze.md",
           "review_complete": false,
-          "status": "READY"
+          "status": "IN_PROGRESS"
         }
       ],
       "total": 4
