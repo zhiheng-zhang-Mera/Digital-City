@@ -82,7 +82,7 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 2. `manifest.supporting.replays = 11`，而 dataset 里 `replayMode=REPLAY` 的行只有 **7** 行——11 = 7 个 REPLAY + **4 个 ABLATION**（消融本身也是重放）；普通 campaign run 的 `replayMode` 为 `null`。
 3. `rawPointers.canonicalTasks` 有 **26** 条，而 dataset 只引用 **24** 个不同 `taskRef`——该列表是**导出时刻城市的整份任务表**（权威计数是工作书的 `runCount`/`measuredRuns`），多出的 2 条是更早的 `CHECKPOINT_DEMO` 任务、与任何 campaign 无关（`POINTERS_RECOMPUTE_CITY_MECH.py` 会逐条点名它们）。另外指针前缀按存储区分：`trace:`、`task:`、`event:`、`receipt:`。
 
-## 已知缺陷：导出 CLI 的「拒绝路径」退出码是崩溃码（本机演练发现）/ Known defect: the CLI's refusal path exits with a crash code
+## 已知缺陷：导出 CLI 的「拒绝路径」退出码是崩溃码（本机演练发现，已修复并验证）/ Known defect: the CLI's refusal path exited with a crash code (found by the rehearsal, repaired and verified)
 
 端到端演练（REX-890 预检 §3.2）顺手发现了本机自己交付物里的一个缺陷，记录而不掩盖： / The end-to-end rehearsal found this defect in this host's own deliverable:
 
@@ -102,6 +102,21 @@ node scripts/verify-research-artifact.mjs city-clone/mission-book/reports/REX-80
 本机为何不直接发布修复 / why no repair branch yet
                   结构性小改 + 需要重跑全套；本机不愿发布**未经验证**的修复（本记录区其他修复都带负对照）。
                   该缺陷已足够明确，可独立领取修复
+```
+
+**更新（同轮内已修完并验证）/ Updated in the same round - repaired and verified:**
+
+```text
+BRANCH      repair/REX-806-mech-exporter-refusal-exit-code @ 44dec630ea84ab5be2cb204072a8572a5555a797
+            parent = 3950d47（被交付的开发头）⇒ 采纳是 fast-forward
+CHANGE      拒绝路径不再 process.exit(1)：置 process.exitCode = 1 并把导出主体放进 else 守卫。
+            主体保留原缩进**是有意的**——diff 是那道守卫（9 行，大部分是说明），不是整文件重排
+VERIFIED    ① 拒绝路径：消息照常打印，退出码 1（原为 3221226505），无 libuv 断言
+            ② 正常路径：端到端演练（全新 City / 两台 worker / 6 次重复 / 注入故障并恢复 / 本 CLI 导出 /
+               独立校验器）**13/13**，产出的包 14/14 通过
+            ③ 本分支上 REX-806 三个套件 24/24
+NOT CLAIMED 本机不行使产品 main 合并权；被交付头 3950d47 仍带该缺陷（材料包本身不受影响，
+            受影响的是导出器**失败路径**的退出码）
 ```
 
 **这条同时说明演练的价值**：它不是为了证明「能跑」，它顺手把一个**只会在失败路径上出现**的缺陷抓了出来——而失败路径恰恰是最少被测的路径。 / The rehearsal did not just prove the happy path; it surfaced a defect that only appears on the failure path, which is the least tested one.

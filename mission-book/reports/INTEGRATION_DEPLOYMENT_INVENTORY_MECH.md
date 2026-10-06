@@ -90,6 +90,12 @@ REX-806      rex/REX-806-mech-metrics-and-export @ 3950d47（开发完成）
 
 仍开放且已就绪  repair/mech-city-store-diagnostic-on-current-main @ be3670b（F-1 typed 诊断）
         parent = b06504f ⇒ 一个提交叠在 current main 上；其守卫探针在该 tip 上 3/3 通过
+
+可立即采纳  repair/REX-806-mech-exporter-refusal-exit-code @ 44dec63（REX-806 导出 CLI 拒绝路径退出码）
+        parent = 3950d47（REX-806 被交付的开发头）⇒ 采纳即 fast-forward
+        缺陷：CLI 在「没有可读回执」时打印了正确理由，却因 process.exit(1) 触发 libuv 断言，
+        退出码为 3221226505 (0xC0000409) 而非 1 —— 调用方无法区分「按设计拒绝」与「崩溃」
+        验证：拒绝路径 exit=1；正常路径端到端演练 13/13、产出包 14/14；本分支 REX-806 三套件 24/24
 ```
 
 本清单不改变任何工作书字段，也未合并任何东西。 / This inventory changes no workbook field and merges nothing.
