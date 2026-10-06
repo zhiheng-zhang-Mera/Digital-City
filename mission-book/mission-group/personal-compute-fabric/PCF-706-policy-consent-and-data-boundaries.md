@@ -2,7 +2,7 @@
 workbook_id: PCF-706
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -54,3 +54,9 @@ report_path: null
 `node --test tests/pcf706-policy.test.mjs`：过期/撤销/别的task的consent无效；ORIGIN_DEVICE_ONLY不能发给另一私人PC；网内设备不自动受信任；许可元数据不能伪造授权；零/未知预算不触发付费；多请求竞争额度仍不越界；日志无secret。
 
 直接控制的同意/拒绝/撤销和sharing策略必须经715真实UI接线后才作为用户能力发布；后台拒绝由714回到原端。可增domain profile但不加入诊断/投资等专业决策逻辑。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+共享许可、一次任务卸载许可、凭据使用、跨设备文件域及provider费用是不同的门；PCF725/726/727/728不得相互推导授权。既有严格目标不变；通过远端工具调用不能跨越user scope。未知账号并发/限流以观察和provider refusal处理，不通过换机规避配额。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

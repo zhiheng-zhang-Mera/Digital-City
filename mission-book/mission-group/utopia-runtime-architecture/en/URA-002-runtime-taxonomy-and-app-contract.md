@@ -32,3 +32,13 @@ compatibility/version contract
 
 ## Completion gate
 A taxonomy decision table, App Contract schema, and mapping rules for City topology and the Capability Registry.
+
+## 2026-10-07 authoritative subscope transfer
+
+The listed execution-only requirements are MIGRATED OUT, not completed. Their sole implementation/acceptance owner is the destination PCF workbook; this source consumes its versioned contract/evidence. Remaining original domain requirements and gates are retained. Any earlier prose naming the same objects is a domain extension or consumption requirement, not duplicate ownership. No activation is granted.
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-01 | URA-002 — Versioned execution-provider capability, permission, platform, command and namespace manifest | PCF-725 | Citywide App taxonomy, App lifecycle and non-execution business contracts |
+
+URA retains citywide App/service taxonomy and contracts. Execution-provider manifest/lifecycle/failure foundations consumePCF-725; only App-level extensions and mapping tests remain here. PCF must not depend on completing URA.

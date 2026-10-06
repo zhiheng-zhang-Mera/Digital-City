@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1642,
-  "total_bytes": 11931804,
+  "markdown_count": 1654,
+  "total_bytes": 12004350,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -916,10 +916,10 @@
     },
     {
       "path": "mission-book/PARKED_PROGRAMMES.md",
-      "bytes": 1731,
+      "bytes": 2020,
       "encoding_state": "UTF8",
       "chinese_characters": 268,
-      "english_words": 79,
+      "english_words": 113,
       "paired_path": "mission-book/en/PARKED_PROGRAMMES.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -988,10 +988,10 @@
     },
     {
       "path": "mission-book/en/PARKED_PROGRAMMES.md",
-      "bytes": 1963,
+      "bytes": 2252,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 213,
+      "english_words": 247,
       "paired_path": "mission-book/PARKED_PROGRAMMES.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8773,20 +8773,38 @@
     },
     {
       "path": "mission-book/future-plans/FR-001-Persistent-Foreman-Runtime.md",
-      "bytes": 9339,
+      "bytes": 11401,
       "encoding_state": "UTF8",
-      "chinese_characters": 1237,
-      "english_words": 340,
+      "chinese_characters": 1575,
+      "english_words": 392,
       "paired_path": "mission-book/future-plans/en/FR-001-Persistent-Foreman-Runtime.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/future-plans/README.md",
+      "bytes": 1312,
+      "encoding_state": "UTF8",
+      "chinese_characters": 161,
+      "english_words": 74,
+      "paired_path": "mission-book/future-plans/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/future-plans/en/FR-001-Persistent-Foreman-Runtime.md",
-      "bytes": 10223,
+      "bytes": 12199,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 1003,
+      "english_words": 1222,
       "paired_path": "mission-book/future-plans/FR-001-Persistent-Foreman-Runtime.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/future-plans/en/README.md",
+      "bytes": 1410,
+      "encoding_state": "UTF8",
+      "chinese_characters": 28,
+      "english_words": 136,
+      "paired_path": "mission-book/future-plans/README.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -9034,10 +9052,10 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "bytes": 4293,
+      "bytes": 5433,
       "encoding_state": "UTF8",
-      "chinese_characters": 221,
-      "english_words": 154,
+      "chinese_characters": 412,
+      "english_words": 175,
       "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-002-constitution-and-core-deliberation-contracts.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9097,10 +9115,10 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/README.md",
-      "bytes": 9409,
+      "bytes": 9982,
       "encoding_state": "UTF8",
-      "chinese_characters": 917,
-      "english_words": 533,
+      "chinese_characters": 978,
+      "english_words": 566,
       "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9115,10 +9133,10 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "bytes": 4589,
+      "bytes": 5646,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 279,
+      "english_words": 398,
       "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9178,19 +9196,19 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/README.md",
-      "bytes": 9894,
+      "bytes": 10496,
       "encoding_state": "UTF8",
-      "chinese_characters": 59,
-      "english_words": 965,
+      "chinese_characters": 83,
+      "english_words": 1015,
       "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/README.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
-      "bytes": 5047,
+      "bytes": 5677,
       "encoding_state": "UTF8",
       "chinese_characters": 1074,
-      "english_words": 125,
+      "english_words": 196,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_AND_EXTENSION.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9214,19 +9232,28 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/EXECUTION_CONTRACT.md",
-      "bytes": 4887,
+      "bytes": 5660,
       "encoding_state": "UTF8",
       "chinese_characters": 907,
-      "english_words": 184,
+      "english_words": 272,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/EXECUTION_CONTRACT.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
-      "bytes": 3009,
+      "path": "mission-book/mission-group/personal-compute-fabric/MIGRATION_HISTORY.md",
+      "bytes": 4212,
       "encoding_state": "UTF8",
-      "chinese_characters": 316,
-      "english_words": 95,
+      "chinese_characters": 246,
+      "english_words": 370,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/MIGRATION_HISTORY.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
+      "bytes": 3622,
+      "encoding_state": "UTF8",
+      "chinese_characters": 434,
+      "english_words": 103,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9241,28 +9268,28 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-702-explainable-placement.md",
-      "bytes": 2789,
+      "bytes": 3388,
       "encoding_state": "UTF8",
-      "chinese_characters": 316,
-      "english_words": 63,
+      "chinese_characters": 455,
+      "english_words": 71,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-702-explainable-placement.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
-      "bytes": 2747,
+      "bytes": 3357,
       "encoding_state": "UTF8",
-      "chinese_characters": 267,
-      "english_words": 74,
+      "chinese_characters": 402,
+      "english_words": 81,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-703-pipeline-offload-and-streams.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
-      "bytes": 2687,
+      "bytes": 3250,
       "encoding_state": "UTF8",
-      "chinese_characters": 302,
-      "english_words": 52,
+      "chinese_characters": 425,
+      "english_words": 58,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-704-admission-reservations-and-fairness.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9277,10 +9304,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
-      "bytes": 2750,
+      "bytes": 3256,
       "encoding_state": "UTF8",
-      "chinese_characters": 306,
-      "english_words": 43,
+      "chinese_characters": 420,
+      "english_words": 46,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-706-policy-consent-and-data-boundaries.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9295,28 +9322,28 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
-      "bytes": 2635,
+      "bytes": 3248,
       "encoding_state": "UTF8",
-      "chinese_characters": 231,
-      "english_words": 49,
+      "chinese_characters": 311,
+      "english_words": 77,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-708-workload-envelope-and-qos.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
-      "bytes": 2686,
+      "bytes": 3204,
       "encoding_state": "UTF8",
-      "chinese_characters": 310,
-      "english_words": 44,
+      "chinese_characters": 420,
+      "english_words": 49,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-709-artifact-locality-and-cache.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
-      "bytes": 2746,
+      "bytes": 3289,
       "encoding_state": "UTF8",
-      "chinese_characters": 299,
-      "english_words": 43,
+      "chinese_characters": 417,
+      "english_words": 48,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-710-headless-execution-and-isolation.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9331,10 +9358,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
-      "bytes": 2656,
+      "bytes": 3254,
       "encoding_state": "UTF8",
-      "chinese_characters": 271,
-      "english_words": 43,
+      "chinese_characters": 404,
+      "english_words": 48,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-712-durable-supervision-and-fencing.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9349,19 +9376,19 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
-      "bytes": 2611,
+      "bytes": 3138,
       "encoding_state": "UTF8",
-      "chinese_characters": 293,
-      "english_words": 35,
+      "chinese_characters": 411,
+      "english_words": 37,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-714-origin-surface-continuity.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
-      "bytes": 2825,
+      "bytes": 3421,
       "encoding_state": "UTF8",
-      "chinese_characters": 300,
-      "english_words": 49,
+      "chinese_characters": 439,
+      "english_words": 51,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-715-resource-control-and-monitor.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9439,19 +9466,55 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
-      "bytes": 2727,
+      "bytes": 3675,
       "encoding_state": "UTF8",
-      "chinese_characters": 318,
-      "english_words": 41,
+      "chinese_characters": 536,
+      "english_words": 48,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-724-multi-application-workload-pilots.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "bytes": 9443,
+      "path": "mission-book/mission-group/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
+      "bytes": 3228,
       "encoding_state": "UTF8",
-      "chinese_characters": 1060,
-      "english_words": 482,
+      "chinese_characters": 307,
+      "english_words": 75,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-725-execution-provider-contract-and-boundaries.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
+      "bytes": 3140,
+      "encoding_state": "UTF8",
+      "chinese_characters": 311,
+      "english_words": 83,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-726-execution-capsule-and-result-evidence.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
+      "bytes": 4019,
+      "encoding_state": "UTF8",
+      "chinese_characters": 489,
+      "english_words": 104,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-727-engineering-connector-live-execution.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
+      "bytes": 4047,
+      "encoding_state": "UTF8",
+      "chinese_characters": 564,
+      "english_words": 97,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-728-originating-agent-remote-job-bridge.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/README.md",
+      "bytes": 13004,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1379,
+      "english_words": 709,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9466,10 +9529,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_AND_EXTENSION.md",
-      "bytes": 4058,
+      "bytes": 4688,
       "encoding_state": "UTF8",
       "chinese_characters": 2,
-      "english_words": 473,
+      "english_words": 544,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9493,19 +9556,28 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/EXECUTION_CONTRACT.md",
-      "bytes": 4059,
+      "bytes": 4832,
       "encoding_state": "UTF8",
       "chinese_characters": 2,
-      "english_words": 496,
+      "english_words": 584,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/EXECUTION_CONTRACT.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/mission-group/personal-compute-fabric/en/MIGRATION_HISTORY.md",
+      "bytes": 4373,
+      "encoding_state": "UTF8",
+      "chinese_characters": 7,
+      "english_words": 481,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/MIGRATION_HISTORY.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
-      "bytes": 1725,
+      "bytes": 2327,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 215,
+      "english_words": 273,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9520,28 +9592,28 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-702-explainable-placement.md",
-      "bytes": 1658,
+      "bytes": 2196,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 202,
+      "english_words": 261,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-702-explainable-placement.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-703-pipeline-offload-and-streams.md",
-      "bytes": 1667,
+      "bytes": 2240,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 200,
+      "english_words": 266,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-704-admission-reservations-and-fairness.md",
-      "bytes": 1689,
+      "bytes": 2236,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 203,
+      "english_words": 266,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9556,10 +9628,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-706-policy-consent-and-data-boundaries.md",
-      "bytes": 1718,
+      "bytes": 2185,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 199,
+      "english_words": 253,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9574,28 +9646,28 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-708-workload-envelope-and-qos.md",
-      "bytes": 1609,
+      "bytes": 2148,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 189,
+      "english_words": 249,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-709-artifact-locality-and-cache.md",
-      "bytes": 1637,
+      "bytes": 2177,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 199,
+      "english_words": 259,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-710-headless-execution-and-isolation.md",
-      "bytes": 1726,
+      "bytes": 2217,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 209,
+      "english_words": 260,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9610,10 +9682,10 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-712-durable-supervision-and-fencing.md",
-      "bytes": 1636,
+      "bytes": 2261,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 197,
+      "english_words": 267,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9628,19 +9700,19 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-714-origin-surface-continuity.md",
-      "bytes": 1623,
+      "bytes": 2176,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 195,
+      "english_words": 255,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-715-resource-control-and-monitor.md",
-      "bytes": 1741,
+      "bytes": 2300,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 219,
+      "english_words": 283,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9718,19 +9790,55 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-724-multi-application-workload-pilots.md",
-      "bytes": 1739,
+      "bytes": 2674,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 214,
+      "english_words": 329,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "bytes": 8402,
+      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-725-execution-provider-contract-and-boundaries.md",
+      "bytes": 1762,
       "encoding_state": "UTF8",
-      "chinese_characters": 57,
-      "english_words": 857,
+      "chinese_characters": 0,
+      "english_words": 186,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-726-execution-capsule-and-result-evidence.md",
+      "bytes": 1795,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 201,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-727-engineering-connector-live-execution.md",
+      "bytes": 2613,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 295,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-728-originating-agent-remote-job-bridge.md",
+      "bytes": 2620,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 304,
+      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
+      "bytes": 12168,
+      "encoding_state": "UTF8",
+      "chinese_characters": 90,
+      "english_words": 1219,
       "paired_path": "mission-book/mission-group/personal-compute-fabric/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10222,10 +10330,10 @@
     },
     {
       "path": "mission-book/mission-group/utopia-runtime-architecture/README.md",
-      "bytes": 3875,
+      "bytes": 4640,
       "encoding_state": "UTF8",
-      "chinese_characters": 405,
-      "english_words": 205,
+      "chinese_characters": 498,
+      "english_words": 247,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10240,19 +10348,19 @@
     },
     {
       "path": "mission-book/mission-group/utopia-runtime-architecture/URA-002-runtime-taxonomy-and-app-contract.md",
-      "bytes": 2699,
+      "bytes": 3782,
       "encoding_state": "UTF8",
-      "chinese_characters": 107,
-      "english_words": 58,
+      "chinese_characters": 284,
+      "english_words": 81,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/en/URA-002-runtime-taxonomy-and-app-contract.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/utopia-runtime-architecture/URA-003-dependency-lifecycle-failure-boundaries.md",
-      "bytes": 2781,
+      "bytes": 3838,
       "encoding_state": "UTF8",
-      "chinese_characters": 117,
-      "english_words": 81,
+      "chinese_characters": 295,
+      "english_words": 101,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/en/URA-003-dependency-lifecycle-failure-boundaries.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10276,10 +10384,10 @@
     },
     {
       "path": "mission-book/mission-group/utopia-runtime-architecture/en/README.md",
-      "bytes": 4289,
+      "bytes": 5094,
       "encoding_state": "UTF8",
-      "chinese_characters": 61,
-      "english_words": 403,
+      "chinese_characters": 85,
+      "english_words": 477,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10294,19 +10402,19 @@
     },
     {
       "path": "mission-book/mission-group/utopia-runtime-architecture/en/URA-002-runtime-taxonomy-and-app-contract.md",
-      "bytes": 1407,
+      "bytes": 2401,
       "encoding_state": "UTF8",
       "chinese_characters": 6,
-      "english_words": 127,
+      "english_words": 241,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/URA-002-runtime-taxonomy-and-app-contract.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/utopia-runtime-architecture/en/URA-003-dependency-lifecycle-failure-boundaries.md",
-      "bytes": 1508,
+      "bytes": 2495,
       "encoding_state": "UTF8",
       "chinese_characters": 6,
-      "english_words": 151,
+      "english_words": 264,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/URA-003-dependency-lifecycle-failure-boundaries.md",
       "language_presence": "PAIR_PRESENT"
     },

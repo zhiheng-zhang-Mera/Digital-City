@@ -11,3 +11,9 @@ Distinguish side-effect-free, keyed-idempotent, checkpoint-resumable, non-retrya
 Run `node --test tests/pcf708-workload.test.mjs`: preserve legacy round-trip identity/semantics; never reinterpret providerRef/handoffTargetRef as strict targeting; handle empty/negative/infinite resources, expired deadlines, unknown enums, fake control-worker promotion and oversized inputs.
 
 Deliver consumer compatibility, upgrade/downgrade fixtures, redaction rules and understandable task-class text for 715. Additional classes cannot make domain-specific business data mandatory in the core.
+
+## 2026-10-07 specification revision 2
+
+Consume provider foundation725 and capsule/result foundation726 while retaining WorkloadEnvelope/QoS ownership. Add caller kind, originating session ref, parent job, input base revision, write scope, result-consumer contract and provider-readiness requirements. Reuse canonical identity rather than another job truth, declaring CPU/build/test/agent support honestly.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

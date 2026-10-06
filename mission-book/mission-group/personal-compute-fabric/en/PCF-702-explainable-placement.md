@@ -11,3 +11,9 @@ Provide deterministic fixed-priority, capability-only, load-only and composite p
 Run `node --test tests/pcf702-placement.test.mjs`: unauthorized fastest nodes are rejected; offline strict targets are not rerouted; unknown VRAM is neither zero nor sufficient; identical inputs/versions reproduce decisions; free slots are not performance equivalence; large candidate sets are bounded; stale proposals are refused. Retain real two-worker decision snapshots without claiming speedup from unit tests.
 
 715 exposes task-level what/why and candidate reasons without private inputs. More complex policies need separate baselines/ablations; learned placement belongs to 723.
+
+## 2026-10-07 specification revision 2
+
+Transfer07 makes PCF the execution-supply/placement owner; FR supplies engineering priorities and qualification requirements. Filter real executor readiness, consent and input locality, not merely online presence. Preserve local-first; cross-device assistance needs explicit scoped authorization. Distinguish whole-job relocation from concurrent work on both hosts.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

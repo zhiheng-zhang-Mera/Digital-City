@@ -2,7 +2,7 @@
 workbook_id: PCF-703
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -54,3 +54,9 @@ report_path: null
 `node --test tests/pcf703-offload.test.mjs`：循环图/畸形 stage 拒绝；慢消费者内存有界；cancel 停止下游新工作；断链不发布半成品成功；权限变化阻止继续发内容；空/巨大输入有界。两 Windows worker 实跑 preprocess→compute→return，保留真实字节/耗时和原 task identity。Android仍仅发起/观察，不用模拟手机计算冒充 edge 验收。
 
 输出 schema、backpressure 计数、阶段 provenance、真实跨机回执。阶段可增加，但新增状态/权限/端点必须走版本与 scope 管理。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+使用708/726的执行封装，把显式父任务的独立stage交给不同主机并有限汇合；复用EM-010，不造第二个DAG调度器。保存 parent/stage/attempt、输入base SHA、write scope和输出digest；同写集不能盲并发。至少测一次Alien与Mech执行区间重叠的工作，而非两个进程启动或串行转发；传输、排队、执行、返回分别计时。自动语义拆题仍归上层。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

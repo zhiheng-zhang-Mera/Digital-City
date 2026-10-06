@@ -11,3 +11,9 @@ Co-run workloads and measure interference, quotas/fairness, cancellation, failur
 Test incompatible app versions, bad schemas, unauthorized data, duplicate submissions, one-app crash, busy workers and misrouted results. Physical two-host reports must show actual outputs and resource/latency behavior, not merely two launched processes.
 
 Many products may run concurrently, while each study answers a bounded question. New verticals preserve product boundaries and default to the next release; unready glasses or health products cannot block core acceptance.
+
+## 2026-10-07 specification revision 2
+
+Retain both safe workload classes and add an explicit engineering milestone: real Codex on Alien uses728 to submit a real Codex subtask on Mech, independent work overlaps on Alien, and the same originating session consumes the result and continues. Verify reverse direction and a build/test workload, plus cancel/failure and offline retrieval. Correlate calls, consent, input snapshot, host processes, overlap, artifact digests and session consumption under one parent task. Missing real providers block the named engineering milestone, never replaced by WAIT/HASH/doubles. Repeated serial/two-host comparisons report median, dispersion and transfer cost; no measured speedup means no speedup claim. No auto-merge or whole-DGX/RIV/URA/Linux/GPU/HA prerequisites.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

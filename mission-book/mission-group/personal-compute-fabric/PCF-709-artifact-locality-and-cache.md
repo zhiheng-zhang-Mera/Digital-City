@@ -2,7 +2,7 @@
 workbook_id: PCF-709
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -50,3 +50,9 @@ report_path: null
 `node --test tests/pcf709-artifacts.test.mjs`：同digest不同权限、损坏/截断、变更中源文件、path traversal、磁盘满、驱逐被pin工件、重传、撤销中断、清理失败均有正确状态。实跑双机传输并验证字节和checksum，不用复制fixture冒充网络证明。
 
 UI：副本位置、传输状态、配额和删除错误归task/device Advanced；敏感名称和内容不出现在公共trace。新增对象存储/provider需单独授权，不强制上云。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+工程任务必须以repo+commit和显式dirty patch/content manifest定位输入；禁止通过共享可写目录或未经核验git pull假装输入一致。输出patch/commit/artifact有digest，回到Alien后先验证再交受授权集成；断链/磁盘不足/恶意路径/超大输出拒绝有据。凭据不随repo工件复制。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

@@ -2,7 +2,7 @@
 workbook_id: PCF-700
 phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
-spec_revision: 1
+spec_revision: 2
 parent_workbook_id: null
 execution_enabled: false
 status: NOT_STARTED
@@ -58,3 +58,9 @@ report_path: null
 可以增加实证审计子项，不能借审计大规模移动目录或重开已冻结 WBC。候选 CAP 映射在本书查重后分配；本书自身不凭文档新增已验证产品能力。
 
 完成只表示 audit/compatibility contract accepted；未来 release 必须重新验证真实产品组合。
+
+## 2026-10-07 规格强化 / Specification revision 2
+
+追加核对已接受 EM 连接器/Foreman、RF、GAI、WBC 和原端工具接线。分别列出 DECLARED / COMPONENT_TESTED / LIVE_WIRED / TWO_HOST_VERIFIED / ORIGIN_AGENT_CONSUMED。此前对“没有 Codex connector”的讨论不是代码证据，不得据此重做已存在组件。明确 UI 共享开关、真实领取、真实进程和结果消费间的缺口；核对迁移01～07的源文本、保留范围和单写者。
+
+详见 [迁移与单一所有权](MIGRATION_HISTORY.md)。本修订不授予施工、预算、远端执行或合并权限。

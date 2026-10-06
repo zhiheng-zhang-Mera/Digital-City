@@ -188,6 +188,16 @@ KEEP IN PLACE
 
 语言配对 / Language pair: [English reading](en/README.md)
 
+## 2026-10-07 迁出面板 / Outgoing requirement history
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-03 | DGX-002 — 有界执行上下文与结构化结果/证据封装的通用底层 | PCF-726 | Constitution、语义拆题、ProblemGraph、领域证据规则、辩护和仲裁 |
+
+迁出仅限表中子项，父项目保留其余目标；PCF未启用。 / Only named subscopes move; parent goals remain and PCF is not activated.
+
+[PCF incoming history](../personal-compute-fabric/MIGRATION_HISTORY.md)
+
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information
 

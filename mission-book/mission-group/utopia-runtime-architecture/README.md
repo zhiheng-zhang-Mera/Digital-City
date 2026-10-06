@@ -86,6 +86,17 @@ classify first
 
 语言读本 / Reading translation: [English](en/README.md). 原文状态与证据具有权威性 / This source remains authoritative for status and evidence.
 
+## 2026-10-07 迁出面板 / Outgoing requirement history
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-01 | URA-002 — 执行 provider 的版本、能力、权限、平台、命令、存储命名空间与兼容合同 | PCF-725 | 全城 App taxonomy、App lifecycle 及非执行业务合同 |
+| PCF-MIG-20261007-02 | URA-003 — 执行器的启动/退出、依赖失效、隔离、停用和回退边界 | PCF-725 | 全城依赖方向、非执行 App/service 解耦与分类 |
+
+迁出仅限表中子项，父项目保留其余目标；PCF未启用。 / Only named subscopes move; parent goals remain and PCF is not activated.
+
+[PCF incoming history](../personal-compute-fabric/MIGRATION_HISTORY.md)
+
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information
 

@@ -11,3 +11,9 @@ Use bounded queues, per-application quotas, fair rotation/aging, priority and de
 Run `node --test tests/pcf704-admission.test.mjs`: only one concurrent request gets the last unit; repeated admission does not double charge; failures/cancellation/expiry do not leak reservations; stale versions fail; insufficient capacity does not deadlock partial reservations; large work progresses or is explicitly refused under sustained small work; queue-full loss is visible.
 
 Apply bounded contention on both real hosts and compare observations, reservations and actual execution. Logical quotas do not prove OS isolation; 710 does. 715 exposes queue, quota, wait and refusal reasons.
+
+## 2026-10-07 specification revision 2
+
+Transfer07 assigns execution supply/admission to PCF, not a separate FR pool. Distinguish reserved PCF work from actual external host load; an unobserved external agent/game does not mean idle. Protect foreground capacity, refuse unknown hard-resource requirements, separate queued/leased/running/draining and enable multiple slots only with real executor/resource evidence.
+
+See [migration and ownership](MIGRATION_HISTORY.md). This revision grants no execution, budget, remote access or merge authority.

@@ -100,21 +100,9 @@ repeat
 
 It must keep working without Owner opening a chat window.
 
-### Stage B — Hns / Codex real connector acceptance
+### Stage B — Migrated to PCF-727
 
-Advance Engineering Manager connectors/contracts from completed components/tests into real daily paths:
-
-- Launch.
-- Session binding.
-- Task injection.
-- Progress/checkpoint reading.
-- Restart/resume.
-- Result extraction.
-- Failure classification.
-- Safe cancellation.
-- Exact task/branch/head attribution.
-
-Complete Hns and Codex first; expand to Claude Code/WorkBuddy later.
+The complete real Hns/Codex launch, binding, submission, events/checkpoint, restart/resume, result, failure, cancellation and exact task/branch/head requirements are now owned by [PCF-727](../../mission-group/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md). FR consumes separate real evidence for both providers; caller return belongs to728. No duplicate implementation remains here.
 
 ### Stage C — Review / Repair autonomous loop
 
@@ -278,3 +266,16 @@ FUTURE PLAN = RECORDED
 EXECUTION   = NOT AUTHORIZED
 PROMOTION   = OWNER REQUIRED
 ```
+
+## 2026-10-07 authoritative subscope transfer
+
+The listed execution-only requirements are MIGRATED OUT, not completed. Their sole implementation/acceptance owner is the destination PCF workbook; this source consumes its versioned contract/evidence. Remaining original domain requirements and gates are retained. Any earlier prose naming the same objects is a domain extension or consumption requirement, not duplicate ownership. No activation is granted.
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-04 | FR-001 — Real engineering connector launch/bind/submit/events/control/result/health acceptance | PCF-727 | Engineering goal planning, Review-to-Repair, escalation and merge decisions |
+| PCF-MIG-20261007-05 | FR-001 — Originating agent/session bridge for remote submission and structured result consumption | PCF-728 | Business synthesis decisions and the complete autonomous Foreman control loop |
+| PCF-MIG-20261007-06 | FR-001 — Execution-side supervision, wakeup, receipt consumption and canonical reconciliation | PCF-712 | Git/Mission Book/CI goal observation, next-job selection and Review-to-Repair |
+| PCF-MIG-20261007-07 | FR-001 — Execution supply, explainable placement, atomic admission and reservations | PCF-702, PCF-704 | Engineering priority, review role/qualification demands and optional-platform business topology |
+
+Stage B implementation now belongs toPCF-727; FR still requires separate real acceptance for BOTH Hns and Codex when consumed. Caller return belongs to728. Stage A retains goal/event observation and business decisions, while execution-side supervision belongs to712. Stage E retains engineering demand/qualification and optional topology; execution supply/placement/admission belongs to702/704. Android remains control-only unless separately authorized. Review-to-Repair, escalation, Owner filters, project selection and merge policy remain FR.

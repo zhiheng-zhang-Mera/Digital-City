@@ -190,6 +190,16 @@ Directory existence does not automatically start this series. At minimum:
 
 By default, wait for the current Monitor programme to complete its established freeze, then decide DGX anchors and construction order. Owner may rule otherwise.
 
+## 2026-10-07 迁出面板 / Outgoing requirement history
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-03 | DGX-002 — Bounded execution context and structured result/evidence exchange substrate | PCF-726 | Constitution, semantic decomposition, ProblemGraph, domain evidence rules, defence and adjudication |
+
+迁出仅限表中子项，父项目保留其余目标；PCF未启用。 / Only named subscopes move; parent goals remain and PCF is not activated.
+
+[PCF incoming history](../../personal-compute-fabric/MIGRATION_HISTORY.md)
+
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information
 

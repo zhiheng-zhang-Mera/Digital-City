@@ -37,3 +37,9 @@ Capture outcomes, failures, timeouts, cancellation, stale/unknown data, retries,
 spec_revision increases monotonically. Do not silently change claimed baselines or acceptance criteria; add a reviewed revision proposal or child workbook. Components have no merge authority. Integration uses the then-current main, preserves accepted work, refreshes before merge and verifies merged-main CI.
 
 English mirrors have no frontmatter and are not task authorities. All dynamic state lives in the canonical root workbook, preventing duplicate IDs and doubled progress.
+
+## Revision2 transferred prerequisites and live acceptance
+
+Read [migration history](MIGRATION_HISTORY.md) before executing any revised workbook.725/726 are foundation components;727 is the connector-backed engineering adapter;728 is the caller/session bridge. Parent relationships do not add dependency edges or inherit authority. Existing contracts and domain ownership must be reused.
+
+The product chain is accepted only with real two-physical-host execution evidence and return consumption by the originating agent. Keep component, live-provider, user-surface and originating-session gates separate. Unsupported or missing stages remain NOT_RUN/UNSUPPORTED, never PASS. New scope is still PARKED with null anchors; no current active or completed workbook is reopened.

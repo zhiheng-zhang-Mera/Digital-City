@@ -9,7 +9,7 @@
 
 PCF extends WBC's compatible backends, descriptors and reversible profiles into an authorized, explainable, resource-aware, recoverable personal multi-device runtime. Glasses, entertainment, health and engineering assistance remain applications rather than core domain assumptions.
 
-The initial plan contains **25 canonical workbooks: 19 CORE_V1 and 6 OPTIONAL_EXTENSION**. These are planned units, not active progress statistics. CORE_V1 uses the existing Windows workers and Android control surface; absent Linux servers, glasses or accelerators cannot prevent its acceptance. Original PCF-701–707 themes are preserved; 700 and 708–724 add missing boundaries.
+The initial plan contains **29 canonical workbooks: 23 CORE_V1 and 6 OPTIONAL_EXTENSION**. These are planned units, not active progress statistics. CORE_V1 uses the existing Windows workers and Android control surface; absent Linux servers, glasses or accelerators cannot prevent its acceptance. Original PCF-701–707 themes are preserved; 700 and 708–724 add missing boundaries.
 
 ## Planning provenance, not execution anchors
 
@@ -57,12 +57,41 @@ Preserve STANDARD_DEVICES without a workbench, canonical task/identity/trust aut
 
 Subtasks and complexity may grow under explicit ownership, dependencies, budgets and scope revisions. A release's acceptance boundary must not grow without end.
 
+## Scope revision 2 / 2026-10-07 强化范围
+
+**29 planned workbooks = 23 CORE_V1 + 6 OPTIONAL_EXTENSION; 0 activated.** 新增四书是已授权的规划增强，不是开启施工。 / Four additions are approved design work, not runtime activation.
+
+| ID | Work | Scope |
+|---|---|---|
+| [PCF-725](PCF-725-execution-provider-contract-and-boundaries.md) | Execution provider contract and lifecycle boundaries | CORE_V1 / PARKED |
+| [PCF-726](PCF-726-execution-capsule-and-result-evidence.md) | Execution capsule and result/evidence envelope | CORE_V1 / PARKED |
+| [PCF-727](PCF-727-engineering-connector-live-execution.md) | Live engineering connector execution and acceptance | CORE_V1 / PARKED |
+| [PCF-728](PCF-728-originating-agent-remote-job-bridge.md) | Originating-agent remote-job and result-return bridge | CORE_V1 / PARKED |
+
+### 迁入面板 / Incoming requirement history
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-01 | URA-002 — Versioned execution-provider capability, permission, platform, command and namespace manifest | PCF-725 | Citywide App taxonomy, App lifecycle and non-execution business contracts |
+| PCF-MIG-20261007-02 | URA-003 — Executor startup/shutdown, dependency failure, isolation, disable and rollback boundaries | PCF-725 | Citywide dependency direction and non-execution App/service boundaries |
+| PCF-MIG-20261007-03 | DGX-002 — Bounded execution context and structured result/evidence exchange substrate | PCF-726 | Constitution, semantic decomposition, ProblemGraph, domain evidence rules, defence and adjudication |
+| PCF-MIG-20261007-04 | FR-001 — Real engineering connector launch/bind/submit/events/control/result/health acceptance | PCF-727 | Engineering goal planning, Review-to-Repair, escalation and merge decisions |
+| PCF-MIG-20261007-05 | FR-001 — Originating agent/session bridge for remote submission and structured result consumption | PCF-728 | Business synthesis decisions and the complete autonomous Foreman control loop |
+| PCF-MIG-20261007-06 | FR-001 — Execution-side supervision, wakeup, receipt consumption and canonical reconciliation | PCF-712 | Git/Mission Book/CI goal observation, next-job selection and Review-to-Repair |
+| PCF-MIG-20261007-07 | FR-001 — Execution supply, explainable placement, atomic admission and reservations | PCF-702, PCF-704 | Engineering priority, review role/qualification demands and optional-platform business topology |
+
+[Migration history](MIGRATION_HISTORY.md) · [Machine-readable transfers](../MIGRATION_MANIFEST.json)
+
+Revision2 wave order replaces the earlier recommended order: A:700→701/706/725/726→708; B:702/704/709→710/707; C:703/711/712/713→705, and727 after its accepted dependencies; D:714/715/716→728→724→721. Optional717/718/719/720/722/723 never block the engineering path. Workbook dependencies, not numbering or parent labels, govern execution.
+
+最小工程目标 / Minimum engineering outcome: Alien-origin Codex→Mech real executor→same originating Codex session consumes result, while independent Alien work overlaps. UI-only success is insufficient. No pooled RAM/GPU, arbitrary process takeover, automatic paid API, automatic merge or full DGX/URA/RIV/FR activation is implied.
+
 <!-- DOCUMENT_NAVIGATION:START -->
 ## 导航与快速信息 / Navigation and quick information
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **31**.
+当前Markdown文档 / Current Markdown documents: **36**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -73,6 +102,7 @@ Subtasks and complexity may grow under explicit ownership, dependencies, budgets
 - [ARCHITECTURE.md](ARCHITECTURE.md)
 - [CHILD_WORKBOOK_TEMPLATE.md](CHILD_WORKBOOK_TEMPLATE.md)
 - [EXECUTION_CONTRACT.md](EXECUTION_CONTRACT.md)
+- [MIGRATION_HISTORY.md](MIGRATION_HISTORY.md)
 - [PCF-700-ownership-and-reality-audit.md](PCF-700-ownership-and-reality-audit.md)
 - [PCF-701-live-resource-telemetry.md](PCF-701-live-resource-telemetry.md)
 - [PCF-702-explainable-placement.md](PCF-702-explainable-placement.md)
@@ -98,6 +128,10 @@ Subtasks and complexity may grow under explicit ownership, dependencies, budgets
 - [PCF-722-controller-continuity-and-ha.md](PCF-722-controller-continuity-and-ha.md)
 - [PCF-723-adaptive-placement-research.md](PCF-723-adaptive-placement-research.md)
 - [PCF-724-multi-application-workload-pilots.md](PCF-724-multi-application-workload-pilots.md)
+- [PCF-725-execution-provider-contract-and-boundaries.md](PCF-725-execution-provider-contract-and-boundaries.md)
+- [PCF-726-execution-capsule-and-result-evidence.md](PCF-726-execution-capsule-and-result-evidence.md)
+- [PCF-727-engineering-connector-live-execution.md](PCF-727-engineering-connector-live-execution.md)
+- [PCF-728-originating-agent-remote-job-bridge.md](PCF-728-originating-agent-remote-job-bridge.md)
 - [RESEARCH_AND_RELEASE.md](RESEARCH_AND_RELEASE.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

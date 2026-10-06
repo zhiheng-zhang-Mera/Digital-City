@@ -14,7 +14,7 @@ dependency_source_shas: []
 development_baseline_sha: null
 baseline_resolution_evidence: null
 anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
-dependencies: ["DGX-001"]
+dependencies: ["DGX-001", "PCF-726"]
 development_host: null
 development_branch: null
 development_head_sha: null
@@ -48,6 +48,9 @@ decision_trace_refs: []
 owner_gate: OWNER_ACTIVATION_REQUIRED
 merge_authority: false
 report_path: null
+spec_revision: 2
+migrated_scope_refs: ["PCF-MIG-20261007-03"]
+migrated_scope_ownership: DESTINATION_PCF_ONLY
 ---
 
 > **PARKED / NOT ACTIVATED.** 本工作书当前只冻结设计边界；不得 claim、不得施工、不得据此创建 Utopia 产品分支。  
@@ -137,3 +140,15 @@ proposed_next_action
 版本化 Constitution + decomposition contract + ProblemGraph/TaskCapsule/ResultEnvelope schema + invariant tests + authority boundary + failure semantics。
 
 语言配对 / Language pair: [English reading](en/DGX-002-constitution-and-core-deliberation-contracts.md)
+
+## 2026-10-07 子项迁出 / Requirement transfer
+
+以下迁出项不再由本书实现或重复验收；本书只消费PCF版本化合同和证据，未列出的原目标、约束与完成门槛继续保留。源文字描述相同概念时仅作领域扩展/消费要求，不构成第二个实现owner。迁出不是完成，也不激活本书。
+
+| Transfer | Source requirement | Destination | Remaining source scope |
+|---|---|---|---|
+| PCF-MIG-20261007-03 | DGX-002 — 有界执行上下文与结构化结果/证据封装的通用底层 | PCF-726 | Constitution、语义拆题、ProblemGraph、领域证据规则、辩护和仲裁 |
+
+[PCF迁入与完整映射](../personal-compute-fabric/MIGRATION_HISTORY.md)
+
+DGX TaskCapsule/ResultEnvelope现在是PCF-726通用ExecutionCapsule/ResultEvidenceEnvelope的领域薄扩展：问题语义、领域证据、independence/recusal和治理结果仍归DGX；通用任务关联、传输封装、结果相关性/去重/有界性只由PCF实现。PCF不反向依赖DGX。

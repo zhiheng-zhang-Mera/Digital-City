@@ -35,3 +35,7 @@ Every extension must preserve an acyclic graph, single authorities, nonconflicti
 Freeze CORE_V1 membership in its activation receipt. New children default to NEXT_RELEASE and do not silently expand an in-flight PCF-790. Safety fixes require explicit rationale and affected revalidation. Optional hardware/HA/adaptive work is accepted independently; missing hardware is neither success nor a core-release blocker.
 
 790/990 are reserved IDs only. Generate a real final integration workbook only after the corresponding frozen scope has accepted components, resolvable evidence and explicit real seams. Integrate from the then-current main under existing merge rules.
+
+## 2026-10-07 design revision2 reservation
+
+PCF-725..728 are now allocated, still execution_enabled=false. Next unused range begins at729. The Owner requested design strengthening and requirement migration only. The four additions belong to planned CORE_V1 revision2 because no PCF runtime release has been activated/frozen. This does not inherit budget, credentials, execution or merge authority. At activation, reconcile all transitive prerequisites and source-to-PCF mappings; do not require completion of entire DGX/URA/FR/RIV. All original activation transaction and strict-target/independent-review guards remain in force.
