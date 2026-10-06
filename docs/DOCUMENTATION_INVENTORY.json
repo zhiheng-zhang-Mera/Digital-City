@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1636,
-  "total_bytes": 11804371,
+  "markdown_count": 1638,
+  "total_bytes": 11815241,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -14029,10 +14029,10 @@
     },
     {
       "path": "mission-book/reports/REX-806/DELIVERABLE.md",
-      "bytes": 6526,
+      "bytes": 7312,
       "encoding_state": "UTF8",
-      "chinese_characters": 587,
-      "english_words": 62,
+      "chinese_characters": 652,
+      "english_words": 73,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -14046,11 +14046,29 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/REX-806/PAPER_MATERIAL_INDEX.md",
+      "bytes": 3879,
+      "encoding_state": "UTF8",
+      "chinese_characters": 326,
+      "english_words": 173,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 742,
+      "bytes": 848,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 32,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-806/REPRODUCIBILITY_MECH.md",
+      "bytes": 6099,
+      "encoding_state": "UTF8",
+      "chinese_characters": 791,
+      "english_words": 95,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
