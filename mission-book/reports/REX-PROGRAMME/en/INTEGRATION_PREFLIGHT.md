@@ -65,6 +65,25 @@ The REX-805 candidate head `4b39468` (`rex/REX-805-alien-replay-ablation`, PR #3
 
 **That fast-forward is the sharpest illustration of the rule that the integration source must be the commit accepted in the workbook**: integration by branch name here would not merely include one additional commit; it would **replace the entire main with the candidate head**.
 
+**Remeasured after the candidate moved:** the author subsequently pushed `0261a9e`, repairing empty-limit-set comparison and rebinding the gate to that head. The union was therefore remeasured; the repair falls in the very file requiring union resolution.
+
+```text
+0261a9e -> 已接受并集 803+804 @ 704c518              一处冲突，同样是 services/dev-gateway/server.mjs 的 union 位点
+           已接受并集保留 fault controller，候选加入 replay engine => 三者并集
+           合并结果带上了修复本身：check('limits', replay.limits??{}, limits(...)??{})
+branch     integration/REX-805-repaired-mech-preflight @ 5b85cd6
+           （并集 + 已发布的 REX-804 证据修复，后者让跑完全量后 tracked state 仍为 CLEAN）
+focused    tests/rex803-*. + rex804-*. + rex805-*.     68 pass / 0 fail（17 套件，含作者新增的空 limit 回归测试）
+full       pnpm test                                  1424 pass / 3 fail / 1427，跑后 CLEAN
+           3 项均为 tests/host-city-launcher.test.mjs（本机常驻 City 占用 host reservation）
+```
+
+In English: `0261a9e` against accepted 803+804 union `704c518` still produces one conflict at the same `services/dev-gateway/server.mjs` union point. The accepted union retains the fault controller while the candidate adds the replay engine, so all three capabilities remain. The merge result includes the repair itself: `check('limits', replay.limits??{}, limits(...)??{})`.
+
+Repaired preflight branch: `integration/REX-805-repaired-mech-preflight @ 5b85cd6`, comprising the union plus the published REX-804 evidence repair, which leaves tracked state CLEAN after the full suite. Focused rex803/rex804/rex805 tests: 68 pass, 0 fail, across 17 suites, including the author's new empty-limit regression test. Full `pnpm test`: 1424 pass, 3 fail, total 1427; CLEAN afterward. All three failures are `tests/host-city-launcher.test.mjs`, where resident City occupies the host reservation.
+
+The earlier union measured on the **unrepaired** `4b39468` candidate, `integration/REX-805-candidate-mech-preflight @ 0d8bdce`, remains as history. Each measurement binds its own candidate; neither replaces the other.
+
 Branch: `integration/REX-805-candidate-mech-preflight` @ `0d8bdce` (the union, additionally incorporating the published REX-804 evidence repair). The candidate head is not an accepted identity. This branch is a **preflight measurement**, not an integration, and changes no workbook field.
 
 ```text

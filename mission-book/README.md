@@ -19,8 +19,8 @@
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计：总任务 88/93 · 开发 89/93 · 复检 88/93**  
-**当前未收口项目池：总任务 18/23 · 开发 19/23 · 复检 18/23**
+**全城合计 / Overall: 总任务 / Tasks 88/93 · 开发 / Development 89/93 · 复检 / Review 88/93**
+**当前未收口池 / Active pool: 总任务 / Tasks 18/23 · 开发 / Development 19/23 · 复检 / Review 18/23**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate bilingual documentation navigation; never edit workbook truth."""
 from __future__ import annotations
-import argparse,json,os,pathlib,re,sys
+import argparse,hashlib,json,os,pathlib,re,sys
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent))
 from sync_mission_progress import collect
 ROOT=pathlib.Path(__file__).resolve().parents[2]
@@ -11,6 +11,20 @@ START='<!-- DOCUMENT_NAVIGATION:START -->'
 END='<!-- DOCUMENT_NAVIGATION:END -->'
 
 def relative(p):return p.relative_to(ROOT).as_posix()
+def raw_payload(p):
+ parts=p.relative_to(ROOT).parts
+ return len(parts)>=4 and parts[:2]==('mission-book','reports') and any(part in {'evidence','evidence-repaired'} for part in parts[3:])
+
+def check_encoding_preimages():
+ index=ROOT/'docs/encoding-evidence/PREIMAGE_INDEX.json'
+ if not index.exists():return []
+ failures=[]
+ for record in json.loads(index.read_text(encoding='utf-8'))['records']:
+  path=ROOT/record['preimage_ref']
+  data=path.read_bytes() if path.exists() else b''
+  if len(data)!=record['original_bytes'] or hashlib.sha256(data).hexdigest()!=record['original_sha256']:
+   failures.append(record['preimage_ref'])
+ return failures
 def documents(folder):return sorted((p for p in folder.rglob('*.md') if '.runtime' not in p.parts and '.git' not in p.parts),key=lambda p:p.as_posix())
 def rows(folder):
  out=[]
@@ -91,11 +105,14 @@ def series_outputs():
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument('--check',action='store_true');args=ap.parse_args()
+ preimage_failures=check_encoding_preimages()
+ if preimage_failures:
+  print('Encoding-preimage byte/hash mismatch:',', '.join(preimage_failures));return 1
  scopes=[ROOT/'mission-book/reports',ROOT/'mission-book/finished',ROOT/'mission-book/logs',ROOT/'docs']
  targets=set(scopes)
  for scope in scopes:
   if scope.exists():
-   targets.update(p for p in scope.rglob('*') if p.is_dir() and len(documents(p))>=2)
+   targets.update(p for p in scope.rglob('*') if p.is_dir() and not raw_payload(p) and len(documents(p))>=2)
  # Materialize missing navigation files first, so parent counts are stable.
  missing=[p/'README.md' for p in targets if not (p/'README.md').exists()]
  if missing and args.check:
@@ -136,8 +153,10 @@ def main():
   for language in ('en','zh-CN'):
    if p.name.endswith('.'+language+'.md'):
     candidates.append(p.with_name(p.name[:-len('.'+language+'.md')]+'.md'))
-  if rel=='mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md':
+  if rel in {'mission-book/reports/REX-803/evidence/MATERIAL_INDEX.md','mission-book/reports/REX-805/evidence/MATERIAL_INDEX.md'}:
    candidates.append(p.parent.parent/'zh-CN'/p.name)
+  if rel=='mission-book/reports/REX-805/evidence-repaired/MATERIAL_INDEX.md':
+   candidates.append(p.parent.parent/'zh-CN'/'MATERIAL_INDEX-repaired.md')
   for candidate in candidates:
    if candidate!=p and candidate.exists():
     peer=relative(candidate);break

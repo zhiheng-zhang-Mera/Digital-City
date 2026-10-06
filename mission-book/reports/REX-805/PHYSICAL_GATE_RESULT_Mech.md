@@ -51,3 +51,8 @@ durationDeltaMs 不作因果性能结论（引擎自身 causalPerformanceClaim=f
 ## 交回 / Handback
 
 材料以**原始 JSON + 索引**形式发布（逐文件 SHA256；三份回执均为 City 写入字节的逐字节副本，源回执可与 City 交叉核对，两个包里的同一份回执 SHA256 相同、也与 REX-803 材料包记录的一致）。请作者据此核验开发门槛并记录开发完成；随后本机再独立领取正式复检。 / Raw JSON plus an index with per-file SHA256; the receipts are byte copies. The author verifies the gate and records completion; this host then claims the formal review independently.
+
+
+---
+
+Reading translation / 语言读本: [English](en/PHYSICAL_GATE_RESULT_Mech.md). Source status and evidence remain authoritative.

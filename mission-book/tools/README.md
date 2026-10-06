@@ -11,6 +11,7 @@ sync_utopia_status.py              refresh the live Utopia status block in the l
 check_record_consistency.py        report record drift across the three record locations; exit 1 when an ERROR is found
 sync_documentation_navigation.py   regenerate bilingual navigation, programme dashboards and docs/DOCUMENTATION_INVENTORY.json; --check fails on drift
 test_check_record_consistency.py   tests for the checker, including the drift it must catch
+test_documentation_preservation.py detects newline conversion, same-length corruption and missing encoding preimages without repairing them
 ```
 
 Run them from the repository root (`dc/`):
@@ -20,6 +21,7 @@ python mission-book/tools/sync_dependency_state.py --check
 python mission-book/tools/sync_mission_progress.py
 python mission-book/tools/check_record_consistency.py
 python mission-book/tools/test_check_record_consistency.py
+python mission-book/tools/test_documentation_preservation.py
 python mission-book/tools/sync_documentation_navigation.py
 python mission-book/tools/sync_documentation_navigation.py --check
 ```
@@ -92,3 +94,7 @@ It cannot tell whether a CI or review claim is **true** - only whether the recor
 the head it cites has the shape of an exact identity. Verifying that a claimed run really succeeded at that head means
 re-reading the Actions API per run, which is the reviewer's job (and how the over-claimed CI field above was found).
 A record can be perfectly consistent and still wrong; the reviewer's independent re-measurement is what catches that.
+
+## Exact-byte evidence preservation
+
+Navigation generation and `--check` also verify every encoding preimage against its declared byte count and SHA256. The regression exercises CRLF-to-LF conversion, same-length corruption and missing files, and confirms the checker changes neither evidence nor the declared hash. `.bin` preimages and indexed REX-803/805 payloads use `.gitattributes -text`. The navigation writer excludes raw `evidence` and `evidence-repaired` directories under reports; their translated indexes live outside the payload. Presence labels still do not certify full translation.

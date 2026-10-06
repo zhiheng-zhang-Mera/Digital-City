@@ -11,6 +11,7 @@ sync_utopia_status.py              刷新联动记录中的Utopia实时状态区
 check_record_consistency.py        检查三处记录漂移；发现ERROR时退出码为1
 sync_documentation_navigation.py   生成双语导航、系列快速面板和docs/DOCUMENTATION_INVENTORY.json；--check在漂移时失败
 test_check_record_consistency.py   检查器测试，覆盖必须捕获的漂移
+test_documentation_preservation.py 检测换行转换、等长度损坏和编码原件缺失，不修复证据
 ```
 
 从仓库根目录（`dc/`）运行：
@@ -20,6 +21,7 @@ python mission-book/tools/sync_dependency_state.py --check
 python mission-book/tools/sync_mission_progress.py
 python mission-book/tools/check_record_consistency.py
 python mission-book/tools/test_check_record_consistency.py
+python mission-book/tools/test_documentation_preservation.py
 python mission-book/tools/sync_documentation_navigation.py
 python mission-book/tools/sync_documentation_navigation.py --check
 ```
@@ -67,3 +69,7 @@ Mission Book在三处记录同一状态：主看板、programme看板，以及�
 ## 检查器不能做的事
 
 它不能判断CI/Review声明是否**真实**，只能检查记录内部一致性及head是否具有精确identity格式。确认某run确实在该head成功，需要逐run重新读取Actions API，这是Reviewer的职责，也是上述过度声明CI的发现方式。完全一致的记录仍可能错误；Reviewer独立重新测量负责发现这种错误。
+
+## 精确字节证据保留
+
+导航生成和 `--check` 也会按声明的字节数与 SHA256 核验每份编码原件。`test_documentation_preservation.py` 回归覆盖 CRLF→LF 转换、等长度损坏及文件缺失，并确认检查器既不修复证据，也不替换声明 hash。`.bin` 原件及 REX-803/805 索引 payload 使用 `.gitattributes -text`。导航写入器排除报告下的原始 `evidence` 与 `evidence-repaired` 目录；索引译本置于 payload 之外。语言存在标签仍不证明全文翻译完整。
