@@ -13,8 +13,11 @@ DEV HEAD            78bdd9dc873ebc257aedecf421068a1387dbec82
                      and both are repaired on this head)
 CI (exact head)     V0.2 checks pull_request 37406286660 SUCCESS, City linkage 37406286695 SUCCESS, and push 37406282033
                     SUCCESS on RERUN after failing once on a load-sensitive browser timeout (D-9). All three read from
-                    the Actions API and matched on headSha. Local full suite at this head: 1368 tests, 1363 pass, the 5
-                    failures being the inherited environment ones.
+                    the Actions API and matched on headSha. Local full suite at this head: 1368 tests, 1363 pass; the 5
+                    failures were first recorded as "inherited environment" and are CORRECTED here - 3 are this host's
+                    resident-City host reservation (a genuine host condition) and 2 (capability-adapters, city-roads,
+                    CORRUPT_INPUT) were this host's missing `city` install, not an environment property. See the
+                    correction section of reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md.
 PR                  zhiheng-zhang-Mera/utopia#32
 REVIEW HOST         Alien — OUTSTANDING, not performed by this host
 TERMINAL MARKER     none declared by this workbook; the workbook's completion gate is a nine-item list
@@ -103,9 +106,11 @@ D-9  A LOAD-SENSITIVE BROWSER TEST FAILED THE PUSH CI ONCE (environment flake, n
      the code to its origin without a cross-origin POST" after 31.3s (its LAN sibling in the same file took 1.8s) while
      the PR run of the SAME head passed.
      EVIDENCE THAT IT IS THE ENVIRONMENT, not the change: the identical file passes 6/6 in isolation locally; the full
-     local suite at that head is 1368 tests / 1363 pass with only the five inherited environment failures; the file is
-     untouched by this task's diff (services/dev-gateway/decision.mjs and tests/mon903-decision.test.mjs only); and the
-     rerun of the very job that failed COMPLETED SUCCESS on the identical head.
+     local suite at that head is 1368 tests / 1363 pass, the failures being the host-reservation ones plus (as later
+     corrected) two of this host's own missing-dependency failures rather than the "five inherited environment
+     failures" first written here; the file is untouched by this task's diff (services/dev-gateway/decision.mjs and
+     tests/mon903-decision.test.mjs only); and the rerun of the very job that failed COMPLETED SUCCESS on the identical
+     head.
      RECORDED rather than cleaned away, and the workbook's CI field says so explicitly.
 ```
 

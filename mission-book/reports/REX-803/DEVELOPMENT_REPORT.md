@@ -189,15 +189,26 @@ REX-801 + REX-802 + WBC-601..604 suites               51 pass / 0 fail
 npm test (whole tests/ glob)                        1363 pass / 5 fail
 ```
 
-The five failures are **inherited environment failures**, each classified and reproduced away from this change:
+The failures were first written up as **inherited environment failures**. That was half right, and the correction is
+recorded here rather than folded in silently — it matters because §6 hands the reviewer a pass condition built on it.
 
 ```text
-capability-adapters.test.mjs  CORRUPT_INPUT in a document reader  -> reproduced identically at the baseline 213f9f9f
-city-roads.test.mjs           CORRUPT_INPUT in a document reader  -> reproduced identically at the baseline 213f9f9f
+capability-adapters.test.mjs  CORRUPT_INPUT in a document reader
+city-roads.test.mjs           CORRUPT_INPUT in a document reader
+                              FIRST RECORDED AS: environment / pre-existing, "identical at the baseline"
+                              ACTUAL CAUSE (measured 2026-10-06, one worktree one head, only variable = the presence
+                              of city/node_modules): absent -> 11 tests, 9 pass, 2 fail CORRUPT_INPUT;
+                              present -> 11 pass, 0 fail. The document readers import mammoth / pdfjs-dist / fflate /
+                              yaml from city/package.json, which ci.yml installs as a DELIBERATE SEPARATE step
+                              (`pnpm --dir city install`, ci.yml line 20). This host had run a root-only `npm ci`,
+                              in a repository whose lockfiles are both pnpm.
+                              CLASSIFICATION: THIS HOST'S INCOMPLETE SETUP, not an environment property.
 host-city-launcher.test.mjs   x3 "requires a free coordination port" -> the resident City (pid 29048) holds the host
                               reservation; these are host-owning process tests and are green when run with no City up
-CLASSIFICATION  ENVIRONMENT / PRE-EXISTING  (not product defects, not measurement defects of this task)
-```
+                              CLASSIFICATION: GENUINE HOST CONDITION
+CORRECTED COUNT  with the documented two-step install the whole suite is 1356/1359, the 3 remaining failures being the
+                 resident-City reservation. The reviewer pass condition in §6 should therefore be read as "green except
+                 the 3 host-reservation failures", not "except the five".
 
 ## 5. Real-hardware exercise and the workbook completion gate
 
@@ -252,8 +263,10 @@ INHERITED       (1) a run executes a real canonical task; (2) the run reference 
 ```text
 O1  Opposite-host Formal Review not performed. Workbooks 803's named checks: repeated execution, cancellation,
     restart, timeout, partial campaign, seed reproducibility. REVIEW_HOST=Alien.
-O2  `npm test` must be green except the five inherited environment failures above; the reviewer should confirm the
-    same classification from their own host, where the resident City is not this one.
+O2  `npm test` must be green except the 3 host-reservation failures above (see the correction in §4: the two
+    CORRUPT_INPUT failures were this host's missing `city` install, not an environment property, and disappear once
+    `pnpm --dir city install` has run). The reviewer should confirm the same classification from their own host, where
+    the resident City is not this one.
 O3  The accounting invariant (`accounted === planned` with no class double counted) is asserted in tests; the reviewer
     should try to break it by a path the author did not think of (e.g. stop racing a timeout, resume racing a start).
 O4  The Alien + Android half of the completion gate is unproven. This is a physical-topology blocker, not a code one.
