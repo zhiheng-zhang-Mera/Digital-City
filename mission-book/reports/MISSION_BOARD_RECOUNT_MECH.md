@@ -43,6 +43,22 @@ PASS  REX-803 已不在“未收口工作书”自动同步块中 / REX-803 has 
 - 若此表与工作书冲突，以工作书 frontmatter 为准——这是主任务板自己写的规则，也是本次核对采用的方向。 / If the table conflicts with a workbook, the frontmatter wins, which is the board's own rule and the direction this check took.
 
 
+## 记录不变量巡检 / Records-integrity sweep
+
+2026-10-06，本机在推进 research 系列的同时对本记录面做了一次不变量巡检（这类检查便宜、且能抓住「我自己的记录悄悄过期」）：
+
+```text
+生成视图 / generated views    python mission-book/tools/sync_mission_progress.py --check -> 同步
+独立重算 / independent recount 本目录的重算工具 -> 10/10 与生成视图一致
+字节一致 / byte fidelity      全新 clone 后逐包核对：
+                              REX-803/evidence 6 文件 · REX-805/evidence 9 · REX-805/evidence-repaired 9
+                              REX-806/artifact 10（checksums.json）—— **全部零失配**
+```
+
+同一轮里发现并修掉了一处**我自己的记录过期**：`INTEGRATION_DEPLOYMENT_INVENTORY_MECH.md` 仍把 REX-805 写成「候选 `4b39468`（尚未验收）」，而它已在 `0261a9e` 被本机复检通过并释放标记；清单里也没有 REX-806。已按实测更正，并补上「集成方实际要解决什么」一节（三个已验收 REX 头各自都包含 main ⇒ 所谓合并其实是 fast-forward；真正要解的是 `server.mjs` 那一处 union，且已被**独立解出两次**：`704c518` 与 REX-806 自身的 baseline `e18c5c5`，两者内容等价、提交不同、互不为祖先）。
+
+**巡检的价值不在通过，而在于它把「记录是否仍然为真」变成了可以失败的东西。** / The sweep matters because it makes a stale record something that can fail, rather than something a reader has to notice.
+
 ---
 
 语言读本 / Reading translation: [English](en/MISSION_BOARD_RECOUNT_MECH.md). 本文件保留原始状态与证据权威 / This source remains authoritative for status and evidence.
