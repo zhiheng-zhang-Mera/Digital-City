@@ -1,0 +1,7 @@
+# MON-990 opposite-host handoff — candidate
+
+Alien author (MERA-ALIANWARE), exact candidate `fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40`, PR36. Review host must be opposite physical host Mech; source is frozen, final CI pending. Do not accept from workflow existence or technical critic. Formal claim only after development_complete is released following final CI.
+
+Read DEVELOPMENT_REPORT.md, product native closeout docs, raw runtime-capture/source-equivalence and red/green logs. Independently verify both dependency ancestors, protocol/membership parser, callback scope/offline fences and monitor executor without session/socket mutation. Reproduce monitor500 vs task progress and advisory timeout isolation; inspect actual Android/Web same-City source-pinned evidence, metadata absence, expanded risk/filter/offline, exact2/3 interactions. Check all three Registry records and programme synthesis.
+
+No actual task application or production resolver/provider/Owner interruption claims. F-S rejected latencynull and retained-window counters must survive union. Capture source523eb47 plus byte/source-equivalence disclosed; default CI application and review manifest suffix distinguished. Use observed independent-host identity and exact reviewed head/terminal CI in REVIEW_REPORT.md; absent checks remain NOT_RUN. `CITY_WORK_MONITOR_V1_ACCEPTED` prohibited until every gate met. No main merge authority.

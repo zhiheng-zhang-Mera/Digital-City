@@ -98,18 +98,18 @@ records:
   - capability_id: CAP-MON-001
     record_ref: records/CAP-MON-001.yaml
     exposure_class: BACKGROUND_DISCLOSED
-    reconciliation: FORMAL_REVIEW_RECONCILED
-    last_verified_full_sha: "7eb38f1b930dfe6cc13dab0e17dedee467b1254b"
+    reconciliation: CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW
+    last_verified_full_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
   - capability_id: CAP-MON-002
     record_ref: records/CAP-MON-002.yaml
     exposure_class: OBSERVABLE_ADVANCED
-    reconciliation: FORMAL_REVIEW_RECONCILED
-    last_verified_full_sha: "f4988248a3316806fc2e3fa9e62864ed129fe7b3"
+    reconciliation: CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW
+    last_verified_full_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
   - capability_id: CAP-MON-003
     record_ref: records/CAP-MON-003.yaml
     exposure_class: OBSERVABLE_ADVANCED
-    reconciliation: FORMAL_REVIEW_RECONCILED
-    last_verified_full_sha: "3cd32c60d8e9beb9df961e6b7ff193a3f69ec224"
+    reconciliation: CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW
+    last_verified_full_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
   - capability_id: CAP-NODE-DESCRIPTOR-001
     record_ref: records/CAP-NODE-DESCRIPTOR-001.yaml
     exposure_class: INTERNAL_ONLY

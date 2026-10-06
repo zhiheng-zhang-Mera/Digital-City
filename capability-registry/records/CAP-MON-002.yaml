@@ -10,7 +10,8 @@
     "canonical_module": "services/dev-gateway/monitor-graph.mjs + apps/web/monitor-graph.js"
   },
   "source_workbooks": [
-    "MON-902"
+    "MON-902",
+    "MON-990"
   ],
   "dependencies": [
     "CAP-MON-001"
@@ -25,7 +26,11 @@
       "apps/web/index.html",
       "apps/web/i18n/en.js",
       "apps/web/i18n/zh-CN.js",
-      "docs/CITY_WORK_MONITOR_GRAPH.md"
+      "docs/CITY_WORK_MONITOR_GRAPH.md",
+      "apps/android/app/src/main/java/city/utopia/control/MonitorProjection.kt",
+      "apps/android/app/src/main/java/city/utopia/control/MonitorPanel.kt",
+      "apps/android/app/src/main/java/city/utopia/control/CityClient.kt",
+      "apps/android/app/src/main/java/city/utopia/control/MainActivity.kt"
     ],
     "symbols": [
       "buildGraph",
@@ -40,12 +45,12 @@
     "api_or_actions": [
       "GET /api/v0/monitor/graph?edges=&collapse="
     ],
-    "last_verified_full_sha": "f4988248a3316806fc2e3fa9e62864ed129fe7b3"
+    "last_verified_full_sha": "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
   },
   "status": {
     "implementation_status": "COMPLETE",
     "backend_wiring_status": "VERIFIED",
-    "user_reachability_status": "PARTIAL",
+    "user_reachability_status": "VERIFIED",
     "intent_validation_status": "NOT_TESTED"
   },
   "exposure": {
@@ -78,6 +83,16 @@
       "nesting": "L1_PRIMARY",
       "discoverable": true,
       "evidence_ref": "mission-book/reports/MON-902/DEVELOPMENT_REPORT.md"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > 全城工作",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE; authenticated read-only observation",
+      "evidence_ref": "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json",
+      "last_verified_full_sha": "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40",
+      "scope": "separate review app; default canonical build verified independently; not production deployment"
     }
   ],
   "evidence": {
@@ -85,33 +100,39 @@
       "utopia:tests/mon902-monitor-panel.test.mjs (creates a real canonical task, reads the real route, renders that payload)",
       "utopia:tests/web.test.mjs (real browser: navigation reaches the page, a row opens the inspector)",
       "utopia:evidence/raw/mission-book/MON-902/development-receipt.json",
-      "utopia:tests/mon902-alien-review.test.mjs (eleven independent probes, real task/path/event evidence in three interactions)"
+      "utopia:tests/mon902-alien-review.test.mjs (eleven independent probes, real task/path/event evidence in three interactions)",
+      "utopia:tests/mon990-cross-surface.test.mjs"
     ],
     "reachability_refs": [
       "utopia:tests/mon902-monitor-panel.test.mjs (shell exposes data-page=Monitor and app.js reads monitor/graph)",
       "utopia:tests/web.test.mjs (the page is reached from the primary navigation in Chromium)",
-      "utopia:evidence/raw/mission-book/MON-902/alien-review/runtime-capture.json"
+      "utopia:evidence/raw/mission-book/MON-902/alien-review/runtime-capture.json",
+      "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
     ],
     "intent_validation_refs": [],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/pull/27",
       "https://github.com/zhiheng-zhang-Mera/utopia/pull/34"
+    ],
+    "review_refs": [
+      "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md (pending; not acceptance)"
     ]
   },
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": true,
-    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW",
     "paper_material_refs": [
       "mission-book/reports/MON-902/PAPER_MATERIAL_INDEX.md",
-      "mission-book/reports/MON-902/INDEPENDENT_REVIEW_Alien.md"
+      "mission-book/reports/MON-902/INDEPENDENT_REVIEW_Alien.md",
+      "mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"
     ]
   },
   "known_gaps": [
-    "Android has no City monitor surface: parity is deliberately deferred so that the Compose implementation can be written once, against the now-stable projection contract and together with the MON-903 decision overlay. The API is surface-neutral and needs no gateway change for that client.",
     "Owner-required state is only observable where a canonical task is WAITING_CONFIRMATION; Mission Book Owner gates are outside MON-901, so the graph answers NOT_OBSERVABLE with count null rather than claiming none, and the surface states this on every render.",
     "Repeated-path detection depends on the canonical refusal event vocabulary (TASK_HANDOFF_REFUSED, TASK_SWITCH_DECLINED) and on window continuity; it is bounded by the observation window.",
-    "intent_validation_status NOT_TESTED: no ordinary-user session was run to confirm that the risk-first ordering and the wording are understood as intended."
+    "intent_validation_status NOT_TESTED: no ordinary-user session was run to confirm that the risk-first ordering and the wording are understood as intended.",
+    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI and opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
   ],
-  "last_reconciled_by_workbook": "MON-902"
+  "last_reconciled_by_workbook": "MON-990"
 }

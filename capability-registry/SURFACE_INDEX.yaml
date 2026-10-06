@@ -52,6 +52,16 @@ platforms:
       - capability_id: CAP-IDENTITY-001
         location: "More > Settings > Device recovery"
         nesting: L3_ADVANCED
+      - capability_id: CAP-MON-002
+        location: "More > 全城工作"
+        nesting: L2_CONTEXTUAL
+        last_verified_full_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
+        evidence_ref: "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
+      - capability_id: CAP-MON-003
+        location: "More > 全城工作 > 决定来源"
+        nesting: L2_CONTEXTUAL
+        last_verified_full_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
+        evidence_ref: "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
       - capability_id: CAP-ONBOARDING-OWNER-001
         location: "More > 配对 > connected City invitation/admission panel"
         nesting: L2_CONTEXTUAL

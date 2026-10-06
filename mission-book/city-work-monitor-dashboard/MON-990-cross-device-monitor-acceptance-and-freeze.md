@@ -15,8 +15,8 @@ baseline_resolution_evidence: "Claim-time Alien MERA-ALIANWARE: main213f9f9 plus
 dependencies: ["MON-902", "MON-903"]
 development_host: "Alien"
 development_branch: "mon/MON-990-Alien-20261006"
-development_head_sha: "523eb472e8b21d069e914fa6e862406bc33df092"
-development_ci: null
+development_head_sha: "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
+development_ci: "PENDING final push37420061997 / PR37420065177; linkage37420065178 SUCCESS. Earlier head523eb47 contained superseded global-Owner-calm test assertion; local89 corrected probes PASS."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -25,24 +25,24 @@ review_complete: false
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: City Work Monitor
 user_exposure_nesting: L1_PRIMARY
-backend_wiring: UNASSESSED
+backend_wiring: "LOCALLY_VERIFIED controlled physical Android/Web same City and exact canonical FAILED evidence; observer500 independent task200; final hosted CI pending."
 ui_exemption_reason: null
 capability_ids: ["CAP-MON-001", "CAP-MON-002", "CAP-MON-003"]
 capability_registry_action: VERIFY_ONLY
-capability_registry_refs: []
-capability_registry_sync_status: PENDING
+capability_registry_refs: ["capability-registry/records/CAP-MON-001.yaml","capability-registry/records/CAP-MON-002.yaml","capability-registry/records/CAP-MON-003.yaml"]
+capability_registry_sync_status: CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW
 research_evidence_applicability: APPLICABLE
-long_horizon_context_evidence: UNASSESSED
-research_evidence_refs: []
+long_horizon_context_evidence: CAPTURED
+research_evidence_refs: ["mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"]
 research_watchlist_hits: []
-highest_research_grade_observed: NONE
+highest_research_grade_observed: G3_SPARSE_ACTIVE
 research_capture_level: MAXIMUM_BOUNDED
-state_identity_evidence: UNASSESSED
-state_identity_evidence_refs: []
-monitor_observability_evidence: UNASSESSED
-monitor_observability_refs: []
-decision_trace_evidence: UNASSESSED
-decision_trace_refs: []
+state_identity_evidence: CAPTURED
+state_identity_evidence_refs: ["mission-book/reports/MON-990/DEVELOPMENT_REPORT.md"]
+monitor_observability_evidence: CAPTURED
+monitor_observability_refs: ["mission-book/reports/MON-990/DEVELOPMENT_REPORT.md"]
+decision_trace_evidence: CAPTURED
+decision_trace_refs: ["mission-book/reports/MON-990/DEVELOPMENT_REPORT.md"]
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/MON-990

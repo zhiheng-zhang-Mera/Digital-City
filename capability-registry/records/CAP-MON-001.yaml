@@ -6,7 +6,8 @@
     "zh_CN": "全城旁路观察基础"
   },
   "source_workbooks": [
-    "MON-901"
+    "MON-901",
+    "MON-990"
   ],
   "implementation": {
     "paths": [
@@ -18,7 +19,7 @@
       "GET /api/v0/monitor"
     ],
     "repo": "zhiheng-zhang-Mera/utopia",
-    "last_verified_full_sha": "7eb38f1b930dfe6cc13dab0e17dedee467b1254b",
+    "last_verified_full_sha": "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40",
     "symbols": [
       "createObservation",
       "observationWindow"
@@ -52,34 +53,52 @@
       "platform": "API",
       "evidence_ref": "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md",
       "location": "GET /api/v0/monitor"
+    },
+    {
+      "platform": "WEB",
+      "location": "Primary > City monitor (indirect sidecar disclosure)",
+      "nesting": "L1_PRIMARY",
+      "discoverable": true,
+      "evidence_ref": "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > 全城工作 (indirect sidecar disclosure)",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "evidence_ref": "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
     }
   ],
   "evidence": {
     "backend_wiring_refs": [
-      "utopia:tests/mon901-observation.test.mjs"
+      "utopia:tests/mon901-observation.test.mjs",
+      "utopia:tests/mon990-cross-surface.test.mjs"
     ],
     "intent_validation_refs": [
       "mission-book/reports/MON-901/REVIEW_REPORT.md"
     ],
     "reachability_refs": [
-      "utopia:evidence/raw/mission-book/MON-901/canary-receipt.json"
+      "utopia:evidence/raw/mission-book/MON-901/canary-receipt.json",
+      "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
     ],
     "review_refs": [
       "utopia:tests/mon901-mech-review-probes.test.mjs",
-      "mission-book/reports/MON-901/REVIEW_REPORT.md"
+      "mission-book/reports/MON-901/REVIEW_REPORT.md",
+      "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md (pending; not acceptance)"
     ]
   },
   "research_observations": {
     "paper_material_refs": [
-      "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/MON-901/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"
     ],
-    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED"
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW"
   },
   "known_gaps": [
     "Opposite physical-host Formal Review PASSED on 7eb38f1b930dfe6cc13dab0e17dedee467b1254b (Mech, MEGA-REP); finding F1 LOW (completeness.continuous is a constant contradicting the computed historyGap) recorded and left unrepaired",
     "Graph/inspector UI belongs to MON-902; decisions MON-903",
     "Owner/review/CI/escalation absent-source NOT_OBSERVABLE",
-    "No user-visible surface exercised by this slice; user_reachability_status remains PARTIAL"
+    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI and opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim."
   ],
-  "last_reconciled_by_workbook": "MON-901"
+  "last_reconciled_by_workbook": "MON-990"
 }

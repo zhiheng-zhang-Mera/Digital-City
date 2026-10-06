@@ -2,6 +2,7 @@
 
 > Status: **FINAL AUDIT VIEW** — populated by CEX-790 from `records/*.yaml` at baseline `5c7d46dcbf1b01259b5edaf574b620714beb40b7`.
 >
+> MON entries receive incremental MON-990 reconciliation at fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40; this does not replace the historical citywide audit baseline.
 > This is a human review view, not the machine authority. Structured truth lives in `CAPABILITY_INDEX.yaml` and `records/*.yaml`.
 
 ## Current migration state
@@ -22,8 +23,9 @@ is no longer a source of truth.
 | `CAP-EXPERIMENT-MANIFEST-001` | Experiment manifest registration and validation | COMPLETE | VERIFIED | VERIFIED | VERIFIED | DIRECT_CONTROL | yes | no | — | `7e96a4d28f4c` | Android Research surface NOT_RUN; REX807 further control surface |
 | `CAP-HOST-LIFECYCLE-001` | Host start mode, page-tied City lifecycle, and stored-role persistence | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | yes | no | launcher | `a8bce279e114` | The start mode is disclosed at start but no Web/Android surface renders it afterwards; the stored role is ignored silently except for the launcher line |
 | `CAP-IDENTITY-001` | Device identity recovery and conflict disclosure | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | yes | yes | — | `a24c04401308` | Android connected recovery NOT_RUN; only offline guidance was observed, and the Compose su |
-| `CAP-MON-001` | Canonical City observation sidecar | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | no | no | API | `7eb38f1b930d` | Owner/review/CI/escalation absent-source NOT_OBSERVABLE |
-| `CAP-MON-002` | City Work Monitor overview graph and node/path inspector | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | no | — | `5460697cfde5` | Android parity deliberately deferred (needs a Compose graph built once, with the MON-903 overlay); Owner-required is only partly observable and the surface says so |
+| `CAP-MON-001` | Canonical City observation sidecar | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | BACKGROUND_DISCLOSED | yes | yes | API | `fb042d9b1c70` | Owner/review/CI/escalation absent-source NOT_OBSERVABLE |
+| `CAP-MON-002` | City Work Monitor overview graph and node/path inspector | COMPLETE | VERIFIED | VERIFIED | NOT_TESTED | OBSERVABLE_ADVANCED | yes | yes | — | `fb042d9b1c70` | Controlled physical/Web observed; opposite-host closeout pending; ordinary-user intent NOT_TESTED |
+| `CAP-MON-003` | Advisory decision provenance | COMPLETE | VERIFIED | VERIFIED | NOT_TESTED | OBSERVABLE_ADVANCED | yes | yes | — | `fb042d9b1c70` | Controlled physical/Web observed; opposite-host closeout pending; ordinary-user intent NOT_TESTED |
 | `CAP-NODE-DESCRIPTOR-001` | Node role capability and resource descriptor | COMPLETE | VERIFIED | NOT_APPLICABLE | VERIFIED | INTERNAL_ONLY | no | no | — | `d99101fdac51` | none recorded |
 | `CAP-ONBOARDING-OWNER-001` | Native City invitation and admission approval | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | DIRECT_CONTROL | no | yes | — | `d05f5a455ff5` | System share physical test CLOSED BY REVIEW: the chooser opens normally on OPPO PERM00, so |
 | `CAP-RESEARCH-TRACE-001` | Bounded research trace and provenance | COMPLETE | VERIFIED | PARTIAL | NOT_TESTED | OBSERVABLE_ADVANCED | yes | yes | — | `833279cae237` | Android online rendering NOT_RUN; the Compose surface was not rendered on a device or emul |
@@ -42,7 +44,7 @@ Prioritize:
 
 ## Open items carried by this view
 
-- `CAP-MON-002`: Android parity deliberately deferred so the Compose graph is written once against the stable projection contract and together with the MON-903 decision overlay; owner-required state is only partly observable (canonical WAITING_CONFIRMATION only) and the surface states that limitation on every render
+- `CAP-MON-002`: MON-990 native/Web controlled parity observed; opposite-host freeze and ordinary-user intent remain pending.
 - `CAP-ASK-001`: All16 native cards and mutating confirmation NOT_RUN; the Compose catalog was not rendered on a device or emulator by the review, and the author receipt records the online catalog as NOT_RUN
 - `CAP-CAPABILITY-BRIDGE-001`: No end-to-end intent validation was performed by this backfill; the surfaces were inventoried, not exercised
 - `CAP-CITY-MEMBERS-NATIVE-001`: F1 MEDIUM recorded and left unrepaired: the shared member projection can report a device as connected while its own node record says offline, because members.mjs seeds the primary row with online true and can never correct it. members.mjs is NOT in the CEX-705 diff, so this is a pre-existing defect the new Android surface exposes rather than a regression. F2 LOW (the sharing success notice is unconditional and could mask a 404), F3 INFORMATIONAL (the owner own sharing control depends on the City hostDeviceId matching its node id) and F5/F6 INFORMATIONAL (the development receipt physical_not_run list is stale against PHYSICAL_FOLLOWUP.json, and the mandatory parity-gap count and message latency were left null and supplied by the review) are also recorded

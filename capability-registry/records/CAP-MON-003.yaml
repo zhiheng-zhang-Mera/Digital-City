@@ -10,7 +10,8 @@
     "canonical_module": "services/dev-gateway/decision.mjs + apps/web/monitor-decisions.js"
   },
   "source_workbooks": [
-    "MON-903"
+    "MON-903",
+    "MON-990"
   ],
   "dependencies": [
     "CAP-MON-001"
@@ -26,7 +27,11 @@
       "apps/web/index.html",
       "apps/web/i18n/en.js",
       "apps/web/i18n/zh-CN.js",
-      "docs/CITY_WORK_MONITOR_DECISIONS.md"
+      "docs/CITY_WORK_MONITOR_DECISIONS.md",
+      "apps/android/app/src/main/java/city/utopia/control/MonitorProjection.kt",
+      "apps/android/app/src/main/java/city/utopia/control/MonitorPanel.kt",
+      "apps/android/app/src/main/java/city/utopia/control/CityClient.kt",
+      "apps/android/app/src/main/java/city/utopia/control/MainActivity.kt"
     ],
     "symbols": [
       "createDecisionOverlay",
@@ -42,12 +47,12 @@
       "GET /api/v0/monitor/decisions/:id",
       "POST /api/v0/monitor/decisions"
     ],
-    "last_verified_full_sha": "3cd32c60d8e9beb9df961e6b7ff193a3f69ec224"
+    "last_verified_full_sha": "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40"
   },
   "status": {
     "implementation_status": "COMPLETE",
     "backend_wiring_status": "VERIFIED",
-    "user_reachability_status": "PARTIAL",
+    "user_reachability_status": "VERIFIED",
     "intent_validation_status": "NOT_TESTED"
   },
   "exposure": {
@@ -75,25 +80,38 @@
   "surfaces": [
     {
       "platform": "WEB",
-      "location": "Advanced > Decision provenance",
+      "location": "Advanced > Decision provenance; City monitor > Decision provenance",
       "nesting": "L2_CONTEXTUAL",
       "discoverable": true,
       "enabled_when": "ONLINE; reading needs an authenticated City credential, submitting a trigger needs the owner",
       "evidence_ref": "utopia:tests/mon903-decisions-web.test.mjs"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > 全城工作 > 决定来源",
+      "nesting": "L2_CONTEXTUAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE; authenticated read-only observation",
+      "evidence_ref": "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json",
+      "last_verified_full_sha": "fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40",
+      "scope": "separate review app; default canonical build verified independently; not production deployment"
     }
   ],
   "evidence": {
     "backend_wiring_refs": [
       "utopia:tests/mon903-decision-route.test.mjs",
-      "utopia:tests/mon903-alien-review.test.mjs"
+      "utopia:tests/mon903-alien-review.test.mjs",
+      "utopia:tests/mon990-cross-surface.test.mjs"
     ],
     "reachability_refs": [
       "utopia:tests/mon903-decisions-web.test.mjs",
-      "utopia:evidence/raw/mission-book/MON-903/alien-review/runtime-capture.json"
+      "utopia:evidence/raw/mission-book/MON-903/alien-review/runtime-capture.json",
+      "utopia:evidence/raw/mission-book/MON-990/alien-cross-device/runtime-capture.json"
     ],
     "intent_validation_refs": [],
     "review_refs": [
-      "mission-book/reports/MON-903/REVIEW_REPORT.md"
+      "mission-book/reports/MON-903/REVIEW_REPORT.md",
+      "mission-book/reports/MON-990/REVIEW_HANDOFF_Mech.md (pending; not acceptance)"
     ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/1d1593df9f3370711df7fbb735fb2ccb393e7494",
@@ -103,9 +121,10 @@
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": true,
-    "registry_reconciliation_result": "FORMAL_REVIEW_RECONCILED",
+    "registry_reconciliation_result": "CANDIDATE_RECONCILED_AWAITING_CLOSEOUT_REVIEW",
     "paper_material_refs": [
-      "mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md"
+      "mission-book/reports/MON-903/PAPER_MATERIAL_INDEX.md",
+      "mission-book/reports/MON-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md"
     ]
   },
   "known_gaps": [
@@ -115,7 +134,8 @@
     "The workbook's own vocabulary names BLOCKED, READY_FOR_REVIEW and MERGE_READY, none of which any canonical event expresses directly; BLOCKED is mapped to TASK_TARGET_WAITING and the other two must be submitted explicitly.",
     "rework_required is true because three defects were found and repaired during development, including a decision layer whose model stage could never run and a schemaVersion collision that broke the wire envelope.",
     "wrong-auto-decision and confidence-versus-review-outcome are NOT_OBSERVABLE from this overlay: both need an independent judge.",
-    "Native Android/physical cross-device acceptance remains MON-990; no ordinary-user intent session or production resolver/provider measurement."
+    "MON-990 controlled physical PERM00/SDK31 and English Web observed; final exact-head CI and opposite physical-host programme review pending. No ordinary-user intent study or production model/provider claim.",
+    "Android is read-only; owner-trigger submission remains Web. Historical Owner-needed receipts do not imply a current approval queue."
   ],
-  "last_reconciled_by_workbook": "MON-903"
+  "last_reconciled_by_workbook": "MON-990"
 }
