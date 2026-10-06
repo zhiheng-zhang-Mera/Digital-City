@@ -11,3 +11,4 @@ mission-book/reports/REX-805/evidence/** -text
 mission-book/reports/REX-805/evidence-repaired/** -text
 # 原始编码材料按字节保存 / Preserve original encoding evidence byte for byte.
 docs/encoding-evidence/*.bin -text
+mission-book/reports/REX-805/encoding-preimage.bin -text

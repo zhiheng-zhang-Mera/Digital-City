@@ -3,21 +3,21 @@ workbook_id: REX-806
 phase: RESEARCH_STRENGTHENING
 sequence: 806
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: IN_PROGRESS
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["69a097b5394a9fece39dd11cc13f04c9b4d28bfe"]
 dependency_source_workbooks: ["REX-803","REX-804","REX-805"]
-dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
-baseline_blocker: DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE
+dependency_source_shas: ["8798ba9dd37051626033ad72080b2fad3ff66149","fe700aba957990f93b22fd63d594ddfff7b4e243","0261a9ed1cec88df3ab4675623d422b37b33f270"]
+development_baseline_sha: "e18c5c5350d7657cf046b7ba6bbcd888dc2a1540"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-06): baseline_anchor_mode resolved as the union of the three accepted dependency heads, which is what DEPENDENCY_SHA_UNION_AT_CLAIM requires and what main cannot stand in for. Measured: none of the accepted heads is in main (REX-803 8798ba9, REX-804 fe700ab, REX-805 0261a9e all exit non-zero for git merge-base --is-ancestor against origin/main), while the required ancestor 69a097b5394a9fece39dd11cc13f04c9b4d28bfe is reachable from main (exit 0). Accepted REX-803 8798ba9 is already contained in accepted REX-805 0261a9e, so the union needs only main + 0261a9e + fe700ab. Construction: 0261a9e merged into main was a fast-forward; fe700ab then produced exactly one conflict in services/dev-gateway/server.mjs, the same union site the integration preflight had already measured, resolved as the union of the fault controller with the campaign and replay controllers (all three define a research controller at that point and none references another; the single return exposes campaigns and faults with a teardown releasing both). Resolved baseline (40-char): e18c5c5350d7657cf046b7ba6bbcd888dc2a1540, on branch rex/REX-806-mech-metrics-and-export, with all three accepted heads verified as ancestors of it. Dependency smoke BEFORE any REX-806 product change: node --test on the REX-803, REX-804 and REX-805 suites -> 17 suites, 68 tests, 68 pass, 0 fail. Worktree D:/utopia-rex806. Claim record published before any product change: reports/REX-806/CLAIM_REPORT.md. KNOWN PRE-EXISTING CONDITION recorded rather than silently handled: running the accepted REX-804 web suite dirties evidence/raw/mission-book/REX-804/danger-zone.png because that test writes into a committed evidence path; a repair is published and awaiting adoption (repair/REX-804-mech-test-evidence-outside-repo @ 690d723) and does not block this task."
+baseline_blocker: null
 dependencies: ["REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED", "REX-804:FAULT_INJECTION_RECOVERY_ACCEPTED", "REX-805:TRACE_REPLAY_ABLATION_ACCEPTED"]
-development_host: null
-development_branch: null
-development_head_sha: null
+development_host: "Mech"
+development_branch: "rex/REX-806-mech-metrics-and-export"
+development_head_sha: "e18c5c5350d7657cf046b7ba6bbcd888dc2a1540"
 development_ci: null
 development_complete: false
 review_host: null

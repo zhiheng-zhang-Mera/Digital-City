@@ -36,7 +36,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **475**.
+当前Markdown文档 / Current Markdown documents: **479**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -64,7 +64,8 @@
 | REX-802 | 10 | [打开 / Open](REX-802/README.md) |
 | REX-803 | 35 | [打开 / Open](REX-803/README.md) |
 | REX-804 | 20 | [打开 / Open](REX-804/README.md) |
-| REX-805 | 18 | [打开 / Open](REX-805/README.md) |
+| REX-805 | 21 | [打开 / Open](REX-805/README.md) |
+| REX-806 | 1 | [打开 / Open](REX-806/CLAIM_REPORT.md) |
 | REX-PROGRAMME | 11 | [打开 / Open](REX-PROGRAMME/README.md) |
 | UTOPIA-BRANCH-INTEGRATION-20261004 | 3 | [打开 / Open](UTOPIA-BRANCH-INTEGRATION-20261004/README.md) |
 | WBC-601 | 12 | [打开 / Open](WBC-601/README.md) |

@@ -46,3 +46,8 @@ The earlier unobserved-final-candidate statement is the historical handover snap
 因此开发门槛现有精确最终候选的实体材料依据；正式复检仍独立领取，验收terminal未由作者释放，产品main合并权仍为false。PID到源码绑定由Mech发布，Alien没有独立远程进程审计；手持渲染、用户意图、per-record源码来源仍按既有缺口保留。
 
 The development gate now has physical materials bound to the exact final candidate. Formal review remains separately claimed; the author releases no acceptance terminal and product-main merge authority remains false. Mech publishes the PID-to-source binding; Alien has no independent remote-process audit. Handset rendering, intent research and per-record software provenance remain bounded by the existing gaps.
+
+
+部署记录差异：最终包MATERIAL_INDEX的deployment行仍写旧PID33420，而最新PHYSICAL_GATE_RESULT写第二次部署PID44088。两份原文保留，不猜改；63项材料检查不包含对远程进程PID的独立审计。正式reviewer应澄清该发布字段差异，不能将索引中的旧PID当作已观测最终进程身份。
+
+Deployment-record discrepancy: the final packet's MATERIAL_INDEX deployment row still names old PID33420, while the latest PHYSICAL_GATE_RESULT names second-deployment PID44088. Both originals are retained without guessing a correction. The63 material checks do not independently audit the remote PID. The formal reviewer should reconcile this published-field discrepancy rather than treating the index's old PID as an observed final process identity.
