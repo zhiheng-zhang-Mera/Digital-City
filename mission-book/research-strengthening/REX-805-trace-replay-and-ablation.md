@@ -24,9 +24,9 @@ development_physical_gate_basis: "MET_EXACT_HEAD_0261a9e: repaired physical pack
 capability_registry_action: CREATE
 capability_registry_refs: ["CAP-RESEARCH-REPLAY-001"]
 capability_registry_sync_status: DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING
-review_host: null
-review_head_sha: null
-review_ci: null
+review_host: "Mech"
+review_head_sha: "0261a9ed1cec88df3ab4675623d422b37b33f270"
+review_ci: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, 2026-10-06): remote tip of rex/REX-805-alien-replay-ablation equals the recorded development head 0261a9ed1cec88df3ab4675623d422b37b33f270. Dependency ancestry all exit 0: REX-802 accepted 833279cae237080cca88b1b6dbc9f217027ba68f, REX-803 accepted 8798ba9dd37051626033ad72080b2fad3ff66149, required ancestor 69a097b5394a9fece39dd11cc13f04c9b4d28bfe. Exact-head runs re-read one at a time from the Actions API: V0.2 checks push 37446455570, V0.2 checks pull_request 37446461188, City linkage pull_request 37446461192, all COMPLETED SUCCESS attempt 1. Review claim published before any verdict: reports/REX-805/REVIEW_CLAIM_Mech.md. No verdict yet; marker TRACE_REPLAY_ABLATION_ACCEPTED not released."
 review_complete: false
 research_evidence_applicability: APPLICABLE
 research_watchlist_hits: ["RS-G3-EXEC-WORK-ARTIFACT","RS-G3-IDENTITY-PROVENANCE","RS-G3-STRUCTURED-HANDOFF","RS-G3-DYNAMIC-LIVENESS","RS-G3-RULE-LIFECYCLE-DEBT","RS-G3-SUPERVISION-ATTENTION","RS-G3-SEMANTIC-INTEGRATION","RS-G3-USER-REACHABLE-TERMINAL","RS-G4-UNIFIED-CONTROL-PLANE"]
