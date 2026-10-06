@@ -1,0 +1,58 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='RECORD_ALIEN_UXI390_FINAL_PRODUCT_ACCEPTANCE.md'
+body='''# RECORD — UXI-390 final acceptance and phase closeout: UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED
+
+{0}
+
+Complete translation: Alien Development host has merge_authority true. Recorded2026-10-02T14:35Z, local10-03 00:35. Review Mech REVIEW_COMPLETE—PASS includes required C1/C2 repair confirmation; reviewed head, successful review CI, no-edit Owner visual PASS, no-ff merge, exact parents, successful main CI and declared terminal marker are preserved verbatim above.
+
+## 1. Execution of step7: gates before merge, remeasurement on new head
+
+{1}
+
+Complete translation: 1 Mech confirmed author C1/C2 on-device and rebound review head6a82e35, verdict PASS. 2 Remeasured FINAL HEAD, not reused149a4c1 result: main ancestor allows fast-forward, main-only0/head-only31; merge-tree exit0, treefaf7647d…, zero conflicts,46files +4476/-5. 3 Used no-ff per RS290 precedent to explicitly name reviewed head. 4 Diff6a82e35 d0507b0 empty, merged tree byte-identical. 5 Pushed main,37020640107 bothjobs green. 6 Declared marker and FINAL_PRODUCT_ACCEPTED.
+
+**Removed and recorded one pre-merge hard-failure obstacle**: main checkout had untracked **zero-byte** apps/android/.../SchedulerPanel.kt created00:22, causing untracked working tree files would be overwritten. **Second identical empty file at this path**, first removed earlier tonight. It contained no work, deletion safe. **Creator unknown; no guessing**.
+
+## 2. Final eight-gate scores, based on other parties' or infrastructure measurements
+
+| # | Gate | Result | Basis |
+|---|---|---|---|
+| 1 | All previous capabilities remain reachable | **MET** | Mech reviewed-head root1017/1015/2, **reran both failures on untouched1a5bc0e baseline** proving pre-existing |
+| 2 | UI no longer defaults to engineering-console language | **MET** | Web E2E; Mech scanned50 strings across sixAndroid tabs for22tokens, zero leakage |
+| 3 | Scheduler vNext actually works | **PARTLY MET** | Adapter/projection/two surfaces/choice round-trip independently checked; **remote-handoff sub-item NOT MET**, Owner option1 deferral |
+| 4 | Real dual-device E2E | **MET** | Mech own evidence, Web10/10, first independentAndroid360dp measurement, two registered devices both observed executing |
+| 5 | Web/Android/Rooms visual consistency | **MET with required repairs** | Rooms independently5/5, cross-surface pixel comparison, C1/C2 repaired andMech confirmed |
+| 6 | Owner final visual gate | **MET** | Eight actual captures judged with no edits |
+| 7 | Green hosted main CI | **MET** |37020640107success on merged d0507b0 |
+| 8 | Terminal marker | **MET** |UTOPIA_PRODUCT_UI_AND_RESCHEDULING_VNEXT_ACCEPTED declared |
+
+## 3. Still unmet/open: acceptance does not repair these
+
+| Item | Attribution | State |
+|---|---|---|
+| Gate3 remote-handoff sub-item | Product design: City has no five-dimensional load vector | **NOT MET**, option1 accepted deferral; **acceptance does not repair it**. Option2 actual load vector plus wired decline remains **new task** |
+| C3 rawtask id four-line wrap/collision at360dp | UXI301 layout plus **UI190 frozen baseline** raw-id display convention | Recorded, unrepaired; Owner decides reopening frozen baseline |
+| V3 three localization postures: WebEnglish, AndroidEnglish with Chinese shared expand/collapse, RoomsChinesechrome | **UI190/UI103 frozen components**, Android no strings.xml | Recorded, unrepaired; baseline architecture cause, stringresources replacement is baseline decision |
+| Two reviewer screenshots inCity underPROCESS_DATA_POLICY line16 | Owner policy | Mech proactively requestsOwner ruling, does not reinterpret |
+| UI102/RS290/UXI301 GBK-double-encoded body | Control plane | Intentionally unrepaired: closed, two reviewed/frozen at exactbytes |
+
+## 4. Whole phase: all three objectives closed
+
+| Programme | Result |
+|---|---|
+| UI civilization UI000/101/102/103/190 |5/5 Development/Review, UI_BASELINE_FROZEN |
+| Rescheduling vNext RS201/202/203/290 |4/4 Development/Review, RESCHEDULING_BASELINE_FROZEN, merge1a5bc0e |
+| UI×scheduler wiring UXI301/390 |2/2 Development/Review, UXI390mergedd0507b0, both mainCIjobs green, **marker declared** |
+
+At this historical record Utopia main isd0507b0. All11workbooks have development_complete true andreview_complete true.
+
+## 5. Optional Owner next steps, all new tasks outside this phase
+
+1. **Option2 capability**: publish real five-dimensional loadvector and wire decline, makeALTERNATE_DEVICE genuinely reachable.
+2. **Reopen baselines**: C3 narrow-id layout andV3 localization, includingAndroid stringresources.
+3. **Control-plane hardening**: validator double-encoding detection, repair three closedworkbooks, rule onCity review screenshots.
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body,'en')

@@ -1,0 +1,60 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='CORRECTION_MECH_HANDOFF_SEAM_NOT_REPRODUCED.md'
+body='''# CORRECTION — Mech：无法重现handoff seam，第76轮“blocker已实测移除”过于自信
+
+{0}
+
+记录释义：Mech对延后remote-handoff seam实际测试而非争论，纠正ANALYSIS_MECH_SWITCH_OFFER_AND_DEFERRAL_PREMISE.md第3(c)节自身分析。
+
+## 声明过什么，以及为何去测试
+
+第76轮写deferral理由已证伪，且“阻塞条件不只是理论上可移除，**本branch测量已移除**”，依据WAIT batches。这是依赖他人记录的强声明，而programme规则是断言不是证据，故实际运行。
+
+绑定tree cd298c3a9fd2bcd3a974101506d2734ac4253e62，detached worktree，scripts/uxi301-handoff-case.mjs，不同ports，gateway/reference nodes由script自身spawn。
+
+## 尝试1 — 原样运行
+
+{1}
+
+与UXI-301所记相同负结果。第67行原因：script建十CHECKPOINT_DEMO，近乎立即完成，马上停nodeA，和executor竞争。**我又犯自身错误**：断言task type就是原因。
+
+## 尝试2 — 按我的假设改WAIT
+
+只改该一个词后重跑：
+
+{2}
+
+**假设错误。** type不是原因，或至少不是唯一原因。幸而测试而未发布；“发现”的机制只是合理故事，不是真机制。
+
+## 尝试3 — WAIT且实际观察assignment
+
+真正原因是race：script在任何assignment前拆nodeA。约6秒窗口终于允许等待assignment，我增加观察：
+
+{3}
+
+## 尝试4 — diagnostic histogram，停止猜测
+
+{4}
+
+**十个WAIT全在nodeA已注册在线时持续12秒QUEUED/unassigned。** 非启动慢、非失败，而是从未assigned。Reference node注册capabilities:['task.execute.safe','filesystem.temp']（agent.mjs:10），不发布task-type list。我停止前未找到排除WAIT的assignment rule；具名保留开放diagnostic，不猜。
+
+## 纠正
+
+**撤回第76轮3(c)。** 原称blocker“本branch已测量移除”；无法重现，工具显示WAIT work在这里不只是难维持，而是从未assigned。诚实陈述：
+
+- Owner ruling依据的 **前提**“一种type、不能占用node”仍被否定：五types，源代码WAIT维持work，此项仍成立。
+- 但 **条件生成未证明**，我唯一尝试因尚未解释原因失败。
+
+因此不能凭我说就视seam已解锁。Deferral **理由** 错误；现在能否低成本关闭仍开放，前方有具体具名障碍。
+
+**向Alien提出差异而非自己断言**：Alien记录WAIT已RUNNING/ASSIGNED、约6090ms，我在标准reference-node harness从不assigned。可能三者之一：不同node registration、不同executor（真实Android）、script遗漏parameter（stepDelay及其他task-type fields为明显候选）。全未测试，不断言哪个；Alien有测量，我有负结果。
+
+## 代价与收益
+
+四次runs，纠正自身已发布claim，是代价最低的犯错方式。收益在于Owner即将决定是否再次延后，我提交的决策文档却基于自己未取证据宣称seam解锁；现在在决定 **之前** 纠正，而非之后。与初始deferral假前提相同失败形状，在下层被发现。
+
+同文三实例“正确component、无caller”pattern不受影响，它基于我直接执行的greps。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)

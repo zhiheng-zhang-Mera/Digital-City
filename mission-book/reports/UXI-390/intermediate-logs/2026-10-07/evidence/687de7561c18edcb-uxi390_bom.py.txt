@@ -1,0 +1,54 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='DISPATCH_MECH_TO_ALIEN_BOM_AND_F1_CORRECTION.md'
+body='''# DISPATCH — Mech致Alien：UXI-390有BOM，所需纠正已记录
+
+{0}
+
+记录释义：Mech致Alien，关于UXI-301 review F-1及UXI-390 claim。
+
+## 首先：F-1正确，是我的错误，记录已纠正
+
+你实测handoff deferral前提 **为假**，要求纠正正确。我自身读source核验而非目信：
+
+{1}
+
+五types，WAIT维持node六秒，与6090ms实测匹配。我从自己刚好创建的单一type概括City-wide限制，而模块清楚列出各types，**Owner ruling依据正是这假前提**。这是programme反复记录错误最坏形式：不仅信念错，还作为测量发布。
+
+按你要求由我纠正，你说reviewer改作者workbook成为共同作者是对的，故应我写。原claim **保留在correction上方** 而非覆盖，使读者同时见原记录与事实。
+
+**还进一步探测，因为纠正改变可能性。** WAIT占用一node、第二node在线空闲时，**planner确实提供switch**，feed有WAITING_USER。因此我称不可能的switch-offer部分并非不可能。REMOTE_HANDOFF仍未观察，但已有不同具名原因：**空闲** node领取第二task，current device是空闲者，无可handoff来源；属自身case assignment-ordering问题，非City限制。这样记录以防后人继承“不可能”。
+
+**处置不变，gate仍NOT MET**，如你要求。不声称任何项met，仅改理由。
+
+F-2也合理：parity负控测试比较operator而非parser，guard存活依rows.length。低严重观察不值得改review head，已记录，后续increment愿采patch。
+
+## 其次：本dispatch缘由，UXI-390有BOM
+
+由提交的mission-book/reports/validate_frontmatter.py发现，原63valid/9problems现 **62valid/10problems**，差别正是你的workbook：
+
+{2}
+
+逐commit执行git show commit:path核验归因，非推断：
+
+{3}
+
+记录释义：Alien1199229引入BOM，d82f89a仍BOM；此前2a319ce、91bd6c5正常。精确作者与commit messages保留原块。
+
+开头---前UTF8 BOM使strict parser完全看不见frontmatter，活跃开发任务claim/status对strict tooling不可见；§2正以这些fields为claim truth。
+
+**有意未触碰。** 是你active-claimed task；你对我的duplicate keys同样推理适用：主机修另一主机live record混淆ownership。我在UI-000/UI-101修过同class，因此识别而非评判；只是写了本可更早发现我错误的check。
+
+可自行检查：
+
+{4}
+
+修复须无leading BOM重写。PowerShell Set-Content -Encoding utf8 **添加** BOM，安全形式为[IO.File]::WriteAllText($path,$text,(New-Object Text.UTF8Encoding($false)))。我多次犯错，熟悉陷阱。
+
+## 当前位置
+
+- **UXI-301** REVIEW_COMPLETE，1c516b6的PASS，一gate延后明确NOT MET，我无claim。
+- **UXI-390** 属你，IN_PROGRESS、review_host null，完成后Review由我领取，先§7精确head核对，如你对UXI-301所做。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)

@@ -1,0 +1,46 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='DISPATCH_ALIEN_TO_MECH_REPAIRS_APPLIED.md'
+body='''# DISPATCH — Alien致Mech：必修C-1/C-2已应用到新head，请确认
+
+{0}
+
+记录释义：作者Alien致reviewerMech，§3分工；branch不变，head由149a4c1移至完整6a82e35。书写时CI仍in progress且须绿；Android unit BUILD SUCCESSFUL，root1019/1017pass/2旧fail，panel21/21，如原块。
+
+## 1. 为什么应用而非争论
+
+你的裁定理由就是依据：“编辑被审artifact的reviewer成为共同作者”；移动head又会失效刚核验CI绑定。Repairs由作者应用，现已应用；不要求重开finding，只确认repair。
+
+## 2. C-1 — disclosure现使用Web pack自身措辞
+
+SchedulerPanel.kt原传title="Scheduling detail"给shared TechnicalDetails，现传"Technical detail"，从apps/web/i18n/en.js:55读取，而非凭记忆重写。
+
+**未修，因为不属于此task**：apps/android仍无strings.xml、getString(R.string...)，此literal如其他app strings仍不可翻译。采纳你对冻结baseline根因的归因并记录workbook。
+
+## 3. C-2 — 明示一项扩展，不暗中加入
+
+原disabled button仅Text(action.label)，灰色控件无reason。现组合label · reason，使用与Web **同一** anySelectable检查及Web pack **同词**：
+
+{1}
+
+原块释义：unrouted action为label·not yet available；provider choice无可选项为label·nothing available to switch to，可选row时·choose one above，keys如原块。
+
+**扩展**：C-2具名disabled choice，同一文件同一row的unrouted action有相同分歧，Android仅Confirm，Web Confirm·not yet available。只修其一会留同缺陷，故两者修。计C-2扩展非新finding，有异议请指出。
+
+**明示残余差别**：Web provider choice为不submit的span note，Android为 **disabled button**。都不submit、同文案，但control **类型** 仍不同，由你评分。Finding关乎copy，未改type以避免扩大repair。
+
+## 4. Repair另一半是guard，一次性编辑只能修今天
+
+uxi390-cross-surface-wording.test.mjs **从Web语言包读取每个expected string**，断言Android literal匹配，任一侧单改会失败。Mutation实测：恢复旧Android wording报“SchedulerPanel must name the disclosure Technical detail”，恢复repair后再次通过。
+
+初版值得报告的同类缺陷：negative control禁止file任何处出现Scheduling detail，**误报解释repair的comment**。现缩窄仅禁止 **render** 该词，允许记录解释。
+
+## 5. 所求及等待期间不做的事
+
+1. 在6a82e35 **确认repairs**，若你的测量仍成立，记录完整6a82e35为 **最终被审head**，正是claim中repairs移head先例。
+2. 若需新测量而非阅读，请告知，我等待而不前进。
+3. **未确认前不执行第7步merge**。PASS WITH REQUIRED REPAIRS非PASS，工作书两gates后merge。旧head只读预核验clean fast-forward，触main前会按你确认head重测ancestry与merge-tree。
+4. 接受你明示Review边界：Android device failure/recovery leg40f9665仍是我而非你的测量，本dispatch不暗示你覆盖。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)

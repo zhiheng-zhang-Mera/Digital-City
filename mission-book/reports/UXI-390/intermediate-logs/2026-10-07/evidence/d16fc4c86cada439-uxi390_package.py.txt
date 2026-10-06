@@ -1,0 +1,61 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='FINAL_VISUAL_PREVIEW_PACKAGE.md'
+body='''# UXI-390 — Minimal FINAL_VISUAL_ACCEPTANCE package, step5 delivery
+
+{0}
+
+Complete translation: delivered toOwner forUXI-390 dual-host final product acceptance/closeout, whenDevelopment step5 completes andOwner visual gate opens; exactimplementation branch/head preserved above.
+
+> This package puts everything to inspect in one place, so Owner **only says “looks good” or “does not look good + one reason.”** No CSS, component list, or technical details required.
+
+## 1. What to inspect: actual physical-device/browser captures, not mockups
+
+Images are in Utopia implementation repository **evidence/raw/mission-book/UXI-390/owner-package/** onbranchuxi/UXI-390-final-product-acceptance at149a4c1. Local directory D:/utopia-uxi390/evidence/raw/mission-book/UXI-390/owner-package/.
+
+| # | File | Surface | First16 SHA256 digits |
+|---|---|---|---|
+|1|01-web-home.png|Paired ONLINE WebHome, assistant slot/runtime nodes/recentactivity|f14ec4c14494437b|
+|2|02-web-ask.png|WebAsk/Do mounted afteractual input/request submission|c65d6b7579ee11db|
+|3|03-web-tools-rooms.png|WebTools/Rooms, gateway saysRoom Hub available·10rooms|75912f2581649110|
+|4|04-web-room-open.png|**Genuinely opened** embeddedRoom Hub Room01 Knowledge Room|eb79628af96f79a4|
+|5|05-web-provider-state.png|**Provider switch state**, realin-flight task afterdevice offline|e9d3f34208770585|
+|6|android-home.png|PhysicalAndroid Home|d58d2e7d347e7aae|
+|7|android-ask.png|PhysicalAndroid Ask/Do, ChineseUI|520850a6aaf04baa|
+|8|android-tools.png|PhysicalAndroid Rooms/localtools|89604fc5a0e1333b|
+
+Eachimage hascapture-receipt.json/capture-receipt-android.json: capturetime, implementationhead,port, bytes/SHA256, and **visibletext atcapture time**. Images are verifiable, not merely trusted.
+
+## 2. What was actually driven: this is more than a screenshot wall
+
+{1}
+
+Complete translation: realGateway/reference node/RoomHub4320/Edge Playwright1440x900; pairONLINE→Home→realAsk input/submit→Tools/Rooms→OpenRoom01→kill executor/create realtask. PhysicalAndroid BICIPVNB5HS85H9T, actuallyinstalledcity.utopia.control, realgateway/node; writeapp connection config, adb reverse, actualbottom-bar Home/Ask/Rooms taps.
+
+Three **anti-vacuity** assertions refuse packaging iffalse; allmet:
+
+1. **Room genuinely opens**, Close Room control plus changedpaneltext. Firstscript room belowfold produced byte-identical overview/open images; duplicateimage check failed; onlyafterrepair packaged.
+2. **Provider state hasreal in-flighttask**: killexecutor thencreate throughrealcontrol, requiretaskcard.
+3. **Images cannot be byte-identical**: fiveWeb/threeAndroid SHA256 all distinct.
+
+## 3. Owner need judge only two things
+
+1. **Looks good / does not look good**: direction,density,whetherstill engineeringconsole.
+2. Ifnot, **one reason**: too dark,too smalltext,roomtooempty. Agent translatesnaturallanguage into designchanges andcontinuesautomaticloop; noOwnertechnicalplan required.
+
+## 4. A fact directly relevant to the ruling
+
+Image5 says **The current service is responding slowly. Use another available one?** butbutton **Choose another service·nothing available to switch to** isgrey/unselectable.
+
+This isOwner option1 ruling rendered, confirmingreason: Cityhasnofive-dimensional loadvector, unmeasuredload cannot bealternate bydesign. **Switchprompt appears butno target isavailable**; UIreports reality ratherthaninventing selection.
+
+## 5. What remains after delivery
+
+{2}
+
+Complete translation: 1 hostedCI36998342105 onlatest149a4c1 mustgreen, theninprogress. 2 Aftergreen Alien setsdevelopment_complete true/releasesReview, §3Mech required. 3 Mechindependent visualcritic/Review. 4OwnerFINAL_VISUAL_ACCEPTANCE judgespackage. 5Step7merge/mainCI/terminalmarker.
+
+**Package claimsnogate passed**. Remote-handoff explicitly **NOT MET** underOwnerruling; Owner visualgate also **NOT MET** untiljudged.
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body,'en')

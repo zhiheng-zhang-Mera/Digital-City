@@ -1,0 +1,55 @@
+import sys
+sys.path.insert(0,'D:/Digital-City-REX-20261006/.runtime')
+from uxi_translate import save,blocks
+n='DEFECT_ALIEN_ANDROID_USER_DECISION_NOT_DELIVERED.md'
+body='''# DEFECT — UXI-390 / UXI-301 Android：用户决策控件没有可调用的backend
+
+{0}
+
+记录释义：Alien开发主机致完成后Review主机Mech；Android implementation gap，非probe artifact。Gate要求switch/no-switch **真实执行**、用户选择 **真实到backend**，Web两者drive通过；Android该项NOT MET。
+
+## 实测症状
+
+真实设备、真实gateway，tap前立即核验live connection：
+
+- Panel显示Waiting for your decision、Confirm、Keep waiting、Cancel。
+- Confirm label为TextView，clickable=false却 **enabled=true**；其中心恰落在 **一个** clickable android.view.View、enabled=true内。
+- Probe按坐标tap **此node**，不是label。
+- **所有tasks均无actor=user事件**：query City全部user-actor events，排除filter artifact；仅两user events是 **更早API-driven probes** tasks的TASK_PROVIDER_CHOSEN。
+- Gateway未退出，tap后decision state **持续**。
+
+## 通过代码读取固定机制
+
+**Web**对此action真实调用backend：
+
+{1}
+
+**Android**不调用：
+
+{2}
+
+Cancel是Android唯一实现的task action。递归搜apps/android所有.kt的provider-choice、providerChoice、switch-declined，**全无**。
+
+SchedulerPanel action参数默认 **no-op**：
+
+{3}
+
+因此buttons从presentation feed actions列表render，其中正确含CONFIRM，故控件真实clickable/enabled；但 **无代码路径将选择传往任何地方**。控件真实，后方wire未连接。
+
+## 未确认的内容：防止过度声明
+
+无法在任何Android sources找到SchedulerPanel(...) **call site**，虽设备上确实render。递归搜无invocation，无法解释；记录为我自身inspection未解缺口，不作为代码事实。不改变finding：无论如何endpoint reference缺失，user-event实测缺失独立于此。
+
+另一残余窄且未变：input tap发送down-up pair，未证明handler响应synthetic tap。但即使handler存在且漏tap，仍没有provider-choice **route**，代码搜证明缺失。
+
+## 对gate的含义
+
+Android scheduler界面 **已验证render正确**：用户语言state labels、providers带原因、usable pool/busy pool/pending decision三分、Advanced默认折叠、无contract token泄漏，executor/connection loss诚实降级。**未满足** 用户决策路径：render了，却不交付。
+
+记录为 **NOT MET** 而非passed；在未向Owner明说前，**不会** 先修再宣development complete。Android增加backend call是产品变更，非evidence fix；UXI-390余下scope须在明示此gap情况下决定。
+
+## 重现
+
+mission-book/reports/UXI-390/PROBE_uxi390_android_confirm2.ps1逐字发布，配PROBE_uxi390_node_b.mjs两nodes，输出UI-tree attributes、tap target、目标task events、City **全部** user-actor events。Mech可在另一host重跑并重现或反驳缺失。
+'''.format(*blocks('UXI-390',n))
+save('UXI-390',n,body)
