@@ -18,8 +18,8 @@ development_baseline_sha: "659ff6aa98bc5675862b1170ed0cf5e1b78dba5f"
 anchor_state: RESOLVED_AT_CLAIM
 development_host: "Mech"
 development_branch: "pcf/PCF-701-mech-live-resource-telemetry"
-development_head_sha: "e3c7256069796aac9e67c38042a1da03dbe26c7b"
-development_ci: "TWO heads, both kept. (1) 20b55b6855fed15af0c84a6eaa8e277595fcdd12: V0.2 checks run 37538196436 completed/failure - exactly one test failed, and it was NOT this task's: tests/rex801-alien-independent-review.test.mjs 'two equal host references are one physical host, not a TWO_HOST_MESH', whose assertion had already passed and whose finally block threw [Error: ENOTEMPTY: directory not empty, rmdir 'C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\rex801-review-J6CeIU'] - the Windows runner's rm() racing the just-closed gateway's file flush. The same head re-ran green on both jobs and that suite passes 3/3 standalone at both heads. (2) e3c7256069796aac9e67c38042a1da03dbe26c7b: V0.2 checks run 37540047630 completed/success (gateway-web and android green). The repair adds maxRetries/retryDelay to that suite's three rm() calls - the hygiene this repository already uses elsewhere - and changes no acceptance: the opposite host's accepted head keeps the original text. Local evidence: tests/pcf701-telemetry.test.mjs 13/13; all three PCF suites 24/24 three consecutive parallel runs; six source mutations each turn the suite red and each was restored byte-identically; the review packet is 8/8 on this head."
+development_head_sha: "f7581e96134cc41de92f74564c474e75c5e775eb"
+development_ci: "THREE heads, each kept. (1) 20b55b6855fed15af0c84a6eaa8e277595fcdd12: V0.2 checks run 37538196436 completed/failure - exactly one test failed and it was NOT this task's (tests/rex801-alien-independent-review.test.mjs hit a Windows rm()/flush race in its finally block after its assertion had passed; the same head re-ran green and that suite passes 3/3 standalone at both heads). (2) e3c7256069796aac9e67c38042a1da03dbe26c7b: V0.2 checks run 37540047630 completed/success (the repair adds maxRetries/retryDelay to that suite's three rm() calls and changes no acceptance). (3) f7581e96134cc41de92f74564c474e75c5e775eb: V0.2 checks run 37544501932 completed/success, gateway-web and android green. Local evidence on this head: tests/pcf701-telemetry.test.mjs 19/19; the three PCF suites 30/30; eleven source mutations each turn the suite red and each is restored byte-identically; scripts/check-bilingual.mjs reports PAIR_STATUS = SYNCHRONIZED for docs, evidence and data-records. The new tests caught two defects in this increment's own code (a read-only query that created state for an unprobed path, and an INVALID_RESULT branch that grew the failure count without growing the backoff) and both are fixed; the falsification script's own before/after bug is recorded too."
 development_ci: null
 development_complete: false
 review_host: null
@@ -49,11 +49,19 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 ## 增强子任务
 
 - [ ] 实测 CPU、内存、磁盘及可观察队列/占用；保留来源、单位、bootId/seq、observedAt/receivedAt/TTL。GPU/VRAM、网络质量、电池/温度由可选 adapter 提供，缺席不阻塞基本采集。
-      → **部分完成（增量 1，head `20b55b6`）**：九个维度的声明/单位/范围、来源、bootId、seq、observedAt/receivedAt/TTL 已实现并有反例守卫；**可选 adapter 本体未实现**（当前只能声明 `UNSUPPORTED`，这正是工作书允许的「缺席不阻塞基本采集」），故本条保持未勾选。
+      → **部分完成（增量 1+2）**：CPU/内存/磁盘现在有**真实读数**（`adapters.mjs` 的参考适配器只读 `node:os` 与 `fs.statfs`，**不 shell out 到厂商工具**），来源/单位/bootId/seq/时间戳/TTL 齐备；**队列/占用尚无测量源**；GPU/VRAM、电池/温度仍只能**声明 `UNSUPPORTED`**（缺席处理正确且有守卫，但真实适配器未写），故本条保持未勾选。
 - [ ] 区分 total/free/reserved/in-use，presence 与 freshness；观测、估计和用户声明分开。网络测量必须按路径，禁止用“局域网在线”冒充 RTT/带宽；探测有预算、期限和退避。
-      → **部分完成**：presence 与 freshness 已分离并可断言；`PRESENCE` 明确区分 OBSERVED/ESTIMATED/DECLARED/UNKNOWN/UNSUPPORTED；探测有 deadline 与预算（超时不冻结调用方）。**total/free/reserved/in-use 未区分，按路径的网络测量与退避未实现**，故本条保持未勾选。
+      → **基本完成但按事实不勾选（增量 2）**：四个 facet 独立成键（`memory.free`…）且各自校验，`free > total` 判 `FACET_INCONSISTENT` 并保留 raw 对；presence/freshness 分离；OBSERVED/ESTIMATED/DECLARED/UNKNOWN/UNSUPPORTED 分离；网络**按路径**（`{from,to,route}`）测量，未测路径答 `UNKNOWN/NEVER_MEASURED` 而非 0ms，预算/期限/退避（翻倍+上限+成功清零）齐备。**唯一剩余缺口：带宽（throughput）探测未实现**，故仍不勾选。
 - [x] 实现有界缓冲、限频、丢弃计数和 overhead measurement；不采集未经授权的进程名称、窗口内容或个人文件。
       → `services/personal-compute-fabric/telemetry.mjs` + T9/T10/T11/T12：环满逐出最旧且丢弃数按原因可见、节流不探测、overhead 由注入的单调时钟测量、越权维度记为 `UNSUPPORTED` 且 `value=null`（测试断言绝不落库）。
+
+### 2026-10-07 增量 2 记录（facets / adapters / 按路径网络测量）
+
+- **facets**：`total/free/reserved/inUse` 独立成键（`memory.free`、`disk.total`…），各自校验；缺失记 `UNKNOWN`；`free > total` 判 `FACET_INCONSISTENT`（两个数都不作为可用值交出，保留 raw 对）。`dimensionKeys()` 公布完整键集。
+- **adapters**：适配器声明自己供哪些维度；registry 把「无可用适配器覆盖的已声明维度」报 `UNSUPPORTED`；不可用适配器的维度**保留名字**而不是消失。参考适配器只读 Node 平台 API。
+- **network-probe**：按路径键控；未测路径 `UNKNOWN/NEVER_MEASURED` 而非 0ms；挂死→有界 `TIMEOUT`；非数值→`INVALID_RESULT` 失败；退避翻倍+上限+成功清零；只有真测过的路径产出 `networkRtt` 样本并带路径 provenance。
+- **新测试抓出本轮自己的两个缺陷**：`rttOrNull` 这个只读查询会为未探测路径创建状态（已改为不创建）；`INVALID_RESULT` 分支只计数不长退避（已改为同样翻倍）。证伪脚本自身也有一处 bug（最终 before/after 只列两个文件）造成假警报，已修并记录。
+- **证伪**：11 处源码突变各自使套件变红（T1–T19 共 19/19），源码按字节还原。
 
 ### 2026-10-07 增量 1 记录（含自身问题与守卫改写）
 

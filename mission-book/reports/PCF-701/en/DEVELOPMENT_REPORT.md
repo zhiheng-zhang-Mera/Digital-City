@@ -107,16 +107,55 @@ head this report names.
 
 
 ```text
-Sub-step 1 PARTIAL: observing CPU/memory/disk/queue with source/unit/bootId/seq/observedAt/receivedAt/TTL is done; the
-   OPTIONAL adapters for GPU/VRAM, network quality, battery/thermal are not implemented (they can only be declared
-   UNSUPPORTED today).
-Sub-step 2 PARTIAL: presence vs freshness and the separation of observed/estimated/user-declared are done;
-   total/free/reserved/in-use are NOT distinguished, and per-PATH network measurement (RTT/bandwidth, never
-   "LAN is up" standing in for them) with backoff is not implemented.
+## 2.7 Increment 2 (head `f7581e9`): facets, adapters and path-scoped latency
+
+```text
+facets       total/free/reserved/inUse became SEPARATE FACETS (`memory.free`, `disk.total`, ...) instead of one folded
+             number, because a single "memory: 8" lets a placement decision read reserved capacity as available. Each
+             facet is validated on its own (an unreadable free cannot invalidate a good total), an omitted facet is
+             UNKNOWN rather than a copy of the base reading or a zero, and free > total is FACET_INCONSISTENT: neither
+             number is handed on as usable and the raw pair is kept for diagnosis, since otherwise a caller computes a
+             negative used figure. dimensionKeys() publishes the declared key set for a surface audit to diff.
+adapters     an adapter declares which dimensions it supplies; the registry merges the available ones and reports every
+             declared dimension no available adapter covers as UNSUPPORTED (never 0). The reference adapter reads only
+             Node platform APIs (os.totalmem/freemem/cpus/loadavg and fs.statfs) and does NOT shell out to vendor tools,
+             which would be an unapproved privileged surface; vram/battery/thermal/network are DECLARED unsupported on
+             this runtime rather than omitted, because an omitted dimension and an unsupported one look identical.
+network      latency belongs to a PATH ({from,to,route}), not to "the LAN is up": state is keyed by path identity, an
+             unmeasured path answers UNKNOWN/NEVER_MEASURED rather than 0ms, a hung probe becomes a bounded TIMEOUT
+             without holding its caller, a non-numeric answer is an INVALID_RESULT failure rather than an accepted
+             value, consecutive failures double the backoff up to a cap and a success clears it, and only a genuinely
+             measured path yields a networkRtt sample, with the path as its provenance.
+tests        T14-T19 (six new guards, suite 19/19); eleven source mutations each turn the suite red and are restored
+             byte-identically.
+```
+
+**The new tests caught two defects in this round's own code (recorded)**:
+
+```text
+D1 `rttOrNull`, a READ-only query, created state for a path nobody had probed - reading once changed the probe's
+   memory of which paths exist. Fixed to state.get(...) without creating; T18 now locks it (mutation M9 re-fails it).
+D2 the INVALID_RESULT branch counted the failure without growing the backoff, so a lying probe would have been retried
+   at full rate. Fixed to double the backoff like any other failure; T19 locks it (mutation M10 re-fails it).
+Also: the FALSIFICATION SCRIPT itself had a bug - its final before/after comparison still listed only two of the four
+   source files, so adding two files made it report a restore failure that had not happened. Fixed and recorded.
+```
+
+## 3. Not finished (the workbook's sub-steps)
+
+```text
+Sub-step 1 PARTIAL: CPU/memory/disk have REAL readings from the reference adapter with source/unit/bootId/seq/
+   observedAt/receivedAt/TTL; queue/occupancy has no measurement source yet; GPU/VRAM, battery and thermal can still
+   only be DECLARED UNSUPPORTED (absence is handled correctly, real adapters are not written).
+Sub-step 2 nearly complete but deliberately NOT ticked: total/free/reserved/in-use are separated with a contradiction
+   guard, presence is separate from freshness, observed/estimated/user-declared are separated, and network is measured
+   PER PATH with budget, deadline and backoff - the one remaining gap is a THROUGHPUT probe (networkThroughput can only
+   be declared UNSUPPORTED today).
 Sub-step 3 DONE: bounded buffer, rate limiting, drop counting, overhead measurement, and never collecting
    unauthorised process names / window contents / personal files.
 The two-host acceptance half (real CPU/RAM sampling across two hosts with the measurement's own overhead recorded)
-belongs to the reviewer (EXECUTION_CONTRACT 14); this round produced single-host component evidence only.
+belongs to the reviewer (EXECUTION_CONTRACT 14); this round still produced single-host component evidence, though the
+reference adapter now yields real CPU and memory readings for the reviewer to compare across hosts.
 ```
 
 ## 4. Boundaries (not crossed)

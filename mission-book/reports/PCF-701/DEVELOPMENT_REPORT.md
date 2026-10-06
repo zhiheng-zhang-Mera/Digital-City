@@ -94,16 +94,47 @@ TWO_HOST_MESH`（位于对侧的 `tests/rex801-alien-independent-review.test.mjs
 scratch-City helper 就是这么写的）。这是**测试脚手架修复，不改 REX-801 的验收**：对侧已验收头保留原文，本分支承载后继。
 修复后该套件连续 3 次 3/3，PCF 三套仍 24/24。修复提交 `e3c7256`（本报告头）。
 
-
+## 2.7 增量 2（head `f7581e9`）：facets、adapters、按路径的网络测量
 
 ```text
-子步骤 1 部分：CPU/内存/磁盘/队列的观测、来源/单位/bootId/seq/observedAt/receivedAt/TTL 已实现；
-   GPU/VRAM、网络质量、电池/温度的**可选 adapter 未实现**（当前只能声明 UNSUPPORTED）。
-子步骤 2 部分：presence 与 freshness、观测/估计/用户声明的分离已实现；**total/free/reserved/in-use 未区分**，
-   网络**按路径测量**（RTT/带宽，禁止用「局域网在线」冒充）与退避策略未实现。
+facets        total/free/reserved/inUse 改为**独立 facet**（`memory.free`、`disk.total`…），不再折成一个数：
+              一个「memory: 8」会让放置决策把 reserved 当可用。每个 facet **各自校验**（free 读坏不影响 total）；
+              缺失 facet 记 UNKNOWN（不是复制基础读数、更不是 0）；**free > total 视为 FACET_INCONSISTENT**，
+              两个数都不再作为可用值交出，并保留 raw 对供诊断（否则调用方会算出负的 used）。
+              `dimensionKeys()` 公布完整声明键集（基础维度 + facets），供界面审计逐项比对。
+adapters      适配器**声明自己供哪些维度**；registry 合并可用者，并把「没有任何可用适配器覆盖的已声明维度」
+              报为 UNSUPPORTED（绝不填 0）。参考适配器只读 Node 平台 API（`os.totalmem/freemem/cpus/loadavg`
+              与 `fs.statfs`），**不 shell out 到厂商工具**（那会是无审批的新特权面）；vram/battery/thermal/网络
+              在本运行时**声明为 unsupported 而不是省略** —— 省略与不支持对消费者看起来一样，必须能区分。
+network-probe 延迟属于**路径**（`{from,to,route}`），不属于「局域网在线」：按路径标识键控；**未测量过的路径答
+              UNKNOWN/NEVER_MEASURED 而不是 0ms**；挂死的探测变成有界 TIMEOUT 且不拖住调用方；非数值结果是
+              INVALID_RESULT **失败**而非被接受；连续失败退避翻倍并有上限、成功即清零；只有真正测过的路径才会
+              产出 networkRtt 样本，且以路径作为 provenance。
+测试          T14–T19（新增 6 项，套件 19/19）；**11 处源码突变各自使套件变红**并按字节还原。
+```
+
+**新测试抓出了本轮我自己的两个缺陷（记录在案）**：
+
+```text
+D1 `rttOrNull` 这个**只读查询**会为从未探测过的路径创建状态 —— 读一次就改变了「哪些路径存在」的记忆。
+   修法：改为 state.get(...) 读取，不创建；T18 现在锁住这一点（M9 突变复现该缺陷即变红）。
+D2 INVALID_RESULT 分支只加失败计数、**没加退避** —— 一个说谎的探测会被全速重试。修法：与非数值失败同样翻倍退避；
+   T19 锁住（M10 突变即变红）。
+另：**证伪脚本自身**也有一处 bug —— 最终 before/after 比较仍只列两个文件（新增两个源文件后必然报「未还原」），
+   制造了一次假警报；已修并记录，而不是悄悄改掉。
+```
+
+## 3. 未完成（工作书子步骤）
+
+```text
+子步骤 1 部分：CPU/内存/磁盘已有**真实读数**（参考适配器）且来源/单位/bootId/seq/observedAt/receivedAt/TTL 齐备；
+   **队列/占用尚无测量源**；GPU/VRAM、电池/温度仍只能**声明 UNSUPPORTED**（缺席处理正确，但真实适配器未做）。
+子步骤 2 基本完成但**仍未勾选**：total/free/reserved/in-use 已区分并有矛盾守卫；presence 与 freshness 分离；
+   观测/估计/用户声明分离；网络**按路径**测量并带预算/期限/退避 —— 唯一剩余缺口是**带宽（throughput）探测**未实现
+   （`networkThroughput` 目前只会随适配器声明为 UNSUPPORTED）。
 子步骤 3 完成：有界缓冲、限频、丢弃计数、overhead 测量、以及「不采集未授权进程名/窗口内容/个人文件」。
 异机验收部分（真实两主机至少采集 CPU/RAM 并记录自身开销）属复检方执行（EXECUTION_CONTRACT §14）；
-本机本轮只做到单机组件证据。
+   本轮仍只做到单机组件证据（本机的参考适配器已能产出真实 CPU/内存读数，供复检方跨机对照）。
 ```
 
 ## 4. 边界（未越过）
