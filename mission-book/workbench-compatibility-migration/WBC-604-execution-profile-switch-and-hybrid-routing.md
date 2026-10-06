@@ -3,7 +3,7 @@ workbook_id: WBC-604
 phase: WORKBENCH_COMPATIBILITY_MIGRATION
 sequence: 604
 execution_enabled: true
-status: READY
+status: "IN_PROGRESS"
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -11,12 +11,12 @@ baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: ["9f3e20e8ec99d591812430bee71d27e68c4ad498"]
 dependency_source_workbooks: ["WBC-603"]
 dependency_source_shas: ["f3510862cc348a99004ca5bd5d151a7b56279724"]
-development_baseline_sha: null
-baseline_resolution_evidence: null
+development_baseline_sha: "1a26d7499d3de39b19c3136c3032e8ccd9343428"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-05): baseline_anchor_mode=DEPENDENCY_SHA_UNION_AT_CLAIM executed literally. The declared dependency_source_shas entry f3510862cc348a99004ca5bd5d151a7b56279724 (WBC-603 accepted head) and the required ancestor 9f3e20e8ec99d591812430bee71d27e68c4ad498 were BOTH verified with git merge-base --is-ancestor against refs/heads/main, both ANCESTOR_OK, so the union is the eligible base itself and needs no constructed merge - the same shape as the MON-902 claim, and the opposite of the CEX-790 union that had to merge five parallel heads. Resolved baseline (40-char): 1a26d7499d3de39b19c3136c3032e8ccd9343428. Dependency smoke run BEFORE any WBC-604 product change: node --test on the WBC-601/602/603 suites -> 32 tests, 32 pass, 0 fail at that exact commit. Development worktree D:/utopia-wbc604 on branch wbc/WBC-604-mech-execution-profile-switch, created from the resolved baseline."
 baseline_blocker: null
 dependencies: ["WBC-603:WORKER_POOL_AGENT_SEAM_ACCEPTED"]
-development_host: null
-development_branch: null
+development_host: "Mech"
+development_branch: "wbc/WBC-604-mech-execution-profile-switch"
 development_head_sha: null
 development_ci: null
 development_complete: false

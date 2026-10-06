@@ -796,7 +796,7 @@
       "name": "Workbench Compatibility",
       "readme": "workbench-compatibility-migration/README.md",
       "review_complete": 3,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 3,
       "tasks": [
         {
@@ -833,7 +833,7 @@
           "id": "WBC-604",
           "path": "workbench-compatibility-migration/WBC-604-execution-profile-switch-and-hybrid-routing.md",
           "review_complete": false,
-          "status": "READY"
+          "status": "IN_PROGRESS"
         }
       ],
       "total": 4
