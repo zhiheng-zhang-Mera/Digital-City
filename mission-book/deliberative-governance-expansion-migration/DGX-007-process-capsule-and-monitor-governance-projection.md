@@ -57,15 +57,19 @@ report_path: null
 
 ## 目标
 
-让 Owner 每次收到正式复杂任务结果时都能看到**压缩后的思考/验证过程链**，但不被迫做人肉 reviewer。
+让 Owner 每次收到正式复杂任务结果时都能看到**压缩后的显式过程、验证与决策链**，但不被迫做人肉 reviewer。
+
+> 本轮矫正：不再使用“压缩后的思考链”表述。Process Capsule 展示可审计的 decomposition / assignment / evidence / conflict / decision，不展示、推断或保存隐藏 chain-of-thought。
 
 ## L0 — Process Capsule（默认随结果返回）
 
 至少显示：
 
-- task decomposition summary；
+- Owner request / accepted scope；
+- Problem Graph decomposition summary；
 - participants / roles；
-- assignment basis；
+- assignment basis + independence floor；
+- structured node outcomes；
 - material conflicts；
 - adjudication outcomes；
 - validation performed；
@@ -74,11 +78,11 @@ report_path: null
 
 ## L1 — Deliberation Inspector
 
-按需展开 Claim / Evidence / Objection / Defence / Arbiter rationale summary / dissent。
+按需展开 Claim / Evidence / Objection / Defence / provisional-vs-final adjudication summary / dissent。
 
 ## L2 — Technical Evidence
 
-按需查看 exact SHA、CI/test、source/citation、artifact、decision receipt、timestamps 等。
+按需查看 exact SHA、CI/test、source/citation、artifact、decision receipt、timestamps、snapshot/version refs 等。
 
 ## 隐私与认知负担边界
 
@@ -88,6 +92,8 @@ report_path: null
 
 复用 City Work Monitor 的 projection/progressive disclosure；Governance projection 不是新的 task truth，Monitor/JEV 故障不能阻塞无关执行。
 
+Problem Graph 可以在 Monitor 中投影为 DAG，但其节点状态不得覆盖 canonical runtime/task state；冲突时必须显示 reconciliation warning。
+
 ## 完成门槛
 
-至少一个无冲突案例和一个有冲突/仲裁案例能生成准确 Process Capsule，并能从 L0 追到 exact evidence。
+至少一个无冲突案例和一个有冲突/仲裁案例能生成准确 Process Capsule，并能从 L0 追到 exact evidence；Owner 不需要阅读隐藏推理即可理解“怎么拆、谁做、为什么、证据是什么、哪里不确定”。
