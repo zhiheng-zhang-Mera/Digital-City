@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 18,
+      "complete": 19,
       "total": 23
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 88,
+      "complete": 89,
       "total": 93
     },
     "review": {
@@ -907,7 +907,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 4,
+      "development_complete": 5,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "research-strengthening/README.md",
@@ -953,7 +953,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "REX-805",
           "path": "research-strengthening/REX-805-trace-replay-and-ablation.md",

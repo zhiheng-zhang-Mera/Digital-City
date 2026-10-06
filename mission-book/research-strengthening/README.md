@@ -460,3 +460,34 @@ integration/REX-accepted-heads-mech-preflight-with-evidence-repair @ 56b9752
 ```
 
 即：**「全量绿」与「跑完全量后 tree 干净」是两件不同的事**——两种状态下测试结果完全相同，只有含修复的那个状态在结束时是干净的。本机对 REX 无合并授权（`merge_authority: false`）、也无 REX 合并窗口，修复与并集分支均为**已验证、待采纳**的提案。完整记录：`reports/REX-PROGRAMME/INTEGRATION_PREFLIGHT.md`、`reports/REX-804/TEST_MUTATES_COMMITTED_EVIDENCE.md`、`reports/INTEGRATION_SOURCE_SWEEP_MECH.md`。
+
+### REX-805 实体开发门槛：已在真实 City 上执行 / REX-805 physical development gate: EXECUTED on the live City
+
+作者 `7ad7d19` 把开发门槛的执行交给本机（`PHYSICAL_GATE_HANDOFF_Alien.md`）。本机按交接执行并已交回材料。 / The author handed over execution of the development gate; this host executed it and handed the materials back.
+
+```text
+WHEN        2026-10-06  两次：作者修复前 4b39468，修复后重跑 0261a9e（常驻 City，数据目录保留，身份不变）
+DEPLOY      4b39468 → pid 33420；0261a9e → pid 44088；均 → City 031fdba6-e94c-4298-a095-6ff04a65481d
+            部署前常驻 City 跑旧候选 8798ba9，research/replays 404；两次部署后均 200
+SOURCE      campaign-966cf439-… run 1，seed 414121415，原 worker Alien（两次同一源）
+REPLAY      4b39468: campaign-4a1919b0-… 落 Alien   0261a9e: campaign-cdf39b7f-… 落 Alien
+ABLATION    4b39468: campaign-bad9f272-… 落 Mech    0261a9e: campaign-481a1761-… 落 Mech
+            两次均：MEASURED、controlledInputsMatch=true、differences=[]、Ablation placementChanged=true
+            三个 seed 一致；全部为真实执行（真实 worker、真实 canonical task 皆 COMPLETED）
+NOT CLAIMED 开发完成、验收、合并权均不主张——只把门槛材料交回作者核验
+EVIDENCE    reports/REX-805/evidence/（4b39468）与 reports/REX-805/evidence-repaired/（0261a9e）
+            逐文件 SHA256；三份回执为 City 字节的逐字节副本；同源回执在两个包与 REX-803 包中哈希相同
+RESULT      reports/REX-805/PHYSICAL_GATE_RESULT_Mech.md
+```
+
+**关于 `limits` 的更正链 / a correction chain, stated：** 本机合成源仪器曾报 `controlledInputDifferences:['limits']`；第一次实体跑（源恰好是非空 limits）看不到它，本机因此在材料索引里写成「属于合成夹具」；作者随后以 `0261a9e` 修复了空 limit 集（`{}` 与 `null` 的 canonical 差异）并加了回归测试——**证明该缺陷真实且一般**，本机那句结论下得太满，已在结果记录里改正：合成夹具触发了一个真实缺陷，而物理源没有覆盖那个分支。
+
+### REX-805 作者交付 / Author handover
+
+最新作者交付候选为 `0261a9ed1cec88df3ab4675623d422b37b33f270`，精确CI三项成功、独立代码复审通过。前驱4b39468的实体材料经作者63/63独立核验；最终修复针对无额外限制时的null/{}比较，真实非空限制路径的前驱材料仍是有界开发依据，不声称最终候选实体部署已观测。开发完成5/8、正式复检4/8、任务完成4/8；REX805仍IN_PROGRESS，正式review_host仍null、terminal未释放。见 [开发交付](../reports/REX-805/DEVELOPMENT_HANDOFF.md) 和 [材料索引](../reports/REX-805/PAPER_MATERIAL_INDEX.md)。
+
+The author hands over exact candidate `0261a9ed1cec88df3ab4675623d422b37b33f270`, with three successful exact-head CI runs and independent code re-review. The author independently verifies the predecessor4b39468 physical packet with63/63 checks. The final fix concerns null/{} comparison without extra bounds; the measured predecessor nonempty-bound path remains a bounded development basis, not observation of final-candidate physical deployment. Development is5/8, formal review4/8 and accepted tasks4/8. REX805 remains IN_PROGRESS with review_host null and no released terminal. See the [handover](../reports/REX-805/DEVELOPMENT_HANDOFF.md) and [material index](../reports/REX-805/PAPER_MATERIAL_INDEX.md).
+
+前段“limits差异属于合成夹具”的推论限于那份有maxFailures=3的实体源；作者另以真实HTTP无额外限制源复现并修复误报，不能将该推论推广到所有真实campaign。 / The earlier synthetic-fixture inference is limited to that physical source with maxFailures=3. The author separately reproduced and repaired the mismatch with a real HTTP source without extra bounds; the inference cannot extend to every real campaign.
+
+作者追加：最终0261a9e实体重跑已获原始包63/63及普通MEMBER规范任务独立核验，前驱-only缺口由此替代；正式对侧复检仍待领取/裁决。 / Author update: final0261a9e physical repetition now has63/63 raw-packet checks and independently matched ordinary-MEMBER canonical tasks, superseding the predecessor-only gap. Formal opposite-host claim/verdict remains pending.

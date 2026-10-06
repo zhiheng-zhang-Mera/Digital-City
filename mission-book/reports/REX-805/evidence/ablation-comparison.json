@@ -1,0 +1,129 @@
+{
+  "apiVersion": 0,
+  "schemaVersion": 0,
+  "comparison": {
+    "state": "COMPLETED",
+    "campaignId": "campaign-bad9f272-c7e6-4b0e-aa39-7752cf47a76f",
+    "sourceRunRef": "campaign-966cf439-7017-4bb0-88e8-981e59c18322:1",
+    "mode": "ABLATION",
+    "disabledMechanisms": [
+      "alternate-device"
+    ],
+    "controlledInputsMatch": true,
+    "controlledInputDifferences": [],
+    "original": {
+      "index": 1,
+      "state": "MEASURED",
+      "reason": null,
+      "seed": 414121415,
+      "warmup": false,
+      "measured": true,
+      "durationMs": 6615,
+      "result": {
+        "taskRef": "Q-f78eaee3-2380-468e-969d-6012fba109b9",
+        "state": "COMPLETED",
+        "assignedNodeId": "dev-8128a1ef25c5c4b7f66fc31b21705858",
+        "result": {
+          "waitedMs": 6000
+        }
+      }
+    },
+    "replayed": {
+      "index": 0,
+      "state": "MEASURED",
+      "reason": null,
+      "seed": 414121415,
+      "warmup": false,
+      "measured": true,
+      "durationMs": 6220,
+      "result": {
+        "taskRef": "Q-474aca57-43cf-4231-a279-d85911cd2d56",
+        "state": "COMPLETED",
+        "assignedNodeId": "dev-031fdba6e94c4298a0956ff04a65481d",
+        "result": {
+          "waitedMs": 6000
+        }
+      }
+    },
+    "expectedTarget": "dev-031fdba6e94c4298a0956ff04a65481d",
+    "placementChanged": true,
+    "durationDeltaMs": -395,
+    "causalPerformanceClaim": false,
+    "determinism": "CONTROL_INPUTS_ONLY",
+    "nondeterministicConditions": [
+      "LIVE_RESOURCE_AVAILABILITY",
+      "WALL_CLOCK",
+      "EXTERNAL_PROVIDER_STATE_NOT_SNAPSHOTTED"
+    ]
+  },
+  "research": {
+    "contractVersion": 1,
+    "topologies": [
+      "SINGLE_CITY",
+      "TWO_HOST_MESH",
+      "THREE_SURFACE_MESH",
+      "ANDROID_CONTROL_SURFACE"
+    ],
+    "topologyRequirements": {
+      "SINGLE_CITY": {
+        "minHosts": 1,
+        "maxHosts": 1,
+        "minWorkers": 0,
+        "minControlSurfaces": 1,
+        "description": "one City process with at least one attached control surface"
+      },
+      "TWO_HOST_MESH": {
+        "minHosts": 2,
+        "maxHosts": 2,
+        "minWorkers": 2,
+        "minControlSurfaces": 1,
+        "description": "two physical hosts, each running a real worker, sharing one canonical City"
+      },
+      "THREE_SURFACE_MESH": {
+        "minHosts": 2,
+        "maxHosts": 2,
+        "minWorkers": 2,
+        "minControlSurfaces": 3,
+        "description": "the two-host mesh plus a third independent control surface (the MESH-301 shape)"
+      },
+      "ANDROID_CONTROL_SURFACE": {
+        "minHosts": 1,
+        "maxHosts": 1,
+        "minWorkers": 0,
+        "minControlSurfaces": 1,
+        "requiresAndroidControl": true,
+        "description": "one City whose control surface is a real Android device"
+      }
+    },
+    "seedPolicies": [
+      "FIXED",
+      "PER_REPETITION",
+      "PER_VARIANT"
+    ],
+    "stopConditionKinds": [
+      "MAX_REPETITIONS",
+      "MAX_WALL_CLOCK_MS",
+      "MAX_FAILURES",
+      "MIN_SUCCESSFUL_RUNS",
+      "MANUAL"
+    ],
+    "artifactRetention": [
+      "NONE",
+      "SUMMARY_ONLY",
+      "BOUNDED_TRACE",
+      "FULL"
+    ],
+    "capabilityVocabulary": [
+      "planning.document.intake",
+      "planning.knowledge.query",
+      "engineering.skill.inspect",
+      "research.evidence.review",
+      "presentation.theme.lab",
+      "city.02-engineering/01-project-foreman/project-foreman",
+      "city.02-engineering/03-host-health-station/host-health-station"
+    ],
+    "ownsTaskState": false,
+    "grantsFaultAuthority": false,
+    "executesExperiments": false
+  }
+}

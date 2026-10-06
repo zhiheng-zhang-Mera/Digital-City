@@ -1,8 +1,11 @@
 # Line endings are part of the evidence here.
 #
-# The REX-803 material package is verified by SHA256 over exact bytes, and it is read on a different
-# host than the one that produced it. With core.autocrlf=true a checkout would rewrite LF to CRLF, so
-# the reviewer would hash bytes that differ from the ones the index lists and report a mismatch that
-# belongs to the checkout rather than to the material. These files are therefore stored and checked
-# out verbatim: the blob bytes are the bytes that were hashed.
+# These material packages are verified by SHA256 over exact bytes, and they are read on a different host than the one
+# that produced them - sometimes by a reviewer who is the opposite host, which is the whole point. With
+# core.autocrlf=true a checkout would rewrite LF to CRLF, so the reader would hash bytes that differ from the ones the
+# index lists and report a mismatch that belongs to their checkout rather than to the material. Every evidence
+# directory that publishes a per-file SHA256 therefore belongs here, not just the first one that hit the problem.
 mission-book/reports/REX-803/evidence/** -text
+# REX-805 publishes the same exact-byte receipt/index contract across hosts.
+mission-book/reports/REX-805/evidence/** -text
+mission-book/reports/REX-805/evidence-repaired/** -text

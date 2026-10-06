@@ -1,0 +1,455 @@
+{
+  "replay-30b2450b-f78a-4145-af9b-e5f94e65578e": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "experiment": {
+      "experimentId": "replay-30b2450b-f78a-4145-af9b-e5f94e65578e",
+      "status": "VALIDATED",
+      "contractVersion": 1,
+      "registeredAt": "2026-10-06T09:58:53.642Z",
+      "manifest": {
+        "contractVersion": 1,
+        "experimentId": "replay-30b2450b-f78a-4145-af9b-e5f94e65578e",
+        "question": "REPLAY: Does one canonical scenario repeat across the Mech + Alien + Android topology with every repetition measured or explained?",
+        "hypothesis": "With both hosts online and the Android surface live, every repetition either completes on a declared worker or carries a typed reason.",
+        "topology": "TWO_HOST_MESH",
+        "topologyDescription": "two physical hosts, each running a real worker, sharing one canonical City",
+        "hosts": [
+          "dev-031fdba6e94c4298a0956ff04a65481d",
+          "dev-8128a1ef25c5c4b7f66fc31b21705858"
+        ],
+        "workers": [
+          "dev-031fdba6e94c4298a0956ff04a65481d",
+          "dev-8128a1ef25c5c4b7f66fc31b21705858"
+        ],
+        "controlSurfaces": [
+          "dev-be7832e35fc34b85966c3bb43a992e1d"
+        ],
+        "variables": {
+          "independent": [
+            "scenario"
+          ],
+          "dependent": [
+            "completion"
+          ],
+          "controls": [
+            "taskType"
+          ]
+        },
+        "repetitions": 1,
+        "seedPolicy": "PER_REPETITION",
+        "baseSeed": 20261006,
+        "requiredCapabilities": [
+          "research.evidence.review"
+        ],
+        "stopConditions": [
+          {
+            "kind": "MAX_REPETITIONS",
+            "value": 1
+          },
+          {
+            "kind": "MAX_FAILURES",
+            "value": 3
+          }
+        ],
+        "artifactPolicy": {
+          "retention": "SUMMARY_ONLY",
+          "exportPath": null
+        },
+        "acceptance": {
+          "primary": "Every repetition is measured on a declared worker or carries a typed reason",
+          "minimumSuccessfulRuns": 1,
+          "notes": []
+        },
+        "softwareRefs": [
+          {
+            "component": "utopia",
+            "identity": "8798ba9dd37051626033ad72080b2fad3ff66149",
+            "commitSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+            "exact": true
+          }
+        ],
+        "references": {
+          "scenarioRef": null,
+          "faultProfileRef": null,
+          "referenceIsNotAuthorisation": true
+        },
+        "defaultsInvented": false
+      },
+      "digest": "{\"acceptance\":{\"minimumSuccessfulRuns\":1,\"notes\":[],\"primary\":\"Every repetition is measured on a declared worker or carries a typed reason\"},\"artifactPolicy\":{\"exportPath\":null,\"retention\":\"SUMMARY_ONLY\"},\"baseSeed\":20261006,\"contractVersion\":1,\"controlSurfaces\":[\"dev-be7832e35fc34b85966c3bb43a992e1d\"],\"defaultsInvented\":false,\"experimentId\":\"replay-30b2450b-f78a-4145-af9b-e5f94e65578e\",\"hosts\":[\"dev-031fdba6e94c4298a0956ff04a65481d\",\"dev-8128a1ef25c5c4b7f66fc31b21705858\"],\"hypothesis\":\"With both hosts online and the Android surface live, every repetition either completes on a declared worker or carries a typed reason.\",\"question\":\"REPLAY: Does one canonical scenario repeat across the Mech + Alien + Android topology with every repetition measured or explained?\",\"references\":{\"faultProfileRef\":null,\"referenceIsNotAuthorisation\":true,\"scenarioRef\":null},\"repetitions\":1,\"requiredCapabilities\":[\"research.evidence.review\"],\"seedPolicy\":\"PER_REPETITION\",\"softwareRefs\":[{\"commitSha\":\"8798ba9dd37051626033ad72080b2fad3ff66149\",\"component\":\"utopia\",\"exact\":true,\"identity\":\"8798ba9dd37051626033ad72080b2fad3ff66149\"}],\"stopConditions\":[{\"kind\":\"MAX_REPETITIONS\",\"value\":1},{\"kind\":\"MAX_FAILURES\",\"value\":3}],\"topology\":\"TWO_HOST_MESH\",\"topologyDescription\":\"two physical hosts, each running a real worker, sharing one canonical City\",\"variables\":{\"controls\":[\"taskType\"],\"dependent\":[\"completion\"],\"independent\":[\"scenario\"]},\"workers\":[\"dev-031fdba6e94c4298a0956ff04a65481d\",\"dev-8128a1ef25c5c4b7f66fc31b21705858\"]}",
+      "issues": []
+    },
+    "research": {
+      "contractVersion": 1,
+      "topologies": [
+        "SINGLE_CITY",
+        "TWO_HOST_MESH",
+        "THREE_SURFACE_MESH",
+        "ANDROID_CONTROL_SURFACE"
+      ],
+      "topologyRequirements": {
+        "SINGLE_CITY": {
+          "minHosts": 1,
+          "maxHosts": 1,
+          "minWorkers": 0,
+          "minControlSurfaces": 1,
+          "description": "one City process with at least one attached control surface"
+        },
+        "TWO_HOST_MESH": {
+          "minHosts": 2,
+          "maxHosts": 2,
+          "minWorkers": 2,
+          "minControlSurfaces": 1,
+          "description": "two physical hosts, each running a real worker, sharing one canonical City"
+        },
+        "THREE_SURFACE_MESH": {
+          "minHosts": 2,
+          "maxHosts": 2,
+          "minWorkers": 2,
+          "minControlSurfaces": 3,
+          "description": "the two-host mesh plus a third independent control surface (the MESH-301 shape)"
+        },
+        "ANDROID_CONTROL_SURFACE": {
+          "minHosts": 1,
+          "maxHosts": 1,
+          "minWorkers": 0,
+          "minControlSurfaces": 1,
+          "requiresAndroidControl": true,
+          "description": "one City whose control surface is a real Android device"
+        }
+      },
+      "seedPolicies": [
+        "FIXED",
+        "PER_REPETITION",
+        "PER_VARIANT"
+      ],
+      "stopConditionKinds": [
+        "MAX_REPETITIONS",
+        "MAX_WALL_CLOCK_MS",
+        "MAX_FAILURES",
+        "MIN_SUCCESSFUL_RUNS",
+        "MANUAL"
+      ],
+      "artifactRetention": [
+        "NONE",
+        "SUMMARY_ONLY",
+        "BOUNDED_TRACE",
+        "FULL"
+      ],
+      "capabilityVocabulary": [
+        "planning.document.intake",
+        "planning.knowledge.query",
+        "engineering.skill.inspect",
+        "research.evidence.review",
+        "presentation.theme.lab",
+        "city.02-engineering/01-project-foreman/project-foreman",
+        "city.02-engineering/03-host-health-station/host-health-station"
+      ],
+      "ownsTaskState": false,
+      "grantsFaultAuthority": false,
+      "executesExperiments": false
+    }
+  },
+  "replay-00dbd47c-cf2c-4154-a67f-f447196f7566": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "experiment": {
+      "experimentId": "replay-00dbd47c-cf2c-4154-a67f-f447196f7566",
+      "status": "VALIDATED",
+      "contractVersion": 1,
+      "registeredAt": "2026-10-06T10:00:54.690Z",
+      "manifest": {
+        "contractVersion": 1,
+        "experimentId": "replay-00dbd47c-cf2c-4154-a67f-f447196f7566",
+        "question": "ABLATION: Does one canonical scenario repeat across the Mech + Alien + Android topology with every repetition measured or explained?",
+        "hypothesis": "With both hosts online and the Android surface live, every repetition either completes on a declared worker or carries a typed reason.",
+        "topology": "TWO_HOST_MESH",
+        "topologyDescription": "two physical hosts, each running a real worker, sharing one canonical City",
+        "hosts": [
+          "dev-031fdba6e94c4298a0956ff04a65481d",
+          "dev-8128a1ef25c5c4b7f66fc31b21705858"
+        ],
+        "workers": [
+          "dev-031fdba6e94c4298a0956ff04a65481d",
+          "dev-8128a1ef25c5c4b7f66fc31b21705858"
+        ],
+        "controlSurfaces": [
+          "dev-be7832e35fc34b85966c3bb43a992e1d"
+        ],
+        "variables": {
+          "independent": [
+            "scenario"
+          ],
+          "dependent": [
+            "completion"
+          ],
+          "controls": [
+            "taskType"
+          ]
+        },
+        "repetitions": 1,
+        "seedPolicy": "PER_REPETITION",
+        "baseSeed": 20261006,
+        "requiredCapabilities": [
+          "research.evidence.review"
+        ],
+        "stopConditions": [
+          {
+            "kind": "MAX_REPETITIONS",
+            "value": 1
+          },
+          {
+            "kind": "MAX_FAILURES",
+            "value": 3
+          }
+        ],
+        "artifactPolicy": {
+          "retention": "SUMMARY_ONLY",
+          "exportPath": null
+        },
+        "acceptance": {
+          "primary": "Every repetition is measured on a declared worker or carries a typed reason",
+          "minimumSuccessfulRuns": 1,
+          "notes": []
+        },
+        "softwareRefs": [
+          {
+            "component": "utopia",
+            "identity": "8798ba9dd37051626033ad72080b2fad3ff66149",
+            "commitSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+            "exact": true
+          }
+        ],
+        "references": {
+          "scenarioRef": null,
+          "faultProfileRef": null,
+          "referenceIsNotAuthorisation": true
+        },
+        "defaultsInvented": false
+      },
+      "digest": "{\"acceptance\":{\"minimumSuccessfulRuns\":1,\"notes\":[],\"primary\":\"Every repetition is measured on a declared worker or carries a typed reason\"},\"artifactPolicy\":{\"exportPath\":null,\"retention\":\"SUMMARY_ONLY\"},\"baseSeed\":20261006,\"contractVersion\":1,\"controlSurfaces\":[\"dev-be7832e35fc34b85966c3bb43a992e1d\"],\"defaultsInvented\":false,\"experimentId\":\"replay-00dbd47c-cf2c-4154-a67f-f447196f7566\",\"hosts\":[\"dev-031fdba6e94c4298a0956ff04a65481d\",\"dev-8128a1ef25c5c4b7f66fc31b21705858\"],\"hypothesis\":\"With both hosts online and the Android surface live, every repetition either completes on a declared worker or carries a typed reason.\",\"question\":\"ABLATION: Does one canonical scenario repeat across the Mech + Alien + Android topology with every repetition measured or explained?\",\"references\":{\"faultProfileRef\":null,\"referenceIsNotAuthorisation\":true,\"scenarioRef\":null},\"repetitions\":1,\"requiredCapabilities\":[\"research.evidence.review\"],\"seedPolicy\":\"PER_REPETITION\",\"softwareRefs\":[{\"commitSha\":\"8798ba9dd37051626033ad72080b2fad3ff66149\",\"component\":\"utopia\",\"exact\":true,\"identity\":\"8798ba9dd37051626033ad72080b2fad3ff66149\"}],\"stopConditions\":[{\"kind\":\"MAX_REPETITIONS\",\"value\":1},{\"kind\":\"MAX_FAILURES\",\"value\":3}],\"topology\":\"TWO_HOST_MESH\",\"topologyDescription\":\"two physical hosts, each running a real worker, sharing one canonical City\",\"variables\":{\"controls\":[\"taskType\"],\"dependent\":[\"completion\"],\"independent\":[\"scenario\"]},\"workers\":[\"dev-031fdba6e94c4298a0956ff04a65481d\",\"dev-8128a1ef25c5c4b7f66fc31b21705858\"]}",
+      "issues": []
+    },
+    "research": {
+      "contractVersion": 1,
+      "topologies": [
+        "SINGLE_CITY",
+        "TWO_HOST_MESH",
+        "THREE_SURFACE_MESH",
+        "ANDROID_CONTROL_SURFACE"
+      ],
+      "topologyRequirements": {
+        "SINGLE_CITY": {
+          "minHosts": 1,
+          "maxHosts": 1,
+          "minWorkers": 0,
+          "minControlSurfaces": 1,
+          "description": "one City process with at least one attached control surface"
+        },
+        "TWO_HOST_MESH": {
+          "minHosts": 2,
+          "maxHosts": 2,
+          "minWorkers": 2,
+          "minControlSurfaces": 1,
+          "description": "two physical hosts, each running a real worker, sharing one canonical City"
+        },
+        "THREE_SURFACE_MESH": {
+          "minHosts": 2,
+          "maxHosts": 2,
+          "minWorkers": 2,
+          "minControlSurfaces": 3,
+          "description": "the two-host mesh plus a third independent control surface (the MESH-301 shape)"
+        },
+        "ANDROID_CONTROL_SURFACE": {
+          "minHosts": 1,
+          "maxHosts": 1,
+          "minWorkers": 0,
+          "minControlSurfaces": 1,
+          "requiresAndroidControl": true,
+          "description": "one City whose control surface is a real Android device"
+        }
+      },
+      "seedPolicies": [
+        "FIXED",
+        "PER_REPETITION",
+        "PER_VARIANT"
+      ],
+      "stopConditionKinds": [
+        "MAX_REPETITIONS",
+        "MAX_WALL_CLOCK_MS",
+        "MAX_FAILURES",
+        "MIN_SUCCESSFUL_RUNS",
+        "MANUAL"
+      ],
+      "artifactRetention": [
+        "NONE",
+        "SUMMARY_ONLY",
+        "BOUNDED_TRACE",
+        "FULL"
+      ],
+      "capabilityVocabulary": [
+        "planning.document.intake",
+        "planning.knowledge.query",
+        "engineering.skill.inspect",
+        "research.evidence.review",
+        "presentation.theme.lab",
+        "city.02-engineering/01-project-foreman/project-foreman",
+        "city.02-engineering/03-host-health-station/host-health-station"
+      ],
+      "ownsTaskState": false,
+      "grantsFaultAuthority": false,
+      "executesExperiments": false
+    }
+  },
+  "rex803-three-end-live-8798ba9dd370": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "experiment": {
+      "experimentId": "rex803-three-end-live-8798ba9dd370",
+      "status": "VALIDATED",
+      "contractVersion": 1,
+      "registeredAt": "2026-10-06T08:00:39.522Z",
+      "manifest": {
+        "contractVersion": 1,
+        "experimentId": "rex803-three-end-live-8798ba9dd370",
+        "question": "Does one canonical scenario repeat across the Mech + Alien + Android topology with every repetition measured or explained?",
+        "hypothesis": "With both hosts online and the Android surface live, every repetition either completes on a declared worker or carries a typed reason.",
+        "topology": "TWO_HOST_MESH",
+        "topologyDescription": "two physical hosts, each running a real worker, sharing one canonical City",
+        "hosts": [
+          "dev-031fdba6e94c4298a0956ff04a65481d",
+          "dev-8128a1ef25c5c4b7f66fc31b21705858"
+        ],
+        "workers": [
+          "dev-031fdba6e94c4298a0956ff04a65481d",
+          "dev-8128a1ef25c5c4b7f66fc31b21705858"
+        ],
+        "controlSurfaces": [
+          "dev-be7832e35fc34b85966c3bb43a992e1d"
+        ],
+        "variables": {
+          "independent": [
+            "scenario"
+          ],
+          "dependent": [
+            "completion"
+          ],
+          "controls": [
+            "taskType"
+          ]
+        },
+        "repetitions": 3,
+        "seedPolicy": "PER_REPETITION",
+        "baseSeed": 20261006,
+        "requiredCapabilities": [
+          "research.evidence.review"
+        ],
+        "stopConditions": [
+          {
+            "kind": "MAX_REPETITIONS",
+            "value": 3
+          },
+          {
+            "kind": "MAX_FAILURES",
+            "value": 3
+          }
+        ],
+        "artifactPolicy": {
+          "retention": "SUMMARY_ONLY",
+          "exportPath": null
+        },
+        "acceptance": {
+          "primary": "Every repetition is measured on a declared worker or carries a typed reason",
+          "minimumSuccessfulRuns": 1,
+          "notes": []
+        },
+        "softwareRefs": [
+          {
+            "component": "utopia",
+            "identity": "8798ba9dd37051626033ad72080b2fad3ff66149",
+            "commitSha": "8798ba9dd37051626033ad72080b2fad3ff66149",
+            "exact": true
+          }
+        ],
+        "references": {
+          "scenarioRef": null,
+          "faultProfileRef": null,
+          "referenceIsNotAuthorisation": true
+        },
+        "defaultsInvented": false
+      },
+      "digest": "{\"acceptance\":{\"minimumSuccessfulRuns\":1,\"notes\":[],\"primary\":\"Every repetition is measured on a declared worker or carries a typed reason\"},\"artifactPolicy\":{\"exportPath\":null,\"retention\":\"SUMMARY_ONLY\"},\"baseSeed\":20261006,\"contractVersion\":1,\"controlSurfaces\":[\"dev-be7832e35fc34b85966c3bb43a992e1d\"],\"defaultsInvented\":false,\"experimentId\":\"rex803-three-end-live-8798ba9dd370\",\"hosts\":[\"dev-031fdba6e94c4298a0956ff04a65481d\",\"dev-8128a1ef25c5c4b7f66fc31b21705858\"],\"hypothesis\":\"With both hosts online and the Android surface live, every repetition either completes on a declared worker or carries a typed reason.\",\"question\":\"Does one canonical scenario repeat across the Mech + Alien + Android topology with every repetition measured or explained?\",\"references\":{\"faultProfileRef\":null,\"referenceIsNotAuthorisation\":true,\"scenarioRef\":null},\"repetitions\":3,\"requiredCapabilities\":[\"research.evidence.review\"],\"seedPolicy\":\"PER_REPETITION\",\"softwareRefs\":[{\"commitSha\":\"8798ba9dd37051626033ad72080b2fad3ff66149\",\"component\":\"utopia\",\"exact\":true,\"identity\":\"8798ba9dd37051626033ad72080b2fad3ff66149\"}],\"stopConditions\":[{\"kind\":\"MAX_REPETITIONS\",\"value\":3},{\"kind\":\"MAX_FAILURES\",\"value\":3}],\"topology\":\"TWO_HOST_MESH\",\"topologyDescription\":\"two physical hosts, each running a real worker, sharing one canonical City\",\"variables\":{\"controls\":[\"taskType\"],\"dependent\":[\"completion\"],\"independent\":[\"scenario\"]},\"workers\":[\"dev-031fdba6e94c4298a0956ff04a65481d\",\"dev-8128a1ef25c5c4b7f66fc31b21705858\"]}",
+      "issues": []
+    },
+    "research": {
+      "contractVersion": 1,
+      "topologies": [
+        "SINGLE_CITY",
+        "TWO_HOST_MESH",
+        "THREE_SURFACE_MESH",
+        "ANDROID_CONTROL_SURFACE"
+      ],
+      "topologyRequirements": {
+        "SINGLE_CITY": {
+          "minHosts": 1,
+          "maxHosts": 1,
+          "minWorkers": 0,
+          "minControlSurfaces": 1,
+          "description": "one City process with at least one attached control surface"
+        },
+        "TWO_HOST_MESH": {
+          "minHosts": 2,
+          "maxHosts": 2,
+          "minWorkers": 2,
+          "minControlSurfaces": 1,
+          "description": "two physical hosts, each running a real worker, sharing one canonical City"
+        },
+        "THREE_SURFACE_MESH": {
+          "minHosts": 2,
+          "maxHosts": 2,
+          "minWorkers": 2,
+          "minControlSurfaces": 3,
+          "description": "the two-host mesh plus a third independent control surface (the MESH-301 shape)"
+        },
+        "ANDROID_CONTROL_SURFACE": {
+          "minHosts": 1,
+          "maxHosts": 1,
+          "minWorkers": 0,
+          "minControlSurfaces": 1,
+          "requiresAndroidControl": true,
+          "description": "one City whose control surface is a real Android device"
+        }
+      },
+      "seedPolicies": [
+        "FIXED",
+        "PER_REPETITION",
+        "PER_VARIANT"
+      ],
+      "stopConditionKinds": [
+        "MAX_REPETITIONS",
+        "MAX_WALL_CLOCK_MS",
+        "MAX_FAILURES",
+        "MIN_SUCCESSFUL_RUNS",
+        "MANUAL"
+      ],
+      "artifactRetention": [
+        "NONE",
+        "SUMMARY_ONLY",
+        "BOUNDED_TRACE",
+        "FULL"
+      ],
+      "capabilityVocabulary": [
+        "planning.document.intake",
+        "planning.knowledge.query",
+        "engineering.skill.inspect",
+        "research.evidence.review",
+        "presentation.theme.lab",
+        "city.02-engineering/01-project-foreman/project-foreman",
+        "city.02-engineering/03-host-health-station/host-health-station"
+      ],
+      "ownsTaskState": false,
+      "grantsFaultAuthority": false,
+      "executesExperiments": false
+    }
+  }
+}

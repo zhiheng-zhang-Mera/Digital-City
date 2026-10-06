@@ -37,3 +37,14 @@ The candidate is now `0261a9ed1cec88df3ab4675623d422b37b33f270`. Mech's probe ex
 本轮候选4b39468的本地Android编译已执行：Java17、testDebugUnitTest assembleDebug BUILD SUCCESS，21suites/111tests/0failures/0errors，APK SHA256 `3b40b8d365a17893e01bdf88b190829f8de609bce3859ef10a7acadf4ca9ed0e`。随后空限制修复只改Gateway/测试/执行账本，未改Android来源；APK构建不证明手机新安装或实体Replay。
 
 The local Android build initiated at candidate4b39468 completed with Java17: testDebugUnitTest assembleDebug BUILD SUCCESS,21 suites/111 tests/0 failures/0 errors, with the APK hash above. The subsequent empty-limit repair changes only Gateway, tests and the execution ledger, with no Android source change. Building the APK does not establish a fresh phone installation or physical Replay acceptance.
+
+
+## 最新候选最终检查 / Final checks of the latest candidate
+
+逐次读取 Actions API，`0261a9ed1cec88df3ab4675623d422b37b33f270` 的 push37446455570、PR37446461188、linkage37446461192 均 COMPLETED SUCCESS；两组 V0.2 Android 和 Gateway/Web jobs 均成功。本地精确版本完整测试1413项、1410通过、3项ENV失败，三项仍是常驻正式City占用预约时 host-city-launcher 的显式拒绝。日志保留于 Alien `D:/rex805-empty-limits-final-head-full-suite-20261006.log`，未把命令外层输出成功误当 pnpm test 全通过；其日志明确 ELIFECYCLE 失败。测试后工作树干净，PR/远端分支精确版本匹配。
+
+Individual Actions API reads bind push 37446455570, PR 37446461188 and linkage 37446461192 to `0261a9ed1cec88df3ab4675623d422b37b33f270`, all COMPLETED SUCCESS; both V0.2 Android and Gateway/Web jobs succeed. The exact local full suite has 1413 tests, 1410 passes and three environment failures, all explicit host-city-launcher refusals while the formal resident City occupies its reservation. The Alien log remains at `D:/rex805-empty-limits-final-head-full-suite-20261006.log`. A successful outer log-display command is not treated as a successful pnpm test run; the log explicitly records ELIFECYCLE failure. The worktree is clean afterward and PR/remote branch heads match.
+
+独立复审重新执行18/18通过，并自建探针确认null/{}同义空集合匹配，新增 maxFailures、wallClockMs、minSuccessfulRuns 都返回 controlledInputsMatch=false 且差异为 limits。没有吞掉真实限制变化。此代码审查不替代实体门槛；仍未宣告开发完成、正式验收或产品main合并。
+
+Independent re-review reran all 18 focused tests and independently confirmed that null/{} empty sets match, while adding maxFailures, wallClockMs or minSuccessfulRuns yields controlledInputsMatch=false with a limits difference. Actual bound changes remain visible. Code review does not replace the physical gate; development completion, formal acceptance and product-main integration remain unclaimed.

@@ -18,8 +18,12 @@ dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_R
 development_host: "Alien"
 development_branch: "rex/REX-805-alien-replay-ablation"
 development_head_sha: "0261a9ed1cec88df3ab4675623d422b37b33f270"
-development_ci: "IN_PROGRESS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: empty-limit comparison repair, real Gateway RED 2PASS/1FAIL then focused18/18PASS; exact-head full suite and CI pending. Previous 4b39468 CI successes retained in checkpoint. Physical gate NOT_RUN; development_complete false."
-development_complete: false
+development_ci: "PASS exact head 0261a9ed1cec88df3ab4675623d422b37b33f270: push37446455570, PR37446461188, linkage37446461192 all COMPLETED SUCCESS; local1413/1410PASS/3ENV_FAIL; focused18/18PASS and independent code re-review PASS. Final0261a9e physical packet63/63 verified and live canonical tasks matched; predecessor packet retained, formal review pending."
+development_complete: true
+development_physical_gate_basis: "MET_EXACT_HEAD_0261a9e: repaired physical packet63/63 verified + official MEMBER canonical tasks matched; publisher-bound remote PID/source; independent formal review pending"
+capability_registry_action: CREATE
+capability_registry_refs: ["CAP-RESEARCH-REPLAY-001"]
+capability_registry_sync_status: DEVELOPMENT_COMPLETE_OPPOSITE_REVIEW_PENDING
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -35,7 +39,7 @@ backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
 merge_authority: false
-development_report_ref: mission-book/reports/REX-805/DEVELOPMENT_CHECKPOINT.md
+development_report_ref: mission-book/reports/REX-805/DEVELOPMENT_HANDOFF.md
 development_pr: "https://github.com/zhiheng-zhang-Mera/utopia/pull/38"
 report_path: mission-book/reports/REX-805
 terminal_marker: TRACE_REPLAY_ABLATION_ACCEPTED

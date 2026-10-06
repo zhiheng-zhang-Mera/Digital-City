@@ -19,12 +19,12 @@
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计 / Overall: 总任务 / Tasks 88/93 · 开发 / Development 88/93 · 复检 / Review 88/93**
-**当前未收口池 / Active pool: 总任务 / Tasks 18/23 · 开发 / Development 18/23 · 复检 / Review 18/23**
+**全城合计：总任务 88/93 · 开发 89/93 · 复检 88/93**  
+**当前未收口项目池：总任务 18/23 · 开发 19/23 · 复检 18/23**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|
-| [Research Strengthening](./research-strengthening/README.md) | **4/8** | **4/8** | **4/8** | IN_PROGRESS |
+| [Research Strengthening](./research-strengthening/README.md) | **4/8** | **5/8** | **4/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
 
 机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
@@ -81,7 +81,7 @@
 
 | ID | 项目 / Programme | 状态 / Status | 开发 / Development | 复检 / Review |
 |---|---|---|:---:|:---:|
-| [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | IN_PROGRESS | — | — |
+| [REX-805](./research-strengthening/REX-805-trace-replay-and-ablation.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-806](./research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-807](./research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [REX-890](./research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
