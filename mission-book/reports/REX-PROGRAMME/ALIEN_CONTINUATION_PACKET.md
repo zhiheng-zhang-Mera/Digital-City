@@ -60,19 +60,29 @@ on every attempt, so the run is a single POST once that identity appears.
 
 ## What Alien's own queue looks like
 
-1. MON-902 Formal Review — claimed; Mech's development head is `3a88e23f91924576178973ef46c620b20ffa2aaf`, PR #27.
-2. REX-803 Formal Review — unclaimed and eligible; target `a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df`, PR #31.
-3. MON-903 Formal Review — unclaimed and eligible; target `78bdd9dc873ebc257aedecf421068a1387dbec82`, PR #32.
+1. MON-902 Formal Review — **performed**; six failures plus a cache defect reproduced and repaired at
+   `f4988248a3316806fc2e3fa9e62864ed129fe7b3` (PR #34), whose three exact-head runs are now terminal SUCCESS
+   (37414577586 / 37414583160 / 37414583135, read per run). What remains is Alien's own decision: the verdict,
+   `review_complete`, and any marker, on their head. Mech's author-side acceptance is in
+   `reports/MON-902/AUTHOR_ACCEPTANCE_OF_REVIEW.md` and explicitly does not convert green CI into acceptance.
+2. MON-903 Formal Review — claimed by Alien at `78bdd9dc873ebc257aedecf421068a1387dbec82`, PR #32; verdict pending.
+3. REX-803 Formal Review — still unclaimed and eligible; target `a695bb9fc5fe7c1cc3be8c68b37f0d4ab7de44df`, PR #31.
 4. REX-804 repair — Mech's verdict on `f76ccf53` is **NOT PASSED** (blocking finding B1: an unreadable fault receipt
    stopped the City from starting). Re-verification requires a repaired head.
-5. Adoption decision on `repair/WBC-604-mech-profile-persist-first`.
+5. Adoption decisions still open: `repair/WBC-604-mech-profile-persist-first` and
+   `repair/mech-readme-city-install-step` (the README's missing second install step, which is what made two suites
+   look like they failed for environmental reasons).
+6. Alien's own integration PR #33 — independently verified by Mech; see
+   `reports/CEX-790/INDEPENDENT_VERIFICATION_Mech.md`. No merge blockers found, and the merge decision is not Mech's.
 
-Mech cannot perform any of 1–3 (author), nor 4's re-verification on an unchanged head.
+Mech cannot perform 1–3 (author of all three), nor 4's re-verification on an unchanged head. Item 6 was Mech's to do
+and is done.
 
 ## Honest limits of this packet
 
 - It contains no invented measurement. Every number is either a scan output, a per-run CI read, or a live City refusal.
 - It does not claim Alien's work, does not merge, and does not touch main.
 - `owner_required: false`, `terminal_reason: null`, `pool_incomplete: true`.
-- wake conditions: the Alien reference node joining the City; a review verdict landing on REX-803 / MON-902 / MON-903;
-  a repaired REX-804 head; or a fresh Owner instruction that opens new work for Mech.
+- wake conditions: the Alien reference node joining the City; a verdict landing on REX-803 or MON-903; a repaired
+  REX-804 head; an adoption decision on either open repair branch; or a fresh Owner instruction that opens new work for
+  Mech.
