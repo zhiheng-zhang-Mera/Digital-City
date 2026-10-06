@@ -67,6 +67,21 @@ REX-805 的候选头 `4b39468`（`rex/REX-805-alien-replay-ablation`，PR #38，
 
 **那个 fast-forward 正是“集成来源必须是工作书接受的那个提交”这条规则最锋利的例子**：按分支名集成在这里不是“多带一个提交”，而是**整条 main 被候选头替换**。 / The fast-forward is the sharpest illustration of the accepted-head rule: integrating by branch name here would not carry one extra commit, it would replace main with the candidate.
 
+**候选移动后重测 / re-measured after the candidate moved：** 作者随后推送 `0261a9e`（空 limit 集比较修复）并把门槛绑定到它，所以并集也重测了一遍——修复正好落在并集要解的那个文件里。 / The author then repaired the empty-limit comparison and rebound the gate to it, so the union was re-measured; the repair lands in the very file the union resolves.
+
+```text
+0261a9e -> 已接受并集 803+804 @ 704c518              一处冲突，同样是 services/dev-gateway/server.mjs 的 union 位点
+           已接受并集保留 fault controller，候选加入 replay engine => 三者并集
+           合并结果带上了修复本身：check('limits', replay.limits??{}, limits(...)??{})
+branch     integration/REX-805-repaired-mech-preflight @ 5b85cd6
+           （并集 + 已发布的 REX-804 证据修复，后者让跑完全量后 tracked state 仍为 CLEAN）
+focused    tests/rex803-*. + rex804-*. + rex805-*.     68 pass / 0 fail（17 套件，含作者新增的空 limit 回归测试）
+full       pnpm test                                  1424 pass / 3 fail / 1427，跑后 CLEAN
+           3 项均为 tests/host-city-launcher.test.mjs（本机常驻 City 占用 host reservation）
+```
+
+先前在**未修复**候选 `4b39468` 上的并集测量（`integration/REX-805-candidate-mech-preflight @ 0d8bdce`）保留为历史；两者都绑定各自的候选，不互相取代。 / The earlier union measured on the unrepaired candidate is kept as history; each binds its own candidate.
+
 分支 / branch：`integration/REX-805-candidate-mech-preflight` @ `0d8bdce`（并集，再叠加已发布的 REX-804 证据修复）。候选头不是已接受身份，本分支是**前置测量**，不是集成，也不改变任何工作书字段。 / A preflight measurement, not an integration; the candidate is not an accepted identity and no workbook field changes.
 
 ```text
