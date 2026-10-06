@@ -7,6 +7,7 @@
 | [DGX](./deliberative-governance-expansion-migration/README.md) | 复杂请求拆分、隔离执行、结构化汇合、冲突/仲裁治理 | PARKED |
 | [RIV](./review-independence-v2/README.md) | Review Pool v2、多维独立性、fresh-context、安全迁移 | PARKED |
 | [URA](./utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector 运行时分层与逻辑解耦 | PARKED |
+| [CHK](./city-self-health-check/README.md) | 周期体检、自我认知/诊断、季度自进化候选评审 | PARKED |
 | [Suspend](./suspend/README.md) | 当前不可 canonical 化但必须保留的冲突性设计/假设 | PRESERVE_ONLY |
 
 ## 统一规则
