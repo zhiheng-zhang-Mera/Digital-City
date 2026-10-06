@@ -245,16 +245,43 @@ DASHBOARD_BECOMES_SECOND_TASK_TRUTH
 
 MON-902 与 MON-903 在 MON-901 accepted 后可由不同主机并行。
 
+### MON-902 当前实测状态（Mech / Alien，2026-10-06）
+
+```text
+DEVELOPMENT   Mech COMPLETE on exact 3a88e23f91924576178973ef46c620b20ffa2aaf (branch mon/MON-902-mech-overview-graph, PR #27)
+REVIEW        Alien（对侧物理主机）已执行，判定为**返修**：独立复现 6 项失败，另有其同机 critic 发现的
+              stale-open-evidence 缓存缺陷 1 项，共 7 项。作者接受全部发现，无一项是口味问题。
+              review 报告：reports/MON-902/INDEPENDENT_REVIEW_Alien.md
+              作者接受与教训：reports/MON-902/AUTHOR_ACCEPTANCE_OF_REVIEW.md
+REPAIR        review/MON-902-Alien-20261006 @ f4988248a3316806fc2e3fa9e62864ed129fe7b3，PR #34，MERGEABLE
+              review_status = REPAIRED_AWAITING_EXACT_HEAD_CI（workbook 原值）
+              三个 exact-head run 已全部 terminal SUCCESS attempt 1（push 37414577586、PR 37414583160、
+              linkage 37414583135，逐次 API 读出并比对 headSha）——但**验收与 marker 仍属 reviewer 决定**，
+              作者不代为宣布通过
+MERGE         merge_authority false，本机未合并
+```
+
+值得入库的失败形状（作者自评）：MON-902 的任务主题就是「不要把不安全的画面显示成安全」，而作者自己的 projection 里有三条
+**false-safe** 路径——`view.health` 缺失时**不产生任何风险**、completeness 元数据缺失/非法时给出平静摘要并把缺口计为 0、
+已终态任务被算作「离线设备当前持有的工作」。此外 `navigation.worstSteps` 是**没有测量过的数字**（由「是否存在风险」推导），
+已被 reviewer 改为 `worstSteps: null / measurementStatus: 'NOT_OBSERVABLE'`。作者原有 33 个探针全部只喂**良构输入**，
+因此结构上不可能发现这些分支；reviewer 的 11 个探针正是围绕相反假设构建的。完整教训见
+`reports/MON-902/AUTHOR_ACCEPTANCE_OF_REVIEW.md` 第 5 节。
+
 ### MON-903 当前实测状态（Mech，2026-10-06）
 
 ```text
-DEVELOPMENT   COMPLETE on exact 1d1593df9f3370711df7fbb735fb2ccb393e7494
-              (branch mon/MON-903-mech-decision-overlay; union baseline = main 213f9f9f with MON-901 7eb38f1b inside)
+DEVELOPMENT   COMPLETE on exact 78bdd9dc873ebc257aedecf421068a1387dbec82
+              （本表此前写着 1d1593df，那是首次 green 的 head；该 head 之后因本任务自测发现 D-7/M-1 与 D-8/M-2
+              两个缺陷而前移，workbook 的 development_head_sha 是 78bdd9d。此处按 workbook 事实更正。）
+              branch mon/MON-903-mech-decision-overlay；union baseline = main 213f9f9f with MON-901 7eb38f1b inside
 WIRING        GET/POST /api/v0/monitor/decisions 与 GET /api/v0/monitor/decisions/:id 已在真实 gateway 上验证；
               MON-901 投影的 decision 字段由只读快照注入；Web 页面 Advanced > Decision provenance 由真实浏览器验证
 NOT DONE      无 Android 面（归 MON-990 跨设备验收）；本城未配置 resolver，因此所有不确定情形以
               RESOLVER_NOT_CONFIGURED 升级到 Owner（如实记录，不假装模型已接入）
-REVIEW        PENDING，review_host 必须为 Alien（对侧物理主机）。terminal marker 未释放，merge_authority=false
+REVIEW        CLAIMED by Alien（对侧物理主机，对作者 Mech 而言为 opposite host）；review_head_sha = 78bdd9d，
+              review_complete false，terminal marker 未释放，merge_authority=false
+              领取记录 mission-book/reports/MON-903/REVIEW_CLAIM_Alien.md
 ```
 
 MON-903 的 review 必须独立验证：触发分类是否有遗漏或错收、no-barrier 是否真的成立、是否存在任何让决策改变状态的路径、
