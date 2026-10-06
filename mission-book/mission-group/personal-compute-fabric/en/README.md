@@ -5,6 +5,10 @@
 
 > **2026-10-07 bounded activation (owner instruction).** The owner instructed this session that the PCF series be opened and its tasks taken in sequence on a dedicated branch series. The series' own activation rules were followed: the control-plane gap was fixed first (`sync_dependency_state.py`'s ID_RE did not recognise PCF, so every PCF dependency id was invisible to the tool), the progress manifest gained an explicit one-workbook file set rather than a broad glob, the reconciler measurably touched only PCF-700 (701..728 stayed parked, not enabled, not unblocked, no anchors added), and all four accepted WBC dependency heads are already in main. **PCF-700 is therefore enabled and claimed** by Mech-DS on series branch `pcf/series-mech`, task branch `pcf/PCF-700-mech-ownership-and-reality-audit`; **the other 28 workbooks stay parked**, out of the current denominator, and gain no execution right, budget, credential or merge authority. Full receipt: [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md); claim record: `reports/PCF-700/CLAIM_REPORT.md`.
 
+> **2026-10-07 PCF-700 accepted by the opposite host; PCF-701 activated and claimed in sequence.** The opposite physical host (Alien) completed the formal review at exact `659ff6a` and returned **ACCEPTED (audit/compatibility scope only, no repair requested)**: C1-C7 + D1-D4 **11/11** after installing dependencies itself, **six falsifications** each producing a nonzero exit before restoration, audit packet 8/8, the five single-writer fingerprints recomputed independently in Python, and exact-head CI 37502818037 re-verified as success. It also produced a **real cross-host sample** (an ordinary WAIT task posted from the reviewer's MEMBER session, executed by a Mech node with five checkpoints, the canonical result read back independently) while explicitly stating that this does NOT upgrade contract rows to TWO_HOST_VERIFIED / ORIGIN_AGENT_CONSUMED. The author's acknowledgement is `reports/PCF-700/AUTHOR_ACKNOWLEDGEMENT_Mech.md`, and it keeps the **unfixed** predicate-precision limitation on the record (the LIVE_WIRED predicate is textual; two of execution-backend-v1's production mentioners have no import edge, which does not move the conclusion; the author deferred the change rather than rewriting an accepted head). On that basis **PCF-701 is activated and claimed** (`ACTIVATION_RECEIPT_2026_10_07_PCF-701.md`, `reports/PCF-701/CLAIM_REPORT.md`, branch `pcf/PCF-701-mech-live-resource-telemetry`, baseline = series head `659ff6a`). `merge_authority` is still false: accepted heads only ACCUMULATE on `pcf/series-mech` and the merge ruling stays with the owner.
+
+> **2026-10-07 Author self-check at the frozen head (read-only).** `reports/PCF-700/AUTHOR_SELF_CHECK_AT_FROZEN_HEAD_Mech.md`: at the frozen head `659ff6a` this host re-ran 11/11 tests with `check:docs` and the review packet both exit 0 and a clean tree, and the self-check found that the tier table's **predicate is wider than its conclusion** ("references" includes bare textual mentions): two of `execution-backend-v1`'s four production mentioners have no import edge, yet **not one of the four LIVE_WIRED conclusions rests on a bare mention**, and EM, GAI and `rs-cross-device-return-v1` are not even mentioned in production code. Under the freeze, the change that tightens the predicate waits for a new head after the verdict; `659ff6a` is not moved.
+
 > **2026-10-07 PCF-700 review started, author side frozen.** The opposite physical host has begun the formal review. The author's freeze and handling protocol live in `reports/PCF-700/AUTHOR_HOLD_Mech.md`: **no further commits to `pcf/PCF-700-mech-ownership-and-reality-audit` or `pcf/series-mech` until a verdict or an explicit request** (so the reviewed head stays `659ff6a`), no touching of `review_*` fields, no creating or editing the reviewer's claim or report, and no marker release; any repair happens on a NEW head while every record of the reviewed head is kept. The claim is still the reviewer's to publish (as of this line the workbook's `review_host` is null and no `review/PCF-700-*` branch exists yet).
 
 > **2026-10-07 PCF-700 review readiness (head `659ff6aa98bc5675862b1170ed0cf5e1b78dba5f`).** The author reduced the first step of the review to **one command**: `utopia:scripts/pcf700-review-packet.mjs` re-runs the audit and compares the published record field for field (host/node metadata excluded) - eight checks, **8/8** on this host, and falsified three ways (a tampered fingerprint, a changed tier and a created candidate directory each turn it red). Usage and expected output: `reports/PCF-700/REVIEW_READINESS_MECH.md`; the review checklist and falsifiable seams: `reports/PCF-700/REVIEW_HANDOFF_Mech.md` (R0-R6, S1-S8).
@@ -103,7 +107,7 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **37**.
+当前Markdown文档 / Current Markdown documents: **38**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -112,6 +116,7 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 - [ACTIVATION_AND_EXTENSION.md](ACTIVATION_AND_EXTENSION.md)
 - [ACTIVATION_RECEIPT_2026_10_07.md](ACTIVATION_RECEIPT_2026_10_07.md)
+- [ACTIVATION_RECEIPT_2026_10_07_PCF-701.md](ACTIVATION_RECEIPT_2026_10_07_PCF-701.md)
 - [ARCHITECTURE.md](ARCHITECTURE.md)
 - [CHILD_WORKBOOK_TEMPLATE.md](CHILD_WORKBOOK_TEMPLATE.md)
 - [EXECUTION_CONTRACT.md](EXECUTION_CONTRACT.md)
@@ -154,10 +159,11 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 1/1 · 开发 / Development 1/1 · 复检 / Review 1/1 · `COMPLETE`
+总完成 / Complete 1/2 · 开发 / Development 1/2 · 复检 / Review 1/2 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
 | [PCF-700](../PCF-700-ownership-and-reality-audit.md) | COMPLETE | YES | YES | YES |
+| [PCF-701](../PCF-701-live-resource-telemetry.md) | IN_PROGRESS | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->

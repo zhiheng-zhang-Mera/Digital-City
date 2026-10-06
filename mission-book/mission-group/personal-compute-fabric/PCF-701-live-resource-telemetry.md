@@ -4,20 +4,20 @@ phase: PERSONAL_COMPUTE_FABRIC
 release_train: CORE_V1
 spec_revision: 1
 parent_workbook_id: null
-execution_enabled: false
-status: NOT_STARTED
-activation_state: PARKED_OWNER_NOT_ACTIVATED
+execution_enabled: true
+status: IN_PROGRESS
+activation_state: ACTIVATED_OWNER_2026_10_07_SEQUENTIAL
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: []
-required_ancestor_shas: []
+required_ancestor_shas: ["312b627b54af5bbf274fa25eca8f8383869c1c34"]
 dependency_source_workbooks: ["PCF-700"]
-dependency_source_shas: []
-development_baseline_sha: null
-anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
-development_host: null
-development_branch: null
+dependency_source_shas: ["659ff6aa98bc5675862b1170ed0cf5e1b78dba5f"]
+development_baseline_sha: "659ff6aa98bc5675862b1170ed0cf5e1b78dba5f"
+anchor_state: RESOLVED_AT_CLAIM
+development_host: "Mech"
+development_branch: "pcf/PCF-701-mech-live-resource-telemetry"
 development_head_sha: null
 development_ci: null
 development_complete: false
@@ -31,9 +31,10 @@ capability_ids: []
 planned_capability_ids: ["CAP-PCF-701"]
 capability_registry_action: UNASSESSED
 capability_registry_sync_status: UNASSESSED
-owner_gate: OWNER_ACTIVATION_REQUIRED
+owner_gate: SATISFIED_OWNER_ACTIVATION_2026_10_07_SEQUENTIAL
 merge_authority: false
-report_path: null
+report_path: "mission-book/reports/PCF-701"
+baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME MEGA-REP, role Mech-DS, 2026-10-07): PCF-701 is the SECOND task of the owner-opened PCF series. Owner authority: the same standing instruction under which PCF-700 was activated says the PCF series be taken in sequence on a dedicated branch series, so this activation is bounded to the ONE next qualified workbook and is not a blanket enablement of 701..728 (only this workbook's frontmatter changed; 702..728 were re-measured and remain execution_enabled=false, unblocked=false, anchor-less). DEPENDENCY, read from the accepted workbook rather than from prose: PCF-700 status=COMPLETE, development_complete=true, review_complete=true, review_host=Alien, review_head_sha=659ff6aa98bc5675862b1170ed0cf5e1b78dba5f; its REVIEW_REPORT.md records the opposite-host verdict ACCEPTED for the audit/compatibility scope with no repair requested. ANCESTRY, measured: 312b627b54af5bbf274fa25eca8f8383869c1c34 (origin/main) is an ancestor of 659ff6aa98bc5675862b1170ed0cf5e1b78dba5f, and 659ff6a is exactly the accumulated head of the series branch pcf/series-mech; the dependency union is therefore that single head and requires no union merge. Because PCF-700's merge_authority is false and no product merge happened, the baseline is the series branch head, not main - recorded explicitly so the choice is not read as an accident. CONTROL PLANE: sync_dependency_state.py already recognises PCF (repaired in the PCF-700 activation transaction) and PROGRESS_MANIFEST.json carries an explicit file set listing PCF-700 and PCF-701 only. POOL RESCAN before this claim: no competing claim exists on PCF-701 by either host, and the only other in-flight development claims are REX-806 (Mech, awaiting the opposite-host review) and SHOW-401 (Alien). Boundaries not crossed and recorded instead: no purchase or paid service, no system-service installation, no change to the running City profile, no remote-execution enabling, and no merge authority (merge_authority stays false; the series branch accumulates verified work for a later ruling)."
 ---
 
 # PCF-701 — 实时资源观测与 freshness
