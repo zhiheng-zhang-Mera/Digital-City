@@ -89,4 +89,46 @@ Same-round integration preflight established a Review-relevant fact: candidate h
 
 **External seam remains:** development_complete=false and review_host=null; no author commit after `a524e1c`. Continue recording the true external seam without idling: wait for delivery to claim, and do only work feasible before it.
 
+## Physical-gate handoff received
+
+At `7ad7d19`, the author published `PHYSICAL_GATE_HANDOFF_Alien.md`, handing this host execution of the development gate. It explicitly is not a declaration of development completion, a Review claim or acceptance, and grants no product-main merge authority. `development_complete=false` remains.
+
+The handoff also confirms the instrument's boundary, which this host fully accepts and records: synthetic run outcomes cannot establish physical acceptance. The instrument only prepares familiarity with fields that Review will inspect; it cannot serve as gate evidence.
+
+The handoff supplies this ready-to-execute source. This host will use it directly rather than independently derive another:
+
+```text
+sourceCampaignId  campaign-966cf439-7017-4bb0-88e8-981e59c18322
+sourceRunIndex    1
+source seed       414121415
+source task       Q-f78eaee3-2380-468e-969d-6012fba109b9
+original worker   dev-8128a1ef25c5c4b7f66fc31b21705858 (Alien)
+first worker      dev-031fdba6e94c4298a0956ff04a65481d (Mech)
+timeout / limits  30000 / {"maxFailures":3}
+digest kind       CANONICAL_PARSED_RECEIPT_SHA256
+source digest     1390b60885d52bf1284b7b57f0a94a3db67d39ecedfb271a94d9c119035ed67a
+```
+
+### This host's execution plan — next steps
+
+```text
+1  保留正式 City 数据目录，把常驻 City 更新到候选（或包含候选的版本），并记录「候选 → 实际进程」的部署绑定
+   —— 注意：此前用户对「Mech 已更新」的确认绑定的是旧候选 8798ba9，不能据此推定新候选已部署
+2  确认两个声明 worker 当前可用
+3  通过 Owner Research 端点：先 REPLAY（源 run 1），等终态；再从同一源 run 执行 alternate-device ABLATION，等终态
+   期望放置：original 与 Replay 落 Alien，Ablation 按 exact disabled policy 落 Mech；三个 seed 应一致
+4  导出：原 receipt、两个新 receipt、对应 experiment registry、两条 canonical task、两份 comparison，
+   以及时间戳、City 身份、部署绑定与所有失败/timeout/缺失项；独立核对 source digest、新身份、seed offset、
+   timeout、failure bound、manifest/registry 引用、实际放置与 controlledInputDifferences
+5  原始材料与索引交作者验证开发门槛；作者记录开发完成后，本机再独立领取正式复检
+```
+
+1. Preserve the formal City data directory, update resident City to the candidate or a version containing it, and record the deployment binding from candidate to actual process. The user's earlier confirmation that Mech was updated bound the old candidate `8798ba9`; it cannot establish deployment of the new candidate.
+2. Confirm both declared workers are currently available.
+3. Through Owner Research endpoints, first REPLAY source run 1 and await terminal state, then run alternate-device ABLATION from the same source run and await terminal state. Expected placement: original and Replay on Alien; Ablation on Mech under the exact disabled policy. All three seeds should match.
+4. Export the original receipt, two new receipts, corresponding experiment registry, two canonical tasks and two comparisons; retain timestamps, City identity, deployment binding and every failure, timeout or missing item. Independently check source digest, new identities, seed offset, timeout, failure bound, manifest/registry references, actual placement and controlledInputDifferences.
+5. Give raw materials and their index to the author to verify the development gate. Only after the author records development completion does this host independently claim Formal Review.
+
+Every unobserved item remains NOT_OBSERVED. Synthetic results or results with different inputs cannot substitute.
+
 This file changes no workbook fields.

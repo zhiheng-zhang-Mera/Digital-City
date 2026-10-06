@@ -15,3 +15,5 @@ Immutable accepted facts:
 - terminal marker: `THREE_END_MESH_E2E_ACCEPTED`
 
 This pointer is not a workbook and cannot be claimed.
+
+These immutable historical acceptance facts do not establish the current resident runtime state.
