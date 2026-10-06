@@ -1,0 +1,5 @@
+REX-801 opposite physical-host review found and corrects movable software provenance, repeated topology identity and missing visible direct-control entry. Manifests require a full commit anchor, supplemental versions remain explicit labels, duplicate host/worker/control refs cannot satisfy topology cardinality.
+
+Adds the thinnest Advanced > Research Web control: canonical list/inspect, authored JSON import, validation without registration, explicit registration without execution. A successful registration remains visible if list refresh fails. Context/page fencing and busy draft protection prevent stale response confusion. Fuller research workflow remains REX-807 scope.
+
+Original Mech source8f8c521fc299d622093776615b653457d8833f96; corrected candidate7e96a4d28f4cb701d7a0951bace69857c3228f32. Independent negative cases/restart seeds, developer/contract/gateway and real browser workflows:23/23 PASS; technical browser rereview2/2 PASS. Red findings and invalid initial fixture are retained with hashes. Final full suite/exact-head CI pending, merge_authority=false. No physical topology execution or performance claim.

@@ -1,0 +1,17 @@
+✔ versioned authenticated gateway rejects unsafe commands and persists history (234.0206ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (135.1062ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1422.5812ms)
+✔ an interrupted task is never falsified as success across a gateway restart (151.4968ms)
+✔ an experiment can be listed, validated, registered, inspected, seeded — without ever being run (242.3788ms)
+✔ the research routes require the control credential: a worker cannot certify the experiment it runs (80.3298ms)
+✔ an invalid manifest is refused with every issue at once, and the rejection is stored as evidence (100.5172ms)
+✔ manifests survive a gateway restart, and a broken file is reported instead of silently dropped (149.8813ms)
+✔ the registry itself refuses task-domain keys and never offers an update (3.3125ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3027.4639
