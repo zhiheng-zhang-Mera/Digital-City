@@ -140,15 +140,20 @@ REX-803 Review independently creates workbook conditions: duplicate execution, c
 After repairing its own defects, REX-803 author's self-test probed every startup file store. The failure shape still existed on main: putting a file where a directory should be made createGateway throw before binding a port.
 
 ```text
-SHAPE A  file where directory expected: 6 stores, main 213f9f9f → repair branch 8c67bb2
-theme-packages (capability-bridge)  BRICKED EEXIST  → STARTED        second instance; adoptable repair
-research (REX-801 registry parent) BRICKED ENOTDIR → still BRICKED  separately reported with repair
-research/experiments (REX-801)     BRICKED EEXIST  → still BRICKED  same report/repair
+SHAPE A  file where directory expected: 6 stores
+theme-packages (capability-bridge)  BRICKED EEXIST  → FIXED: 65f86f9 adopted this host's repair by content
+                                                       (degrade + storeState/storeReason)
+research (REX-801 registry parent) BRICKED ENOTDIR → FIXED: same adoption
+research/experiments (REX-801)     BRICKED EEXIST  → FIXED: same adoption
 research/campaigns / monitor / research-trace       STARTED → STARTED
+RE-MEASURED 2026-10-06 on current main b06504f: the identical harness, which first reproduced the old BRICKED
+             column at 213f9f9, shows all six SHAPE A stores STARTED at 4688274 and b06504f. Full table and
+             attribution evidence: reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md, re-measurement section.
 
 SHAPE B  directory where file expected: 3 stores, same on both branches
 city.sqlite (canonical store)       BRICKED "unable to open database file"
-                                    F-1: refusal is correct; missing diagnosable typed reason
+                                    F-1 STILL OPEN: refusal is correct; missing diagnosable typed reason.
+                                    Repair be3670b is ready on top of current main (3/3 guard probes pass).
 join-requests.json (join store)     STARTED, HTTP 200, approval row created in memory but nothing persisted
                                     F-2: deliberate silent failure
 execution-profile.json (WBC-604)    change() throws after memory profile already switched
@@ -157,7 +162,7 @@ execution-profile.json (WBC-604)    change() throws after memory profile already
 
 The v1 table claimed 8 probes, actually 6: two `relative = null` rows injected no faults; join HTTP 400 came from the probe mistakenly using `claimSecret`. This instrument defect and corrected measurements are retained together, never silently sanitized.
 
-Complete record: two bricking instances, F-1/F-2/F-3 patterns, paired before/after, three adoptable repairs, three instrument lessons in [DEFECT_RESEARCH_STORE_HARDENING.md](../../../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md). Reproducible harness: `reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`. Modules were on main and tasks REX-801/MB-008 legacy/WBC-604 closed; this host publishes only measurements, repair branches, and probes: **no merge, no main change, no closed-task record changes**.
+Complete record: two bricking instances, F-1/F-2/F-3 patterns, paired before/after, adoptable repairs, three instrument lessons in [DEFECT_RESEARCH_STORE_HARDENING.md](../../../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md). Reproducible harness: `reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`. Update (2026-10-06, Mech re-measurement): **both bricking instances are now closed on current main** - the opposite host's CEX-790 integration commit `65f86f9` adopted this host's two store-guard repairs **by content** (`registry.mjs` and `theme-artifacts.mjs` now degrade with `storeState/storeReason` and ship their guard tests), confirmed by re-running the identical harness at `213f9f9 / 4688274 / b06504f`. **Still open:** F-1 (`city.sqlite` - refusing is correct, the reason is untyped; repair `be3670b` is ready on top of current main, guard probes 3/3) and F-3 (profile half-switch; repair branch `1f2f08c` is stale and needs a rebase first). Modules were on main and tasks REX-801/MB-008 legacy/WBC-604 closed; this host publishes only measurements, repair branches, and probes: **no merge, no main change, no closed-task record changes**.
 
 This is also §7 paper material: repeated injection, before/after controls, reusable failure-shape scanning methodology.
 

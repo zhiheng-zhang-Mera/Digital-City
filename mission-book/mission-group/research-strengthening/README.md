@@ -161,15 +161,19 @@ seed reproducibility），作者自测不构成 review 证据；作者提出的�
 REX-803 的作者自测在修完自身缺陷后，把同一探针指向“City 启动期会碰到的每一个文件存储”，发现该失效形状**在 main 上仍然存活**：在应当是目录的位置放一个文件，会让 `createGateway` 直接抛错，City 连端口都不绑定。
 
 ```text
-SHAPE A  在应为目录的位置放一个文件（6 个 store，main 213f9f9f → 修复分支 8c67bb2）
-theme-packages (capability-bridge)  BRICKED EEXIST  →  STARTED        <- 第二个实例，已给可采纳修复
-research (REX-801 registry parent)  BRICKED ENOTDIR →  仍 BRICKED     <- 已单独报告并给可采纳修复
-research/experiments (REX-801)      BRICKED EEXIST  →  仍 BRICKED     <- 同上
+SHAPE A  在应为目录的位置放一个文件（6 个 store）
+theme-packages (capability-bridge)  BRICKED EEXIST  →  已修复：65f86f9 按内容采纳本机修复（降级 + storeState/storeReason）
+research (REX-801 registry parent)  BRICKED ENOTDIR →  已修复：同上
+research/experiments (REX-801)      BRICKED EEXIST  →  已修复：同上
 research/campaigns / monitor / research-trace                            STARTED → STARTED
+RE-MEASURED 2026-10-06 on current main b06504f：同一份 harness（先跑 213f9f9 复现旧 BRICKED 列，
+             再跑 4688274/b06504f）六个 SHAPE A store 全部 STARTED —— 详细表与归属证据见
+             reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md 的 re-measurement 一节
 
 SHAPE B  在应为文件的位置放一个目录（3 个 store，两个分支结果相同）
-city.sqlite (canonical store)       BRICKED "unable to open database file"   <- F-1 新实例：此处拒绝启动是**正确**的，
-                                                                                缺的是可诊断的 typed 原因
+city.sqlite (canonical store)       BRICKED "unable to open database file"   <- F-1 仍开放：此处拒绝启动是**正确**的，
+                                                                                缺的是可诊断的 typed 原因；
+                                                                                修复 be3670b 已在 current main 之上就绪
 join-requests.json (join store)     STARTED，HTTP 200 且内存中已生成审批行，但**什么都没落盘**   <- F-2 有意的静默
 execution-profile.json (WBC-604)    change() 抛错，但内存 profile 已经切换   <- F-3 违反该模块自己声明的 rule 2
                                                                                 （已给第三个可采纳修复分支）
@@ -177,9 +181,14 @@ execution-profile.json (WBC-604)    change() 抛错，但内存 profile 已经�
 
 v1 版本的表格声称有 8 个探针，实际只有 6 个（其中两行 `relative = null` 根本没埋雷，join 行的 `HTTP 400` 还是探针自身把字段名写成 `claimSecret` 造成的）。该仪器缺陷连同更正后的实测一并记录，不做静默清洗。
 
-完整记录（两个 bricking 实例、F-1/F-2/F-3 三种不同失效模式、成对前后测、三个可采纳修复分支、以及三条仪器教训）见
+完整记录（两个 bricking 实例、F-1/F-2/F-3 三种不同失效模式、成对前后测、可采纳修复分支、以及三条仪器教训）见
 [reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md](../../reports/REX-PROGRAMME/DEFECT_RESEARCH_STORE_HARDENING.md)
 （扫描 harness 作为可复现证据一并提交为 `reports/REX-PROGRAMME/store-shape-sweep-v2.mjs`）。
+更新（2026-10-06，Mech 复测）：**两个 bricking 实例已在 current main 上关闭**——对侧主机的 CEX-790 集成提交
+`65f86f9` 按**内容**采纳了本机发布的两个 store-guard 修复（`registry.mjs`、`theme-artifacts.mjs` 现以
+`storeState/storeReason` 降级并附带守卫测试），本机用同一份 harness 在 `213f9f9 / 4688274 / b06504f` 三头复测确认。
+**仍开放**：F-1（`city.sqlite` 拒绝启动正确、但原因未打字化，修复 `be3670b` 已在 current main 之上就绪，守卫探针 3/3）
+与 F-3（profile 半切换，修复分支 `1f2f08c` 已过期，需先 rebase）。
 涉及的模块均已合并进 main 且其任务（REX-801、MB-008 legacy、WBC-604）已关闭，因此本机只发布测量、修复分支与探针，
 **不合并、不改 main、不触碰关闭任务的记录**。
 

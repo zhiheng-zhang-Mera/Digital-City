@@ -13,11 +13,19 @@ AFFECTS         services/dev-gateway/research/registry.mjs      (REX-801, COMPLE
                                                                  diagnostic is not; see F-1)
                 services/dev-gateway/join.mjs                   (silent durability loss - deliberate, unreported; F-2)
                 services/dev-gateway/execution-profile.mjs      (WBC-604, COMPLETE; half-switch on store failure; F-3)
-SEVERITY        HIGH - a City built from current main does not start at all (two instances), plus two silent/contradictory
-                store failures in merged main
-STATUS          every instance REPORTED with a measured reproduction and a falsified probe; three adoptable repair
-                branches exist (research registry, capability-bridge theme artifacts, WBC-604 profile store); F-1 and F-2
-                are reported and NOT repaired by this host
+SEVERITY        Was HIGH: at `213f9f9` a City built from main did not start at all, in two instances. **RE-MEASURED 2026-10-06
+                on current main `b06504f`: those two instances are CLOSED** - adopted into main by the CEX-790 integration
+                (`65f86f9`) and verified by content here. What remains on main is one refusal where refusing IS correct but the
+                message is untyped (F-1, `city.sqlite`), plus two silent/contradictory store failures (F-2 join silence,
+                F-3 profile half-switch). No shape now stops a City from starting except the canonical store itself.
+STATUS          four instances REPORTED with measured reproductions and falsified probes. **TWO REPAIRS ADOPTED INTO MAIN by
+                content in `65f86f9`** (research registry, capability-bridge theme artifacts - see the re-measurement section;
+                the sweep was re-run at `213f9f9` / `4688274` / `b06504f` with a byte-identical harness that first reproduced
+                the old column). **TWO STILL OPEN**: F-1's typed diagnostic
+                (`repair/mech-city-store-diagnostic-on-current-main @ be3670b`, one commit on top of current main, its three
+                guard probes pass 3/3) and F-3's persist-first repair
+                (`repair/WBC-604-mech-profile-persist-first @ 1f2f08c`, now **STALE** - cut before the CEX-790 integration, so
+                adopting it as-is would delete that integration's tests; rebase onto current main first)
 ```
 
 ## What happens
@@ -170,6 +178,67 @@ F-3 is a contradiction between a module's stated rule and its code, found by poi
 own tests never used. F-2 is a *deliberate* silence that this programme's pattern would replace with a typed reason.
 F-1 is the family shape landing on the one store where bricking is correct, and it sharpens the family rule rather than
 extending the list of things to repair.
+
+### 重新测量：CEX-790 集成之后 / Re-measured after the CEX-790 integration (2026-10-06, Mech)
+
+本记录上面那张 v2 表的 `main` 列取自 `213f9f9`。此后对侧主机把 CEX-790 集成进了 main（`65f86f9` → `4688274` → merge `b06504f`），提交信息写的正是「isolate unavailable capability stores」。因此本机用**同一份** harness 重新测量了三个头，先确认仪器没变： / The v2 table's `main` column was measured at `213f9f9`. The opposite host then integrated CEX-790 into main, whose commit message is "isolate unavailable capability stores". So the same harness was re-run at three heads - and the old column was reproduced FIRST, so that the improvement below is a difference in the subject and not in the instrument:
+
+```text
+HARNESS   store-shape-sweep-v2.mjs, SHA256-compared byte-identical to the published one before each run
+SHAPE A   a FILE where the module needs a DIRECTORY      213f9f9            4688274            b06504f (current main)
+theme-packages (bridge artifacts)                        BRICKED EEXIST     STARTED            STARTED
+research (REX-801 registry parent)                       BRICKED ENOTDIR    STARTED            STARTED
+research/experiments (REX-801 registry)                  BRICKED EEXIST     STARTED            STARTED
+research/campaigns (REX-803)                             STARTED            STARTED            STARTED
+monitor (MON-903)                                        STARTED            STARTED            STARTED
+research-trace (REX-802)                                 STARTED            STARTED            STARTED
+
+SHAPE B   a DIRECTORY where the module needs a FILE      213f9f9            4688274            b06504f
+city.sqlite (canonical store)                            BRICKED untyped    BRICKED untyped    BRICKED untyped   <- F-1 OPEN
+join-requests.json (join store)                          STARTED (silent)   STARTED (silent)   STARTED (silent)  <- F-2 OPEN
+execution-profile.json (WBC-604)                         not exercised      not exercised      not exercised
+
+UNIT PROBES (traps a bare City cannot reach)             213f9f9            4688274            b06504f
+join store, unwritable file                              RESOLVED PENDING, nothing persisted  (same at all three heads)  <- F-2
+profile store, unwritable file                           THREW EPERM, live profile moved STANDARD_DEVICES -> WORKER_POOL
+                                                         (same at all three heads)                                        <- F-3 OPEN
+```
+
+**这两处 BRICKED 是怎么没的，按代码核对而不按分支名：** `65f86f9` 对 `services/dev-gateway/research/registry.mjs` 与 `services/capability-bridge/theme-artifacts.mjs` 做的正是本记录 §"The repair, adopted pattern" 里那一套 —— 构造期 `mkdirSync` 包进 `try/catch`，置 `storeState='UNAVAILABLE'` + `storeReason`，`list()`/`write()` 改为降级返回而不是抛出，并随提交带上 `tests/rex801-store-guard.test.mjs` 与 `tests/bridge-artifact-store-guard.test.mjs`。也就是说：**本机发布的两个 store-guard 修复分支被按内容采纳了**（采纳方式是重写进集成提交，不是合并我的分支，因此按 sha 祖先关系查是查不到的 —— 这一点本身就是「按内容验证采纳」的必要性证据）。 / The two bricking rows are gone because `65f86f9` implements this record's own repair pattern in those two modules and ships the two guard tests with it. The two published repair branches were therefore adopted **by content**, not by merging their SHAs.
+
+```text
+STILL OPEN ON CURRENT MAIN
+F-1  city.sqlite as a directory    refusing to start is correct, the bare "unable to open database file" is not
+     REPAIR repair/mech-city-store-diagnostic-on-current-main @ be3670b
+            parent = b06504f (current main), i.e. ONE commit on top of main - adoption is a fast-forward
+            MEASURED at that tip: node --test tests/city-store-diagnostic.test.mjs -> 3/3 pass
+            (typed refusal names the path and the reason; a corrupted database is refused the same way;
+             CONTROL: a healthy runtime starts the City, so the refusals are about the store and not the fixture)
+F-2  join-requests.json            deliberate silence, open by design decision - unchanged on main
+F-3  execution-profile.json        change() throws but the live profile has already moved - unchanged on main
+     REPAIR repair/WBC-604-mech-profile-persist-first @ 1f2f08c  **STALE**
+            parent = 213f9f9, cut before the CEX-790 integration; `git diff --stat b06504f 1f2f08c` shows it would
+            also remove that integration's tests (150 insertions, 4407 deletions). Whoever adopts it must rebase onto
+            current main first; the part that matters is execution-profile.mjs plus its new failure test.
+```
+
+**这一轮的仪器纪律，值得单独记一句**：这份重新测量之所以可信，不是因为结果好看，而是因为同一份 harness 先在 `213f9f9` 上**复现了旧的 BRICKED 列**。若省掉那一步，「现在是 STARTED」既可能是修复，也可能是换了探针。 / The re-measurement is trustworthy because the identical harness first reproduced the old BRICKED column, not because the new result is nicer.
+
+### 全量普查：current main 上还有没有第六个实例 / Census: is there a sixth instance on current main
+
+上述扫描只覆盖 harness 里写死的那 6 个 store，所以「其它地方没有同类」这句话必须另外取证。对 `origin/main b06504f` 下 `services/` 的**每一处** `mkdirSync` 做普查，并把**实测**与**只读**分开标注： / The sweep only covers the six stores it names, so "nowhere else" needs its own evidence. Every `mkdirSync` under `services/` on `b06504f` was censused, with measured and read-only findings kept apart:
+
+```text
+MEASURED  research/registry.mjs:67         guarded (adopted in 65f86f9)      -> STARTED under the trap
+MEASURED  capability-bridge/theme-artifacts.mjs:28  guarded (adopted in 65f86f9) -> STARTED under the trap
+MEASURED  store.mjs:8                      unguarded                        -> BRICKED, untyped          (F-1, repair ready)
+MEASURED  execution-profile.mjs:86         unguarded                        -> THREW EPERM after the live profile moved (F-3)
+MEASURED  join.mjs:69                      unguarded, silent by design      -> HTTP 200, nothing persisted (F-2)
+READ ONLY main.mjs:28        the City's data directory        inside the launcher's own try, which RETHROWS the raw error
+READ ONLY host-city.mjs:32   the host state directory         same: refuse is correct, the message is not actionable
+```
+
+**两条 READ ONLY 是本记录明确没有实测的部分**：它们属于启动器一级的形状（数据目录 / 主机状态目录本身不可用），不是模块构造期的 store，本机没有为它们造 trap，因此**不主张**它们的行为，只记录代码事实——两处都在 `try` 里直接把原始错误抛出。真正要修的仍然是同一件事：**拒绝是对的，说不清原因不是**。 / Those two rows are explicitly NOT measured here: they are launcher-level shapes, and this record makes no behavioural claim about them - only that both rethrow the raw error, which is the same "refusing is right, being uninformative is not" question.
 
 ### F-3's repair, adopted pattern (third adoptable branch)
 
