@@ -36,7 +36,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **530**.
+当前Markdown文档 / Current Markdown documents: **533**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -74,6 +74,9 @@
 | UI-000 | 1 | [打开 / Open](UI-000/intermediate-logs/2026-10-07/README.md) |
 | UI-100 | 1 | [打开 / Open](UI-100/intermediate-logs/2026-10-07/README.md) |
 | UTOPIA-BRANCH-INTEGRATION-20261004 | 3 | [打开 / Open](UTOPIA-BRANCH-INTEGRATION-20261004/README.md) |
+| UXI-301 | 1 | [打开 / Open](UXI-301/intermediate-logs/2026-10-07/README.md) |
+| UXI-390 | 1 | [打开 / Open](UXI-390/intermediate-logs/2026-10-07/README.md) |
+| UXI-391 | 1 | [打开 / Open](UXI-391/intermediate-logs/2026-10-07/README.md) |
 | WBC-601 | 13 | [打开 / Open](WBC-601/README.md) |
 | WBC-602 | 13 | [打开 / Open](WBC-602/README.md) |
 | WBC-603 | 13 | [打开 / Open](WBC-603/README.md) |

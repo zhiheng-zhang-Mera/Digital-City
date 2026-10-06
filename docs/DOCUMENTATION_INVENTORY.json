@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1695,
-  "total_bytes": 12162326,
+  "markdown_count": 1698,
+  "total_bytes": 12167358,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -11761,10 +11761,10 @@
     },
     {
       "path": "mission-book/reports/LOCAL-LOG-ARCHIVE/README.md",
-      "bytes": 2396,
+      "bytes": 2660,
       "encoding_state": "UTF8",
-      "chinese_characters": 255,
-      "english_words": 158,
+      "chinese_characters": 286,
+      "english_words": 176,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -13444,10 +13444,10 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 4955,
+      "bytes": 5201,
       "encoding_state": "UTF8",
-      "chinese_characters": 250,
-      "english_words": 245,
+      "chinese_characters": 256,
+      "english_words": 263,
       "paired_path": "mission-book/reports/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14683,6 +14683,33 @@
       "english_words": 693,
       "paired_path": "mission-book/reports/UTOPIA-BRANCH-INTEGRATION-20261004/DECISIONS.md",
       "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/UXI-301/intermediate-logs/2026-10-07/README.md",
+      "bytes": 1506,
+      "encoding_state": "UTF8",
+      "chinese_characters": 172,
+      "english_words": 111,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/UXI-390/intermediate-logs/2026-10-07/README.md",
+      "bytes": 1508,
+      "encoding_state": "UTF8",
+      "chinese_characters": 172,
+      "english_words": 111,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/UXI-391/intermediate-logs/2026-10-07/README.md",
+      "bytes": 1508,
+      "encoding_state": "UTF8",
+      "chinese_characters": 172,
+      "english_words": 111,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/WBC-601/DEVELOPMENT_REPORT.md",
