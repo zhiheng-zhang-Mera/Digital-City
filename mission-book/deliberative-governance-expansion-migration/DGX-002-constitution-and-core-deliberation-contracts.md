@@ -53,11 +53,13 @@ report_path: null
 > **PARKED / NOT ACTIVATED.** 本工作书当前只冻结设计边界；不得 claim、不得施工、不得据此创建 Utopia 产品分支。  
 > **Anchor policy:** 所有 baseline / dependency exact SHA 当前故意留空。只有 Owner 显式激活后，才按当时最新 canonical truth 解析 full SHA 并原子写入。
 
-# DGX-002 — Constitution + Core Deliberation Contracts
+# DGX-002 — Constitution + Decomposition / Core Deliberation Contracts
 
 ## 目标
 
-建立跨域制度合同，而不是万能专业 Reviewer。最低 Constitution：
+建立跨域制度合同与复杂请求拆分合同，而不是万能专业 Reviewer 或第二套 scheduler。
+
+## 最低 Constitution
 
 - evidence > vote；
 - author/executor cannot arbitrate own dispute；
@@ -66,19 +68,70 @@ report_path: null
 - minority dissent retained；
 - reputation affects assignment, not truth；
 - no agent self-expands authority；
-- high-impact/owner-only boundary remains Owner-controlled。
+- high-impact/owner-only boundary remains Owner-controlled；
+- decomposition must preserve original Owner intent and explicit constraints；
+- no hidden chain-of-thought exchange or persistence requirement。
 
-## 数据对象
+## 核心数据对象
 
-`DeliberationCase / Participant / Claim / EvidenceRef / Objection / Defence / Adjudication / Appeal / Dissent / ReleaseVerdict`。
+`DeliberationCase / SharedFactSnapshot / ProblemGraph / ProblemNode / TaskCapsule / Participant / Claim / EvidenceRef / ResultEnvelope / Objection / Defence / Adjudication / Appeal / Dissent / ReleaseVerdict`。
+
+### SharedFactSnapshot
+
+至少记录：
+
+```text
+request_ref
+accepted_requirements
+canonical_state_refs
+evidence_refs
+domain_constraints
+known_unknowns
+snapshot_version
+```
+
+### ProblemGraph
+
+最低支持：
+
+```text
+node_id
+question_or_verification
+dependencies
+required_capabilities
+independence_floor
+input_refs
+expected_output_contract
+stop_condition
+status_projection
+```
+
+ProblemGraph 可以是 DAG；发现新事实后允许受控增补节点，但必须保留 provenance。它是 deliberation plan，不是 Mission Book/task runtime 的新权威。
+
+### TaskCapsule / ResultEnvelope
+
+TaskCapsule 向参与者提供最小必要上下文；ResultEnvelope 返回：
+
+```text
+explicit_result
+assumptions
+evidence_refs
+uncertainty
+unresolved_questions
+proposed_next_action
+```
+
+不得要求或保存参与者隐藏 chain-of-thought 作为互操作协议。
 
 ## 禁止
 
-- 新建第二套 task truth；
+- 新建第二套 task truth / scheduler / device identity；
+- ProblemGraph 状态覆盖 canonical runtime state；
 - 捕获隐藏 chain-of-thought；
 - 把 JEV/Monitor 放到所有执行的同步 critical path；
-- 让 Governance 自己实现 Engineering/Medical/Research 专业算法。
+- 让 Governance 自己实现 Engineering/Medical/Research 专业算法；
+- 通过“分解得更细”绕过 Owner-only gate。
 
 ## 完成门槛
 
-版本化 contract + invariant tests + authority boundary + failure semantics。
+版本化 Constitution + decomposition contract + ProblemGraph/TaskCapsule/ResultEnvelope schema + invariant tests + authority boundary + failure semantics。
