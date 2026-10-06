@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED"]
 development_host: Alien
 development_branch: rex/REX-804-Alien-codex-faults
-development_head_sha: f4ceae734d1d32a7d8950cd5872264135e6073ac
-development_ci: Repair source19a420c independently adopted; focused12 PASS; new exact f4ceae7 hosted CI PENDING. Original review verdict on f76ccf5 retained; new target requires Mech re-verification.
+development_head_sha: 075ddc13869664bfbf14fa07dae99ea76a6a4b3c
+development_ci: PENDING exact075ddc1. Prior f4ceae7 push37422814239 / PR37422819110 FAILED: unit fixture assumed initial heartbeat before50ms expiry under scheduler load. Independently reproduced70ms delay yielding valid EXPIRED/no rejection; unit clocks controlled without altering product semantics/assertions,8 unit PASS and12 focused PASS.
 development_complete: false
 review_host: "Mech"
 review_head_sha: "f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5"
@@ -36,7 +36,7 @@ owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/REX-804
 terminal_marker: FAULT_INJECTION_RECOVERY_ACCEPTED
-repair_head_sha: f4ceae734d1d32a7d8950cd5872264135e6073ac
+repair_head_sha: 075ddc13869664bfbf14fa07dae99ea76a6a4b3c
 repair_report_ref: mission-book/reports/REX-804/AUTHOR_REPAIR_Alien.md
 ---
 

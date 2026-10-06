@@ -22,7 +22,7 @@ development_ci: "MEASURED, PER RUN, from the Actions API on exact a695bb9fc5fe7c
 development_complete: true
 review_host: Alien
 review_head_sha: 8798ba9dd37051626033ad72080b2fad3ff66149
-review_ci: PENDING exact8798ba9 push37423084327 / PR37423138551; linkage37423138558 SUCCESS. Technical focused71 PASS; original a695bb9 reproduced failures and published repairs adopted. Physical Alien+Mech+Android campaign remains NOT_RUN; no terminal marker.
+review_ci: Exact8798ba9 push37423084327 / PR37423138551 / linkage37423138558 all terminal SUCCESS. PR37 repair71 focused PASS, critic8 PASS. Physical two-host+Android campaign remains NOT_RUN; no accepted marker.
 review_complete: false
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: RESEARCH_ADVANCED
