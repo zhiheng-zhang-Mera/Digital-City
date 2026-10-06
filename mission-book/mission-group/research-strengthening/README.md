@@ -304,7 +304,7 @@ Programme terminal marker：
 
 ## 当前回查 / Current pool recheck
 
-REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 可按 accepted 依赖领取；806/807/890 继续按任务书依赖等待。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
+REX-803 已于 exact8798ba9 完成 Alien 对机正式验收：技术复检与三端 campaign 原始材料均核验，SCENARIO_REPETITION_ENGINE_ACCEPTED 已释放。trace metadata 保持 PARTIAL。REX-804 已于 exactfe700aba 验收。REX-805 已于 exact0261a9e 由本机复检通过并释放标记。**REX-806 开发已完成**（工作书 `development_complete: true`、head `3950d47`、托管 CI 与全量套件均已过、包 10/10 clone 校验、自查 8/8 + 11/11），**唯一未完成的一半是对侧实体主机的独立读取/重算**——§3 禁止自审，本机不能代做；该复检一旦通过，`RESEARCH_ARTIFACT_EXPORT_ACCEPTED` 释放，REX-807 与 REX-890 的依赖随即可满足。SHOW 不执行，不启用 parked/new programme。以下早期段落保留为 dated history，当前权威见任务个体与正式验收报告。
 
 REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-end material review; SCENARIO_REPETITION_ENGINE_ACCEPTED is released while trace metadata remains PARTIAL. REX-804 is accepted at exactfe700aba. REX-805 can be claimed against accepted dependency heads;806/807/890 continue waiting under their workbook dependencies. SHOW and parked/new programme execution remain excluded. Earlier sections below are dated history; current authority is the workbook and formal acceptance report.
 
@@ -523,17 +523,24 @@ REPORT      reports/REX-805/REVIEW_REPORT.md；探针 reports/REX-805/REVIEW_PRO
 ### REX-806 开发交付：材料导出可生成、可独立重算 / REX-806 development handover
 
 ```text
-branch / head   rex/REX-806-mech-metrics-and-export @ d7aa5d7
+branch / head   rex/REX-806-mech-metrics-and-export @ 3950d478e627aaa615ef69e3ac65c30da37c5ea6
 baseline        e18c5c5 = claim-time union（REX-803 8798ba9 · REX-804 fe700ab · REX-805 0261a9e）
-CI              94a7d24 push37451114057 · d7aa5d7 push37452319948，均 SUCCESS attempt 1
+CI              94a7d24 push37451114057 SUCCESS · d7aa5d7 push37452319948 SUCCESS ·
+                cd4f603 push37453769570 **FAILED**（校验器探针从作者本机绝对路径读已发布包，runner 上六项全红；
+                红运行保留不覆盖）· 3950d47 push37454597004 SUCCESS attempt 1（fixture 改为测试内自建）
 local full      1445 / 1442 pass / 3 fail（3 项为 host-city-launcher 常驻占用；该 head 本轮未出现负载敏感失败）
-PROBES          18/18（13 模块 + 5 接口），先证伪再信任；接口探针自身错过两次（未注册 experiment、
-                回执文件名不符 runner 的 campaign-<uuid>.json 模式），修正后才 18/18
+PROBES          24/24（13 模块 + 5 接口 + 6 校验器），先证伪再信任；接口探针自身错过两次（未注册 experiment、
+                回执文件名不符 runner 的 campaign-<uuid>.json 模式），修正后才通过
 SURFACES        GET /research/artifacts[?format=csv] 与 /research/artifacts/preview?limit=N，三条全部
                 成员会话 403 RESEARCH_OWNER_REQUIRED；无源 422 ARTIFACT_NO_SOURCE
+VERIFIER        scripts/verify-research-artifact.mjs：第二实现，**不 import 导出器**；对已发布包 14/14，
+                并由 6 项探针证明它会失败（改指标值 / 清空原因 / 删章节 / 改时间戳 / 伪造干预计数为 0）
 ARTIFACT        reports/REX-806/artifact/：18 个真实 campaign / 24 runs / 22 measured；4 项指标有值、
                 23 项 NOT_MEASURED 并写明原因；逐文件 SHA256，全新 clone 校验 10/10
+SELF-CHECKS     溯源交叉核对 8/8（从城市原始回执重算，非从包内）· 可复现性 11/11（钉住 generatedAt 与事件流后
+                重导字节全同，含 checksums.json；负对照改 1 ms 即变红）· 记录一致性 0 error
 HANDOFF         reports/REX-806/DEVELOPMENT_HANDOFF.md（列出对侧主机应独立重算的最小集合）
+                + reports/REX-806/REPRODUCIBILITY_MECH.md（朴素重导只应差哪三处，已解释）
 NOT CLAIMED     marker RESEARCH_ARTIFACT_EXPORT_ACCEPTED 未释放；本机不行使产品 main 合并权
 ```
 

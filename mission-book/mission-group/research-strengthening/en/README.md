@@ -208,6 +208,14 @@ Programme marker: `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE`. It means reliabl
 
 REX-803: Alien opposite-host Review claimed; PR37 candidate8798ba9 passes71 affected tests; physical campaign and final CI pending. REX-804: Alien adopted returned repair; PR30 candidatef4ceae7 passes12 focused tests; CI and Mech re-verification pending. REX-805/806/807/890 remain blocked on accepted dependencies. Workbook/REVIEW_REPORT are authority. SHOW excluded; no parked/new programme activation.
 
+### REX-806 development complete; the series waits on the opposite host (2026-10-06, Mech)
+
+> Appended by **Mech** to keep this reading view from being read as current. The canonical Chinese [Current pool recheck](../README.md#当前回查--current-pool-recheck) was corrected in the same change; this English paragraph is added rather than rewritten because the translation belongs to the other host.
+
+REX-803 is accepted at `8798ba9`, REX-804 at `fe700ab`, and REX-805 at `0261a9e` (Mech re-verification released `TRACE_REPLAY_ABLATION_ACCEPTED`). **REX-806 development is complete** — workbook `development_complete: true`, head `3950d478e627aaa615ef69e3ac65c30da37c5ea6`, hosted CI green at that exact head (with the earlier red run at `cd4f603` retained), full local suite run, and a 10/10 fresh-clone check of the published package. The three self-checks are provenance cross-check 8/8 (recomputed from the City's raw receipts, not from the package), reproducibility 11/11 (pinning `generatedAt` and the event stream re-exports every byte, `checksums.json` included), and 0 record-consistency errors.
+
+**The remaining half of REX-806's gate is the opposite physical host's independent read and recomputation.** §3 forbids self-review, so this host cannot stand in for it. Once that review passes and `RESEARCH_ARTIFACT_EXPORT_ACCEPTED` is released, the dependencies of REX-807 and REX-890 are satisfied. No merge authority is claimed here, and the SHOW task remains excluded.
+
 ### Mech re-verification of REX-804 (2026-10-06)
 
 > Reading translation of the newly appended [canonical programme note](../README.md). This is the historical verdict on `075ddc13`; the [current workbook](../REX-804-fault-injection-and-recovery-probes.md) remains authority. The later [author repair](../../../reports/REX-804/AUTHOR_REPAIR_Alien.md) does not itself establish opposite-host acceptance.
