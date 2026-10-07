@@ -1,5 +1,24 @@
 # PCF — Personal Compute Fabric / 个人异构计算织网（增强版）
 
+> **2026-10-07 本归类已被后续事实推翻并更正 / this classification was superseded — see the correction below**
+>
+> Owner 随后指出**云端已存在完整 PCF 系列**。实测确认：对侧以 `SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION`
+> 提交了整条开发候选（utopia `998440c7772cc032d012b457c2a59cd1059826c0`，
+> `pcf/full-flow-alien-pending-verification-20261007`，draft PR #42），覆盖 700–728 全部 29 本。
+> 因此下面这段"等 Owner 开闸、最小可继续闭包 = {702,706,708}"的推断**前提不成立**：本机不需要再做 PCF 开发，
+> 而是作为**第二作者 Mech-DS** 执行异机验证。验证报告与逐文件 SHA256：
+> `mission-book/reports/PCF-FULL-FLOW/MECH_VERIFICATION_REPORT.md`（DC 分支
+> `docs/pcf-full-flow-mech-verification-20261007`）。我据此**撤销**了本轮已开始但未推送的重复开发
+> （PCF-706 任务分支与工作树已删除；未推送、未留下分支）。
+> **更正后的归类**：`claimable_now = 0`，类型为 **`STRUCTURALLY_INELIGIBLE`（PCF 开发面）** ——
+> 不是因为无资格，而是因为**该系列已由对侧实现并处于异机验证通道**，本机重复开发即为重复劳动；
+> 本机在 PCF 上的合法角色是**验证方**（已执行）与后续**修复方**（若验证发现需修项）。
+> 验证结论：AS VERIFIED CANDIDATE（开发候选层面）；物理验收仍 `NOT_RUN`，`merge_authority` 仍为 false。
+> 原文（错误前提）保留在下方，不改写，作为推断失误的记录。 / The owner then established that the cloud
+> already holds the complete PCF series; the premise of the paragraph below is therefore void. My duplicate
+> PCF-706 work was withdrawn unpushed, and my role on PCF is verification, which I have now performed as second
+> author. The original (incorrect-premise) text is kept below unrewritten.
+
 > **2026-10-07 零领取归类 / zero-claim classification（Mech-DS，PCF-701 收口后重扫）**
 >
 > ```text
