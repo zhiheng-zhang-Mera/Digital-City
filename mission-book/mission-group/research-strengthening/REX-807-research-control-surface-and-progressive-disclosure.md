@@ -18,8 +18,8 @@ baseline_blocker: null
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-806:RESEARCH_ARTIFACT_EXPORT_ACCEPTED"]
 development_host: "Mech"
 development_branch: "rex/REX-807-mech-research-control-surface"
-development_head_sha: "b06e978fb1c6578305ba485445992d3a1d82913f"
-development_ci: "HEAD b06e978fb1c6578305ba485445992d3a1d82913f: V0.2 checks run 37546655667 completed/FAILURE on the first attempt - gateway-web failed on exactly one test and it was NOT this increment's: tests/rex803-campaign-web.test.mjs 'REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason' (16.8s). Classification, with the evidence rather than an assumption: this commit is purely additive (git show --stat = two new files, +292 lines, no existing file modified); the failing name belongs to a pre-existing browser-driven suite; the SAME head re-ran green on both jobs; that suite passes standalone locally 2/2 twice; and the same test name failed earlier in this session inside a local full-suite parallel run at 38s, so its load sensitivity predates and is independent of this run. Recorded as a load-sensitive web-suite flake and kept as red-then-green rather than written up as a pass. Local evidence on this head: tests/rex807-surface.test.mjs 7/7; adjacent web suites (terminal shell 15, i18n, scheduler adapter) green; seven source mutations each turn the REX-807 suite red with byte-identical restoration."
+development_head_sha: "e07e1cb6ef85dde74babf08c6c1352246f8e799e"
+development_ci: "THREE heads, every failure kept with its cause. (1) b06e978fb1c6578305ba485445992d3a1d82913f: run 37546655667 gateway-web failed on ONE pre-existing browser test (tests/rex803-campaign-web.test.mjs) while this commit was purely additive - classified as a load-sensitive flake on five measured grounds and confirmed by the same head re-running green. (2) 05ca33e015387149dded134e493b5bc46a8cea1e: run 37548550930 gateway-web failed TWO ACCEPTED browser tests (CEX790 degraded-store and the REX-801 Web Research flow) and this one WAS my fault - the first wiring of research.js dropped the #research-vocabulary disclosure the suite waits for, moved the storage-unavailable sentence out of #research-list where the suite reads it, and referenced a deleted esc() helper so show() threw 'esc is not defined' and left every control disabled. My own shape test missed it because its stubs defeated the page's identity check. (3) e07e1cb6ef85dde74babf08c6c1352246f8e799e: run 37549643362 completed/success (gateway-web and android green) after restoring the vocabulary disclosure, rendering the storage sentence in BOTH the alert and the list, restoring the escaper, and making the S8 harness faithful (memoised nodes so the render path really runs and its post-conditions are asserted). Local on the final head: rex807 8/8, the accepted rex801 research UI suite 3/3, adjacent web suites green, EIGHT source mutations all caught with byte-identical restoration - including N8, which replays that exact regression."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -86,7 +86,23 @@ Formal Reviewer 用普通用户路径寻找隐藏入口、假按钮、过度折�
 
 直接控制、知情、危险操作隔离、技术详情折叠均满足全局 Capability Exposure Gate。
 
-## 2026-10-07 增量 1（组件范围：分层视图模型 + 守卫，**尚未接线**）
+## 2026-10-07 增量 2（页面真正渲染这一层；含一次**我造成的真实回归**）
+
+```text
+research.js 重建为用视图模型渲染：顶部可见告警（存储不可用/坏记录/排除项/未测量指标/未结清运行，都带原因）、
+直接控制区展开、实验列表以 question 作主标签且标识符仅作属性、Runs/Metrics 用用户语言、Technical details 折叠
+并含「未归位字段」清单；页面同时读 registry 与 live run。research-surface.js 新增 `researchMarkup`，
+使「形状」可在无浏览器下断言。
+第一次接线（05ca33e）打坏了**已被验收**的 REX-801 界面契约（删掉 `#research-vocabulary`、移走 `#research-list` 里的
+存储不可用句、并引用了已删除的 `esc()` ⇒ show() 抛错 ⇒ 控件全 disabled），CI 失败两个既有浏览器用例；
+**我自己的形状测试没抓住**（stub 每次返回新对象 ⇒ 页面身份检查不过 ⇒ show() 未执行）。
+发现方式：本地直接跑被验收的 `tests/rex801-research-ui.test.mjs` + 真实浏览器调试脚本打印 `pageerror: esc is not defined`。
+修复：词汇披露归位、存储句两处都写（告警 + 列表）、恢复 esc；**S8 容器改为 memoise 节点**使渲染路径真的执行并可断言
+后置条件，新增突变 N8 复现该回归 —— 现在 **8 处突变全部变红**。最终 head e07e1cb：CI run 37549643362 两 job 全绿；
+本地 rex807 8/8、rex801 研究界面 3/3、相邻 web 套件绿。
+```
+
+## 2026-10-07 增量 1（组件范围：分层视图模型 + 守卫，当时尚未接线）
 
 ```text
 现状实测（baseline 12e3d3b）：apps/web/research.js 是扁平技术面板（manifest JSON textarea + 仅验证/登记 +
