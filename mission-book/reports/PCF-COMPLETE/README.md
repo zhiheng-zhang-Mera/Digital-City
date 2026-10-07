@@ -246,35 +246,60 @@
     于是把真实 canonical 记录喂进去会把**活着的 worker 报成 STOP_NOT_PROVEN**（恰恰在"不许猜"的路径上产生假阴性）。
     现在两种拼写都读，真正不可读的身份有独立 disposition `IDENTITY_UNREADABLE` 并交 705。
   全量套件：1874 项，除**既有的四项宿主相关失败**（theme-packages 负载下、三个 launcher/enrolment 探针）外无新增失败。
+增量 14（6b69632）第二轮：把**最后五个可实现的缺口**全部补上，另加 715 概览补全
+  ①**PCF-705 子任务2**：`planRecovery` 现在接收 retry budget 与数据位置输入 —— 每任务重试上限
+    （`RETRY_BUDGET_EXHAUSTED` 带剩余数）、畸形预算报 `RETRY_BUDGET_INVALID` 而不是当成"无限"、未声明预算保持旧行为
+    （不是"零预算"）、预算检查**先于**冷却（耗尽者要 attention 而不是等定时器）、目标设备够不到输入报
+    `DATA_LOCATION_INCOMPATIBLE`。
+  ②**PCF-705 子任务3**：新增 `migrationBenefit()` 给工作书点名的三项成本（传输/冷启动/丢弃工作）定价，并且**拒绝而不是假设**：
+    缺分量报 `MIGRATION_COST_UNKNOWN`（列出缺哪个、不给总额）、收益盖不住全额报 `MIGRATION_BENEFIT_INSUFFICIENT`、
+    盖住但落在迟滞余量内报 `MIGRATION_BENEFIT_BELOW_HYSTERESIS`（靠四舍五入取胜的搬迁正是两机来回抖动的成因）。
+    `planRecovery` 会咨询它：换设备搬迁没有定价收益即拒绝，有则把算式带进 proposal；留在原设备不算搬迁。
+  ③**PCF-706 验收"多请求竞争额度仍不越界"**：`assertPolicy` 必须保持无记忆的纯解析器（这正是两个并发请求都能拿满预算的原因），
+    聚合半边现在是 `createAllowanceLedger()`：进程内单写者有界账本，拒绝会越界的声明（`ALLOWANCE_EXCEEDED` 带 would-be 总额）、
+    同一 requestId 视为**同一笔**（不重复扣费，改金额报 `ALLOWANCE_CLAIM_CONFLICT`）、release 精确退款、
+    零额度不许花钱，并**声明自己的作用域**（`SINGLE_PROCESS_SINGLE_WRITER`、`holdsTaskTruth:false`）以免被当成第二个权威。
+  ④**PCF-704 rev2"至少保留一个foreground预算"**：调用方声明 `foregroundReserve` 时每项资源至少留 1 个单位
+    （`FOREGROUND_RESERVE_MINIMUM`）、不得超过 app 配额（`FOREGROUND_RESERVE_EXCEEDS_QUOTA`）、不得为没有配额的资源声明
+    （`FOREGROUND_RESERVE_UNAUTHORISED`）；BATCH/BACKGROUND 不得花掉预留部分（`FOREGROUND_RESERVE_HELD`），
+    INTERACTIVE/SOFT_DEADLINE 仍然可以。**未声明的调用方逐字节不变**（保持 708 的 legacy 规则）——
+    "声明才生效"这一取舍按判断记录在案，不冒充成普遍强制。
+  ⑤**PCF-721 line 49 时钟偏差**：研究工件包新增 `clocks` 块 —— 每 trial 时间戳来自宿主墙钟、**时长来自进程单调钟**
+    （墙钟跳变无法扭曲它，测试逐 trial 断言时长为实测非负数）、而单机无法测量的**跨机偏差**记为
+    `NOT_MEASURED` + `SINGLE_HOST_HAS_NO_INDEPENDENT_REFERENCE` + 需要什么才能测，而不是留空。
+  ⑥**PCF-715 line 45 概览补全**：投影新增 `queue`（预留/运行/排队/完成）、`stateFreshness`（canonical 版本、完整性、
+    以及两个**无法从这些输入推导**的项**具名说明**：per-observation freshness 与 candidate rejection reasons）、
+    `background`（backend/服务状态）与 `capabilityScope`。判断记录：per-task 的候选拒绝原因需要**持久化 placement proposal**
+    （当前是每提交临时产生），per-observation freshness 需要观测快照 —— 这两项属数据模型新增而非显示修复，因此按"具名不可得"
+    处理，不伪造字段。
+  另有两处既有精确形状断言随之更新（`SIDE_EFFECT_OR_COMPATIBILITY_UNKNOWN` 现在额外携带 `retryClass` 与 `distinguisher`，
+  让调用方看得出是两类原因中的哪一类），属于**加强可追溯性**而非放宽断言。
+  验证：全量 1874 项 → 1868 通过、3 失败（**只剩既有的三个 launcher/enrolment 探针**）、3 skip（全部是外部前提 NOT_RUN）；
+  theme-packages 与两个 REX web 套件在负载下会 flake，单独运行均通过。
 ```
 
 ### 2.2 子代理产出的点名验收文件与诚实缺口清单
 
 704..728 的点名验收文件按同一标准并行生成（每个子代理只写**新文件**，禁止改 `services/` 或既有测试；发现产品缺陷
-必须保留诚实断言并上报，不得为了让测试变绿而削弱断言）。子代理上报的产品缺陷由我复核后再动手修（见增量 12）。
-
-15 个新文件共 139 项：修完六个缺陷后，除下表的既有/外部前提缺口外全部通过。最终套件级 skip 只剩**真实缺口**，
-（不是"已完成"，也不是被删掉的断言），每条都带工作书原文行号：
+必须保留诚实断言并上报，不得为了让测试变绿而削弱断言）。子代理上报的产品缺陷由我复核后再动手修（见增量 12），
+本轮把余下的可实现缺口全部补上（见增量 14）。最终**套件级 skip 只剩 3 项，全部是外部前提的 typed NOT_RUN**
+（704/705 的双机样本、718 的实体 Linux runtime），没有任何 NOT_IMPLEMENTED 残留：
 
 ```text
-PCF-704 验收「queue full 显式披露」观察面：canonical-state-adapter.snapshot() 把整份 state 过 64 KiB 的 bounded()
-  入参守卫，因此在 admission 自己允许的 256 条 reservation 深度上抛 PAYLOAD_LIMIT，观察者（presentation/supervisor/
-  reconciliation）读不到状态。准入侧 QUEUE_FULL 本身正确且已断言。→ 已在本轮修复（见增量 12）。
-PCF-704 rev2「至少保留一个 foreground 预算」：admission 按候选观测到的整个 free 向量准入，没有 foreground/owner 预留。
-  判断记录：spec 的"至少一个"是可以实现的，但预留会与**每一个既有配额测试**交互（都会提前一个单位被拒），
-  属于需要单独一轮的语义变更；宁可留可见缺口，也不做无声的行为变更。
-PCF-705 子任务2「retry budget」与子任务3「搬迁收益必须覆盖传输/冷启动/丢弃工作」：planRecovery 既不接收 retry budget
-  也不接收成本/收益输入；cost-model 只服务 702，恢复路径从不咨询它。（cooldown/hysteresis、consent、目标资格、
-  checkpoint 兼容性都已实现并断言。）
-PCF-706 验收「多请求竞争额度仍不越界」：policy.mjs 是纯解析器，不保留剩余额度状态，两个并发请求各自都能拿满预算。
-PCF-714 line 48 反例面：UNKNOWN 之后第二次 commit 会覆盖终态。→ 已在本轮修复（见增量 12）。
-PCF-715 line 47：canonical 的 pcfAttention（SIDE_EFFECT_UNKNOWN）没有进入 fabric 投影的 overview；并且
-  buildFabricProjection 在**部分快照**上抛 TypeError 而不是把 PARTIAL/UNKNOWN 向上冒泡。→ 已在本轮修复（见增量 12）。
-PCF-726 bullet 1「现行 independence floor 的引用」：capsule 不携带该引用。→ 已在本轮修复（见增量 12）。
-PCF-721 line 49 时钟偏差：工件包里找不到可复现的 clock-skew 字段（只在 summary.unmeasured 里被列为未测）。
-PCF-718 line 45/49 与 PCF-714 line 52 的物理半边、PCF-704/705 的双机样本：**typed NOT_RUN**，本机只有一台，
-  无 Linux 发行版、无第二实体主机、无许可模型运行时。"本机没有"这一点本身被断言（例如 718 断言 platform!=='linux'
-  且 `wsl.exe -l -q` 列出零个发行版），所以将来前提出现时这些测试会**自己失败**而不是继续悄悄通过。
+历史缺口清单（第一轮结束时记录，第二轮已逐条关闭 —— 保留在此以显示判断链，不是当前状态）：
+PCF-704 验收「queue full 显式披露」观察面：snapshot() 过 64 KiB 入参守卫导致 256 深度不可读。→ 增量 12 修复。
+PCF-704 rev2「至少保留一个 foreground 预算」：当时判断"预留会与每一个既有配额测试交互，需要单独一轮"。
+  → 增量 14 实现为**声明式**预留（声明则至少 1 个单位；未声明逐字节不变），因此既有测试不受影响，判断被更好的做法取代。
+PCF-705 子任务2「retry budget / 数据位置」与子任务3「搬迁收益必须覆盖三项成本」。→ 增量 14 实现。
+PCF-706 验收「多请求竞争额度仍不越界」。→ 增量 14 实现为进程内单写者有界账本，并显式声明其作用域。
+PCF-714 line 48 反例面：UNKNOWN 之后第二次 commit 会覆盖终态。→ 增量 12 修复。
+PCF-715 line 47：canonical risk 不进投影、部分快照抛 TypeError。→ 增量 12 修复。
+PCF-715 line 45：概览显示项不全。→ 增量 14 补 queue/stateFreshness/background/capabilityScope；
+  其中 per-observation freshness 与 per-task 候选拒绝原因**无法从 canonical 快照推导**（前者要观测快照、后者要持久化
+  placement proposal），按"具名不可得"记录，不伪造字段 —— 这是**数据模型边界**，不是显示遗漏。
+PCF-726 bullet 1「现行 independence floor 的引用」。→ 增量 12 修复。
+PCF-721 line 49 时钟偏差字段。→ 增量 14 修复（recorded as NOT_MEASURED + 原因 + 需要什么）。
+PCF-721/724 的 glasses/health 输入面：本树**根本没有该输入面**，保持 typed NOT_RUN/UNSUPPORTED，不造一个假接口来"通过"。
 ```
 
 子代理另报告三处非工作书违反的观察（记录在案，不当作缺陷夸大）：
@@ -288,11 +313,12 @@ PCF-718 line 45/49 与 PCF-714 line 52 的物理半边、PCF-704/705 的双机�
 本轮结束时的点名验收文件状态（29 本工作书）：
   已存在且已复核：700 701 709 716（+本机可移植性修复）719 720
   本轮补齐并复核：702 703 704 705 706 707 708 710 711 712 713 714 715 717 718 721 722 723 724 725 726 727 728
-  ⇒ 29 本全部有工作书点名的验收面；29 本里 6 本只有物理/外部半边仍未验收（下文 NOT_RUN）。
+  ⇒ 29 本全部有工作书点名的验收面；6 本的物理/外部半边仍未验收（下文 NOT_RUN）。
 
-仍然**未实现**（可见 skip，带工作书行号；都需要单独一轮的设计决定，不是遗漏）：
-  PCF-704 rev2 foreground 预算预留 · PCF-705 retry budget 与搬迁收益计算 · PCF-706 额度聚合账本
-  PCF-721 工件包里的 clock-skew 可复现字段 · PCF-721 glasses/health 输入路径（本树无此输入面）
+仍然**未实现**：**无**。第一轮记录的 5 项（704 foreground 预留、705 retry budget 与搬迁收益、706 额度聚合账本、
+  721 clock-skew 字段）已在增量 14 全部实现，对应 skip 已转成真断言；唯一的例外不是一个可实现缺口：
+  PCF-721/724 的 glasses/health 输入面在本树**不存在**（不是"没实现"，而是没有该输入路径），因此保持
+  typed NOT_RUN/UNSUPPORTED，并明确拒绝为它造一个假接口。
 
 外部硬前提（保持 typed NOT_RUN，绝不冒充；且"本机没有"本身被断言，前提出现时测试会自己变红）：
   PCF-717 真实许可模型运行时与加速器观测 · PCF-722 独立存储/fencing 基座（合同已实现并 fail-closed）
@@ -303,13 +329,15 @@ PCF-718 line 45/49 与 PCF-714 line 52 的物理半边、PCF-704/705 的双机�
 ## 4. 不声称的事
 
 ```text
-· 不声称"29 本全部完成"：23 本已有可运行的工作书点名验收面，但 6 本的物理/外部半边是 NOT_RUN，
-  仍有 5 项 NOT_IMPLEMENTED 缺口明写在测试输出里。
+· 不声称"29 本全部完成"：29 本都有可运行的工作书点名验收面、且不再有 NOT_IMPLEMENTED 残留，但 6 本的物理/外部半边是
+  NOT_RUN（需要第二台实体主机、真实 Linux、手机、许可模型运行时或真实 Codex/DeepSeek 会话）。
 · 不声称高可用、不声称性能提升、不声称跨机协同：PCF-722 的 AUTOMATIC_HA 只有真实故障+单写者证据才释放；
   721 的所有 SLO 是待验证目标；727/728 的远端闭环是 NOT_RUN。
 · 不把"点名文件不存在"说成"功能没做"，也不把"功能在别处"说成"验收已通过" —— 两者分开记录（见 1.1）。
 · 不把子代理的测试当作我的判断：15 个文件由我逐份复核（断言必须对应工作书反例、refusal 必须按码断言、
-  skip 必须带行号），并且六个缺陷是我复核后修在产品里、再把 skip 转成真断言的。
+  skip 必须带行号），六个缺陷是我复核后修在产品里、再把 skip 转成真断言的。
+· 不把"声明式预留"说成"普遍强制"：704 的 foreground 预留只在调用方声明时生效（未声明保持 legacy 逐字节不变），
+  这一取舍在增量 14 里明确记录。
 · 不合并 main：该分支单独存在，等整系列补全并交接异机验收。
 ```
 
