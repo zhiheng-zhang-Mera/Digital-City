@@ -1,0 +1,17 @@
+[
+  {
+    "mutation": "memory contradiction",
+    "exit": 1,
+    "caught": true
+  },
+  {
+    "mutation": "zero throughput",
+    "exit": 1,
+    "caught": true
+  },
+  {
+    "mutation": "Windows placeholder",
+    "exit": 1,
+    "caught": true
+  }
+]

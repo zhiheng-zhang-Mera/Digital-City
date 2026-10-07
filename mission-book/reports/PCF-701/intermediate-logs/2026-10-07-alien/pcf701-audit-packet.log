@@ -1,0 +1,23 @@
+PCF-700 review packet (review-readiness recomputation)
+published record: data-records/zh-CN/pcf/reuse-wiring-audit.json
+observed report: recomputed in place by scripts/pcf700-reuse-audit.mjs
+
+PASS  C1  the published record recomputes field for field (host/node metadata excluded)
+        no evidence drift
+PASS  C2  exactly four contracts are LIVE_WIRED: execution-backend-v1, node-descriptor-v1, remote-local-discovery-v1, rs-presentation-contract-v1
+        observed: execution-backend-v1, node-descriptor-v1, remote-local-discovery-v1, rs-presentation-contract-v1
+PASS  C3  no engineering-* or general-ai-* contract has a production referrer
+        zero production references, as recorded
+PASS  C4  no backend module imports a front-end module
+        []
+PASS  C5  every /api/v0 literal a user surface names resolves against a gateway route
+        unresolved: 0; ui files naming endpoints: 14
+PASS  C6  no runtime module refers to the fabric OUTSIDE its declared paths (PCF-701 activated the fabric itself)
+        declared references: 1; outside declared paths: []
+PASS  C7  the fabric exists only under its declared paths (PCF-700 measured it absent; PCF-701 activated it)
+        declared: contracts/personal-compute-fabric-v1/observations.mjs, services/personal-compute-fabric/adapters.mjs, services/personal-compute-fabric/network-probe.mjs, services/personal-compute-fabric/telemetry.mjs
+PASS  C8  every single-writer fingerprint (bytes/lines/SHA256) recomputes
+        5 files match
+
+8/8 checks pass
+This packet recomputes the author's claims; it is not a review and releases no terminal marker.

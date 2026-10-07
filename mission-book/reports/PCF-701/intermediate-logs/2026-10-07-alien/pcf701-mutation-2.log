@@ -1,0 +1,125 @@
+✖ Alien CPU: Windows warmup must not publish the loadavg placeholder zero (2.1041ms)
+✖ Alien CPU: Windows samples a real counter interval instead of loadavg zeros (0.9843ms)
+✖ Alien CPU: counter reset is unknown and reestablishes the next interval (0.3366ms)
+✖ Alien CPU: absent or unchanged counters never claim an observed zero (0.3477ms)
+✔ PCF-701 T1: missing, NaN, negative and wrong-unit values never become 0 (1.9935ms)
+✔ PCF-701 T2: an out-of-order sample does not overwrite a newer value (0.3589ms)
+✔ PCF-701 T3: a sample from another boot epoch is not mixed into this boot (0.1712ms)
+✔ PCF-701 T4: a backwards clock cannot keep stale data fresh (0.4031ms)
+✔ PCF-701 T5: freshness at a later time expires, and a rewound caller clock cannot resurrect it (1.0266ms)
+✔ PCF-701 T6: an absent optional adapter is UNSUPPORTED, not zero (0.1896ms)
+✔ PCF-701 T7: a probe that never returns does not freeze the executor (29.4504ms)
+✔ PCF-701 T8: a failed sampler is reported, and still no value is invented (0.4509ms)
+✔ PCF-701 T9: the buffer is bounded and its drops are visible (0.4077ms)
+✔ PCF-701 T10: collection is rate limited and a throttled call does not probe (0.5453ms)
+✔ PCF-701 T11: measurement overhead is measured, not guessed (0.3163ms)
+✔ PCF-701 T12: only authorised surfaces are ever looked at (0.8162ms)
+✔ PCF-701 T14: total, free, reserved and in-use are separate facts, and one bad facet fails alone (0.3189ms)
+✔ PCF-701 T15: a free figure larger than its total is refused as two unusable numbers (0.1923ms)
+✔ PCF-701 T16: the system adapter reports what it can read and names what it cannot (4.044ms)
+✔ PCF-701 T17: an unavailable adapter keeps its dimensions named instead of dropping them (0.2916ms)
+✔ PCF-701 T18: latency belongs to a PATH, and an unmeasured path is never 0 ms (0.7931ms)
+✔ PCF-701 T19: a probe that hangs or lies becomes a bounded failure with growing backoff (84.1067ms)
+✔ PCF-701 T20: throughput is measured by moving bytes, never inferred from latency (23.2216ms)
+✔ PCF-701 T21: a queue with no declared source is UNSUPPORTED, never zero (0.5724ms)
+✔ PCF-701 T22: occupancy is the runtime’s own responsiveness, measured or declared unsupported (1.5161ms)
+✔ PCF-701 T13: the same sample and context always produce the same observation (replayable) (0.5698ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 22
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2029.2837
+
+✖ failing tests:
+
+test at tests\pcf701-alien-review.test.mjs:11:1
+✖ Alien CPU: Windows warmup must not publish the loadavg placeholder zero (2.1041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   observedAt: 1000,
+  +   source: 'node-system',
+  +   unit: 'ratio',
+  +   value: 0
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:13:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { value: 0, unit: 'ratio', observedAt: 1000, source: 'node-system' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf701-alien-review.test.mjs:16:1
+✖ Alien CPU: Windows samples a real counter interval instead of loadavg zeros (0.9843ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 0.5
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:19:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf701-alien-review.test.mjs:22:1
+✖ Alien CPU: counter reset is unknown and reestablishes the next interval (0.3366ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   observedAt: 1100,
+  +   source: 'node-system',
+  +   unit: 'ratio',
+  +   value: 0
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:24:37)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { value: 0, unit: 'ratio', observedAt: 1100, source: 'node-system' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf701-alien-review.test.mjs:27:1
+✖ Alien CPU: absent or unchanged counters never claim an observed zero (0.3477ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   observedAt: 1100,
+  +   source: 'node-system',
+  +   unit: 'ratio',
+  +   value: 0
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:30:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { value: 0, unit: 'ratio', observedAt: 1100, source: 'node-system' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

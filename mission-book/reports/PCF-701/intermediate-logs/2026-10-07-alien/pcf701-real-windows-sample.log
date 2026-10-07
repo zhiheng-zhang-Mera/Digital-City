@@ -1,0 +1,1 @@
+{"platform":"win32","loadavg":[0,0,0],"cpu":{"value":0,"unit":"ratio","observedAt":1791332556733,"source":"node-system"},"memory":{"facets":{"total":34101420032,"free":21190340608},"unit":"bytes","observedAt":1791332556733,"source":"node-system"}}

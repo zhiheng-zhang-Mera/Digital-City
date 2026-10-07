@@ -1,0 +1,103 @@
+✖ Alien CPU: Windows warmup must not publish the loadavg placeholder zero (2.0109ms)
+✖ Alien CPU: Windows samples a real counter interval instead of loadavg zeros (0.8934ms)
+✖ Alien CPU: counter reset is unknown and reestablishes the next interval (0.3299ms)
+✖ Alien CPU: absent or unchanged counters never claim an observed zero (0.3449ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 968.7021
+
+✖ failing tests:
+
+test at tests\pcf701-alien-review.test.mjs:11:1
+✖ Alien CPU: Windows warmup must not publish the loadavg placeholder zero (2.0109ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   observedAt: 1000,
+  +   source: 'node-system',
+  +   unit: 'ratio',
+  +   value: 0
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:13:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { value: 0, unit: 'ratio', observedAt: 1000, source: 'node-system' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf701-alien-review.test.mjs:16:1
+✖ Alien CPU: Windows samples a real counter interval instead of loadavg zeros (0.8934ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 0.5
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:19:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf701-alien-review.test.mjs:22:1
+✖ Alien CPU: counter reset is unknown and reestablishes the next interval (0.3299ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   observedAt: 1100,
+  +   source: 'node-system',
+  +   unit: 'ratio',
+  +   value: 0
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:24:37)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { value: 0, unit: 'ratio', observedAt: 1100, source: 'node-system' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf701-alien-review.test.mjs:27:1
+✖ Alien CPU: absent or unchanged counters never claim an observed zero (0.3449ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   observedAt: 1100,
+  +   source: 'node-system',
+  +   unit: 'ratio',
+  +   value: 0
+  + }
+  - undefined
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF701-Alien-Review/tests/pcf701-alien-review.test.mjs:30:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { value: 0, unit: 'ratio', observedAt: 1100, source: 'node-system' },
+    expected: undefined,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

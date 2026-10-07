@@ -1,0 +1,45 @@
+✔ PCF-700 C1: a City with no fabric or workbench configuration starts and serves with the default backend (128.3557ms)
+✔ PCF-700 C2: a legacy untargeted task is still claimable by any able node (92.2522ms)
+✔ PCF-700 C3: a task whose strict target is absent is withheld from other nodes, never silently re-routed (81.9432ms)
+✔ PCF-700 C4: a result returns to the canonical origin surface, not only to the executor (99.1714ms)
+✔ PCF-700 C5: a legacy descriptor is tolerated by the contract, and the live route states what it requires (80.3273ms)
+✔ PCF-700 C6: the HYBRID helper is exported but NOT wired into the gateway (frozen as NOT_WIRED) (1.404ms)
+✔ PCF-700 C7: the pooled backend is registered but not active, and the strict-target guard is wired into claim (71.6829ms)
+✔ PCF-700 D1: no backend module imports a front-end module, so the UI -> backend direction stays acyclic (356.2422ms)
+✔ PCF-700 D2: every endpoint a user surface names is one the gateway actually serves (299.9829ms)
+✔ PCF-700 D3: every engineering and general-ai contract carries at least one test (370.9566ms)
+✔ PCF-700 D4: the fabric stays inside its declared paths, and no other domain imports it (343.5981ms)
+✔ Alien CPU: Windows warmup must not publish the loadavg placeholder zero (1.1702ms)
+✔ Alien CPU: Windows samples a real counter interval instead of loadavg zeros (0.26ms)
+✔ Alien CPU: counter reset is unknown and reestablishes the next interval (0.77ms)
+✔ Alien CPU: absent or unchanged counters never claim an observed zero (0.2573ms)
+✔ PCF-701 T1: missing, NaN, negative and wrong-unit values never become 0 (1.8792ms)
+✔ PCF-701 T2: an out-of-order sample does not overwrite a newer value (0.3592ms)
+✔ PCF-701 T3: a sample from another boot epoch is not mixed into this boot (0.1743ms)
+✔ PCF-701 T4: a backwards clock cannot keep stale data fresh (0.3823ms)
+✔ PCF-701 T5: freshness at a later time expires, and a rewound caller clock cannot resurrect it (0.9836ms)
+✔ PCF-701 T6: an absent optional adapter is UNSUPPORTED, not zero (0.1833ms)
+✔ PCF-701 T7: a probe that never returns does not freeze the executor (29.5725ms)
+✔ PCF-701 T8: a failed sampler is reported, and still no value is invented (0.419ms)
+✔ PCF-701 T9: the buffer is bounded and its drops are visible (0.3887ms)
+✔ PCF-701 T10: collection is rate limited and a throttled call does not probe (0.4287ms)
+✔ PCF-701 T11: measurement overhead is measured, not guessed (0.2951ms)
+✔ PCF-701 T12: only authorised surfaces are ever looked at (0.742ms)
+✔ PCF-701 T14: total, free, reserved and in-use are separate facts, and one bad facet fails alone (0.2986ms)
+✔ PCF-701 T15: a free figure larger than its total is refused as two unusable numbers (0.1998ms)
+✔ PCF-701 T16: the system adapter reports what it can read and names what it cannot (4.1201ms)
+✔ PCF-701 T17: an unavailable adapter keeps its dimensions named instead of dropping them (0.3092ms)
+✔ PCF-701 T18: latency belongs to a PATH, and an unmeasured path is never 0 ms (0.7912ms)
+✔ PCF-701 T19: a probe that hangs or lies becomes a bounded failure with growing backoff (74.516ms)
+✔ PCF-701 T20: throughput is measured by moving bytes, never inferred from latency (29.748ms)
+✔ PCF-701 T21: a queue with no declared source is UNSUPPORTED, never zero (0.794ms)
+✔ PCF-701 T22: occupancy is the runtime’s own responsiveness, measured or declared unsupported (1.6793ms)
+✔ PCF-701 T13: the same sample and context always produce the same observation (replayable) (0.5988ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3801.9565
