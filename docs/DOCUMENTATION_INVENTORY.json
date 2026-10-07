@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1734,
-  "total_bytes": 12443134,
+  "markdown_count": 1737,
+  "total_bytes": 12458744,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 4500,
+      "bytes": 4312,
       "encoding_state": "UTF8",
       "chinese_characters": 347,
-      "english_words": 288,
+      "english_words": 276,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9889,10 +9889,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 76562,
+      "bytes": 76540,
       "encoding_state": "UTF8",
       "chinese_characters": 7635,
-      "english_words": 2952,
+      "english_words": 2956,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9970,7 +9970,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 22369,
+      "bytes": 23331,
       "encoding_state": "UTF8",
       "chinese_characters": 286,
       "english_words": 70,
@@ -9979,7 +9979,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
-      "bytes": 3473,
+      "bytes": 3721,
       "encoding_state": "UTF8",
       "chinese_characters": 105,
       "english_words": 85,
@@ -9988,10 +9988,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 63744,
+      "bytes": 63722,
       "encoding_state": "UTF8",
       "chinese_characters": 201,
-      "english_words": 5103,
+      "english_words": 5107,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10069,10 +10069,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 1500,
+      "bytes": 1961,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 155,
+      "english_words": 193,
       "paired_path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -13561,7 +13561,7 @@
     },
     {
       "path": "mission-book/reports/PCF-COMPLETE/README.md",
-      "bytes": 6559,
+      "bytes": 8056,
       "encoding_state": "UTF8",
       "chinese_characters": 149,
       "english_words": 15,
@@ -14776,12 +14776,12 @@
     },
     {
       "path": "mission-book/reports/REX-807/README.md",
-      "bytes": 701,
+      "bytes": 1126,
       "encoding_state": "UTF8",
-      "chinese_characters": 59,
-      "english_words": 29,
+      "chinese_characters": 86,
+      "english_words": 58,
       "paired_path": null,
-      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-807/REVIEW_HANDOFF_Mech.md",
@@ -14791,6 +14791,15 @@
       "english_words": 4,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-807/REVIEW_REPORT.md",
+      "bytes": 1164,
+      "encoding_state": "UTF8",
+      "chinese_characters": 113,
+      "english_words": 73,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/ALIEN_CONTINUATION_PACKET.md",
@@ -14947,10 +14956,28 @@
     },
     {
       "path": "mission-book/reports/REX-SERIES-VERIFY/README.md",
-      "bytes": 8194,
+      "bytes": 9312,
       "encoding_state": "UTF8",
-      "chinese_characters": 79,
-      "english_words": 12,
+      "chinese_characters": 193,
+      "english_words": 68,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-SERIES-VERIFY/REVIEW_REPORT_Alien_GPT_2026_10_07.md",
+      "bytes": 6487,
+      "encoding_state": "UTF8",
+      "chinese_characters": 770,
+      "english_words": 426,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-SERIES-VERIFY/alien-evidence-2026-10-07/807-repair/verification-summary.md",
+      "bytes": 3480,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 413,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },

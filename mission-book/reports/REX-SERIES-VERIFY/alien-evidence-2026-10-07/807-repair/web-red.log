@@ -1,0 +1,112 @@
+✖ REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope (1798.0467ms)
+✖ REX807 shipped metrics and source disclosures come from the held artifact (1365.4198ms)
+✖ REX807 a real admitted member never receives an owner export claim or enabled export (1340.1298ms)
+✖ REX807 failed campaign read stays visibly unknown, then a successful refresh clears it (1675.887ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8498.7287
+
+✖ failing tests:
+
+test at tests\rex807-wiring.test.mjs:30:1
+✖ REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope (1798.0467ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '{"apiVersion":0,"schemaVersion":0,"metricsCsv":"metric,scope,value,reason,n,provenance\\ncompletion_time_ms,G1,NOT_MEASURED,no run in the provided sources reached a MEASURED completion with a canonical task,,\\nfailure_rate,G1,0,,1,accounted=1 failed=0 timedOut=0 over terminal campaigns: campaign-5face000-0000-4000-8000-000000000001 | undelivered planned runs=0 from none\\nduplicate_execution_count,G1,0,,0,\\"0 run references, each owned by exactly one canonical task\\"\\nconvergence_missing_event_count,G2,1,,1,campaign-5face000-0000-4000-8000-000000000001:0 -> Q-held\\nretry_count,G2,NOT_MEASURED,campaign repetitions are not retries and no retry event is recorded in these sources; counting repetitions here would inflate an autonomy number,,\\nrecovery_time_ms,G1,NOT_MEASURED,no fault or recovery receipt is present in the provided sources,,\\nhandoff_time_ms,G1,NOT_MEASURED,\\"no handoff transition between workers appears in these sources; placements were seed-selected, not handed off\\",,\\nintervention_count,G3,NOT_MEASURED,\\"Owner actions are not represented in the canonical City records, so no complete intervention window can be claimed; the guard forbids reporting 0 for an unknown window\\",,\\ntransitions_before_intervention,G3,NOT_MEASURED,\\"requires Owner actions, which these sources do not carry\\",,\\ntime_to_first_intervention_ms,G3,NOT_MEASURED,\\"requires a first Owner action, which these sources do not carry\\",,\\nsteps_to_first_intervention,G3,NOT_MEASURED,\\"requires a first Owner action, which these sources do not carry\\",,\\nintervention_free_survival,G3,NOT_MEASURED,\\"no censored intervention episodes exist in these sources; the guard says export raw episodes rather than draw a curve, and there are none to export\\",,\\nintervention_cause_taxonomy,G3,NOT_MEASURED,requires Owner actions with stated causes,,\\ntask_pool_drain_before_intervention,G3,NOT_MEASURED,requires Owner actions alongside the task pool,,\\nhigh_value_owner_decision_count,G3,NOT_MEASURED,requires Owner decisions with a stated value,,\\navoidable_technical_escalation_count,G3,NOT_MEASURED,requires escalations classified as avoidable,,\\nrepeat_clarification_count,G3,NOT_MEASURED,requires clarification episodes,,\\nescalation_to_autonomy_resumed_ms,G3,NOT_MEASURED,requires escalation episodes with a resume time,,\\nbatchable_escalation_count,G3,NOT_MEASURED,\\"requires escalation bursts, which these sources do not carry\\",,\\ncontrol_plane_mismatch_count,G4,NOT_MEASURED,requires control-plane records reconciled against observed reality; this exporter was given city records only,,\\ncontrol_plane_reconciliation_time_ms,G4,NOT_MEASURED,\\"requires reconciliation episodes, which are not City records\\",,\\nexposure_lag_ms,G4,NOT_MEASURED,requires implementation/wiring/reachability/intent timestamps; the trace records in these sources carry null provenance fields,,\\nintent_lag_ms,G4,NOT_MEASURED,\\"requires the same transition timestamps, which are absent\\",,\\nregistry_localization_cost,G4,NOT_MEASURED,requires registry-assisted localization episodes,,\\nrule_activation_conflict_falseblock_retirement,G4,NOT_MEASURED,\\"requires rule lifecycle observations, which are not City records\\",,\\ntextually_clean_semantic_failure_count,G4,NOT_MEASURED,\\"requires integration episodes; these are programme records rather than City campaign data, and v1 of this exporter is deliberately campaign-scoped\\",,\\nindependently_green_integrated_failure_count,G4,NOT_MEASURED,same integration-episode source as above,,\\n","checksums":{"manifest.json":{"bytes":906,"sha256":"b3a411cfb7e4bfcb99b25cb417cce1597533181a520e9746b47ea509527f5015"},"environment.json":{"bytes":106,"sha256":"96d385e727b2bb5543ec68f02cb3a506878913d2a4c8b648457857c196c4381d"},"topology.json":{"bytes":152,"sha256":"eff0ffadb60dfe017e8f148bc63a9afeb6d3e36273830400af53f59bcd3444dd"},"raw-pointers.json":{"bytes":296,"sha256":"2a6796ca2157be71dcbf101b68f9bc84c43905a3224adf6ac64343133df5fbc8"},"normalized-dataset.json":{"bytes":723,"sha256":"6e8a8573cb02bd2b57ff3c803032843394c3c27382d5ef2e9438244d921e0a59"},"metrics.csv":{"bytes":3405,"sha256":"21bd0d542965efce448f242d4d70794da7986d3aadbf7e4625e7d5b82e279c26"},"failures.json":{"bytes":99,"sha256":"c7dce227f2b30fbbfaf2f69161b0a50527191df49658778574901c2a2e17c782"},"exclusions.json":{"bytes":699,"sha256":"781242f16661340a6c8b445d7d88465beb7d82bb40d1f40336890626593a4275"},"tables.json":{"bytes":5195,"sha256":"19aa732eae77658931d5b4c483bdb6e86da2529511aed7a1dac1f05be9df60b3"},"reproduction.json":{"bytes":901,"sha256":"8c881756af283cb247ae8afc047f3300c721bbbc2d5c79ddba8ef2cf668e77ea"}},"sourceCoverage":{"status":"NO_KNOWN_SOURCE_LOSS"}}'
+  - 'metric,scope,value,reason,n,provenance\n' +
+  -   'completion_time_ms,G1,NOT_MEASURED,no run in the provided sources reached a MEASURED completion with a canonical task,,\n' +
+  -   'failure_rate,G1,0,,1,accounted=1 failed=0 timedOut=0 over terminal campaigns: campaign-5face000-0000-4000-8000-000000000001 | undelivered planned runs=0 from none\n' +
+  -   'duplicate_execution_count,G1,0,,0,"0 run references, each owned by exactly one canonical task"\n' +
+  -   'convergence_missing_event_count,G2,1,,1,campaign-5face000-0000-4000-8000-000000000001:0 -> Q-held\n' +
+  -   'retry_count,G2,NOT_MEASURED,campaign repetitions are not retries and no retry event is recorded in these sources; counting repetitions here would inflate an autonomy number,,\n' +
+  -   'recovery_time_ms,G1,NOT_MEASURED,no fault or recovery receipt is present in the provided sources,,\n' +
+  -   'handoff_time_ms,G1,NOT_MEASURED,"no handoff transition between workers appears in these sources; placements were seed-selected, not handed off",,\n' +
+  -   'intervention_count,G3,NOT_MEASURED,"Owner actions are not represented in the canonical City records, so no complete intervention window can be claimed; the guard forbids reporting 0 for an unknown window",,\n' +
+  -   'transitions_before_intervention,G3,NOT_MEASURED,"requires Owner actions, which these sources do not carry",,\n' +
+  -   'time_to_first_intervention_ms,G3,NOT_MEASURED,"requires a first Owner action, which these sources do not carry",,\n' +
+  -   'steps_to_first_intervention,G3,NOT_MEASURED,"requires a first Owner action, which these sources do not carry",,\n' +
+  -   'intervention_free_survival,G3,NOT_MEASURED,"no censored intervention episodes exist in these sources; the guard says export raw episodes rather than draw a curve, and there are none to export",,\n' +
+  -   'intervention_cause_taxonomy,G3,NOT_MEASURED,requires Owner actions with stated causes,,\n' +
+  -   'task_pool_drain_before_intervention,G3,NOT_MEASURED,requires Owner actions alongside the task pool,,\n' +
+  -   'high_value_owner_decision_count,G3,NOT_MEASURED,requires Owner decisions with a stated value,,\n' +
+  -   'avoidable_technical_escalation_count,G3,NOT_MEASURED,requires escalations classified as avoidable,,\n' +
+  -   'repeat_clarification_count,G3,NOT_MEASURED,requires clarification episodes,,\n' +
+  -   'escalation_to_autonomy_resumed_ms,G3,NOT_MEASURED,requires escalation episodes with a resume time,,\n' +
+  -   'batchable_escalation_count,G3,NOT_MEASURED,"requires escalation bursts, which these sources do not carry",,\n' +
+  -   'control_plane_mismatch_count,G4,NOT_MEASURED,requires control-plane records reconciled against observed reality; this exporter was given city records only,,\n' +
+  -   'control_plane_reconciliation_time_ms,G4,NOT_MEASURED,"requires reconciliation episodes, which are not City records",,\n' +
+  -   'exposure_lag_ms,G4,NOT_MEASURED,requires implementation/wiring/reachability/intent timestamps; the trace records in these sources carry null provenance fields,,\n' +
+  -   'intent_lag_ms,G4,NOT_MEASURED,"requires the same transition timestamps, which are absent",,\n' +
+  -   'registry_localization_cost,G4,NOT_MEASURED,requires registry-assisted localization episodes,,\n' +
+  -   'rule_activation_conflict_falseblock_retirement,G4,NOT_MEASURED,"requires rule lifecycle observations, which are not City records",,\n' +
+  -   'textually_clean_semantic_failure_count,G4,NOT_MEASURED,"requires integration episodes; these are programme records rather than City campaign data, and v1 of this exporter is deliberately campaign-scoped",,\n' +
+  -   'independently_green_integrated_failure_count,G4,NOT_MEASURED,same integration-episode source as above,,\n'
+  
+      at file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:35:9
+      at async rig (file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:26:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '{"apiVersion":0,"schemaVersion":0,"metricsCsv":"metric,scope,value,reason,n,provenance\\ncompletion_time_ms,G1,NOT_MEASURED,no run in the provided sources reached a MEASURED completion with a canonical task,,\\nfailure_rate,G1,0,,1,accounted=1 failed=0 timedOut=0 over terminal campaigns: campaign-5face000-0000-4000-8000-000000000001 | undelivered planned runs=0 from none\\nduplicate_execution_count,G1,0,,0,\\"0 run references, each owned by exactly one canonical task\\"\\nconvergence_missing_event_count,G2,1,,1,campaign-5face000-0000-4000-8000-000000000001:0 -> Q-held\\nretry_count,G2,NOT_MEASURED,campaign repetitions are not retries and no retry event is recorded in these sources; counting repetitions here would inflate an autonomy number,,\\nrecovery_time_ms,G1,NOT_MEASURED,no fault or recovery receipt is present in the provided sources,,\\nhandoff_time_ms,G1,NOT_MEASURED,\\"no handoff transition between workers appears in these sources; placements were seed-selected, not handed off\\",,\\nintervention_count,G3,NOT_MEASURED,\\"Owner actions are not represented in the canonical City records, so no complete intervention window can be claimed; the guard forbids reporting 0 for an unknown window\\",,\\ntransitions_before_intervention,G3,NOT_MEASURED,\\"requires Owner actions, which these sources do not carry\\",,\\ntime_to_first_intervention_ms,G3,NOT_MEASURED,\\"requires a first Owner action, which these sources do not carry\\",,\\nsteps_to_first_intervention,G3,NOT_MEASURED,\\"requires a first Owner action, which these sources do not carry\\",,\\nintervention_free_survival,G3,NOT_MEASURED,\\"no censored intervention episodes exist in these sources; the guard says export raw episodes rather than draw a curve, and there are none to export\\",,\\nintervention_cause_taxonomy,G3,NOT_MEASURED,requires Owner actions with stated causes,,\\ntask_pool_drain_before_intervention,G3,NOT_MEASURED,requires Owner actions alongside the task pool,,\\nhigh_value_owner_decision_count,G3,NOT_MEASURED,requires Owner decisions with a stated value,,\\navoidable_technical_escalation_count,G3,NOT_MEASURED,requires escalations classified as avoidable,,\\nrepeat_clarification_count,G3,NOT_MEASURED,requires clarification episodes,,\\nescalation_to_autonomy_resumed_ms,G3,NOT_MEASURED,requires escalation episodes with a resume time,,\\nbatchable_escalation_count,G3,NOT_MEASURED,\\"requires escalation bursts, which these sources do not carry\\",,\\ncontrol_plane_mismatch_count,G4,NOT_MEASURED,requires control-plane records reconciled against observed reality; this exporter was given city records only,,\\ncontrol_plane_reconciliation_time_ms,G4,NOT_MEASURED,\\"requires reconciliation episodes, which are not City records\\",,\\nexposure_lag_ms,G4,NOT_MEASURED,requires implementation/wiring/reachability/intent timestamps; the trace records in these sources carry null provenance fields,,\\nintent_lag_ms,G4,NOT_MEASURED,\\"requires the same transition timestamps, which are absent\\",,\\nregistry_localization_cost,G4,NOT_MEASURED,requires registry-assisted localization episodes,,\\nrule_activation_conflict_falseblock_retirement,G4,NOT_MEASURED,\\"requires rule lifecycle observations, which are not City records\\",,\\ntextually_clean_semantic_failure_count,G4,NOT_MEASURED,\\"requires integration episodes; these are programme records rather than City campaign data, and v1 of this exporter is deliberately campaign-scoped\\",,\\nindependently_green_integrated_failure_count,G4,NOT_MEASURED,same integration-episode source as above,,\\n","checksums":{"manifest.json":{"bytes":906,"sha256":"b3a411cfb7e4bfcb99b25cb417cce1597533181a520e9746b47ea509527f5015"},"environment.json":{"bytes":106,"sha256":"96d385e727b2bb5543ec68f02cb3a506878913d2a4c8b648457857c196c4381d"},"topology.json":{"bytes":152,"sha256":"eff0ffadb60dfe017e8f148bc63a9afeb6d3e36273830400af53f59bcd3444dd"},"raw-pointers.json":{"bytes":296,"sha256":"2a6796ca2157be71dcbf101b68f9bc84c43905a3224adf6ac64343133df5fbc8"},"normalized-dataset.json":{"bytes":723,"sha256":"6e8a8573cb02bd2b57ff3c803032843394c3c27382d5ef2e9438244d921e0a59"},"metrics.csv":{"bytes":3405,"sha256":"21bd0d542965efce448f242d4d70794da7986d3aadbf7e4625e7d5b82e279c26"},"failures.json":{"bytes":99,"sha256":"c7dce227f2b30fbbfaf2f69161b0a50527191df49658778574901c2a2e17c782"},"exclusions.json":{"bytes":699,"sha256":"781242f16661340a6c8b445d7d88465beb7d82bb40d1f40336890626593a4275"},"tables.json":{"bytes":5195,"sha256":"19aa732eae77658931d5b4c483bdb6e86da2529511aed7a1dac1f05be9df60b3"},"reproduction.json":{"bytes":901,"sha256":"8c881756af283cb247ae8afc047f3300c721bbbc2d5c79ddba8ef2cf668e77ea"}},"sourceCoverage":{"status":"NO_KNOWN_SOURCE_LOSS"}}',
+    expected: 'metric,scope,value,reason,n,provenance\ncompletion_time_ms,G1,NOT_MEASURED,no run in the provided sources reached a MEASURED completion with a canonical task,,\nfailure_rate,G1,0,,1,accounted=1 failed=0 timedOut=0 over terminal campaigns: campaign-5face000-0000-4000-8000-000000000001 | undelivered planned runs=0 from none\nduplicate_execution_count,G1,0,,0,"0 run references, each owned by exactly one canonical task"\nconvergence_missing_event_count,G2,1,,1,campaign-5face000-0000-4000-8000-000000000001:0 -> Q-held\nretry_count,G2,NOT_MEASURED,campaign repetitions are not retries and no retry event is recorded in these sources; counting repetitions here would inflate an autonomy number,,\nrecovery_time_ms,G1,NOT_MEASURED,no fault or recovery receipt is present in the provided sources,,\nhandoff_time_ms,G1,NOT_MEASURED,"no handoff transition between workers appears in these sources; placements were seed-selected, not handed off",,\nintervention_count,G3,NOT_MEASURED,"Owner actions are not represented in the canonical City records, so no complete intervention window can be claimed; the guard forbids reporting 0 for an unknown window",,\ntransitions_before_intervention,G3,NOT_MEASURED,"requires Owner actions, which these sources do not carry",,\ntime_to_first_intervention_ms,G3,NOT_MEASURED,"requires a first Owner action, which these sources do not carry",,\nsteps_to_first_intervention,G3,NOT_MEASURED,"requires a first Owner action, which these sources do not carry",,\nintervention_free_survival,G3,NOT_MEASURED,"no censored intervention episodes exist in these sources; the guard says export raw episodes rather than draw a curve, and there are none to export",,\nintervention_cause_taxonomy,G3,NOT_MEASURED,requires Owner actions with stated causes,,\ntask_pool_drain_before_intervention,G3,NOT_MEASURED,requires Owner actions alongside the task pool,,\nhigh_value_owner_decision_count,G3,NOT_MEASURED,requires Owner decisions with a stated value,,\navoidable_technical_escalation_count,G3,NOT_MEASURED,requires escalations classified as avoidable,,\nrepeat_clarification_count,G3,NOT_MEASURED,requires clarification episodes,,\nescalation_to_autonomy_resumed_ms,G3,NOT_MEASURED,requires escalation episodes with a resume time,,\nbatchable_escalation_count,G3,NOT_MEASURED,"requires escalation bursts, which these sources do not carry",,\ncontrol_plane_mismatch_count,G4,NOT_MEASURED,requires control-plane records reconciled against observed reality; this exporter was given city records only,,\ncontrol_plane_reconciliation_time_ms,G4,NOT_MEASURED,"requires reconciliation episodes, which are not City records",,\nexposure_lag_ms,G4,NOT_MEASURED,requires implementation/wiring/reachability/intent timestamps; the trace records in these sources carry null provenance fields,,\nintent_lag_ms,G4,NOT_MEASURED,"requires the same transition timestamps, which are absent",,\nregistry_localization_cost,G4,NOT_MEASURED,requires registry-assisted localization episodes,,\nrule_activation_conflict_falseblock_retirement,G4,NOT_MEASURED,"requires rule lifecycle observations, which are not City records",,\ntextually_clean_semantic_failure_count,G4,NOT_MEASURED,"requires integration episodes; these are programme records rather than City campaign data, and v1 of this exporter is deliberately campaign-scoped",,\nindependently_green_integrated_failure_count,G4,NOT_MEASURED,same integration-episode source as above,,\n',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex807-wiring.test.mjs:39:1
+✖ REX807 shipped metrics and source disclosures come from the held artifact (1365.4198ms)
+  AssertionError [ERR_ASSERTION]: completion_time_ms must be visible
+      at file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:43:48
+      at async rig (file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:26:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests\rex807-wiring.test.mjs:52:1
+✖ REX807 a real admitted member never receives an owner export claim or enabled export (1340.1298ms)
+  AssertionError [ERR_ASSERTION]: The input was expected to not match the regular expression /Owner session detected/. Input:
+  
+  "Owner session detected: the export reads this City's own receipts."
+  
+      at file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:58:9
+      at async rig (file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:26:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "Owner session detected: the export reads this City's own receipts.",
+    expected: /Owner session detected/,
+    operator: 'doesNotMatch',
+    diff: 'simple'
+  }
+
+test at tests\rex807-wiring.test.mjs:64:1
+✖ REX807 failed campaign read stays visibly unknown, then a successful refresh clears it (1675.887ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /campaign diagnostic unavailable/. Input:
+  
+  ''
+  
+      at file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:67:9
+      at async rig (file:///D:/Utopia-tree/REX-Series-Alien-final/tests/rex807-wiring.test.mjs:26:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '',
+    expected: /campaign diagnostic unavailable/,
+    operator: 'match',
+    diff: 'simple'
+  }

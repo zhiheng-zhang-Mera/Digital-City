@@ -1,0 +1,32 @@
+✔ REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics (2.3172ms)
+✔ REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default (0.413ms)
+✔ REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons (0.332ms)
+✔ REX807 S4: a payload field this view does not place is reported, never silently dropped (0.9141ms)
+✔ REX807 S5: the research entry is secondary and the primary surfaces stay clean (0.8809ms)
+✔ REX807 S6: nothing INTERNAL_ONLY is rendered as a user control (0.386ms)
+✔ REX807 S7: the same payload renders in zh-CN with real translation, not English fallback (0.4449ms)
+✖ REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts (28.9122ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1471.4667
+
+✖ failing tests:
+
+test at tests\rex807-surface.test.mjs:148:1
+✖ REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts (28.9122ms)
+  AssertionError [ERR_ASSERTION]: aggregate metrics must identify their artifact scope
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-Series-Alien-final-v2/tests/rex807-surface.test.mjs:184:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '<p>2 metric(s) reported by this run:</p><p data-metric="completion_rate">completion_rate: <strong>1</strong> <span class="unit">ratio</span></p><p data-metric="waited_ms">waited_ms: <strong>6000</strong> <span class="unit">ms</span></p>',
+    expected: /held campaign artifact/,
+    operator: 'match',
+    diff: 'simple'
+  }

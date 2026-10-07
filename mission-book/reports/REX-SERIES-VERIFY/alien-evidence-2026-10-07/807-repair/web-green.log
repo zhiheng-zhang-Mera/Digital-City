@@ -1,0 +1,12 @@
+✔ REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope (1891.7471ms)
+✔ REX807 shipped metrics and source disclosures come from the held artifact (1439.3075ms)
+✔ REX807 a real admitted member never receives an owner export claim or enabled export (1474.7599ms)
+✔ REX807 failed campaign read stays visibly unknown, then a successful refresh clears it (1436.2727ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9027.265

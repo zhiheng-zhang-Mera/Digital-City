@@ -1,0 +1,18 @@
+{
+  "scope": "HISTORICAL_ARTIFACT_RECOMPUTATION_NOT_NEW_PHYSICAL_STUDY",
+  "artifact": "artifact-031fdba6-e94c-4298-a095-6ff04a65481d-18-campaigns",
+  "verified_at": "2026-10-07T06:32:22.488341+00:00",
+  "files_verified": 10,
+  "git_blob_checksums_verified": true,
+  "runs": 24,
+  "measured_runs": 22,
+  "completion_time_median_ms": 6595,
+  "measured_metric_count": 4,
+  "unmeasured_metric_count": 23,
+  "instrument_corrections": [
+    "Initial probe incorrectly assumed mean, causing an assertion failure.",
+    "Second probe used receipt durationMs instead of canonical task timestamps, causing an assertion failure.",
+    "Corrected independent timestamp-based median agrees with the documented metric."
+  ],
+  "result": "PASS"
+}

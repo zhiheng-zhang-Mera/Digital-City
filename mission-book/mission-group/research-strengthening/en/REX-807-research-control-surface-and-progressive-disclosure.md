@@ -23,3 +23,7 @@ Formal Reviewer uses normal-user paths to find hidden entries, fake buttons, exc
 ## Completion gate
 
 Direct control, awareness, dangerous-action isolation, and collapsed technical details all satisfy global Capability Exposure Gate.
+
+## 2026-10-07 whole-branch acceptance
+
+Canonical REX-807 was integrated, independently reviewed and repaired on Alien. Accepted candidate `17271f04829877ee56668221afeda5fbd35f66e8`; main merge `db6b6f9dbba1266d6783774d659d4eef912929ff`. Full candidate/main CI and exposure gates PASS. See [review report](../../../reports/REX-SERIES-VERIFY/REVIEW_REPORT_Alien_GPT_2026_10_07.md). REX-890 independent physical study remains NOT_RUN; no programme freeze marker.

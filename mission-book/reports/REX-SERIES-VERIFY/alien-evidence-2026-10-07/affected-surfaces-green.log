@@ -1,0 +1,50 @@
+✔ each member sees itself first and all City devices by admission name, with real message receipt (3595.4954ms)
+✔ joining only demotes the local host, saves its admission name and leaves remote City intact (260.5079ms)
+✔ failed pairing and busy local work do not demote or write a new membership (104.1911ms)
+✔ native production transition retires only local Gateway and its worker, while remote host stays primary (449.03ms)
+✔ selected MEMBER role survives coordinator crash without replacing the original City pointer (5.5305ms)
+✔ REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code (5055.3812ms)
+✔ REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session (5793.0182ms)
+✔ REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session (9655.0034ms)
+✔ REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE (12112.9539ms)
+✔ gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour (0.8686ms)
+✖ shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing (1397.998ms)
+✔ a stale host alias never hides the live host or replaces its execution target (1.0675ms)
+✔ kernel versions do not invent a Windows edition or future macOS product version (0.2033ms)
+✔ V1 the operating system is named from product evidence rather than ambiguous NT builds (1.9459ms)
+✔ V2 the architecture is spelled out, and unknown parts are omitted rather than printed (0.3524ms)
+✔ V3 the fact set read from a host carries name, release, architecture, hostname and runtime (0.4523ms)
+✔ V4 opening a City does NOT claim the host is online, and does not list the host node twice (0.7799ms)
+✔ V5 the host node is recognised by hostname, not by id equality (0.5307ms)
+✔ V6 a connected surface is what makes a member present (0.2106ms)
+✔ V7 a City never treats its own advertisement as a neighbour (0.3816ms)
+✔ V8 the connect list keeps one row per machine and never takes a discovery duplicate of self (2.2033ms)
+✔ V10 an EMPTY host id is replaced by a real one, so no undefined member can appear (496.211ms)
+✔ V11 the Devices surface is rendered by the shipped predicate, not by an inline copy (2.0885ms)
+✔ V9 a pairing session restored after a reload still carries its QR markup and code (2.1002ms)
+✔ Web Devices and ephemeral pairing share the authoritative Gateway (84837.2034ms)
+✔ Web freshness, device detail, node offline and pairing expiry (11157.0126ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 25
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 103250.6151
+
+✖ failing tests:
+
+test at tests\rex-series-review.test.mjs:20:1
+✖ shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing (1397.998ms)
+  AssertionError [ERR_ASSERTION]: the measured Windows product name reaches the shipped UI
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-Series-Alien-review/tests/rex-series-review.test.mjs:40:36)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

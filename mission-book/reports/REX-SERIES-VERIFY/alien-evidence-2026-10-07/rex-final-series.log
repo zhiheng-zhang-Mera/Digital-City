@@ -1,0 +1,1832 @@
+TAP version 13
+# Subtest: malformed YAML is retained as a finding without raw contents
+ok 1 - malformed YAML is retained as a finding without raw contents
+  ---
+  duration_ms: 2327.737
+  type: 'test'
+  ...
+# Subtest: an exact-SHA empty runtime snapshot cannot turn unobserved domains healthy
+ok 2 - an exact-SHA empty runtime snapshot cannot turn unobserved domains healthy
+  ---
+  duration_ms: 2353.8356
+  type: 'test'
+  ...
+# Subtest: duplicate accepted ancestors are cached and all processing respects cooperative deadline
+ok 3 - duplicate accepted ancestors are cached and all processing respects cooperative deadline
+  ---
+  duration_ms: 2547.203
+  type: 'test'
+  ...
+# Subtest: stale runtime SHA cannot mark a capability online
+ok 4 - stale runtime SHA cannot mark a capability online
+  ---
+  duration_ms: 2436.4127
+  type: 'test'
+  ...
+# Subtest: unsafe registry path never reads outside the repository
+ok 5 - unsafe registry path never reads outside the repository
+  ---
+  duration_ms: 2400.3775
+  type: 'test'
+  ...
+# Subtest: case evidence is mandatory before quarterly proposal can be routed
+ok 6 - case evidence is mandatory before quarterly proposal can be routed
+  ---
+  duration_ms: 0.9526
+  type: 'test'
+  ...
+# Subtest: case text values minimize credentials before hashing and prototype kinds cannot route
+ok 7 - case text values minimize credentials before hashing and prototype kinds cannot route
+  ---
+  duration_ms: 0.6482
+  type: 'test'
+  ...
+# Subtest: externally signed unsafe history is rejected and quarterly rationale values are minimized
+ok 8 - externally signed unsafe history is rejected and quarterly rationale values are minimized
+  ---
+  duration_ms: 0.8658
+  type: 'test'
+  ...
+# Subtest: registry directory references resolve existing tracked sources without false dead records
+ok 9 - registry directory references resolve existing tracked sources without false dead records
+  ---
+  duration_ms: 3064.7762
+  type: 'test'
+  ...
+# Subtest: canonical tolerant frontmatter normalizes quoted booleans and colon-bearing notes
+ok 10 - canonical tolerant frontmatter normalizes quoted booleans and colon-bearing notes
+  ---
+  duration_ms: 3309.7979
+  type: 'test'
+  ...
+# Subtest: topology module census identifies dead manifest paths and retains rule debt unknowns
+ok 11 - topology module census identifies dead manifest paths and retains rule debt unknowns
+  ---
+  duration_ms: 2989.3954
+  type: 'test'
+  ...
+# Subtest: CLI rejects output inside either inspected checkout
+ok 12 - CLI rejects output inside either inspected checkout
+  ---
+  duration_ms: 2869.5136
+  type: 'test'
+  ...
+# Subtest: report and manifest checksums verify persisted output without acceptance
+ok 13 - report and manifest checksums verify persisted output without acceptance
+  ---
+  duration_ms: 5039.6005
+  type: 'test'
+  ...
+# Subtest: whole-series runner rejects output junction into inspected source before writing
+ok 14 - whole-series runner rejects output junction into inspected source before writing
+  ---
+  duration_ms: 3724.19
+  type: 'test'
+  ...
+# Subtest: whole-series runner detects a clean head change during replay despite green commands
+ok 15 - whole-series runner detects a clean head change during replay despite green commands
+  ---
+  duration_ms: 11244.4698
+  type: 'test'
+  ...
+# Subtest: CHK990-01 small check obeys a hard file budget and discloses partial coverage
+ok 16 - CHK990-01 small check obeys a hard file budget and discloses partial coverage
+  ---
+  duration_ms: 2285.8436
+  type: 'test'
+  ...
+# Subtest: CHK990-02 full census reverse-discovers an unregistered API and a dependency cycle
+ok 17 - CHK990-02 full census reverse-discovers an unregistered API and a dependency cycle
+  ---
+  duration_ms: 2510.4892
+  type: 'test'
+  ...
+# Subtest: CHK990-03 health report never modifies repository state or grants repair authority
+ok 18 - CHK990-03 health report never modifies repository state or grants repair authority
+  ---
+  duration_ms: 2611.3243
+  type: 'test'
+  ...
+# Subtest: CHK990-04 suspended workbook cannot become active truth
+ok 19 - CHK990-04 suspended workbook cannot become active truth
+  ---
+  duration_ms: 2312.5991
+  type: 'test'
+  ...
+# Subtest: CHK990-05 self model returns unknown runtime and not measured blast radius
+ok 20 - CHK990-05 self model returns unknown runtime and not measured blast radius
+  ---
+  duration_ms: 2362.4846
+  type: 'test'
+  ...
+# Subtest: CHK990-06 diagnosis preserves multiple hypotheses and missing evidence
+ok 21 - CHK990-06 diagnosis preserves multiple hypotheses and missing evidence
+  ---
+  duration_ms: 0.2671
+  type: 'test'
+  ...
+# Subtest: CHK990-07 case revisions retain original hypothesis and detect tampering
+ok 22 - CHK990-07 case revisions retain original hypothesis and detect tampering
+  ---
+  duration_ms: 0.877
+  type: 'test'
+  ...
+# Subtest: CHK990-08 all six BLG gaps can retain reference or supersede without migration
+ok 23 - CHK990-08 all six BLG gaps can retain reference or supersede without migration
+  ---
+  duration_ms: 0.1216
+  type: 'test'
+  ...
+# Subtest: CHK990-09 candidate routing never gains execution authority from verified episodes
+ok 24 - CHK990-09 candidate routing never gains execution authority from verified episodes
+  ---
+  duration_ms: 0.1807
+  type: 'test'
+  ...
+# Subtest: CHK990-10 routes every supported domain and defers unknown owner
+ok 25 - CHK990-10 routes every supported domain and defers unknown owner
+  ---
+  duration_ms: 0.2911
+  type: 'test'
+  ...
+# Subtest: CHK990-11 promotion and rollback require explicit external authority and full safety ladder
+ok 26 - CHK990-11 promotion and rollback require explicit external authority and full safety ladder
+  ---
+  duration_ms: 0.1106
+  type: 'test'
+  ...
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/new.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+# warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+# Subtest: CHK990-12 overhead is measurable and runtime seam remains offline and redacted
+ok 27 - CHK990-12 overhead is measurable and runtime seam remains offline and redacted
+  ---
+  duration_ms: 3172.423
+  type: 'test'
+  ...
+# Subtest: DGX005 Pass A never exposes defence and Pass B cannot run before A
+ok 28 - DGX005 Pass A never exposes defence and Pass B cannot run before A
+  ---
+  duration_ms: 4.7873
+  type: 'test'
+  ...
+# Subtest: DGX005 self adjudication, authored dispute and same context refused
+ok 29 - DGX005 self adjudication, authored dispute and same context refused
+  ---
+  duration_ms: 1.5543
+  type: 'test'
+  ...
+# Subtest: DGX005 both wrong and evidence required remain explicit; missing evidence never yields certainty
+ok 30 - DGX005 both wrong and evidence required remain explicit; missing evidence never yields certainty
+  ---
+  duration_ms: 2.309
+  type: 'test'
+  ...
+# Subtest: DGX005 defence cannot impersonate a party or overwrite prior record and API copies are isolated
+ok 31 - DGX005 defence cannot impersonate a party or overwrite prior record and API copies are isolated
+  ---
+  duration_ms: 1.086
+  type: 'test'
+  ...
+# Subtest: DGX005 submitted finals cannot overwrite canonical provenance and snapshot extras cannot leak defence
+ok 32 - DGX005 submitted finals cannot overwrite canonical provenance and snapshot extras cannot leak defence
+  ---
+  duration_ms: 1.0961
+  type: 'test'
+  ...
+# Subtest: DGX005 judge must be independent of both disputing parties
+ok 33 - DGX005 judge must be independent of both disputing parties
+  ---
+  duration_ms: 0.4133
+  type: 'test'
+  ...
+# Subtest: DGX003 score only ranks eligible candidates and opposite physical host is nonoptional
+ok 34 - DGX003 score only ranks eligible candidates and opposite physical host is nonoptional
+  ---
+  duration_ms: 4.2794
+  type: 'test'
+  ...
+# Subtest: DGX003 unavailable facts, recusal, author identity and unknown dimension fail closed
+ok 35 - DGX003 unavailable facts, recusal, author identity and unknown dimension fail closed
+  ---
+  duration_ms: 3.0639
+  type: 'test'
+  ...
+# Subtest: DGX003 missing score service uses deterministic eligibility fallback, never removes floor
+ok 36 - DGX003 missing score service uses deterministic eligibility fallback, never removes floor
+  ---
+  duration_ms: 14.6634
+  type: 'test'
+  ...
+# Subtest: DGX003 resource unavailable and no capability cannot win with reputation
+ok 37 - DGX003 resource unavailable and no capability cannot win with reputation
+  ---
+  duration_ms: 0.8969
+  type: 'test'
+  ...
+# Subtest: DGX005 structured contradictory claims are retained and produce deterministic material conflict
+ok 38 - DGX005 structured contradictory claims are retained and produce deterministic material conflict
+  ---
+  duration_ms: 17.851
+  type: 'test'
+  ...
+# Subtest: DGX005 agreement or different predicate is not manufactured into a dispute
+ok 39 - DGX005 agreement or different predicate is not manufactured into a dispute
+  ---
+  duration_ms: 1.5103
+  type: 'test'
+  ...
+# Subtest: DGX002 immutable shared snapshot retains unknowns and requires versioned facts
+ok 40 - DGX002 immutable shared snapshot retains unknowns and requires versioned facts
+  ---
+  duration_ms: 1.8372
+  type: 'test'
+  ...
+# Subtest: DGX002 DAG preserves Owner scope and rejects cycles, orphan edges and authority
+ok 41 - DGX002 DAG preserves Owner scope and rejects cycles, orphan edges and authority
+  ---
+  duration_ms: 2.096
+  type: 'test'
+  ...
+# Subtest: DGX002 controlled DAG growth cannot rewrite prior nodes or erase provenance
+ok 42 - DGX002 controlled DAG growth cannot rewrite prior nodes or erase provenance
+  ---
+  duration_ms: 1.4056
+  type: 'test'
+  ...
+# Subtest: DGX002 private reasoning and credentials rejected recursively with normalized keys
+ok 43 - DGX002 private reasoning and credentials rejected recursively with normalized keys
+  ---
+  duration_ms: 0.6391
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF remains the substrate owner and unavailable port is typed
+ok 44 - DGX002 PCF remains the substrate owner and unavailable port is typed
+  ---
+  duration_ms: 1.2614
+  type: 'test'
+  ...
+# Subtest: DGX007 gateway exposes owner-only governance and unavailable storage never blocks canonical city
+ok 45 - DGX007 gateway exposes owner-only governance and unavailable storage never blocks canonical city
+  ---
+  duration_ms: 172.3327
+  type: 'test'
+  ...
+# Subtest: DGX result requires trusted refs and case/node/snapshot identity even for authenticated receipts
+ok 46 - DGX result requires trusted refs and case/node/snapshot identity even for authenticated receipts
+  ---
+  duration_ms: 9.3574
+  type: 'test'
+  ...
+# Subtest: DGX reviews are scoped to integration revision and archived after correction
+ok 47 - DGX reviews are scoped to integration revision and archived after correction
+  ---
+  duration_ms: 15.2928
+  type: 'test'
+  ...
+# Subtest: DGX release cannot introduce claims evidence assumptions outside collected candidate
+ok 48 - DGX release cannot introduce claims evidence assumptions outside collected candidate
+  ---
+  duration_ms: 12.9874
+  type: 'test'
+  ...
+# Subtest: DGX release preserves claim uncertainty and unresolved questions
+ok 49 - DGX release preserves claim uncertainty and unresolved questions
+  ---
+  duration_ms: 6.9572
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF adapter cannot treat caller JSON as approved permission/budget/deadline
+ok 50 - DGX002 PCF adapter cannot treat caller JSON as approved permission/budget/deadline
+  ---
+  duration_ms: 1.0869
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF adapter refuses a returned permission for another task
+ok 51 - DGX002 PCF adapter refuses a returned permission for another task
+  ---
+  duration_ms: 0.706
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF approval cannot use a stale shared fact version
+ok 52 - DGX002 PCF approval cannot use a stale shared fact version
+  ---
+  duration_ms: 0.722
+  type: 'test'
+  ...
+# Subtest: DGX004 Engineering adapter preserves exact head CI verifier and opposite-host floor
+ok 53 - DGX004 Engineering adapter preserves exact head CI verifier and opposite-host floor
+  ---
+  duration_ms: 3.0282
+  type: 'test'
+  ...
+# Subtest: DGX004 Research evidence gate delegates professional review and rejects missing methods
+ok 54 - DGX004 Research evidence gate delegates professional review and rejects missing methods
+  ---
+  duration_ms: 0.2615
+  type: 'test'
+  ...
+# Subtest: DGX004 Health professional seam never claims unimplemented clinical capability
+ok 55 - DGX004 Health professional seam never claims unimplemented clinical capability
+  ---
+  duration_ms: 0.3794
+  type: 'test'
+  ...
+# Subtest: DGX007 L0 retains uncertainty and release gate; L2 preserves exact evidence
+ok 56 - DGX007 L0 retains uncertainty and release gate; L2 preserves exact evidence
+  ---
+  duration_ms: 2.7219
+  type: 'test'
+  ...
+# Subtest: DGX007 canonical status wins and graph drift warning bubbles into L0
+ok 57 - DGX007 canonical status wins and graph drift warning bubbles into L0
+  ---
+  duration_ms: 0.7331
+  type: 'test'
+  ...
+# Subtest: DGX007 material conflict and more-evidence adjudication remain visible with progressive disclosure
+ok 58 - DGX007 material conflict and more-evidence adjudication remain visible with progressive disclosure
+  ---
+  duration_ms: 0.5703
+  type: 'test'
+  ...
+# Subtest: DGX006 all participants review scoped exact candidate; minor dissent is retained
+ok 59 - DGX006 all participants review scoped exact candidate; minor dissent is retained
+  ---
+  duration_ms: 4.3507
+  type: 'test'
+  ...
+# Subtest: DGX006 no votes can override critical major or blocking reviewer
+ok 60 - DGX006 no votes can override critical major or blocking reviewer
+  ---
+  duration_ms: 0.8398
+  type: 'test'
+  ...
+# Subtest: DGX006 missing trusted receipts and stale/cross-case reviews fail closed
+ok 61 - DGX006 missing trusted receipts and stale/cross-case reviews fail closed
+  ---
+  duration_ms: 1.6133
+  type: 'test'
+  ...
+# Subtest: DGX006 Owner-only boundary needs independently resolved authorization
+ok 62 - DGX006 Owner-only boundary needs independently resolved authorization
+  ---
+  duration_ms: 0.3691
+  type: 'test'
+  ...
+# Subtest: DGX006 another case or participant independence receipt cannot unlock this candidate
+ok 63 - DGX006 another case or participant independence receipt cannot unlock this candidate
+  ---
+  duration_ms: 0.4639
+  type: 'test'
+  ...
+# Subtest: DGX006 bounded appeal requires new evidence or specific procedural/factual error
+ok 64 - DGX006 bounded appeal requires new evidence or specific procedural/factual error
+  ---
+  duration_ms: 0.7135
+  type: 'test'
+  ...
+# Subtest: DGX whole-series runner executes failing child tests despite inherited Node test context
+ok 65 - DGX whole-series runner executes failing child tests despite inherited Node test context
+  ---
+  duration_ms: 5462.034
+  type: 'test'
+  ...
+# Subtest: DGX whole-series runner records positive executed test count with inherited context cleared
+ok 66 - DGX whole-series runner records positive executed test count with inherited context cleared
+  ---
+  duration_ms: 5566.5264
+  type: 'test'
+  ...
+# Subtest: DGX007 governance case survives restart; immutable identity and bounded revisions
+ok 67 - DGX007 governance case survives restart; immutable identity and bounded revisions
+  ---
+  duration_ms: 13.2641
+  type: 'test'
+  ...
+# Subtest: DGX007 missing upstream ports cannot fabricate assignments results or release
+ok 68 - DGX007 missing upstream ports cannot fabricate assignments results or release
+  ---
+  duration_ms: 8.7898
+  type: 'test'
+  ...
+# Subtest: DGX007 corrupt/unavailable governance storage is observable and isolated
+ok 69 - DGX007 corrupt/unavailable governance storage is observable and isolated
+  ---
+  duration_ms: 3.7756
+  type: 'test'
+  ...
+# Subtest: DGX990 two-pass case information boundary survives restart before defence is admitted
+ok 70 - DGX990 two-pass case information boundary survives restart before defence is admitted
+  ---
+  duration_ms: 27.6365
+  type: 'test'
+  ...
+# Subtest: DGX003 service rejects forged author host and adjudicator session in otherwise valid receipts
+ok 71 - DGX003 service rejects forged author host and adjudicator session in otherwise valid receipts
+  ---
+  duration_ms: 5.4987
+  type: 'test'
+  ...
+# Subtest: DGX007 persisted encoding respects the same byte bound as the reader
+ok 72 - DGX007 persisted encoding respects the same byte bound as the reader
+  ---
+  duration_ms: 55.7201
+  type: 'test'
+  ...
+# Subtest: DGX006 pending appeal cannot be erased by recalculating the same release
+ok 73 - DGX006 pending appeal cannot be erased by recalculating the same release
+  ---
+  duration_ms: 7.5019
+  type: 'test'
+  ...
+# Subtest: DGX005 accepted contributor claims discover conflict and force revalidation without deleting evidence
+ok 74 - DGX005 accepted contributor claims discover conflict and force revalidation without deleting evidence
+  ---
+  duration_ms: 19.9356
+  type: 'test'
+  ...
+# Subtest: DGX990 integrated candidate cannot lower the immutable Owner-only case boundary
+ok 75 - DGX990 integrated candidate cannot lower the immutable Owner-only case boundary
+  ---
+  duration_ms: 13.4049
+  type: 'test'
+  ...
+# Subtest: DGX002 real PCF thin extension rejects another canonical task before compilation
+ok 76 - DGX002 real PCF thin extension rejects another canonical task before compilation
+  ---
+  duration_ms: 2.3986
+  type: 'test'
+  ...
+# Subtest: DGX990 real substrate result binds trusted execution identity and survives restart with joint reviewer
+ok 77 - DGX990 real substrate result binds trusted execution identity and survives restart with joint reviewer
+  ---
+  duration_ms: 15.31
+  type: 'test'
+  ...
+# Subtest: DGX990 cross-candidate substrate receipt cannot enter the case or remove uncertainty
+ok 78 - DGX990 cross-candidate substrate receipt cannot enter the case or remove uncertainty
+  ---
+  duration_ms: 4.9528
+  type: 'test'
+  ...
+# Subtest: DGX007 Web discovers governance, imports case and traces L0 to exact L2 evidence without task mutation
+ok 79 - DGX007 Web discovers governance, imports case and traces L0 to exact L2 evidence without task mutation
+  ---
+  duration_ms: 1821.195
+  type: 'test'
+  ...
+# Subtest: gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour
+ok 80 - gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour
+  ---
+  duration_ms: 1.3107
+  type: 'test'
+  ...
+# Subtest: shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing
+ok 81 - shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing
+  ---
+  duration_ms: 1963.6655
+  type: 'test'
+  ...
+# Subtest: a stale host alias never hides the live host or replaces its execution target
+ok 82 - a stale host alias never hides the live host or replaces its execution target
+  ---
+  duration_ms: 0.6617
+  type: 'test'
+  ...
+# Subtest: kernel versions do not invent a Windows edition or future macOS product version
+ok 83 - kernel versions do not invent a Windows edition or future macOS product version
+  ---
+  duration_ms: 0.2108
+  type: 'test'
+  ...
+# Subtest: V1 the operating system is named from product evidence rather than ambiguous NT builds
+ok 84 - V1 the operating system is named from product evidence rather than ambiguous NT builds
+  ---
+  duration_ms: 1.7159
+  type: 'test'
+  ...
+# Subtest: V2 the architecture is spelled out, and unknown parts are omitted rather than printed
+ok 85 - V2 the architecture is spelled out, and unknown parts are omitted rather than printed
+  ---
+  duration_ms: 0.3769
+  type: 'test'
+  ...
+# Subtest: V3 the fact set read from a host carries name, release, architecture, hostname and runtime
+ok 86 - V3 the fact set read from a host carries name, release, architecture, hostname and runtime
+  ---
+  duration_ms: 0.4204
+  type: 'test'
+  ...
+# Subtest: V4 opening a City does NOT claim the host is online, and does not list the host node twice
+ok 87 - V4 opening a City does NOT claim the host is online, and does not list the host node twice
+  ---
+  duration_ms: 0.703
+  type: 'test'
+  ...
+# Subtest: V5 the host node is recognised by hostname, not by id equality
+ok 88 - V5 the host node is recognised by hostname, not by id equality
+  ---
+  duration_ms: 0.5218
+  type: 'test'
+  ...
+# Subtest: V6 a connected surface is what makes a member present
+ok 89 - V6 a connected surface is what makes a member present
+  ---
+  duration_ms: 0.275
+  type: 'test'
+  ...
+# Subtest: V7 a City never treats its own advertisement as a neighbour
+ok 90 - V7 a City never treats its own advertisement as a neighbour
+  ---
+  duration_ms: 0.4211
+  type: 'test'
+  ...
+# Subtest: V8 the connect list keeps one row per machine and never takes a discovery duplicate of self
+ok 91 - V8 the connect list keeps one row per machine and never takes a discovery duplicate of self
+  ---
+  duration_ms: 1.9232
+  type: 'test'
+  ...
+# Subtest: V10 an EMPTY host id is replaced by a real one, so no undefined member can appear
+ok 92 - V10 an EMPTY host id is replaced by a real one, so no undefined member can appear
+  ---
+  duration_ms: 513.2119
+  type: 'test'
+  ...
+# Subtest: V11 the Devices surface is rendered by the shipped predicate, not by an inline copy
+ok 93 - V11 the Devices surface is rendered by the shipped predicate, not by an inline copy
+  ---
+  duration_ms: 1.7572
+  type: 'test'
+  ...
+# Subtest: V9 a pairing session restored after a reload still carries its QR markup and code
+ok 94 - V9 a pairing session restored after a reload still carries its QR markup and code
+  ---
+  duration_ms: 2.1016
+  type: 'test'
+  ...
+# Subtest: Alien independently constructs all workbook negative cases and restart seed consistency
+ok 95 - Alien independently constructs all workbook negative cases and restart seed consistency
+  ---
+  duration_ms: 217.0641
+  type: 'test'
+  ...
+# Subtest: a manifest with only a movable branch must not pass exact software provenance validation
+ok 96 - a manifest with only a movable branch must not pass exact software provenance validation
+  ---
+  duration_ms: 80.9428
+  type: 'test'
+  ...
+# Subtest: two equal host references are one physical host, not a TWO_HOST_MESH
+ok 97 - two equal host references are one physical host, not a TWO_HOST_MESH
+  ---
+  duration_ms: 447.6253
+  type: 'test'
+  ...
+# Subtest: an experiment can be listed, validated, registered, inspected, seeded — without ever being run
+ok 98 - an experiment can be listed, validated, registered, inspected, seeded — without ever being run
+  ---
+  duration_ms: 261.5831
+  type: 'test'
+  ...
+# Subtest: the research routes require the control credential: a worker cannot certify the experiment it runs
+ok 99 - the research routes require the control credential: a worker cannot certify the experiment it runs
+  ---
+  duration_ms: 102.2246
+  type: 'test'
+  ...
+# Subtest: an invalid manifest is refused with every issue at once, and the rejection is stored as evidence
+ok 100 - an invalid manifest is refused with every issue at once, and the rejection is stored as evidence
+  ---
+  duration_ms: 102.7774
+  type: 'test'
+  ...
+# Subtest: manifests survive a gateway restart, and a broken file is reported instead of silently dropped
+ok 101 - manifests survive a gateway restart, and a broken file is reported instead of silently dropped
+  ---
+  duration_ms: 148.5755
+  type: 'test'
+  ...
+# Subtest: the registry itself refuses task-domain keys and never offers an update
+ok 102 - the registry itself refuses task-domain keys and never offers an update
+  ---
+  duration_ms: 4.242
+  type: 'test'
+  ...
+# Subtest: CEX790 Web reports validated but unfiled registration and degraded store
+ok 103 - CEX790 Web reports validated but unfiled registration and degraded store
+  ---
+  duration_ms: 2271.9641
+  type: 'test'
+  ...
+# Subtest: Web Research discovers imports validates registers and inspects canonical experiments without running
+ok 104 - Web Research discovers imports validates registers and inspects canonical experiments without running
+  ---
+  duration_ms: 2896.9261
+  type: 'test'
+  ...
+# Subtest: a failed list refresh cannot hide a successful canonical registration
+ok 105 - a failed list refresh cannot hide a successful canonical registration
+  ---
+  duration_ms: 2656.9414
+  type: 'test'
+  ...
+# Subtest: REX801 store guard: a file where research (the registry parent) belongs cannot stop the City
+ok 106 - REX801 store guard: a file where research (the registry parent) belongs cannot stop the City
+  ---
+  duration_ms: 188.258
+  type: 'test'
+  ...
+# Subtest: REX801 store guard: a file where research/experiments (the registry itself) belongs cannot stop the City
+ok 107 - REX801 store guard: a file where research/experiments (the registry itself) belongs cannot stop the City
+  ---
+  duration_ms: 113.3948
+  type: 'test'
+  ...
+# Subtest: REX802 a delayed response cannot remove offline guidance or replace another page
+ok 108 - REX802 a delayed response cannot remove offline guidance or replace another page
+  ---
+  duration_ms: 1321.5734
+  type: 'test'
+  ...
+# Subtest: REX802 rolled-back canonical events never enter the trace
+ok 109 - REX802 rolled-back canonical events never enter the trace
+  ---
+  duration_ms: 102.602
+  type: 'test'
+  ...
+# Subtest: REX802 member Web surface exposes explicit owner-required guidance
+ok 110 - REX802 member Web surface exposes explicit owner-required guidance
+  ---
+  duration_ms: 1755.6187
+  type: 'test'
+  ...
+# Subtest: REX802 records only supplied resource samples, preserves zero and declared source time
+ok 111 - REX802 records only supplied resource samples, preserves zero and declared source time
+  ---
+  duration_ms: 135.7921
+  type: 'test'
+  ...
+# Error: CONTROLLED_COMMIT_FAILURE
+#     at file:///D:/Utopia-tree/REX-Series-Alien-final-v2/tests/rex802-gateway.test.mjs:4:360
+#     at Store.atomic (file:///D:/Utopia-tree/REX-Series-Alien-final-v2/services/dev-gateway/store.mjs:106:62)
+#     at app.store.atomic (file:///D:/Utopia-tree/REX-Series-Alien-final-v2/tests/rex802-gateway.test.mjs:4:337)
+#     at atomicWithTrace (file:///D:/Utopia-tree/REX-Series-Alien-final-v2/services/dev-gateway/server.mjs:214:93)
+#     at createCityTask (file:///D:/Utopia-tree/REX-Series-Alien-final-v2/services/dev-gateway/server.mjs:489:12)
+#     at Server.<anonymous> (file:///D:/Utopia-tree/REX-Series-Alien-final-v2/services/dev-gateway/server.mjs:1055:13)
+#     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+# Subtest: REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets
+ok 112 - REX802 real Gateway records task references and Web Advanced exposes recording/provenance without secrets
+  ---
+  duration_ms: 1514.9337
+  type: 'test'
+  ...
+# Subtest: REX802 failing collector cannot break real Gateway task/health and reports partial failure
+ok 113 - REX802 failing collector cannot break real Gateway task/health and reports partial failure
+  ---
+  duration_ms: 134.8155
+  type: 'test'
+  ...
+# Subtest: REX802 external resource clocks cannot change canonical sequence time ordering
+ok 114 - REX802 external resource clocks cannot change canonical sequence time ordering
+  ---
+  duration_ms: 6.3959
+  type: 'test'
+  ...
+# Subtest: REX802 broken observation clock remains a contained failure
+ok 115 - REX802 broken observation clock remains a contained failure
+  ---
+  duration_ms: 0.7544
+  type: 'test'
+  ...
+# Subtest: REX802 rejects an oversized existing file before rotating or modifying it
+ok 116 - REX802 rejects an oversized existing file before rotating or modifying it
+  ---
+  duration_ms: 12.2782
+  type: 'test'
+  ...
+# Subtest: REX802 rotation remains explicit after restart and restores bounded previous records
+ok 117 - REX802 rotation remains explicit after restart and restores bounded previous records
+  ---
+  duration_ms: 54.6965
+  type: 'test'
+  ...
+# Subtest: REX802 pure normalization binds clocks/provenance and retains unknown metrics
+ok 118 - REX802 pure normalization binds clocks/provenance and retains unknown metrics
+  ---
+  duration_ms: 2.1822
+  type: 'test'
+  ...
+# Subtest: REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero
+ok 119 - REX802 canonical tap drops arbitrary payload and credentials; explicit measured zero remains zero
+  ---
+  duration_ms: 0.5227
+  type: 'test'
+  ...
+# Subtest: REX802 recognizes missing, duplicate, reordered and stale timestamp observations
+ok 120 - REX802 recognizes missing, duplicate, reordered and stale timestamp observations
+  ---
+  duration_ms: 0.527
+  type: 'test'
+  ...
+# Subtest: REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch
+ok 121 - REX802 storage raw-to-normalized replay is reproducible and restart starts new epoch
+  ---
+  duration_ms: 25.7103
+  type: 'test'
+  ...
+# Subtest: REX802 collector failures and queue bounds are explicit without throwing into callers
+ok 122 - REX802 collector failures and queue bounds are explicit without throwing into callers
+  ---
+  duration_ms: 11.5628
+  type: 'test'
+  ...
+# Subtest: REX802 hung storage is bounded; queue drop and close do not block indefinitely
+ok 123 - REX802 hung storage is bounded; queue drop and close do not block indefinitely
+  ---
+  duration_ms: 73.8517
+  type: 'test'
+  ...
+# Subtest: REX802 early capture waits for restored watermark before normalization
+ok 124 - REX802 early capture waits for restored watermark before normalization
+  ---
+  duration_ms: 9.9041
+  type: 'test'
+  ...
+# Subtest: REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults
+ok 125 - REX802 supports rule lifecycle, supervision quality and semantic integration without invented defaults
+  ---
+  duration_ms: 1.1116
+  type: 'test'
+  ...
+# Subtest: REX803 adversarial R-1: a blocked receipt store degrades the campaign surface instead of failing it
+ok 126 - REX803 adversarial R-1: a blocked receipt store degrades the campaign surface instead of failing it
+  ---
+  duration_ms: 276.0895
+  type: 'test'
+  ...
+# Subtest: REX803 adversarial R-2: a canonical task cancelled from outside the campaign is CANCELLED, not FAILED
+ok 127 - REX803 adversarial R-2: a canonical task cancelled from outside the campaign is CANCELLED, not FAILED
+  ---
+  duration_ms: 168.5623
+  type: 'test'
+  ...
+# Subtest: REX803 Alien: malformed interrupted state degrades instead of preventing construction
+ok 128 - REX803 Alien: malformed interrupted state degrades instead of preventing construction
+  ---
+  duration_ms: 11.5701
+  type: 'test'
+  ...
+# Subtest: REX803 Alien: resume cannot rename the scenario while executing the old campaign
+ok 129 - REX803 Alien: resume cannot rename the scenario while executing the old campaign
+  ---
+  duration_ms: 5.8933
+  type: 'test'
+  ...
+# Subtest: REX803 Alien: a timed-out run keeps its own cleanup scope after the next run begins
+ok 130 - REX803 Alien: a timed-out run keeps its own cleanup scope after the next run begins
+  ---
+  duration_ms: 118.5306
+  type: 'test'
+  ...
+# Subtest: REX803 Alien: contradictory run measurement cannot manufacture an early successful stop
+ok 131 - REX803 Alien: contradictory run measurement cannot manufacture an early successful stop
+  ---
+  duration_ms: 7.9529
+  type: 'test'
+  ...
+# Subtest: REX803 campaigns: every repetition is a real canonical task, and the receipt accounts for all of them
+ok 132 - REX803 campaigns: every repetition is a real canonical task, and the receipt accounts for all of them
+  ---
+  duration_ms: 433.6417
+  type: 'test'
+  ...
+# Subtest: REX803 campaigns: the surface is owner-only, and every refusal is typed
+ok 133 - REX803 campaigns: the surface is owner-only, and every refusal is typed
+  ---
+  duration_ms: 296.0401
+  type: 'test'
+  ...
+# Subtest: REX803 campaigns: the topology gate is measured against live refs, and its refusal states what was missing
+ok 134 - REX803 campaigns: the topology gate is measured against live refs, and its refusal states what was missing
+  ---
+  duration_ms: 98.4374
+  type: 'test'
+  ...
+# Subtest: REX803 campaigns: stopping cancels the canonical task the run had already created
+ok 135 - REX803 campaigns: stopping cancels the canonical task the run had already created
+  ---
+  duration_ms: 202.2413
+  type: 'test'
+  ...
+# Subtest: REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason
+ok 136 - REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason
+  ---
+  duration_ms: 3923.4815
+  type: 'test'
+  ...
+# Subtest: REX803 web: a member is told the campaign surface is the owner's, and is offered no controls
+ok 137 - REX803 web: a member is told the campaign surface is the owner's, and is offered no controls
+  ---
+  duration_ms: 1390.1088
+  type: 'test'
+  ...
+# Subtest: critic: unavailable topology on resume preserves original unfinished campaign
+ok 138 - critic: unavailable topology on resume preserves original unfinished campaign
+  ---
+  duration_ms: 12.6958
+  type: 'test'
+  ...
+# Subtest: critic: resume readiness checks persisted execution context
+ok 139 - critic: resume readiness checks persisted execution context
+  ---
+  duration_ms: 5.1726
+  type: 'test'
+  ...
+# Subtest: critic: malformed persisted bounds cannot bypass resumed repetition and timeout limits
+ok 140 - critic: malformed persisted bounds cannot bypass resumed repetition and timeout limits
+  ---
+  duration_ms: 4.599
+  type: 'test'
+  ...
+# Subtest: critic: bounded close uses elapsed wall time with frozen research clock
+ok 141 - critic: bounded close uses elapsed wall time with frozen research clock
+  ---
+  duration_ms: 56.2816
+  type: 'test'
+  ...
+# Subtest: REX803 seeds: a run seed is a pure function of the campaign seed and the index
+ok 142 - REX803 seeds: a run seed is a pure function of the campaign seed and the index
+  ---
+  duration_ms: 1.0686
+  type: 'test'
+  ...
+# Subtest: REX803 campaign: N repetitions yield exactly N measured outcomes, and warmup is run but never measured
+ok 143 - REX803 campaign: N repetitions yield exactly N measured outcomes, and warmup is run but never measured
+  ---
+  duration_ms: 92.1109
+  type: 'test'
+  ...
+# Subtest: REX803 campaign: a timeout and a failure are absences WITH reasons, never silent gaps
+ok 144 - REX803 campaign: a timeout and a failure are absences WITH reasons, never silent gaps
+  ---
+  duration_ms: 91.3368
+  type: 'test'
+  ...
+# Subtest: REX803 campaign: stopping cancels the runs that never happened, each with the operator reason
+ok 145 - REX803 campaign: stopping cancels the runs that never happened, each with the operator reason
+  ---
+  duration_ms: 44.163
+  type: 'test'
+  ...
+# Subtest: REX803 campaign: an unfinished campaign is refused unless resuming is asked for explicitly
+ok 146 - REX803 campaign: an unfinished campaign is refused unless resuming is asked for explicitly
+  ---
+  duration_ms: 96.9244
+  type: 'test'
+  ...
+# Subtest: REX803 campaign: unknown scenarios, bad repetitions, a busy runner and an unready topology are typed refusals
+ok 147 - REX803 campaign: unknown scenarios, bad repetitions, a busy runner and an unready topology are typed refusals
+  ---
+  duration_ms: 30.2122
+  type: 'test'
+  ...
+# Subtest: REX803 stop: the cleanups a run registered are fired, so a stop reaches the work and not only the bookkeeping
+ok 148 - REX803 stop: the cleanups a run registered are fired, so a stop reaches the work and not only the bookkeeping
+  ---
+  duration_ms: 78.6849
+  type: 'test'
+  ...
+# Subtest: REX803 timeout: a run that never answers is torn down, and its cleanup failure is stated rather than hidden
+ok 149 - REX803 timeout: a run that never answers is torn down, and its cleanup failure is stated rather than hidden
+  ---
+  duration_ms: 109.225
+  type: 'test'
+  ...
+# Subtest: REX803 restart: a campaign left RUNNING by a dead process is recovered as INTERRUPTED, named, and optionally resumed
+ok 150 - REX803 restart: a campaign left RUNNING by a dead process is recovered as INTERRUPTED, named, and optionally resumed
+  ---
+  duration_ms: 32.3667
+  type: 'test'
+  ...
+# Subtest: REX803 resume: abandoning an unfinished campaign is an explicit act, and it is recorded on the replacement
+ok 151 - REX803 resume: abandoning an unfinished campaign is an explicit act, and it is recorded on the replacement
+  ---
+  duration_ms: 31.2195
+  type: 'test'
+  ...
+# Subtest: REX803 limits: declared stop conditions end the campaign early, and every unrun repetition is SKIPPED with that reason
+ok 152 - REX803 limits: declared stop conditions end the campaign early, and every unrun repetition is SKIPPED with that reason
+  ---
+  duration_ms: 189.3323
+  type: 'test'
+  ...
+# Subtest: REX803 receipts: a finished campaign is filed once and the next campaign cannot overwrite it
+ok 153 - REX803 receipts: a finished campaign is filed once and the next campaign cannot overwrite it
+  ---
+  duration_ms: 47.6536
+  type: 'test'
+  ...
+# Subtest: REX803 L6: the receipt list is ordered by AGE, not by a random identifier in the filename
+ok 154 - REX803 L6: the receipt list is ordered by AGE, not by a random identifier in the filename
+  ---
+  duration_ms: 10.3069
+  type: 'test'
+  ...
+# Subtest: REX803 L1b: the receipt list says how many campaigns exist beyond the bound
+ok 155 - REX803 L1b: the receipt list says how many campaigns exist beyond the bound
+  ---
+  duration_ms: 8.1425
+  type: 'test'
+  ...
+# Subtest: REX803 L7: a runner that has been closed refuses new work instead of starting a campaign
+ok 156 - REX803 L7: a runner that has been closed refuses new work instead of starting a campaign
+  ---
+  duration_ms: 2.0564
+  type: 'test'
+  ...
+# Subtest: REX803 positive control: a normal campaign still plans, measures and files exactly once
+ok 157 - REX803 positive control: a normal campaign still plans, measures and files exactly once
+  ---
+  duration_ms: 55.8986
+  type: 'test'
+  ...
+# Subtest: REX803 rehearsal: with TWO workers every repetition is TARGETED by its derived seed, not left to claim order
+ok 158 - REX803 rehearsal: with TWO workers every repetition is TARGETED by its derived seed, not left to claim order
+  ---
+  duration_ms: 643.0308
+  type: 'test'
+  ...
+# Subtest: REX803 rehearsal: the observed assignment equals the declared rule, and both workers are used
+ok 159 - REX803 rehearsal: the observed assignment equals the declared rule, and both workers are used
+  ---
+  duration_ms: 479.8182
+  type: 'test'
+  ...
+# Subtest: fault confirmation, live canonical target and bounded duration required
+ok 160 - fault confirmation, live canonical target and bounded duration required
+  ---
+  duration_ms: 2.678
+  type: 'test'
+  ...
+# Subtest: heartbeat loss refuses only targeted heartbeats, stop and expiry restore requests
+ok 161 - heartbeat loss refuses only targeted heartbeats, stop and expiry restore requests
+  ---
+  duration_ms: 38.5273
+  type: 'test'
+  ...
+# Subtest: provider unavailable refuses targeted claim and records measured recovery after stop
+ok 162 - provider unavailable refuses targeted claim and records measured recovery after stop
+  ---
+  duration_ms: 6.8068
+  type: 'test'
+  ...
+# Subtest: delayed report releases immediately on emergency stop without blocking unrelated requests
+ok 163 - delayed report releases immediately on emergency stop without blocking unrelated requests
+  ---
+  duration_ms: 24.6625
+  type: 'test'
+  ...
+# Subtest: duplicate event affects observation only and is absent after emergency stop
+ok 164 - duplicate event affects observation only and is absent after emergency stop
+  ---
+  duration_ms: 5.452
+  type: 'test'
+  ...
+# Subtest: restart disables persisted activation and never resumes fault silently
+ok 165 - restart disables persisted activation and never resumes fault silently
+  ---
+  duration_ms: 5.3934
+  type: 'test'
+  ...
+# Subtest: unexercised or stopped fault cannot receive unrelated future detection or recovery measurements
+ok 166 - unexercised or stopped fault cannot receive unrelated future detection or recovery measurements
+  ---
+  duration_ms: 4.0365
+  type: 'test'
+  ...
+# Subtest: expired fault persistence failure cannot turn normal canonical observation into an error
+ok 167 - expired fault persistence failure cannot turn normal canonical observation into an error
+  ---
+  duration_ms: 4.8239
+  type: 'test'
+  ...
+# Subtest: four fault classes change real Gateway boundaries and emergency stop restores canonical requests
+ok 168 - four fault classes change real Gateway boundaries and emergency stop restores canonical requests
+  ---
+  duration_ms: 3363.7837
+  type: 'test'
+  ...
+# Subtest: REX804 repair guard: an unreadable fault receipt is reported and never prevents the City from starting
+ok 169 - REX804 repair guard: an unreadable fault receipt is reported and never prevents the City from starting
+  ---
+  duration_ms: 152.2086
+  type: 'test'
+  ...
+# Subtest: REX804 repair guard: a receipt with no fault identity is reported as broken, not adopted without identity
+ok 170 - REX804 repair guard: a receipt with no fault identity is reported as broken, not adopted without identity
+  ---
+  duration_ms: 73.0948
+  type: 'test'
+  ...
+# Subtest: REX804 unavailable receipt directory is disclosed and refuses injection without affecting observation
+ok 171 - REX804 unavailable receipt directory is disclosed and refuses injection without affecting observation
+  ---
+  duration_ms: 6.0433
+  type: 'test'
+  ...
+# Subtest: REX804 Web discloses unavailable fault store and prevents injection while normal task creation works
+ok 172 - REX804 Web discloses unavailable fault store and prevents injection while normal task creation works
+  ---
+  duration_ms: 1664.844
+  type: 'test'
+  ...
+# Subtest: Research Danger Zone requires explicit confirmation and offers real emergency stop
+ok 173 - Research Danger Zone requires explicit confirmation and offers real emergency stop
+  ---
+  duration_ms: 1913.9437
+  type: 'test'
+  ...
+# Subtest: REX805 real canonical original/replay/ablation preserve selected seed and change target policy only
+ok 174 - REX805 real canonical original/replay/ablation preserve selected seed and change target policy only
+  ---
+  duration_ms: 795.5345
+  type: 'test'
+  ...
+# Subtest: REX805 replay API is Owner-only and lists truthful bounded mechanism support
+ok 175 - REX805 replay API is Owner-only and lists truthful bounded mechanism support
+  ---
+  duration_ms: 99.1267
+  type: 'test'
+  ...
+# Subtest: REX805 an unbounded HTTP campaign remains comparable after runner normalizes absent limits
+ok 176 - REX805 an unbounded HTTP campaign remains comparable after runner normalizes absent limits
+  ---
+  duration_ms: 347.2614
+  type: 'test'
+  ...
+# Subtest: REX805 replay preserves selected seed and input with fresh identities and untouched source
+ok 177 - REX805 replay preserves selected seed and input with fresh identities and untouched source
+  ---
+  duration_ms: 2.6537
+  type: 'test'
+  ...
+# Subtest: REX805 alternate-device ablation changes actual target selection and records exact mechanism
+ok 178 - REX805 alternate-device ablation changes actual target selection and records exact mechanism
+  ---
+  duration_ms: 0.9228
+  type: 'test'
+  ...
+# Subtest: REX805 unsupported, ambiguous and ineffective ablations are refused before creating experiments
+ok 179 - REX805 unsupported, ambiguous and ineffective ablations are refused before creating experiments
+  ---
+  duration_ms: 1.0525
+  type: 'test'
+  ...
+# Subtest: REX805 corrupt source identity, seed, measured outcome and index cannot be laundered into replay
+ok 180 - REX805 corrupt source identity, seed, measured outcome and index cannot be laundered into replay
+  ---
+  duration_ms: 0.8657
+  type: 'test'
+  ...
+# Subtest: REX805 comparisons expose policy difference and reject changed source material
+ok 181 - REX805 comparisons expose policy difference and reject changed source material
+  ---
+  duration_ms: 1.2019
+  type: 'test'
+  ...
+# Subtest: REX805 registry persistence failure refuses execution while retaining original
+ok 182 - REX805 registry persistence failure refuses execution while retaining original
+  ---
+  duration_ms: 0.262
+  type: 'test'
+  ...
+# Subtest: REX805 unavailable fault conditions and undeclared request switches are refused explicitly
+ok 183 - REX805 unavailable fault conditions and undeclared request switches are refused explicitly
+  ---
+  duration_ms: 0.3592
+  type: 'test'
+  ...
+# Subtest: REX805 reviewer R1: replay of ablation preserves effective policy and re-ablation refuses
+ok 184 - REX805 reviewer R1: replay of ablation preserves effective policy and re-ablation refuses
+  ---
+  duration_ms: 0.8561
+  type: 'test'
+  ...
+# Subtest: REX805 reviewer R2: comparison cannot certify controlled-input or recorded-placement drift
+ok 185 - REX805 reviewer R2: comparison cannot certify controlled-input or recorded-placement drift
+  ---
+  duration_ms: 2.8039
+  type: 'test'
+  ...
+# Subtest: REX805 reviewer R3: inconsistent measured source placement refuses before registration
+ok 186 - REX805 reviewer R3: inconsistent measured source placement refuses before registration
+  ---
+  duration_ms: 0.3311
+  type: 'test'
+  ...
+# Subtest: REX805 single selected run adjusts the declared success stop without losing failure bounds
+ok 187 - REX805 single selected run adjusts the declared success stop without losing failure bounds
+  ---
+  duration_ms: 0.6064
+  type: 'test'
+  ...
+# Subtest: REX805 comparisons reject fabricated lineage and jointly changed registered references
+ok 188 - REX805 comparisons reject fabricated lineage and jointly changed registered references
+  ---
+  duration_ms: 2.4658
+  type: 'test'
+  ...
+# Subtest: REX805 selected index1 preserves original derived seed under new run index0
+ok 189 - REX805 selected index1 preserves original derived seed under new run index0
+  ---
+  duration_ms: 22.1398
+  type: 'test'
+  ...
+# Subtest: REX805 offset is bounded, typed and checked before creating work
+ok 190 - REX805 offset is bounded, typed and checked before creating work
+  ---
+  duration_ms: 1.7669
+  type: 'test'
+  ...
+# Subtest: REX805 interrupted recovery and resume retain offset and refuse offset drift
+ok 191 - REX805 interrupted recovery and resume retain offset and refuse offset drift
+  ---
+  duration_ms: 26.5234
+  type: 'test'
+  ...
+# Subtest: REX805 Web owner selects recorded run and executes real replay/ablation from Research
+ok 192 - REX805 Web owner selects recorded run and executes real replay/ablation from Research
+  ---
+  duration_ms: 3280.5158
+  type: 'test'
+  ...
+# Subtest: REX805 Web switching source discards a delayed comparison from the previous selection
+ok 193 - REX805 Web switching source discards a delayed comparison from the previous selection
+  ---
+  duration_ms: 1898.0704
+  type: 'test'
+  ...
+# Subtest: REX806 S1: the owner can read the artifact export and its preview
+ok 194 - REX806 S1: the owner can read the artifact export and its preview
+  ---
+  duration_ms: 180.6588
+  type: 'test'
+  ...
+# Subtest: REX806 S2: a member session cannot read the artifact export
+ok 195 - REX806 S2: a member session cannot read the artifact export
+  ---
+  duration_ms: 154.2447
+  type: 'test'
+  ...
+# Subtest: REX806 S3: the CSV surface matches the module and stays table-ready
+ok 196 - REX806 S3: the CSV surface matches the module and stays table-ready
+  ---
+  duration_ms: 82.3891
+  type: 'test'
+  ...
+# Subtest: REX806 S4: the preview is bounded and says so
+ok 197 - REX806 S4: the preview is bounded and says so
+  ---
+  duration_ms: 91.0229
+  type: 'test'
+  ...
+# Subtest: REX806 S5: an export with nothing behind it is refused by name
+ok 198 - REX806 S5: an export with nothing behind it is refused by name
+  ---
+  duration_ms: 70.7412
+  type: 'test'
+  ...
+# Subtest: REX806 S6: the owner download retains the enrolled member identities
+ok 199 - REX806 S6: the owner download retains the enrolled member identities
+  ---
+  duration_ms: 114.4843
+  type: 'test'
+  ...
+# Subtest: REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses
+ok 200 - REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses
+  ---
+  duration_ms: 97.5953
+  type: 'test'
+  ...
+# Subtest: REX806 S8: a 51-receipt City labels its bounded download as partial
+ok 201 - REX806 S8: a 51-receipt City labels its bounded download as partial
+  ---
+  duration_ms: 136.8407
+  type: 'test'
+  ...
+# Subtest: REX806 S9: corruption between the receipt listing and detail keeps the readable study
+ok 202 - REX806 S9: corruption between the receipt listing and detail keeps the readable study
+  ---
+  duration_ms: 77.0971
+  type: 'test'
+  ...
+# Subtest: REX806 verifier accepts justified unavailable completion after canonical task loss
+ok 203 - REX806 verifier accepts justified unavailable completion after canonical task loss
+  ---
+  duration_ms: 1074.1536
+  type: 'test'
+  ...
+# Subtest: REX806 verifier accepts the published six-decimal failure rate precision
+ok 204 - REX806 verifier accepts the published six-decimal failure rate precision
+  ---
+  duration_ms: 1240.9828
+  type: 'test'
+  ...
+# Subtest: REX806 verifier accepts justified unavailable rates for an all-refused study
+ok 205 - REX806 verifier accepts justified unavailable rates for an all-refused study
+  ---
+  duration_ms: 1100.9405
+  type: 'test'
+  ...
+# Subtest: REX806 V1: the verifier passes an untampered artifact
+ok 206 - REX806 V1: the verifier passes an untampered artifact
+  ---
+  duration_ms: 1264.8556
+  type: 'test'
+  ...
+# Subtest: REX806 verifier accepts real duplicate canonical execution outside the selected run task
+ok 207 - REX806 verifier accepts real duplicate canonical execution outside the selected run task
+  ---
+  duration_ms: 1328.6508
+  type: 'test'
+  ...
+# Subtest: REX806 verifier rejects a fabricated duplicate count with valid integrity hashes
+ok 208 - REX806 verifier rejects a fabricated duplicate count with valid integrity hashes
+  ---
+  duration_ms: 1605.82
+  type: 'test'
+  ...
+# Subtest: REX806 verifier rejects task associations outside the canonical source pointers
+ok 209 - REX806 verifier rejects task associations outside the canonical source pointers
+  ---
+  duration_ms: 1563.1885
+  type: 'test'
+  ...
+# Subtest: REX806 verifier rejects counting one canonical task twice even when metrics agree
+ok 210 - REX806 verifier rejects counting one canonical task twice even when metrics agree
+  ---
+  duration_ms: 1704.8572
+  type: 'test'
+  ...
+# Subtest: REX806 V2: a tampered metric value is caught
+ok 211 - REX806 V2: a tampered metric value is caught
+  ---
+  duration_ms: 1331.8114
+  type: 'test'
+  ...
+# Subtest: REX806 V3: an emptied NOT_MEASURED reason is caught
+ok 212 - REX806 V3: an emptied NOT_MEASURED reason is caught
+  ---
+  duration_ms: 1421.0626
+  type: 'test'
+  ...
+# Subtest: REX806 V4: a missing section is caught
+ok 213 - REX806 V4: a missing section is caught
+  ---
+  duration_ms: 1550.8234
+  type: 'test'
+  ...
+# Subtest: REX806 V5: a changed dataset timestamp is caught
+ok 214 - REX806 V5: a changed dataset timestamp is caught
+  ---
+  duration_ms: 1600.6344
+  type: 'test'
+  ...
+# Subtest: REX806 V6: a fabricated intervention count is caught
+ok 215 - REX806 V6: a fabricated intervention count is caught
+  ---
+  duration_ms: 1576.4385
+  type: 'test'
+  ...
+# Subtest: REX806 missing canonical tasks remain counted rather than being filtered from convergence
+ok 216 - REX806 missing canonical tasks remain counted rather than being filtered from convergence
+  ---
+  duration_ms: 2.153
+  type: 'test'
+  ...
+# Subtest: REX806 A1: the artifact carries every section the workbook names
+ok 217 - REX806 A1: the artifact carries every section the workbook names
+  ---
+  duration_ms: 2.4402
+  type: 'test'
+  ...
+# Subtest: REX806 A2: every named metric appears, with a value and provenance or NOT_MEASURED and a reason
+ok 218 - REX806 A2: every named metric appears, with a value and provenance or NOT_MEASURED and a reason
+  ---
+  duration_ms: 0.4854
+  type: 'test'
+  ...
+# Subtest: REX806 A3: an unobserved intervention window is NOT_MEASURED, never 0
+ok 219 - REX806 A3: an unobserved intervention window is NOT_MEASURED, never 0
+  ---
+  duration_ms: 0.3496
+  type: 'test'
+  ...
+# Subtest: REX806 A4: an export with no real campaign is refused
+ok 220 - REX806 A4: an export with no real campaign is refused
+  ---
+  duration_ms: 0.4116
+  type: 'test'
+  ...
+# Subtest: REX806 A5: the evaluator refuses a value with no provenance and NOT_MEASURED with no reason
+ok 221 - REX806 A5: the evaluator refuses a value with no provenance and NOT_MEASURED with no reason
+  ---
+  duration_ms: 0.499
+  type: 'test'
+  ...
+# Subtest: REX806 A6: every dataset row carries a raw pointer and a seed-placement verdict
+ok 222 - REX806 A6: every dataset row carries a raw pointer and a seed-placement verdict
+  ---
+  duration_ms: 0.2626
+  type: 'test'
+  ...
+# Subtest: REX806 A7: checksums cover the exact bytes and change when a byte changes
+ok 223 - REX806 A7: checksums cover the exact bytes and change when a byte changes
+  ---
+  duration_ms: 1.0062
+  type: 'test'
+  ...
+# Subtest: REX806 A8: the paper-ready table leads with G3/G4 and keeps their NOT_MEASURED reasons visible
+ok 224 - REX806 A8: the paper-ready table leads with G3/G4 and keeps their NOT_MEASURED reasons visible
+  ---
+  duration_ms: 0.3895
+  type: 'test'
+  ...
+# Subtest: REX806 A9: the artifact separates statistics from narrative and refuses the autonomy inference
+ok 225 - REX806 A9: the artifact separates statistics from narrative and refuses the autonomy inference
+  ---
+  duration_ms: 0.3934
+  type: 'test'
+  ...
+# Subtest: REX806 A10: richer campaign data does not conjure Owner-side metrics
+ok 226 - REX806 A10: richer campaign data does not conjure Owner-side metrics
+  ---
+  duration_ms: 0.3839
+  type: 'test'
+  ...
+# Subtest: REX806 A11: warmup runs are classified separately from failures
+ok 227 - REX806 A11: warmup runs are classified separately from failures
+  ---
+  duration_ms: 0.2466
+  type: 'test'
+  ...
+# Subtest: REX806 A12: a refused campaign stays visible as undelivered planned runs
+ok 228 - REX806 A12: a refused campaign stays visible as undelivered planned runs
+  ---
+  duration_ms: 0.3917
+  type: 'test'
+  ...
+# Subtest: REX806 A13: an ablation placement is judged against its policy, and the seed comparison is kept separately
+ok 229 - REX806 A13: an ablation placement is judged against its policy, and the seed comparison is kept separately
+  ---
+  duration_ms: 0.4718
+  type: 'test'
+  ...
+# Subtest: REX806 CLI retains canonical deviceId members in the downloaded topology
+ok 230 - REX806 CLI retains canonical deviceId members in the downloaded topology
+  ---
+  duration_ms: 1235.6347
+  type: 'test'
+  ...
+# Subtest: REX806 CLI partial download itself names an unreadable receipt without requiring terminal output
+ok 231 - REX806 CLI partial download itself names an unreadable receipt without requiring terminal output
+  ---
+  duration_ms: 1383.8233
+  type: 'test'
+  ...
+# Subtest: REX806 CLI partial download itself names the latest missing receipt
+ok 232 - REX806 CLI partial download itself names the latest missing receipt
+  ---
+  duration_ms: 1520.7401
+  type: 'test'
+  ...
+# Subtest: REX806 CLI exposes a known truncated receipt window as partial
+ok 233 - REX806 CLI exposes a known truncated receipt window as partial
+  ---
+  duration_ms: 1700.6713
+  type: 'test'
+  ...
+# Subtest: REX806 CLI survives an unreadable detail after a readable listing
+ok 234 - REX806 CLI survives an unreadable detail after a readable listing
+  ---
+  duration_ms: 1604.0309
+  type: 'test'
+  ...
+# Subtest: REX807 S9: the surface refuses to exist if any advanced control could be triggered without confirmation
+ok 235 - REX807 S9: the surface refuses to exist if any advanced control could be triggered without confirmation
+  ---
+  duration_ms: 1.8529
+  type: 'test'
+  ...
+# Subtest: REX807 S10: the client confirmation rule refuses anything except the exact token the gateway enforces
+ok 236 - REX807 S10: the client confirmation rule refuses anything except the exact token the gateway enforces
+  ---
+  duration_ms: 134.6931
+  type: 'test'
+  ...
+# Subtest: REX807 S11: in a real browser a wrong confirmation injects nothing, and the exact token then injects
+ok 237 - REX807 S11: in a real browser a wrong confirmation injects nothing, and the exact token then injects
+  ---
+  duration_ms: 1636.1644
+  type: 'test'
+  ...
+# Subtest: REX807 S12: the Owner downloads the research artifact from the page, with no API call and no console
+ok 238 - REX807 S12: the Owner downloads the research artifact from the page, with no API call and no console
+  ---
+  duration_ms: 2309.981
+  type: 'test'
+  ...
+# Subtest: REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics
+ok 239 - REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics
+  ---
+  duration_ms: 2.5406
+  type: 'test'
+  ...
+# Subtest: REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default
+ok 240 - REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default
+  ---
+  duration_ms: 0.7227
+  type: 'test'
+  ...
+# Subtest: REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons
+ok 241 - REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons
+  ---
+  duration_ms: 0.534
+  type: 'test'
+  ...
+# Subtest: REX807 S4: a payload field this view does not place is reported, never silently dropped
+ok 242 - REX807 S4: a payload field this view does not place is reported, never silently dropped
+  ---
+  duration_ms: 2.2824
+  type: 'test'
+  ...
+# Subtest: REX807 S5: the research entry is secondary and the primary surfaces stay clean
+ok 243 - REX807 S5: the research entry is secondary and the primary surfaces stay clean
+  ---
+  duration_ms: 1.2141
+  type: 'test'
+  ...
+# Subtest: REX807 S6: nothing INTERNAL_ONLY is rendered as a user control
+ok 244 - REX807 S6: nothing INTERNAL_ONLY is rendered as a user control
+  ---
+  duration_ms: 0.4947
+  type: 'test'
+  ...
+# Subtest: REX807 S7: the same payload renders in zh-CN with real translation, not English fallback
+ok 245 - REX807 S7: the same payload renders in zh-CN with real translation, not English fallback
+  ---
+  duration_ms: 0.4837
+  type: 'test'
+  ...
+# Subtest: REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts
+ok 246 - REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts
+  ---
+  duration_ms: 26.3954
+  type: 'test'
+  ...
+# Subtest: REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope
+ok 247 - REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope
+  ---
+  duration_ms: 2128.2901
+  type: 'test'
+  ...
+# Subtest: REX807 shipped metrics and source disclosures come from the held artifact
+ok 248 - REX807 shipped metrics and source disclosures come from the held artifact
+  ---
+  duration_ms: 1896.286
+  type: 'test'
+  ...
+# Subtest: REX807 a real admitted member never receives an owner export claim or enabled export
+ok 249 - REX807 a real admitted member never receives an owner export claim or enabled export
+  ---
+  duration_ms: 1656.5705
+  type: 'test'
+  ...
+# Subtest: REX807 failed campaign read stays visibly unknown, then a successful refresh clears it
+ok 250 - REX807 failed campaign read stays visibly unknown, then a successful refresh clears it
+  ---
+  duration_ms: 1824.6305
+  type: 'test'
+  ...
+# Subtest: REX807 actual gateway unfinished and bounded history remain visible
+ok 251 - REX807 actual gateway unfinished and bounded history remain visible
+  ---
+  duration_ms: 1821.0869
+  type: 'test'
+  ...
+# Subtest: REX807 actual campaign storage failure cannot render an idle run
+ok 252 - REX807 actual campaign storage failure cannot render an idle run
+  ---
+  duration_ms: 1737.821
+  type: 'test'
+  ...
+# Subtest: the real manifest describes exactly the districts and modules that exist
+ok 253 - the real manifest describes exactly the districts and modules that exist
+  ---
+  duration_ms: 13.6236
+  type: 'test'
+  ...
+# Subtest: the manifest and the city tree agree on what exists
+ok 254 - the manifest and the city tree agree on what exists
+  ---
+  duration_ms: 23.9804
+  type: 'test'
+  ...
+# Subtest: mission-book incubators are named and provenanced, and Room Pack incubators are not disguised
+ok 255 - mission-book incubators are named and provenanced, and Room Pack incubators are not disguised
+  ---
+  duration_ms: 7.3151
+  type: 'test'
+  ...
+# Subtest: a mission-book migration incubator proves a donor; a programme-task incubator proves it has none
+ok 256 - a mission-book migration incubator proves a donor; a programme-task incubator proves it has none
+  ---
+  duration_ms: 61.8972
+  type: 'test'
+  ...
+# Subtest: the manifest rejects malformed hierarchy, paths and lifecycles
+ok 257 - the manifest rejects malformed hierarchy, paths and lifecycles
+  ---
+  duration_ms: 8.9413
+  type: 'test'
+  ...
+# Subtest: module directories and lifecycles must not contradict each other
+ok 258 - module directories and lifecycles must not contradict each other
+  ---
+  duration_ms: 51.2653
+  type: 'test'
+  ...
+# Subtest: loadManifest reports an unreadable manifest instead of guessing
+ok 259 - loadManifest reports an unreadable manifest instead of guessing
+  ---
+  duration_ms: 4.0272
+  type: 'test'
+  ...
+# Subtest: city/test-all.mjs discovers module tests without shell globs
+ok 260 - city/test-all.mjs discovers module tests without shell globs
+  ---
+  duration_ms: 36.0915
+  type: 'test'
+  ...
+# Subtest: each member sees itself first and all City devices by admission name, with real message receipt
+ok 261 - each member sees itself first and all City devices by admission name, with real message receipt
+  ---
+  duration_ms: 3904.7819
+  type: 'test'
+  ...
+# Subtest: one canonical job is observed by Web and Android without duplicate execution
+ok 262 - one canonical job is observed by Web and Android without duplicate execution
+  ---
+  duration_ms: 8.5403
+  type: 'test'
+  ...
+# Subtest: the interaction device may differ from the execution device
+ok 263 - the interaction device may differ from the execution device
+  ---
+  duration_ms: 1.2605
+  type: 'test'
+  ...
+# Subtest: remote fallback requires explicit approval and local allowed work stays local
+ok 264 - remote fallback requires explicit approval and local allowed work stays local
+  ---
+  duration_ms: 1.6538
+  type: 'test'
+  ...
+# Subtest: attention comes from shared state and one acknowledgement reconciles every projection
+ok 265 - attention comes from shared state and one acknowledgement reconciles every projection
+  ---
+  duration_ms: 2.7062
+  type: 'test'
+  ...
+# Subtest: user-visible success comes only from a terminal accepted result
+ok 266 - user-visible success comes only from a terminal accepted result
+  ---
+  duration_ms: 1.5935
+  type: 'test'
+  ...
+# Subtest: advanced provenance exposes identifiers without leaking secrets, and the surface is strict
+ok 267 - advanced provenance exposes identifiers without leaking secrets, and the surface is strict
+  ---
+  duration_ms: 2.5336
+  type: 'test'
+  ...
+# Subtest: the surface policy cannot be used to switch the canonical binding or the attention source off
+ok 268 - the surface policy cannot be used to switch the canonical binding or the attention source off
+  ---
+  duration_ms: 0.555
+  type: 'test'
+  ...
+# Subtest: an impossible instant is refused everywhere it could become evidence
+ok 269 - an impossible instant is refused everywhere it could become evidence
+  ---
+  duration_ms: 0.5969
+  type: 'test'
+  ...
+# Subtest: a hidden, symbol-keyed or header-shaped secret is still secret material
+ok 270 - a hidden, symbol-keyed or header-shaped secret is still secret material
+  ---
+  duration_ms: 0.8922
+  type: 'test'
+  ...
+# Subtest: a cancelled job is finished even though it carries no result
+ok 271 - a cancelled job is finished even though it carries no result
+  ---
+  duration_ms: 0.6398
+  type: 'test'
+  ...
+# Subtest: control authority is bound to the job, not to whoever calls
+ok 272 - control authority is bound to the job, not to whoever calls
+  ---
+  duration_ms: 0.6408
+  type: 'test'
+  ...
+# Subtest: a retry re-queues failed work only and never revives or duplicates execution
+ok 273 - a retry re-queues failed work only and never revives or duplicates execution
+  ---
+  duration_ms: 0.8244
+  type: 'test'
+  ...
+# Subtest: the first terminal result is the job truth and malformed artifacts are refused, not dropped
+ok 274 - the first terminal result is the job truth and malformed artifacts are refused, not dropped
+  ---
+  duration_ms: 0.8843
+  type: 'test'
+  ...
+# Subtest: an attention-required backend is not rendered as success
+ok 275 - an attention-required backend is not rendered as success
+  ---
+  duration_ms: 0.6217
+  type: 'test'
+  ...
+# Subtest: the surface reports the execution device it was given and never invents one
+ok 276 - the surface reports the execution device it was given and never invents one
+  ---
+  duration_ms: 0.2763
+  type: 'test'
+  ...
+# Subtest: owner and executor separation is about the owner and the executor connector
+ok 277 - owner and executor separation is about the owner and the executor connector
+  ---
+  duration_ms: 0.2547
+  type: 'test'
+  ...
+# Subtest: canonical refs are unique across surfaces in one process
+ok 278 - canonical refs are unique across surfaces in one process
+  ---
+  duration_ms: 0.5241
+  type: 'test'
+  ...
+# Subtest: an attention acknowledgement records the subject it answers and the read views are frozen
+ok 279 - an attention acknowledgement records the subject it answers and the read views are frozen
+  ---
+  duration_ms: 0.9676
+  type: 'test'
+  ...
+# Subtest: a finished job is not re-opened for attention and an answered question is not reset
+ok 280 - a finished job is not re-opened for attention and an answered question is not reset
+  ---
+  duration_ms: 1.2869
+  type: 'test'
+  ...
+# Subtest: a blocking canonical question gates progress and resume
+ok 281 - a blocking canonical question gates progress and resume
+  ---
+  duration_ms: 0.6512
+  type: 'test'
+  ...
+# Subtest: attention and approvals answer only to devices connected to the job
+ok 282 - attention and approvals answer only to devices connected to the job
+  ---
+  duration_ms: 0.723
+  type: 'test'
+  ...
+# Subtest: an object is not a provenance reference, and a nested payload is refused
+ok 283 - an object is not a provenance reference, and a nested payload is refused
+  ---
+  duration_ms: 0.6132
+  type: 'test'
+  ...
+# Subtest: the secret scan reads maps, sets and records it cannot read
+ok 284 - the secret scan reads maps, sets and records it cannot read
+  ---
+  duration_ms: 0.2344
+  type: 'test'
+  ...
+# Subtest: a lease belongs to one job and a shared task core confirms the binding when one is wired in
+ok 285 - a lease belongs to one job and a shared task core confirms the binding when one is wired in
+  ---
+  duration_ms: 0.739
+  type: 'test'
+  ...
+# Subtest: a result that is not a success is not accepted as one, and an uncloneable artifact is a typed refusal
+ok 286 - a result that is not a success is not accepted as one, and an uncloneable artifact is a typed refusal
+  ---
+  duration_ms: 0.661
+  type: 'test'
+  ...
+# Subtest: the surface names where control came from and scopes its structural claims
+ok 287 - the surface names where control came from and scopes its structural claims
+  ---
+  duration_ms: 0.3878
+  type: 'test'
+  ...
+# Subtest: joining only demotes the local host, saves its admission name and leaves remote City intact
+ok 288 - joining only demotes the local host, saves its admission name and leaves remote City intact
+  ---
+  duration_ms: 272.3629
+  type: 'test'
+  ...
+# Subtest: failed pairing and busy local work do not demote or write a new membership
+ok 289 - failed pairing and busy local work do not demote or write a new membership
+  ---
+  duration_ms: 145.0481
+  type: 'test'
+  ...
+# Subtest: native production transition retires only local Gateway and its worker, while remote host stays primary
+ok 290 - native production transition retires only local Gateway and its worker, while remote host stays primary
+  ---
+  duration_ms: 484.3921
+  type: 'test'
+  ...
+# Subtest: selected MEMBER role survives coordinator crash without replacing the original City pointer
+ok 291 - selected MEMBER role survives coordinator crash without replacing the original City pointer
+  ---
+  duration_ms: 8.8989
+  type: 'test'
+  ...
+# Subtest: REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code
+ok 292 - REVIEW JOIN-501 A1: when ANOTHER client replaces the canonical session, the first page stops showing a dead code
+  ---
+  duration_ms: 5459.6971
+  type: 'test'
+  ...
+# Subtest: REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session
+ok 293 - REVIEW JOIN-501 A2: a real WebSocket drop and the product’s own reconnect neither create nor lose a session
+  ---
+  duration_ms: 6002.4767
+  type: 'test'
+  ...
+# Subtest: REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session
+ok 294 - REVIEW JOIN-501 A3: a burst of same-task clicks can create at most one session
+  ---
+  duration_ms: 9341.6287
+  type: 'test'
+  ...
+# Subtest: REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE
+ok 295 - REVIEW JOIN-501 A4: a code that expires while the tab is HIDDEN is not restored as ACTIVE
+  ---
+  duration_ms: 12344.4333
+  type: 'test'
+  ...
+# Subtest: PCF726 versioned capsule retains canonical identity and bounded scope; legacy tasks remain untouched
+ok 296 - PCF726 versioned capsule retains canonical identity and bounded scope; legacy tasks remain untouched
+  ---
+  duration_ms: 6.2747
+  type: 'test'
+  ...
+# Subtest: PCF726 result correlation never treats transport or exit zero as acceptance
+ok 297 - PCF726 result correlation never treats transport or exit zero as acceptance
+  ---
+  duration_ms: 16.8047
+  type: 'test'
+  ...
+# Subtest: PCF726 explicit result ledger rejects replay and out of order after restart
+ok 298 - PCF726 explicit result ledger rejects replay and out of order after restart
+  ---
+  duration_ms: 11.2387
+  type: 'test'
+  ...
+# Subtest: Web Devices and ephemeral pairing share the authoritative Gateway
+ok 299 - Web Devices and ephemeral pairing share the authoritative Gateway
+  ---
+  duration_ms: 74891.1605
+  type: 'test'
+  ...
+# Subtest: Web freshness, device detail, node offline and pairing expiry
+ok 300 - Web freshness, device detail, node offline and pairing expiry
+  ---
+  duration_ms: 11075.1516
+  type: 'test'
+  ...
+1..300
+# tests 300
+# suites 0
+# pass 300
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 149356.4201
