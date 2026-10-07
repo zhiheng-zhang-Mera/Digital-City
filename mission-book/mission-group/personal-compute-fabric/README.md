@@ -1,5 +1,29 @@
 # PCF — Personal Compute Fabric / 个人异构计算织网（增强版）
 
+> **2026-10-07 零领取归类 / zero-claim classification（Mech-DS，PCF-701 收口后重扫）**
+>
+> ```text
+> pool_incomplete           true —— PCF-700/701 已 COMPLETE（2/2）；702..728 仍 NOT_STARTED 且 execution_enabled=false
+> claimable_now             0
+> potentially_claimable_later  true
+> classification            TEMPORARILY_UNCLAIMABLE / WAITING_ELIGIBILITY（§5.1），**不是** POOL_TERMINAL、不是 STRUCTURALLY_INELIGIBLE
+> structural_ineligibility_reason 无（本机对 PCF 有资格；限制来自 Owner gate 与依赖，不是身份/硬件/安全策略）
+> global_external_blocker   无（不需要付款、账户或硬件动作）
+> reason（实测，非推断）     PCF-702/704 的依赖是 ["PCF-701","PCF-706","PCF-708"]，而 706/708 同样 execution_enabled=false、
+>                            status=NOT_STARTED ⇒ 即使只激活 702，也拿不到满足依赖的工作；PCF-702 的 owner_gate 为
+>                            OWNER_ACTIVATION_REQUIRED，本系列 §2「首次激活事务」明确要求 Owner 指定 scope revision/预算/
+>                            设备资格，且 PROGRESS_MANIFEST 只带显式文件集。因此**本机不擅自激活** 702/706/708，
+>                            也不为依赖门造例外（与 PCF-700/701 当时的同一纪律）。
+> wake_condition            · Owner 指定下一批 PCF scope（最小可继续集合 = {PCF-702, PCF-706, PCF-708}，建议一并命名时说明预算/资格）
+>                           · 或 REX-807 复检完成（解锁 REX-890）后由 REX 侧优先
+> rescan_after              不按 20 分钟兜底轮询 Owner gate（该 gate 不会自己变化）；Owner 指令到达时立即重扫
+> ```
+>
+> 同时记录 REX 侧：REX-807 开发侧已收口（`development_complete: true`，头 `9ad8882`），**REX-890 仍在 WAITING_DEPENDENCIES**，
+> 因此本机当前**没有可合法领取的下一本**：REX 侧等对侧复检（本机不得自审），PCF 侧等 Owner 开闸。 / No task is legally
+> claimable on this host right now: REX-807's development is closed and awaits the opposite host's review (no self-review),
+> REX-890 waits on that acceptance, and the PCF sequence needs owner activation plus PCF-706/708 as its dependency closure.
+
 > **PARKED / NOT ACTIVATED / DESIGN ONLY — 设计期状态（历史）**
 > 所有工作书 `execution_enabled: false`；实现基准、依赖 SHA、领取者和验收证据故意留空。PCF 不加入当前 `PROGRESS_MANIFEST.json`，不改变在途任务、主任务分母或 Utopia 运行行为。
 
