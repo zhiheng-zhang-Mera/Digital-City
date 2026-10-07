@@ -56,11 +56,6 @@
       "sha256": "048100d08ee1aecbb279b1049082fcc5415dcc7c0407dbe3d87753048659d471"
     },
     {
-      "file": "pcf-full-final-regression-available.log",
-      "bytes": 128569,
-      "sha256": "6f9ab39c67a7f3bda7ff604cc6a2080dd3ec2990ebe484f8876dda64a7b52fc8"
-    },
-    {
       "file": "pcf-full-foundation-green.log",
       "bytes": 637,
       "sha256": "970987bc47d75a8a1fec4939a8b2379b5f34bac30d62fd824726213e1cf074e2"
@@ -159,6 +154,19 @@
       "file": "pcf-full-local-pilot-report.json",
       "bytes": 3490,
       "sha256": "0592609fba95aa5388653d291f3ac9faebc6ff1a3ad6c64904310876c322ffc5"
+    },
+    {
+      "file": "pcf-full-final-regression-available.log",
+      "bytes": 142693,
+      "sha256": "0b9beefaf095733e65c851bb17ea3fff65c251e9a88564e3029b3cfd798593a7",
+      "source_binding": "AVAILABLE_REGRESSION_WHILE_COMPONENT_DEVELOPMENT_CONTINUED_NOT_FROZEN"
+    },
+    {
+      "file": "pcf-full-final-regression-available.in-progress-snapshot.log",
+      "bytes": 128569,
+      "sha256": "6f9ab39c67a7f3bda7ff604cc6a2080dd3ec2990ebe484f8876dda64a7b52fc8",
+      "source_binding": "AVAILABLE_REGRESSION_WHILE_COMPONENT_DEVELOPMENT_CONTINUED_NOT_FROZEN"
     }
-  ]
+  ],
+  "streamed_log_correction": "Preserved the original in-progress snapshot separately and archived the terminal output; this run is not a frozen final candidate."
 }

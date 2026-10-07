@@ -1,0 +1,46 @@
+✔ fixed invocation never accepts arbitrary argv or latest session (2.4632ms)
+✔ unapproved provider remains NOT_RUN and unknown attachment refused (0.8309ms)
+✔ real subprocess fixture captures JSONL exit and refuses duplicate attempt (1038.8617ms)
+✔ bounded malformed stream fails and cancellation waits for process close (1939.8554ms)
+✔ adapter binds real ConnectorPort inventory without claiming readiness (0.4037ms)
+✔ nonzero exit and invalid JSONL do not become success (1977.4565ms)
+✔ caller mutation across workspace validation cannot change verified execution (983.8693ms)
+✔ production cannot inject a workspace validator or provider fixture argv (0.3715ms)
+✖ owned start is persisted before stdin and durable exit precedes collection (901.6957ms)
+✖ receipt disk failure is ATTENTION and cannot be collected (976.1732ms)
+✔ facade forwards canonical receipts and keeps delivered distinct from consumed (1.5448ms)
+✔ each invocation rechecks current authority including retrieval (0.2218ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 10
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8840.4588
+
+✖ failing tests:
+
+test at tests\pcf727-runtime.test.mjs:62:1
+✖ owned start is persisted before stdin and durable exit precedes collection (901.6957ms)
+  [Error: EBUSY: resource busy or locked, rmdir 'C:\Users\15601\AppData\Local\Temp\pcf727-Vg18kf'] { errno: -4082, code: 'EBUSY', syscall: 'rmdir', path: 'C:\\Users\\15601\\AppData\\Local\\Temp\\pcf727-Vg18kf' }
+
+test at tests\pcf727-runtime.test.mjs:69:1
+✖ receipt disk failure is ATTENTION and cannot be collected (976.1732ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'SUCCEEDED'
+  - 'ATTENTION'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf727-runtime.test.mjs:72:146)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SUCCEEDED',
+    expected: 'ATTENTION',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

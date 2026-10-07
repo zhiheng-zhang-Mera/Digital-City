@@ -1,0 +1,19 @@
+✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (2185.5701ms)
+✔ durable claim nonce, exact principal and current grant block replay or revoked worker (29.9018ms)
+✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (1017.4383ms)
+✔ stop control requests stop without committing terminal state (83.0579ms)
+✔ registration bridge rechecks current worker grant instead of granting an invented membership (59.2408ms)
+✔ claim nonce survives reconstructed port and dormant port grants no endpoints (79.383ms)
+✔ enabled remote port requires a synchronous current authority boundary (61.4777ms)
+✔ claim refuses owner revocation during awaited worker recheck before durable nonce (75.513ms)
+✔ dispatch refuses worker revocation during final awaited owner policy read (64.7882ms)
+✔ report refuses grant revocation during final awaited owner read without canonical completion (1062.0398ms)
+✔ input delivery refuses owner revocation during awaited artifact read (79.0221ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5798.3179

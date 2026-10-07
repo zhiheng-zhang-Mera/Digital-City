@@ -1,0 +1,16 @@
+✔ 715 controls require configured running service; results returned and caller ack do not become Agent consumption (1.3599ms)
+✔ 715 malformed number input and stored task markup cannot cross the control form boundary (1.7199ms)
+✔ 720 stable driver/device identity, explicit units and safe integer bounds reject overflow and ambiguous source (1.3288ms)
+✔ 720 current canonical reservations and explicit safety constraints refuse stale/driver-change/hot/unknown measurements (0.3601ms)
+✔ 720 optional adapter reuses 701 observations and does not silently aggregate heterogeneous GPUs (1.2185ms)
+✔ 720 absent driver remains UNSUPPORTED rather than invented zero (101.5595ms)
+✔ 720 malformed OBSERVED shape cannot invent available VRAM or survive invalid freshness (0.2453ms)
+✔ 720 real registry retains failed driver reads as UNKNOWN while absent driver remains UNSUPPORTED (0.6848ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1973.4753

@@ -1,0 +1,24 @@
+✔ pins and leases survive restart and revoked bytes are visibly deleted (29.3182ms)
+✖ repository input manifest includes explicit dirty content and refuses secrets and traversal (0.3093ms)
+✔ partial transfer resumes across instances only with matching version and digest (15.9533ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1010.2261
+
+✖ failing tests:
+
+test at tests\pcf709-artifacts.test.mjs:13:1
+✖ repository input manifest includes explicit dirty content and refuses secrets and traversal (0.3093ms)
+  TypeError: cache.repositorySnapshotManifest is not a function
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf709-artifacts.test.mjs:15:23)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)

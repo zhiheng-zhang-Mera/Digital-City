@@ -1,0 +1,52 @@
+✖ canonical Task uses COMPLETED while capsule outcome remains SUCCEEDED (80.9901ms)
+✖ uncertain side effects keep running canonical truth, reservation and visible attention (71.9979ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1405.6882
+
+✖ failing tests:
+
+test at tests\pcf-stageb-canonical-truth.test.mjs:3:1
+✖ canonical Task uses COMPLETED while capsule outcome remains SUCCEEDED (80.9901ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'SUCCEEDED'
+  - 'COMPLETED'
+  
+      at file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stageb-canonical-truth.test.mjs:3:282
+      at fixture (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stageb-canonical-truth.test.mjs:2:554)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'SUCCEEDED',
+    expected: 'COMPLETED',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf-stageb-canonical-truth.test.mjs:4:1
+✖ uncertain side effects keep running canonical truth, reservation and visible attention (71.9979ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'UNKNOWN'
+  - 'RUNNING'
+  
+      at file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stageb-canonical-truth.test.mjs:4:287
+      at fixture (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stageb-canonical-truth.test.mjs:2:554)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'UNKNOWN',
+    expected: 'RUNNING',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

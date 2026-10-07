@@ -1,0 +1,15 @@
+✔ two actual local CPU workloads retain repetitions, canonical task/action, trace replay and digests (6414.5888ms)
+✔ source mismatch and dirty checkout cannot become frozen provenance (3655.1516ms)
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ staged-only source contents and index changes alter bounded snapshot identity in an isolated repository (3837.1601ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15010.6908

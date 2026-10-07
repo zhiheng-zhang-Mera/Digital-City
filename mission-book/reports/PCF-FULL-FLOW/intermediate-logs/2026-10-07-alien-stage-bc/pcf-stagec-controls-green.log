@@ -1,0 +1,18 @@
+✔ 715: existing gateway exposes owner-only, read-only PCF projection without enabling execution (130.5505ms)
+✔ default gateway retains readonly fabric and does not admit PCF jobs (132.8253ms)
+✔ explicit approved local owner executes CPU and acknowledges digest (1228.7602ms)
+✔ enabled without approved device refuses startup (1.3311ms)
+✔ legacy cancellation cannot change PCF state and member session has no owner authority (1168.9188ms)
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (1178.4114ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (72.1143ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (69.0761ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (61.455ms)
+✔ drain fences an admission awaiting current authority and creates no late Task or Action (54.2752ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4641.7337

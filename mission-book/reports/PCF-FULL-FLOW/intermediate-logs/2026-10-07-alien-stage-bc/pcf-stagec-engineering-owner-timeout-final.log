@@ -1,0 +1,24 @@
+✔ fixed invocation never accepts arbitrary argv or latest session (1.6964ms)
+✔ unapproved provider remains NOT_RUN and unknown attachment refused (0.8284ms)
+✔ real subprocess fixture captures JSONL exit and refuses duplicate attempt (1089.0762ms)
+✔ bounded malformed stream fails and cancellation waits for process close (2351.6779ms)
+✔ adapter binds real ConnectorPort inventory without claiming readiness (0.5995ms)
+✔ nonzero exit and invalid JSONL do not become success (1985.5605ms)
+✔ caller mutation across workspace validation cannot change verified execution (1007.3335ms)
+✔ production cannot inject a workspace validator or provider fixture argv (0.3528ms)
+✔ owned start is persisted before stdin and durable exit precedes collection (991.2688ms)
+✔ receipt disk failure is ATTENTION and cannot be collected (990.6065ms)
+✔ owner start refusal closes the owned process without delivering stdin (907.4787ms)
+✔ never-settling owner start has a bounded ATTENTION receipt and abort fence (939.8137ms)
+✔ late receipt persistence cannot turn callback timeout into success (1024.5802ms)
+✔ component fixture: real Store admission capsule subprocess durable receipt and same-caller consume (1236.6091ms)
+✔ facade forwards canonical receipts and keeps delivered distinct from consumed (2.2928ms)
+✔ each invocation rechecks current authority including retrieval (0.3571ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12337.9002

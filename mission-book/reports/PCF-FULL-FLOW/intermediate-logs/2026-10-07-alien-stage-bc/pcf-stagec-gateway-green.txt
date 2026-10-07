@@ -1,0 +1,12 @@
+✔ default gateway retains readonly fabric and does not admit PCF jobs (492.3256ms)
+✔ explicit approved local owner executes CPU and acknowledges digest (1152.0075ms)
+✔ enabled without approved device refuses startup (1.256ms)
+✔ legacy cancellation cannot change PCF state and member session has no owner authority (1175.9511ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3971.6591

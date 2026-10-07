@@ -1,0 +1,14 @@
+✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (2088.6897ms)
+✔ durable claim nonce, exact principal and current grant block replay or revoked worker (65.9104ms)
+✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (1074.4619ms)
+✔ stop control requests stop without committing terminal state (72.8579ms)
+✔ registration bridge rechecks current worker grant instead of granting an invented membership (54.3029ms)
+✔ claim nonce survives reconstructed port and dormant port grants no endpoints (70.6609ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4417.8279

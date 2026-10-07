@@ -1,0 +1,38 @@
+✖ pins and leases survive restart and revoked bytes are visibly deleted (9.739ms)
+✖ partial transfer resumes across instances only with matching version and digest (1.7696ms)
+✖ approved fenced new attempt restores real chunked CPU state and retains old binding (12.0073ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 0
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1882.3487
+
+✖ failing tests:
+
+test at tests\pcf709-artifacts.test.mjs:4:1
+✖ pins and leases survive restart and revoked bytes are visibly deleted (9.739ms)
+  TypeError: s.pin is not a function
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf709-artifacts.test.mjs:7:65)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests\pcf709-artifacts.test.mjs:12:1
+✖ partial transfer resumes across instances only with matching version and digest (1.7696ms)
+  TypeError: s.beginTransfer is not a function
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf709-artifacts.test.mjs:15:25)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests\pcf711-checkpoints.test.mjs:8:1
+✖ approved fenced new attempt restores real chunked CPU state and retains old binding (12.0073ms)
+  Error: CHECKPOINT_BINDING_attemptId
+      at requireThat (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/validation.mjs:2:79)
+      at restoreCheckpoint (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/checkpoint.mjs:4:252)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf711-checkpoints.test.mjs:16:14)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    code: 'CHECKPOINT_BINDING_attemptId'
+  }

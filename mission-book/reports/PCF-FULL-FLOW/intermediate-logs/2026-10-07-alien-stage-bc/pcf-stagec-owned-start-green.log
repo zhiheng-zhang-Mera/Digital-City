@@ -1,0 +1,10 @@
+✔ owned CPU work waits for durable start callback before receiving input (983.8738ms)
+✔ storage refusal before input stops the owned CPU child and cannot publish success (903.3306ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2857.9571

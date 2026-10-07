@@ -1,0 +1,16 @@
+✔ recovery refuses timeout, PID-only, stale epoch, revoked authority and unknown effects (92.0287ms)
+✔ bound owned-stop proof requeues the same Task/Action once and fences old output (69.6647ms)
+✔ authority revoked during asynchronous stop proof cannot release or requeue (63.8285ms)
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (1099.0036ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (74.496ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (74.7554ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (67.6577ms)
+✔ drain fences an admission awaiting current authority and creates no late Task or Action (67.3101ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3261.4842

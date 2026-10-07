@@ -1,0 +1,30 @@
+✔ 709: opaque digest-checked artifacts reject traversal, revoked access and bounded quota overflow (14.0939ms)
+✔ 710: actual local CPU process produces JSON digest and identifies host/process; bounded/cancelled input refused (1024.7257ms)
+✔ 711: explicit compatible checkpoint restore completes identical CPU sum; incompatible input/attempt refused (1082.6261ms)
+✔ 703: declared DAG executes concurrent independent stages, dependency before consumer and cancellation propagates (39.0115ms)
+✔ 703: byte/item credit cannot overflow, double acknowledge, or continue after cancel (0.4634ms)
+✔ 709: caller metadata cannot overwrite storage identity, digest, size or schema version (1.9777ms)
+✔ 703: final-stage failure is never returned as an empty successful plan (0.4435ms)
+✔ full local candidate: two real CPU applications execute through canonical admission/artifacts/capsule/receipt/origin/consumption (2116.6231ms)
+✔ review: canonical task ownership cannot be substituted by a caller workload (74.1057ms)
+✔ review: terminal attempt retention remains bounded without stopping job 257 (2786.1117ms)
+✔ review: separate artifact stores cannot acknowledge over-quota concurrent publications (8.2446ms)
+✔ pins and leases survive restart and revoked bytes are visibly deleted (26.7241ms)
+✔ corruption and authorization revoked before publication keep bytes unavailable (12.9263ms)
+✔ authorization revoked during direct publication removes partial and restores quota (2.8896ms)
+✔ expired and revoked partials can be authorized cancelled with visible cleanup failure and retry (14.1151ms)
+✔ transfer publish recovers index fault and descriptor cleanup fault idempotently without double quota (19.954ms)
+✔ cancelled journal-owned blob after chained index and cleanup faults remains counted unavailable storage (26.4963ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (0.8905ms)
+✔ transfer descriptors cannot overwrite owner authorization or schema (2.2293ms)
+✔ partial transfer resumes across instances only with matching version and digest (14.6642ms)
+✔ approved fenced new attempt restores real chunked CPU state and retains old binding (22.2718ms)
+✔ new attempt recovery rejects absent compatibility and legacy same-attempt remains readable (6.1581ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5751.7151

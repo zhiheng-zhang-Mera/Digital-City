@@ -1,0 +1,26 @@
+✔ 702: feasibility precedes ranking; stale/unknown/untrusted/strict/capability constraints cannot win (2.0588ms)
+✔ 704/712: canonical CAS admission, idempotence, epoch fencing, commit and restart preserve one task truth (94.5583ms)
+✔ 704: changed policy/version or observation cannot be admitted (59.6962ms)
+✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (2277.2451ms)
+✔ durable claim nonce, exact principal and current grant block replay or revoked worker (79.7858ms)
+✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (1103.8172ms)
+✔ stop control requests stop without committing terminal state (80.4488ms)
+✔ registration bridge rechecks current worker grant instead of granting an invented membership (61.105ms)
+✔ claim nonce survives reconstructed port and dormant port grants no endpoints (81.4674ms)
+✔ enabled remote port requires a synchronous current authority boundary (62.33ms)
+✔ claim refuses owner revocation during awaited worker recheck before durable nonce (72.6623ms)
+✔ dispatch refuses worker revocation during final awaited owner policy read (65.0784ms)
+✔ report refuses grant revocation during final awaited owner read without canonical completion (1073.0465ms)
+✔ input delivery refuses owner revocation during awaited artifact read (86.1514ms)
+✔ pool registers dormant without adapter or I/O and refuses direct or registry work (3.1872ms)
+✔ explicit pool narrows canonical endpoints by membership, role and descriptor readiness (1.0037ms)
+✔ enabled pool with missing canonical adapter fails typed unavailable (0.1892ms)
+✔ pool control must not cancel work held by an unrelated standard endpoint (0.2253ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7086.4728

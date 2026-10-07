@@ -1,0 +1,30 @@
+✔ versioned authenticated gateway rejects unsafe commands and persists history (262.3075ms)
+✔ the post-restart resume decision is owned by the migrated checkpoint gate (108.7328ms)
+✔ the gateway places work on exactly the nodes its own policy and the Core both accept (1397.1959ms)
+✔ an interrupted task is never falsified as success across a gateway restart (141.07ms)
+✔ D-1: an enrolled session may NOT revoke another installation, and the refusal really refuses (211.2736ms)
+✔ D-2: a session sees ONLY itself - not the roster, and not the City-wide clone scan (167.2078ms)
+✔ D-1/D-2: the owner keeps FULL authority, so the repair did not break the surface it protects (128.8119ms)
+✔ D-1/D-2: the two sibling guards the review compared against are still in place (136.0437ms)
+✔ default gateway retains readonly fabric and does not admit PCF jobs (151.8167ms)
+✔ explicit approved local owner executes CPU and acknowledges digest (1177.2396ms)
+✔ enabled without approved device refuses startup (1.2704ms)
+✔ legacy cancellation cannot change PCF state and member session has no owner authority (1648.3422ms)
+✔ WBC604 profile: STANDARD_DEVICES is the default and is always an available rollback (5.4583ms)
+✔ WBC604 profile: a not-ready switch is REFUSED with a typed code and writes nothing at all (2.5655ms)
+✔ WBC604 profile: a ready switch activates, persists, and survives a restart (3.338ms)
+✔ WBC604 profile: an untrustworthy persisted value recovers to the safe default instead of being obeyed (3.0924ms)
+✔ WBC604 profile: unknown profiles and no-op changes are answered distinctly, never silently (0.9111ms)
+✔ WBC604 profile: rollback returns to STANDARD_DEVICES even after the pool disappears (2.6749ms)
+✔ WBC604 hybrid: an explicit strict target outranks every general rule and is never reinterpreted (0.3093ms)
+✔ WBC604 hybrid: a hard capability requirement outranks load, and validation work goes to a validation node (0.236ms)
+✔ WBC604 hybrid: a legacy task that declares nothing keeps the compatible default (0.2178ms)
+✔ WBC604 hybrid: an untrusted node is never a candidate, whatever its capacity (0.1672ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5930.0186

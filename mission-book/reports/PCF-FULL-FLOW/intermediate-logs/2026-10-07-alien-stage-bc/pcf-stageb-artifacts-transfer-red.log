@@ -1,0 +1,28 @@
+✔ pins and leases survive restart and revoked bytes are visibly deleted (26.931ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (1.0025ms)
+✖ transfer descriptors cannot overwrite owner authorization or schema (5.0598ms)
+✔ partial transfer resumes across instances only with matching version and digest (15.5507ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1044.3848
+
+✖ failing tests:
+
+test at tests\pcf709-artifacts.test.mjs:19:1
+✖ transfer descriptors cannot overwrite owner authorization or schema (5.0598ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf709-artifacts.test.mjs:22:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /TRANSFER_BINDING/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
