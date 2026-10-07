@@ -123,7 +123,9 @@ Normal Utopia runtime
 | [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | IN_PROGRESS | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
 | [REX-890](REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | 双机独立复现实验，冻结 Research Fabric v1 |
 
-当前权威状态：REX-801～806 已完成（6/8）；REX-806 后续头 `cc799234e7daa3d8ccfde5673b9d07ccb2376742` 已由 Mech 异机接受并合并。REX-807 为 Mech 在建，交付头 `10aed3e2d464270a129f46537c570113ee3894b9`（增量 4b），仍未声明开发完成；REX-890 等待 REX-807 验收。 / Current authority: REX-801 through 806 are complete (6/8); Mech accepted and merged the REX-806 follow-up cc79923. REX-807 remains under Mech development at 10aed3e2 (increment 4b), not development-complete; REX-890 awaits its acceptance.
+当前权威状态：REX-801～806 已完成（6/8）；REX-806 后续头 `cc799234e7daa3d8ccfde5673b9d07ccb2376742` 已由 Mech 异机接受并合并。REX-807 **开发侧已收口**（`development_complete: true`，开发头 `9ad888279be07220fe7ac7d91e419e8fe69fc439`，增量 4c），现等对侧实体主机正式复检（本机不得自审）；REX-890 等待 REX-807 验收。 / Current authority: REX-801 through 806 are complete (6/8); Mech accepted and merged the REX-806 follow-up cc79923. REX-807's development side is now CLOSED at head 9ad8882 (increment 4c) and awaits formal review by the opposite physical host, since this host does not self-review; REX-890 awaits its acceptance.
+
+> **2026-10-07 REX-807 开发侧收口 / development closed at 9ad8882**：工作书六条「必须验证」现在都已有**实现 + 可跑证据**：主面不被淹没（`assertPrimarySurfacesClean` 对含 research 的主面抛错）；**不靠 console/API**（整条实验路径用真实浏览器走完，导出改成真控件并**校验下载字节**）；危险区不可误触（折叠 + 令牌**单一来源** + `researchView` **拒绝**返回任何未确认的高级控件形状）；标识符折叠而不删除；错误/排除/未测指标可见且带原因；**指标值真的渲染**（不再是「一句保证」，空列表就写空）；Android 只读观察面已接线（`client.researchCampaigns`）。证据：rex807 两套 15/15、相邻集 32/32、**9 处源码突变全部变红**并按字节还原（含改**网关**、把 Export 留成摆设、把指标退回散文）、exact-head CI `37559402329` 两个 job 全绿。**已知限制照实写**：本机无法构建 Android（Android 证据来自 CI 的 android job）、Android 只做观察（authoring parity 是工作书允许的 future backlog）、本机全量套件 1470/1465 通过/5 失败且**同一组 5 项在未改动 baseline 上同样失败**。复检交接（含「建议你重点攻击什么」与我明确**不**声称的事）见 `reports/REX-807/REVIEW_HANDOFF_Mech.md`；`merge_authority` 仍为 false、marker 未释放、复检期冻结该分支。 / Six must-verify items each implemented and backed by a runnable check; nine mutations caught; handoff and explicit non-claims recorded.
 
 > **2026-10-07 REX-807 增量 4b：Export 变成真控件 / increment 4b makes Export a real control**：工作书把 Export 列为 DIRECT_CONTROL，并要求研究能力**不靠 console/原始 API 也能用**。实测：`/api/v0/research/artifacts` **存在但没有任何 Web 模块调用它**，也没有页面渲染出口 —— 产出研究交付物的那一个能力当时只能手工打 API；视图模型里还列着一条无人实现的「Export artifact」控件 ⇒ **列了没接的控件就是假按钮**。交付：Research 页新增 Export 折叠区与两个真控件（工件 JSON / 指标 CSV），凭据由外壳注入、缺能力时明确拒绝并说明，区块写明需要 Owner 会话；连带让接线元数据不再说谎（每条控件记录 `wired`/`wiredAt`）。新守卫 **S12** 在真实浏览器里对**真实持有一份 campaign 回执**的城市下载并**校验字节**（cityId/指标/校验和/具名文件名/CSV 指标表/页面报告上次导出）。写这条测试时暴露并修掉**我自己**的三个缺陷（外壳返回裸字符串导致页面存空名字；测试读了折叠区块的 innerText；测试助手把刚展开的折叠区点了关），另有一个更早的失败也是我的（用错 node 凭据）。证伪 **8 处突变全部变红**并按字节还原（新增：改**网关**、把 Export 留成摆设）。exact-head CI `37558498188` 两 job 全绿。**文书事故也照实记**：为追加本节我用了重复的小节锚点，一度把整份开发报告截断成 2.5KB，发现后从上一版全文恢复并重新追加（详见 DEVELOPMENT_REPORT §9）。`development_complete` 仍为 false：工作书「必须验证」剩余项与整页路径证据交下一轮。 / Export is now a real, byte-verified control; eight mutations including one in the gateway are caught.
 
@@ -372,7 +374,7 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 6/8 · 开发 / Development 6/8 · 复检 / Review 6/8 · `IN_PROGRESS`
+总完成 / Complete 6/8 · 开发 / Development 7/8 · 复检 / Review 6/8 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
@@ -382,7 +384,7 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 | [REX-804](REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
 | [REX-805](REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
 | [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
-| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | IN_PROGRESS | NO | NO | YES |
+| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | IN_PROGRESS | YES | NO | YES |
 | [REX-890](REX-890-reproducibility-study-and-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->

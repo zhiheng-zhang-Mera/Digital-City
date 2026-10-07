@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 8,
+      "complete": 9,
       "total": 11
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 92,
+      "complete": 93,
       "total": 95
     },
     "review": {
@@ -907,7 +907,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 6,
+      "development_complete": 7,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
@@ -971,7 +971,7 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "REX-807",
           "path": "mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",

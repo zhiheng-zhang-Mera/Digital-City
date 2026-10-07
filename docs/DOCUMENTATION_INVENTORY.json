@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1730,
-  "total_bytes": 12405829,
+  "markdown_count": 1731,
+  "total_bytes": 12418499,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9889,10 +9889,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 74833,
+      "bytes": 76562,
       "encoding_state": "UTF8",
-      "chinese_characters": 7340,
-      "english_words": 2890,
+      "chinese_characters": 7635,
+      "english_words": 2952,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9970,10 +9970,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 17707,
+      "bytes": 22369,
       "encoding_state": "UTF8",
-      "chinese_characters": 260,
-      "english_words": 69,
+      "chinese_characters": 286,
+      "english_words": 70,
       "paired_path": "mission-book/mission-group/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9988,10 +9988,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 63743,
+      "bytes": 63744,
       "encoding_state": "UTF8",
       "chinese_characters": 201,
-      "english_words": 5102,
+      "english_words": 5103,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14758,10 +14758,19 @@
     },
     {
       "path": "mission-book/reports/REX-807/README.md",
-      "bytes": 650,
+      "bytes": 701,
       "encoding_state": "UTF8",
       "chinese_characters": 59,
       "english_words": 29,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-807/REVIEW_HANDOFF_Mech.md",
+      "bytes": 6227,
+      "encoding_state": "UTF8",
+      "chinese_characters": 108,
+      "english_words": 4,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
