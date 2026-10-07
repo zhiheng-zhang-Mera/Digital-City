@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-CITY-AGENT-JOB-001",
+  "name": {
+    "zh_CN": "智能体任务：主城把请求交给远端智能体并取回其自述报告",
+    "en": "Agent job: the City hands a request to a remote agent and takes back the agent's own report"
+  },
+  "source_workbooks": [],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "contracts/city-agent-job-v1/job.mjs",
+      "contracts/city-agent-job-v1/index.mjs",
+      "services/dev-gateway/server.mjs",
+      "services/dev-gateway/actions.mjs",
+      "services/dev-gateway/main.mjs",
+      "services/dev-gateway/node-task-capabilities.mjs",
+      "services/dev-gateway/execution-backend/standard-devices.mjs",
+      "scripts/agent-job.mjs",
+      "apps/web/agent-jobs.js"
+    ],
+    "symbols": [
+      "normalizeAgentJob",
+      "validateAgentJobReport",
+      "isJobExpired",
+      "AGENT_NODE_CAPABILITIES",
+      "claimJob",
+      "reportJob",
+      "createAgentJobsView"
+    ],
+    "api_or_actions": [
+      "POST /api/v0/actions (route CITY_TASK, operation AGENT_JOB)",
+      "GET /api/v0/node/jobs",
+      "POST /api/v0/node/register (capability city.agent-job.v1)",
+      "POST /api/v0/node/claim",
+      "POST /api/v0/node/report",
+      "POST /api/v0/tasks/:id/cancel (the canonical withdrawal)"
+    ],
+    "last_verified_full_sha": "66bab47eff42733f71aee5395a4795b234a058f8"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "VERIFIED",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "whether this City has the channel enabled at all, read from the City rather than inferred from a missing button",
+      "for every job: the City's own state, the node that took it, whether the deadline has passed, and the reason a job is waiting (a named missing node capability)",
+      "what the agent answered, under its own declared evidence class (OBSERVED_HERE / REPORTED_FROM_ELSEWHERE / INFERRED / NOT_DONE), with artifact digests",
+      "the standing statement that an accepted report carries no acceptance authority, so an agent's claim is never read as a City verification",
+      "refusals by typed code, including REPORT_JOB_MISMATCH, REPORT_TASK_STATE_MISMATCH and REPORT_STATE_NOT_AGENT_DECIDABLE"
+    ],
+    "user_controls": [
+      "choose the target machine, the title, the instruction in words, references, the purpose and the deadline",
+      "confirm in a collapsed Danger Zone by typing the job title exactly",
+      "withdraw a request that is still out"
+    ],
+    "intentionally_hidden_information": [
+      "the City control token and the node token",
+      "agent jobs belong to the owner only: a member session can neither dispatch nor read the job surface"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Agent jobs",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE + City owner",
+      "evidence_ref": "utopia:tests/city-agent-jobs-web.test.mjs"
+    },
+    {
+      "platform": "CLI",
+      "location": "scripts/agent-job.mjs (register / claim / report / digest), run on the machine whose agent answers",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "the far-side agent runs it with the City node token",
+      "evidence_ref": "utopia:tests/city-agent-job.test.mjs"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/city-agent-job.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:tests/city-agent-jobs-web.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "review_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/66bab47eff42733f71aee5395a4795b234a058f8",
+      "utopia:push CI run 37651601378 (success) at 66bab47eff42733f71aee5395a4795b234a058f8; the channel itself was run 37650519705 (success) at 2189be9f9c7e18e14cdc611b0a27aad3a62d9ba6"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": false,
+    "registry_reconciliation_result": "NEW_CAPABILITY_RECORDED_AT_EXPOSURE_GATE",
+    "paper_material_refs": []
+  },
+  "known_gaps": [
+    "Intent validation NOT_TESTED: the deterministic router deliberately does NOT offer AGENT_JOB as an ask target. A job cannot be well formed from a sentence (it needs a title, an instruction and a stated purpose), and the router's job is to offer only requests it can complete, so a natural-language path is not claimed.",
+    "The channel is OFF unless the owner sets CITY_AGENT_JOB=1. With the switch off, every dispatch is refused by name (AGENT_JOB_DISABLED); there is no allowlist to configure because the channel names no program and opens no directory - the contract bounds it instead (bounded text inputs, a bounded deadline, credential-shaped inputs refused by name).",
+    "NO OPPOSITE-HOST RUN YET: the CITY half and the far-side CLI are proved against a real gateway, a real node credential and a real browser, and have been RUN AGAINST THE LIVE CITY by the development host (register -> owner dispatch -> claim -> report -> owner read-back, at 66bab47e). Handing a job to the AGENT on the opposite physical machine is still NOT RUN: the far side must first run `scripts/agent-job.mjs register`, a bootstrap no City-side change can perform for it. A job for it is already queued untargeted on the live City (Q-b4b7d3c1-12d9-49c6-828e-ff7d832eeaa6, digest dcd8172b05e53f62e72bcc0912d961528a7f3bb4045685a1452c29a204168fe4).",
+    "A job cannot be TARGETED at a machine identity the City has never seen: creation-time targeting refuses TARGET_DEVICE_UNKNOWN (measured). The far side must register before the owner can name it; until then the request must be left untargeted, which means any node advertising the capability may take it.",
+    "An agent's summary is unverifiable by construction: the City checks the SHAPE and the honesty of the claim, never its truth. This is stated on every accepted report and is the reason the capability is a REQUEST/REPORT channel rather than an execution channel - use CAP-CITY-REMOTE-OPERATION-001 when the work must be a program whose bytes the City can check.",
+    "Expiry is a PROJECTION, not a scheduler: a job past its deadline is not handed out and is SHOWN as expired while the canonical task keeps the state it actually reached, because the City does not invent a transition it never performed.",
+    "A far-side node must HEARTBEAT to keep being offered work, because the City marks a node offline one heartbeat timeout after its last one and never hands an offline node anything - and a channel that has gone quiet looks exactly like a City with nothing to do. The CLI sends a heartbeat as part of `claim` and exposes `heartbeat` for a machine that is busy answering; a deployment integrating the CLI some other way must do the same.",
+    "Android has no surface for this capability: reachability is WEB + CLI only.",
+    "Five defects were found only by running this on the real City and in real load, not by the tests as first written: the report gate compared the task's state against the JOB's vocabulary (so a SUCCEEDED report skipped validation entirely), the credential pattern could never match a real `ghp_` token, the CLI never heartbeat, the fixed sidebar had no scrolling region (one more entry made a nav item unclickable), and two page titles rendered their raw i18n key. All five are fixed and each now has a test that fails without the fix.",
+    "No independent review of this capability has been performed."
+  ],
+  "last_reconciled_by_workbook": null
+}
