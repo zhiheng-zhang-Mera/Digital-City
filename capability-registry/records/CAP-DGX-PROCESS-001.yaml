@@ -14,7 +14,7 @@ implementation:
   discovery_refs: [refs/heads/Alien-GPT-DGX]
   paths: [apps/web/governance.js, services/dev-gateway/governance.mjs]
   last_verified_full_sha: null
-  candidate_full_sha: 33faba449222f2cfab108ccfe62a78f41c9743a9
+  candidate_full_sha: 99c5d36a402422ad2b9100648d1ccd443ce25503
   api_or_actions: [GET /api/v0/governance, POST /api/v0/governance]
 status:
   implementation_status: DEVELOPMENT_CANDIDATE

@@ -4,9 +4,9 @@ Owner authorized activation on 2026-10-07 Australia/Sydney; execution_enabled=tr
 Single implementation branch: Alien-GPT-DGX. No merge to main, no force push.
 Utopia initial main: cc799234e7daa3d8ccfde5673b9d07ccb2376742
 Digital-City initial main: 04a6c855240de45e43828ad44a07ecbcfbe71b5d
-Implementation candidate: 33faba449222f2cfab108ccfe62a78f41c9743a9
+Implementation candidate: 99c5d36a402422ad2b9100648d1ccd443ce25503
 [Implementation branch](https://github.com/zhiheng-zhang-Mera/utopia/tree/Alien-GPT-DGX)
-[Exact candidate](https://github.com/zhiheng-zhang-Mera/utopia/commit/33faba449222f2cfab108ccfe62a78f41c9743a9)
+[Exact candidate](https://github.com/zhiheng-zhang-Mera/utopia/commit/99c5d36a402422ad2b9100648d1ccd443ce25503)
 
 ## Delivered / 已交付
 
@@ -21,13 +21,13 @@ Implementation candidate: 33faba449222f2cfab108ccfe62a78f41c9743a9
 
 ## Validation / 验证
 
-Final source 33faba449222f2cfab108ccfe62a78f41c9743a9:
-- node --test tests/dgx*.test.mjs: 39/39 PASS, 0 failed; includes real local Gateway and headless Edge Web interaction, no canonical task mutation.
+Final source 99c5d36a402422ad2b9100648d1ccd443ce25503:
+- node --test tests/dgx*.test.mjs: 40/40 PASS, 0 failed; includes real local Gateway and headless Edge Web interaction, no canonical task mutation.
 - node scripts/check-bilingual.mjs: PASS, three synchronized directories.
 - git diff --check: PASS; source worktree clean, remote feature SHA matches.
 - Initial broad local run: 1494/1500 PASS; 3 missing City parser dependency failures and 3 occupied-host coordination failures. Parser-sensitive tests rerun after dependency linkage; running City not disturbed.
-- Hosted exact candidate full CI: pending final observation. Previous exact source 7194d37682a4d87b9e102ab5d791bd3dcf9df656 completed its full CI successfully (run 37573440288); this evidence is not substituted for the current head.
-[Exact-head full CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37573979023) runs root tests, promotion history, Rooms, entire City tests, bilingual checks, Android unit tests and APK build.
+- Hosted exact candidate full CI: COMPLETED / success at 99c5d36a402422ad2b9100648d1ccd443ce25503 (run 37574261361). Previous exact source 7194d37682a4d87b9e102ab5d791bd3dcf9df656 completed its full CI successfully (run 37573440288); this evidence is not substituted for the current head.
+[Exact-head full CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37574261361) runs root tests, promotion history, Rooms, entire City tests, bilingual checks, Android unit tests and APK build.
 
 ## Diagnostic review / 诊断预审
 
@@ -44,3 +44,5 @@ Production participant facts, authenticated contribution and final-release recei
 ## Rulings / 执行裁决
 
 Owner's single-branch direction permits internal sequential development using exact previous commits; these are provisional development dependencies, not accepted Review source SHAs. PCF-owned execution transport/correlation/deduplication is not reimplemented. Different-host Engineering Formal Review stays mandatory. External gates are retained, not silently waived. Main and existing worktrees preserved.
+
+Latest dependency refresh: Digital-City main 78d9efe4774d257678ad09c7c3cfb95d6d352306 still records PCF-726 execution_enabled=false, NOT_STARTED, no development/review head or accepted SHA. Its scope was not activated by DGX. Final integrated regression also proves an EVALUATE_RELEASE request cannot lower the case creation Owner-only boundary; cases default to Owner-only.

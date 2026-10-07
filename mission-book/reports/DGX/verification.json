@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "implementation_sha": "99c5d36a402422ad2b9100648d1ccd443ce25503",
+  "initial_utopia_main_sha": "cc799234e7daa3d8ccfde5673b9d07ccb2376742",
+  "initial_city_main_sha": "04a6c855240de45e43828ad44a07ecbcfbe71b5d",
+  "checks": [
+    {
+      "command": "node --test tests/dgx*.test.mjs",
+      "tests": 40,
+      "pass": 40,
+      "fail": 0,
+      "evidence_class": "CONTROLLED_CONFORMANCE_WITH_LOCAL_WEB_GATEWAY"
+    },
+    {
+      "command": "node --test tests/mon*.test.mjs",
+      "tests": 8,
+      "pass": 8,
+      "fail": 0,
+      "source_sha": "33faba449222f2cfab108ccfe62a78f41c9743a9"
+    },
+    {
+      "command": "node scripts/check-bilingual.mjs",
+      "state": "PASS"
+    }
+  ],
+  "hosted_ci": {
+    "head_sha": "99c5d36a402422ad2b9100648d1ccd443ce25503",
+    "run_id": 37574261361,
+    "status": "COMPLETED",
+    "conclusion": "success",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37574261361",
+    "jobs": [
+      {
+        "name": "gateway-web",
+        "conclusion": "success"
+      },
+      {
+        "name": "android",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "formal_review": "NOT_RUN",
+  "freeze": "NOT_RUN",
+  "pcf726_accepted_sha": null,
+  "development_complete": 6,
+  "workbooks": 8,
+  "review_complete": 0,
+  "main_merge": false
+}
