@@ -53,7 +53,8 @@ CHK
 合并后（a1bb093）  全量套件 **1526 项 / 1523 通过 / 3 失败**（仍只有那 3 项既有失败）
                    我的 DGX 探针 54/54、CHK 探针 30/30 **在合并后的树上重跑仍全通过**
                    check:docs 三个根 PAIR_STATUS = SYNCHRONIZED
-                   main 分支 CI：linkage 37583516830 success；V0.2 checks push 37583516899 运行中（结论以 Actions 为准）
+                   main 分支 CI：linkage 37583516830 **success**；V0.2 checks push 37583516899 **completed/success**
+                   ⇒ **合并后的 main 两个 job 全绿**（结论来自 Actions 实测，非预写）
 ```
 
 ## 4. 我造成的探针错误（记录，不做美化）
