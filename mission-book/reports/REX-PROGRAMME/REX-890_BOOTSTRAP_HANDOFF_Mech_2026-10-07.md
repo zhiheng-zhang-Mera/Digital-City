@@ -80,7 +80,7 @@ DELETE_TEMP_ARTIFACT / CHECKPOINT_DEMO。
 
 ```text
 在 Alien 那台机器上（Mera-Alianware），把 agent 从包含 feat/city-owner-remote-operation 的检出启动一次：
-  1) 让那台机器有一个 utopia 检出，且包含 d11b03d（或之后的头）
+  1) 让那台机器有一个 utopia 检出，且包含 f419b43（或之后的头）
   2) 从该检出运行 reference node agent，指向本城：
        node agents/reference-node/main.mjs   （具体入口按其现有启动方式，token/URL 沿用现有配置）
   3) 该 agent 注册时会声明 city.remote-operation.v1；城市随即把已排队的操作派给它
@@ -89,6 +89,37 @@ DELETE_TEMP_ARTIFACT / CHECKPOINT_DEMO。
   · 之前在 Alien 上排队的那条操作会被它认领并执行
   · 之后所有远程操作都可直接派到 Alien
   · 若那台机器仍跑旧 agent，城市会继续具名说明缺什么，而不是给出任何形式的"假成功"
+```
+
+## 5A. 对侧复现的工具已经就绪（2026-10-07 追加）
+
+开发主机的 study 已经跑完（见 `REX-890_DEV_STUDY_Mech_2026-10-07.md`，20/20），复现工具也已写好并**在本机冒烟跑通**：
+
+```text
+工具   utopia scripts/rex890-opposite-host-reproduce.mjs（分支 feat/city-owner-remote-operation @ f419b43）
+它执行的是**包自己写明的复现步骤**（包内 reproduction.json），不是读报告：
+  ① 用包自己的 checksums 校验包完整性      ④ 按包声明的定义**重算**四项指标并与 metrics.csv 比对
+  ② 从 City 重建 normalized dataset         ⑤ 确认每条 NOT_MEASURED 都带有声明的原因
+     （把每条回执 run 按 result.taskRef ⑤ 挂上**本机自己的**控制面（TWO_HOST_MESH 至少需要一个）
+      接到自己的 canonical task 上）        ⑥ 跑一个**独立** campaign（这一项读报告的人做不出来）
+  ③ 与包版本比对
+
+本机冒烟结果（对同一台 City 跑，用于证明工具本身可用）：
+  包完整性 VERIFIED（10 文件）· 从 5 份回执重建出 15 条 run 引用（包声明 15）
+  completion_time_ms=6532 (n=15) · failure_rate=0 · duplicate_execution_count=0 · convergence_missing_event_count=0
+  四项**全部一致** · 每条已测指标都带 provenance · 独立 campaign 6 次重复在两台设备上 COMPLETED
+  ⇒ 0 inconsistencies，exit 0
+
+对侧正式复现的命令（在 Alien 的检出里跑；token 用**文件**传，不进城市的操作记录）：
+  node scripts/rex890-opposite-host-reproduce.mjs \
+       --artifact <Alien 上那份包目录> --city http://172.31.12.151:4310 \
+       --config <Alien 上的 {"token":"..."} 文件> --out <输出目录> --label Mera-Alianware
+  退出码 0 = 复现一致；1 = 有不一致（逐条具名）；2 = 工具未能运行（**不是**验收）
+
+工具自己的四个缺陷（先踩后修，全部记录在提交信息里，因为每一个起初都像产品拒绝）：
+  包文件名猜错（metrics.json/dataset.json 实为 metrics.csv/normalized-dataset.json）·
+  请求体多包了一层（城市以 12 个 missing field 正确拒绝）· experimentId 超长（契约有权拒绝）·
+  结束时 process.exit 触发 libuv 崩溃（改为 exitCode 让句柄自然收敛）
 ```
 
 ## 6. 本文件不声称的事

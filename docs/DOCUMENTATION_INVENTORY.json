@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1928,
-  "total_bytes": 14982289,
+  "total_bytes": 14984595,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -16198,10 +16198,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/REX-890_BOOTSTRAP_HANDOFF_Mech_2026-10-07.md",
-      "bytes": 6280,
+      "bytes": 8586,
       "encoding_state": "UTF8",
-      "chinese_characters": 115,
-      "english_words": 10,
+      "chinese_characters": 154,
+      "english_words": 12,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
