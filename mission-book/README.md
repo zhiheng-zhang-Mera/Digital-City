@@ -20,6 +20,11 @@ Workbook frontmatter determines state, claims, dependencies and acceptance. Navi
 - [Utopia 当前记录 / Recorded Utopia status](./UTOPIA_LIVE_STATUS.md)
 - [材料与报告 / Materials and reports](./reports/README.md)
 
+## REX 当前追踪 / Current REX tracking
+
+Research Strengthening：总任务6/8、开发6/8、复检6/8。REX-806后续修复cc79923已由Mech验收并合并；历史裁决保留。REX-807为Mech在建、未交付复检；REX-890等待前置验收。[系列任务板 / Series board](mission-group/research-strengthening/README.md)。
+Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and merged the REX-806 follow-up cc79923; historical verdicts remain. REX-807 is under Mech development and not ready for review; REX-890 awaits dependency acceptance.
+
 <!-- MISSION_PROGRESS:START -->
 ## 全城项目总进度 / Citywide progress (generated)
 
