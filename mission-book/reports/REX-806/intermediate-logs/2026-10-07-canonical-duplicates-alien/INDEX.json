@@ -1,7 +1,7 @@
 {
   "candidate": "cc799234e7daa3d8ccfde5673b9d07ccb2376742",
   "runtime_head": "12e3d3bf868575a8e3cda983733a3186cb59da27",
-  "status": "PENDING_MECH_REVIEW_AND_EXACT_HEAD_CI",
+  "status": "EXACT_HEAD_CI_PASS_PENDING_MECH_REVIEW",
   "records": [
     {
       "file": "rex806-duplicate-canonical-red.log",
@@ -37,6 +37,21 @@
       "file": "rex806-accepted-runtime-observation.log",
       "bytes": 4494,
       "sha256": "744999913c5cc738300535b4eecb4b2fea075c95d4f6a4adbcb4f4fbb1446c3f"
+    },
+    {
+      "file": "rex806-cc79923-pr-ci.json",
+      "bytes": 5315,
+      "sha256": "87fec490d23cc3ab07df7a48d4767b2e6b2ea8e995d4863369b57beabf75a63a"
+    },
+    {
+      "file": "rex806-cc79923-push-ci.json",
+      "bytes": 5315,
+      "sha256": "683b752bedebe7292d420fb9c16eaa25c18859966909a797311f69a98869ff5b"
+    },
+    {
+      "file": "rex806-cc79923-contract-ci.json",
+      "bytes": 1641,
+      "sha256": "2640da5b8afde7bd7402c2114351d8549ccef83f00fc480402b0b0974fd8ddf6"
     }
   ]
 }
