@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-CITY-REMOTE-OPERATION-001",
+  "name": {
+    "zh_CN": "Owner 远程操作：主城在指定机器上运行已批准程序",
+    "en": "Owner remote operation: the City runs an approved program on a named machine"
+  },
+  "source_workbooks": [],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "paths": [
+      "contracts/city-remote-operation-v1/operation.mjs",
+      "services/dev-gateway/server.mjs",
+      "services/dev-gateway/actions.mjs",
+      "services/dev-gateway/main.mjs",
+      "agents/reference-node/runner.mjs",
+      "apps/web/remote-operation.js"
+    ],
+    "symbols": [
+      "normalizeRemoteOperation",
+      "validateRemoteOperationReceipt",
+      "executeOwnerOperation",
+      "createRemoteOperationView"
+    ],
+    "api_or_actions": [
+      "POST /api/v0/actions (route CITY_TASK, operation OWNER_REMOTE_OPERATION)",
+      "GET /api/v0/node/operations"
+    ],
+    "last_verified_full_sha": "68ca42b59bddd3f6cc50b8cc4590c4b03d60d528"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "VERIFIED",
+    "user_reachability_status": "PARTIAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "DIRECT_CONTROL",
+    "user_visible_information": [
+      "whether this City has the capability enabled at all, and the executable allowlist and workspace roots it was given at startup",
+      "for every operation: the task state, the node that ran it, the exit code, the purpose, and whether the City re-checked the node receipt",
+      "the real stdout and stderr, with an explicit notice when the output was truncated at the declared cap",
+      "refusals by typed code, shown to the owner rather than swallowed"
+    ],
+    "user_controls": [
+      "choose the target machine, executable, arguments, working directory, purpose and bounds",
+      "confirm in a collapsed Danger Zone by typing the executable name exactly",
+      "stop a running operation"
+    ],
+    "intentionally_hidden_information": [
+      "the City control token and the node token",
+      "operations belong to the owner only: a member session can neither dispatch nor read the log"
+    ],
+    "internal_only_exemption_reason": null
+  },
+  "surfaces": [
+    {
+      "platform": "WEB",
+      "location": "Advanced > Remote operation",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE + City owner",
+      "evidence_ref": "utopia:tests/city-remote-operation-web.test.mjs"
+    }
+  ],
+  "evidence": {
+    "backend_wiring_refs": [
+      "utopia:tests/city-remote-operation.test.mjs",
+      "utopia:tests/city-remote-operation-gateway.test.mjs"
+    ],
+    "reachability_refs": [
+      "utopia:tests/city-remote-operation-web.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "review_refs": [],
+    "implementation_refs": [
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/68ca42b59bddd3f6cc50b8cc4590c4b03d60d528"
+    ]
+  },
+  "research_observations": {
+    "hidden_capability_detected": false,
+    "rework_required": false,
+    "registry_reconciliation_result": "NEW_CAPABILITY_RECORDED_AT_EXPOSURE_GATE",
+    "paper_material_refs": []
+  },
+  "known_gaps": [
+    "Android has no surface for this capability: reachability is WEB only, so user_reachability_status is PARTIAL rather than VERIFIED.",
+    "Intent validation NOT_TESTED: the deterministic router deliberately does NOT offer OWNER_REMOTE_OPERATION as an ask target, because the request cannot be well formed without a declared executable, argv, working directory and purpose. A natural-language path is therefore not claimed.",
+    "The capability is OFF unless the owner sets CITY_REMOTE_OPERATION=1 together with an explicit executable allowlist and workspace roots; with the switch off, or with either list empty, every dispatch is refused by name.",
+    "Arbitrary shell is NOT supported and is not planned as a fallback: the contract never uses a shell, so shell syntax in an argument is inert data rather than a feature.",
+    "Not yet exercised on two real machines: the tests run a real gateway and a real node agent on one host. The cross-host use (the opposite physical host reproducing a study) is the next step and is NOT RUN.",
+    "No independent opposite-host review of this capability has been performed."
+  ],
+  "last_reconciled_by_workbook": null
+}
