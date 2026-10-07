@@ -178,26 +178,145 @@
   两处缺陷：① 平台对象形式误用了只接受字符串数组的 `strings()`（每个真实 manifest 都 PROVIDER_PLATFORM_INVALID）；
   ② truth-duplication 拒绝曾被泛化的未知字段拒绝掩盖。
   测试 tests/pcf725-provider-boundaries.test.mjs 7 项、tests/pcf710-executor.test.mjs 8 项（两本工作书反例全覆盖）。
+
+增量 9（d5209c7）PCF-703 **计划半**（自描述 DAG + 规范化 stage runner）+ PCF-716 宿主可移植性修复
+  `compileExecutionPlan()` 增加 version 2：每个 stage 必须自述输入/输出 schema、资源与单位、权限 handle、副作用、
+  deadline、checkpoint 能力（"可续传"必须带能力引用，与 708 同规则）、placement 策略与所需 executor；
+  缺任一项按名拒绝，**未知 stage 字段也拒绝**（测试断言 `shellCommand` 与 `prompt` 都被拒 —— 这正是"不是让 LLM
+  自动拆分任意程序"的机械保证）。version 1 旧计划仍可编译，但被**标注**为 LEGACY_V1_NOT_SELF_DESCRIBING 并列出每个
+  stage 缺哪些声明，且**规范化 runner 拒绝执行它**：没声明资源与落点的 stage 不能进真机。
+  `executeStages()` 是真 runner：每个 stage 经 709 发布输入并**读回校验 digest**、经 704 准入、claim attempt、
+  经 710 执行、在 canonical task 上提交；规范身份（task/action/origin/session）每个 stage 完全相同，只有 attempt/epoch 变。
+  **发现的真缺陷（不在我的代码里）**：canonical 合同每个 task 只有**一个终态**，因此两段流水线的第一段成功后 task 变
+  COMPLETED，第二段再也无法准入（CANONICAL_TASK_NOT_EXECUTABLE）。两条绕路都是撒谎：提交 UNKNOWN 会给一个明明成功的
+  stage 打上 SIDE_EFFECT_UNKNOWN，给每段建独立 task 则改变 canonical 归属。诚实修法是新增阶段进度原语：
+  `admission.mjs` 的 `commitStageResult()` —— attempt 变 STAGED（确实跑完）、释放 reservation 让下一段可准入、
+  task 回到 QUEUED 并追加已完成 stage，**task 身份一字不改**。这是 703 要求、704 面必须补的能力，按此记录而非隐藏。
+  另修：新增的权限校验误用了裸标识符模式，拒绝了 provider 合同本来就在用的 handle 形状（`process:own-child`）。
+  PCF-716：该工作书自己的两个测试在本机失败、且只在本机失败 —— 它们硬编码 `pwsh`(PowerShell 7)，而普通 Windows 工作站
+  只有 Windows PowerShell 5.1，于是**检查从未真正运行**（spawnSync 返回 null status，断言拿 null stderr 去 match）。
+  这是测试可移植性缺陷，不是产品缺陷：我手工验证两条行为在 5.1 下都真实成立（opt-out 打印 EXPLICIT_OPT_IN_REQUIRED
+  且退出 0；junction 祖先被 REPARSE_POINT_FORBIDDEN 拒绝、退出 1、未写入任何文件）。测试改为**发现可用的 PowerShell 宿主**，
+  两者都不存在时才 typed NOT_RUN skip。**断言一字未改**，两个测试现在真的在本机执行：12/12。
+
+增量 10（f09129a）PCF-722 连续性/HA 合同 + PCF-717 模型常驻合同
+  722 的常态就是"前提缺失"，所以模块的职责是 fail-closed 且 typed：先固定 failure model，RPO/RTO 记为**未验证目标**
+  （调用方不能自报 verified：SLO_CANNOT_BE_SELF_VERIFIED，验证只能来自真实故障测试）；自动提升需要**独立于两个节点**且
+  证据已核实的仲裁/lease 基座，没有就是 NO_PROVEN_SUBSTRATE + 人工可验证 fence 路径；分区不可能产生双 primary
+  （无 quorum 拒绝、他人持有未过期 lease 拒绝、已记录 primary 未 fence 拒绝、重复提升报 DUPLICATE_PROMOTION 而不是第二个写者）；
+  时钟偏差超过 lease 余量、副本落后超过声明的 RPO、controller 与 worker 同时故障各自有独立拒绝码；旧 leader 复活
+  **按 epoch 而不是按信任**被 fence，过期期间写入被拒（STALE_EPOCH_WRITE_REFUSED）；staged handover 必须五步齐全、
+  凭据只走 **handle**（裸 secret 直接拒绝而不是脱敏）、并区分计划维护/人工 fenced standby/自动 failover ——
+  前两者一律 NOT_CLAIMED 且单独签收；AUTOMATIC_HA 标记只在**真实故障证据 + 单写者证明**下释放，文档评审/设计稿/仿真
+  一律 BLOCKED 并报 DOCUMENT_REVIEW_IS_NOT_IMPLEMENTATION；缺基座时保持 NOT_RUN 且 coreV1Blocked=false（722 不得阻塞 CORE_V1）。
+  717 本机没有许可模型运行时，所以不加载任何模型，但把常驻管理容易做错的每个判断都显式化：manifest 版本化且做兼容校验、
+  工件经 709 引用契约校验、下载或付费 provider 必须有显式授权（**花费授权与授权本身是两件事**）；
+  **声明需求与宿主观测分开**，观测源 UNSUPPORTED/UNKNOWN 一律 UNKNOWN（既不是 0 也不是充足）；admission 计算
+  **已常驻 + 已预留**而不是数加速器个数；warm pool 有界、先逐空闲项、**拒绝驱逐有在途请求的模型**；OOM 是带 Owner attention
+  的事件且 automaticRetry=false；KV 随所属 task 释放，跨 task 复用报 KV_CONTEXT_ISOLATION_VIOLATION；
+  路由偏好 warm，但**绝不为了 cache hit 跨隐私门或费用门**。
+  物理半边保持 typed NOT_RUN：真实许可模型运行时、真实加速器观测、真实故障切换基座都是本工程不具备的外部前提。
+
+增量 11（0c39530）PCF-708 工作书点名验收文件 + 信封封闭字段集
+  tests/pcf708-workload.test.mjs 是工作书点名的文件，逐条覆盖它的验收段：旧 task 往返保持身份与语义、缺扩展被**报告**而不是
+  被静默升级；providerRef/handoffTargetRef **不被当作 strict target**；空/负/无限/单位冲突资源被拒而 0 仍是真实声明；
+  未知枚举、负 deadline、缺 miss policy 被拒；**过去的 deadline 在有钟的地方拒绝**（信封本身刻意无钟，所以断言落在
+  胶囊编译处）；四类 QoS 与五种 retry 安全能力逐一枚举，CHECKPOINT_RESUMABLE 必须带能力引用；载荷大小/嵌套深度/循环/
+  非纯数据在读取前就有界；未来或缺失的 schema 版本被拒而不是被降级；ExecutionAttempt 继承信封身份而旧 epoch 的迟到回报被拒。
+  另导出 `ENVELOPE_FIELDS`：信封是**封闭投影**，把这份字段表公布出来才让"Android control principal 不能被提升为 worker"
+  这条从散文变成可测事实 —— 该字段根本不是信封能携带的字段。
+
+增量 12（33bc3a8）+ 增量 13（20c94c7）15 个点名验收文件 + 它们暴露的**六个产品缺陷**（已修）
+  子代理只写新测试文件、发现缺陷必须上报；六个缺陷由我复核后修在产品里，并把每个 skip 转成真断言：
+  ①**PCF-715** `presentation.mjs` + `apps/web/pcf-panel.js`：canonical 的 `pcfAttention='SIDE_EFFECT_UNKNOWN'`
+    （正是 `commitResult`/`persistFailure` 写的值）**完全没进投影**，面板在有未决任务时显示一切正常。
+    现在投影带 `activeRisk`（数量/逐条 attention/`bubblesToOverview`），面板渲染它，平静时显式 `present:false`。
+  ②**PCF-715**：部分 canonical 快照让 `buildFabricProjection` 抛裸 TypeError，整个 `/api/v0/pcf` 读取失败。
+    现在报 `completeness:'PARTIAL'` 并**点名缺哪一半**为 unknown —— 关键区别是"读不到"永远不等于"空闲"。
+  ③**PCF-704** `canonical-state-adapter.snapshot()` 把**自己产出的 state** 过 64 KiB 的**不可信入参**守卫，
+    于是在 admission 允许的 256 条 reservation 深度上抛 PAYLOAD_LIMIT：观察者面读不到"队列已满"的状态。
+    现在快照用 store 自己的**声明上限**（4 MiB，typed `SNAPSHOT_LIMIT`），而 state 因准入上限而天然有界。
+  ④**PCF-714 line 48**：UNKNOWN 之后**终态提交可以覆盖它**，出现 task.state=CANCELLED 与 pcfAttention=SIDE_EFFECT_UNKNOWN
+    并存的**两个互相矛盾的终态**（late cancel 伪称外部副作用已撤回）。现在 UNKNOWN 对**终态**提交是 sticky 的
+    （`OUTCOME_UNKNOWN_REQUIRES_VERIFICATION`），只能由显式核验证据解除（705 的职责）。
+    **我自己第一版把守卫写宽了**（连"重复上报 UNKNOWN"也拒），被 705 验收文件的重复恢复用例抓红，已收窄为只拦终态。
+  ⑤**PCF-726 bullet 1**：capsule 现在携带 `independenceFloorRef`，未声明时显式 `NOT_DECLARED`；
+    `independenceFloorOf`/`assertIndependenceFloor` 让"沉默不等于满足"可测，且**不发明**这一治理事实。
+  ⑥**PCF-712 bullet 4** `fence.reconcileAfterRestart` 只读 `holderRef/bootRef`，而 canonical attempt 写的是 `holder/bootId`，
+    于是把真实 canonical 记录喂进去会把**活着的 worker 报成 STOP_NOT_PROVEN**（恰恰在"不许猜"的路径上产生假阴性）。
+    现在两种拼写都读，真正不可读的身份有独立 disposition `IDENTITY_UNREADABLE` 并交 705。
+  全量套件：1874 项，除**既有的四项宿主相关失败**（theme-packages 负载下、三个 launcher/enrolment 探针）外无新增失败。
 ```
 
-## 3. 后续顺序（按依赖与可实现性，不按编号硬爬）
+### 2.2 子代理产出的点名验收文件与诚实缺口清单
+
+704..728 的点名验收文件按同一标准并行生成（每个子代理只写**新文件**，禁止改 `services/` 或既有测试；发现产品缺陷
+必须保留诚实断言并上报，不得为了让测试变绿而削弱断言）。子代理上报的产品缺陷由我复核后再动手修（见增量 12）。
+
+15 个新文件共 139 项：修完六个缺陷后，除下表的既有/外部前提缺口外全部通过。最终套件级 skip 只剩**真实缺口**，
+（不是"已完成"，也不是被删掉的断言），每条都带工作书原文行号：
 
 ```text
-剩余按同一标准推进的点名验收文件（18 本）：
-  704 准入/公平 · 705 恢复 · 706 策略/同意/数据边界 · 708(补齐点名文件) · 711 checkpoint ·
-  712(补齐) · 713 干扰与 SLO · 714 origin 连续性 · 715 资源控制 UI · 718 Linux 合同 · 721 study 合同 ·
-  723(补齐) · 724 workload pilots · 726 capsule · 727 工程连接器 · 728 origin-agent 桥
-外部硬前提（保持 typed NOT_RUN，绝不冒充）：
-  PCF-717 许可模型运行时、PCF-722 独立存储/fencing 基座、PCF-718 实体 Linux worker（本机无发行版）、
-  PCF-719 手机 worker 安装、PCF-727 真实 Codex/DeepSeek 会话闭环、跨主机传输/授权
+PCF-704 验收「queue full 显式披露」观察面：canonical-state-adapter.snapshot() 把整份 state 过 64 KiB 的 bounded()
+  入参守卫，因此在 admission 自己允许的 256 条 reservation 深度上抛 PAYLOAD_LIMIT，观察者（presentation/supervisor/
+  reconciliation）读不到状态。准入侧 QUEUE_FULL 本身正确且已断言。→ 已在本轮修复（见增量 12）。
+PCF-704 rev2「至少保留一个 foreground 预算」：admission 按候选观测到的整个 free 向量准入，没有 foreground/owner 预留。
+  判断记录：spec 的"至少一个"是可以实现的，但预留会与**每一个既有配额测试**交互（都会提前一个单位被拒），
+  属于需要单独一轮的语义变更；宁可留可见缺口，也不做无声的行为变更。
+PCF-705 子任务2「retry budget」与子任务3「搬迁收益必须覆盖传输/冷启动/丢弃工作」：planRecovery 既不接收 retry budget
+  也不接收成本/收益输入；cost-model 只服务 702，恢复路径从不咨询它。（cooldown/hysteresis、consent、目标资格、
+  checkpoint 兼容性都已实现并断言。）
+PCF-706 验收「多请求竞争额度仍不越界」：policy.mjs 是纯解析器，不保留剩余额度状态，两个并发请求各自都能拿满预算。
+PCF-714 line 48 反例面：UNKNOWN 之后第二次 commit 会覆盖终态。→ 已在本轮修复（见增量 12）。
+PCF-715 line 47：canonical 的 pcfAttention（SIDE_EFFECT_UNKNOWN）没有进入 fabric 投影的 overview；并且
+  buildFabricProjection 在**部分快照**上抛 TypeError 而不是把 PARTIAL/UNKNOWN 向上冒泡。→ 已在本轮修复（见增量 12）。
+PCF-726 bullet 1「现行 independence floor 的引用」：capsule 不携带该引用。→ 已在本轮修复（见增量 12）。
+PCF-721 line 49 时钟偏差：工件包里找不到可复现的 clock-skew 字段（只在 summary.unmeasured 里被列为未测）。
+PCF-718 line 45/49 与 PCF-714 line 52 的物理半边、PCF-704/705 的双机样本：**typed NOT_RUN**，本机只有一台，
+  无 Linux 发行版、无第二实体主机、无许可模型运行时。"本机没有"这一点本身被断言（例如 718 断言 platform!=='linux'
+  且 `wsl.exe -l -q` 列出零个发行版），所以将来前提出现时这些测试会**自己失败**而不是继续悄悄通过。
+```
+
+子代理另报告三处非工作书违反的观察（记录在案，不当作缺陷夸大）：
+`applySafetyShield` 对带限定符的 gate 码（`SHIELD_LOW_CONFIDENCE:0.1`）报 `SCORER_FAILED`（更粗但更安全，回退顺序仍正确）；
+`validateResultEnvelope` 只做摘要形状校验，工件存在性在读取时（709 store）强制——"伪造工件"在交付时被发现；
+`toResearchEvent` 校验 inputDigest 但不把它带进事件 refs（试验级记录在 research-study 里带了）。
+
+## 3. 现状与后续顺序（按依赖与可实现性，不按编号硬爬）
+
+```text
+本轮结束时的点名验收文件状态（29 本工作书）：
+  已存在且已复核：700 701 709 716（+本机可移植性修复）719 720
+  本轮补齐并复核：702 703 704 705 706 707 708 710 711 712 713 714 715 717 718 721 722 723 724 725 726 727 728
+  ⇒ 29 本全部有工作书点名的验收面；29 本里 6 本只有物理/外部半边仍未验收（下文 NOT_RUN）。
+
+仍然**未实现**（可见 skip，带工作书行号；都需要单独一轮的设计决定，不是遗漏）：
+  PCF-704 rev2 foreground 预算预留 · PCF-705 retry budget 与搬迁收益计算 · PCF-706 额度聚合账本
+  PCF-721 工件包里的 clock-skew 可复现字段 · PCF-721 glasses/health 输入路径（本树无此输入面）
+
+外部硬前提（保持 typed NOT_RUN，绝不冒充；且"本机没有"本身被断言，前提出现时测试会自己变红）：
+  PCF-717 真实许可模型运行时与加速器观测 · PCF-722 独立存储/fencing 基座（合同已实现并 fail-closed）
+  PCF-718 实体 Linux worker（本机无发行版，wsl 零发行版）· PCF-719 手机 worker 安装
+  PCF-727/728 真实 Codex/DeepSeek 会话闭环 · 所有跨主机/双机测量（704 705 713 714 718 721 722 728）
 ```
 
 ## 4. 不声称的事
 
 ```text
-· 不声称"29 本全部完成"：本轮完成 8 个功能增量、补 5 个工作书点名验收文件；其余仍在推进。
+· 不声称"29 本全部完成"：23 本已有可运行的工作书点名验收面，但 6 本的物理/外部半边是 NOT_RUN，
+  仍有 5 项 NOT_IMPLEMENTED 缺口明写在测试输出里。
+· 不声称高可用、不声称性能提升、不声称跨机协同：PCF-722 的 AUTOMATIC_HA 只有真实故障+单写者证据才释放；
+  721 的所有 SLO 是待验证目标；727/728 的远端闭环是 NOT_RUN。
+· 不把"点名文件不存在"说成"功能没做"，也不把"功能在别处"说成"验收已通过" —— 两者分开记录（见 1.1）。
+· 不把子代理的测试当作我的判断：15 个文件由我逐份复核（断言必须对应工作书反例、refusal 必须按码断言、
+  skip 必须带行号），并且六个缺陷是我复核后修在产品里、再把 skip 转成真断言的。
+· 不合并 main：该分支单独存在，等整系列补全并交接异机验收。
+```
+
+## 5. 本轮不声称的事项（存档）
+
+```text
 · 不把作者候选已有的能力重复实现，也不改写对侧 998440c 的既有记录与已发布结论。
-· 不把"点名文件不存在"说成"功能没做"，也不把"功能在别处"说成"验收已通过" —— 两者都按上面的判断逻辑分开记录。
 · 任何被外部前提挡住的项目保持 typed NOT_RUN 并附证据来源；不伪造外部前提，不把 component 验收写成物理/异机验收。
-· 不合并 main：该分支单独存在，等整系列补全后再按 REX/DGX/CHK 同样的异机验收口径交接。
+· 分支按 REX/DGX/CHK 同样的异机验收口径交接：异机复核者按工作书逐条运行点名测试即可复现本轮全部结论。
 ```
