@@ -1,0 +1,35 @@
+{
+  "host": "Mera-Alianware",
+  "platform": "win32",
+  "samples": [
+    {
+      "cpu": null,
+      "cpuPresence": "UNKNOWN",
+      "memoryTotal": 34101420032,
+      "memoryFree": 21569052672,
+      "overheadMs": 1.4816999998874962
+    },
+    {
+      "cpu": 0.076905041031653,
+      "cpuPresence": "OBSERVED",
+      "memoryTotal": 34101420032,
+      "memoryFree": 21571715072,
+      "overheadMs": 0.8612999999895692
+    },
+    {
+      "cpu": 0.10954773869346733,
+      "cpuPresence": "OBSERVED",
+      "memoryTotal": 34101420032,
+      "memoryFree": 21554819072,
+      "overheadMs": 0.7110999999567866
+    },
+    {
+      "cpu": 0.09841786877617496,
+      "cpuPresence": "OBSERVED",
+      "memoryTotal": 34101420032,
+      "memoryFree": 21546381312,
+      "overheadMs": 0.7214999999850988
+    }
+  ],
+  "remoteReturnConsumption": "NOT_RUN"
+}
