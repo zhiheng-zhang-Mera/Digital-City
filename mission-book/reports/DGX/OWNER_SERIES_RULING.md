@@ -8,5 +8,5 @@ Applies only to DGX on Alien-GPT-DGX (and independently CHK on Alien-GPT-CHK). S
 
 All eight DGX workbooks now record development_complete=true after exact-head test and full CI evidence. review_complete=false, formal terminal marker absent, merge_authority=false. DGX-990 development packaging is complete; formal freeze and opposite-host review remain pending. A single series Review verdict can later be referenced by all eight workbooks. No old workbook needs individual opposite-host acceptance before the next is developed.
 
-Implementation source: 6fe6e85b51f3e067dc67405c8e01a93e89dca1b4
+Implementation source: e5a03dae02ca341d6d23565735e6cd6c3edc27d9
 Original branch creation anchors remain unchanged: Utopia cc799234e7daa3d8ccfde5673b9d07ccb2376742, Digital-City 04a6c855240de45e43828ad44a07ecbcfbe71b5d.

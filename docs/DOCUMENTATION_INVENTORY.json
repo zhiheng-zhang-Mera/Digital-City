@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1744,
-  "total_bytes": 12492477,
+  "markdown_count": 1745,
+  "total_bytes": 12508661,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -11266,73 +11266,73 @@
     },
     {
       "path": "mission-book/reports/DGX/DGX-001.md",
-      "bytes": 3303,
+      "bytes": 4826,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 359,
+      "english_words": 535,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-002.md",
-      "bytes": 3345,
+      "bytes": 4868,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 361,
+      "english_words": 537,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-003.md",
-      "bytes": 3303,
+      "bytes": 4826,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 359,
+      "english_words": 535,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-004.md",
-      "bytes": 3303,
+      "bytes": 4826,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 359,
+      "english_words": 535,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-005.md",
-      "bytes": 3303,
+      "bytes": 4826,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 359,
+      "english_words": 535,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-006.md",
-      "bytes": 3303,
+      "bytes": 4826,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 359,
+      "english_words": 535,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-007.md",
-      "bytes": 3303,
+      "bytes": 4826,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 359,
+      "english_words": 535,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/DGX-990.md",
-      "bytes": 3345,
+      "bytes": 4868,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 361,
+      "english_words": 537,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -11356,19 +11356,28 @@
     },
     {
       "path": "mission-book/reports/DGX/README.md",
-      "bytes": 953,
+      "bytes": 1074,
       "encoding_state": "UTF8",
-      "chinese_characters": 59,
-      "english_words": 47,
+      "chinese_characters": 61,
+      "english_words": 56,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/DGX/SERIES_REPORT.md",
-      "bytes": 8025,
+      "bytes": 11457,
       "encoding_state": "UTF8",
       "chinese_characters": 23,
-      "english_words": 895,
+      "english_words": 1298,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/DGX/series-evidence/history/6fe6e85-inherited-context-invalid/INVALID_EVIDENCE.md",
+      "bytes": 447,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 58,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },

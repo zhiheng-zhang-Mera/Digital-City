@@ -36,7 +36,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **577**.
+当前Markdown文档 / Current Markdown documents: **578**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -48,7 +48,7 @@
 | CEX-790 | 14 | [打开 / Open](CEX-790/README.md) |
 | CEX-PROGRAMME | 3 | [打开 / Open](CEX-PROGRAMME/README.md) |
 | CITY-ROLE-20261005 | 6 | [打开 / Open](CITY-ROLE-20261005/README.md) |
-| DGX | 13 | [打开 / Open](DGX/README.md) |
+| DGX | 14 | [打开 / Open](DGX/README.md) |
 | HOST-PAIRING | 1 | [打开 / Open](HOST-PAIRING/intermediate-logs/2026-10-07/README.md) |
 | HOST-START-MODES | 3 | [打开 / Open](HOST-START-MODES/README.md) |
 | JOIN-501 | 5 | [打开 / Open](JOIN-501/README.md) |

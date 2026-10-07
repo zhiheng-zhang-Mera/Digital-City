@@ -1,60 +1,340 @@
-✔ DGX005 Pass A never exposes defence and Pass B cannot run before A (4.4824ms)
-✔ DGX005 self adjudication, authored dispute and same context refused (0.956ms)
-✔ DGX005 both wrong and evidence required remain explicit; missing evidence never yields certainty (1.457ms)
-✔ DGX005 defence cannot impersonate a party or overwrite prior record and API copies are isolated (0.9127ms)
-✔ DGX005 submitted finals cannot overwrite canonical provenance and snapshot extras cannot leak defence (0.7009ms)
-✔ DGX005 judge must be independent of both disputing parties (0.2751ms)
-✔ DGX003 score only ranks eligible candidates and opposite physical host is nonoptional (2.9567ms)
-✔ DGX003 unavailable facts, recusal, author identity and unknown dimension fail closed (2.3209ms)
-✔ DGX003 missing score service uses deterministic eligibility fallback, never removes floor (10.7109ms)
-✔ DGX003 resource unavailable and no capability cannot win with reputation (0.668ms)
-✔ DGX005 structured contradictory claims are retained and produce deterministic material conflict (12.26ms)
-✔ DGX005 agreement or different predicate is not manufactured into a dispute (1.4028ms)
-✔ DGX002 immutable shared snapshot retains unknowns and requires versioned facts (1.8217ms)
-✔ DGX002 DAG preserves Owner scope and rejects cycles, orphan edges and authority (2.2026ms)
-✔ DGX002 controlled DAG growth cannot rewrite prior nodes or erase provenance (1.2918ms)
-✔ DGX002 private reasoning and credentials rejected recursively with normalized keys (0.4295ms)
-✔ DGX002 PCF remains the substrate owner and unavailable port is typed (0.8463ms)
-✔ DGX007 gateway exposes owner-only governance and unavailable storage never blocks canonical city (148.2487ms)
-✔ DGX result requires trusted refs and case/node/snapshot identity even for authenticated receipts (7.5844ms)
-✔ DGX reviews are scoped to integration revision and archived after correction (12.825ms)
-✔ DGX release cannot introduce claims evidence assumptions outside collected candidate (11.431ms)
-✔ DGX release preserves claim uncertainty and unresolved questions (6.5584ms)
-✔ DGX002 PCF adapter cannot treat caller JSON as approved permission/budget/deadline (1.0227ms)
-✔ DGX002 PCF adapter refuses a returned permission for another task (0.5565ms)
-✔ DGX004 Engineering adapter preserves exact head CI verifier and opposite-host floor (3.2128ms)
-✔ DGX004 Research evidence gate delegates professional review and rejects missing methods (0.2729ms)
-✔ DGX004 Health professional seam never claims unimplemented clinical capability (0.3514ms)
-✔ DGX007 L0 retains uncertainty and release gate; L2 preserves exact evidence (2.4047ms)
-✔ DGX007 canonical status wins and graph drift warning bubbles into L0 (0.616ms)
-✔ DGX007 material conflict and more-evidence adjudication remain visible with progressive disclosure (0.3984ms)
-✔ DGX006 all participants review scoped exact candidate; minor dissent is retained (3.8279ms)
-✔ DGX006 no votes can override critical major or blocking reviewer (0.7802ms)
-✔ DGX006 missing trusted receipts and stale/cross-case reviews fail closed (1.6876ms)
-✔ DGX006 Owner-only boundary needs independently resolved authorization (0.3644ms)
-✔ DGX006 another case or participant independence receipt cannot unlock this candidate (0.4441ms)
-✔ DGX006 bounded appeal requires new evidence or specific procedural/factual error (0.644ms)
-✔ DGX007 governance case survives restart; immutable identity and bounded revisions (12.7806ms)
-✔ DGX007 missing upstream ports cannot fabricate assignments results or release (7.0041ms)
-✔ DGX007 corrupt/unavailable governance storage is observable and isolated (2.9195ms)
-✔ DGX990 two-pass case information boundary survives restart before defence is admitted (22.5545ms)
-✔ DGX003 service rejects forged author host and adjudicator session in otherwise valid receipts (4.9258ms)
-✔ DGX007 persisted encoding respects the same byte bound as the reader (52.9225ms)
-✔ DGX006 pending appeal cannot be erased by recalculating the same release (6.5712ms)
-✔ DGX005 accepted contributor claims discover conflict and force revalidation without deleting evidence (16.3455ms)
-✔ DGX990 integrated candidate cannot lower the immutable Owner-only case boundary (11.3558ms)
-✔ DGX002 real PCF thin extension rejects another canonical task before compilation (2.0038ms)
-✔ DGX990 real substrate result binds trusted execution identity and survives restart with joint reviewer (12.7787ms)
-✔ DGX990 cross-candidate substrate receipt cannot enter the case or remove uncertainty (4.1008ms)
-✔ DGX007 Web discovers governance, imports case and traces L0 to exact L2 evidence without task mutation (1653.6474ms)
-✔ PCF726 versioned capsule retains canonical identity and bounded scope; legacy tasks remain untouched (4.238ms)
-✔ PCF726 result correlation never treats transport or exit zero as acceptance (9.1043ms)
-✔ PCF726 explicit result ledger rejects replay and out of order after restart (2.6392ms)
-ℹ tests 52
-ℹ suites 0
-ℹ pass 52
-ℹ fail 0
-ℹ cancelled 0
-ℹ skipped 0
-ℹ todo 0
-ℹ duration_ms 15194.29
+TAP version 13
+# Subtest: DGX005 Pass A never exposes defence and Pass B cannot run before A
+ok 1 - DGX005 Pass A never exposes defence and Pass B cannot run before A
+  ---
+  duration_ms: 4.158
+  type: 'test'
+  ...
+# Subtest: DGX005 self adjudication, authored dispute and same context refused
+ok 2 - DGX005 self adjudication, authored dispute and same context refused
+  ---
+  duration_ms: 0.8719
+  type: 'test'
+  ...
+# Subtest: DGX005 both wrong and evidence required remain explicit; missing evidence never yields certainty
+ok 3 - DGX005 both wrong and evidence required remain explicit; missing evidence never yields certainty
+  ---
+  duration_ms: 1.4318
+  type: 'test'
+  ...
+# Subtest: DGX005 defence cannot impersonate a party or overwrite prior record and API copies are isolated
+ok 4 - DGX005 defence cannot impersonate a party or overwrite prior record and API copies are isolated
+  ---
+  duration_ms: 0.9088
+  type: 'test'
+  ...
+# Subtest: DGX005 submitted finals cannot overwrite canonical provenance and snapshot extras cannot leak defence
+ok 5 - DGX005 submitted finals cannot overwrite canonical provenance and snapshot extras cannot leak defence
+  ---
+  duration_ms: 0.703
+  type: 'test'
+  ...
+# Subtest: DGX005 judge must be independent of both disputing parties
+ok 6 - DGX005 judge must be independent of both disputing parties
+  ---
+  duration_ms: 0.2781
+  type: 'test'
+  ...
+# Subtest: DGX003 score only ranks eligible candidates and opposite physical host is nonoptional
+ok 7 - DGX003 score only ranks eligible candidates and opposite physical host is nonoptional
+  ---
+  duration_ms: 2.9261
+  type: 'test'
+  ...
+# Subtest: DGX003 unavailable facts, recusal, author identity and unknown dimension fail closed
+ok 8 - DGX003 unavailable facts, recusal, author identity and unknown dimension fail closed
+  ---
+  duration_ms: 2.2033
+  type: 'test'
+  ...
+# Subtest: DGX003 missing score service uses deterministic eligibility fallback, never removes floor
+ok 9 - DGX003 missing score service uses deterministic eligibility fallback, never removes floor
+  ---
+  duration_ms: 11.0852
+  type: 'test'
+  ...
+# Subtest: DGX003 resource unavailable and no capability cannot win with reputation
+ok 10 - DGX003 resource unavailable and no capability cannot win with reputation
+  ---
+  duration_ms: 0.6476
+  type: 'test'
+  ...
+# Subtest: DGX005 structured contradictory claims are retained and produce deterministic material conflict
+ok 11 - DGX005 structured contradictory claims are retained and produce deterministic material conflict
+  ---
+  duration_ms: 12.5368
+  type: 'test'
+  ...
+# Subtest: DGX005 agreement or different predicate is not manufactured into a dispute
+ok 12 - DGX005 agreement or different predicate is not manufactured into a dispute
+  ---
+  duration_ms: 1.3767
+  type: 'test'
+  ...
+# Subtest: DGX002 immutable shared snapshot retains unknowns and requires versioned facts
+ok 13 - DGX002 immutable shared snapshot retains unknowns and requires versioned facts
+  ---
+  duration_ms: 1.9186
+  type: 'test'
+  ...
+# Subtest: DGX002 DAG preserves Owner scope and rejects cycles, orphan edges and authority
+ok 14 - DGX002 DAG preserves Owner scope and rejects cycles, orphan edges and authority
+  ---
+  duration_ms: 2.1368
+  type: 'test'
+  ...
+# Subtest: DGX002 controlled DAG growth cannot rewrite prior nodes or erase provenance
+ok 15 - DGX002 controlled DAG growth cannot rewrite prior nodes or erase provenance
+  ---
+  duration_ms: 1.1991
+  type: 'test'
+  ...
+# Subtest: DGX002 private reasoning and credentials rejected recursively with normalized keys
+ok 16 - DGX002 private reasoning and credentials rejected recursively with normalized keys
+  ---
+  duration_ms: 0.4206
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF remains the substrate owner and unavailable port is typed
+ok 17 - DGX002 PCF remains the substrate owner and unavailable port is typed
+  ---
+  duration_ms: 0.8705
+  type: 'test'
+  ...
+# Subtest: DGX007 gateway exposes owner-only governance and unavailable storage never blocks canonical city
+ok 18 - DGX007 gateway exposes owner-only governance and unavailable storage never blocks canonical city
+  ---
+  duration_ms: 150.5831
+  type: 'test'
+  ...
+# Subtest: DGX result requires trusted refs and case/node/snapshot identity even for authenticated receipts
+ok 19 - DGX result requires trusted refs and case/node/snapshot identity even for authenticated receipts
+  ---
+  duration_ms: 7.4937
+  type: 'test'
+  ...
+# Subtest: DGX reviews are scoped to integration revision and archived after correction
+ok 20 - DGX reviews are scoped to integration revision and archived after correction
+  ---
+  duration_ms: 12.8498
+  type: 'test'
+  ...
+# Subtest: DGX release cannot introduce claims evidence assumptions outside collected candidate
+ok 21 - DGX release cannot introduce claims evidence assumptions outside collected candidate
+  ---
+  duration_ms: 11.2146
+  type: 'test'
+  ...
+# Subtest: DGX release preserves claim uncertainty and unresolved questions
+ok 22 - DGX release preserves claim uncertainty and unresolved questions
+  ---
+  duration_ms: 6.3573
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF adapter cannot treat caller JSON as approved permission/budget/deadline
+ok 23 - DGX002 PCF adapter cannot treat caller JSON as approved permission/budget/deadline
+  ---
+  duration_ms: 1.0454
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF adapter refuses a returned permission for another task
+ok 24 - DGX002 PCF adapter refuses a returned permission for another task
+  ---
+  duration_ms: 0.5786
+  type: 'test'
+  ...
+# Subtest: DGX002 PCF approval cannot use a stale shared fact version
+ok 25 - DGX002 PCF approval cannot use a stale shared fact version
+  ---
+  duration_ms: 0.4576
+  type: 'test'
+  ...
+# Subtest: DGX004 Engineering adapter preserves exact head CI verifier and opposite-host floor
+ok 26 - DGX004 Engineering adapter preserves exact head CI verifier and opposite-host floor
+  ---
+  duration_ms: 2.6678
+  type: 'test'
+  ...
+# Subtest: DGX004 Research evidence gate delegates professional review and rejects missing methods
+ok 27 - DGX004 Research evidence gate delegates professional review and rejects missing methods
+  ---
+  duration_ms: 0.2451
+  type: 'test'
+  ...
+# Subtest: DGX004 Health professional seam never claims unimplemented clinical capability
+ok 28 - DGX004 Health professional seam never claims unimplemented clinical capability
+  ---
+  duration_ms: 0.3332
+  type: 'test'
+  ...
+# Subtest: DGX007 L0 retains uncertainty and release gate; L2 preserves exact evidence
+ok 29 - DGX007 L0 retains uncertainty and release gate; L2 preserves exact evidence
+  ---
+  duration_ms: 2.3156
+  type: 'test'
+  ...
+# Subtest: DGX007 canonical status wins and graph drift warning bubbles into L0
+ok 30 - DGX007 canonical status wins and graph drift warning bubbles into L0
+  ---
+  duration_ms: 0.6105
+  type: 'test'
+  ...
+# Subtest: DGX007 material conflict and more-evidence adjudication remain visible with progressive disclosure
+ok 31 - DGX007 material conflict and more-evidence adjudication remain visible with progressive disclosure
+  ---
+  duration_ms: 0.3844
+  type: 'test'
+  ...
+# Subtest: DGX006 all participants review scoped exact candidate; minor dissent is retained
+ok 32 - DGX006 all participants review scoped exact candidate; minor dissent is retained
+  ---
+  duration_ms: 3.7862
+  type: 'test'
+  ...
+# Subtest: DGX006 no votes can override critical major or blocking reviewer
+ok 33 - DGX006 no votes can override critical major or blocking reviewer
+  ---
+  duration_ms: 0.7362
+  type: 'test'
+  ...
+# Subtest: DGX006 missing trusted receipts and stale/cross-case reviews fail closed
+ok 34 - DGX006 missing trusted receipts and stale/cross-case reviews fail closed
+  ---
+  duration_ms: 1.6436
+  type: 'test'
+  ...
+# Subtest: DGX006 Owner-only boundary needs independently resolved authorization
+ok 35 - DGX006 Owner-only boundary needs independently resolved authorization
+  ---
+  duration_ms: 0.3439
+  type: 'test'
+  ...
+# Subtest: DGX006 another case or participant independence receipt cannot unlock this candidate
+ok 36 - DGX006 another case or participant independence receipt cannot unlock this candidate
+  ---
+  duration_ms: 0.4356
+  type: 'test'
+  ...
+# Subtest: DGX006 bounded appeal requires new evidence or specific procedural/factual error
+ok 37 - DGX006 bounded appeal requires new evidence or specific procedural/factual error
+  ---
+  duration_ms: 0.6779
+  type: 'test'
+  ...
+# Subtest: DGX whole-series runner executes failing child tests despite inherited Node test context
+ok 38 - DGX whole-series runner executes failing child tests despite inherited Node test context
+  ---
+  duration_ms: 4988.641
+  type: 'test'
+  ...
+# Subtest: DGX whole-series runner records positive executed test count with inherited context cleared
+ok 39 - DGX whole-series runner records positive executed test count with inherited context cleared
+  ---
+  duration_ms: 4843.1334
+  type: 'test'
+  ...
+# Subtest: DGX007 governance case survives restart; immutable identity and bounded revisions
+ok 40 - DGX007 governance case survives restart; immutable identity and bounded revisions
+  ---
+  duration_ms: 11.1892
+  type: 'test'
+  ...
+# Subtest: DGX007 missing upstream ports cannot fabricate assignments results or release
+ok 41 - DGX007 missing upstream ports cannot fabricate assignments results or release
+  ---
+  duration_ms: 6.6249
+  type: 'test'
+  ...
+# Subtest: DGX007 corrupt/unavailable governance storage is observable and isolated
+ok 42 - DGX007 corrupt/unavailable governance storage is observable and isolated
+  ---
+  duration_ms: 2.5559
+  type: 'test'
+  ...
+# Subtest: DGX990 two-pass case information boundary survives restart before defence is admitted
+ok 43 - DGX990 two-pass case information boundary survives restart before defence is admitted
+  ---
+  duration_ms: 20.9088
+  type: 'test'
+  ...
+# Subtest: DGX003 service rejects forged author host and adjudicator session in otherwise valid receipts
+ok 44 - DGX003 service rejects forged author host and adjudicator session in otherwise valid receipts
+  ---
+  duration_ms: 4.9009
+  type: 'test'
+  ...
+# Subtest: DGX007 persisted encoding respects the same byte bound as the reader
+ok 45 - DGX007 persisted encoding respects the same byte bound as the reader
+  ---
+  duration_ms: 48.3988
+  type: 'test'
+  ...
+# Subtest: DGX006 pending appeal cannot be erased by recalculating the same release
+ok 46 - DGX006 pending appeal cannot be erased by recalculating the same release
+  ---
+  duration_ms: 6.0657
+  type: 'test'
+  ...
+# Subtest: DGX005 accepted contributor claims discover conflict and force revalidation without deleting evidence
+ok 47 - DGX005 accepted contributor claims discover conflict and force revalidation without deleting evidence
+  ---
+  duration_ms: 16.6605
+  type: 'test'
+  ...
+# Subtest: DGX990 integrated candidate cannot lower the immutable Owner-only case boundary
+ok 48 - DGX990 integrated candidate cannot lower the immutable Owner-only case boundary
+  ---
+  duration_ms: 10.572
+  type: 'test'
+  ...
+# Subtest: DGX002 real PCF thin extension rejects another canonical task before compilation
+ok 49 - DGX002 real PCF thin extension rejects another canonical task before compilation
+  ---
+  duration_ms: 1.9479
+  type: 'test'
+  ...
+# Subtest: DGX990 real substrate result binds trusted execution identity and survives restart with joint reviewer
+ok 50 - DGX990 real substrate result binds trusted execution identity and survives restart with joint reviewer
+  ---
+  duration_ms: 12.7066
+  type: 'test'
+  ...
+# Subtest: DGX990 cross-candidate substrate receipt cannot enter the case or remove uncertainty
+ok 51 - DGX990 cross-candidate substrate receipt cannot enter the case or remove uncertainty
+  ---
+  duration_ms: 4.2788
+  type: 'test'
+  ...
+# Subtest: DGX007 Web discovers governance, imports case and traces L0 to exact L2 evidence without task mutation
+ok 52 - DGX007 Web discovers governance, imports case and traces L0 to exact L2 evidence without task mutation
+  ---
+  duration_ms: 1670.3546
+  type: 'test'
+  ...
+# Subtest: PCF726 versioned capsule retains canonical identity and bounded scope; legacy tasks remain untouched
+ok 53 - PCF726 versioned capsule retains canonical identity and bounded scope; legacy tasks remain untouched
+  ---
+  duration_ms: 3.5054
+  type: 'test'
+  ...
+# Subtest: PCF726 result correlation never treats transport or exit zero as acceptance
+ok 54 - PCF726 result correlation never treats transport or exit zero as acceptance
+  ---
+  duration_ms: 7.6197
+  type: 'test'
+  ...
+# Subtest: PCF726 explicit result ledger rejects replay and out of order after restart
+ok 55 - PCF726 explicit result ledger rejects replay and out of order after restart
+  ---
+  duration_ms: 1.5249
+  type: 'test'
+  ...
+1..55
+# tests 55
+# suites 0
+# pass 55
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 19920.6631

@@ -11,7 +11,7 @@
     "DGX-007",
     "DGX-990"
   ],
-  "source_sha": "e5a03dae02ca341d6d23565735e6cd6c3edc27d9",
+  "source_sha": "6fe6e85b51f3e067dc67405c8e01a93e89dca1b4",
   "branch": "Alien-GPT-DGX",
   "physical_host": "Mera-Alianware",
   "development_physical_host": "Mera-Alianware",
@@ -19,12 +19,11 @@
   "source_clean_before": true,
   "source_clean_after": true,
   "source_unchanged": true,
-  "duration_ms": 21261,
+  "duration_ms": 16453,
   "node_version": "v24.19.0",
   "command": [
     "C:\\Users\\15601\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
     "--test",
-    "--test-reporter=tap",
     "tests/dgx-core.test.mjs",
     "tests/dgx-assignment.test.mjs",
     "tests/dgx-profiles.test.mjs",
@@ -38,11 +37,8 @@
     "tests/dgx-gateway.test.mjs",
     "tests/dgx-web.test.mjs",
     "tests/dgx-conflicts.test.mjs",
-    "tests/dgx-integration-revision.test.mjs",
-    "tests/dgx-runner.test.mjs"
+    "tests/dgx-integration-revision.test.mjs"
   ],
-  "executed_tests": 55,
-  "test_summary_verified": true,
   "result": "PASS",
   "exit_code": 0,
   "scenarios": [

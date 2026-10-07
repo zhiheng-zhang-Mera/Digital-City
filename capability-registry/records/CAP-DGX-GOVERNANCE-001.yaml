@@ -14,7 +14,7 @@ implementation:
   discovery_refs: [refs/heads/Alien-GPT-DGX]
   paths: [contracts/deliberative-governance-v2/index.mjs, services/dev-gateway/governance.mjs]
   last_verified_full_sha: null
-  candidate_full_sha: 6fe6e85b51f3e067dc67405c8e01a93e89dca1b4
+  candidate_full_sha: e5a03dae02ca341d6d23565735e6cd6c3edc27d9
   api_or_actions: [GET /api/v0/governance, POST /api/v0/governance]
 status:
   implementation_status: DEVELOPMENT_COMPLETE_SERIES_REVIEW_PENDING
