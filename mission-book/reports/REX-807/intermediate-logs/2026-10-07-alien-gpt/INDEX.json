@@ -40,6 +40,36 @@
       "file": "rex807-alien-rex-series-regression.log",
       "bytes": 16483,
       "sha256": "4ccdf71ea012e2eb15cbe963ea3b83658e64e48550971eb4212d4df162eaa294"
+    },
+    {
+      "file": "rex807-ci-37565891461.json",
+      "bytes": 177,
+      "sha256": "72680a9845a26081ff3ad0acd23244a1e62914cb0cfef993742347436a4d7a20"
+    },
+    {
+      "file": "rex807-ci-37565891461.log",
+      "bytes": 679531,
+      "sha256": "1baf337da7c54802f2ecb4c4e4c97839db2d390c10e26f8e56491b43c134ac47"
+    },
+    {
+      "file": "rex807-ci-37565900572.json",
+      "bytes": 177,
+      "sha256": "01b5cad5fa936a471215befa96bbb6c337c5020a80ff1024c4b0802ef525bd9d"
+    },
+    {
+      "file": "rex807-ci-37565900572.log",
+      "bytes": 26480,
+      "sha256": "6455f0a679ce698d3734adeb2a983412276719628f30d82e342da6c8d2388c43"
+    },
+    {
+      "file": "rex807-ci-37565900590.json",
+      "bytes": 177,
+      "sha256": "a44bf53bd2cfc4adc63fdd3cf304fdadf838a3ebdd756bdbe07af353d549bec4"
+    },
+    {
+      "file": "rex807-ci-37565900590.log",
+      "bytes": 683891,
+      "sha256": "e6ef8abe77ea47def35fbacb375d287d7a23a5d7dd9f24c2a26745dd6c77ee19"
     }
   ]
 }

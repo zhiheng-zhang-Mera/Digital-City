@@ -19,3 +19,5 @@ Mech should review PR43's single merge commit and integrated head and provide an
 Local raw evidence remains under the Utopia runtime evidence tree. Paper-material classifications: dependency-head drift, export metric semantics/precision, missing source associations and endpoint unreachability. No new study counts or upgraded historical conclusions are claimed.
 
 组合头 `2decc71` 的 REX-801–807 全部本机系列套件：152/152 通过、0 跳过，耗时 94.1 秒。该结果覆盖本机产品/浏览器守卫，不替代对侧独立验收或实体 multi-device study。 / All local REX-801–807 suites at integrated head `2decc71`: 152/152 pass, zero skips, 94.1 seconds. This covers local product/browser guards, not opposite-host independent acceptance or a physical multi-device study.
+
+精确组合头 `2decc71b2b9a3d0e66293498f4f1676e461da8da` 的云端 push `37565891461`、PR `37565900590`、City linkage `37565900572` 均终态 SUCCESS；原始终态日志与 JSON 已归档。这不是 Mech 人工许可或系列收尾 PASS。 / Exact integrated-head push, PR and City-linkage checks are terminal SUCCESS; raw terminal logs and metadata are archived. This is not Mech approval or programme closeout PASS.
