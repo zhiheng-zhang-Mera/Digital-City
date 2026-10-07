@@ -22,7 +22,8 @@ AUTHORITY           REX-806 `merge_authority: true`（既有 Owner 门口径：�
 推送            git push origin cc79923:refs/heads/main => 12e3d3b..cc79923
 提交后复测      origin/main = cc79923；`git merge-base --is-ancestor cc79923 origin/main` exit 0
 main 上的 CI    City linkage check run 37550845871 **completed / success**（reciprocal-contract success）；
-                V0.2 checks run 37550845875 在写作时仍 in_progress —— 本文件**不预写**它的结论，下一轮复查补记。
+                V0.2 checks run 37550845875：写作时 gateway-web 仍 in_progress（android 已 success），
+                **本轮结束前复查已 completed / success** —— 两次观察都记录在此，未把 in_progress 预写成 PASS。
 分支侧 CI       cc79923 自身的 push 37549801619 / PR 37549806262 / linkage 37549806355 三项已 success
 ```
 
