@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "312b627b54af5bbf274fa25eca8f8383869c1c34",
-    "name": "City linkage check",
-    "run_id": 37475260744,
+    "head_sha": "cc799234e7daa3d8ccfde5673b9d07ccb2376742",
+    "name": "V0.2 checks",
+    "run_id": 37550845875,
     "status": "completed",
-    "updated_at": "2026-10-06T13:59:59Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37475260744"
+    "updated_at": "2026-10-07T00:19:39Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37550845875"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "Adopt the REX-804 evidence-path repair: a green run must not rewrite committed evidence",
-  "main_commit_time": "2026-10-06T13:39:32Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/312b627b54af5bbf274fa25eca8f8383869c1c34",
-  "main_sha": "312b627b54af5bbf274fa25eca8f8383869c1c34",
+  "main_commit_message": "fix(research): independently verify duplicate canonical task executions",
+  "main_commit_time": "2026-10-07T00:02:11Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/cc799234e7daa3d8ccfde5673b9d07ccb2376742",
+  "main_sha": "cc799234e7daa3d8ccfde5673b9d07ccb2376742",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
