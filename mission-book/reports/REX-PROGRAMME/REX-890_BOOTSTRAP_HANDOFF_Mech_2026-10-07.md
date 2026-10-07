@@ -122,6 +122,35 @@ DELETE_TEMP_ARTIFACT / CHECKPOINT_DEMO。
   结束时 process.exit 触发 libuv 崩溃（改为 exitCode 让句柄自然收敛）
 ```
 
+## 5B. 这个工具的"0 inconsistencies"凭什么算数（2026-10-07 追加）
+
+一个不会失败的检查不是检查。所以工具自带一份**证伪脚本**：`scripts/rex890-falsify-reproduction.mjs`
+（@ 008c4c4），它造出被篡改的包，要求复现工具**拒绝**它们。**4/4 通过**：
+
+```text
+A  改了 completion_time_ms 并**刷新校验和**（于是包自洽）
+   ⇒ 复现工具 exit 1 且逐条具名；**于此同时包仍然通过自己的 checksum 校验**
+   ⇒ 说明这条发现来自"指标不一致"，不是"哈希不一致"——两者必须能区分
+B  **只**改包里的 normalized-dataset.json 并刷新校验和
+   ⇒ 重算出来的指标**不动**（仍 6532），0 inconsistencies、exit 0
+   ⇒ 这是最关键的一条：证明工具是**从城市重建** dataset，而不是读包里那一份
+C  改了 metrics.csv 但**不刷新**校验和
+   ⇒ exit 1，packageIntegrity=BROKEN，且具名 "checksum for metrics.csv"
+```
+
+trace/provenance 的对比（工作书点名的那一项）也做实了：
+
+```text
+canonical task 指针   22/22 仍存在于城市          run→task 连接   15/15 仍可解析
+trace 指针            170/206 仍在该城市的实时 trace 里
+                      —— **不算作不一致**，因为城市自己报 completeness=PARTIAL（dropped=0），
+                         没有声称"什么都没丢"。只有"城市说自己完整、而指针缺失"才会被判为不一致。
+每条重建出的 run 引用都同时带有回执指针与 canonical task 引用
+```
+
+证伪脚本自己也错过一次，照实记：它最初的两条篡改正则**漏了 multiline 标志**，于是两次替换静默什么都没做，
+脚本却把**复现工具**报成失败——一次"没有发生的证伪"比没有证伪更糟，已修并复跑为 4/4。
+
 ## 6. 本文件不声称的事
 
 ```text
