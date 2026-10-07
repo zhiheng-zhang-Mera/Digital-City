@@ -2,13 +2,13 @@
 
 # DGX — Deliberative Governance Expansion & Migration / 审议治理扩建迁移
 
-> **状态：PARKED / NOT ACTIVATED — SECOND FUSION CORRECTION 2026-10-06**
+> **状态：OWNER ACTIVATED / DEVELOPMENT CANDIDATE 2026-10-07**
 >
-> 本系列仅记录已确认的架构扩建与软迁移方案。当前 `execution_enabled=false`；不得领取、施工、创建实现分支或把任何当前 branch/head 当作未来 baseline。
+> 本系列仅记录已确认的架构扩建与软迁移方案。Owner 已于 2026-10-07 明确授权 execution_enabled=true；仅在 Alien-GPT-DGX 开发，禁止合并 main。正式依赖与 Review 门槛保留。
 >
 > 本轮二次融合把“复杂请求认知拆分、隔离执行、结构化汇合、独立仲裁”吸收到 DGX，但**不改写当前 Engineering Formal Review 的异机硬门槛**。Review Independence v2 若未来要替换现行规则，必须通过独立迁移系列显式完成。
 >
-> **所有工作书的 baseline/dependency SHA 锚点当前故意为空。** 激活时必须重新读取当时的 Digital-City/Utopia canonical truth，以 full 40-char SHA 原子锚定，禁止回填“今天看起来合适”的 SHA。
+> **开发 baseline 已按 full SHA 固定。** 内部开发依赖使用单分支实际前序提交；正式 accepted dependency SHA 不以开发候选冒充。
 
 ## 目标
 
@@ -166,14 +166,14 @@ KEEP IN PLACE
 
 | ID | 工作 | 状态 |
 |---|---|---|
-| DGX-001 | Governance Ownership Audit & Capability Map | PARKED |
-| DGX-002 | Constitution + Decomposition / Deliberation Contracts | PARKED |
-| DGX-003 | Capability / History / Independence Assignment Policy | PARKED |
-| DGX-004 | Domain Profile Adapters & Soft Migration | PARKED |
-| DGX-005 | Conflict / Defence / Fresh-context Independent Adjudication | PARKED |
-| DGX-006 | Appeal / Dissent / Joint Final Review & Release Gate | PARKED |
-| DGX-007 | Process Capsule + Monitor Governance Projection | PARKED |
-| DGX-990 | Cross-domain Acceptance & Freeze | PARKED |
+| DGX-001 | Governance Ownership Audit & Capability Map | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-002 | Constitution + Decomposition / Deliberation Contracts | WAITING_DEPENDENCIES |
+| DGX-003 | Capability / History / Independence Assignment Policy | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-004 | Domain Profile Adapters & Soft Migration | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-005 | Conflict / Defence / Fresh-context Independent Adjudication | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-006 | Appeal / Dissent / Joint Final Review & Release Gate | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-007 | Process Capsule + Monitor Governance Projection | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-990 | Cross-domain Acceptance & Freeze | WAITING_DEPENDENCIES |
 
 ## 激活条件
 
@@ -223,3 +223,27 @@ KEEP IN PLACE
 - [DGX-990-cross-domain-acceptance-and-freeze.md](DGX-990-cross-domain-acceptance-and-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+## Current branch evidence / 当前分支证据
+
+[Series report](../../reports/DGX/SERIES_REPORT.md). Owner activation supersedes historical parked activation conditions; domain gates and acceptance boundaries remain binding.
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/8 · 开发 / Development 6/8 · 复检 / Review 0/8 · `ACTIVE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [DGX-001](DGX-001-governance-ownership-audit-and-capability-map.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-002](DGX-002-constitution-and-core-deliberation-contracts.md) | DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES | NO | NO | YES |
+| [DGX-003](DGX-003-capability-history-assignment-policy.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-004](DGX-004-domain-profile-adapters-and-soft-migration.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-005](DGX-005-conflict-defence-and-independent-adjudication.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-006](DGX-006-appeal-dissent-joint-final-review-release-gate.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-007](DGX-007-process-capsule-and-monitor-governance-projection.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-990](DGX-990-cross-domain-acceptance-and-freeze.md) | DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->

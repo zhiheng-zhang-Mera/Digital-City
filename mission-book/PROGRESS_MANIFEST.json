@@ -147,6 +147,15 @@
       ],
       "active_pool": true,
       "readme": "mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "key": "dgx",
+      "name": "Deliberative Governance Expansion / DGX",
+      "task_globs": [
+        "mission-group/deliberative-governance-expansion-migration/DGX-*.md"
+      ],
+      "active_pool": true,
+      "readme": "mission-group/deliberative-governance-expansion-migration/README.md"
     }
   ]
 }

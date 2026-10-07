@@ -1,0 +1,36 @@
+schema_version: 1
+capability_id: CAP-DGX-GOVERNANCE-001
+name:
+  zh_CN: 审议治理合同
+  en: Deliberative governance contracts
+ownership:
+  city_owner: Deliberative Governance
+  programme: DGX
+  canonical_module: contracts/deliberative-governance-v2/index.mjs
+source_workbooks: [DGX-001, DGX-002, DGX-003, DGX-004, DGX-005, DGX-006, DGX-007, DGX-990]
+dependencies: [PCF-726]
+implementation:
+  repo: zhiheng-zhang-Mera/utopia
+  discovery_refs: [refs/heads/Alien-GPT-DGX]
+  paths: [contracts/deliberative-governance-v2/index.mjs, services/dev-gateway/governance.mjs]
+  last_verified_full_sha: null
+  candidate_full_sha: 33faba449222f2cfab108ccfe62a78f41c9743a9
+  api_or_actions: [GET /api/v0/governance, POST /api/v0/governance]
+status:
+  implementation_status: DEVELOPMENT_CANDIDATE
+  backend_wiring_status: PARTIAL_EXTERNAL_PORTS_UNAVAILABLE
+  user_reachability_status: INTERNAL_CONTRACT
+  intent_validation_status: CONTROLLED_CONFORMANCE_ONLY
+exposure:
+  class: INTERNAL_ONLY
+  internal_only_exemption_reason: VERSIONED_CONTRACT_CONSUMED_BY_WEB_INSPECTOR
+surfaces:
+  - platform: WEB
+    location: Sidebar > Governance > Process Capsule
+    nesting: L0_L1_L2
+    evidence_ref: mission-book/reports/DGX/SERIES_REPORT.md
+evidence:
+  implementation_refs: [mission-book/reports/DGX/SERIES_REPORT.md]
+  ui_or_e2e_refs: [utopia/tests/dgx-web.test.mjs]
+known_gaps: [PCF_726_ACCEPTED_SHA_UNAVAILABLE, PARTICIPANT_FACTS_PORT_UNAVAILABLE, FORMAL_REVIEW_NOT_RUN, FREEZE_NOT_RUN]
+last_reconciled_by_workbook: DGX-990

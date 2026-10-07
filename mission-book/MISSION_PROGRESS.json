@@ -1,31 +1,31 @@
 {
   "active_pool": {
     "development": {
-      "complete": 9,
-      "total": 11
+      "complete": 15,
+      "total": 19
     },
     "review": {
       "complete": 8,
-      "total": 11
+      "total": 19
     },
     "tasks": {
       "complete": 8,
-      "total": 11
+      "total": 19
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 93,
-      "total": 95
+      "complete": 99,
+      "total": 103
     },
     "review": {
       "complete": 92,
-      "total": 95
+      "total": 103
     },
     "tasks": {
       "complete": 92,
-      "total": 95
+      "total": 103
     }
   },
   "programmes": [
@@ -1091,6 +1091,91 @@
         }
       ],
       "total": 2
+    },
+    {
+      "active_pool": true,
+      "development_complete": 6,
+      "key": "dgx",
+      "name": "Deliberative Governance Expansion / DGX",
+      "readme": "mission-group/deliberative-governance-expansion-migration/README.md",
+      "review_complete": 0,
+      "status": "ACTIVE",
+      "task_complete": 0,
+      "tasks": [
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-001",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "DGX-002",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-003",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-004",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-005",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-006",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+        },
+        {
+          "complete": false,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-007",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+        },
+        {
+          "complete": false,
+          "development_complete": false,
+          "execution_enabled": true,
+          "id": "DGX-990",
+          "path": "mission-group/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
+          "review_complete": false,
+          "status": "DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES"
+        }
+      ],
+      "total": 8
     }
   ],
   "schema_version": 1,

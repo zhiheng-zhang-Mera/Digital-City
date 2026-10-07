@@ -7,7 +7,7 @@
 | Series | Purpose | State |
 |---|---|---|
 | [PCF](mission-group/personal-compute-fabric/README.md) | 增强个人异构计算织网：29 份规划工作书（23 核心 + 6 可选），支持追加子任务与版本化复杂扩展 | PARKED |
-| [DGX](mission-group/deliberative-governance-expansion-migration/README.md) | 复杂请求拆分、隔离执行、结构化汇合、冲突/仲裁治理 | PARKED |
+| [DGX](mission-group/deliberative-governance-expansion-migration/README.md) | 复杂请求拆分、隔离执行、结构化汇合、冲突/仲裁治理 | OWNER ACTIVATED ON Alien-GPT-DGX / NO MAIN MERGE |
 | [RIV](mission-group/review-independence-v2/README.md) | Review Pool v2、多维独立性、fresh-context、安全迁移 | PARKED |
 | [URA](mission-group/utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector 运行时分层与逻辑解耦 | PARKED |
 | [CHK](mission-group/city-self-health-check/README.md) | 周期体检、自我认知/诊断、季度自进化候选评审 | PARKED |

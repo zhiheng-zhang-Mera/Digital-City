@@ -3,7 +3,7 @@ workbook_id: DGX-007
 phase: DELIBERATIVE_GOVERNANCE_EXPANSION_MIGRATION
 sequence: 7
 execution_enabled: true
-status: WAITING_DEPENDENCIES
+status: DEVELOPMENT_COMPLETE_WAITING_REVIEW
 activation_state: OWNER_ACTIVATED_SINGLE_BRANCH_DEVELOPMENT
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -11,47 +11,53 @@ baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: []
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
-anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
+development_baseline_sha: a34a65556fbbd2e8d2c90a267e84ed19b8234171
+baseline_resolution_evidence: mission-book/reports/DGX/DGX-007.md
+anchor_state: PROVISIONAL_DEVELOPMENT_ACCEPTED_DEPENDENCIES_PENDING
 dependencies: ["DGX-002", "DGX-005", "DGX-006"]
 development_host: Alien
 development_branch: Alien-GPT-DGX
-development_head_sha: null
-development_ci: null
-development_complete: false
+development_head_sha: 33faba449222f2cfab108ccfe62a78f41c9743a9
+development_ci: {"head_sha":"33faba449222f2cfab108ccfe62a78f41c9743a9","run_id":37573979023,"status":"IN_PROGRESS","conclusion":null}
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
 review_complete: false
-user_exposure_class: UNASSESSED
-user_exposure_surface: null
-user_exposure_nesting: null
-backend_wiring: UNASSESSED
+user_exposure_class: OBSERVABLE_ADVANCED
+user_exposure_surface: WEB_GOVERNANCE
+user_exposure_nesting: L0_CAPSULE_L1_INSPECTOR_L2_EVIDENCE
+backend_wiring: PARTIAL
 ui_exemption_reason: null
-capability_ids: []
-capability_registry_action: UNASSESSED
-capability_registry_refs: []
-capability_registry_sync_status: UNASSESSED
-research_evidence_applicability: UNASSESSED
+capability_ids: ["CAP-DGX-GOVERNANCE-001", "CAP-DGX-PROCESS-001"]
+capability_registry_action: CREATE
+capability_registry_refs: ["capability-registry/records/CAP-DGX-GOVERNANCE-001.yaml", "capability-registry/records/CAP-DGX-PROCESS-001.yaml"]
+capability_registry_sync_status: CANDIDATE_PENDING_FORMAL_REVIEW
+research_evidence_applicability: BOUNDED_DEVELOPMENT_OBSERVATION
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []
 research_watchlist_hits: []
 highest_research_grade_observed: NONE
 research_capture_level: STANDARD
-state_identity_evidence: UNASSESSED
+state_identity_evidence: EXACT_DEVELOPMENT_HEAD
 state_identity_evidence_refs: []
-monitor_observability_evidence: UNASSESSED
+monitor_observability_evidence: CONTROLLED_CONFORMANCE
 monitor_observability_refs: []
-decision_trace_evidence: UNASSESSED
+decision_trace_evidence: CONTROLLED_CONFORMANCE
 decision_trace_refs: []
 owner_gate: OWNER_AUTHORIZED_DEVELOPMENT_NO_MAIN_MERGE
 merge_authority: false
-report_path: null
+report_path: mission-book/reports/DGX
+development_component_commit_sha: 14a23267d3d720c25884cc217891229cee292af2
+development_candidate_baseline_sha: cc799234e7daa3d8ccfde5673b9d07ccb2376742
+formal_acceptance_state: NOT_RUN
+external_dependency_state: PCF_726_ACCEPTED_SHA_UNAVAILABLE
+
+dependency_source_workbooks: ["DGX-002","DGX-005","DGX-006"]
 ---
 
 > **OWNER ACTIVATED 2026-10-07.** Alien-GPT-DGX 单分支开发；禁止合并 main。依赖与正式 Review 不豁免。  
-> **Anchor policy:** 所有 baseline / dependency exact SHA 当前故意留空。只有 Owner 显式激活后，才按当时最新 canonical truth 解析 full SHA 并原子写入。
+> **Anchor policy:** 初始 Utopia main 已按 full SHA 固定。按 Owner 单分支裁决进行内部候选开发；正式 accepted dependency anchors 仍待独立 Review，不能以开发提交冒充。
 
 # DGX-007 — Process Capsule + Monitor Governance Projection
 

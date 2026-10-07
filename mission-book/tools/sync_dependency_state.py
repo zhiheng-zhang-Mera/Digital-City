@@ -11,7 +11,7 @@ from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 MISSION = ROOT / "mission-book"
-ID_RE = re.compile(r"\b(?:MB|BA|RF|GAI|EM|RS|UI|UXI|JOIN|MESH|WBC|CEX|REX|MON|SHOW|PCF)-\d{3}\b")
+ID_RE = re.compile(r"\b(?:MB|BA|RF|GAI|EM|RS|UI|UXI|JOIN|MESH|WBC|CEX|REX|MON|SHOW|PCF|DGX)-\d{3}\b")
 SHA_RE = re.compile(r"^[0-9a-f]{40}$")
 WAIT_BLOCKER = "DEPENDENCY_ACCEPTED_SHA_NOT_YET_AVAILABLE"
 

@@ -6,13 +6,13 @@
 
 # DGX — Deliberative Governance Expansion & Migration
 
-> **Status: PARKED / NOT ACTIVATED — SECOND FUSION CORRECTION 2026-10-06.**
+> **Status: OWNER ACTIVATED / DEVELOPMENT CANDIDATE 2026-10-07.**
 >
-> This series records confirmed architectural expansion and soft-migration designs only. `execution_enabled=false`: do not claim, construct, create implementation branches or treat any current branch/head as the future baseline.
+> Owner activated execution_enabled=true on 2026-10-07. Development is confined to Alien-GPT-DGX; no main merge. Independent review and dependency acceptance gates remain binding.
 >
 > This second fusion incorporates cognitive decomposition of complex requests, isolated execution, structured integration and independent adjudication into DGX. It does not rewrite Engineering Formal Review's current different-host hard gate. A future Review Independence v2 replacement requires an explicitly completed independent migration series.
 >
-> Every workbook's baseline/dependency SHA anchors are intentionally empty. At activation, reread the then-current Digital-City/Utopia canonical truth and atomically anchor full 40-character SHAs. Do not backfill a SHA merely because it looks suitable today.
+> Development baselines are anchored to actual full SHAs. Internal sequential development heads are provisional and never represented as independently accepted dependency heads.
 
 ## Goal
 
@@ -170,14 +170,14 @@ Do not move implementations already accepted by exact-head/opposite-host review 
 
 | ID | Work | Status |
 |---|---|---|
-| DGX-001 | Governance Ownership Audit & Capability Map | PARKED |
-| DGX-002 | Constitution + Decomposition / Deliberation Contracts | PARKED |
-| DGX-003 | Capability / History / Independence Assignment Policy | PARKED |
-| DGX-004 | Domain Profile Adapters & Soft Migration | PARKED |
-| DGX-005 | Conflict / Defence / Fresh-context Independent Adjudication | PARKED |
-| DGX-006 | Appeal / Dissent / Joint Final Review & Release Gate | PARKED |
-| DGX-007 | Process Capsule + Monitor Governance Projection | PARKED |
-| DGX-990 | Cross-domain Acceptance & Freeze | PARKED |
+| DGX-001 | Governance Ownership Audit & Capability Map | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-002 | Constitution + Decomposition / Deliberation Contracts | WAITING_DEPENDENCIES |
+| DGX-003 | Capability / History / Independence Assignment Policy | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-004 | Domain Profile Adapters & Soft Migration | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-005 | Conflict / Defence / Fresh-context Independent Adjudication | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-006 | Appeal / Dissent / Joint Final Review & Release Gate | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-007 | Process Capsule + Monitor Governance Projection | DEVELOPMENT_COMPLETE / REVIEW_NOT_RUN |
+| DGX-990 | Cross-domain Acceptance & Freeze | WAITING_DEPENDENCIES |
 
 ## Activation conditions
 
@@ -224,3 +224,27 @@ By default, wait for the current Monitor programme to complete its established f
 - [DGX-990-cross-domain-acceptance-and-freeze.md](DGX-990-cross-domain-acceptance-and-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+## Current branch evidence / 当前分支证据
+
+[Series report](../../../reports/DGX/SERIES_REPORT.md). Owner activation supersedes historical parked activation conditions; domain gates and acceptance boundaries remain binding.
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/8 · 开发 / Development 6/8 · 复检 / Review 0/8 · `ACTIVE`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [DGX-001](../DGX-001-governance-ownership-audit-and-capability-map.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-002](../DGX-002-constitution-and-core-deliberation-contracts.md) | DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES | NO | NO | YES |
+| [DGX-003](../DGX-003-capability-history-assignment-policy.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-004](../DGX-004-domain-profile-adapters-and-soft-migration.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-005](../DGX-005-conflict-defence-and-independent-adjudication.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-006](../DGX-006-appeal-dissent-joint-final-review-release-gate.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-007](../DGX-007-process-capsule-and-monitor-governance-projection.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
+| [DGX-990](../DGX-990-cross-domain-acceptance-and-freeze.md) | DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->
