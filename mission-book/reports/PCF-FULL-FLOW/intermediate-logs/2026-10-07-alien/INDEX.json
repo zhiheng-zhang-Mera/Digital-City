@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "source_sha": "15b1e61280ecc8b5a5c755882446e753fec7b6bf",
+  "verification_mode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "programme_complete": false,
+  "opposite_host_validation": "NOT_RUN",
+  "files": [
+    {
+      "file": "pcf-full-bilingual-final.log",
+      "bytes": 114,
+      "sha256": "21c2b1c69d0d4ba306e8827e5c4435628ce64029fe7c95749042664f0da864ca"
+    },
+    {
+      "file": "pcf-full-bilingual.log",
+      "bytes": 114,
+      "sha256": "21c2b1c69d0d4ba306e8827e5c4435628ce64029fe7c95749042664f0da864ca"
+    },
+    {
+      "file": "pcf-full-city-install.log",
+      "bytes": 668,
+      "sha256": "83fc594c62dfcc33b7db1ba3d5215b5fbb7f9f098aecb2cdd0dde805f4a3e58c"
+    },
+    {
+      "file": "pcf-full-combined.log",
+      "bytes": 6160,
+      "sha256": "0017b1fbfc3db47f7f66b353b61f6e140c1dd8a3dfe32b266ec9cd25dece035a"
+    },
+    {
+      "file": "pcf-full-continuity-green.log",
+      "bytes": 788,
+      "sha256": "2be5c12f972d4f66fc8b947be9dc5d55e59e822427dd8827c10a44d86f60c73c"
+    },
+    {
+      "file": "pcf-full-continuity-red.log",
+      "bytes": 1581,
+      "sha256": "76130666e2da28b0161916c9cef4dacf8974ff105927a221d455ac3c14230216"
+    },
+    {
+      "file": "pcf-full-execution-green.log",
+      "bytes": 722,
+      "sha256": "87343d4929ee7e0b65bdd6465e79edfa61410a28b359d5cb8651c54599941a0c"
+    },
+    {
+      "file": "pcf-full-execution-red.log",
+      "bytes": 1575,
+      "sha256": "7db68ada985c7d7fbf0bcfc96cfff2bca77101c52da89b9d57b357fcbf4a4048"
+    },
+    {
+      "file": "pcf-full-final-focused-71.log",
+      "bytes": 7449,
+      "sha256": "a90831d4be1f77e6fd17705fa4c20cc3127f6a8fb306979e151721ec54cd182c"
+    },
+    {
+      "file": "pcf-full-final-focused.log",
+      "bytes": 7354,
+      "sha256": "048100d08ee1aecbb279b1049082fcc5415dcc7c0407dbe3d87753048659d471"
+    },
+    {
+      "file": "pcf-full-final-regression-available.log",
+      "bytes": 128569,
+      "sha256": "6f9ab39c67a7f3bda7ff604cc6a2080dd3ec2990ebe484f8876dda64a7b52fc8"
+    },
+    {
+      "file": "pcf-full-foundation-green.log",
+      "bytes": 637,
+      "sha256": "970987bc47d75a8a1fec4939a8b2379b5f34bac30d62fd824726213e1cf074e2"
+    },
+    {
+      "file": "pcf-full-foundation-red.log",
+      "bytes": 1577,
+      "sha256": "15cbf99a64a2deecc651c3048e080e4bedbb448087c5a909a24a72aae6e337f0"
+    },
+    {
+      "file": "pcf-full-gpu-probe.log",
+      "bytes": 63,
+      "sha256": "16d71cf5ac5222975467f6864609864a3af1535b2f660ffc6ed4f48e153dab6d"
+    },
+    {
+      "file": "pcf-full-hardening-green.log",
+      "bytes": 912,
+      "sha256": "582d003439b3ae5658cc9ffa1ae04bdca68a46c28136722f88a518e7a579f2b6"
+    },
+    {
+      "file": "pcf-full-hardening-red.log",
+      "bytes": 1596,
+      "sha256": "242335d52918925b570f92ebea160c96bab842af2575386072ab1261a3f3e4bf"
+    },
+    {
+      "file": "pcf-full-install.log",
+      "bytes": 700,
+      "sha256": "1f6ab8696fa86e383275863ded2ea2bd2e1b0f8c88936ef2b79ce10759318c45"
+    },
+    {
+      "file": "pcf-full-local-flow.log",
+      "bytes": 269,
+      "sha256": "c358ebcd2a2ce2635d25c9c4bc218bc2cc32291eeb3aad17bef307fb603835fa"
+    },
+    {
+      "file": "pcf-full-local-pilot.log",
+      "bytes": 3767,
+      "sha256": "861bf1b903b8f5767881fdc5e581e9a2774ee48e033ab5a36e5d27679c82fc37"
+    },
+    {
+      "file": "pcf-full-regression.log",
+      "bytes": 144530,
+      "sha256": "5499bc2a6bdbb6b78f4960914ba708b263158d9122e59129a0e6930234fee232"
+    },
+    {
+      "file": "pcf-full-review-green.log",
+      "bytes": 1672,
+      "sha256": "92bdae0587e8886ff86d498d66bcb19e59a4b7eafb7a4c967ba183f69a022b75"
+    },
+    {
+      "file": "pcf-full-review-red.log",
+      "bytes": 3190,
+      "sha256": "43afa40febff2da8522eb4b78894400827a7ab28e12e9d3e25485a6054710053"
+    },
+    {
+      "file": "pcf-full-scheduling-green.log",
+      "bytes": 955,
+      "sha256": "186e488987eef06f477ed5838e7d04b26dd33e57c25391d16da3751467a20d20"
+    },
+    {
+      "file": "pcf-full-scheduling-red.log",
+      "bytes": 1581,
+      "sha256": "1821d78741fff1e5c5254df544ef1efbdc0c210d3ecce80521105b00f98a884d"
+    },
+    {
+      "file": "pcf-full-support-green.log",
+      "bytes": 916,
+      "sha256": "85e0d9052fbb770746d1e24cbd1e8ae1c3e52237de6fd111c0dc95884744bb4e"
+    },
+    {
+      "file": "pcf-full-support-red.log",
+      "bytes": 1573,
+      "sha256": "fcc1b51fe4a58e69b7cce4e7543e9411f614e4427e1bfca31df7e46893664f3e"
+    },
+    {
+      "file": "pcf-full-support-review-green.log",
+      "bytes": 1005,
+      "sha256": "d4618337a6aede41bbb58d90771c8b6e057f8e5d50c81806913f04b43b50e505"
+    },
+    {
+      "file": "pcf-full-support-review-red.log",
+      "bytes": 2019,
+      "sha256": "397dfb4fa85db8cb1d31ddff01c00fae2a8cc58b7b72a8644b239e7a97852a64"
+    },
+    {
+      "file": "pcf-full-surface-green.log",
+      "bytes": 659,
+      "sha256": "e6e5718b7e3737a2cb759aee1a3c2993c6ffca18932407063048c26f309bbab1"
+    },
+    {
+      "file": "pcf-full-surface-red.log",
+      "bytes": 1043,
+      "sha256": "53b40157d7968ce160433ecdf8e40066dfd96c4f0adff6f074410a18a42095a8"
+    },
+    {
+      "file": "pcf-full-local-pilot-report.json",
+      "bytes": 3490,
+      "sha256": "0592609fba95aa5388653d291f3ac9faebc6ff1a3ad6c64904310876c322ffc5"
+    }
+  ]
+}

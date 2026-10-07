@@ -194,3 +194,9 @@ Revision2 wave order replaces the earlier recommended order: A:700→701/706/725
 | [PCF-701](PCF-701-live-resource-telemetry.md) | IN_PROGRESS | YES | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
+
+## PCF 本机完整流候选 / PCF local complete-flow candidate
+
+[施工记录与 29 本覆盖矩阵 / Development log and 29-book coverage matrix](../../reports/PCF-FULL-FLOW/README.md)。
+
+2026-10-07：按用户授权在独立分支连续进行本机全线尝试；现有任务书 claim 与历史验收不变。全系列尚未完成。完整流就绪后一次性交给对侧主机验证，不分拆单项异机验收。 / User-authorized continuous local complete-line attempt on an independent branch. Existing claims and historical acceptance remain unchanged. Programme incomplete; submit the complete flow once to the opposite host when ready, without individual physical-validation handoffs.

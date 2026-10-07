@@ -1,0 +1,16 @@
+✔ 706: remote work requires independent authorization, sharing, data scope, expiry and budget (1.6841ms)
+✔ 706: default policy remains origin-only; requests cannot broaden authority (0.2339ms)
+✔ 725: provider capabilities are typed; cooperative process cannot claim hard isolation (0.3749ms)
+✔ 708: canonical identity preserved; numeric/resource/QoS/version/depth inputs fail closed (0.6031ms)
+✔ 726: capsule binds immutable task/session/attempt/host/boot/epoch/digest; receipt is untrusted (1.0838ms)
+✔ 702: feasibility precedes ranking; stale/unknown/untrusted/strict/capability constraints cannot win (1.9475ms)
+✔ 704/712: canonical CAS admission, idempotence, epoch fencing, commit and restart preserve one task truth (95.569ms)
+✔ 704: changed policy/version or observation cannot be admitted (67.4603ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2041.6649
