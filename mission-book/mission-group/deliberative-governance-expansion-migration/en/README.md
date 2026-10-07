@@ -1,3 +1,5 @@
+> Owner activated development 2026-10-07; execution_enabled=true; Alien-GPT-DGX; NO MAIN MERGE. Historical parked activation text below superseded. Domain gates remain binding.
+
 > Reading translation / 阅读译本. No activation or task authority is created.
 
 [Canonical source](../README.md)

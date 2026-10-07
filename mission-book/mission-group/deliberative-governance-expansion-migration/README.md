@@ -1,3 +1,5 @@
+> Owner activated development 2026-10-07; execution_enabled=true; Alien-GPT-DGX; NO MAIN MERGE. Historical parked activation text below superseded. Domain gates remain binding.
+
 # DGX — Deliberative Governance Expansion & Migration / 审议治理扩建迁移
 
 > **状态：PARKED / NOT ACTIVATED — SECOND FUSION CORRECTION 2026-10-06**

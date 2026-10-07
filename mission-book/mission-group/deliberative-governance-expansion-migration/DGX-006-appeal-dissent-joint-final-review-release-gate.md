@@ -2,21 +2,21 @@
 workbook_id: DGX-006
 phase: DELIBERATIVE_GOVERNANCE_EXPANSION_MIGRATION
 sequence: 6
-execution_enabled: false
-status: NOT_STARTED
-activation_state: PARKED_OWNER_NOT_ACTIVATED
+execution_enabled: true
+status: WAITING_DEPENDENCIES
+activation_state: OWNER_ACTIVATED_SINGLE_BRANCH_DEVELOPMENT
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
-baseline_candidate_refs: []
+baseline_candidate_refs: ["refs/heads/main"]
 required_ancestor_shas: []
 dependency_source_shas: []
 development_baseline_sha: null
 baseline_resolution_evidence: null
 anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
 dependencies: ["DGX-005"]
-development_host: null
-development_branch: null
+development_host: Alien
+development_branch: Alien-GPT-DGX
 development_head_sha: null
 development_ci: null
 development_complete: false
@@ -45,12 +45,12 @@ monitor_observability_evidence: UNASSESSED
 monitor_observability_refs: []
 decision_trace_evidence: UNASSESSED
 decision_trace_refs: []
-owner_gate: OWNER_ACTIVATION_REQUIRED
+owner_gate: OWNER_AUTHORIZED_DEVELOPMENT_NO_MAIN_MERGE
 merge_authority: false
 report_path: null
 ---
 
-> **PARKED / NOT ACTIVATED.** 本工作书当前只冻结设计边界；不得 claim、不得施工、不得据此创建 Utopia 产品分支。  
+> **OWNER ACTIVATED 2026-10-07.** Alien-GPT-DGX 单分支开发；禁止合并 main。依赖与正式 Review 不豁免。  
 > **Anchor policy:** 所有 baseline / dependency exact SHA 当前故意留空。只有 Owner 显式激活后，才按当时最新 canonical truth 解析 full SHA 并原子写入。
 
 # DGX-006 — Appeal / Dissent / Joint Final Review & Release Gate
