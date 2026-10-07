@@ -1,0 +1,39 @@
+✔ REX806 verifier accepts justified unavailable completion after canonical task loss (1064.6166ms)
+✔ REX806 verifier accepts the published six-decimal failure rate precision (1088.8376ms)
+✔ REX806 verifier accepts justified unavailable rates for an all-refused study (1150.3676ms)
+✔ REX806 V1: the verifier passes an untampered artifact (991.792ms)
+✖ REX806 verifier accepts real duplicate canonical execution outside the selected run task (982.3863ms)
+✔ REX806 V2: a tampered metric value is caught (1023.3627ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (992.2304ms)
+✔ REX806 V4: a missing section is caught (1368.9464ms)
+✔ REX806 V5: a changed dataset timestamp is caught (984.8439ms)
+✔ REX806 V6: a fabricated intervention count is caught (1040.3161ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 11707.4636
+
+✖ failing tests:
+
+test at tests\rex806-artifact-verify.test.mjs:67:1
+✖ REX806 verifier accepts real duplicate canonical execution outside the selected run task (982.3863ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:68:35
+      at fixture (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:43:18)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Alien-Review-20261007/tests/rex806-artifact-verify.test.mjs:68:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,42 @@
+{
+  "candidate": "cc799234e7daa3d8ccfde5673b9d07ccb2376742",
+  "runtime_head": "12e3d3bf868575a8e3cda983733a3186cb59da27",
+  "status": "PENDING_MECH_REVIEW_AND_EXACT_HEAD_CI",
+  "records": [
+    {
+      "file": "rex806-duplicate-canonical-red.log",
+      "bytes": 1910,
+      "sha256": "47d943f9dd1dad529f7484d4e378431aba9c588490a2d5dda495587f4f1c1c47"
+    },
+    {
+      "file": "rex806-duplicate-canonical-green.log",
+      "bytes": 919,
+      "sha256": "16a13981d2527734faa2fdf16e16961e31f3f35bc535f7e09b6bd5a65265d0c9"
+    },
+    {
+      "file": "rex806-duplicate-adjacent-final.log",
+      "bytes": 6805,
+      "sha256": "43ab6420ee8f391a37ce05ceb469ba599f0dbd12d0f4666769e90aa7c77c4b1d"
+    },
+    {
+      "file": "rex806-duplicate-historical-package.log",
+      "bytes": 1443,
+      "sha256": "acb9c47bb904b5f64ad778422fc12cf727b5bca049dfafeca84fe6f4655d05f7"
+    },
+    {
+      "file": "rex806-web-services-standalone.log",
+      "bytes": 341,
+      "sha256": "72c92c506e124e7f7c850f3f5917c6bd384f1829d01cb0b810d03dcbd9846e2a"
+    },
+    {
+      "file": "rex806-ci37548842702-failed.log",
+      "bytes": 217794,
+      "sha256": "e8238cc250b080061fa2af1b0cc3fba935f9baaab08b16cd42ac636821e2f090"
+    },
+    {
+      "file": "rex806-accepted-runtime-observation.log",
+      "bytes": 4494,
+      "sha256": "744999913c5cc738300535b4eecb4b2fea075c95d4f6a4adbcb4f4fbb1446c3f"
+    }
+  ]
+}
