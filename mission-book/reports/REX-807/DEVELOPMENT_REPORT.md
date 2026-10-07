@@ -214,7 +214,7 @@ replay 为 `wired:false`（实际在 research-replay）。
 「边界」小节保持原位。**这不是文件损坏，是我的替换范围错误**，故照实记录。
 证伪：**8 处突变全部变红**并按字节还原（新增两处：**网关**放宽令牌检查；把 Export 控件留成无处理器的摆设）。
 本地证据：rex807 两套 12/12；更宽的相邻集（已验收 REX-801 研究界面、REX-804 故障/回执/Web、REX-806 工件面）32/32；
-check:docs 三根 SYNCHRONIZED。exact-head CI 结论见工作书 development_ci 字段（不预写绿）。
+check:docs 三根 SYNCHRONIZED。exact-head CI：V0.2 checks push `37558498188` **completed/success，两个 job 全绿**。
 ```
 
 ## 10. 边界（未越过）
