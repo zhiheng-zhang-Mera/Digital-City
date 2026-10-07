@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1726,
-  "total_bytes": 12356273,
+  "markdown_count": 1727,
+  "total_bytes": 12357634,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9277,7 +9277,7 @@
     },
     {
       "path": "mission-book/mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
-      "bytes": 13425,
+      "bytes": 13575,
       "encoding_state": "UTF8",
       "chinese_characters": 1292,
       "english_words": 185,
@@ -13489,12 +13489,21 @@
     },
     {
       "path": "mission-book/reports/PCF-701/README.md",
-      "bytes": 756,
+      "bytes": 805,
       "encoding_state": "UTF8",
       "chinese_characters": 61,
       "english_words": 30,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/PCF-701/REVIEW_CLAIM_ALIEN.md",
+      "bytes": 1162,
+      "encoding_state": "UTF8",
+      "chinese_characters": 79,
+      "english_words": 90,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/PCF-701/REVIEW_HANDOFF_Mech.md",
