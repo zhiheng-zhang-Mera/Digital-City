@@ -21,3 +21,9 @@ One receipt run selects Q-verify while two canonical tasks share its researchRun
 PID52176 was absent and port4389 refused connections. After confirming termination, the official launcher started merged12e3d3b and opened the Mech City. NewPID23952 is MEMBER ONLINE for City031fdba6-e94c-4298-a095-6ff04a65481d and Alien dev-8128a1ef25c5c4b7f66fc31b21705858; dataDir remainsD:/utopia/.runtime. The official member session reads the sameCity/tasks/nodes. Launch worktree isD:/Utopia-tree/REX-801-890/Utopia-REX806-Member-Accepted-20261007. This session does not attest Mech source revision; no credentials are published.
 
 [逐文件哈希及原始日志 / File hashes and logs](intermediate-logs/2026-10-07-canonical-duplicates-alien/INDEX.json)。Mech需以cc79923独立复检。REX807仍为Mech在建，development_complete:false；未领取REX890，未启动新系列。 / Mech must independently reviewcc79923. REX807 remains under Mech development, development_complete:false; REX890 has not been claimed and no new programme is started.
+
+## CI 终态补充 / Terminal CI update
+
+随后精确头 `cc799234e7daa3d8ccfde5673b9d07ccb2376742` 的 [push run37549801619](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37549801619)、[PR run37549806262](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37549806262) 和 [contract run37549806355](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37549806355) 均已实测 completed/success。前述 pending 是当时的观察；不覆盖旧失败轮次，仍等待Mech异机复检。
+
+The exact head is now confirmed completed/success on the push, PR and contract runs linked above. Earlier pending statements describe the handoff observation. Prior failed rounds remain preserved; Mech opposite-host acceptance remains pending. Three raw GitHub run summaries are indexed with byte hashes.
