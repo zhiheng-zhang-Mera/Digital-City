@@ -5,7 +5,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **15**.
+当前Markdown文档 / Current Markdown documents: **18**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -16,14 +16,17 @@
 
 - [CANONICAL_DUPLICATES_FOLLOWUP_ALIEN.md](CANONICAL_DUPLICATES_FOLLOWUP_ALIEN.md)
 - [CLAIM_REPORT.md](CLAIM_REPORT.md)
+- [CROSS_HOST_VERIFICATION_FOLLOWUP_Mech.md](CROSS_HOST_VERIFICATION_FOLLOWUP_Mech.md)
 - [CROSS_HOST_VERIFICATION_Mech.md](CROSS_HOST_VERIFICATION_Mech.md)
 - [CROSS_HOST_VERIFICATION_PROGRESS_Mech.md](CROSS_HOST_VERIFICATION_PROGRESS_Mech.md)
 - [DELIVERABLE.md](DELIVERABLE.md)
 - [DEVELOPMENT_HANDOFF.md](DEVELOPMENT_HANDOFF.md)
 - [FOLLOWUP_FINDINGS_ALIEN.md](FOLLOWUP_FINDINGS_ALIEN.md)
+- [MERGE_RECORD_FOLLOWUP_Mech.md](MERGE_RECORD_FOLLOWUP_Mech.md)
 - [MERGE_RECORD_Mech_2026_10_07.md](MERGE_RECORD_Mech_2026_10_07.md)
 - [PAPER_MATERIAL_INDEX.md](PAPER_MATERIAL_INDEX.md)
 - [REPRODUCIBILITY_MECH.md](REPRODUCIBILITY_MECH.md)
+- [REVIEW_CLAIM_FOLLOWUP_Mech.md](REVIEW_CLAIM_FOLLOWUP_Mech.md)
 - [REVIEW_CLAIM_Mech.md](REVIEW_CLAIM_Mech.md)
 - [REVIEW_REPORT.md](REVIEW_REPORT.md)
 
