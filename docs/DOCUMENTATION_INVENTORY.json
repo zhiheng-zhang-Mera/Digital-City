@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1723,
-  "total_bytes": 12339072,
+  "markdown_count": 1726,
+  "total_bytes": 12355362,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9889,10 +9889,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 67746,
+      "bytes": 69253,
       "encoding_state": "UTF8",
-      "chinese_characters": 6039,
-      "english_words": 2691,
+      "chinese_characters": 6287,
+      "english_words": 2729,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9961,7 +9961,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 15141,
+      "bytes": 17179,
       "encoding_state": "UTF8",
       "chinese_characters": 202,
       "english_words": 154,
@@ -14559,6 +14559,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-806/CROSS_HOST_VERIFICATION_FOLLOWUP_Mech.md",
+      "bytes": 5387,
+      "encoding_state": "UTF8",
+      "chinese_characters": 70,
+      "english_words": 16,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/CROSS_HOST_VERIFICATION_Mech.md",
       "bytes": 7242,
       "encoding_state": "UTF8",
@@ -14604,6 +14613,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/REX-806/MERGE_RECORD_FOLLOWUP_Mech.md",
+      "bytes": 2721,
+      "encoding_state": "UTF8",
+      "chinese_characters": 50,
+      "english_words": 11,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/MERGE_RECORD_Mech_2026_10_07.md",
       "bytes": 3343,
       "encoding_state": "UTF8",
@@ -14623,7 +14641,7 @@
     },
     {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 1386,
+      "bytes": 1603,
       "encoding_state": "UTF8",
       "chinese_characters": 63,
       "english_words": 38,
@@ -14638,6 +14656,15 @@
       "english_words": 95,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-806/REVIEW_CLAIM_FOLLOWUP_Mech.md",
+      "bytes": 4420,
+      "encoding_state": "UTF8",
+      "chinese_characters": 70,
+      "english_words": 10,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-806/REVIEW_CLAIM_Mech.md",
