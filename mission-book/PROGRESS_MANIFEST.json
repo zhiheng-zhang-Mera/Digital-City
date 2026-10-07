@@ -115,6 +115,7 @@
       "key": "rex",
       "name": "Research Strengthening",
       "task_globs": [
+        "finished/completed-2026-10-07/research-strengthening/REX-*.md",
         "mission-group/research-strengthening/REX-*.md"
       ],
       "active_pool": true,

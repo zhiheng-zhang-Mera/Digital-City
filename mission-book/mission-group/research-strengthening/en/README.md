@@ -19,6 +19,17 @@
 >
 > [Persistent rules](../../../CONSTRUCTION_RULES.md) · [Async relief](../../../ASYNC_RELIEF_CONSTRUCTION.md) · [Process data](../../../PROCESS_DATA_POLICY.md) · [Research evidence](RESEARCH_EVIDENCE_PROTOCOL.md) · [Signal priorities](../../../RESEARCH_SIGNAL_WATCHLIST.yaml) · Research Institute `paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md` · [Control surface](RESEARCH_CONTROL_SURFACE.md)
 
+## Archival status / 归档状态 (2026-10-07)
+
+```text
+REX-801..REX-807    COMPLETE + ACCEPTED, now archived / 已归档
+                    path: ../../../finished/completed-2026-10-07/research-strengthening/
+REX-890             NOT STARTED / 未开工, stays in the foreground / 留在前台
+PROGRAMME MARKER    RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE NOT released / 未释放
+```
+
+**REX-801 through REX-807 are complete, each accepted by the opposite physical host, and were relocated with `git mv` on 2026-10-07 to [`finished/completed-2026-10-07/research-strengthening/`](../../../finished/completed-2026-10-07/research-strengthening/), together with these `en/` reading mirrors.** The relocation moves file locations only and adds or withdraws no verdict: every workbook keeps its frontmatter values, the `mission-book/reports/REX-80x/` evidence stayed where it was, and each task's own terminal marker had already been released by its opposite-host review before the move. The generated task dashboard on this page now links those seven rows to the archived paths and the stale links in the programme decomposition table below were updated to match. **REX-890 (Reproducibility Study + Freeze) was not archived and has not started:** it remains in `mission-book/mission-group/research-strengthening/` with `status: READY`, `development_complete: false`, `review_complete: false` and `merge_authority: false`, the programme terminal marker `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` is **not released**, and section 8's final-merge-lock conditions remain unmet. Archiving an open workbook would drop it out of the generated open-workbook list - hiding work rather than closing it - so only the seven completed workbooks moved; the `rex` entry in `PROGRESS_MANIFEST.json` now carries both globs with `active_pool: true`. The relocation note is in the [archive README](../../../finished/completed-2026-10-07/research-strengthening/README.md).
+
 ## 0A. Current paper-focus priorities
 
 REX v1 instrumentation no longer serves all topics equally. Default order:
@@ -90,16 +101,18 @@ Read/orchestrate existing product contracts; never duplicate scheduler, device i
 
 | ID | Work | Recorded state | Objective |
 |---|---|---|---|
-| [REX-801](../REX-801-experiment-manifest-and-registry.md) | Experiment Manifest + Registry | COMPLETE | Machine-readable question, topology, variables, repetitions, acceptance |
-| [REX-802](../REX-802-trace-provenance-and-metrics-foundation.md) | Trace / Provenance / Metrics Foundation | COMPLETE | Unified task/action/device/provider/handoff/retry/failure/recovery/human-intervention records |
-| [REX-803](../REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | READY | Automatically execute controlled scenario × N |
-| [REX-804](../REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | READY | Inject node/network/provider/load/stale/duplicate faults and quantify recovery |
-| [REX-805](../REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | WAITING_DEPENDENCIES | Replay same trace, disable handoff/retry/backoff for ablation |
-| [REX-806](../REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | WAITING_DEPENDENCIES | Normalized datasets, tables, artifact pack, reproduction docs |
-| [REX-807](../REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | WAITING_DEPENDENCIES | Maximum Owner experimental control/awareness without polluting primary navigation |
-| [REX-890](../REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | Two-host independent reproduction; freeze Research Fabric v1 |
+| [REX-801](../../../finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md) 📦 | Experiment Manifest + Registry | COMPLETE (archived) | Machine-readable question, topology, variables, repetitions, acceptance |
+| [REX-802](../../../finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md) 📦 | Trace / Provenance / Metrics Foundation | COMPLETE (archived) | Unified task/action/device/provider/handoff/retry/failure/recovery/human-intervention records |
+| [REX-803](../../../finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) 📦 | Scenario Runner + Repetition Engine | COMPLETE (archived) | Automatically execute controlled scenario × N |
+| [REX-804](../../../finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md) 📦 | Fault Injection + Recovery Probes | COMPLETE (archived) | Inject node/network/provider/load/stale/duplicate faults and quantify recovery |
+| [REX-805](../../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md) 📦 | Trace Replay + Ablation | COMPLETE (archived) | Replay same trace, disable handoff/retry/backoff for ablation |
+| [REX-806](../../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) 📦 | Metrics + Research Artifact Export | COMPLETE (archived) | Normalized datasets, tables, artifact pack, reproduction docs |
+| [REX-807](../../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) 📦 | Research Control Surface | COMPLETE (archived) | Maximum Owner experimental control/awareness without polluting primary navigation |
+| [REX-890](../REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | READY (not started) | Two-host independent reproduction; freeze Research Fabric v1 |
 
-REX-801/802 released accepted exact heads; REX-803/804 unlocked and may run in parallel if file ownership does not conflict. REX-805/806/807/890 retain WAITING_DEPENDENCIES under actual prerequisites. Dependency tasks use DEPENDENCY_SHA_UNION_AT_CLAIM to construct exact union baselines from accepted full SHAs; main branch name never proves inclusion. Recorded planning states coexist with later measured updates below; workbook/report remains current authority.
+📦 marks a workbook relocated to the archive on 2026-10-07; the link points at the archived copy, and the relocation changes no verdict. Workbook frontmatter remains the authority for each state.
+
+All seven of REX-801..REX-807 have since completed and been accepted, and were archived on 2026-10-07 (see the archival status section above); the planning states in this paragraph - REX-801/802 releasing accepted exact heads, REX-803/804 unlocked, REX-805/806/807/890 retaining WAITING_DEPENDENCIES - are the dated history of that moment, not the current state. **REX-890 is the one workbook still open and it has not started.** Dependency tasks use DEPENDENCY_SHA_UNION_AT_CLAIM to construct exact union baselines from accepted full SHAs; the main branch name never proves inclusion. Recorded planning states coexist with later measured updates below; the workbook and its report remain current authority.
 
 ### REX-803 measured status (Mech, 2026-10-06)
 
@@ -225,7 +238,7 @@ The **REX-890 preflight** ([REX-890_CLAIM_READINESS_MECH.md](../../../reports/RE
 
 ### Mech re-verification of REX-804 (2026-10-06)
 
-> Reading translation of the newly appended [canonical programme note](../README.md). This is the historical verdict on `075ddc13`; the [current workbook](../REX-804-fault-injection-and-recovery-probes.md) remains authority. The later [author repair](../../../reports/REX-804/AUTHOR_REPAIR_Alien.md) does not itself establish opposite-host acceptance.
+> Reading translation of the newly appended [canonical programme note](../README.md). This is the historical verdict on `075ddc13`; the [current workbook](../../../finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md) remains authority. The later [author repair](../../../reports/REX-804/AUTHOR_REPAIR_Alien.md) does not itself establish opposite-host acceptance.
 
 REX-804 re-verification finished; its verdict is recorded in [REVERIFICATION_REPORT.md](../../../reports/REX-804/REVERIFICATION_REPORT.md).
 
@@ -285,13 +298,13 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [REX-801](../REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
-| [REX-802](../REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
-| [REX-803](../REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
-| [REX-804](../REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
-| [REX-805](../REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
-| [REX-806](../REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
-| [REX-807](../REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
+| [REX-801](../../../finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
+| [REX-802](../../../finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
+| [REX-803](../../../finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
+| [REX-804](../../../finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
+| [REX-805](../../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
+| [REX-806](../../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
+| [REX-807](../../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
 | [REX-890](../REX-890-reproducibility-study-and-freeze.md) | READY | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
@@ -462,7 +475,7 @@ Reading translation of the latest addition to the [canonical programme page](../
 <!-- READING_REX805_PHYSICAL_FINAL_1654E86:START -->
 ## REX-805 development handover and final physical repetition — latest reading snapshot
 
-This is the complete reading translation of the latest physical-development-gate and author-handover sections in the [canonical programme page](../README.md), source SHA256 `e327f79b290420227e8990f0354bda74924a2a25cd5447ffc16840431fcc1e1e`. Earlier candidate, pending and predecessor-only accounts in this reading page remain dated history. The final `0261a9e` physical repetition below supersedes the predecessor-only observation gap. Current authority and completion flags belong to the [canonical REX-805 workbook](../REX-805-trace-replay-and-ablation.md); evidence of Development is not a formal opposite-host acceptance verdict.
+This is the complete reading translation of the latest physical-development-gate and author-handover sections in the [canonical programme page](../README.md), source SHA256 `e327f79b290420227e8990f0354bda74924a2a25cd5447ffc16840431fcc1e1e`. Earlier candidate, pending and predecessor-only accounts in this reading page remain dated history. The final `0261a9e` physical repetition below supersedes the predecessor-only observation gap. Current authority and completion flags belong to the [canonical REX-805 workbook](../../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md); evidence of Development is not a formal opposite-host acceptance verdict.
 
 ### REX-805 physical development gate: executed on the live City
 
@@ -564,7 +577,7 @@ Consequently **REX-805 is complete**, with workbook status:COMPLETE and review_c
 
 ### REX-806 claim provenance
 
-The current [canonical REX-806 workbook](../REX-806-metrics-analysis-and-artifact-export.md) records Mech's claim and IN_PROGRESS state, with claim-time evidence published in [CLAIM_REPORT.md](../../../reports/REX-806/CLAIM_REPORT.md) before product changes. This note reads that metadata without reproducing executable frontmatter or granting a new claim.
+The current [canonical REX-806 workbook](../../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) records Mech's claim and IN_PROGRESS state, with claim-time evidence published in [CLAIM_REPORT.md](../../../reports/REX-806/CLAIM_REPORT.md) before product changes. This note reads that metadata without reproducing executable frontmatter or granting a new claim.
 
 Accepted dependencies are REX-803 `8798ba9dd37051626033ad72080b2fad3ff66149`, REX-804 `fe700aba957990f93b22fd63d594ddfff7b4e243` and REX-805 `0261a9ed1cec88df3ab4675623d422b37b33f270`. Claim-time baseline `e18c5c5350d7657cf046b7ba6bbcd888dc2a1540` is their exact union, not an assumption that a main branch name proves integration. All three accepted heads are verified ancestors of that baseline. Before any REX-806 product change, dependency smoke across 17 suites passed **68/68**. The known REX-804 web-test behavior that rewrites committed danger-zone.png evidence remains recorded, with its published repair awaiting adoption; it is not silently corrected by this reading page.
 
@@ -587,7 +600,7 @@ An independent reviewer must confirm that `intervention_count` is unknown rather
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **11**.
+当前Markdown文档 / Current Markdown documents: **4**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -596,13 +609,6 @@ An independent reviewer must confirm that `intervention_count` is unknown rather
 
 - [RESEARCH_CONTROL_SURFACE.md](RESEARCH_CONTROL_SURFACE.md)
 - [RESEARCH_EVIDENCE_PROTOCOL.md](RESEARCH_EVIDENCE_PROTOCOL.md)
-- [REX-801-experiment-manifest-and-registry.md](REX-801-experiment-manifest-and-registry.md)
-- [REX-802-trace-provenance-and-metrics-foundation.md](REX-802-trace-provenance-and-metrics-foundation.md)
-- [REX-803-scenario-runner-and-repetition-engine.md](REX-803-scenario-runner-and-repetition-engine.md)
-- [REX-804-fault-injection-and-recovery-probes.md](REX-804-fault-injection-and-recovery-probes.md)
-- [REX-805-trace-replay-and-ablation.md](REX-805-trace-replay-and-ablation.md)
-- [REX-806-metrics-analysis-and-artifact-export.md](REX-806-metrics-analysis-and-artifact-export.md)
-- [REX-807-research-control-surface-and-progressive-disclosure.md](REX-807-research-control-surface-and-progressive-disclosure.md)
 - [REX-890-reproducibility-study-and-freeze.md](REX-890-reproducibility-study-and-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

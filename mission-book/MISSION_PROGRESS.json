@@ -920,7 +920,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-801",
-          "path": "mission-group/research-strengthening/REX-801-experiment-manifest-and-registry.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -929,7 +929,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-802",
-          "path": "mission-group/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -938,7 +938,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-803",
-          "path": "mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -947,7 +947,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-804",
-          "path": "mission-group/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -956,7 +956,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-805",
-          "path": "mission-group/research-strengthening/REX-805-trace-replay-and-ablation.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -965,7 +965,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-806",
-          "path": "mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -974,7 +974,7 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-807",
-          "path": "mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+          "path": "finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
           "review_complete": true,
           "status": "COMPLETE"
         },

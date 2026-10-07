@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1924,
-  "total_bytes": 14945370,
+  "markdown_count": 1926,
+  "total_bytes": 14960436,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -1024,10 +1024,10 @@
     },
     {
       "path": "mission-book/finished/README.md",
-      "bytes": 6238,
+      "bytes": 7740,
       "encoding_state": "UTF8",
-      "chinese_characters": 435,
-      "english_words": 394,
+      "chinese_characters": 535,
+      "english_words": 504,
       "paired_path": "mission-book/finished/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8467,10 +8467,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-07/README.md",
-      "bytes": 835,
+      "bytes": 919,
       "encoding_state": "UTF8",
-      "chinese_characters": 60,
-      "english_words": 55,
+      "chinese_characters": 62,
+      "english_words": 61,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -9429,6 +9429,150 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/README.md",
+      "bytes": 4772,
+      "encoding_state": "UTF8",
+      "chinese_characters": 318,
+      "english_words": 315,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md",
+      "bytes": 9214,
+      "encoding_state": "UTF8",
+      "chinese_characters": 221,
+      "english_words": 109,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-801-experiment-manifest-and-registry.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
+      "bytes": 12826,
+      "encoding_state": "UTF8",
+      "chinese_characters": 488,
+      "english_words": 339,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-802-trace-provenance-and-metrics-foundation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
+      "bytes": 7697,
+      "encoding_state": "UTF8",
+      "chinese_characters": 70,
+      "english_words": 64,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-803-scenario-runner-and-repetition-engine.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
+      "bytes": 11105,
+      "encoding_state": "UTF8",
+      "chinese_characters": 183,
+      "english_words": 60,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-804-fault-injection-and-recovery-probes.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md",
+      "bytes": 9792,
+      "encoding_state": "UTF8",
+      "chinese_characters": 232,
+      "english_words": 157,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+      "bytes": 17362,
+      "encoding_state": "UTF8",
+      "chinese_characters": 202,
+      "english_words": 154,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+      "bytes": 23331,
+      "encoding_state": "UTF8",
+      "chinese_characters": 286,
+      "english_words": 70,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/README.md",
+      "bytes": 1272,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 110,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-801-experiment-manifest-and-registry.md",
+      "bytes": 2461,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 219,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-802-trace-provenance-and-metrics-foundation.md",
+      "bytes": 4504,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 504,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-803-scenario-runner-and-repetition-engine.md",
+      "bytes": 1223,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 119,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-804-fault-injection-and-recovery-probes.md",
+      "bytes": 1525,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 168,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
+      "bytes": 2671,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 313,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
+      "bytes": 3022,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 292,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
+      "bytes": 1961,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 193,
+      "paired_path": "mission-book/finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/finished/en/README.md",
       "bytes": 565,
       "encoding_state": "UTF8",
@@ -9889,7 +10033,7 @@
     },
     {
       "path": "mission-book/mission-group/README.md",
-      "bytes": 2530,
+      "bytes": 2529,
       "encoding_state": "UTF8",
       "chinese_characters": 178,
       "english_words": 181,
@@ -9898,10 +10042,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 76540,
+      "bytes": 81211,
       "encoding_state": "UTF8",
-      "chinese_characters": 7635,
-      "english_words": 2956,
+      "chinese_characters": 7998,
+      "english_words": 3210,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9924,69 +10068,6 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/mission-group/research-strengthening/REX-801-experiment-manifest-and-registry.md",
-      "bytes": 9214,
-      "encoding_state": "UTF8",
-      "chinese_characters": 221,
-      "english_words": 109,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-801-experiment-manifest-and-registry.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
-      "bytes": 12826,
-      "encoding_state": "UTF8",
-      "chinese_characters": 488,
-      "english_words": 339,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-802-trace-provenance-and-metrics-foundation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
-      "bytes": 7697,
-      "encoding_state": "UTF8",
-      "chinese_characters": 70,
-      "english_words": 64,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-803-scenario-runner-and-repetition-engine.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
-      "bytes": 11105,
-      "encoding_state": "UTF8",
-      "chinese_characters": 183,
-      "english_words": 60,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-804-fault-injection-and-recovery-probes.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/REX-805-trace-replay-and-ablation.md",
-      "bytes": 9792,
-      "encoding_state": "UTF8",
-      "chinese_characters": 232,
-      "english_words": 157,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 17362,
-      "encoding_state": "UTF8",
-      "chinese_characters": 202,
-      "english_words": 154,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 23331,
-      "encoding_state": "UTF8",
-      "chinese_characters": 286,
-      "english_words": 70,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
       "path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
       "bytes": 3721,
       "encoding_state": "UTF8",
@@ -9997,10 +10078,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 63722,
+      "bytes": 66488,
       "encoding_state": "UTF8",
-      "chinese_characters": 201,
-      "english_words": 5107,
+      "chinese_characters": 205,
+      "english_words": 5347,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10020,69 +10101,6 @@
       "chinese_characters": 4,
       "english_words": 778,
       "paired_path": "mission-book/mission-group/research-strengthening/RESEARCH_EVIDENCE_PROTOCOL.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-801-experiment-manifest-and-registry.md",
-      "bytes": 2461,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 219,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-801-experiment-manifest-and-registry.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-802-trace-provenance-and-metrics-foundation.md",
-      "bytes": 4504,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 504,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-803-scenario-runner-and-repetition-engine.md",
-      "bytes": 1223,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 119,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-804-fault-injection-and-recovery-probes.md",
-      "bytes": 1525,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 168,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-804-fault-injection-and-recovery-probes.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-805-trace-replay-and-ablation.md",
-      "bytes": 2671,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 313,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-805-trace-replay-and-ablation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-806-metrics-analysis-and-artifact-export.md",
-      "bytes": 3022,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 292,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 1961,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 193,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
       "language_presence": "PAIR_PRESENT"
     },
     {

@@ -25,6 +25,23 @@
 > 研究优先级策略：Research Institute `paper-materials/{zh-CN,en}/RESEARCH_PRIORITY_STRATEGY_2026-10-05.md`  
 > 研究控制面原则：[RESEARCH_CONTROL_SURFACE.md](RESEARCH_CONTROL_SURFACE.md)
 
+## 归档状态 / Archival status（2026-10-07）
+
+```text
+REX-801..REX-807    COMPLETE + ACCEPTED，已归档 / complete, accepted, now archived
+                    路径 / path: ../../finished/completed-2026-10-07/research-strengthening/
+REX-890             未开工 / NOT STARTED，留在本目录前台 / stays here in the foreground
+PROGRAMME MARKER    RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE 未释放 / NOT released
+```
+
+**REX-801～807 七本工作书已全部完成、已由对侧实体主机复检接受，并于 2026-10-07 用 `git mv` 迁移到
+[`finished/completed-2026-10-07/research-strengthening/`](../../finished/completed-2026-10-07/research-strengthening/)（含各自的 `en/` 阅读译本）。
+搬迁只移动文件位置，不新增也不撤销任何判定**：各工作书的 frontmatter 字段原样保留，报告的 `mission-book/reports/REX-80x/` 路径未变，各任务自己的终态标记在搬迁前已由复检释放。本页下方快速面板的 REX-801..807 行现在链接到归档路径，指向本页面的旧链接已同步更新；面板由工具生成，仍按同一批 canonical 工作书统计。
+
+**REX-890（Reproducibility Study + Freeze）没有归档，也尚未开工。** 它仍留在本目录，frontmatter 为 `status: READY`、`development_complete: false`、`review_complete: false`、`merge_authority: false`，programme 终态标记 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` **未释放**；本页 §8 的 final merge lock 全部条件因此仍未满足。把一本开放工作书移进 `finished/` 会让它从生成的开放工作书列表里消失，那是隐藏工作而不是收口，所以只有七本被搬走。`PROGRESS_MANIFEST.json` 的 `rex` 条目因此并列携带两个 glob（归档路径 + 本目录），`active_pool` 仍为 `true`。归档目录的搬迁记录见 [归档 README](../../finished/completed-2026-10-07/research-strengthening/README.md)。
+
+**REX-801 through REX-807 are complete, each accepted by the opposite physical host, and were relocated with `git mv` on 2026-10-07 to [`finished/completed-2026-10-07/research-strengthening/`](../../finished/completed-2026-10-07/research-strengthening/), together with their `en/` reading mirrors.** The relocation moves file locations only and adds or withdraws no verdict: every workbook keeps its frontmatter values, the `mission-book/reports/REX-80x/` evidence stayed where it was, and each task's own terminal marker had already been released by its review. The generated dashboard below now links those seven rows to the archived paths, and the stale links on this page were updated to match; the dashboard is still generated from the same canonical workbooks. **REX-890 (Reproducibility Study + Freeze) was not archived and has not started:** it stays in this directory with `status: READY`, `development_complete: false`, `review_complete: false` and `merge_authority: false`, the programme terminal marker `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` is **not released**, and section 8's final-merge-lock conditions therefore remain unmet. Archiving an open workbook would drop it out of the generated open-workbook list, hiding work rather than closing it, so only the seven completed workbooks moved. The `rex` entry in `PROGRESS_MANIFEST.json` now carries both globs (the archive path and this directory) with `active_pool: true`.
+
 ## 0A. 当前论文关注点优先级
 
 REX v1 的 instrumentation 不再平均服务所有话题。
@@ -114,16 +131,18 @@ Normal Utopia runtime
 
 | ID | 工作 | 状态 | 目标 |
 |---|---|---|---|
-| [REX-801](REX-801-experiment-manifest-and-registry.md) | Experiment Manifest + Registry | COMPLETE | 机器可读实验问题、拓扑、变量、重复次数和 acceptance |
-| [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | Trace / Provenance / Metrics Foundation | COMPLETE | 统一记录 task/action/device/provider/handoff/retry/failure/recovery/human intervention |
-| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | COMPLETE | 自动执行 controlled scenario × N |
-| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | COMPLETE | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
-| [REX-805](REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | COMPLETE | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
-| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | COMPLETE | normalized dataset、tables、artifact pack、reproduction docs |
-| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | IN_PROGRESS | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
-| [REX-890](REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | 双机独立复现实验，冻结 Research Fabric v1 |
+| [REX-801](../../finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md) 📦 | Experiment Manifest + Registry | COMPLETE（已归档 / archived） | 机器可读实验问题、拓扑、变量、重复次数和 acceptance |
+| [REX-802](../../finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md) 📦 | Trace / Provenance / Metrics Foundation | COMPLETE（已归档 / archived） | 统一记录 task/action/device/provider/handoff/retry/failure/recovery/human intervention |
+| [REX-803](../../finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) 📦 | Scenario Runner + Repetition Engine | COMPLETE（已归档 / archived） | 自动执行 controlled scenario × N |
+| [REX-804](../../finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md) 📦 | Fault Injection + Recovery Probes | COMPLETE（已归档 / archived） | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
+| [REX-805](../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md) 📦 | Trace Replay + Ablation | COMPLETE（已归档 / archived） | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
+| [REX-806](../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) 📦 | Metrics + Research Artifact Export | COMPLETE（已归档 / archived） | normalized dataset、tables、artifact pack、reproduction docs |
+| [REX-807](../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) 📦 | Research Control Surface | COMPLETE（已归档 / archived） | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
+| [REX-890](REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | READY（未开工 / not started） | 双机独立复现实验，冻结 Research Fabric v1 |
 
-当前权威状态：REX-801～806 已完成（6/8）；REX-806 后续头 `cc799234e7daa3d8ccfde5673b9d07ccb2376742` 已由 Mech 异机接受并合并。REX-807 **开发侧已收口**（`development_complete: true`，开发头 `9ad888279be07220fe7ac7d91e419e8fe69fc439`，增量 4c），现等对侧实体主机正式复检（本机不得自审）；REX-890 等待 REX-807 验收。 / Current authority: REX-801 through 806 are complete (6/8); Mech accepted and merged the REX-806 follow-up cc79923. REX-807's development side is now CLOSED at head 9ad8882 (increment 4c) and awaits formal review by the opposite physical host, since this host does not self-review; REX-890 awaits its acceptance.
+📦 = 工作书已迁移到归档目录；链接指向归档位置，搬迁不改变任何判定。 / 📦 marks a workbook relocated to the archive; the link points at the archived copy and the relocation changes no verdict.
+
+当前权威状态（以文首「归档状态」与各工作书 frontmatter 为准）：**REX-801～807 已完成并由对侧实体主机复检接受（7/8），七本已于 2026-10-07 归档**；REX-806 后续头 `cc799234e7daa3d8ccfde5673b9d07ccb2376742` 由 Mech 异机接受并合并，REX-807 开发头 `9ad888279be07220fe7ac7d91e419e8fe69fc439`、复检头 `17271f04829877ee56668221afeda5fbd35f66e8`。**REX-890 未开工**（`status: READY`、`development_complete: false`、`review_complete: false`），programme 终态标记 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` **未释放**；本页下方的 REX-807 增量段落与 REX-803 实测段保留其写作时的进行中口径，属 dated history，不覆盖文首现状。/ Current authority (the archival status section above and each workbook's frontmatter prevail): **REX-801 through REX-807 are complete and accepted by the opposite physical host (7/8), and the seven were archived on 2026-10-07** - Mech accepted and merged the REX-806 follow-up `cc79923`, and REX-807's reviewed head is `17271f04`. **REX-890 has not started** (`status: READY`, `development_complete: false`, `review_complete: false`) and the programme terminal marker `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` is **not released**; the dated REX-807 and REX-803 sections below keep their in-progress wording as history.
 
 > **2026-10-07 REX-807 开发侧收口 / development closed at 9ad8882**：工作书六条「必须验证」现在都已有**实现 + 可跑证据**：主面不被淹没（`assertPrimarySurfacesClean` 对含 research 的主面抛错）；**不靠 console/API**（整条实验路径用真实浏览器走完，导出改成真控件并**校验下载字节**）；危险区不可误触（折叠 + 令牌**单一来源** + `researchView` **拒绝**返回任何未确认的高级控件形状）；标识符折叠而不删除；错误/排除/未测指标可见且带原因；**指标值真的渲染**（不再是「一句保证」，空列表就写空）；Android 只读观察面已接线（`client.researchCampaigns`）。证据：rex807 两套 15/15、相邻集 32/32、**9 处源码突变全部变红**并按字节还原（含改**网关**、把 Export 留成摆设、把指标退回散文）、exact-head CI `37559402329` 两个 job 全绿。**已知限制照实写**：本机无法构建 Android（Android 证据来自 CI 的 android job）、Android 只做观察（authoring parity 是工作书允许的 future backlog）、本机全量套件 1470/1465 通过/5 失败且**同一组 5 项在未改动 baseline 上同样失败**。复检交接（含「建议你重点攻击什么」与我明确**不**声称的事）见 `reports/REX-807/REVIEW_HANDOFF_Mech.md`；`merge_authority` 仍为 false、marker 未释放、复检期冻结该分支。 / Six must-verify items each implemented and backed by a runnable check; nine mutations caught; handoff and explicit non-claims recorded.
 
@@ -378,13 +397,13 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [REX-801](REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
-| [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
-| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
-| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
-| [REX-805](REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
-| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
-| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
+| [REX-801](../../finished/completed-2026-10-07/research-strengthening/REX-801-experiment-manifest-and-registry.md) | COMPLETE | YES | YES | YES |
+| [REX-802](../../finished/completed-2026-10-07/research-strengthening/REX-802-trace-provenance-and-metrics-foundation.md) | COMPLETE | YES | YES | YES |
+| [REX-803](../../finished/completed-2026-10-07/research-strengthening/REX-803-scenario-runner-and-repetition-engine.md) | COMPLETE | YES | YES | YES |
+| [REX-804](../../finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md) | COMPLETE | YES | YES | YES |
+| [REX-805](../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
+| [REX-806](../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
+| [REX-807](../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
 | [REX-890](REX-890-reproducibility-study-and-freeze.md) | READY | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
@@ -403,7 +422,7 @@ REX-804 re-verification is complete; the verdict is in `reports/REX-804/REVERIFI
 
 
 
-复验来源说明 / Re-verification provenance: 上述 Mech 结论针对历史 `075ddc13`，完整证据见 [REVERIFICATION_REPORT](../../reports/REX-804/REVERIFICATION_REPORT.md)（[完整中文](../../reports/REX-804/zh-CN/REVERIFICATION_REPORT.md)）；[英文阅读译本](en/README.md)保留全部复验细节。后续 [AUTHOR_REPAIR](../../reports/REX-804/AUTHOR_REPAIR_Alien.md)（[完整中文](../../reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md)）是独立作者修复来源，不自行构成对侧宿主验收；[canonical 工作书](REX-804-fault-injection-and-recovery-probes.md)仍是当前 authority。 / The Mech verdict above concerns historical `075ddc13`; the linked report and complete Chinese reading translation preserve its evidence, and the English reading page preserves all details. The later linked author repair is a separate provenance source and does not itself establish opposite-host acceptance; the canonical workbook remains current authority.
+复验来源说明 / Re-verification provenance: 上述 Mech 结论针对历史 `075ddc13`，完整证据见 [REVERIFICATION_REPORT](../../reports/REX-804/REVERIFICATION_REPORT.md)（[完整中文](../../reports/REX-804/zh-CN/REVERIFICATION_REPORT.md)）；[英文阅读译本](en/README.md)保留全部复验细节。后续 [AUTHOR_REPAIR](../../reports/REX-804/AUTHOR_REPAIR_Alien.md)（[完整中文](../../reports/REX-804/zh-CN/AUTHOR_REPAIR_Alien.md)）是独立作者修复来源，不自行构成对侧宿主验收；[canonical 工作书](../../finished/completed-2026-10-07/research-strengthening/REX-804-fault-injection-and-recovery-probes.md)仍是当前 authority。 / The Mech verdict above concerns historical `075ddc13`; the linked report and complete Chinese reading translation preserve its evidence, and the English reading page preserves all details. The later linked author repair is a separate provenance source and does not itself establish opposite-host acceptance; the canonical workbook remains current authority.
 
 ### 当前候选交接更新 / Current candidate handoff update
 
@@ -607,23 +626,16 @@ NOT CLAIMED     marker RESEARCH_ARTIFACT_EXPORT_ACCEPTED 未释放；本机不�
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **22**.
+当前Markdown文档 / Current Markdown documents: **8**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| en | 11 | [打开 / Open](en/README.md) |
+| en | 4 | [打开 / Open](en/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [RESEARCH_CONTROL_SURFACE.md](RESEARCH_CONTROL_SURFACE.md)
 - [RESEARCH_EVIDENCE_PROTOCOL.md](RESEARCH_EVIDENCE_PROTOCOL.md)
-- [REX-801-experiment-manifest-and-registry.md](REX-801-experiment-manifest-and-registry.md)
-- [REX-802-trace-provenance-and-metrics-foundation.md](REX-802-trace-provenance-and-metrics-foundation.md)
-- [REX-803-scenario-runner-and-repetition-engine.md](REX-803-scenario-runner-and-repetition-engine.md)
-- [REX-804-fault-injection-and-recovery-probes.md](REX-804-fault-injection-and-recovery-probes.md)
-- [REX-805-trace-replay-and-ablation.md](REX-805-trace-replay-and-ablation.md)
-- [REX-806-metrics-analysis-and-artifact-export.md](REX-806-metrics-analysis-and-artifact-export.md)
-- [REX-807-research-control-surface-and-progressive-disclosure.md](REX-807-research-control-surface-and-progressive-disclosure.md)
 - [REX-890-reproducibility-study-and-freeze.md](REX-890-reproducibility-study-and-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
