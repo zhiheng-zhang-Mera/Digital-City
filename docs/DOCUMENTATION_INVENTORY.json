@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1744,
-  "total_bytes": 12492493,
+  "total_bytes": 12492477,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9043,7 +9043,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
-      "bytes": 5392,
+      "bytes": 5390,
       "encoding_state": "UTF8",
       "chinese_characters": 308,
       "english_words": 139,
@@ -9052,7 +9052,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "bytes": 6885,
+      "bytes": 6883,
       "encoding_state": "UTF8",
       "chinese_characters": 434,
       "english_words": 177,
@@ -9061,7 +9061,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
-      "bytes": 5399,
+      "bytes": 5397,
       "encoding_state": "UTF8",
       "chinese_characters": 353,
       "english_words": 90,
@@ -9070,7 +9070,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
-      "bytes": 5137,
+      "bytes": 5135,
       "encoding_state": "UTF8",
       "chinese_characters": 299,
       "english_words": 103,
@@ -9079,7 +9079,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
-      "bytes": 5423,
+      "bytes": 5421,
       "encoding_state": "UTF8",
       "chinese_characters": 309,
       "english_words": 107,
@@ -9088,7 +9088,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
-      "bytes": 4837,
+      "bytes": 4835,
       "encoding_state": "UTF8",
       "chinese_characters": 294,
       "english_words": 98,
@@ -9097,7 +9097,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
-      "bytes": 5326,
+      "bytes": 5324,
       "encoding_state": "UTF8",
       "chinese_characters": 319,
       "english_words": 136,
@@ -9106,7 +9106,7 @@
     },
     {
       "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
-      "bytes": 5112,
+      "bytes": 5110,
       "encoding_state": "UTF8",
       "chinese_characters": 275,
       "english_words": 122,

@@ -60,7 +60,7 @@ owner_ruling_ref: mission-book/reports/DGX/OWNER_SERIES_RULING.md
 series_evidence_ref: mission-book/reports/DGX/series-evidence/SERIES_EVIDENCE.json
 ---
 
-> **OWNER ACTIVATED 2026-10-07.** Alien-GPT-DGX 单分支开发；禁止合并 main。旧版逐本依赖验收暂停；第二机统一验收整个系列，运行时安全与 release 独立性门槛仍保留。  
+> **OWNER ACTIVATED 2026-10-07.** Alien-GPT-DGX 单分支开发；禁止合并 main。旧版逐本依赖验收暂停；第二机统一验收整个系列，运行时安全与 release 独立性门槛仍保留。
 > **Anchor policy:** 初始 Utopia main 已按 full SHA 固定。按 Owner 单分支裁决进行内部候选开发；正式 accepted dependency anchors 仍待独立 Review，不能以开发提交冒充。
 
 # DGX-990 — Cross-domain Acceptance & Freeze
