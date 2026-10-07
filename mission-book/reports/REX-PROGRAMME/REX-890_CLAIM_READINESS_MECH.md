@@ -188,7 +188,45 @@ PASS  the independent verifier accepts the produced package  14/14 independent c
 6  产出 RESEARCH_MATERIAL_SYNTHESIS.md 的八项内容；opposite-host 复现必须由另一实体主机执行（§3 禁止自审）
 ```
 
-## 5. 本预检没有做 / NOT done here
+## 6. 门槛现状追加（2026-10-08）/ Gate status, appended
+
+> 本预检写于 study 之前，其 §2 的若干行（故障/恢复缺失、artifact 24 行、faults 404 等）**已被后来的 study 取代**。
+> 按"不改写历史"的规矩，旧行原样保留；本节给出**今天**的逐项状态与唯一缺口。
+
+```text
+要素 / element                     今天的状态 / state now（2026-10-08）
+最低 study 八要素                  **全部由两个真实 agent 产出**，20/20：
+                                   multi-device（6 次交替落在两台实体机）· routing（放置决策，handoff 在 v1 不可表达，照实记）
+                                   · 注入故障（PROVIDER_UNAVAILABLE，注入 13 次；定向性 503 vs 200）· 恢复（recoveryTimeMs=646）
+                                   · repetitions（计划 6/计入 6/实测 6）· replay（campaign-647b74cd COMPLETED）
+                                   · ablation（campaign-12c003ce COMPLETED，且**真的改变了放置**）· artifact export（5 campaigns/15 runs/15 measured）
+                                   —— 证据 REX-890_DEV_STUDY_Mech_2026-10-07.md
+工件包                             11 文件；2026-10-08 独立复核 checksums 覆盖的 10 个文件 **10/10 逐字节一致**
+重建 / 重算 / 比对                 同包同城复跑：从 5 份回执重建 15 条 run 引用；四项指标**全部 agrees**；
+                                   canonical task 指针 22/22 存在；run→task 连接 15/15 可解析
+对比 trace/provenance              **已可完整比对**：206 条指针中窗口 0 条、持久库 **206/206**（本轮新增按 id 取记录的
+                                   只读接口后才成立，见 RESEARCH_MATERIAL_SYNTHESIS.md §5）；工具在"两者都答不上"时
+                                   报 VACUOUS 而不是通过（该路径已被真实触发验证）
+独立执行                           campaign-2c6001e0 / 1b41b5a8 / 79b3a131 各自 COMPLETED，6 条 run 全部 MEASURED、逐条落在两台实体机
+指出不一致                         证伪脚本 4/4（改包并刷新校验和 / 只改包内数据集 / 陈旧校验和，三种都被区分）
+修复后再复现                       工具与包已修过 4 处字段级缺陷并复跑；**对侧的**"修复后再复现"仍未发生
+最终素材                           RESEARCH_MATERIAL_SYNTHESIS.md **已产出**（dc @ 3d30318），其 §6 明确列出未建立项
+exact-head CI                      已推头 CI 绿（见 synthesis 的 CI 行）；本轮新头的 CI 因**外部**推送故障尚未产生，见下
+用户 exposure gate                 两条能力各有 §14A 记录：CAP-CITY-REMOTE-OPERATION-001、CAP-CITY-AGENT-JOB-001
+-----------------------------------------------------------------------------------------------
+唯一缺口 / the only gap that remains
+  **opposite-host 独立复现尚未发生。** 两条通道都已可用且已在实机城市上跑通（本机对端），
+  城市里已为对侧排好一条不指定目标的复现任务 Q-b4b7d3c1-12d9-49c6-828e-ff7d832eeaa6；
+  但"对侧执行"只能由对侧那台机器（或其驱动者）完成：城市对那台旧 agent **没有**执行/写入通道，
+  而 §3 禁止本机代替对侧宣布结论。⇒ 终标 RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE **未释放**，
+  REX-890 **未收口**。
+外部故障记录（非产品缺陷）：2026-10-08 推送 utopia 与 Digital-City **两个仓库**都被 GitHub 服务端
+  以 Internal Server Error 拒绝（Request ID DDC5:C6B1:238983:2FA600:6AC679C6，16:56Z；重试 3 次
+  与改用全新临时分支探测均失败；读操作与 API 正常；GitHub 状态页当日确有 Git Operations 事件）。
+  两个本地提交未丢（utopia 91849a9 / dc a6b9129），已起有界重试。
+```
+
+## 7. 本预检没有做 / NOT done here
 
 ```text
 · 没有领取 REX-890，没有改它的工作书字段，没有创建 reports/REX-890/
