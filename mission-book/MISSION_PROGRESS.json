@@ -1,31 +1,31 @@
 {
   "active_pool": {
     "development": {
-      "complete": 9,
-      "total": 11
+      "complete": 7,
+      "total": 9
     },
     "review": {
-      "complete": 9,
-      "total": 11
+      "complete": 7,
+      "total": 9
     },
     "tasks": {
-      "complete": 9,
-      "total": 11
+      "complete": 7,
+      "total": 9
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 93,
-      "total": 95
+      "complete": 133,
+      "total": 135
     },
     "review": {
-      "complete": 93,
-      "total": 95
+      "complete": 133,
+      "total": 135
     },
     "tasks": {
-      "complete": 93,
-      "total": 95
+      "complete": 133,
+      "total": 135
     }
   },
   "programmes": [
@@ -1062,21 +1062,21 @@
       "total": 1
     },
     {
-      "active_pool": true,
-      "development_complete": 2,
+      "active_pool": false,
+      "development_complete": 29,
       "key": "pcf",
       "name": "Personal Compute Fabric",
-      "readme": "mission-group/personal-compute-fabric/README.md",
-      "review_complete": 2,
+      "readme": "finished/completed-2026-10-07/personal-compute-fabric/README.md",
+      "review_complete": 29,
       "status": "COMPLETE",
-      "task_complete": 2,
+      "task_complete": 29,
       "tasks": [
         {
           "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "PCF-700",
-          "path": "mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
           "review_complete": true,
           "status": "COMPLETE"
         },
@@ -1085,12 +1085,398 @@
           "development_complete": true,
           "execution_enabled": true,
           "id": "PCF-701",
-          "path": "mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-702",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-702-explainable-placement.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-703",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-704",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-705",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-705-recovery-and-safe-replacement.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-706",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-707",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-707-research-trace-and-replay-adapter.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-708",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-709",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-710",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-711",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-711-checkpoint-and-resume-contract.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-712",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-713",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-713-interference-and-slo-protection.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-714",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-715",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-716",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-716-unattended-deployment-and-rollback.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-717",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-717-model-residency-and-serving.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-718",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-718-linux-worker-onboarding.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-719",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-719-android-edge-companion.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-720",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-720-accelerator-power-and-thermal.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-721",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-721-controlled-systems-study.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-722",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-722-controller-continuity-and-ha.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-723",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-723-adaptive-placement-research.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-724",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-725",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-726",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-727",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "PCF-728",
+          "path": "finished/completed-2026-10-07/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
           "review_complete": true,
           "status": "COMPLETE"
         }
       ],
-      "total": 2
+      "total": 29
+    },
+    {
+      "active_pool": false,
+      "development_complete": 5,
+      "key": "chk",
+      "name": "City Self Health Check",
+      "readme": "finished/completed-2026-10-07/city-self-health-check/README.md",
+      "review_complete": 5,
+      "status": "COMPLETE",
+      "task_complete": 5,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CHK-101",
+          "path": "finished/completed-2026-10-07/city-self-health-check/CHK-101-small-operational-reconciliation.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CHK-201",
+          "path": "finished/completed-2026-10-07/city-self-health-check/CHK-201-full-capability-architecture-census.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CHK-301",
+          "path": "finished/completed-2026-10-07/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CHK-401",
+          "path": "finished/completed-2026-10-07/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "CHK-990",
+          "path": "finished/completed-2026-10-07/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        }
+      ],
+      "total": 5
+    },
+    {
+      "active_pool": false,
+      "development_complete": 8,
+      "key": "dgx",
+      "name": "Deliberative Governance Expansion",
+      "readme": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/README.md",
+      "review_complete": 8,
+      "status": "COMPLETE",
+      "task_complete": 8,
+      "tasks": [
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-001",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-002",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-003",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-004",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-005",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-006",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-007",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "DGX-990",
+          "path": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
+          "review_complete": true,
+          "status": "COMPLETE"
+        }
+      ],
+      "total": 8
     }
   ],
   "schema_version": 1,

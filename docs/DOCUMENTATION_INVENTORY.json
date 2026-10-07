@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1737,
-  "total_bytes": 12490160,
+  "markdown_count": 1742,
+  "total_bytes": 13081881,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 4312,
+      "bytes": 5149,
       "encoding_state": "UTF8",
-      "chinese_characters": 347,
-      "english_words": 276,
+      "chinese_characters": 390,
+      "english_words": 341,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -1024,10 +1024,10 @@
     },
     {
       "path": "mission-book/finished/README.md",
-      "bytes": 4440,
+      "bytes": 6238,
       "encoding_state": "UTF8",
-      "chinese_characters": 316,
-      "english_words": 262,
+      "chinese_characters": 435,
+      "english_words": 394,
       "paired_path": "mission-book/finished/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8466,6 +8466,969 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-07/README.md",
+      "bytes": 835,
+      "encoding_state": "UTF8",
+      "chinese_characters": 60,
+      "english_words": 55,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-101-small-operational-reconciliation.md",
+      "bytes": 18364,
+      "encoding_state": "UTF8",
+      "chinese_characters": 347,
+      "english_words": 123,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-101-small-operational-reconciliation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-201-full-capability-architecture-census.md",
+      "bytes": 18421,
+      "encoding_state": "UTF8",
+      "chinese_characters": 267,
+      "english_words": 145,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-201-full-capability-architecture-census.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
+      "bytes": 18716,
+      "encoding_state": "UTF8",
+      "chinese_characters": 344,
+      "english_words": 118,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-301-quarterly-architecture-self-review.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
+      "bytes": 17681,
+      "encoding_state": "UTF8",
+      "chinese_characters": 247,
+      "english_words": 99,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-401-evolution-candidate-triage-routing.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
+      "bytes": 17987,
+      "encoding_state": "UTF8",
+      "chinese_characters": 309,
+      "english_words": 79,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-990-self-check-framework-acceptance-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/README.md",
+      "bytes": 5897,
+      "encoding_state": "UTF8",
+      "chinese_characters": 551,
+      "english_words": 329,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-101-small-operational-reconciliation.md",
+      "bytes": 2978,
+      "encoding_state": "UTF8",
+      "chinese_characters": 6,
+      "english_words": 283,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-101-small-operational-reconciliation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-201-full-capability-architecture-census.md",
+      "bytes": 2975,
+      "encoding_state": "UTF8",
+      "chinese_characters": 6,
+      "english_words": 267,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-201-full-capability-architecture-census.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-301-quarterly-architecture-self-review.md",
+      "bytes": 3385,
+      "encoding_state": "UTF8",
+      "chinese_characters": 6,
+      "english_words": 265,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-401-evolution-candidate-triage-routing.md",
+      "bytes": 2108,
+      "encoding_state": "UTF8",
+      "chinese_characters": 6,
+      "english_words": 181,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/CHK-990-self-check-framework-acceptance-freeze.md",
+      "bytes": 1769,
+      "encoding_state": "UTF8",
+      "chinese_characters": 6,
+      "english_words": 204,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/city-self-health-check/en/README.md",
+      "bytes": 6334,
+      "encoding_state": "UTF8",
+      "chinese_characters": 103,
+      "english_words": 591,
+      "paired_path": "mission-book/finished/completed-2026-10-07/city-self-health-check/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
+      "bytes": 18207,
+      "encoding_state": "UTF8",
+      "chinese_characters": 323,
+      "english_words": 135,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-001-governance-ownership-audit-and-capability-map.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
+      "bytes": 19632,
+      "encoding_state": "UTF8",
+      "chinese_characters": 449,
+      "english_words": 173,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-002-constitution-and-core-deliberation-contracts.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
+      "bytes": 18146,
+      "encoding_state": "UTF8",
+      "chinese_characters": 368,
+      "english_words": 86,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-003-capability-history-assignment-policy.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
+      "bytes": 17866,
+      "encoding_state": "UTF8",
+      "chinese_characters": 314,
+      "english_words": 99,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-004-domain-profile-adapters-and-soft-migration.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
+      "bytes": 18160,
+      "encoding_state": "UTF8",
+      "chinese_characters": 324,
+      "english_words": 103,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-005-conflict-defence-and-independent-adjudication.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
+      "bytes": 17594,
+      "encoding_state": "UTF8",
+      "chinese_characters": 309,
+      "english_words": 94,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
+      "bytes": 18080,
+      "encoding_state": "UTF8",
+      "chinese_characters": 334,
+      "english_words": 132,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-007-process-capsule-and-monitor-governance-projection.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
+      "bytes": 18964,
+      "encoding_state": "UTF8",
+      "chinese_characters": 290,
+      "english_words": 118,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-990-cross-domain-acceptance-and-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/README.md",
+      "bytes": 11263,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1020,
+      "english_words": 682,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-001-governance-ownership-audit-and-capability-map.md",
+      "bytes": 4391,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 310,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-002-constitution-and-core-deliberation-contracts.md",
+      "bytes": 5646,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 398,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-003-capability-history-assignment-policy.md",
+      "bytes": 4263,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 268,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-004-domain-profile-adapters-and-soft-migration.md",
+      "bytes": 4014,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 258,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-005-conflict-defence-and-independent-adjudication.md",
+      "bytes": 4370,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 277,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
+      "bytes": 3732,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 247,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-007-process-capsule-and-monitor-governance-projection.md",
+      "bytes": 4154,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 305,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/DGX-990-cross-domain-acceptance-and-freeze.md",
+      "bytes": 3996,
+      "encoding_state": "UTF8",
+      "chinese_characters": 4,
+      "english_words": 273,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/en/README.md",
+      "bytes": 11801,
+      "encoding_state": "UTF8",
+      "chinese_characters": 125,
+      "english_words": 1131,
+      "paired_path": "mission-book/finished/completed-2026-10-07/deliberative-governance-expansion-migration/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
+      "bytes": 5677,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1074,
+      "english_words": 196,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ACTIVATION_AND_EXTENSION.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07.md",
+      "bytes": 4541,
+      "encoding_state": "UTF8",
+      "chinese_characters": 168,
+      "english_words": 59,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
+      "bytes": 3945,
+      "encoding_state": "UTF8",
+      "chinese_characters": 42,
+      "english_words": 5,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ARCHITECTURE.md",
+      "bytes": 8788,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1384,
+      "english_words": 346,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ARCHITECTURE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/CHILD_WORKBOOK_TEMPLATE.md",
+      "bytes": 3073,
+      "encoding_state": "UTF8",
+      "chinese_characters": 396,
+      "english_words": 19,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/CHILD_WORKBOOK_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/EXECUTION_CONTRACT.md",
+      "bytes": 5660,
+      "encoding_state": "UTF8",
+      "chinese_characters": 907,
+      "english_words": 272,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/EXECUTION_CONTRACT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/MIGRATION_HISTORY.md",
+      "bytes": 4212,
+      "encoding_state": "UTF8",
+      "chinese_characters": 246,
+      "english_words": 370,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/MIGRATION_HISTORY.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
+      "bytes": 14909,
+      "encoding_state": "UTF8",
+      "chinese_characters": 1473,
+      "english_words": 263,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
+      "bytes": 19322,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2018,
+      "english_words": 254,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-701-live-resource-telemetry.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-702-explainable-placement.md",
+      "bytes": 16906,
+      "encoding_state": "UTF8",
+      "chinese_characters": 455,
+      "english_words": 71,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-702-explainable-placement.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
+      "bytes": 16875,
+      "encoding_state": "UTF8",
+      "chinese_characters": 402,
+      "english_words": 81,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-703-pipeline-offload-and-streams.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
+      "bytes": 16768,
+      "encoding_state": "UTF8",
+      "chinese_characters": 425,
+      "english_words": 58,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-704-admission-reservations-and-fairness.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-705-recovery-and-safe-replacement.md",
+      "bytes": 16202,
+      "encoding_state": "UTF8",
+      "chinese_characters": 269,
+      "english_words": 54,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-705-recovery-and-safe-replacement.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
+      "bytes": 16774,
+      "encoding_state": "UTF8",
+      "chinese_characters": 420,
+      "english_words": 46,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-706-policy-consent-and-data-boundaries.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-707-research-trace-and-replay-adapter.md",
+      "bytes": 16074,
+      "encoding_state": "UTF8",
+      "chinese_characters": 226,
+      "english_words": 55,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-707-research-trace-and-replay-adapter.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
+      "bytes": 16766,
+      "encoding_state": "UTF8",
+      "chinese_characters": 311,
+      "english_words": 77,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-708-workload-envelope-and-qos.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
+      "bytes": 16722,
+      "encoding_state": "UTF8",
+      "chinese_characters": 420,
+      "english_words": 49,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-709-artifact-locality-and-cache.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
+      "bytes": 16807,
+      "encoding_state": "UTF8",
+      "chinese_characters": 417,
+      "english_words": 48,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-710-headless-execution-and-isolation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-711-checkpoint-and-resume-contract.md",
+      "bytes": 16149,
+      "encoding_state": "UTF8",
+      "chinese_characters": 277,
+      "english_words": 44,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-711-checkpoint-and-resume-contract.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
+      "bytes": 16772,
+      "encoding_state": "UTF8",
+      "chinese_characters": 404,
+      "english_words": 48,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-712-durable-supervision-and-fencing.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-713-interference-and-slo-protection.md",
+      "bytes": 16068,
+      "encoding_state": "UTF8",
+      "chinese_characters": 280,
+      "english_words": 34,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-713-interference-and-slo-protection.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
+      "bytes": 16656,
+      "encoding_state": "UTF8",
+      "chinese_characters": 411,
+      "english_words": 37,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-714-origin-surface-continuity.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
+      "bytes": 16939,
+      "encoding_state": "UTF8",
+      "chinese_characters": 439,
+      "english_words": 51,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-715-resource-control-and-monitor.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-716-unattended-deployment-and-rollback.md",
+      "bytes": 16164,
+      "encoding_state": "UTF8",
+      "chinese_characters": 310,
+      "english_words": 30,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-716-unattended-deployment-and-rollback.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-717-model-residency-and-serving.md",
+      "bytes": 15972,
+      "encoding_state": "UTF8",
+      "chinese_characters": 240,
+      "english_words": 40,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-717-model-residency-and-serving.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-718-linux-worker-onboarding.md",
+      "bytes": 15882,
+      "encoding_state": "UTF8",
+      "chinese_characters": 223,
+      "english_words": 29,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-718-linux-worker-onboarding.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-719-android-edge-companion.md",
+      "bytes": 16130,
+      "encoding_state": "UTF8",
+      "chinese_characters": 301,
+      "english_words": 29,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-719-android-edge-companion.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-720-accelerator-power-and-thermal.md",
+      "bytes": 15954,
+      "encoding_state": "UTF8",
+      "chinese_characters": 243,
+      "english_words": 31,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-720-accelerator-power-and-thermal.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-721-controlled-systems-study.md",
+      "bytes": 16477,
+      "encoding_state": "UTF8",
+      "chinese_characters": 321,
+      "english_words": 50,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-721-controlled-systems-study.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-722-controller-continuity-and-ha.md",
+      "bytes": 16258,
+      "encoding_state": "UTF8",
+      "chinese_characters": 329,
+      "english_words": 27,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-722-controller-continuity-and-ha.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-723-adaptive-placement-research.md",
+      "bytes": 16023,
+      "encoding_state": "UTF8",
+      "chinese_characters": 284,
+      "english_words": 32,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-723-adaptive-placement-research.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
+      "bytes": 17193,
+      "encoding_state": "UTF8",
+      "chinese_characters": 536,
+      "english_words": 48,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-724-multi-application-workload-pilots.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
+      "bytes": 16746,
+      "encoding_state": "UTF8",
+      "chinese_characters": 307,
+      "english_words": 75,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-725-execution-provider-contract-and-boundaries.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
+      "bytes": 16658,
+      "encoding_state": "UTF8",
+      "chinese_characters": 311,
+      "english_words": 83,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-726-execution-capsule-and-result-evidence.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
+      "bytes": 17537,
+      "encoding_state": "UTF8",
+      "chinese_characters": 489,
+      "english_words": 104,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-727-engineering-connector-live-execution.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
+      "bytes": 17565,
+      "encoding_state": "UTF8",
+      "chinese_characters": 564,
+      "english_words": 97,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-728-originating-agent-remote-job-bridge.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/README.md",
+      "bytes": 35611,
+      "encoding_state": "UTF8",
+      "chinese_characters": 3858,
+      "english_words": 1872,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/RESEARCH_AND_RELEASE.md",
+      "bytes": 4843,
+      "encoding_state": "UTF8",
+      "chinese_characters": 995,
+      "english_words": 141,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/RESEARCH_AND_RELEASE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ACTIVATION_AND_EXTENSION.md",
+      "bytes": 4688,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2,
+      "english_words": 544,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07.md",
+      "bytes": 4629,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 100,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
+      "bytes": 4715,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 27,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/ARCHITECTURE.md",
+      "bytes": 6562,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2,
+      "english_words": 733,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/ARCHITECTURE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/CHILD_WORKBOOK_TEMPLATE.md",
+      "bytes": 1981,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2,
+      "english_words": 225,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/CHILD_WORKBOOK_TEMPLATE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/EXECUTION_CONTRACT.md",
+      "bytes": 4832,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2,
+      "english_words": 584,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/EXECUTION_CONTRACT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/MIGRATION_HISTORY.md",
+      "bytes": 4373,
+      "encoding_state": "UTF8",
+      "chinese_characters": 7,
+      "english_words": 481,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/MIGRATION_HISTORY.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
+      "bytes": 2327,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 273,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-701-live-resource-telemetry.md",
+      "bytes": 2438,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 304,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-702-explainable-placement.md",
+      "bytes": 2196,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 261,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-702-explainable-placement.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-703-pipeline-offload-and-streams.md",
+      "bytes": 2240,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 266,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-704-admission-reservations-and-fairness.md",
+      "bytes": 2236,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 266,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-705-recovery-and-safe-replacement.md",
+      "bytes": 1610,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 192,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-705-recovery-and-safe-replacement.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-706-policy-consent-and-data-boundaries.md",
+      "bytes": 2185,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 253,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-707-research-trace-and-replay-adapter.md",
+      "bytes": 1494,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 175,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-707-research-trace-and-replay-adapter.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-708-workload-envelope-and-qos.md",
+      "bytes": 2148,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 249,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-709-artifact-locality-and-cache.md",
+      "bytes": 2177,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 259,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-710-headless-execution-and-isolation.md",
+      "bytes": 2217,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 260,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-711-checkpoint-and-resume-contract.md",
+      "bytes": 1582,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 187,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-711-checkpoint-and-resume-contract.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-712-durable-supervision-and-fencing.md",
+      "bytes": 2261,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 267,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-713-interference-and-slo-protection.md",
+      "bytes": 1549,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 183,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-713-interference-and-slo-protection.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-714-origin-surface-continuity.md",
+      "bytes": 2176,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 255,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-715-resource-control-and-monitor.md",
+      "bytes": 2300,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 283,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-716-unattended-deployment-and-rollback.md",
+      "bytes": 1566,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 180,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-716-unattended-deployment-and-rollback.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-717-model-residency-and-serving.md",
+      "bytes": 1289,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 159,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-717-model-residency-and-serving.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-718-linux-worker-onboarding.md",
+      "bytes": 1280,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 143,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-718-linux-worker-onboarding.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-719-android-edge-companion.md",
+      "bytes": 1475,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 177,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-719-android-edge-companion.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-720-accelerator-power-and-thermal.md",
+      "bytes": 1315,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 161,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-720-accelerator-power-and-thermal.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-721-controlled-systems-study.md",
+      "bytes": 1860,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 224,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-721-controlled-systems-study.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-722-controller-continuity-and-ha.md",
+      "bytes": 1610,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 190,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-722-controller-continuity-and-ha.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-723-adaptive-placement-research.md",
+      "bytes": 1420,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 167,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-723-adaptive-placement-research.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-724-multi-application-workload-pilots.md",
+      "bytes": 2674,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 329,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-725-execution-provider-contract-and-boundaries.md",
+      "bytes": 1762,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 186,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-726-execution-capsule-and-result-evidence.md",
+      "bytes": 1795,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 201,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-727-engineering-connector-live-execution.md",
+      "bytes": 2613,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 295,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/PCF-728-originating-agent-remote-job-bridge.md",
+      "bytes": 2620,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 304,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/README.md",
+      "bytes": 25013,
+      "encoding_state": "UTF8",
+      "chinese_characters": 132,
+      "english_words": 2650,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/en/RESEARCH_AND_RELEASE.md",
+      "bytes": 4128,
+      "encoding_state": "UTF8",
+      "chinese_characters": 2,
+      "english_words": 479,
+      "paired_path": "mission-book/finished/completed-2026-10-07/personal-compute-fabric/RESEARCH_AND_RELEASE.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/finished/en/README.md",
       "bytes": 565,
       "encoding_state": "UTF8",
@@ -8926,966 +9889,12 @@
     },
     {
       "path": "mission-book/mission-group/README.md",
-      "bytes": 2827,
+      "bytes": 2530,
       "encoding_state": "UTF8",
-      "chinese_characters": 184,
-      "english_words": 209,
+      "chinese_characters": 178,
+      "english_words": 181,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
-      "bytes": 4147,
-      "encoding_state": "UTF8",
-      "chinese_characters": 253,
-      "english_words": 112,
-      "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-101-small-operational-reconciliation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
-      "bytes": 4204,
-      "encoding_state": "UTF8",
-      "chinese_characters": 173,
-      "english_words": 134,
-      "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-201-full-capability-architecture-census.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
-      "bytes": 4499,
-      "encoding_state": "UTF8",
-      "chinese_characters": 250,
-      "english_words": 107,
-      "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-301-quarterly-architecture-self-review.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
-      "bytes": 3464,
-      "encoding_state": "UTF8",
-      "chinese_characters": 153,
-      "english_words": 88,
-      "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-401-evolution-candidate-triage-routing.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
-      "bytes": 3029,
-      "encoding_state": "UTF8",
-      "chinese_characters": 215,
-      "english_words": 68,
-      "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-990-self-check-framework-acceptance-freeze.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/README.md",
-      "bytes": 4952,
-      "encoding_state": "UTF8",
-      "chinese_characters": 509,
-      "english_words": 255,
-      "paired_path": "mission-book/mission-group/city-self-health-check/en/README.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/en/CHK-101-small-operational-reconciliation.md",
-      "bytes": 2978,
-      "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 283,
-      "paired_path": "mission-book/mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/en/CHK-201-full-capability-architecture-census.md",
-      "bytes": 2975,
-      "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 267,
-      "paired_path": "mission-book/mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/en/CHK-301-quarterly-architecture-self-review.md",
-      "bytes": 3385,
-      "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 265,
-      "paired_path": "mission-book/mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/en/CHK-401-evolution-candidate-triage-routing.md",
-      "bytes": 2108,
-      "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 181,
-      "paired_path": "mission-book/mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/en/CHK-990-self-check-framework-acceptance-freeze.md",
-      "bytes": 1769,
-      "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 204,
-      "paired_path": "mission-book/mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/city-self-health-check/en/README.md",
-      "bytes": 5374,
-      "encoding_state": "UTF8",
-      "chinese_characters": 61,
-      "english_words": 517,
-      "paired_path": "mission-book/mission-group/city-self-health-check/README.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
-      "bytes": 4008,
-      "encoding_state": "UTF8",
-      "chinese_characters": 286,
-      "english_words": 137,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-001-governance-ownership-audit-and-capability-map.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "bytes": 5433,
-      "encoding_state": "UTF8",
-      "chinese_characters": 412,
-      "english_words": 175,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
-      "bytes": 3947,
-      "encoding_state": "UTF8",
-      "chinese_characters": 331,
-      "english_words": 88,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-003-capability-history-assignment-policy.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
-      "bytes": 3667,
-      "encoding_state": "UTF8",
-      "chinese_characters": 277,
-      "english_words": 101,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-004-domain-profile-adapters-and-soft-migration.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
-      "bytes": 3961,
-      "encoding_state": "UTF8",
-      "chinese_characters": 287,
-      "english_words": 105,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-005-conflict-defence-and-independent-adjudication.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
-      "bytes": 3395,
-      "encoding_state": "UTF8",
-      "chinese_characters": 272,
-      "english_words": 96,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
-      "bytes": 3881,
-      "encoding_state": "UTF8",
-      "chinese_characters": 297,
-      "english_words": 134,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-007-process-capsule-and-monitor-governance-projection.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
-      "bytes": 3630,
-      "encoding_state": "UTF8",
-      "chinese_characters": 253,
-      "english_words": 120,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-990-cross-domain-acceptance-and-freeze.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/README.md",
-      "bytes": 9982,
-      "encoding_state": "UTF8",
-      "chinese_characters": 978,
-      "english_words": 566,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/README.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-001-governance-ownership-audit-and-capability-map.md",
-      "bytes": 4391,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 310,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "bytes": 5646,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 398,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-003-capability-history-assignment-policy.md",
-      "bytes": 4263,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 268,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-004-domain-profile-adapters-and-soft-migration.md",
-      "bytes": 4014,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 258,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-005-conflict-defence-and-independent-adjudication.md",
-      "bytes": 4370,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 277,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
-      "bytes": 3732,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 247,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-007-process-capsule-and-monitor-governance-projection.md",
-      "bytes": 4154,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 305,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/DGX-990-cross-domain-acceptance-and-freeze.md",
-      "bytes": 3996,
-      "encoding_state": "UTF8",
-      "chinese_characters": 4,
-      "english_words": 273,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/deliberative-governance-expansion-migration/en/README.md",
-      "bytes": 10496,
-      "encoding_state": "UTF8",
-      "chinese_characters": 83,
-      "english_words": 1015,
-      "paired_path": "mission-book/mission-group/deliberative-governance-expansion-migration/README.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
-      "bytes": 5677,
-      "encoding_state": "UTF8",
-      "chinese_characters": 1074,
-      "english_words": 196,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_AND_EXTENSION.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07.md",
-      "bytes": 4541,
-      "encoding_state": "UTF8",
-      "chinese_characters": 168,
-      "english_words": 59,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
-      "bytes": 3945,
-      "encoding_state": "UTF8",
-      "chinese_characters": 42,
-      "english_words": 5,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/ARCHITECTURE.md",
-      "bytes": 8788,
-      "encoding_state": "UTF8",
-      "chinese_characters": 1384,
-      "english_words": 346,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/ARCHITECTURE.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/CHILD_WORKBOOK_TEMPLATE.md",
-      "bytes": 3073,
-      "encoding_state": "UTF8",
-      "chinese_characters": 396,
-      "english_words": 19,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/CHILD_WORKBOOK_TEMPLATE.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/EXECUTION_CONTRACT.md",
-      "bytes": 5660,
-      "encoding_state": "UTF8",
-      "chinese_characters": 907,
-      "english_words": 272,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/EXECUTION_CONTRACT.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/MIGRATION_HISTORY.md",
-      "bytes": 4212,
-      "encoding_state": "UTF8",
-      "chinese_characters": 246,
-      "english_words": 370,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/MIGRATION_HISTORY.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
-      "bytes": 14909,
-      "encoding_state": "UTF8",
-      "chinese_characters": 1473,
-      "english_words": 263,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
-      "bytes": 19322,
-      "encoding_state": "UTF8",
-      "chinese_characters": 2018,
-      "english_words": 254,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-701-live-resource-telemetry.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-702-explainable-placement.md",
-      "bytes": 3388,
-      "encoding_state": "UTF8",
-      "chinese_characters": 455,
-      "english_words": 71,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-702-explainable-placement.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
-      "bytes": 3357,
-      "encoding_state": "UTF8",
-      "chinese_characters": 402,
-      "english_words": 81,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-703-pipeline-offload-and-streams.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
-      "bytes": 3250,
-      "encoding_state": "UTF8",
-      "chinese_characters": 425,
-      "english_words": 58,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-704-admission-reservations-and-fairness.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-705-recovery-and-safe-replacement.md",
-      "bytes": 2684,
-      "encoding_state": "UTF8",
-      "chinese_characters": 269,
-      "english_words": 54,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-705-recovery-and-safe-replacement.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
-      "bytes": 3256,
-      "encoding_state": "UTF8",
-      "chinese_characters": 420,
-      "english_words": 46,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-706-policy-consent-and-data-boundaries.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-707-research-trace-and-replay-adapter.md",
-      "bytes": 2556,
-      "encoding_state": "UTF8",
-      "chinese_characters": 226,
-      "english_words": 55,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-707-research-trace-and-replay-adapter.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
-      "bytes": 3248,
-      "encoding_state": "UTF8",
-      "chinese_characters": 311,
-      "english_words": 77,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-708-workload-envelope-and-qos.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
-      "bytes": 3204,
-      "encoding_state": "UTF8",
-      "chinese_characters": 420,
-      "english_words": 49,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-709-artifact-locality-and-cache.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
-      "bytes": 3289,
-      "encoding_state": "UTF8",
-      "chinese_characters": 417,
-      "english_words": 48,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-710-headless-execution-and-isolation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-711-checkpoint-and-resume-contract.md",
-      "bytes": 2631,
-      "encoding_state": "UTF8",
-      "chinese_characters": 277,
-      "english_words": 44,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-711-checkpoint-and-resume-contract.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
-      "bytes": 3254,
-      "encoding_state": "UTF8",
-      "chinese_characters": 404,
-      "english_words": 48,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-712-durable-supervision-and-fencing.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-713-interference-and-slo-protection.md",
-      "bytes": 2550,
-      "encoding_state": "UTF8",
-      "chinese_characters": 280,
-      "english_words": 34,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-713-interference-and-slo-protection.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
-      "bytes": 3138,
-      "encoding_state": "UTF8",
-      "chinese_characters": 411,
-      "english_words": 37,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-714-origin-surface-continuity.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
-      "bytes": 3421,
-      "encoding_state": "UTF8",
-      "chinese_characters": 439,
-      "english_words": 51,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-715-resource-control-and-monitor.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-716-unattended-deployment-and-rollback.md",
-      "bytes": 2646,
-      "encoding_state": "UTF8",
-      "chinese_characters": 310,
-      "english_words": 30,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-716-unattended-deployment-and-rollback.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-717-model-residency-and-serving.md",
-      "bytes": 2454,
-      "encoding_state": "UTF8",
-      "chinese_characters": 240,
-      "english_words": 40,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-717-model-residency-and-serving.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-718-linux-worker-onboarding.md",
-      "bytes": 2364,
-      "encoding_state": "UTF8",
-      "chinese_characters": 223,
-      "english_words": 29,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-718-linux-worker-onboarding.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-719-android-edge-companion.md",
-      "bytes": 2612,
-      "encoding_state": "UTF8",
-      "chinese_characters": 301,
-      "english_words": 29,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-719-android-edge-companion.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-720-accelerator-power-and-thermal.md",
-      "bytes": 2436,
-      "encoding_state": "UTF8",
-      "chinese_characters": 243,
-      "english_words": 31,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-720-accelerator-power-and-thermal.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-721-controlled-systems-study.md",
-      "bytes": 2959,
-      "encoding_state": "UTF8",
-      "chinese_characters": 321,
-      "english_words": 50,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-721-controlled-systems-study.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-722-controller-continuity-and-ha.md",
-      "bytes": 2740,
-      "encoding_state": "UTF8",
-      "chinese_characters": 329,
-      "english_words": 27,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-722-controller-continuity-and-ha.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-723-adaptive-placement-research.md",
-      "bytes": 2505,
-      "encoding_state": "UTF8",
-      "chinese_characters": 284,
-      "english_words": 32,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-723-adaptive-placement-research.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
-      "bytes": 3675,
-      "encoding_state": "UTF8",
-      "chinese_characters": 536,
-      "english_words": 48,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-724-multi-application-workload-pilots.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
-      "bytes": 3228,
-      "encoding_state": "UTF8",
-      "chinese_characters": 307,
-      "english_words": 75,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-725-execution-provider-contract-and-boundaries.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
-      "bytes": 3140,
-      "encoding_state": "UTF8",
-      "chinese_characters": 311,
-      "english_words": 83,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-726-execution-capsule-and-result-evidence.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
-      "bytes": 4019,
-      "encoding_state": "UTF8",
-      "chinese_characters": 489,
-      "english_words": 104,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-727-engineering-connector-live-execution.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
-      "bytes": 4047,
-      "encoding_state": "UTF8",
-      "chinese_characters": 564,
-      "english_words": 97,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/PCF-728-originating-agent-remote-job-bridge.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "bytes": 33287,
-      "encoding_state": "UTF8",
-      "chinese_characters": 3858,
-      "english_words": 1605,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/RESEARCH_AND_RELEASE.md",
-      "bytes": 4843,
-      "encoding_state": "UTF8",
-      "chinese_characters": 995,
-      "english_words": 141,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/en/RESEARCH_AND_RELEASE.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_AND_EXTENSION.md",
-      "bytes": 4688,
-      "encoding_state": "UTF8",
-      "chinese_characters": 2,
-      "english_words": 544,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_AND_EXTENSION.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07.md",
-      "bytes": 4629,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 100,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
-      "bytes": 4715,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 27,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/ACTIVATION_RECEIPT_2026_10_07_PCF-701.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/ARCHITECTURE.md",
-      "bytes": 6562,
-      "encoding_state": "UTF8",
-      "chinese_characters": 2,
-      "english_words": 733,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/ARCHITECTURE.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/CHILD_WORKBOOK_TEMPLATE.md",
-      "bytes": 1981,
-      "encoding_state": "UTF8",
-      "chinese_characters": 2,
-      "english_words": 225,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/CHILD_WORKBOOK_TEMPLATE.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/EXECUTION_CONTRACT.md",
-      "bytes": 4832,
-      "encoding_state": "UTF8",
-      "chinese_characters": 2,
-      "english_words": 584,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/EXECUTION_CONTRACT.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/MIGRATION_HISTORY.md",
-      "bytes": 4373,
-      "encoding_state": "UTF8",
-      "chinese_characters": 7,
-      "english_words": 481,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/MIGRATION_HISTORY.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-700-ownership-and-reality-audit.md",
-      "bytes": 2327,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 273,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-700-ownership-and-reality-audit.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-701-live-resource-telemetry.md",
-      "bytes": 2438,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 304,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-702-explainable-placement.md",
-      "bytes": 2196,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 261,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-702-explainable-placement.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-703-pipeline-offload-and-streams.md",
-      "bytes": 2240,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 266,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-703-pipeline-offload-and-streams.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-704-admission-reservations-and-fairness.md",
-      "bytes": 2236,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 266,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-704-admission-reservations-and-fairness.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-705-recovery-and-safe-replacement.md",
-      "bytes": 1610,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 192,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-705-recovery-and-safe-replacement.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-706-policy-consent-and-data-boundaries.md",
-      "bytes": 2185,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 253,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-706-policy-consent-and-data-boundaries.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-707-research-trace-and-replay-adapter.md",
-      "bytes": 1494,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 175,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-707-research-trace-and-replay-adapter.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-708-workload-envelope-and-qos.md",
-      "bytes": 2148,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 249,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-708-workload-envelope-and-qos.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-709-artifact-locality-and-cache.md",
-      "bytes": 2177,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 259,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-709-artifact-locality-and-cache.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-710-headless-execution-and-isolation.md",
-      "bytes": 2217,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 260,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-710-headless-execution-and-isolation.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-711-checkpoint-and-resume-contract.md",
-      "bytes": 1582,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 187,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-711-checkpoint-and-resume-contract.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-712-durable-supervision-and-fencing.md",
-      "bytes": 2261,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 267,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-712-durable-supervision-and-fencing.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-713-interference-and-slo-protection.md",
-      "bytes": 1549,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 183,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-713-interference-and-slo-protection.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-714-origin-surface-continuity.md",
-      "bytes": 2176,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 255,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-714-origin-surface-continuity.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-715-resource-control-and-monitor.md",
-      "bytes": 2300,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 283,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-715-resource-control-and-monitor.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-716-unattended-deployment-and-rollback.md",
-      "bytes": 1566,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 180,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-716-unattended-deployment-and-rollback.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-717-model-residency-and-serving.md",
-      "bytes": 1289,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 159,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-717-model-residency-and-serving.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-718-linux-worker-onboarding.md",
-      "bytes": 1280,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 143,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-718-linux-worker-onboarding.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-719-android-edge-companion.md",
-      "bytes": 1475,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 177,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-719-android-edge-companion.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-720-accelerator-power-and-thermal.md",
-      "bytes": 1315,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 161,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-720-accelerator-power-and-thermal.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-721-controlled-systems-study.md",
-      "bytes": 1860,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 224,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-721-controlled-systems-study.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-722-controller-continuity-and-ha.md",
-      "bytes": 1610,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 190,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-722-controller-continuity-and-ha.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-723-adaptive-placement-research.md",
-      "bytes": 1420,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 167,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-723-adaptive-placement-research.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-724-multi-application-workload-pilots.md",
-      "bytes": 2674,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 329,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-724-multi-application-workload-pilots.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-725-execution-provider-contract-and-boundaries.md",
-      "bytes": 1762,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 186,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-725-execution-provider-contract-and-boundaries.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-726-execution-capsule-and-result-evidence.md",
-      "bytes": 1795,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 201,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-726-execution-capsule-and-result-evidence.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-727-engineering-connector-live-execution.md",
-      "bytes": 2613,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 295,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-727-engineering-connector-live-execution.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/PCF-728-originating-agent-remote-job-bridge.md",
-      "bytes": 2620,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 304,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/PCF-728-originating-agent-remote-job-bridge.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/README.md",
-      "bytes": 22608,
-      "encoding_state": "UTF8",
-      "chinese_characters": 132,
-      "english_words": 2383,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/README.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/personal-compute-fabric/en/RESEARCH_AND_RELEASE.md",
-      "bytes": 4128,
-      "encoding_state": "UTF8",
-      "chinese_characters": 2,
-      "english_words": 479,
-      "paired_path": "mission-book/mission-group/personal-compute-fabric/RESEARCH_AND_RELEASE.md",
-      "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
@@ -10470,6 +10479,42 @@
       "chinese_characters": 6,
       "english_words": 144,
       "paired_path": "mission-book/mission-group/utopia-runtime-architecture/URA-990-soft-reclassification-acceptance-and-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/4IN1-ACCEPTANCE/README.md",
+      "bytes": 11002,
+      "encoding_state": "UTF8",
+      "chinese_characters": 518,
+      "english_words": 104,
+      "paired_path": "mission-book/reports/4IN1-ACCEPTANCE/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/4IN1-ACCEPTANCE/REVIEW_REPORT.md",
+      "bytes": 3994,
+      "encoding_state": "UTF8",
+      "chinese_characters": 202,
+      "english_words": 19,
+      "paired_path": "mission-book/reports/4IN1-ACCEPTANCE/en/REVIEW_REPORT.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/4IN1-ACCEPTANCE/en/README.md",
+      "bytes": 8882,
+      "encoding_state": "UTF8",
+      "chinese_characters": 55,
+      "english_words": 719,
+      "paired_path": "mission-book/reports/4IN1-ACCEPTANCE/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/reports/4IN1-ACCEPTANCE/en/REVIEW_REPORT.md",
+      "bytes": 3842,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 323,
+      "paired_path": "mission-book/reports/4IN1-ACCEPTANCE/REVIEW_REPORT.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -13633,10 +13678,10 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 5512,
+      "bytes": 5581,
       "encoding_state": "UTF8",
-      "chinese_characters": 266,
-      "english_words": 293,
+      "chinese_characters": 268,
+      "english_words": 297,
       "paired_path": "mission-book/reports/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },

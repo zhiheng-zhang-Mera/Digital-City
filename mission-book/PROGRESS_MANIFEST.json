@@ -142,11 +142,28 @@
       "key": "pcf",
       "name": "Personal Compute Fabric",
       "task_globs": [
-        "mission-group/personal-compute-fabric/PCF-700-*.md",
-        "mission-group/personal-compute-fabric/PCF-701-*.md"
+        "finished/completed-2026-10-07/personal-compute-fabric/PCF-7*.md"
       ],
-      "active_pool": true,
-      "readme": "mission-group/personal-compute-fabric/README.md"
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-07/personal-compute-fabric/README.md"
+    },
+    {
+      "key": "chk",
+      "name": "City Self Health Check",
+      "task_globs": [
+        "finished/completed-2026-10-07/city-self-health-check/CHK-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-07/city-self-health-check/README.md"
+    },
+    {
+      "key": "dgx",
+      "name": "Deliberative Governance Expansion",
+      "task_globs": [
+        "finished/completed-2026-10-07/deliberative-governance-expansion-migration/DGX-*.md"
+      ],
+      "active_pool": false,
+      "readme": "finished/completed-2026-10-07/deliberative-governance-expansion-migration/README.md"
     }
   ]
 }
