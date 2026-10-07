@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1722,
-  "total_bytes": 12325298,
+  "markdown_count": 1723,
+  "total_bytes": 12329602,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -14541,6 +14541,15 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/reports/REX-806/CANONICAL_DUPLICATES_FOLLOWUP_ALIEN.md",
+      "bytes": 4221,
+      "encoding_state": "UTF8",
+      "chinese_characters": 370,
+      "english_words": 287,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-806/CLAIM_REPORT.md",
       "bytes": 4827,
       "encoding_state": "UTF8",
@@ -14614,7 +14623,7 @@
     },
     {
       "path": "mission-book/reports/REX-806/README.md",
-      "bytes": 1303,
+      "bytes": 1386,
       "encoding_state": "UTF8",
       "chinese_characters": 63,
       "english_words": 38,

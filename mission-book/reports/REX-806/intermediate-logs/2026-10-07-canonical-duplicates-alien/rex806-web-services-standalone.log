@@ -1,0 +1,10 @@
+✔ Windows history loads detail explicitly, retains it across snapshots and fences late selections (2484.536ms)
+✔ Windows Services invokes real document, knowledge, skill, evidence and theme adapters (3896.1136ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8066.1417
