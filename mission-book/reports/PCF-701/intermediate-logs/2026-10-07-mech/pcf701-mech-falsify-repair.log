@@ -1,0 +1,8 @@
+baseline: exit=0 pass=26 fail=0
+N1 the loadavg placeholder is published again on Windows (the filed defect): exit=1 pass=24 fail=2 -> CAUGHT (restored=True)
+N2 the CPU-time path always reports 0 with a measurement-shaped source: exit=1 pass=24 fail=2 -> CAUGHT (restored=True)
+N3 the aggregate silently drops every second core: exit=0 pass=26 fail=0 -> NOT CAUGHT - the test is decorative (restored=True)
+N4 the previous-counter baseline is never retained: exit=1 pass=24 fail=2 -> CAUGHT (restored=True)
+N5 a reset interval is published instead of reported unavailable: exit=1 pass=24 fail=2 -> CAUGHT (restored=True)
+source identical to its pre-mutation bytes: True
+after restore: exit=0 pass=26 fail=0

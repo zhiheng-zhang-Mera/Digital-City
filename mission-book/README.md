@@ -33,14 +33,13 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计 / Overall: 总任务 / Tasks 91/95 · 开发 / Development 92/95 · 复检 / Review 91/95**
-**当前未收口池 / Active pool: 总任务 / Tasks 7/11 · 开发 / Development 8/11 · 复检 / Review 7/11**
+**全城合计 / Overall: 总任务 / Tasks 92/95 · 开发 / Development 92/95 · 复检 / Review 92/95**
+**当前未收口池 / Active pool: 总任务 / Tasks 8/11 · 开发 / Development 8/11 · 复检 / Review 8/11**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|
 | [Research Strengthening](./mission-group/research-strengthening/README.md) | **6/8** | **6/8** | **6/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./mission-group/showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
-| [Personal Compute Fabric](./mission-group/personal-compute-fabric/README.md) | **1/2** | **2/2** | **1/2** | IN_PROGRESS |
 
 机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
 <!-- MISSION_PROGRESS:END -->
@@ -55,7 +54,6 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 | [REX-807](./mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | IN_PROGRESS | — | — |
 | [REX-890](./mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
-| [PCF-701](./mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md) | Personal Compute Fabric | IN_PROGRESS | ✅ | — |
 
 冲突以工作书为准 / Workbook frontmatter prevails on disagreement; treat the difference as homepage sync drift.
 <!-- ACTIVE_WORKBOOKS:END -->

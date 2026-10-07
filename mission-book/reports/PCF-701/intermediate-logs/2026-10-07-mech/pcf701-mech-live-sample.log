@@ -1,0 +1,35 @@
+{
+  "host": "Mega-rep",
+  "platform": "win32",
+  "samples": [
+    {
+      "cpu": null,
+      "cpuPresence": "UNKNOWN",
+      "memoryTotal": 34066345984,
+      "memoryFree": 17477615616,
+      "overheadMs": 2.5535999834537506
+    },
+    {
+      "cpu": 0.05249424405218726,
+      "cpuPresence": "OBSERVED",
+      "memoryTotal": 34066345984,
+      "memoryFree": 17477337088,
+      "overheadMs": 1.1543999910354614
+    },
+    {
+      "cpu": 0.0467723231542327,
+      "cpuPresence": "OBSERVED",
+      "memoryTotal": 34066345984,
+      "memoryFree": 17476440064,
+      "overheadMs": 1.1414999961853027
+    },
+    {
+      "cpu": null,
+      "cpuPresence": "UNKNOWN",
+      "memoryTotal": 34066345984,
+      "memoryFree": 17479184384,
+      "overheadMs": 1.236600011587143
+    }
+  ],
+  "remoteReturnConsumption": "NOT_RUN"
+}

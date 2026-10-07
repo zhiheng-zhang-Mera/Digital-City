@@ -1,0 +1,78 @@
+{
+  "workbook": "PCF-701",
+  "reviewer": {
+    "host": "Mega-rep",
+    "computerName": "MEGA-REP",
+    "role": "Mech-DS"
+  },
+  "reviewed_head": "cf07f4acb3be0fe3e734ed39bf9145348e2d7ba8",
+  "author_head": "4e97d503989beba82124a1b6e3286825f33b92fc",
+  "capturedAt": "2026-10-07T00:50:42.714Z",
+  "files": [
+    {
+      "name": "pcf701-mech-repair-probe-run1.log",
+      "sha256": "376be0a6fe20d02e0ec7dd1035489db6707631b01e7a2cb690180c1bef84ff21",
+      "bytes": 2124
+    },
+    {
+      "name": "pcf701-mech-repair-probe-run2.log",
+      "sha256": "0ef83175b1561a4828564c7ecaf896a4eff667e63990967f418a36831a20bf38",
+      "bytes": 2124
+    },
+    {
+      "name": "pcf701-mech-repair-probe-run3.log",
+      "sha256": "de5a42c2c9e14b32a62cac2a76e4cfaca70a4f8af598cea8c907b9c5967e763f",
+      "bytes": 2123
+    },
+    {
+      "name": "pcf701-mech-falsify-preexisting.log",
+      "sha256": "edeb32339015f5107a41eb78fe329549d5cf5b06c58ab9b9cb322b4e45d82633",
+      "bytes": 1468
+    },
+    {
+      "name": "pcf701-mech-falsify-repair.log",
+      "sha256": "be3676e45e6b6c5a1b38c290707b17462c3c553647385f339726fe337fcb4f80",
+      "bytes": 705
+    },
+    {
+      "name": "pcf701-mech-cpu-availability.log",
+      "sha256": "65876debef275584f5f469e4583d601ed801d3cc66103509f5b31ab9ddeddbf0",
+      "bytes": 677
+    },
+    {
+      "name": "pcf701-mech-counter-refresh.log",
+      "sha256": "f562ddbcb0d9bb75fcc295f2c0919f493aa76235e7fc2282785f4693e6ff6509",
+      "bytes": 1251
+    },
+    {
+      "name": "pcf701-mech-suites.log",
+      "sha256": "5832646745d35055fb39eadcc6d66ba2591142210f817c7142c393018cc37259",
+      "bytes": 2469
+    },
+    {
+      "name": "LIVE_SAMPLE_ALIEN.mjs",
+      "sha256": "554e1381346fbe105ac47bc679493c1fefc2bece2a470263e25308724eaa3203",
+      "bytes": 1468
+    },
+    {
+      "name": "pcf701-mech-live-sample.log",
+      "sha256": "ed02ebb56c703f006e9ea95b769296c36d23a58c0a16304946a1b14a220b822e",
+      "bytes": 817
+    },
+    {
+      "name": "pcf701-mech-cf07f4a-sample.json",
+      "sha256": "c60a18e98d27e1038831914b58bfb4813d27e0918e1685864df3e11deea84c56",
+      "bytes": 29785
+    },
+    {
+      "name": "reviewed-adapters.mjs",
+      "sha256": "15c0ff794ce834cf7aacd34b8c23b993d8014eff656cf9d1b07cddfa9785456d",
+      "bytes": 10391
+    },
+    {
+      "name": "reviewed-pcf701-alien-review.test.mjs",
+      "sha256": "19f3f45151970d2b996c833ec4becca5a91427fd8a6f79c16c9001a7dacd6f29",
+      "bytes": 1713
+    }
+  ]
+}

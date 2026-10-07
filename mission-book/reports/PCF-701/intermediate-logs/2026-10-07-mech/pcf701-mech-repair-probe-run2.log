@@ -1,0 +1,25 @@
+PASS  W1a  the first real sample on Windows publishes no cpu number and states the gap instead
+        cpu=undefined notes=["cpu unavailable: CPU-time interval missing, unchanged or reset"]
+PASS  W1b  no cpu value on Windows is ever sourced from the loadavg reading (the fabricated-zero path)
+        source=null
+PASS  W2a  when I have measured that the counters advanced, the CPU ratio appears
+        measured-advance=true cpu={"value":0.14915693904020752,"unit":"ratio","observedAt":1791334212875,"source":"node-system:cpu-time"} notes=[]
+PASS  W2b  and the reading is sourced from the CPU-time interval, not the loadavg path
+        source="node-system:cpu-time"
+PASS  W3a  an injected warmup sample yields no cpu value and names the reason
+        cpu=undefined notes=["cpu unavailable: CPU-time interval missing, unchanged or reset"]
+PASS  W4  the aggregate over BOTH cores is recomputed from the deltas ([[30,0,10,0,10],[50,0,20,0,40]] -> 0.6875)
+        deltas=[[30,0,10,0,10],[50,0,20,0,40]] total=160 idle=50 expected=0.6875 cpu={"value":0.6875,"unit":"ratio","observedAt":1100,"source":"node-system:cpu-time"}
+PASS  W4b  the measured ratio is the CPU-time source and is not clamped or rounded into a different claim
+        source="node-system:cpu-time" value=0.6875
+PASS  W3b  a counter reset yields no cpu value, names the reason, and publishes no negative number
+        cpu=undefined notes=["cpu unavailable: CPU-time interval missing, unchanged or reset"]
+PASS  W3c  unchanged counters (a zero-length window) yield no cpu value and a reason
+        cpu=undefined notes=["cpu unavailable: CPU-time interval missing, unchanged or reset"]
+PASS  W3d  incomplete CPU counters yield no cpu value on either sample
+        cpu=undefined notes=["cpu unavailable: CPU-time interval missing, unchanged or reset"]
+PASS  W5  on non-win32 the loadavg path still publishes a reading (the repair is scoped, not a removal)
+        cpu={"value":0.5,"unit":"ratio","observedAt":1000,"source":"node-system"} notes=[]
+
+11/11 repair checks pass
+This probe is review evidence for PCF-701’s repair candidate; it releases nothing.

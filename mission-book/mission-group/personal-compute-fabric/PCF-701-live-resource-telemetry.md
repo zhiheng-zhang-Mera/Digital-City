@@ -5,7 +5,7 @@ release_train: CORE_V1
 spec_revision: 1
 parent_workbook_id: null
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 activation_state: ACTIVATED_OWNER_2026_10_07_SEQUENTIAL
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -23,9 +23,9 @@ development_ci: "FOUR heads, each kept. (1) 20b55b6855fed15af0c84a6eaa8e277595fc
 development_complete: true
 development_completion_note: "Development side closed at head 4e97d503989beba82124a1b6e3286825f33b92fc, with one item EXPLICITLY handed to the reviewer rather than claimed. DONE: the observation contract (never invents a number; presence/freshness; sequence ordering; boot epoch; clock rollback; unbounded-buffer, throttle, drop counting and overhead measurement; unauthorised surfaces recorded as UNSUPPORTED and never stored); facets for total/free/reserved/inUse with a FACET_INCONSISTENT refusal; adapters that declare what they supply and name what they cannot; per-PATH RTT and throughput with budget, deadline, backoff and no fabricated zero; queue requiring an explicit source; occupancy read from the platform's event-loop delay histogram. Verification: tests/pcf701-telemetry.test.mjs 22/22, the three PCF suites 33/33, the PCF-700 packet still 8/8, thirteen source mutations each turning the suite red with byte-identical restoration. NOT DONE, and the reason: GPU/VRAM, battery and thermal have no real adapter on this runtime - reading them means vendor tools or privileged interfaces, which this host treats as an unapproved new privileged surface and therefore does not implement in passing. Sub-step 1's remaining clause (absence must not block basic collection) IS implemented and tested; whether the absence of real optional adapters satisfies the acceptance is a judgement for the reviewer, and this note exists so that judgement is made with the gap named rather than discovered. The two-host acceptance half (real CPU/RAM sampling across two hosts with the measurement's own overhead recorded) is the reviewer's per EXECUTION_CONTRACT section 14; the handoff is reports/PCF-701/REVIEW_HANDOFF_Mech.md."
 review_host: "Alien"
-review_head_sha: "4e97d503989beba82124a1b6e3286825f33b92fc"
-review_ci: "IN_PROGRESS: baseline33/33 and audit8/8; real Windows CPU source defect reproduced. Repaircf07f4acb3be0fe3e734ed39bf9145348e2d7ba8 has37/37 checks and three caught source mutations; Mech repair review and two-host return consumption pending. See reports/PCF-701/REVIEW_PROGRESS_ALIEN.md."
-review_complete: false
+review_head_sha: "cf07f4acb3be0fe3e734ed39bf9145348e2d7ba8"
+review_ci: "ACCEPTED at the repair head. Alien's review of the author head 4e97d50 found a real defect (Windows publishes Node's fixed loadavg placeholder [0,0,0] as an OBSERVED measurement) and filed the repair cf07f4acb3be0fe3e734ed39bf9145348e2d7ba8 (PR41, base = the immutable author head) after reproducing four counterexamples. Mech (opposite host) reviewed that repair at its frozen tip: exact-head CI push 37551887749 / PR 37551894210 / linkage 37551894202 all success; my own probe W1-W5 11/11 across three consecutive runs; all THIRTEEN pre-existing guard mutations still caught; FIVE new mutations aimed at the repair's own branch (restore the placeholder, a value that is always 0 under a measurement-shaped source, no retained baseline, publishing a reset interval, dropping half the cores) - FOUR caught, the fifth (dropping every second core from the aggregation) is NOT caught because the author's stub gives every core identical counters, which is recorded as a non-blocking coverage observation rather than a defect. Two-host collection is complete: Alien's sample plus my own, produced by running Alien's own unmodified evidence-tools/LIVE_SAMPLE_ALIEN.mjs on this host bound to cf07f4a, both retained byte-for-byte under reports/PCF-701/intermediate-logs/. MEASURED LIMITATION recorded rather than smoothed over: at a 250 ms cadence the repaired reading is available only about 60% of the time (25/40 and 23/40 in two independent runs) because per-core CPU-time deltas on this Windows host go backwards inside a single window (22 of 40 windows contained a negative per-core delta) and the conservative guard then reports an honest gap; the defect under review was publishing a fabricated number, which is fixed, so the verdict stands - but the availability rate is real and is passed to Alien for comparison, with the recommendation to settle the guard question before PCF-702 rather than to change correctness semantics unilaterally in review. remoteReturnConsumption stays NOT_RUN (that step is Alien's). merge_authority stays false: the PCF series has no merge authority, so the accepted head accumulates on pcf/series-mech and PR41 stays open. See reports/PCF-701/REVIEW_REPORT.md and intermediate-logs/2026-10-07-mech/INDEX.json."
+review_complete: true
 user_exposure_class: UNASSESSED
 backend_wiring: UNASSESSED
 capability_ids: []
@@ -48,8 +48,8 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 
 ## 增强子任务
 
-- [ ] 实测 CPU、内存、磁盘及可观察队列/占用；保留来源、单位、bootId/seq、observedAt/receivedAt/TTL。GPU/VRAM、网络质量、电池/温度由可选 adapter 提供，缺席不阻塞基本采集。
-      → **基本完成但不勾选（增量 1–3）**：CPU/内存/磁盘有真实读数（参考适配器只读 `node:os`/`fs.statfs`）；**占用**由 event-loop delay 直方图真实测量；**队列**需要显式 source，未声明时诚实报 `UNSUPPORTED`（绝不编 0）；来源/单位/bootId/seq/时间戳/TTL 齐备。**GPU/VRAM、电池、温度在本运行时只能声明 `UNSUPPORTED`** —— 缺席不阻塞基本采集这一条已实现并测试，但「真实可选 adapter」未写，且我**刻意不 shell out 到厂商工具**（那会是无审批的新特权面）。故本条保持未勾选，把该判断留给复检方。
+- [x] 实测 CPU、内存、磁盘及可观察队列/占用；保留来源、单位、bootId/seq、observedAt/receivedAt/TTL。GPU/VRAM、网络质量、电池/温度由可选 adapter 提供，缺席不阻塞基本采集。
+      → **完成（增量 1–4）**：CPU/内存/磁盘有真实读数（参考适配器只读 `node:os`/`fs.statfs`）；**占用**由 event-loop delay 直方图真实测量；**队列**需要显式 source，未声明时诚实报 `UNSUPPORTED`（绝不编 0）；来源/单位/bootId/seq/时间戳/TTL 齐备。**GPU/VRAM、电池、温度在本运行时只能声明 `UNSUPPORTED`** —— 缺席不阻塞基本采集这一条已实现并测试，真实可选 adapter 仍未写，且我**刻意不 shell out 到厂商工具**（那会是无审批的新特权面）。**Windows CPU 假零缺陷（增量 4）已被对侧检出并由修复 cf07f4a 修掉并经我异机复检接受**，故本条勾选；修复范围外的可用性实测（约六成可用）单独记录在增量 4，不作为返工项。
 - [x] 区分 total/free/reserved/in-use，presence 与 freshness；观测、估计和用户声明分开。网络测量必须按路径，禁止用“局域网在线”冒充 RTT/带宽；探测有预算、期限和退避。
       → **完成（增量 2+3）**：四个 facet 独立成键并各自校验（`free > total` 判 `FACET_INCONSISTENT`）；presence/freshness 分离；OBSERVED/ESTIMATED/DECLARED/UNKNOWN/UNSUPPORTED 分离；网络**按路径**测量 **RTT 与吞吐**（吞吐靠搬字节计时，绝不从延迟推断），未测路径答 `UNKNOWN` 而非 0，预算/期限/退避（翻倍+上限+成功清零）齐备；T14–T22 覆盖。
 - [x] 实现有界缓冲、限频、丢弃计数和 overhead measurement；不采集未经授权的进程名称、窗口内容或个人文件。
@@ -83,3 +83,14 @@ baseline_resolution_evidence: "CLAIM-TIME MEASUREMENT (Mech host, COMPUTERNAME M
 `node --test tests/pcf701-telemetry.test.mjs`：missing/NaN/负数/单位错误不变0；乱序不能覆盖新值；reboot epoch 不混；时钟回拨不能让过期数据永久新鲜；测量超时不冻结 executor；缓冲满时丢弃数量可见。真实两主机至少采集 CPU/RAM，并记录测量自身开销；无 GPU 只声明 UNKNOWN/UNSUPPORTED。
 
 UI：资源/freshness 属 Advanced device detail，风险投影交715，原始采样放技术层；未接线时保持 component scope。可继续拆更多资源 adapter，但不得引入任意硬件必需项。
+
+### 2026-10-07 增量 4 记录（Windows 假零缺陷 → 修复 → 异机复检接受）
+
+- **缺陷（我方的错，由对侧检出）**：作者头 `4e97d50` 在 Windows 上用 `os.loadavg()` 作 CPU 来源，而该值在 Windows 是固定 `[0,0,0]`；首样本因此把**伪造的 0** 当作 `presence: OBSERVED` 发布。我原有的守卫 T16 只断言 `cpu.value ∈ [0,1]` —— 0 恰好满足该断言，所以守卫从未覆盖「这个数是不是测量」。触发路径是最常见的首样本，不是罕见边界。
+- **修复 `cf07f4a`（Alien 提出，基于不可变作者头，PR41）**：win32 不再读 loadavg，改为逐核 `os.cpus()[i].times` 计数区间，`(total−idle)/total`，source `node-system:cpu-time`；warmup／计数回退／窗口零增长／计数缺失一律**不给值+给原因**；非 win32 路径不变。不引入特权工具、不改 Gateway 接线、不改已部署产品。
+- **异机复检（Mech，裁决 ACCEPTED）**：exact-head CI 三项 success（37551887749 / 37551894210 / 37551894202）；自建探针 W1–W5 **连续三次 11/11**（含「任何 win32 CPU 值的 source 必为 cpu-time 路径」这一针对被修缺陷的直接守卫）；**既有 13 处突变全部 CAUGHT**；针对新分支的 5 处突变（恢复占位发布／恒零伪装测量／不保留基线／回退也发布／丢半数核）**4 处 CAUGHT**。
+- **未抓住的那一处是覆盖盲区，不是缺陷**：聚合时静默丢掉每第二个核，在作者套件下全绿 —— 因为作者（与我最初的夹具一样）让所有核携带**完全相同**的计数，核数≥2 且计数相同时 ratio 不变。已记为非阻断观察并建议改为逐核不对称夹具；该语义我已用不对称夹具独立断言（PASS）。
+- **两主机采集已完成**：用 **Alien 自己未改动的** `evidence-tools/LIVE_SAMPLE_ALIEN.mjs` 在本机绑定 `PCF_REVIEW_HEAD=cf07f4a` 采样，与 Alien 样本一并按字节留存于 `reports/PCF-701/intermediate-logs/`；`remoteReturnConsumption` 仍为 `NOT_RUN`（属对侧流程，我不声称已完成）。
+- **可用性实测（不改裁决，但不美化）**：走适配器 `sample()`、250ms 节拍、40 轮，两次独立运行 CPU 可用率仅 **62.5%（25/40）与 57.5%（23/40）**；不可用几乎全部归因于 `backwards_per_core_delta`（本机 40 个 250ms 窗口中 22 个含**逐核**负增量，最差 −610，而各核增量总和恒为正）—— 即 Windows 逐核快照不同步。修复的缺陷是**发布伪造数字**（已修掉），这里是**诚实缺口出现得比预期频繁**，方向与任务书核心原则一致。我**不**在复检中单方面放宽守卫（会改变正确性语义）：把该问题记录并交对侧用其自身样本比对，建议在 PCF-702 之前先议定守卫是否改为「剔除负增量核后聚合」。
+- **边界**：PCF 无 `merge_authority` ⇒ **不合并**，`cf07f4a` 只作为「已被异机复检接受的修复候选」记录，已验收头继续累积在系列分支 `pcf/series-mech`；PR41 保持 OPEN。本增量不释放、不撤销任何 marker，也不改写作者头与那条假零样本的历史记录。
+- **证据**：`mission-book/reports/PCF-701/REVIEW_REPORT.md`、`intermediate-logs/2026-10-07-mech/INDEX.json`（13 个文件逐文件 SHA256；该目录已在 `.gitattributes` 中按 `-text` 固定，索引字节与磁盘字节一致，实测 `\r\n` 未引入）。

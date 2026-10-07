@@ -1,0 +1,16 @@
+baseline: exit=0 pass=22 fail=0
+M1 negative value is accepted instead of rejected (T1): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M2 out-of-order sequence overwrites the newer value (T2): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M3 another boot epoch is mixed in (T3): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M4 a rollback may leave data FRESH again (T4): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M5 a timeout invents zeros instead of UNKNOWN (T7/T8): exit=1 pass=20 fail=2 -> CAUGHT (restored=True)
+M6 the ring stops counting drops (T9): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M7 a NaN facet value is accepted instead of rejected (T14): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M8 a free figure larger than total is handed on as two numbers (T15): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M9 reading an unmeasured path invents state for it (T18): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M10 an invalid probe result does not grow the backoff (T19): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M11 an unavailable adapter silently drops its dimensions (T17): exit=1 pass=19 fail=3 -> CAUGHT (restored=True)
+M13 a queue with no source invents a zero count (T21): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+M14 an unreadable histogram yields a fabricated 0 ms (T22): exit=1 pass=21 fail=1 -> CAUGHT (restored=True)
+sources identical to their pre-mutation bytes: True
+after restore: exit=0 pass=22 fail=0

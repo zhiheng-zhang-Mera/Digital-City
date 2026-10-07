@@ -5,11 +5,11 @@
       "total": 11
     },
     "review": {
-      "complete": 7,
+      "complete": 8,
       "total": 11
     },
     "tasks": {
-      "complete": 7,
+      "complete": 8,
       "total": 11
     }
   },
@@ -20,11 +20,11 @@
       "total": 95
     },
     "review": {
-      "complete": 91,
+      "complete": 92,
       "total": 95
     },
     "tasks": {
-      "complete": 91,
+      "complete": 92,
       "total": 95
     }
   },
@@ -1067,9 +1067,9 @@
       "key": "pcf",
       "name": "Personal Compute Fabric",
       "readme": "mission-group/personal-compute-fabric/README.md",
-      "review_complete": 1,
-      "status": "IN_PROGRESS",
-      "task_complete": 1,
+      "review_complete": 2,
+      "status": "COMPLETE",
+      "task_complete": 2,
       "tasks": [
         {
           "complete": true,
@@ -1081,13 +1081,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "PCF-701",
           "path": "mission-group/personal-compute-fabric/PCF-701-live-resource-telemetry.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         }
       ],
       "total": 2
