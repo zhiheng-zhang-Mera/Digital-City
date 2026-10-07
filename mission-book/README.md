@@ -65,3 +65,5 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 [施工记录与 29 本覆盖矩阵 / Development log and 29-book coverage matrix](./reports/PCF-FULL-FLOW/README.md)。
 
 2026-10-07：按用户授权在独立分支连续进行本机全线尝试；现有任务书 claim 与历史验收不变。全系列尚未完成。完整流就绪后一次性交给对侧主机验证，不分拆单项异机验收。 / User-authorized continuous local complete-line attempt on an independent branch. Existing claims and historical acceptance remain unchanged. Programme incomplete; submit the complete flow once to the opposite host when ready, without individual physical-validation handoffs.
+
+PCF 全线独立候选已冻结为 `998440c7772cc032d012b457c2a59cd1059826c0`，本机检查通过，真实异机及接入缺口保留待验证；整条流一次性交给对侧，不分拆任务验收，不新增已完成任务。 / The isolated complete-line PCF candidate is frozen at `998440c7772cc032d012b457c2a59cd1059826c0`; local checks passed, while physical cross-host and integration gaps remain pending. Submit the whole flow once to the opposite host, without separate workbook handoffs or new completed-workbook claims.

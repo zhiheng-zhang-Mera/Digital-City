@@ -274,7 +274,7 @@
       "historical_acceptance_preserved": false
     }
   ],
-  "local_candidate_status": "FROZEN_CODE_FINAL_CHECKS_IN_PROGRESS",
+  "local_candidate_status": "FROZEN_LOCAL_CHECKS_PASSED_PHYSICAL_FLOW_GAPS_PENDING",
   "known_acceptance_gaps": [
     "Actual Mech transport, authenticated worker grants and deployment binding",
     "Real Codex/DeepSeek engineering execution, supported resume and process-tree stop proof",
@@ -282,5 +282,47 @@
     "Complete restart/fault/foreground SLO matrix and formal cross-host REX campaign",
     "Licensed model runtime and independent HA substrate absent",
     "Remote streaming/DAG composition and full engineering permission manifest still require integration validation"
-  ]
+  ],
+  "source_review_ready": true,
+  "source_ci": {
+    "push": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558609818"
+    },
+    "pull_request": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558614619"
+    },
+    "linux_component": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558614528"
+    },
+    "city_linkage": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558614458"
+    }
+  },
+  "local_checks": {
+    "pcf_focused": {
+      "tests": 164,
+      "pass": 163,
+      "fail": 0,
+      "skipped": 1
+    },
+    "available_regression": {
+      "tests": 1631,
+      "pass": 1630,
+      "fail": 0,
+      "skipped": 1
+    }
+  },
+  "single_batch_handoff_ref": "SINGLE_BATCH_HANDOFF.md"
 }

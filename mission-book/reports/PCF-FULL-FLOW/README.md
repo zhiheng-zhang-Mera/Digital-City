@@ -8,7 +8,7 @@
 
 Handoff: once local development is ready, submit the complete flow once to Mech. No individual physical-validation handoffs. Local success does not establish complete workbook coverage or main-merge readiness.
 
-目前实际运行：两种 CPU 应用由既有 canonical Task/Action、准入、工件、子进程和回执返回发起会话，并分别确认消费；源码树干净，pilot 记录精确 SHA。GPU 为真实驱动观测。 / Actual run: two CPU apps traverse existing canonical Task/Action, admission, artifacts, child processes and receipts back to the origin session, each with explicit consumption. Clean sources and exact SHA recorded by the pilot. GPU data comes from the actual driver.
+冻结候选的 canonical service study 完成 6/6 次真实 CPU trial，包含 Task/Action、工件、回执和 trace 重建。另一个直接 CPU pilot 只验证准入、工件、Task 与原会话返回，不代表完整 Action 生命周期或真实 Codex Agent 消费。GPU 为真实驱动观测。 / The frozen canonical service study completed 6/6 actual CPU trials with Task/Action, artifacts, receipts and trace replay. The separate direct CPU pilot covers admission, artifacts, Task and origin return; it does not prove the complete Action lifecycle or actual Codex Agent consumption. GPU values are actual driver observations.
 
 本机 PCF 组合测试 71/71；独立审查四个重要问题全部 RED→GREEN。首次总回归 1530 项中 1526 通过、4 失败：3 项拒绝干扰占用 4389 的既有 City，另 1 项为高并发下的既有时间限制。低并发可运行集合日志继续保留，不抹去首次失败。 / Focused PCF checks: 71/71. Four Important independent-review findings repaired RED→GREEN. Initial broad regression: 1526/1530 pass, four failures (three protect the resident City on port 4389; one existing timing bound under high concurrency). Lower-concurrency available-set logs are retained without erasing the initial failures.
 
@@ -53,3 +53,27 @@ Handoff: once local development is ready, submit the complete flow once to Mech.
 阶段 A 勘误 / Stage A erratum: 15b1e61 的 Task 成功状态为 SUCCEEDED，不符合既有 canonical Task 终态；后续源码 eec9284 修为 COMPLETED，原 Action/capsule outcome 仍为 SUCCEEDED。历史 CPU/pilot 日志保留，不能升级为完整契约或异机验收。 / The historical Task used SUCCEEDED outside the canonical Task terminal vocabulary. Later source eec9284 uses COMPLETED while Action/capsule retain SUCCEEDED. Historical CPU evidence remains, without upgrading contract or physical acceptance.
 
 低并发可运行回归最终输出为 1538/1538，通过前已发布的流式片段另存为 in-progress-snapshot；运行期间后续组件继续施工，因此不绑定为最终整树证据。三个 4389 launcher 用例仍保持环境阻塞。 / The lower-concurrency available set ended 1538/1538; the previously archived streaming fragment remains separately preserved. Components continued to change during that run, so it is not final whole-source evidence. Three port-4389 launcher cases remain environment-blocked.
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **2**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+
+### 本目录说明 / Local documents
+
+- [SINGLE_BATCH_HANDOFF.md](SINGLE_BATCH_HANDOFF.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->
+
+## 冻结验证与整流交接 / Frozen verification and complete-flow handoff
+
+精确源码 `998440c7772cc032d012b457c2a59cd1059826c0`：本机聚焦 163 通过、1 跳过；可运行回归 1630 通过、1 跳过。为保护常驻 City，3 个 launcher 用例标记 ENVIRONMENT_BLOCKED；云端干净 runner 全量通过。Android、Gateway/Web、City linkage 与 Ubuntu Linux 组件 CI 均通过；Linux 29/29。原始日志、失败历史与精确绑定保留在冻结归档及 FINAL_LOCAL_VERIFICATION.json。
+
+Exact source: 163 focused passes and one skip; 1630 available regression passes and one skip. Three launcher cases are ENVIRONMENT_BLOCKED locally to preserve the resident City; the complete clean-cloud suite passed. Android, Gateway/Web, City linkage and Ubuntu Linux component CI passed (Linux 29/29). Raw logs, failure history and source bindings are retained in the frozen archive and FINAL_LOCAL_VERIFICATION.json.
+
+[一次整流交接说明 / Single complete-flow handoff](SINGLE_BATCH_HANDOFF.md)。真实 Mech transport/grants、真实 provider/Agent、手机安装、重启/进程树/SLO 与正式研究验收等缺口仍保留 NOT_RUN/NOT_WIRED；全系列未验收，不合并 main。 / Actual Mech transport/grants, provider/Agent, phone installation, restart/process-tree/SLO and formal research acceptance remain NOT_RUN/NOT_WIRED. Programme acceptance is pending; main is not merged.
