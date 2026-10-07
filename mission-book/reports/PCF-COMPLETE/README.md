@@ -58,6 +58,20 @@
   测试 tests/pcf709-artifact-reference.test.mjs 8 项。
 
 当前合计：PCF-708 9 项 + PCF-709 8 项 + PCF-701 22 项 + PCF-726 0 项 → **39/39 通过**
+
+增量 3（f4af0f3）PCF-712 fence epoch 与 start/report/commit 闸门 —— 新模块 fence.mjs
+  fence **不是单纯的计数器**，而是 {holderRef, bootRef, attemptRef, epoch}，四字段各自比对、各有拒绝码。
+  计数器式检查会漏掉的那一种情况被直接断言：**epoch 正确但 holder 不同** → FENCE_WRONG_HOLDER；
+  **holder 与 epoch 正确但 boot 不同** → FENCE_WRONG_BOOT（重启后复用同名 holder 不是同一 worker）。
+  holder 变化只推进一步 epoch；同一 holder+boot 重新注册**不烧掉**一个 epoch（否则一次什么都没改的重试会让在途回报失效）。
+  持久化在动作**之前**：存储抛错则该动作**不执行**（测试断言动作从未被调用）。
+  事件按 seq 幂等，重复不产生第二个结果，**丢失的 seq 作为显式 gap 保留到被 reconcile**，不被抹平。
+  crash 对账**绝不从超时或沉默推断已停止**：未被观察为存活的 worker → STOP_NOT_PROVEN 交 PCF-705；
+  副作用未知 → UNCERTAIN_SIDE_EFFECT 交 PCF-705；存活 → STILL_RUNNING；租约过期单独报；没有任何 finding 无证据却声称已证明停止。
+  一处测试抓出的缺陷：**空 claim 曾被报成"attempt 不对"**（报错了问题），现要求 claim 完整后再比较（FENCE_CLAIM_INCOMPLETE）。
+  测试 tests/pcf712-fencing.test.mjs 7 项。
+
+当前合计：PCF-708 9 项 + PCF-709 8 项 + PCF-712 7 项 + PCF-701 22 项 → **46/46 通过**
 （pcf708 + pcf709 + pcf701-telemetry + pcf726-capsule 四套件一起跑）。
 ```
 
