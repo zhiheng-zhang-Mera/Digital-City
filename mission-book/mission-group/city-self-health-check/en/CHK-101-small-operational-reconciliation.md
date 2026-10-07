@@ -2,7 +2,7 @@
 
 # CHK-101 — Small Operational Reconciliation / Small health check
 
-> **PARKED / NOT ACTIVATED.** Currently preserves only the future small-check contract.
+> **OWNER ACTIVATED / EXECUTION ENABLED.** The first run is bounded dry-run/read-only. Dependency, independent review and promotion gates remain in force; automatic repairs and self-modification are not authorized.
 
 ## Objective
 Find drift that has just emerged after recent construction at low cost, preventing small issues from accumulating into widespread control-plane drift.

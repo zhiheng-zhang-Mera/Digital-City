@@ -10,7 +10,6 @@
 | [DGX](mission-group/deliberative-governance-expansion-migration/README.md) | 复杂请求拆分、隔离执行、结构化汇合、冲突/仲裁治理 | PARKED |
 | [RIV](mission-group/review-independence-v2/README.md) | Review Pool v2、多维独立性、fresh-context、安全迁移 | PARKED |
 | [URA](mission-group/utopia-runtime-architecture/README.md) | Utopia Core / Service / App / Connector 运行时分层与逻辑解耦 | PARKED |
-| [CHK](mission-group/city-self-health-check/README.md) | 周期体检、自我认知/诊断、季度自进化候选评审 | PARKED |
 | [Suspend](mission-group/suspend/README.md) | 当前不可 canonical 化但必须保留的冲突性设计/假设 | PRESERVE_ONLY |
 
 ## 统一规则
@@ -27,3 +26,7 @@
 ## PCF design revision2 — 2026-10-07
 
 29 planned workbooks (23 core,6 optional),0 activated. Execution-only prerequisite slices from URA/DGX/FR now have one PCF owner; source and destination README panels record all seven transfers. No active task denominator or current claims change.
+
+## CHK activation / CHK 已激活
+
+Owner activated CHK on `Alien-GPT-CHK`; see [activation evidence](reports/CHK/ACTIVATION.md). CHK is now in the active pool on that branch, with no main merge authority.

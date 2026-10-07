@@ -2,18 +2,18 @@
 workbook_id: CHK-201
 phase: CITY_SELF_HEALTH_CHECK
 sequence: 201
-execution_enabled: false
+execution_enabled: true
 status: NOT_STARTED
-activation_state: PARKED_OWNER_NOT_ACTIVATED
+activation_state: OWNER_ACTIVATED
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
-baseline_candidate_refs: []
+baseline_candidate_refs: ["refs/heads/Alien-GPT-CHK"]
 required_ancestor_shas: []
 dependency_source_shas: []
 development_baseline_sha: null
 baseline_resolution_evidence: null
-anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
+anchor_state: UNCLAIMED_RESOLVE_EXACT_SHA_AT_CLAIM
 dependencies: []
 development_host: null
 development_branch: null
@@ -28,7 +28,7 @@ user_exposure_class: INTERNAL_ONLY
 user_exposure_surface: null
 user_exposure_nesting: NONE_INTERNAL
 backend_wiring: NOT_APPLICABLE_INTERNAL
-ui_exemption_reason: "Parked self-check design; no runtime/UI implementation authorized."
+ui_exemption_reason: "Internal bounded health checks; activation does not authorize UI changes or automatic repairs."
 capability_ids: []
 capability_registry_action: NOT_APPLICABLE
 capability_registry_refs: []
@@ -45,12 +45,12 @@ monitor_observability_evidence: UNASSESSED
 monitor_observability_refs: []
 decision_trace_evidence: UNASSESSED
 decision_trace_refs: []
-owner_gate: OWNER_ACTIVATION_REQUIRED
+owner_gate: NONE
 merge_authority: false
-report_path: null
+report_path: mission-book/reports/CHK
 ---
 
-> **PARKED / NOT ACTIVATED.** 当前仅保存未来大体检合同。
+> **OWNER ACTIVATED / EXECUTION ENABLED.** 首次运行采用 bounded dry-run/read-only；依赖、正式复检与安全晋升门槛继续生效，不授权自动修复或自我修改。
 
 # CHK-201 — Full Capability / Architecture Census / 大体检
 

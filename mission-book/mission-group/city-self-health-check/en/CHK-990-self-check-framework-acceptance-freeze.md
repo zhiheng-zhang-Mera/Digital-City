@@ -2,7 +2,7 @@
 
 # CHK-990 — Self-Check Framework Acceptance & Freeze
 
-> **PARKED / NOT ACTIVATED.**
+> **OWNER ACTIVATED / EXECUTION ENABLED.** The first run is bounded dry-run/read-only. Dependency, independent review and promotion gates remain in force; automatic repairs and self-modification are not authorized.
 
 ## Objective
 Before formally enabling periodic health checks in the future, verify that CHK cannot become a second scheduler, an unlimited audit burden, or permission for automatic self-modification.

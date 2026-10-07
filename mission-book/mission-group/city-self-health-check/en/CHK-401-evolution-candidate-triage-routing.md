@@ -2,7 +2,7 @@
 
 # CHK-401 — Evolution Candidate Triage & Routing
 
-> **PARKED / NOT ACTIVATED.**
+> **OWNER ACTIVATED / EXECUTION ENABLED.** The first run is bounded dry-run/read-only. Dependency, independent review and promotion gates remain in force; automatic repairs and self-modification are not authorized.
 
 ## Objective
 Send candidates produced by CHK-301 to the appropriate follow-up mechanisms, so that self-evolution does not become universal permission to change everything directly.

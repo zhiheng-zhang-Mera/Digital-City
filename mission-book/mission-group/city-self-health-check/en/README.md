@@ -2,13 +2,13 @@
 
 # CHK — City Self Health Check / City self-review and periodic health checks
 
-> **Status: PARKED / NOT ACTIVATED**
+> **Status: OWNER ACTIVATED / EXECUTION ENABLED**
 >
 > This series formally incorporates periodic City/Utopia health checks, self-cognition, self-diagnosis, case accumulation, and quarterly review of self-evolution candidates into Mission Book design.
 >
-> **Not currently enabled.** Every workbook has `execution_enabled=false`, and baseline/dependency SHAs are intentionally empty. Do not claim work, create implementation branches, or use today's branch/head as a future anchor.
+> **Owner activated this series.** All five workbooks have `execution_enabled=true`. Use the single `Alien-GPT-CHK` branch without merging to main. Resolve exact SHAs at claim; never invent accepted dependencies. The first run is bounded dry-run/read-only.
 >
-> This series is currently **excluded from `PROGRESS_MANIFEST.json`**, so it does not enter the main task dashboard, total task count, or active pool.
+> This series is now included in `PROGRESS_MANIFEST.json` and the active dashboard. Activation is not development or review completion. See the [activation record](../../../reports/CHK/ACTIVATION.md).
 
 ## Purpose
 CHK does not fix problems incidentally as it discovers them. Its responsibilities are:
@@ -119,14 +119,14 @@ CHK itself must not bypass Mission Book, Owner authority, or domain safety bound
 ## Workbook series
 | ID | Work | Status |
 |---|---|---|
-| CHK-101 | Small Operational Reconciliation | PARKED |
-| CHK-201 | Full Capability / Architecture Census | PARKED |
-| CHK-301 | Quarterly Architecture + Self Review | PARKED |
-| CHK-401 | Evolution Candidate Triage & Routing | PARKED |
-| CHK-990 | Self-Check Framework Acceptance & Freeze | PARKED |
+| CHK-101 | Small Operational Reconciliation | NOT_STARTED |
+| CHK-201 | Full Capability / Architecture Census | NOT_STARTED |
+| CHK-301 | Quarterly Architecture + Self Review | WAITING_DEPENDENCIES |
+| CHK-401 | Evolution Candidate Triage & Routing | WAITING_DEPENDENCIES |
+| CHK-990 | Self-Check Framework Acceptance & Freeze | WAITING_DEPENDENCIES |
 
 ## Activation conditions
-When CHK is explicitly launched in the future:
+Owner activation is recorded; subsequent claims and execution must still follow:
 1. The Owner explicitly activates it;
 2. Reread the then-current Digital-City/Utopia canonical truth;
 3. Resolve the full 40-character SHA only at claim time;
@@ -153,3 +153,20 @@ When CHK is explicitly launched in the future:
 - [CHK-990-self-check-framework-acceptance-freeze.md](CHK-990-self-check-framework-acceptance-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/5 · 开发 / Development 0/5 · 复检 / Review 0/5 · `READY`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [CHK-101](../CHK-101-small-operational-reconciliation.md) | NOT_STARTED | NO | NO | YES |
+| [CHK-201](../CHK-201-full-capability-architecture-census.md) | NOT_STARTED | NO | NO | YES |
+| [CHK-301](../CHK-301-quarterly-architecture-self-review.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [CHK-401](../CHK-401-evolution-candidate-triage-routing.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [CHK-990](../CHK-990-self-check-framework-acceptance-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->

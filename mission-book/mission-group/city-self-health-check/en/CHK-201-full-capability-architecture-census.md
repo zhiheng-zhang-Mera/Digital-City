@@ -2,7 +2,7 @@
 
 # CHK-201 — Full Capability / Architecture Census / Full health check
 
-> **PARKED / NOT ACTIVATED.** Currently preserves only the future full-check contract.
+> **OWNER ACTIVATED / EXECUTION ENABLED.** The first run is bounded dry-run/read-only. Dependency, independent review and promotion gates remain in force; automatic repairs and self-modification are not authorized.
 
 ## Objective
 Reconstruct the current City/Utopia state from actual implementation and runtime surfaces, then reconcile it against the Registry, City topology, and Mission truth to identify situations where records agree with each other but reality has drifted.

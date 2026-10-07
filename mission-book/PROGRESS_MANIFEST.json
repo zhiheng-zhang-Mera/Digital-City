@@ -147,6 +147,15 @@
       ],
       "active_pool": true,
       "readme": "mission-group/personal-compute-fabric/README.md"
+    },
+    {
+      "key": "chk",
+      "name": "City Self Health Check",
+      "task_globs": [
+        "mission-group/city-self-health-check/CHK-*.md"
+      ],
+      "active_pool": true,
+      "readme": "mission-group/city-self-health-check/README.md"
     }
   ]
 }

@@ -1,12 +1,12 @@
 # CHK — City Self Health Check / 城市自检与周期体检
 
-> **状态：PARKED / NOT ACTIVATED**
+> **状态：OWNER ACTIVATED / EXECUTION ENABLED**
 >
 > 本系列把 City/Utopia 的周期性体检、自我认知、自我诊断、病例沉淀与季度自进化候选评审正式纳入 Mission Book 设计。
 >
-> **当前不启用。** 所有工作书 `execution_enabled=false`，baseline/dependency SHA 均故意留空；不得领取、不得创建实现分支、不得把今天的 branch/head 当作未来锚点。
+> **Owner 已明确激活。** 五本工作书均为 `execution_enabled=true`。统一分支 `Alien-GPT-CHK`，不合并到 main；领取时解析 full SHA，前置 accepted SHA 不得猜测。首次运行采用 bounded dry-run/read-only。
 >
-> 本系列当前**不加入 `PROGRESS_MANIFEST.json`**，因此不进入主任务栏、总任务数或 active pool。
+> 本系列已加入 `PROGRESS_MANIFEST.json`、主任务栏与 active pool。激活不等于开发或复检完成，详见 [激活记录](../../reports/CHK/ACTIVATION.md)。
 
 ## 目的
 
@@ -129,15 +129,15 @@ sandbox
 
 | ID | 工作 | 状态 |
 |---|---|---|
-| CHK-101 | Small Operational Reconciliation | PARKED |
-| CHK-201 | Full Capability / Architecture Census | PARKED |
-| CHK-301 | Quarterly Architecture + Self Review | PARKED |
-| CHK-401 | Evolution Candidate Triage & Routing | PARKED |
-| CHK-990 | Self-Check Framework Acceptance & Freeze | PARKED |
+| CHK-101 | Small Operational Reconciliation | NOT_STARTED |
+| CHK-201 | Full Capability / Architecture Census | NOT_STARTED |
+| CHK-301 | Quarterly Architecture + Self Review | WAITING_DEPENDENCIES |
+| CHK-401 | Evolution Candidate Triage & Routing | WAITING_DEPENDENCIES |
+| CHK-990 | Self-Check Framework Acceptance & Freeze | WAITING_DEPENDENCIES |
 
 ## 激活条件
 
-未来显式启动 CHK 时：
+已由 Owner 启动；后续领取与执行仍遵守：
 
 1. Owner 明确激活；
 2. 重新读取当时 Digital-City/Utopia canonical truth；
@@ -171,3 +171,20 @@ sandbox
 - [CHK-990-self-check-framework-acceptance-freeze.md](CHK-990-self-check-framework-acceptance-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
+
+<!-- SERIES_DASHBOARD:START -->
+## 任务快速面板 / Task dashboard
+
+自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
+
+总完成 / Complete 0/5 · 开发 / Development 0/5 · 复检 / Review 0/5 · `READY`
+
+| 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
+|---|---|:---:|:---:|:---:|
+| [CHK-101](CHK-101-small-operational-reconciliation.md) | NOT_STARTED | NO | NO | YES |
+| [CHK-201](CHK-201-full-capability-architecture-census.md) | NOT_STARTED | NO | NO | YES |
+| [CHK-301](CHK-301-quarterly-architecture-self-review.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [CHK-401](CHK-401-evolution-candidate-triage-routing.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [CHK-990](CHK-990-self-check-framework-acceptance-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+
+<!-- SERIES_DASHBOARD:END -->

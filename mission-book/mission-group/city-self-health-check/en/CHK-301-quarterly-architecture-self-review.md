@@ -2,7 +2,7 @@
 
 # CHK-301 — Quarterly Architecture + Self Review / Quarterly architecture and self-review
 
-> **PARKED / NOT ACTIVATED.** Currently preserves only the quarterly self-check design; it authorizes no self-modification.
+> **OWNER ACTIVATED / EXECUTION ENABLED.** The first run is bounded dry-run/read-only. Dependency, independent review and promotion gates remain in force; automatic repairs and self-modification are not authorized.
 
 ## Objective
 Building on the CHK-201 full check, answer:
