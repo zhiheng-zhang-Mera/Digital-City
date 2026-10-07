@@ -1,0 +1,64 @@
+✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (2328.8052ms)
+✔ durable claim nonce, exact principal and current grant block replay or revoked worker (74.2887ms)
+✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (1086.2675ms)
+✔ stop control requests stop without committing terminal state (74.5488ms)
+✔ registration bridge rechecks current worker grant instead of granting an invented membership (55.2521ms)
+✔ claim nonce survives reconstructed port and dormant port grants no endpoints (71.2443ms)
+✖ enabled remote port requires a synchronous current authority boundary (55.6861ms)
+✖ claim refuses owner revocation during awaited worker recheck before durable nonce (77.0197ms)
+✖ dispatch refuses worker revocation during final awaited owner policy read (73.8623ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 6
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4901.4801
+
+✖ failing tests:
+
+test at tests\pcf-stagec-remote-worker.test.mjs:23:1
+✖ enabled remote port requires a synchronous current authority boundary (55.6861ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:23:123
+      at fixture (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:13:2501)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'REMOTE_CONFIGURATION' },
+    operator: 'throws',
+    diff: 'simple'
+  }
+
+test at tests\pcf-stagec-remote-worker.test.mjs:24:1
+✖ claim refuses owner revocation during awaited worker recheck before durable nonce (77.0197ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:24:337
+      at async fixture (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:13:2495)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'AUTHORITY_BOUNDARY' },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\pcf-stagec-remote-worker.test.mjs:25:1
+✖ dispatch refuses worker revocation during final awaited owner policy read (73.8623ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:25:315
+      at async fixture (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:13:2495)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'AUTHORITY_BOUNDARY' },
+    operator: 'rejects',
+    diff: 'simple'
+  }

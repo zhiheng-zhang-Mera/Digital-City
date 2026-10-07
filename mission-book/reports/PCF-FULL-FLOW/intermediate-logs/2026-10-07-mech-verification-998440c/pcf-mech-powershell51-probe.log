@@ -1,0 +1,6 @@
+=== case 1: opt-out refusal under PowerShell 5.1 (the candidate's suite drives this through pwsh, absent here) ===
+exit=0
+{ |     "automaticInstall":  false, |     "reason":  "EXPLICIT_OPT_IN_REQUIRED", |     "state":  "REFUSED" | }
+=== case 2: ancestor-junction refusal under PowerShell 5.1 ===
+exit=1
+manifestCreated=False

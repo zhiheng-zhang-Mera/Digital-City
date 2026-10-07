@@ -1,0 +1,10 @@
+✔ 715 controls require configured running service; results returned and caller ack do not become Agent consumption (1.3814ms)
+✔ 715 malformed number input and stored task markup cannot cross the control form boundary (1.586ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 973.0287

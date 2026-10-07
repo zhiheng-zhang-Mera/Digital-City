@@ -1,0 +1,16 @@
+✔ canonical Task uses COMPLETED while capsule outcome remains SUCCEEDED (36.0306ms)
+✔ uncertain side effects keep running canonical truth, reservation and visible attention (19.3158ms)
+✔ recovery refuses timeout, PID-only, stale epoch, revoked authority and unknown effects (35.3362ms)
+✔ bound owned-stop proof requeues the same Task/Action once and fences old output (20.2097ms)
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (1028.423ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (26.2246ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (24.8266ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (20.1888ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3910.4453

@@ -1,0 +1,253 @@
+linux-components	Set up job	﻿2026-10-07T01:44:52.7051258Z Current runner version: '2.337.0'
+linux-components	Set up job	2026-10-07T01:44:52.7080541Z ##[group]Runner Image Provisioner
+linux-components	Set up job	2026-10-07T01:44:52.7081502Z Hosted Compute Agent
+linux-components	Set up job	2026-10-07T01:44:52.7082125Z Version: 20261002.596
+linux-components	Set up job	2026-10-07T01:44:52.7082788Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+linux-components	Set up job	2026-10-07T01:44:52.7083580Z Build Date: 2026-10-02T22:28:27Z
+linux-components	Set up job	2026-10-07T01:44:52.7084275Z Worker ID: {b6358973-9a6f-46c0-b9d9-a6b3763795b4}
+linux-components	Set up job	2026-10-07T01:44:52.7085016Z Region: eastus2
+linux-components	Set up job	2026-10-07T01:44:52.7085676Z Cloud: Azure
+linux-components	Set up job	2026-10-07T01:44:52.7086248Z ##[endgroup]
+linux-components	Set up job	2026-10-07T01:44:52.7087851Z ##[group]Operating System
+linux-components	Set up job	2026-10-07T01:44:52.7088521Z Ubuntu
+linux-components	Set up job	2026-10-07T01:44:52.7089392Z 24.04.5
+linux-components	Set up job	2026-10-07T01:44:52.7090047Z LTS
+linux-components	Set up job	2026-10-07T01:44:52.7090642Z ##[endgroup]
+linux-components	Set up job	2026-10-07T01:44:52.7091238Z ##[group]Runner Image
+linux-components	Set up job	2026-10-07T01:44:52.7091896Z Image: ubuntu-24.04
+linux-components	Set up job	2026-10-07T01:44:52.7092469Z Version: 20261004.327.1
+linux-components	Set up job	2026-10-07T01:44:52.7093644Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+linux-components	Set up job	2026-10-07T01:44:52.7095523Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+linux-components	Set up job	2026-10-07T01:44:52.7096532Z ##[endgroup]
+linux-components	Set up job	2026-10-07T01:44:52.7097796Z ##[group]GITHUB_TOKEN Permissions
+linux-components	Set up job	2026-10-07T01:44:52.7100247Z Contents: read
+linux-components	Set up job	2026-10-07T01:44:52.7100931Z Metadata: read
+linux-components	Set up job	2026-10-07T01:44:52.7101751Z Packages: read
+linux-components	Set up job	2026-10-07T01:44:52.7102457Z ##[endgroup]
+linux-components	Set up job	2026-10-07T01:44:52.7104792Z Secret source: Actions
+linux-components	Set up job	2026-10-07T01:44:52.7105790Z Cache mode: write
+linux-components	Set up job	2026-10-07T01:44:52.7106864Z Prepare workflow directory
+linux-components	Set up job	2026-10-07T01:44:52.7459349Z Prepare all required actions
+linux-components	Set up job	2026-10-07T01:44:52.7510182Z Getting action download info
+linux-components	Set up job	2026-10-07T01:44:53.0041165Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+linux-components	Set up job	2026-10-07T01:44:53.1166218Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+linux-components	Set up job	2026-10-07T01:44:53.2065680Z Download action repository 'pnpm/action-setup@v4' (SHA:b906affcce14559ad1aafd4ab0e942779e9f58b1)
+linux-components	Set up job	2026-10-07T01:44:53.5472035Z Complete job name: linux-components
+linux-components	Run actions/checkout@v4	﻿2026-10-07T01:44:53.6290092Z ##[group]Run actions/checkout@v4
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6291079Z with:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6291580Z   repository: zhiheng-zhang-Mera/utopia
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6295507Z   token: ***
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6295959Z   ssh-strict: true
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6296416Z   ssh-user: git
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6296878Z   persist-credentials: true
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6297390Z   clean: true
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6297848Z   sparse-checkout-cone-mode: true
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6298395Z   fetch-depth: 1
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6298898Z   fetch-tags: false
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6299552Z   show-progress: true
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6300019Z   lfs: false
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6300439Z   submodules: false
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6300897Z   set-safe-directory: true
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6301414Z   allow-unsafe-pr-checkout: false
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.6302222Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7456554Z Syncing repository: zhiheng-zhang-Mera/utopia
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7460206Z ##[group]Getting Git version info
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7461858Z Working directory is '/home/runner/work/utopia/utopia'
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7464798Z [command]/usr/bin/git version
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7563088Z git version 2.55.0
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7600953Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7623609Z Temporarily overriding HOME='/home/runner/work/_temp/5af64938-c003-4743-925a-d9bd4b04629b' before making global git config changes
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7634057Z Adding repository directory to the temporary git global config as a safe directory
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7636370Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/utopia/utopia
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7731199Z Deleting the contents of '/home/runner/work/utopia/utopia'
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7733321Z ##[group]Initializing the repository
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7734272Z [command]/usr/bin/git init /home/runner/work/utopia/utopia
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7843821Z hint: Using 'master' as the name for the initial branch. This default branch name
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7846104Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7847948Z hint: to use in all of your new repositories, which will suppress this warning,
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7849606Z hint: call:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7850387Z hint:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7851340Z hint: 	git config --global init.defaultBranch <name>
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7852534Z hint:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7853566Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7855220Z hint: 'development'. The just-created branch can be renamed via this command:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7856528Z hint:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7857264Z hint: 	git branch -m <name>
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7858071Z hint:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7859380Z hint: Disable this message with "git config set advice.defaultBranchName false"
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7861238Z Initialized empty Git repository in /home/runner/work/utopia/utopia/.git/
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7864759Z [command]/usr/bin/git remote add origin https://github.com/zhiheng-zhang-Mera/utopia
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7922764Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7924173Z ##[group]Disabling automatic garbage collection
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.7940210Z [command]/usr/bin/git config --local gc.auto 0
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8111499Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8112865Z ##[group]Setting up auth
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8114059Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8117754Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8505734Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8549651Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8791619Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.8831496Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.9075078Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.9119414Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.9120364Z ##[group]Fetching the repository
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:53.9130780Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +6793a42d138723e8a35c3a4e791daec19c04b305:refs/remotes/pull/42/merge
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.7922377Z From https://github.com/zhiheng-zhang-Mera/utopia
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.7924809Z  * [new ref]         6793a42d138723e8a35c3a4e791daec19c04b305 -> pull/42/merge
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.7929964Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.7931886Z ##[group]Determining the checkout info
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.7934196Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.7941685Z [command]/usr/bin/git sparse-checkout disable
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.8004342Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.8055756Z ##[group]Checking out the ref
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.8058603Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/42/merge
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9803908Z Note: switching to 'refs/remotes/pull/42/merge'.
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9805501Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9806910Z You are in 'detached HEAD' state. You can look around, make experimental
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9810041Z changes and commit them, and you can discard any commits you make in this
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9812870Z state without impacting any branches by switching back to a branch.
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9814212Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9815197Z If you want to create a new branch to retain commits you create, you may
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9817339Z do so (now or later) by using -c with the switch command. Example:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9818569Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9819236Z   git switch -c <new-branch-name>
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9820008Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9820401Z Or undo this operation with:
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9820947Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9821500Z   git switch -
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9822248Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9823239Z Turn off this advice by setting config variable advice.detachedHead to false
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9824352Z 
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9825477Z HEAD is now at 6793a42 Merge 998440c7772cc032d012b457c2a59cd1059826c0 into cc799234e7daa3d8ccfde5673b9d07ccb2376742
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9829829Z ##[endgroup]
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9875395Z [command]/usr/bin/git log -1 --format=%H
+linux-components	Run actions/checkout@v4	2026-10-07T01:44:54.9905644Z 6793a42d138723e8a35c3a4e791daec19c04b305
+linux-components	Run actions/setup-node@v4	﻿2026-10-07T01:44:55.0326621Z ##[group]Run actions/setup-node@v4
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.0327953Z with:
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.0328909Z   node-version: 24
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.0330136Z   always-auth: false
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.0331226Z   check-latest: false
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.0340193Z   token: ***
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.0341183Z ##[endgroup]
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.1916500Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.1921316Z (node:2298) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.1925962Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.1928495Z ##[group]Environment details
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.6176760Z node: v24.21.0
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.6178646Z npm: 11.19.0
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.6179460Z yarn: 1.22.22
+linux-components	Run actions/setup-node@v4	2026-10-07T01:44:55.6180989Z ##[endgroup]
+linux-components	Run pnpm/action-setup@v4	﻿2026-10-07T01:44:55.6361803Z ##[group]Run pnpm/action-setup@v4
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6362220Z with:
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6362490Z   version: 11.19.0
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6362771Z   dest: ~/setup-pnpm
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6363061Z   run_install: null
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6363334Z   cache: false
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6363632Z   cache_dependency_path: pnpm-lock.yaml
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6364020Z   package_json_file: package.json
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6364360Z   standalone: false
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.6364649Z ##[endgroup]
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:55.7949936Z ##[group]Running self-installer...
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.2592371Z (node:2341) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.4303998Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.4305213Z Progress: resolved 1, reused 0, downloaded 0, added 0
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.4429886Z Packages: +1
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.4432384Z +
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.9138375Z Progress: resolved 1, reused 0, downloaded 1, added 1, done
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.9428596Z 
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.9429976Z dependencies:
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.9430899Z + pnpm 11.19.0 (12.9.1 is available)
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.9431296Z 
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:56.9454690Z Done in 951ms
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:57.0454344Z ##[endgroup]
+linux-components	Run pnpm/action-setup@v4	2026-10-07T01:44:57.0455008Z Installation Completed!
+linux-components	Run pnpm install --frozen-lockfile	﻿2026-10-07T01:44:57.0602455Z ##[group]Run pnpm install --frozen-lockfile
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.0603002Z ^[[36;1mpnpm install --frozen-lockfile^[[0m
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.0866907Z shell: /usr/bin/bash -e {0}
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.0867392Z env:
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.0867872Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.0868342Z ##[endgroup]
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.7972404Z ? Verifying lockfile against supply-chain policies (39 entries)...
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.8047459Z Lockfile is up to date, resolution step is skipped
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.8782314Z Progress: resolved 1, reused 0, downloaded 0, added 0
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.8898514Z Packages: +38
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:57.8930961Z ++++++++++++++++++++++++++++++++++++++
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.2327289Z Packages are hard linked from the content-addressable store to the virtual store.
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.2328774Z   Content-addressable store is at: /home/runner/setup-pnpm/node_modules/.bin/store/v11
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.2330709Z   Virtual store is at:             node_modules/.pnpm
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.4433795Z Progress: resolved 38, reused 0, downloaded 38, added 38, done
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6670548Z ✓ Lockfile passes supply-chain policies (39 entries in 870ms)
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6885902Z 
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6887098Z dependencies:
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6888174Z + bonjour-service 1.4.4
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6895681Z + qrcode 1.5.4
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6896495Z + ws 8.18.3
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6897175Z 
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6897595Z devDependencies:
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6898398Z + playwright 1.55.1
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.6898905Z 
+linux-components	Run pnpm install --frozen-lockfile	2026-10-07T01:44:58.7047260Z Done in 1.5s using pnpm v11.19.0
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	﻿2026-10-07T01:44:58.9227483Z ##[group]Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:58.9230015Z ^[[36;1mnode --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs^[[0m
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:58.9296849Z shell: /usr/bin/bash -e {0}
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:58.9297170Z env:
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:58.9297482Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:58.9297861Z ##[endgroup]
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.1199469Z ✔ 709: opaque digest-checked artifacts reject traversal, revoked access and bounded quota overflow (22.536702ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.1655743Z ✔ 710: actual local CPU process produces JSON digest and identifies host/process; bounded/cancelled input refused (52.217355ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2224837Z ✔ 711: explicit compatible checkpoint restore completes identical CPU sum; incompatible input/attempt refused (56.500478ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2447122Z ✔ 703: declared DAG executes concurrent independent stages, dependency before consumer and cancellation propagates (22.140683ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2450357Z ✔ 703: byte/item credit cannot overflow, double acknowledge, or continue after cancel (0.835981ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2475099Z ✔ 709: caller metadata cannot overwrite storage identity, digest, size or schema version (2.332336ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2477341Z ✔ 703: final-stage failure is never returned as an empty successful plan (0.748748ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2574467Z ✔ owned CPU work waits for durable start callback before receiving input (45.162393ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2576155Z ✔ storage refusal before input stops the owned CPU child and cannot publish success (4.241732ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2621239Z ✔ recovery refuses timeout, PID-only, stale epoch, revoked authority and unknown effects (23.820573ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2630786Z ✔ bound owned-stop proof requeues the same Task/Action once and fences old output (14.811574ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.2632254Z ✔ authority revoked during asynchronous stop proof cannot release or requeue (15.746991ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.4625637Z ✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (146.487904ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.4838358Z ✔ durable claim nonce, exact principal and current grant block replay or revoked worker (21.348067ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.5661843Z ✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (80.759789ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.5900673Z ✔ stop control requests stop without committing terminal state (25.178965ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.6032491Z ✔ registration bridge rechecks current worker grant instead of granting an invented membership (13.050006ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.6225169Z ✔ claim nonce survives reconstructed port and dormant port grants no endpoints (19.192489ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.6330432Z ✔ enabled remote port requires a synchronous current authority boundary (10.388184ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.6490647Z ✔ claim refuses owner revocation during awaited worker recheck before durable nonce (15.908117ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.6661571Z ✔ dispatch refuses worker revocation during final awaited owner policy read (14.940703ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7189932Z ✔ report refuses grant revocation during final awaited owner read without canonical completion (54.647543ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7353066Z ✔ input delivery refuses owner revocation during awaited artifact read (16.361925ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7441777Z ✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (88.784572ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7443723Z ✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (19.065872ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7445643Z ✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (18.361908ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7447938Z ✔ a second supervisor cannot take ownership merely because time elapsed (14.649188ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7449528Z ✔ drain fences an admission awaiting current authority and creates no late Task or Action (14.915909ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7450930Z ✔ 718 portable fixed worker uses real POSIX process lifecycle on Linux CI (41.532389ms)
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7451847Z ℹ tests 29
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7452231Z ℹ suites 0
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7452573Z ℹ pass 29
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7452921Z ℹ fail 0
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7453293Z ℹ cancelled 0
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7453781Z ℹ skipped 0
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7454166Z ℹ todo 0
+linux-components	Run node --test --test-concurrency=2 tests/pcf718-linux-worker.test.mjs tests/pcf-full-execution.test.mjs tests/pcf-stagec-service.test.mjs tests/pcf-stagec-recovery.test.mjs tests/pcf-stagec-owned-start.test.mjs tests/pcf-stagec-remote-worker.test.mjs	2026-10-07T01:44:59.7454606Z ℹ duration_ms 726.912952
+linux-components	Post Run pnpm/action-setup@v4	﻿2026-10-07T01:44:59.7629736Z Post job cleanup.
+linux-components	Post Run pnpm/action-setup@v4	2026-10-07T01:44:59.9241116Z Pruning is unnecessary.
+linux-components	Post Run actions/setup-node@v4	﻿2026-10-07T01:44:59.9436890Z Post job cleanup.
+linux-components	Post Run actions/setup-node@v4	2026-10-07T01:45:00.0794485Z (node:2515) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+linux-components	Post Run actions/setup-node@v4	2026-10-07T01:45:00.0795808Z (Use `node --trace-deprecation ...` to show where the warning was created)
+linux-components	Post Run actions/checkout@v4	﻿2026-10-07T01:45:00.0970041Z Post job cleanup.
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2030337Z [command]/usr/bin/git version
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2090179Z git version 2.55.0
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2124925Z Temporarily overriding HOME='/home/runner/work/_temp/0a68771d-450f-4e44-ac19-267fae4e4cbe' before making global git config changes
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2134077Z Adding repository directory to the temporary git global config as a safe directory
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2140664Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/utopia/utopia
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2186857Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2233385Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2510323Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2551035Z http.https://github.com/.extraheader
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2566229Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2605455Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2879260Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+linux-components	Post Run actions/checkout@v4	2026-10-07T01:45:00.2925987Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+linux-components	Complete job	﻿2026-10-07T01:45:00.3334063Z Cleaning up orphan processes
+linux-components	Complete job	2026-10-07T01:45:00.3638920Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, pnpm/action-setup@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

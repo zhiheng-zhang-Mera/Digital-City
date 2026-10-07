@@ -1,0 +1,46 @@
+✔ configuration is detached, deeply frozen and refuses simulated actual labels (1.7999ms)
+✔ two actual local CPU workloads retain repetitions, canonical task/action, trace replay and digests (4403.048ms)
+✔ authority refusals retained and never presented as completed CPU execution (72.6128ms)
+✔ counterfactual strategies reuse safety shield and never dispatch (0.3388ms)
+✔ stopping rule preserves every remaining planned trial as NOT_RUN (66.9686ms)
+✔ trace replay rejects changed persisted normalization rather than asserting successful execution replay (2358.4297ms)
+✖ source mismatch and dirty checkout cannot become frozen provenance (4847.3273ms)
+✖ events infrastructure failure retains completed trial and every remaining planned sample in persisted report (1140.2701ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13960.5803
+
+✖ failing tests:
+
+test at tests\pcf721-study.test.mjs:14:1
+✖ source mismatch and dirty checkout cannot become frozen provenance (4847.3273ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf721-study.test.mjs:14:263)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf721-study.test.mjs:15:1
+✖ events infrastructure failure retains completed trial and every remaining planned sample in persisted report (1140.2701ms)
+  Error: events unavailable
+      at Store.events (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf721-study.test.mjs:15:387)
+      at runLocalStudy (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/research-study.mjs:55:29)
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf721-study.test.mjs:15:463)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    code: 'EVENTS_INJECTED_FAILURE'
+  }

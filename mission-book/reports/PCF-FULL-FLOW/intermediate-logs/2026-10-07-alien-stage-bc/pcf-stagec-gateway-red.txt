@@ -1,0 +1,3 @@
+✖ default gateway retains readonly fabric and does not admit PCF jobs (123.1914ms)
+✖ explicit approved local owner executes CPU and acknowledges digest (77.5055ms)
+✖ enabled without approved device refuses startup (59.7219ms)

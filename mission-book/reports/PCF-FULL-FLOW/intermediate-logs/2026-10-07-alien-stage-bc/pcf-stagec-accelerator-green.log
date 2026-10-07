@@ -1,0 +1,20 @@
+✔ 704: bounded fair queue alternates app ownership and aging protects starvation (1.7643ms)
+✔ 715: projection labels absent execution/consumption separately and cannot mutate canonical state (0.392ms)
+✔ 716: deployment plan is explicit opt-in, schema gated and never installs itself (0.1783ms)
+✔ 707: existing canonical trace vocabulary reused; disabled/throwing sidecar never alters caller outcome (1.1283ms)
+✔ 721/723: freeze actual/simulated evidence separately; adaptation cannot bypass approved feasible proposals (0.4633ms)
+✔ 720: actual driver units parsed; unsupported power/thermal remain unknown; bad memory never becomes zero (0.3155ms)
+✔ optional: model/Linux/Android worker/HA readiness cannot be inferred from installed software or control client (0.1628ms)
+✔ review: NOT_RUN/UNKNOWN and string false are never observed prerequisites (0.1277ms)
+✔ 720 stable driver/device identity, explicit units and safe integer bounds reject overflow and ambiguous source (1.3259ms)
+✔ 720 current canonical reservations and explicit safety constraints refuse stale/driver-change/hot/unknown measurements (0.3729ms)
+✔ 720 optional adapter reuses 701 observations and does not silently aggregate heterogeneous GPUs (1.7653ms)
+✔ 720 absent driver remains UNSUPPORTED rather than invented zero (100.5543ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1991.2671

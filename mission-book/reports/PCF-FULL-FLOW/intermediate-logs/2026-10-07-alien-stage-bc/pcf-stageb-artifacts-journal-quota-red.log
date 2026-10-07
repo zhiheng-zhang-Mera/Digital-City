@@ -1,0 +1,29 @@
+✔ pins and leases survive restart and revoked bytes are visibly deleted (31.7851ms)
+✔ corruption and authorization revoked before publication keep bytes unavailable (12.1957ms)
+✔ authorization revoked during direct publication removes partial and restores quota (2.8511ms)
+✔ expired and revoked partials can be authorized cancelled with visible cleanup failure and retry (14.1623ms)
+✔ transfer publish recovers index fault and descriptor cleanup fault idempotently without double quota (19.1622ms)
+✖ cancelled journal-owned blob after chained index and cleanup faults remains counted unavailable storage (13.2459ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (1.2481ms)
+✔ transfer descriptors cannot overwrite owner authorization or schema (2.8005ms)
+✔ partial transfer resumes across instances only with matching version and digest (13.4619ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1083.5343
+
+✖ failing tests:
+
+test at tests\pcf709-artifacts.test.mjs:52:1
+✖ cancelled journal-owned blob after chained index and cleanup faults remains counted unavailable storage (13.2459ms)
+  Error: ARTIFACT_ORPHAN
+      at requireThat (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/validation.mjs:2:79)
+      at auditQuota (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/artifacts.mjs:12:203)
+      at async file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/artifacts.mjs:22:493
+      at async file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/services/personal-compute-fabric/artifacts.mjs:8:274 {
+    code: 'ARTIFACT_ORPHAN'
+  }

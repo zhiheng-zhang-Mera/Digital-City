@@ -1,0 +1,16 @@
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (1102.7404ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (72.2968ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (70.1574ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (70.5193ms)
+✔ drain fences an admission awaiting current authority and creates no late Task or Action (61.5878ms)
+✔ 713 explicit measured miss only reduces own approved queue parallelism and user disable restores it (3.4735ms)
+✔ 713 unknown, stale and unapproved readings cannot actuate or claim hard realtime (0.7998ms)
+✔ 713 bounded sampling and generation fencing prevent late actuation after disable or revoke (264.479ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2363.4761

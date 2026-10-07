@@ -1,0 +1,13 @@
+✔ 715: existing gateway exposes owner-only, read-only PCF projection without enabling execution (127.1828ms)
+✔ PCF-700 D1: no backend module imports a front-end module, so the UI -> backend direction stays acyclic (397.7543ms)
+✔ PCF-700 D2: every endpoint a user surface names is one the gateway actually serves (341.5923ms)
+✔ PCF-700 D3: every engineering and general-ai contract carries at least one test (395.1699ms)
+✔ PCF-700 D4: the fabric stays inside its declared paths, and no other domain imports it (370.0057ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3422.5708

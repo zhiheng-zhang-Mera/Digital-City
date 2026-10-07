@@ -1,0 +1,15 @@
+✔ 715: existing gateway exposes owner-only, read-only PCF projection without enabling execution (134.7426ms)
+✔ default gateway retains readonly fabric and does not admit PCF jobs (136.3257ms)
+✔ explicit approved local owner executes CPU and acknowledges digest (1277.9362ms)
+✔ enabled without approved device refuses startup (1.6484ms)
+✔ legacy cancellation cannot change PCF state and member session has no owner authority (1172.491ms)
+✔ 715 controls require configured running service; results returned and caller ack do not become Agent consumption (1.5475ms)
+✔ 715 malformed number input and stored task markup cannot cross the control form boundary (1.7905ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4691.0818

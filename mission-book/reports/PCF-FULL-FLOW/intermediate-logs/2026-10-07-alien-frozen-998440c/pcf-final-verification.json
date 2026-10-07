@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "source_sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+  "source_clean_after": true,
+  "verification_mode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "checks": {
+    "pcf_focused": {
+      "tests": 164,
+      "pass": 163,
+      "fail": 0,
+      "skipped": 1
+    },
+    "available_regression": {
+      "tests": 1631,
+      "pass": 1630,
+      "fail": 0,
+      "skipped": 1
+    }
+  },
+  "excluded_local_cases": [
+    {
+      "file": "tests/host-city-launcher.test.mjs",
+      "cases": 3,
+      "status": "ENVIRONMENT_BLOCKED",
+      "reason": "Preserve the resident Mech-linked City on port 4389; the clean cloud suite includes these cases"
+    }
+  ],
+  "ci": {
+    "push": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558609818"
+    },
+    "pull_request": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558614619"
+    },
+    "linux_component": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558614528"
+    },
+    "city_linkage": {
+      "sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37558614458"
+    }
+  },
+  "isolated_canonical_study": {
+    "source_sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "source_clean": true,
+    "completed": 6,
+    "failed": 0,
+    "not_run": 0,
+    "trace_replay": true,
+    "infrastructure_failures": 0,
+    "analysis": "DESCRIPTIVE_ONLY"
+  },
+  "direct_cpu_pilot_scope": "Actual CPU/admission/artifact/Task/origin acknowledgement harness; does not exercise full Action facade lifecycle or actual Codex Agent consumption",
+  "opposite_host_validation": "NOT_RUN",
+  "programme_complete": false,
+  "source_review_ready": true,
+  "full_physical_flow_ready": false
+}

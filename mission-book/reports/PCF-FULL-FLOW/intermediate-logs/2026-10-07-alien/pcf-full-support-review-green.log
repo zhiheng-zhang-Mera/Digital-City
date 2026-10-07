@@ -1,0 +1,16 @@
+✔ 704: bounded fair queue alternates app ownership and aging protects starvation (1.6327ms)
+✔ 715: projection labels absent execution/consumption separately and cannot mutate canonical state (0.3985ms)
+✔ 716: deployment plan is explicit opt-in, schema gated and never installs itself (0.1958ms)
+✔ 707: existing canonical trace vocabulary reused; disabled/throwing sidecar never alters caller outcome (1.1642ms)
+✔ 721/723: freeze actual/simulated evidence separately; adaptation cannot bypass approved feasible proposals (0.4696ms)
+✔ 720: actual driver units parsed; unsupported power/thermal remain unknown; bad memory never becomes zero (0.3234ms)
+✔ optional: model/Linux/Android worker/HA readiness cannot be inferred from installed software or control client (0.1731ms)
+✔ review: NOT_RUN/UNKNOWN and string false are never observed prerequisites (0.139ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1040.3155

@@ -1,0 +1,33 @@
+PASS  G1  without an approved local context the fabric projection is still readable (200)
+        status=200 fabricState=NOT_CONFIGURED
+PASS  G2  and the projection says the local applications are NOT enabled
+        controls={"enabled":false,"scope":"APPROVED_LOCAL_CPU_ONLY","reason":"NOT_CONFIGURED"}
+PASS  G3  submitting without approval is refused instead of quietly executing
+        status=404 body={"apiVersion":0,"schemaVersion":0,"error":"Not found"}
+PASS  G4  with an explicit approval the projection reports the local applications enabled and pending verification
+        controls={"enabled":true,"scope":"APPROVED_LOCAL_CPU_ONLY","reason":"OPPOSITE_HOST_ACCEPTANCE_PENDING"} state=CANDIDATE_PENDING_VERIFICATION
+PASS  G4b  the projection states that agent consumption has not been observed
+        agentConsumed=NOT_OBSERVED
+PASS  G5  the City tells the caller which parent session its jobs will be bound to
+        parentSessionId="owner:952701e3-642b-4b08-acbc-936ec22b0680"
+PASS  G6  the owner session admits a real CPU job through the gateway endpoint
+        status=200 body={"apiVersion":0,"schemaVersion":0,"taskId":"T-d14b8efb-408d-49eb-a800-15648043c5e8","actionId":"A-31da29bd-6360-4249-9f0e-aec5000a36e0","replayed":false}
+PASS  G7  the canonical Task reaches COMPLETED through the product surface
+        state=COMPLETED
+PASS  G8  collecting the result returns the real sorted output with a digest, delivered not consumed
+        values=[1,3,5,9] digest=bbeaeb474342a069 consumed=false status=200
+PASS  G9  acknowledging the exact digest is accepted and only then is the result consumed
+        status=200 body={"apiVersion":0,"schemaVersion":0,"taskId":"T-d14b8efb-408d-49eb-a800-15648043c5e8","consumed":true}
+PASS  G10  a submission that claims another parent session is refused with a caller-binding refusal
+        status=403 body={"apiVersion":0,"schemaVersion":0,"error":"PCF_CALLER_BINDING","errorCode":"PCF_CALLER_BINDING"}
+PASS  G11  a submission that tries to name another device is refused too
+        status=403 body={"apiVersion":0,"schemaVersion":0,"error":"PCF_CALLER_BINDING","errorCode":"PCF_CALLER_BINDING"}
+PASS  G11b  an acknowledge body carrying unexpected keys is refused rather than partially honoured
+        status=403 body={"apiVersion":0,"schemaVersion":0,"error":"PCF_CALLER_BINDING","errorCode":"PCF_CALLER_BINDING"}
+PASS  G12  a node credential cannot use the owner-only PCF submit surface
+        status=401 body={"apiVersion":0,"schemaVersion":0,"error":"Invalid pairing token"}
+PASS  G13  an unauthenticated caller cannot use it either
+        status=401
+
+15/15 gateway binding checks pass
+Frozen candidate SHA under test: 998440c7772cc032d012b457c2a59cd1059826c0

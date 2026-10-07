@@ -1,0 +1,17 @@
+✔ configuration is detached, deeply frozen and refuses simulated actual labels (1.9992ms)
+✔ two actual local CPU workloads retain repetitions, canonical task/action, trace replay and digests (6091.8722ms)
+✔ authority refusals retained and never presented as completed CPU execution (1249.6746ms)
+✔ counterfactual strategies reuse safety shield and never dispatch (0.3649ms)
+✔ stopping rule preserves every remaining planned trial as NOT_RUN (1311.58ms)
+✔ trace replay rejects changed persisted normalization rather than asserting successful execution replay (3692.1884ms)
+✔ source mismatch and dirty checkout cannot become frozen provenance (2420.037ms)
+✔ events infrastructure failure retains completed trial and every remaining planned sample in persisted report (2199.4625ms)
+✔ report persistence failure exposes recoverable planned ledger and cannot report success (616.8073ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18743.1257

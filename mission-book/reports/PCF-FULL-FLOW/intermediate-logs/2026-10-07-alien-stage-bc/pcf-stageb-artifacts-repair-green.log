@@ -1,0 +1,18 @@
+✔ pins and leases survive restart and revoked bytes are visibly deleted (25.0608ms)
+✔ corruption and authorization revoked before publication keep bytes unavailable (12.6503ms)
+✔ authorization revoked during direct publication removes partial and restores quota (2.7516ms)
+✔ expired and revoked partials can be authorized cancelled with visible cleanup failure and retry (13.5085ms)
+✔ transfer publish recovers index fault and descriptor cleanup fault idempotently without double quota (18.8566ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (0.7763ms)
+✔ transfer descriptors cannot overwrite owner authorization or schema (1.9124ms)
+✔ partial transfer resumes across instances only with matching version and digest (13.7945ms)
+✔ approved fenced new attempt restores real chunked CPU state and retains old binding (29.1974ms)
+✔ new attempt recovery rejects absent compatibility and legacy same-attempt remains readable (6.7733ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1905.0622

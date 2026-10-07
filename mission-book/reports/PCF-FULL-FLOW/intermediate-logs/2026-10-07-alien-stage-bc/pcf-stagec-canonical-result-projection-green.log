@@ -1,0 +1,13 @@
+✔ 702: feasibility precedes ranking; stale/unknown/untrusted/strict/capability constraints cannot win (1.8749ms)
+✔ 704/712: canonical CAS admission, idempotence, epoch fencing, commit and restart preserve one task truth (105.916ms)
+✔ 704: changed policy/version or observation cannot be admitted (62.6298ms)
+✔ canonical Task uses COMPLETED while capsule outcome remains SUCCEEDED (86.7277ms)
+✔ uncertain side effects keep running canonical truth, reservation and visible attention (66.1464ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2049.5667

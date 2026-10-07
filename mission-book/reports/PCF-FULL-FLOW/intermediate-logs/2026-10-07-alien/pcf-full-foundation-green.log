@@ -1,0 +1,13 @@
+✔ 706: remote work requires independent authorization, sharing, data scope, expiry and budget (1.818ms)
+✔ 706: default policy remains origin-only; requests cannot broaden authority (0.2866ms)
+✔ 725: provider capabilities are typed; cooperative process cannot claim hard isolation (0.3899ms)
+✔ 708: canonical identity preserved; numeric/resource/QoS/version/depth inputs fail closed (0.7378ms)
+✔ 726: capsule binds immutable task/session/attempt/host/boot/epoch/digest; receipt is untrusted (1.1406ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 969.5497
