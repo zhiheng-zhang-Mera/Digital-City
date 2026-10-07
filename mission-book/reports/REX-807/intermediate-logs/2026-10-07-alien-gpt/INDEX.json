@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "role": "Alien-GPT",
+  "reviewed_source_sha": "9ad888279be07220fe7ac7d91e419e8fe69fc439",
+  "integrated_candidate_sha": "2decc71b2b9a3d0e66293498f4f1676e461da8da",
+  "accepted_dependency_sha": "cc799234e7daa3d8ccfde5673b9d07ccb2376742",
+  "verdict": "CHANGES_PENDING_MECH_REVIEW",
+  "files": [
+    {
+      "file": "rex807-alien-install.log",
+      "bytes": 1232,
+      "sha256": "98c279d2b6a57c61a506ec275a756e55b51246d87cdca3c7e9acadcfcad168b9"
+    },
+    {
+      "file": "rex807-alien-focused.log",
+      "bytes": 2420,
+      "sha256": "a6575f40590925a080d440c458703f9c24fc51f98865d664fc947b893d83c127"
+    },
+    {
+      "file": "rex807-alien-accepted806-regression.log",
+      "bytes": 8178,
+      "sha256": "da194b6cf3c3f3c0ddb2b7ac7a9774d75d2a16cb28f860767f026b0c5d575414"
+    },
+    {
+      "file": "rex807-alien-integrated-green.log",
+      "bytes": 3296,
+      "sha256": "0aff4600f39fc87a2544e787843ff031a36dc8571c14ae01f1e80b72c82bab61"
+    },
+    {
+      "file": "rex807-old-mech-endpoint-timeout.log",
+      "bytes": 745,
+      "sha256": "24e870193a9e0308723ca6bf32c1a7e39455e08eeb6f23ff9194da71cf6dcfee"
+    },
+    {
+      "file": "rex806-accepted-verifier-regression.test.mjs",
+      "bytes": 8299,
+      "sha256": "3d0e832339e37760b261b4912c313d07a793333ac16ccaee6bfb4962ae2c889c"
+    }
+  ]
+}
