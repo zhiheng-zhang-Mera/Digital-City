@@ -26,7 +26,7 @@
       "POST /api/v0/actions (route CITY_TASK, operation OWNER_REMOTE_OPERATION)",
       "GET /api/v0/node/operations"
     ],
-    "last_verified_full_sha": "68ca42b59bddd3f6cc50b8cc4590c4b03d60d528"
+    "last_verified_full_sha": "00989b6e67bcc99ce6b45133529458bbe0575fe1"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -89,7 +89,8 @@
     "The capability is OFF unless the owner sets CITY_REMOTE_OPERATION=1 together with an explicit executable allowlist and workspace roots; with the switch off, or with either list empty, every dispatch is refused by name.",
     "Arbitrary shell is NOT supported and is not planned as a fallback: the contract never uses a shell, so shell syntax in an argument is inert data rather than a feature.",
     "Not yet exercised on two real machines: the tests run a real gateway and a real node agent on one host. The cross-host use (the opposite physical host reproducing a study) is the next step and is NOT RUN.",
-    "No independent opposite-host review of this capability has been performed."
+    "No independent opposite-host review of this capability has been performed.",
+    "Two defects in THIS surface were found only when the agent-job channel added a navigation entry beside it, and both are repaired: the fixed sidebar had no scrolling region, so the last entries became unreachable at the default window height (a navigation entry nobody can click is a control that does not exist), and this page's title rendered the raw i18n key because app.js derives it from the lowercased page name. The browser test for the agent-job surface now walks every navigation entry and fails on either, so the guard covers this page too."
   ],
   "last_reconciled_by_workbook": null
 }

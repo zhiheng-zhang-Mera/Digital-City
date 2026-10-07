@@ -23,20 +23,23 @@
       "normalizeAgentJob",
       "validateAgentJobReport",
       "isJobExpired",
+      "consumptionReceipt",
+      "validateConsumptionRequest",
       "AGENT_NODE_CAPABILITIES",
       "claimJob",
       "reportJob",
       "createAgentJobsView"
     ],
     "api_or_actions": [
-      "POST /api/v0/actions (route CITY_TASK, operation AGENT_JOB)",
-      "GET /api/v0/node/jobs",
+      "POST /api/v0/actions (route CITY_TASK, operation AGENT_JOB) - submit",
+      "GET /api/v0/node/jobs - query",
+      "POST /api/v0/tasks/:id/cancel - cancel (the canonical route, no second control plane)",
+      "POST /api/v0/node/jobs/:taskId/consumed - collect: the owner's delivery receipt",
       "POST /api/v0/node/register (capability city.agent-job.v1)",
       "POST /api/v0/node/claim",
-      "POST /api/v0/node/report",
-      "POST /api/v0/tasks/:id/cancel (the canonical withdrawal)"
+      "POST /api/v0/node/report"
     ],
-    "last_verified_full_sha": "66bab47eff42733f71aee5395a4795b234a058f8"
+    "last_verified_full_sha": "00989b6e67bcc99ce6b45133529458bbe0575fe1"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -51,12 +54,14 @@
       "for every job: the City's own state, the node that took it, whether the deadline has passed, and the reason a job is waiting (a named missing node capability)",
       "what the agent answered, under its own declared evidence class (OBSERVED_HERE / REPORTED_FROM_ELSEWHERE / INFERRED / NOT_DONE), with artifact digests",
       "the standing statement that an accepted report carries no acceptance authority, so an agent's claim is never read as a City verification",
-      "refusals by typed code, including REPORT_JOB_MISMATCH, REPORT_TASK_STATE_MISMATCH and REPORT_STATE_NOT_AGENT_DECIDABLE"
+      "the delivery state of every report, kept as three distinguishable facts rather than a boolean: NOTHING_TO_COLLECT / AWAITING_COLLECTION / COLLECTED, and the receipt itself with its own authority line",
+      "refusals by typed code, including REPORT_JOB_MISMATCH, REPORT_TASK_STATE_MISMATCH, REPORT_STATE_NOT_AGENT_DECIDABLE, CONSUMPTION_REQUIRES_A_REPORT and CONSUMPTION_ALREADY_RECORDED"
     ],
     "user_controls": [
       "choose the target machine, the title, the instruction in words, references, the purpose and the deadline",
       "confirm in a collapsed Danger Zone by typing the job title exactly",
-      "withdraw a request that is still out"
+      "withdraw a request that is still out",
+      "take delivery of a report, which records a receipt (an acknowledgement by the reader, never a verification of the work)"
     ],
     "intentionally_hidden_information": [
       "the City control token and the node token",
@@ -92,8 +97,8 @@
     "intent_validation_refs": [],
     "review_refs": [],
     "implementation_refs": [
-      "https://github.com/zhiheng-zhang-Mera/utopia/tree/66bab47eff42733f71aee5395a4795b234a058f8",
-      "utopia:push CI run 37651601378 (success) at 66bab47eff42733f71aee5395a4795b234a058f8; the channel itself was run 37650519705 (success) at 2189be9f9c7e18e14cdc611b0a27aad3a62d9ba6"
+      "https://github.com/zhiheng-zhang-Mera/utopia/tree/00989b6e67bcc99ce6b45133529458bbe0575fe1",
+      "utopia:push CI runs at this line: 37650519705 (success, 2189be9f9c7e18e14cdc611b0a27aad3a62d9ba6 - the channel), 37651601378 (success, 66bab47eff42733f71aee5395a4795b234a058f8 - the far-side CLI runs as a real command), and the delivery-receipt head 00989b6e67bcc99ce6b45133529458bbe0575fe1"
     ]
   },
   "research_observations": {

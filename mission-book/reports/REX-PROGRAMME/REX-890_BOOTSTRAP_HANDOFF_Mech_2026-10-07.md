@@ -246,6 +246,26 @@ jobDigest dcd8172b05e53f62e72bcc0912d961528a7f3bb4045685a1452c29a204168fe4
    于是页面标题**直接显示裸 i18n key**。现改全小写，并由浏览器用例遍历**每一个**导航项守卫。
 ```
 
+## 5E. 时限警告：trace 对比会随窗口滑过而变成空洞对比（2026-10-08 实测）
+
+```text
+包内 raw-pointers.json 点名 206 条 trace 指针。2026-10-08 实测同一条包、同一台城市：
+  · 通过城市 API（GET /api/v0/research/trace）：**0/206** 可解析
+  · 直接查城市的持久文件 research-trace/trace.jsonl：**206/206 全部仍在**
+⇒ 数据没丢，**读不到**。早前一次同样的跑是 170/206；差别只是中间新增记录把旧记录挤出了保留窗口。
+
+机制（读自代码，不是猜）：createTraceCollector({recordLimit=256, byteLimit=2097152})
+  内存快照只保留**最新 256 条**；载入时 slice(-recordLimit)，超出即 retentionTruncated。
+  快照如实标注 completeness=PARTIAL、retentionTruncated=true、
+  counterScope=CURRENT_COLLECTOR_EPOCH_AND_RETAINED_WINDOW。文件已 1.99 MB，接近 2 MiB 轮转点。
+  城市**没有说谎**，复现工具也**正确地**没有把它算作 inconsistency。
+
+对本次交接的影响：工作书点名的"对比 trace/provenance"这一要素，在窗口滑过后会给出
+"0 inconsistencies"，但那是**无从比对**，不是比对通过。所以对侧应当在窗口滑过前跑，
+或有权限时**直读 trace.jsonl** 做对比；否则该要素只能如实记为 VACUOUS_BY_WINDOW 并附上
+城市自己的 PARTIAL 声明，**不得**记为通过。
+```
+
 ## 6. 本文件不声称的事
 
 ```text
@@ -259,4 +279,5 @@ jobDigest dcd8172b05e53f62e72bcc0912d961528a7f3bb4045685a1452c29a204168fe4
   远程操作通道。智能体的总结在构造上不可验证，这一点写在每一份被接受的报告上。
 · 不声称 §5C 那条已排队的任务会被自动完成：它等的是**对侧先注册**。在那之前它只会安静地排队，
   界面上显示"等待中"，不会给任何形式的假成功。
+· 不声称 trace 对比一定做得到：见 §5E，它有时限。窗口滑过之后这个要素只能记为空洞，不得记为通过。
 ```
