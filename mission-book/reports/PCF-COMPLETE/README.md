@@ -326,7 +326,40 @@ PCF-721/724 的 glasses/health 输入面：本树**根本没有该输入面**，
   PCF-727/728 真实 Codex/DeepSeek 会话闭环 · 所有跨主机/双机测量（704 705 713 714 718 721 722 728）
 ```
 
-## 4. 不声称的事
+## 6. 异机复核怎么做（交给对侧的具体入口）
+
+```text
+分支头 / head        pcf/PCF-series-complete-mech-20261007 @ 6b69632
+PR                   https://github.com/zhiheng-zhang-Mera/utopia/pull/45
+精确头 CI 证据       actions run 37591366620：gateway-web PASS (6m42s)、android PASS (1m22s)
+                     （两机作业都跑在 6b69632 上，非合并后近似）
+本机全量             node --test tests/*.test.mjs → 1874 项 / 1868 通过 / 3 失败（既有宿主探针）/ 3 typed NOT_RUN
+本机 PCF 面          node --test tests/pcf*.test.mjs → 全绿（skip 仅外部前提）
+工作书门禁           check_record_consistency 0 error / 37 warning / 4 excused；navigation drift 0；Markdown 1733
+
+逐本复核（先取分支到独立 worktree，不要在对侧主工作区上跑）：
+git -C utopia fetch origin pcf/PCF-series-complete-mech-20261007
+git -C utopia worktree add ../utopia-pcf-verify origin/pcf/PCF-series-complete-mech-20261007
+
+逐本跑工作书点名的那条命令（工作书验收段写的就是它）：
+  node --test tests/pcf702-placement.test.mjs      # 702
+  node --test tests/pcf703-offload.test.mjs        # 703（流半边在 pcf703-bounded-stream）
+  node --test tests/pcf704-admission.test.mjs      # 704  … 以此类推到 728
+一次性全跑（PCF 面）：
+  node --test tests/pcf*.test.mjs
+全量：
+  node --test tests/*.test.mjs     # 1874 项；本机残留 3 项既有宿主相关失败（launcher/enrolment 探针）
+                                   # theme-packages 与 rex803/805 web 套件在满负载下会 flake，单独跑均通过
+
+复核要点（本报告已逐条记录，可直接对照）：
+  · 每个测试的文件头写明工作书，测试名写明工作书行号/验收句；
+  · 所有 refusal 都按 **code** 断言，不用宽松正则；所有 NOT_RUN 都写明缺哪个外部前提；
+  · 三个 skip 全是外部前提 NOT_RUN（704/705 双机样本、718 实体 Linux），**没有 NOT_IMPLEMENTED 残留**；
+  · 718 会断言"本机没有 Linux"（platform!=='linux' 且 wsl 零发行版），前提一旦出现该测试会自己变红；
+  · 若复核者发现任何"看起来像通过、其实没检查工作书反例"的断言，请按 DSH 口径直接记为 defect，我按同一分支补。
+```
+
+## 7. 不声称的事
 
 ```text
 · 不声称"29 本全部完成"：29 本都有可运行的工作书点名验收面、且不再有 NOT_IMPLEMENTED 残留，但 6 本的物理/外部半边是
