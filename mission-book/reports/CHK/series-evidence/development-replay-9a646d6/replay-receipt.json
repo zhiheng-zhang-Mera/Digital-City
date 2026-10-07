@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "host": "Mera-Alianware",
+  "node_version": "v24.19.0",
+  "run_mode": "DEVELOPMENT_REPLAY",
+  "host_identity_assurance": "HOSTNAME_ONLY",
+  "implementation_sha": "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d",
+  "city_sha": "33e9a00bd56fb7556363f6c48ff4c38abebcc61e",
+  "identities_before": {
+    "utopia": {
+      "head_sha": "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d",
+      "branch": "Alien-GPT-CHK",
+      "clean": true
+    },
+    "city": {
+      "head_sha": "33e9a00bd56fb7556363f6c48ff4c38abebcc61e",
+      "branch": "Alien-GPT-CHK",
+      "clean": true
+    }
+  },
+  "identities_after": {
+    "utopia": {
+      "head_sha": "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d",
+      "branch": "Alien-GPT-CHK",
+      "clean": true
+    },
+    "city": {
+      "head_sha": "33e9a00bd56fb7556363f6c48ff4c38abebcc61e",
+      "branch": "Alien-GPT-CHK",
+      "clean": true
+    }
+  },
+  "source_unchanged": true,
+  "runs": [
+    {
+      "name": "chk990",
+      "exit_code": 0,
+      "status": "PASS",
+      "sha256": "186a4ff714b09bce61cb276f1dc3ef991bb09aae1d61a79889f90e52fc2ffdb8"
+    },
+    {
+      "name": "small",
+      "exit_code": 0,
+      "status": "PASS",
+      "sha256": "39b9be6b386709cf2f34f3af7a73609767376874edda049d15e4240c355e3af2"
+    },
+    {
+      "name": "full",
+      "exit_code": 0,
+      "status": "PASS",
+      "sha256": "ee2fbd285067a2d6be8fb2a61b3e08d7be01f905b7a95adbc1986c5267fef13a"
+    }
+  ],
+  "inspected_roots_clean_after": true,
+  "observed_at": "2026-10-07T06:01:10.487Z",
+  "whole_series_independent_review": "NOT_RUN_REVIEWER_MUST_ASSESS",
+  "freeze_outcome": "NOT_ACCEPTED_BY_RUNNER",
+  "execution_authority": false
+}

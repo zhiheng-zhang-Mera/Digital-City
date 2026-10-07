@@ -1,0 +1,42 @@
+{
+  "implementation_sha": "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d",
+  "city_observation_sha": "33e9a00bd56fb7556363f6c48ff4c38abebcc61e",
+  "full": {
+    "metrics": {
+      "filesRead": 1001,
+      "bytesRead": 10571966,
+      "elapsed_ms": 5204.3989,
+      "maxFiles": 12000,
+      "maxBytes": 80000000,
+      "maxDurationMs": 120000,
+      "heap_used_bytes": 46336096,
+      "duration_limit": "COOPERATIVE_SCAN_PLUS_BOUNDED_IDENTITY_RECEIPTS"
+    },
+    "findings": 101,
+    "static_scan_complete": true,
+    "global_coverage_complete": false,
+    "source_count": 451,
+    "registry_count": 20,
+    "workbook_count": 147,
+    "module_mapping_count": 35,
+    "rule_heading_count": 22
+  },
+  "small": {
+    "metrics": {
+      "filesRead": 500,
+      "bytesRead": 4932869,
+      "elapsed_ms": 4837.5617,
+      "maxFiles": 500,
+      "maxBytes": 8000000,
+      "maxDurationMs": 30000,
+      "heap_used_bytes": 23409032,
+      "duration_limit": "COOPERATIVE_SCAN_PLUS_BOUNDED_IDENTITY_RECEIPTS"
+    },
+    "findings": 145,
+    "static_scan_complete": false
+  },
+  "source_identity_stable": true,
+  "runtime": "UNKNOWN",
+  "independent_review": "NOT_RUN",
+  "freeze": "NOT_ACCEPTED"
+}

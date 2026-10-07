@@ -1,0 +1,75 @@
+✔ malformed YAML is retained as a finding without raw contents (4897.7672ms)
+✔ an exact-SHA empty runtime snapshot cannot turn unobserved domains healthy (3384.8189ms)
+✔ duplicate accepted ancestors are cached and all processing respects cooperative deadline (3414.035ms)
+✔ stale runtime SHA cannot mark a capability online (2924.8518ms)
+✔ unsafe registry path never reads outside the repository (3432.1757ms)
+✔ case evidence is mandatory before quarterly proposal can be routed (1.392ms)
+✔ case text values minimize credentials before hashing and prototype kinds cannot route (0.4591ms)
+✔ registry directory references resolve existing tracked sources without false dead records (4147.379ms)
+✔ canonical tolerant frontmatter normalizes quoted booleans and colon-bearing notes (3660.7327ms)
+✔ topology module census identifies dead manifest paths and retains rule debt unknowns (2883.999ms)
+✔ CLI rejects output inside either inspected checkout (3067.8321ms)
+✔ report and manifest checksums verify persisted output without acceptance (5177.144ms)
+✔ whole-series runner rejects output junction into inspected source before writing (3874.1462ms)
+✖ whole-series runner detects a clean head change during replay despite green commands (8530.1955ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-01 small check obeys a hard file budget and discloses partial coverage (4442.6535ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/new.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-02 full census reverse-discovers an unregistered API and a dependency cycle (3379.4471ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-03 health report never modifies repository state or grants repair authority (3331.3381ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-04 suspended workbook cannot become active truth (3049.485ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-05 self model returns unknown runtime and not measured blast radius (3733.4031ms)
+✔ CHK990-06 diagnosis preserves multiple hypotheses and missing evidence (0.4537ms)
+✔ CHK990-07 case revisions retain original hypothesis and detect tampering (1.4017ms)
+✔ CHK990-08 all six BLG gaps can retain reference or supersede without migration (0.2082ms)
+✔ CHK990-09 candidate routing never gains execution authority from verified episodes (0.2677ms)
+✔ CHK990-10 routes every supported domain and defers unknown owner (0.3298ms)
+✔ CHK990-11 promotion and rollback require explicit external authority and full safety ladder (0.1537ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-12 overhead is measurable and runtime seam remains offline and redacted (3803.2434ms)
+✔ the real manifest describes exactly the districts and modules that exist (24.0413ms)
+✔ the manifest and the city tree agree on what exists (58.3479ms)
+✔ mission-book incubators are named and provenanced, and Room Pack incubators are not disguised (12.3813ms)
+✔ a mission-book migration incubator proves a donor; a programme-task incubator proves it has none (54.2931ms)
+✔ the manifest rejects malformed hierarchy, paths and lifecycles (7.3262ms)
+✔ module directories and lifecycles must not contradict each other (361.9595ms)
+✔ loadManifest reports an unreadable manifest instead of guessing (44.6002ms)
+✔ city/test-all.mjs discovers module tests without shell globs (96.6334ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 33
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 51023.2468
+
+✖ failing tests:
+
+test at city\02-engineering\05-city-self-health-check\city-self-health-check\tests\boundaries.test.mjs:23:1
+✖ whole-series runner detects a clean head change during replay despite green commands (8530.1955ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 1
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/CHK-101-990/Utopia-Alien-GPT-CHK/city/02-engineering/05-city-self-health-check/city-self-health-check/tests/boundaries.test.mjs:23:1452)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

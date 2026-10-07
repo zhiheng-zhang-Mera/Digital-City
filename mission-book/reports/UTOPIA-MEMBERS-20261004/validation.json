@@ -1,0 +1,105 @@
+{
+  "status": "PASS_WITH_NOT_RUN_BOUNDARIES",
+  "baseSha": "48cbc21376007c5461e8e456a898c3f788f0fa77",
+  "focusedBeforeLastReviewRepairs": {
+    "tests": 34,
+    "pass": 34
+  },
+  "reviewRepairFocused": {
+    "tests": 22,
+    "pass": 22
+  },
+  "realLocalDemotion": {
+    "tests": 3,
+    "pass": 3
+  },
+  "followupRelayAndRoles": {
+    "tests": 21,
+    "pass": 21
+  },
+  "fullFirst": {
+    "tests": 1202,
+    "pass": 1199,
+    "fail": 3
+  },
+  "fullSecond": {
+    "tests": 1205,
+    "pass": 1204,
+    "fail": 1,
+    "cause": "Global badge selector matched hidden connection recommendation best carrier, not device online status; now asserts only device-card badges and waits for transport disconnect"
+  },
+  "physicalTwoHosts": "NOT_RUN",
+  "crossRegion": "NOT_RUN",
+  "review": "Two P1 and three P2 findings repaired; final source review found no remaining blocker",
+  "launcherLifecycle": {
+    "tests": 4,
+    "pass": 4,
+    "status": "PASS",
+    "scope": "Includes PRIMARY to MEMBER CLI success and normal main restart"
+  },
+  "webTaskDiagnostic": "Actual residual ONLINE class belongs to hidden best-carrier recommendation; device states are UNKNOWN after disconnect",
+  "implementationSha": "be6227ec49d4dbcd83a595d7b265766af2083421",
+  "primarySharingRegression": {
+    "tests": 15,
+    "pass": 15
+  },
+  "liveWeb": {
+    "status": "PASS",
+    "gatewayPid": 24728,
+    "cityId": "e1d87b2a-0ec5-457e-822b-91d81e40dc67",
+    "selfFirst": true,
+    "admissionName": "Mera-Alianware",
+    "sharingOffOn": true,
+    "members": [
+      {
+        "deviceId": "dev-e1d87b2a0ec5457e822b91d81e40dc67",
+        "role": "PRIMARY",
+        "computeOnline": true,
+        "sharingEnabled": true
+      },
+      {
+        "deviceId": "web-rua5jxhg",
+        "role": "CONTROL_ONLY",
+        "computeOnline": false,
+        "sharingEnabled": false
+      },
+      {
+        "deviceId": "web-s3epotao",
+        "role": "CONTROL_ONLY",
+        "computeOnline": false,
+        "sharingEnabled": false
+      }
+    ]
+  },
+  "singletonReuse": {
+    "gatewayPid": 24728,
+    "cityId": "e1d87b2a-0ec5-457e-822b-91d81e40dc67",
+    "alternateRequestedPort": 4399,
+    "reused": true
+  },
+  "ci": {
+    "run": 37200078026,
+    "prRun": 37200080957,
+    "implementationSha": "be6227ec49d4dbcd83a595d7b265766af2083421",
+    "status": "COMPLETED",
+    "conclusion": "success",
+    "gatewayWeb": {
+      "tests": 1207,
+      "pass": 1207,
+      "fail": 0
+    },
+    "rooms": {
+      "tests": 69,
+      "pass": 69,
+      "fail": 0
+    },
+    "city": {
+      "tests": 1984,
+      "pass": 1970,
+      "fail": 0,
+      "skipped": 14
+    },
+    "android": "testDebugUnitTest and assembleDebug PASS",
+    "docs": "PASS"
+  }
+}

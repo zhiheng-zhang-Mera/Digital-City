@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "files": {
+    "report.json": "02243592b964f426b8d8d45aa4e6b704b20546e5eab7c8a2322b430e5247166f",
+    "report.md": "33fcceecde3614e79c9a142eb8ec0b91935ed9f3115f4b518a1651e3d5613448",
+    "source-manifest.json": "3c5473707aad5bc0794c2466cb1df9e37b0431f9714eb38065a3160953054f02"
+  }
+}

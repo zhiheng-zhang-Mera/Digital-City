@@ -1,0 +1,12 @@
+file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Member-Accepted-20261007/apps/client/device-enrollment.mjs:154
+    throw Object.assign(new Error(`the City at ${base} could not be reached: ${err?.message ?? err}`), { code: 'CITY_UNREACHABLE', retryable: true });
+                        ^
+
+Error: the City at http://172.31.12.151:4391 could not be reached: The operation was aborted due to timeout
+    at openDeviceSession (file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Member-Accepted-20261007/apps/client/device-enrollment.mjs:154:25)
+    at async file:///D:/Utopia-tree/REX-801-890/Utopia-REX806-Member-Accepted-20261007/.runtime/observe-mech-member.mjs:5:15 {
+  code: 'CITY_UNREACHABLE',
+  retryable: true
+}
+
+Node.js v24.19.0

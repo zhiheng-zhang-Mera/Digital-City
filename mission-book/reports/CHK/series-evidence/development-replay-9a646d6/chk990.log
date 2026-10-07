@@ -1,0 +1,49 @@
+✔ malformed YAML is retained as a finding without raw contents (2531.8522ms)
+✔ an exact-SHA empty runtime snapshot cannot turn unobserved domains healthy (2305.344ms)
+✔ duplicate accepted ancestors are cached and all processing respects cooperative deadline (2391.5371ms)
+✔ stale runtime SHA cannot mark a capability online (2789.8411ms)
+✔ unsafe registry path never reads outside the repository (2247.3032ms)
+✔ case evidence is mandatory before quarterly proposal can be routed (1.024ms)
+✔ case text values minimize credentials before hashing and prototype kinds cannot route (0.4541ms)
+✔ externally signed unsafe history is rejected and quarterly rationale values are minimized (0.7862ms)
+✔ registry directory references resolve existing tracked sources without false dead records (2366.8703ms)
+✔ canonical tolerant frontmatter normalizes quoted booleans and colon-bearing notes (2164.3072ms)
+✔ topology module census identifies dead manifest paths and retains rule debt unknowns (2280.3847ms)
+✔ CLI rejects output inside either inspected checkout (1944.5091ms)
+✔ report and manifest checksums verify persisted output without acceptance (3104.3181ms)
+✔ whole-series runner rejects output junction into inspected source before writing (3027.6112ms)
+✔ whole-series runner detects a clean head change during replay despite green commands (9338.6676ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-01 small check obeys a hard file budget and discloses partial coverage (2474.5909ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/new.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-02 full census reverse-discovers an unregistered API and a dependency cycle (2417.6771ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-03 health report never modifies repository state or grants repair authority (2829.3385ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-04 suspended workbook cannot become active truth (2127.6927ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-05 self model returns unknown runtime and not measured blast radius (2154.7398ms)
+✔ CHK990-06 diagnosis preserves multiple hypotheses and missing evidence (0.3043ms)
+✔ CHK990-07 case revisions retain original hypothesis and detect tampering (0.8921ms)
+✔ CHK990-08 all six BLG gaps can retain reference or supersede without migration (0.1245ms)
+✔ CHK990-09 candidate routing never gains execution authority from verified episodes (0.195ms)
+✔ CHK990-10 routes every supported domain and defers unknown owner (0.256ms)
+✔ CHK990-11 promotion and rollback require explicit external authority and full safety ladder (0.0969ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-12 overhead is measurable and runtime seam remains offline and redacted (2251.3756ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37503.668

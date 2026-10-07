@@ -1,0 +1,34 @@
+✔ real joined devices retain names, appear beside the host and may register only their own worker (242.8894ms)
+✔ two members exchange messages with explicit receipt and sender identity cannot be forged (202.7177ms)
+✔ member B actually computes a task from A; disabling sharing and revoke prevents further claims (424.8035ms)
+✔ new admission cannot take the host or an existing member identity, even with a valid short code (183.2353ms)
+✔ an active browser session refresh actually extends expiry while preserving its installation scope (97.6907ms)
+✖ local primary control surface can switch only its own computing resources (70.6682ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 5
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2300.3477
+
+✖ failing tests:
+
+test at tests\city-members.test.mjs:45:1
+✖ local primary control surface can switch only its own computing resources (70.6682ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  401 !== 200
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-City-Naming-Host/tests/city-members.test.mjs:45:397)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 401,
+    expected: 200,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

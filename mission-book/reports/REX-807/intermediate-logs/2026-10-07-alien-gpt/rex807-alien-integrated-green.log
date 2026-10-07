@@ -1,0 +1,42 @@
+✔ REX806 S1: the owner can read the artifact export and its preview (94.9578ms)
+✔ REX806 S2: a member session cannot read the artifact export (74.5595ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (36.3201ms)
+✔ REX806 S4: the preview is bounded and says so (33.7858ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (26.9394ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (48.469ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (45.8007ms)
+✔ REX806 S8: a 51-receipt City labels its bounded download as partial (87.6095ms)
+✔ REX806 S9: corruption between the receipt listing and detail keeps the readable study (33.3815ms)
+✔ REX806 verifier accepts justified unavailable completion after canonical task loss (960.2311ms)
+✔ REX806 verifier accepts the published six-decimal failure rate precision (955.0363ms)
+✔ REX806 verifier accepts justified unavailable rates for an all-refused study (965.284ms)
+✔ REX806 V1: the verifier passes an untampered artifact (947.5347ms)
+✔ REX806 verifier accepts real duplicate canonical execution outside the selected run task (952.1568ms)
+✔ REX806 verifier rejects a fabricated duplicate count with valid integrity hashes (960.652ms)
+✔ REX806 verifier rejects task associations outside the canonical source pointers (951.6051ms)
+✔ REX806 verifier rejects counting one canonical task twice even when metrics agree (968.4751ms)
+✔ REX806 V2: a tampered metric value is caught (976.7931ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (965.864ms)
+✔ REX806 V4: a missing section is caught (993.4859ms)
+✔ REX806 V5: a changed dataset timestamp is caught (1003.9722ms)
+✔ REX806 V6: a fabricated intervention count is caught (961.8913ms)
+✔ REX807 S9: the surface refuses to exist if any advanced control could be triggered without confirmation (1.6549ms)
+✔ REX807 S10: the client confirmation rule refuses anything except the exact token the gateway enforces (173.9965ms)
+✔ REX807 S11: in a real browser a wrong confirmation injects nothing, and the exact token then injects (1552.4482ms)
+✔ REX807 S12: the Owner downloads the research artifact from the page, with no API call and no console (1818.5902ms)
+✔ REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics (2.1453ms)
+✔ REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default (0.3499ms)
+✔ REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons (0.3009ms)
+✔ REX807 S4: a payload field this view does not place is reported, never silently dropped (0.7342ms)
+✔ REX807 S5: the research entry is secondary and the primary surfaces stay clean (0.6134ms)
+✔ REX807 S6: nothing INTERNAL_ONLY is rendered as a user control (0.2586ms)
+✔ REX807 S7: the same payload renders in zh-CN with real translation, not English fallback (0.269ms)
+✔ REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts (25.149ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 21708.7193

@@ -1,0 +1,33 @@
+✔ REX806 S1: the owner can read the artifact export and its preview (148.0078ms)
+✔ REX806 S2: a member session cannot read the artifact export (133.4586ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (77.705ms)
+✔ REX806 S4: the preview is bounded and says so (102.3734ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (67.9695ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (103.0221ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (80.3096ms)
+✔ REX806 V1: the verifier passes an untampered artifact (966.8993ms)
+✔ REX806 V2: a tampered metric value is caught (960.1097ms)
+✔ REX806 V3: an emptied NOT_MEASURED reason is caught (961.83ms)
+✔ REX806 V4: a missing section is caught (971.4347ms)
+✔ REX806 V5: a changed dataset timestamp is caught (977.8051ms)
+✔ REX806 V6: a fabricated intervention count is caught (954.1152ms)
+✔ REX807 S9: the surface refuses to exist if any advanced control could be triggered without confirmation (2.2374ms)
+✔ REX807 S10: the client confirmation rule refuses anything except the exact token the gateway enforces (184.9885ms)
+✔ REX807 S11: in a real browser a wrong confirmation injects nothing, and the exact token then injects (1610.0768ms)
+✔ REX807 S12: the Owner downloads the research artifact from the page, with no API call and no console (2162.8959ms)
+✔ REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics (3.0381ms)
+✔ REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default (0.373ms)
+✔ REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons (0.29ms)
+✔ REX807 S4: a payload field this view does not place is reported, never silently dropped (0.7389ms)
+✔ REX807 S5: the research entry is secondary and the primary surfaces stay clean (0.6243ms)
+✔ REX807 S6: nothing INTERNAL_ONLY is rendered as a user control (0.2612ms)
+✔ REX807 S7: the same payload renders in zh-CN with real translation, not English fallback (0.2569ms)
+✔ REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts (33.8474ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15276.8485
