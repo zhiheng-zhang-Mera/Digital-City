@@ -1,0 +1,30 @@
+✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (2126.1609ms)
+✔ durable claim nonce, exact principal and current grant block replay or revoked worker (68.8762ms)
+✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (1091.5241ms)
+✔ stop control requests stop without committing terminal state (71.9846ms)
+✖ registration bridge rechecks current worker grant instead of granting an invented membership (53.5019ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4389.7834
+
+✖ failing tests:
+
+test at tests\pcf-stagec-remote-worker.test.mjs:19:1
+✖ registration bridge rechecks current worker grant instead of granting an invented membership (53.5019ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:19:254
+      at async fixture (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-remote-worker.test.mjs:13:2329)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'WORKER_UNAUTHORIZED' },
+    operator: 'rejects',
+    diff: 'simple'
+  }

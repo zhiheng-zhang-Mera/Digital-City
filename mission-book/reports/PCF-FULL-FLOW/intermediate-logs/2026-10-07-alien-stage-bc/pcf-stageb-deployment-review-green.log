@@ -1,0 +1,13 @@
+✔ 716 review duplicate START preserves one owned runtime (2.1123ms)
+✔ 716 review restored running manifest cannot uninstall unknown runtime (0.1809ms)
+✔ 716 review restored owned runtime reconciles before stopping and uninstalling (0.7778ms)
+✔ 716 review invalid rollback never calls adapter or corrupts manifest (0.2189ms)
+✔ 716 review real ancestor junction cannot redirect candidate metadata writes (784.6567ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1754.2235

@@ -1,0 +1,15 @@
+{
+  "testFiles": 184,
+  "exclusions": [
+    {
+      "cases": 3,
+      "state": "ENVIRONMENT_BLOCKED",
+      "reason": "Preserve resident Mech-linked City on port 4389",
+      "file": "tests/host-city-launcher.test.mjs"
+    }
+  ],
+  "verificationMode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "cleanBefore": true,
+  "concurrency": 2,
+  "sourceSha": "998440c7772cc032d012b457c2a59cd1059826c0"
+}

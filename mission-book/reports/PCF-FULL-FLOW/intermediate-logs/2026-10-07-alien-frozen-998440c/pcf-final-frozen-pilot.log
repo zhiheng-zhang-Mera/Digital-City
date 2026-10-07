@@ -1,0 +1,116 @@
+{
+  "reportPath": "D:\\Utopia-tree\\PCF-700-790\\Utopia-PCF-FullFlow-Alien-20261007\\.runtime\\pcf-full-local-pilot-5fcb4cd2-46fa-407c-9518-98207e3de1b0\\report.json",
+  "version": 1,
+  "softwareSha": "998440c7772cc032d012b457c2a59cd1059826c0",
+  "host": "Mera-Alianware",
+  "capturedAt": "2026-10-07T01:47:43.682Z",
+  "evidenceClass": "ACTUAL_LOCAL_CPU",
+  "verificationMode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "oppositeHostValidation": "NOT_RUN",
+  "programmeAcceptance": "NOT_COMPLETE",
+  "elapsedMs": 2005,
+  "receipts": [
+    {
+      "version": 1,
+      "taskId": "pilot-task-0",
+      "actionId": "pilot-action-0",
+      "parentSessionId": "local-pilot-6fdb44a8-326b-4174-9945-021a5f9b6597",
+      "attemptId": "4744cd24-ad58-4a09-bade-fdd399d8f721",
+      "epoch": 1,
+      "executorDeviceId": "local-Mera-Alianware",
+      "bootId": "PROCESS_EPOCH:27264",
+      "providerId": "pcf-fixed-cpu-v1",
+      "inputDigest": "707188d2ce3b861022fe17f39b7ca4ec2fc30e78be7d208f1f92fa6ad6c7006a",
+      "outputDigest": "7fcb6bf3398a7fc28a1cf73daa12a476942979a3d18043c5a40b89ef13a93643",
+      "digest": "7fcb6bf3398a7fc28a1cf73daa12a476942979a3d18043c5a40b89ef13a93643",
+      "policyVersion": 1,
+      "outcome": "SUCCEEDED",
+      "exitCode": 0,
+      "outputRef": {
+        "owner": "local-pilot-6fdb44a8-326b-4174-9945-021a5f9b6597",
+        "dataScope": "PUBLIC",
+        "expiresAt": 1791424063604,
+        "schema": "json",
+        "version": 1,
+        "id": "9c523b19-bc77-40bb-9b3d-f709936a377d",
+        "digest": "7fcb6bf3398a7fc28a1cf73daa12a476942979a3d18043c5a40b89ef13a93643",
+        "size": 48906
+      },
+      "pid": 440,
+      "evidenceClass": "ACTUAL_LOCAL_CPU"
+    },
+    {
+      "version": 1,
+      "taskId": "pilot-task-1",
+      "actionId": "pilot-action-1",
+      "parentSessionId": "local-pilot-6fdb44a8-326b-4174-9945-021a5f9b6597",
+      "attemptId": "d35011d1-30a2-420f-80c3-53ccab9cbec2",
+      "epoch": 2,
+      "executorDeviceId": "local-Mera-Alianware",
+      "bootId": "PROCESS_EPOCH:27264",
+      "providerId": "pcf-fixed-cpu-v1",
+      "inputDigest": "1fc97b46648d93080b4910f36aec554b07b36bd170931d2e00447682ee97f044",
+      "outputDigest": "9e20b52bd305735c3432a4171a58ffedf8e822c39e3b1aa379bc253e67761628",
+      "digest": "9e20b52bd305735c3432a4171a58ffedf8e822c39e3b1aa379bc253e67761628",
+      "policyVersion": 1,
+      "outcome": "SUCCEEDED",
+      "exitCode": 0,
+      "outputRef": {
+        "owner": "local-pilot-6fdb44a8-326b-4174-9945-021a5f9b6597",
+        "dataScope": "PUBLIC",
+        "expiresAt": 1791424063670,
+        "schema": "json",
+        "version": 1,
+        "id": "d6efb699-2b6d-4a61-ab08-f26ce33ab00e",
+        "digest": "9e20b52bd305735c3432a4171a58ffedf8e822c39e3b1aa379bc253e67761628",
+        "size": 31
+      },
+      "pid": 1992,
+      "evidenceClass": "ACTUAL_LOCAL_CPU"
+    }
+  ],
+  "outputs": [
+    {
+      "sortedItems": 10000,
+      "first": 1,
+      "last": 10000
+    },
+    {
+      "sum": 50005000,
+      "cursor": 10000
+    }
+  ],
+  "originReturns": [
+    {
+      "taskId": "pilot-task-0",
+      "delivered": true,
+      "consumed": true
+    },
+    {
+      "taskId": "pilot-task-1",
+      "delivered": true,
+      "consumed": true
+    }
+  ],
+  "remainingReservations": 0,
+  "gpu": [
+    {
+      "state": "OBSERVED",
+      "source": "NVIDIA_SMI",
+      "observedAt": 1791337663683,
+      "memoryTotalBytes": 8589934592,
+      "memoryFreeBytes": 7601127424,
+      "temperatureCelsius": 50,
+      "powerWatts": 31.41,
+      "name": "NVIDIA GeForce RTX 2070 Super",
+      "energyJoules": null,
+      "reservedMemoryBytes": null,
+      "validUntil": 1791337668683,
+      "deviceKind": "GPU",
+      "deviceId": "GPU-b644a22a-9257-9e24-76e8-6d3bc4c9ee01",
+      "driverVersion": "581.95",
+      "runtimeVersion": null,
+      "utilizationRatio": 0.08
+    }
+  ]
+}

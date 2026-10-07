@@ -1,0 +1,17 @@
+{
+  "codex": {
+    "executable": "C:\\Users\\15601\\.codex\\.sandbox-bin\\codex.EXE",
+    "exit_code": 0,
+    "output": "codex-cli 0.153.0"
+  },
+  "wsl": {
+    "executable": "C:\\Windows\\system32\\wsl.EXE",
+    "exit_code": 1,
+    "output": "未安装适用于 Linux 的 Windows 子系统。可通过运行 “wsl.exe --install” 进行安装。\r\r\n有关详细信息，请访问 https://aka.ms/wslinstall"
+  },
+  "adb": {
+    "executable": "D:/Tools/UtopiaAndroidSdk/platform-tools/adb.exe",
+    "exit_code": 0,
+    "output": "List of devices attached\r\nBICIPVNB5HS85H9T\tdevice"
+  }
+}

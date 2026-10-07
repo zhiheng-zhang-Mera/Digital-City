@@ -1,0 +1,33 @@
+✔ pins and leases survive restart and revoked bytes are visibly deleted (25.549ms)
+✔ corruption and authorization revoked before publication keep bytes unavailable (12.0799ms)
+✔ expired and revoked partials can be authorized cancelled with visible cleanup failure and retry (13.8696ms)
+✔ transfer publish recovers index fault and descriptor cleanup fault idempotently without double quota (19.3603ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (0.8817ms)
+✔ transfer descriptors cannot overwrite owner authorization or schema (1.9873ms)
+✔ partial transfer resumes across instances only with matching version and digest (14.1702ms)
+✖ approved fenced new attempt restores real chunked CPU state and retains old binding (20.0281ms)
+✔ new attempt recovery rejects absent compatibility and legacy same-attempt remains readable (7.5364ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1895.5554
+
+✖ failing tests:
+
+test at tests\pcf711-checkpoints.test.mjs:8:1
+✖ approved fenced new attempt restores real chunked CPU state and retains old binding (20.0281ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf711-checkpoints.test.mjs:20:2)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /CHECKPOINT_RESTORE_ALREADY_CLAIMED/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

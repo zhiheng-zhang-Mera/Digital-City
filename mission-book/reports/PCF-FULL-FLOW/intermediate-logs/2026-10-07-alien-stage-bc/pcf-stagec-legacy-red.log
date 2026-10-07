@@ -1,0 +1,40 @@
+✖ legacy backend cannot claim or report a capsule-owned PCF task; ordinary WAIT remains claimable (143.5849ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1246.6381
+
+✖ failing tests:
+
+test at tests\pcf-stagec-legacy-boundary.test.mjs:2:1
+✖ legacy backend cannot claim or report a capsule-owned PCF task; ordinary WAIT remains claimable (143.5849ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   assignedNodeId: 'alien',
+  +   executionBackendId: 'pcf-v1',
+  +   id: 'pcf',
+  +   progress: 0,
+  +   state: 'ASSIGNED',
+  +   targetDeviceRef: 'alien',
+  +   type: 'PCF_CPU_JSON',
+  +   updatedAt: '2026-10-07T01:18:32.720Z'
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-stagec-legacy-boundary.test.mjs:2:876)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'pcf', type: 'PCF_CPU_JSON', state: 'ASSIGNED', executionBackendId: 'pcf-v1', targetDeviceRef: 'alien', progress: 0, assignedNodeId: 'alien', updatedAt: '2026-10-07T01:18:32.720Z' },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

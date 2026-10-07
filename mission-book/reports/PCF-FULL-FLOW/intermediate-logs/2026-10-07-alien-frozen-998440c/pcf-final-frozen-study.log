@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "runId": "pcf-study-558f7c27-7b1b-4aab-9aac-d0ba9900774a",
+  "configDigest": "7c55f3607a67a4faecc68f9044f231a8c5d9d66e85cf8adc8574c75d92dccdbb",
+  "sourceIdentity": {
+    "head": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "clean": true,
+    "state": "CLEAN_EXACT_SHA",
+    "dirtyFiles": [],
+    "indexDiffDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshotDigest": "2d9a4454cc032a28479196c6dc1707a33cc38398a89325ab62b73db83fb35891",
+    "frozenSource": true
+  },
+  "sourceAfter": {
+    "head": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "clean": true,
+    "state": "CLEAN_EXACT_SHA",
+    "dirtyFiles": [],
+    "indexDiffDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshotDigest": "2d9a4454cc032a28479196c6dc1707a33cc38398a89325ab62b73db83fb35891",
+    "frozenSource": true
+  },
+  "evidenceClass": "ACTUAL_LOCAL_CPU",
+  "trials": [
+    {
+      "repetition": 0,
+      "appId": "cpu-sort",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-dc4206a8-e4f8-436d-b3b7-c32af4b4e1f1",
+      "actionRef": "A-ade1b410-0a59-473a-900e-79a68076a07f",
+      "processId": 18084,
+      "output": {
+        "values": [
+          -2,
+          0,
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 1087.3884,
+      "outputDigest": "a691bb1faeabd4769d7f36bf40fbe940829f72e22236c6873af0b0db6ade159f"
+    },
+    {
+      "repetition": 0,
+      "appId": "cpu-sum",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-7c34efdc-860b-46b7-8731-f7397df55dec",
+      "actionRef": "A-fbe02ed5-5f00-4599-a6b8-674f073de8fe",
+      "processId": 13280,
+      "output": {
+        "sum": 19,
+        "cursor": 6
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 1085.7320000000002,
+      "outputDigest": "7c5ae92b6d4c08c1d190e1a9b6fc89df76913989678c80fcc58c5743766c8350"
+    },
+    {
+      "repetition": 1,
+      "appId": "cpu-sort",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-9ddfb3a7-2f51-4ed4-bcc1-6163fb15d6f0",
+      "actionRef": "A-626779ab-ffc4-4ab1-8a1c-42abeec8d573",
+      "processId": 25208,
+      "output": {
+        "values": [
+          -2,
+          0,
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 1111.8539999999994,
+      "outputDigest": "a691bb1faeabd4769d7f36bf40fbe940829f72e22236c6873af0b0db6ade159f"
+    },
+    {
+      "repetition": 1,
+      "appId": "cpu-sum",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-abcc7c98-8abe-4198-a17d-bd5703fa790b",
+      "actionRef": "A-ed39e432-a04d-4fb3-b5b8-58368648a654",
+      "processId": 25856,
+      "output": {
+        "sum": 19,
+        "cursor": 6
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 1242.4265000000005,
+      "outputDigest": "7c5ae92b6d4c08c1d190e1a9b6fc89df76913989678c80fcc58c5743766c8350"
+    },
+    {
+      "repetition": 2,
+      "appId": "cpu-sort",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-e0b84b70-5c82-4baa-b355-fcdf75ad4034",
+      "actionRef": "A-1cd0b599-cbbe-4477-b131-50f371355fd8",
+      "processId": 28132,
+      "output": {
+        "values": [
+          -2,
+          0,
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 1202.9975000000004,
+      "outputDigest": "a691bb1faeabd4769d7f36bf40fbe940829f72e22236c6873af0b0db6ade159f"
+    },
+    {
+      "repetition": 2,
+      "appId": "cpu-sum",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-07247050-97a9-4bdc-8f5e-a3691fd3f6c4",
+      "actionRef": "A-ca32f3dd-2b18-4eea-92b3-ae59a2fcc677",
+      "processId": 28224,
+      "output": {
+        "sum": 19,
+        "cursor": 6
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 1088.9533999999994,
+      "outputDigest": "7c5ae92b6d4c08c1d190e1a9b6fc89df76913989678c80fcc58c5743766c8350"
+    }
+  ],
+  "summary": {
+    "planned": 6,
+    "completed": 6,
+    "failed": 0,
+    "notRun": 0,
+    "other": 0,
+    "latencyMs": {
+      "n": 6,
+      "min": 1085.7320000000002,
+      "max": 1242.4265000000005,
+      "mean": 1136.5586333333333
+    },
+    "analysis": "DESCRIPTIVE_ONLY",
+    "unmeasured": [
+      "cpuPercent",
+      "memoryBytes",
+      "SLO",
+      "recovery",
+      "observerOverhead",
+      "clockSkew"
+    ]
+  },
+  "infrastructureFailures": [],
+  "trace": {
+    "directory": "D:\\Utopia-tree\\PCF-700-790\\Utopia-PCF-FullFlow-Alien-20261007\\.runtime\\pcf-final-frozen-study\\pcf-study-558f7c27-7b1b-4aab-9aac-d0ba9900774a-trace",
+    "replayValidated": true,
+    "recordCount": 12,
+    "completeness": "PARTIAL",
+    "droppedRecords": 0,
+    "retentionTruncated": false,
+    "adapter": {
+      "enabled": true,
+      "dropped": 0
+    },
+    "failures": []
+  },
+  "physicalAcceptance": "NOT_RUN",
+  "requiredEvidence": {
+    "mechIndependentRebuild": "NOT_RUN",
+    "rexRunnerFaultReplayExport": "NOT_RUN",
+    "mixedEngineeringMLWorkloads": "NOT_RUN",
+    "crossHost": "NOT_RUN",
+    "statisticalBenefit": "NOT_RUN"
+  }
+}

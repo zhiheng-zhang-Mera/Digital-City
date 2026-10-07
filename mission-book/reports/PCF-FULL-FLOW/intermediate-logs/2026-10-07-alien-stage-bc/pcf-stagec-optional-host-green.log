@@ -1,0 +1,13 @@
+﹣ 718 portable fixed worker uses real POSIX process lifecycle on Linux CI (0.9478ms) # No Linux runtime on this host; Linux CI component evidence is separate from physical acceptance
+✔ 720 stable driver/device identity, explicit units and safe integer bounds reject overflow and ambiguous source (1.2649ms)
+✔ 720 current canonical reservations and explicit safety constraints refuse stale/driver-change/hot/unknown measurements (0.4327ms)
+✔ 720 optional adapter reuses 701 observations and does not silently aggregate heterogeneous GPUs (1.6632ms)
+✔ 720 absent driver remains UNSUPPORTED rather than invented zero (101.3348ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 2024.4037

@@ -1,0 +1,23 @@
+✔ 705: side-effect unknown/strict target/still-live worker cannot silently retry (3.9285ms)
+✔ 712: reconciliation is bounded and proposes, never invents task/stop proof or repeats live start (1.7809ms)
+✔ 713: stale SLO observations and unknown preference cannot trigger irreversible/paid/offload change (1.4736ms)
+✔ 714: origin projection requires current session ownership and bounded gap-aware deduplicated cursor (2.2509ms)
+✔ 728: bridge uses canonical methods; result delivery is distinct from explicit session consumption (2.6397ms)
+✔ 727: actual ConnectorPort methods required; missing runtime stays unavailable, no CPU substitution (1.8382ms)
+✔ full local candidate: two real CPU applications execute through canonical admission/artifacts/capsule/receipt/origin/consumption (4389.1047ms)
+✔ review: canonical task ownership cannot be substituted by a caller workload (141.6023ms)
+✔ review: terminal attempt retention remains bounded without stopping job 257 (4257.7033ms)
+✔ review: separate artifact stores cannot acknowledge over-quota concurrent publications (8.7457ms)
+✔ 702: feasibility precedes ranking; stale/unknown/untrusted/strict/capability constraints cannot win (3.6514ms)
+✔ 704/712: canonical CAS admission, idempotence, epoch fencing, commit and restart preserve one task truth (144.1672ms)
+✔ 704: changed policy/version or observation cannot be admitted (93.0458ms)
+✔ canonical Task uses COMPLETED while capsule outcome remains SUCCEEDED (108.1369ms)
+✔ uncertain side effects keep running canonical truth, reservation and visible attention (96.8857ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10776.0243

@@ -1,0 +1,35 @@
+✔ pins and leases survive restart and revoked bytes are visibly deleted (32.0238ms)
+✔ corruption and authorization revoked before publication keep bytes unavailable (12.5205ms)
+✖ authorization revoked during direct publication removes partial and restores quota (3.6004ms)
+✔ expired and revoked partials can be authorized cancelled with visible cleanup failure and retry (13.9499ms)
+✔ transfer publish recovers index fault and descriptor cleanup fault idempotently without double quota (19.3129ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (0.7915ms)
+✔ transfer descriptors cannot overwrite owner authorization or schema (1.9929ms)
+✔ partial transfer resumes across instances only with matching version and digest (13.4168ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1066.0058
+
+✖ failing tests:
+
+test at tests\pcf709-artifacts.test.mjs:22:1
+✖ authorization revoked during direct publication removes partial and restores quota (3.6004ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf709-artifacts.test.mjs:26:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

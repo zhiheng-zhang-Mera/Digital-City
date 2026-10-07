@@ -1,0 +1,11 @@
+✔ PCF-719 service stays non-exported and has no launch-intent grant (0.8698ms)
+✔ PCF-719 visibility comes from observed application lifecycle and fresh execution checks (0.2015ms)
+✔ PCF-719 allowlist, identity separation and fail-closed resource gates remain bounded (0.2398ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 989.0058

@@ -1,0 +1,30 @@
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+✖ staged-only source contents and index changes alter bounded snapshot identity in an isolated repository (1415.8454ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2530.3619
+
+✖ failing tests:
+
+test at tests\pcf721-study.test.mjs:21:1
+✖ staged-only source contents and index changes alter bounded snapshot identity in an isolated repository (1415.8454ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(first.dirtyFiles.some(f=>f.path==='source.mjs'))
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf721-study.test.mjs:21:792)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,57 @@
+✔ fixed invocation never accepts arbitrary argv or latest session (2.1945ms)
+✔ unapproved provider remains NOT_RUN and unknown attachment refused (0.6054ms)
+✔ real subprocess fixture captures JSONL exit and refuses duplicate attempt (1017.6124ms)
+✔ bounded malformed stream fails and cancellation waits for process close (1885.225ms)
+✔ adapter binds real ConnectorPort inventory without claiming readiness (0.3944ms)
+✔ nonzero exit and invalid JSONL do not become success (1968.6815ms)
+✖ caller mutation across workspace validation cannot change verified execution (3.4495ms)
+✖ production cannot inject a workspace validator or provider fixture argv (0.257ms)
+✔ facade forwards canonical receipts and keeps delivered distinct from consumed (1.5326ms)
+✔ each invocation rechecks current authority including retrieval (0.2036ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 8
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5897.1408
+
+✖ failing tests:
+
+test at tests\pcf727-runtime.test.mjs:49:1
+✖ caller mutation across workspace validation cannot change verified execution (3.4495ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'changed'
+  - 'original'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf727-runtime.test.mjs:55:88)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'changed',
+    expected: 'original',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf727-runtime.test.mjs:58:1
+✖ production cannot inject a workspace validator or provider fixture argv (0.257ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf727-runtime.test.mjs:59:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /FIXTURE_ONLY/,
+    operator: 'throws',
+    diff: 'simple'
+  }

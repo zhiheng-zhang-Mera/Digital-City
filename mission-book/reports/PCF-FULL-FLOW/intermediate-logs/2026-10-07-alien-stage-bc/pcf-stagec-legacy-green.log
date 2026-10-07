@@ -1,0 +1,16 @@
+✔ legacy backend cannot claim or report a capsule-owned PCF task; ordinary WAIT remains claimable (149.2708ms)
+✔ PCF-700 C1: a City with no fabric or workbench configuration starts and serves with the default backend (116.8268ms)
+✔ PCF-700 C2: a legacy untargeted task is still claimable by any able node (80.2028ms)
+✔ PCF-700 C3: a task whose strict target is absent is withheld from other nodes, never silently re-routed (75.4885ms)
+✔ PCF-700 C4: a result returns to the canonical origin surface, not only to the executor (87.8942ms)
+✔ PCF-700 C5: a legacy descriptor is tolerated by the contract, and the live route states what it requires (79.24ms)
+✔ PCF-700 C6: the HYBRID helper is exported but NOT wired into the gateway (frozen as NOT_WIRED) (1.3223ms)
+✔ PCF-700 C7: the pooled backend is registered but not active, and the strict-target guard is wired into claim (63.9783ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2498.6821

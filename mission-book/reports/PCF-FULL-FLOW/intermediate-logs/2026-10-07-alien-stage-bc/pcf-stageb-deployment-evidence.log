@@ -1,0 +1,8 @@
+PCF-716 candidate evidence 2026-10-07
+RED observed: node --test tests/pcf716-deployment.test.mjs -> 0 passed, 4 failed; preflightDeployment/createDeploymentController missing exports (function assertions and missing method failures).
+GREEN focused: node --test tests/pcf716-deployment.test.mjs tests/pcf-full-support.test.mjs -> 15 passed, 0 failed. Independent child is owned by fixture; spawned with windowsHide and stopped only through its recorded ChildProcess instance.
+No resident runtime/service/autostart/elevation/logoff/reboot invocation performed.
+Actual installed Windows service acceptance, disconnected configuration notebook, no interactive login, restart recovery, real City canary and rollback, production disk rotation: NOT_RUN.
+Initial lifecycle tests preceded implementation. Bounded helper and wrapper regression tests were added after helper/wrapper implementation and do not constitute TDD RED proof.
+Broad suite attempt INTERRUPTED at root request; concurrent full-suite is nonfinal. Root owns final full suite evidence.
+Review repair: 5 behavioral regression cases RED (5 failed) -> GREEN (5 passed), including real temporary junction safely targeting only fixture directory. Final scoped deployment+support 20 passed, 0 failed. Logs: pcf-stageb-deployment-review-red.log / pcf-stageb-deployment-review-green.log. Four Important review findings repaired; root owns independent re-review.

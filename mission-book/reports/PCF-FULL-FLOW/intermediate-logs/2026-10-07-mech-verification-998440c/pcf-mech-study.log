@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "runId": "pcf-study-cc92ef2d-d300-4372-91ab-a052b8adc801",
+  "configDigest": "3289af2470fef8b3482276708d6d18810f7f505683bfad1aa2be0f46ae06d5ea",
+  "sourceIdentity": {
+    "head": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "clean": true,
+    "state": "CLEAN_EXACT_SHA",
+    "dirtyFiles": [],
+    "indexDiffDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshotDigest": "2d9a4454cc032a28479196c6dc1707a33cc38398a89325ab62b73db83fb35891",
+    "frozenSource": true
+  },
+  "sourceAfter": {
+    "head": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "clean": true,
+    "state": "CLEAN_EXACT_SHA",
+    "dirtyFiles": [],
+    "indexDiffDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshotDigest": "2d9a4454cc032a28479196c6dc1707a33cc38398a89325ab62b73db83fb35891",
+    "frozenSource": true
+  },
+  "evidenceClass": "ACTUAL_LOCAL_CPU",
+  "trials": [
+    {
+      "repetition": 0,
+      "appId": "cpu-sort",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-3af516f0-482e-4967-b855-d370ded0838f",
+      "actionRef": "A-40dda2d8-86cb-4c8e-ba7c-340e199b19b6",
+      "processId": 37704,
+      "output": {
+        "values": [
+          -2,
+          0,
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 229.1721,
+      "outputDigest": "a691bb1faeabd4769d7f36bf40fbe940829f72e22236c6873af0b0db6ade159f"
+    },
+    {
+      "repetition": 0,
+      "appId": "cpu-sum",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-a8e85494-2d8d-4c50-9f42-79914fe0083c",
+      "actionRef": "A-94539c6e-1bd0-42a9-bc64-34ad392f2f9e",
+      "processId": 44164,
+      "output": {
+        "sum": 19,
+        "cursor": 6
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 219.11020000000008,
+      "outputDigest": "7c5ae92b6d4c08c1d190e1a9b6fc89df76913989678c80fcc58c5743766c8350"
+    },
+    {
+      "repetition": 1,
+      "appId": "cpu-sort",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-3a3fde72-e7f0-4199-961c-0cb40cbc986e",
+      "actionRef": "A-6bdc75e8-1537-474b-b143-aff6f5681ca9",
+      "processId": 49320,
+      "output": {
+        "values": [
+          -2,
+          0,
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 212.49399999999991,
+      "outputDigest": "a691bb1faeabd4769d7f36bf40fbe940829f72e22236c6873af0b0db6ade159f"
+    },
+    {
+      "repetition": 1,
+      "appId": "cpu-sum",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-194e0bd0-971c-4e5a-a9d9-2513bafdb0ff",
+      "actionRef": "A-7ef5d012-cf31-47a2-bda1-171cb9c9178a",
+      "processId": 36204,
+      "output": {
+        "sum": 19,
+        "cursor": 6
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 207.93280000000004,
+      "outputDigest": "7c5ae92b6d4c08c1d190e1a9b6fc89df76913989678c80fcc58c5743766c8350"
+    },
+    {
+      "repetition": 2,
+      "appId": "cpu-sort",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-21a312d2-a358-49a7-a3b5-ed970806f751",
+      "actionRef": "A-4463fbef-b62a-4e47-b16b-a16b52f9f8d9",
+      "processId": 47756,
+      "output": {
+        "values": [
+          -2,
+          0,
+          1,
+          5,
+          6,
+          9
+        ]
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 213.57050000000004,
+      "outputDigest": "a691bb1faeabd4769d7f36bf40fbe940829f72e22236c6873af0b0db6ade159f"
+    },
+    {
+      "repetition": 2,
+      "appId": "cpu-sum",
+      "evidenceClass": "ACTUAL_LOCAL_CPU",
+      "inputDigest": "fc5703a7543f5ce569f707552b95e97273e9f5f231c2582c344a22b311e70ddc",
+      "taskRef": "T-93d12424-811c-47dd-ac58-ea3f2cdcc9b4",
+      "actionRef": "A-41bb6f19-b7d4-48be-8fca-8b3e3664b759",
+      "processId": 10284,
+      "output": {
+        "sum": 19,
+        "cursor": 6
+      },
+      "error": null,
+      "state": "COMPLETED",
+      "durationMs": 212.5938000000001,
+      "outputDigest": "7c5ae92b6d4c08c1d190e1a9b6fc89df76913989678c80fcc58c5743766c8350"
+    }
+  ],
+  "summary": {
+    "planned": 6,
+    "completed": 6,
+    "failed": 0,
+    "notRun": 0,
+    "other": 0,
+    "latencyMs": {
+      "n": 6,
+      "min": 207.93280000000004,
+      "max": 229.1721,
+      "mean": 215.81223333333335
+    },
+    "analysis": "DESCRIPTIVE_ONLY",
+    "unmeasured": [
+      "cpuPercent",
+      "memoryBytes",
+      "SLO",
+      "recovery",
+      "observerOverhead",
+      "clockSkew"
+    ]
+  },
+  "infrastructureFailures": [],
+  "trace": {
+    "directory": "D:\\pcf-mech-verify-tools\\study-out\\pcf-study-cc92ef2d-d300-4372-91ab-a052b8adc801-trace",
+    "replayValidated": true,
+    "recordCount": 12,
+    "completeness": "PARTIAL",
+    "droppedRecords": 0,
+    "retentionTruncated": false,
+    "adapter": {
+      "enabled": true,
+      "dropped": 0
+    },
+    "failures": []
+  },
+  "physicalAcceptance": "NOT_RUN",
+  "requiredEvidence": {
+    "mechIndependentRebuild": "NOT_RUN",
+    "rexRunnerFaultReplayExport": "NOT_RUN",
+    "mixedEngineeringMLWorkloads": "NOT_RUN",
+    "crossHost": "NOT_RUN",
+    "statisticalBenefit": "NOT_RUN"
+  }
+}

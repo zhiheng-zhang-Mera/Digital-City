@@ -1,0 +1,22 @@
+✔ 709: opaque digest-checked artifacts reject traversal, revoked access and bounded quota overflow (14.6292ms)
+✔ 710: actual local CPU process produces JSON digest and identifies host/process; bounded/cancelled input refused (1392.8002ms)
+✔ 711: explicit compatible checkpoint restore completes identical CPU sum; incompatible input/attempt refused (1129.9734ms)
+✔ 703: declared DAG executes concurrent independent stages, dependency before consumer and cancellation propagates (29.6577ms)
+✔ 703: byte/item credit cannot overflow, double acknowledge, or continue after cancel (0.4795ms)
+✔ 709: caller metadata cannot overwrite storage identity, digest, size or schema version (1.8177ms)
+✔ 703: final-stage failure is never returned as an empty successful plan (0.524ms)
+✔ full local candidate: two real CPU applications execute through canonical admission/artifacts/capsule/receipt/origin/consumption (2240.0295ms)
+✔ review: canonical task ownership cannot be substituted by a caller workload (89.1919ms)
+✔ review: terminal attempt retention remains bounded without stopping job 257 (3407.5622ms)
+✔ review: separate artifact stores cannot acknowledge over-quota concurrent publications (11.1439ms)
+✔ 702: feasibility precedes ranking; stale/unknown/untrusted/strict/capability constraints cannot win (2.0464ms)
+✔ 704/712: canonical CAS admission, idempotence, epoch fencing, commit and restart preserve one task truth (129.522ms)
+✔ 704: changed policy/version or observation cannot be admitted (88.2978ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7087.4482

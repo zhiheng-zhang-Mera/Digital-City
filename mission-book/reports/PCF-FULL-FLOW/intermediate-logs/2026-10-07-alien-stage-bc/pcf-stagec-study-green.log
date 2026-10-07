@@ -1,0 +1,14 @@
+✔ configuration is detached, deeply frozen and refuses simulated actual labels (1.5429ms)
+✔ two actual local CPU workloads retain repetitions, canonical task/action, trace replay and digests (4291.8822ms)
+✔ authority refusals retained and never presented as completed CPU execution (78.8134ms)
+✔ counterfactual strategies reuse safety shield and never dispatch (0.348ms)
+✔ stopping rule preserves every remaining planned trial as NOT_RUN (82.6439ms)
+✔ trace replay rejects changed persisted normalization rather than asserting successful execution replay (2149.1899ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 7600.5823

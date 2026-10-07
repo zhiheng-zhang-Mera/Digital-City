@@ -1,0 +1,35 @@
+PASS  V1  the service reports READY_NOT_STARTED and names its execution scope and physical acceptance honestly
+        {"state":"READY_NOT_STARTED","running":0,"effectiveParallelism":2,"acceptBackground":true,"lastServiceError":null,"protection":{"enabled":false},"queued":0,"executionScope":"ACTUAL_LOCAL_CPU","physicalAcceptance":"NOT_RUN"}
+PASS  V2  start() reports RUNNING with a recorded owned supervisor
+        {"state":"RUNNING","running":0,"effectiveParallelism":2,"acceptBackground":true,"lastServiceError":null,"protection":{"enabled":false},"queued":0,"executionScope":"ACTUAL_LOCAL_CPU","physicalAcceptance":"NOT_RUN"}
+PASS  V3  a caller whose parentSessionId is not its own session is refused at submission
+        code=CALLER_BINDING
+PASS  V3b  and the refused submission created no canonical task at all
+        pcf tasks=0
+PASS  V4  a well-formed request is admitted with canonical task and action identities
+        {"taskId":"T-4bb3f91c-a2f0-41a4-b660-d010880c1113","actionId":"A-e63871b8-125c-4763-9dc2-250749102b35","replayed":false}
+PASS  V5  the canonical Task reaches COMPLETED and its Action reports SUCCEEDED with a result reference
+        task=COMPLETED action=SUCCEEDED resultRef={"kind":"CITY_TASK_RESULT","id":"T-4bb3f91c-a2f0-41a4-b660-d010880c1113","digest":"a5ddd7dd2c47884b2721d17929b279b7a39f34ad48bdceee1f2cc65c2e11ba60","summary":"Approved local CPU application completed."}
+PASS  V6  collect() returns the real sorted output with a digest, delivered but NOT yet consumed
+        output={"values":[1,4,5,7,9]} consumed=false digest=a5ddd7dd2c47884b
+PASS  V7  consumption requires the exact digest, and only then does collect() report consumed
+        ack={"taskId":"T-4bb3f91c-a2f0-41a4-b660-d010880c1113","consumed":true} consumedAfter=true
+PASS  V8  acknowledging with the wrong digest is refused
+        code=CONSUMPTION_DIGEST
+PASS  V9  re-submitting the same idempotency key with the same payload replays instead of executing again
+        {"taskId":"T-4bb3f91c-a2f0-41a4-b660-d010880c1113","actionId":"A-e63871b8-125c-4763-9dc2-250749102b35","replayed":true}
+PASS  V10  the same idempotency key with a different payload is refused as a conflict
+        code=IDEMPOTENCY_CONFLICT
+PASS  V11  two concurrently admitted workloads both complete with correct arithmetic
+        sumA=10 sumB=60
+PASS  V12  genuinely different child processes executed the work (no fabricated or reused pid)
+        pids=[21152,38728,38856]
+PASS  V13  collecting an unknown task is refused rather than answering with empty data
+        code=ORIGIN_UNAUTHORIZED
+PASS  V14  the health surface still declines to claim physical acceptance after local execution
+        {"state":"RUNNING","running":0,"effectiveParallelism":2,"acceptBackground":true,"lastServiceError":null,"protection":{"enabled":false},"queued":0,"executionScope":"ACTUAL_LOCAL_CPU","physicalAcceptance":"NOT_RUN"}
+PASS  V15  drain() then stop() leaves the service STOPPED
+        {"state":"STOPPED","running":0,"effectiveParallelism":2,"acceptBackground":true,"lastServiceError":null,"protection":{"enabled":false},"queued":0,"executionScope":"ACTUAL_LOCAL_CPU","physicalAcceptance":"NOT_RUN"}
+
+16/16 independent service checks pass
+Frozen candidate SHA under test: 998440c7772cc032d012b457c2a59cd1059826c0

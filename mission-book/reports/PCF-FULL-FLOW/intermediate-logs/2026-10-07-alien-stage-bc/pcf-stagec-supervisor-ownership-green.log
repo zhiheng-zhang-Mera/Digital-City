@@ -1,0 +1,12 @@
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (1049.7365ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (28.2143ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (25.6625ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (20.9535ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2095.0862

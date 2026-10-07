@@ -1,0 +1,39 @@
+✔ 704: bounded fair queue alternates app ownership and aging protects starvation (1.6623ms)
+✔ 715: projection labels absent execution/consumption separately and cannot mutate canonical state (0.3777ms)
+✔ 716: deployment plan is explicit opt-in, schema gated and never installs itself (0.185ms)
+✔ 707: existing canonical trace vocabulary reused; disabled/throwing sidecar never alters caller outcome (1.16ms)
+✔ 721/723: freeze actual/simulated evidence separately; adaptation cannot bypass approved feasible proposals (0.4927ms)
+✔ 720: actual driver units parsed; unsupported power/thermal remain unknown; bad memory never becomes zero (0.324ms)
+✔ optional: model/Linux/Android worker/HA readiness cannot be inferred from installed software or control client (0.1686ms)
+✖ review: NOT_RUN/UNKNOWN and string false are never observed prerequisites (3.9813ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1148.4416
+
+✖ failing tests:
+
+test at tests\pcf-full-support.test.mjs:15:1
+✖ review: NOT_RUN/UNKNOWN and string false are never observed prerequisites (3.9813ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(Object.values(result).every(v=>v==='PREREQUISITE_NOT_PROVEN'))
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-full-support.test.mjs:15:471)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

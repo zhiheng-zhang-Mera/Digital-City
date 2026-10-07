@@ -1,0 +1,239 @@
+✔ 705: side-effect unknown/strict target/still-live worker cannot silently retry (1.6518ms)
+✔ 712: reconciliation is bounded and proposes, never invents task/stop proof or repeats live start (1.46ms)
+✔ 713: stale SLO observations and unknown preference cannot trigger irreversible/paid/offload change (0.4789ms)
+✔ 714: origin projection requires current session ownership and bounded gap-aware deduplicated cursor (1.2427ms)
+✔ 728: bridge uses canonical methods; result delivery is distinct from explicit session consumption (1.0408ms)
+✔ 727: actual ConnectorPort methods required; missing runtime stays unavailable, no CPU substitution (0.7114ms)
+✔ 709: opaque digest-checked artifacts reject traversal, revoked access and bounded quota overflow (44.1882ms)
+✔ 710: actual local CPU process produces JSON digest and identifies host/process; bounded/cancelled input refused (143.8035ms)
+✔ 711: explicit compatible checkpoint restore completes identical CPU sum; incompatible input/attempt refused (164.4992ms)
+✔ 703: declared DAG executes concurrent independent stages, dependency before consumer and cancellation propagates (32.7114ms)
+✔ 703: byte/item credit cannot overflow, double acknowledge, or continue after cancel (0.9293ms)
+✔ 709: caller metadata cannot overwrite storage identity, digest, size or schema version (3.153ms)
+✔ 703: final-stage failure is never returned as an empty successful plan (0.9047ms)
+✔ 706: remote work requires independent authorization, sharing, data scope, expiry and budget (4.8777ms)
+✔ 706: default policy remains origin-only; requests cannot broaden authority (0.5336ms)
+✔ 725: provider capabilities are typed; cooperative process cannot claim hard isolation (0.7157ms)
+✔ 708: canonical identity preserved; numeric/resource/QoS/version/depth inputs fail closed (1.2797ms)
+✔ 726: capsule binds immutable task/session/attempt/host/boot/epoch/digest; receipt is untrusted (2.2849ms)
+(node:16296) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ full local candidate: two real CPU applications execute through canonical admission/artifacts/capsule/receipt/origin/consumption (281.9754ms)
+(node:26632) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ review: canonical task ownership cannot be substituted by a caller workload (60.0524ms)
+✔ review: terminal attempt retention remains bounded without stopping job 257 (2163.6565ms)
+✔ review: separate artifact stores cannot acknowledge over-quota concurrent publications (30.9328ms)
+(node:41776) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 702: feasibility precedes ranking; stale/unknown/untrusted/strict/capability constraints cannot win (3.9551ms)
+✔ 704/712: canonical CAS admission, idempotence, epoch fencing, commit and restart preserve one task truth (97.718ms)
+✔ 704: changed policy/version or observation cannot be admitted (53.6051ms)
+✔ 704: bounded fair queue alternates app ownership and aging protects starvation (3.2312ms)
+✔ 715: projection labels absent execution/consumption separately and cannot mutate canonical state (0.88ms)
+✔ 716: deployment plan is explicit opt-in, schema gated and never installs itself (1.9605ms)
+✔ 707: existing canonical trace vocabulary reused; disabled/throwing sidecar never alters caller outcome (2.3328ms)
+✔ 721/723: freeze actual/simulated evidence separately; adaptation cannot bypass approved feasible proposals (0.9913ms)
+✔ 720: actual driver units parsed; unsupported power/thermal remain unknown; bad memory never becomes zero (0.6962ms)
+✔ optional: model/Linux/Android worker/HA readiness cannot be inferred from installed software or control client (0.359ms)
+✔ review: NOT_RUN/UNKNOWN and string false are never observed prerequisites (0.3331ms)
+(node:34984) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 715: existing gateway exposes owner-only, read-only PCF projection without enabling execution (181.3947ms)
+(node:30436) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ canonical Task uses COMPLETED while capsule outcome remains SUCCEEDED (100.6921ms)
+✔ uncertain side effects keep running canonical truth, reservation and visible attention (84.8422ms)
+(node:27448) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ default gateway retains readonly fabric and does not admit PCF jobs (176.7167ms)
+✔ explicit approved local owner executes CPU and acknowledges digest (298.9082ms)
+✔ enabled without approved device refuses startup (5.8151ms)
+✔ legacy cancellation cannot change PCF state and member session has no owner authority (256.5282ms)
+(node:13688) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ legacy backend cannot claim or report a capsule-owned PCF task; ordinary WAIT remains claimable (193.9142ms)
+✔ owned CPU work waits for durable start callback before receiving input (149.1555ms)
+✔ storage refusal before input stops the owned CPU child and cannot publish success (14.7142ms)
+(node:34312) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ recovery refuses timeout, PID-only, stale epoch, revoked authority and unknown effects (57.7662ms)
+✔ bound owned-stop proof requeues the same Task/Action once and fences old output (52.0439ms)
+✔ authority revoked during asynchronous stop proof cannot release or requeue (35.9326ms)
+(node:34068) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ opt-in canonical port uses two actual CPU processes through headless agents and WBC pool (483.8895ms)
+✔ durable claim nonce, exact principal and current grant block replay or revoked worker (74.294ms)
+✔ report refuses stale epoch, forged capsule, wrong bytes and missing trusted close proof (221.9276ms)
+✔ stop control requests stop without committing terminal state (68.9481ms)
+✔ registration bridge rechecks current worker grant instead of granting an invented membership (35.0514ms)
+✔ claim nonce survives reconstructed port and dormant port grants no endpoints (68.9999ms)
+✔ enabled remote port requires a synchronous current authority boundary (30.6802ms)
+✔ claim refuses owner revocation during awaited worker recheck before durable nonce (63.2847ms)
+✔ dispatch refuses worker revocation during final awaited owner policy read (62.4343ms)
+✔ report refuses grant revocation during final awaited owner read without canonical completion (224.4551ms)
+✔ input delivery refuses owner revocation during awaited artifact read (71.3234ms)
+(node:46072) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (268.2045ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (51.336ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (54.0487ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (39.9066ms)
+✔ drain fences an admission awaiting current authority and creates no late Task or Action (33.6756ms)
+(node:46048) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ PCF-700 C1: a City with no fabric or workbench configuration starts and serves with the default backend (186.4813ms)
+✔ PCF-700 C2: a legacy untargeted task is still claimable by any able node (88.6371ms)
+✔ PCF-700 C3: a task whose strict target is absent is withheld from other nodes, never silently re-routed (65.9589ms)
+✔ PCF-700 C4: a result returns to the canonical origin surface, not only to the executor (85.3455ms)
+✔ PCF-700 C5: a legacy descriptor is tolerated by the contract, and the live route states what it requires (64.8436ms)
+✔ PCF-700 C6: the HYBRID helper is exported but NOT wired into the gateway (frozen as NOT_WIRED) (3.2477ms)
+✔ PCF-700 C7: the pooled backend is registered but not active, and the strict-target guard is wired into claim (53.8677ms)
+✔ PCF-700 D1: no backend module imports a front-end module, so the UI -> backend direction stays acyclic (671.6465ms)
+✔ PCF-700 D2: every endpoint a user surface names is one the gateway actually serves (495.1918ms)
+✔ PCF-700 D3: every engineering and general-ai contract carries at least one test (636.4326ms)
+✔ PCF-700 D4: the fabric stays inside its declared paths, and no other domain imports it (571.614ms)
+✔ Alien CPU: Windows warmup must not publish the loadavg placeholder zero (2.671ms)
+✔ Alien CPU: Windows samples a real counter interval instead of loadavg zeros (0.7868ms)
+✔ Alien CPU: counter reset is unknown and reestablishes the next interval (0.4345ms)
+✔ Alien CPU: absent or unchanged counters never claim an observed zero (0.71ms)
+✔ PCF-701 T1: missing, NaN, negative and wrong-unit values never become 0 (3.7869ms)
+✔ PCF-701 T2: an out-of-order sample does not overwrite a newer value (0.7888ms)
+✔ PCF-701 T3: a sample from another boot epoch is not mixed into this boot (0.4176ms)
+✔ PCF-701 T4: a backwards clock cannot keep stale data fresh (0.8392ms)
+✔ PCF-701 T5: freshness at a later time expires, and a rewound caller clock cannot resurrect it (2.5513ms)
+✔ PCF-701 T6: an absent optional adapter is UNSUPPORTED, not zero (0.4051ms)
+✔ PCF-701 T7: a probe that never returns does not freeze the executor (39.778ms)
+✔ PCF-701 T8: a failed sampler is reported, and still no value is invented (0.82ms)
+✔ PCF-701 T9: the buffer is bounded and its drops are visible (0.8661ms)
+✔ PCF-701 T10: collection is rate limited and a throttled call does not probe (0.829ms)
+✔ PCF-701 T11: measurement overhead is measured, not guessed (0.6304ms)
+✔ PCF-701 T12: only authorised surfaces are ever looked at (1.682ms)
+✔ PCF-701 T14: total, free, reserved and in-use are separate facts, and one bad facet fails alone (0.728ms)
+✔ PCF-701 T15: a free figure larger than its total is refused as two unusable numbers (0.3771ms)
+✔ PCF-701 T16: the system adapter reports what it can read and names what it cannot (8.4681ms)
+✔ PCF-701 T17: an unavailable adapter keeps its dimensions named instead of dropping them (0.5645ms)
+✔ PCF-701 T18: latency belongs to a PATH, and an unmeasured path is never 0 ms (1.7584ms)
+✔ PCF-701 T19: a probe that hangs or lies becomes a bounded failure with growing backoff (92.2557ms)
+✔ PCF-701 T20: throughput is measured by moving bytes, never inferred from latency (30.5611ms)
+✔ PCF-701 T21: a queue with no declared source is UNSUPPORTED, never zero (1.41ms)
+✔ PCF-701 T22: occupancy is the runtime’s own responsiveness, measured or declared unsupported (3.5052ms)
+✔ PCF-701 T13: the same sample and context always produce the same observation (replayable) (1.3352ms)
+✔ pins and leases survive restart and revoked bytes are visibly deleted (134.8835ms)
+✔ corruption and authorization revoked before publication keep bytes unavailable (38.5106ms)
+✔ authorization revoked during direct publication removes partial and restores quota (6.701ms)
+✔ expired and revoked partials can be authorized cancelled with visible cleanup failure and retry (58.2093ms)
+✔ transfer publish recovers index fault and descriptor cleanup fault idempotently without double quota (81.3692ms)
+✔ cancelled journal-owned blob after chained index and cleanup faults remains counted unavailable storage (121.9255ms)
+✔ repository input manifest includes explicit dirty content and refuses secrets and traversal (2.377ms)
+✔ transfer descriptors cannot overwrite owner authorization or schema (4.0315ms)
+✔ partial transfer resumes across instances only with matching version and digest (54.9466ms)
+✔ approved fenced new attempt restores real chunked CPU state and retains old binding (64.5768ms)
+✔ new attempt recovery rejects absent compatibility and legacy same-attempt remains readable (27.3137ms)
+✔ 713 explicit measured miss only reduces own approved queue parallelism and user disable restores it (4.3677ms)
+✔ 713 unknown, stale and unapproved readings cannot actuate or claim hard realtime (3.3354ms)
+✔ 713 bounded sampling and generation fencing prevent late actuation after disable or revoke (257.0235ms)
+✔ 715 controls require configured running service; results returned and caller ack do not become Agent consumption (2.7681ms)
+✔ 715 malformed number input and stored task markup cannot cross the control form boundary (3.4007ms)
+(node:37564) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ 715 actual browser preserves open/focused drafts and results through snapshots with approved local controls (18766.7412ms)
+✔ 716 preflight rejects unsafe configuration and host conditions (2.3312ms)
+✔ 716 lifecycle defaults opt out and dry run; install duplicate and undrained upgrade refuse (1.1721ms)
+✔ 716 update requires completed drain, uses ordered canary and rolls back failed verification (1.9655ms)
+✔ 716 failed canary never switches; rollback failure remains attention (0.7092ms)
+✔ 716 bounded logs omit credentials and health probe rejects credentials (1.2453ms)
+✔ 716 independent owned child survives absent control surface and stops through its adapter (31.4922ms)
+✖ 716 PowerShell opt-out never reads missing config or creates candidate (5.2026ms)
+✔ 716 review duplicate START preserves one owned runtime (0.4087ms)
+✔ 716 review restored running manifest cannot uninstall unknown runtime (0.3406ms)
+✔ 716 review restored owned runtime reconciles before stopping and uninstalling (0.5057ms)
+✔ 716 review invalid rollback never calls adapter or corrupts manifest (0.3946ms)
+✖ 716 review real ancestor junction cannot redirect candidate metadata writes (7.1847ms)
+﹣ 718 portable fixed worker uses real POSIX process lifecycle on Linux CI (1.1947ms) # No Linux runtime on this host; Linux CI component evidence is separate from physical acceptance
+✔ PCF-719 service stays non-exported and has no launch-intent grant (1.7278ms)
+✔ PCF-719 visibility comes from observed application lifecycle and fresh execution checks (0.5029ms)
+✔ PCF-719 allowlist, identity separation and fail-closed resource gates remain bounded (0.5587ms)
+✔ 720 stable driver/device identity, explicit units and safe integer bounds reject overflow and ambiguous source (2.5749ms)
+✔ 720 current canonical reservations and explicit safety constraints refuse stale/driver-change/hot/unknown measurements (0.8354ms)
+✔ 720 optional adapter reuses 701 observations and does not silently aggregate heterogeneous GPUs (2.2917ms)
+✔ 720 absent driver remains UNSUPPORTED rather than invented zero (9.2586ms)
+✔ 720 malformed OBSERVED shape cannot invent available VRAM or survive invalid freshness (0.5657ms)
+✔ 720 real registry retains failed driver reads as UNKNOWN while absent driver remains UNSUPPORTED (1.7205ms)
+(node:24132) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ configuration is detached, deeply frozen and refuses simulated actual labels (3.3516ms)
+✔ two actual local CPU workloads retain repetitions, canonical task/action, trace replay and digests (2442.2396ms)
+✔ authority refusals retained and never presented as completed CPU execution (921.6324ms)
+✔ counterfactual strategies reuse safety shield and never dispatch (0.6854ms)
+✔ stopping rule preserves every remaining planned trial as NOT_RUN (926.1773ms)
+✔ trace replay rejects changed persisted normalization rather than asserting successful execution replay (1451.3375ms)
+✔ source mismatch and dirty checkout cannot become frozen provenance (3162.6855ms)
+✔ events infrastructure failure retains completed trial and every remaining planned sample in persisted report (1195.684ms)
+✔ report persistence failure exposes recoverable planned ledger and cannot report success (443.5805ms)
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ staged-only source contents and index changes alter bounded snapshot identity in an isolated repository (2400.6211ms)
+✔ fixed invocation never accepts arbitrary argv or latest session (3.3018ms)
+✔ unapproved provider remains NOT_RUN and unknown attachment refused (3.4291ms)
+✔ real subprocess fixture captures JSONL exit and refuses duplicate attempt (148.0245ms)
+✔ bounded malformed stream fails and cancellation waits for process close (145.0763ms)
+✔ adapter binds real ConnectorPort inventory without claiming readiness (0.7971ms)
+✔ nonzero exit and invalid JSONL do not become success (240.938ms)
+✔ caller mutation across workspace validation cannot change verified execution (125.2378ms)
+✔ production cannot inject a workspace validator or provider fixture argv (0.6162ms)
+✔ owned start is persisted before stdin and durable exit precedes collection (125.4285ms)
+✔ receipt disk failure is ATTENTION and cannot be collected (124.6666ms)
+✔ owner start refusal closes the owned process without delivering stdin (21.9727ms)
+✔ never-settling owner start has a bounded ATTENTION receipt and abort fence (59.2478ms)
+✔ late receipt persistence cannot turn callback timeout into success (162.6334ms)
+(node:26068) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ component fixture: real Store admission capsule subprocess durable receipt and same-caller consume (240.3704ms)
+✔ facade forwards canonical receipts and keeps delivered distinct from consumed (2.9529ms)
+✔ each invocation rechecks current authority including retrieval (0.4464ms)
+ℹ tests 164
+ℹ suites 0
+ℹ pass 161
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 27118.7974
+
+✖ failing tests:
+
+test at tests\pcf716-deployment.test.mjs:46:1
+✖ 716 PowerShell opt-out never reads missing config or creates candidate (5.2026ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  null !== 0
+  
+      at TestContext.<anonymous> (file:///D:/utopia-pcf-verify/tests/pcf716-deployment.test.mjs:47:259)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\pcf716-deployment.test.mjs:61:1
+✖ 716 review real ancestor junction cannot redirect candidate metadata writes (7.1847ms)
+  AssertionError [ERR_ASSERTION]: The "string" argument must be of type string. Received type undefined (undefined)
+      at TestContext.<anonymous> (file:///D:/utopia-pcf-verify/tests/pcf716-deployment.test.mjs:63:296)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1125:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:787:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /REPARSE_POINT_FORBIDDEN/,
+    operator: 'match',
+    diff: 'simple'
+  }

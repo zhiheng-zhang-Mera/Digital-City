@@ -1,0 +1,22 @@
+✔ configuration is detached, deeply frozen and refuses simulated actual labels (1.8312ms)
+✔ two actual local CPU workloads retain repetitions, canonical task/action, trace replay and digests (5720.301ms)
+✔ authority refusals retained and never presented as completed CPU execution (1515.1807ms)
+✔ counterfactual strategies reuse safety shield and never dispatch (0.3925ms)
+✔ stopping rule preserves every remaining planned trial as NOT_RUN (1525.5474ms)
+✔ trace replay rejects changed persisted normalization rather than asserting successful execution replay (3569.2261ms)
+✔ source mismatch and dirty checkout cannot become frozen provenance (2873.6806ms)
+✔ events infrastructure failure retains completed trial and every remaining planned sample in persisted report (2597.7033ms)
+✔ report persistence failure exposes recoverable planned ledger and cannot report success (806.9131ms)
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'source.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ staged-only source contents and index changes alter bounded snapshot identity in an isolated repository (3422.5541ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 23140.0595

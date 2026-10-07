@@ -1,0 +1,13 @@
+✔ 720 stable driver/device identity, explicit units and safe integer bounds reject overflow and ambiguous source (1.277ms)
+✔ 720 current canonical reservations and explicit safety constraints refuse stale/driver-change/hot/unknown measurements (0.3686ms)
+✔ 720 optional adapter reuses 701 observations and does not silently aggregate heterogeneous GPUs (1.4894ms)
+✔ 720 absent driver remains UNSUPPORTED rather than invented zero (90.2262ms)
+✔ 720 malformed OBSERVED shape cannot invent available VRAM or survive invalid freshness (0.2369ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1072.154

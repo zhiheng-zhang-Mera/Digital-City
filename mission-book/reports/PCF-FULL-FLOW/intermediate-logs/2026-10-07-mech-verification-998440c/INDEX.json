@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "verification_mode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "source_sha": "998440c7772cc032d012b457c2a59cd1059826c0",
+  "source_branch": "pcf/full-flow-alien-pending-verification-20261007",
+  "source_tree_clean_after": true,
+  "verified_by": [
+    {
+      "role": "AUTHOR",
+      "identity": "Alien-codex",
+      "host": "MERA-ALIANWARE",
+      "note": "authored the candidate and its frozen local evidence"
+    },
+    {
+      "role": "VERIFIER",
+      "identity": "Mech-DS",
+      "host": "Mega-rep",
+      "computerName": "MEGA-REP",
+      "note": "opposite physical host; independently reproduced and extended the evidence"
+    }
+  ],
+  "verification_instruments": "D:\\pcf-mech-verify-tools (deliberately outside the candidate tree, so the PCF-700 D4 path guard stays green)",
+  "verified_at": "2026-10-07T02:43:13.305Z",
+  "files": [
+    {
+      "name": "pcf-mech-source-tree-status.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "name": "pcf-mech-service-probe-run1.log",
+      "sha256": "9112c3e0ce20f3ea95ae3b86100ed91a3664326b899a945041d90bd7c30b9431",
+      "bytes": 3291
+    },
+    {
+      "name": "pcf-mech-gateway-probe-run1.log",
+      "sha256": "0b2540c4877c34710b5d9856e40834af7018bbf6f9c983e9816b5457158d1d12",
+      "bytes": 2723
+    },
+    {
+      "name": "pcf-mech-service-probe-run2.log",
+      "sha256": "26d36599d83f97c38ffd0e3c32c23f92072aebd20339259c9fa3fafcce192000",
+      "bytes": 3291
+    },
+    {
+      "name": "pcf-mech-gateway-probe-run2.log",
+      "sha256": "9bd3305769890540cf47e5bfbea607c632fef0e6899d270ceb7b633e830a48dd",
+      "bytes": 2723
+    },
+    {
+      "name": "pcf-mech-focused-suite.log",
+      "sha256": "1aace5d6015d91aef3f437ec51453213f666605b4aa55eb5783cf8c1519a23d5",
+      "bytes": 20772
+    },
+    {
+      "name": "pcf-mech-full-regression.log",
+      "sha256": "6f76d8885495ccbde36411d03b778515fb63555bb0e48e25cf7c66098974a564",
+      "bytes": 165719
+    },
+    {
+      "name": "pcf-mech-local-pilot.log",
+      "sha256": "c3915d74dd7afbeda84fa038305fc74ddf8d312dc60442ad88f0086f6a9006a3",
+      "bytes": 3786
+    },
+    {
+      "name": "pcf-mech-study.log",
+      "sha256": "2be778e781871a692179329aca8654cc363fb90127b793178296241298c63b17",
+      "bytes": 5709
+    },
+    {
+      "name": "pcf-mech-study-config.json",
+      "sha256": "ec41906620526abd832657741a1f6fc51b1bfdea8443d6f003a3abd1aa247ca8",
+      "bytes": 874
+    },
+    {
+      "name": "pcf-mech-actual-cpu-pilot-report.json",
+      "sha256": "7f56d66545bf584c4886f4f3b521401aac8626bd54ebede4230209a5efead36f",
+      "bytes": 3663
+    },
+    {
+      "name": "pcf-mech-study-report.json",
+      "sha256": "eca1f53ebab950d5134a57aac6770823fe94bc067aca29c01bf09348134b98a1",
+      "bytes": 5708
+    },
+    {
+      "name": "pcf-mech-service-probe.mjs",
+      "sha256": "2369d4a53213159570f7b981b97635e4d1d0f99905718163034f220a2a23e7d6",
+      "bytes": 8621
+    },
+    {
+      "name": "pcf-mech-gateway-probe.mjs",
+      "sha256": "077b1a97b76f6bbba97f7a255f4e02bb138c575eb80bd4eead8267c798acce0c",
+      "bytes": 8807
+    },
+    {
+      "name": "pcf-mech-powershell51-probe.ps1",
+      "sha256": "e23047cca5910e76929cac26843737d6c354dfa3962d05aff018d656468a0aa7",
+      "bytes": 1280
+    },
+    {
+      "name": "pcf-mech-powershell51-probe.log",
+      "sha256": "f5db5b22ad377c87a1db3532ede2790e8aab672552e23ad7c329466b62ebd083",
+      "bytes": 325
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+✔ 704: bounded fair queue alternates app ownership and aging protects starvation (1.6597ms)
+✔ 715: projection labels absent execution/consumption separately and cannot mutate canonical state (0.3935ms)
+✔ 716: deployment plan is explicit opt-in, schema gated and never installs itself (0.1836ms)
+✔ 707: existing canonical trace vocabulary reused; disabled/throwing sidecar never alters caller outcome (1.1174ms)
+✔ 721/723: freeze actual/simulated evidence separately; adaptation cannot bypass approved feasible proposals (0.4419ms)
+✔ 720: actual driver units parsed; unsupported power/thermal remain unknown; bad memory never becomes zero (0.3075ms)
+✔ optional: model/Linux/Android worker/HA readiness cannot be inferred from installed software or control client (0.1556ms)
+✔ review: NOT_RUN/UNKNOWN and string false are never observed prerequisites (0.1346ms)
+✔ 716 preflight rejects unsafe configuration and host conditions (1.7965ms)
+✔ 716 lifecycle defaults opt out and dry run; install duplicate and undrained upgrade refuse (0.465ms)
+✔ 716 update requires completed drain, uses ordered canary and rolls back failed verification (0.8798ms)
+✔ 716 failed canary never switches; rollback failure remains attention (0.3142ms)
+✔ 716 bounded logs omit credentials and health probe rejects credentials (0.5961ms)
+✔ 716 independent owned child survives absent control surface and stops through its adapter (918.5065ms)
+✔ 716 PowerShell opt-out never reads missing config or creates candidate (554.0026ms)
+✔ 716 review duplicate START preserves one owned runtime (0.3273ms)
+✔ 716 review restored running manifest cannot uninstall unknown runtime (0.2071ms)
+✔ 716 review restored owned runtime reconciles before stopping and uninstalling (0.266ms)
+✔ 716 review invalid rollback never calls adapter or corrupts manifest (0.2038ms)
+✔ 716 review real ancestor junction cannot redirect candidate metadata writes (793.4233ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4179.5023

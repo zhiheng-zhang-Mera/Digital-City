@@ -1,0 +1,27 @@
+{
+  "workbook": "PCF-719",
+  "scope": "LOCAL_DEVELOPMENT_ONLY",
+  "nativeUnitTests": 121.0,
+  "failures": 0,
+  "errors": 0,
+  "newPcfTests": 10,
+  "apkCompile": "PASS",
+  "physicalPhone": "NOT_MODIFIED_CONTROL_ONLY",
+  "serviceInstrumentation": "NOT_RUN",
+  "physicalBackgroundReclaim": "NOT_RUN",
+  "originalPhoneResultReturn": "NOT_RUN",
+  "ownerActivation": "NOT_PERFORMED",
+  "grantAuthenticationIntegration": "NOT_WIRED",
+  "tddRed": "Initial missing-type compilation RED; lifecycle repair additionally observed two behavioral assertion failures before GREEN",
+  "logs": [
+    "pcf-stageb-android-red.log",
+    "pcf-stageb-android-service-red.log",
+    "pcf-stageb-android-green.log",
+    "pcf-stageb-android-build.log",
+    "pcf-stageb-android-lifecycle-red.log",
+    "pcf-stageb-android-lifecycle-green.log",
+    "pcf-stageb-android-contract.log"
+  ],
+  "lifecycleRepair": "PASS: observed Activity lifecycle replaces caller visibility; failclosed initial; dispatch/completion read fresh",
+  "nodeStructuralContract": "PASS: 3 source/seam guards; not native runtime evidence"
+}

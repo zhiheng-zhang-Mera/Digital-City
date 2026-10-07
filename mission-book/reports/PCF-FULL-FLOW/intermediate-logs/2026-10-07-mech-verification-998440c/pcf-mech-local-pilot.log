@@ -1,0 +1,116 @@
+{
+  "reportPath": "D:\\utopia-pcf-verify\\.runtime\\pcf-full-local-pilot-0d276461-9576-430c-b503-a1f094f00218\\report.json",
+  "version": 1,
+  "softwareSha": "998440c7772cc032d012b457c2a59cd1059826c0",
+  "host": "Mega-rep",
+  "capturedAt": "2026-10-07T02:43:07.787Z",
+  "evidenceClass": "ACTUAL_LOCAL_CPU",
+  "verificationMode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "oppositeHostValidation": "NOT_RUN",
+  "programmeAcceptance": "NOT_COMPLETE",
+  "elapsedMs": 269,
+  "receipts": [
+    {
+      "version": 1,
+      "taskId": "pilot-task-0",
+      "actionId": "pilot-action-0",
+      "parentSessionId": "local-pilot-0cfa6940-62fe-4483-bb97-6920bd7c8039",
+      "attemptId": "bebd5a2b-5bf9-4770-92de-ea11e082cbef",
+      "epoch": 1,
+      "executorDeviceId": "local-Mega-rep",
+      "bootId": "PROCESS_EPOCH:17972",
+      "providerId": "pcf-fixed-cpu-v1",
+      "inputDigest": "707188d2ce3b861022fe17f39b7ca4ec2fc30e78be7d208f1f92fa6ad6c7006a",
+      "outputDigest": "7fcb6bf3398a7fc28a1cf73daa12a476942979a3d18043c5a40b89ef13a93643",
+      "digest": "7fcb6bf3398a7fc28a1cf73daa12a476942979a3d18043c5a40b89ef13a93643",
+      "policyVersion": 1,
+      "outcome": "SUCCEEDED",
+      "exitCode": 0,
+      "outputRef": {
+        "owner": "local-pilot-0cfa6940-62fe-4483-bb97-6920bd7c8039",
+        "dataScope": "PUBLIC",
+        "expiresAt": 1791427387739,
+        "schema": "json",
+        "version": 1,
+        "id": "3b64d999-1547-4429-9644-8a2f01abd481",
+        "digest": "7fcb6bf3398a7fc28a1cf73daa12a476942979a3d18043c5a40b89ef13a93643",
+        "size": 48906
+      },
+      "pid": 28532,
+      "evidenceClass": "ACTUAL_LOCAL_CPU"
+    },
+    {
+      "version": 1,
+      "taskId": "pilot-task-1",
+      "actionId": "pilot-action-1",
+      "parentSessionId": "local-pilot-0cfa6940-62fe-4483-bb97-6920bd7c8039",
+      "attemptId": "587fd1c7-9dfe-463e-ab1e-395692878194",
+      "epoch": 2,
+      "executorDeviceId": "local-Mega-rep",
+      "bootId": "PROCESS_EPOCH:17972",
+      "providerId": "pcf-fixed-cpu-v1",
+      "inputDigest": "1fc97b46648d93080b4910f36aec554b07b36bd170931d2e00447682ee97f044",
+      "outputDigest": "9e20b52bd305735c3432a4171a58ffedf8e822c39e3b1aa379bc253e67761628",
+      "digest": "9e20b52bd305735c3432a4171a58ffedf8e822c39e3b1aa379bc253e67761628",
+      "policyVersion": 1,
+      "outcome": "SUCCEEDED",
+      "exitCode": 0,
+      "outputRef": {
+        "owner": "local-pilot-0cfa6940-62fe-4483-bb97-6920bd7c8039",
+        "dataScope": "PUBLIC",
+        "expiresAt": 1791427387772,
+        "schema": "json",
+        "version": 1,
+        "id": "5865268a-49a3-4186-833b-b3133675224c",
+        "digest": "9e20b52bd305735c3432a4171a58ffedf8e822c39e3b1aa379bc253e67761628",
+        "size": 31
+      },
+      "pid": 46516,
+      "evidenceClass": "ACTUAL_LOCAL_CPU"
+    }
+  ],
+  "outputs": [
+    {
+      "sortedItems": 10000,
+      "first": 1,
+      "last": 10000
+    },
+    {
+      "sum": 50005000,
+      "cursor": 10000
+    }
+  ],
+  "originReturns": [
+    {
+      "taskId": "pilot-task-0",
+      "delivered": true,
+      "consumed": true
+    },
+    {
+      "taskId": "pilot-task-1",
+      "delivered": true,
+      "consumed": true
+    }
+  ],
+  "remainingReservations": 0,
+  "gpu": [
+    {
+      "state": "OBSERVED",
+      "source": "NVIDIA_SMI",
+      "observedAt": 1791340987789,
+      "memoryTotalBytes": 8546942976,
+      "memoryFreeBytes": 6795821056,
+      "temperatureCelsius": 52,
+      "powerWatts": 13.39,
+      "name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "energyJoules": null,
+      "reservedMemoryBytes": null,
+      "validUntil": 1791340992789,
+      "deviceKind": "GPU",
+      "deviceId": "GPU-2fa483bc-cfae-848a-1e68-4a6db3559af4",
+      "driverVersion": "591.59",
+      "runtimeVersion": null,
+      "utilizationRatio": 0.18
+    }
+  ]
+}

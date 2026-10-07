@@ -1,0 +1,18 @@
+✔ fixed invocation never accepts arbitrary argv or latest session (3.6034ms)
+✔ unapproved provider remains NOT_RUN and unknown attachment refused (0.9342ms)
+✔ real subprocess fixture captures JSONL exit and refuses duplicate attempt (1009.2728ms)
+✔ bounded malformed stream fails and cancellation waits for process close (1894.7874ms)
+✔ adapter binds real ConnectorPort inventory without claiming readiness (0.4394ms)
+✔ nonzero exit and invalid JSONL do not become success (1974.1091ms)
+✔ caller mutation across workspace validation cannot change verified execution (1017.2146ms)
+✔ production cannot inject a workspace validator or provider fixture argv (0.3541ms)
+✔ facade forwards canonical receipts and keeps delivered distinct from consumed (1.6346ms)
+✔ each invocation rechecks current authority including retrieval (0.2139ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6893.7632

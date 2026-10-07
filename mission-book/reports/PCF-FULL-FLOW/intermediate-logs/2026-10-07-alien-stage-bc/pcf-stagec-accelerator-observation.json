@@ -1,0 +1,27 @@
+{
+  "evidenceClass": "ACTUAL_DRIVER_OBSERVATION",
+  "observations": [
+    {
+      "state": "OBSERVED",
+      "source": "NVIDIA_SMI",
+      "observedAt": 1791336916370,
+      "memoryTotalBytes": 8589934592,
+      "memoryFreeBytes": 7587495936,
+      "temperatureCelsius": 52,
+      "powerWatts": 31.65,
+      "name": "NVIDIA GeForce RTX 2070 Super",
+      "energyJoules": null,
+      "reservedMemoryBytes": null,
+      "validUntil": 1791336921370,
+      "deviceKind": "GPU",
+      "deviceId": "GPU-b644a22a-9257-9e24-76e8-6d3bc4c9ee01",
+      "driverVersion": "581.95",
+      "runtimeVersion": null,
+      "utilizationRatio": 0.08
+    }
+  ],
+  "probeOverheadMs": 98.0381,
+  "gpuExecution": "NOT_RUN",
+  "energyJoules": null,
+  "verificationMode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION"
+}

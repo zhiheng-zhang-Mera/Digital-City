@@ -1,0 +1,15 @@
+✔ 709: opaque digest-checked artifacts reject traversal, revoked access and bounded quota overflow (11.2671ms)
+✔ 710: actual local CPU process produces JSON digest and identifies host/process; bounded/cancelled input refused (988.7505ms)
+✔ 711: explicit compatible checkpoint restore completes identical CPU sum; incompatible input/attempt refused (977.7714ms)
+✔ 703: declared DAG executes concurrent independent stages, dependency before consumer and cancellation propagates (25.0647ms)
+✔ 703: byte/item credit cannot overflow, double acknowledge, or continue after cancel (0.4048ms)
+✔ 709: caller metadata cannot overwrite storage identity, digest, size or schema version (1.2203ms)
+✔ 703: final-stage failure is never returned as an empty successful plan (0.4028ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3006.1027

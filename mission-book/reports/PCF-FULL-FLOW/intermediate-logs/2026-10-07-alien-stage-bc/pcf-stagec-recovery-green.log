@@ -1,0 +1,15 @@
+✔ legacy backend cannot claim or report a capsule-owned PCF task; ordinary WAIT remains claimable (155.1546ms)
+✔ recovery refuses timeout, PID-only, stale epoch, revoked authority and unknown effects (73.8201ms)
+✔ bound owned-stop proof requeues the same Task/Action once and fences old output (65.812ms)
+✔ approved service creates one existing canonical task/action, starts independently of UI and returns once to bound caller (1114.3089ms)
+✔ service bounds queue, rejects unapproved/cross-device work, drains and preserves cancel terminal truth (73.4898ms)
+✔ live policy revocation before dispatch prevents a process launch and does not invent side effects (69.9061ms)
+✔ a second supervisor cannot take ownership merely because time elapsed (64.9189ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4205.9014

@@ -1,0 +1,57 @@
+{
+  "runId": "pcf-study-558f7c27-7b1b-4aab-9aac-d0ba9900774a",
+  "configDigest": "7c55f3607a67a4faecc68f9044f231a8c5d9d66e85cf8adc8574c75d92dccdbb",
+  "config": {
+    "version": 1,
+    "id": "pcf-fullflow-alien-frozen-998440c",
+    "repetitions": 3,
+    "stopAfterMs": 60000,
+    "softwareSha": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "workloads": [
+      "cpu-sort",
+      "cpu-sum"
+    ],
+    "hypotheses": [
+      "Fixed local CPU applications preserve canonical Task/Action and origin-bound digest across repeated execution"
+    ],
+    "evidenceClass": "ACTUAL_LOCAL_CPU",
+    "inputs": {
+      "cpu-sort": {
+        "values": [
+          9,
+          6,
+          5,
+          1,
+          -2,
+          0
+        ]
+      },
+      "cpu-sum": {
+        "values": [
+          9,
+          6,
+          5,
+          1,
+          -2,
+          0
+        ]
+      }
+    },
+    "controls": {
+      "hardware": "Alien actual local Node CPU processes; no Mech transport",
+      "cache": "UNCONTROLLED; descriptor only, no cold/warm model claims",
+      "network": "NO_REMOTE_EXECUTION; parallel local regression may contend for host resources"
+    },
+    "analysis": "DESCRIPTIVE_ONLY",
+    "failureCounting": "KEEP_ALL"
+  },
+  "sourceIdentity": {
+    "head": "998440c7772cc032d012b457c2a59cd1059826c0",
+    "clean": true,
+    "state": "CLEAN_EXACT_SHA",
+    "dirtyFiles": [],
+    "indexDiffDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshotDigest": "2d9a4454cc032a28479196c6dc1707a33cc38398a89325ab62b73db83fb35891",
+    "frozenSource": true
+  }
+}

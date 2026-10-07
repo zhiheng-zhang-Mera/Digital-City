@@ -1,0 +1,427 @@
+{
+  "schema_version": 1,
+  "source_head_at_archive": "eec92844a5fb01974ef5fc67c8abae7ab18d66fa",
+  "source_binding": "DEVELOPMENT_COMPONENT_LOGS_NOT_FROZEN_CANDIDATE",
+  "verification_mode": "SINGLE_BATCH_OPPOSITE_HOST_VERIFICATION",
+  "handoff_rule_zh": "完整流一次性提交给对侧主机验证，而不是分拆单独验证。",
+  "handoff_rule_en": "The complete flow will be submitted once to the opposite host for verification, not split into individual validations.",
+  "programme_complete": false,
+  "opposite_host_validation": "NOT_RUN",
+  "files": [
+    {
+      "file": "pcf-stageb-android-build.log",
+      "bytes": 2308,
+      "sha256": "dacb8dc13cc7b33e544da3cfd128a35f8aac13b222eb0580ab1380d27d8777ab"
+    },
+    {
+      "file": "pcf-stageb-android-contract.log",
+      "bytes": 408,
+      "sha256": "c416af3f3cdee36da683569a4e868999a8edf49e721d16372d57d6f35476f570"
+    },
+    {
+      "file": "pcf-stageb-android-green.log",
+      "bytes": 2181,
+      "sha256": "24383fb5ce129183ba1f907ffe31a2249ea3583b6e0196a3caf583db3b9523c9"
+    },
+    {
+      "file": "pcf-stageb-android-lifecycle-green.log",
+      "bytes": 2384,
+      "sha256": "53b47b2331a049cb8aca597332fda1c548765f7bb6545956725819dc828bcd1d"
+    },
+    {
+      "file": "pcf-stageb-android-lifecycle-red.log",
+      "bytes": 2067,
+      "sha256": "aa276b11ab35bc0dce0d27016712cdb2be2f4e88064877a33c3ea04e396d53cf"
+    },
+    {
+      "file": "pcf-stageb-android-red.log",
+      "bytes": 12315,
+      "sha256": "c1750a7972ce0a9052a36c5b05a42f83e0150cde2afecbf20c3e901aca302590"
+    },
+    {
+      "file": "pcf-stageb-android-service-red.log",
+      "bytes": 1985,
+      "sha256": "e257f67dcc1654091812a08de33ce86cbb6fc8a9104fd456a4da0abaf8b18a8b"
+    },
+    {
+      "file": "pcf-stageb-android-summary.json",
+      "bytes": 1111,
+      "sha256": "1f416f83da52357bb0e2198750048dc97c704723adf2df537530496eb3d41b8a"
+    },
+    {
+      "file": "pcf-stageb-artifacts-fence-red.log",
+      "bytes": 1756,
+      "sha256": "e284e4fdd1bb13c2d0b02217fdf3d492645773c56d674f28453a1c7a26f7e56c"
+    },
+    {
+      "file": "pcf-stageb-artifacts-green.log",
+      "bytes": 599,
+      "sha256": "71dce5f812189d89ab63e3934da1792a719541ea2e43baa2d68cd2cb407a6700"
+    },
+    {
+      "file": "pcf-stageb-artifacts-journal-quota-green.log",
+      "bytes": 2485,
+      "sha256": "60304c3ac157f09d1a9ea60735085f912c75b380ac2671bc1ecdd53091a2cb35"
+    },
+    {
+      "file": "pcf-stageb-artifacts-journal-quota-red.log",
+      "bytes": 1871,
+      "sha256": "df7e7a70a2aa9575f8aa5ada6d1624ef0051467896fe501e811a660c8046c6b1"
+    },
+    {
+      "file": "pcf-stageb-artifacts-manifest-red.log",
+      "bytes": 1205,
+      "sha256": "706010e74c0cde5f1c91ba36300e2c1f5e4daae73527ada10f6c9cf2922e0360"
+    },
+    {
+      "file": "pcf-stageb-artifacts-publication-red.log",
+      "bytes": 1624,
+      "sha256": "dffee0d608d791a7c9a9a8391c2f2c6af7e1272a7607bb4456dc9e5cf580631c"
+    },
+    {
+      "file": "pcf-stageb-artifacts-red.log",
+      "bytes": 2214,
+      "sha256": "b6da26b29ad8bc3f37056abf241a32b2d70bde6111d8a002105974f99e2985fb"
+    },
+    {
+      "file": "pcf-stageb-artifacts-regression.log",
+      "bytes": 1829,
+      "sha256": "3c677ada3f45c54057102ade993997b019aaf9e947f74e8054dc9397abe78a69"
+    },
+    {
+      "file": "pcf-stageb-artifacts-repair-green.log",
+      "bytes": 1134,
+      "sha256": "aa25abfe68715655a202292caf108699dea539335dc1578e90df036c5579d786"
+    },
+    {
+      "file": "pcf-stageb-artifacts-repair-red.log",
+      "bytes": 2856,
+      "sha256": "7b949c7a82600537afa36a23e0db5c62258336f87f6c4ffe7d914dc6f64ca716"
+    },
+    {
+      "file": "pcf-stageb-artifacts-repair-regression.log",
+      "bytes": 2363,
+      "sha256": "4c130afc26653c9d3866fcf5c20fb1c16ad010b5b4b5e9081142fea8fb93546c"
+    },
+    {
+      "file": "pcf-stageb-artifacts-transfer-red.log",
+      "bytes": 1181,
+      "sha256": "7c348a2fa86bd41709e059ff1b229ed0b72653ce77d687321a8f3d159412da4e"
+    },
+    {
+      "file": "pcf-stageb-canonical-truth-green.log",
+      "bytes": 1743,
+      "sha256": "476230c46c805531d6c78812341d518d43e02e79bab036ffb21877651e1b92b0"
+    },
+    {
+      "file": "pcf-stageb-canonical-truth-red.log",
+      "bytes": 2074,
+      "sha256": "a32501888ca9641887f0b38d4423f2a8c268a7bbc7fabb5fe19ae133559d9732"
+    },
+    {
+      "file": "pcf-stageb-deployment-evidence.log",
+      "bytes": 1416,
+      "sha256": "99c6343e3940c7389f2e083dbedd7c7858ec8aa40847c7e5fdec582f9831e025"
+    },
+    {
+      "file": "pcf-stageb-deployment-review-green.log",
+      "bytes": 552,
+      "sha256": "dd587d206305ccc6cb53c2b5fde96c27be1b960ee3ed78605a0c42ee7b3df62a"
+    },
+    {
+      "file": "pcf-stageb-deployment-review-red.log",
+      "bytes": 4212,
+      "sha256": "ea09016376352b5dc9419074c7a52d5568c7a13dd53fa5364439d58185bee854"
+    },
+    {
+      "file": "pcf-stageb-deployment-suite.log",
+      "bytes": 18739,
+      "sha256": "d49ffcba06bf4ad7b424f93481be98a5a21bafa98149b3044e5368acf0d64924"
+    },
+    {
+      "file": "pcf-stageb-deployment-tests.log",
+      "bytes": 2099,
+      "sha256": "a94dfcdce629be2eca598516fa24a87fbdaaa6157fda6a7f549184f14edd9d4f"
+    },
+    {
+      "file": "pcf-stagebc-component-regression.log",
+      "bytes": 5819,
+      "sha256": "109f1f7941e7eef0f458c925a86a165904450b2567ded30612cf216fcc0aeb50"
+    },
+    {
+      "file": "pcf-stagec-accelerator-green.log",
+      "bytes": 1463,
+      "sha256": "a79ec5123b19e1d0f4ad1578588d9e5a57cb3b4da22aa6e719b7c6758e95b436"
+    },
+    {
+      "file": "pcf-stagec-accelerator-observation.json",
+      "bytes": 789,
+      "sha256": "79816cd58e4db751475099175c7d042a36c30ad4118490c1c8d13d926bf16870"
+    },
+    {
+      "file": "pcf-stagec-accelerator-review-green.log",
+      "bytes": 678,
+      "sha256": "a33ae6139c9cc8da1ee602c94f6aab9b9c87f4a45a50b416d0b756af1cf65c62"
+    },
+    {
+      "file": "pcf-stagec-canonical-lifecycle-green.log",
+      "bytes": 975,
+      "sha256": "75e41285b500a80ab51c5735461c1f661d9396f2ee61d9a135fa988add623443"
+    },
+    {
+      "file": "pcf-stagec-canonical-result-projection-green.log",
+      "bytes": 630,
+      "sha256": "fceab195eb89751605e7a6552d4a486cce4e81e47885ee59630c12ee485e5dec"
+    },
+    {
+      "file": "pcf-stagec-controls-drafts-green.log",
+      "bytes": 354,
+      "sha256": "bacf2182a4035f4ab4f6500dc57fe384dfc6f19d94ab9557d00fd0229eaefba0"
+    },
+    {
+      "file": "pcf-stagec-controls-functional-green.log",
+      "bytes": 808,
+      "sha256": "946a28c7dbb3755777e5aba62eef0bce3191425d89f1efa32cb52db63459e741"
+    },
+    {
+      "file": "pcf-stagec-controls-green.log",
+      "bytes": 1143,
+      "sha256": "729bc97cd6a60c8c186fb56e2654697231b777cd660b399b83fa3f32062bd36f"
+    },
+    {
+      "file": "pcf-stagec-engineering-canonical-final.log",
+      "bytes": 1365,
+      "sha256": "af9ad07ad06709983476d4a4983928d2faac6b05d50b1744a199c0a134c371b5"
+    },
+    {
+      "file": "pcf-stagec-engineering-canonical-green.log",
+      "bytes": 1272,
+      "sha256": "7919e3e900d5e71a66ad97237a024853d0c6ce86c6da57c5a33baba3dcb97a2e"
+    },
+    {
+      "file": "pcf-stagec-engineering-cli-help.log",
+      "bytes": 6785,
+      "sha256": "adfbce43e524a4a5ccbbe2385149d860d05a9958f9e1b0d1547858045a34f334"
+    },
+    {
+      "file": "pcf-stagec-engineering-durable-green.log",
+      "bytes": 1157,
+      "sha256": "1cef4dc4305ea2e3f16d91d0d0debf468cb38751a425941988879bf5500a7cc5"
+    },
+    {
+      "file": "pcf-stagec-engineering-durable-red.log",
+      "bytes": 2333,
+      "sha256": "61feceabb3025d04545407abd26958aced17b386f4a991e867f03b0f426dd023"
+    },
+    {
+      "file": "pcf-stagec-engineering-green.log",
+      "bytes": 799,
+      "sha256": "0a15b509ccd3322fd50c0fae16ff62a389ffd7da8bb5f1b87d671c7d023e24ef"
+    },
+    {
+      "file": "pcf-stagec-engineering-mutation-green.log",
+      "bytes": 986,
+      "sha256": "e02e06453bf6e2e5d008fd123fb5410f344f27cf27264b02a05ae063690f883e"
+    },
+    {
+      "file": "pcf-stagec-engineering-mutation-red.log",
+      "bytes": 2635,
+      "sha256": "49034e3cfa47bf48e2d362b10e391750133d7f71c693149d10fb55ead1c0862f"
+    },
+    {
+      "file": "pcf-stagec-engineering-owner-timeout-final.log",
+      "bytes": 1541,
+      "sha256": "37b10786475ba33f455cd8b44077d8bceb6862bf7c9437dfbcebebf016e2e22e"
+    },
+    {
+      "file": "pcf-stagec-engineering-owner-timeout-green.log",
+      "bytes": 1538,
+      "sha256": "98c3e8ecb3dbb8397ea74bb2068063c22d45ab8e511b1185e55a9de4ca713057"
+    },
+    {
+      "file": "pcf-stagec-engineering-owner-timeout-red.log",
+      "bytes": 662,
+      "sha256": "ff299725e191bf51ddcb07f6df4b334aaf9b4eeb69d1c6956c8342747c9dc25d"
+    },
+    {
+      "file": "pcf-stagec-engineering-red.log",
+      "bytes": 3012,
+      "sha256": "8633315ba455e456190195c8262f638e3078d099160032d6f65879bcceb0a871"
+    },
+    {
+      "file": "pcf-stagec-gateway-boundary-red.txt",
+      "bytes": 1143,
+      "sha256": "fc3978116665b39e09dfc0be6ade38a62438dd4604c4874060a5b5cdf286a1b5"
+    },
+    {
+      "file": "pcf-stagec-gateway-compat.txt",
+      "bytes": 2310,
+      "sha256": "9eb9a63c3afc16648b679505495042d49bc89048c1dc3c744636f5177f6a3a2b"
+    },
+    {
+      "file": "pcf-stagec-gateway-green.txt",
+      "bytes": 462,
+      "sha256": "16ee230cf3e9b5abfd7154394576baceb004f14672ab3d1f3542850515181aa5"
+    },
+    {
+      "file": "pcf-stagec-gateway-red.txt",
+      "bytes": 235,
+      "sha256": "7ae12b9b91969a0dfd091becdf368765435354d256c7b829fa1b2f6a10097ff7"
+    },
+    {
+      "file": "pcf-stagec-legacy-green.log",
+      "bytes": 1030,
+      "sha256": "553c290ba6d0fbc82caa9695af48bd6904c49271dd0d54cb442e32b3c71cb97d"
+    },
+    {
+      "file": "pcf-stagec-legacy-red.log",
+      "bytes": 1524,
+      "sha256": "320674982140c5761f5de05ba9a0a0d92238f69b591be91f2846314f5eb2d253"
+    },
+    {
+      "file": "pcf-stagec-optional-host-green.log",
+      "bytes": 764,
+      "sha256": "fdf12c5f8c94a53a66db85a86d42f90cee7e5fc2ce58bf94a6b90d7af5c1730b"
+    },
+    {
+      "file": "pcf-stagec-owned-start-green.log",
+      "bytes": 311,
+      "sha256": "dd8ee4ea8d9b3b74cf150f594a0d158ff60b0a0d481f2f87a4e554998799dfc5"
+    },
+    {
+      "file": "pcf-stagec-process-ownership-green.log",
+      "bytes": 1437,
+      "sha256": "11e4378e9b0a125ba5c2a47a92da4095b80bbe52cb919473327daf4c226b1bfb"
+    },
+    {
+      "file": "pcf-stagec-protection-green.log",
+      "bytes": 1010,
+      "sha256": "18733b7f387b29c94837888e3eaf959b5d0be227afc9a512eeac3f673137ef42"
+    },
+    {
+      "file": "pcf-stagec-recovery-green.log",
+      "bytes": 898,
+      "sha256": "d43c4b46e6a63724b555cf1e27dbc44fb3e3ce7d46709e96103ab224eb88c727"
+    },
+    {
+      "file": "pcf-stagec-recovery-revocation-green.log",
+      "bytes": 414,
+      "sha256": "39d700a40b2318ec8d026c25c0b598d4566b1d13f1ce5c2d1d9057b8552cee47"
+    },
+    {
+      "file": "pcf-stagec-remote-authority-compat.txt",
+      "bytes": 1887,
+      "sha256": "e0ed7d3ff900efce676f85912d446881985f0dbe77736062a530f3d3aeaed7d7"
+    },
+    {
+      "file": "pcf-stagec-remote-authority-green.txt",
+      "bytes": 1197,
+      "sha256": "cd34939e479369a9723e4d18f445212c5d3d3f6ddadedc0dd7971c31eff91a56"
+    },
+    {
+      "file": "pcf-stagec-remote-authority-red.txt",
+      "bytes": 3465,
+      "sha256": "ba023af340df598bc41b841d18fb0740e0a00e18641e9a631cc35ff601cf62f1"
+    },
+    {
+      "file": "pcf-stagec-remote-boundary-red.txt",
+      "bytes": 1487,
+      "sha256": "0d1efc1a8574d111719362a82d7e6c0558e7ab47b0c0f2d0a24ba1de66e59816"
+    },
+    {
+      "file": "pcf-stagec-remote-compat.txt",
+      "bytes": 1413,
+      "sha256": "b9cc07065ff1757d3720a67cf30487de32759b63904ab4748282d2cde4e6e04c"
+    },
+    {
+      "file": "pcf-stagec-remote-green.txt",
+      "bytes": 722,
+      "sha256": "f6cc60c3507ee8b18c64ae303efc8d91f0210071cd3be6dd15b6bec4f077c7f4"
+    },
+    {
+      "file": "pcf-stagec-remote-red.txt",
+      "bytes": 1872,
+      "sha256": "b2e9e2320764a3a33d3898f7c317c388f889e41fbe1542804494e358de98a8c9"
+    },
+    {
+      "file": "pcf-stagec-review-repair-green.log",
+      "bytes": 981,
+      "sha256": "d5fc2b0b13ab6bc3ee6a33fea0982fc9e5328fc062aa6f4b3058a7c5981aacb7"
+    },
+    {
+      "file": "pcf-stagec-service-green.log",
+      "bytes": 497,
+      "sha256": "36cd3032a911db5dbf738f807cef2527b12a2a215f827c08cce94374633e0558"
+    },
+    {
+      "file": "pcf-stagec-service-red.log",
+      "bytes": 1573,
+      "sha256": "1af764ad05f9a001b4cc70809b8d7ec5ed3fc8ef1d521be03681bdde360a22c3"
+    },
+    {
+      "file": "pcf-stagec-study-clean-compatible.log",
+      "bytes": 866,
+      "sha256": "81922b42010243a7fe23816ad53b6ed7601e827df881ca50561559fe3bf41370"
+    },
+    {
+      "file": "pcf-stagec-study-green.log",
+      "bytes": 709,
+      "sha256": "aef7bcbbf3d77510432d7aef75a94557e09ebb2ca405f6637a9fd5f4147408c7"
+    },
+    {
+      "file": "pcf-stagec-study-r1-green.log",
+      "bytes": 1032,
+      "sha256": "55c79ac3798c8a8057fd5bb87fb22fccc18ab03fcd200700fddf5d0816607a8d"
+    },
+    {
+      "file": "pcf-stagec-study-r1-implementation.txt",
+      "bytes": 7426,
+      "sha256": "f6c7e30aae9aacac2f01873bc14d4e9614befd719365ff0c1ebaeb06ae356bf0"
+    },
+    {
+      "file": "pcf-stagec-study-r1-red.log",
+      "bytes": 2429,
+      "sha256": "83151479ca184a2eeee4fa62dd11ba4b7ab0153ec59a0d1d760a30b2f5fafb9d"
+    },
+    {
+      "file": "pcf-stagec-study-r2-green.log",
+      "bytes": 1575,
+      "sha256": "82c700a0c61debceef8e9d72e3b55d185d3ad931a00ce5259b12d510d8e71f07"
+    },
+    {
+      "file": "pcf-stagec-study-r2-red.log",
+      "bytes": 1229,
+      "sha256": "4fbba78dff6a51068e75a0a5154ecb0cf981261951990d64227d0fab10b3094e"
+    },
+    {
+      "file": "pcf-stagec-study-red.log",
+      "bytes": 1568,
+      "sha256": "1d146c510ed2db14798e9f62f9d4781dbb7e19e679eafbb42ba44bc8fa36e3f7"
+    },
+    {
+      "file": "pcf-stagec-supervisor-ownership-green.log",
+      "bytes": 584,
+      "sha256": "2d4414c9887452f06322038a02cf94f5ba998b8d732b778e6512bbef11f7aedb"
+    },
+    {
+      "file": "pcf-stagec-surface-resource-review-green.log",
+      "bytes": 1028,
+      "sha256": "aa7fcd256efbbc472eee7a6fb0a22965b30b0305f10f3c6227481b0c7da5e7de"
+    },
+    {
+      "file": "pcf-stagec-web-controls-green.log",
+      "bytes": 250,
+      "sha256": "5a968717624cd3b37be9c89ba91c95f5fe70c6810607690e6cb17dcc45a315e6"
+    },
+    {
+      "file": "pcf-stagec-web-controls.png",
+      "bytes": 109028,
+      "sha256": "dda2a2681ed2af83529ccd75a948851d0d288d7c1ff18aab023e9128e316bd61"
+    },
+    {
+      "file": "pcf-full-prerequisites.json",
+      "bytes": 592,
+      "sha256": "a987d247d222f2a18fc8009b29faab6edb49854a4465cc1b7ff540607f3462ac"
+    }
+  ]
+}

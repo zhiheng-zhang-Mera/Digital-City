@@ -1,0 +1,31 @@
+✔ 709: opaque digest-checked artifacts reject traversal, revoked access and bounded quota overflow (200.5975ms)
+✔ 710: actual local CPU process produces JSON digest and identifies host/process; bounded/cancelled input refused (971.593ms)
+✔ 711: explicit compatible checkpoint restore completes identical CPU sum; incompatible input/attempt refused (975.3562ms)
+✔ 703: declared DAG executes concurrent independent stages, dependency before consumer and cancellation propagates (30.4352ms)
+✔ 703: byte/item credit cannot overflow, double acknowledge, or continue after cancel (0.4055ms)
+✔ 709: caller metadata cannot overwrite storage identity, digest, size or schema version (1.7177ms)
+✖ 703: final-stage failure is never returned as an empty successful plan (0.8708ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3151.4979
+
+✖ failing tests:
+
+test at tests\pcf-full-execution.test.mjs:30:1
+✖ 703: final-stage failure is never returned as an empty successful plan (0.8708ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///D:/Utopia-tree/PCF-700-790/Utopia-PCF-FullFlow-Alien-20261007/tests/pcf-full-execution.test.mjs:30:179)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
