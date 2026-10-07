@@ -4,9 +4,15 @@
 >
 > **This programme is NON-PRODUCT. It must not modify Utopia source code.**
 
-Active workbook:
+> **PARKED / 永久停放 — Owner 裁决 2026-10-07.** Owner 裁定 SHOW programme **永久停用（permanently suspended）**，本系列按停放设计保留：SHOW-401 为 `status: NOT_STARTED`、`activation_state: PARKED_OWNER_NOT_ACTIVATED`、`execution_enabled: false`，不隐含任何验收/复核/修正/验证/完成，也不授权任何录制；终态标记 `UTOPIA_SHOWCASE_PACKAGE_READY` **未释放**。README、`reports/SHOW-401/` 与工作书全部保留，git 分支 `showcase/SHOW-401-alien-capture` 未撤回。停放索引：[../../PARKED_PROGRAMMES.md](../../PARKED_PROGRAMMES.md)；裁决字段：`owner_ruling_2026_10_07_show_parked`。
+>
+> The Owner ruled on 2026-10-07 that the SHOW programme is **permanently suspended**. It is retained as a parked design: SHOW-401 is `NOT_STARTED` with `activation_state: PARKED_OWNER_NOT_ACTIVATED` and `execution_enabled: false`; no acceptance, review, correction, verification or completion is implied and no recording is authorized; the terminal marker `UTOPIA_SHOWCASE_PACKAGE_READY` is **NOT released**. The README, `reports/SHOW-401/` and the workbook all stay in place and branch `showcase/SHOW-401-alien-capture` is not retired.
+
+Workbook (parked design — not activated, not claimable):
 
 - [SHOW-401 — Utopia 项目展示素材提取与双 Demo 制作](SHOW-401-Utopia项目展示素材提取与双Demo制作.md)
+
+The final outputs below describe the parked design's intended contract. They are **not** an open work order, and nothing in this programme is claimable while the permanent-suspension ruling stands.
 
 Required final outputs:
 
@@ -47,11 +53,11 @@ If a real product defect blocks the planned scene, record it as a blocker and st
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `IN_PROGRESS`
+总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `PLANNED`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [SHOW-401](SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | IN_PROGRESS | NO | NO | YES |
+| [SHOW-401](SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | NOT_STARTED | NO | NO | NO |
 
 <!-- SERIES_DASHBOARD:END -->
 

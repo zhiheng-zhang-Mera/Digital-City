@@ -2,15 +2,15 @@
   "active_pool": {
     "development": {
       "complete": 7,
-      "total": 9
+      "total": 8
     },
     "review": {
       "complete": 7,
-      "total": 9
+      "total": 8
     },
     "tasks": {
       "complete": 7,
-      "total": 9
+      "total": 8
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
@@ -1040,23 +1040,23 @@
       "total": 4
     },
     {
-      "active_pool": true,
+      "active_pool": false,
       "development_complete": 0,
       "key": "show",
       "name": "SHOW-401 展示素材",
       "readme": "mission-group/showcase-material-extraction/README.md",
       "review_complete": 0,
-      "status": "IN_PROGRESS",
+      "status": "PLANNED",
       "task_complete": 0,
       "tasks": [
         {
           "complete": false,
           "development_complete": false,
-          "execution_enabled": true,
+          "execution_enabled": false,
           "id": "SHOW-401",
           "path": "mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "NOT_STARTED"
         }
       ],
       "total": 1

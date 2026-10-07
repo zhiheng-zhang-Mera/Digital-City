@@ -2,7 +2,7 @@
 
 [Canonical source / 权威原文](../README.md)
 
-This page translates the explanatory body of a historical reading snapshot; generated bilingual navigation/dashboard blocks are available at the canonical source. Source SHA256: `f2d739392d7e64278a81e0d46acffd6060aa11c66aa399d933e1c56871cabb45`. Current canonical workbooks and records determine authority and state; this page grants no execution or claim authority.
+This page translates the explanatory body of a historical reading snapshot; generated bilingual navigation/dashboard blocks are available at the canonical source. Source SHA256: `c1b5552e192c58de34cc00d73b067652a2459221126c8f0a3e70ec0b9d9ed0e1` (re-measured 2026-10-07 after the Owner's permanent-suspension ruling was recorded; the generated blocks inside the canonical file change the hash, so this value tracks the current canonical bytes). Current canonical workbooks and records determine authority and state; this page grants no execution or claim authority.
 
 本页为历史阅读快照的完整解释正文译本；已双语的生成导航/面板见权威原文。当前任务状态以canonical工作书和记录为准，本页不授予执行或领取权。
 
@@ -12,9 +12,15 @@ This page translates the explanatory body of a historical reading snapshot; gene
 >
 > **本工程属于 NON-PRODUCT，不得修改 Utopia 源码。**
 
-活跃工作书：
+> **PARKED / 永久停放 — Owner 裁决 2026-10-07。** Owner 裁定 SHOW programme **永久停用（permanently suspended）**，本系列按停放设计保留：SHOW-401 为 `status: NOT_STARTED`、`activation_state: PARKED_OWNER_NOT_ACTIVATED`、`execution_enabled: false`；此处不隐含任何验收、复核、修正、验证或完成，也不授权任何录制；终态标记 `UTOPIA_SHOWCASE_PACKAGE_READY` **未释放**。README、`reports/SHOW-401/` 与工作书全部保留，git 分支 `showcase/SHOW-401-alien-capture` 未撤回。停放索引：[../../PARKED_PROGRAMMES.md](../../PARKED_PROGRAMMES.md)；裁决字段：`owner_ruling_2026_10_07_show_parked`。
+>
+> The Owner ruled on 2026-10-07 that the SHOW programme is **permanently suspended**. It is retained as a parked design: SHOW-401 is `NOT_STARTED` with `activation_state: PARKED_OWNER_NOT_ACTIVATED` and `execution_enabled: false`; no acceptance, review, correction, verification or completion is implied and no recording is authorized; the terminal marker `UTOPIA_SHOWCASE_PACKAGE_READY` is **NOT released**.
+
+工作书（停放设计，未激活、不可领取）：
 
 - [SHOW-401 — Utopia 项目展示素材提取与双 Demo 制作](../SHOW-401-Utopia项目展示素材提取与双Demo制作.md)
+
+下列最终产物描述的是该停放设计原本的合同，**不是**一张开放工单；在永久停用裁决有效期间，本系列没有任何可领取项。
 
 必须的最终产物：
 
@@ -57,11 +63,11 @@ This page translates the explanatory body of a historical reading snapshot; gene
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `IN_PROGRESS`
+总完成 / Complete 0/1 · 开发 / Development 0/1 · 复检 / Review 0/1 · `PLANNED`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [SHOW-401](../SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | IN_PROGRESS | NO | NO | YES |
+| [SHOW-401](../SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | NOT_STARTED | NO | NO | NO |
 
 <!-- SERIES_DASHBOARD:END -->
 

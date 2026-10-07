@@ -2,8 +2,9 @@
 workbook_id: SHOW-401
 phase: SHOWCASE_MATERIAL_EXTRACTION
 sequence: 401
-execution_enabled: true
-status: IN_PROGRESS
+execution_enabled: false
+status: NOT_STARTED
+activation_state: PARKED_OWNER_NOT_ACTIVATED
 implementation_repo: zhiheng-zhang-Mera/Digital-City
 runtime_source_repo: zhiheng-zhang-Mera/utopia
 runtime_source_mode: READ_ONLY_NO_PRODUCT_CODE_WRITES
@@ -14,6 +15,7 @@ required_ancestor_shas: ["9f3e20e8ec99d591812430bee71d27e68c4ad498", "ec12fd0831
 runtime_baseline_sha: null
 capture_run_shas: []
 baseline_resolution_evidence: null
+anchor_state: INTENTIONALLY_EMPTY_UNTIL_ACTIVATION
 dependencies: ["MESH-301", "UXI-391"]
 development_host: Alien
 development_branch: showcase/SHOW-401-alien-capture
@@ -29,6 +31,7 @@ review_ci: NOT_APPLICABLE_NON_PRODUCT_MEDIA_TASK
 review_complete: false
 preferred_capture_host: Alien
 required_runtime_endpoints: ["Alien-Win", "Mech-Win", "Android physical control surface"]
+owner_ruling_2026_10_07_show_parked: 'OWNER RULING 2026-10-07 (SHOW permanently suspended): the Owner ruled that the SHOW programme is permanently suspended and that it must be treated as parked for good. RECORDED CONSEQUENCE, written by the agent because it is a judgement the Owner made and not one the agent may make silently: this workbook reads as PARKED_OWNER_NOT_ACTIVATED - execution_enabled is false, status is NOT_STARTED, no development or review stage completes - so that a permanently suspended programme stops appearing as an open workbook. NOTHING IS CLAIMED HERE: no acceptance, no development, no review, no correction, no verification and no completion is implied by this parking, and no take, capture or recording under this workbook is authorized or performed. The programme terminal marker UTOPIA_SHOWCASE_PACKAGE_READY is NOT released, not satisfied and NOT claimable; it stays declared exactly as written so that parking releases nothing. The configured host, branch, media roots, dependencies, required ancestor SHAs and the terminal marker are preserved verbatim rather than erased, so this is a suspended design and not a deleted one.'
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/mission-group/showcase-material-extraction/reports/SHOW-401
@@ -44,6 +47,10 @@ terminal_marker: UTOPIA_SHOWCASE_PACKAGE_READY
 >
 > 这是一项 **SHOWCASE / EVIDENCE EXTRACTION** 工作，不是 Utopia 产品开发。  
 > **绝对禁止借录制之名修改 Utopia 代码。**
+
+> **PARKED / 永久停放 / PERMANENTLY SUSPENDED — Owner 裁决 2026-10-07。** 本工作书现为 `NOT_STARTED` + `activation_state: PARKED_OWNER_NOT_ACTIVATED`、`execution_enabled: false`，不再作为未收口工作书出现。Owner 裁定 SHOW programme 永久停用；**此处不隐含任何验收、复核、修正、验证或完成**，也不授权任何 take / 录制。终态标记 `UTOPIA_SHOWCASE_PACKAGE_READY` **未释放**、未满足、不可领取。已配置的 host、branch、媒体根目录、依赖、required ancestor SHAs 与终态标记全部原样保留（见 frontmatter），因此这是**停放设计，不是删除**。裁决字段：`owner_ruling_2026_10_07_show_parked`；停放索引：[../../PARKED_PROGRAMMES.md](../../PARKED_PROGRAMMES.md)。
+>
+> The Owner ruled on 2026-10-07 that the SHOW programme is permanently suspended. This workbook is parked and not owner-activated; **no acceptance, review, correction, verification or completion is implied**, and the terminal marker `UTOPIA_SHOWCASE_PACKAGE_READY` is **not released**. Everything configured (host, branch, media roots, dependencies, required ancestor SHAs, terminal marker) is preserved verbatim: parked, not deleted.
 
 ## 1. 目标
 

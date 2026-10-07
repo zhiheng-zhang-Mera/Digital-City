@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1926,
-  "total_bytes": 14960436,
+  "total_bytes": 14969763,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -916,10 +916,10 @@
     },
     {
       "path": "mission-book/PARKED_PROGRAMMES.md",
-      "bytes": 2020,
+      "bytes": 3984,
       "encoding_state": "UTF8",
-      "chinese_characters": 268,
-      "english_words": 113,
+      "chinese_characters": 526,
+      "english_words": 194,
       "paired_path": "mission-book/en/PARKED_PROGRAMMES.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 5149,
+      "bytes": 4975,
       "encoding_state": "UTF8",
-      "chinese_characters": 390,
-      "english_words": 341,
+      "chinese_characters": 374,
+      "english_words": 334,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -988,10 +988,10 @@
     },
     {
       "path": "mission-book/en/PARKED_PROGRAMMES.md",
-      "bytes": 2252,
+      "bytes": 4381,
       "encoding_state": "UTF8",
       "chinese_characters": 4,
-      "english_words": 247,
+      "english_words": 470,
       "paired_path": "mission-book/PARKED_PROGRAMMES.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10240,10 +10240,10 @@
     },
     {
       "path": "mission-book/mission-group/showcase-material-extraction/README.md",
-      "bytes": 3719,
+      "bytes": 5157,
       "encoding_state": "UTF8",
-      "chinese_characters": 179,
-      "english_words": 322,
+      "chinese_characters": 253,
+      "english_words": 420,
       "paired_path": "mission-book/mission-group/showcase-material-extraction/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10258,10 +10258,10 @@
     },
     {
       "path": "mission-book/mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
-      "bytes": 23839,
+      "bytes": 26319,
       "encoding_state": "UTF8",
-      "chinese_characters": 2791,
-      "english_words": 923,
+      "chinese_characters": 2904,
+      "english_words": 983,
       "paired_path": "mission-book/mission-group/showcase-material-extraction/en/SHOW-401-Utopia项目展示素材提取与双Demo制作.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10303,10 +10303,10 @@
     },
     {
       "path": "mission-book/mission-group/showcase-material-extraction/zh-CN/README.md",
-      "bytes": 3806,
+      "bytes": 5296,
       "encoding_state": "UTF8",
-      "chinese_characters": 589,
-      "english_words": 143,
+      "chinese_characters": 725,
+      "english_words": 217,
       "paired_path": "mission-book/mission-group/showcase-material-extraction/README.md",
       "language_presence": "PAIR_PRESENT"
     },

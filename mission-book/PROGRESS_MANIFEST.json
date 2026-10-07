@@ -136,7 +136,7 @@
       "task_globs": [
         "mission-group/showcase-material-extraction/SHOW-*.md"
       ],
-      "active_pool": true,
+      "active_pool": false,
       "readme": "mission-group/showcase-material-extraction/README.md"
     },
     {
