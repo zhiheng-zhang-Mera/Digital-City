@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1730,
-  "total_bytes": 12397971,
+  "total_bytes": 12397948,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9970,7 +9970,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
-      "bytes": 14765,
+      "bytes": 14742,
       "encoding_state": "UTF8",
       "chinese_characters": 243,
       "english_words": 66,
