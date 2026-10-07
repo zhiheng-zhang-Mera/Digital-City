@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-806:RESEARCH_ARTIFACT_EXPORT_ACCEPTED"]
 development_host: "Mech"
 development_branch: "rex/REX-807-mech-research-control-surface"
-development_head_sha: "b9d6db2b99f7c0b6e2980896c3733966ba17aef4"
-development_ci: "FIVE heads, every failure kept with its cause. (1) b06e978fb1c6578305ba485445992d3a1d82913f: run 37546655667 gateway-web failed on ONE pre-existing browser test (tests/rex803-campaign-web.test.mjs) while this commit was purely additive - classified as a load-sensitive flake on five measured grounds and confirmed green on re-run. (2) 05ca33e015387149dded134e493b5bc46a8cea1e: run 37548550930 gateway-web failed TWO ACCEPTED browser tests and this one WAS my fault - the first wiring of research.js dropped the #research-vocabulary disclosure the suite waits for, moved the storage-unavailable sentence out of #research-list where the suite reads it, and referenced a deleted esc() helper so show() threw 'esc is not defined' and left every control disabled; my own shape test missed it because its stubs defeated the page's identity check. (3) e07e1cb6ef85dde74babf08c6c1352246f8e799e: run 37549643362 completed/success (gateway-web and android green) after the fix and after the S8 harness was made faithful (memoised nodes so the render path really runs and its post-conditions are asserted). (4) afe8f1cc79dd44e4010e6b1dae841ee4fbb57689 (the Android observation increment): run 37552135025 gateway-web success and **android failure** - the Kotlin compiled cleanly and 119 tests ran with exactly ONE failure, my own reflection guard at ResearchRunTest.kt:74, because the Compose compiler plugin adds a synthetic \$stable field to a class it treats as stable so declaredFields holds six entries rather than the five I had asserted as an exact set. (5) b9d6db2b99f7c0b6e2980896c3733966ba17aef4: run 37552757573 completed/success with BOTH jobs green after the guard was re-expressed as 'the five observation fields are present AND no field name is control-shaped'. Local on the Web side: rex807 8/8, the accepted rex801 research UI suite 3/3, adjacent web suites green, EIGHT source mutations all caught with byte-identical restoration. ENVIRONMENT FACT: this host cannot build Android - no JDK below 25/26 is installed and the Android Gradle Plugin refuses both (JAVA_HOME pointed at a stale D:\\Android_Studio\\jbr; the real JetBrains runtime is JDK 25 and C:\\Program Files\\Java holds JDK 26), so the Android increment's compile and unit-test evidence comes from CI's android job and the record says so instead of implying a local pass."
+development_head_sha: "f81ac5f6f5b5212906f8c46d5c27e4779274b332"
+development_ci: "FIVE heads, every failure kept with its cause. (1) b06e978fb1c6578305ba485445992d3a1d82913f: run 37546655667 gateway-web failed on ONE pre-existing browser test (tests/rex803-campaign-web.test.mjs) while this commit was purely additive - classified as a load-sensitive flake on five measured grounds and confirmed green on re-run. (2) 05ca33e015387149dded134e493b5bc46a8cea1e: run 37548550930 gateway-web failed TWO ACCEPTED browser tests and this one WAS my fault - the first wiring of research.js dropped the #research-vocabulary disclosure the suite waits for, moved the storage-unavailable sentence out of #research-list where the suite reads it, and referenced a deleted esc() helper so show() threw 'esc is not defined' and left every control disabled; my own shape test missed it because its stubs defeated the page's identity check. (3) e07e1cb6ef85dde74babf08c6c1352246f8e799e: run 37549643362 completed/success (gateway-web and android green) after the fix and after the S8 harness was made faithful (memoised nodes so the render path really runs and its post-conditions are asserted). (4) afe8f1cc79dd44e4010e6b1dae841ee4fbb57689 (the Android observation increment): run 37552135025 gateway-web success and **android failure** - the Kotlin compiled cleanly and 119 tests ran with exactly ONE failure, my own reflection guard at ResearchRunTest.kt:74, because the Compose compiler plugin adds a synthetic \$stable field to a class it treats as stable so declaredFields holds six entries rather than the five I had asserted as an exact set. (5) b9d6db2b99f7c0b6e2980896c3733966ba17aef4: run 37552757573 completed/success with BOTH jobs green after the guard was re-expressed as 'the five observation fields are present AND no field name is control-shaped'. Local on the Web side: rex807 8/8, the accepted rex801 research UI suite 3/3, adjacent web suites green, EIGHT source mutations all caught with byte-identical restoration. ENVIRONMENT FACT: this host cannot build Android - no JDK below 25/26 is installed and the Android Gradle Plugin refuses both (JAVA_HOME pointed at a stale D:\\Android_Studio\\jbr; the real JetBrains runtime is JDK 25 and C:\\Program Files\\Java holds JDK 26), so the Android increment's compile and unit-test evidence comes from CI's android job and the record says so instead of implying a local pass. A SIXTH head f81ac5f6f5b5212906f8c46d5c27e4779274b332 (increment 4, the danger-zone confirmation gate): exact-head V0.2 checks push 37556641795 is recorded with its live conclusion in the increment-4 report section, so the record states what the run actually said rather than pre-writing a green. Local evidence for that head: the three focused suites 12/12, the adjacent REX-804 fault and receipt suites plus REX-807 and the accepted REX-801 research UI suite 27/27, check:docs SYNCHRONIZED in all three roots, and SEVEN source mutations (including one in the GATEWAY rather than the page) each turning the suites red with byte-identical restoration. The full local suite is recorded honestly at 1470 tests / 1465 pass / 5 fail, with the SAME five failing at the untouched baseline head b9d6db2 when this work was stashed - except that the REX-804 danger-zone browser test fails at baseline under full-suite load and passes with this increment."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -84,6 +84,28 @@ Formal Reviewer 用普通用户路径寻找隐藏入口、假按钮、过度折�
 ## 完成门槛
 
 直接控制、知情、危险操作隔离、技术详情折叠均满足全局 Capability Exposure Gate。
+
+## 2026-10-07 增量 4（危险区确认从「一句话」变成「一道闸」；并修好那句说错的提示）
+
+```text
+缺口是**我自己写的**：危险区带了 requiresConfirmation 与确认语，但 (a) 没有任何东西真的**拒绝**任何操作，
+测试也只断言那句话里出现过某个词；(b) 那句话本身**错的** —— 视图模型要求「输入 campaign id」，而网关只接受
+`FAULT:<kind>:<nodeId>`（services/dev-gateway/research/faults.mjs:41）。照屏幕提示做的操作者会被
+403 FAULT_CONFIRMATION_REQUIRED 拒绝：**无法被满足的安全提示比没有提示更糟**，它会教操作者随便粘点什么让它消失。
+交付：令牌**单一来源**（`faultConfirmationToken`，页面渲染它、不再自拼短语）；`assertAdvancedControlsConfirmed`
+把要求变成**会抛错**的检查并覆盖三种形状（未确认的高级区块 / 区块内未确认的高级控件 / 顶层未确认的高级控件），
+`researchView()` 返回前调用 ⇒ 以后新增高级控件**不可能悄悄变成一键**；
+新套件 tests/rex807-danger-confirmation.test.mjs S9–S11（S10 用**真实网关**证明"本模块拼出的令牌 = 网关接受的令牌"，
+且拒绝时确实零注入；S11 用**真实浏览器**证明错误确认零注入、空/空白本地被拒并写出确切令牌、只有确切令牌能注入且只注入一次）。
+与**已验收边界**的冲突（如实记录）：第一版让客户端拒绝一切不匹配，**悄悄挪动了已被验收的 REX-804 边界**
+（tests/rex804-web.test.mjs 断言网关的类型化 403 会显示给用户）。改为：非空确认一律提交（网关是权威），
+本地只拒绝**空/纯空白**；**不为迁就 UI 改动而改写已验收测试**，并把该已验收套件并入本增量证伪集。
+证伪：**7 处突变全部变红**并按字节还原（含一处改**网关**而非页面 —— 它会红正说明守卫绑的是真实契约）；
+聚焦三套件 12/12；相邻 REX-804 故障/回执 + REX-807 + 已验收 REX-801 研究界面共 27/27；check:docs 三根 SYNCHRONIZED。
+本机全量套件如实记录：1470 / 1465 通过 / 5 失败，**同一组 5 项**在未改动 baseline `b9d6db2` 上同样失败（stash 实测），
+差别只有一处：REX-804 危险区浏览器用例全量并行下 baseline 失败、本增量后通过。
+详细记录见 reports/REX-807/DEVELOPMENT_REPORT.md §8。CI 结论见 development_ci 字段（不预写绿）。
+```
 
 ## 2026-10-07 增量 3（Android 观察面；本机无法构建 Android，改用 CI 验证）
 
