@@ -17,8 +17,8 @@ baseline_blocker: null
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-806:RESEARCH_ARTIFACT_EXPORT_ACCEPTED"]
 development_host: "Mech"
 development_branch: "rex/REX-807-mech-research-control-surface"
-development_head_sha: "e07e1cb6ef85dde74babf08c6c1352246f8e799e"
-development_ci: "THREE heads, every failure kept with its cause. (1) b06e978fb1c6578305ba485445992d3a1d82913f: run 37546655667 gateway-web failed on ONE pre-existing browser test (tests/rex803-campaign-web.test.mjs) while this commit was purely additive - classified as a load-sensitive flake on five measured grounds and confirmed by the same head re-running green. (2) 05ca33e015387149dded134e493b5bc46a8cea1e: run 37548550930 gateway-web failed TWO ACCEPTED browser tests (CEX790 degraded-store and the REX-801 Web Research flow) and this one WAS my fault - the first wiring of research.js dropped the #research-vocabulary disclosure the suite waits for, moved the storage-unavailable sentence out of #research-list where the suite reads it, and referenced a deleted esc() helper so show() threw 'esc is not defined' and left every control disabled. My own shape test missed it because its stubs defeated the page's identity check. (3) e07e1cb6ef85dde74babf08c6c1352246f8e799e: run 37549643362 completed/success (gateway-web and android green) after restoring the vocabulary disclosure, rendering the storage sentence in BOTH the alert and the list, restoring the escaper, and making the S8 harness faithful (memoised nodes so the render path really runs and its post-conditions are asserted). Local on the final head: rex807 8/8, the accepted rex801 research UI suite 3/3, adjacent web suites green, EIGHT source mutations all caught with byte-identical restoration - including N8, which replays that exact regression."
+development_head_sha: "b9d6db2b99f7c0b6e2980896c3733966ba17aef4"
+development_ci: "FIVE heads, every failure kept with its cause. (1) b06e978fb1c6578305ba485445992d3a1d82913f: run 37546655667 gateway-web failed on ONE pre-existing browser test (tests/rex803-campaign-web.test.mjs) while this commit was purely additive - classified as a load-sensitive flake on five measured grounds and confirmed green on re-run. (2) 05ca33e015387149dded134e493b5bc46a8cea1e: run 37548550930 gateway-web failed TWO ACCEPTED browser tests and this one WAS my fault - the first wiring of research.js dropped the #research-vocabulary disclosure the suite waits for, moved the storage-unavailable sentence out of #research-list where the suite reads it, and referenced a deleted esc() helper so show() threw 'esc is not defined' and left every control disabled; my own shape test missed it because its stubs defeated the page's identity check. (3) e07e1cb6ef85dde74babf08c6c1352246f8e799e: run 37549643362 completed/success (gateway-web and android green) after the fix and after the S8 harness was made faithful (memoised nodes so the render path really runs and its post-conditions are asserted). (4) afe8f1cc79dd44e4010e6b1dae841ee4fbb57689 (the Android observation increment): run 37552135025 gateway-web success and **android failure** - the Kotlin compiled cleanly and 119 tests ran with exactly ONE failure, my own reflection guard at ResearchRunTest.kt:74, because the Compose compiler plugin adds a synthetic \$stable field to a class it treats as stable so declaredFields holds six entries rather than the five I had asserted as an exact set. (5) b9d6db2b99f7c0b6e2980896c3733966ba17aef4: run 37552757573 completed/success with BOTH jobs green after the guard was re-expressed as 'the five observation fields are present AND no field name is control-shaped'. Local on the Web side: rex807 8/8, the accepted rex801 research UI suite 3/3, adjacent web suites green, EIGHT source mutations all caught with byte-identical restoration. ENVIRONMENT FACT: this host cannot build Android - no JDK below 25/26 is installed and the Android Gradle Plugin refuses both (JAVA_HOME pointed at a stale D:\\Android_Studio\\jbr; the real JetBrains runtime is JDK 25 and C:\\Program Files\\Java holds JDK 26), so the Android increment's compile and unit-test evidence comes from CI's android job and the record says so instead of implying a local pass."
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -84,6 +84,20 @@ Formal Reviewer 用普通用户路径寻找隐藏入口、假按钮、过度折�
 ## 完成门槛
 
 直接控制、知情、危险操作隔离、技术详情折叠均满足全局 Capability Exposure Gate。
+
+## 2026-10-07 增量 3（Android 观察面；本机无法构建 Android，改用 CI 验证）
+
+```text
+apps/android：新增 ResearchRun.kt（**纯解析 + 视图模型**：当前运行、回执窗口自身边界、可见 attention
+  RUN_INCOMPLETE / UNFINISHED_CAMPAIGN / STORE_UNAVAILABLE 带原因；owner 被拒时不是空页；标识符只进折叠技术层）、
+  ResearchRunPanel.kt（**观察专用**，无创建/启动/停止/故障注入）、MainActivity 高级导航新增「研究运行」、
+  CityClient 新增只读 researchCampaigns；ResearchRunTest.kt 8 项守卫（含「视图模型不得暴露控制形状字段」的反射断言）。
+验证：**本机无法构建 Android**（无 JDK ≤21，AGP 拒绝 25/26）⇒ 以 CI 的 android job 为编译器与测试机。
+首跑 head afe8f1c：android **failure** —— Kotlin 编译干净、119 测试仅 1 失败，且失败是**我自己**的反射断言：
+Compose 编译器插件会给 stable 类加合成字段 `$stable`，`declaredFields` 是 6 个而非我写死的 5 个。
+修法：断言改为「五个观察字段必须在场，且字段名不得为控制形状（create/start/stop/inject/fault/confirm/submit/mutat）」。
+修复头 b9d6db2：**CI run 37552757573 两个 job 全绿**。
+```
 
 ## 2026-10-07 增量 2（页面真正渲染这一层；含一次**我造成的真实回归**）
 

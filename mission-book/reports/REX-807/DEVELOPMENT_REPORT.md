@@ -126,7 +126,35 @@ hosted run 37548550930 因此失败两个**既有**浏览器用例（CEX790 降�
 （与 REX-801 套件那次同类；那次我修的是 Windows `rm()` 竞态，这次的红不是拆除竞态而是浏览器时序，故只记录不擅改既有套件。）
 ```
 
-## 6. 边界（未越过）
+## 7. 增量 3（head `afe8f1c`）：Android 观察面，以及本机无法构建 Android 的环境事实
+
+```text
+交付（apps/android/app/src/main/java/city/utopia/control/）：
+  ResearchRun.kt      **纯解析 + 视图模型**：当前运行（scenario/state/measured/planned，未结清时用文字说明）、
+                      回执窗口自身边界（「本城持有 51 次，列表只列最新 50 条（上限 50），覆盖 PARTIAL」）、
+                      以及可见的 attention 列表（RUN_INCOMPLETE / UNFINISHED_CAMPAIGN / STORE_UNAVAILABLE 带原因）。
+                      owner-required 被拒时**不是空页**而是明确提示；**任何 campaign 标识符都不出现在用户语句里**，
+                      原始载荷只在折叠的技术层（与 Web 视图模型同一条折叠规则）。
+  ResearchRunPanel.kt **观察专用**：没有创建/启动/停止，也没有故障注入；技术细节可展开；离线时说明缓存不是实时记录。
+  MainActivity.kt     在高级导航里与「研究记录」并列新增「研究运行」入口。
+  CityClient.kt       新增只读 `researchCampaigns` 调用。
+  ResearchRunTest.kt  **8 项守卫**，逐条对应手机面常见的误导（被拒 ≠ 空页、有界窗口不得冒充完整历史、
+                      未结清运行不得显示为完成、未结束 campaign 与存储不可用必须可见、标识符不得泄漏、
+                      以及用反射断言视图模型**没有**任何可被面板变成变更操作的字段）。
+环境事实（记录，不是借口）：**本机无法构建 Android** —— 未安装低于 25/26 的 JDK，而 Android Gradle Plugin
+  拒绝 25 与 26（`JAVA_HOME` 曾指向失效的 `D:\Android_Studio\jbr`；真实的 JetBrains runtime 是 JDK 25，
+  `C:\Program Files\Java` 下是 JDK 26）。因此本增量的**编译与单测验证来自 CI 的 android job**，不是本机运行；
+  这一点写进记录，避免被读成「本机已通过」。
+
+**CI 首跑的结论（保留红）**：head `afe8f1c` 的 android job **failure** —— Kotlin **编译干净**，119 个测试跑完，
+只有一个失败：**我自己写的** `observationOnlyExposesNoControl`（`ResearchRunTest.kt:74`）。
+根因不是产品缺陷而是编译器细节：启用 Compose 编译器插件后，被视为 stable 的类会多出一个合成字段 `$stable`，
+于是 `declaredFields` 是 6 个而不是 5 个，我用「集合完全相等」写死了。修法是让断言回到它真正想表达的性质：
+**五个观察字段必须在场，且任何字段名都不得是控制形状**（create/start/stop/inject/fault/confirm/submit/mutat）——
+既保留「有人偷偷加一个可变更字段就变红」的能力，又不再被编译器细节打翻。修复头 `b9d6db2`。
+```
+
+## 8. 边界（未越过）
 
 ```text
 不采购/不付费、不装系统服务、不改运行 profile、不启用远端执行；未新增任何网关路由（只读既有 payload）；
