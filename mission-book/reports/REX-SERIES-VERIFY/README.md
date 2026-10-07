@@ -2,12 +2,29 @@
 
 ```text
 分支 / branch        rex/REX-series-verify-mech-20261007
-HEAD                 0d45b8c416847b20ccaf6572f13f00ff7f2a470b
+HEAD                 099edd2ca0de01545415935723dbad09087ecb27（前一头 0d45b8c 已被本头修正）
 BASE                 main cc799234e7daa3d8ccfde5673b9d07ccb2376742（未合并）
 PR                    [utopia#44](https://github.com/zhiheng-zhang-Mera/utopia/pull/44)
+exact-head CI        push 37576305410 与 PR 37576308377 **两个 job 全绿**（gateway-web + android）；
+                     linkage 37576308301 success
 交接方式 / mode       整条分支一次交给对侧实体主机（Alien-GPT）完整验收，不逐条拆开
 本机角色 / role       Mech-DS（development + auxiliary verification）
 合并 / merge          **不合并**：merge_authority 仍为 false；本机不释放任何 marker
+```
+
+## 0. 一次红 CI 与两次**我造成的**修正（记录，不做美化）
+
+```text
+· 首版推送后 CI 在 `each member sees itself first ...`（tests/city-members-ui.test.mjs）**失败**，
+  本地全量随后也在 `Web Devices and ephemeral pairing ...`（tests/web-v02.test.mjs）暴露同一处。
+  根因**是我的过度修正**：我让设备面**不再列出主机自己那一行**。
+  而已被验收的契约恰恰是「每个成员**先看到自己**」—— 那一行是用户识别列表的锚点。
+  报告真正要的是「**没有东西时不要把主机说成在线**」，这是 **presence** 缺陷，不是**列表**缺陷。
+  ⇒ 已**回退**主机行的排除；presence 缺陷仍在它该被决定的地方（memberSnapshot）修好。
+  这不是"改测试迁就实现"：被验收用例的断言**原文未改**，改回的是我越界的那部分实现。
+· 更早还有一次我造成的回归（已在本分支修掉）：身份判据第一版只用 hostname，结果把**同一台机器上另一个 City
+  的 worker** 归并进本机而把它藏了起来，被 tests/host-member-role.test.mjs 抓住；现要求同时满足主机默认
+  `host-` 节点 id。两次修正都写进提交信息。
 ```
 
 ## 1. 这一轮修的五个问题（每条都**先在运行中的 City 上复现**，修完再从本分支重启 City 复检）
@@ -59,7 +76,7 @@ PR                    [utopia#44](https://github.com/zhiheng-zhang-Mera/utopia/p
 · 修复前后同一个探针：City 从本分支重启后 **7/7 通过**
   （主机身份真实；每个在线成员都有证据支撑；没有 node 被列两次；不再搜到自己；设备面无死行；QR 与令牌刷新后仍在）
 · 证伪：**10 处源码突变各自使套件变红**并按字节还原
-· 全量：1480 项 / 1477 通过 / 3 失败，且**同样这 3 项在未改动的 base cc79923 上就失败**
+· 全量（修正后）：**1482 项 / 1479 通过 / 3 失败**，且**同样这 3 项在未改动的 base cc79923 上就失败**
   （本机驻留 City 的 launcher/enrolment 探针），即本分支**没有新增失败**
 · 我造成的**一次回归**（hostname-only 身份匹配）被全量套件抓住并在同一分支内修掉，写在提交信息里
 ```
