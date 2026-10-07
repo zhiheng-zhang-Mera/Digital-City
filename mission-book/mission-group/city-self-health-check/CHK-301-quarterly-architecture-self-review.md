@@ -3,7 +3,7 @@ workbook_id: CHK-301
 phase: CITY_SELF_HEALTH_CHECK
 sequence: 301
 execution_enabled: true
-status: IN_PROGRESS
+status: REVIEW
 activation_state: OWNER_ACTIVATED
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -18,8 +18,8 @@ dependencies: ["CHK-201"]
 development_host: Mera-Alianware
 development_branch: Alien-GPT-CHK
 development_head_sha: 9a646d6b894babd0fb316c0b4a0ba302bd7bca7d
-development_ci: IN_PROGRESS final exact-head CI; prior 672d6ce run 37577880475 SUCCESS is historical only
-development_complete: false
+development_ci: SUCCESS https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37578970705 exact 9a646d6b894babd0fb316c0b4a0ba302bd7bca7d (gateway-web and android)
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -32,7 +32,7 @@ ui_exemption_reason: "Internal bounded health checks; activation does not author
 capability_ids: ["CAP-CITY-SELF-CHECK-001"]
 capability_registry_action: CREATE
 capability_registry_refs: ["capability-registry/records/CAP-CITY-SELF-CHECK-001.yaml"]
-capability_registry_sync_status: CANDIDATE_PENDING_WHOLE_SERIES_REVIEW
+capability_registry_sync_status: CANDIDATE_DEVELOPMENT_RECONCILED_AWAITING_WHOLE_SERIES_REVIEW
 research_evidence_applicability: UNASSESSED
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []

@@ -33,14 +33,14 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计 / Overall: 总任务 / Tasks 92/100 · 开发 / Development 93/100 · 复检 / Review 92/100**
-**当前未收口池 / Active pool: 总任务 / Tasks 8/16 · 开发 / Development 9/16 · 复检 / Review 8/16**
+**全城合计 / Overall: 总任务 / Tasks 92/100 · 开发 / Development 98/100 · 复检 / Review 92/100**
+**当前未收口池 / Active pool: 总任务 / Tasks 8/16 · 开发 / Development 14/16 · 复检 / Review 8/16**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|
 | [Research Strengthening](./mission-group/research-strengthening/README.md) | **6/8** | **7/8** | **6/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./mission-group/showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
-| [City Self Health Check](./mission-group/city-self-health-check/README.md) | **0/5** | **0/5** | **0/5** | IN_PROGRESS |
+| [City Self Health Check](./mission-group/city-self-health-check/README.md) | **0/5** | **5/5** | **0/5** | ACTIVE |
 
 机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
 <!-- MISSION_PROGRESS:END -->
@@ -55,11 +55,11 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 | [REX-807](./mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-890](./mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
-| [CHK-101](./mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md) | City Self Health Check | IN_PROGRESS | — | — |
-| [CHK-201](./mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md) | City Self Health Check | IN_PROGRESS | — | — |
-| [CHK-301](./mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md) | City Self Health Check | IN_PROGRESS | — | — |
-| [CHK-401](./mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md) | City Self Health Check | IN_PROGRESS | — | — |
-| [CHK-990](./mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md) | City Self Health Check | IN_PROGRESS | — | — |
+| [CHK-101](./mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md) | City Self Health Check | REVIEW | ✅ | — |
+| [CHK-201](./mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md) | City Self Health Check | REVIEW | ✅ | — |
+| [CHK-301](./mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md) | City Self Health Check | REVIEW | ✅ | — |
+| [CHK-401](./mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md) | City Self Health Check | REVIEW | ✅ | — |
+| [CHK-990](./mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md) | City Self Health Check | REVIEW | ✅ | — |
 
 冲突以工作书为准 / Workbook frontmatter prevails on disagreement; treat the difference as homepage sync drift.
 <!-- ACTIVE_WORKBOOKS:END -->

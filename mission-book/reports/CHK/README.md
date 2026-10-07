@@ -5,16 +5,17 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **10**.
+当前Markdown文档 / Current Markdown documents: **14**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| series-evidence | 6 | [打开 / Open](series-evidence/README.md) |
+| series-evidence | 9 | [打开 / Open](series-evidence/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [ACTIVATION.md](ACTIVATION.md)
 - [DEVELOPMENT_PROGRESS.md](DEVELOPMENT_PROGRESS.md)
 - [DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md)
+- [PAPER_MATERIAL_INDEX.md](PAPER_MATERIAL_INDEX.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

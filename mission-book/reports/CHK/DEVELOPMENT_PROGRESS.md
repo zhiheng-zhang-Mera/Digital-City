@@ -1,11 +1,7 @@
-# CHK series development progress
+# CHK final development progress / 最终开发进度
 
-> **Owner ruling (2026-10-07):** 暂时屏蔽旧版工作书的验收限制，对 DGX 和 CHK 系列在各自分支上全量完成。第二机验收会直接一次性处理整个系列而不是分拆逐个任务验收。 Internal development proceeds across all five CHK workbooks on Alien-GPT-CHK without waiting for old per-task opposite-host acceptance. Whole-series independent second-host review remains NOT_RUN. This exception changes development sequencing only; no main merge, scheduling, repair or promotion authority is granted. Accepted dependency SHAs remain unfilled until actually accepted.
+All five CHK workbooks are development_complete=true on Alien-GPT-CHK at 9a646d6b894babd0fb316c0b4a0ba302bd7bca7d. Full exact-head CI 37578970705 SUCCESS (gateway-web and android). Targeted tests 35 PASS; final actual developer replay 27 module tests plus small/full real source scans PASS with clean unchanged exact heads/branches.
 
-Source candidate: 672d6ce32019dae33cbde11f91e8bbe58e958ad8. Full CI is running; development completion remains false until final exact-head CI succeeds. Independent second-host review remains NOT_RUN.
+Owner ruling permits full-series development before opposite-host acceptance; old per-task dependency acceptance is not fabricated. Whole-series independent second-host review remains NOT_RUN, review_complete=false for all five, task acceptance 0/5. No main merge, scheduling, repair or promotion.
 
-Implemented bounded repository collection, registry/path/symbol/mission/ancestry reconciliation, source API/dependency census, manifest mapping, rule-heading inventory, explicit UNKNOWN runtime seam, self model, multiple hypotheses, hash-linked case revisions, BLG-001..006 reconciliation and non-authoritative routing receipts with safety ladder.
-
-Real pre-fix small/full probes were run on this developer host. Findings remain candidate observations; no repairs were made. Sentinel/runtime flows, UI parity, runtime credential/revoke boundaries: NOT_RUN. Autonomy, provider/task fit, routing effectiveness, continuation/stop quality and resource/budget outcomes: NOT_MEASURED.
-
-Review found and corrected false HEALTHY with empty snapshot and an ancestry deadline bypass; historical failures will be preserved in evidence. The source replay runner now verifies canonical paths, exact heads/branches and clean state before/after; developer-host replay requires --development and cannot count as independent acceptance.
+See DEVELOPMENT_REPORT.md and series-evidence for full source/runtime coverage, unknowns, historical failed/partial observations and exact-byte checksums. Runtime sentinel/UI/security are NOT_RUN; provider/autonomy/routing/resource effectiveness remains NOT_MEASURED. This development result does not assert City operational health PASS or framework freeze acceptance.

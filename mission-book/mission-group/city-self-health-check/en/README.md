@@ -122,11 +122,11 @@ CHK itself must not bypass Mission Book, Owner authority, or domain safety bound
 ## Workbook series
 | ID | Work | Status |
 |---|---|---|
-| CHK-101 | Small Operational Reconciliation | NOT_STARTED |
-| CHK-201 | Full Capability / Architecture Census | NOT_STARTED |
-| CHK-301 | Quarterly Architecture + Self Review | WAITING_DEPENDENCIES |
-| CHK-401 | Evolution Candidate Triage & Routing | WAITING_DEPENDENCIES |
-| CHK-990 | Self-Check Framework Acceptance & Freeze | WAITING_DEPENDENCIES |
+| CHK-101 | Small Operational Reconciliation | REVIEW |
+| CHK-201 | Full Capability / Architecture Census | REVIEW |
+| CHK-301 | Quarterly Architecture + Self Review | REVIEW |
+| CHK-401 | Evolution Candidate Triage & Routing | REVIEW |
+| CHK-990 | Self-Check Framework Acceptance & Freeze | REVIEW |
 
 ## Activation conditions
 Owner activation is recorded; subsequent claims and execution must still follow:
@@ -162,14 +162,16 @@ Owner activation is recorded; subsequent claims and execution must still follow:
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/5 · 开发 / Development 0/5 · 复检 / Review 0/5 · `IN_PROGRESS`
+总完成 / Complete 0/5 · 开发 / Development 5/5 · 复检 / Review 0/5 · `ACTIVE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [CHK-101](../CHK-101-small-operational-reconciliation.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-201](../CHK-201-full-capability-architecture-census.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-301](../CHK-301-quarterly-architecture-self-review.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-401](../CHK-401-evolution-candidate-triage-routing.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-990](../CHK-990-self-check-framework-acceptance-freeze.md) | IN_PROGRESS | NO | NO | YES |
+| [CHK-101](../CHK-101-small-operational-reconciliation.md) | REVIEW | YES | NO | YES |
+| [CHK-201](../CHK-201-full-capability-architecture-census.md) | REVIEW | YES | NO | YES |
+| [CHK-301](../CHK-301-quarterly-architecture-self-review.md) | REVIEW | YES | NO | YES |
+| [CHK-401](../CHK-401-evolution-candidate-triage-routing.md) | REVIEW | YES | NO | YES |
+| [CHK-990](../CHK-990-self-check-framework-acceptance-freeze.md) | REVIEW | YES | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
+
+Development 5/5 complete; independent whole-series second-host review 0/5 / NOT_RUN. Final implementation CI [37578970705](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37578970705) SUCCESS at 9a646d6b894babd0fb316c0b4a0ba302bd7bca7d. No acceptance, freeze, scheduler or main merge.

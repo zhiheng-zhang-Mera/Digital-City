@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 9,
+      "complete": 14,
       "total": 16
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 93,
+      "complete": 98,
       "total": 100
     },
     "review": {
@@ -1094,58 +1094,58 @@
     },
     {
       "active_pool": true,
-      "development_complete": 0,
+      "development_complete": 5,
       "key": "chk",
       "name": "City Self Health Check",
       "readme": "mission-group/city-self-health-check/README.md",
       "review_complete": 0,
-      "status": "IN_PROGRESS",
+      "status": "ACTIVE",
       "task_complete": 0,
       "tasks": [
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "CHK-101",
           "path": "mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "REVIEW"
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "CHK-201",
           "path": "mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "REVIEW"
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "CHK-301",
           "path": "mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "REVIEW"
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "CHK-401",
           "path": "mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "REVIEW"
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "CHK-990",
           "path": "mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
           "review_complete": false,
-          "status": "IN_PROGRESS"
+          "status": "REVIEW"
         }
       ],
       "total": 5

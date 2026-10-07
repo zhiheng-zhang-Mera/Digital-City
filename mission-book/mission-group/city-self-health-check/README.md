@@ -9,6 +9,8 @@
 >
 > **Owner 已明确激活。** 五本工作书均为 `execution_enabled=true`。统一分支 `Alien-GPT-CHK`，不合并到 main；领取时解析 full SHA，前置 accepted SHA 不得猜测。首次运行采用 bounded dry-run/read-only。
 >
+> Development 5/5 complete; independent whole-series second-host review 0/5 / NOT_RUN. Final source CI: [37578970705](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37578970705). No task is accepted, frozen, scheduled or merged.
+>
 > 本系列已加入 `PROGRESS_MANIFEST.json`、主任务栏与 active pool。激活不等于开发或复检完成，详见 [激活记录](../../reports/CHK/ACTIVATION.md)。
 
 ## 目的
@@ -132,11 +134,11 @@ sandbox
 
 | ID | 工作 | 状态 |
 |---|---|---|
-| CHK-101 | Small Operational Reconciliation | NOT_STARTED |
-| CHK-201 | Full Capability / Architecture Census | NOT_STARTED |
-| CHK-301 | Quarterly Architecture + Self Review | WAITING_DEPENDENCIES |
-| CHK-401 | Evolution Candidate Triage & Routing | WAITING_DEPENDENCIES |
-| CHK-990 | Self-Check Framework Acceptance & Freeze | WAITING_DEPENDENCIES |
+| CHK-101 | Small Operational Reconciliation | REVIEW |
+| CHK-201 | Full Capability / Architecture Census | REVIEW |
+| CHK-301 | Quarterly Architecture + Self Review | REVIEW |
+| CHK-401 | Evolution Candidate Triage & Routing | REVIEW |
+| CHK-990 | Self-Check Framework Acceptance & Freeze | REVIEW |
 
 ## 激活条件
 
@@ -180,14 +182,14 @@ sandbox
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/5 · 开发 / Development 0/5 · 复检 / Review 0/5 · `IN_PROGRESS`
+总完成 / Complete 0/5 · 开发 / Development 5/5 · 复检 / Review 0/5 · `ACTIVE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [CHK-101](CHK-101-small-operational-reconciliation.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-201](CHK-201-full-capability-architecture-census.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-301](CHK-301-quarterly-architecture-self-review.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-401](CHK-401-evolution-candidate-triage-routing.md) | IN_PROGRESS | NO | NO | YES |
-| [CHK-990](CHK-990-self-check-framework-acceptance-freeze.md) | IN_PROGRESS | NO | NO | YES |
+| [CHK-101](CHK-101-small-operational-reconciliation.md) | REVIEW | YES | NO | YES |
+| [CHK-201](CHK-201-full-capability-architecture-census.md) | REVIEW | YES | NO | YES |
+| [CHK-301](CHK-301-quarterly-architecture-self-review.md) | REVIEW | YES | NO | YES |
+| [CHK-401](CHK-401-evolution-candidate-triage-routing.md) | REVIEW | YES | NO | YES |
+| [CHK-990](CHK-990-self-check-framework-acceptance-freeze.md) | REVIEW | YES | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
