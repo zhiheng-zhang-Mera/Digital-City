@@ -1,0 +1,43 @@
+✔ CEX790 Web reports validated but unfiled registration and degraded store (3132.3167ms)
+✔ Web Research discovers imports validates registers and inspects canonical experiments without running (5278.7216ms)
+✔ a failed list refresh cannot hide a successful canonical registration (3089.7578ms)
+✔ REX803 web: the owner runs a real campaign and every repetition without a measurement shows its reason (5225.6336ms)
+✔ REX803 web: a member is told the campaign surface is the owner's, and is offered no controls (2645.5334ms)
+✔ Research Danger Zone requires explicit confirmation and offers real emergency stop (5236.6462ms)
+✔ REX805 Web owner selects recorded run and executes real replay/ablation from Research (4205.5702ms)
+✔ REX805 Web switching source discards a delayed comparison from the previous selection (3252.4918ms)
+✔ REX806 S1: the owner can read the artifact export and its preview (178.3058ms)
+✔ REX806 S2: a member session cannot read the artifact export (182.8684ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (72.5233ms)
+✔ REX806 S4: the preview is bounded and says so (76.3433ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (75.726ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (164.9441ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (105.625ms)
+✔ REX806 S8: a 51-receipt City labels its bounded download as partial (253.8099ms)
+✔ REX806 S9: corruption between the receipt listing and detail keeps the readable study (65.4109ms)
+✔ REX807 S9: the surface refuses to exist if any advanced control could be triggered without confirmation (3.8374ms)
+✔ REX807 S10: the client confirmation rule refuses anything except the exact token the gateway enforces (210.5438ms)
+✔ REX807 S11: in a real browser a wrong confirmation injects nothing, and the exact token then injects (2264.2779ms)
+✔ REX807 S12: the Owner downloads the research artifact from the page, with no API call and no console (3365.0893ms)
+✔ REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics (4.1799ms)
+✔ REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default (0.7603ms)
+✔ REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons (0.6899ms)
+✔ REX807 S4: a payload field this view does not place is reported, never silently dropped (1.373ms)
+✔ REX807 S5: the research entry is secondary and the primary surfaces stay clean (1.1417ms)
+✔ REX807 S6: nothing INTERNAL_ONLY is rendered as a user control (0.534ms)
+✔ REX807 S7: the same payload renders in zh-CN with real translation, not English fallback (0.4666ms)
+✔ REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts (34.3781ms)
+✔ REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope (2949.4ms)
+✔ REX807 shipped metrics and source disclosures come from the held artifact (1949.0442ms)
+✔ REX807 a real admitted member never receives an owner export claim or enabled export (1791.042ms)
+✔ REX807 failed campaign read stays visibly unknown, then a successful refresh clears it (2003.8039ms)
+✔ REX807 actual gateway unfinished and bounded history remain visible (1827.9795ms)
+✔ REX807 actual campaign storage failure cannot render an idle run (1497.9413ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27128.1658

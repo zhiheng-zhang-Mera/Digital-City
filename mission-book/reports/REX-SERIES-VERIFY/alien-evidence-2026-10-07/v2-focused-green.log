@@ -1,0 +1,30 @@
+✔ gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour (1.318ms)
+✔ shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing (3207.3533ms)
+✔ a stale host alias never hides the live host or replaces its execution target (1.0947ms)
+✔ kernel versions do not invent a Windows edition or future macOS product version (0.4199ms)
+✔ REX807 S9: the surface refuses to exist if any advanced control could be triggered without confirmation (2.7486ms)
+✔ REX807 S10: the client confirmation rule refuses anything except the exact token the gateway enforces (555.2336ms)
+✔ REX807 S11: in a real browser a wrong confirmation injects nothing, and the exact token then injects (2430.2703ms)
+✔ REX807 S12: the Owner downloads the research artifact from the page, with no API call and no console (2851.6795ms)
+✔ REX807 S1: the primary labels are human summaries, and raw identifiers are folded into Diagnostics (3.8452ms)
+✔ REX807 S2: fault injection is a Danger Zone control that requires confirmation and is not open by default (0.65ms)
+✔ REX807 S3: errors, exclusions and incomplete metrics stay visible with their reasons (0.5063ms)
+✔ REX807 S4: a payload field this view does not place is reported, never silently dropped (1.7204ms)
+✔ REX807 S5: the research entry is secondary and the primary surfaces stay clean (1.6248ms)
+✔ REX807 S6: nothing INTERNAL_ONLY is rendered as a user control (0.5429ms)
+✔ REX807 S7: the same payload renders in zh-CN with real translation, not English fallback (0.4636ms)
+✔ REX807 S8: the rendered page folds identifiers, keeps the technical layer collapsed, and surfaces alerts (37.1398ms)
+✔ REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope (2741.4377ms)
+✔ REX807 shipped metrics and source disclosures come from the held artifact (2553.0515ms)
+✔ REX807 a real admitted member never receives an owner export claim or enabled export (1888.0921ms)
+✔ REX807 failed campaign read stays visibly unknown, then a successful refresh clears it (2095.0008ms)
+✔ REX807 actual gateway unfinished and bounded history remain visible (1505.879ms)
+✔ REX807 actual campaign storage failure cannot render an idle run (1517.3272ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 20678.6231

@@ -1,0 +1,66 @@
+TAP version 13
+# Subtest: two installation launchers share one City across ports and recover the same identity after a crash
+not ok 1 - two installation launchers share one City across ports and recover the same identity after a crash
+  ---
+  duration_ms: 17.3535
+  type: 'test'
+  location: 'D:\\utopia\\tests\\host-city-launcher.test.mjs:13:1'
+  failureType: 'testCodeFailure'
+  error: 'Host integration requires a free coordination port; refusing to disturb an active City'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/utopia/tests/host-city-launcher.test.mjs:14:36)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: forgetting migrated enrollment cannot import the legacy credential again
+ok 2 - forgetting migrated enrollment cannot import the legacy credential again
+  ---
+  duration_ms: 2020.5315
+  type: 'test'
+  ...
+# Subtest: remote short code enrolls with a local member agent and reconnects without launching a host City
+not ok 3 - remote short code enrolls with a local member agent and reconnects without launching a host City
+  ---
+  duration_ms: 1168.477
+  type: 'test'
+  location: 'D:\\utopia\\tests\\host-city-launcher.test.mjs:90:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Command failed: C:\Users\15601\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe D:\utopia\scripts\utopia-client-launcher.mjs --enroll-code 615984 --enroll-host http://127.0.0.1:58057 --no-open --json
+    Utopia: This host is already joined; leave the current City before enrolling elsewhere
+    
+  code: 6
+  stack: |-
+    genericNodeError (node:internal/errors:985:15)
+    wrappedFn (node:internal/errors:539:14)
+    ChildProcess.exithandler (node:child_process:417:12)
+    ChildProcess.emit (node:events:509:28)
+    maybeClose (node:internal/child_process:1141:16)
+    ChildProcess._handle.onexit (node:internal/child_process:306:5)
+  ...
+# Subtest: PRIMARY launcher reports successful MEMBER transition and normal main restart preserves it
+not ok 4 - PRIMARY launcher reports successful MEMBER transition and normal main restart preserves it
+  ---
+  duration_ms: 2.6669
+  type: 'test'
+  location: 'D:\\utopia\\tests\\host-city-launcher.test.mjs:110:1'
+  failureType: 'testCodeFailure'
+  error: 'Requires a free local host reservation'
+  code: 'ERR_TEST_FAILURE'
+  stack: |-
+    TestContext.<anonymous> (file:///D:/utopia/tests/host-city-launcher.test.mjs:111:33)
+    process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 1
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4422.2268

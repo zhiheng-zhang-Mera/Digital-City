@@ -1,0 +1,19 @@
+✔ DGX007 Web discovers governance, imports case and traces L0 to exact L2 evidence without task mutation (1740.5565ms)
+✔ gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour (1.1285ms)
+✔ shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing (2171.2792ms)
+✔ a stale host alias never hides the live host or replaces its execution target (0.672ms)
+✔ kernel versions do not invent a Windows edition or future macOS product version (0.2637ms)
+✔ REX807 shipped CSV bytes equal the gateway metricsCsv rather than its JSON envelope (2041.1314ms)
+✔ REX807 shipped metrics and source disclosures come from the held artifact (1393.1824ms)
+✔ REX807 a real admitted member never receives an owner export claim or enabled export (1414.5144ms)
+✔ REX807 failed campaign read stays visibly unknown, then a successful refresh clears it (1413.9755ms)
+✔ REX807 actual gateway unfinished and bounded history remain visible (1479.1378ms)
+✔ REX807 actual campaign storage failure cannot render an idle run (1343.7936ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14303.2974

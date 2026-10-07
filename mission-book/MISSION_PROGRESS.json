@@ -5,11 +5,11 @@
       "total": 11
     },
     "review": {
-      "complete": 8,
+      "complete": 9,
       "total": 11
     },
     "tasks": {
-      "complete": 8,
+      "complete": 9,
       "total": 11
     }
   },
@@ -20,11 +20,11 @@
       "total": 95
     },
     "review": {
-      "complete": 92,
+      "complete": 93,
       "total": 95
     },
     "tasks": {
-      "complete": 92,
+      "complete": 93,
       "total": 95
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
-      "review_complete": 6,
-      "status": "IN_PROGRESS",
-      "task_complete": 6,
+      "review_complete": 7,
+      "status": "ACTIVE",
+      "task_complete": 7,
       "tasks": [
         {
           "complete": true,
@@ -970,13 +970,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-807",
           "path": "mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "review_complete": true,
+          "status": "COMPLETE"
         },
         {
           "complete": false,
@@ -985,7 +985,7 @@
           "id": "REX-890",
           "path": "mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "READY"
         }
       ],
       "total": 8

@@ -1,0 +1,15 @@
+{
+  "candidate_sha": "17271f04829877ee56668221afeda5fbd35f66e8",
+  "preserved_ancestor_shas": [
+    "099edd2ca0de01545415935723dbad09087ecb27",
+    "9ad888279be07220fe7ac7d91e419e8fe69fc439",
+    "a1bb0937defc29af686cb40f1a21340731d4d7a3",
+    "e5a03dae02ca341d6d23565735e6cd6c3edc27d9",
+    "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d"
+  ],
+  "source_clean": true,
+  "android_tree_unchanged_from_locally_verified_1f": true,
+  "android_tree_sha": "8d10e4069867c7539ff3da98cacdbebee2548eab",
+  "result": "PASS",
+  "verified_at": "2026-10-07T06:58:06.230559+00:00"
+}

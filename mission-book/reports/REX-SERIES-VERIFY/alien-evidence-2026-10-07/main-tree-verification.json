@@ -1,0 +1,9 @@
+{
+  "candidate_sha": "17271f04829877ee56668221afeda5fbd35f66e8",
+  "main_merge_sha": "db6b6f9dbba1266d6783774d659d4eef912929ff",
+  "candidate_tree_sha": "f903f9c1ad6cbdb91861bf51ac3d94c0a3ce86d0",
+  "main_tree_sha": "f903f9c1ad6cbdb91861bf51ac3d94c0a3ce86d0",
+  "trees_identical": true,
+  "candidate_is_ancestor": true,
+  "result": "PASS"
+}

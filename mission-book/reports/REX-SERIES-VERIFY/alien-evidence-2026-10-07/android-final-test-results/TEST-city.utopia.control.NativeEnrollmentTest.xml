@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.NativeEnrollmentTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-10-07T06:41:16.599Z" hostname="MERA-ALIANWARE" time="0.015">
+  <properties/>
+  <testcase name="approval reply requires durable enrollment and member session" classname="city.utopia.control.NativeEnrollmentTest" time="0.002"/>
+  <testcase name="approval needs a name and address but no unused code" classname="city.utopia.control.NativeEnrollmentTest" time="0.005"/>
+  <testcase name="foreign identities and incomplete secrets cannot be persisted" classname="city.utopia.control.NativeEnrollmentTest" time="0.001"/>
+  <testcase name="secure destination stays secure and invalid URL parts are refused" classname="city.utopia.control.NativeEnrollmentTest" time="0.005"/>
+  <testcase name="direct exchange uses enrolled session instead of legacy owner credential" classname="city.utopia.control.NativeEnrollmentTest" time="0.001"/>
+  <testcase name="new identities follow canonical server contracts" classname="city.utopia.control.NativeEnrollmentTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

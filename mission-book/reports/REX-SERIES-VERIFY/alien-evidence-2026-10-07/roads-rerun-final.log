@@ -1,0 +1,14 @@
+✔ Road rejects missing array elements instead of producing null serialized entries (2.282ms)
+✔ Road preserves section order, deterministic IDs and explicit temporary unverified ownership (0.8754ms)
+✔ Road accepts empty documents and preserves empty heading and text without coercion (0.2297ms)
+✔ Road refuses malformed document boundaries and never accepts caller trust injection (0.4392ms)
+✔ Road output validation rejects permanence, trust escalation and reordered IDs (0.1884ms)
+✔ Bridge Road extraction preserves all six published document retrieval digests (436.0579ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1512.1221

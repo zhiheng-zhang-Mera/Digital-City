@@ -1,0 +1,12 @@
+✔ gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour (0.8626ms)
+✔ shipped browser keeps live self first, hides offline rows, shows measured platform and restores pairing (1924.4121ms)
+✔ a stale host alias never hides the live host or replaces its execution target (0.6409ms)
+✔ kernel versions do not invent a Windows edition or future macOS product version (0.2035ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4066.6882

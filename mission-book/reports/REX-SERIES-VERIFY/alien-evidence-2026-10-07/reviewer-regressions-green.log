@@ -1,0 +1,22 @@
+✔ gateway Set of self addresses excludes unlabelled self but retains a same-port neighbour (0.8299ms)
+✔ a stale host alias never hides the live host or replaces its execution target (0.7054ms)
+✔ kernel versions do not invent a Windows edition or future macOS product version (0.2791ms)
+✔ V1 the operating system is named from product evidence rather than ambiguous NT builds (1.1464ms)
+✔ V2 the architecture is spelled out, and unknown parts are omitted rather than printed (0.1942ms)
+✔ V3 the fact set read from a host carries name, release, architecture, hostname and runtime (0.2739ms)
+✔ V4 opening a City does NOT claim the host is online, and does not list the host node twice (0.4753ms)
+✔ V5 the host node is recognised by hostname, not by id equality (0.3095ms)
+✔ V6 a connected surface is what makes a member present (0.1581ms)
+✔ V7 a City never treats its own advertisement as a neighbour (0.2549ms)
+✔ V8 the connect list keeps one row per machine and never takes a discovery duplicate of self (1.1529ms)
+✔ V10 an EMPTY host id is replaced by a real one, so no undefined member can appear (391.5364ms)
+✔ V11 the Devices surface is rendered by the shipped predicate, not by an inline copy (1.9211ms)
+✔ V9 a pairing session restored after a reload still carries its QR markup and code (1.8215ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2332.9991

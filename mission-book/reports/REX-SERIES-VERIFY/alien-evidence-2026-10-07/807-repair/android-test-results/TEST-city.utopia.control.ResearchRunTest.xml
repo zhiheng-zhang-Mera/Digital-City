@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.ResearchRunTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-10-07T06:37:41.583Z" hostname="MERA-ALIANWARE" time="0.163">
+  <properties/>
+  <testcase name="anIncompleteRunIsNotShownAsDone" classname="city.utopia.control.ResearchRunTest" time="0.05"/>
+  <testcase name="observationOnlyExposesNoControl" classname="city.utopia.control.ResearchRunTest" time="0.073"/>
+  <testcase name="aNonOwnerFailureThatIsNotOwnerShapedSaysUnavailable" classname="city.utopia.control.ResearchRunTest" time="0.005"/>
+  <testcase name="noRawIdentifierLeaksIntoAUserFacingWordButTheTechnicalLayerKeepsIt" classname="city.utopia.control.ResearchRunTest" time="0.007"/>
+  <testcase name="gatewayBooleanUnfinishedIsVisible" classname="city.utopia.control.ResearchRunTest" time="0.001"/>
+  <testcase name="gatewayBooleanFinishedAddsNoAttention" classname="city.utopia.control.ResearchRunTest" time="0.001"/>
+  <testcase name="anUnfinishedCampaignAndAnUnavailableStoreAreVisible" classname="city.utopia.control.ResearchRunTest" time="0.002"/>
+  <testcase name="ownerRefusalIsNotAnEmptyPage" classname="city.utopia.control.ResearchRunTest" time="0.001"/>
+  <testcase name="aCompleteWindowAddsNoAttention" classname="city.utopia.control.ResearchRunTest" time="0.0"/>
+  <testcase name="theBoundedWindowIsStatedInsteadOfPassingAsHistory" classname="city.utopia.control.ResearchRunTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

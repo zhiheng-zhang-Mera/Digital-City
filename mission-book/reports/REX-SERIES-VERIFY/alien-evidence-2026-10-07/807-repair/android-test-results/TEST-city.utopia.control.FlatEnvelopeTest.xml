@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="city.utopia.control.FlatEnvelopeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-10-07T06:37:41.812Z" hostname="MERA-ALIANWARE" time="0.003">
+  <properties/>
+  <testcase name="anErrorEnvelopeIsNotMistakenForAPayload" classname="city.utopia.control.FlatEnvelopeTest" time="0.001"/>
+  <testcase name="aMissingPayloadIsRejectedInsteadOfTreatedAsEmptySuccess" classname="city.utopia.control.FlatEnvelopeTest" time="0.001"/>
+  <testcase name="payloadIsASiblingOfTheVersionFieldsAndHasNoDataWrapper" classname="city.utopia.control.FlatEnvelopeTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

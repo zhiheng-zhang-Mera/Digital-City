@@ -1,3 +1,5 @@
+> **Latest / 最新：** 已完成整分支复检修补并合并 main；详见 [Alien review](REVIEW_REPORT_Alien_GPT_2026_10_07.md)。下文是原 Mech 交接历史：其中“隐藏本机卡片”建议已被纠正，正确契约是存在证据成立时自己优先显示。 / Whole-branch acceptance and main merge completed; original handoff below is historical, including the superseded hide-self advice.
+
 # REX 系列变动收尾：验证分支交接 / REX series close-out: verification branch handoff
 
 ```text
@@ -103,3 +105,20 @@ exact-head CI        push 37576305410 与 PR 37576308377 **两个 job 全绿**�
 4) 反例优先：把 hosts 文件/端口占用造一个**同端口不同地址**的广告，确认它**没有**被误判为 self（②的反向）
 5) 我明确**不**声称的部分请重点攻击：主机 presence 的判据是否还漏了路径（例如 node 在线但控制面断开时）
 ```
+
+<!-- DOCUMENT_NAVIGATION:START -->
+## 导航与快速信息 / Navigation and quick information
+
+本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
+
+当前Markdown文档 / Current Markdown documents: **3**.
+
+| 子区 / Area | 文档数 / Documents | 导航 / Entry |
+|---|---:|---|
+| alien-evidence-2026-10-07 | 1 | [打开 / Open](alien-evidence-2026-10-07/807-repair/verification-summary.md) |
+
+### 本目录说明 / Local documents
+
+- [REVIEW_REPORT_Alien_GPT_2026_10_07.md](REVIEW_REPORT_Alien_GPT_2026_10_07.md)
+
+<!-- DOCUMENT_NAVIGATION:END -->

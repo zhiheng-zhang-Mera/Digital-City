@@ -1,0 +1,528 @@
+{
+  "candidate_sha": "17271f04829877ee56668221afeda5fbd35f66e8",
+  "candidate_ci": {
+    "conclusion": "success",
+    "databaseId": 37584030685,
+    "headSha": "17271f04829877ee56668221afeda5fbd35f66e8",
+    "jobs": [
+      {
+        "completedAt": "2026-10-07T06:54:20Z",
+        "conclusion": "success",
+        "databaseId": 112669962958,
+        "name": "android",
+        "startedAt": "2026-10-07T06:53:27Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-07T06:53:30Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-07T06:53:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:32Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-07T06:53:30Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:32Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-java@v4",
+            "number": 3,
+            "startedAt": "2026-10-07T06:53:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:36Z",
+            "conclusion": "success",
+            "name": "Run android-actions/setup-android@v3",
+            "number": 4,
+            "startedAt": "2026-10-07T06:53:32Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:37Z",
+            "conclusion": "success",
+            "name": "Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'",
+            "number": 5,
+            "startedAt": "2026-10-07T06:53:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:40Z",
+            "conclusion": "success",
+            "name": "Run gradle/actions/setup-gradle@v4",
+            "number": 6,
+            "startedAt": "2026-10-07T06:53:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:54:16Z",
+            "conclusion": "success",
+            "name": "Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain",
+            "number": 7,
+            "startedAt": "2026-10-07T06:53:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:54:17Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 8,
+            "startedAt": "2026-10-07T06:54:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:54:17Z",
+            "conclusion": "success",
+            "name": "Post Run gradle/actions/setup-gradle@v4",
+            "number": 14,
+            "startedAt": "2026-10-07T06:54:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:54:17Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-java@v4",
+            "number": 15,
+            "startedAt": "2026-10-07T06:54:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:54:18Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 16,
+            "startedAt": "2026-10-07T06:54:17Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:54:18Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "startedAt": "2026-10-07T06:54:18Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584030685/job/112669962958"
+      },
+      {
+        "completedAt": "2026-10-07T06:59:53Z",
+        "conclusion": "success",
+        "databaseId": 112669963508,
+        "name": "gateway-web",
+        "startedAt": "2026-10-07T06:53:27Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-07T06:53:31Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-07T06:53:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:38Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-07T06:53:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:43Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 3,
+            "startedAt": "2026-10-07T06:53:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:47Z",
+            "conclusion": "success",
+            "name": "Run pnpm/action-setup@v4",
+            "number": 4,
+            "startedAt": "2026-10-07T06:53:43Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:50Z",
+            "conclusion": "success",
+            "name": "Run pnpm install --frozen-lockfile",
+            "number": 5,
+            "startedAt": "2026-10-07T06:53:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:54Z",
+            "conclusion": "success",
+            "name": "Run pnpm --dir city install --frozen-lockfile",
+            "number": 6,
+            "startedAt": "2026-10-07T06:53:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:00Z",
+            "conclusion": "success",
+            "name": "Run pnpm test",
+            "number": 7,
+            "startedAt": "2026-10-07T06:53:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:02Z",
+            "conclusion": "success",
+            "name": "Run node scripts/verify-promotion-history.mjs",
+            "number": 8,
+            "startedAt": "2026-10-07T06:59:00Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:13Z",
+            "conclusion": "success",
+            "name": "Run node --test apps/rooms/tests/*.test.mjs",
+            "number": 9,
+            "startedAt": "2026-10-07T06:59:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:48Z",
+            "conclusion": "success",
+            "name": "Run node city/test-all.mjs",
+            "number": 10,
+            "startedAt": "2026-10-07T06:59:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:49Z",
+            "conclusion": "success",
+            "name": "Run pnpm check:docs",
+            "number": 11,
+            "startedAt": "2026-10-07T06:59:48Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:49Z",
+            "conclusion": "success",
+            "name": "Post Run pnpm/action-setup@v4",
+            "number": 20,
+            "startedAt": "2026-10-07T06:59:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:49Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 21,
+            "startedAt": "2026-10-07T06:59:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:51Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 22,
+            "startedAt": "2026-10-07T06:59:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:59:51Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-10-07T06:59:51Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584030685/job/112669963508"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584030685"
+  },
+  "main_ci": {
+    "conclusion": "success",
+    "databaseId": 37584814818,
+    "headSha": "db6b6f9dbba1266d6783774d659d4eef912929ff",
+    "jobs": [
+      {
+        "completedAt": "2026-10-07T07:08:17Z",
+        "conclusion": "success",
+        "databaseId": 112672419993,
+        "name": "gateway-web",
+        "startedAt": "2026-10-07T07:01:30Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-07T07:01:33Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-07T07:01:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:41Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-07T07:01:33Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:47Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-node@v4",
+            "number": 3,
+            "startedAt": "2026-10-07T07:01:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:50Z",
+            "conclusion": "success",
+            "name": "Run pnpm/action-setup@v4",
+            "number": 4,
+            "startedAt": "2026-10-07T07:01:47Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:53Z",
+            "conclusion": "success",
+            "name": "Run pnpm install --frozen-lockfile",
+            "number": 5,
+            "startedAt": "2026-10-07T07:01:50Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:55Z",
+            "conclusion": "success",
+            "name": "Run pnpm --dir city install --frozen-lockfile",
+            "number": 6,
+            "startedAt": "2026-10-07T07:01:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:07:24Z",
+            "conclusion": "success",
+            "name": "Run pnpm test",
+            "number": 7,
+            "startedAt": "2026-10-07T07:01:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:07:27Z",
+            "conclusion": "success",
+            "name": "Run node scripts/verify-promotion-history.mjs",
+            "number": 8,
+            "startedAt": "2026-10-07T07:07:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:07:37Z",
+            "conclusion": "success",
+            "name": "Run node --test apps/rooms/tests/*.test.mjs",
+            "number": 9,
+            "startedAt": "2026-10-07T07:07:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:08:12Z",
+            "conclusion": "success",
+            "name": "Run node city/test-all.mjs",
+            "number": 10,
+            "startedAt": "2026-10-07T07:07:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:08:13Z",
+            "conclusion": "success",
+            "name": "Run pnpm check:docs",
+            "number": 11,
+            "startedAt": "2026-10-07T07:08:12Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:08:14Z",
+            "conclusion": "success",
+            "name": "Post Run pnpm/action-setup@v4",
+            "number": 20,
+            "startedAt": "2026-10-07T07:08:13Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:08:14Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-node@v4",
+            "number": 21,
+            "startedAt": "2026-10-07T07:08:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:08:16Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 22,
+            "startedAt": "2026-10-07T07:08:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:08:16Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "startedAt": "2026-10-07T07:08:16Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584814818/job/112672419993"
+      },
+      {
+        "completedAt": "2026-10-07T07:03:24Z",
+        "conclusion": "success",
+        "databaseId": 112672420195,
+        "name": "android",
+        "startedAt": "2026-10-07T07:01:30Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-07T07:01:34Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-07T07:01:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:35Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-07T07:01:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:36Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-java@v4",
+            "number": 3,
+            "startedAt": "2026-10-07T07:01:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:44Z",
+            "conclusion": "success",
+            "name": "Run android-actions/setup-android@v3",
+            "number": 4,
+            "startedAt": "2026-10-07T07:01:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:46Z",
+            "conclusion": "success",
+            "name": "Run sdkmanager 'platforms;android-36' 'build-tools;36.0.0'",
+            "number": 5,
+            "startedAt": "2026-10-07T07:01:44Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:01:54Z",
+            "conclusion": "success",
+            "name": "Run gradle/actions/setup-gradle@v4",
+            "number": 6,
+            "startedAt": "2026-10-07T07:01:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:02:53Z",
+            "conclusion": "success",
+            "name": "Run bash gradlew :app:testDebugUnitTest :app:assembleDebug --console=plain",
+            "number": 7,
+            "startedAt": "2026-10-07T07:01:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:02:55Z",
+            "conclusion": "success",
+            "name": "Run actions/upload-artifact@v4",
+            "number": 8,
+            "startedAt": "2026-10-07T07:02:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:03:20Z",
+            "conclusion": "success",
+            "name": "Post Run gradle/actions/setup-gradle@v4",
+            "number": 14,
+            "startedAt": "2026-10-07T07:02:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:03:21Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-java@v4",
+            "number": 15,
+            "startedAt": "2026-10-07T07:03:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:03:21Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 16,
+            "startedAt": "2026-10-07T07:03:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T07:03:21Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 17,
+            "startedAt": "2026-10-07T07:03:21Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584814818/job/112672420195"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584814818"
+  },
+  "pr": {
+    "headRefOid": "17271f04829877ee56668221afeda5fbd35f66e8",
+    "mergeCommit": {
+      "oid": "db6b6f9dbba1266d6783774d659d4eef912929ff"
+    },
+    "mergedAt": "2026-10-07T07:01:24Z",
+    "state": "MERGED",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/pull/44"
+  },
+  "android_local_result": "PASS: 22 suites / 121 tests / 0 failures / 0 errors / 0 skipped; debug APK assembled using local JDK21 and SDK36. Verified at 1f1d7ca; Android Git tree identical in 17271f0 and merged main. Physical-device exposure NOT_RUN.",
+  "physical_host": "Mera-Alianware",
+  "verified_at": "2026-10-07T07:11:01.882434+00:00",
+  "final_series_tests": 300,
+  "branch_acceptance": "PASS",
+  "rex807_exposure_gate": "PASS",
+  "preserved_ancestor_shas": [
+    "099edd2ca0de01545415935723dbad09087ecb27",
+    "9ad888279be07220fe7ac7d91e419e8fe69fc439",
+    "a1bb0937defc29af686cb40f1a21340731d4d7a3",
+    "e5a03dae02ca341d6d23565735e6cd6c3edc27d9",
+    "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d"
+  ],
+  "pre_main_race_rex_tests": 210,
+  "rex890_independent_physical_study": "NOT_RUN",
+  "programme_freeze_marker_released": false,
+  "android_physical_device_acceptance": "NOT_RUN",
+  "initial_full_run_provenance": "INVALID_AS_EXACT_SHA: initial dependency installation overlapped execution and source repairs started before completion. Preserve the raw 1476 pass / 6 fail output; do not use it as final evidence.",
+  "bc34fd3_local_full_run": "1483 pass / 3 fail; same three occupied host-reservation checks fail at unchanged main cc799234. Hosted exact-head full suite passed.",
+  "ee4f9a7_local_full_run": "1498 pass / 6 fail: three occupied host-reservation checks and three missing City parser dependencies. Final v2 installs both frozen lockfiles; the affected adapter/inventory/roads tests re-run 12/12 PASS. Preserve the original failures.",
+  "affected_surfaces_green_log": "Historical RED browser run before modern-card platform repair; preserve despite the historical filename. Final browser-review-green and rex-final-series supersede it.",
+  "android_local": "PASS: 22 suites / 121 tests / 0 failures / 0 errors / 0 skipped; debug APK assembled using local JDK21 and SDK36. Verified at 1f1d7ca; Android Git tree identical in 17271f0 and merged main. Physical-device exposure NOT_RUN."
+}
