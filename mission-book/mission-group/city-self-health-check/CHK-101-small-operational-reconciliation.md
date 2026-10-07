@@ -3,22 +3,22 @@ workbook_id: CHK-101
 phase: CITY_SELF_HEALTH_CHECK
 sequence: 101
 execution_enabled: true
-status: NOT_STARTED
+status: IN_PROGRESS
 activation_state: OWNER_ACTIVATED
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
-baseline_anchor_mode: REMOTE_REF_EXACT_SHA_AT_CLAIM
+baseline_anchor_mode: OWNER_SERIES_DEVELOPMENT_EXACT_SHA_AT_CLAIM
 baseline_candidate_refs: ["refs/heads/Alien-GPT-CHK"]
-required_ancestor_shas: []
+required_ancestor_shas: ["cc799234e7daa3d8ccfde5673b9d07ccb2376742"]
 dependency_source_shas: []
-development_baseline_sha: null
-baseline_resolution_evidence: null
-anchor_state: UNCLAIMED_RESOLVE_EXACT_SHA_AT_CLAIM
+development_baseline_sha: cc799234e7daa3d8ccfde5673b9d07ccb2376742
+baseline_resolution_evidence: mission-book/reports/CHK/CLAIM.json
+anchor_state: CLAIMED_EXACT_SHA_WITH_OWNER_SERIES_OVERRIDE
 dependencies: []
-development_host: null
-development_branch: null
-development_head_sha: null
-development_ci: null
+development_host: Mera-Alianware
+development_branch: Alien-GPT-CHK
+development_head_sha: 672d6ce32019dae33cbde11f91e8bbe58e958ad8
+development_ci: IN_PROGRESS https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37577880475; not completion evidence
 development_complete: false
 review_host: null
 review_head_sha: null
@@ -29,10 +29,10 @@ user_exposure_surface: null
 user_exposure_nesting: NONE_INTERNAL
 backend_wiring: NOT_APPLICABLE_INTERNAL
 ui_exemption_reason: "Internal bounded health checks; activation does not authorize UI changes or automatic repairs."
-capability_ids: []
-capability_registry_action: NOT_APPLICABLE
-capability_registry_refs: []
-capability_registry_sync_status: NOT_APPLICABLE
+capability_ids: ["CAP-CITY-SELF-CHECK-001"]
+capability_registry_action: CREATE
+capability_registry_refs: ["capability-registry/records/CAP-CITY-SELF-CHECK-001.yaml"]
+capability_registry_sync_status: CANDIDATE_PENDING_WHOLE_SERIES_REVIEW
 research_evidence_applicability: UNASSESSED
 long_horizon_context_evidence: UNASSESSED
 research_evidence_refs: []
@@ -48,7 +48,12 @@ decision_trace_refs: []
 owner_gate: NONE
 merge_authority: false
 report_path: mission-book/reports/CHK
+baseline_blocker: null
+owner_series_development_override: 2026-10-07_ALL_CHK_DEVELOPMENT_BEFORE_WHOLE_SERIES_SECOND_HOST_REVIEW
+independent_series_review: NOT_RUN
 ---
+
+> **Owner ruling (2026-10-07):** 暂时屏蔽旧版工作书的验收限制，对 DGX 和 CHK 系列在各自分支上全量完成。第二机验收会直接一次性处理整个系列而不是分拆逐个任务验收。 Internal development proceeds across all five CHK workbooks on Alien-GPT-CHK without waiting for old per-task opposite-host acceptance. Whole-series independent second-host review remains NOT_RUN. This exception changes development sequencing only; no main merge, scheduling, repair or promotion authority is granted. Accepted dependency SHAs remain unfilled until actually accepted.
 
 > **OWNER ACTIVATED / EXECUTION ENABLED.** 首次运行采用 bounded dry-run/read-only；依赖、正式复检与安全晋升门槛继续生效，不授权自动修复或自我修改。
 

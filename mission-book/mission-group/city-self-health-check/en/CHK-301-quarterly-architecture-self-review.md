@@ -1,5 +1,8 @@
 > English reading translation / 英文阅读译本. The [original document](../CHK-301-quarterly-architecture-self-review.md) remains authoritative for status and evidence. This reader grants no claim, execution, activation, or migration authority.
 
+> **Owner ruling (2026-10-07):** 暂时屏蔽旧版工作书的验收限制，对 DGX 和 CHK 系列在各自分支上全量完成。第二机验收会直接一次性处理整个系列而不是分拆逐个任务验收。 Internal development proceeds across all five CHK workbooks on Alien-GPT-CHK without waiting for old per-task opposite-host acceptance. Whole-series independent second-host review remains NOT_RUN. This exception changes development sequencing only; no main merge, scheduling, repair or promotion authority is granted. Accepted dependency SHAs remain unfilled until actually accepted.
+
+
 # CHK-301 — Quarterly Architecture + Self Review / Quarterly architecture and self-review
 
 > **OWNER ACTIVATED / EXECUTION ENABLED.** The first run is bounded dry-run/read-only. Dependency, independent review and promotion gates remain in force; automatic repairs and self-modification are not authorized.

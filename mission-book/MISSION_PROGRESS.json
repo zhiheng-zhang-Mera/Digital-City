@@ -1099,7 +1099,7 @@
       "name": "City Self Health Check",
       "readme": "mission-group/city-self-health-check/README.md",
       "review_complete": 0,
-      "status": "READY",
+      "status": "IN_PROGRESS",
       "task_complete": 0,
       "tasks": [
         {
@@ -1109,7 +1109,7 @@
           "id": "CHK-101",
           "path": "mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
           "review_complete": false,
-          "status": "NOT_STARTED"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
@@ -1118,7 +1118,7 @@
           "id": "CHK-201",
           "path": "mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
           "review_complete": false,
-          "status": "NOT_STARTED"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
@@ -1127,7 +1127,7 @@
           "id": "CHK-301",
           "path": "mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
@@ -1136,7 +1136,7 @@
           "id": "CHK-401",
           "path": "mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "IN_PROGRESS"
         },
         {
           "complete": false,
@@ -1145,7 +1145,7 @@
           "id": "CHK-990",
           "path": "mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
           "review_complete": false,
-          "status": "WAITING_DEPENDENCIES"
+          "status": "IN_PROGRESS"
         }
       ],
       "total": 5

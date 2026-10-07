@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1733,
-  "total_bytes": 12437357,
+  "markdown_count": 1735,
+  "total_bytes": 12449637,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 5405,
+      "bytes": 5384,
       "encoding_state": "UTF8",
       "chinese_characters": 347,
-      "english_words": 380,
+      "english_words": 379,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -8935,109 +8935,109 @@
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
-      "bytes": 4305,
+      "bytes": 5460,
       "encoding_state": "UTF8",
-      "chinese_characters": 276,
-      "english_words": 118,
+      "chinese_characters": 332,
+      "english_words": 170,
       "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-101-small-operational-reconciliation.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
-      "bytes": 4362,
+      "bytes": 5517,
       "encoding_state": "UTF8",
-      "chinese_characters": 196,
-      "english_words": 140,
+      "chinese_characters": 252,
+      "english_words": 192,
       "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-201-full-capability-architecture-census.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
-      "bytes": 4739,
+      "bytes": 5832,
       "encoding_state": "UTF8",
-      "chinese_characters": 267,
-      "english_words": 113,
+      "chinese_characters": 323,
+      "english_words": 165,
       "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-301-quarterly-architecture-self-review.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
-      "bytes": 3765,
+      "bytes": 4858,
       "encoding_state": "UTF8",
-      "chinese_characters": 188,
-      "english_words": 94,
+      "chinese_characters": 244,
+      "english_words": 146,
       "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-401-evolution-candidate-triage-routing.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
-      "bytes": 3360,
+      "bytes": 4453,
       "encoding_state": "UTF8",
-      "chinese_characters": 250,
-      "english_words": 74,
+      "chinese_characters": 306,
+      "english_words": 126,
       "paired_path": "mission-book/mission-group/city-self-health-check/en/CHK-990-self-check-framework-acceptance-freeze.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/README.md",
-      "bytes": 6108,
+      "bytes": 6694,
       "encoding_state": "UTF8",
-      "chinese_characters": 563,
-      "english_words": 322,
+      "chinese_characters": 619,
+      "english_words": 373,
       "paired_path": "mission-book/mission-group/city-self-health-check/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/en/CHK-101-small-operational-reconciliation.md",
-      "bytes": 3105,
+      "bytes": 3712,
       "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 300,
+      "chinese_characters": 62,
+      "english_words": 352,
       "paired_path": "mission-book/mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/en/CHK-201-full-capability-architecture-census.md",
-      "bytes": 3103,
+      "bytes": 3710,
       "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 284,
+      "chinese_characters": 62,
+      "english_words": 336,
       "paired_path": "mission-book/mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/en/CHK-301-quarterly-architecture-self-review.md",
-      "bytes": 3476,
+      "bytes": 4083,
       "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 279,
+      "chinese_characters": 62,
+      "english_words": 331,
       "paired_path": "mission-book/mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/en/CHK-401-evolution-candidate-triage-routing.md",
-      "bytes": 2293,
+      "bytes": 2900,
       "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 206,
+      "chinese_characters": 62,
+      "english_words": 258,
       "paired_path": "mission-book/mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/en/CHK-990-self-check-framework-acceptance-freeze.md",
-      "bytes": 1954,
+      "bytes": 2561,
       "encoding_state": "UTF8",
-      "chinese_characters": 6,
-      "english_words": 229,
+      "chinese_characters": 62,
+      "english_words": 281,
       "paired_path": "mission-book/mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/en/README.md",
-      "bytes": 6542,
+      "bytes": 7128,
       "encoding_state": "UTF8",
-      "chinese_characters": 103,
-      "english_words": 588,
+      "chinese_characters": 159,
+      "english_words": 639,
       "paired_path": "mission-book/mission-group/city-self-health-check/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -11182,6 +11182,24 @@
       "english_words": 282,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/DEVELOPMENT_PROGRESS.md",
+      "bytes": 1863,
+      "encoding_state": "UTF8",
+      "chinese_characters": 56,
+      "english_words": 198,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/README.md",
+      "bytes": 646,
+      "encoding_state": "UTF8",
+      "chinese_characters": 59,
+      "english_words": 31,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/CITY-ROLE-20261005/DEVELOPMENT_LOG.md",
@@ -13624,7 +13642,7 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 5431,
+      "bytes": 5427,
       "encoding_state": "UTF8",
       "chinese_characters": 264,
       "english_words": 283,

@@ -145,3 +145,9 @@ records:
     exposure_class: ADVANCED_CONTROL
     reconciliation: CANDIDATE_PENDING_FORMAL_REVIEW
     last_verified_full_sha: "f76ccf53c4e2fecc32ce0ed8a8bb07daaa6935d5"
+
+  - capability_id: CAP-CITY-SELF-CHECK-001
+    record_ref: records/CAP-CITY-SELF-CHECK-001.yaml
+    exposure_class: INTERNAL_ONLY
+    reconciliation: CANDIDATE_PENDING_WHOLE_SERIES_REVIEW
+    last_verified_full_sha: "f0bdfe780075fbd231dabbe9aae29e970e0cdb92"

@@ -40,7 +40,7 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 |---|---:|---:|---:|---|
 | [Research Strengthening](./mission-group/research-strengthening/README.md) | **6/8** | **7/8** | **6/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./mission-group/showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | IN_PROGRESS |
-| [City Self Health Check](./mission-group/city-self-health-check/README.md) | **0/5** | **0/5** | **0/5** | READY |
+| [City Self Health Check](./mission-group/city-self-health-check/README.md) | **0/5** | **0/5** | **0/5** | IN_PROGRESS |
 
 机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
 <!-- MISSION_PROGRESS:END -->
@@ -55,11 +55,11 @@ Research Strengthening: tasks6/8, development6/8, review6/8. Mech accepted and m
 | [REX-807](./mission-group/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 | [REX-890](./mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | WAITING_DEPENDENCIES | — | — |
 | [SHOW-401](./mission-group/showcase-material-extraction/SHOW-401-Utopia项目展示素材提取与双Demo制作.md) | SHOW-401 展示素材 | IN_PROGRESS | — | — |
-| [CHK-101](./mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md) | City Self Health Check | NOT_STARTED | — | — |
-| [CHK-201](./mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md) | City Self Health Check | NOT_STARTED | — | — |
-| [CHK-301](./mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md) | City Self Health Check | WAITING_DEPENDENCIES | — | — |
-| [CHK-401](./mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md) | City Self Health Check | WAITING_DEPENDENCIES | — | — |
-| [CHK-990](./mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md) | City Self Health Check | WAITING_DEPENDENCIES | — | — |
+| [CHK-101](./mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md) | City Self Health Check | IN_PROGRESS | — | — |
+| [CHK-201](./mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md) | City Self Health Check | IN_PROGRESS | — | — |
+| [CHK-301](./mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md) | City Self Health Check | IN_PROGRESS | — | — |
+| [CHK-401](./mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md) | City Self Health Check | IN_PROGRESS | — | — |
+| [CHK-990](./mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md) | City Self Health Check | IN_PROGRESS | — | — |
 
 冲突以工作书为准 / Workbook frontmatter prevails on disagreement; treat the difference as homepage sync drift.
 <!-- ACTIVE_WORKBOOKS:END -->

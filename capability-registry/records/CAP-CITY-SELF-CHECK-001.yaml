@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "capability_id": "CAP-CITY-SELF-CHECK-001",
+  "name": {
+    "zh_CN": "城市只读自检与候选路由",
+    "en": "City read-only self-health check and candidate routing"
+  },
+  "ownership": {
+    "city_owner": "02-engineering/05-city-self-health-check",
+    "programme": "CITY_SELF_HEALTH_CHECK",
+    "canonical_module": "city/02-engineering/05-city-self-health-check/city-self-health-check"
+  },
+  "source_workbooks": [
+    "CHK-101",
+    "CHK-201",
+    "CHK-301",
+    "CHK-401",
+    "CHK-990"
+  ],
+  "dependencies": [],
+  "implementation": {
+    "repo": "zhiheng-zhang-Mera/utopia",
+    "discovery_refs": [
+      "refs/heads/Alien-GPT-CHK"
+    ],
+    "paths": [
+      "city/02-engineering/05-city-self-health-check/city-self-health-check/index.mjs",
+      "city/02-engineering/05-city-self-health-check/city-self-health-check/review.mjs",
+      "city/02-engineering/05-city-self-health-check/city-self-health-check/sanitize.mjs",
+      "scripts/city-health-check.mjs",
+      "scripts/chk-second-host.mjs"
+    ],
+    "symbols": [
+      "runHealthCheck",
+      "querySelfModel",
+      "diagnose",
+      "appendCaseRevision",
+      "validateCaseHistory",
+      "reconcileBoss",
+      "quarterlyReview",
+      "routeCandidate"
+    ],
+    "api_or_actions": [
+      "node scripts/city-health-check.mjs",
+      "node scripts/chk-second-host.mjs --development"
+    ],
+    "last_verified_full_sha": "f0bdfe780075fbd231dabbe9aae29e970e0cdb92"
+  },
+  "status": {
+    "implementation_status": "COMPLETE",
+    "backend_wiring_status": "NOT_APPLICABLE_INTERNAL",
+    "user_reachability_status": "NOT_APPLICABLE_INTERNAL",
+    "intent_validation_status": "NOT_TESTED"
+  },
+  "exposure": {
+    "class": "INTERNAL_ONLY",
+    "user_visible_information": [],
+    "user_controls": [],
+    "intentionally_hidden_information": [
+      "credentials",
+      "prompt/reasoning payloads",
+      "automatic execution/promotion authority"
+    ],
+    "internal_only_exemption_reason": "Explicit bounded offline engineering CLI; no scheduler, live repairs or user UI changes. Whole-series opposite-host review NOT_RUN."
+  },
+  "surfaces": [
+    {
+      "platform": "CLI",
+      "location": "scripts/city-health-check.mjs; scripts/chk-second-host.mjs",
+      "nesting": "NONE_INTERNAL",
+      "discoverable": true,
+      "enabled_when": "explicit read-only invocation with exact roots and external output directory",
+      "evidence_ref": "mission-book/reports/CHK/DEVELOPMENT_REPORT.md"
+    }
+  ],
+  "evidence": {
+    "implementation_refs": [
+      "utopia:city/02-engineering/05-city-self-health-check/city-self-health-check/PROVENANCE.json"
+    ],
+    "backend_wiring_refs": [],
+    "reachability_refs": [
+      "utopia:city/02-engineering/05-city-self-health-check/city-self-health-check/tests/boundaries.test.mjs"
+    ],
+    "intent_validation_refs": [],
+    "ui_or_e2e_refs": []
+  },
+  "known_gaps": [
+    "Independent second-host whole-series review NOT_RUN",
+    "Sentinel flows, UI parity and runtime security boundaries NOT_RUN",
+    "Provider/routing/continuation/autonomy outcomes NOT_MEASURED",
+    "Static import/API/export census is heuristic; no root cause or repair authority",
+    "Scheduling and freeze acceptance not authorized"
+  ],
+  "last_reconciled_by_workbook": "CHK-990",
+  "research_observations": {
+    "registry_reconciliation_result": "CANDIDATE_PENDING_WHOLE_SERIES_REVIEW"
+  }
+}

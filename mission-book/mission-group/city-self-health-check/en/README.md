@@ -1,5 +1,8 @@
 > English reading translation / 英文阅读译本. The [original document](../README.md) remains authoritative for status and evidence. This reader grants no claim, execution, activation, or migration authority.
 
+> **Owner ruling (2026-10-07):** 暂时屏蔽旧版工作书的验收限制，对 DGX 和 CHK 系列在各自分支上全量完成。第二机验收会直接一次性处理整个系列而不是分拆逐个任务验收。 Internal development proceeds across all five CHK workbooks on Alien-GPT-CHK without waiting for old per-task opposite-host acceptance. Whole-series independent second-host review remains NOT_RUN. This exception changes development sequencing only; no main merge, scheduling, repair or promotion authority is granted. Accepted dependency SHAs remain unfilled until actually accepted.
+
+
 # CHK — City Self Health Check / City self-review and periodic health checks
 
 > **Status: OWNER ACTIVATED / EXECUTION ENABLED**
@@ -159,14 +162,14 @@ Owner activation is recorded; subsequent claims and execution must still follow:
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/5 · 开发 / Development 0/5 · 复检 / Review 0/5 · `READY`
+总完成 / Complete 0/5 · 开发 / Development 0/5 · 复检 / Review 0/5 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [CHK-101](../CHK-101-small-operational-reconciliation.md) | NOT_STARTED | NO | NO | YES |
-| [CHK-201](../CHK-201-full-capability-architecture-census.md) | NOT_STARTED | NO | NO | YES |
-| [CHK-301](../CHK-301-quarterly-architecture-self-review.md) | WAITING_DEPENDENCIES | NO | NO | YES |
-| [CHK-401](../CHK-401-evolution-candidate-triage-routing.md) | WAITING_DEPENDENCIES | NO | NO | YES |
-| [CHK-990](../CHK-990-self-check-framework-acceptance-freeze.md) | WAITING_DEPENDENCIES | NO | NO | YES |
+| [CHK-101](../CHK-101-small-operational-reconciliation.md) | IN_PROGRESS | NO | NO | YES |
+| [CHK-201](../CHK-201-full-capability-architecture-census.md) | IN_PROGRESS | NO | NO | YES |
+| [CHK-301](../CHK-301-quarterly-architecture-self-review.md) | IN_PROGRESS | NO | NO | YES |
+| [CHK-401](../CHK-401-evolution-candidate-triage-routing.md) | IN_PROGRESS | NO | NO | YES |
+| [CHK-990](../CHK-990-self-check-framework-acceptance-freeze.md) | IN_PROGRESS | NO | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->

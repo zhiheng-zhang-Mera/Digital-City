@@ -21,3 +21,6 @@ mission-book/reports/REX-806/crosshost-artifact-2026-10-07/** -text
 # 中间日志按发布字节保存 / Preserve published intermediate-material bytes.
 mission-book/reports/*/intermediate-logs/** -text
 mission-book/reports/*/relocation-evidence/** -text
+
+# CHK publishes exact-byte checksummed series replay and historical evidence.
+mission-book/reports/CHK/series-evidence/** -text
