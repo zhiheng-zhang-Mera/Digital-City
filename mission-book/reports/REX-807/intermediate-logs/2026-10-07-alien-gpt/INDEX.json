@@ -35,6 +35,11 @@
       "file": "rex806-accepted-verifier-regression.test.mjs",
       "bytes": 8299,
       "sha256": "3d0e832339e37760b261b4912c313d07a793333ac16ccaee6bfb4962ae2c889c"
+    },
+    {
+      "file": "rex807-alien-rex-series-regression.log",
+      "bytes": 16483,
+      "sha256": "4ccdf71ea012e2eb15cbe963ea3b83658e64e48550971eb4212d4df162eaa294"
     }
   ]
 }

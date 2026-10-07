@@ -17,3 +17,5 @@ Mech should review PR43's single merge commit and integrated head and provide an
 本机 raw evidence: `.runtime/evidence/mission-book/REX-807/2026-10-07-alien-gpt/`。论文素材保留失败分类：依赖头漂移、导出指标语义/精度、源关联缺失、端点不可达；无新 research study 计数，也不提升旧实验结论。
 
 Local raw evidence remains under the Utopia runtime evidence tree. Paper-material classifications: dependency-head drift, export metric semantics/precision, missing source associations and endpoint unreachability. No new study counts or upgraded historical conclusions are claimed.
+
+组合头 `2decc71` 的 REX-801–807 全部本机系列套件：152/152 通过、0 跳过，耗时 94.1 秒。该结果覆盖本机产品/浏览器守卫，不替代对侧独立验收或实体 multi-device study。 / All local REX-801–807 suites at integrated head `2decc71`: 152/152 pass, zero skips, 94.1 seconds. This covers local product/browser guards, not opposite-host independent acceptance or a physical multi-device study.
