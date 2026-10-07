@@ -1,10 +1,12 @@
+> Latest Owner ruling: **8/8 DEVELOPMENT COMPLETE; WHOLE-SERIES SECOND-HOST REVIEW PENDING**. Old per-workbook acceptance constraints are suspended for development. [Ruling](../../reports/DGX/OWNER_SERIES_RULING.md). No main merge.
+
 > Owner activated development 2026-10-07; execution_enabled=true; Alien-GPT-DGX; NO MAIN MERGE. Historical parked activation text below superseded. Domain gates remain binding.
 
 # DGX — Deliberative Governance Expansion & Migration / 审议治理扩建迁移
 
 > **状态：OWNER ACTIVATED / DEVELOPMENT CANDIDATE 2026-10-07**
 >
-> 本系列仅记录已确认的架构扩建与软迁移方案。Owner 已于 2026-10-07 明确授权 execution_enabled=true；仅在 Alien-GPT-DGX 开发，禁止合并 main。正式依赖与 Review 门槛保留。
+> 本系列仅记录已确认的架构扩建与软迁移方案。Owner 已于 2026-10-07 明确授权 execution_enabled=true；仅在 Alien-GPT-DGX 开发，禁止合并 main。逐本正式验收不再阻塞系列开发，正式 Review 由第二机统一进行。
 >
 > 本轮二次融合把“复杂请求认知拆分、隔离执行、结构化汇合、独立仲裁”吸收到 DGX，但**不改写当前 Engineering Formal Review 的异机硬门槛**。Review Independence v2 若未来要替换现行规则，必须通过独立迁移系列显式完成。
 >
@@ -233,17 +235,17 @@ KEEP IN PLACE
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 0/8 · 开发 / Development 6/8 · 复检 / Review 0/8 · `ACTIVE`
+总完成 / Complete 0/8 · 开发 / Development 8/8 · 复检 / Review 0/8 · `ACTIVE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
-| [DGX-001](DGX-001-governance-ownership-audit-and-capability-map.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
-| [DGX-002](DGX-002-constitution-and-core-deliberation-contracts.md) | DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES | NO | NO | YES |
-| [DGX-003](DGX-003-capability-history-assignment-policy.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
-| [DGX-004](DGX-004-domain-profile-adapters-and-soft-migration.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
-| [DGX-005](DGX-005-conflict-defence-and-independent-adjudication.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
-| [DGX-006](DGX-006-appeal-dissent-joint-final-review-release-gate.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
-| [DGX-007](DGX-007-process-capsule-and-monitor-governance-projection.md) | DEVELOPMENT_COMPLETE_WAITING_REVIEW | YES | NO | YES |
-| [DGX-990](DGX-990-cross-domain-acceptance-and-freeze.md) | DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES | NO | NO | YES |
+| [DGX-001](DGX-001-governance-ownership-audit-and-capability-map.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-002](DGX-002-constitution-and-core-deliberation-contracts.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-003](DGX-003-capability-history-assignment-policy.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-004](DGX-004-domain-profile-adapters-and-soft-migration.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-005](DGX-005-conflict-defence-and-independent-adjudication.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-006](DGX-006-appeal-dissent-joint-final-review-release-gate.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-007](DGX-007-process-capsule-and-monitor-governance-projection.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
+| [DGX-990](DGX-990-cross-domain-acceptance-and-freeze.md) | DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW | YES | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->

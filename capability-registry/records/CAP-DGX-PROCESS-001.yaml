@@ -14,10 +14,10 @@ implementation:
   discovery_refs: [refs/heads/Alien-GPT-DGX]
   paths: [apps/web/governance.js, services/dev-gateway/governance.mjs]
   last_verified_full_sha: null
-  candidate_full_sha: 99c5d36a402422ad2b9100648d1ccd443ce25503
+  candidate_full_sha: 6fe6e85b51f3e067dc67405c8e01a93e89dca1b4
   api_or_actions: [GET /api/v0/governance, POST /api/v0/governance]
 status:
-  implementation_status: DEVELOPMENT_CANDIDATE
+  implementation_status: DEVELOPMENT_COMPLETE_SERIES_REVIEW_PENDING
   backend_wiring_status: PARTIAL_EXTERNAL_PORTS_UNAVAILABLE
   user_reachability_status: WEB_LOCAL_E2E_OBSERVED
   intent_validation_status: CONTROLLED_CONFORMANCE_ONLY
@@ -32,5 +32,5 @@ surfaces:
 evidence:
   implementation_refs: [mission-book/reports/DGX/SERIES_REPORT.md]
   ui_or_e2e_refs: [utopia/tests/dgx-web.test.mjs]
-known_gaps: [PCF_726_ACCEPTED_SHA_UNAVAILABLE, PARTICIPANT_FACTS_PORT_UNAVAILABLE, FORMAL_REVIEW_NOT_RUN, FREEZE_NOT_RUN]
+known_gaps: [PARTICIPANT_FACTS_PORT_UNAVAILABLE, FORMAL_REVIEW_NOT_RUN, FREEZE_NOT_RUN]
 last_reconciled_by_workbook: DGX-990

@@ -1,4 +1,4 @@
-> Current state: Owner activated execution on Alien-GPT-DGX; no main merge. Formal Review and PCF-726 integration remain pending. Original design constraints below still apply.
+> Current state: all eight development workbooks complete on Alien-GPT-DGX; whole-series second-host review pending. Old per-workbook acceptance gates are suspended for this development only. No main merge.
 
 > Reading translation / 阅读译本. The source is authoritative. This reading creates no task status or activation authority. Original metadata is quoted below, not active frontmatter.
 
@@ -9,7 +9,7 @@ workbook_id: DGX-002
 phase: DELIBERATIVE_GOVERNANCE_EXPANSION_MIGRATION
 sequence: 2
 execution_enabled: true
-status: DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES
+status: DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW
 activation_state: OWNER_ACTIVATED_SINGLE_BRANCH_DEVELOPMENT
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -23,9 +23,9 @@ anchor_state: PROVISIONAL_DEVELOPMENT_ACCEPTED_DEPENDENCIES_PENDING
 dependencies: ["DGX-001", "PCF-726"]
 development_host: Alien
 development_branch: Alien-GPT-DGX
-development_head_sha: 99c5d36a402422ad2b9100648d1ccd443ce25503
-development_ci: {"head_sha":"99c5d36a402422ad2b9100648d1ccd443ce25503","run_id":37574261361,"status":"COMPLETED","conclusion":"success","url":"https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37574261361"}
-development_complete: false
+development_head_sha: 6fe6e85b51f3e067dc67405c8e01a93e89dca1b4
+development_ci: {"head_sha":"6fe6e85b51f3e067dc67405c8e01a93e89dca1b4","run_id":37577646603,"status":"COMPLETED","conclusion":"success","url":"https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37577646603"}
+development_complete: true
 review_host: null
 review_head_sha: null
 review_ci: null
@@ -51,7 +51,7 @@ monitor_observability_evidence: CONTROLLED_CONFORMANCE
 monitor_observability_refs: []
 decision_trace_evidence: CONTROLLED_CONFORMANCE
 decision_trace_refs: []
-owner_gate: OWNER_AUTHORIZED_DEVELOPMENT_NO_MAIN_MERGE
+owner_gate: WHOLE_SERIES_SECOND_HOST_REVIEW_PENDING_NO_MAIN_MERGE
 merge_authority: false
 report_path: mission-book/reports/DGX
 spec_revision: 2
@@ -59,10 +59,14 @@ migrated_scope_refs: ["PCF-MIG-20261007-03"]
 migrated_scope_ownership: DESTINATION_PCF_ONLY
 development_component_commit_sha: 457599947a66e6621b26ff4b434c53cc9c468c58
 development_candidate_baseline_sha: cc799234e7daa3d8ccfde5673b9d07ccb2376742
-formal_acceptance_state: NOT_RUN
-external_dependency_state: PCF_726_ACCEPTED_SHA_UNAVAILABLE
+formal_acceptance_state: WHOLE_SERIES_SECOND_HOST_NOT_RUN
+external_dependency_state: PCF_726_REQUIRED_SCHEMA_SLICE_IMPLEMENTED_SERIES_REVIEW_PENDING
 
 dependency_source_workbooks: ["DGX-001","PCF-726"]
+review_execution_scope: WHOLE_SERIES_SECOND_PHYSICAL_HOST
+per_workbook_acceptance_gate: SUSPENDED_BY_OWNER_FOR_SERIES_DEVELOPMENT
+owner_ruling_ref: mission-book/reports/DGX/OWNER_SERIES_RULING.md
+series_evidence_ref: mission-book/reports/DGX/series-evidence/SERIES_EVIDENCE.json
 ```
 
 > **OWNER ACTIVATED / DEVELOPMENT CANDIDATE.** This workbook freezes design boundaries only. Do not claim, construct or create a Utopia product branch from it.

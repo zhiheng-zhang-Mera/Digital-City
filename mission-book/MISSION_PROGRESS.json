@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 15,
+      "complete": 17,
       "total": 19
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 99,
+      "complete": 101,
       "total": 103
     },
     "review": {
@@ -1094,7 +1094,7 @@
     },
     {
       "active_pool": true,
-      "development_complete": 6,
+      "development_complete": 8,
       "key": "dgx",
       "name": "Deliberative Governance Expansion / DGX",
       "readme": "mission-group/deliberative-governance-expansion-migration/README.md",
@@ -1109,16 +1109,16 @@
           "id": "DGX-001",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-001-governance-ownership-audit-and-capability-map.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "DGX-002",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-002-constitution-and-core-deliberation-contracts.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
@@ -1127,7 +1127,7 @@
           "id": "DGX-003",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-003-capability-history-assignment-policy.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
@@ -1136,7 +1136,7 @@
           "id": "DGX-004",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-004-domain-profile-adapters-and-soft-migration.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
@@ -1145,7 +1145,7 @@
           "id": "DGX-005",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-005-conflict-defence-and-independent-adjudication.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
@@ -1154,7 +1154,7 @@
           "id": "DGX-006",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-006-appeal-dissent-joint-final-review-release-gate.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
@@ -1163,16 +1163,16 @@
           "id": "DGX-007",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-007-process-capsule-and-monitor-governance-projection.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_COMPLETE_WAITING_REVIEW"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "DGX-990",
           "path": "mission-group/deliberative-governance-expansion-migration/DGX-990-cross-domain-acceptance-and-freeze.md",
           "review_complete": false,
-          "status": "DEVELOPMENT_CANDIDATE_WAITING_DEPENDENCIES"
+          "status": "DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW"
         }
       ],
       "total": 8

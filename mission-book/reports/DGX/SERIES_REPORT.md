@@ -1,3 +1,32 @@
+# DGX current full-series development delivery
+
+Development: **8/8**. Formal second-host Review: **0/8 / NOT_RUN**, performed once for the entire series. No main merge.
+
+Implementation candidate: `6fe6e85b51f3e067dc67405c8e01a93e89dca1b4` on `Alien-GPT-DGX`.
+[Exact full CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37577646603): COMPLETED / success at that exact SHA.
+[Whole-series evidence](series-evidence/SERIES_EVIDENCE.json) / [checksums](series-evidence/SHA256.json): PASS, clean source before/after, real physical hostname Mera-Alianware, 52 tests, all thirteen scenario mappings.
+[Owner ruling](OWNER_SERIES_RULING.md) supersedes old per-workbook accepted dependency/review gating for development.
+
+## New completion work
+
+- Implemented the required PCF-owned ExecutionCapsule/ResultEvidenceEnvelope schema slice, including bounded payloads, canonical execution identities, exact SHA, expiry, artifact digest verification and explicit replay ledger.
+- Wired its host-approved adapter into Gateway; mandatory trusted execution refs plus case/node/snapshot binding prevent caller identity substitution.
+- Integrated result executors enter joint review. Claims/evidence/assumptions selected for release must exist in collected candidate records.
+- Versioned final-review rounds archive old judgments and require renewed review after integration changes. Claim uncertainty and unresolved questions remain visible.
+- One second-host runner executes the complete DGX test package and records SHA/hostname/clean source/checksums. It never auto-issues formal acceptance.
+
+## Diagnostic review and remaining formal work
+
+Fresh same-host series diagnostic review reproduced execution-reference fallback, immutable stale review and omitted uncertainty. All were fixed through failing-to-passing regressions; the narrow recheck observed 30 passing tests and no remaining Critical/Important findings. This is not second-host formal Review.
+
+Second machine: fetch/check out the exact SHA, install dependencies as in CI, run `node scripts/verify-dgx-series.mjs --expected-sha 6fe6e85b51f3e067dc67405c8e01a93e89dca1b4 --second-host --out <new-absolute-directory-outside-source>`, then issue a single entire-series verdict with the generated evidence. See Utopia bilingual `docs/en/DGX_SERIES_ACCEPTANCE.md` and `docs/zh-CN/DGX_SERIES_ACCEPTANCE.md`.
+
+Default production participant facts, contribution verification, approved execution/artifact readers and release receipts remain fail-closed unless the host installs trusted readers. Clinical simulation remains NOT_IMPLEMENTED/NOT_OBSERVED. These are explicit runtime boundaries, not skipped development acceptance. No production autonomous execution, domain safety relaxation, fabricated accepted SHA or unrelated programme activation is claimed.
+
+## Historical candidate record
+
+The following record preserves the previous candidate and its now-superseded per-workbook development blockers. Current state and Owner ruling above are authoritative.
+
 # DGX series development candidate / 系列开发候选
 
 Owner authorized activation on 2026-10-07 Australia/Sydney; execution_enabled=true for DGX-001..007 and DGX-990.

@@ -3,7 +3,7 @@ workbook_id: DGX-006
 phase: DELIBERATIVE_GOVERNANCE_EXPANSION_MIGRATION
 sequence: 6
 execution_enabled: true
-status: DEVELOPMENT_COMPLETE_WAITING_REVIEW
+status: DEVELOPMENT_COMPLETE_WAITING_SERIES_REVIEW
 activation_state: OWNER_ACTIVATED_SINGLE_BRANCH_DEVELOPMENT
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
@@ -17,8 +17,8 @@ anchor_state: PROVISIONAL_DEVELOPMENT_ACCEPTED_DEPENDENCIES_PENDING
 dependencies: ["DGX-005"]
 development_host: Alien
 development_branch: Alien-GPT-DGX
-development_head_sha: 99c5d36a402422ad2b9100648d1ccd443ce25503
-development_ci: {"head_sha":"99c5d36a402422ad2b9100648d1ccd443ce25503","run_id":37574261361,"status":"COMPLETED","conclusion":"success","url":"https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37574261361"}
+development_head_sha: 6fe6e85b51f3e067dc67405c8e01a93e89dca1b4
+development_ci: {"head_sha":"6fe6e85b51f3e067dc67405c8e01a93e89dca1b4","run_id":37577646603,"status":"COMPLETED","conclusion":"success","url":"https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37577646603"}
 development_complete: true
 review_host: null
 review_head_sha: null
@@ -45,18 +45,22 @@ monitor_observability_evidence: CONTROLLED_CONFORMANCE
 monitor_observability_refs: []
 decision_trace_evidence: CONTROLLED_CONFORMANCE
 decision_trace_refs: []
-owner_gate: OWNER_AUTHORIZED_DEVELOPMENT_NO_MAIN_MERGE
+owner_gate: WHOLE_SERIES_SECOND_HOST_REVIEW_PENDING_NO_MAIN_MERGE
 merge_authority: false
 report_path: mission-book/reports/DGX
 development_component_commit_sha: a34a65556fbbd2e8d2c90a267e84ed19b8234171
 development_candidate_baseline_sha: cc799234e7daa3d8ccfde5673b9d07ccb2376742
-formal_acceptance_state: NOT_RUN
-external_dependency_state: PCF_726_ACCEPTED_SHA_UNAVAILABLE
+formal_acceptance_state: WHOLE_SERIES_SECOND_HOST_NOT_RUN
+external_dependency_state: PCF_726_REQUIRED_SCHEMA_SLICE_IMPLEMENTED_SERIES_REVIEW_PENDING
 
 dependency_source_workbooks: ["DGX-005"]
+review_execution_scope: WHOLE_SERIES_SECOND_PHYSICAL_HOST
+per_workbook_acceptance_gate: SUSPENDED_BY_OWNER_FOR_SERIES_DEVELOPMENT
+owner_ruling_ref: mission-book/reports/DGX/OWNER_SERIES_RULING.md
+series_evidence_ref: mission-book/reports/DGX/series-evidence/SERIES_EVIDENCE.json
 ---
 
-> **OWNER ACTIVATED 2026-10-07.** Alien-GPT-DGX 单分支开发；禁止合并 main。依赖与正式 Review 不豁免。  
+> **OWNER ACTIVATED 2026-10-07.** Alien-GPT-DGX 单分支开发；禁止合并 main。旧版逐本依赖验收暂停；第二机统一验收整个系列，运行时安全与 release 独立性门槛仍保留。  
 > **Anchor policy:** 初始 Utopia main 已按 full SHA 固定。按 Owner 单分支裁决进行内部候选开发；正式 accepted dependency anchors 仍待独立 Review，不能以开发提交冒充。
 
 # DGX-006 — Appeal / Dissent / Joint Final Review & Release Gate
