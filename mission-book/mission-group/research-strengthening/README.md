@@ -116,14 +116,14 @@ Normal Utopia runtime
 |---|---|---|---|
 | [REX-801](REX-801-experiment-manifest-and-registry.md) | Experiment Manifest + Registry | COMPLETE | 机器可读实验问题、拓扑、变量、重复次数和 acceptance |
 | [REX-802](REX-802-trace-provenance-and-metrics-foundation.md) | Trace / Provenance / Metrics Foundation | COMPLETE | 统一记录 task/action/device/provider/handoff/retry/failure/recovery/human intervention |
-| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | READY | 自动执行 controlled scenario × N |
-| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | READY | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
-| [REX-805](REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | WAITING_DEPENDENCIES | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
-| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | WAITING_DEPENDENCIES | normalized dataset、tables、artifact pack、reproduction docs |
-| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | WAITING_DEPENDENCIES | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
+| [REX-803](REX-803-scenario-runner-and-repetition-engine.md) | Scenario Runner + Repetition Engine | COMPLETE | 自动执行 controlled scenario × N |
+| [REX-804](REX-804-fault-injection-and-recovery-probes.md) | Fault Injection + Recovery Probes | COMPLETE | 故意制造节点/网络/provider/load/stale/duplicate 等故障并量化恢复 |
+| [REX-805](REX-805-trace-replay-and-ablation.md) | Trace Replay + Ablation | COMPLETE | 同一 trace 重放并关闭 handoff/retry/backoff 等机制做消融 |
+| [REX-806](REX-806-metrics-analysis-and-artifact-export.md) | Metrics + Research Artifact Export | COMPLETE | normalized dataset、tables、artifact pack、reproduction docs |
+| [REX-807](REX-807-research-control-surface-and-progressive-disclosure.md) | Research Control Surface | IN_PROGRESS | 给 Owner 最大实验掌控/知情权，但不污染普通用户主导航 |
 | [REX-890](REX-890-reproducibility-study-and-freeze.md) | Reproducibility Study + Freeze | WAITING_DEPENDENCIES | 双机独立复现实验，冻结 Research Fabric v1 |
 
-REX-801 与 REX-802 已完成并释放 accepted exact heads。REX-803 与 REX-804 现已解锁，可在文件 ownership 不冲突时双机并行；后续 REX-805/806/807/890 继续按真实前置关系保持 `WAITING_DEPENDENCIES`。所有依赖任务使用 `DEPENDENCY_SHA_UNION_AT_CLAIM` 从前置 accepted full SHAs 建精确 union baseline；不会再把 main 分支名当作依赖已落地的证明。
+当前权威状态：REX-801～806 已完成（6/8）；REX-806 后续头 `cc799234e7daa3d8ccfde5673b9d07ccb2376742` 已由 Mech 异机接受并合并。REX-807 为 Mech 在建，交付头 `e07e1cb` 仍未声明开发完成；REX-890 等待 REX-807 验收。 / Current authority: REX-801 through806 are complete (6/8); Mech accepted and merged the REX-806 follow-up cc79923. REX-807 remains under Mech development at e07e1cb, not development-complete; REX-890 awaits its acceptance.
 
 ### REX-803 当前实测状态（Mech，2026-10-06）
 
