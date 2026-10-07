@@ -150,4 +150,4 @@ records:
     record_ref: records/CAP-CITY-SELF-CHECK-001.yaml
     exposure_class: INTERNAL_ONLY
     reconciliation: CANDIDATE_PENDING_WHOLE_SERIES_REVIEW
-    last_verified_full_sha: "f0bdfe780075fbd231dabbe9aae29e970e0cdb92"
+    last_verified_full_sha: "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d"

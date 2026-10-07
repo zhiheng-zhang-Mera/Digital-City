@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1735,
-  "total_bytes": 12449637,
+  "markdown_count": 1742,
+  "total_bytes": 12529925,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -8935,7 +8935,7 @@
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-101-small-operational-reconciliation.md",
-      "bytes": 5460,
+      "bytes": 5443,
       "encoding_state": "UTF8",
       "chinese_characters": 332,
       "english_words": 170,
@@ -8944,7 +8944,7 @@
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-201-full-capability-architecture-census.md",
-      "bytes": 5517,
+      "bytes": 5500,
       "encoding_state": "UTF8",
       "chinese_characters": 252,
       "english_words": 192,
@@ -8953,7 +8953,7 @@
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-301-quarterly-architecture-self-review.md",
-      "bytes": 5832,
+      "bytes": 5815,
       "encoding_state": "UTF8",
       "chinese_characters": 323,
       "english_words": 165,
@@ -8962,7 +8962,7 @@
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-401-evolution-candidate-triage-routing.md",
-      "bytes": 4858,
+      "bytes": 4841,
       "encoding_state": "UTF8",
       "chinese_characters": 244,
       "english_words": 146,
@@ -8971,7 +8971,7 @@
     },
     {
       "path": "mission-book/mission-group/city-self-health-check/CHK-990-self-check-framework-acceptance-freeze.md",
-      "bytes": 4453,
+      "bytes": 4436,
       "encoding_state": "UTF8",
       "chinese_characters": 306,
       "english_words": 126,
@@ -11193,13 +11193,76 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
-      "path": "mission-book/reports/CHK/README.md",
-      "bytes": 646,
+      "path": "mission-book/reports/CHK/DEVELOPMENT_REPORT.md",
+      "bytes": 5959,
       "encoding_state": "UTF8",
-      "chinese_characters": 59,
-      "english_words": 31,
+      "chinese_characters": 7,
+      "english_words": 695,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/README.md",
+      "bytes": 765,
+      "encoding_state": "UTF8",
+      "chinese_characters": 61,
+      "english_words": 37,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/series-evidence/README.md",
+      "bytes": 795,
+      "encoding_state": "UTF8",
+      "chinese_characters": 60,
+      "english_words": 54,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/series-evidence/development-replay-f0bdfe7/README.md",
+      "bytes": 639,
+      "encoding_state": "UTF8",
+      "chinese_characters": 58,
+      "english_words": 36,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/series-evidence/development-replay-f0bdfe7/full/report.md",
+      "bytes": 14490,
+      "encoding_state": "UTF8",
+      "chinese_characters": 12,
+      "english_words": 991,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/series-evidence/development-replay-f0bdfe7/small/report.md",
+      "bytes": 21363,
+      "encoding_state": "UTF8",
+      "chinese_characters": 12,
+      "english_words": 1424,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/series-evidence/historical-pre-fix-full/report.md",
+      "bytes": 16018,
+      "encoding_state": "UTF8",
+      "chinese_characters": 12,
+      "english_words": 1108,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/CHK/series-evidence/historical-pre-fix-small/report.md",
+      "bytes": 20989,
+      "encoding_state": "UTF8",
+      "chinese_characters": 12,
+      "english_words": 1389,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/CITY-ROLE-20261005/DEVELOPMENT_LOG.md",
@@ -13642,7 +13705,7 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 5427,
+      "bytes": 5428,
       "encoding_state": "UTF8",
       "chinese_characters": 264,
       "english_words": 283,

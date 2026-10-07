@@ -1,0 +1,48 @@
+✔ malformed YAML is retained as a finding without raw contents (2402.4774ms)
+✔ an exact-SHA empty runtime snapshot cannot turn unobserved domains healthy (2263.9649ms)
+✔ duplicate accepted ancestors are cached and all processing respects cooperative deadline (2536.1673ms)
+✔ stale runtime SHA cannot mark a capability online (2296.4311ms)
+✔ unsafe registry path never reads outside the repository (2221.1206ms)
+✔ case evidence is mandatory before quarterly proposal can be routed (0.7408ms)
+✔ case text values minimize credentials before hashing and prototype kinds cannot route (0.2793ms)
+✔ registry directory references resolve existing tracked sources without false dead records (2333.0763ms)
+✔ canonical tolerant frontmatter normalizes quoted booleans and colon-bearing notes (2205.7768ms)
+✔ topology module census identifies dead manifest paths and retains rule debt unknowns (2559.6941ms)
+✔ CLI rejects output inside either inspected checkout (2013.8419ms)
+✔ report and manifest checksums verify persisted output without acceptance (3186.4248ms)
+✔ whole-series runner rejects output junction into inspected source before writing (2915.9326ms)
+✔ whole-series runner detects a clean head change during replay despite green commands (9830.696ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-01 small check obeys a hard file budget and discloses partial coverage (2336.0709ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/new.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-02 full census reverse-discovers an unregistered API and a dependency cycle (2346.8887ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-03 health report never modifies repository state or grants repair authority (2826.1993ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-04 suspended workbook cannot become active truth (2212.6038ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-05 self model returns unknown runtime and not measured blast radius (2146.1742ms)
+✔ CHK990-06 diagnosis preserves multiple hypotheses and missing evidence (0.2879ms)
+✔ CHK990-07 case revisions retain original hypothesis and detect tampering (0.8835ms)
+✔ CHK990-08 all six BLG gaps can retain reference or supersede without migration (0.1431ms)
+✔ CHK990-09 candidate routing never gains execution authority from verified episodes (0.1901ms)
+✔ CHK990-10 routes every supported domain and defers unknown owner (0.2299ms)
+✔ CHK990-11 promotion and rollback require explicit external authority and full safety ladder (0.0954ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-12 overhead is measurable and runtime seam remains offline and redacted (2230.8706ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37800.3211

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "review_type": "DEVELOPER_HOST_INTERNAL_SOURCE_DIAGNOSTIC_NOT_FORMAL",
+  "initial_candidate": "UNCOMMITTED_PRE_672d6ce",
+  "findings": [
+    {
+      "id": "CHK-R1",
+      "severity": "IMPORTANT",
+      "symptom": "README-only repos plus exact-SHA empty runtime snapshot produced HEALTHY",
+      "original_observation": {
+        "filesRead": 0,
+        "source": 0,
+        "registry": 0,
+        "workbook": 0,
+        "outcome": "HEALTHY",
+        "sentinel_flows": "NOT_RUN"
+      },
+      "resolution": "Outcome now OBSERVE_MORE; overall coverage cannot be complete with unobserved required operational domains",
+      "status": "RESOLVED_BY_DEVELOPMENT"
+    },
+    {
+      "id": "CHK-R2",
+      "severity": "IMPORTANT",
+      "symptom": "64 repeated exact ancestry checks exceeded cooperative scan deadline",
+      "original_observation": {
+        "maxDurationMs": 1000,
+        "elapsed_ms": 8062,
+        "coverage_complete": true
+      },
+      "recheck_at_672d6ce": {
+        "elapsed_ms": 1146.8,
+        "duration_includes_bounded_identity_receipts": true
+      },
+      "resolution": "Deadline guards in every scan/processing phase; cached ancestry and remaining-time timeout",
+      "status": "RESOLVED_BY_DEVELOPMENT"
+    },
+    {
+      "id": "CHK-R3",
+      "severity": "IMPORTANT",
+      "symptom": "Replay needed canonical output containment and final exact-head equality",
+      "resolution": "Canonical realpaths and before/after head+branch+clean comparison; source_unchanged required",
+      "status": "RESOLVED_BY_DEVELOPMENT"
+    },
+    {
+      "id": "CHK-T1",
+      "severity": "IMPORTANT",
+      "symptom": "Nested NODE_TEST_CONTEXT suppressed replay child test execution in head-change regression",
+      "historical_failed_log": "validation-logs/chk-focused-final.log",
+      "resolution": "Fresh child environment removes inherited NODE_TEST_CONTEXT; clean changed head now causes FAIL despite three PASS command logs",
+      "status": "RESOLVED_BY_DEVELOPMENT"
+    },
+    {
+      "id": "CHK-S1",
+      "severity": "IMPORTANT",
+      "symptom": "Externally signed imported case history and optional quarterly rationale could contain raw credential values",
+      "resolution": "Reject unsafe history while preserving chain integrity; minimize quarterly structured output",
+      "verified_source_sha": "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d",
+      "status": "RESOLVED_BY_DEVELOPMENT"
+    }
+  ],
+  "whole_series_second_host_review": "NOT_RUN",
+  "freeze_outcome": "NOT_ACCEPTED"
+}

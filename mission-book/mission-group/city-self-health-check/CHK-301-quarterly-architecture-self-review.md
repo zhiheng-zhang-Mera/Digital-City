@@ -17,8 +17,8 @@ anchor_state: CLAIMED_EXACT_SHA_WITH_OWNER_SERIES_OVERRIDE
 dependencies: ["CHK-201"]
 development_host: Mera-Alianware
 development_branch: Alien-GPT-CHK
-development_head_sha: 672d6ce32019dae33cbde11f91e8bbe58e958ad8
-development_ci: IN_PROGRESS https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37577880475; not completion evidence
+development_head_sha: 9a646d6b894babd0fb316c0b4a0ba302bd7bca7d
+development_ci: IN_PROGRESS final exact-head CI; prior 672d6ce run 37577880475 SUCCESS is historical only
 development_complete: false
 review_host: null
 review_head_sha: null

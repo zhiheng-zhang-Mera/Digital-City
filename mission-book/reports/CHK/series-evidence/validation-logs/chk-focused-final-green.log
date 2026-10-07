@@ -1,0 +1,55 @@
+✔ malformed YAML is retained as a finding without raw contents (2369.4478ms)
+✔ an exact-SHA empty runtime snapshot cannot turn unobserved domains healthy (2232.231ms)
+✔ duplicate accepted ancestors are cached and all processing respects cooperative deadline (2331.1066ms)
+✔ stale runtime SHA cannot mark a capability online (2316.2756ms)
+✔ unsafe registry path never reads outside the repository (2307.6429ms)
+✔ case evidence is mandatory before quarterly proposal can be routed (0.8635ms)
+✔ case text values minimize credentials before hashing and prototype kinds cannot route (0.2994ms)
+✔ registry directory references resolve existing tracked sources without false dead records (2404.6474ms)
+✔ canonical tolerant frontmatter normalizes quoted booleans and colon-bearing notes (2390.2457ms)
+✔ topology module census identifies dead manifest paths and retains rule debt unknowns (2443.0576ms)
+✔ CLI rejects output inside either inspected checkout (2033.2531ms)
+✔ report and manifest checksums verify persisted output without acceptance (3192.5535ms)
+✔ whole-series runner rejects output junction into inspected source before writing (2889.8548ms)
+✔ whole-series runner detects a clean head change during replay despite green commands (9496.3634ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-01 small check obeys a hard file budget and discloses partial coverage (2211.8079ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'services/new.mjs', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-02 full census reverse-discovers an unregistered API and a dependency cycle (2296.3463ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-03 health report never modifies repository state or grants repair authority (2396.7189ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-04 suspended workbook cannot become active truth (2265.5589ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-05 self model returns unknown runtime and not measured blast radius (2477.7239ms)
+✔ CHK990-06 diagnosis preserves multiple hypotheses and missing evidence (0.3012ms)
+✔ CHK990-07 case revisions retain original hypothesis and detect tampering (0.8493ms)
+✔ CHK990-08 all six BLG gaps can retain reference or supersede without migration (0.1345ms)
+✔ CHK990-09 candidate routing never gains execution authority from verified episodes (0.1913ms)
+✔ CHK990-10 routes every supported domain and defers unknown owner (0.227ms)
+✔ CHK990-11 promotion and rollback require explicit external authority and full safety ladder (0.1024ms)
+warning: in the working copy of 'services/demo.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'mission-book/mission-group/example/WB.md', LF will be replaced by CRLF the next time Git touches it
+✔ CHK990-12 overhead is measurable and runtime seam remains offline and redacted (2336.7641ms)
+✔ the real manifest describes exactly the districts and modules that exist (6.107ms)
+✔ the manifest and the city tree agree on what exists (4.8791ms)
+✔ mission-book incubators are named and provenanced, and Room Pack incubators are not disguised (1.4215ms)
+✔ a mission-book migration incubator proves a donor; a programme-task incubator proves it has none (11.4974ms)
+✔ the manifest rejects malformed hierarchy, paths and lifecycles (4.3102ms)
+✔ module directories and lifecycles must not contradict each other (18.8176ms)
+✔ loadManifest reports an unreadable manifest instead of guessing (2.6076ms)
+✔ city/test-all.mjs discovers module tests without shell globs (24.8572ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 37429.2916

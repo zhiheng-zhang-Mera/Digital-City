@@ -44,7 +44,7 @@
       "node scripts/city-health-check.mjs",
       "node scripts/chk-second-host.mjs --development"
     ],
-    "last_verified_full_sha": "f0bdfe780075fbd231dabbe9aae29e970e0cdb92"
+    "last_verified_full_sha": "9a646d6b894babd0fb316c0b4a0ba302bd7bca7d"
   },
   "status": {
     "implementation_status": "COMPLETE",
