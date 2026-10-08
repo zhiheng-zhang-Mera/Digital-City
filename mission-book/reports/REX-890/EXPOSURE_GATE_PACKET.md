@@ -85,18 +85,24 @@
 ```text
 · 两条都**没有**独立评审 —— 这正是本 gate 要解决的事。
 · a: **仍未在两台真实物理主机之间跑过**（测试在本机跑真 gateway + 真 node agent）⇒ known_gaps 写明 NOT RUN。
-  **但已对实机城市做过一次实测**（2026-10-08，14/14 通过，仪器与结果一起进仓：
-  utopia `evidence/raw/capability-city-remote-operation/`，head `0033c12`）：声明式派发被接受、程序真的在
-  owner 点名的节点上跑起来（`git --version`，exit 0，stdout 观测到）、行里记 `shell:false`、收据被城市复核且
-  `acceptanceAuthority=false`、把 `rev-parse;echo INERT` 作为**一个** argv 元素传入时 git 把它整串当成一个
-  未知子命令（stdout 为空 ⇒ 没有任何东西被当成第二条命令）、**7 条拒绝全部具名且 task=null**。
-  仍然只是**同一台物理主机**，所以"一台主机上的 owner 操作另一台主机"这件事**仍未建立**。
+  **实机度量（2026-10-08，仪器与结果均在仓内且可重跑；探测默认写系统临时目录，不弄脏检出）**：
+    · remote-operation live-probe **21/21** —— 声明式派发被接受、程序真的在 owner 点名的节点上跑起来
+      （`git --version`，exit 0，stdout 观测到）、行里 `shell:false`、收据被城市复核且 `acceptanceAuthority=false`、
+      把 `rev-parse;echo INERT` 作为**一个** argv 元素传入时 git 把整串当成一个未知子命令（stdout 为空 ⇒
+      没有东西被当成第二条命令）、**11 条拒绝全部具名且 task=null**（含上界与 env 覆写）、
+      超时真杀（`timedOut`，durationMs 1555）、输出按声明的 4096 **截断**、审计行带 purpose/argv/cwd；
+    · agent-job 凭据 **9/9**、消耗回执 **8/8**、owner 边界 **12/12**（两条 owner 读面各测：错 token / 无凭据 /
+      **node token** 全 401，未认证派发不建任何东西）、B 包只读预检 **7/7**。
+  **但仍然只是同一台物理主机** ⇒ "一台主机上的 owner 操作**另一台**主机"**仍未建立**。
+  owner-only 现在是**实机 credential 边界**测过的，而**member 会话**的拒绝仍只在套件里跑 —— 两者不同，分开写。
 · b: 对侧机器上的 agent 作业**仍未发生**（对侧须先自己跑 `scripts/agent-job.mjs register`，
      这是城市侧无法代做的 bootstrap）；城市里已排好待领取作业 `Q-85be5da7-…`（QUEUED，见该登记 known_gaps）。
      该作业已被**严格指向对侧设备**（`targetDeviceRef = dev-1428bce5…`，`targetStateAtCreation = OFFLINE`）：
      它会**等**那台机器，且**任何别的节点都拿不到它**。此前那条是无目标的（他们当时还没注册），
      而**无目标的 AGENT_JOB 任何声明了该能力的节点都能领**、`/node/claim` 又只能传节点 id 不能传任务 id
      ——所以本机**故意没有**对实机城市跑"认领型"生命周期探针：那会把他们那条请求吃掉。
+     **消耗回执不需要 claim**（它是对已有报告的幂等读），所以那一步**已经实机测过 8/8**；
+     `claim → report` 本身仍未重测，这是刻意的取舍，登记里分开写明。
 · 两条的 intent_validation_status 都是 NOT_TESTED，且**这是刻意的**：确定性路由不把这两者作为
   ask 目标，因为请求无法由一句话良构（a 需要可执行/argv/工作目录/用途；b 需要标题/指令/用途）。
   如 Owner 认为需要自然语言入口，那是一件新工作，本轮未做也未声称。
@@ -107,9 +113,16 @@
 
 ```text
 REX-890 final gate 有三项：① 对侧独立 reproduction 成功 ② exact-head CI green ③ **用户 exposure gate PASS**。
-②：utopia 3143260 CI run 37720240214 = success（dc 侧 CI 亦绿）。
-①：未发生（对侧尚未入场；本机所有复现都是彩排，且明说是彩排）。
+②：**成立且持续**。当前头 utopia `0e63c2a`（CI run 37731833084 = success；dc 侧 CI 亦绿）。
+   更早钉给对侧的头 `3143260`（run 37720240214）同样绿；复现相关代码自 `3143260` 起**逐字节未变**。
+①：**仍未发生**，但状态已比"尚未入场"更精确：对侧**已完成代码验证并交付报告**
+   （`reports/REX-890/ALIEN_VERIFICATION_2026-10-08.md`，作者 Alien-codex，2026-10-08 11:01 +1100），
+   它自己写的最终状态是 `CODE_REPAIR_VERIFIED / PHYSICAL_REPRODUCTION_NOT_RUN / FINAL_GATE_NOT_RELEASED`；
+   它要的两项输入（目标城市 Owner 配置、study 原始包）已由本机答复
+   （`RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md`：包在分支里，不是它点名的旧路径）。
+   **本机所有复现都是彩排**，且处处明说是彩排；实体复现的结论只能由对侧宣布。
 ③：**本文件就是为这一项准备的**。Owner 给结论后：
    · 把结论写进两份登记的 `evidence.review_refs`（并同步 §14A.5 五字段）；
-   · 然后才记录终标 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` 并收口 REX-890。
+   · 然后才记录终标 `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` 并收口 REX-890
+     （逐步清单见 `CLOSEOUT_CHECKLIST.md`，含"不许自审/不许因 CI 绿就释放"等四条禁令）。
 ```
