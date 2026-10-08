@@ -70,11 +70,21 @@ records:
     exposure_class: DIRECT_CONTROL
     reconciliation: FINAL_AUDIT_BACKFILLED
     last_verified_full_sha: "4688274255464383d577841a37e85a556d92c678"
+  - capability_id: CAP-CITY-AGENT-JOB-001
+    record_ref: records/CAP-CITY-AGENT-JOB-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW
+    last_verified_full_sha: "da4874ecfa89fa5354bc376c33167896da5fe2bf"
   - capability_id: CAP-CITY-MEMBERS-NATIVE-001
     record_ref: records/CAP-CITY-MEMBERS-NATIVE-001.yaml
     exposure_class: DIRECT_CONTROL
     reconciliation: FORMAL_REVIEW_RECONCILED
     last_verified_full_sha: "de9185a4ef8d761053c88316ec9efeca037239fb"
+  - capability_id: CAP-CITY-REMOTE-OPERATION-001
+    record_ref: records/CAP-CITY-REMOTE-OPERATION-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW
+    last_verified_full_sha: "da4874ecfa89fa5354bc376c33167896da5fe2bf"
   - capability_id: CAP-EXECUTION-001
     record_ref: records/CAP-EXECUTION-001.yaml
     exposure_class: INTERNAL_ONLY
@@ -125,6 +135,11 @@ records:
     exposure_class: DIRECT_CONTROL
     reconciliation: CREATED_BY_DEVELOPMENT_PENDING_FORMAL_REVIEW
     last_verified_full_sha: "57d1c919ff2fc8bb64ce30bacbfc09ecb60f1fc1"
+  - capability_id: CAP-RESEARCH-REPLAY-001
+    record_ref: records/CAP-RESEARCH-REPLAY-001.yaml
+    exposure_class: DIRECT_CONTROL
+    reconciliation: FORMAL_REVIEW_RECONCILED
+    last_verified_full_sha: "0261a9ed1cec88df3ab4675623d422b37b33f270"
   - capability_id: CAP-RESEARCH-TRACE-001
     record_ref: records/CAP-RESEARCH-TRACE-001.yaml
     exposure_class: OBSERVABLE_ADVANCED

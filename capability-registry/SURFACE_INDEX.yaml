@@ -13,6 +13,12 @@ platforms:
       - capability_id: CAP-CAPABILITY-BRIDGE-001
         location: "Advanced > Services"
         nesting: L2_CONTEXTUAL
+      - capability_id: CAP-CITY-AGENT-JOB-001
+        location: "Advanced > Agent jobs"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-CITY-REMOTE-OPERATION-001
+        location: "Advanced > Remote operation"
+        nesting: L4_TECHNICAL
       - capability_id: CAP-EXPERIMENT-MANIFEST-001
         location: "Advanced > Research"
         nesting: L3_ADVANCED
@@ -22,6 +28,9 @@ platforms:
       - capability_id: CAP-IDENTITY-001
         location: "Settings > Device identity"
         nesting: L2_CONTEXTUAL
+      - capability_id: CAP-MON-001
+        location: "Primary > City monitor (indirect sidecar disclosure)"
+        nesting: L1_PRIMARY
       - capability_id: CAP-MON-002
         location: "Primary navigation > City monitor"
         nesting: L1_PRIMARY
@@ -30,6 +39,9 @@ platforms:
         nesting: L2_CONTEXTUAL
       - capability_id: CAP-RESEARCH-CAMPAIGN-001
         location: "Advanced > Research campaigns"
+        nesting: L3_ADVANCED
+      - capability_id: CAP-RESEARCH-REPLAY-001
+        location: "Advanced > Research campaigns > Replay/Ablation"
         nesting: L3_ADVANCED
       - capability_id: CAP-RESEARCH-TRACE-001
         location: "Advanced > Research trace"
