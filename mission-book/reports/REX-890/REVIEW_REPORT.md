@@ -57,6 +57,10 @@ The earlier Alien repair `205d7b2…` was adopted by Mech and corrected against 
 - Live owner pages were opened in a real headless Edge browser against the real Mech City; both entries exist, live enabled/default classification is visible, empty confirmation disables dispatch, and Settings remains reachable. See [UI observations](evidence/live-ui-review.json) and screenshots.
 - Android has no remote-operation or agent-job entry and natural-language intent is NOT_TESTED. Accepted technical scope is **Web Advanced + the stated CLI seam**, not Android parity or natural-language control. The executable allowlist contains a general-purpose runtime; it is not a sandbox. Live workspace roots remain broad (`C:/`, `D:/`), as disclosed.
 
+## Registry audit boundary
+
+The two scoped capability records have 26 committed, resolvable references at exact head 0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744. The full 20-record registry audit is **not globally green**: other unchanged records cite files absent at their anchored heads (ASK, native members, execution, identity, onboarding, research trace and scheduler), and four unrelated heads are not reachable from the remote-tracking branches available in this checkout. These findings are outside the two-capability closeout and are not erased or promoted to PASS. Record consistency separately passes with 51 warnings and 4 recorded exceptions.
+
 ## Final gate disposition
 
 1. Opposite-host physical reproduction: **PASS**, established here.
