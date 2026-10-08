@@ -85,6 +85,8 @@ artifact export          artifact-544adda1-…-5-campaigns；独立校验器（�
 重算         completion_time_ms=6532(n=15) · failure_rate=0(n=15) · duplicate=0 · convergence_missing=0
 比对         四项**全部 agrees**；每条有值指标都带 provenance；包声明的 3 项 exclusion 本机也不主张
 canonical    task 指针 22/22 仍存在于城市；run→task 连接 15/15 仍可解析
+**trace 注**  本节那次实测是 206/206（持久库）。**当天稍后同一包同一城市变成 0/206**——保留期滚过了那批记录，
+             详见 §5I。这一行是**带日期的实测**，不是持续成立的性质；引用它时必须连 §5I 一起引。
 独立执行     campaign-2c6001e0-68… COMPLETED，6 条 run 全部 MEASURED，逐条落在两台实体机上
 权威声明     authority = "REPRODUCTION_EVIDENCE_ONLY"（工具自己拒绝冒充验收）
 ```
@@ -265,6 +267,39 @@ HTTP/WS 夹具**（不是实体城市，报告里也这么写）证明本机的�
        改成"重建前后必须一致"之后才是它该测的性质。
 ```
 
+## 5I. **包比它所指向的城市状态活得更久**：trace 保留期已把那 206 条挤出去了（2026-10-08 当天实测）
+
+```text
+同一天、同一包、同一城市，三次实测：
+  2026-10-08 约 11:45   窗口 0/206 + 持久库 **206/206** ⇒ 该要素当时**真的比对过**
+  2026-10-08 约 12:16   窗口 0/206 + 持久库 **0/206**  ⇒ 保留期已滚过那批记录
+  机制（磁盘实测）      trace.previous.jsonl 正好 **2 097 096 B**（= byteLimit 2 MiB），trace.jsonl 272 683 B；
+                       窗口仍是 256 条、城市自己报 completeness=PARTIAL / retentionTruncated=true。
+  追因                  **本机当天为验证工具而反复复现**，每次写入 22+ 条 trace 记录，把 study 的 206 条
+                       挤出了"当前 + 上一代"这个有界保留（这就是它自己的仪器造成的损耗，照实记）。
+  能否找回              查过城市备份 previous-city-20261007-194534：其 trace 最新记录为 2026-10-07T08:39:32Z，
+                       而 study 的记录在 13:45Z 之后 ⇒ **备份里 0/206**；城市两代里也 0/206。
+                       ⇒ 就本机可达的存储而言，**那 206 条记录已经真的没了**，无法补写进包。
+
+这条事实的重要性不在"少了一条证据"，而在它是一句关于**可复现性**的普适结论：
+  **一个工件包可以把指针发布得比它所指向的城市状态活得更久。** 包发布 206 条 trace 指针时，
+  没有声明这些指针的有效期；城市的 trace 保留是有界的；于是"随时可复现"这个隐含承诺是有期限的，
+  而期限**没有写在包里**。
+
+工具因此改进（不是掩盖）：gap 现在**具名原因**，三种成因区分开——
+  TRACE_STORE_UNREADABLE / TRACE_RETENTION_PASSED_THE_POINTERS / TRACE_RECORDS_PARTLY_MISSING，
+  并带上城市自己的 `cityTruncated` 与 `cityCompleteness`。当前实测 gap =
+  `{reason: TRACE_RETENTION_PASSED_THE_POINTERS, listed: 206, resolvable: 0, cityTruncated: true, cityCompleteness: PARTIAL}`
+  ⇒ `reproductionComplete: false`、**exit 2**。**不会被读成"通过"，也不会被读成工具故障。**
+
+对 final gate 的直接影响（必须由 Owner 决定，见 §7）：
+  工作书要求对侧"对比 trace/provenance"。就**这一份包**而言，该要素**已不可能完成**——
+  不是对侧不努力，而是记录已不在任何可达存储里。
+  可选的出路：(1) 接受这一条**具名且已解释**的 gap，其余各项完整可比；
+              (2) 另做一次 study，并在**导出时把 trace 记录一并写进包**（否则同样会过期）；
+              (3) 城市侧把 trace 保留做长（更大的 byteLimit / 多代保留），但这**救不回**已经滚掉的记录。
+```
+
 ## 6. 未确立的事（**不得**读成已完成）
 
 > 2026-10-08 追加：对侧的**流程在开发主机上彩排过**（全新 clone + 无依赖 + 交付的凭据文件 + 原样命令
@@ -336,9 +371,16 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
     （Request ID DDC5:C6B1:238983:2FA600:6AC679C6，16:56Z；读操作与 API 正常）；第 4 轮重试两个仓库同时成功
 先存缺陷（**未修**，记录在案，属历史）
   · 编码损坏：UTF-8 被当 CP936 解码后再存回（utopia 15 文件 + DC 6 份文档）；`origin/main` 与本分支签名相同
-我自己的两次错（照实记）
+我自己的错（照实记）
   · 把"整页重建丢状态"**误判**成"负载敏感的环境因素"，连续几轮这么记（§5H 已纠正）
   · 曾把 mojibake **二次损坏**带进 server.mjs（经 PowerShell 管道），提交前用非 ASCII 集合比对发现并修回
+  · 复现工具把软件身份**写死**成 185d043e 并在城市回执里渲染 `exact:true`，而实际跑的是别的头（§本轮修复，已修）
+  · **为验证工具而反复复现，把 study 的 206 条 trace 记录挤出了有界保留**（§5I）——
+    不是别人的错，是这台机器的仪器损耗；已如实记录，并让工具把这种 gap **具名**而不是含糊报"不完整"
+产品/包设计缺陷（**未修**，属新工作）
+  · 工件包发布 206 条 trace 指针，却**没有声明这些指针的有效期**；城市的 trace 保留有界
+    ⇒ "随时可复现"的隐含承诺有期限，而期限没写在包里（§5I）。方向：导出时把 trace 记录**一并写进包**，
+      或让包声明 `pointerLifetime`（并让复现方知道何时必须重导）
 ```
 
 ### 6B.3 review-only findings（要人判断，不是改代码能解决的）
@@ -361,6 +403,8 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
   · 4 项指标：从城市重建数据集后重算 = 包内声明（6532 / 0 / 0 / 0，n=15）
   · canonical task 指针 22/22 仍存在；run→task 连接 15/15 仍可解析
   · trace 206/206：**经"按 id 取记录"的读接口**才成立；此前只能 0/206（数据在、读不到）——见 §5
+    **但这条有时效**：同一天稍后同一包同一城市已变成 **0/206**（保留期滚过那批记录）——见 §5I。
+    ⇒ "能否复现 trace"取决于**何时**复现，而包的指针**没有声明有效期**。
   · 独立复现者可**自己再跑一个 campaign**（本机每次复现都跑，逐条落在两台真实设备上）
 不能／受限（必须写明，否则会被读成"完全可复现"）
   · 包内 **23 / 27 项指标是 NOT_MEASURED**，各带原因；本机**也不主张**它们可测
@@ -413,16 +457,27 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
      为什么放进仓库而不是手工递送：独立复现必须在**另一台**物理主机上跑，而它够不到我磁盘上的文件；
      手工递一次就把研究结论绑在一个手动步骤上，这恰是"系统级能力"的反面。**提交进分支的字节会随分支走**，
      任何取到该分支的机器拿到的都是同一份输入。
-     已实测：从**仓内**这份跑复现工具 ⇒ package files 11 · checksums VERIFIED over 10 files ·
-     artifactId 仍是 `artifact-544adda1-…-5-campaigns` · 15 条 run 引用重建自 5 份回执 ·
-     四项指标全部 agrees · trace 206/206 由持久库解析 · 独立 campaign COMPLETED（两台设备）·
-     **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**。
+     已实测（2026-10-08 当天的彩排）：从**仓内**这份跑复现工具 ⇒ package files 11 ·
+     checksums VERIFIED over 10 files · artifactId 仍是 `artifact-544adda1-…-5-campaigns` ·
+     15 条 run 引用重建自 5 份回执 · 四项指标全部 agrees · 独立 campaign COMPLETED（两台设备）·
+     0 inconsistencies。**但 trace 那一项当天稍后已从 206/206 变成 0/206**（§5I）⇒
+     现在跑的实际期望是 **exit 2 + 一条具名 gap**，不再是 exit 0。详见下面"期望（更正）"。
      核验两层（收包方自己跑）：包内 `checksums.json`（10 文件）+ 包外 `MANIFEST.sha256`（全 11 文件）。
      离线传输仍可用 `4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip` 作为后备。
      拿到后：`node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-dev-study/artifact
      --city <城市> --config <带 token 的文件> --out <输出目录> --label Mera-Alianware`。
-     期望（对同一座城市、在修复后的工具上）：exit 0、inconsistencies 0、evidenceGaps 0、
-     reproductionComplete true；若出现不一致，按具名条目指出即可。
+     **期望（2026-10-08 更正）**：`inconsistencies 0`，但 `evidenceGaps 1`、`reproductionComplete false`、
+     **exit 2**；那条 gap 具名为 `TRACE_RETENTION_PASSED_THE_POINTERS`（listed 206 / resolvable 0），
+     因为记录已被城市的**有界** trace 保留滚过去（§5I）。其余各项仍完整可比。
+     这不改变"对侧要跑一次实体复现"这件事，但**改变了它的期望值**：一次 exit 2 + 具名 gap 是**当前诚实的正确结果**，
+     既不是"复现失败"，也不是"通过"。
+     若出现**不一致**（inconsistencies > 0），按具名条目指出即可；gap 请原样带回，不要自行解释成失败或通过。
+
+**并请 Owner 在两件事上给一个裁决**（都影响 final gate，且都不是对侧能决定的）：
+  (a) trace 要素：接受具名 gap（§5I 选项 1）／另做一次 study 且导出时把 trace 写进包（选项 2）／
+      延长城市 trace 保留（选项 3，救不回已滚掉的记录）；
+  (b) exposure gate PASS：两份能力登记都在（CAP-CITY-REMOTE-OPERATION-001 / CAP-CITY-AGENT-JOB-001），
+      但两者都写明"**未做独立评审**"；DC 侧**没有** 14A 自动检查器（已确认），所以这一项**只能由人给结论**。
 
 走哪条通道都可以（§5 换 reference agent，或 §5C 用 scripts/agent-job.mjs 注册→领取→回报）。
 **实体复现的结果由对侧宣布**；在它宣布之前，REX-890 不收口、终标不释放。

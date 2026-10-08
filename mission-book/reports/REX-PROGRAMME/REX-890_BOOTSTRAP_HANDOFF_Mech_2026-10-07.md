@@ -308,9 +308,17 @@ exit 0。
 拿到后（在含本分支的检出里）：
    node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-dev-study/artifact \
         --city http://172.31.12.151:4310 --config <带 token 的文件> --out <输出目录> --label Mera-Alianware
-   期望（对同一座城市、在修复后的工具上）：exit 0 · inconsistencies 0 · evidenceGaps 0 ·
-   reproductionComplete true；有不一致就按具名条目回报。
-   退出码：0=一致 · 1=有不一致（逐条具名） · 2=**工具没跑成或证据没法完整比对**（不是验收）。
+   **期望（2026-10-08 更正，务必读）**：`inconsistencies 0`，但 `evidenceGaps 1`、`reproductionComplete false`、
+   **exit 2**，那一条具名 gap 是 `TRACE_RETENTION_PASSED_THE_POINTERS`（listed 206 / resolvable 0）。
+   原因不是工具坏了、也不是城市在说谎：城市 trace 的保留期是**有界**的
+   （`recordLimit 256` 的窗口 + 2 MiB × **一代**轮转），本机当天多次复现写入的记录已把 study 的 206 条
+   **挤出了持久库**（实测：同一天早先 206/206 可解析、后来 0/206；`trace.previous.jsonl` 正好顶到 2 MiB 上限）。
+   ⇒ 其余各项（4 项指标、canonical 22/22、run→task 15/15、独立 campaign）**仍然完整可比**；
+     **只有** trace/provenance 这一项**现在无法完成**，且这是**包与城市保留期的关系**，不是复现失败。
+   若你要一个 exit 0 的完整比对，**先告诉我们**——需要另做一次 study 并在导出时把 trace 记录**一并写进包**
+   （见 RESEARCH_MATERIAL_SYNTHESIS.md §5 与 §6B.3/§6B.4；这是本轮新查出的、影响 final gate 的实事）。
+   退出码：0=一致且证据完整 · 1=有不一致（逐条具名） · 2=**工具没跑成，或证据没法完整比对**（不是验收）。
+   有不一致就按具名条目回报；gap 也请原样带回，不要把它读成"复现失败"或"通过"。
 
 **先取新头，别用旧检出跑**（这一步很重要，否则会重复踩已经修好的坑）：
 ```text
