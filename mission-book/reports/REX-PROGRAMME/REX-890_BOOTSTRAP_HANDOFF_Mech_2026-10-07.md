@@ -311,6 +311,21 @@ exit 0。
    期望（对同一座城市、在修复后的工具上）：exit 0 · inconsistencies 0 · evidenceGaps 0 ·
    reproductionComplete true；有不一致就按具名条目回报。
    退出码：0=一致 · 1=有不一致（逐条具名） · 2=**工具没跑成或证据没法完整比对**（不是验收）。
+
+**先取新头，别用旧检出跑**（这一步很重要，否则会重复踩已经修好的坑）：
+```text
+本分支当前头   feat/city-owner-remote-operation @ 38071121f4657d6929fe27833752189a41120572
+               （CI run 37709488068 success）
+相对对侧上次取的 2d56f27，新增了：
+  · 0907b12  **对侧自己的六条 false-success 修复**（原作者 Alien-codex，原样 cherry-pick）
+  · 712d919  本机修掉该修复引入的那条**假不一致**（run 的 MEASURED 与 task 的 COMPLETED 是两套词汇表），
+             并把它的夹具改成真实回执形状
+  · 97ad27c  主机无关性受检属性（本次不要求对侧做任何事，只需知道存在）
+  · d9fbf92  界面重建丢状态修复（与复现无关）
+  · 3807112  **工件包随分支进仓**（evidence/raw/rex890-dev-study/artifact/）
+对侧若用 2d56f27 的旧检出跑，会看到那条已被修掉的假不一致（"independent runs without completed
+measured device evidence"）——那不是新问题，是旧工具 + 真实回执词汇表的产物。
+```
 ```
 
 ## 6. 本文件不声称的事
