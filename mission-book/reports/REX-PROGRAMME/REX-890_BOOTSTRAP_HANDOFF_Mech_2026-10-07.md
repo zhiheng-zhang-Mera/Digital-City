@@ -278,14 +278,21 @@ exit 0。
 
 ```text
 ① 目标城市有效的 **Owner 配置**（`{"token":"…"}` 的文件）
+   **OWNER RULING 2026-10-08**：Owner 选择"带外交付 + 跑完即轮换"，**不**为此新建受限凭据能力
+   （受限复现凭据是另一件产品工作，本轮未授权、未实施；见 RESEARCH_MATERIAL_SYNTHESIS.md §7）。
    本机对应文件：C:\ProgramData\Utopia\host\city\local-config.json（内含 token 与 nodeToken）
-   · 请**带外**把这台的 token 放到 Alien（写成一个只有 token 字段的 json 文件），**不要**贴进任何记录或提交。
-   · 若要**领取智能体任务**（§5C），还需要同一文件里的 **nodeToken**。
-   · 只做 §5 的远程操作通道则不需要 node token（那个走节点 agent 自己的凭据）。
-   对侧原先的 401 `Invalid pairing token` 就是因为它手上的 local-config 属于**另一座城**。
-   · **如实说明**：复现工具要读整份研究状态并**自己发起 campaign**，这些是 Owner 权限，所以复现主机
-     **必然持有一份 owner 级凭据**——这是 Owner 的信任决定；"只能读+复现、不能管理"的受限凭据本城目前没有
-     （若要做属新工作）。因此凭据走带外，而工件包改走**分支内传输**（见 ②）。
+   · **要交付的那一个文件**（已在本机备好，内容只含 token 一个字段，**不含** nodeToken）：
+        4in1-acceptance-2026-10-07/transport/city-owner-config.FOR-ALIEN.json      （44 B）
+     请**带外**把它放到 Alien（不要贴进任何记录、提交、聊天记录）；不要提交进任何仓库。
+   · 只做复现工具**不需要 node token**；若要顺带领取智能体任务（§5C）才另需它——那是**第二个**凭据、
+     第二个决定，本轮不随附。
+   · **如实说明这份凭据的能力范围**（读自代码）：control token 是该城的主凭据——可读城市/任务/节点/研究状态、
+     建任务、发远程操作（受 allowlist 限制）、改城市名、撤设备、批准入网。**它比"只读+复现"宽得多。**
+     所以处置是：**只在对侧跑这一次时给出、跑完立刻轮换**。
+   · **轮换步骤（读自 main.mjs，不是臆断）**：`config.token ||= env.CITY_TOKEN || random`，随后写回
+     `local-config.json`。因此：把该文件里的 `token` 换成一个新值 → 重启城市即完成轮换；
+     换完之后**旧 token 立即失效**，对侧手上的那份作废（本机用旧 token 的客户端需用新 token 重连）。
+   · 对侧原先的 401 `Invalid pairing token` 就是因为它手上的 local-config 属于**另一座城**。
 
 ② 本机 study 的**原始工件包**（不可用 REX-806 的旧包替换）
    **已于 2026-10-08 随分支进仓**，因此只需 fetch 本分支即可，不必手工递送文件：
