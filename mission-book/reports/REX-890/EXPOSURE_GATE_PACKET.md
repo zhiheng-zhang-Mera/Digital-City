@@ -10,7 +10,16 @@
           并把 §14A.5 的五个字段与结论对齐。
 ```
 
-## 1. §14A.5 五字段（读自登记，不是复述）
+## 1. Capability Exposure Decision（§14A.5 五字段；读自登记，不是复述）
+
+```text
+这两条能力**没有自己的工作书**（登记的 source_workbooks 为空），它们是 REX-890 为跨机复现而做出来的，
+所以 §14A.5 的落点有两处，都指向同一组值：
+  · 登记本体 capability-registry/records/CAP-CITY-REMOTE-OPERATION-001.yaml 与 CAP-CITY-AGENT-JOB-001.yaml
+    （exposure.class / surfaces[].nesting / status.backend_wiring_status / internal_only_exemption_reason）；
+  · 本节 —— 按 §14A.5 的兜底写法，在 REX-890 的 report_path 下以 "Capability Exposure Decision" 记录五个字段名。
+下面每一格都是**从登记里读出来的**，不是我在这里新下的判断。
+```
 
 | 字段 | CAP-CITY-REMOTE-OPERATION-001 | CAP-CITY-AGENT-JOB-001 |
 |---|---|---|
@@ -80,7 +89,11 @@
   未知子命令（stdout 为空 ⇒ 没有任何东西被当成第二条命令）、**7 条拒绝全部具名且 task=null**。
   仍然只是**同一台物理主机**，所以"一台主机上的 owner 操作另一台主机"这件事**仍未建立**。
 · b: 对侧机器上的 agent 作业**仍未发生**（对侧须先自己跑 `scripts/agent-job.mjs register`，
-     这是城市侧无法代做的 bootstrap）；城市里已排好待领取作业 Q-a0aa3ec5-…（QUEUED，见该登记 known_gaps）。
+     这是城市侧无法代做的 bootstrap）；城市里已排好待领取作业 `Q-85be5da7-…`（QUEUED，见该登记 known_gaps）。
+     该作业已被**严格指向对侧设备**（`targetDeviceRef = dev-1428bce5…`，`targetStateAtCreation = OFFLINE`）：
+     它会**等**那台机器，且**任何别的节点都拿不到它**。此前那条是无目标的（他们当时还没注册），
+     而**无目标的 AGENT_JOB 任何声明了该能力的节点都能领**、`/node/claim` 又只能传节点 id 不能传任务 id
+     ——所以本机**故意没有**对实机城市跑"认领型"生命周期探针：那会把他们那条请求吃掉。
 · 两条的 intent_validation_status 都是 NOT_TESTED，且**这是刻意的**：确定性路由不把这两者作为
   ask 目标，因为请求无法由一句话良构（a 需要可执行/argv/工作目录/用途；b 需要标题/指令/用途）。
   如 Owner 认为需要自然语言入口，那是一件新工作，本轮未做也未声称。
