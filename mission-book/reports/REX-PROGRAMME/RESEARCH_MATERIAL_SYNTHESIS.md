@@ -585,8 +585,10 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
      0 inconsistencies。**但 trace 那一项当天稍后已从 206/206 变成 0/206**（§5I）⇒
      现在跑的实际期望是 **exit 2 + 一条具名 gap**，不再是 exit 0。详见下面"期望（更正）"。
      核验两层（收包方自己跑）：包内 `checksums.json`（10 文件）+ 包外 `MANIFEST.sha256`（全 11 文件）。
-     离线传输仍可用 `4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip` 作为后备
-     （那是**旧包**，只作后备；下面这条命令请用新包，否则期望值会读错）。
+     离线后备：本机已备好一份**转交包** `REX-890-transfer-2026-10-08.zip`（17.2 MB，40 条目：该分支的
+     **离线 git bundle**（完整历史、head `0e63c2a…`）+ B 包 + 全部文档 + 四份探针仪器/结果；顶层
+     `MANIFEST.sha256` 覆盖 39 个文件且已逐条校验）—— **随带外通道交付、不进仓库**（它含该城**主凭据**）。
+     **不要再把 `rex890-dev-study-artifact.zip` 当后备**：那是旧包，它指向的 trace 已被城市的有界保留滚过去。
      **先跑只读预检**（不建任务、不起 campaign；结果默认写系统临时目录，不弄脏检出）：
      `node evidence/raw/rex890-studies/2026-10-08-B/readiness-check.mjs --artifact <包> --city <城市> --config <token 文件>`
      —— 本机实测 **7/7**（checksums 12 · MANIFEST 13 · 包自带 trace 243=243 · 41 个 campaign 按 id 全可读=205 run ·
