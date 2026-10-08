@@ -414,6 +414,10 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
   · **设备身份必须仍然存在**：包声明两台设备，任一台不在线，其任务 WAITING ⇒ campaign 到不了 COMPLETED
   · **城市状态已增长**：此刻重新导出会得到不同的 artifactId 与不同字节 ⇒ "原始包"只能靠随分支传输，不能靠重新导出
   · 两条跨机通道**未在两台真实机器之间**验证过（能力只在本机节点上跑通）
+  · **更正（2026-10-08 最终包）**：本节数字读自**旧包**（11 文件 / 15 run / trace 206）。当前随分支的是
+    **B 包**（`evidence/raw/rex890-studies/2026-10-08-B/artifact/`，13 文件）：205 run · canonical 214/214 ·
+    run→task 205/205 · trace 243/243（**包自含**，不再问城市）· 0 inconsistencies · exit 0。
+    旧包**保留**，因为它证明了"包可以活得比它所指向的城市状态更久"——删掉它就等于抹掉这条教训。
 ```
 
 ### 6B.5 potential paper directions（**候选方向，不是主张**）
@@ -463,15 +467,23 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
      0 inconsistencies。**但 trace 那一项当天稍后已从 206/206 变成 0/206**（§5I）⇒
      现在跑的实际期望是 **exit 2 + 一条具名 gap**，不再是 exit 0。详见下面"期望（更正）"。
      核验两层（收包方自己跑）：包内 `checksums.json`（10 文件）+ 包外 `MANIFEST.sha256`（全 11 文件）。
-     离线传输仍可用 `4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip` 作为后备。
-     拿到后：`node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-dev-study/artifact
+     离线传输仍可用 `4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip` 作为后备
+     （那是**旧包**，只作后备；下面这条命令请用新包，否则期望值会读错）。
+     拿到后：`node scripts/rex890-opposite-host-reproduce.mjs
+     --artifact evidence/raw/rex890-studies/2026-10-08-B/artifact
      --city <城市> --config <带 token 的文件> --out <输出目录> --label Mera-Alianware`。
-     **期望（2026-10-08 更正）**：`inconsistencies 0`，但 `evidenceGaps 1`、`reproductionComplete false`、
-     **exit 2**；那条 gap 具名为 `TRACE_RETENTION_PASSED_THE_POINTERS`（listed 206 / resolvable 0），
-     因为记录已被城市的**有界** trace 保留滚过去（§5I）。其余各项仍完整可比。
-     这不改变"对侧要跑一次实体复现"这件事，但**改变了它的期望值**：一次 exit 2 + 具名 gap 是**当前诚实的正确结果**，
-     既不是"复现失败"，也不是"通过"。
-     若出现**不一致**（inconsistencies > 0），按具名条目指出即可；gap 请原样带回，不要自行解释成失败或通过。
+     **期望（2026-10-08 最终，取代下面这条"更正"）**：`inconsistencies 0` · `evidenceGaps 0` ·
+     `reproductionComplete true` · **exit 0**。
+     为什么期望值又从"exit 2 + 具名 gap"改回来：旧包指向的 trace 记录被城市**有界**保留滚过去了（§5I），
+     当时 exit 2 是诚实的；新包 **B 自带**它所指的记录（`trace-records.jsonl` + `trace-coverage.json`，
+     listed 243 / captured 243，两个文件都在包内 `checksums.json` 里），复现因此**不再**取决于城市还剩多少保留期。
+     下面那条历史**保留**，因为它记录了"能否复现 trace 曾经取决于何时复现"这个事实。
+     若出现**不一致**（inconsistencies > 0）或**新的具名 gap**，请原样带回，不要自行解释成失败或通过。
+
+     **③ 本机 study 的仪器本身也已在仓内**（`scripts/rex890-dev-study.mjs`，2026-10-08 `911bdf8`）：
+     参数化（`--city` / `--out` / `--config` / `--checkout` / `--repetitions`），凭据取自 `--config` 文件或
+     `CITY_TOKEN`（不再取自任何一台机器的绝对路径），软件身份**观测自检出**、观测不到就具名拒绝，
+     故意跳过记为 NOT_RUN 而不是失败。所以对侧不只能复现**包**，也可以自己**再跑一遍 study**。
 
 **并请 Owner 在两件事上给一个裁决**（都影响 final gate，且都不是对侧能决定的）：
 
@@ -512,4 +524,10 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
             defect taxonomy（按"谁的错"分四类 + 我自己的两次错）、review-only findings、
             reproducibility delta（能复现什么、**不能**复现什么，逐条）、potential paper directions。
             凡未测/未发生者一律写 NOT_MEASURED / NOT RUN，并保留原因。
+2026-10-08  追加 §5I 之后的收尾：§7 的复现命令**改指 B 包**（原命令指向旧包，会读到错误的期望值——
+            这是本文档自身的缺陷：**指令指向了一个 trace 已失效的包**），期望值回到 exit 0；
+            并记明 study **仪器本身已随分支进仓**（`911bdf8`）。§6B.4 末尾加"更正"指向 B 包的数字。
+            代码侧另修两处**不是产品缺陷**的红：故意跳过/环境不满足被当成失败（study 仪器、
+            复现测试的脏树前置条件、host-city launcher 的"活动城市"前置条件）。
+2026-10-08  study 仪器进仓（`911bdf8`）+ 前置条件如实记为 NOT RUN（`a3078e8`）。
 ```
