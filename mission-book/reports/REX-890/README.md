@@ -14,6 +14,7 @@
 | `RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md` | Mech | 本机对那份报告的答复：两项输入的答复（Owner 配置带外交付 + **要用的包在分支里，不是它点名的旧路径**）、确切命令与期望值、自其基线以来的变化 |
 | `EXPOSURE_GATE_PACKET.md` | Mech | 给 **Owner** 的 exposure gate 审阅材料（§14A.5 五字段 + 六项独立检查逐项指向证据 + 未建立项）—— **不是**裁决 |
 | `CLOSEOUT_CHECKLIST.md` | Mech | 对侧宣布复现结论**之后**那一刻用的收口清单（触发条件、要核对的字段、门槛、归档、不许做的事）—— **已备好，未执行** |
+| `tools/audit_gate_doc_refs.py` | Mech | 本目录四份**决定用**文档的引用审计（路径/仪器是否真的存在；"应缺席"的 `REVIEW_REPORT.md` 单独豁免）。**实测 0 缺失** |
 | `REVIEW_REPORT.md` | **对侧（尚未提交）** | 独立复现的结论。§3 禁止自审，因此本机**不会**创建这个文件 |
 
 ## REX-890 的实质材料在哪 / Where the substance lives
