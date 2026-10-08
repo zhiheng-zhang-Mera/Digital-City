@@ -294,12 +294,27 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
   ① 目标城市有效的 **Owner 配置**（形如 {"token":"…"} 的文件路径）——它手上的 local-config 属于另一座城，
      请求得 HTTP 401 `Invalid pairing token`；若要领取智能体任务，还需要该城市的 **node token**。
      **凭据不进任何记录、不进任何提交**，请用带外方式放到那台机器上。
-  ② 本机 study 的**原始工件包**（不能用 REX-806 的旧包替换）。已打包待传：
-       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip            （15 785 B，包内 11 文件）
-       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.MANIFEST.sha256（11 条独立 sha256）
-     拿到后：unzip → `node scripts/rex890-opposite-host-reproduce.mjs --artifact <解压目录> --city <城市>
-     --config <带 token 的文件> --out <输出目录> --label Mera-Alianware`。
-     期望（在修复后的工具上、对同一座城市）：exit 0、inconsistencies 0、evidenceGaps 0、
+     **如实说明其后果**：复现工具要读城市的整份研究状态并**自己发起 campaign**，这些是 Owner 权限，
+     因此**复现主机必然持有一份 owner 级凭据**。这是 Owner 的信任决定，不是可以绕过的细节；
+     "只能读+复现、不能管理"的受限凭据是本城**目前没有**的能力（若要做，属新工作）。
+     正因如此，凭据只走带外，而工件包改走**分支内传输**（见 ②）——把可公开的输入自动化，
+     把真正需要授权的输入留给人。
+  ② 本机 study 的**原始工件包**（不能用 REX-806 的旧包替换）。
+     **已随分支进仓**（2026-10-08）：`utopia evidence/raw/rex890-dev-study/artifact/`（11 文件，文件集合固定），
+     旁边是**包外**的独立清单 `evidence/raw/rex890-dev-study/MANIFEST.sha256`（11 条，放在包外以免改动
+     包自身的文件集合），并有 `README.md` 写明来源、两层校验与用法。
+     为什么放进仓库而不是手工递送：独立复现必须在**另一台**物理主机上跑，而它够不到我磁盘上的文件；
+     手工递一次就把研究结论绑在一个手动步骤上，这恰是"系统级能力"的反面。**提交进分支的字节会随分支走**，
+     任何取到该分支的机器拿到的都是同一份输入。
+     已实测：从**仓内**这份跑复现工具 ⇒ package files 11 · checksums VERIFIED over 10 files ·
+     artifactId 仍是 `artifact-544adda1-…-5-campaigns` · 15 条 run 引用重建自 5 份回执 ·
+     四项指标全部 agrees · trace 206/206 由持久库解析 · 独立 campaign COMPLETED（两台设备）·
+     **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**。
+     核验两层（收包方自己跑）：包内 `checksums.json`（10 文件）+ 包外 `MANIFEST.sha256`（全 11 文件）。
+     离线传输仍可用 `4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip` 作为后备。
+     拿到后：`node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-dev-study/artifact
+     --city <城市> --config <带 token 的文件> --out <输出目录> --label Mera-Alianware`。
+     期望（对同一座城市、在修复后的工具上）：exit 0、inconsistencies 0、evidenceGaps 0、
      reproductionComplete true；若出现不一致，按具名条目指出即可。
 
 走哪条通道都可以（§5 换 reference agent，或 §5C 用 scripts/agent-job.mjs 注册→领取→回报）。

@@ -283,16 +283,23 @@ exit 0。
    · 若要**领取智能体任务**（§5C），还需要同一文件里的 **nodeToken**。
    · 只做 §5 的远程操作通道则不需要 node token（那个走节点 agent 自己的凭据）。
    对侧原先的 401 `Invalid pairing token` 就是因为它手上的 local-config 属于**另一座城**。
+   · **如实说明**：复现工具要读整份研究状态并**自己发起 campaign**，这些是 Owner 权限，所以复现主机
+     **必然持有一份 owner 级凭据**——这是 Owner 的信任决定；"只能读+复现、不能管理"的受限凭据本城目前没有
+     （若要做属新工作）。因此凭据走带外，而工件包改走**分支内传输**（见 ②）。
 
 ② 本机 study 的**原始工件包**（不可用 REX-806 的旧包替换）
-   已打包，等带外传输：
-       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip              （15 785 B）
-       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.MANIFEST.sha256  （11 条独立 sha256）
-   包内固定 11 个文件，`checksums.json` 覆盖其中 10 个；MANIFEST 是对**全部 11 个**的独立复核，
-   放在包**外面**，以免改动包自身的文件集合。落地后先核 MANIFEST 再跑。
+   **已于 2026-10-08 随分支进仓**，因此只需 fetch 本分支即可，不必手工递送文件：
+       utopia evidence/raw/rex890-dev-study/artifact/          （11 个文件，文件集合固定，原始字节）
+       utopia evidence/raw/rex890-dev-study/MANIFEST.sha256    （包外独立清单，覆盖全部 11 个文件）
+       utopia evidence/raw/rex890-dev-study/README.md          （来源、两层校验、用法、不声称的事）
+   为什么进仓：独立复现必须在**另一台**物理主机上跑，它够不到本机的磁盘；手工递一次就等于把研究结论
+   绑在一个手动步骤上。字节随分支走，任何取到分支的机器输入相同。
+   收包方**自己核两层**（包内 checksums.json 覆盖 10 个；包外 MANIFEST 覆盖 11 个）。
+   离线后备：4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip（15 785 B）。
+   实测：从仓内这份跑复现工具 = 0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0。
 
 拿到后（在含本分支的检出里）：
-   node scripts/rex890-opposite-host-reproduce.mjs --artifact <解压目录> \
+   node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-dev-study/artifact \
         --city http://172.31.12.151:4310 --config <带 token 的文件> --out <输出目录> --label Mera-Alianware
    期望（对同一座城市、在修复后的工具上）：exit 0 · inconsistencies 0 · evidenceGaps 0 ·
    reproductionComplete true；有不一致就按具名条目回报。
