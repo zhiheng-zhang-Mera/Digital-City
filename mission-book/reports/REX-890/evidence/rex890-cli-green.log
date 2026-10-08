@@ -1,0 +1,15 @@
+✔ complete evidence and two-device independent execution can return zero (1196.4462ms)
+✔ does not return zero for a numeric package metric whose recomputation is null (1315.8367ms)
+✔ does not return zero for a missing required metric row (1234.8696ms)
+✔ does not return zero for a nonnumeric measured metric (1279.5332ms)
+✔ does not return zero for an independent campaign that failed (1381.5093ms)
+✔ does not return zero for an independent campaign with missing repetitions (1333.3754ms)
+✔ does not return zero for a trace comparison that could not read any evidence (1219.9229ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10003.907
