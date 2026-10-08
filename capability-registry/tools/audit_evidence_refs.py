@@ -39,6 +39,27 @@ def added_by(repo, path):
     return done.stdout.strip() or None
 
 
+def on_any_remote(repo, sha):
+    """Is this head reachable from a remote-tracking branch? LOCAL RESOLVABILITY IS NOT REMOTE RESOLVABILITY.
+
+    Measured the hard way on 2026-10-08: a head that existed only in the local repository passed every check here while
+    the record named it, and a reviewer cloning the remote could not resolve it. A record that cites a head is asking a
+    reader to fetch that head, so the head has to be on the remote.
+    """
+    done = subprocess.run(["git", "-C", repo, "branch", "-r", "--contains", sha], capture_output=True, text=True)
+    return bool(done.stdout.strip())
+
+
+def committed_in(repo, path):
+    """Is the file committed at HEAD, or merely sitting in the working tree?
+
+    The same shape of mistake: the navigation gate once reported zero drift while a regenerated file was uncommitted, so
+    'present locally' and 'present for everyone else' were different facts.
+    """
+    done = subprocess.run(["git", "-C", repo, "cat-file", "-e", f"HEAD:{path}"], capture_output=True)
+    return done.returncode == 0
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dc", default=str(pathlib.Path(__file__).resolve().parents[2]))
@@ -47,6 +68,7 @@ def main():
 
     records_dir = pathlib.Path(args.dc) / "capability-registry" / "records"
     bad_sha, bad_ref, checked = [], [], 0
+    off_remote, uncommitted = [], []
     records = sorted(records_dir.glob("*.yaml"))
 
     for record_file in records:
@@ -61,6 +83,8 @@ def main():
         done = subprocess.run(["git", "-C", args.utopia, "cat-file", "-e", sha], capture_output=True)
         if done.returncode != 0:
             bad_sha.append((record_file.stem, sha))
+        elif not on_any_remote(args.utopia, sha):
+            off_remote.append((record_file.stem, sha))
 
         candidates = []
         for key, value in (record.get("evidence") or {}).items():
@@ -85,6 +109,8 @@ def main():
                     bad_ref.append((record_file.stem, key, entry, sha, added_by(args.utopia, path)))
             elif not (pathlib.Path(args.dc) / path).exists():
                 bad_ref.append((record_file.stem, key, entry, sha, None))
+            elif not committed_in(args.dc, path):
+                uncommitted.append((record_file.stem, key, entry))
 
     print(f"records: {len(records)}   references checked: {checked}")
     print("\nunresolvable last_verified_full_sha:")
@@ -92,13 +118,23 @@ def main():
         print(f"  {name} -> {sha}")
     if not bad_sha:
         print("  none")
+    print("\nverified heads NOT reachable from any remote branch (a reader cannot fetch them):")
+    for name, sha in off_remote:
+        print(f"  {name} -> {sha}")
+    if not off_remote:
+        print("  none")
+    print("\nreferences whose file exists in the tree but is NOT committed:")
+    for name, key, entry in uncommitted:
+        print(f"  {name} [{key}] {entry}")
+    if not uncommitted:
+        print("  none")
     print("\nreferences not resolvable at the head the record was verified at:")
     for name, key, entry, sha, added in bad_ref:
         where = f" (added by {added}, so it exists in history)" if added else ""
         print(f"  {name} [{key}] {entry}   (anchored at {str(sha)[:9]}){where}")
     if not bad_ref:
         print("  none")
-    return 1 if (bad_sha or bad_ref) else 0
+    return 1 if (bad_sha or bad_ref or off_remote or uncommitted) else 0
 
 
 if __name__ == "__main__":

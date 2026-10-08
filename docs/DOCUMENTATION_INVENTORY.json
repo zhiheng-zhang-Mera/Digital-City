@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1933,
-  "total_bytes": 15105719,
+  "markdown_count": 1935,
+  "total_bytes": 15120603,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -16152,6 +16152,15 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
+      "path": "mission-book/reports/REX-890/ALIEN_VERIFICATION_2026-10-08.md",
+      "bytes": 6172,
+      "encoding_state": "UTF8",
+      "chinese_characters": 757,
+      "english_words": 359,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
       "path": "mission-book/reports/REX-890/DEVELOPMENT_REPORT.md",
       "bytes": 8344,
       "encoding_state": "UTF8",
@@ -16171,10 +16180,19 @@
     },
     {
       "path": "mission-book/reports/REX-890/README.md",
-      "bytes": 3518,
+      "bytes": 4254,
       "encoding_state": "UTF8",
-      "chinese_characters": 239,
-      "english_words": 70,
+      "chinese_characters": 347,
+      "english_words": 80,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md",
+      "bytes": 7976,
+      "encoding_state": "UTF8",
+      "chinese_characters": 292,
+      "english_words": 53,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
