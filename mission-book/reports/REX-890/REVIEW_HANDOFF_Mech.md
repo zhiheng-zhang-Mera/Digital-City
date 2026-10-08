@@ -18,6 +18,19 @@ manifest   evidence/raw/rex890-studies/2026-10-08-B/MANIFEST.sha256（13 条，�
 
 ## 2. 跑什么 / What to run
 
+**先花 30 秒做只读预检**（不建任务、不起 campaign，因此不会移动它正在测的环境；结果默认写系统临时目录，
+**不会弄脏检出** —— 这一点很重要，见下面第 1 条）：
+
+```bash
+node evidence/raw/rex890-studies/2026-10-08-B/readiness-check.mjs \
+  --artifact evidence/raw/rex890-studies/2026-10-08-B/artifact \
+  --city <城市> --config <带 token 的文件>
+# 本机实测 7/7：包内 checksums(12) · 包外 MANIFEST(13) · 包自带 trace（listed 243 = captured 243）·
+# 包点名的 41 个 campaign **按 id** 全部可读（合计 205 run）· 205 个 canonical task 全部仍在。
+# 它会**报告**城市的回执窗口（实测 total 54 / limit 50 / truncated）：41 条里有 4 条已不在**列表**里，
+# 但按 id 照读 —— 这是清单与复现工具都按 id 取的原因，不是问题。
+```
+
 ```bash
 node scripts/rex890-opposite-host-reproduce.mjs \
   --artifact evidence/raw/rex890-studies/2026-10-08-B/artifact \
@@ -26,6 +39,15 @@ node scripts/rex890-opposite-host-reproduce.mjs \
 
 这正是工作书要求的六步：**重建 → 独立执行 → 重算 metrics → 对比 trace/provenance → 指出不一致 →
 （修复后）再复现**；工具把前五步做成可读的输出，第六步只有在出现不一致时才需要。
+
+**还有一个真正的执行前置条件（本机实测）**：独立 campaign 要求包里声明的**两台设备都在线**，少一台城市按名拒绝
+`TOPOLOGY_NOT_READY` 并点名 `missing`；所以必须在**被声明的那台设备**（`dev-1428bce5…`，城市里
+`displayName = "Alien"` 的 MEMBER）上跑、并让它的 agent 注册/心跳。**device id 也必须是那一个** ——
+重装/重新注册会得到新 id，城市仍会点名缺 `dev-1428bce5…`：那是**身份对不上**，不是复现失败。
+
+> 对侧 2026-10-08 已交付代码验证报告（`ALIEN_VERIFICATION_2026-10-08.md`，作者 Alien-codex），
+> 它自己写的状态是 `PHYSICAL_REPRODUCTION_NOT_RUN`；本机对它的答复在
+> `RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md`（含它要的两项输入与"要用的包在分支里、不是旧路径"）。
 
 ## 3. 期望值 / Expected
 

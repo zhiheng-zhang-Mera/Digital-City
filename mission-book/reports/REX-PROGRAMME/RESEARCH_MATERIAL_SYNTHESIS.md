@@ -581,6 +581,10 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
      核验两层（收包方自己跑）：包内 `checksums.json`（10 文件）+ 包外 `MANIFEST.sha256`（全 11 文件）。
      离线传输仍可用 `4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip` 作为后备
      （那是**旧包**，只作后备；下面这条命令请用新包，否则期望值会读错）。
+     **先跑只读预检**（不建任务、不起 campaign；结果默认写系统临时目录，不弄脏检出）：
+     `node evidence/raw/rex890-studies/2026-10-08-B/readiness-check.mjs --artifact <包> --city <城市> --config <token 文件>`
+     —— 本机实测 **7/7**（checksums 12 · MANIFEST 13 · 包自带 trace 243=243 · 41 个 campaign 按 id 全可读=205 run ·
+     205 个 canonical task 全在）；它还会**报告**回执窗口（实测 `total 54 / limit 50 / truncated`）。
      拿到后：`node scripts/rex890-opposite-host-reproduce.mjs
      --artifact evidence/raw/rex890-studies/2026-10-08-B/artifact
      --city <城市> --config <带 token 的文件> --out <输出目录> --label Mera-Alianware`。

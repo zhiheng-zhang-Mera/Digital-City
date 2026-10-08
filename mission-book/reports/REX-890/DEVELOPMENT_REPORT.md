@@ -88,11 +88,15 @@ provenance              experiments 40 · events 2291 条指针
   （包指向的 41 份仍可读）。这正是"包必须随分支走、不能靠现场重新导出"的实证。
 - **跨机通道只在两台真实机器之间跑过一部分**：独立复现里的独立 campaign 确实落在两台真实设备上；
   但"主城 Owner 直接操作子城节点"这条通道**没有**在两台**不同物理主机**之间验证过（能力只在本机节点上跑通），
-  见 RESEARCH_MATERIAL_SYNTHESIS §6B.4。**补充实测（2026-10-08）**：该能力已对**实机城市**做过一次
-  14/14 的实测（仪器与结果一起进仓 `evidence/raw/capability-city-remote-operation/`，head `0033c12`），
-  测到声明式派发、真在点名节点上执行、`shell:false`、收据被城市复核且 `acceptanceAuthority=false`、
-  **7 条具名拒绝各带 `task=null`**；但那次仍限于**同一台物理主机**，"一台主机上的 owner 操作另一台主机"
-  **仍未建立**。
+  见 RESEARCH_MATERIAL_SYNTHESIS §6B.4。**补充实测（2026-10-08，仪器与结果都在仓内且可重跑）**：
+  remote-operation **21/21**（声明式派发、真在点名节点上执行、`shell:false`、收据被城市复核且
+  `acceptanceAuthority=false`、把 `;` 当一个 argv 元素、上界**具名拒绝**、超时真杀、输出按声明截断、审计行带 cwd/argv）·
+  agent-job 凭据 **9/9** · 消耗回执 **8/8** · **owner 边界 12/12**（两条 owner 读面各测：错 token / 无凭据 /
+  **node token** 全 401，未认证派发不建任何东西）；另有一份**只读预检** `readiness-check.mjs`（7/7，复现前跑，
+  结果默认写系统临时目录以免弄脏检出）。但那些仍限于**同一台物理主机**，"一台主机上的 owner 操作另一台主机"
+  **仍未建立**；member **会话**的拒绝也仍只在套件里跑。
+  自那次测试之后又修了两个产品缺陷（**凭据可进作业记录**、**通道开关活不过重启**），并把城市**重启到已验证代码**
+  —— 细节在能力登记的 known_gaps 与 RESEARCH_MATERIAL_SYNTHESIS §6B.2。
 
 ## 5. final gate / The final gate
 
