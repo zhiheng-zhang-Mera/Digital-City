@@ -40,7 +40,7 @@
       "POST /api/v0/node/claim",
       "POST /api/v0/node/report"
     ],
-    "last_verified_full_sha": "5d759439c19c857d315db4c9f7d86108bb81fab5"
+    "last_verified_full_sha": "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -103,7 +103,11 @@
       "utopia:tests/web-surface-rebuild-persistence.test.mjs"
     ],
     "intent_validation_refs": [],
-    "review_refs": [],
+    "review_refs": [
+      "mission-book/reports/REX-890/REVIEW_REPORT.md",
+      "mission-book/reports/REX-890/EXPOSURE_REVIEW_ALIEN.md",
+      "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md"
+    ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/00989b6e67bcc99ce6b45133529458bbe0575fe1",
       "utopia:push CI runs at this line: 37650519705 (success, 2189be9f9c7e18e14cdc611b0a27aad3a62d9ba6 - the channel), 37651601378 (success, 66bab47eff42733f71aee5395a4795b234a058f8 - the far-side CLI runs as a real command), and the delivery-receipt head 00989b6e67bcc99ce6b45133529458bbe0575fe1",
@@ -120,13 +124,13 @@
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": false,
-    "registry_reconciliation_result": "NEW_CAPABILITY_RECORDED_AT_EXPOSURE_GATE",
+    "registry_reconciliation_result": "OWNER_EXPOSURE_PASS_WITH_DECLARED_WEB_CLI_SCOPE",
     "paper_material_refs": []
   },
   "known_gaps": [
     "Intent validation NOT_TESTED: the deterministic router deliberately does NOT offer AGENT_JOB as an ask target. A job cannot be well formed from a sentence (it needs a title, an instruction and a stated purpose), and the router's job is to offer only requests it can complete, so a natural-language path is not claimed.",
     "The channel is OFF unless the owner sets CITY_AGENT_JOB=1. With the switch off, every dispatch is refused by name (AGENT_JOB_DISABLED); there is no allowlist to configure because the channel names no program and opens no directory - the contract bounds it instead (bounded text inputs, a bounded deadline, credential-shaped inputs refused by name).",
-    "NO OPPOSITE-HOST RUN YET: the CITY half and the far-side CLI are proved against a real gateway, a real node credential and a real browser, and have been RUN AGAINST THE LIVE CITY by the development host (register -> owner dispatch -> claim -> report -> owner read-back, at 66bab47e). Handing a job to the AGENT on the opposite physical machine is still NOT RUN: the far side must first run `scripts/agent-job.mjs register`, a bootstrap no City-side change can perform for it. As of 2026-10-08 14:07 (read back from the live City) the job waiting for it is Q-a0aa3ec5-c101-497c-a3f7-70d96698388f, state QUEUED, created 2026-10-08T01:54:44Z, digest 4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945, untargeted (assignedNodeId null), inputs scripts/rex890-opposite-host-reproduce.mjs and evidence/raw/rex890-studies/2026-10-08-B/artifact. THIS ENTRY PREVIOUSLY NAMED Q-b4b7d3c1-12d9-49c6-828e-ff7d832eeaa6 AS 'ALREADY QUEUED', AND THAT BECAME FALSE: that job was CANCELLED on 2026-10-08T01:51:19Z and replaced, because its inputs pointed at the older package path (4in1-acceptance-2026-10-07/rex890-dev-study/artifact) rather than at the package that carries its own trace evidence. Recorded here rather than silently overwritten, since a reviewer following the old id would have found a cancelled job and could not tell why.",
+    "[HISTORICAL BEFORE ALIEN FINAL REVIEW; see review_refs for independently observed cross-host completion] NO OPPOSITE-HOST RUN YET: the CITY half and the far-side CLI are proved against a real gateway, a real node credential and a real browser, and have been RUN AGAINST THE LIVE CITY by the development host (register -> owner dispatch -> claim -> report -> owner read-back, at 66bab47e). Handing a job to the AGENT on the opposite physical machine is still NOT RUN: the far side must first run `scripts/agent-job.mjs register`, a bootstrap no City-side change can perform for it. As of 2026-10-08 14:07 (read back from the live City) the job waiting for it is Q-a0aa3ec5-c101-497c-a3f7-70d96698388f, state QUEUED, created 2026-10-08T01:54:44Z, digest 4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945, untargeted (assignedNodeId null), inputs scripts/rex890-opposite-host-reproduce.mjs and evidence/raw/rex890-studies/2026-10-08-B/artifact. THIS ENTRY PREVIOUSLY NAMED Q-b4b7d3c1-12d9-49c6-828e-ff7d832eeaa6 AS 'ALREADY QUEUED', AND THAT BECAME FALSE: that job was CANCELLED on 2026-10-08T01:51:19Z and replaced, because its inputs pointed at the older package path (4in1-acceptance-2026-10-07/rex890-dev-study/artifact) rather than at the package that carries its own trace evidence. Recorded here rather than silently overwritten, since a reviewer following the old id would have found a cancelled job and could not tell why.",
     "THE WAITING JOB IS NOW STRICT-TARGETED AT THE OPPOSITE HOST, WHICH CLOSES A REAL HAZARD IN THE CRITICAL PATH. As of 2026-10-08 14:5x the job waiting for them is Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c, state QUEUED, targetDeviceRef dev-1428bce5297146df88720f270af71bc3 (the City MEMBER whose displayName is \"Alien\"), targetStateAtCreation OFFLINE - so the task WAITS for that machine and NO OTHER NODE CAN BE GIVEN IT. WHY THAT MATTERS: the previous job (Q-a0aa3ec5) was UNTARGETED because their device had never registered when it was created, and an untargeted AGENT_JOB may be claimed by ANY node advertising city.agent-job.v1 - this host has a second registered compute node (dev-mega-agentjob, offline) that could have taken their request, and `/api/v0/node/claim` takes only a node id and NOT a task id, so a routine claim with a node credential could have consumed it. That is also why this host did not run a claim-based lifecycle probe against the live City: the same measurement that shows the channel working would have consumed their handoff request, and a probe is not worth the critical path. The instruction, purpose, inputs and deadline were copied VERBATIM out of the stored record (verified byte-identical after re-submission) rather than retyped, and the untargeted job was CANCELLED rather than deleted so the history stays readable.",
     "A job cannot be TARGETED at a machine identity the City has never seen: creation-time targeting refuses TARGET_DEVICE_UNKNOWN (measured). The far side must register before the owner can name it; until then the request must be left untargeted, which means any node advertising the capability may take it.",
     "An agent's summary is unverifiable by construction: the City checks the SHAPE and the honesty of the claim, never its truth. This is stated on every accepted report and is the reason the capability is a REQUEST/REPORT channel rather than an execution channel - use CAP-CITY-REMOTE-OPERATION-001 when the work must be a program whose bytes the City can check.",
@@ -137,7 +141,8 @@
     "Android has no surface for this capability: reachability is WEB + CLI only.",
     "Five defects were found only by running this on the real City and in real load, not by the tests as first written: the report gate compared the task's state against the JOB's vocabulary (so a SUCCEEDED report skipped validation entirely), the credential pattern could never match a real `ghp_` token, the CLI never heartbeat, the fixed sidebar had no scrolling region (one more entry made a nav item unclickable), and two page titles rendered their raw i18n key. All five are fixed and each now has a test that fails without the fix.",
     "A SIXTH defect was found by chasing a browser test that failed only under load, and it is repaired: `app.js` re-renders the current page from `refresh()`, which runs every four seconds AND on every event the City pushes over the WebSocket, so a rebuild discarded the open `<details>` and the focused field. On THIS surface that means an owner opens the Danger Zone, types the exact job title the confirmation demands, and the region closes underneath them - the control present, correct and unusable. Carried across the rebuild now (apps/web/view-persistence.js), with tests/web-surface-rebuild-persistence.test.mjs causing a real City event and requiring the region to stay open with the typing, focus and caret intact. What looked like load-sensitive flakiness in earlier rounds was this defect.",
-    "No independent review of this capability has been performed."
+    "Independent opposite-host technical review completed on 2026-10-08 (Alien-GPT); Owner explicitly approved exposure PASS within Web Advanced + CLI scope. See review_refs.",
+    "2026-10-08 Alien-GPT independently observed cross-physical-host execution and real member-session refusals; targeted agent job Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c COMPLETED and COLLECTED. Collection is acknowledgement, not City verification or an independently observed human read on Mech. Owner exposure ruling is PASS within Web Advanced + CLI scope."
   ],
-  "last_reconciled_by_workbook": null
+  "last_reconciled_by_workbook": "REX-890"
 }

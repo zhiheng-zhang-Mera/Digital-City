@@ -33,12 +33,11 @@ Research Strengthening: tasks 7/8, development 7/8, review 7/8. REX-801..807 are
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计 / Overall: 总任务 / Tasks 133/135 · 开发 / Development 134/135 · 复检 / Review 133/135**
-**当前未收口池 / Active pool: 总任务 / Tasks 7/8 · 开发 / Development 8/8 · 复检 / Review 7/8**
+**全城合计 / Overall: 总任务 / Tasks 134/135 · 开发 / Development 134/135 · 复检 / Review 134/135**
+**当前未收口池 / Active pool: 总任务 / Tasks 8/8 · 开发 / Development 8/8 · 复检 / Review 8/8**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|
-| [Research Strengthening](./mission-group/research-strengthening/README.md) | **7/8** | **8/8** | **7/8** | IN_PROGRESS |
 | [SHOW-401 展示素材](./mission-group/showcase-material-extraction/README.md) | **0/1** | **0/1** | **0/1** | PLANNED |
 
 机器镜像 / Machine-readable view: [MISSION_PROGRESS.json](./MISSION_PROGRESS.json).
@@ -51,7 +50,6 @@ Research Strengthening: tasks 7/8, development 7/8, review 7/8. REX-801..807 are
 
 | ID | 项目 / Programme | 状态 / Status | 开发 / Development | 复检 / Review |
 |---|---|---|:---:|:---:|
-| [REX-890](./mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | Research Strengthening | IN_PROGRESS | ✅ | — |
 
 冲突以工作书为准 / Workbook frontmatter prevails on disagreement; treat the difference as homepage sync drift.
 <!-- ACTIVE_WORKBOOKS:END -->

@@ -1,0 +1,202 @@
+{
+  "schema": "rex890-final-provenance-v1",
+  "date": "2026-10-08",
+  "implementation_head": "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744",
+  "implementation_tree_clean": true,
+  "records_base_head": "043e94f30db0d69e8bd362b7bc5a290457efc593",
+  "ci": {
+    "conclusion": "success",
+    "head_sha": "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744",
+    "html_url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37731833084",
+    "id": 37731833084,
+    "status": "completed"
+  },
+  "required_ancestor_checks": {
+    "69a097b5394a9fece39dd11cc13f04c9b4d28bfe": true,
+    "7e96a4d28f4cb701d7a0951bace69857c3228f32": true,
+    "833279cae237080cca88b1b6dbc9f217027ba68f": true,
+    "8798ba9dd37051626033ad72080b2fad3ff66149": true,
+    "fe700aba957990f93b22fd63d594ddfff7b4e243": true,
+    "0261a9ed1cec88df3ab4675623d422b37b33f270": true,
+    "12e3d3bf868575a8e3cda983733a3186cb59da27": true,
+    "17271f04829877ee56668221afeda5fbd35f66e8": true
+  },
+  "transfer_manifest": {
+    "files_verified": 39,
+    "all_match": true,
+    "credential_content_and_checksum_omitted": true
+  },
+  "owner_ruling": "OWNER_EXPOSURE_GATE_PASS",
+  "owner_ruling_record": "../OWNER_EXPOSURE_RULING_2026-10-08.md",
+  "city_id": "544adda1-3059-4c6f-ae7d-71ddfd0f3b8c",
+  "member_device_id": "dev-1428bce5297146df88720f270af71bc3",
+  "member_runtime_pid_observed": 46128,
+  "reboot_persistence": "NOT_OBSERVED",
+  "mech_runtime_source_head": "NOT_OBSERVED",
+  "credential_rotation": "NOT_OBSERVED",
+  "private_credential_value_scan": {
+    "checked_files": 27,
+    "matches": 0
+  },
+  "local_full_suite": {
+    "tests": 2043,
+    "pass": 2039,
+    "fail": 1,
+    "skipped": 3,
+    "whole_failed_contract_retry_pass": 43
+  },
+  "files": [
+    {
+      "path": "agent-job-closeout.mjs",
+      "bytes": 3729,
+      "sha256": "70a9858b34748836e810573d8beee37ff0f75605826d8f6cdee0ff1975c2fcf9"
+    },
+    {
+      "path": "agent-job-lifecycle.json",
+      "bytes": 12191,
+      "sha256": "799955da8c56cf8211a0908d48788fae8ca0ff055b88175c4b0ef19a5a80d346"
+    },
+    {
+      "path": "cross-host-verification.json",
+      "bytes": 9703,
+      "sha256": "d02fdb35102ff37b1b198d7692c2615a7c9fb8cf744739671769f0b563dc1a77"
+    },
+    {
+      "path": "cross-host-verification.mjs",
+      "bytes": 3841,
+      "sha256": "401cd02dba3e86b898b2b59229fbd477aeb83c9bd49a4e3d88c2dfa387efc687"
+    },
+    {
+      "path": "falsification/A-metric-lie-out/opposite-host-reproduction.json",
+      "bytes": 124011,
+      "sha256": "7e4292406b217af5a8aa9dcf2f08e977d68d6afc3587f3cffdcb60a417902280"
+    },
+    {
+      "path": "falsification/B-dataset-tamper-out/opposite-host-reproduction.json",
+      "bytes": 123949,
+      "sha256": "2b84f8468b0b3956fd11ba7304596dae43b88ec1a25d3a66475ce213049aa5a5"
+    },
+    {
+      "path": "falsification/C-checksum-stale-out/opposite-host-reproduction.json",
+      "bytes": 124244,
+      "sha256": "d82b56b285f68c38ed455a1c9dde242d227f9cbde6d08c9a6b2aae3d790fb5dd"
+    },
+    {
+      "path": "falsification.log",
+      "bytes": 593,
+      "sha256": "0420d522bc911fc9cb7a902250050a92bd4f96d3f658a3dae424c52694283ad1"
+    },
+    {
+      "path": "full-tests.log",
+      "bytes": 200198,
+      "sha256": "d92880c2ff368cb80af33ac8b43ce94dce8203883356fd497805acbebf7fcf40"
+    },
+    {
+      "path": "live-AgentJobs.png",
+      "bytes": 225507,
+      "sha256": "81515c846e8f620c859fbd984008cc9c2811fc6e0af97600c930ae5d9875b220"
+    },
+    {
+      "path": "live-RemoteOperation.png",
+      "bytes": 346661,
+      "sha256": "248fbb6ee01eda61751d615bbd72b8c2ad52e16e087b617a104a1897720bb8c3"
+    },
+    {
+      "path": "live-ui-review.json",
+      "bytes": 761,
+      "sha256": "ce3a3cd8565c67b44f6a991be256d2b8f2e66da37d0e76525627090119e715de"
+    },
+    {
+      "path": "live-ui-review.mjs",
+      "bytes": 2146,
+      "sha256": "a1a1460ece2fdc4f4ff6b428102f99d6f48f2ae4266df8155d623201506cef74"
+    },
+    {
+      "path": "member-service.log",
+      "bytes": 217,
+      "sha256": "8a67d9a827b43cd984f43350bd79d57c2e8da81231d535c2c1cb418ab01254b0"
+    },
+    {
+      "path": "member-service.mjs",
+      "bytes": 923,
+      "sha256": "57bf5b447aae8665516a0f4944f8bdd74e658a1896af7a57ea92acfe89f1c6d8"
+    },
+    {
+      "path": "readiness.json",
+      "bytes": 1928,
+      "sha256": "b9d8cebc3d9d31dde70700555c84f2e5c119eb7685038a9cf6529f9d556da11e"
+    },
+    {
+      "path": "registry-retry.log",
+      "bytes": 4223,
+      "sha256": "c0d9ec74250a9f6168948cc503e38ede7596e61802b623218d1099ae351e9580"
+    },
+    {
+      "path": "reproduction-1/opposite-host-reproduction.json",
+      "bytes": 123959,
+      "sha256": "b732d08b190af9661e6e5d182c37d7ca6168ccbd96a3754b559ffb00f3a03144"
+    },
+    {
+      "path": "reproduction-1.log",
+      "bytes": 2469,
+      "sha256": "c208fb6f369d5b4b32eff17bd71e4917e712190d1c17c68f6ce35055b25d4127"
+    },
+    {
+      "path": "rex890-alien-full-tests.log",
+      "bytes": 200068,
+      "sha256": "515476228a6be35d8c09e45672a690750b6105046845d33a1216fe224fa12bcf",
+      "windows_checkout_sha256": "c9ab06a7f859a0f91be70f3c05eb46246183ca928b52ff604959ca1eecefbee1",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-alien-targeted-tests.log",
+      "bytes": 3575,
+      "sha256": "d58b6bab3735cf64ad38b3b2781a30f5c3ea13516c6023853721c83664e1ade2",
+      "windows_checkout_sha256": "e88eb3afa5c2ecfc84b61ca954c23f7c4e0ad3261e14e8a104666f18bb0e0d4d",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-alien-web-tests.log",
+      "bytes": 979,
+      "sha256": "bc7c512434228da77a0a63128973195d699f26a6acbe64b7ca2e94c737df2579",
+      "windows_checkout_sha256": "38155cf411ec3144f1832aaabaf4887041a05cfa191c3a1142bd5f8fb78a36b1",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-cex790-retry.log",
+      "bytes": 238,
+      "sha256": "6b26cd6be0a0d9e7f7d14dfe1110b27a1f1ba035e3387351b3d0a93d3811dd67",
+      "windows_checkout_sha256": "9a322e9bb0c86667f373b7f32c466d8f5e56d01893de1a88fbc7013c99223e62",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-cli-green.log",
+      "bytes": 710,
+      "sha256": "4b7c5f779d7b385987cb3deb01eff504040c922027186da1d47cb03ecc7044e1",
+      "windows_checkout_sha256": "315563cdcbaaae9e42031b0b85b792747a85f0a3a562a9c644602f575c64f60d",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-cli-red.log",
+      "bytes": 15163,
+      "sha256": "644de223688441e9aaf4612c72f1c809cc27b5de3afa4a850b6215ba5062e2d1",
+      "windows_checkout_sha256": "1bc45ee852121003584e4d5a460421be375a64a038fb40a6f751d43e5a4d1603",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-parser-retry.log",
+      "bytes": 1115,
+      "sha256": "d32d40b1f2b9d05db45d18e75c0b32c2ef31f5d4e85d4b2a73a3fe22d1ca6fc4",
+      "windows_checkout_sha256": "92c42bece39e9e99706adde6e4afd7c29b234ca04a59c63f96d9a62bb71e31ed",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    },
+    {
+      "path": "rex890-promotion-history.log",
+      "bytes": 1270,
+      "sha256": "6b2528bdc0c4d9bb99524ba8dc6d818671c88e4f5a5776776fa619865067f9f7",
+      "windows_checkout_sha256": "64b8604c7da2e7f716d16ad43a9b2bc8fc711542edba68dfb374a4f46b6baf00",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
+    }
+  ],
+  "hash_basis": "Committed Git blob bytes; new raw evidence preserves original bytes. Historical log checkout differences are named separately."
+}

@@ -3,7 +3,7 @@ workbook_id: REX-890
 phase: RESEARCH_STRENGTHENING
 sequence: 890
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -21,27 +21,31 @@ development_head_sha: "314326007dce6e328792053936ce4c3a80c3b1e2"
 development_ci: "THREE heads, every failure kept with its cause. (1) 803c18d1dcc184b0e44a5e1806ad2d25b8100dc6: run 37715239464 success - the study package that carries its own trace evidence. (2) a3078e8035e630114d2107de4dd60dc0d3015469: run 37718096755 attempt 1 FAILED on exactly ONE case, CAJ-WEB 2, with a 10.1s TimeoutError; classified as LOAD, on four measured grounds: 803c18d..a3078e8 changes only the study instrument and two test files and touches no web or agent-job file, that case passes alone on this host (green), it takes 27-57s under local parallel load, and attempt 2 of the SAME head is green. The failed attempt is kept rather than erased. (3) 314326007dce6e328792053936ce4c3a80c3b1e2 (this development head): run 37720240214 success, https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37720240214. Locally the full suite stands at 2037 tests / 2029 pass / 6 skipped / 2 failures that are BOTH contention timeouts (the theme-lab build hitting its own 20.6s EXECUTION_TIMEOUT and DGX007 at 50.4s); each passes in isolation (the DGX007 file in 2.8s, the theme file 5/5) and neither appears on the clean CI runner. The 6 skips are named, not silent: they are cases that deliberately refuse to run while a City holds this machine's coordination reservation, or whose checkout precondition is a clean tree."
 development_complete: true
 development_completion_note: "DEVELOPMENT CLOSED at 3143260. DELIVERED: the multi-device study with every element the workbook names - multi-device execution across two REAL devices, repetitions, one injected fault WITH measured directionality (faulted device 503 vs the other 200), observable recovery (901 ms), one replay, one ablation that MEASURABLY changed placement (source run dev-1428bce5 to dev-544adda1), artifact export, and the routing/placement decision recorded per repetition; the artifact package that CARRIES the trace records it points at (243/243) and is committed to the branch, so an independent host depends on no hand-off; the study INSTRUMENT itself (scripts/rex890-dev-study.mjs), parameterised and re-runnable from a bare checkout with no install, which is what makes the study reproducible instead of merely reported; and the required synthesis material (mission-book/reports/REX-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md) with experiment/run/failure counts, defect taxonomy, review-only findings, reproducibility delta, measured metrics, unresolved limitations and candidate paper directions. WHAT IS NOT CLAIMED: the opposite-host reproduction has NOT happened - every reproduction measured so far is THIS host's own rehearsal and the synthesis says so; NOT_MEASURED is not zero and 23 of 27 metrics keep their stated reasons; a fresh full export from the City now exits 1 with RECEIPT_WINDOW_TRUNCATED because the City has grown to 50 receipts and its bounded window truncated the oldest, which is why the package must travel with the branch rather than be re-derived. THE FINAL GATE IS NOT MET AND IS NOT CLAIMED: it requires the opposite host's independent reproduction (rebuild, independent execution, recomputed metrics, trace/provenance comparison, named inconsistencies, repair and re-reproduction) AND the Owner's exposure-gate PASS on CAP-CITY-REMOTE-OPERATION-001 and CAP-CITY-AGENT-JOB-001; merge_authority stays false until both exist."
-review_host: null
-review_head_sha: null
-review_ci: null
-review_complete: false
+review_host: "Alien-GPT / Mera-Alianware"
+review_head_sha: "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744"
+review_ci: "GitHub Actions run 37731833084 completed success at exact head 0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744; independently read by Alien-GPT: https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37731833084"
+review_complete: true
+review_evidence: "mission-book/reports/REX-890/REVIEW_REPORT.md: opposite-host physical reproduction PASS (exit 0, zero inconsistencies/gaps, clean exact head, independent six-run campaign on Alien+Mech); exact-head hosted CI success; independent technical exposure review PASS within Web Advanced + CLI scope. Owner explicitly replied '批准 exposure PASS，并完成收尾' in this chat after the concrete evidence packet was prepared. See OWNER_EXPOSURE_RULING_2026-10-08.md. Full local suite first run 2043/2039 pass/1 timing failure/3 skips, preserved; isolated whole failed contract suite 43/43 pass."
+owner_exposure_gate: PASS
+owner_exposure_evidence: "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md"
 user_exposure_class: OBSERVABLE_ADVANCED
 user_exposure_surface: RESEARCH_ADVANCED
 user_exposure_nesting: L4_TECHNICAL
-backend_wiring: TO_BE_VERIFIED
+backend_wiring: VERIFIED
 ui_exemption_reason: null
 owner_gate: NONE
-merge_authority: false
+merge_authority: true
 report_path: mission-book/reports/REX-890
 terminal_marker: RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE
+terminal_marker_released: true
 owner_gate_ruling_2026_10_07: "OWNER GATE OPEN for the REX series (owner instruction this session): QUALIFIED sub-tasks may merge, i.e. those whose own review is complete and whose marker is released. merge_authority is set true on REX-801..805 (all accepted and now in main) and stays false on REX-806/807/890 until their reviews complete - acceptance, the opposite-host review and the markers are unchanged, and section 3 still forbids self-review. Recorded by Mech-DS."
 ---
 
 # REX-890 — Independent Reproducibility Study + V1 Freeze
 
-> 常驻规则：[../CONSTRUCTION_RULES.md](../../CONSTRUCTION_RULES.md)  
-> 异步协议：[../ASYNC_RELIEF_CONSTRUCTION.md](../../ASYNC_RELIEF_CONSTRUCTION.md)  
-> 研究素材：[RESEARCH_EVIDENCE_PROTOCOL.md](RESEARCH_EVIDENCE_PROTOCOL.md)
+> 常驻规则：[../CONSTRUCTION_RULES.md](../../../CONSTRUCTION_RULES.md)
+> 异步协议：[../ASYNC_RELIEF_CONSTRUCTION.md](../../../ASYNC_RELIEF_CONSTRUCTION.md)
+> 研究素材：[RESEARCH_EVIDENCE_PROTOCOL.md](../../../mission-group/research-strengthening/RESEARCH_EVIDENCE_PROTOCOL.md)
 
 ## 目标
 
@@ -99,3 +103,7 @@ Development host 先用 Research Fabric 运行一个代表性 multi-device study
 ---
 
 [English reading translation / 完整英文阅读说明](en/REX-890-reproducibility-study-and-freeze.md)
+
+## Final closeout — 2026-10-08
+
+The historical development-completion note above describes the earlier pre-review state. It is superseded for final disposition by the independent physical reproduction, exact-head CI and actual Owner exposure PASS now recorded in the review fields. REX-890 is COMPLETE; `RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE` is released. Android and natural-language entries remain unimplemented. Programme final integration is not claimed.

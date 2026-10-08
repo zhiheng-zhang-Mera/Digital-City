@@ -1,5 +1,7 @@
 # REX-890 研究素材汇总 / REX-890 RESEARCH MATERIAL SYNTHESIS
 
+> **2026-10-08 最新异机复核 / Latest independent review:** Alien-GPT / Mera-Alianware has now completed the physical-host reproduction that the historical sections below describe as NOT_RUN. Clean exact source `0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744`, exit 0, zero inconsistencies/gaps, 205 runs rebuilt from 41 receipts, median 6630 ms, failure/duplicate/missing-event values 0, canonical pointers 214/214, joins 205/205, trace 243/243. Independent six-run campaign completed on Alien and Mech. Falsification 4/4; targeted agent job COMPLETED and COLLECTED with acknowledgement-not-verification semantics. Exact-head CI 37731833084 success. Full local suite first run 2043 tests / 2039 pass / 1 timing failure / 3 skipped; whole failed contract suite retried 43/43, first failure preserved. Independent exposure technical review is complete within Web Advanced + CLI scope; Owner explicitly approved exposure PASS and closeout. REX-890 is COMPLETE and RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE is released. Programme final integration remains separate. See [final opposite-host review](../REX-890/REVIEW_REPORT.md), [exposure review](../REX-890/EXPOSURE_REVIEW_ALIEN.md) and their raw evidence. Historical statements below are retained, not rewritten as if the reproduction had happened earlier.
+
 ```text
 汇总者 / compiled by   Mech-DS（MEGA-REP）
 时间 / at              2026-10-08

@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1936,
-  "total_bytes": 15136716,
+  "markdown_count": 1942,
+  "total_bytes": 15158490,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 4986,
+      "bytes": 4714,
       "encoding_state": "UTF8",
       "chinese_characters": 374,
-      "english_words": 332,
+      "english_words": 313,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -1024,10 +1024,10 @@
     },
     {
       "path": "mission-book/finished/README.md",
-      "bytes": 7740,
+      "bytes": 7819,
       "encoding_state": "UTF8",
-      "chinese_characters": 535,
-      "english_words": 504,
+      "chinese_characters": 537,
+      "english_words": 508,
       "paired_path": "mission-book/finished/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9573,6 +9573,51 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-08/README.md",
+      "bytes": 620,
+      "encoding_state": "UTF8",
+      "chinese_characters": 56,
+      "english_words": 33,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-08/research-strengthening/README.md",
+      "bytes": 1961,
+      "encoding_state": "UTF8",
+      "chinese_characters": 87,
+      "english_words": 157,
+      "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+      "bytes": 9545,
+      "encoding_state": "UTF8",
+      "chinese_characters": 105,
+      "english_words": 138,
+      "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/README.md",
+      "bytes": 1617,
+      "encoding_state": "UTF8",
+      "chinese_characters": 55,
+      "english_words": 134,
+      "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/README.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
+      "bytes": 2140,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 214,
+      "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/finished/en/README.md",
       "bytes": 565,
       "encoding_state": "UTF8",
@@ -10042,10 +10087,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 81223,
+      "bytes": 81184,
       "encoding_state": "UTF8",
       "chinese_characters": 7998,
-      "english_words": 3209,
+      "english_words": 3206,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10068,20 +10113,11 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
-      "bytes": 8016,
-      "encoding_state": "UTF8",
-      "chinese_characters": 105,
-      "english_words": 85,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 66500,
+      "bytes": 66461,
       "encoding_state": "UTF8",
       "chinese_characters": 205,
-      "english_words": 5346,
+      "english_words": 5343,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10101,15 +10137,6 @@
       "chinese_characters": 4,
       "english_words": 778,
       "paired_path": "mission-book/mission-group/research-strengthening/RESEARCH_EVIDENCE_PROTOCOL.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-890-reproducibility-study-and-freeze.md",
-      "bytes": 1415,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 144,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -14974,7 +15001,7 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 9257,
+      "bytes": 9258,
       "encoding_state": "UTF8",
       "chinese_characters": 388,
       "english_words": 461,
@@ -16188,11 +16215,29 @@
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
     {
-      "path": "mission-book/reports/REX-890/README.md",
-      "bytes": 4711,
+      "path": "mission-book/reports/REX-890/EXPOSURE_REVIEW_ALIEN.md",
+      "bytes": 2863,
       "encoding_state": "UTF8",
-      "chinese_characters": 428,
-      "english_words": 83,
+      "chinese_characters": 11,
+      "english_words": 315,
+      "paired_path": null,
+      "language_presence": "TRANSLATION_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md",
+      "bytes": 1665,
+      "encoding_state": "UTF8",
+      "chinese_characters": 100,
+      "english_words": 131,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/README.md",
+      "bytes": 5430,
+      "encoding_state": "UTF8",
+      "chinese_characters": 503,
+      "english_words": 97,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -16211,6 +16256,15 @@
       "encoding_state": "UTF8",
       "chinese_characters": 754,
       "english_words": 89,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/REVIEW_REPORT.md",
+      "bytes": 9038,
+      "encoding_state": "UTF8",
+      "chinese_characters": 110,
+      "english_words": 949,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
@@ -16252,10 +16306,10 @@
     },
     {
       "path": "mission-book/reports/REX-PROGRAMME/RESEARCH_MATERIAL_SYNTHESIS.md",
-      "bytes": 65766,
+      "bytes": 67073,
       "encoding_state": "UTF8",
-      "chinese_characters": 1025,
-      "english_words": 85,
+      "chinese_characters": 1031,
+      "english_words": 218,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },

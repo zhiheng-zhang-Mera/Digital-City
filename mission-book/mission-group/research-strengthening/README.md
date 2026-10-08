@@ -393,7 +393,7 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 7/8 · 开发 / Development 8/8 · 复检 / Review 7/8 · `IN_PROGRESS`
+总完成 / Complete 8/8 · 开发 / Development 8/8 · 复检 / Review 8/8 · `COMPLETE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
@@ -404,7 +404,7 @@ REX-803 is formally accepted by Alien at exact8798ba9 after technical and three-
 | [REX-805](../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
 | [REX-806](../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
 | [REX-807](../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
-| [REX-890](REX-890-reproducibility-study-and-freeze.md) | IN_PROGRESS | YES | NO | YES |
+| [REX-890](../../finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->
 
@@ -626,16 +626,15 @@ NOT CLAIMED     marker RESEARCH_ARTIFACT_EXPORT_ACCEPTED 未释放；本机不�
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **8**.
+当前Markdown文档 / Current Markdown documents: **6**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| en | 4 | [打开 / Open](en/README.md) |
+| en | 3 | [打开 / Open](en/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [RESEARCH_CONTROL_SURFACE.md](RESEARCH_CONTROL_SURFACE.md)
 - [RESEARCH_EVIDENCE_PROTOCOL.md](RESEARCH_EVIDENCE_PROTOCOL.md)
-- [REX-890-reproducibility-study-and-freeze.md](REX-890-reproducibility-study-and-freeze.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

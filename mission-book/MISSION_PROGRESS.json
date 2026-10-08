@@ -5,11 +5,11 @@
       "total": 8
     },
     "review": {
-      "complete": 7,
+      "complete": 8,
       "total": 8
     },
     "tasks": {
-      "complete": 7,
+      "complete": 8,
       "total": 8
     }
   },
@@ -20,11 +20,11 @@
       "total": 135
     },
     "review": {
-      "complete": 133,
+      "complete": 134,
       "total": 135
     },
     "tasks": {
-      "complete": 133,
+      "complete": 134,
       "total": 135
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
-      "review_complete": 7,
-      "status": "IN_PROGRESS",
-      "task_complete": 7,
+      "review_complete": 8,
+      "status": "COMPLETE",
+      "task_complete": 8,
       "tasks": [
         {
           "complete": true,
@@ -979,13 +979,13 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": true,
           "execution_enabled": true,
           "id": "REX-890",
-          "path": "mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
-          "review_complete": false,
-          "status": "IN_PROGRESS"
+          "path": "finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+          "review_complete": true,
+          "status": "COMPLETE"
         }
       ],
       "total": 8
