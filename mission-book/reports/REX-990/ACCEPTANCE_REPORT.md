@@ -14,8 +14,8 @@ The Owner requested a new cloud branch containing Android, natural-language entr
 | Android | 142 unit tests PASS; default APK and separate validation package build PASS | [android-review-fixes-green.log](evidence/android-review-fixes-green.log) |
 | Independent other physical host | Mega-rep, exact code SHA, clean before/after, 50/50 PASS, no remaining Critical/Important | [independent-review-mech-report.json](evidence/independent-review-mech-report.json) |
 | REX reproduction | Integrity VERIFIED; 205 runs rebuilt, 243/243 trace pointers resolved from durable store; 6 independent runs on two real devices; 0 inconsistencies | [opposite-host-reproduction-08f.json](evidence/opposite-host-reproduction-08f.json) |
-| Exact final-head hosted CI | PENDING terminal outcome at report preparation | Updated before merge |
-| Product merge / merged-main runtime | PENDING | Updated after verified merge |
+| Exact final-head hosted CI | PASS: final e973 push 37746537635 and PR 37746545197 | [push CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37746537635), [PR CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37746545197) |
+| Product merge / merged-main runtime | PASS: PR47 merged 944f47d, focused23/23, actual OPPO Agent Ask completed/collected with exact main source HEAD; main hosted CI PASS | [main CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37747311973), [observation](evidence/merged-main-observation.json), [tests](evidence/merged-main-tests.log) |
 
 The initial timing failure is retained. Isolated and bounded-concurrency results support resource contention as the explanation; the test and its bound were not relaxed. Hosted CI, actual opposite-host execution and phone observations are separate evidence.
 
@@ -35,3 +35,5 @@ Artifacts remain outside source: default APK SHA256 `7de8c587f0614cff3f028f3b1df
 Native English Agent Ask `ask the Agent on Review to inspect the tests` retained instruction `inspect the tests`, opened the editable native draft and completed/collected task `Q-f9293659-5999-4b0f-afb6-aa394c7ab00f`. See [native seeded form](evidence/android-agent-ask-seeded.xml).
 
 Hosted push run 37745835906 at 08f failed only during Windows directory cleanup (ENOTEMPTY) after REX806 assertions. Its raw failure is retained in [ci-08f-failed.log](evidence/ci-08f-failed.log); PR run 37745842605 at the same head passed. Final e973 adds bounded rm cleanup retries without changing assertions, app behavior or execution timeouts; local 9/9 and independent physical 50/50 passed. The 08f research reproduction was rerun before this test-only change; no reproduction rerun at e973 is claimed.
+
+Merged-main source `944f47dd6c7e18b3388b6d769dbbb6dddbe74f00` is byte-identical to e973 (git diff empty), includes all required ancestors, and was started from a fresh detached main worktree. Actual phone main-verification task `Q-20f2d6d3-dbd1-4c94-9e2b-9ef4d6b09598` completed and was collected. Temporary City ID stayed unchanged. Main CI run37747311973 terminal success. Public evidence blob checksums were verified against committed Git bytes; changed-record audit58/58 PASS. The global registry retains inherited unrelated head/reference failures, recorded separately rather than claimed globally clean.

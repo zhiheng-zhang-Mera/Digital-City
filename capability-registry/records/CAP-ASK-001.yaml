@@ -26,7 +26,7 @@
       "GET /api/v0/ask/targets",
       "POST /api/v0/ask"
     ],
-    "last_verified_full_sha": "e973675d04216fa8af50a5a6993143f76a3b75ee"
+    "last_verified_full_sha": "944f47dd6c7e18b3388b6d769dbbb6dddbe74f00"
   },
   "status": {
     "implementation_status": "COMPLETE",

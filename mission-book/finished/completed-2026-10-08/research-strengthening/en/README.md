@@ -13,7 +13,7 @@ Declared limitations remain: Android and natural-language entry absent, 23 metri
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **2**.
+当前Markdown文档 / Current Markdown documents: **3**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -21,5 +21,6 @@ Declared limitations remain: Android and natural-language entry absent, 23 metri
 ### 本目录说明 / Local documents
 
 - [REX-890-reproducibility-study-and-freeze.md](REX-890-reproducibility-study-and-freeze.md)
+- [REX-990-programme-final-integration.md](REX-990-programme-final-integration.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

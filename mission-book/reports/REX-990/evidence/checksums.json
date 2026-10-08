@@ -1,5 +1,4 @@
 {
-  "at": "2026-10-08T08:01:26.872Z",
   "files": [
     {
       "file": "agent-collected.xml",
@@ -102,6 +101,21 @@
       "sha256": "2e77ba11e74e411880f0b38e23a317b7a1ca885bedca827df33aae0e95463ac4"
     },
     {
+      "file": "ci-e973-pr-green.log",
+      "bytes": 780980,
+      "sha256": "fbf57bb9d5060472b82e602df9681680b1810d041c89d4a0d8a2f1f981095313"
+    },
+    {
+      "file": "ci-e973-push-green.log",
+      "bytes": 777539,
+      "sha256": "44e9fd517ed4f0fb8b926cd5d88e21cfe210cbe20868b54193d19d2ff1e9e639"
+    },
+    {
+      "file": "ci-main-green.log",
+      "bytes": 794406,
+      "sha256": "9bd7ec8fe03a594a623e1aebf6b93d5fe8539a6c3c91b7a20d41c7e1843bdf03"
+    },
+    {
       "file": "city.log",
       "bytes": 190898,
       "sha256": "f2238f03e458851ed435e04caf131d02bea62ce4a47d3b7f244bbefc4116076c"
@@ -148,8 +162,8 @@
     },
     {
       "file": "execution-ledger.md",
-      "bytes": 3543,
-      "sha256": "a030b259c06919c71af84214b365ef4af39652c85f0d5eb2aa52dda5bb0d158f"
+      "bytes": 4446,
+      "sha256": "9151a084dcace82c550a37d1b1d93576570c722b0343d08ed43c29f4451c00ab"
     },
     {
       "file": "final-ask-completed.xml",
@@ -227,6 +241,26 @@
       "sha256": "b849923f9ebe51e7ad7b20b1ee3eafee0135228a432d75b46949e536f663705b"
     },
     {
+      "file": "main-agent-collected.png",
+      "bytes": 270972,
+      "sha256": "6fe4b0c6388bc1697aa501b708ac68bd9dbb735017658bcc33b539b4badd61b1"
+    },
+    {
+      "file": "main-agent-collected.xml",
+      "bytes": 12547,
+      "sha256": "2ac0694b6cc4d7b77fbc30b593af257f01a8aff2c2904af8fa1c8084ff89b70c"
+    },
+    {
+      "file": "main-agent-form.xml",
+      "bytes": 18320,
+      "sha256": "8965c923665b7b2a4964e521e37d73a61f2ccd8ba4d66b02243f2a7426a67bb6"
+    },
+    {
+      "file": "main-ask-draft.xml",
+      "bytes": 19133,
+      "sha256": "343b5d53fff6d4deb49cb4fe7ac5fd738f27ac7b81cf6e10fc7804fd9cc94186"
+    },
+    {
       "file": "mech-clone-result.json",
       "bytes": 6357,
       "sha256": "137fb7f52a13f5fe7be66f78feed5d7dfafaee933591be1853b03aeefea8aaa6"
@@ -245,6 +279,16 @@
       "file": "mech-install-result.json",
       "bytes": 4004,
       "sha256": "35f26679f20c8a08e1b5094c3b0b9b3651402b48101c7cbb42352c9a520f8881"
+    },
+    {
+      "file": "merged-main-observation.json",
+      "bytes": 60749,
+      "sha256": "ce5c185228568cb5df26bb87d0732222e22b24c714a563a06d110ee6283903be"
+    },
+    {
+      "file": "merged-main-tests.log",
+      "bytes": 2202,
+      "sha256": "16c46aada2a6316d5f312639e3f30fdccfdf17359d926f973072e1b7422524ee"
     },
     {
       "file": "native-withdraw.xml",
@@ -292,9 +336,14 @@
       "sha256": "d60007101d8e66f23ccc1e00e8294662b8d81a22fe9ce150ffc09476e80d1d04"
     },
     {
-      "file": "registry-scoped-audit.json",
+      "file": "registry-scoped-audit-initial.json",
       "bytes": 10389,
       "sha256": "dfd1fc5dd59b5f83bba74245178c22a007208344a12ec8c91949da08a83d67ed"
+    },
+    {
+      "file": "registry-scoped-audit.json",
+      "bytes": 10304,
+      "sha256": "d8d796392aa76e8565a350597e0a5e939dddaea32e9d1d10d772b6f3db4f8206"
     },
     {
       "file": "remote-completed-output.xml",
@@ -349,7 +398,7 @@
     {
       "file": "validation-runtime.json",
       "bytes": 274,
-      "sha256": "5b70e05647395daff28fed3bf052b4de0658e7e43ec4df0985918c3393b1bdb1"
+      "sha256": "c7a9677896847799f1cac6e3c76da557f68d9ea765dbd77170d059bd43b2ef0c"
     },
     {
       "file": "web-green.log",

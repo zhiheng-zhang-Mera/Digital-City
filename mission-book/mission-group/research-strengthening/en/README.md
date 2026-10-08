@@ -294,7 +294,7 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 9/9 · 开发 / Development 8/9 · 复检 / Review 9/9 · `COMPLETE`
+总完成 / Complete 9/9 · 开发 / Development 9/9 · 复检 / Review 9/9 · `COMPLETE`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
@@ -306,7 +306,7 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 | [REX-806](../../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
 | [REX-807](../../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
 | [REX-890](../../../finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md) | COMPLETE | YES | YES | YES |
-| [REX-990](../REX-990-programme-final-integration.md) | IN_PROGRESS | NO | YES | YES |
+| [REX-990](../../../finished/completed-2026-10-08/research-strengthening/REX-990-programme-final-integration.md) | COMPLETE | YES | YES | YES |
 
 <!-- SERIES_DASHBOARD:END -->
 
@@ -601,7 +601,7 @@ An independent reviewer must confirm that `intervention_count` is unknown rather
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **4**.
+当前Markdown文档 / Current Markdown documents: **3**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -610,6 +610,5 @@ An independent reviewer must confirm that `intervention_count` is unknown rather
 
 - [RESEARCH_CONTROL_SURFACE.md](RESEARCH_CONTROL_SURFACE.md)
 - [RESEARCH_EVIDENCE_PROTOCOL.md](RESEARCH_EVIDENCE_PROTOCOL.md)
-- [REX-990-programme-final-integration.md](REX-990-programme-final-integration.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

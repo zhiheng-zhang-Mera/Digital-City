@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1949,
-  "total_bytes": 15178933,
+  "total_bytes": 15184363,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -9583,10 +9583,10 @@
     },
     {
       "path": "mission-book/finished/completed-2026-10-08/research-strengthening/README.md",
-      "bytes": 1961,
+      "bytes": 2044,
       "encoding_state": "UTF8",
       "chinese_characters": 87,
-      "english_words": 157,
+      "english_words": 165,
       "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9600,11 +9600,20 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
+      "path": "mission-book/finished/completed-2026-10-08/research-strengthening/REX-990-programme-final-integration.md",
+      "bytes": 5449,
+      "encoding_state": "UTF8",
+      "chinese_characters": 168,
+      "english_words": 114,
+      "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/REX-990-programme-final-integration.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
       "path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/README.md",
-      "bytes": 1617,
+      "bytes": 1700,
       "encoding_state": "UTF8",
       "chinese_characters": 55,
-      "english_words": 134,
+      "english_words": 142,
       "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -9615,6 +9624,15 @@
       "chinese_characters": 0,
       "english_words": 214,
       "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
+      "language_presence": "PAIR_PRESENT"
+    },
+    {
+      "path": "mission-book/finished/completed-2026-10-08/research-strengthening/en/REX-990-programme-final-integration.md",
+      "bytes": 1704,
+      "encoding_state": "UTF8",
+      "chinese_characters": 0,
+      "english_words": 191,
+      "paired_path": "mission-book/finished/completed-2026-10-08/research-strengthening/REX-990-programme-final-integration.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -10087,10 +10105,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 81352,
+      "bytes": 81326,
       "encoding_state": "UTF8",
       "chinese_characters": 7998,
-      "english_words": 3221,
+      "english_words": 3219,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10113,20 +10131,11 @@
       "language_presence": "PAIR_PRESENT"
     },
     {
-      "path": "mission-book/mission-group/research-strengthening/REX-990-programme-final-integration.md",
-      "bytes": 5230,
-      "encoding_state": "UTF8",
-      "chinese_characters": 188,
-      "english_words": 92,
-      "paired_path": "mission-book/mission-group/research-strengthening/en/REX-990-programme-final-integration.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 66632,
+      "bytes": 66606,
       "encoding_state": "UTF8",
       "chinese_characters": 205,
-      "english_words": 5358,
+      "english_words": 5356,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10146,15 +10155,6 @@
       "chinese_characters": 4,
       "english_words": 778,
       "paired_path": "mission-book/mission-group/research-strengthening/RESEARCH_EVIDENCE_PROTOCOL.md",
-      "language_presence": "PAIR_PRESENT"
-    },
-    {
-      "path": "mission-book/mission-group/research-strengthening/en/REX-990-programme-final-integration.md",
-      "bytes": 1447,
-      "encoding_state": "UTF8",
-      "chinese_characters": 0,
-      "english_words": 168,
-      "paired_path": "mission-book/mission-group/research-strengthening/REX-990-programme-final-integration.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
@@ -16288,19 +16288,19 @@
     },
     {
       "path": "mission-book/reports/REX-990/ACCEPTANCE_REPORT.md",
-      "bytes": 5436,
+      "bytes": 7289,
       "encoding_state": "UTF8",
       "chinese_characters": 14,
-      "english_words": 600,
+      "english_words": 812,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-990/PAPER_MATERIAL_INDEX.md",
-      "bytes": 978,
+      "bytes": 1428,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 115,
+      "english_words": 162,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
@@ -16315,19 +16315,19 @@
     },
     {
       "path": "mission-book/reports/REX-990/REVIEW_REPORT.md",
-      "bytes": 3651,
+      "bytes": 4296,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 436,
+      "english_words": 501,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },
     {
       "path": "mission-book/reports/REX-990/evidence/execution-ledger.md",
-      "bytes": 2541,
+      "bytes": 4433,
       "encoding_state": "UTF8",
       "chinese_characters": 0,
-      "english_words": 298,
+      "english_words": 482,
       "paired_path": null,
       "language_presence": "TRANSLATION_REVIEW_REQUIRED"
     },

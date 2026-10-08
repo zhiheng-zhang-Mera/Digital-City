@@ -33,8 +33,8 @@ Research Strengthening: tasks 7/8, development 7/8, review 7/8. REX-801..807 are
 > FUTURE-only计划激活前不计入分母 / Future-only plans are excluded until formally activated as workbooks.
 > 完成系列导航 / Completed programme navigation: [finished/README.md](./finished/README.md). They remain in overall totals and MISSION_PROGRESS.json.
 
-**全城合计 / Overall: 总任务 / Tasks 135/136 · 开发 / Development 134/136 · 复检 / Review 135/136**
-**当前未收口池 / Active pool: 总任务 / Tasks 9/9 · 开发 / Development 8/9 · 复检 / Review 9/9**
+**全城合计 / Overall: 总任务 / Tasks 135/136 · 开发 / Development 135/136 · 复检 / Review 135/136**
+**当前未收口池 / Active pool: 总任务 / Tasks 9/9 · 开发 / Development 9/9 · 复检 / Review 9/9**
 
 | 项目 / Programme | 总完成 / Complete | 开发 / Development | 复检 / Review | 状态 / Status |
 |---|---:|---:|---:|---|

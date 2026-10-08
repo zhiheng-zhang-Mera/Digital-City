@@ -3,7 +3,7 @@ workbook_id: REX-990
 phase: RESEARCH_PROGRAMME_FINAL_INTEGRATION
 sequence: 990
 execution_enabled: true
-status: IN_PROGRESS
+status: COMPLETE
 implementation_repo: zhiheng-zhang-Mera/utopia
 baseline_policy: IMMUTABLE_EXACT_SHA
 baseline_anchor_mode: DEPENDENCY_SHA_UNION_AT_CLAIM
@@ -17,8 +17,8 @@ dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-802:RESEARC
 development_host: "Alien-GPT / Mera-Alianware"
 development_branch: "feat/rex-programme-final-android-intent-20261008"
 development_head_sha: "e973675d04216fa8af50a5a6993143f76a3b75ee"
-development_ci: null
-development_complete: false
+development_ci: "PASS: final e973 push 37746537635 and PR 37746545197; merged main 944f47d run 37747311973 terminal success"
+development_complete: true
 review_host: "Independent programme_review / physical Mega-rep"
 review_head_sha: "e973675d04216fa8af50a5a6993143f76a3b75ee"
 review_ci: "PASS: actual Mega-rep task Q-fabc0676-b61a-4e9c-b05b-fdf0abd0cbc9, 50/50 tests, exact final head clean before/after"
@@ -30,26 +30,27 @@ backend_wiring: VERIFIED
 ui_exemption_reason: null
 capability_ids: ["CAP-CITY-REMOTE-OPERATION-001", "CAP-CITY-AGENT-JOB-001"]
 capability_registry_action: UPDATE_EXISTING
-capability_registry_sync_status: UPDATED_PENDING_FINAL_MERGE
+capability_registry_sync_status: VERIFIED
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: NOT_OBSERVABLE
 research_evidence_refs: ["mission-book/reports/REX-990/PAPER_MATERIAL_INDEX.md"]
 owner_gate: NONE
 owner_merge_authorization: "Owner explicitly requested Android, natural-language entry and programme integration on a new cloud branch, and merge to main after functional/user-operation verification. Owner then approved the written design: 按方案直接执行，不再分阶段确认. No additional staged design, plan, or merge permission is requested; verification requirements remain."
-merge_authority: false
+merge_authority: true
 report_path: mission-book/reports/REX-990
 terminal_marker: RESEARCH_PROGRAMME_FINAL_INTEGRATED
-terminal_marker_released: false
+terminal_marker_released: true
 ---
 
 # REX-990 — Android、自然语言入口与 programme final integration
 
-[常驻规则](../../CONSTRUCTION_RULES.md) · [英文读本](en/REX-990-programme-final-integration.md)
+[常驻规则](../../../CONSTRUCTION_RULES.md) · [英文读本](en/REX-990-programme-final-integration.md)
 
 在新云端分支补齐两条 Owner 能力的 Android 原生入口与中英文 Ask/Do 草稿流程，完成 REX programme 集成、实体操作验证、exact-head hosted CI 与独立技术复核，再按本次 Owner 授权合并 main。既有 REX-890 的批准范围和历史失败保持原样。
 
 验收逐项对应 Utopia `docs/superpowers/specs/2026-10-08-rex-programme-final-design.md` 与 `docs/superpowers/plans/2026-10-08-rex-programme-final.md`：默认关闭与真实成员拒绝、必填参数、严格设备目标、编辑/断线后重新确认、幂等、真实进度/输出/失败、停止、Agent claim/report/collection 权限语义、手机用户操作、既有四系列回归和合并后验证。未观测的主机或运行结果不得填写 PASS。
 
-Development、实体验证和独立复核尚在执行，当前不释放终标。
 
-Independent technical review and physical OPPO user-operation evidence are complete. Exact final-head CI and merged-main runtime remain required before releasing the terminal marker. Tested code 0a4091c is byte-identical through the documentation-only final candidate 27b901d; the review report records this continuity without claiming a rerun. See [acceptance](../../reports/REX-990/ACCEPTANCE_REPORT.md) and [review](../../reports/REX-990/REVIEW_REPORT.md).
+
+
+Final closeout 2026-10-08: product PR47 merged at `944f47dd6c7e18b3388b6d769dbbb6dddbe74f00`; exact feature e973 reviewed independently on physical Mega-rep (50/50, clean before/after), final push/PR and merged-main hosted CI PASS. Merged-main focused tests23/23 PASS. Actual OPPO Ask→native Agent draft→dispatch→COMPLETED/COLLECTED task `Q-20f2d6d3-dbd1-4c94-9e2b-9ef4d6b09598` returned the exact merged-main source HEAD. Native remote, Ask remote and cancel paths were previously observed and application bytes are unchanged by the merge. REX-990 COMPLETE; terminal marker released. Prior failed and skipped evidence retained; [acceptance](../../../reports/REX-990/ACCEPTANCE_REPORT.md) records limitations.
