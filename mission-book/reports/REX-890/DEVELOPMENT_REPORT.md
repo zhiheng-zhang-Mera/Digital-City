@@ -15,6 +15,10 @@ date        2026-10-08
 ```text
 ① multi-device study（8 要素）
    multi-device execution   6 次重复逐条落在两台真实设备（dev-544adda1… / dev-1428bce5… 交替）
+                            **设备身份如实写明**：dev-544adda1… = Mega-rep（本机，PRIMARY，即城市 hostDeviceId）；
+                            dev-1428bce5… = **Alien**（MEMBER，**对侧那台主机**）。所以"两台真实机器"里第二台是
+                            **对侧机器**，不是本机的第二个进程 —— 这是 TWO_HOST_MESH 的定义，但它同时意味着：
+                            对侧机器**执行过**这些任务，而**尚未**做过独立复现（这两件事不同，别混为一谈）。
    repetitions              计划 6 / 计入 6 / 实测 6
    routing/handoff decision 每条重复的放置都点名执行设备
    one injected fault       fault-c22b857f-…，并实测定向性：被注入设备 claim→503，另一台→200
