@@ -1,0 +1,29 @@
+✖ unrelated members cannot read or mutate Owner tasks through generic projections (186.5114ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1327.6544
+
+✖ failing tests:
+
+test at tests\owner-task-privacy.test.mjs:9:1
+✖ unrelated members cannot read or mutate Owner tasks through generic projections (186.5114ms)
+  AssertionError [ERR_ASSERTION]: city must not expose owner input
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX-programme-final-20261008/tests/owner-task-privacy.test.mjs:27:75)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

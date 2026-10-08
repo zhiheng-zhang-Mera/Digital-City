@@ -24,3 +24,5 @@ mission-book/reports/*/relocation-evidence/** -text
 
 # Exact-byte Alien REX acceptance packet.
 mission-book/reports/REX-SERIES-VERIFY/alien-evidence-2026-10-07/** -text
+# Exact-byte final programme acceptance evidence and per-file checksums.
+mission-book/reports/REX-990/evidence/** -text

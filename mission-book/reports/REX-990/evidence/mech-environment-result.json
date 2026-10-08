@@ -1,0 +1,108 @@
+{
+  "created": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "action": {
+      "id": "A-23c0f2a8-4f33-4ef5-bdb2-7065c3d3c094",
+      "actionId": "A-23c0f2a8-4f33-4ef5-bdb2-7065c3d3c094",
+      "requestedIntent": "",
+      "route": "CITY_TASK",
+      "backendRef": {
+        "kind": "CITY_TASK",
+        "id": "city.task",
+        "taskId": "Q-2c4e6b0c-3e8a-480d-9464-40dd4e3c3428",
+        "operationId": "OWNER_REMOTE_OPERATION",
+        "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c"
+      },
+      "target": {
+        "id": "city.task",
+        "label": "City task — OWNER_REMOTE_OPERATION",
+        "operation": "OWNER_REMOTE_OPERATION"
+      },
+      "status": "QUEUED",
+      "progress": 5,
+      "resultRef": null,
+      "error": null,
+      "idempotencyKey": "7e47c957-3572-4b67-a59c-2b110cd36053",
+      "requestFingerprint": "{\"input\":{\"operation\":{\"argv\":[\"-e\",\"console.log(JSON.stringify({hostname:require('node:os').hostname(),platform:process.platform,node:process.version,cwd:process.cwd(),reviewExists:require('node:fs').existsSync('D:/Utopia-REX-final-review-20261008')}))\"],\"cwd\":\"D:/\",\"executable\":\"node\",\"maxOutputBytes\":262144,\"purpose\":\"Observe genuine opposite-host review environment without changing canonical checkout\",\"timeoutMs\":30000},\"targetDeviceRef\":\"dev-544adda130594c6fae7d71ddfd0f3b8c\"},\"operation\":\"OWNER_REMOTE_OPERATION\",\"route\":\"CITY_TASK\",\"target\":\"city.task\"}",
+      "provenance": {
+        "source": "utopia.dev-gateway",
+        "host": "Mega-rep",
+        "route": "CITY_TASK",
+        "roomId": null,
+        "capabilityId": null,
+        "taskId": "Q-2c4e6b0c-3e8a-480d-9464-40dd4e3c3428",
+        "invocationId": null,
+        "history": [
+          {
+            "at": "2026-10-08T07:28:32.427Z",
+            "status": "QUEUED",
+            "note": "routed to CITY_TASK city.task:OWNER_REMOTE_OPERATION"
+          },
+          {
+            "at": "2026-10-08T07:28:32.433Z",
+            "status": "RUNNING",
+            "note": "executing"
+          },
+          {
+            "at": "2026-10-08T07:28:32.439Z",
+            "status": "QUEUED",
+            "note": "City task Q-2c4e6b0c-3e8a-480d-9464-40dd4e3c3428 created as OWNER_REMOTE_OPERATION, strictly targeted at dev-544adda130594c6fae7d71ddfd0f3b8c (target state ELIGIBLE); it may be claimed by that device only."
+          }
+        ],
+        "cityTaskState": "QUEUED",
+        "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+        "targetStateAtCreation": "ELIGIBLE"
+      },
+      "createdAt": "2026-10-08T07:28:32.427Z",
+      "updatedAt": "2026-10-08T07:28:32.439Z"
+    },
+    "replayed": false
+  },
+  "task": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "id": "Q-2c4e6b0c-3e8a-480d-9464-40dd4e3c3428",
+    "type": "OWNER_REMOTE_OPERATION",
+    "domain": "system",
+    "state": "COMPLETED",
+    "createdAt": "2026-10-08T07:28:32.435Z",
+    "updatedAt": "2026-10-08T07:28:33.161Z",
+    "assignedNodeId": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+    "progress": 100,
+    "lastCheckpoint": {
+      "step": "operation-starting"
+    },
+    "result": {
+      "operationDigest": "d6ef9cae33f43fd5ec01c24f8cfd19889a2904472c51b9ec8d209384d2f34ee4",
+      "state": "COMPLETED",
+      "exitCode": 0,
+      "timedOut": false,
+      "stdout": "{\"hostname\":\"Mega-rep\",\"platform\":\"win32\",\"node\":\"v24.14.0\",\"cwd\":\"D:\\\\\",\"reviewExists\":false}\n",
+      "stderr": "",
+      "truncated": false,
+      "durationMs": 244,
+      "error": null
+    },
+    "error": null,
+    "operation": {
+      "schemaVersion": 1,
+      "executable": "node",
+      "argv": [
+        "-e",
+        "console.log(JSON.stringify({hostname:require('node:os').hostname(),platform:process.platform,node:process.version,cwd:process.cwd(),reviewExists:require('node:fs').existsSync('D:/Utopia-REX-final-review-20261008')}))"
+      ],
+      "cwd": "D:/",
+      "purpose": "Observe genuine opposite-host review environment without changing canonical checkout",
+      "timeoutMs": 30000,
+      "maxOutputBytes": 262144,
+      "shell": false,
+      "environmentInjection": false,
+      "operationDigest": "d6ef9cae33f43fd5ec01c24f8cfd19889a2904472c51b9ec8d209384d2f34ee4"
+    },
+    "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+    "targetIntentAt": "2026-10-08T07:28:32.436Z",
+    "targetStateAtCreation": "ELIGIBLE",
+    "targetStateDetail": null
+  }
+}

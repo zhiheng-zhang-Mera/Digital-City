@@ -1,0 +1,44 @@
+✔ CAJ 1: a job is refused by name when it cannot be acted on, and never silently half-normalised (2.7668ms)
+✔ CAJ 2: the report validator checks the SHAPE and the HONESTY of a claim, never its truth (0.4749ms)
+✔ CAJ 3: expiry is decided by a deadline the City clamped, and an unfinished job is the only kind that can expire (1.2366ms)
+✔ CAJ 4: an owner-dispatched job reaches a capable node and the agent report comes back labelled as a claim (183.1037ms)
+✔ CAJ 5: an incapable node is never handed a job, and the owner can see WHAT it lacks (131.4356ms)
+✔ CAJ 6: a report bound to a DIFFERENT job is refused before it becomes the stored result (134.0607ms)
+✔ CAJ 7: a report may not contradict the state it is written as, and may not decide what the City decides (111.7146ms)
+✔ CAJ 8: a job past its deadline is not handed out, and is REPORTED as expired without rewriting the task (165.3197ms)
+✔ CAJ 9: a member cannot dispatch a job or read the job surface, and a City that never enabled it refuses by name (184.8557ms)
+✔ CAJ 10: the opposite-side CLI drives the whole channel, and a claim with no work is not a failure (162.3815ms)
+✔ CAJ 11: a far-side node goes offline unless it heartbeats, and CLAIMING is what keeps it live (3001.5728ms)
+✔ CAJ 12: the CLI really runs as a COMMAND - which is the only way the far side ever uses it (5533.2336ms)
+✔ CAJ 13: taking delivery of a report is its own recorded act, and it is an acknowledgement - not a verification (198.9705ms)
+✔ CAJ 14: the receipt is DERIVED, so it can be recomputed instead of trusted (0.4053ms)
+✔ CR-OP 1: a real allowlisted program runs on the other machine and its real bytes come back (1473.8251ms)
+✔ CR-OP 2: a non-zero exit is FAILED with the real code, not a silent success (1419.0573ms)
+✔ CR-OP 3: every refusal is refused BEFORE a task exists, by its own code (237.8383ms)
+✔ CR-OP 4: a member session cannot dispatch, and cannot read the operation log (155.5375ms)
+✔ CR-OP 5: a City that never turned the capability on refuses it by name (110.4231ms)
+✔ CR-OP 6: the timeout kills the program and the receipt says it was a timeout (2801.1116ms)
+✔ CR-OP 7: output over the declared ceiling is truncated and SAYS SO (1373.6161ms)
+✔ CR-OP 9: a node that does not implement the node half is never handed the task, and is told what it lacks (1755.8675ms)
+✔ CR-OP 8: the owner can stop a running operation, and the node really kills the program (2229.8032ms)
+✔ real HTTP Ask advertises owner controls but every draft leaves canonical task count unchanged (209.2174ms)
+✔ Chinese remote request produces an editable draft, without guessing purpose or cwd (2.6098ms)
+✔ explicit English quoted fields and JSON argv are data, including shell punctuation (1.5913ms)
+✔ Agent request carries the actual instruction and still needs a title/purpose (0.5814ms)
+✔ device name ambiguity remains unselected, even if both are online (0.2412ms)
+✔ unknown program is carried for review, never silently replaced with an allowed one (0.1826ms)
+✔ member cannot prepare owner controls, including a forged selection/confirm (0.4537ms)
+✔ switch OFF is unavailable, not successful and not an executable draft (0.1476ms)
+✔ legacy commands fall through unchanged and two owner targets are discoverable (0.1544ms)
+✔ UXI-390: every supported action is bound to a handler branch AND a client method (1.0507ms)
+✔ UXI-390: no handler branch is unreachable dead code that looks like a handler (0.6828ms)
+✔ UXI-390: the per-provider Choose control sends THAT row ref, and cannot send a blank one (0.218ms)
+✔ UXI-390: CHOOSE_PROVIDER is NOT an action-row action - that is the trap Mech named (0.1641ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13688.6331

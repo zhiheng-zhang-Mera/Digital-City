@@ -1,0 +1,41 @@
+✔ Chinese remote request produces an editable draft, without guessing purpose or cwd (2.9615ms)
+✔ explicit English quoted fields and JSON argv are data, including shell punctuation (1.3213ms)
+✖ Agent request carries the actual instruction and still needs a title/purpose (1.4278ms)
+✔ device name ambiguity remains unselected, even if both are online (0.2501ms)
+✔ unknown program is carried for review, never silently replaced with an allowed one (0.1545ms)
+✔ member cannot prepare owner controls, including a forged selection/confirm (0.4318ms)
+✔ switch OFF is unavailable, not successful and not an executable draft (0.1317ms)
+✔ legacy commands fall through unchanged and two owner targets are discoverable (0.1849ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 7
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1016.2683
+
+✖ failing tests:
+
+test at tests\owner-control-intents.test.mjs:19:1
+✖ Agent request carries the actual instruction and still needs a title/purpose (1.4278ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'on Alien to inspect the tests'
+  - 'inspect the tests'
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX-programme-final-20261008/tests/owner-control-intents.test.mjs:24:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'on Alien to inspect the tests',
+    expected: 'inspect the tests',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

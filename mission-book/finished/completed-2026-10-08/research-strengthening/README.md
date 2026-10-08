@@ -18,14 +18,15 @@ The previous seven accepted REX workbooks remain in the 2026-10-07 archive. This
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **4**.
+当前Markdown文档 / Current Markdown documents: **6**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
-| en | 2 | [打开 / Open](en/README.md) |
+| en | 3 | [打开 / Open](en/README.md) |
 
 ### 本目录说明 / Local documents
 
 - [REX-890-reproducibility-study-and-freeze.md](REX-890-reproducibility-study-and-freeze.md)
+- [REX-990-programme-final-integration.md](REX-990-programme-final-integration.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->

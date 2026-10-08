@@ -1,31 +1,31 @@
 {
   "active_pool": {
     "development": {
-      "complete": 8,
-      "total": 8
+      "complete": 9,
+      "total": 9
     },
     "review": {
-      "complete": 8,
-      "total": 8
+      "complete": 9,
+      "total": 9
     },
     "tasks": {
-      "complete": 8,
-      "total": 8
+      "complete": 9,
+      "total": 9
     }
   },
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 134,
-      "total": 135
+      "complete": 135,
+      "total": 136
     },
     "review": {
-      "complete": 134,
-      "total": 135
+      "complete": 135,
+      "total": 136
     },
     "tasks": {
-      "complete": 134,
-      "total": 135
+      "complete": 135,
+      "total": 136
     }
   },
   "programmes": [
@@ -907,13 +907,13 @@
     },
     {
       "active_pool": true,
-      "development_complete": 8,
+      "development_complete": 9,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
-      "review_complete": 8,
+      "review_complete": 9,
       "status": "COMPLETE",
-      "task_complete": 8,
+      "task_complete": 9,
       "tasks": [
         {
           "complete": true,
@@ -986,9 +986,18 @@
           "path": "finished/completed-2026-10-08/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
           "review_complete": true,
           "status": "COMPLETE"
+        },
+        {
+          "complete": true,
+          "development_complete": true,
+          "execution_enabled": true,
+          "id": "REX-990",
+          "path": "finished/completed-2026-10-08/research-strengthening/REX-990-programme-final-integration.md",
+          "review_complete": true,
+          "status": "COMPLETE"
         }
       ],
-      "total": 8
+      "total": 9
     },
     {
       "active_pool": false,

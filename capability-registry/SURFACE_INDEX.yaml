@@ -1,12 +1,18 @@
 schema_version: 1
 status: FINAL_AUDIT_RECONCILED
-last_reconciled_at: "2026-10-05"
+last_reconciled_at: "2026-10-08"
 final_audit_baseline: "5c7d46dcbf1b01259b5edaf574b620714beb40b7"
 
 platforms:
   WEB:
     status: ACTIVE
     surfaces:
+      - capability_id: CAP-CITY-REMOTE-OPERATION-001
+        location: "Ask/Do > Review draft > Advanced owner control"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-CITY-AGENT-JOB-001
+        location: "Ask/Do > Review draft > Advanced owner control"
+        nesting: L4_TECHNICAL
       - capability_id: CAP-ASK-001
         location: "Ask bar > View all capabilities > Ask/Do catalog"
         nesting: L2_CONTEXTUAL
@@ -52,6 +58,18 @@ platforms:
   ANDROID:
     status: ACTIVE
     surfaces:
+      - capability_id: CAP-CITY-REMOTE-OPERATION-001
+        location: "More > 远程执行"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-CITY-REMOTE-OPERATION-001
+        location: "Ask > Review draft > native owner control"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-CITY-AGENT-JOB-001
+        location: "More > Agent 作业"
+        nesting: L4_TECHNICAL
+      - capability_id: CAP-CITY-AGENT-JOB-001
+        location: "Ask > Review draft > native owner control"
+        nesting: L4_TECHNICAL
       - capability_id: CAP-ASK-001
         location: "Ask > 查看全部能力"
         nesting: L2_CONTEXTUAL

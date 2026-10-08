@@ -1,0 +1,17 @@
+✔ REX806 S1: the owner can read the artifact export and its preview (152.177ms)
+✔ REX806 S2: a member session cannot read the artifact export (150.0119ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (75.7248ms)
+✔ REX806 S4: the preview is bounded and says so (73.6304ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (67.4254ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (100.7263ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (89.9341ms)
+✔ REX806 S8: a 51-receipt City labels its bounded download as partial (137.776ms)
+✔ REX806 S9: corruption between the receipt listing and detail keeps the readable study (79.6243ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2063.4573

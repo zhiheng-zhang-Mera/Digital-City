@@ -1,0 +1,31 @@
+✔ Web argv JSON preserves empty args, whitespace, punctuation and quoted newlines (1.4547ms)
+✔ an explicit empty argv is valid and does not require invented arguments (1.1253ms)
+✔ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (3791.0643ms)
+✔ real HTTP Ask advertises owner controls but every draft leaves canonical task count unchanged (310.4247ms)
+✔ Chinese remote request produces an editable draft, without guessing purpose or cwd (2.9443ms)
+✔ explicit English quoted fields and JSON argv are data, including shell punctuation (1.4715ms)
+✔ Agent request carries the actual instruction and still needs a title/purpose (0.7882ms)
+✔ device name ambiguity remains unselected, even if both are online (0.2955ms)
+✔ unknown program is carried for review, never silently replaced with an allowed one (0.1643ms)
+✔ member cannot prepare owner controls, including a forged selection/confirm (0.4849ms)
+✔ switch OFF is unavailable, not successful and not an executable draft (0.1357ms)
+✔ legacy commands fall through unchanged and two owner targets are discoverable (0.1955ms)
+✔ credential replacement clears a completed owner draft and ignores old in-flight replies (7.0851ms)
+✔ unrelated members cannot read or mutate Owner tasks through generic projections (689.846ms)
+✔ REX806 S1: the owner can read the artifact export and its preview (153.7225ms)
+✔ REX806 S2: a member session cannot read the artifact export (131.5185ms)
+✔ REX806 S3: the CSV surface matches the module and stays table-ready (83.8016ms)
+✔ REX806 S4: the preview is bounded and says so (79.8785ms)
+✔ REX806 S5: an export with nothing behind it is refused by name (70.0283ms)
+✔ REX806 S6: the owner download retains the enrolled member identities (108.5514ms)
+✔ REX806 S7: corrupt receipt loss remains visible in full, preview and CSV responses (94.0499ms)
+✔ REX806 S8: a 51-receipt City labels its bounded download as partial (136.2211ms)
+✔ REX806 S9: corruption between the receipt listing and detail keeps the readable study (86.053ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10955.3048

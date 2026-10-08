@@ -1,0 +1,39 @@
+# REX-990 — product acceptance
+
+Implementation branch: `feat/rex-programme-final-android-intent-20261008`; product PR [#47](https://github.com/zhiheng-zhang-Mera/utopia/pull/47). Final candidate `e973675d04216fa8af50a5a6993143f76a3b75ee`; independent physical review tested this exact head. Late changes repair English Agent instruction extraction and bounded Windows test-fixture cleanup. Accepted REX/PCF/CHK/DGX ancestry is preserved through union merge `1b09a9d9de5cc655ea122c50d4308135b03936fb`.
+
+The Owner requested a new cloud branch containing Android, natural-language entry and programme integration, then merge after functionality and user operability are verified. After receiving the concrete design the Owner instructed: **按方案直接执行，不再分阶段确认**. This authorizes the final verified merge; it does not turn unobserved tests or approvals into PASS.
+
+| Gate | Observed result | Evidence |
+|---|---|---|
+| Root regression | 2,054 PASS / 3 SKIP / 0 FAIL, 2,057 total, concurrency 2 | [full-root-bounded.log](evidence/full-root-bounded.log) |
+| Initial unrestricted root run | 2,053 PASS / 3 SKIP / 1 FAIL; RS-201 timing assertion took 4,965 ms under concurrent load | [full-root.log](evidence/full-root.log) |
+| Same RS-201 contract isolated | 43/43 PASS, original timeout/assertion unchanged | [rs201-isolated.log](evidence/rs201-isolated.log) |
+| Rooms | 69/69 PASS | [rooms.log](evidence/rooms.log) |
+| City | 1,998 PASS / 15 SKIP / 0 FAIL, 2,013 total | [city.log](evidence/city.log) |
+| Android | 142 unit tests PASS; default APK and separate validation package build PASS | [android-review-fixes-green.log](evidence/android-review-fixes-green.log) |
+| Independent other physical host | Mega-rep, exact code SHA, clean before/after, 50/50 PASS, no remaining Critical/Important | [independent-review-mech-report.json](evidence/independent-review-mech-report.json) |
+| REX reproduction | Integrity VERIFIED; 205 runs rebuilt, 243/243 trace pointers resolved from durable store; 6 independent runs on two real devices; 0 inconsistencies | [opposite-host-reproduction-08f.json](evidence/opposite-host-reproduction-08f.json) |
+| Exact final-head hosted CI | PASS: final e973 push 37746537635 and PR 37746545197 | [push CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37746537635), [PR CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37746545197) |
+| Product merge / merged-main runtime | PASS: PR47 merged 944f47d, focused23/23, actual OPPO Agent Ask completed/collected with exact main source HEAD; main hosted CI PASS | [main CI](https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37747311973), [observation](evidence/merged-main-observation.json), [tests](evidence/merged-main-tests.log) |
+
+The initial timing failure is retained. Isolated and bounded-concurrency results support resource contention as the explanation; the test and its bound were not relaxed. Hosted CI, actual opposite-host execution and phone observations are separate evidence.
+
+OPPO PERM00 (Android 12, serial `BICIPVNB5HS85H9T`) was operated using ADB UI trees and actual controls. Temporary validation City `3e4b77ee-ceb3-404e-afd8-dd206afe1f54` was bound only to loopback `127.0.0.1:14323`, reached by USB reverse. The original `city.utopia.control` package was signed by another host; an attempted upgrade was correctly refused. Original private preferences were backed up privately, and `city.utopia.control.rexfinal` was installed side by side without deleting original data.
+
+- Native Remote operation selected Alien, accepted explicit git/argv/cwd/purpose and typed confirmation, and returned real git stdout with exit 0: `Q-675e93c2-55b0-4efb-baae-a1e666d445b8`, COMPLETED.
+- Native Agent jobs selected Review Agent, dispatched `Q-5d64165b-e664-4b80-92bf-0823eac1b934`, observed COMPLETED report and confirmed COLLECTED. The explicit verifier runs a real source HEAD observation. This proves the request/report/collection channel; it does not claim autonomous model/provider execution or City verification of arbitrary agent statements.
+- Native Ask `run git on Alien` returned DRAFT_REQUIRED without creating a task, then opened a seeded editable native form. Filling missing fields and confirming produced `Q-77ec2c9d-8801-4151-b285-80f7e09fa672`, COMPLETED with actual stdout.
+- Native Agent request to a nonclaiming strict target was withdrawn through the UI: `Q-a52f838a-b2b8-4b9e-a5e8-9b8973b1cd3e`, CANCELLED, NOTHING_TO_COLLECT.
+
+See [actual API snapshot](evidence/phone-product-observation.json), [Ask draft](evidence/ask-draft.xml), [seeded form](evidence/ask-seeded-form.xml), [completed result](evidence/final-ask-completed.xml), [collected report](evidence/agent-collected.xml), [withdrawal](evidence/native-withdraw.xml) and corresponding PNGs. Member refusal, field edits/offline reauthorization, explicit manual-selection precedence, ambiguous names, disabled switches, bounds and response-loss retry behavior have unit/real HTTP/browser regression coverage. Android expired-job projection and target explanations preserve canonical task state.
+
+User guide: Utopia `docs/zh-CN/REX_PROGRAMME_OWNER_CONTROLS.md`, with English mirror. Natural-language handling is bounded deterministic Chinese/English grammar, not universal language understanding. The capability contract still defaults OFF and requires Owner configuration and compatible nodes/agents.
+
+Artifacts remain outside source: default APK SHA256 `7de8c587f0614cff3f028f3b1df63b681d9318b39ee15c7d97ff7079e170d878`; installed side-by-side APK SHA256 `943d7396cc71dfba1090ec92a45aebc5bb44acf2d57ad46db1a843187f9c2a74`. Android source is byte-identical across tested code and the final documentation head. Private credentials/preferences are excluded from published evidence. [checksums.json](evidence/checksums.json) anchors retained public evidence bytes.
+
+Native English Agent Ask `ask the Agent on Review to inspect the tests` retained instruction `inspect the tests`, opened the editable native draft and completed/collected task `Q-f9293659-5999-4b0f-afb6-aa394c7ab00f`. See [native seeded form](evidence/android-agent-ask-seeded.xml).
+
+Hosted push run 37745835906 at 08f failed only during Windows directory cleanup (ENOTEMPTY) after REX806 assertions. Its raw failure is retained in [ci-08f-failed.log](evidence/ci-08f-failed.log); PR run 37745842605 at the same head passed. Final e973 adds bounded rm cleanup retries without changing assertions, app behavior or execution timeouts; local 9/9 and independent physical 50/50 passed. The 08f research reproduction was rerun before this test-only change; no reproduction rerun at e973 is claimed.
+
+Merged-main source `944f47dd6c7e18b3388b6d769dbbb6dddbe74f00` is byte-identical to e973 (git diff empty), includes all required ancestors, and was started from a fresh detached main worktree. Actual phone main-verification task `Q-20f2d6d3-dbd1-4c94-9e2b-9ef4d6b09598` completed and was collected. Temporary City ID stayed unchanged. Main CI run37747311973 terminal success. Public evidence blob checksums were verified against committed Git bytes; changed-record audit58/58 PASS. The global registry retains inherited unrelated head/reference failures, recorded separately rather than claimed globally clean.

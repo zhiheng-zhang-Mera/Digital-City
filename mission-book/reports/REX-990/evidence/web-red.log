@@ -1,0 +1,22 @@
+✖ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (16612.7183ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 18053.6581
+
+✖ failing tests:
+
+test at tests\owner-control-draft-web.test.mjs:11:1
+✖ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (16612.7183ms)
+  locator.waitFor: Timeout 15000ms exceeded.
+  Call log:
+  [2m  - waiting for locator('[data-terminal="ask-owner-draft"]') to be visible[22m
+  
+      at say (D:\Utopia-tree\REX-801-890\Utopia-REX-programme-final-20261008\tests\owner-control-draft-web.test.mjs:20:166)
+      at async TestContext.<anonymous> (D:\Utopia-tree\REX-801-890\Utopia-REX-programme-final-20261008\tests\owner-control-draft-web.test.mjs:21:2) {
+    name: 'TimeoutError'
+  }

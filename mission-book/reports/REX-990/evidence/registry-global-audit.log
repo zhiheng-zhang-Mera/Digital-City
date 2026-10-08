@@ -1,0 +1,25 @@
+records: 20   references checked: 176
+
+unresolvable last_verified_full_sha:
+  none
+
+verified heads NOT reachable from any remote branch (a reader cannot fetch them):
+  CAP-HOST-LIFECYCLE-001 -> a8bce279e1145f5b480a3a0eb4a74378aeb66d68
+  CAP-MON-001 -> fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40
+  CAP-MON-002 -> fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40
+  CAP-MON-003 -> fb042d9b1c7026cb2e6a010e2a7ad38a82a5cb40
+
+references whose file exists in the tree but is NOT committed:
+  none
+
+references not resolvable at the head the record was verified at:
+  CAP-ASK-001 [review_refs] utopia:tests/cex703-mech-review-probes.test.mjs   (anchored at 27b901d37) (added by 006ec9f, so it exists in history)
+  CAP-CITY-MEMBERS-NATIVE-001 [review_refs] utopia:tests/cex705-mech-review-authority.test.mjs   (anchored at de9185a4e) (added by a9387b3, so it exists in history)
+  CAP-EXECUTION-001 [ui_or_e2e_refs] utopia:.runtime/evidence/mission-book/WBC-601/independent-baseline-comparison.json   (anchored at f66db6099)
+  CAP-IDENTITY-001 [review_refs] utopia:tests/cex701-mech-review-probes.test.mjs   (anchored at a24c04401) (added by e83edd8, so it exists in history)
+  CAP-MON-001 [review_refs] utopia:tests/mon901-mech-review-probes.test.mjs   (anchored at fb042d9b1) (added by a966ba0, so it exists in history)
+  CAP-ONBOARDING-OWNER-001 [review_refs] utopia:tests/cex704-mech-review-probes.test.mjs   (anchored at d05f5a455) (added by 0797707, so it exists in history)
+  CAP-ONBOARDING-OWNER-001 [review_refs] utopia:tests/cex704-mech-review-authority.test.mjs   (anchored at d05f5a455) (added by 6934fc1, so it exists in history)
+  CAP-RESEARCH-TRACE-001 [review_refs] utopia:tests/rex802-mech-review-probes.test.mjs   (anchored at 833279cae) (added by 28728b6, so it exists in history)
+  CAP-RESEARCH-TRACE-001 [review_refs] utopia:tests/rex802-mech-review-web.test.mjs   (anchored at 833279cae) (added by 28728b6, so it exists in history)
+  CAP-SCHEDULER-CHOICE-001 [review_refs] utopia:tests/cex702-mech-review-probes.test.mjs   (anchored at 3d233ff39) (added by ad835f2, so it exists in history)

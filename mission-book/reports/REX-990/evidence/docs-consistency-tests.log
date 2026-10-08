@@ -1,0 +1,18 @@
+PASS  READY + claimed is an error
+PASS  IN_PROGRESS + unclaimed is an error
+PASS  a clean record has no errors
+PASS  COMPLETE without review is an error
+PASS  review without host is an error
+PASS  a recorded owner waiver excuses the review host rule
+PASS  a waived review raises no error
+PASS  a quoted boolean parses as a boolean, not a string
+PASS  a quoted false parses as False
+PASS  a quoted string stays a string
+PASS  only the quoted boolean is reported, not the quoted sentence
+PASS  READY with an unaccepted dependency is an error
+PASS  a short head in an ACTIVE record is an error
+PASS  a short head in a TERMINAL record is a warning
+PASS  a legacy record raises no modern finding
+PASS  a legacy record with a disagreeing status warns
+
+all record-consistency checks passed
