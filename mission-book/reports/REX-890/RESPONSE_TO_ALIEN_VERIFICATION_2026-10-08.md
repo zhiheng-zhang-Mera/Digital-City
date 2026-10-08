@@ -99,8 +99,24 @@ node evidence/raw/rex890-studies/2026-10-08-B/readiness-check.mjs \
 
 ## 5. 现在这一侧可核对的坐标 / Coordinates a reader can check
 
+**本机刚做了一次"按你们的方式"的彩排（2026-10-08 16:3x）**：`git clone --branch feat/city-owner-remote-operation`
+到临时目录（**全新 clone、零安装、无 node_modules**），从**那个 clone** 里跑：
+
 ```text
-utopia  feat/city-owner-remote-operation  head 5d759439c19c857d315db4c9f7d86108bb81fab5（CI run 37729657423 success）
+探针守卫（只用 Node 内置模块）     4/4 pass
+只读预检 readiness-check          7/7 pass      ← 结果写到系统临时目录，clone 保持干净
+复现工具 rex890-opposite-host-…   inconsistencies 0 · evidenceGaps 0 · receipts 41 · canonicalTasks 214/214
+                                  · trace 243/243 · 软件身份 utopia@0e63c2a…（tree clean）
+                                  独立执行 **被按名拒绝**：TOPOLOGY_NOT_READY，missing dev-1428bce5…（你的设备离线）
+克隆目录在跑完之后仍然干净（`git status` 为空）
+```
+
+⇒ **分支上发布的东西是自足的**：一个全新 clone 不需要任何安装就能跑守卫、预检和复现工具；
+唯一缺的那一步是**你那台设备在线**（那正是你自己的运行条件，不是本机的问题）。
+这仍然是**本机彩排**，不是你的结论；`reproductionComplete` 是 `false`，本机不把它读成通过。
+
+```text
+utopia  feat/city-owner-remote-operation  head 0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744（CI run 37731833084 success）
 dc      main                              head 见本文件所在提交（CI "Sync Mission Book progress" success）
 实机探针（仪器+结果均进仓）：
   evidence/raw/capability-city-remote-operation/live-probe.mjs        21/21

@@ -504,6 +504,12 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
   · **城市现在跑的是已验证代码**：2026-10-08 14:5x 重启（cityId 不变、两条通道仍 enabled、自身 agent 在线、
     待领作业跨重启存活、reservation 的 `startup` 记录现在带 4 个开关）。**重启配方此前不存在**，现已记录。
   · **对侧那条待领作业已从"无目标"改为严格指向对侧设备**：少了一条"任何有能力节点都能领走"的不确定性。
+  · **"按对侧的方式"从全新 clone 零安装彩排过一遍**（2026-10-08，33.3 MB / 无 `node_modules`）：
+    探针守卫 **4/4** · 只读预检 **7/7**（结果写系统临时目录，clone 保持干净）· 复现工具
+    **0 inconsistencies · 0 evidenceGaps · receipts 41 · canonicalTasks 214/214 · trace 243/243**、
+    软件身份 `utopia@0e63c2a…`（tree clean）；**独立执行被按名拒绝**（`TOPOLOGY_NOT_READY`，missing `dev-1428bce5…`
+    —— 对侧设备离线）。⇒ **分支上发布的东西是自足的**：不需要安装就能跑守卫/预检/复现；
+    唯一缺的那一步是**对侧设备在线**，那是对侧自己的运行条件。这仍是**本机彩排**（`reproductionComplete: false`）。
   · **仍然不能**（逐条，别读成"已经完全可复现"）：
     - **一台主机上的 owner 操作另一台主机**：仍未跑。21/21 那次点的是**同一台物理机器上**的节点
       （`assignedNodeId` = 本机 deviceId），所以"跨物理主机"这句话**还没有**测量支撑。
