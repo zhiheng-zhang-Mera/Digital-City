@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-08T07:34:20.014Z",
+  "reviewer": "Independent programme_review subagent",
+  "scope": "Read-only whole-branch implementation review with independent focused regression execution on actual other physical host; final repaired owner-control changes prioritized.",
+  "base": "db6b6f9dbba1266d6783774d659d4eef912929ff",
+  "head": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
+  "physicalHost": "Mega-rep",
+  "platform": "win32",
+  "nodeVersion": "v24.14.0",
+  "physicalCwd": "D:\\Utopia-REX-final-review-20261008",
+  "taskId": "Q-35baaf1c-0177-438d-b998-87f68e167d78",
+  "actionId": "A-45405530-7f83-4490-905f-ad28b6702a79",
+  "canonicalTaskState": "COMPLETED",
+  "operationExitCode": 0,
+  "timedOut": false,
+  "truncated": false,
+  "identity": {
+    "hostname": "Mega-rep",
+    "platform": "win32",
+    "node": "v24.14.0",
+    "cwd": "D:\\Utopia-REX-final-review-20261008",
+    "expected": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
+    "head": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
+    "cleanBefore": true,
+    "files": [
+      {
+        "file": "services/dev-gateway/server.mjs",
+        "sha256": "9bc0e543dad6868795d572cbfa3b8190469ed8b7d2ffd6e68df59acc846c9e25"
+      },
+      {
+        "file": "services/dev-gateway/owner-control-intents.mjs",
+        "sha256": "1c9ec22f1ecd8a108285165cd20f0a725dc7b66fa3a3c409da8f45ab89b48e0a"
+      },
+      {
+        "file": "apps/web/terminal.js",
+        "sha256": "fd6ff41676792112bdf2a73a6093a633b9530d579276ae1136016883fbed60c9"
+      },
+      {
+        "file": "apps/web/remote-operation.js",
+        "sha256": "04397863d43d9ee6187f3b99659a52250a74ac71f14b97bdde5981890494c0ac"
+      },
+      {
+        "file": "apps/web/agent-jobs.js",
+        "sha256": "ba10182cafd533d85cda95312c4bd9d7766241278b0d728c2496c3d4ecce1c78"
+      },
+      {
+        "file": "apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt",
+        "sha256": "17b62452b9cb20d1367db420ff870cb8077d045546fc141453e7023e077eaf24"
+      }
+    ]
+  },
+  "sourceChecks": [
+    {
+      "file": "services/dev-gateway/server.mjs",
+      "sha256": "9bc0e543dad6868795d572cbfa3b8190469ed8b7d2ffd6e68df59acc846c9e25",
+      "localRawSha256": "b2c5b76f78a5b4c8c2c33fb12df63929dd5f5c2d11401b542f67af9f725b4336",
+      "localNormalizedLFSha256": "9bc0e543dad6868795d572cbfa3b8190469ed8b7d2ffd6e68df59acc846c9e25",
+      "normalizedLFMatches": true
+    },
+    {
+      "file": "services/dev-gateway/owner-control-intents.mjs",
+      "sha256": "1c9ec22f1ecd8a108285165cd20f0a725dc7b66fa3a3c409da8f45ab89b48e0a",
+      "localRawSha256": "b3034691f5655d7c4d4c15b8621c420fc42484695f09cee898137eab10276df6",
+      "localNormalizedLFSha256": "1c9ec22f1ecd8a108285165cd20f0a725dc7b66fa3a3c409da8f45ab89b48e0a",
+      "normalizedLFMatches": true
+    },
+    {
+      "file": "apps/web/terminal.js",
+      "sha256": "fd6ff41676792112bdf2a73a6093a633b9530d579276ae1136016883fbed60c9",
+      "localRawSha256": "fd6ff41676792112bdf2a73a6093a633b9530d579276ae1136016883fbed60c9",
+      "localNormalizedLFSha256": "fd6ff41676792112bdf2a73a6093a633b9530d579276ae1136016883fbed60c9",
+      "normalizedLFMatches": true
+    },
+    {
+      "file": "apps/web/remote-operation.js",
+      "sha256": "04397863d43d9ee6187f3b99659a52250a74ac71f14b97bdde5981890494c0ac",
+      "localRawSha256": "49c9ad977b444ef54104133b0b5f1ec61475ab5c781c556f99ec16f65e205f35",
+      "localNormalizedLFSha256": "04397863d43d9ee6187f3b99659a52250a74ac71f14b97bdde5981890494c0ac",
+      "normalizedLFMatches": true
+    },
+    {
+      "file": "apps/web/agent-jobs.js",
+      "sha256": "ba10182cafd533d85cda95312c4bd9d7766241278b0d728c2496c3d4ecce1c78",
+      "localRawSha256": "667067cc2a39e0b682d27c299ede565a6c6cafa361f0a3b0d18faee5ab7b8df4",
+      "localNormalizedLFSha256": "ba10182cafd533d85cda95312c4bd9d7766241278b0d728c2496c3d4ecce1c78",
+      "normalizedLFMatches": true
+    },
+    {
+      "file": "apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt",
+      "sha256": "17b62452b9cb20d1367db420ff870cb8077d045546fc141453e7023e077eaf24",
+      "localRawSha256": "17b62452b9cb20d1367db420ff870cb8077d045546fc141453e7023e077eaf24",
+      "localNormalizedLFSha256": "17b62452b9cb20d1367db420ff870cb8077d045546fc141453e7023e077eaf24",
+      "normalizedLFMatches": true
+    }
+  ],
+  "testOutcome": {
+    "testExit": 0,
+    "signal": null,
+    "error": null,
+    "headAfter": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
+    "cleanAfter": true,
+    "statusAfter": ""
+  },
+  "testCounts": {
+    "tests": 41,
+    "pass": 41,
+    "fail": 0,
+    "skipped": 0,
+    "cancelled": 0
+  },
+  "testDurationMs": 11505.7069,
+  "findings": {
+    "critical": [],
+    "important": [],
+    "minor": []
+  },
+  "resolvedImportant": [
+    "Generic member mutation of Owner tasks",
+    "Private Owner task/action/event projections including refused actions without tasks",
+    "Web dispatch response-loss retry duplication",
+    "Android expiration and target reason projection",
+    "Explicit manual selection precedence"
+  ],
+  "additionalVerifiedFixes": [
+    "Web credential-context result/inflight fence",
+    "Android definite-response dispatch key reset"
+  ],
+  "independentLocalFinalTests": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0
+  },
+  "limits": [
+    "This is independent reviewer authority physically executed on Mega-rep, not a claim of new human Mech approval.",
+    "Android source/DTO fixes reviewed; new Android JUnit suite and physical phone UI were performed by root, not rerun by this reviewer.",
+    "Root initial full-suite timing failure remains preserved; focused success does not substitute for root full regression, hosted CI or merged-main validation.",
+    "Cross-host source raw hashes differ for four files only by local CRLF versus Mech LF; all six LF-normalized hashes match."
+  ],
+  "assessment": "No remaining Critical or Important implementation findings in final inspected scope. Independent cross-host focused review PASS; overall delivery still depends on root full validation and remaining gates.",
+  "rawReceipt": "independent-review-mech-result.json",
+  "publicOperationSpec": "independent-review-mech-spec.json",
+  "finalSourceHeadContinuity": {
+    "reviewedAt": "2026-10-08T07:39:42.407Z",
+    "testedCodeHead": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
+    "docOnlyFinalHead": "4d53ea75a6ccc5e3dad9c2293eff929ee8e66c91",
+    "testedCodeIsAncestor": true,
+    "changedPaths": [
+      "docs/en/REX_PROGRAMME_OWNER_CONTROLS.md",
+      "docs/zh-CN/REX_PROGRAMME_OWNER_CONTROLS.md"
+    ],
+    "codeChanges": false,
+    "testsRerunAtDocHead": false,
+    "remoteCloneUpdatedToDocHead": false,
+    "guideReview": {
+      "critical": [],
+      "important": [],
+      "minor": [
+        "Operator guide names allowlist/workspace configuration variables but omits that both parse comma-separated values. Optional usability improvement: include a concise value example."
+      ],
+      "checks": [
+        "Startup variable names and default-OFF values match main.mjs",
+        "Native/Web navigation and typed confirmation match implementation",
+        "Bounded Ask drafts, existing-selection precedence and permission refusal align with API behavior",
+        "Agent observation and acknowledgement boundaries match contracts",
+        "Cross-host Android signing instructions preserve original enrollment/data"
+      ]
+    },
+    "assessment": "Final documentation-only descendant preserves independently reviewed/tested code. No new Critical or Important findings; physical Mech41-test result remains anchored to testedCodeHead, not represented as rerun at documentation head."
+  }
+}

@@ -16,21 +16,21 @@ baseline_resolution_evidence: "Owner authorized programme final work after the R
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED", "REX-804:FAULT_INJECTION_RECOVERY_ACCEPTED", "REX-805:TRACE_REPLAY_ABLATION_ACCEPTED", "REX-806:RESEARCH_ARTIFACT_EXPORT_ACCEPTED", "REX-807:RESEARCH_CONTROL_SURFACE_ACCEPTED", "REX-890:RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE"]
 development_host: "Alien-GPT / Mera-Alianware"
 development_branch: "feat/rex-programme-final-android-intent-20261008"
-development_head_sha: null
+development_head_sha: "27b901d37134df5923695349eebe9d8aedbe1255"
 development_ci: null
 development_complete: false
-review_host: null
-review_head_sha: null
-review_ci: null
-review_complete: false
+review_host: "Independent programme_review / physical Mega-rep"
+review_head_sha: "0a4091c7592b964561e2327a576ffd4fd03e88e8"
+review_ci: "PASS: actual Mega-rep task Q-35baaf1c-0177-438d-b998-87f68e167d78, 41/41 tests, exact code head clean before/after; hosted run 37744004104 terminal success"
+review_complete: true
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: "WEB_ADVANCED + ANDROID_ADVANCED + ASK_DO + CLI"
 user_exposure_nesting: L4_TECHNICAL
-backend_wiring: UNASSESSED
+backend_wiring: VERIFIED
 ui_exemption_reason: null
 capability_ids: ["CAP-CITY-REMOTE-OPERATION-001", "CAP-CITY-AGENT-JOB-001"]
 capability_registry_action: UPDATE_EXISTING
-capability_registry_sync_status: PENDING_REVIEW
+capability_registry_sync_status: UPDATED_PENDING_FINAL_MERGE
 research_evidence_applicability: APPLICABLE
 long_horizon_context_evidence: NOT_OBSERVABLE
 research_evidence_refs: ["mission-book/reports/REX-990/PAPER_MATERIAL_INDEX.md"]
@@ -51,3 +51,5 @@ terminal_marker_released: false
 验收逐项对应 Utopia `docs/superpowers/specs/2026-10-08-rex-programme-final-design.md` 与 `docs/superpowers/plans/2026-10-08-rex-programme-final.md`：默认关闭与真实成员拒绝、必填参数、严格设备目标、编辑/断线后重新确认、幂等、真实进度/输出/失败、停止、Agent claim/report/collection 权限语义、手机用户操作、既有四系列回归和合并后验证。未观测的主机或运行结果不得填写 PASS。
 
 Development、实体验证和独立复核尚在执行，当前不释放终标。
+
+Independent technical review and physical OPPO user-operation evidence are complete. Exact final-head CI and merged-main runtime remain required before releasing the terminal marker. Tested code 0a4091c is byte-identical through the documentation-only final candidate 27b901d; the review report records this continuity without claiming a rerun. See [acceptance](../../reports/REX-990/ACCEPTANCE_REPORT.md) and [review](../../reports/REX-990/REVIEW_REPORT.md).

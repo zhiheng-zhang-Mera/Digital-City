@@ -36,7 +36,7 @@
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **770**.
+当前Markdown文档 / Current Markdown documents: **774**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -121,7 +121,7 @@
 | REX-806 | 18 | [打开 / Open](REX-806/README.md) |
 | REX-807 | 6 | [打开 / Open](REX-807/README.md) |
 | REX-890 | 10 | [打开 / Open](REX-890/README.md) |
-| REX-990 | 1 | [打开 / Open](REX-990/PAPER_MATERIAL_INDEX.md) |
+| REX-990 | 5 | [打开 / Open](REX-990/README.md) |
 | REX-PROGRAMME | 20 | [打开 / Open](REX-PROGRAMME/README.md) |
 | REX-SERIES-VERIFY | 3 | [打开 / Open](REX-SERIES-VERIFY/README.md) |
 | RF-001 | 3 | [打开 / Open](RF-001/README.md) |

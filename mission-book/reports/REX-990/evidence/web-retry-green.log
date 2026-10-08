@@ -1,0 +1,30 @@
+✖ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (4235.0493ms)
+✔ credential replacement clears a completed owner draft and ignores old in-flight replies (7.1907ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10530.7195
+
+✖ failing tests:
+
+test at tests\owner-control-draft-web.test.mjs:11:1
+✖ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (4235.0493ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 2
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX-programme-final-20261008/tests/owner-control-draft-web.test.mjs:54:93)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

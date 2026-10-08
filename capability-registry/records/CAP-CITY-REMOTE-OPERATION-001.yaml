@@ -5,7 +5,9 @@
     "zh_CN": "Owner 远程操作：主城在指定机器上运行已批准程序",
     "en": "Owner remote operation: the City runs an approved program on a named machine"
   },
-  "source_workbooks": [],
+  "source_workbooks": [
+    "REX-990"
+  ],
   "implementation": {
     "repo": "zhiheng-zhang-Mera/utopia",
     "paths": [
@@ -15,7 +17,12 @@
       "services/dev-gateway/main.mjs",
       "agents/reference-node/runner.mjs",
       "apps/web/remote-operation.js",
-      "apps/web/view-persistence.js"
+      "apps/web/view-persistence.js",
+      "services/dev-gateway/owner-control-intents.mjs",
+      "apps/web/terminal.js",
+      "apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt",
+      "apps/android/app/src/main/java/city/utopia/control/OwnerControlsPanel.kt",
+      "apps/android/app/src/main/java/city/utopia/control/AskPanel.kt"
     ],
     "symbols": [
       "normalizeRemoteOperation",
@@ -25,15 +32,17 @@
     ],
     "api_or_actions": [
       "POST /api/v0/actions (route CITY_TASK, operation OWNER_REMOTE_OPERATION)",
-      "GET /api/v0/node/operations"
+      "GET /api/v0/node/operations",
+      "GET /api/v0/ask/targets",
+      "POST /api/v0/ask (DRAFT_REQUIRED, no first-round execution)"
     ],
-    "last_verified_full_sha": "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744"
+    "last_verified_full_sha": "27b901d37134df5923695349eebe9d8aedbe1255"
   },
   "status": {
     "implementation_status": "COMPLETE",
     "backend_wiring_status": "VERIFIED",
-    "user_reachability_status": "PARTIAL",
-    "intent_validation_status": "NOT_TESTED"
+    "user_reachability_status": "VERIFIED",
+    "intent_validation_status": "VERIFIED"
   },
   "exposure": {
     "class": "DIRECT_CONTROL",
@@ -63,6 +72,30 @@
       "discoverable": true,
       "enabled_when": "ONLINE + City owner",
       "evidence_ref": "utopia:tests/city-remote-operation-web.test.mjs"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "More > 远程执行",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "ONLINE + City owner + enabled capability + completed fields + typed confirmation",
+      "evidence_ref": "mission-book/reports/REX-990/evidence/phone-product-observation.json"
+    },
+    {
+      "platform": "WEB",
+      "location": "Ask/Do > Review draft > Advanced owner control",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "Owner draft only; execution requires edited complete fields and typed confirmation",
+      "evidence_ref": "utopia:tests/owner-control-draft-web.test.mjs"
+    },
+    {
+      "platform": "ANDROID",
+      "location": "Ask > Review draft > native owner control",
+      "nesting": "L4_TECHNICAL",
+      "discoverable": true,
+      "enabled_when": "Owner draft only; execution requires edited complete fields and typed confirmation",
+      "evidence_ref": "mission-book/reports/REX-990/evidence/ask-seeded-form.xml"
     }
   ],
   "evidence": {
@@ -78,13 +111,22 @@
     ],
     "reachability_refs": [
       "utopia:tests/city-remote-operation-web.test.mjs",
-      "utopia:tests/web-surface-rebuild-persistence.test.mjs"
+      "utopia:tests/web-surface-rebuild-persistence.test.mjs",
+      "mission-book/reports/REX-990/ACCEPTANCE_REPORT.md",
+      "mission-book/reports/REX-990/evidence/phone-product-observation.json"
     ],
-    "intent_validation_refs": [],
+    "intent_validation_refs": [
+      "utopia:tests/owner-control-intents.test.mjs",
+      "utopia:tests/owner-control-intents-gateway.test.mjs",
+      "utopia:tests/owner-control-draft-web.test.mjs",
+      "utopia:tests/owner-draft-credential-fence.test.mjs"
+    ],
     "review_refs": [
       "mission-book/reports/REX-890/REVIEW_REPORT.md",
       "mission-book/reports/REX-890/EXPOSURE_REVIEW_ALIEN.md",
-      "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md"
+      "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md",
+      "mission-book/reports/REX-990/REVIEW_REPORT.md",
+      "mission-book/reports/REX-990/evidence/independent-review-mech-report.json"
     ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/68ca42b59bddd3f6cc50b8cc4590c4b03d60d528",
@@ -117,7 +159,8 @@
     "OWNER-ONLY IS NOW MEASURED LIVE AT THE CREDENTIAL BOUNDARY - INCLUDING THIS CAPABILITY'S OWN READ SURFACE - and the trade described above turned out to be avoidable. The live City was asked to refuse credentials that are not the owner's, using credentials that already exist on this machine so the roster the opposite host compares against stays unchanged (utopia evidence/raw/city-auth-boundary/, probe and result filed, head 5d75943): on the operation log specifically, the owner token reads it (HTTP 200, 20 operations), a wrong token is refused 401 'Invalid pairing token', no credential at all is refused, and the NODE token - a real credential for this same City, just not the owner's - is refused 401. The same boundary was measured on the agent-job route as well (200 with 8 jobs; the node token refused), an unauthenticated dispatch is refused and creates nothing (jobs counted 8 -> 8), every refusal carries no data, and no response echoes a credential back. WHAT STILL RESTS ON THE SUITE: a MEMBER SESSION's refusal on this route is exercised in tests/city-remote-operation-gateway.test.mjs (CR-OP 4) rather than live, because a member session needs an enrolled member device and enrolling one would change the roster the opposite host's reproduction reads. A node credential being refused is not the same statement as a member session being refused, and both are stated separately rather than merged into one comfortable sentence.",
     "Two defects in THIS surface were found only when the agent-job channel added a navigation entry beside it, and both are repaired: the fixed sidebar had no scrolling region, so the last entries became unreachable at the default window height (a navigation entry nobody can click is a control that does not exist), and this page's title rendered the raw i18n key because app.js derives it from the lowercased page name. The browser test for the agent-job surface now walks every navigation entry and fails on either, so the guard covers this page too.",
     "A third, more serious surface defect was found by chasing a test that failed only under load, and it is repaired: `app.js` re-renders the current page from `refresh()`, which runs every four seconds AND on every event the City pushes over the WebSocket, so a rebuild threw away the open `<details>` and the focused field. An owner could open this Danger Zone, type the exact confirmation the gate demands, and have the region close underneath them - the control present and unusable. Fixed in both surfaces by carrying the open state and the focused field/caret across the rebuild (apps/web/view-persistence.js). The previous rounds' 'load-sensitive' browser flakes were this defect, not load: tests/web-surface-rebuild-persistence.test.mjs now causes a real City event and requires the region to stay open with the typing intact.",
-    "2026-10-08 Alien-GPT independently observed cross-physical-host execution and real member-session refusals; targeted agent job Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c COMPLETED and COLLECTED. Collection is acknowledgement, not City verification or an independently observed human read on Mech. Owner exposure ruling is PASS within Web Advanced + CLI scope."
+    "2026-10-08 Alien-GPT independently observed cross-physical-host execution and real member-session refusals; targeted agent job Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c COMPLETED and COLLECTED. Collection is acknowledgement, not City verification or an independently observed human read on Mech. Owner exposure ruling is PASS within Web Advanced + CLI scope.",
+    "REX-990 supersedes prior Android/intent absence statements: native controls and bounded deterministic Chinese/English draft entry verified, not universal NLP or automatic provider execution. Initial review exposed generic member data/control leaks and response-loss duplication; repaired with retained RED/GREEN evidence. Original signed Android package preserved; independent validation package installed on OPPO PERM00. Full validation and exact CI/merge identities are documented in REX-990 acceptance report; old evidence is retained as historical scope."
   ],
-  "last_reconciled_by_workbook": "REX-890"
+  "last_reconciled_by_workbook": "REX-990"
 }

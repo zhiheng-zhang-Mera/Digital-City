@@ -5,11 +5,11 @@
       "total": 9
     },
     "review": {
-      "complete": 8,
+      "complete": 9,
       "total": 9
     },
     "tasks": {
-      "complete": 8,
+      "complete": 9,
       "total": 9
     }
   },
@@ -20,11 +20,11 @@
       "total": 136
     },
     "review": {
-      "complete": 134,
+      "complete": 135,
       "total": 136
     },
     "tasks": {
-      "complete": 134,
+      "complete": 135,
       "total": 136
     }
   },
@@ -911,9 +911,9 @@
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
-      "review_complete": 8,
-      "status": "IN_PROGRESS",
-      "task_complete": 8,
+      "review_complete": 9,
+      "status": "COMPLETE",
+      "task_complete": 9,
       "tasks": [
         {
           "complete": true,
@@ -988,12 +988,12 @@
           "status": "COMPLETE"
         },
         {
-          "complete": false,
+          "complete": true,
           "development_complete": false,
           "execution_enabled": true,
           "id": "REX-990",
           "path": "mission-group/research-strengthening/REX-990-programme-final-integration.md",
-          "review_complete": false,
+          "review_complete": true,
           "status": "IN_PROGRESS"
         }
       ],

@@ -1,0 +1,19 @@
+✔ CAJ-WEB 1: the entry is discoverable, the typed confirmation gates the request, and the agent answer is labelled as a claim (2794.6424ms)
+✔ CAJ-WEB 2: a dispatched but unanswered request can be withdrawn from the surface, and a member cannot open it at all (3229.3335ms)
+✔ CR-OPWEB 1: the entry exists in Advanced and shows the City real capability state (2718.4255ms)
+✔ CR-OPWEB 2: the danger-zone gate really gates - no matching confirmation, no dispatch (2384.6134ms)
+✔ CR-OPWEB 3: the owner runs a program from the page and reads the real result back (4604.4775ms)
+✔ CR-OPWEB 4: a refusal is a result the owner sees, not a silent nothing (1587.2549ms)
+✔ CR-OPWEB 5: a City that has the capability off says so instead of offering a button that fails (1626.2445ms)
+✔ CR-OPWEB 6: the owner can stop a running operation from the page (4190.4079ms)
+✔ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (4861.5863ms)
+✔ SURFACE-PERSIST 1: a City event cannot close the agent-job Danger Zone or drop what was typed (2729.5559ms)
+✔ SURFACE-PERSIST 2: same for the remote-operation surface, which shares the same rebuild path (1723.4421ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19864.3365

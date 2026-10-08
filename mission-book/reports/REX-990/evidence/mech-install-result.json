@@ -1,0 +1,109 @@
+{
+  "created": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "action": {
+      "id": "A-2b52ec89-ed84-4467-a558-2282384c4326",
+      "actionId": "A-2b52ec89-ed84-4467-a558-2282384c4326",
+      "requestedIntent": "",
+      "route": "CITY_TASK",
+      "backendRef": {
+        "kind": "CITY_TASK",
+        "id": "city.task",
+        "taskId": "Q-461ef47d-042d-4944-b227-721e7c70ddfb",
+        "operationId": "OWNER_REMOTE_OPERATION",
+        "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c"
+      },
+      "target": {
+        "id": "city.task",
+        "label": "City task — OWNER_REMOTE_OPERATION",
+        "operation": "OWNER_REMOTE_OPERATION"
+      },
+      "status": "QUEUED",
+      "progress": 5,
+      "resultRef": null,
+      "error": null,
+      "idempotencyKey": "a677c5e8-2030-4f03-8842-9e33a3187d35",
+      "requestFingerprint": "{\"input\":{\"operation\":{\"argv\":[\"pnpm\",\"install\",\"--frozen-lockfile\"],\"cwd\":\"D:/Utopia-REX-final-review-20261008\",\"executable\":\"corepack\",\"maxOutputBytes\":262144,\"purpose\":\"Install locked dependencies only in isolated opposite-host review checkout\",\"timeoutMs\":240000},\"targetDeviceRef\":\"dev-544adda130594c6fae7d71ddfd0f3b8c\"},\"operation\":\"OWNER_REMOTE_OPERATION\",\"route\":\"CITY_TASK\",\"target\":\"city.task\"}",
+      "provenance": {
+        "source": "utopia.dev-gateway",
+        "host": "Mega-rep",
+        "route": "CITY_TASK",
+        "roomId": null,
+        "capabilityId": null,
+        "taskId": "Q-461ef47d-042d-4944-b227-721e7c70ddfb",
+        "invocationId": null,
+        "history": [
+          {
+            "at": "2026-10-08T07:29:16.433Z",
+            "status": "QUEUED",
+            "note": "routed to CITY_TASK city.task:OWNER_REMOTE_OPERATION"
+          },
+          {
+            "at": "2026-10-08T07:29:16.435Z",
+            "status": "RUNNING",
+            "note": "executing"
+          },
+          {
+            "at": "2026-10-08T07:29:16.440Z",
+            "status": "QUEUED",
+            "note": "City task Q-461ef47d-042d-4944-b227-721e7c70ddfb created as OWNER_REMOTE_OPERATION, strictly targeted at dev-544adda130594c6fae7d71ddfd0f3b8c (target state ELIGIBLE); it may be claimed by that device only."
+          }
+        ],
+        "cityTaskState": "QUEUED",
+        "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+        "targetStateAtCreation": "ELIGIBLE"
+      },
+      "createdAt": "2026-10-08T07:29:16.433Z",
+      "updatedAt": "2026-10-08T07:29:16.440Z"
+    },
+    "replayed": false
+  },
+  "task": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "id": "Q-461ef47d-042d-4944-b227-721e7c70ddfb",
+    "type": "OWNER_REMOTE_OPERATION",
+    "domain": "system",
+    "state": "FAILED",
+    "createdAt": "2026-10-08T07:29:16.438Z",
+    "updatedAt": "2026-10-08T07:29:16.590Z",
+    "assignedNodeId": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+    "progress": 100,
+    "lastCheckpoint": {
+      "step": "operation-starting"
+    },
+    "result": {
+      "operationDigest": "5091eca7611305ca6c290c76d893e7a8dc10cab946b6c7888c3cbae3fdc7282c",
+      "state": "FAILED",
+      "exitCode": null,
+      "timedOut": false,
+      "stdout": "",
+      "stderr": "",
+      "truncated": false,
+      "durationMs": 6,
+      "error": "ENOENT"
+    },
+    "error": "ENOENT",
+    "operation": {
+      "schemaVersion": 1,
+      "executable": "corepack",
+      "argv": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "cwd": "D:/Utopia-REX-final-review-20261008",
+      "purpose": "Install locked dependencies only in isolated opposite-host review checkout",
+      "timeoutMs": 240000,
+      "maxOutputBytes": 262144,
+      "shell": false,
+      "environmentInjection": false,
+      "operationDigest": "5091eca7611305ca6c290c76d893e7a8dc10cab946b6c7888c3cbae3fdc7282c"
+    },
+    "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+    "targetIntentAt": "2026-10-08T07:29:16.438Z",
+    "targetStateAtCreation": "ELIGIBLE",
+    "targetStateDetail": null
+  }
+}
