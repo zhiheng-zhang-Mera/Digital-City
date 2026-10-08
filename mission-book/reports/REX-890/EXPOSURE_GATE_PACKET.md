@@ -59,6 +59,9 @@
 ① 普通用户能否发现需要发现的能力
    a: surfaces[0] location "Advanced > Remote operation"，discoverable true，enabled_when "ONLINE + City owner"
    b: surfaces[0] WEB / surfaces[1] CLI，discoverable true
+   **登记索引里也查得到**（2026-10-08 补齐）：`CAPABILITY_INDEX.yaml` 现列**全部 20 份**记录（含这两条），
+   `SURFACE_INDEX.yaml` 的 WEB 段现镜像这两条 surface —— 此前**两条都不在索引里**，
+   只能在 `records/` 目录里翻到；索引自己的规则写着"由各记录的 surfaces 数组填充"，所以那是漂移而不是取舍。
    证据引用（登记里的 evidence_ref / reachability_refs）：city-remote-operation-web.test.mjs、
    city-agent-jobs-web.test.mjs、web-surface-rebuild-persistence.test.mjs
 ② control 是否真实接到 backend
