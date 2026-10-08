@@ -40,7 +40,7 @@
       "POST /api/v0/node/claim",
       "POST /api/v0/node/report"
     ],
-    "last_verified_full_sha": "60ddf4bd05148293572babf929f2f9d309ee729d"
+    "last_verified_full_sha": "5d759439c19c857d315db4c9f7d86108bb81fab5"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -94,7 +94,9 @@
     "backend_wiring_refs": [
       "utopia:tests/city-agent-job.test.mjs",
       "utopia:tests/capability-host-independence.test.mjs",
-      "utopia:tests/capability-live-probes.test.mjs"
+      "utopia:tests/capability-live-probes.test.mjs",
+      "utopia:evidence/raw/city-auth-boundary/auth-boundary-probe.mjs",
+      "utopia:evidence/raw/city-auth-boundary/auth-boundary-probe-result.json"
     ],
     "reachability_refs": [
       "utopia:tests/city-agent-jobs-web.test.mjs",
