@@ -32,7 +32,13 @@
 ```text
 两条共同点：
   · 默认**关闭**：a 需 CITY_REMOTE_OPERATION=1 + 显式可执行 allowlist + 工作区根；缺任一项按具名拒绝。
-                b 需 CITY_AGENT_JOB=1；关闭时按 AGENT_JOB_DISABLED 具名拒绝。
+                b 需 CITY_AGENT_JOB=1；关闭时按 `AGENT_JOB_DISABLED` 具名拒绝。
+    **实机读到"默认关"**：两条能力的 exposure 描述符都报 `defaultEnabled:false`，而同一次响应里的 `config.enabled:true`
+    —— 城市自己在说"默认关、现在开是因为 owner 打开了"。**但"开关关掉时会怎样"没有实机测**，原因不是懒：
+    本机实测**在这台机器上起不了第二座城** —— `node services/dev-gateway/main.mjs` 立刻退出并打印
+    `Utopia Gateway already reserved on this host: http://172.31.12.151:4310`（host 级 reservation 是机器唯一的），
+    所以要实机测"关闭态拒绝"只能把**常驻城市**关掉再开 —— 那正是对侧复现所依赖的环境。因此这一条由套件覆盖，
+    并在两份登记的 known_gaps 里写明"实机未测 + 原因"。
   · owner-only：member 会话既不能派发也不能读日志；**凭据本身**（city control token / node token）在
     intentionally_hidden_information 里。
     **"凭据不写进记录"这条曾经只对 `inputs` 成立**：实测（2026-10-08 对实机城市）把同样形状的凭据写进
