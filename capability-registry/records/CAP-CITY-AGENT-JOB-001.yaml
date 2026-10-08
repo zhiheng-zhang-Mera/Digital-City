@@ -95,7 +95,8 @@
       "utopia:tests/capability-host-independence.test.mjs"
     ],
     "reachability_refs": [
-      "utopia:tests/city-agent-jobs-web.test.mjs"
+      "utopia:tests/city-agent-jobs-web.test.mjs",
+      "utopia:tests/web-surface-rebuild-persistence.test.mjs"
     ],
     "intent_validation_refs": [],
     "review_refs": [],
@@ -120,6 +121,7 @@
     "A far-side node must HEARTBEAT to keep being offered work, because the City marks a node offline one heartbeat timeout after its last one and never hands an offline node anything - and a channel that has gone quiet looks exactly like a City with nothing to do. The CLI sends a heartbeat as part of `claim` and exposes `heartbeat` for a machine that is busy answering; a deployment integrating the CLI some other way must do the same.",
     "Android has no surface for this capability: reachability is WEB + CLI only.",
     "Five defects were found only by running this on the real City and in real load, not by the tests as first written: the report gate compared the task's state against the JOB's vocabulary (so a SUCCEEDED report skipped validation entirely), the credential pattern could never match a real `ghp_` token, the CLI never heartbeat, the fixed sidebar had no scrolling region (one more entry made a nav item unclickable), and two page titles rendered their raw i18n key. All five are fixed and each now has a test that fails without the fix.",
+    "A SIXTH defect was found by chasing a browser test that failed only under load, and it is repaired: `app.js` re-renders the current page from `refresh()`, which runs every four seconds AND on every event the City pushes over the WebSocket, so a rebuild discarded the open `<details>` and the focused field. On THIS surface that means an owner opens the Danger Zone, types the exact job title the confirmation demands, and the region closes underneath them - the control present, correct and unusable. Carried across the rebuild now (apps/web/view-persistence.js), with tests/web-surface-rebuild-persistence.test.mjs causing a real City event and requiring the region to stay open with the typing, focus and caret intact. What looked like load-sensitive flakiness in earlier rounds was this defect.",
     "No independent review of this capability has been performed."
   ],
   "last_reconciled_by_workbook": null

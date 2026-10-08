@@ -71,7 +71,8 @@
       "utopia:tests/capability-host-independence.test.mjs"
     ],
     "reachability_refs": [
-      "utopia:tests/city-remote-operation-web.test.mjs"
+      "utopia:tests/city-remote-operation-web.test.mjs",
+      "utopia:tests/web-surface-rebuild-persistence.test.mjs"
     ],
     "intent_validation_refs": [],
     "review_refs": [],
@@ -92,7 +93,8 @@
     "Arbitrary shell is NOT supported and is not planned as a fallback: the contract never uses a shell, so shell syntax in an argument is inert data rather than a feature.",
     "Not yet exercised on two real machines: the tests run a real gateway and a real node agent on one host. The cross-host use (the opposite physical host reproducing a study) is the next step and is NOT RUN.",
     "No independent opposite-host review of this capability has been performed.",
-    "Two defects in THIS surface were found only when the agent-job channel added a navigation entry beside it, and both are repaired: the fixed sidebar had no scrolling region, so the last entries became unreachable at the default window height (a navigation entry nobody can click is a control that does not exist), and this page's title rendered the raw i18n key because app.js derives it from the lowercased page name. The browser test for the agent-job surface now walks every navigation entry and fails on either, so the guard covers this page too."
+    "Two defects in THIS surface were found only when the agent-job channel added a navigation entry beside it, and both are repaired: the fixed sidebar had no scrolling region, so the last entries became unreachable at the default window height (a navigation entry nobody can click is a control that does not exist), and this page's title rendered the raw i18n key because app.js derives it from the lowercased page name. The browser test for the agent-job surface now walks every navigation entry and fails on either, so the guard covers this page too.",
+    "A third, more serious surface defect was found by chasing a test that failed only under load, and it is repaired: `app.js` re-renders the current page from `refresh()`, which runs every four seconds AND on every event the City pushes over the WebSocket, so a rebuild threw away the open `<details>` and the focused field. An owner could open this Danger Zone, type the exact confirmation the gate demands, and have the region close underneath them - the control present and unusable. Fixed in both surfaces by carrying the open state and the focused field/caret across the rebuild (apps/web/view-persistence.js). The previous rounds' 'load-sensitive' browser flakes were this defect, not load: tests/web-surface-rebuild-persistence.test.mjs now causes a real City event and requires the region to stay open with the typing intact."
   ],
   "last_reconciled_by_workbook": null
 }
