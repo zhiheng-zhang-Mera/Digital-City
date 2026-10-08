@@ -1,0 +1,12 @@
+{
+  "executable": "node",
+  "argv": [
+    "-e",
+    "const cp=require('node:child_process'),os=require('node:os'),fs=require('node:fs'),crypto=require('node:crypto');\nconst expected=process.argv[1];\nconst run=(bin,args,opts={})=>cp.spawnSync(bin,args,{encoding:'utf8',shell:false,...opts});\nconst git=(...args)=>{const r=run('git',args);if(r.status!==0)throw Error(r.stderr);return r.stdout.trim()};\nconst head=git('rev-parse','HEAD'),before=git('status','--porcelain');\nconst files=['services/dev-gateway/server.mjs','services/dev-gateway/owner-control-intents.mjs','apps/web/terminal.js','apps/web/remote-operation.js','apps/web/agent-jobs.js','apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt'];\nconsole.log('INDEPENDENT_REVIEW_IDENTITY '+JSON.stringify({hostname:os.hostname(),platform:process.platform,node:process.version,cwd:process.cwd(),expected,head,cleanBefore:before==='',files:files.map(file=>({file,sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}))}));\nif(head!==expected||before!==''){console.error('SOURCE_IDENTITY_FAILED');process.exit(11)}\nconst tests=['tests/owner-task-privacy.test.mjs','tests/owner-draft-credential-fence.test.mjs','tests/owner-control-intents.test.mjs','tests/owner-control-intents-gateway.test.mjs','tests/owner-control-argv.test.mjs','tests/owner-control-draft-web.test.mjs','tests/city-remote-operation-gateway.test.mjs','tests/city-agent-job.test.mjs','tests/uxi390-action-wiring.test.mjs','tests/rex806-artifact-surface.test.mjs'];\nconsole.log('INDEPENDENT_REVIEW_TEST_SELECTION '+JSON.stringify(tests));\nconst tested=run(process.execPath,['--test',...tests],{timeout:180000,maxBuffer:16*1024*1024});\nprocess.stdout.write(tested.stdout||'');process.stderr.write(tested.stderr||'');\nconst after=git('status','--porcelain');console.log('INDEPENDENT_REVIEW_RESULT '+JSON.stringify({testExit:tested.status,signal:tested.signal,error:tested.error?.message??null,headAfter:git('rev-parse','HEAD'),cleanAfter:after==='',statusAfter:after}));\nprocess.exit(tested.status===0&&after===''?0:12);",
+    "e973675d04216fa8af50a5a6993143f76a3b75ee"
+  ],
+  "cwd": "D:/Utopia-REX-final-review-20261008",
+  "purpose": "Independent physical Mech reviewer verifies exact final CI fixture-cleanup repair and50 focused owner-control plus REX806 artifact regressions",
+  "timeoutMs": 240000,
+  "maxOutputBytes": 4194304
+}

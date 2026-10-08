@@ -38,9 +38,9 @@ REX-890 opposite-host reproduction on Alien-GPT-Final
 
 --- execute independently on this host ---
   the package's topology lists 3 node(s) but its runs name 2 executing device(s); declaring the executors
-  attached control surface rex890-repro-muz806qy
-  independent campaign campaign-5e986b87-3e35-4b23-b32e-21b00bf0b845 -> COMPLETED runs=6 devices=dev-1428bce5297146df88720f270af71bc3,dev-544adda130594c6fae7d71ddfd0f3b8c
-  software identity observed from the checkout: utopia@0a4091c7592b964561e2327a576ffd4fd03e88e8 (tree clean)
+  attached control surface rex890-repro-muz8q9ph
+  independent campaign campaign-95b96a3b-88bd-4ca3-ba75-c07a8a192c02 -> COMPLETED runs=6 devices=dev-544adda130594c6fae7d71ddfd0f3b8c,dev-1428bce5297146df88720f270af71bc3
+  software identity observed from the checkout: utopia@08f564f43d5660d3ccb62114f35a8cedd9f6afa5 (tree clean)
 
 0 inconsistencies found
-report: D:\Utopia-tree\REX-801-890\REX-programme-final-evidence-20261008\final-reproduction\opposite-host-reproduction.json
+report: D:\Utopia-tree\REX-801-890\REX-programme-final-evidence-20261008\final-reproduction-08f\opposite-host-reproduction.json

@@ -26,7 +26,7 @@
       "GET /api/v0/ask/targets",
       "POST /api/v0/ask"
     ],
-    "last_verified_full_sha": "27b901d37134df5923695349eebe9d8aedbe1255"
+    "last_verified_full_sha": "e973675d04216fa8af50a5a6993143f76a3b75ee"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -83,7 +83,7 @@
       "mission-book/reports/REX-990/ACCEPTANCE_REPORT.md"
     ],
     "review_refs": [
-      "utopia:tests/cex703-mech-review-probes.test.mjs",
+      "mission-book/reports/REX-990/evidence/historical-cex703-mech-review-probes.test.mjs",
       "mission-book/reports/CEX-703/REVIEW_REPORT.md"
     ],
     "implementation_refs": [
@@ -103,7 +103,18 @@
     "F2 LOW: an empty catalog renders on the Web as a bare heading with no reason, while Android renders an explicit empty state for the same payload",
     "All16 native cards and mutating confirmation NOT_RUN; the Compose catalog was not rendered on a device or emulator by the review, and the author receipt records the online catalog as NOT_RUN",
     "unavailableCount is environment-bound: the receipt records 5 of 16 while a Room-Hub-less fixture observes 10 of 16",
-    "REX-990 adds bounded Owner remote/job draft routing and physical Android draft handoff. Explicit legacy manual selections keep precedence; no general LLM understanding or first-round Owner execution is claimed. Existing catalogue reachability scope is retained."
+    "REX-990 adds bounded Owner remote/job draft routing and physical Android draft handoff. Explicit legacy manual selections keep precedence; no general LLM understanding or first-round Owner execution is claimed. Existing catalogue reachability scope is retained.",
+    "Scoped reconciliation found the old CEX-703 Mech probe citation absent at its original recorded 478d486 head and present only at local-only 006ec9f8. Its exact blob is retained as a historical snapshot in REX-990; this repair makes evidence inspectable and does not claim a new CEX catalogue review or test execution. Other inherited registry citation failures remain outside this task."
   ],
-  "last_reconciled_by_workbook": "REX-990"
+  "last_reconciled_by_workbook": "REX-990",
+  "historical_evidence_refs": [
+    {
+      "original_ref": "utopia:tests/cex703-mech-review-probes.test.mjs",
+      "recorded_head": "478d486096512eea3266350efe070323a232a120",
+      "found_at_local_commit": "006ec9f8d680819965901743f63f46f24c5933a4",
+      "remote_reachable": false,
+      "preserved_snapshot": "mission-book/reports/REX-990/evidence/historical-cex703-mech-review-probes.test.mjs",
+      "new_execution_claim": false
+    }
+  ]
 }

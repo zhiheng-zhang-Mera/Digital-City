@@ -16,12 +16,12 @@ baseline_resolution_evidence: "Owner authorized programme final work after the R
 dependencies: ["REX-801:EXPERIMENT_MANIFEST_REGISTRY_ACCEPTED", "REX-802:RESEARCH_TRACE_FOUNDATION_ACCEPTED", "REX-803:SCENARIO_REPETITION_ENGINE_ACCEPTED", "REX-804:FAULT_INJECTION_RECOVERY_ACCEPTED", "REX-805:TRACE_REPLAY_ABLATION_ACCEPTED", "REX-806:RESEARCH_ARTIFACT_EXPORT_ACCEPTED", "REX-807:RESEARCH_CONTROL_SURFACE_ACCEPTED", "REX-890:RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE"]
 development_host: "Alien-GPT / Mera-Alianware"
 development_branch: "feat/rex-programme-final-android-intent-20261008"
-development_head_sha: "27b901d37134df5923695349eebe9d8aedbe1255"
+development_head_sha: "e973675d04216fa8af50a5a6993143f76a3b75ee"
 development_ci: null
 development_complete: false
 review_host: "Independent programme_review / physical Mega-rep"
-review_head_sha: "0a4091c7592b964561e2327a576ffd4fd03e88e8"
-review_ci: "PASS: actual Mega-rep task Q-35baaf1c-0177-438d-b998-87f68e167d78, 41/41 tests, exact code head clean before/after; hosted run 37744004104 terminal success"
+review_head_sha: "e973675d04216fa8af50a5a6993143f76a3b75ee"
+review_ci: "PASS: actual Mega-rep task Q-fabc0676-b61a-4e9c-b05b-fdf0abd0cbc9, 50/50 tests, exact final head clean before/after"
 review_complete: true
 user_exposure_class: DIRECT_CONTROL
 user_exposure_surface: "WEB_ADVANCED + ANDROID_ADVANCED + ASK_DO + CLI"

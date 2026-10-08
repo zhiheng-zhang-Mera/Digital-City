@@ -1,0 +1,109 @@
+{
+  "created": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "action": {
+      "id": "A-8529bb54-95a5-4a92-b552-d3ace23683b1",
+      "actionId": "A-8529bb54-95a5-4a92-b552-d3ace23683b1",
+      "requestedIntent": "",
+      "route": "CITY_TASK",
+      "backendRef": {
+        "kind": "CITY_TASK",
+        "id": "city.task",
+        "taskId": "Q-0ad6351b-9cc2-453e-a058-4efa83d5e691",
+        "operationId": "OWNER_REMOTE_OPERATION",
+        "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c"
+      },
+      "target": {
+        "id": "city.task",
+        "label": "City task — OWNER_REMOTE_OPERATION",
+        "operation": "OWNER_REMOTE_OPERATION"
+      },
+      "status": "QUEUED",
+      "progress": 5,
+      "resultRef": null,
+      "error": null,
+      "idempotencyKey": "cb6ec2e2-67c0-45f2-b31d-05014253e9f1",
+      "requestFingerprint": "{\"input\":{\"operation\":{\"argv\":[\"-e\",\"const cp=require('node:child_process'),os=require('node:os'),fs=require('node:fs'),crypto=require('node:crypto');\\nconst expected=process.argv[1];\\nconst run=(bin,args,opts={})=>cp.spawnSync(bin,args,{encoding:'utf8',shell:false,...opts});\\nconst git=(...args)=>{const r=run('git',args);if(r.status!==0)throw Error(r.stderr);return r.stdout.trim()};\\nconst head=git('rev-parse','HEAD'),before=git('status','--porcelain');\\nconst files=['services/dev-gateway/server.mjs','services/dev-gateway/owner-control-intents.mjs','apps/web/terminal.js','apps/web/remote-operation.js','apps/web/agent-jobs.js','apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt'];\\nconsole.log('INDEPENDENT_REVIEW_IDENTITY '+JSON.stringify({hostname:os.hostname(),platform:process.platform,node:process.version,cwd:process.cwd(),expected,head,cleanBefore:before==='',files:files.map(file=>({file,sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}))}));\\nif(head!==expected||before!==''){console.error('SOURCE_IDENTITY_FAILED');process.exit(11)}\\nconst tests=['tests/owner-task-privacy.test.mjs','tests/owner-draft-credential-fence.test.mjs','tests/owner-control-intents.test.mjs','tests/owner-control-intents-gateway.test.mjs','tests/owner-control-argv.test.mjs','tests/owner-control-draft-web.test.mjs','tests/city-remote-operation-gateway.test.mjs','tests/city-agent-job.test.mjs','tests/uxi390-action-wiring.test.mjs'];\\nconsole.log('INDEPENDENT_REVIEW_TEST_SELECTION '+JSON.stringify(tests));\\nconst tested=run(process.execPath,['--test',...tests],{timeout:180000,maxBuffer:16*1024*1024});\\nprocess.stdout.write(tested.stdout||'');process.stderr.write(tested.stderr||'');\\nconst after=git('status','--porcelain');console.log('INDEPENDENT_REVIEW_RESULT '+JSON.stringify({testExit:tested.status,signal:tested.signal,error:tested.error?.message??null,headAfter:git('rev-parse','HEAD'),cleanAfter:after==='',statusAfter:after}));\\nprocess.exit(tested.status===0&&after===''?0:12);\",\"08f564f43d5660d3ccb62114f35a8cedd9f6afa5\"],\"cwd\":\"D:/Utopia-REX-final-review-20261008\",\"executable\":\"node\",\"maxOutputBytes\":4194304,\"purpose\":\"Independent physical Mech reviewer revalidates exact final English Agent draft repair plus security, retry and lifecycle regressions\",\"timeoutMs\":240000},\"targetDeviceRef\":\"dev-544adda130594c6fae7d71ddfd0f3b8c\"},\"operation\":\"OWNER_REMOTE_OPERATION\",\"route\":\"CITY_TASK\",\"target\":\"city.task\"}",
+      "provenance": {
+        "source": "utopia.dev-gateway",
+        "host": "Mega-rep",
+        "route": "CITY_TASK",
+        "roomId": null,
+        "capabilityId": null,
+        "taskId": "Q-0ad6351b-9cc2-453e-a058-4efa83d5e691",
+        "invocationId": null,
+        "history": [
+          {
+            "at": "2026-10-08T07:50:43.064Z",
+            "status": "QUEUED",
+            "note": "routed to CITY_TASK city.task:OWNER_REMOTE_OPERATION"
+          },
+          {
+            "at": "2026-10-08T07:50:43.069Z",
+            "status": "RUNNING",
+            "note": "executing"
+          },
+          {
+            "at": "2026-10-08T07:50:43.076Z",
+            "status": "QUEUED",
+            "note": "City task Q-0ad6351b-9cc2-453e-a058-4efa83d5e691 created as OWNER_REMOTE_OPERATION, strictly targeted at dev-544adda130594c6fae7d71ddfd0f3b8c (target state ELIGIBLE); it may be claimed by that device only."
+          }
+        ],
+        "cityTaskState": "QUEUED",
+        "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+        "targetStateAtCreation": "ELIGIBLE"
+      },
+      "createdAt": "2026-10-08T07:50:43.064Z",
+      "updatedAt": "2026-10-08T07:50:43.076Z"
+    },
+    "replayed": false
+  },
+  "task": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "id": "Q-0ad6351b-9cc2-453e-a058-4efa83d5e691",
+    "type": "OWNER_REMOTE_OPERATION",
+    "domain": "system",
+    "state": "COMPLETED",
+    "createdAt": "2026-10-08T07:50:43.073Z",
+    "updatedAt": "2026-10-08T07:50:55.209Z",
+    "assignedNodeId": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+    "progress": 100,
+    "lastCheckpoint": {
+      "step": "operation-running"
+    },
+    "result": {
+      "operationDigest": "f5fcfd01d157d8ba2b0e6649084b249bd78a0d9b701101b57b2cbf75bd969153",
+      "state": "COMPLETED",
+      "exitCode": 0,
+      "timedOut": false,
+      "stdout": "INDEPENDENT_REVIEW_IDENTITY {\"hostname\":\"Mega-rep\",\"platform\":\"win32\",\"node\":\"v24.14.0\",\"cwd\":\"D:\\\\Utopia-REX-final-review-20261008\",\"expected\":\"08f564f43d5660d3ccb62114f35a8cedd9f6afa5\",\"head\":\"08f564f43d5660d3ccb62114f35a8cedd9f6afa5\",\"cleanBefore\":true,\"files\":[{\"file\":\"services/dev-gateway/server.mjs\",\"sha256\":\"9bc0e543dad6868795d572cbfa3b8190469ed8b7d2ffd6e68df59acc846c9e25\"},{\"file\":\"services/dev-gateway/owner-control-intents.mjs\",\"sha256\":\"89676d6e9565f80d5f98a1d8dd5cd00c30426b3d767b8f2c238670e7449cbf71\"},{\"file\":\"apps/web/terminal.js\",\"sha256\":\"fd6ff41676792112bdf2a73a6093a633b9530d579276ae1136016883fbed60c9\"},{\"file\":\"apps/web/remote-operation.js\",\"sha256\":\"04397863d43d9ee6187f3b99659a52250a74ac71f14b97bdde5981890494c0ac\"},{\"file\":\"apps/web/agent-jobs.js\",\"sha256\":\"ba10182cafd533d85cda95312c4bd9d7766241278b0d728c2496c3d4ecce1c78\"},{\"file\":\"apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt\",\"sha256\":\"17b62452b9cb20d1367db420ff870cb8077d045546fc141453e7023e077eaf24\"}]}\nINDEPENDENT_REVIEW_TEST_SELECTION [\"tests/owner-task-privacy.test.mjs\",\"tests/owner-draft-credential-fence.test.mjs\",\"tests/owner-control-intents.test.mjs\",\"tests/owner-control-intents-gateway.test.mjs\",\"tests/owner-control-argv.test.mjs\",\"tests/owner-control-draft-web.test.mjs\",\"tests/city-remote-operation-gateway.test.mjs\",\"tests/city-agent-job.test.mjs\",\"tests/uxi390-action-wiring.test.mjs\"]\n(node:44248) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ CAJ 1: a job is refused by name when it cannot be acted on, and never silently half-normalised (8.7322ms)\n✔ CAJ 2: the report validator checks the SHAPE and the HONESTY of a claim, never its truth (1.5925ms)\n✔ CAJ 3: expiry is decided by a deadline the City clamped, and an unfinished job is the only kind that can expire (2.1311ms)\n✔ CAJ 4: an owner-dispatched job reaches a capable node and the agent report comes back labelled as a claim (304.7233ms)\n✔ CAJ 5: an incapable node is never handed a job, and the owner can see WHAT it lacks (164.1044ms)\n✔ CAJ 6: a report bound to a DIFFERENT job is refused before it becomes the stored result (166.1574ms)\n✔ CAJ 7: a report may not contradict the state it is written as, and may not decide what the City decides (122.1703ms)\n✔ CAJ 8: a job past its deadline is not handed out, and is REPORTED as expired without rewriting the task (155.3277ms)\n✔ CAJ 9: a member cannot dispatch a job or read the job surface, and a City that never enabled it refuses by name (223.3285ms)\n✔ CAJ 10: the opposite-side CLI drives the whole channel, and a claim with no work is not a failure (203.9646ms)\n✔ CAJ 11: a far-side node goes offline unless it heartbeats, and CLAIMING is what keeps it live (2979.0422ms)\n✔ CAJ 12: the CLI really runs as a COMMAND - which is the only way the far side ever uses it (1410.2014ms)\n✔ CAJ 13: taking delivery of a report is its own recorded act, and it is an acknowledgement - not a verification (151.7831ms)\n✔ CAJ 14: the receipt is DERIVED, so it can be recomputed instead of trusted (0.8212ms)\n(node:48028) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ CR-OP 1: a real allowlisted program runs on the other machine and its real bytes come back (545.875ms)\n✔ CR-OP 2: a non-zero exit is FAILED with the real code, not a silent success (366.7864ms)\n✔ CR-OP 3: every refusal is refused BEFORE a task exists, by its own code (223.8123ms)\n✔ CR-OP 4: a member session cannot dispatch, and cannot read the operation log (172.347ms)\n✔ CR-OP 5: a City that never turned the capability on refuses it by name (124.4471ms)\n✔ CR-OP 6: the timeout kills the program and the receipt says it was a timeout (1831.0869ms)\n✔ CR-OP 7: output over the declared ceiling is truncated and SAYS SO (340.676ms)\n✔ CR-OP 9: a node that does not implement the node half is never handed the task, and is told what it lacks (774.5969ms)\n✔ CR-OP 8: the owner can stop a running operation, and the node really kills the program (1279.6822ms)\n✔ Web argv JSON preserves empty args, whitespace, punctuation and quoted newlines (3.3827ms)\n✔ an explicit empty argv is valid and does not require invented arguments (2.7801ms)\n(node:45124) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ Web Ask drafts open the real forms, preserve edits and invalidate old confirmations (4123.6029ms)\n(node:16924) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ real HTTP Ask advertises owner controls but every draft leaves canonical task count unchanged (315.3211ms)\n✔ Chinese remote request produces an editable draft, without guessing purpose or cwd (8.9876ms)\n✔ explicit English quoted fields and JSON argv are data, including shell punctuation (1.4445ms)\n✔ Agent request carries the actual instruction and still needs a title/purpose (2.9188ms)\n✔ device name ambiguity remains unselected, even if both are online (1.1682ms)\n✔ unknown program is carried for review, never silently replaced with an allowed one (0.3825ms)\n✔ member cannot prepare owner controls, including a forged selection/confirm (1.4189ms)\n✔ switch OFF is unavailable, not successful and not an executable draft (0.3576ms)\n✔ legacy commands fall through unchanged and two owner targets are discoverable (0.4596ms)\n✔ credential replacement clears a completed owner draft and ignores old in-flight replies (16.6325ms)\n(node:20976) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n✔ unrelated members cannot read or mutate Owner tasks through generic projections (581.2427ms)\n✔ UXI-390: every supported action is bound to a handler branch AND a client method (2.6556ms)\n✔ UXI-390: no handler branch is unreachable dead code that looks like a handler (1.9716ms)\n✔ UXI-390: the per-provider Choose control sends THAT row ref, and cannot send a blank one (0.6054ms)\n✔ UXI-390: CHOOSE_PROVIDER is NOT an action-row action - that is the trap Mech named (0.4948ms)\nℹ tests 41\nℹ suites 0\nℹ pass 41\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 10156.402\nINDEPENDENT_REVIEW_RESULT {\"testExit\":0,\"signal\":null,\"error\":null,\"headAfter\":\"08f564f43d5660d3ccb62114f35a8cedd9f6afa5\",\"cleanAfter\":true,\"statusAfter\":\"\"}\n",
+      "stderr": "",
+      "truncated": false,
+      "durationMs": 11087,
+      "error": null
+    },
+    "error": null,
+    "operation": {
+      "schemaVersion": 1,
+      "executable": "node",
+      "argv": [
+        "-e",
+        "const cp=require('node:child_process'),os=require('node:os'),fs=require('node:fs'),crypto=require('node:crypto');\nconst expected=process.argv[1];\nconst run=(bin,args,opts={})=>cp.spawnSync(bin,args,{encoding:'utf8',shell:false,...opts});\nconst git=(...args)=>{const r=run('git',args);if(r.status!==0)throw Error(r.stderr);return r.stdout.trim()};\nconst head=git('rev-parse','HEAD'),before=git('status','--porcelain');\nconst files=['services/dev-gateway/server.mjs','services/dev-gateway/owner-control-intents.mjs','apps/web/terminal.js','apps/web/remote-operation.js','apps/web/agent-jobs.js','apps/android/app/src/main/java/city/utopia/control/OwnerControls.kt'];\nconsole.log('INDEPENDENT_REVIEW_IDENTITY '+JSON.stringify({hostname:os.hostname(),platform:process.platform,node:process.version,cwd:process.cwd(),expected,head,cleanBefore:before==='',files:files.map(file=>({file,sha256:crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex')}))}));\nif(head!==expected||before!==''){console.error('SOURCE_IDENTITY_FAILED');process.exit(11)}\nconst tests=['tests/owner-task-privacy.test.mjs','tests/owner-draft-credential-fence.test.mjs','tests/owner-control-intents.test.mjs','tests/owner-control-intents-gateway.test.mjs','tests/owner-control-argv.test.mjs','tests/owner-control-draft-web.test.mjs','tests/city-remote-operation-gateway.test.mjs','tests/city-agent-job.test.mjs','tests/uxi390-action-wiring.test.mjs'];\nconsole.log('INDEPENDENT_REVIEW_TEST_SELECTION '+JSON.stringify(tests));\nconst tested=run(process.execPath,['--test',...tests],{timeout:180000,maxBuffer:16*1024*1024});\nprocess.stdout.write(tested.stdout||'');process.stderr.write(tested.stderr||'');\nconst after=git('status','--porcelain');console.log('INDEPENDENT_REVIEW_RESULT '+JSON.stringify({testExit:tested.status,signal:tested.signal,error:tested.error?.message??null,headAfter:git('rev-parse','HEAD'),cleanAfter:after==='',statusAfter:after}));\nprocess.exit(tested.status===0&&after===''?0:12);",
+        "08f564f43d5660d3ccb62114f35a8cedd9f6afa5"
+      ],
+      "cwd": "D:/Utopia-REX-final-review-20261008",
+      "purpose": "Independent physical Mech reviewer revalidates exact final English Agent draft repair plus security, retry and lifecycle regressions",
+      "timeoutMs": 240000,
+      "maxOutputBytes": 4194304,
+      "shell": false,
+      "environmentInjection": false,
+      "operationDigest": "f5fcfd01d157d8ba2b0e6649084b249bd78a0d9b701101b57b2cbf75bd969153"
+    },
+    "targetDeviceRef": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+    "targetIntentAt": "2026-10-08T07:50:43.073Z",
+    "targetStateAtCreation": "ELIGIBLE",
+    "targetStateDetail": null
+  }
+}

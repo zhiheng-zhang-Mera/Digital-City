@@ -1,8 +1,8 @@
 {
-  "pid": 49936,
+  "pid": 45004,
   "cityId": "3e4b77ee-ceb3-404e-afd8-dd206afe1f54",
   "url": "http://127.0.0.1:14323",
   "host": "Mera-Alianware",
-  "head": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
+  "head": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
   "fixtureRole": "local execution; explicit verifier responds to directed agent jobs"
 }

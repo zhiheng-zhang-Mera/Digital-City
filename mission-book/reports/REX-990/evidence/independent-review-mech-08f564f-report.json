@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-10-08T07:57:26.999Z",
+  "reviewedAt": "2026-10-08T07:51:31.206Z",
   "reviewer": "Independent programme_review subagent",
   "scope": "Read-only whole-branch implementation review with independent focused regression execution on actual other physical host; final repaired owner-control changes prioritized.",
   "base": "db6b6f9dbba1266d6783774d659d4eef912929ff",
-  "head": "e973675d04216fa8af50a5a6993143f76a3b75ee",
+  "head": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
   "physicalHost": "Mega-rep",
   "platform": "win32",
   "nodeVersion": "v24.14.0",
   "physicalCwd": "D:\\Utopia-REX-final-review-20261008",
-  "taskId": "Q-fabc0676-b61a-4e9c-b05b-fdf0abd0cbc9",
-  "actionId": "A-cfd39247-c159-44c6-9837-99982f45e03f",
+  "taskId": "Q-0ad6351b-9cc2-453e-a058-4efa83d5e691",
+  "actionId": "A-8529bb54-95a5-4a92-b552-d3ace23683b1",
   "canonicalTaskState": "COMPLETED",
   "operationExitCode": 0,
   "timedOut": false,
@@ -20,8 +20,8 @@
     "platform": "win32",
     "node": "v24.14.0",
     "cwd": "D:\\Utopia-REX-final-review-20261008",
-    "expected": "e973675d04216fa8af50a5a6993143f76a3b75ee",
-    "head": "e973675d04216fa8af50a5a6993143f76a3b75ee",
+    "expected": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
+    "head": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
     "cleanBefore": true,
     "files": [
       {
@@ -98,18 +98,18 @@
     "testExit": 0,
     "signal": null,
     "error": null,
-    "headAfter": "e973675d04216fa8af50a5a6993143f76a3b75ee",
+    "headAfter": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
     "cleanAfter": true,
     "statusAfter": ""
   },
   "testCounts": {
-    "tests": 50,
-    "pass": 50,
+    "tests": 41,
+    "pass": 41,
     "fail": 0,
     "skipped": 0,
     "cancelled": 0
   },
-  "testDurationMs": 9930.6301,
+  "testDurationMs": 10156.402,
   "findings": {
     "critical": [],
     "important": [],
@@ -137,9 +137,9 @@
     "Root initial full-suite timing failure remains preserved in root evidence; independent focused results do not substitute for separately recorded full regression, hosted CI or merged-main validation.",
     "Cross-host source raw hashes differ for four files only by local CRLF versus Mech LF; all six LF-normalized hashes match."
   ],
-  "assessment": "Independent final exact-head physical Mega-rep review PASS at e973675d04216fa8af50a5a6993143f76a3b75ee:50/50 tests pass, clean before/after, six application source hash checks match after LF normalization, no remaining review findings.",
-  "rawReceipt": "independent-review-mech-e973675-result.json",
-  "publicOperationSpec": "independent-review-mech-e973675-spec.json",
+  "assessment": "Independent final exact-head physical Mega-rep review PASS at08f564f43d5660d3ccb62114f35a8cedd9f6afa5:41/41 tests pass, clean before/after, six source hash checks match after LF normalization, no remaining review findings.",
+  "rawReceipt": "independent-review-mech-08f564f-result.json",
+  "publicOperationSpec": "independent-review-mech-08f564f-spec.json",
   "history": [
     {
       "head": "0a4091c7592b964561e2327a576ffd4fd03e88e8",
@@ -182,43 +182,17 @@
         "assessment": "No remaining Critical, Important or Minor guide findings. Final documentation-only descendant preserves independently reviewed/tested implementation;41 physical Mech tests remain anchored to0a4091c without a rerun claim at27b901d.",
         "previousDocOnlyHead": "4d53ea75a6ccc5e3dad9c2293eff929ee8e66c91"
       }
-    },
-    {
-      "head": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
-      "taskId": "Q-0ad6351b-9cc2-453e-a058-4efa83d5e691",
-      "physicalHost": "Mega-rep",
-      "testCounts": {
-        "tests": 41,
-        "pass": 41,
-        "fail": 0,
-        "skipped": 0,
-        "cancelled": 0
-      },
-      "rawReceipt": "independent-review-mech-08f564f-result.json",
-      "report": "independent-review-mech-08f564f-report.json",
-      "latestDeltaReview": {
-        "head": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
-        "changedCode": "services/dev-gateway/owner-control-intents.mjs",
-        "behavior": "Bounded English Agent on DEVICE to INSTRUCTION extraction precedes old fallback; quoted instruction still has precedence; Chinese extraction unchanged.",
-        "tests": "English instruction inspect the tests asserted alongside existing Chinese draft contract within fresh physical-host41-test run.",
-        "findings": {
-          "critical": [],
-          "important": [],
-          "minor": []
-        }
-      }
     }
   ],
   "latestDeltaReview": {
-    "head": "e973675d04216fa8af50a5a6993143f76a3b75ee",
-    "changedPath": "tests/rex806-artifact-surface.test.mjs",
-    "applicationCodeChanged": false,
-    "behavior": "Two fixture rm calls add bounded maxRetries8 and retryDelay100; test assertions and execution timeouts unchanged.",
+    "head": "08f564f43d5660d3ccb62114f35a8cedd9f6afa5",
+    "changedCode": "services/dev-gateway/owner-control-intents.mjs",
+    "behavior": "Bounded English Agent on DEVICE to INSTRUCTION extraction precedes old fallback; quoted instruction still has precedence; Chinese extraction unchanged.",
+    "tests": "English instruction inspect the tests asserted alongside existing Chinese draft contract within fresh physical-host41-test run.",
     "findings": {
       "critical": [],
       "important": [],
       "minor": []
-    },
-    "independentTests": "Prior41 focused owner-control regressions plus9 REX806 artifact surface cases executed on physical Mega-rep."
+    }
   }
 }

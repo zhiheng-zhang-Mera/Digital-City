@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-08T07:43:32.321Z",
-  "sourceHead": "27b901d37134df5923695349eebe9d8aedbe1255",
+  "at": "2026-10-08T08:01:26.551Z",
+  "sourceHead": "e973675d04216fa8af50a5a6993143f76a3b75ee",
   "phone": {
     "serial": "BICIPVNB5HS85H9T",
     "model": "OPPO PERM00",
@@ -40,22 +40,22 @@
         "role": "COMPUTE_NODE",
         "nodeId": "dev-alien-final",
         "telemetry": {
-          "observedAt": "2026-10-08T07:43:30.337Z",
+          "observedAt": "2026-10-08T08:01:25.989Z",
           "cpu": {
-            "usagePercent": 17.966318306433326
+            "usagePercent": 18.2901682612999
           },
           "memory": {
-            "usedBytes": 16706465792,
+            "usedBytes": 16995475456,
             "totalBytes": 34101420032
           },
           "disk": {
-            "usedBytes": 223703097344,
-            "freeBytes": 671651827712,
+            "usedBytes": 223718244352,
+            "freeBytes": 671636680704,
             "totalBytes": 895354925056
           },
-          "uptimeSeconds": 115321.265
+          "uptimeSeconds": 116396.921
         },
-        "lastHeartbeatAt": "2026-10-08T07:43:32.091Z",
+        "lastHeartbeatAt": "2026-10-08T08:01:26.655Z",
         "metadata": {
           "platform": "win32",
           "osName": "Windows 11 Home China",
@@ -80,7 +80,7 @@
         "displayName": "Review Agent",
         "role": "COMPUTE_NODE",
         "nodeId": "dev-agent-final",
-        "lastHeartbeatAt": "2026-10-08T07:43:32.478Z",
+        "lastHeartbeatAt": "2026-10-08T08:01:26.483Z",
         "metadata": {
           "platform": "win32",
           "osName": null,
@@ -130,7 +130,7 @@
     ],
     "hostJoinAvailable": false,
     "status": "ONLINE",
-    "updatedAt": "2026-10-08T07:43:32.482Z",
+    "updatedAt": "2026-10-08T08:01:26.718Z",
     "cityId": "3e4b77ee-ceb3-404e-afd8-dd206afe1f54",
     "displayName": "Utopia · Mera-Alianware",
     "descriptor": {
@@ -171,20 +171,20 @@
         },
         "agentVersion": "0.2.0",
         "telemetry": {
-          "observedAt": "2026-10-08T07:43:30.337Z",
+          "observedAt": "2026-10-08T08:01:25.989Z",
           "cpu": {
-            "usagePercent": 17.966318306433326
+            "usagePercent": 18.2901682612999
           },
           "memory": {
-            "usedBytes": 16706465792,
+            "usedBytes": 16995475456,
             "totalBytes": 34101420032
           },
           "disk": {
-            "usedBytes": 223703097344,
-            "freeBytes": 671651827712,
+            "usedBytes": 223718244352,
+            "freeBytes": 671636680704,
             "totalBytes": 895354925056
           },
-          "uptimeSeconds": 115321.265
+          "uptimeSeconds": 116396.921
         },
         "sharingEnabled": true,
         "capabilities": [
@@ -193,7 +193,7 @@
           "city.remote-operation.v1"
         ],
         "online": true,
-        "lastHeartbeatAt": "2026-10-08T07:43:32.091Z"
+        "lastHeartbeatAt": "2026-10-08T08:01:26.655Z"
       },
       {
         "id": "dev-agent-final",
@@ -216,7 +216,7 @@
           "city.agent-job.v1"
         ],
         "online": true,
-        "lastHeartbeatAt": "2026-10-08T07:43:32.478Z"
+        "lastHeartbeatAt": "2026-10-08T08:01:26.483Z"
       },
       {
         "id": "dev-wait-final",
@@ -246,7 +246,7 @@
       {
         "clientRef": "android-PERM00",
         "clientLabel": "PERM00",
-        "connectedAt": "2026-10-08T07:33:50.889Z"
+        "connectedAt": "2026-10-08T07:50:46.444Z"
       }
     ],
     "tasks": [
@@ -411,6 +411,55 @@
         "targetIntentAt": "2026-10-08T07:41:45.546Z",
         "targetStateAtCreation": "OFFLINE",
         "targetStateDetail": null
+      },
+      {
+        "id": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "type": "AGENT_JOB",
+        "domain": "system",
+        "state": "COMPLETED",
+        "createdAt": "2026-10-08T07:53:10.819Z",
+        "updatedAt": "2026-10-08T07:53:26.567Z",
+        "assignedNodeId": "dev-agent-final",
+        "progress": 100,
+        "lastCheckpoint": null,
+        "result": {
+          "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+          "state": "SUCCEEDED",
+          "evidence": "OBSERVED_HERE",
+          "summary": "Observed current source head 08f564f43d5660d3ccb62114f35a8cedd9f6afa5 on Mera-Alianware; explicit test verifier, no autonomous provider execution claimed.",
+          "artifacts": []
+        },
+        "error": null,
+        "job": {
+          "schemaVersion": 1,
+          "title": "Native Ask agent review",
+          "instruction": "inspect the tests",
+          "purpose": "Validate final native Agent draft workflow",
+          "inputs": [],
+          "expect": null,
+          "deadlineMs": 1800000,
+          "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372"
+        },
+        "targetDeviceRef": "dev-agent-final",
+        "targetIntentAt": "2026-10-08T07:53:10.819Z",
+        "targetStateAtCreation": "ELIGIBLE",
+        "targetStateDetail": null,
+        "consumedAt": "2026-10-08T07:53:26.567Z",
+        "consumedBy": "dev-3e4b77eeceb3404eafd8dd206afe1f54",
+        "consumptionNote": null,
+        "consumptionReceipt": {
+          "schemaVersion": 1,
+          "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+          "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+          "reportDigest": "28a0e9a4b32fe05e7ade567854f59365945f82d83839fca6abca74da4ec45130",
+          "consumedAt": "2026-10-08T07:53:26.567Z",
+          "consumedBy": "dev-3e4b77eeceb3404eafd8dd206afe1f54",
+          "note": null,
+          "authority": "ACKNOWLEDGEMENT_NOT_VERIFICATION",
+          "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION",
+          "agentConsumption": false,
+          "receiptDigest": "5501bbb4c9cb1f04fa82e3e85f1b24d4812d6abd0f7e7cc5639d70b2dbb3855c"
+        }
       }
     ],
     "events": [
@@ -853,6 +902,141 @@
           "progress": 0
         },
         "seq": 35
+      },
+      {
+        "id": "a411e073-4b59-422e-91c8-320ba55d6373",
+        "timestamp": "2026-10-08T07:50:46.107Z",
+        "type": "CITY_STARTED",
+        "actor": "gateway",
+        "taskId": null,
+        "payload": {
+          "schemaVersion": 0
+        },
+        "seq": 36
+      },
+      {
+        "id": "75e83314-b43a-40a2-952e-afff9e105527",
+        "timestamp": "2026-10-08T07:50:46.151Z",
+        "type": "NODE_ONLINE",
+        "actor": "gateway",
+        "taskId": null,
+        "payload": {
+          "nodeId": "dev-alien-final"
+        },
+        "seq": 37
+      },
+      {
+        "id": "dad503cb-2b40-4276-9eae-ea89153767e3",
+        "timestamp": "2026-10-08T07:50:46.174Z",
+        "type": "NODE_ONLINE",
+        "actor": "gateway",
+        "taskId": null,
+        "payload": {
+          "nodeId": "dev-agent-final"
+        },
+        "seq": 38
+      },
+      {
+        "id": "8cb4bf8f-fadb-49ca-b9bf-541c4944019f",
+        "timestamp": "2026-10-08T07:50:46.444Z",
+        "type": "CLIENT_CONNECTED",
+        "actor": "gateway",
+        "taskId": null,
+        "payload": {
+          "clientRef": "android-PERM00",
+          "clientLabel": "PERM00"
+        },
+        "seq": 39
+      },
+      {
+        "id": "07557a29-af13-4fa0-84b3-2d749541043e",
+        "timestamp": "2026-10-08T07:53:10.819Z",
+        "type": "COMMAND_ACCEPTED",
+        "actor": "gateway",
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "payload": {},
+        "seq": 40
+      },
+      {
+        "id": "ba2eab05-8c54-4376-ab11-67321a191e03",
+        "timestamp": "2026-10-08T07:53:10.820Z",
+        "type": "TASK_CREATED",
+        "actor": "gateway",
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "payload": {},
+        "seq": 41
+      },
+      {
+        "id": "6b9639c0-4c71-4209-a342-752a4552b854",
+        "timestamp": "2026-10-08T07:53:11.299Z",
+        "type": "TASK_ASSIGNED",
+        "actor": "dev-agent-final",
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "payload": {
+          "state": "ASSIGNED",
+          "progress": 0,
+          "assignedNodeId": "dev-agent-final"
+        },
+        "seq": 42
+      },
+      {
+        "id": "97da188d-e8a2-4b96-97f6-ea427ddd2f8f",
+        "timestamp": "2026-10-08T07:53:11.436Z",
+        "type": "TASK_STARTED",
+        "actor": "dev-agent-final",
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "payload": {
+          "state": "RUNNING",
+          "progress": 1
+        },
+        "seq": 43
+      },
+      {
+        "id": "94ee756c-64da-44cc-989c-9e690bac1fee",
+        "timestamp": "2026-10-08T07:53:11.440Z",
+        "type": "TASK_COMPLETED",
+        "actor": "dev-agent-final",
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "payload": {
+          "state": "COMPLETED",
+          "progress": 100,
+          "result": {
+            "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+            "state": "SUCCEEDED",
+            "evidence": "OBSERVED_HERE",
+            "summary": "Observed current source head 08f564f43d5660d3ccb62114f35a8cedd9f6afa5 on Mera-Alianware; explicit test verifier, no autonomous provider execution claimed.",
+            "artifacts": []
+          }
+        },
+        "seq": 44
+      },
+      {
+        "id": "7104064b-4d4a-42cd-bc8f-f1212ae97a69",
+        "timestamp": "2026-10-08T07:53:26.567Z",
+        "type": "AGENT_JOB_REPORT_CONSUMED",
+        "actor": "dev-agent-final",
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "payload": {
+          "state": "COMPLETED",
+          "progress": 100,
+          "consumedAt": "2026-10-08T07:53:26.567Z",
+          "consumedBy": "dev-3e4b77eeceb3404eafd8dd206afe1f54",
+          "consumptionNote": null,
+          "consumptionReceipt": {
+            "schemaVersion": 1,
+            "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+            "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+            "reportDigest": "28a0e9a4b32fe05e7ade567854f59365945f82d83839fca6abca74da4ec45130",
+            "consumedAt": "2026-10-08T07:53:26.567Z",
+            "consumedBy": "dev-3e4b77eeceb3404eafd8dd206afe1f54",
+            "note": null,
+            "authority": "ACKNOWLEDGEMENT_NOT_VERIFICATION",
+            "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION",
+            "agentConsumption": false,
+            "receiptDigest": "5501bbb4c9cb1f04fa82e3e85f1b24d4812d6abd0f7e7cc5639d70b2dbb3855c"
+          }
+        },
+        "seq": 45
       }
     ],
     "capabilities": [
@@ -1268,6 +1452,63 @@
     },
     "jobs": [
       {
+        "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+        "state": "COMPLETED",
+        "progress": 100,
+        "assignedNodeId": "dev-agent-final",
+        "createdAt": "2026-10-08T07:53:10.819Z",
+        "updatedAt": "2026-10-08T07:53:26.567Z",
+        "targetStateAtCreation": "ELIGIBLE",
+        "targetStateDetail": null,
+        "job": {
+          "title": "Native Ask agent review",
+          "instruction": "inspect the tests",
+          "purpose": "Validate final native Agent draft workflow",
+          "inputs": [],
+          "expect": null,
+          "deadlineMs": 1800000,
+          "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372"
+        },
+        "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+        "jobState": null,
+        "deadline": {
+          "deadlineAt": "2026-10-08T08:23:10.819Z",
+          "expired": false,
+          "projectedState": null
+        },
+        "consumptionState": "COLLECTED",
+        "consumption": {
+          "schemaVersion": 1,
+          "taskId": "Q-f9293659-5999-4b0f-afb6-aa394c7ab00f",
+          "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+          "reportDigest": "28a0e9a4b32fe05e7ade567854f59365945f82d83839fca6abca74da4ec45130",
+          "consumedAt": "2026-10-08T07:53:26.567Z",
+          "consumedBy": "dev-3e4b77eeceb3404eafd8dd206afe1f54",
+          "note": null,
+          "authority": "ACKNOWLEDGEMENT_NOT_VERIFICATION",
+          "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION",
+          "agentConsumption": false,
+          "receiptDigest": "5501bbb4c9cb1f04fa82e3e85f1b24d4812d6abd0f7e7cc5639d70b2dbb3855c"
+        },
+        "error": null,
+        "report": {
+          "jobDigest": "f55f24cbce0c00c67fa48e53be2daa26f209341fedd860520e7dc79252ac7372",
+          "state": "SUCCEEDED",
+          "evidence": "OBSERVED_HERE",
+          "summary": "Observed current source head 08f564f43d5660d3ccb62114f35a8cedd9f6afa5 on Mera-Alianware; explicit test verifier, no autonomous provider execution claimed.",
+          "artifacts": []
+        },
+        "reportValidation": {
+          "valid": true,
+          "state": "SUCCEEDED",
+          "evidence": "OBSERVED_HERE",
+          "artifacts": 0,
+          "summaryBytes": 154,
+          "acceptanceAuthority": false,
+          "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION"
+        }
+      },
+      {
         "taskId": "Q-a52f838a-b2b8-4b9e-a5e8-9b8973b1cd3e",
         "state": "CANCELLED",
         "progress": 0,
@@ -1320,7 +1561,7 @@
         "jobState": null,
         "deadline": {
           "deadlineAt": "2026-10-08T07:56:48.868Z",
-          "expired": false,
+          "expired": true,
           "projectedState": null
         },
         "consumptionState": "COLLECTED",

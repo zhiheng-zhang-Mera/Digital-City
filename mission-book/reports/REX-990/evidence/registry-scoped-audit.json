@@ -1,0 +1,322 @@
+{
+  "scope": "Three changed capability records only; inherited global failures are separate",
+  "records": [
+    {
+      "capabilityId": "CAP-CITY-REMOTE-OPERATION-001",
+      "head": "27b901d37134df5923695349eebe9d8aedbe1255",
+      "remoteReachable": true,
+      "references": [
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/city-remote-operation.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/city-remote-operation-gateway.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/capability-host-independence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:evidence/raw/capability-city-remote-operation/live-probe.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:evidence/raw/capability-city-remote-operation/live-probe-result.json",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/capability-live-probes.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:evidence/raw/city-auth-boundary/auth-boundary-probe.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:evidence/raw/city-auth-boundary/auth-boundary-probe-result.json",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "utopia:tests/city-remote-operation-web.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "utopia:tests/web-surface-rebuild-persistence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "mission-book/reports/REX-990/ACCEPTANCE_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "mission-book/reports/REX-990/evidence/phone-product-observation.json",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-intents.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-intents-gateway.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-draft-web.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-draft-credential-fence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-890/REVIEW_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-890/EXPOSURE_REVIEW_ALIEN.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-990/REVIEW_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-990/evidence/independent-review-mech-report.json",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "utopia:tests/city-remote-operation-web.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "mission-book/reports/REX-990/evidence/phone-product-observation.json",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "utopia:tests/owner-control-draft-web.test.mjs",
+          "resolved": true
+        }
+      ],
+      "bad": []
+    },
+    {
+      "capabilityId": "CAP-CITY-AGENT-JOB-001",
+      "head": "27b901d37134df5923695349eebe9d8aedbe1255",
+      "remoteReachable": true,
+      "references": [
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/city-agent-job.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/capability-host-independence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/capability-live-probes.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:evidence/raw/city-auth-boundary/auth-boundary-probe.mjs",
+          "resolved": true
+        },
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:evidence/raw/city-auth-boundary/auth-boundary-probe-result.json",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "utopia:tests/city-agent-jobs-web.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "utopia:tests/web-surface-rebuild-persistence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "mission-book/reports/REX-990/ACCEPTANCE_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "mission-book/reports/REX-990/evidence/phone-product-observation.json",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-intents.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-intents-gateway.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-draft-web.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-draft-credential-fence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-890/REVIEW_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-890/EXPOSURE_REVIEW_ALIEN.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-990/REVIEW_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/REX-990/evidence/independent-review-mech-report.json",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "utopia:tests/city-agent-jobs-web.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "utopia:tests/city-agent-job.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "mission-book/reports/REX-990/evidence/phone-product-observation.json",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "utopia:tests/owner-control-draft-web.test.mjs",
+          "resolved": true
+        }
+      ],
+      "bad": []
+    },
+    {
+      "capabilityId": "CAP-ASK-001",
+      "head": "27b901d37134df5923695349eebe9d8aedbe1255",
+      "remoteReachable": true,
+      "references": [
+        {
+          "field": "backend_wiring_refs",
+          "ref": "utopia:tests/cex703-catalog-ui.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "utopia:evidence/raw/mission-book/CEX-703/catalog-receipt.json",
+          "resolved": true
+        },
+        {
+          "field": "reachability_refs",
+          "ref": "mission-book/reports/CEX-703/NATIVE_LAYOUT_FIX_RECEIPT.json",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "mission-book/reports/CEX-703/REVIEW_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-intents.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-control-intents-gateway.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "utopia:tests/owner-draft-credential-fence.test.mjs",
+          "resolved": true
+        },
+        {
+          "field": "intent_validation_refs",
+          "ref": "mission-book/reports/REX-990/ACCEPTANCE_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "review_refs",
+          "ref": "utopia:tests/cex703-mech-review-probes.test.mjs",
+          "resolved": false
+        },
+        {
+          "field": "review_refs",
+          "ref": "mission-book/reports/CEX-703/REVIEW_REPORT.md",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md",
+          "resolved": true
+        },
+        {
+          "field": "surface",
+          "ref": "mission-book/reports/CEX-703/PAPER_MATERIAL_INDEX.md",
+          "resolved": true
+        }
+      ],
+      "bad": [
+        "utopia:tests/cex703-mech-review-probes.test.mjs"
+      ]
+    }
+  ],
+  "pass": false
+}

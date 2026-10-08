@@ -1,6 +1,6 @@
 # REX-990 — product acceptance
 
-Implementation branch: `feat/rex-programme-final-android-intent-20261008`; product PR [#47](https://github.com/zhiheng-zhang-Mera/utopia/pull/47). Final candidate `27b901d37134df5923695349eebe9d8aedbe1255`; behavior reviewed at `0a4091c7592b964561e2327a576ffd4fd03e88e8`. The later two commits change only the bilingual operator guide. Accepted REX/PCF/CHK/DGX ancestry is preserved through union merge `1b09a9d9de5cc655ea122c50d4308135b03936fb`.
+Implementation branch: `feat/rex-programme-final-android-intent-20261008`; product PR [#47](https://github.com/zhiheng-zhang-Mera/utopia/pull/47). Final candidate `e973675d04216fa8af50a5a6993143f76a3b75ee`; independent physical review tested this exact head. Late changes repair English Agent instruction extraction and bounded Windows test-fixture cleanup. Accepted REX/PCF/CHK/DGX ancestry is preserved through union merge `1b09a9d9de5cc655ea122c50d4308135b03936fb`.
 
 The Owner requested a new cloud branch containing Android, natural-language entry and programme integration, then merge after functionality and user operability are verified. After receiving the concrete design the Owner instructed: **按方案直接执行，不再分阶段确认**. This authorizes the final verified merge; it does not turn unobserved tests or approvals into PASS.
 
@@ -12,8 +12,8 @@ The Owner requested a new cloud branch containing Android, natural-language entr
 | Rooms | 69/69 PASS | [rooms.log](evidence/rooms.log) |
 | City | 1,998 PASS / 15 SKIP / 0 FAIL, 2,013 total | [city.log](evidence/city.log) |
 | Android | 142 unit tests PASS; default APK and separate validation package build PASS | [android-review-fixes-green.log](evidence/android-review-fixes-green.log) |
-| Independent other physical host | Mega-rep, exact code SHA, clean before/after, 41/41 PASS, no remaining Critical/Important | [independent-review-mech-report.json](evidence/independent-review-mech-report.json) |
-| REX reproduction | Integrity VERIFIED; 205 runs rebuilt, 243/243 trace pointers resolved from durable store; 6 independent runs on two real devices; 0 inconsistencies | [opposite-host-reproduction.json](evidence/opposite-host-reproduction.json) |
+| Independent other physical host | Mega-rep, exact code SHA, clean before/after, 50/50 PASS, no remaining Critical/Important | [independent-review-mech-report.json](evidence/independent-review-mech-report.json) |
+| REX reproduction | Integrity VERIFIED; 205 runs rebuilt, 243/243 trace pointers resolved from durable store; 6 independent runs on two real devices; 0 inconsistencies | [opposite-host-reproduction-08f.json](evidence/opposite-host-reproduction-08f.json) |
 | Exact final-head hosted CI | PENDING terminal outcome at report preparation | Updated before merge |
 | Product merge / merged-main runtime | PENDING | Updated after verified merge |
 
@@ -31,3 +31,7 @@ See [actual API snapshot](evidence/phone-product-observation.json), [Ask draft](
 User guide: Utopia `docs/zh-CN/REX_PROGRAMME_OWNER_CONTROLS.md`, with English mirror. Natural-language handling is bounded deterministic Chinese/English grammar, not universal language understanding. The capability contract still defaults OFF and requires Owner configuration and compatible nodes/agents.
 
 Artifacts remain outside source: default APK SHA256 `7de8c587f0614cff3f028f3b1df63b681d9318b39ee15c7d97ff7079e170d878`; installed side-by-side APK SHA256 `943d7396cc71dfba1090ec92a45aebc5bb44acf2d57ad46db1a843187f9c2a74`. Android source is byte-identical across tested code and the final documentation head. Private credentials/preferences are excluded from published evidence. [checksums.json](evidence/checksums.json) anchors retained public evidence bytes.
+
+Native English Agent Ask `ask the Agent on Review to inspect the tests` retained instruction `inspect the tests`, opened the editable native draft and completed/collected task `Q-f9293659-5999-4b0f-afb6-aa394c7ab00f`. See [native seeded form](evidence/android-agent-ask-seeded.xml).
+
+Hosted push run 37745835906 at 08f failed only during Windows directory cleanup (ENOTEMPTY) after REX806 assertions. Its raw failure is retained in [ci-08f-failed.log](evidence/ci-08f-failed.log); PR run 37745842605 at the same head passed. Final e973 adds bounded rm cleanup retries without changing assertions, app behavior or execution timeouts; local 9/9 and independent physical 50/50 passed. The 08f research reproduction was rerun before this test-only change; no reproduction rerun at e973 is claimed.

@@ -1,10 +1,30 @@
 {
-  "at": "2026-10-08T07:43:32.617Z",
+  "at": "2026-10-08T08:01:26.872Z",
   "files": [
     {
       "file": "agent-collected.xml",
       "bytes": 13747,
       "sha256": "79499c1330bf14302fa21b528914e47044ab3d0d6fbe9b58b5991699edc50219"
+    },
+    {
+      "file": "android-agent-ask-collected.xml",
+      "bytes": 13070,
+      "sha256": "f0e7b6d17b0ca4e24856d944954affd5490ab02f96a867ee39792682b9c9d749"
+    },
+    {
+      "file": "android-agent-ask-draft.xml",
+      "bytes": 19133,
+      "sha256": "4212c4136dd44169384e567fa5472fae444b95bd5df248ff6d8907bf137516b9"
+    },
+    {
+      "file": "android-agent-ask-seeded.png",
+      "bytes": 202994,
+      "sha256": "e211451745b0a1ec249d22b94e1bd934047fcf9c4fc1bead1fc1bd35647192c0"
+    },
+    {
+      "file": "android-agent-ask-seeded.xml",
+      "bytes": 18320,
+      "sha256": "8965c923665b7b2a4964e521e37d73a61f2ccd8ba4d66b02243f2a7426a67bb6"
     },
     {
       "file": "android-agent-collected.png",
@@ -77,6 +97,11 @@
       "sha256": "e9321d33ff980a7c2c7d85c56a954b53cf8e4b449921ae01369bdda3438f7fbf"
     },
     {
+      "file": "ci-08f-failed.log",
+      "bytes": 314167,
+      "sha256": "2e77ba11e74e411880f0b38e23a317b7a1ca885bedca827df33aae0e95463ac4"
+    },
+    {
       "file": "city.log",
       "bytes": 190898,
       "sha256": "f2238f03e458851ed435e04caf131d02bea62ce4a47d3b7f244bbefc4116076c"
@@ -97,9 +122,34 @@
       "sha256": "4eed811935bece54d418d23fb6131d6520a4ab0343155fe91f256f5944843168"
     },
     {
+      "file": "docs-consistency-tests.log",
+      "bytes": 801,
+      "sha256": "c3de8c16c3159f2b2e5d6aca6b7f2b95cae3e347f7ad245544476073684e1d2c"
+    },
+    {
+      "file": "docs-layout-tests.log",
+      "bytes": 103,
+      "sha256": "66c1557180eef5283236b9860385c581f1756724b2318a726fd417205e4861d6"
+    },
+    {
+      "file": "docs-preservation-tests.log",
+      "bytes": 103,
+      "sha256": "646bdba2ee0cd599e4fc4319f3ab66a3b4ec3b248d9a850e83cdc4eab48811c0"
+    },
+    {
+      "file": "english-job-green.log",
+      "bytes": 4354,
+      "sha256": "a9fafa34d397f641daa882890c2dc15ee365c768ba79ad0f43d41d86d5e99ad3"
+    },
+    {
+      "file": "english-job-red.log",
+      "bytes": 1946,
+      "sha256": "7f12d72f65b052190ad18f32f5b4b3ad2d6d4d080a71b15c221f6d4aef1ce37a"
+    },
+    {
       "file": "execution-ledger.md",
-      "bytes": 2552,
-      "sha256": "f083e765ee55d8d4eb11d5d6d12e6a02b9c2c87f3ed79b8dd3d7b16db74d86e4"
+      "bytes": 3543,
+      "sha256": "a030b259c06919c71af84214b365ef4af39652c85f0d5eb2aa52dda5bb0d158f"
     },
     {
       "file": "final-ask-completed.xml",
@@ -117,9 +167,44 @@
       "sha256": "4db715097cb645d5f8bdff26d7b56bdf26c0cd1b1da1e9dc1472d7d7c22af505"
     },
     {
+      "file": "historical-cex703-mech-review-probes.test.mjs",
+      "bytes": 11725,
+      "sha256": "e00e1a0ba7b7e1a9d5963f2e03aba87676f20624244df5ebf6b421d17d334926"
+    },
+    {
+      "file": "independent-review-mech-08f564f-report.json",
+      "bytes": 8822,
+      "sha256": "957c90fa3400578ef247ab6e3f6df5907b1c3b03684bc2c84a12189b8bfe7fca"
+    },
+    {
+      "file": "independent-review-mech-08f564f-result.json",
+      "bytes": 15042,
+      "sha256": "eeeaf4c500cdbaefd0155f89c8bc53b5f35430c8e892db93d5cbd5cee75d9df1"
+    },
+    {
+      "file": "independent-review-mech-08f564f-spec.json",
+      "bytes": 2366,
+      "sha256": "94da46200e172ee022971e059634f256428a32d091f8d4c4e9bc8c81cccfd39d"
+    },
+    {
+      "file": "independent-review-mech-0a4091c-report.json",
+      "bytes": 7651,
+      "sha256": "2e8fba879d7e3689dd8481b5150ea9ef1bf87da71a532659ca1b267881fb4e46"
+    },
+    {
+      "file": "independent-review-mech-e973675-result.json",
+      "bytes": 16123,
+      "sha256": "e368c3af6cef86281ca80922aa489d99e9837950cd9011abdb38e3109c68260c"
+    },
+    {
+      "file": "independent-review-mech-e973675-spec.json",
+      "bytes": 2417,
+      "sha256": "66d73c621875e8b9a7c01cdde03b4025b435db386e0057952b014050dd3b4e31"
+    },
+    {
       "file": "independent-review-mech-report.json",
-      "bytes": 7647,
-      "sha256": "72543ea960c83e44b34e9b045c2ad478180735b4d67a89f033e6f4b735978c0c"
+      "bytes": 9847,
+      "sha256": "2ec42cb5a9a016041587d413566255478b19f02dfa215fd099c5e0b4a9415ac8"
     },
     {
       "file": "independent-review-mech-result.json",
@@ -167,6 +252,11 @@
       "sha256": "5f97e516ba1917d17f1440cef3997ac9a727e212ba098e5b9de55a83b905f037"
     },
     {
+      "file": "opposite-host-reproduction-08f.json",
+      "bytes": 123960,
+      "sha256": "aaae3f362a992c7bb9554191b63028177fcfd8c2147f1665be697828de94ba03"
+    },
+    {
       "file": "opposite-host-reproduction.json",
       "bytes": 123960,
       "sha256": "23346b69497099ba546b4db057bb231d12699bb9ba328d2cc6a9bd314fc1a895"
@@ -183,8 +273,8 @@
     },
     {
       "file": "phone-product-observation.json",
-      "bytes": 42928,
-      "sha256": "b46c68e4e6a8018ab5fd0a05c8a878387e9579290cb7928708401dc3c654d67c"
+      "bytes": 52140,
+      "sha256": "2f9d14edcd8a48c7b19af21ece303597b8a76af7f13a8c2f1e9bd7b727611c2d"
     },
     {
       "file": "refused-privacy-green.log",
@@ -197,9 +287,24 @@
       "sha256": "f1b4f7c92c36d19d9ac3b31708afcbc3d2ffe2c486ef5daa573c78d80a93124a"
     },
     {
+      "file": "registry-global-audit.log",
+      "bytes": 2117,
+      "sha256": "d60007101d8e66f23ccc1e00e8294662b8d81a22fe9ce150ffc09476e80d1d04"
+    },
+    {
+      "file": "registry-scoped-audit.json",
+      "bytes": 10389,
+      "sha256": "dfd1fc5dd59b5f83bba74245178c22a007208344a12ec8c91949da08a83d67ed"
+    },
+    {
       "file": "remote-completed-output.xml",
       "bytes": 13286,
       "sha256": "878fb804be9ef79fbf23f3122520096ac7e5b8c9f2a3731e366312d13de857a6"
+    },
+    {
+      "file": "reproduction-08f.log",
+      "bytes": 2479,
+      "sha256": "46e0ffac60058e7575f8f6bdcf21904d63d76c04c93248ddd5d0c930a3e6598b"
     },
     {
       "file": "reproduction-final.log",
@@ -222,6 +327,11 @@
       "sha256": "518e8e8ecaae1b5bcbc53a018a78e144570ae8e55b551766cbb8ffc94e9d11ce"
     },
     {
+      "file": "rex806-cleanup-green.log",
+      "bytes": 886,
+      "sha256": "07077bfb06830da6229f0503bfedfaa84719473abda88f4a3a60cfcb8a488753"
+    },
+    {
       "file": "rooms.log",
       "bytes": 5371,
       "sha256": "9ffa1c0ad8c4d41c245823022ad1d8caf7049b1588269d2a29cdc1b778706c6b"
@@ -239,7 +349,7 @@
     {
       "file": "validation-runtime.json",
       "bytes": 274,
-      "sha256": "7cdebb9be9d9241e0fc4ac1d3156b649544e09c621b07a487305905a249d4ae4"
+      "sha256": "5b70e05647395daff28fed3bf052b4de0658e7e43ec4df0985918c3393b1bdb1"
     },
     {
       "file": "web-green.log",
