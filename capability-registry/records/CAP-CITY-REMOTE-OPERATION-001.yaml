@@ -27,7 +27,7 @@
       "POST /api/v0/actions (route CITY_TASK, operation OWNER_REMOTE_OPERATION)",
       "GET /api/v0/node/operations"
     ],
-    "last_verified_full_sha": "5d759439c19c857d315db4c9f7d86108bb81fab5"
+    "last_verified_full_sha": "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -81,7 +81,11 @@
       "utopia:tests/web-surface-rebuild-persistence.test.mjs"
     ],
     "intent_validation_refs": [],
-    "review_refs": [],
+    "review_refs": [
+      "mission-book/reports/REX-890/REVIEW_REPORT.md",
+      "mission-book/reports/REX-890/EXPOSURE_REVIEW_ALIEN.md",
+      "mission-book/reports/REX-890/OWNER_EXPOSURE_RULING_2026-10-08.md"
+    ],
     "implementation_refs": [
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/68ca42b59bddd3f6cc50b8cc4590c4b03d60d528",
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/314326007dce6e328792053936ce4c3a80c3b1e2",
@@ -99,7 +103,7 @@
   "research_observations": {
     "hidden_capability_detected": false,
     "rework_required": false,
-    "registry_reconciliation_result": "NEW_CAPABILITY_RECORDED_AT_EXPOSURE_GATE",
+    "registry_reconciliation_result": "OWNER_EXPOSURE_PASS_WITH_DECLARED_WEB_CLI_SCOPE",
     "paper_material_refs": []
   },
   "known_gaps": [
@@ -107,12 +111,13 @@
     "Intent validation NOT_TESTED: the deterministic router deliberately does NOT offer OWNER_REMOTE_OPERATION as an ask target, because the request cannot be well formed without a declared executable, argv, working directory and purpose. A natural-language path is therefore not claimed.",
     "The capability is OFF unless the owner sets CITY_REMOTE_OPERATION=1 together with an explicit executable allowlist and workspace roots; with the switch off, or with either list empty, every dispatch is refused by name.",
     "Arbitrary shell is NOT supported and is not planned as a fallback: the contract never uses a shell, so shell syntax in an argument is inert data rather than a feature.",
-    "Not yet exercised on two real machines: the tests run a real gateway and a real node agent on one host. The cross-host use (the opposite physical host reproducing a study) is the next step and is NOT RUN.",
-    "EXERCISED AGAINST A LIVE CITY ON 2026-10-08, BUT STILL ON ONE PHYSICAL HOST - the two things are different and are recorded separately. The tests run a real gateway and a real node agent on one host; a live probe now asks the same questions of the real City and passes 14/14, filed WITH its instrument at utopia evidence/raw/capability-city-remote-operation/ (live-probe.mjs, live-probe-result.json, head 0033c12). MEASURED there, not asserted: a declarative dispatch is accepted and the program really runs on the node the owner named (git --version, exit 0, stdout observed, assignedNodeId equal to the named node); the operation row records shell:false; the City re-checks the receipt and records acceptanceAuthority false; the no-shell guarantee is demonstrated by passing 'rev-parse;echo INERT' as ONE argv element, which makes git report that whole string as a single unknown subcommand with stdout empty, so nothing was interpreted as a second command; and seven refusals are each named (EXECUTABLE_NOT_ALLOWED, EXECUTABLE_REQUIRED, WORKING_DIRECTORY_OUTSIDE_WORKSPACE for both an absolute outside path and a .. climb, PURPOSE_REQUIRED, ARGV_INVALID for a non-string and for a NUL byte) with task=null in every case, so a refused operation creates nothing. THE CROSS-PHYSICAL-HOST CASE IS STILL NOT RUN: the probe targets the node on the same machine as the City, so 'an owner on one host operating a different host' remains unproven.",
-    "No independent opposite-host review of this capability has been performed.",
+    "HISTORICAL PRE-REVIEW OBSERVATION (superseded for cross-host disposition by REVIEW_REPORT.md): Not yet exercised on two real machines: the tests run a real gateway and a real node agent on one host. The cross-host use (the opposite physical host reproducing a study) is the next step and is NOT RUN.",
+    "HISTORICAL PRE-REVIEW OBSERVATION (superseded for cross-host disposition by REVIEW_REPORT.md): EXERCISED AGAINST A LIVE CITY ON 2026-10-08, BUT STILL ON ONE PHYSICAL HOST - the two things are different and are recorded separately. The tests run a real gateway and a real node agent on one host; a live probe now asks the same questions of the real City and passes 14/14, filed WITH its instrument at utopia evidence/raw/capability-city-remote-operation/ (live-probe.mjs, live-probe-result.json, head 0033c12). MEASURED there, not asserted: a declarative dispatch is accepted and the program really runs on the node the owner named (git --version, exit 0, stdout observed, assignedNodeId equal to the named node); the operation row records shell:false; the City re-checks the receipt and records acceptanceAuthority false; the no-shell guarantee is demonstrated by passing 'rev-parse;echo INERT' as ONE argv element, which makes git report that whole string as a single unknown subcommand with stdout empty, so nothing was interpreted as a second command; and seven refusals are each named (EXECUTABLE_NOT_ALLOWED, EXECUTABLE_REQUIRED, WORKING_DIRECTORY_OUTSIDE_WORKSPACE for both an absolute outside path and a .. climb, PURPOSE_REQUIRED, ARGV_INVALID for a non-string and for a NUL byte) with task=null in every case, so a refused operation creates nothing. THE CROSS-PHYSICAL-HOST CASE IS STILL NOT RUN: the probe targets the node on the same machine as the City, so 'an owner on one host operating a different host' remains unproven.",
+    "Independent opposite-host review completed by Alien-GPT on 2026-10-08; Owner explicitly approved exposure PASS within Web Advanced + CLI scope. See review_refs.",
     "OWNER-ONLY IS NOW MEASURED LIVE AT THE CREDENTIAL BOUNDARY - INCLUDING THIS CAPABILITY'S OWN READ SURFACE - and the trade described above turned out to be avoidable. The live City was asked to refuse credentials that are not the owner's, using credentials that already exist on this machine so the roster the opposite host compares against stays unchanged (utopia evidence/raw/city-auth-boundary/, probe and result filed, head 5d75943): on the operation log specifically, the owner token reads it (HTTP 200, 20 operations), a wrong token is refused 401 'Invalid pairing token', no credential at all is refused, and the NODE token - a real credential for this same City, just not the owner's - is refused 401. The same boundary was measured on the agent-job route as well (200 with 8 jobs; the node token refused), an unauthenticated dispatch is refused and creates nothing (jobs counted 8 -> 8), every refusal carries no data, and no response echoes a credential back. WHAT STILL RESTS ON THE SUITE: a MEMBER SESSION's refusal on this route is exercised in tests/city-remote-operation-gateway.test.mjs (CR-OP 4) rather than live, because a member session needs an enrolled member device and enrolling one would change the roster the opposite host's reproduction reads. A node credential being refused is not the same statement as a member session being refused, and both are stated separately rather than merged into one comfortable sentence.",
     "Two defects in THIS surface were found only when the agent-job channel added a navigation entry beside it, and both are repaired: the fixed sidebar had no scrolling region, so the last entries became unreachable at the default window height (a navigation entry nobody can click is a control that does not exist), and this page's title rendered the raw i18n key because app.js derives it from the lowercased page name. The browser test for the agent-job surface now walks every navigation entry and fails on either, so the guard covers this page too.",
-    "A third, more serious surface defect was found by chasing a test that failed only under load, and it is repaired: `app.js` re-renders the current page from `refresh()`, which runs every four seconds AND on every event the City pushes over the WebSocket, so a rebuild threw away the open `<details>` and the focused field. An owner could open this Danger Zone, type the exact confirmation the gate demands, and have the region close underneath them - the control present and unusable. Fixed in both surfaces by carrying the open state and the focused field/caret across the rebuild (apps/web/view-persistence.js). The previous rounds' 'load-sensitive' browser flakes were this defect, not load: tests/web-surface-rebuild-persistence.test.mjs now causes a real City event and requires the region to stay open with the typing intact."
+    "A third, more serious surface defect was found by chasing a test that failed only under load, and it is repaired: `app.js` re-renders the current page from `refresh()`, which runs every four seconds AND on every event the City pushes over the WebSocket, so a rebuild threw away the open `<details>` and the focused field. An owner could open this Danger Zone, type the exact confirmation the gate demands, and have the region close underneath them - the control present and unusable. Fixed in both surfaces by carrying the open state and the focused field/caret across the rebuild (apps/web/view-persistence.js). The previous rounds' 'load-sensitive' browser flakes were this defect, not load: tests/web-surface-rebuild-persistence.test.mjs now causes a real City event and requires the region to stay open with the typing intact.",
+    "2026-10-08 Alien-GPT independently observed cross-physical-host execution and real member-session refusals; targeted agent job Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c COMPLETED and COLLECTED. Collection is acknowledgement, not City verification or an independently observed human read on Mech. Owner exposure ruling is PASS within Web Advanced + CLI scope."
   ],
-  "last_reconciled_by_workbook": null
+  "last_reconciled_by_workbook": "REX-890"
 }

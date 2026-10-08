@@ -1,0 +1,8 @@
+falsifying the reproduction harness against tampered packages
+
+PASS  A: an internally consistent package that LIES about a metric is caught  exit=1 inconsistencies=1 named=true
+PASS  A: the package still verifies its own checksums, so the finding is the metric and not the hash  integrity=VERIFIED
+PASS  B: tampering the package dataset does NOT move the recomputed metric (it is not read)  exit=0 metricDisagreement=false recomputed=6630
+PASS  C: a package whose bytes do not match its own manifest is caught as that  exit=1 integrity=BROKEN named=true
+
+4/4 falsification checks pass

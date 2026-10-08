@@ -1,0 +1,193 @@
+{
+  "host": "Mera-Alianware",
+  "at": "2026-10-08T06:10:23.621Z",
+  "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+  "sent": {
+    "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+    "state": "COMPLETED",
+    "progress": 100,
+    "reportedState": "SUCCEEDED",
+    "evidence": "OBSERVED_HERE"
+  },
+  "before": {
+    "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+    "state": "COMPLETED",
+    "progress": 100,
+    "assignedNodeId": "dev-1428bce5297146df88720f270af71bc3",
+    "createdAt": "2026-10-08T03:55:41.755Z",
+    "updatedAt": "2026-10-08T06:10:22.405Z",
+    "targetStateAtCreation": "OFFLINE",
+    "targetStateDetail": null,
+    "job": {
+      "title": "Reproduce the 2026-10-08 REX-890 study from the self-contained package",
+      "instruction": "Reproduce the REX-890 study of 2026-10-08 from the package that this branch carries, on THIS machine, and report what you found.\n\nThe package carries its own trace evidence, so the trace comparison is possible in full - it does not depend on the City still holding those records.\n\nSteps, each of which you must actually run here:\n1. Verify the package: it has its own checksums.json (12 files) and an external MANIFEST.sha256 (13 files) beside the README. Check them before anything else.\n2. Run the reproduction harness and read its report: it rebuilds the dataset from the City, recomputes the four metrics by the package's own definitions, compares them with metrics.csv, resolves every published pointer, and starts its own independent campaign on the declared devices.\n3. Report EVERY inconsistency by name, and every evidence gap by its named reason. If the harness exits 2, say exactly which gap it named - do not smooth it into a pass or a failure.\n\nThe harness is scripts/rex890-opposite-host-reproduce.mjs and needs no install. Exit codes: 0 reproduced and fully compared, 1 disagreements (each named), 2 could not run or evidence could not be fully compared - and 2 is NOT an acceptance.\nReport the exact full 40-character SHA of the checkout you ran and the harness output verbatim.\nKeep every reference agent running while you reproduce: the campaign places repetitions across the declared devices, a named device is never rerouted, and an offline one leaves its task waiting.\nThe City token is NOT in this job: configure it in your environment. Do not paste tokens into a report.",
+      "purpose": "independent reproduction by a machine that did NOT run the study; the City cannot verify an agent answer, so the report must state what was observed there",
+      "inputs": [
+        {
+          "name": "harness",
+          "ref": "scripts/rex890-opposite-host-reproduce.mjs"
+        },
+        {
+          "name": "package",
+          "ref": "evidence/raw/rex890-studies/2026-10-08-B/artifact"
+        }
+      ],
+      "expect": null,
+      "deadlineMs": 86400000,
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945"
+    },
+    "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+    "jobState": null,
+    "deadline": {
+      "deadlineAt": "2026-10-09T03:55:41.755Z",
+      "expired": false,
+      "projectedState": null
+    },
+    "consumptionState": "AWAITING_COLLECTION",
+    "consumption": null,
+    "error": null,
+    "report": {
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+      "state": "SUCCEEDED",
+      "evidence": "OBSERVED_HERE",
+      "summary": "Alien-GPT on Mera-Alianware independently reproduced the B artifact at clean exact checkout 0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744. Readiness 7/7; rebuilt 205 runs from 41 receipts; metrics 6630/0/0/0; canonical pointers 214/214 and run joins 205/205; trace 243/243. Independent campaign campaign-c9e58518-7a82-418c-a099-649d0e03f0d4 COMPLETED with 6 measured runs on Alien and Mega-rep. Exit 0, no inconsistencies or evidence gaps, reproductionComplete=true. Falsification 4/4; complete B control case also reproduced successfully. Real member session owner boundaries and cross-physical-host remote execution passed. Full local suite: 2043 tests, 2039 pass, 1 timing failure, 3 skipped; failed registry suite retried 43/43 pass. Exact-head hosted CI 37731833084 success. This report is OBSERVED_HERE and REPRODUCTION_EVIDENCE_ONLY; it does not substitute for City verification or Owner exposure approval.",
+      "artifacts": [
+        {
+          "name": "reproduction",
+          "sha256": "b732d08b190af9661e6e5d182c37d7ca6168ccbd96a3754b559ffb00f3a03144",
+          "bytes": 123959
+        },
+        {
+          "name": "cross-host",
+          "sha256": "d02fdb35102ff37b1b198d7692c2615a7c9fb8cf744739671769f0b563dc1a77",
+          "bytes": 9703
+        }
+      ]
+    },
+    "reportValidation": {
+      "valid": true,
+      "state": "SUCCEEDED",
+      "evidence": "OBSERVED_HERE",
+      "artifacts": 2,
+      "summaryBytes": 908,
+      "acceptanceAuthority": false,
+      "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION"
+    }
+  },
+  "consumed": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "consumption": {
+      "schemaVersion": 1,
+      "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+      "reportDigest": "7e18452e24b61cdf6ebc40c20b23f7c07ae3ec7bc701a8b6df349306fe976683",
+      "consumedAt": "2026-10-08T06:10:22.433Z",
+      "consumedBy": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+      "note": "Received Alien independent reproduction evidence; acknowledgement only, not verification.",
+      "authority": "ACKNOWLEDGEMENT_NOT_VERIFICATION",
+      "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION",
+      "agentConsumption": false,
+      "receiptDigest": "d9e74bb7712b0520411753becfd0f2197fbd414e191ffc8768b01289be5f6483"
+    },
+    "idempotent": false,
+    "consumptionState": "COLLECTED"
+  },
+  "again": {
+    "apiVersion": 0,
+    "schemaVersion": 0,
+    "consumption": {
+      "schemaVersion": 1,
+      "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+      "reportDigest": "7e18452e24b61cdf6ebc40c20b23f7c07ae3ec7bc701a8b6df349306fe976683",
+      "consumedAt": "2026-10-08T06:10:22.433Z",
+      "consumedBy": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+      "note": "Received Alien independent reproduction evidence; acknowledgement only, not verification.",
+      "authority": "ACKNOWLEDGEMENT_NOT_VERIFICATION",
+      "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION",
+      "agentConsumption": false,
+      "receiptDigest": "d9e74bb7712b0520411753becfd0f2197fbd414e191ffc8768b01289be5f6483"
+    },
+    "idempotent": true,
+    "consumptionState": "COLLECTED"
+  },
+  "after": {
+    "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+    "state": "COMPLETED",
+    "progress": 100,
+    "assignedNodeId": "dev-1428bce5297146df88720f270af71bc3",
+    "createdAt": "2026-10-08T03:55:41.755Z",
+    "updatedAt": "2026-10-08T06:10:22.434Z",
+    "targetStateAtCreation": "OFFLINE",
+    "targetStateDetail": null,
+    "job": {
+      "title": "Reproduce the 2026-10-08 REX-890 study from the self-contained package",
+      "instruction": "Reproduce the REX-890 study of 2026-10-08 from the package that this branch carries, on THIS machine, and report what you found.\n\nThe package carries its own trace evidence, so the trace comparison is possible in full - it does not depend on the City still holding those records.\n\nSteps, each of which you must actually run here:\n1. Verify the package: it has its own checksums.json (12 files) and an external MANIFEST.sha256 (13 files) beside the README. Check them before anything else.\n2. Run the reproduction harness and read its report: it rebuilds the dataset from the City, recomputes the four metrics by the package's own definitions, compares them with metrics.csv, resolves every published pointer, and starts its own independent campaign on the declared devices.\n3. Report EVERY inconsistency by name, and every evidence gap by its named reason. If the harness exits 2, say exactly which gap it named - do not smooth it into a pass or a failure.\n\nThe harness is scripts/rex890-opposite-host-reproduce.mjs and needs no install. Exit codes: 0 reproduced and fully compared, 1 disagreements (each named), 2 could not run or evidence could not be fully compared - and 2 is NOT an acceptance.\nReport the exact full 40-character SHA of the checkout you ran and the harness output verbatim.\nKeep every reference agent running while you reproduce: the campaign places repetitions across the declared devices, a named device is never rerouted, and an offline one leaves its task waiting.\nThe City token is NOT in this job: configure it in your environment. Do not paste tokens into a report.",
+      "purpose": "independent reproduction by a machine that did NOT run the study; the City cannot verify an agent answer, so the report must state what was observed there",
+      "inputs": [
+        {
+          "name": "harness",
+          "ref": "scripts/rex890-opposite-host-reproduce.mjs"
+        },
+        {
+          "name": "package",
+          "ref": "evidence/raw/rex890-studies/2026-10-08-B/artifact"
+        }
+      ],
+      "expect": null,
+      "deadlineMs": 86400000,
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945"
+    },
+    "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+    "jobState": null,
+    "deadline": {
+      "deadlineAt": "2026-10-09T03:55:41.755Z",
+      "expired": false,
+      "projectedState": null
+    },
+    "consumptionState": "COLLECTED",
+    "consumption": {
+      "schemaVersion": 1,
+      "taskId": "Q-85be5da7-d1a5-43d6-83c2-f32b1ca4759c",
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+      "reportDigest": "7e18452e24b61cdf6ebc40c20b23f7c07ae3ec7bc701a8b6df349306fe976683",
+      "consumedAt": "2026-10-08T06:10:22.433Z",
+      "consumedBy": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+      "note": "Received Alien independent reproduction evidence; acknowledgement only, not verification.",
+      "authority": "ACKNOWLEDGEMENT_NOT_VERIFICATION",
+      "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION",
+      "agentConsumption": false,
+      "receiptDigest": "d9e74bb7712b0520411753becfd0f2197fbd414e191ffc8768b01289be5f6483"
+    },
+    "error": null,
+    "report": {
+      "jobDigest": "4a070ae8a555e0644b62bc56c5dd1bc8d6f120e19e51ceebf5e7ce328df97945",
+      "state": "SUCCEEDED",
+      "evidence": "OBSERVED_HERE",
+      "summary": "Alien-GPT on Mera-Alianware independently reproduced the B artifact at clean exact checkout 0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744. Readiness 7/7; rebuilt 205 runs from 41 receipts; metrics 6630/0/0/0; canonical pointers 214/214 and run joins 205/205; trace 243/243. Independent campaign campaign-c9e58518-7a82-418c-a099-649d0e03f0d4 COMPLETED with 6 measured runs on Alien and Mega-rep. Exit 0, no inconsistencies or evidence gaps, reproductionComplete=true. Falsification 4/4; complete B control case also reproduced successfully. Real member session owner boundaries and cross-physical-host remote execution passed. Full local suite: 2043 tests, 2039 pass, 1 timing failure, 3 skipped; failed registry suite retried 43/43 pass. Exact-head hosted CI 37731833084 success. This report is OBSERVED_HERE and REPRODUCTION_EVIDENCE_ONLY; it does not substitute for City verification or Owner exposure approval.",
+      "artifacts": [
+        {
+          "name": "reproduction",
+          "sha256": "b732d08b190af9661e6e5d182c37d7ca6168ccbd96a3754b559ffb00f3a03144",
+          "bytes": 123959
+        },
+        {
+          "name": "cross-host",
+          "sha256": "d02fdb35102ff37b1b198d7692c2615a7c9fb8cf744739671769f0b563dc1a77",
+          "bytes": 9703
+        }
+      ]
+    },
+    "reportValidation": {
+      "valid": true,
+      "state": "SUCCEEDED",
+      "evidence": "OBSERVED_HERE",
+      "artifacts": 2,
+      "summaryBytes": 908,
+      "acceptanceAuthority": false,
+      "verification": "AGENT_OBSERVATION_NOT_CITY_VERIFICATION"
+    }
+  },
+  "pass": true
+}

@@ -1,0 +1,27 @@
+{
+  "host": "Mera-Alianware",
+  "at": "2026-10-08T06:08:24.026Z",
+  "checks": [
+    {
+      "name": "RemoteOperation",
+      "entryCount": 1,
+      "enabledState": "Enabled. Allowed: node, git, corepack. Workspaces: C:/, D:/. Class: DIRECT_CONTROL",
+      "emptyConfirmationDispatchDisabled": true,
+      "screenshot": "live-RemoteOperation.png",
+      "pass": true
+    },
+    {
+      "name": "AgentJobs",
+      "entryCount": 1,
+      "enabledState": "Enabled. Jobs can be handed to a machine whose agent answers for it. Class: DIRECT_CONTROL",
+      "emptyConfirmationDispatchDisabled": true,
+      "screenshot": "live-AgentJobs.png",
+      "pass": true
+    },
+    {
+      "name": "Settings navigation reachable",
+      "pass": true
+    }
+  ],
+  "pass": true
+}

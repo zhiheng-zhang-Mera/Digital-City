@@ -1,0 +1,256 @@
+{
+  "at": "2026-10-08T06:05:33.452Z",
+  "host": "Mera-Alianware",
+  "cityId": "544adda1-3059-4c6f-ae7d-71ddfd0f3b8c",
+  "targetDeviceId": "dev-1428bce5297146df88720f270af71bc3",
+  "results": [
+    {
+      "name": "same canonical City on opposite physical host",
+      "ok": true,
+      "detail": {
+        "cityId": "544adda1-3059-4c6f-ae7d-71ddfd0f3b8c",
+        "nodes": [
+          {
+            "id": "dev-544adda130594c6fae7d71ddfd0f3b8c",
+            "online": true,
+            "capabilities": [
+              "task.execute.safe",
+              "filesystem.temp",
+              "city.remote-operation.v1"
+            ]
+          },
+          {
+            "id": "dev-1428bce5297146df88720f270af71bc3",
+            "online": true,
+            "capabilities": [
+              "task.execute.safe",
+              "filesystem.temp",
+              "city.remote-operation.v1"
+            ]
+          },
+          {
+            "id": "dev-mega-agentjob",
+            "online": false,
+            "capabilities": [
+              "task.execute.safe",
+              "filesystem.temp",
+              "city.agent-job.v1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "real member session cannot read node/operations",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "json": {
+          "apiVersion": 0,
+          "schemaVersion": 0,
+          "error": "REMOTE_OPERATION_OWNER_REQUIRED",
+          "errorCode": "REMOTE_OPERATION_OWNER_REQUIRED"
+        }
+      }
+    },
+    {
+      "name": "real member session cannot read node/jobs",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "json": {
+          "apiVersion": 0,
+          "schemaVersion": 0,
+          "error": "AGENT_JOB_OWNER_REQUIRED",
+          "errorCode": "AGENT_JOB_OWNER_REQUIRED"
+        }
+      }
+    },
+    {
+      "name": "real member cannot dispatch owner remote operation",
+      "ok": true,
+      "detail": {
+        "status": 403,
+        "json": {
+          "apiVersion": 0,
+          "schemaVersion": 0,
+          "error": "REMOTE_OPERATION_OWNER_REQUIRED",
+          "errorCode": "REMOTE_OPERATION_OWNER_REQUIRED"
+        }
+      }
+    },
+    {
+      "name": "Owner City dispatches to named Alien device",
+      "ok": true,
+      "detail": {
+        "status": 200,
+        "json": {
+          "apiVersion": 0,
+          "schemaVersion": 0,
+          "action": {
+            "id": "A-951748d6-6bc7-4f42-93e9-e86939bcc971",
+            "actionId": "A-951748d6-6bc7-4f42-93e9-e86939bcc971",
+            "requestedIntent": "",
+            "route": "CITY_TASK",
+            "backendRef": {
+              "kind": "CITY_TASK",
+              "id": "city.task",
+              "taskId": "Q-1061fde1-9354-4f31-b0ef-ee42e62d7ecb",
+              "operationId": "OWNER_REMOTE_OPERATION",
+              "targetDeviceRef": "dev-1428bce5297146df88720f270af71bc3"
+            },
+            "target": {
+              "id": "city.task",
+              "label": "City task — OWNER_REMOTE_OPERATION",
+              "operation": "OWNER_REMOTE_OPERATION"
+            },
+            "status": "QUEUED",
+            "progress": 5,
+            "resultRef": null,
+            "error": null,
+            "idempotencyKey": "181fe353-c3cd-4eb0-9f18-36ff9a111f6a",
+            "requestFingerprint": "{\"input\":{\"operation\":{\"argv\":[\"-e\",\"console.log(JSON.stringify({hostname:require('os').hostname(),platform:process.platform,head:require('child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()}))\"],\"cwd\":\"D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-final-20261008\",\"executable\":\"node\",\"maxOutputBytes\":4096,\"purpose\":\"REX-890 independent cross-physical-host execution identity verification\",\"timeoutMs\":10000},\"targetDeviceRef\":\"dev-1428bce5297146df88720f270af71bc3\"},\"operation\":\"OWNER_REMOTE_OPERATION\",\"route\":\"CITY_TASK\",\"target\":\"city.task\"}",
+            "provenance": {
+              "source": "utopia.dev-gateway",
+              "host": "Mega-rep",
+              "route": "CITY_TASK",
+              "roomId": null,
+              "capabilityId": null,
+              "taskId": "Q-1061fde1-9354-4f31-b0ef-ee42e62d7ecb",
+              "invocationId": null,
+              "history": [
+                {
+                  "at": "2026-10-08T06:05:29.198Z",
+                  "status": "QUEUED",
+                  "note": "routed to CITY_TASK city.task:OWNER_REMOTE_OPERATION"
+                },
+                {
+                  "at": "2026-10-08T06:05:29.202Z",
+                  "status": "RUNNING",
+                  "note": "executing"
+                },
+                {
+                  "at": "2026-10-08T06:05:29.207Z",
+                  "status": "QUEUED",
+                  "note": "City task Q-1061fde1-9354-4f31-b0ef-ee42e62d7ecb created as OWNER_REMOTE_OPERATION, strictly targeted at dev-1428bce5297146df88720f270af71bc3 (target state ELIGIBLE); it may be claimed by that device only."
+                }
+              ],
+              "cityTaskState": "QUEUED",
+              "targetDeviceRef": "dev-1428bce5297146df88720f270af71bc3",
+              "targetStateAtCreation": "ELIGIBLE"
+            },
+            "createdAt": "2026-10-08T06:05:29.198Z",
+            "updatedAt": "2026-10-08T06:05:29.207Z"
+          },
+          "replayed": false
+        }
+      }
+    },
+    {
+      "name": "named Alien execution completes with canonical evidence",
+      "ok": true,
+      "detail": {
+        "task": {
+          "id": "Q-1061fde1-9354-4f31-b0ef-ee42e62d7ecb",
+          "type": "OWNER_REMOTE_OPERATION",
+          "domain": "system",
+          "state": "COMPLETED",
+          "createdAt": "2026-10-08T06:05:29.205Z",
+          "updatedAt": "2026-10-08T06:05:31.872Z",
+          "assignedNodeId": "dev-1428bce5297146df88720f270af71bc3",
+          "progress": 100,
+          "lastCheckpoint": {
+            "step": "operation-starting"
+          },
+          "result": {
+            "operationDigest": "646d504e7d09db7a97d596f09bb31de9a7d102284802792cd4641f0825fe2aca",
+            "state": "COMPLETED",
+            "exitCode": 0,
+            "timedOut": false,
+            "stdout": "{\"hostname\":\"Mera-Alianware\",\"platform\":\"win32\",\"head\":\"0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744\"}\n",
+            "stderr": "",
+            "truncated": false,
+            "durationMs": 1546,
+            "error": null
+          },
+          "error": null,
+          "operation": {
+            "schemaVersion": 1,
+            "executable": "node",
+            "argv": [
+              "-e",
+              "console.log(JSON.stringify({hostname:require('os').hostname(),platform:process.platform,head:require('child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()}))"
+            ],
+            "cwd": "D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-final-20261008",
+            "purpose": "REX-890 independent cross-physical-host execution identity verification",
+            "timeoutMs": 10000,
+            "maxOutputBytes": 4096,
+            "shell": false,
+            "environmentInjection": false,
+            "operationDigest": "646d504e7d09db7a97d596f09bb31de9a7d102284802792cd4641f0825fe2aca"
+          },
+          "targetDeviceRef": "dev-1428bce5297146df88720f270af71bc3",
+          "targetIntentAt": "2026-10-08T06:05:29.205Z",
+          "targetStateAtCreation": "ELIGIBLE",
+          "targetStateDetail": null
+        },
+        "operation": {
+          "taskId": "Q-1061fde1-9354-4f31-b0ef-ee42e62d7ecb",
+          "state": "COMPLETED",
+          "progress": 100,
+          "assignedNodeId": "dev-1428bce5297146df88720f270af71bc3",
+          "createdAt": "2026-10-08T06:05:29.205Z",
+          "updatedAt": "2026-10-08T06:05:31.872Z",
+          "targetStateAtCreation": "ELIGIBLE",
+          "targetStateDetail": null,
+          "executable": "node",
+          "argv": [
+            "-e",
+            "console.log(JSON.stringify({hostname:require('os').hostname(),platform:process.platform,head:require('child_process').execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()}))"
+          ],
+          "cwd": "D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-final-20261008",
+          "purpose": "REX-890 independent cross-physical-host execution identity verification",
+          "timeoutMs": 10000,
+          "maxOutputBytes": 4096,
+          "shell": false,
+          "operationDigest": "646d504e7d09db7a97d596f09bb31de9a7d102284802792cd4641f0825fe2aca",
+          "error": null,
+          "result": {
+            "operationDigest": "646d504e7d09db7a97d596f09bb31de9a7d102284802792cd4641f0825fe2aca",
+            "state": "COMPLETED",
+            "exitCode": 0,
+            "timedOut": false,
+            "stdout": "{\"hostname\":\"Mera-Alianware\",\"platform\":\"win32\",\"head\":\"0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744\"}\n",
+            "stderr": "",
+            "truncated": false,
+            "durationMs": 1546,
+            "error": null
+          },
+          "receipt": {
+            "valid": true,
+            "state": "COMPLETED",
+            "exitCode": 0,
+            "timedOut": false,
+            "stdoutBytes": 99,
+            "stderrBytes": 0,
+            "acceptanceAuthority": false
+          }
+        }
+      }
+    },
+    {
+      "name": "execution output independently names opposite host and exact checkout",
+      "ok": true,
+      "detail": {
+        "identity": {
+          "hostname": "Mera-Alianware",
+          "platform": "win32",
+          "head": "0e63c2a0ca723f7d8d0b6ad41abff33bee2ea744"
+        },
+        "taskId": "Q-1061fde1-9354-4f31-b0ef-ee42e62d7ecb"
+      }
+    }
+  ],
+  "authority": "OBSERVED_HERE",
+  "pass": true
+}
