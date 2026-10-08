@@ -213,11 +213,11 @@ and:
 
 ## 快速信息仪表盘与导航 / Quick dashboard and navigation
 
-目录数量实测于2026-10-06；状态是既有文档记录，不是新运行验收。 / Directory counts measured on 2026-10-06; status reflects existing documentation rather than new runtime acceptance.
+目录数量实测于2026-10-08；状态是既有文档记录，不是新运行验收。 / Directory counts measured on 2026-10-08; status reflects existing documentation rather than new runtime acceptance.
 
 | 项目 / Item | 值 / Value |
 |---|---|
-| 直接子目录 / Direct subdirectories | 1 |
+| 直接子目录 / Direct subdirectories | 2 |
 | 递归Markdown文档 / Recursive Markdown documents | 6 |
 | 状态 / Status | ACTIVE / CITYWIDE / PERSISTENT (existing registry / 既有登记册) |
 | 语言 / Language | 同文中英或明确互链语言对 / Same-file bilingual explanations or linked language pairs |
@@ -228,15 +228,32 @@ and:
 |---|---|
 | [CAPABILITY_EXPOSURE_MATRIX.en.md](./CAPABILITY_EXPOSURE_MATRIX.en.md) | 说明文档 / Explanatory document |
 | [CAPABILITY_EXPOSURE_MATRIX.zh-CN.md](./CAPABILITY_EXPOSURE_MATRIX.zh-CN.md) | 说明文档 / Explanatory document |
-| [CAPABILITY_INDEX.yaml](./CAPABILITY_INDEX.yaml) | 既有结构化索引/模板，本次未修改 / Existing structured index/template, unchanged in this documentation work |
+| [CAPABILITY_INDEX.yaml](./CAPABILITY_INDEX.yaml) | 结构化索引；**2026-10-08 已补齐**：补入 3 条在盘上存在却没被列出的记录（含两条跨机能力），现列全部 20 份 / Structured index; backfilled on 2026-10-08 with 3 records that existed on disk but were not listed, and now lists all 20 |
 | [CAPABILITY_RECORD_TEMPLATE.yaml](./CAPABILITY_RECORD_TEMPLATE.yaml) | 既有结构化索引/模板，本次未修改 / Existing structured index/template, unchanged in this documentation work |
 | [README.en.md](./README.en.md) | 说明文档 / Explanatory document |
 | [README.md](./README.md) | 说明文档 / Explanatory document |
 | [README.zh-CN.md](./README.zh-CN.md) | 说明文档 / Explanatory document |
-| [SURFACE_INDEX.yaml](./SURFACE_INDEX.yaml) | 既有结构化索引/模板，本次未修改 / Existing structured index/template, unchanged in this documentation work |
+| [SURFACE_INDEX.yaml](./SURFACE_INDEX.yaml) | 用户可见面清单；**2026-10-08 已补齐**：补入 4 条记录声明过却没被镜像的 WEB surface，现 14 条且无遗漏 / User-surface inventory; backfilled on 2026-10-08 with 4 declared WEB surfaces it did not mirror, now 14 with none missing |
 
 ### 子目录 / Subdirectories
 
 | 入口 / Entry | 递归Markdown数量 / Recursive Markdown count |
 |---|---|
 | [records](./records/README.md) | 1 |
+| [tools](./tools/audit_evidence_refs.py) | 0 |
+
+### 已知发现 / Known findings (audited)
+
+```text
+Registry integrity measured 2026-10-08; re-runnable with `python capability-registry/tools/audit_evidence_refs.py`:
+  - all 20 records' `last_verified_full_sha` resolve to real commits (no dangling SHA);
+  - of 142 evidence references, 10 CANNOT be resolved at the head their own record anchors to. Nine of those files do
+    exist in history - they are review-branch artifacts, and the tool names the commit that added each - but they never
+    reached the anchored commit; one points into `.runtime/...`, an untracked directory that is gone from the machine.
+  - NOT FIXED HERE, deliberately: the affected records belong to other series (CEX, MON, REX-802), and either
+    re-anchoring their citations or merging those probes into the mainline is a cross-series decision. This page records
+    the measurement and provides the audit, nothing more.
+  - Method lesson: the audit's FIRST version asked the working tree and reported 8 perfectly good references as
+    dangling - measuring the wrong object, which is the same mistake as reproducing against the wrong code tree. It now
+    asks the anchored commit.
+```
