@@ -342,6 +342,17 @@ measured device evidence"）——那不是新问题，是旧工具 + 真实回�
        hostname = Mega-rep），因此它只证明流程可用，**不能**当作 final gate 的验收证据。
        产物留在 4in1-acceptance-2026-10-07/rehearsal-procedure-output/，标签写明它是什么。
 ```
+
+**跑之前请确认两台设备的 reference agent 都在跑**（这是环境前提，不是研究结论）：
+
+```text
+机制：独立 campaign 把 repetitions 按种子**分发到包内声明的那些设备**上，每条 run 指向一个被点名的设备；
+      而被点名的设备**永远不会被悄悄换掉**——它离线，那条任务就 WAITING。
+后果：任一台不在跑 ⇒ campaign 到不了 COMPLETED ⇒ 工具如实报 "independent campaign terminal state"，
+      exit 1。那是**环境问题被如实报成不一致**，不是关于 study 的发现，会白跑一次。
+自检：本机实测两台设备都在线时（dev-544adda1 与 dev-1428bce5 各自心跳），6 条 run 逐条落在两台设备上、
+      campaign COMPLETED。对侧只需保证它那台机器的 agent 在跑即可。
+```
 ```
 
 ## 6. 本文件不声称的事
