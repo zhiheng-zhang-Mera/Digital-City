@@ -530,4 +530,19 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
             代码侧另修两处**不是产品缺陷**的红：故意跳过/环境不满足被当成失败（study 仪器、
             复现测试的脏树前置条件、host-city launcher 的"活动城市"前置条件）。
 2026-10-08  study 仪器进仓（`911bdf8`）+ 前置条件如实记为 NOT RUN（`a3078e8`）。
+2026-10-08  仪器自身四处缺陷修完（`de7e91b`）：实验 id 只用日期导致同一天**无法重跑**（HTTP 409
+            `IMMUTABLE_MANIFEST`，城市拒得对——manifest 确实变了）；记录只在 phase 6 写，中途停下就
+            **磁盘上什么都没有**；关掉控制面后立刻 `process.exit()` 在 Windows 上触发 libuv 原生断言
+            （`0xC0000409`，不是报告）；城市不可达时以未捕获异常堆栈死掉。现在：任何结局都留
+            `dev-study.json` + `dev-study.log`，不可达城市在**创建/注册任何东西之前**具名拒绝，
+            并有一个"拒绝注册实验的 fixture 城市"把这条路径钉住。
+            **CI**：`de7e91b` 全绿（run `37718959850`，conclusion success）；上一个头 `a3078e8` 的
+            run `37718096755` 第 1 次因 `CAJ-WEB 2` 10.1s `TimeoutError` 失败、第 2 次（attempt 2）
+            全绿 —— 该用例与本轮改动**无关**（`803c18d..a3078e8` 未触及任何 web/agent-job 文件），
+            本机单跑 27.3s 通过：判为**环境（负载）**，不是产品缺陷。
+2026-10-08  **实测**：对侧要跑的那条路（B 包 + 当前城市）在本机干净检出上 = `0 inconsistencies` ·
+            `evidenceGaps 0` · `reproductionComplete true` · **exit 0**（report
+            `D:\temp\repro-de7e91b\opposite-host-reproduction.json`）；同时发现**现在重新导出会 exit 1**
+            （`RECEIPT_WINDOW_TRUNCATED`，城市 50 份回执、窗口截断最旧 1 份）——按包复现不受影响，
+            这正是"包必须随分支走"的原因。已写进 §7 与交接书。
 ```
