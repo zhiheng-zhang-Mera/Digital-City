@@ -1,22 +1,22 @@
 {
   "ci": {
     "conclusion": "success",
-    "head_sha": "db6b6f9dbba1266d6783774d659d4eef912929ff",
+    "head_sha": "944f47dd6c7e18b3388b6d769dbbb6dddbe74f00",
     "name": "City linkage check",
-    "run_id": 37584814825,
+    "run_id": 37747311977,
     "status": "completed",
-    "updated_at": "2026-10-07T07:01:36Z",
-    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37584814825"
+    "updated_at": "2026-10-08T08:03:30Z",
+    "url": "https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37747311977"
   },
   "linkage": {
     "local_contract": "PROJECT_LINKAGE.json",
     "remote_contract_url": "https://raw.githubusercontent.com/zhiheng-zhang-Mera/utopia/main/PROJECT_LINKAGE.json",
     "state": "RECIPROCAL_LINK_OK"
   },
-  "main_commit_message": "Merge pull request #44 from zhiheng-zhang-Mera/rex/REX-series-verify-mech-20261007",
-  "main_commit_time": "2026-10-07T07:01:24Z",
-  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/db6b6f9dbba1266d6783774d659d4eef912929ff",
-  "main_sha": "db6b6f9dbba1266d6783774d659d4eef912929ff",
+  "main_commit_message": "Merge pull request #47 from zhiheng-zhang-Mera/feat/rex-programme-final-android-intent-20261008",
+  "main_commit_time": "2026-10-08T08:03:17Z",
+  "main_commit_url": "https://github.com/zhiheng-zhang-Mera/utopia/commit/944f47dd6c7e18b3388b6d769dbbb6dddbe74f00",
+  "main_sha": "944f47dd6c7e18b3388b6d769dbbb6dddbe74f00",
   "schema_version": 1,
   "source_branch": "main",
   "source_repo": "zhiheng-zhang-Mera/utopia"
