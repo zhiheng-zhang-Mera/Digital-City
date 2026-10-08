@@ -53,6 +53,18 @@ node scripts/rex890-opposite-host-reproduce.mjs \
 且它的 agent 在线；同时你的 device id 必须仍是包声明的那一个（重装会得到新 id）。
 ```
 
+**先花 30 秒做一次只读预检**（不建任务、不起 campaign，所以它不会移动它正在测的环境）：
+
+```bash
+node evidence/raw/rex890-studies/2026-10-08-B/readiness-check.mjs \
+  --artifact evidence/raw/rex890-studies/2026-10-08-B/artifact \
+  --city <城市> --config <FOR-ALIEN 配置的路径>
+# 本机实测 7/7：包内 checksums(12) · 包外 MANIFEST(13) · 包自带 trace（listed 243 = captured 243）·
+# 包点名的 41 个 campaign **按 id** 全部可读（合计 205 run）· 205 个 canonical task 全部仍在
+# 它会**报告**城市的回执窗口（实测 total 54 / limit 50 / truncated）：包的 41 条里有 4 条已不在**列表**里，
+# 但按 id 照读 —— 这正是该清单和复现工具都按 id 取的原因，不是问题。
+```
+
 **选哪个头**：`3143260…`（交接书钉的）与 `5d75943…`（当前头）在**复现相关代码上逐字节相同** ——
 本机实测 `git diff --stat 3143260..5d75943 -- scripts/rex890-opposite-host-reproduce.mjs evidence/raw/rex890-studies/2026-10-08-B/artifact` 为空。
 两者之间新增的只有证据/测试/注释与两条能力的修复。用哪个都可以。

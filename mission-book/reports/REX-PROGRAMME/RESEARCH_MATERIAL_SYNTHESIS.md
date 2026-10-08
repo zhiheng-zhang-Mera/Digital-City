@@ -510,6 +510,10 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
       包里最旧的两条已不在窗口**列表**里 —— 但复现工具是**按 id 取每条 campaign 回执**的，
       所以 41/41 照读（205 run · 214/214 · 205/205 · trace 243/243 · **0 inconsistencies · 0 evidenceGaps**）。
       教训与 trace 那次相同：**有界窗口是"读"的边界，不是"存"的边界**；判据要按 id 取，不要依赖列表。
+      **更晚一次只读预检（同日）**：窗口已长到 `total 54 / limit 50`，包里有 **4 条**落在列表之外（早先是 2 条——
+      每做一次彩排就多一份回执）。预检（`evidence/raw/rex890-studies/2026-10-08-B/readiness-check.mjs`，7/7）
+      把这件事**报出来**而不是判失败：同一份预检里 41/41 按 id 全部读到、205 run 与包声明一致、205 个 canonical task 全在
+      —— 也就是说"窗口在长"与"这条路仍然可用"可以同时成立，而只有按 id 读才让它们同时成立。
     - **独立 campaign 需要包里声明的两台设备都在线**：实测（干净树）城市按名拒绝
       `TOPOLOGY_NOT_READY`，`missing: [dev-1428bce5…]`。所以复现**必须从被声明的那台设备上跑**、
       且它的 agent 要在线；这也意味着"在别的机器上替对侧跑"做不到。
