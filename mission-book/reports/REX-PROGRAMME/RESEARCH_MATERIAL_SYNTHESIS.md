@@ -292,6 +292,103 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
 工件包完整可复核 ✅ · **对侧实体独立复现 ❌（未发生）** · exact-head CI ✅ · exposure gate ✅
 （两条能力各有记录，且已做成**受检的**主机无关属性，§5G）⇒ **未满足**。
 
+## 6B. 工作书点名要的最终素材内容（逐项，全部读自实测；缺项就写缺）
+
+### 6B.1 experiment / run / failure 计数
+
+```text
+包内（study 本体，随分支进仓）   5 campaigns · 15 runs · 15 measured · failures.json 为空（0 失败）
+城市到今天 2026-10-08 全量        **29 份 campaign 回执**（receiptWindow total=29 limit=50 truncated=false）
+  状态      28 COMPLETED · **1 REFUSED**
+  逐项汇总  计划 159 · 计入 153 · 实测 153 · warmup 0 · timedOut 0 · failed 0
+            · excluded 0 · cancelled 0 · skipped 0 · interrupted 0
+  对账      159 − 153 = 6，正是那份 REFUSED 的 6 条计划——**它一条都没跑，所以一条都没计**，
+            且它 terminalAccountingComplete=false（29 份里**只有它**为 false）。
+            ⇒ 拒绝被如实报成拒绝，**没有**被写成"零失败的成功"。
+  那份拒绝  campaign-6425e1be-0a46-4fec-a942-cb1a01742bca · reason=**TOPOLOGY_NOT_READY**
+            · planned 6 / accounted 0 · 未声称完成
+  场景      29 份全部是 WAIT（研究系列 v1 的 supportedScenarios 只有 WAIT，见 §3.1 的实测记录）
+  说明      这 29 份包含开发主机自己的 study 5 份 + 此后每一次独立复现各 1 份（含本机彩排）。
+            **包内 5 份才是 study 本体**；29 份是城市当前的全量，两者不要混读。
+```
+
+### 6B.2 defect taxonomy（按"这是谁的错"分类，不按严重度）
+
+```text
+产品缺陷（真缺陷，全部已修，每条都有"没修就变红"的测试）
+  · 派发资格对所有任务类型用同一份能力清单 ⇒ 旧 agent 被派了它从未被问过的问题（d11b03d）
+  · 报告闸门拿**任务**状态比**工作**的词汇表 ⇒ agent 成功那条路径整条绕过校验（712d919 的同类，见 §0G-1①）
+  · 凭据正则 `\b` 结尾 ⇒ 真实 `ghp_` token 永不匹配
+  · 对侧 CLI 只注册不心跳 ⇒ 一个心跳超时后通道静默死掉，且看起来像"城市没任务"
+  · CLI 入口守卫在 Windows 下 **什么都不做却退出 0**
+  · 固定侧栏无滚动区 ⇒ 多一个导航项就让末条导航不可点
+  · 页面标题 key 大小写不符 ⇒ 标题渲染成裸 i18n key
+  · **每次城市事件/每 4 秒整页重建** ⇒ Owner 正在输入的危险区在他手底下合上（§5H）
+测量/工具缺陷（错的是检查本身，不是被测对象；全部已修）
+  · 复现工具**六条 false-success**：证据不全却 exit 0（对侧找到并修，见 §5F）
+  · 该修复引入**一条 false-inconsistency**：拿 run 的 MEASURED 去比 task 的 COMPLETED（本机对真实城市找到并修）
+  · 该修复的**夹具不真实**（run 写成 COMPLETED、无 result.state）⇒ 测试不可能失败
+  · 证伪脚本篡改正则漏 multiline ⇒ 两次替换静默无效，却把工具报成失败
+  · dev-study 脚本取数路径 2 处（读 list 而非 detail；读 started 而非 live）⇒ 把字段错误误报成产品拒绝
+  · 全仓测试清理竞态：Windows `rm` 遇仍打开的句柄 ENOTEMPTY（**118 处 / 52 文件**，本轮只修自己的 2 处）
+外部故障（与产品无关）
+  · GitHub Git Operations 事件：utopia 与 Digital-City **两个仓库同时**被服务端 500 拒绝推送
+    （Request ID DDC5:C6B1:238983:2FA600:6AC679C6，16:56Z；读操作与 API 正常）；第 4 轮重试两个仓库同时成功
+先存缺陷（**未修**，记录在案，属历史）
+  · 编码损坏：UTF-8 被当 CP936 解码后再存回（utopia 15 文件 + DC 6 份文档）；`origin/main` 与本分支签名相同
+我自己的两次错（照实记）
+  · 把"整页重建丢状态"**误判**成"负载敏感的环境因素"，连续几轮这么记（§5H 已纠正）
+  · 曾把 mojibake **二次损坏**带进 server.mjs（经 PowerShell 管道），提交前用非 ASCII 集合比对发现并修回
+```
+
+### 6B.3 review-only findings（要人判断，不是改代码能解决的）
+
+```text
+1  trace 读窗口 vs 包的保留期约定：已加"按 id 从持久库取记录"的只读接口（0/206 → 206/206），
+   但持久库仍有 2 MiB × 一代轮转上限；更早的记录会真的消失。要不要延长保留期是策略决定。
+2  复现主机**必然持有 owner 级凭据**（复现要读整份研究状态并自己发起 campaign）。
+   Owner 已裁决"带外交付 + 用完轮换"；"只能读+复现、不能管理"的受限凭据仍是缺口（新授权面）。
+3  全仓测试清理竞态 118 处 / 52 文件：一次机械修复即可，但会动 50 个与本能力无关的文件 ⇒ 宜单独立项。
+4  编码损坏 15 文件 + 6 份：属先存历史，修它会把无关文件塞进本分支；建议单独立项（CP936 逆变换 + `?` 丢字节处人工判定）。
+5  CHK / DGX 两个系列的验证脚本仍以 `hostname()==='mera-alianware'` 判断"哪台是开发主机" ⇒
+   与本系列已做成受检属性的主机无关性不一致；改它们会削弱那两套独立性守卫，宜各自立项。
+```
+
+### 6B.4 reproducibility delta（哪些能复现、哪些不能；逐条）
+
+```text
+可以复现（本机与仓内包上实测）
+  · 4 项指标：从城市重建数据集后重算 = 包内声明（6532 / 0 / 0 / 0，n=15）
+  · canonical task 指针 22/22 仍存在；run→task 连接 15/15 仍可解析
+  · trace 206/206：**经"按 id 取记录"的读接口**才成立；此前只能 0/206（数据在、读不到）——见 §5
+  · 独立复现者可**自己再跑一个 campaign**（本机每次复现都跑，逐条落在两台真实设备上）
+不能／受限（必须写明，否则会被读成"完全可复现"）
+  · 包内 **23 / 27 项指标是 NOT_MEASURED**，各带原因；本机**也不主张**它们可测
+  · detectionTimeMs 在该故障类型上不适用（拒绝的是认领不是心跳），typed NOT_MEASURED，不是 0
+  · `softwareRefs` 是**声明的**引用，不是本机观测到的实现身份（provenance 里 `refSemantics` 写明需外部验证）
+  · 原始控制面已消失：复现方必须**自建**并声明自己的 surface（工具这么做了，且声明这是新 run 不是重放）
+  · **设备身份必须仍然存在**：包声明两台设备，任一台不在线，其任务 WAITING ⇒ campaign 到不了 COMPLETED
+  · **城市状态已增长**：此刻重新导出会得到不同的 artifactId 与不同字节 ⇒ "原始包"只能靠随分支传输，不能靠重新导出
+  · 两条跨机通道**未在两台真实机器之间**验证过（能力只在本机节点上跑通）
+```
+
+### 6B.5 potential paper directions（**候选方向，不是主张**）
+
+```text
+· "谁说的"必须与"什么被验证"分开：同一份记录里，城市的词（QUEUED/RUNNING/COMPLETED）与参与者自述的词
+  （SUCCEEDED + 证据类别）分块呈现，且每条被接受的报告带 acceptanceAuthority=false。
+· **false-success 与 false-inconsistency 的对称性**：同一个检查既可能漏报（六条）也可能误报（一条）；
+  两者都只能由"对真实对象的运行"暴露。推论：夹具若不像真东西，测试就**不可能失败**。
+· 检查的**自证伪**是必要条件：本系列的证据链包含 4/4 包篡改证伪、六条拒绝路径、一条词汇表反例。
+· **有界读窗口**：数据完整性与"可读性"是两件事（206/206 在磁盘上、0/206 在接口上）。
+· **空洞对比**：0 inconsistencies 可能意味着"比过了"，也可能意味着"无从比对"；
+  区分它们需要把"缺证据"变成与"不一致"不同的、非零的出口（本工具用 VACUOUS + exit 2）。
+· 跨机能力的**主机无关性**可以被做成受检属性：源码守卫（不得含部署身份/不得按 hostname 决策）
+  + 任意命名节点的行为测试 + 反例控制（同样任意命名但未声明能力的节点必须拿不到活）。
+· **拒绝也要计入账**：一份 REFUSED 的 campaign（planned 6 / accounted 0 / terminalAccountingComplete=false）
+  比"零失败"更能说明账本是诚实的。
+```
+
 ## 7. 唯一剩下的动作
 
 ```text
@@ -339,4 +436,10 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
             false-inconsistency），复现工具的"0 inconsistencies"因此第一次被真正证伪过。
             追加 §5G：跨机能力做成**受检的**主机无关属性；§6 区分"对侧已做代码验证"与
             "实体复现仍未发生"；§7 给出对侧仍缺的两个输入与传输包路径。
+2026-10-08  追加 §5H（整页重建丢状态的真缺陷）与 §6B：把工作书点名的最终素材内容**逐项**补齐——
+            实验/运行/失败计数（读自城市当前全量：29 份回执、28 COMPLETED、1 REFUSED、
+            计划 159/计入 153/实测 153、0 失败，且拒绝那份 terminalAccountingComplete=false）、
+            defect taxonomy（按"谁的错"分四类 + 我自己的两次错）、review-only findings、
+            reproducibility delta（能复现什么、**不能**复现什么，逐条）、potential paper directions。
+            凡未测/未发生者一律写 NOT_MEASURED / NOT RUN，并保留原因。
 ```
