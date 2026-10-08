@@ -471,11 +471,20 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
     - **一台主机上的 owner 操作另一台主机**：仍未跑。21/21 那次点的是**同一台物理机器上**的节点
       （`assignedNodeId` = 本机 deviceId），所以"跨物理主机"这句话**还没有**测量支撑。
     - **对侧机器上的 agent 作业**：仍未发生（对侧须自己先 `register`，这是城市侧代做不了的 bootstrap）。
-    - **claim → report → 回收 → 消耗回执**在**重启后的**城市上**未重测**：`/node/claim` 只能传节点 id、
-      不能传任务 id，而城市里排着对侧那条作业 ⇒ 拿节点凭据去 claim 就可能**把它吃掉**。
-      本机因此**故意不做**这次测量（这条取舍本身就是"测量会改变被测对象"的例子）。
-      更早一轮在**同一座城市**上已实机验证过这条链（submit / query / cancel / collect / 消耗回执，
-      且回执 digest 独立重算过），登记里如实写着"更早的实机证据 + 重启后未重测"。
+    - **claim → report**在**重启后的**城市上**未重测**：`/node/claim` 只能传节点 id、不能传任务 id，
+      而城市里排着对侧那条作业 ⇒ 拿节点凭据去 claim 就可能**把它吃掉**。本机因此**故意不做**这次测量
+      （这条取舍本身就是"测量会改变被测对象"的例子）。更早一轮在**同一座城市**上已实机验证过这条链。
+      **但"消耗回执"这一步不需要 claim**：它是对**已有报告**的幂等读，所以**已重测 8/8**（回执写明
+      `ACKNOWLEDGEMENT_NOT_VERIFICATION` / `AGENT_OBSERVATION_NOT_CITY_VERIFICATION`、`agentConsumption=false`、
+      **`reportDigest` 由本机按合同规范化独立重算并与回执一致**（`c00c016b…`）、重复取回同一回执（digest 与时间相同）、
+      换一条 note 被 409 `CONSUMPTION_ALREADY_RECORDED` 拒绝、且取回**没有改动**作业与存储的报告）。
+    - **包的 41 份回执仍然全部可读，即使城市的有界回执窗口已经截断**：实测窗口 `total 52 / limit 50 / truncated true`，
+      包里最旧的两条已不在窗口**列表**里 —— 但复现工具是**按 id 取每条 campaign 回执**的，
+      所以 41/41 照读（205 run · 214/214 · 205/205 · trace 243/243 · **0 inconsistencies · 0 evidenceGaps**）。
+      教训与 trace 那次相同：**有界窗口是"读"的边界，不是"存"的边界**；判据要按 id 取，不要依赖列表。
+    - **独立 campaign 需要包里声明的两台设备都在线**：实测（干净树）城市按名拒绝
+      `TOPOLOGY_NOT_READY`，`missing: [dev-1428bce5…]`。所以复现**必须从被声明的那台设备上跑**、
+      且它的 agent 要在线；这也意味着"在别的机器上替对侧跑"做不到。
     - **owner-only**：由套件证明（member 既不能派发也不能读操作日志），**不是**实机 member 会话证明；
       为它去实机注册一个 member 设备会改变**对侧复现要读并对齐的那个名单**，所以没做。
     - **默认关闭**：实机读到描述符 `defaultEnabled:false`，但"开关关掉时一切都按名拒绝"这条只在套件里跑过
