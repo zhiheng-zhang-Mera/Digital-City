@@ -40,7 +40,7 @@
       "POST /api/v0/node/claim",
       "POST /api/v0/node/report"
     ],
-    "last_verified_full_sha": "314326007dce6e328792053936ce4c3a80c3b1e2"
+    "last_verified_full_sha": "f0295bc9f43f98216c9b69697da8f0151037908a"
   },
   "status": {
     "implementation_status": "COMPLETE",
@@ -57,7 +57,7 @@
       "the standing statement that an accepted report carries no acceptance authority, so an agent's claim is never read as a City verification",
       "the delivery state of every report, kept as three distinguishable facts rather than a boolean: NOTHING_TO_COLLECT / AWAITING_COLLECTION / COLLECTED, and the receipt itself with its own authority line",
       "which machine answers is decided by the CAPABILITY a node advertises and the NODE ID the owner names - never by a roster, a fixed pair of machines, a machine count or a hostname. Any node that registers and advertises city.agent-job.v1 can be asked; a node that does not is offered nothing even when it is equally healthy; and this is a checked property, not a claim (tests/capability-host-independence.test.mjs, which also exercises three arbitrarily-named nodes and a negative control)",
-      "refusals by typed code, including REPORT_JOB_MISMATCH, REPORT_TASK_STATE_MISMATCH, REPORT_STATE_NOT_AGENT_DECIDABLE, CONSUMPTION_REQUIRES_A_REPORT and CONSUMPTION_ALREADY_RECORDED"
+      "refusals by typed code, including REPORT_JOB_MISMATCH, REPORT_TASK_STATE_MISMATCH, REPORT_STATE_NOT_AGENT_DECIDABLE, CONSUMPTION_REQUIRES_A_REPORT, CONSUMPTION_ALREADY_RECORDED, JOB_INPUT_CREDENTIAL_REFUSED (a credential-shaped input name or value) and JOB_CREDENTIAL_REFUSED (a credential-shaped value in a stored statement field: title, instruction, purpose or expect - the field that carried it is named in the message)"
     ],
     "user_controls": [
       "choose the target machine, the title, the instruction in words, references, the purpose and the deadline",
@@ -106,7 +106,8 @@
       "utopia:push CI runs at this line: 37650519705 (success, 2189be9f9c7e18e14cdc611b0a27aad3a62d9ba6 - the channel), 37651601378 (success, 66bab47eff42733f71aee5395a4795b234a058f8 - the far-side CLI runs as a real command), and the delivery-receipt head 00989b6e67bcc99ce6b45133529458bbe0575fe1",
       "https://github.com/zhiheng-zhang-Mera/utopia/tree/314326007dce6e328792053936ce4c3a80c3b1e2",
       "utopia:push CI at the current line: run 37720240214 (success, head 314326007dce6e328792053936ce4c3a80c3b1e2, https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37720240214); earlier green runs on this branch: 37715239464 (803c18d1dcc184b0e44a5e1806ad2d25b8100dc6) and 37718959850 (de7e91b38484513a99391e5207d199ad48cba3e9).",
-      "WHY last_verified_full_sha MOVED from 00989b6e67bcc99ce6b45133529458bbe0575fe1 to 314326007dce6e328792053936ce4c3a80c3b1e2, MEASURED rather than assumed: `git diff --stat 00989b6e..3143260` over this record's declared paths reports services/dev-gateway/server.mjs and apps/web/agent-jobs.js changed and a NEW file apps/web/view-persistence.js; the contract (contracts/city-agent-job-v1/job.mjs and index.mjs), actions.mjs, main.mjs, node-task-capabilities.mjs, execution-backend/standard-devices.mjs and scripts/agent-job.mjs are unchanged. The changes are the repaired defects this record already documents in known_gaps (the surface rebuild that discarded an owner's typing, and the gateway change that accompanied it), which is why the new file is now declared as part of the implementation; the head carrying them is CI-green, so the old SHA described a state the branch has left."
+      "WHY last_verified_full_sha MOVED from 00989b6e67bcc99ce6b45133529458bbe0575fe1 to 314326007dce6e328792053936ce4c3a80c3b1e2, MEASURED rather than assumed: `git diff --stat 00989b6e..3143260` over this record's declared paths reports services/dev-gateway/server.mjs and apps/web/agent-jobs.js changed and a NEW file apps/web/view-persistence.js; the contract (contracts/city-agent-job-v1/job.mjs and index.mjs), actions.mjs, main.mjs, node-task-capabilities.mjs, execution-backend/standard-devices.mjs and scripts/agent-job.mjs are unchanged. The changes are the repaired defects this record already documents in known_gaps (the surface rebuild that discarded an owner's typing, and the gateway change that accompanied it), which is why the new file is now declared as part of the implementation; the head carrying them is CI-green, so the old SHA described a state the branch has left.",
+      "WHY last_verified_full_sha MOVED AGAIN, from 314326007dce6e328792053936ce4c3a80c3b1e2 to f0295bc9f43f98216c9b69697da8f0151037908a: this time the capability's OWN CODE changed. Live probing found that only inputs[].name and inputs[].text were scanned for credential shapes while title, instruction, purpose and expect are ALL persisted, so a token typed into an instruction was accepted and stored (see known_gaps). The repairing head is CI-green: utopia run 37723129507 (success, https://github.com/zhiheng-zhang-Mera/utopia/actions/runs/37723129507), with the contract suite 14/14 and the web, host-independence and rebuild-persistence suites unchanged. WHAT IS STILL NOT TRUE: the live City runs the pre-fix code, so a live refusal of a credential-shaped statement has not been observed yet - that re-proof waits on that City's next restart, and this record says so rather than implying the fix has been seen working in production. The remote-operation capability's code did NOT change here, so CAP-CITY-REMOTE-OPERATION-001 stays at 3143260."
     ]
   },
   "research_observations": {
