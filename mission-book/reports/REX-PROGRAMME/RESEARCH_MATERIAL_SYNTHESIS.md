@@ -541,8 +541,13 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
             全绿 —— 该用例与本轮改动**无关**（`803c18d..a3078e8` 未触及任何 web/agent-job 文件），
             本机单跑 27.3s 通过：判为**环境（负载）**，不是产品缺陷。
 2026-10-08  **实测**：对侧要跑的那条路（B 包 + 当前城市）在本机干净检出上 = `0 inconsistencies` ·
-            `evidenceGaps 0` · `reproductionComplete true` · **exit 0**（report
-            `D:\temp\repro-de7e91b\opposite-host-reproduction.json`）；同时发现**现在重新导出会 exit 1**
+            `evidenceGaps 0` · `reproductionComplete true` · **exit 0**；同时发现**现在重新导出会 exit 1**
             （`RECEIPT_WINDOW_TRUNCATED`，城市 50 份回执、窗口截断最旧 1 份）——按包复现不受影响，
             这正是"包必须随分支走"的原因。已写进 §7 与交接书。
+2026-10-08  上一条的**原始报告已随分支进仓**（`3143260`）：
+            `utopia evidence/raw/rex890-studies/2026-10-08-B/DEV-REHEARSAL-opposite-host-reproduction.de7e91b.json`
+            （123,914 B，sha256 `340C57A7…`，与生成时逐字节相同）。**为什么补这一步**：该结论此前只在
+            §8 里引用了一个 `%TEMP%` 路径，而临时目录会被清掉 —— 那等于把一句"引用了就再也查不到"的结论
+            写进记录，与本程序学到的"指针不能活得比证据久"是同一个错误。旁边 README 列出该读哪几个字段，
+            并写明**这是彩排，不是对侧的裁决**。
 ```
