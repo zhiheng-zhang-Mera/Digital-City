@@ -30,7 +30,16 @@
     **instruction 或 purpose** 会被**接受**并存进作业记录（读回确认，随后已撤销那两个探针作业；用的是**假**形状）。
     已在 utopia `f0295bc` 修好：四个被持久化的语句字段（title / instruction / purpose / expect）现在走同一条规则，
     按 `JOB_CREDENTIAL_REFUSED` **具名**拒绝并点出是哪个字段；契约套件 14/14，web 与主机无关性套件不变。
-    **但**：实机城市当时仍跑着修复前的代码，所以"实机拒绝"这一条要等该城市下次重启才算跑过 —— 登记里如实写明。
+    **实机复证已完成**（城市重启到修复后的代码后）：探针 **9/9 通过** —— 每个被存储的字段都具名拒绝、
+    每次拒绝都**不建任务**、探针之后新建的记录里**没有**该形状，而"只是提到 token 文件"的作业**仍然接受**
+    （规则针对值、不针对词）。仪器与结果进仓 `evidence/raw/capability-city-agent-job/`。
+    探针同时**如实列出它改不掉的历史**：修复前创建的两条记录（`Q-1e96a663…` / `Q-54293399…`，均已 CANCELLED）
+    仍带该形状 —— 撤销作业并不抹掉记录，而修复只能阻止新记录；形状是**假的**，所以**列出来而不是删掉**。
+  · **同一区域的第二个缺陷（读实机 reservation 才发现的）也已修**：两条通道的开关**只在环境变量里**，
+    `local-config.json` 不存、reservation 的 `startup` 记录里也没有，而 `restart-gateway.ps1` 只重放那份记录
+    ⇒ **按官方方式重启会把两条通道静默关掉**。已在 utopia `05ae385` 修好（记录带上开关 + 脚本重放 +
+    launcher 测试断言整个来回，CI 在 `da4874e` 绿），并在**同一次动作里实机验证**：重启后 reservation 带 4 个开关、
+    cityId 不变、两条通道仍 enabled、对侧待领作业仍 QUEUED。城市启动配方已记进 `SESSION_STATE.md`（此前**不存在**）。
   · 主机无关性是**受检属性**，不是声明：machine_scope = SYSTEM_LEVEL_NO_HOST_BINDING，
     守卫为 tests/capability-host-independence.test.mjs（含任意命名节点的行为测试 + 反例控制）。
 ```
