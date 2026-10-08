@@ -13,6 +13,7 @@
 | `ALIEN_VERIFICATION_2026-10-08.md` + `evidence/` | **Alien-codex（对侧）** | 对侧的代码验证与收尾交接：六条 false-success 已复现并修好（7/7）、全量套件**不声称全绿**、实体复现仍 `NOT_RUN`、终标未释放。已 cherry-pick 进 `main` 并保留作者与出处 |
 | `RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md` | Mech | 本机对那份报告的答复：两项输入的答复（Owner 配置带外交付 + **要用的包在分支里，不是它点名的旧路径**）、确切命令与期望值、自其基线以来的变化 |
 | `EXPOSURE_GATE_PACKET.md` | Mech | 给 **Owner** 的 exposure gate 审阅材料（§14A.5 五字段 + 六项独立检查逐项指向证据 + 未建立项）—— **不是**裁决 |
+| `CLOSEOUT_CHECKLIST.md` | Mech | 对侧宣布复现结论**之后**那一刻用的收口清单（触发条件、要核对的字段、门槛、归档、不许做的事）—— **已备好，未执行** |
 | `REVIEW_REPORT.md` | **对侧（尚未提交）** | 独立复现的结论。§3 禁止自审，因此本机**不会**创建这个文件 |
 
 ## REX-890 的实质材料在哪 / Where the substance lives
@@ -54,7 +55,7 @@ terminal_marker       RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE  —— 尚未�
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **6**.
+当前Markdown文档 / Current Markdown documents: **7**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -62,6 +63,7 @@ terminal_marker       RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE  —— 尚未�
 ### 本目录说明 / Local documents
 
 - [ALIEN_VERIFICATION_2026-10-08.md](ALIEN_VERIFICATION_2026-10-08.md)
+- [CLOSEOUT_CHECKLIST.md](CLOSEOUT_CHECKLIST.md)
 - [DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md)
 - [EXPOSURE_GATE_PACKET.md](EXPOSURE_GATE_PACKET.md)
 - [RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md](RESPONSE_TO_ALIEN_VERIFICATION_2026-10-08.md)
