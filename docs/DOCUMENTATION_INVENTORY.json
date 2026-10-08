@@ -3,7 +3,7 @@
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
   "markdown_count": 1933,
-  "total_bytes": 15100054,
+  "total_bytes": 15104365,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -556,28 +556,28 @@
     },
     {
       "path": "capability-registry/README.en.md",
-      "bytes": 8063,
+      "bytes": 9564,
       "encoding_state": "UTF8",
-      "chinese_characters": 166,
-      "english_words": 634,
+      "chinese_characters": 208,
+      "english_words": 656,
       "paired_path": "capability-registry/README.zh-CN.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "capability-registry/README.md",
-      "bytes": 3551,
+      "bytes": 4956,
       "encoding_state": "UTF8",
-      "chinese_characters": 297,
-      "english_words": 205,
+      "chinese_characters": 339,
+      "english_words": 227,
       "paired_path": "capability-registry/README.en.md",
       "language_presence": "PAIR_PRESENT"
     },
     {
       "path": "capability-registry/README.zh-CN.md",
-      "bytes": 8049,
+      "bytes": 9454,
       "encoding_state": "UTF8",
-      "chinese_characters": 975,
-      "english_words": 273,
+      "chinese_characters": 1017,
+      "english_words": 295,
       "paired_path": "capability-registry/README.en.md",
       "language_presence": "PAIR_PRESENT"
     },
