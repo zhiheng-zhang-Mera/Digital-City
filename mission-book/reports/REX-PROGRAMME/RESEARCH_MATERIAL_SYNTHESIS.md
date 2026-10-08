@@ -474,10 +474,20 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
      若出现**不一致**（inconsistencies > 0），按具名条目指出即可；gap 请原样带回，不要自行解释成失败或通过。
 
 **并请 Owner 在两件事上给一个裁决**（都影响 final gate，且都不是对侧能决定的）：
-  (a) trace 要素：接受具名 gap（§5I 选项 1）／另做一次 study 且导出时把 trace 写进包（选项 2）／
-      延长城市 trace 保留（选项 3，救不回已滚掉的记录）；
-  (b) exposure gate PASS：两份能力登记都在（CAP-CITY-REMOTE-OPERATION-001 / CAP-CITY-AGENT-JOB-001），
-      但两者都写明"**未做独立评审**"；DC 侧**没有** 14A 自动检查器（已确认），所以这一项**只能由人给结论**。
+
+> **OWNER RULING 2026-10-08（已裁决，本节据此更新）**
+> (a) trace 要素选 **(B)**：**另做一次 study，并在导出时把 trace 记录一并写进包** ——
+>     这是唯一能让该要素**完整**满足的路。**使能件已建并验证**：
+>     包现在输出 `trace-records.jsonl`（一记录一行、**按 eventId 排序**使同证据两次导出字节相同）
+>     与 `trace-coverage.json`（listed/captured/source），**覆盖按构造成立**，两文件同样进 `checksums.json`；
+>     复现工具会读它并**分开计数**（城市=当前状态 / 包=导出时的副本，强弱不同）。
+>     实测新导出：artifact-…-**32-campaigns**、12 文件 checksums 全过、coverage **listed 243 / captured 243**。
+>     并在实机上跑出**第一次全清**：clean tree + 自含包 ⇒ checksums 12/12 · 171 条 run 重建自 32 份回执 ·
+>     四项指标全 agrees · trace **243/243** · 独立 campaign COMPLETED（6 runs / 2 devices）·
+>     software 观测且 clean ⇒ **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**。
+>     **尚缺**：按 B 案**重跑一次多设备 study**，产出一份"新 study 的"自含包 —— 这一份 fresh export 是
+>     当前城市的全量（32 campaigns），证明的是流程与自含性，不是"新 study"本身。
+> (b) exposure gate PASS：Owner **亲自审阅两份登记后给结论**（不由本机自审；DC 侧确认没有 14A 自动检查器）。
 
 走哪条通道都可以（§5 换 reference agent，或 §5C 用 scripts/agent-job.mjs 注册→领取→回报）。
 **实体复现的结果由对侧宣布**；在它宣布之前，REX-890 不收口、终标不释放。
