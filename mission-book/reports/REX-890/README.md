@@ -10,6 +10,7 @@
 | `README.md` | Mech | 本索引 |
 | `DEVELOPMENT_REPORT.md` | Mech | 开发报告：做了什么、证据在哪、**不**声称什么 |
 | `REVIEW_HANDOFF_Mech.md` | Mech | 给复检方的交接：要跑什么、要判什么 —— **不是**复检结论 |
+| `EXPOSURE_GATE_PACKET.md` | Mech | 给 **Owner** 的 exposure gate 审阅材料（§14A.5 五字段 + 六项独立检查逐项指向证据 + 未建立项）—— **不是**裁决 |
 | `REVIEW_REPORT.md` | **对侧（尚未提交）** | 独立复现的结论。§3 禁止自审，因此本机**不会**创建这个文件 |
 
 ## REX-890 的实质材料在哪 / Where the substance lives
@@ -51,7 +52,7 @@ terminal_marker       RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE  —— 尚未�
 
 本区文档计数来自目录扫描，不表示新的运行验收。任务状态仍以工作书为准。 / Counts come from directory inspection, not new runtime acceptance. Workbooks remain authoritative.
 
-当前Markdown文档 / Current Markdown documents: **3**.
+当前Markdown文档 / Current Markdown documents: **4**.
 
 | 子区 / Area | 文档数 / Documents | 导航 / Entry |
 |---|---:|---|
@@ -59,6 +60,7 @@ terminal_marker       RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE  —— 尚未�
 ### 本目录说明 / Local documents
 
 - [DEVELOPMENT_REPORT.md](DEVELOPMENT_REPORT.md)
+- [EXPOSURE_GATE_PACKET.md](EXPOSURE_GATE_PACKET.md)
 - [REVIEW_HANDOFF_Mech.md](REVIEW_HANDOFF_Mech.md)
 
 <!-- DOCUMENT_NAVIGATION:END -->
