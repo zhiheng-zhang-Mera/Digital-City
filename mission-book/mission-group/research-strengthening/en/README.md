@@ -294,7 +294,7 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 
 自动读取canonical工作书；本表不提供领取锁或额外authority。 / Generated from canonical workbooks; this table grants no claim lock or extra authority.
 
-总完成 / Complete 7/8 · 开发 / Development 7/8 · 复检 / Review 7/8 · `ACTIVE`
+总完成 / Complete 7/8 · 开发 / Development 8/8 · 复检 / Review 7/8 · `IN_PROGRESS`
 
 | 任务 / Task | 状态 / Status | 开发 / Development | 复检 / Review | 可执行 / Enabled |
 |---|---|:---:|:---:|:---:|
@@ -305,7 +305,7 @@ REPORT          reports/REX-804/REVERIFICATION_REPORT.md
 | [REX-805](../../../finished/completed-2026-10-07/research-strengthening/REX-805-trace-replay-and-ablation.md) | COMPLETE | YES | YES | YES |
 | [REX-806](../../../finished/completed-2026-10-07/research-strengthening/REX-806-metrics-analysis-and-artifact-export.md) | COMPLETE | YES | YES | YES |
 | [REX-807](../../../finished/completed-2026-10-07/research-strengthening/REX-807-research-control-surface-and-progressive-disclosure.md) | COMPLETE | YES | YES | YES |
-| [REX-890](../REX-890-reproducibility-study-and-freeze.md) | READY | NO | NO | YES |
+| [REX-890](../REX-890-reproducibility-study-and-freeze.md) | IN_PROGRESS | YES | NO | YES |
 
 <!-- SERIES_DASHBOARD:END -->
 

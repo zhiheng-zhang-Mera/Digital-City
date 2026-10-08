@@ -1,7 +1,7 @@
 {
   "active_pool": {
     "development": {
-      "complete": 7,
+      "complete": 8,
       "total": 8
     },
     "review": {
@@ -16,7 +16,7 @@
   "format": "总任务完成 / 开发完成 / 复检完成",
   "overall": {
     "development": {
-      "complete": 133,
+      "complete": 134,
       "total": 135
     },
     "review": {
@@ -907,12 +907,12 @@
     },
     {
       "active_pool": true,
-      "development_complete": 7,
+      "development_complete": 8,
       "key": "rex",
       "name": "Research Strengthening",
       "readme": "mission-group/research-strengthening/README.md",
       "review_complete": 7,
-      "status": "ACTIVE",
+      "status": "IN_PROGRESS",
       "task_complete": 7,
       "tasks": [
         {
@@ -980,12 +980,12 @@
         },
         {
           "complete": false,
-          "development_complete": false,
+          "development_complete": true,
           "execution_enabled": true,
           "id": "REX-890",
           "path": "mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
           "review_complete": false,
-          "status": "READY"
+          "status": "IN_PROGRESS"
         }
       ],
       "total": 8

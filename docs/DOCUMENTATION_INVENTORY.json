@@ -2,8 +2,8 @@
   "schema_version": 2,
   "scope": "all Markdown explanation documents; metadata/code and evidence claims preserved",
   "byte_measurement": "UTF8 text with LF line endings; original malformed byte preimages stored separately",
-  "markdown_count": 1929,
-  "total_bytes": 15056262,
+  "markdown_count": 1932,
+  "total_bytes": 15075655,
   "entries": [
     {
       "path": "00-城市地基(City-Foundation)-&-城市级共享基础设施(Citywide-Shared-Infrastructure)/01-城市核心(City-Core)-&-运行信任编排内核(Runtime-Trust-Orchestration-Kernel)/README.md",
@@ -934,10 +934,10 @@
     },
     {
       "path": "mission-book/README.md",
-      "bytes": 4975,
+      "bytes": 4986,
       "encoding_state": "UTF8",
       "chinese_characters": 374,
-      "english_words": 334,
+      "english_words": 332,
       "paired_path": "mission-book/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10042,10 +10042,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/README.md",
-      "bytes": 81211,
+      "bytes": 81223,
       "encoding_state": "UTF8",
       "chinese_characters": 7998,
-      "english_words": 3210,
+      "english_words": 3209,
       "paired_path": "mission-book/mission-group/research-strengthening/en/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -10069,7 +10069,7 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/REX-890-reproducibility-study-and-freeze.md",
-      "bytes": 3721,
+      "bytes": 8016,
       "encoding_state": "UTF8",
       "chinese_characters": 105,
       "english_words": 85,
@@ -10078,10 +10078,10 @@
     },
     {
       "path": "mission-book/mission-group/research-strengthening/en/README.md",
-      "bytes": 66488,
+      "bytes": 66500,
       "encoding_state": "UTF8",
       "chinese_characters": 205,
-      "english_words": 5347,
+      "english_words": 5346,
       "paired_path": "mission-book/mission-group/research-strengthening/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -14974,10 +14974,10 @@
     },
     {
       "path": "mission-book/reports/README.md",
-      "bytes": 9204,
+      "bytes": 9257,
       "encoding_state": "UTF8",
-      "chinese_characters": 386,
-      "english_words": 457,
+      "chinese_characters": 388,
+      "english_words": 461,
       "paired_path": "mission-book/reports/zh-CN/README.md",
       "language_presence": "PAIR_PRESENT"
     },
@@ -16148,6 +16148,33 @@
       "encoding_state": "UTF8",
       "chinese_characters": 113,
       "english_words": 73,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/DEVELOPMENT_REPORT.md",
+      "bytes": 7296,
+      "encoding_state": "UTF8",
+      "chinese_characters": 396,
+      "english_words": 36,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/README.md",
+      "bytes": 3281,
+      "encoding_state": "UTF8",
+      "chinese_characters": 210,
+      "english_words": 66,
+      "paired_path": null,
+      "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
+    },
+    {
+      "path": "mission-book/reports/REX-890/REVIEW_HANDOFF_Mech.md",
+      "bytes": 4433,
+      "encoding_state": "UTF8",
+      "chinese_characters": 539,
+      "english_words": 77,
       "paired_path": null,
       "language_presence": "BOTH_PRESENT_REVIEW_REQUIRED"
     },
