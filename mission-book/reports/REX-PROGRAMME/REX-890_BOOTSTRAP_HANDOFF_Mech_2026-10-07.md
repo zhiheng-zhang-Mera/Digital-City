@@ -306,19 +306,24 @@ exit 0。
    实测：从仓内这份跑复现工具 = 0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0。
 
 拿到后（在含本分支的检出里）：
-   node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-dev-study/artifact \
+   node scripts/rex890-opposite-host-reproduce.mjs --artifact evidence/raw/rex890-studies/2026-10-08-B/artifact \
         --city http://172.31.12.151:4310 --config <带 token 的文件> --out <输出目录> --label Mera-Alianware
-   **期望（2026-10-08 更正，务必读）**：`inconsistencies 0`，但 `evidenceGaps 1`、`reproductionComplete false`、
-   **exit 2**，那一条具名 gap 是 `TRACE_RETENTION_PASSED_THE_POINTERS`（listed 206 / resolvable 0）。
-   原因不是工具坏了、也不是城市在说谎：城市 trace 的保留期是**有界**的
-   （`recordLimit 256` 的窗口 + 2 MiB × **一代**轮转），本机当天多次复现写入的记录已把 study 的 206 条
-   **挤出了持久库**（实测：同一天早先 206/206 可解析、后来 0/206；`trace.previous.jsonl` 正好顶到 2 MiB 上限）。
-   ⇒ 其余各项（4 项指标、canonical 22/22、run→task 15/15、独立 campaign）**仍然完整可比**；
-     **只有** trace/provenance 这一项**现在无法完成**，且这是**包与城市保留期的关系**，不是复现失败。
-   若你要一个 exit 0 的完整比对，**先告诉我们**——需要另做一次 study 并在导出时把 trace 记录**一并写进包**
-   （见 RESEARCH_MATERIAL_SYNTHESIS.md §5 与 §6B.3/§6B.4；这是本轮新查出的、影响 final gate 的实事）。
+   **期望（2026-10-08 再次更正，用的是新包）**：`exit 0` · `inconsistencies 0` · `evidenceGaps 0` ·
+   `reproductionComplete true`。
+   **为什么从上一版的"期望 exit 2"变回来了**：上一版那份包（`evidence/raw/rex890-dev-study/artifact/`）
+   发布了 206 条 trace 指针却**没携带记录**，而城市的 trace 保留有界，那批记录已被滚出去
+   （同一天 206/206 → 0/206，城市备份也早于 study）；于是只能得到一条具名 gap。
+   按 Owner 2026-10-08 裁决（**B 案**），本轮**重跑了一次 study**并让包**自带**它所指的记录：
+     **用这一份**  `evidence/raw/rex890-studies/2026-10-08-B/artifact/`（13 文件；
+     `trace-coverage.json` 声明 listed 243 / captured 243；包外另有 13 条 `MANIFEST.sha256`）
+     study 本体 **21/21**（8 要素齐备）· artifact `artifact-544adda1-…-41-campaigns`（41 campaigns / 205 runs / 205 measured）
+     开发主机上从**干净检出、零安装**跑通的实测：
+       checksums VERIFIED over 12 files · 205 条 run 重建自 41 份回执 · 四项指标全 agrees ·
+       canonical 214/214 · run→task 205/205 · **trace 243/243** · 独立 campaign COMPLETED（两台设备）·
+       software 观测自检出 · **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**
+   旧包**保留**（不删）：它的 trace 丢失是这个程序学到的事实，删掉它就等于把教训抹掉。
    退出码：0=一致且证据完整 · 1=有不一致（逐条具名） · 2=**工具没跑成，或证据没法完整比对**（不是验收）。
-   有不一致就按具名条目回报；gap 也请原样带回，不要把它读成"复现失败"或"通过"。
+   有不一致就按具名条目回报；**gap 也请原样带回**，不要把它读成"复现失败"或"通过"。
 
 **先取新头，别用旧检出跑**（这一步很重要，否则会重复踩已经修好的坑）：
 ```text

@@ -475,18 +475,23 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
 
 **并请 Owner 在两件事上给一个裁决**（都影响 final gate，且都不是对侧能决定的）：
 
-> **OWNER RULING 2026-10-08（已裁决，本节据此更新）**
+> **OWNER RULING 2026-10-08（已裁决，并已执行完毕）**
 > (a) trace 要素选 **(B)**：**另做一次 study，并在导出时把 trace 记录一并写进包** ——
->     这是唯一能让该要素**完整**满足的路。**使能件已建并验证**：
->     包现在输出 `trace-records.jsonl`（一记录一行、**按 eventId 排序**使同证据两次导出字节相同）
->     与 `trace-coverage.json`（listed/captured/source），**覆盖按构造成立**，两文件同样进 `checksums.json`；
->     复现工具会读它并**分开计数**（城市=当前状态 / 包=导出时的副本，强弱不同）。
->     实测新导出：artifact-…-**32-campaigns**、12 文件 checksums 全过、coverage **listed 243 / captured 243**。
->     并在实机上跑出**第一次全清**：clean tree + 自含包 ⇒ checksums 12/12 · 171 条 run 重建自 32 份回执 ·
->     四项指标全 agrees · trace **243/243** · 独立 campaign COMPLETED（6 runs / 2 devices）·
->     software 观测且 clean ⇒ **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**。
->     **尚缺**：按 B 案**重跑一次多设备 study**，产出一份"新 study 的"自含包 —— 这一份 fresh export 是
->     当前城市的全量（32 campaigns），证明的是流程与自含性，不是"新 study"本身。
+>     这是唯一能让该要素**完整**满足的路。**已完成**：
+>     · 使能件：包输出 `trace-records.jsonl`（按 eventId 排序，同证据两次导出字节相同）与
+>       `trace-coverage.json`（listed/captured/source），覆盖按构造成立，两文件进 `checksums.json`；
+>       复现工具会读它并**分开计数**（城市=当前状态 / 包=导出时的副本）。守卫与证伪见 §6B.2。
+>     · **新 study 已跑**：**21/21**，8 要素齐备（含定向性实测 503 vs 200、recovery 901ms、
+>       replay COMPLETED、ablation COMPLETED **且真的改变了放置**）；导出
+>       `artifact-544adda1-…-41-campaigns`（41 campaigns / 205 runs / 205 measured），独立校验器 15/15。
+>     · **新包已随分支进仓**：`evidence/raw/rex890-studies/2026-10-08-B/artifact/`（13 文件；
+>       `trace-coverage.json` listed **243** / captured **243**；包外 13 条 `MANIFEST.sha256`）。
+>     · 开发主机实测（干净检出、**零安装**）：checksums 12/12 · 205 run 重建自 41 回执 · 四项指标全 agrees ·
+>       canonical **214/214** · run→task **205/205** · trace **243/243** · 独立 campaign COMPLETED（两台设备）·
+>       software 观测自检出 ⇒ **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**。
+>     · 旧包**保留**（它的 trace 丢失是本程序学到的事实，删掉等于抹掉教训）。
+>     ⇒ **对侧现在的期望值回到 `exit 0 / 0 gaps / complete true`**，且这一次是**结构上**成立的：
+>       包自含它所指的记录，不再取决于城市保留期还剩多少。
 > (b) exposure gate PASS：Owner **亲自审阅两份登记后给结论**（不由本机自审；DC 侧确认没有 14A 自动检查器）。
 
 走哪条通道都可以（§5 换 reference agent，或 §5C 用 scripts/agent-job.mjs 注册→领取→回报）。
