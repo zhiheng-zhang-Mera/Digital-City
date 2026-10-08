@@ -58,8 +58,14 @@
 
 ```text
 · 两条都**没有**独立评审 —— 这正是本 gate 要解决的事。
-· a: **未在两台真实物理主机之间跑过**（测试在本机跑真 gateway + 真 node agent）⇒ known_gaps 写明 NOT RUN。
-  b: 对侧机器上的 agent 作业**仍未发生**（对侧须先自己跑 `scripts/agent-job.mjs register`，
+· a: **仍未在两台真实物理主机之间跑过**（测试在本机跑真 gateway + 真 node agent）⇒ known_gaps 写明 NOT RUN。
+  **但已对实机城市做过一次实测**（2026-10-08，14/14 通过，仪器与结果一起进仓：
+  utopia `evidence/raw/capability-city-remote-operation/`，head `0033c12`）：声明式派发被接受、程序真的在
+  owner 点名的节点上跑起来（`git --version`，exit 0，stdout 观测到）、行里记 `shell:false`、收据被城市复核且
+  `acceptanceAuthority=false`、把 `rev-parse;echo INERT` 作为**一个** argv 元素传入时 git 把它整串当成一个
+  未知子命令（stdout 为空 ⇒ 没有任何东西被当成第二条命令）、**7 条拒绝全部具名且 task=null**。
+  仍然只是**同一台物理主机**，所以"一台主机上的 owner 操作另一台主机"这件事**仍未建立**。
+· b: 对侧机器上的 agent 作业**仍未发生**（对侧须先自己跑 `scripts/agent-job.mjs register`，
      这是城市侧无法代做的 bootstrap）；城市里已排好待领取作业 Q-a0aa3ec5-…（QUEUED，见该登记 known_gaps）。
 · 两条的 intent_validation_status 都是 NOT_TESTED，且**这是刻意的**：确定性路由不把这两者作为
   ask 目标，因为请求无法由一句话良构（a 需要可执行/argv/工作目录/用途；b 需要标题/指令/用途）。

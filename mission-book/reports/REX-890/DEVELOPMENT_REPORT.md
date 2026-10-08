@@ -88,7 +88,11 @@ provenance              experiments 40 · events 2291 条指针
   （包指向的 41 份仍可读）。这正是"包必须随分支走、不能靠现场重新导出"的实证。
 - **跨机通道只在两台真实机器之间跑过一部分**：独立复现里的独立 campaign 确实落在两台真实设备上；
   但"主城 Owner 直接操作子城节点"这条通道**没有**在两台**不同物理主机**之间验证过（能力只在本机节点上跑通），
-  见 RESEARCH_MATERIAL_SYNTHESIS §6B.4。
+  见 RESEARCH_MATERIAL_SYNTHESIS §6B.4。**补充实测（2026-10-08）**：该能力已对**实机城市**做过一次
+  14/14 的实测（仪器与结果一起进仓 `evidence/raw/capability-city-remote-operation/`，head `0033c12`），
+  测到声明式派发、真在点名节点上执行、`shell:false`、收据被城市复核且 `acceptanceAuthority=false`、
+  **7 条具名拒绝各带 `task=null`**；但那次仍限于**同一台物理主机**，"一台主机上的 owner 操作另一台主机"
+  **仍未建立**。
 
 ## 5. final gate / The final gate
 
