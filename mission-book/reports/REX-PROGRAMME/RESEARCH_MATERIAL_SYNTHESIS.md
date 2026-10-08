@@ -450,6 +450,12 @@ NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任
    或把这些 probe 合进主线，是跨系列决定；按本系列对 mojibake、118 处清理竞态的同一条纪律，宜单独立项。
    补一条方法教训：这个审计的**第一版**是问工作树，于是把 8 条**本来没问题**的引用报成悬空
    —— 因为它们在被锚定的头上、只是不在我当前检出的分支上。测量对象选错，和复现时选错树是同一个错误。
+11 **导航门比的是工作树，不是已提交状态**（本轮实测踩到）：`sync_documentation_navigation.py --check` 只比对
+   工作树里的生成物与源文件，所以当一次提交只 `git add` 了某个子目录、把重新生成的
+   `docs/DOCUMENTATION_INVENTORY.json` 留在工作树未提交时，门依旧报 **0 drift**，而 **origin 上 README 与
+   inventory 已经不一致**（本轮就是这样，最后是 `git status` 那一行把它暴露出来的）。
+   ⇒ 生成物与源码"本地一致"不等于"已提交一致"；给这类门加一条"生成物是否已提交"的检查是可用但会碰 git 状态的新工作。
+   本轮的处置：补一个只含 inventory 的提交（`a9ff085`），并在提交信息里写明它是被上一提交落下的。
 ```
 
 ### 6B.4 reproducibility delta（哪些能复现、哪些不能；逐条）
