@@ -267,6 +267,11 @@ HTTP/WS 夹具**（不是实体城市，报告里也这么写）证明本机的�
 
 ## 6. 未确立的事（**不得**读成已完成）
 
+> 2026-10-08 追加：对侧的**流程在开发主机上彩排过**（全新 clone + 无依赖 + 交付的凭据文件 + 原样命令
+> ⇒ 0 inconsistencies / evidenceGaps 0 / reproductionComplete true / exit 0），
+> 但那**只证明流程可用**，产物 label=Mega-rep-procedure-rehearsal、hostname=Mega-rep，
+> **不能**当作对侧独立复现的证据。把工具修好、把流程彩排通，都不等于独立性成立。
+
 ```text
 已发生（对侧自己声明的）  对侧已做**代码验证**：用黑盒夹具证明本机工具六条 false-success 并修复（见 §5F），
                         自报 `CODE_REPAIR_VERIFIED`，并明确写了"这些是测试，不是实体城市证据"。

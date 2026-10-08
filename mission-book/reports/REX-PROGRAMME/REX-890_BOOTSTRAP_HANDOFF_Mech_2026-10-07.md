@@ -326,6 +326,22 @@ exit 0。
 对侧若用 2d56f27 的旧检出跑，会看到那条已被修掉的假不一致（"independent runs without completed
 measured device evidence"）——那不是新问题，是旧工具 + 真实回执词汇表的产物。
 ```
+
+**这一步已经在开发主机上**彩排**过（彩排的是"流程"，不是"独立性"）**：
+
+```text
+做法   从 GitHub **全新 clone** 该分支（--depth 1，**没有 node_modules**），
+       用交付给对侧的那个 **44 B 凭据文件**，跑**上面那条原样命令**（--artifact 用仓内相对路径）。
+结果   package files 11 · checksums VERIFIED over 10 files · 四项指标全部 agrees ·
+       trace 0/206 in window + 206/206 from durable store · 独立 campaign COMPLETED（两台设备）·
+       **0 inconsistencies · 0 evidenceGaps · reproductionComplete true · exit 0**。
+       两层校验也各自从那个 clone 里跑过：包内 10/10、包外清单 11/11。
+意义   证明**文档里的命令、仓内包的路径、交付的凭据文件**三者在干净检出上原样可用，**不需要先装依赖**
+       ——这是"fetch 分支 + 跑一条命令"真的成立，而不是"先配好工具链"。
+**不是**  这不是对侧的独立复现：它跑在**开发主机**上（产物 label = Mega-rep-procedure-rehearsal，
+       hostname = Mega-rep），因此它只证明流程可用，**不能**当作 final gate 的验收证据。
+       产物留在 4in1-acceptance-2026-10-07/rehearsal-procedure-output/，标签写明它是什么。
+```
 ```
 
 ## 6. 本文件不声称的事
