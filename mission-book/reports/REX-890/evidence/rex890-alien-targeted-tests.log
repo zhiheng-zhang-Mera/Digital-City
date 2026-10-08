@@ -1,0 +1,42 @@
+✔ CAJ 1: a job is refused by name when it cannot be acted on, and never silently half-normalised (2.6141ms)
+✔ CAJ 2: the report validator checks the SHAPE and the HONESTY of a claim, never its truth (0.489ms)
+✔ CAJ 3: expiry is decided by a deadline the City clamped, and an unfinished job is the only kind that can expire (1.0398ms)
+✔ CAJ 4: an owner-dispatched job reaches a capable node and the agent report comes back labelled as a claim (182.066ms)
+✔ CAJ 5: an incapable node is never handed a job, and the owner can see WHAT it lacks (132.0046ms)
+✔ CAJ 6: a report bound to a DIFFERENT job is refused before it becomes the stored result (147.8938ms)
+✔ CAJ 7: a report may not contradict the state it is written as, and may not decide what the City decides (128.7814ms)
+✔ CAJ 8: a job past its deadline is not handed out, and is REPORTED as expired without rewriting the task (173.3989ms)
+✔ CAJ 9: a member cannot dispatch a job or read the job surface, and a City that never enabled it refuses by name (269.0463ms)
+✔ CAJ 10: the opposite-side CLI drives the whole channel, and a claim with no work is not a failure (121.8197ms)
+✔ CAJ 11: a far-side node goes offline unless it heartbeats, and CLAIMING is what keeps it live (2994.3818ms)
+✔ CAJ 12: the CLI really runs as a COMMAND - which is the only way the far side ever uses it (5319.4789ms)
+✔ CAJ 13: taking delivery of a report is its own recorded act, and it is an acknowledgement - not a verification (218.7656ms)
+✔ CAJ 14: the receipt is DERIVED, so it can be recomputed instead of trusted (0.3741ms)
+✔ CR-OP 1: a real allowlisted program runs on the other machine and its real bytes come back (1438.4502ms)
+✔ CR-OP 2: a non-zero exit is FAILED with the real code, not a silent success (1327.5719ms)
+✔ CR-OP 3: every refusal is refused BEFORE a task exists, by its own code (210.454ms)
+✔ CR-OP 4: a member session cannot dispatch, and cannot read the operation log (145.5137ms)
+✔ CR-OP 5: a City that never turned the capability on refuses it by name (108.3071ms)
+✔ CR-OP 6: the timeout kills the program and the receipt says it was a timeout (2753.547ms)
+✔ CR-OP 7: output over the declared ceiling is truncated and SAYS SO (1376.1652ms)
+✔ CR-OP 9: a node that does not implement the node half is never handed the task, and is told what it lacks (1846.3888ms)
+✔ CR-OP 8: the owner can stop a running operation, and the node really kills the program (2224.7168ms)
+✔ default-off is a refusal, not a silent no-op (1.294ms)
+✔ an executable is refused by NAME against the allowlist, and an empty allowlist is its own refusal (0.2647ms)
+✔ argv is data, and the shapes that cannot be an argv element are the ones refused (0.9085ms)
+✔ the working directory must be inside a declared workspace root (1.0228ms)
+✔ a purpose is required and environment injection is refused by presence (0.2411ms)
+✔ bounds are clamped to the ceiling, and omitting them cannot mean unbounded (0.4434ms)
+✔ the same request digests the same, and a different request does not (0.3033ms)
+✔ a node receipt is an observation the City re-checks, never an authority (0.4489ms)
+✔ the capability ships with its exposure decision attached (0.1541ms)
+✔ TRACE-LOOKUP 1: a record outside the RETAINED WINDOW is still resolved from the durable store (19.3896ms)
+✔ TRACE-LOOKUP 2: the City exposes it owner-only, and a bad request is a 400 rather than a 500 (201.7043ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13471.4106

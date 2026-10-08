@@ -1,0 +1,336 @@
+✔ complete evidence and two-device independent execution can return zero (1097.2658ms)
+✖ does not return zero for a numeric package metric whose recomputation is null (1078.4418ms)
+✖ does not return zero for a missing required metric row (1112.0462ms)
+✖ does not return zero for a nonnumeric measured metric (1089.2781ms)
+✖ does not return zero for an independent campaign that failed (1112.4012ms)
+✖ does not return zero for an independent campaign with missing repetitions (1104.1445ms)
+✖ does not return zero for a trace comparison that could not read any evidence (1236.2564ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 1
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8851.8864
+
+✖ failing tests:
+
+test at tests\rex890-reproduction.test.mjs:69:4
+✖ does not return zero for a numeric package metric whose recomputation is null (1078.4418ms)
+  AssertionError [ERR_ASSERTION]: REX-890 opposite-host reproduction on Mera-Alianware
+    artifact C:\Users\15601\AppData\Local\Temp\rex890-cli-b5sszq
+    city     http://127.0.0.1:60358
+  
+  --- 0 read the package and the recipe it states ---
+    package files: 8
+    artifact fixture: campaigns=1 runs=2 measured=2
+    the package states 2 reproduction steps; this harness executes them
+  
+  --- verify the package against its own checksums ---
+    checksums: VERIFIED over 6 files
+  
+  --- rebuild the normalized dataset from the City ---
+    this reproduction host sees 2 online device(s)
+    rebuilt 2 run references from 1 receipts (the package claims 2)
+  
+  --- recompute the metrics by the definitions the package states ---
+    completion_time_ms=null (n=0)  failure_rate=0 (n=2)
+    duplicate_execution_count=0  convergence_missing_event_count=0
+  
+  --- compare with the reported metrics ---
+    completion_time_ms: 1000 agrees
+    failure_rate: 0 agrees
+    duplicate_execution_count: 0 agrees
+    convergence_missing_event_count: 0 agrees
+    every measured metric carries provenance
+    the package declares 0 exclusion(s); this host does not claim them either
+  
+  --- compare trace and provenance with the City ---
+    trace pointers: 1/1 in the retained window, +0 resolved from the durable store = 1/1 (city completeness=PARTIAL dropped=null)
+    run-to-task join: 2/2 pointers still resolve
+    every rebuilt run reference carries both its receipt pointer and its canonical task reference
+  
+  --- execute independently on this host ---
+    attached control surface rex890-repro-muyrmgqr
+    independent campaign independent -> COMPLETED runs=2 devices=worker-a,worker-b
+  
+  0 inconsistencies found
+  report: C:\Users\15601\AppData\Local\Temp\rex890-cli-b5sszq\opposite-host-reproduction.json
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-20261008/tests/rex890-reproduction.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex890-reproduction.test.mjs:69:4
+✖ does not return zero for a missing required metric row (1112.0462ms)
+  AssertionError [ERR_ASSERTION]: REX-890 opposite-host reproduction on Mera-Alianware
+    artifact C:\Users\15601\AppData\Local\Temp\rex890-cli-hN9WC7
+    city     http://127.0.0.1:60362
+  
+  --- 0 read the package and the recipe it states ---
+    package files: 8
+    artifact fixture: campaigns=1 runs=2 measured=2
+    the package states 2 reproduction steps; this harness executes them
+  
+  --- verify the package against its own checksums ---
+    checksums: VERIFIED over 6 files
+  
+  --- rebuild the normalized dataset from the City ---
+    this reproduction host sees 2 online device(s)
+    rebuilt 2 run references from 1 receipts (the package claims 2)
+  
+  --- recompute the metrics by the definitions the package states ---
+    completion_time_ms=1000 (n=2)  failure_rate=0 (n=2)
+    duplicate_execution_count=0  convergence_missing_event_count=0
+  
+  --- compare with the reported metrics ---
+    completion_time_ms: the package reports no row
+    failure_rate: 0 agrees
+    duplicate_execution_count: 0 agrees
+    convergence_missing_event_count: 0 agrees
+    every measured metric carries provenance
+    the package declares 0 exclusion(s); this host does not claim them either
+  
+  --- compare trace and provenance with the City ---
+    trace pointers: 1/1 in the retained window, +0 resolved from the durable store = 1/1 (city completeness=PARTIAL dropped=null)
+    run-to-task join: 2/2 pointers still resolve
+    every rebuilt run reference carries both its receipt pointer and its canonical task reference
+  
+  --- execute independently on this host ---
+    attached control surface rex890-repro-muyrmhln
+    independent campaign independent -> COMPLETED runs=2 devices=worker-a,worker-b
+  
+  0 inconsistencies found
+  report: C:\Users\15601\AppData\Local\Temp\rex890-cli-hN9WC7\opposite-host-reproduction.json
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-20261008/tests/rex890-reproduction.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex890-reproduction.test.mjs:69:4
+✖ does not return zero for a nonnumeric measured metric (1089.2781ms)
+  AssertionError [ERR_ASSERTION]: REX-890 opposite-host reproduction on Mera-Alianware
+    artifact C:\Users\15601\AppData\Local\Temp\rex890-cli-wJKdmA
+    city     http://127.0.0.1:60366
+  
+  --- 0 read the package and the recipe it states ---
+    package files: 8
+    artifact fixture: campaigns=1 runs=2 measured=2
+    the package states 2 reproduction steps; this harness executes them
+  
+  --- verify the package against its own checksums ---
+    checksums: VERIFIED over 6 files
+  
+  --- rebuild the normalized dataset from the City ---
+    this reproduction host sees 2 online device(s)
+    rebuilt 2 run references from 1 receipts (the package claims 2)
+  
+  --- recompute the metrics by the definitions the package states ---
+    completion_time_ms=1000 (n=2)  failure_rate=0 (n=2)
+    duplicate_execution_count=0  convergence_missing_event_count=0
+  
+  --- compare with the reported metrics ---
+    completion_time_ms: garbage agrees
+    failure_rate: 0 agrees
+    duplicate_execution_count: 0 agrees
+    convergence_missing_event_count: 0 agrees
+    every measured metric carries provenance
+    the package declares 0 exclusion(s); this host does not claim them either
+  
+  --- compare trace and provenance with the City ---
+    trace pointers: 1/1 in the retained window, +0 resolved from the durable store = 1/1 (city completeness=PARTIAL dropped=null)
+    run-to-task join: 2/2 pointers still resolve
+    every rebuilt run reference carries both its receipt pointer and its canonical task reference
+  
+  --- execute independently on this host ---
+    attached control surface rex890-repro-muyrmifw
+    independent campaign independent -> COMPLETED runs=2 devices=worker-a,worker-b
+  
+  0 inconsistencies found
+  report: C:\Users\15601\AppData\Local\Temp\rex890-cli-wJKdmA\opposite-host-reproduction.json
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-20261008/tests/rex890-reproduction.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex890-reproduction.test.mjs:69:4
+✖ does not return zero for an independent campaign that failed (1112.4012ms)
+  AssertionError [ERR_ASSERTION]: REX-890 opposite-host reproduction on Mera-Alianware
+    artifact C:\Users\15601\AppData\Local\Temp\rex890-cli-i28CWd
+    city     http://127.0.0.1:60370
+  
+  --- 0 read the package and the recipe it states ---
+    package files: 8
+    artifact fixture: campaigns=1 runs=2 measured=2
+    the package states 2 reproduction steps; this harness executes them
+  
+  --- verify the package against its own checksums ---
+    checksums: VERIFIED over 6 files
+  
+  --- rebuild the normalized dataset from the City ---
+    this reproduction host sees 2 online device(s)
+    rebuilt 2 run references from 1 receipts (the package claims 2)
+  
+  --- recompute the metrics by the definitions the package states ---
+    completion_time_ms=1000 (n=2)  failure_rate=0 (n=2)
+    duplicate_execution_count=0  convergence_missing_event_count=0
+  
+  --- compare with the reported metrics ---
+    completion_time_ms: 1000 agrees
+    failure_rate: 0 agrees
+    duplicate_execution_count: 0 agrees
+    convergence_missing_event_count: 0 agrees
+    every measured metric carries provenance
+    the package declares 0 exclusion(s); this host does not claim them either
+  
+  --- compare trace and provenance with the City ---
+    trace pointers: 1/1 in the retained window, +0 resolved from the durable store = 1/1 (city completeness=PARTIAL dropped=null)
+    run-to-task join: 2/2 pointers still resolve
+    every rebuilt run reference carries both its receipt pointer and its canonical task reference
+  
+  --- execute independently on this host ---
+    attached control surface rex890-repro-muyrmjad
+    independent campaign independent -> FAILED runs=2 devices=worker-a,worker-b
+  
+  0 inconsistencies found
+  report: C:\Users\15601\AppData\Local\Temp\rex890-cli-i28CWd\opposite-host-reproduction.json
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-20261008/tests/rex890-reproduction.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex890-reproduction.test.mjs:69:4
+✖ does not return zero for an independent campaign with missing repetitions (1104.1445ms)
+  AssertionError [ERR_ASSERTION]: REX-890 opposite-host reproduction on Mera-Alianware
+    artifact C:\Users\15601\AppData\Local\Temp\rex890-cli-eJndgu
+    city     http://127.0.0.1:60374
+  
+  --- 0 read the package and the recipe it states ---
+    package files: 8
+    artifact fixture: campaigns=1 runs=2 measured=2
+    the package states 2 reproduction steps; this harness executes them
+  
+  --- verify the package against its own checksums ---
+    checksums: VERIFIED over 6 files
+  
+  --- rebuild the normalized dataset from the City ---
+    this reproduction host sees 2 online device(s)
+    rebuilt 2 run references from 1 receipts (the package claims 2)
+  
+  --- recompute the metrics by the definitions the package states ---
+    completion_time_ms=1000 (n=2)  failure_rate=0 (n=2)
+    duplicate_execution_count=0  convergence_missing_event_count=0
+  
+  --- compare with the reported metrics ---
+    completion_time_ms: 1000 agrees
+    failure_rate: 0 agrees
+    duplicate_execution_count: 0 agrees
+    convergence_missing_event_count: 0 agrees
+    every measured metric carries provenance
+    the package declares 0 exclusion(s); this host does not claim them either
+  
+  --- compare trace and provenance with the City ---
+    trace pointers: 1/1 in the retained window, +0 resolved from the durable store = 1/1 (city completeness=PARTIAL dropped=null)
+    run-to-task join: 2/2 pointers still resolve
+    every rebuilt run reference carries both its receipt pointer and its canonical task reference
+  
+  --- execute independently on this host ---
+    attached control surface rex890-repro-muyrmk57
+    independent campaign independent -> COMPLETED runs=1 devices=worker-a
+  
+  0 inconsistencies found
+  report: C:\Users\15601\AppData\Local\Temp\rex890-cli-eJndgu\opposite-host-reproduction.json
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-20261008/tests/rex890-reproduction.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\rex890-reproduction.test.mjs:69:4
+✖ does not return zero for a trace comparison that could not read any evidence (1236.2564ms)
+  AssertionError [ERR_ASSERTION]: REX-890 opposite-host reproduction on Mera-Alianware
+    artifact C:\Users\15601\AppData\Local\Temp\rex890-cli-65wRsL
+    city     http://127.0.0.1:60379
+  
+  --- 0 read the package and the recipe it states ---
+    package files: 8
+    artifact fixture: campaigns=1 runs=2 measured=2
+    the package states 2 reproduction steps; this harness executes them
+  
+  --- verify the package against its own checksums ---
+    checksums: VERIFIED over 6 files
+  
+  --- rebuild the normalized dataset from the City ---
+    this reproduction host sees 2 online device(s)
+    rebuilt 2 run references from 1 receipts (the package claims 2)
+  
+  --- recompute the metrics by the definitions the package states ---
+    completion_time_ms=1000 (n=2)  failure_rate=0 (n=2)
+    duplicate_execution_count=0  convergence_missing_event_count=0
+  
+  --- compare with the reported metrics ---
+    completion_time_ms: 1000 agrees
+    failure_rate: 0 agrees
+    duplicate_execution_count: 0 agrees
+    convergence_missing_event_count: 0 agrees
+    every measured metric carries provenance
+    the package declares 0 exclusion(s); this host does not claim them either
+  
+  --- compare trace and provenance with the City ---
+    trace pointers: 0/1 in the retained window, +0 resolved from the durable store = 0/1 (city completeness=PARTIAL dropped=null)
+    trace comparison is VACUOUS: the retained window holds none of the pointers and the durable store could not be asked (HTTP_404)
+    run-to-task join: 2/2 pointers still resolve
+    every rebuilt run reference carries both its receipt pointer and its canonical task reference
+  
+  --- execute independently on this host ---
+    attached control surface rex890-repro-muyrml3i
+    independent campaign independent -> COMPLETED runs=2 devices=worker-a,worker-b
+  
+  0 inconsistencies found
+  report: C:\Users\15601\AppData\Local\Temp\rex890-cli-65wRsL\opposite-host-reproduction.json
+  
+      at TestContext.<anonymous> (file:///D:/Utopia-tree/REX-801-890/Utopia-REX890-Alien-20261008/tests/rex890-reproduction.test.mjs:71:10)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 0,
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
