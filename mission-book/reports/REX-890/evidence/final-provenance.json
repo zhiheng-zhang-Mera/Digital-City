@@ -143,43 +143,60 @@
     },
     {
       "path": "rex890-alien-full-tests.log",
-      "bytes": 202200,
-      "sha256": "c9ab06a7f859a0f91be70f3c05eb46246183ca928b52ff604959ca1eecefbee1"
+      "bytes": 200068,
+      "sha256": "515476228a6be35d8c09e45672a690750b6105046845d33a1216fe224fa12bcf",
+      "windows_checkout_sha256": "c9ab06a7f859a0f91be70f3c05eb46246183ca928b52ff604959ca1eecefbee1",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-alien-targeted-tests.log",
-      "bytes": 3617,
-      "sha256": "e88eb3afa5c2ecfc84b61ca954c23f7c4e0ad3261e14e8a104666f18bb0e0d4d"
+      "bytes": 3575,
+      "sha256": "d58b6bab3735cf64ad38b3b2781a30f5c3ea13516c6023853721c83664e1ade2",
+      "windows_checkout_sha256": "e88eb3afa5c2ecfc84b61ca954c23f7c4e0ad3261e14e8a104666f18bb0e0d4d",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-alien-web-tests.log",
-      "bytes": 995,
-      "sha256": "38155cf411ec3144f1832aaabaf4887041a05cfa191c3a1142bd5f8fb78a36b1"
+      "bytes": 979,
+      "sha256": "bc7c512434228da77a0a63128973195d699f26a6acbe64b7ca2e94c737df2579",
+      "windows_checkout_sha256": "38155cf411ec3144f1832aaabaf4887041a05cfa191c3a1142bd5f8fb78a36b1",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-cex790-retry.log",
-      "bytes": 247,
-      "sha256": "9a322e9bb0c86667f373b7f32c466d8f5e56d01893de1a88fbc7013c99223e62"
+      "bytes": 238,
+      "sha256": "6b26cd6be0a0d9e7f7d14dfe1110b27a1f1ba035e3387351b3d0a93d3811dd67",
+      "windows_checkout_sha256": "9a322e9bb0c86667f373b7f32c466d8f5e56d01893de1a88fbc7013c99223e62",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-cli-green.log",
-      "bytes": 725,
-      "sha256": "315563cdcbaaae9e42031b0b85b792747a85f0a3a562a9c644602f575c64f60d"
+      "bytes": 710,
+      "sha256": "4b7c5f779d7b385987cb3deb01eff504040c922027186da1d47cb03ecc7044e1",
+      "windows_checkout_sha256": "315563cdcbaaae9e42031b0b85b792747a85f0a3a562a9c644602f575c64f60d",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-cli-red.log",
-      "bytes": 15499,
-      "sha256": "1bc45ee852121003584e4d5a460421be375a64a038fb40a6f751d43e5a4d1603"
+      "bytes": 15163,
+      "sha256": "644de223688441e9aaf4612c72f1c809cc27b5de3afa4a850b6215ba5062e2d1",
+      "windows_checkout_sha256": "1bc45ee852121003584e4d5a460421be375a64a038fb40a6f751d43e5a4d1603",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-parser-retry.log",
-      "bytes": 1134,
-      "sha256": "92c42bece39e9e99706adde6e4afd7c29b234ca04a59c63f96d9a62bb71e31ed"
+      "bytes": 1115,
+      "sha256": "d32d40b1f2b9d05db45d18e75c0b32c2ef31f5d4e85d4b2a73a3fe22d1ca6fc4",
+      "windows_checkout_sha256": "92c42bece39e9e99706adde6e4afd7c29b234ca04a59c63f96d9a62bb71e31ed",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     },
     {
       "path": "rex890-promotion-history.log",
-      "bytes": 1282,
-      "sha256": "64b8604c7da2e7f716d16ad43a9b2bc8fc711542edba68dfb374a4f46b6baf00"
+      "bytes": 1270,
+      "sha256": "6b2528bdc0c4d9bb99524ba8dc6d818671c88e4f5a5776776fa619865067f9f7",
+      "windows_checkout_sha256": "64b8604c7da2e7f716d16ad43a9b2bc8fc711542edba68dfb374a4f46b6baf00",
+      "line_ending_note": "Pre-existing historical log: committed LF bytes and Windows CRLF checkout distinguished; content unchanged."
     }
-  ]
+  ],
+  "hash_basis": "Committed Git blob bytes; new raw evidence preserves original bytes. Historical log checkout differences are named separately."
 }
