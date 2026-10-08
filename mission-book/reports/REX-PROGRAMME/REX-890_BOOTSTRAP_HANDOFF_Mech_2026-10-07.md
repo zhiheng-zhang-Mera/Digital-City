@@ -270,6 +270,35 @@ exit 0。
 （`trace.previous.jsonl`）；只有**更早**的记录才会真正消失，且这由城市自己的 `storeTruncated` 标注。
 ```
 
+## 5H. 对侧报告点名的两个输入：现在可以给了（2026-10-08 追加）
+
+对侧（Alien）已回一轮：用黑盒夹具证明本机复现工具存在**六条 false-success** 并修复（本机已逐条核对、
+原样 cherry-pick 进分支、作者署名保留），自报 `CODE_REPAIR_VERIFIED`；实体复现仍是 `NOT_RUN`，
+理由是缺两个输入。补齐方式如下：
+
+```text
+① 目标城市有效的 **Owner 配置**（`{"token":"…"}` 的文件）
+   本机对应文件：C:\ProgramData\Utopia\host\city\local-config.json（内含 token 与 nodeToken）
+   · 请**带外**把这台的 token 放到 Alien（写成一个只有 token 字段的 json 文件），**不要**贴进任何记录或提交。
+   · 若要**领取智能体任务**（§5C），还需要同一文件里的 **nodeToken**。
+   · 只做 §5 的远程操作通道则不需要 node token（那个走节点 agent 自己的凭据）。
+   对侧原先的 401 `Invalid pairing token` 就是因为它手上的 local-config 属于**另一座城**。
+
+② 本机 study 的**原始工件包**（不可用 REX-806 的旧包替换）
+   已打包，等带外传输：
+       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip              （15 785 B）
+       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.MANIFEST.sha256  （11 条独立 sha256）
+   包内固定 11 个文件，`checksums.json` 覆盖其中 10 个；MANIFEST 是对**全部 11 个**的独立复核，
+   放在包**外面**，以免改动包自身的文件集合。落地后先核 MANIFEST 再跑。
+
+拿到后（在含本分支的检出里）：
+   node scripts/rex890-opposite-host-reproduce.mjs --artifact <解压目录> \
+        --city http://172.31.12.151:4310 --config <带 token 的文件> --out <输出目录> --label Mera-Alianware
+   期望（对同一座城市、在修复后的工具上）：exit 0 · inconsistencies 0 · evidenceGaps 0 ·
+   reproductionComplete true；有不一致就按具名条目回报。
+   退出码：0=一致 · 1=有不一致（逐条具名） · 2=**工具没跑成或证据没法完整比对**（不是验收）。
+```
+
 ## 6. 本文件不声称的事
 
 ```text

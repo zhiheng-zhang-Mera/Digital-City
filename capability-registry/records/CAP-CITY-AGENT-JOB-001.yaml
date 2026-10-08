@@ -55,6 +55,7 @@
       "what the agent answered, under its own declared evidence class (OBSERVED_HERE / REPORTED_FROM_ELSEWHERE / INFERRED / NOT_DONE), with artifact digests",
       "the standing statement that an accepted report carries no acceptance authority, so an agent's claim is never read as a City verification",
       "the delivery state of every report, kept as three distinguishable facts rather than a boolean: NOTHING_TO_COLLECT / AWAITING_COLLECTION / COLLECTED, and the receipt itself with its own authority line",
+      "which machine answers is decided by the CAPABILITY a node advertises and the NODE ID the owner names - never by a roster, a fixed pair of machines, a machine count or a hostname. Any node that registers and advertises city.agent-job.v1 can be asked; a node that does not is offered nothing even when it is equally healthy; and this is a checked property, not a claim (tests/capability-host-independence.test.mjs, which also exercises three arbitrarily-named nodes and a negative control)",
       "refusals by typed code, including REPORT_JOB_MISMATCH, REPORT_TASK_STATE_MISMATCH, REPORT_STATE_NOT_AGENT_DECIDABLE, CONSUMPTION_REQUIRES_A_REPORT and CONSUMPTION_ALREADY_RECORDED"
     ],
     "user_controls": [
@@ -67,7 +68,8 @@
       "the City control token and the node token",
       "agent jobs belong to the owner only: a member session can neither dispatch nor read the job surface"
     ],
-    "internal_only_exemption_reason": null
+    "internal_only_exemption_reason": null,
+    "machine_scope": "SYSTEM_LEVEL_NO_HOST_BINDING: eligibility is decided by the capability a node advertises and the node id the owner names, so any machine can take part and no roster, fixed pair, machine count or hostname is consulted. Checked, not merely intended - tests/capability-host-independence.test.mjs fails if a capability surface carries a deployment identity or decides anything by hostname, and it runs three arbitrarily-named nodes plus a negative control (an equally arbitrary node WITHOUT the capability is offered nothing)."
   },
   "surfaces": [
     {
@@ -89,7 +91,8 @@
   ],
   "evidence": {
     "backend_wiring_refs": [
-      "utopia:tests/city-agent-job.test.mjs"
+      "utopia:tests/city-agent-job.test.mjs",
+      "utopia:tests/capability-host-independence.test.mjs"
     ],
     "reachability_refs": [
       "utopia:tests/city-agent-jobs-web.test.mjs"

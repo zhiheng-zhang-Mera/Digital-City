@@ -183,38 +183,114 @@ C  改 metrics.csv 但**不刷新**校验和 ⇒ exit 1，packageIntegrity=BROKE
 但足以说明：若要把"关闭前的最后若干条"当作研究素材，必须在关闭前显式 `flush` 并检查其返回值，
 而不是假定关闭已经落盘。
 
+## 5F. 对侧已回一轮：它找出并修掉了本机工具的六条 false-success，本机又修掉它引入的一条 false-inconsistency
+
+```text
+这是工作书点名的那一步（"指出不一致 → 修复后再复现"）**第一次真的发生**，而且是双向的。
+
+对侧（Alien / Mera-Alianware，作者 Alien-codex）在基线 2d56f27 上做了代码验证，用**真实 CLI 黑盒 + 临时
+HTTP/WS 夹具**（不是实体城市，报告里也这么写）证明本机的复现工具存在**六条"证据不全却 exit 0"的路径**，
+并修复为 7/7：
+  ① 包里有数字、重算为 null      → 修前 `agrees`/exit 0；修后具名不一致/exit 1
+  ② 必需指标行整行缺失           → 修前只记 note/exit 0；修后具名不一致/exit 1
+  ③ 已测指标值非数字             → 修前 `agrees`/exit 0；修后具名不一致/exit 1
+  ④ 独立 campaign 是 FAILED      → 修前 attempted=true/exit 0；修后终态不一致/exit 1
+  ⑤ 独立 campaign 少了重复次数   → 修前 exit 0；修后重复/设备证据不一致/exit 1
+  ⑥ trace 窗口空且持久库读不到   → 修前**只记 VACUOUS note、仍 exit 0**；修后记 evidenceGap、
+                                    reproductionComplete=false、**exit 2**
+另新增：重建 run 总数与包声明比对；缺失证据保持"不可验证"，不伪造成数据不一致。
+
+**本机逐条核对，六条都成立**（其中 ⑥ 尤其打脸：我在自己的提交信息里刚写过"无从比对 ≠ 比对通过"，
+却没有把它写进退出码）。已把该修复**原样 cherry-pick 进本分支，作者署名保留**（0907b12 / Alien-codex）。
+
+然后本机把修复后的工具**对真实城市**跑了一遍，得到一条它自己引入的 **false-inconsistency**：
+  `independent runs without completed measured device evidence`
+而它指的那 6 条 run 全是 `state:"MEASURED"`、`measured:true`、各自带真实 `assignedNodeId`。
+根因：**两种词汇表被混用**——回执里的 run 是 `MEASURED`，canonical task 的状态在下一层 `result.state`（`COMPLETED`）；
+那条检查却问 run 要 `COMPLETED`，于是**每一条健康 run 都被判为不一致**。
+（与本分支早先修过的"拿任务状态去比工作词汇表"是同一类错误。）
+为什么它的用例抓不到：它的夹具给 run 写的是 `state:'COMPLETED'` 且没有 `result.state`——**夹具不像真东西，
+测试就不可能失败**。已修：run 与 task 各按自己的词判定；夹具改成真实回执形状；并新增一条反向用例
+（run 的 task 未完成 → 必须非零）。
+修后同包同城实测：`inconsistencies: 0`、`evidenceGaps: 0`、`reproductionComplete: true`、exit 0，
+独立 campaign COMPLETED（6 次重复、两台设备）、trace 206/206 由持久库解析。
+
+⇒ 材料意义上：**复现工具的"0 inconsistencies"现在是被证伪过的**（正例可过、六条拒绝路径各自为红、
+词汇表两侧都钉住），而不是一个不会失败的检查。
+```
+
+## 5G. 跨机能力是**系统级**的，不绑死这两台主机（Owner 要求，已做成受检属性）
+
+```text
+审计结果（先查后说）：能力本体**本来就没有主机绑定**——contracts/ services/ apps/ agents/ 里
+没有部署设备 id、没有主机名、没有主机地址，机器名只出现在解释性注释里。
+真正存在的绑定在**验证工具**里，已修：
+  · scripts/rex890-falsify-reproduction.mjs 原先把 City 地址与检出路径写死成一台主机的值，
+    于是"证明工具会失败"实际上只对写它时那两台机器成立。现在全部是入参/环境变量，
+    缺一个就**具名拒绝（exit 2）且不跑任何用例**——比"因为没地方跑而报告未被证伪"要诚实。
+
+已做成**受检属性**（tests/capability-host-independence.test.mjs，3 项；两侧都做过证伪）：
+  · 源码侧：能力表面不得含部署身份，也不得用 hostname 比较来做任何决定；
+    任务类型→能力的词表必须是**带版本的能力名**（如 city.agent-job.v1），不是机器名。
+  · 行为侧（agent-job）：**三个** id 与任何部署无关的节点（node-alpha/bravo/charlie）各领一条任务；
+    并有**反例控制**——一个同样任意命名、但**没有声明该能力**的健康节点，必须**什么都拿不到**。
+    若资格是按名字或名录决定的，它就会被当成 worker。
+  · 行为侧（远程操作）：两个任意 id 的 agent、各自工作区、各自被点名、各自真的跑一个程序，
+    并断言"被点名的那个才是真的执行者"。
+为什么是三个而不是两个：两个是这套部署的形状，而这里要保护的恰恰是"两个并不特殊"。
+
+残余（如实）：CHK 与 DGX 两个**别的系列**的验证脚本仍以 `hostname()==='mera-alianware'` 判断
+"哪台是开发主机"（scripts/chk-second-host.mjs、scripts/verify-dgx-series.mjs），
+以及 scripts/export-research-artifact.mjs 仍有写死的 City 地址。它们不属于本能力，
+改它们会削弱那两套独立性守卫，因此**记录而不在本分支改**，建议各自单独立项。
+```
 ## 6. 未确立的事（**不得**读成已完成）
 
 ```text
-NOT RUN   对侧主机（Alien / Mera-Alianware）的**独立复现**：未发生。
-          城市里已为它排好一条不指定目标的复现任务 Q-b4b7d3c1-12d9-49c6-828e-ff7d832eeaa6
-          （digest dcd8172b…，24h）；它等的是"任何声明了 city.agent-job.v1 的节点"。
-          §C1/C4 的对侧验收因此**未建立**。
-NOT RUN   两条通道都**未在两台真实机器之间**验证过：能力 (a)(b) 只在"真实城市 + 本机节点"上跑通，
-          对侧节点被正确拒绝（具名 NODE_MISSING_CAPABILITY），这不是验收。
-NOT RUN   trace 对比这一要素：**本机已能完整比对**（§5 修后 206/206，由对侧之外的通道证明），
-          但对侧的复现还没有发生，所以"对侧比对通过"仍未建立。**不得**把本机的比对读成对侧的验收。
+已发生（对侧自己声明的）  对侧已做**代码验证**：用黑盒夹具证明本机工具六条 false-success 并修复（见 §5F），
+                        自报 `CODE_REPAIR_VERIFIED`，并明确写了"这些是测试，不是实体城市证据"。
+                        这是**它对自己那份工作的结论**，本机只核对代码与复跑，不替它宣布更多。
+NOT RUN   **实体独立复现**：仍未发生。对侧报告的原话是 `PHYSICAL_REPRODUCTION_NOT_RUN`，
+          并列出了它缺的两个输入：① 目标城市有效的 Owner 配置（它的 local-config 属于另一座城，请求得 401）；
+          ② 本机 study 的**原始包**（不在它取到的 Git 树里）。
+          它没有注册节点、没有 claim、没有 report、没有替换常驻 agent —— 与"未发生"一致。
+          城市里仍排着那条不指定目标的复现任务 Q-b4b7d3c1-12d9-49c6-828e-ff7d832eeaa6。
+NOT RUN   两条通道**未在两台真实机器之间**验证过：能力 (a)(b) 只在"真实城市 + 本机节点"上跑通。
 NOT 释放  终标 RESEARCH_EVALUATION_FABRIC_V1_REPRODUCIBLE 未释放、未满足、不可主张。
-禁自审    §3：对侧的结论只能由对侧宣布。本文件不代替对侧写任何结论，也不预写它的措辞。
+禁自审    §3：对侧的结论只能由对侧宣布。本文件不代替对侧写任何结论，也不预写它的措辞；
+          同理，本机对复现工具的凭证（§5F 的六条）也已由对侧独立复核过一轮。
 NOT 验收  本文件 authority=SYNTHESIS_OF_EXISTING_MATERIAL，本身不是任何一项的验收证据。
 ```
 
-**final gate 的当前状态**：study（本机）✅ · 复现工具与证伪 ✅ · 工件包完整可复核 ✅ ·
-**对侧独立复现 ❌（未发生）** · exact-head CI ✅ · exposure gate ✅（两条能力各有记录）⇒ **未满足**。
+**final gate 的当前状态**：study（本机）✅ · 复现工具与证伪 ✅（且已被对侧证伪过一轮，§5F）·
+工件包完整可复核 ✅ · **对侧实体独立复现 ❌（未发生）** · exact-head CI ✅ · exposure gate ✅
+（两条能力各有记录，且已做成**受检的**主机无关属性，§5G）⇒ **未满足**。
 
 ## 7. 唯一剩下的动作
 
 ```text
-对侧（Alien）按 dc/mission-book/reports/REX-PROGRAMME/REX-890_BOOTSTRAP_HANDOFF_Mech_2026-10-07.md
-的 §5 或 §5C 二选一跑一次：
-  §5   换用含本分支的 reference agent ⇒ 城市把排队操作派过去（交的是**程序**，字节可核对）
-  §5C  用 scripts/agent-job.mjs register/claim/report 接活（交的是**请求**，回收**自述**）
-跑完把报告交回；在收到之前，REX-890 不收口、终标不释放。
-**并请注意 §5 的时限**：若走 §5C 且想要 trace 对比有效，应在窗口滑过前跑，或改走 §5 的直读文件路线。
+对侧要跑**实体**独立复现，只差两个输入（它自己在报告 §"尚需输入"里点名）：
+  ① 目标城市有效的 **Owner 配置**（形如 {"token":"…"} 的文件路径）——它手上的 local-config 属于另一座城，
+     请求得 HTTP 401 `Invalid pairing token`；若要领取智能体任务，还需要该城市的 **node token**。
+     **凭据不进任何记录、不进任何提交**，请用带外方式放到那台机器上。
+  ② 本机 study 的**原始工件包**（不能用 REX-806 的旧包替换）。已打包待传：
+       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.zip            （15 785 B，包内 11 文件）
+       4in1-acceptance-2026-10-07/transport/rex890-dev-study-artifact.MANIFEST.sha256（11 条独立 sha256）
+     拿到后：unzip → `node scripts/rex890-opposite-host-reproduce.mjs --artifact <解压目录> --city <城市>
+     --config <带 token 的文件> --out <输出目录> --label Mera-Alianware`。
+     期望（在修复后的工具上、对同一座城市）：exit 0、inconsistencies 0、evidenceGaps 0、
+     reproductionComplete true；若出现不一致，按具名条目指出即可。
+
+走哪条通道都可以（§5 换 reference agent，或 §5C 用 scripts/agent-job.mjs 注册→领取→回报）。
+**实体复现的结果由对侧宣布**；在它宣布之前，REX-890 不收口、终标不释放。
 ```
 
 ## 8. 变更历史
 
 ```text
 2026-10-08  首版：汇总素材、逐条标注证据与未建立项；新增 §5 的 trace 读窗口发现（本轮实测）。
+2026-10-08  追加 §5F：对侧回了一轮代码验证（六条 false-success 已修，本机另修一条它引入的
+            false-inconsistency），复现工具的"0 inconsistencies"因此第一次被真正证伪过。
+            追加 §5G：跨机能力做成**受检的**主机无关属性；§6 区分"对侧已做代码验证"与
+            "实体复现仍未发生"；§7 给出对侧仍缺的两个输入与传输包路径。
 ```

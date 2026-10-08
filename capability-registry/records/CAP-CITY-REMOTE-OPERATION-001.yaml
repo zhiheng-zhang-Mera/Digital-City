@@ -51,7 +51,8 @@
       "the City control token and the node token",
       "operations belong to the owner only: a member session can neither dispatch nor read the log"
     ],
-    "internal_only_exemption_reason": null
+    "internal_only_exemption_reason": null,
+    "machine_scope": "SYSTEM_LEVEL_NO_HOST_BINDING: eligibility is decided by the capability a node advertises and the node id the owner names, so any machine can take part and no roster, fixed pair, machine count or hostname is consulted. Checked, not merely intended - tests/capability-host-independence.test.mjs fails if a capability surface carries a deployment identity or decides anything by hostname, and it runs the capability on nodes with arbitrary ids as well as on real agents with arbitrary ids and their own workspaces."
   },
   "surfaces": [
     {
@@ -66,7 +67,8 @@
   "evidence": {
     "backend_wiring_refs": [
       "utopia:tests/city-remote-operation.test.mjs",
-      "utopia:tests/city-remote-operation-gateway.test.mjs"
+      "utopia:tests/city-remote-operation-gateway.test.mjs",
+      "utopia:tests/capability-host-independence.test.mjs"
     ],
     "reachability_refs": [
       "utopia:tests/city-remote-operation-web.test.mjs"
