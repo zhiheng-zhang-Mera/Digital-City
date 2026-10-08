@@ -25,7 +25,12 @@
   · 默认**关闭**：a 需 CITY_REMOTE_OPERATION=1 + 显式可执行 allowlist + 工作区根；缺任一项按具名拒绝。
                 b 需 CITY_AGENT_JOB=1；关闭时按 AGENT_JOB_DISABLED 具名拒绝。
   · owner-only：member 会话既不能派发也不能读日志；**凭据本身**（city control token / node token）在
-    intentionally_hidden_information 里，且 b 的合同规定"凭据形状的输入按名拒绝"，作业记录里不含 token。
+    intentionally_hidden_information 里。
+    **"凭据不写进记录"这条曾经只对 `inputs` 成立**：实测（2026-10-08 对实机城市）把同样形状的凭据写进
+    **instruction 或 purpose** 会被**接受**并存进作业记录（读回确认，随后已撤销那两个探针作业；用的是**假**形状）。
+    已在 utopia `f0295bc` 修好：四个被持久化的语句字段（title / instruction / purpose / expect）现在走同一条规则，
+    按 `JOB_CREDENTIAL_REFUSED` **具名**拒绝并点出是哪个字段；契约套件 14/14，web 与主机无关性套件不变。
+    **但**：实机城市当时仍跑着修复前的代码，所以"实机拒绝"这一条要等该城市下次重启才算跑过 —— 登记里如实写明。
   · 主机无关性是**受检属性**，不是声明：machine_scope = SYSTEM_LEVEL_NO_HOST_BINDING，
     守卫为 tests/capability-host-independence.test.mjs（含任意命名节点的行为测试 + 反例控制）。
 ```
